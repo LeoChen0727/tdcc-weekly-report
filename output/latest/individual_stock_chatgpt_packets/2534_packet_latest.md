@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2534 宏盛
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:21 Asia/Taipei
+- generated_at: 2026-06-18 22:23:20 Asia/Taipei
 - stock_id: 2534
 - stock_name: 宏盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 18.35
-- high: 18.5
-- low: 18.15
-- close: 18.45
-- volume: 1025994
-- ma5: 18.51
-- ema23_primary: 18.16
-- distance_to_ema23_pct: 1.62
-- ma20: 17.84
-- ma60: 18.91
-- ma120: 19.57
-- return_5d: 0.27
-- return_20d: 3.94
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 3.45
-- distance_to_high_60_pct: -9.11
+- date: 20260618
+- open: 18.45
+- high: 18.8
+- low: 18.3
+- close: 18.3
+- volume: 1370302
+- ma5: 18.46
+- ema23_primary: 18.25
+- distance_to_ema23_pct: 0.29
+- ma20: 18.01
+- ma60: 18.81
+- ma120: 19.51
+- return_5d: -1.35
+- return_20d: 2.23
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -9.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,17.75,17.75,17.35,17.45,594407,18.82,-7.28,18.87,19.59,0.72
-20260519,17.45,17.65,17.4,17.5,474412,18.71,-6.47,18.76,19.55,0.59
-20260520,17.5,17.8,17.3,17.8,332099,18.63,-4.47,18.67,19.51,0.41
-20260521,17.8,18.35,17.7,17.9,555641,18.57,-3.62,18.58,19.48,0.7
 20260522,17.85,18.1,17.75,18.1,384291,18.53,-2.34,18.52,19.45,0.5
 20260525,18,18.1,17.6,17.7,924217,18.46,-4.14,18.44,19.41,1.19
 20260526,17.65,17.75,17.3,17.75,767387,18.4,-3.56,18.36,19.38,0.99
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,17.3,17.3,17.05,17.3,1198237,18.1,-4.4,18.02,19.21,1.25
 20260602,17.2,17.2,16.95,17.15,1175964,18.02,-4.81,17.94,19.16,1.21
 20260603,17.15,17.8,17.05,17.8,1254316,18,-1.1,17.89,19.13,1.24
-20260604,17.2,17.2,16.95,17.15,1175964,17.93,-4.34,17.8,19.08,1.13
-20260605,18,18.45,17.9,18.4,760197,17.97,2.41,17.79,19.05,0.74
-20260611,18.75,18.75,18.1,18.55,1499321,18.02,2.96,17.77,19.02,1.44
-20260612,18.6,18.85,18.45,18.6,1780921,18.06,2.96,17.77,19,1.66
-20260615,18.8,18.8,18.55,18.7,2014790,18.12,3.21,17.78,18.97,1.78
-20260616,18.8,18.8,18.25,18.25,1784114,18.13,0.67,17.8,18.94,1.56
-20260617,18.35,18.5,18.15,18.45,1025994,18.16,1.62,17.84,18.91,0.89
+20260604,17.85,18.05,17.65,18.05,600169,18,0.26,17.85,19.09,0.59
+20260605,18,18.45,17.9,18.4,760197,18.04,2.02,17.83,19.07,0.76
+20260608,17.8,18.05,17.75,18.05,3837831,18.04,0.07,17.8,19.03,3.41
+20260609,17.95,18.35,17.95,18.1,2138206,18.04,0.32,17.76,18.99,1.81
+20260610,17.95,19.05,17.95,18.75,3696672,18.1,3.58,17.77,18.97,2.8
+20260611,18.75,18.75,18.1,18.55,1499321,18.14,2.27,17.81,18.94,1.14
+20260612,18.6,18.85,18.45,18.6,1780921,18.18,2.33,17.86,18.91,1.31
+20260615,18.8,18.8,18.55,18.7,2014790,18.22,2.63,17.92,18.89,1.41
+20260616,18.8,18.8,18.25,18.25,1784114,18.22,0.15,17.95,18.86,1.19
+20260617,18.35,18.5,18.15,18.45,1025994,18.24,1.14,17.99,18.84,0.67
+20260618,18.45,18.8,18.3,18.3,1370302,18.25,0.29,18.01,18.81,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2534 | 宏盛 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_7d |
+| 20260618 | 2534 | 宏盛 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2534 | 宏盛 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260618 | 2534 | 宏盛 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

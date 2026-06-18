@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:18 Asia/Taipei
+- generated_at: 2026-06-18 22:25:08 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 76.9
-- high: 79.8
-- low: 75.6
-- close: 79.4
-- volume: 12526055
-- ma5: 75.66
-- ema23_primary: 66.75
-- distance_to_ema23_pct: 18.95
-- ma20: 67.7
-- ma60: 53.64
-- ma120: 48.44
-- return_5d: 14.08
-- return_20d: 29.95
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 17.28
-- distance_to_high_60_pct: -0.5
+- date: 20260618
+- open: 79.7
+- high: 82
+- low: 78.4
+- close: 79
+- volume: 12774581
+- ma5: 76.36
+- ema23_primary: 69.34
+- distance_to_ema23_pct: 13.93
+- ma20: 70.9
+- ma60: 55.53
+- ma120: 49.57
+- return_5d: 4.64
+- return_20d: 29.51
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 11.42
+- distance_to_high_60_pct: -3.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,60.5,62.5,57.5,57.5,16610510,50.15,14.67,49.09,46.58,2.69
-20260519,57.3,58.2,56.1,57,8170869,50.72,12.39,49.63,46.81,1.27
-20260520,57.4,59.9,56.5,59.9,9121228,51.48,16.35,50.33,47.08,1.33
-20260521,60.5,62.1,59.3,61,11422228,52.27,16.69,51.09,47.34,1.55
 20260522,60.8,62.3,60.5,60.9,6817867,52.99,14.92,51.87,47.58,0.89
 20260525,60,63.8,59.2,62.5,16050793,53.79,16.2,52.73,47.84,1.91
 20260526,63.5,68.7,63,68.7,18031005,55.03,24.84,53.87,48.2,1.96
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,67,69.9,66,67.2,10988975,58.89,14.1,58.48,49.65,0.89
 20260602,67.3,68.2,66,67.4,7038284,59.6,13.08,59.47,50.01,0.56
 20260603,68,71.4,67.5,70.4,13702470,60.5,16.36,60.65,50.42,1.05
-20260604,67.3,68.2,66,67.4,7038284,61.08,10.35,61.69,50.79,0.53
-20260605,73.5,73.5,69.4,69.6,12345820,61.79,12.64,62.71,51.19,0.91
-20260611,77,77.3,73.6,75.5,15998730,62.93,19.97,63.91,51.69,1.15
-20260612,76.8,78.3,74,74.2,12637681,63.87,16.17,65.04,52.16,0.88
-20260615,74.7,75,72.2,72.4,11202241,64.58,12.11,65.83,52.6,0.81
-20260616,72.5,78.6,72.5,76.8,14340085,65.6,17.07,66.78,53.09,1.06
-20260617,76.9,79.8,75.6,79.4,12526055,66.75,18.95,67.7,53.64,0.95
+20260604,70.5,73.7,70,72.4,17435262,61.49,17.73,61.94,50.87,1.26
+20260605,73.5,73.5,69.4,69.6,12345820,62.17,11.95,62.96,51.27,0.88
+20260608,63.8,67.7,63.6,66.9,8618509,62.56,6.93,63.73,51.63,0.61
+20260609,71.1,73.5,71.1,73.5,19260676,63.48,15.79,64.83,52.09,1.3
+20260610,73.5,78,73.1,75,23702694,64.44,16.39,65.74,52.57,1.58
+20260611,77,77.3,73.6,75.5,15998730,65.36,15.52,66.64,53.04,1.09
+20260612,76.8,78.3,74,74.2,12637681,66.09,12.26,67.29,53.5,0.88
+20260615,74.7,75,72.2,72.4,11202241,66.62,8.68,68.03,53.93,0.79
+20260616,72.5,78.6,72.5,76.8,14340085,67.47,13.83,69.03,54.42,0.99
+20260617,76.9,79.8,75.6,79.4,12526055,68.46,15.98,70,54.98,0.86
+20260618,79.7,82,78.4,79,12774581,69.34,13.93,70.9,55.53,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8926 | 台汽電 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1) 原配發現金股利1,759,979,620元，每股配發2.41元。 (2) 調整後現金股利1,759,979,620元，每股配發2.11973717元。 4.除權（息）交易日:115/07/02 5.最後過戶日:115/07/03 6.停止過戶起始日期:115/07/04 7.停止過戶截止日期:115/07/08 8.除權（息）基準日:115/07/08 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/24 13.其他應敘明事項:本次盈餘分配因現金增資致流通在外股數增加，故調整配息比率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8926 | 台汽電 | 4 | 1 | 4 | 8 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

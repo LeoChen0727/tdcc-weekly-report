@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3048 益登
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:33 Asia/Taipei
+- generated_at: 2026-06-18 22:23:33 Asia/Taipei
 - stock_id: 3048
 - stock_name: 益登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 70.5
-- high: 73.2
-- low: 69
-- close: 72.6
-- volume: 6509417
-- ma5: 73.04
-- ema23_primary: 66.21
-- distance_to_ema23_pct: 9.65
-- ma20: 69.87
-- ma60: 49.81
-- ma120: 44.81
-- return_5d: 9.5
-- return_20d: 29.41
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: 3.91
-- distance_to_high_60_pct: -11.36
+- date: 20260618
+- open: 72
+- high: 75.5
+- low: 71.8
+- close: 73.5
+- volume: 11027285
+- ma5: 72.74
+- ema23_primary: 67.67
+- distance_to_ema23_pct: 8.62
+- ma20: 71.61
+- ma60: 51.73
+- ma120: 45.76
+- return_5d: -2
+- return_20d: 8.41
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 2.65
+- distance_to_high_60_pct: -10.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,59,60.2,55,57.3,52561909,44.11,29.91,42.85,39.5,4.55
-20260519,56.1,58,53.2,56.1,20166736,45.11,24.37,43.69,39.78,1.62
-20260520,59,61.7,58.3,61.7,13866647,46.49,32.72,44.81,40.17,1.07
-20260521,67.8,67.8,67.8,67.8,3568487,48.26,40.47,46.18,40.67,0.28
 20260522,74,74.5,71.2,74.5,21793143,50.45,47.67,47.99,41.25,1.58
 20260525,79.1,81.9,73,73.3,36332297,52.36,40.01,49.78,41.81,2.34
 20260526,73,74.6,69.6,73,15214715,54.08,35,51.48,42.37,0.95
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,72,73,67.5,68.4,14888350,58.93,16.07,57.86,44.57,0.76
 20260602,70.4,75.2,69.9,75.2,22576086,60.29,24.74,59.63,45.22,1.1
 20260603,76,76.2,68.2,69.2,29668425,61.03,13.39,61.03,45.74,1.39
-20260604,70.4,75.2,69.9,75.2,22576086,62.21,20.88,62.69,46.41,1.04
-20260605,67.8,68,64,66.3,7314216,62.55,5.99,63.88,46.91,0.34
-20260611,73.2,76,71.5,75,32055691,63.59,17.95,65.38,47.54,1.44
-20260612,76,77.9,72.5,73,35966873,64.37,13.4,66.69,48.13,1.56
-20260615,73.5,76.7,72.6,73.5,21406739,65.13,12.85,68.04,48.73,0.91
-20260616,74.2,75,71.1,71.1,10550107,65.63,8.33,69.05,49.26,0.47
-20260617,70.5,73.2,69,72.6,6509417,66.21,9.65,69.87,49.81,0.3
+20260604,68.7,70.9,67.8,67.8,8914227,61.59,10.08,62.32,46.29,0.42
+20260605,67.8,68,64,66.3,7314216,61.99,6.96,63.51,46.79,0.35
+20260608,59.7,67.4,59.7,66.6,11056058,62.37,6.78,64.59,47.28,0.54
+20260609,67,73.2,66.1,71.6,24827145,63.14,13.4,65.83,47.85,1.2
+20260610,71.1,77,70.9,73.3,46626396,63.99,14.56,67.17,48.44,2.07
+20260611,73.2,76,71.5,75,32055691,64.9,15.56,68.37,49.04,1.43
+20260612,76,77.9,72.5,73,35966873,65.58,11.32,69.22,49.59,1.57
+20260615,73.5,76.7,72.6,73.5,21406739,66.24,10.96,70.03,50.13,1
+20260616,74.2,75,71.1,71.1,10550107,66.64,6.69,70.78,50.6,0.5
+20260617,70.5,73.2,69,72.6,6509417,67.14,8.13,71.32,51.15,0.32
+20260618,72,75.5,71.8,73.5,11027285,67.67,8.62,71.61,51.73,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3048 | 益登 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 3048 | 益登 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3048 | 益登 | 7 | 7 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3048 | 益登 | 8 | 3 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3048 | 益登 | 0 | 1 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 3048 | 益登 | 27 | 1 | 4420970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

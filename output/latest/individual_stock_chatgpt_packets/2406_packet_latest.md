@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2406 國碩
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:15 Asia/Taipei
+- generated_at: 2026-06-18 22:23:13 Asia/Taipei
 - stock_id: 2406
 - stock_name: 國碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 35.15
-- high: 37.45
-- low: 34.4
-- close: 36.2
-- volume: 19640568
-- ma5: 37.61
-- ema23_primary: 35.17
-- distance_to_ema23_pct: 2.93
-- ma20: 34.77
-- ma60: 33.6
-- ma120: 31.36
-- return_5d: 4.47
-- return_20d: 17.34
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -16.4
+- date: 20260618
+- open: 36.15
+- high: 36.6
+- low: 34.85
+- close: 34.85
+- volume: 17606051
+- ma5: 36.7
+- ema23_primary: 35.3
+- distance_to_ema23_pct: -1.28
+- ma20: 35.58
+- ma60: 33.5
+- ma120: 31.69
+- return_5d: -11.55
+- return_20d: 12.78
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -2.04
+- distance_to_high_60_pct: -19.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,30.5,32.05,30.15,31.75,6104152,32.46,-2.18,32.12,32.84,0.58
-20260519,31.5,32.8,31.4,31.6,10111111,32.39,-2.43,31.98,32.89,0.99
-20260520,32,32,30.05,30.05,7240633,32.19,-6.65,31.8,32.92,0.7
-20260521,30.55,31.2,30.5,30.9,4051104,32.08,-3.69,31.71,32.95,0.4
 20260522,31.05,31.8,30.9,31.75,4409956,32.06,-0.95,31.82,32.98,0.46
 20260525,32.2,34.3,31.9,33.9,13584345,32.21,5.25,32.08,33.04,1.36
 20260526,34,35.45,33.75,34.5,23039419,32.4,6.48,32.33,33.12,2.12
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,34.55,36.65,34.2,35.9,22815658,33.08,8.53,33.09,33.16,1.76
 20260602,36.2,37.65,34.2,35.8,19889674,33.31,7.49,33.25,33.22,1.48
 20260603,36,38.7,35.4,38,28940776,33.7,12.77,33.52,33.29,2.02
-20260604,36.2,37.65,34.2,35.8,19889674,33.87,5.69,33.57,33.35,1.39
-20260605,37.8,38.75,34.65,34.65,26786941,33.94,2.1,33.65,33.4,1.79
-20260611,36.9,39.4,35.65,39.4,67627939,34.39,14.56,33.86,33.48,3.84
-20260612,42.2,43.3,38.7,39,112618344,34.78,12.14,34.07,33.55,5
-20260615,39.95,40.65,38.1,38.25,42575568,35.07,9.08,34.33,33.63,1.79
-20260616,38.5,38.65,35.2,35.2,25698887,35.08,0.35,34.5,33.63,1.04
-20260617,35.15,37.45,34.4,36.2,19640568,35.17,2.93,34.77,33.6,0.78
+20260604,39.8,41.8,38.45,38.5,90088816,34.1,12.91,33.7,33.4,5.04
+20260605,37.8,38.75,34.65,34.65,26786941,34.14,1.48,33.78,33.44,1.45
+20260608,31.2,32.6,31.2,32,12783552,33.97,-5.79,33.62,33.4,0.7
+20260609,32.5,35.2,31.25,35,20044750,34.05,2.79,33.64,33.41,1.07
+20260610,34.1,37.9,34.1,35.85,37490317,34.2,4.82,33.78,33.44,1.9
+20260611,36.9,39.4,35.65,39.4,67627939,34.63,13.76,34.16,33.52,3
+20260612,42.2,43.3,38.7,39,112618344,35,11.43,34.56,33.53,4.06
+20260615,39.95,40.65,38.1,38.25,42575568,35.27,8.45,34.89,33.55,1.44
+20260616,38.5,38.65,35.2,35.2,25698887,35.26,-0.18,35.07,33.53,0.85
+20260617,35.15,37.45,34.4,36.2,19640568,35.34,2.43,35.38,33.52,0.63
+20260618,36.15,36.6,34.85,34.85,17606051,35.3,-1.28,35.58,33.5,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2406 | 國碩 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
-| 20260617 | 2406 | 國碩 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260617 | 2406 | 國碩 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 4.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 2406 | 國碩 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2406 | 國碩 | 16 | 3 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2406 | 國碩 | 17 | 2 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

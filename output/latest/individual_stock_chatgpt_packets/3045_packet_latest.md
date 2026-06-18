@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:33 Asia/Taipei
+- generated_at: 2026-06-18 22:23:32 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 120
-- high: 120.5
-- low: 118
+- date: 20260618
+- open: 119
+- high: 119.5
+- low: 118.5
 - close: 119
-- volume: 7710655
+- volume: 8119704
 - ma5: 119.5
-- ema23_primary: 115.37
-- distance_to_ema23_pct: 3.15
-- ma20: 115
-- ma60: 112.12
-- ma120: 109.54
-- return_5d: 2.59
-- return_20d: 3.93
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 3.48
+- ema23_primary: 116.18
+- distance_to_ema23_pct: 2.42
+- ma20: 115.53
+- ma60: 112.65
+- ma120: 109.95
+- return_5d: 0
+- return_20d: 4.85
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 3.01
 - distance_to_high_60_pct: -2.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,114.5,115.5,114,114,12851766,111.57,2.18,111.9,109.67,1.06
-20260519,114,117.5,113.5,116.5,26432009,111.98,4.04,112.05,109.86,2.15
-20260520,116.5,116.5,115,115,12474682,112.23,2.47,112.12,110.02,1.04
-20260521,115,115,113,113.5,16231532,112.34,1.03,112.15,110.13,1.34
 20260522,113.5,113.5,111.5,112,17110847,112.31,-0.28,112.15,110.21,1.38
 20260525,112,112.5,111,111.5,14632270,112.24,-0.66,112.08,110.27,1.22
 20260526,111.5,112,110,110.5,22514045,112.1,-1.43,112,110.3,1.77
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,112.5,115,112,114,15419123,112,1.79,112.08,110.53,1.06
 20260602,114,115.5,114,115.5,18437124,112.29,2.86,112.33,110.67,1.24
 20260603,115.5,116.5,114.5,116,13036750,112.6,3.02,112.62,110.8,0.85
-20260604,114,115.5,114,115.5,18437124,112.84,2.36,112.9,110.93,1.16
-20260605,116,116.5,115,116,7035808,113.1,2.56,113.2,111.09,0.44
-20260611,118,120.5,118,119,18599088,113.6,4.76,113.65,111.31,1.13
-20260612,119,120.5,118.5,119.5,11457132,114.09,4.74,114.12,111.53,0.68
-20260615,120.5,120.5,119,119.5,7645156,114.54,4.33,114.5,111.75,0.47
-20260616,119.5,121.5,119.5,120.5,10988105,115.04,4.75,114.78,111.96,0.7
-20260617,120,120.5,118,119,7710655,115.37,3.15,115,112.12,0.5
+20260604,116,117,115.5,116,7908357,112.88,2.76,112.92,110.94,0.51
+20260605,116,116.5,115,116,7035808,113.14,2.53,113.22,111.1,0.46
+20260608,115,116,114,115,17754292,113.3,1.5,113.47,111.25,1.12
+20260609,115,117,115,117,18645007,113.61,2.99,113.83,111.43,1.13
+20260610,116.5,118,116,118,12154344,113.97,3.53,114.12,111.62,0.75
+20260611,118,120.5,118,119,18599088,114.39,4.03,114.33,111.81,1.16
+20260612,119,120.5,118.5,119.5,11457132,114.82,4.08,114.58,111.97,0.72
+20260615,120.5,120.5,119,119.5,7645156,115.21,3.73,114.85,112.13,0.49
+20260616,119.5,121.5,119.5,120.5,10988105,115.65,4.2,115.05,112.32,0.74
+20260617,120,120.5,118,119,7710655,115.93,2.65,115.25,112.48,0.52
+20260618,119,119.5,118.5,119,8119704,116.18,2.42,115.53,112.65,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3045 | 台灣大 | 4 | 4 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3045 | 台灣大 | 5 | 5 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

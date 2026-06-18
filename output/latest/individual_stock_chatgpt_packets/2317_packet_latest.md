@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:10 Asia/Taipei
+- generated_at: 2026-06-18 22:23:08 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 282
+- latest_price_date: 20260618
+- price_rows: 286
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 266
-- high: 272
-- low: 264
-- close: 272
-- volume: 42173338
-- ma5: 265.5
-- ema23_primary: 265.99
-- distance_to_ema23_pct: 2.26
-- ma20: 269.23
-- ma60: 233.99
-- ma120: 229.39
-- return_5d: -4.39
-- return_20d: 9.46
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 1.03
-- distance_to_high_60_pct: -13.38
+- date: 20260618
+- open: 270.5
+- high: 271.5
+- low: 268.5
+- close: 268.5
+- volume: 68996866
+- ma5: 267.5
+- ema23_primary: 266.43
+- distance_to_ema23_pct: 0.78
+- ma20: 273.68
+- ma60: 238.26
+- ma120: 230.74
+- return_5d: 3.87
+- return_20d: 8.48
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -1.89
+- distance_to_high_60_pct: -14.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,251,251,241,248.5,63512356,234.61,5.92,235.05,219.14,0.63
-20260519,251,254,244,245,70223341,235.47,4.05,236.93,219.58,0.69
-20260520,246.5,246.5,239.5,240,62650287,235.85,1.76,238.38,219.9,0.61
-20260521,245,249,244,247.5,51483466,236.82,4.51,239.7,220.24,0.53
 20260522,249,251.5,245,250,56310552,237.92,5.08,240.95,220.6,0.61
 20260525,255,263.5,255,261,122990174,239.84,8.82,242.93,221.08,1.31
 20260526,262.5,263.5,257,259,55665305,241.44,7.27,244.47,221.29,0.61
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,302,304.5,293,293.5,205766647,252.37,16.3,255.07,224.32,1.87
 20260602,297.5,302,293,301.5,113076476,256.46,17.56,258.18,225.61,1.05
 20260603,306,314,299,309,149620933,260.84,18.46,261.02,227.04,1.46
-20260604,297.5,302,293,301.5,113076476,264.23,14.11,263.43,228.56,1.11
-20260605,290.5,292.5,278,284.5,93158859,265.92,6.99,265.15,229.81,0.92
-20260611,260,262.5,251.5,258.5,97550509,265.3,-2.56,265.48,230.47,0.94
-20260612,266.5,269,260,260.5,60260948,264.9,-1.66,266,231.23,0.59
-20260615,271,272.5,265,267.5,54689024,265.12,0.9,266.82,232.12,0.54
-20260616,270,271,265.5,269,56878574,265.44,1.34,268.05,232.99,0.57
-20260617,266,272,264,272,42173338,265.99,2.26,269.23,233.99,0.44
+20260604,309,309,293,293,110760779,263.52,11.19,263,228.42,1.09
+20260605,290.5,292.5,278,284.5,93158859,265.27,7.25,264.73,229.67,0.92
+20260608,257.5,272,257.5,269.5,117863651,265.62,1.46,265.6,230.51,1.13
+20260609,270.5,277.5,268.5,277.5,74649081,266.61,4.08,266.98,231.56,0.72
+20260610,271,274,262.5,263,93369272,266.31,-1.24,267.57,232.37,0.89
+20260611,260,262.5,251.5,258.5,97550509,265.66,-2.7,268.27,233.07,0.92
+20260612,266.5,269,260,260.5,60260948,265.23,-1.78,268.88,233.88,0.59
+20260615,271,272.5,265,267.5,54689024,265.42,0.78,269.82,234.83,0.54
+20260616,270,271,265.5,269,56878574,265.72,1.24,271.02,235.9,0.56
+20260617,266,272,264,272,42755242,266.24,2.16,272.62,237.05,0.43
+20260618,270.5,271.5,268.5,268.5,68996866,266.43,0.78,273.68,238.26,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2317 | 鴻海 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/18 1.召開法人說明會之日期：115/06/18 ~ 115/06/24 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：歐洲 4.法人說明會擇要訊息：115年6月18日受CLSA邀請參加投資人會議，說明本公司營運概況。 115年6月19日受JPMorgan邀請參加投資人會議，說明本公司營運概況。 115年6月22-24日受JPMorgan邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/18 1.召開法人說明會之日期：115/06/18 ~ 115/06/24 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：歐洲 4.法人說明會擇要訊息：115年6月18日受CLSA邀請參加投資人會議，說明本公司營運概況。 115年6月19日受JPMorgan邀請參加投資人會議，說明本公司營運概況。 115年6月22-24日受JPMorgan邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 2317 | 鴻海 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/18 1.召開法人說明會之日期：115/06/18 ~ 115/06/24 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：歐洲 4.法人說明會擇要訊息：115年6月18日受CLSA邀請參加投資人會議，說明本公司營運概況。 115年6月19日受JPMorgan邀請參加投資人會議，說明本公司營運概況。 115年6月22-24日受JPMorgan邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2317 | 鴻海 | 5 | 5 | 5 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2317 | 鴻海 | 6 | 5 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2317 | 鴻海 | 0 | 45 | 0.0 | 376260.0 | 0.0 | no_signal |
+| 20260618 | 2317 | 鴻海 | 543 | 44 | 66561450.0 | 72690.0 | 915.69 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3056 富華新
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:34 Asia/Taipei
+- generated_at: 2026-06-18 22:23:33 Asia/Taipei
 - stock_id: 3056
 - stock_name: 富華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 15.05
-- high: 15.3
-- low: 15.05
-- close: 15.2
-- volume: 1038176
-- ma5: 15.05
-- ema23_primary: 14.18
-- distance_to_ema23_pct: 7.19
-- ma20: 13.94
-- ma60: 14.2
-- ma120: 15.72
-- return_5d: 6.29
-- return_20d: 14.72
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 9.08
-- distance_to_high_60_pct: -2.25
+- date: 20260618
+- open: 15.3
+- high: 15.65
+- low: 15.15
+- close: 15.25
+- volume: 1640658
+- ma5: 15.18
+- ema23_primary: 14.42
+- distance_to_ema23_pct: 5.75
+- ma20: 14.2
+- ma60: 14.22
+- ma120: 15.63
+- return_5d: 4.45
+- return_20d: 9.71
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 7.43
+- distance_to_high_60_pct: -2.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,13.25,13.6,13.2,13.55,1238297,13.92,-2.69,13.83,14.98,0.81
-20260519,13.45,13.7,13.45,13.45,797482,13.88,-3.13,13.78,14.92,0.55
-20260520,13.45,13.8,13.3,13.75,1077600,13.87,-0.89,13.74,14.87,0.75
-20260521,13.75,14,13.75,13.9,1302461,13.88,0.18,13.72,14.81,0.91
 20260522,13.9,13.95,13.55,13.6,1562046,13.85,-1.82,13.69,14.76,1.11
 20260525,13.6,13.6,13.1,13.35,2678222,13.81,-3.34,13.64,14.69,1.81
 20260526,13.35,13.5,13.25,13.4,1258617,13.78,-2.73,13.61,14.63,0.87
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,13.2,13.55,13.15,13.4,2169157,13.63,-1.72,13.48,14.39,1.41
 20260602,13.4,13.5,13.25,13.5,1413061,13.62,-0.9,13.48,14.33,0.94
 20260603,13.5,14.05,13.35,14,4286917,13.65,2.53,13.52,14.28,2.7
-20260604,13.4,13.5,13.25,13.5,1413061,13.64,-1.04,13.52,14.24,0.9
-20260605,14.55,14.6,14.2,14.3,2133376,13.7,4.41,13.56,14.2,1.31
-20260611,15,15.1,14.45,14.6,1912058,13.77,6.02,13.62,14.19,1.16
-20260612,14.65,15.3,14.65,15.05,2933887,13.88,8.44,13.7,14.18,1.67
-20260615,15.25,15.55,14.9,15.35,2208167,14,9.64,13.78,14.19,1.25
-20260616,15.35,15.55,15,15.05,2136933,14.09,6.83,13.84,14.19,1.18
-20260617,15.05,15.3,15.05,15.2,1038176,14.18,7.19,13.94,14.2,0.58
+20260604,14.05,14.55,13.9,14.5,3766821,13.72,5.65,13.57,14.25,2.23
+20260605,14.55,14.6,14.2,14.3,2133376,13.77,3.83,13.62,14.22,1.22
+20260608,13.7,14.6,13.4,14.4,2447578,13.82,4.16,13.66,14.2,1.37
+20260609,14.25,14.65,14.25,14.4,1507923,13.87,3.8,13.71,14.19,0.82
+20260610,14.25,15.15,14.25,14.8,3819281,13.95,6.09,13.76,14.18,1.99
+20260611,15,15.1,14.45,14.6,1912058,14,4.25,13.79,14.18,0.98
+20260612,14.65,15.3,14.65,15.05,2933887,14.09,6.8,13.88,14.19,1.45
+20260615,15.25,15.55,14.9,15.35,2208167,14.2,8.13,13.97,14.2,1.07
+20260616,15.35,15.55,15,15.05,2136933,14.27,5.49,14.05,14.21,1
+20260617,15.05,15.3,15.05,15.2,1038176,14.35,5.96,14.13,14.21,0.49
+20260618,15.3,15.65,15.15,15.25,1640658,14.42,5.75,14.2,14.22,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3056 | 富華新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3056 | 富華新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3056 | 富華新 | 1 | 1 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3056 | 富華新 | 2 | 2 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3056 | 富華新 | 3 | 0 | 212300.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

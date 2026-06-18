@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:09 Asia/Taipei
+- generated_at: 2026-06-18 22:23:08 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 138.5
-- high: 142
-- low: 136
-- close: 140
-- volume: 171758079
-- ma5: 136.2
-- ema23_primary: 125.93
-- distance_to_ema23_pct: 11.17
-- ma20: 130.97
-- ma60: 91.88
-- ma120: 75.15
-- return_5d: 6.46
-- return_20d: 27.27
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 6.89
-- distance_to_high_60_pct: -9.97
+- date: 20260618
+- open: 141
+- high: 146
+- low: 138.5
+- close: 145.5
+- volume: 307999583
+- ma5: 140.3
+- ema23_primary: 127.3
+- distance_to_ema23_pct: 14.3
+- ma20: 133.38
+- ma60: 96.24
+- ma120: 77.65
+- return_5d: 16.4
+- return_20d: 25.43
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 9.09
+- distance_to_high_60_pct: -6.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,108.5,114,103.5,111,264201488,87.97,26.17,87.49,69.81,1
-20260519,112.5,120.5,111.5,113,273826419,90.06,25.47,89.3,70.66,1.06
-20260520,114,115.5,107,108,227934594,91.55,17.96,90.89,71.42,0.89
-20260521,112.5,118,111.5,116,198946094,93.59,23.94,92.75,72.3,0.79
 20260522,119.5,119.5,113,114,203495119,95.29,19.63,94.78,73.14,0.81
 20260525,115,125,113,125,340935766,97.77,27.85,97.3,74.09,1.31
 20260526,129,133.5,128,130.5,291896012,100.5,29.86,100.19,75.18,1.1
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,143,155.5,140,146,289268747,113.32,28.84,113.58,80.57,1
 20260602,147,150,133.5,141.5,380584577,115.66,22.34,116.5,81.89,1.27
 20260603,141.5,141.5,130.5,130.5,379788969,116.9,11.63,118.46,83.03,1.24
-20260604,147,150,133.5,141.5,380584577,118.95,18.96,120.71,84.4,1.23
-20260605,127,133,125,131.5,377903061,120,9.59,122.72,85.58,1.19
-20260611,119,126,116.5,125,362586174,120.41,3.81,124.22,86.63,1.11
-20260612,134,137.5,132.5,133.5,393604121,121.5,9.87,125.67,87.84,1.21
-20260615,139.5,143.5,137,141.5,328881762,123.17,14.88,127.83,89.21,1.01
-20260616,144,144.5,138.5,141,256468191,124.66,13.11,129.47,90.55,0.8
-20260617,138.5,142,136,140,171758079,125.93,11.17,130.97,91.88,0.56
+20260604,126.5,131.5,122.5,125,380918568,117.58,6.31,119.89,84.12,1.23
+20260605,127,133,125,131.5,377903061,118.74,10.75,121.89,85.31,1.19
+20260608,121,125,119,121,318679993,118.92,1.75,123.19,86.29,0.98
+20260609,124.5,131.5,118.5,127.5,374359529,119.64,6.57,124.34,87.4,1.16
+20260610,126.5,130.5,117.5,118.5,346766316,119.54,-0.87,125.35,88.39,1.07
+20260611,119,126,116.5,125,362586174,120,4.17,126.2,89.46,1.12
+20260612,134,137.5,132.5,133.5,393604121,121.12,10.22,127.38,90.67,1.22
+20260615,139.5,143.5,137,141.5,328881762,122.82,15.21,128.9,92.02,1.01
+20260616,144,144.5,138.5,141,256468191,124.34,13.4,130.3,93.39,0.79
+20260617,138.5,142,136,140,171758079,125.64,11.43,131.9,94.76,0.53
+20260618,141,146,138.5,145.5,307999583,127.3,14.3,133.38,96.24,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2303 | 聯電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2303 | 聯電 | 1 | 1 | 2 | 7 | 11 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2303 | 聯電 | 0 | 25 | 0.0 | 665970.0 | 0.0 | no_signal |
+| 20260618 | 2303 | 聯電 | 315 | 25 | 72809960.0 | 379930.0 | 191.64 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

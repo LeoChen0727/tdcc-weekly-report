@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:12 Asia/Taipei
+- generated_at: 2026-06-18 22:23:11 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 790
-- high: 803
-- low: 782
-- close: 803
-- volume: 3336854
-- ma5: 791
-- ema23_primary: 762.62
-- distance_to_ema23_pct: 5.29
-- ma20: 764
-- ma60: 651.35
-- ma120: 593.24
-- return_5d: -10.78
-- return_20d: 25.27
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 5.1
-- distance_to_high_60_pct: -16.7
+- date: 20260618
+- open: 807
+- high: 810
+- low: 789
+- close: 789
+- volume: 7939182
+- ma5: 792
+- ema23_primary: 775
+- distance_to_ema23_pct: 1.81
+- ma20: 797.9
+- ma60: 666.92
+- ma120: 600.67
+- return_5d: 0.64
+- return_20d: 20.27
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -1.12
+- distance_to_high_60_pct: -18.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,637,641,622,635,3968471,622.29,2.04,620.85,577.48,0.72
-20260519,636,651,635,642,4896613,623.93,2.9,622.7,579.8,0.88
-20260520,645,650,636,640,3822713,625.27,2.36,624.75,581.7,0.69
-20260521,652,658,647,656,4814040,627.83,4.49,627.1,583.92,0.87
 20260522,656,685,655,682,5480314,632.35,7.85,631.3,586.8,1
 20260525,692,717,690,709,6899791,638.74,11,637.5,590.03,1.24
 20260526,711,717,694,699,4568619,643.76,8.58,643.05,592.93,0.81
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,837,837,837,837,4445549,675.87,23.84,675.2,608.07,0.69
 20260602,914,920,883,920,11557431,696.21,32.14,691.7,614.77,1.69
 20260603,954,964,899,931,13575996,715.78,30.07,706.8,621.5,1.91
-20260604,914,920,883,920,11557431,732.8,25.55,720.85,628.22,1.61
-20260605,910,927,875,900,7938907,746.73,20.53,733.35,634.37,1.11
-20260611,791,802,769,784,5245169,749.84,4.56,738.25,637.7,0.76
-20260612,791,805,780,785,4371037,752.77,4.28,743.85,641.1,0.65
-20260615,803,804,783,792,3780033,756.04,4.76,750.3,644.48,0.57
-20260616,794,800,786,791,4159548,758.95,4.22,755.9,647.85,0.64
-20260617,790,803,782,803,3336854,762.62,5.29,764,651.35,0.53
+20260604,916,927,881,892,6988699,730.46,22.11,719.45,627.75,1.01
+20260605,910,927,875,900,7938907,744.59,20.87,731.95,633.9,1.15
+20260608,820,853,816,844,7306896,752.88,12.1,739.85,638.23,1.08
+20260609,853,853,834,850,5184736,760.97,11.7,748.7,642.72,0.78
+20260610,820,826,793,796,6712389,763.89,4.2,755.35,646.17,1.01
+20260611,791,802,769,784,5245169,765.57,2.41,760.6,649.42,0.79
+20260612,791,805,780,785,4371037,767.18,2.32,767.8,652.62,0.67
+20260615,803,804,783,792,3780033,769.25,2.96,775.65,655.92,0.58
+20260616,794,800,786,791,4159548,771.06,2.59,783.1,659.47,0.64
+20260617,790,803,782,803,3336854,773.73,3.78,791.25,663.15,0.52
+20260618,807,810,789,789,7939182,775,1.81,797.9,666.92,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2357 | 華碩 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2357 | 華碩 | 1 | 1 | 2 | 4 | 11 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2357 | 華碩 | 0 | 5 | 0.0 | 40080.0 | 0.0 | no_signal |
+| 20260618 | 2357 | 華碩 | 84 | 5 | 11413340.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

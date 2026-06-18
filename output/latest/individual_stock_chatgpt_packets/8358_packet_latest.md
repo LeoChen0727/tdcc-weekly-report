@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:14 Asia/Taipei
+- generated_at: 2026-06-18 22:25:04 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,6 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -112,48 +114,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 628
-- high: 640
-- low: 625
-- close: 640
-- volume: 635000
-- ma5: 602
-- ema23_primary: 553.37
-- distance_to_ema23_pct: 15.65
-- ma20: 563.35
-- ma60: 410.92
-- ma120: 336.9
-- return_5d: 7.38
-- return_20d: 64.31
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 13.61
-- distance_to_high_60_pct: -6.84
+- date: 20260618
+- open: 657
+- high: 700
+- low: 657
+- close: 700
+- volume: 5038000
+- ma5: 634
+- ema23_primary: 571.79
+- distance_to_ema23_pct: 22.42
+- ma20: 592.65
+- ma60: 434.09
+- ma120: 347.76
+- return_5d: 29.63
+- return_20d: 40.56
+- volume_ratio: 3.6
+- distance_to_ma20_pct_auxiliary: 18.11
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,378.5,428,368,428,3049000,397.64,7.63,411.65,312.35,0.16
-20260519,430,430,410,429,2669000,400.25,7.18,412.9,315.33,0.17
-20260520,458,460,448,460,7238000,405.23,13.51,416.23,318.7,0.53
-20260521,485,498,480,498,4437000,412.96,20.59,421.45,322.5,0.33
 20260522,506,528,505,522,518000,422.05,23.68,429.05,326.64,0.04
 20260525,558,558,541,545,550000,432.3,26.07,438.32,330.72,0.04
 20260526,546,546,517,533,525000,440.69,20.95,448.2,334.73,0.04
 20260527,540,566,540,560,553000,450.63,24.27,458.1,339.23,0.05
 20260528,555,578,550,553,559000,459.16,20.44,467.27,343.68,0.05
 20260529,579,608,565,608,596000,471.56,28.93,478.25,349.4,0.05
-20260601,637,668,636,668,659,487.93,36.9,491.52,356.17,0
+20260601,637,668,636,668,659000,487.93,36.9,491.52,356.17,0.06
 20260602,662,687,613,627,652,499.52,25.52,501.23,362.39,0
 20260603,635,654,606,615,623000,509.15,20.79,509.05,368.34,0.06
-20260604,635,654,606,615,623000,517.97,18.73,516.35,374.72,0.08
-20260605,543,596,515,596,556000,524.47,13.64,523.42,380.9,0.08
-20260611,555,564,510,540,528000,525.76,2.71,527.33,386.14,0.1
-20260612,579,584,562,574,575000,529.78,8.35,532.17,391.89,0.15
-20260615,594,625,594,624,609000,537.64,16.06,540.58,398.27,0.21
-20260616,625,638,615,632,628000,545.5,15.86,550.83,404.63,0.45
-20260617,628,640,625,640,635000,553.37,15.65,563.35,410.92,0.5
+20260604,608,626,565,565,602000,513.8,9.96,513.85,373.88,0.07
+20260605,543,596,515,596,556000,520.65,14.47,520.92,380.07,0.08
+20260608,537,590,537,586,2658000,526.1,11.39,527.12,386.07,0.51
+20260609,586,613,560,610,1992000,533.09,14.43,533.77,392.43,0.49
+20260610,596,605,555,555,1797000,534.91,3.75,538.73,397.65,0.57
+20260611,555,564,510,540,3154000,535.34,0.87,544.38,402.48,1.77
+20260612,579,584,562,574,1869000,538.56,6.58,553.6,407.67,1.08
+20260615,594,625,594,624,1740000,545.68,14.35,563.4,413.51,1.05
+20260616,625,638,615,632,2191000,552.87,14.31,573.55,419.56,1.34
+20260617,628,640,625,640,1844000,560.13,14.26,582.55,426.13,1.34
+20260618,657,700,657,700,5038000,571.79,22.42,592.65,434.09,3.6
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8358 | 金居 | true_breakout | 嚴格突破 | 96.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8358 | 金居 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

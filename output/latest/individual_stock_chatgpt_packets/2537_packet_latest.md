@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:21 Asia/Taipei
+- generated_at: 2026-06-18 22:23:20 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 11.35
-- high: 12.1
-- low: 11.2
+- date: 20260618
+- open: 11.95
+- high: 12.4
+- low: 11.85
 - close: 12
-- volume: 7197818
-- ma5: 11.64
-- ema23_primary: 10.53
-- distance_to_ema23_pct: 13.93
-- ma20: 10.22
-- ma60: 10.28
-- ma120: 10.59
-- return_5d: 18.23
-- return_20d: 24.22
-- volume_ratio: 2.42
-- distance_to_ma20_pct_auxiliary: 17.45
-- distance_to_high_60_pct: -1.23
+- volume: 6935018
+- ma5: 11.78
+- ema23_primary: 10.73
+- distance_to_ema23_pct: 11.84
+- ma20: 10.44
+- ma60: 10.33
+- ma120: 10.6
+- return_5d: 6.19
+- return_20d: 22.08
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: 14.98
+- distance_to_high_60_pct: -3.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,9.75,9.86,9.62,9.76,778193,10.19,-4.24,10.27,10.31,0.72
-20260519,9.71,9.87,9.65,9.67,750635,10.15,-4.72,10.23,10.29,0.69
-20260520,9.75,9.75,9.58,9.67,819712,10.11,-4.34,10.19,10.28,0.76
-20260521,9.76,9.84,9.74,9.83,573027,10.09,-2.54,10.15,10.27,0.58
 20260522,9.89,9.89,9.5,9.57,2015643,10.04,-4.71,10.1,10.25,2
 20260525,9.57,9.6,9.38,9.55,1412427,10,-4.52,10.05,10.23,1.36
 20260526,9.57,9.63,9.52,9.58,1313073,9.97,-3.88,10.01,10.21,1.24
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,9.42,10.1,9.42,10.05,1983251,9.86,1.9,9.86,10.17,1.75
 20260602,10.05,10.15,9.82,9.98,1236305,9.87,1.09,9.85,10.16,1.06
 20260603,9.98,10.1,9.94,10.05,1018944,9.89,1.65,9.84,10.16,0.87
-20260604,10.05,10.15,9.82,9.98,1236305,9.89,0.86,9.81,10.16,1.04
-20260605,10.15,10.35,10.05,10.15,1780145,9.92,2.36,9.81,10.16,1.43
-20260611,11.3,11.7,10.9,11.3,13561811,10.03,12.65,9.86,10.17,7.18
-20260612,11.2,11.65,11.15,11.4,5268241,10.15,12.37,9.93,10.19,2.53
-20260615,11.4,12.15,10.85,12.1,9217431,10.31,17.38,10.03,10.23,3.72
-20260616,11.65,11.8,11.2,11.4,6128575,10.4,9.62,10.1,10.25,2.25
-20260617,11.35,12.1,11.2,12,7197818,10.53,13.93,10.22,10.28,2.42
+20260604,10.05,10.15,9.99,10.05,1211313,9.9,1.51,9.82,10.16,1.02
+20260605,10.15,10.35,10.05,10.15,1780145,9.92,2.31,9.81,10.16,1.43
+20260608,9.91,10.1,9.8,10.05,952087,9.93,1.19,9.8,10.15,0.76
+20260609,10.15,10.35,10.1,10.1,1353762,9.95,1.55,9.8,10.15,1.08
+20260610,10.1,11.1,10.1,11.1,9551631,10.04,10.53,9.86,10.17,5.73
+20260611,11.3,11.7,10.9,11.3,13561811,10.15,11.36,9.92,10.19,5.92
+20260612,11.2,11.65,11.15,11.4,5268241,10.25,11.2,10.01,10.21,2.17
+20260615,11.4,12.15,10.85,12.1,9217431,10.41,16.29,10.13,10.25,3.23
+20260616,11.65,11.8,11.2,11.4,6128575,10.49,8.69,10.21,10.27,1.96
+20260617,11.35,12.1,11.2,12,7197818,10.61,13.05,10.33,10.29,2.09
+20260618,11.95,12.4,11.85,12,6935018,10.73,11.84,10.44,10.33,1.84
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2537 | 聯上發 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2537 | 聯上發 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2537 | 聯上發 | 9 | 2 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 2537 | 聯上發 | 10 | 3 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

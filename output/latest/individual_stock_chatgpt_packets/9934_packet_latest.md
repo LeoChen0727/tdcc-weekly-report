@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9934 成霖
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:21 Asia/Taipei
+- generated_at: 2026-06-18 22:25:11 Asia/Taipei
 - stock_id: 9934
 - stock_name: 成霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 10.25
-- high: 10.5
+- date: 20260618
+- open: 10.4
+- high: 10.45
 - low: 10.15
-- close: 10.4
-- volume: 1173394
-- ma5: 10.39
-- ema23_primary: 10.02
-- distance_to_ema23_pct: 3.79
-- ma20: 9.99
-- ma60: 9.63
-- ma120: 9.81
-- return_5d: -5.88
-- return_20d: 7.11
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 4.15
-- distance_to_high_60_pct: -7.96
+- close: 10.2
+- volume: 986616
+- ma5: 10.37
+- ema23_primary: 10.18
+- distance_to_ema23_pct: 0.16
+- ma20: 10.21
+- ma60: 9.71
+- ma120: 9.84
+- return_5d: -0.97
+- return_20d: 3.87
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -0.05
+- distance_to_high_60_pct: -9.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,9.74,9.74,9.6,9.64,506148,9.48,1.68,9.44,9.55,0.63
-20260519,9.69,9.78,9.62,9.7,333982,9.5,2.11,9.44,9.54,0.42
-20260520,9.75,9.75,9.65,9.71,212955,9.52,2.03,9.44,9.54,0.28
-20260521,9.72,9.83,9.72,9.82,471274,9.54,2.91,9.45,9.54,0.63
 20260522,9.79,9.84,9.66,9.71,609702,9.56,1.61,9.47,9.53,0.81
 20260525,9.7,9.7,9.53,9.63,522305,9.56,0.71,9.48,9.53,0.71
 20260526,9.63,9.63,9.54,9.63,410758,9.57,0.65,9.49,9.52,0.58
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,9.78,9.97,9.7,9.96,1813381,9.61,3.67,9.58,9.52,2.49
 20260602,10.05,10.15,9.82,9.94,925723,9.64,3.16,9.62,9.52,1.23
 20260603,9.99,10.3,9.96,10.25,2852048,9.69,5.82,9.68,9.53,3.28
-20260604,10.05,10.15,9.82,9.94,925723,9.71,2.39,9.72,9.54,1.04
-20260605,11.25,11.3,10.7,11.05,9337369,9.82,12.53,9.81,9.57,7.1
-20260611,10.4,10.5,10.15,10.3,1329181,9.86,4.47,9.83,9.58,1.06
-20260612,10.45,10.6,10.4,10.5,1335113,9.91,5.92,9.87,9.59,1.05
-20260615,10.5,10.55,10.35,10.45,1011922,9.96,4.94,9.91,9.61,0.78
-20260616,10.45,10.45,10.25,10.3,885353,9.99,3.14,9.95,9.62,0.68
-20260617,10.25,10.5,10.15,10.4,1173394,10.02,3.79,9.99,9.63,0.9
+20260604,10.35,11.25,10.25,11.25,10289031,9.82,14.6,9.79,9.56,7.58
+20260605,11.25,11.3,10.7,11.05,9337369,9.92,11.4,9.88,9.59,5.24
+20260608,10.5,10.9,10.45,10.75,3175929,9.99,7.62,9.92,9.61,1.75
+20260609,10.75,11.15,10.55,10.6,2437129,10.04,5.58,9.96,9.62,1.29
+20260610,10.6,10.65,10.3,10.4,2390811,10.07,3.28,10,9.64,1.21
+20260611,10.4,10.5,10.15,10.3,1329181,10.09,2.09,10.04,9.65,0.66
+20260612,10.45,10.6,10.4,10.5,1335113,10.12,3.72,10.08,9.66,0.66
+20260615,10.5,10.55,10.35,10.45,1011922,10.15,2.95,10.12,9.68,0.49
+20260616,10.45,10.45,10.25,10.3,885353,10.16,1.35,10.15,9.69,0.43
+20260617,10.25,10.5,10.15,10.4,1173394,10.18,2.13,10.19,9.7,0.55
+20260618,10.4,10.45,10.15,10.2,986616,10.18,0.16,10.21,9.71,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9934 | 成霖 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9934 | 成霖 | 1 | 1 | 2 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

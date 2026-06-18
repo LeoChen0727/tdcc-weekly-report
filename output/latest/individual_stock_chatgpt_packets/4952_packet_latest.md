@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4952 凌通
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:06 Asia/Taipei
+- generated_at: 2026-06-18 22:24:04 Asia/Taipei
 - stock_id: 4952
 - stock_name: 凌通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 55
-- high: 58.3
-- low: 55
-- close: 57.4
-- volume: 1901212
-- ma5: 55.5
-- ema23_primary: 52.61
-- distance_to_ema23_pct: 9.11
-- ma20: 52.92
-- ma60: 47.61
-- ma120: 43.46
-- return_5d: 16.19
-- return_20d: 14.12
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 8.46
-- distance_to_high_60_pct: -2.71
+- date: 20260618
+- open: 57
+- high: 58.9
+- low: 56.2
+- close: 57.9
+- volume: 1716803
+- ma5: 56.72
+- ema23_primary: 52.56
+- distance_to_ema23_pct: 10.16
+- ma20: 52.91
+- ma60: 48.07
+- ma120: 43.91
+- return_5d: 11.78
+- return_20d: 10.29
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 9.43
+- distance_to_high_60_pct: -1.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,50.2,50.2,49,49.75,436229,48.08,3.48,49.08,44.68,0.27
-20260519,49.75,49.8,47.6,48,634306,48.07,-0.15,49.27,44.82,0.39
-20260520,47.9,51.1,47.5,49.7,705607,48.21,3.1,49.32,44.97,0.45
-20260521,50.5,53.5,49.95,52.5,2619814,48.57,8.1,49.27,45.16,1.93
 20260522,52.6,54.3,52,53.9,2348532,49.01,9.98,49.37,45.37,2
 20260525,54.4,56.4,53.1,54.7,2282914,49.48,10.54,49.59,45.54,1.89
 20260526,54.7,55.7,53.3,55,1944485,49.94,10.12,49.94,45.76,1.55
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,52.8,53.3,51.5,51.9,1029572,50.94,1.89,51.25,46.44,0.61
 20260602,52.3,52.3,50.1,51.1,746932,50.95,0.3,51.44,46.52,0.44
 20260603,52,52.5,51.1,52,709169,51.04,1.89,51.69,46.54,0.42
-20260604,52.3,52.3,50.1,51.1,746932,51.04,0.11,51.8,46.62,0.44
-20260605,50.4,50.6,49,49.4,462698,50.91,-2.96,51.82,46.69,0.28
-20260611,47.5,51.8,47.5,51.8,1522783,50.98,1.61,51.83,46.8,0.93
-20260612,55,56.6,53.5,53.8,4641901,51.22,5.05,51.97,46.96,2.61
-20260615,53.9,59,53.9,58.5,4851326,51.82,12.89,52.37,47.2,2.47
-20260616,59,59,55.5,56,2896170,52.17,7.34,52.57,47.39,1.46
-20260617,55,58.3,55,57.4,1901212,52.61,9.11,52.92,47.61,0.94
+20260604,51.6,52,50.3,50.7,525661,51.01,-0.61,51.78,46.61,0.31
+20260605,50.4,50.6,49,49.4,462698,50.87,-2.9,51.8,46.68,0.28
+20260608,44.8,46.15,44.75,46,509688,50.47,-8.85,51.52,46.7,0.32
+20260609,46.75,49.5,46.05,49.05,474973,50.35,-2.58,51.42,46.78,0.31
+20260610,48.45,49.75,47,47.15,391532,50.08,-5.86,51.25,46.82,0.27
+20260611,47.5,51.8,47.5,51.8,1522783,50.23,3.13,51.24,46.95,1.07
+20260612,55,56.6,53.5,53.8,4641901,50.52,6.48,51.42,47.11,2.91
+20260615,53.9,59,53.9,58.5,4851326,51.19,14.28,51.85,47.33,2.67
+20260616,59,59,55.5,56,2896170,51.59,8.55,52.26,47.55,1.5
+20260617,55,58.3,55,57.4,1901212,52.07,10.23,52.64,47.78,0.96
+20260618,57,58.9,56.2,57.9,1716803,52.56,10.16,52.91,48.07,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4952 | 凌通 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_7d |
+| 20260618 | 4952 | 凌通 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4952 | 凌通 | 5 | 2 | 5 | 8 | 14 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 4952 | 凌通 | 6 | 3 | 5 | 8 | 15 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

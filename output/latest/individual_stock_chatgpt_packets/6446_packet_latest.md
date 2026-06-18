@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:32 Asia/Taipei
+- generated_at: 2026-06-18 22:24:30 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 989
-- high: 1020
-- low: 984
-- close: 1010
-- volume: 2486382
-- ma5: 967.2
-- ema23_primary: 880.45
-- distance_to_ema23_pct: 14.71
-- ma20: 891.2
-- ma60: 735.25
-- ma120: 671.97
-- return_5d: 7.79
-- return_20d: 22.28
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 13.33
-- distance_to_high_60_pct: -0.98
+- date: 20260618
+- open: 1020
+- high: 1075
+- low: 1015
+- close: 1060
+- volume: 2843156
+- ma5: 992.4
+- ema23_primary: 915.44
+- distance_to_ema23_pct: 15.79
+- ma20: 931.65
+- ma60: 759
+- ma120: 688.3
+- return_5d: 13.49
+- return_20d: 32.83
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 13.78
+- distance_to_high_60_pct: -1.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,845,845,804,806,4545275,701.63,14.88,684.2,671.03,1.5
-20260519,796,813,787,796,3574884,709.49,12.19,691.1,672.12,1.15
-20260520,803,810,775,789,3260105,716.12,10.18,698.05,673.13,1.02
-20260521,795,804,784,798,1628917,722.94,10.38,705.6,674.35,0.5
 20260522,800,810,799,810,1343716,730.2,10.93,714.65,676.03,0.42
 20260525,817,853,809,840,3411056,739.35,13.61,725.65,677.85,1.03
 20260526,854,883,852,878,3667145,750.9,16.93,739.25,680.03,1.09
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,958,978,930,962,3934830,798.05,20.54,792,694.33,1.05
 20260602,962,965,900,902,4137928,806.71,11.81,804.75,697.88,1.06
 20260603,903,906,883,899,2256658,814.4,10.39,816.95,701.23,0.58
-20260604,962,965,900,902,4137928,821.7,9.77,829.1,705.15,1.03
-20260605,958,964,929,937,2516300,831.31,12.71,839.75,709.6,0.65
-20260611,988,988,923,934,4946227,839.87,11.21,851.15,714,1.26
-20260612,960,968,926,949,1923493,848.96,11.78,863.05,718.75,0.49
-20260615,964,976,948,952,1805808,857.55,11.01,871.55,723.67,0.5
-20260616,961,997,952,991,1998856,868.67,14.08,882,729.37,0.59
-20260617,989,1020,984,1010,2486382,880.45,14.71,891.2,735.25,0.79
+20260604,892,945,885,938,2644650,824.7,13.74,830.9,705.75,0.67
+20260605,958,964,929,937,2516300,834.06,12.34,841.55,710.2,0.67
+20260608,907,956,907,926,3873609,841.72,10.01,852.55,714.47,1.02
+20260609,931,994,931,990,4766832,854.08,15.91,866.5,719.9,1.22
+20260610,993,1020,980,986,4662954,865.07,13.98,876.7,725.38,1.24
+20260611,988,988,923,934,4946227,870.82,7.26,884.3,730.13,1.34
+20260612,960,968,926,949,1923493,877.33,8.17,890.45,735,0.56
+20260615,964,976,948,952,1805808,883.55,7.75,897.75,739.65,0.55
+20260616,961,997,952,991,1998856,892.51,11.04,907.5,745.4,0.62
+20260617,989,1020,984,1010,2486382,902.3,11.94,918.55,751.57,0.78
+20260618,1020,1075,1015,1060,2843156,915.44,15.79,931.65,759,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -185,13 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6446 | 藥華藥 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 6446 | 藥華藥 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 6446 | 藥華藥 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6446 | 藥華藥 | 16 | 7 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260618 | 6446 | 藥華藥 | 17 | 3 | 5 | 10 | 17 | continued_many_days | 連續 17 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

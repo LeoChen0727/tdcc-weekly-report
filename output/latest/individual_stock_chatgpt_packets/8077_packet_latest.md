@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8077 洛碁
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:09 Asia/Taipei
+- generated_at: 2026-06-18 22:25:00 Asia/Taipei
 - stock_id: 8077
 - stock_name: 洛碁
-- packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 214
+- packet_status: standard_rawdata_packet
+- latest_price_date: 20260618
+- price_rows: 82
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,31 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 50.9
-- high: 50.9
-- low: 50.9
-- close: 50.9
-- volume: 50000
-- ma5: 50.43
-- ema23_primary: 47.87
-- distance_to_ema23_pct: 6.34
-- ma20: 47.66
-- ma60: 44.83
-- ma120: 46.14
-- return_5d: -5.74
-- return_20d: 27.25
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: 6.8
-- distance_to_high_60_pct: -9.59
+- date: 20260618
+- open: 50.8
+- high: 50.8
+- low: 49.95
+- close: 49.95
+- volume: 3000
+- ma5: 50.04
+- ema23_primary: 48.78
+- distance_to_ema23_pct: 2.39
+- ma20: 49.25
+- ma60: 45.32
+- ma120: 45.26
+- return_5d: -3.76
+- return_20d: 21.68
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: 1.42
+- distance_to_high_60_pct: -11.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,41,42.95,41,42.95,8000,42.62,0.77,42.56,44.03,1.84
-20260518,43.4,43.4,43.4,43.4,1000,42.69,1.67,42.62,43.95,0.23
-20260519,43.6,43.6,41.05,41.05,4000,42.55,-3.52,42.52,43.87,0.92
 20260521,43.35,44.8,43.35,44.8,10000,42.74,4.83,42.61,43.86,2.08
 20260522,44.95,45.55,44.95,45.55,45000,42.97,6,42.73,43.85,6.52
 20260525,45.6,45.6,45.6,45.6,45000,43.19,5.58,42.91,43.85,4.97
@@ -144,16 +142,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,44,44,44,44,44000,43.42,1.34,43.09,43.83,3.32
 20260528,44.65,46.95,44.65,46.75,46000,43.7,6.99,43.21,43.85,2.97
 20260529,46,48.4,46,48.4,48000,44.09,9.78,43.42,43.89,2.73
-20260601,48.3,48.8,46,48.65,48,44.47,9.4,43.6,43.93,0
+20260601,48.3,48.8,46,48.65,48000,44.47,9.4,43.6,43.93,2.52
 20260602,49,49,48.7,49,49,44.85,9.26,43.84,43.98,0
-20260603,49,51,49,50.8,50000,45.34,12.04,44.21,44.06,2.63
-20260604,49,51,49,50.8,50000,45.8,10.92,44.64,44.13,2.34
-20260605,54.6,56.3,53.5,54,54000,46.48,16.18,45.26,44.26,2.25
-20260611,52.9,53.4,50,51.9,51000,46.93,10.59,45.75,44.38,1.92
-20260612,51.6,51.6,49,49,49000,47.1,4.02,46.1,44.47,1.7
-20260615,50.7,50.7,50.7,50.7,51000,47.4,6.95,46.62,44.58,1.65
-20260616,48.8,49.65,48,49.65,49000,47.59,4.33,47.12,44.7,1.51
-20260617,50.9,50.9,50.9,50.9,50000,47.87,6.34,47.66,44.83,1.43
+20260603,49,51,49,50.8,50000,45.34,12.04,44.21,44.06,2.34
+20260604,51.5,54.9,50,54.2,53000,46.08,17.62,44.81,44.19,2.22
+20260605,54.6,56.3,53.5,54,54000,46.74,15.53,45.43,44.32,2.03
+20260608,53,53,53,53,2000,47.26,12.14,45.98,44.46,0.08
+20260610,53,53,52.9,52.9,2000,47.73,10.83,46.52,44.61,0.08
+20260611,52.9,53.4,50,51.9,23000,48.08,7.95,47.1,44.74,0.84
+20260612,51.6,51.6,49,49,24000,48.16,1.75,47.56,44.84,0.87
+20260615,50.7,50.7,50.7,50.7,1000,48.37,4.82,48.1,44.98,0.04
+20260616,48.8,49.65,48,49.65,5000,48.47,2.42,48.43,45.09,0.18
+20260617,50.9,50.9,50.9,50.9,1000,48.68,4.57,48.81,45.21,0.04
+20260618,50.8,50.8,49.95,49.95,3000,48.78,2.39,49.25,45.32,0.11
 ```
 
 ## Latest TDCC Snapshot

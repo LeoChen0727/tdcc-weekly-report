@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1519 華城
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:56 Asia/Taipei
+- generated_at: 2026-06-18 22:22:54 Asia/Taipei
 - stock_id: 1519
 - stock_name: 華城
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 800
-- high: 813
-- low: 792
-- close: 803
-- volume: 3960524
-- ma5: 787.4
-- ema23_primary: 834.58
-- distance_to_ema23_pct: -3.78
-- ma20: 827.75
-- ma60: 857.17
-- ma120: 875.21
-- return_5d: -5.64
-- return_20d: -2.43
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -2.99
-- distance_to_high_60_pct: -15.3
+- date: 20260618
+- open: 806
+- high: 833
+- low: 798
+- close: 833
+- volume: 4010410
+- ma5: 799.4
+- ema23_primary: 830.52
+- distance_to_ema23_pct: 0.3
+- ma20: 837
+- ma60: 851.92
+- ma120: 876.82
+- return_5d: 7.76
+- return_20d: 4.12
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -0.48
+- distance_to_high_60_pct: -16.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,791,805,773,804,3202247,875.54,-8.17,886.15,896.45,0.86
-20260519,807,814,783,783,2770729,867.83,-9.77,880.75,893.75,0.76
-20260520,786,786,770,770,1904925,859.68,-10.43,873.3,890.48,0.54
-20260521,787,804,785,800,1454510,854.7,-6.4,867.55,887.7,0.43
 20260522,809,835,802,826,1840162,852.31,-3.09,865,885.37,0.57
 20260525,836,844,822,830,1884487,850.45,-2.4,862.2,883.27,0.6
 20260526,845,885,845,851,3578095,850.5,0.06,860.35,879.95,1.12
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,870,888,861,870,2619708,855.37,1.71,856.2,871.2,0.73
 20260602,874,875,839,850,2356632,854.92,-0.58,853.95,869.52,0.67
 20260603,860,935,856,935,9083511,861.59,8.52,856.35,869.67,2.35
-20260604,874,875,839,850,2356632,860.63,-1.23,854.3,869.32,0.61
-20260605,914,921,841,851,7358593,859.83,-1.03,852.05,868.3,1.85
-20260611,791,802,744,773,5107869,852.59,-9.34,844.65,865.65,1.25
-20260612,810,813,783,791,2283267,847.46,-6.66,838.5,863.47,0.58
-20260615,815,815,787,789,2620945,842.59,-6.36,833.2,861.27,0.68
-20260616,799,802,776,781,2742319,837.45,-6.74,828.75,859.13,0.73
-20260617,800,813,792,803,3960524,834.58,-3.78,827.75,857.17,1.06
+20260604,946,997,910,910,19360283,865.63,5.13,857.3,870.32,4.1
+20260605,914,921,841,851,7358593,864.41,-1.55,855.05,869.3,1.52
+20260608,766,822,766,815,4498611,860.29,-5.26,849.75,867.35,0.92
+20260609,820,844,803,843,2828393,858.85,-1.85,846.2,866.03,0.6
+20260610,830,832,791,791,3074768,853.2,-7.29,841,863.87,0.65
+20260611,791,802,744,773,5107869,846.51,-8.68,836.15,861.6,1.07
+20260612,810,813,783,791,2283267,841.89,-6.04,834.55,859.43,0.49
+20260615,815,815,787,789,2620945,837.48,-5.79,833.8,857.1,0.57
+20260616,799,802,776,781,2742319,832.77,-6.22,833.7,854.75,0.6
+20260617,800,813,792,803,3960524,830.29,-3.29,835.35,852.87,0.84
+20260618,806,833,798,833,4010410,830.52,0.3,837,851.92,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1519 | 華城 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1519 | 華城 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1519 | 華城 | 1 | 1 | 1 | 5 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 1519 | 華城 | 2 | 2 | 2 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1519 | 華城 | 0 | 14 | 0.0 | 13530.0 | 0.0 | no_signal |
+| 20260618 | 1519 | 華城 | 145 | 14 | 16512110.0 | 654950.0 | 25.21 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

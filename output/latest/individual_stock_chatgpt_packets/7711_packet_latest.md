@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7711 永擎
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:03 Asia/Taipei
+- generated_at: 2026-06-18 22:24:54 Asia/Taipei
 - stock_id: 7711
 - stock_name: 永擎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 135
+- latest_price_date: 20260618
+- price_rows: 139
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
+- date: 20260618
 - open: 363
-- high: 364
-- low: 359
-- close: 360.5
-- volume: 265334
-- ma5: 361.7
-- ema23_primary: 379.63
-- distance_to_ema23_pct: -5.04
-- ma20: 380.7
-- ma60: 351.93
-- ma120: 295.88
-- return_5d: -8.27
-- return_20d: -5.87
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -5.31
-- distance_to_high_60_pct: -23.46
+- high: 368.5
+- low: 361
+- close: 364.5
+- volume: 234775
+- ma5: 363.1
+- ema23_primary: 374.23
+- distance_to_ema23_pct: -2.6
+- ma20: 379.05
+- ma60: 358.12
+- ma120: 298.54
+- return_5d: 1.96
+- return_20d: -2.8
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -3.84
+- distance_to_high_60_pct: -22.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,372.5,378,364.5,375,713661,383.99,-2.34,400.32,300.18,0.54
-20260519,378,378.5,366.5,370.5,505708,382.86,-3.23,403.55,302.63,0.38
-20260520,370.5,370.5,349.5,350,785500,380.12,-7.92,405.65,304.68,0.59
-20260521,366,381,362.5,375,766760,379.7,-1.24,407.48,307,0.59
 20260522,375.5,393.5,374.5,389,835395,380.47,2.24,408.32,309.7,0.72
 20260525,399,404,390,396,906040,381.77,3.73,407.88,312.47,0.94
 20260526,398,400,386.5,389,555115,382.37,1.73,406.88,314.96,0.68
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,418,424.5,406,413,1554051,385.42,7.16,401.8,325.77,1.92
 20260602,415.5,418,390,403.5,1094572,386.92,4.28,401,328.93,1.29
 20260603,410,410.5,391.5,395.5,651280,387.64,2.03,399.35,331.96,0.75
-20260604,415.5,418,390,403.5,1094572,388.96,3.74,395.98,335.46,1.22
-20260605,396,405,386.5,393,1455818,389.3,0.95,392.27,338.77,1.54
-20260611,353.5,365,351,357.5,562958,386.65,-7.54,389.12,341.49,0.58
-20260612,367.5,371,359,359,303856,384.34,-6.59,386.32,344.12,0.32
-20260615,364,376.5,364,366.5,497196,382.86,-4.27,383.57,346.93,0.53
-20260616,372.5,376.5,364.5,365,410165,381.37,-4.29,381.82,349.63,0.48
-20260617,363,364,359,360.5,265334,379.63,-5.04,380.7,351.93,0.33
+20260604,388,390,377,380,585813,387,-1.81,394.8,335.07,0.67
+20260605,396,405,386.5,393,1455818,387.5,1.42,391.1,338.38,1.58
+20260608,354,371,354,371,717541,386.13,-3.92,388.62,341.32,0.76
+20260609,375,375,368,372.5,408033,384.99,-3.24,386.5,344.18,0.44
+20260610,366.5,372.5,352.5,353,597120,382.33,-7.67,383.07,346.77,0.64
+20260611,353.5,365,351,357.5,562958,380.26,-5.98,380.95,349.34,0.66
+20260612,367.5,371,359,359,303856,378.49,-5.15,379.75,351.61,0.38
+20260615,364,376.5,364,366.5,497196,377.49,-2.91,379.32,353.63,0.63
+20260616,372.5,376.5,364.5,365,410165,376.45,-3.04,379.05,355.23,0.52
+20260617,363,364,359,360.5,265334,375.12,-3.9,379.57,356.86,0.35
+20260618,363,368.5,361,364.5,234775,374.23,-2.6,379.05,358.12,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 7711 | 永擎 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

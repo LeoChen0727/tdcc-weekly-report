@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6762 達亞
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:43 Asia/Taipei
+- generated_at: 2026-06-18 22:24:41 Asia/Taipei
 - stock_id: 6762
 - stock_name: 達亞
-- packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 246
+- packet_status: standard_rawdata_packet
+- latest_price_date: 20260618
+- price_rows: 113
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 182
-- high: 182
-- low: 181.5
-- close: 181.5
-- volume: 182000
-- ma5: 177.1
-- ema23_primary: 172.6
-- distance_to_ema23_pct: 5.15
-- ma20: 171.07
-- ma60: 166.16
-- ma120: 175.06
-- return_5d: 5.52
-- return_20d: 25.17
-- volume_ratio: 2.1
-- distance_to_ma20_pct_auxiliary: 6.09
-- distance_to_high_60_pct: -8.33
+- date: 20260618
+- open: 169
+- high: 169
+- low: 169
+- close: 169
+- volume: 1000
+- ma5: 172.5
+- ema23_primary: 171.28
+- distance_to_ema23_pct: -1.33
+- ma20: 172.85
+- ma60: 165.89
+- ma120: 174.77
+- return_5d: -3.98
+- return_20d: 16.95
+- volume_ratio: 0.01
+- distance_to_ma20_pct_auxiliary: -2.23
+- distance_to_high_60_pct: -14.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260505,145,147,145,145,5000,157.63,-8.01,159.22,166.3,0.68
-20260506,140,144.5,138,144.5,18000,156.54,-7.69,158.62,165.62,2.21
 20260507,140,147.5,140,145,5000,155.57,-6.8,157.38,165.04,0.62
 20260511,150,151,144,144,8000,154.61,-6.86,156.15,164.53,0.96
 20260512,144,157.5,144,156.5,13000,154.77,1.12,155.72,164.15,1.52
@@ -152,8 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260528,172,172,164,172,167000,170.12,1.1,164.38,165.32,3.1
 20260529,172,176,172,176,174000,170.61,3.16,165.72,165.48,2.81
 20260603,178,178,178,178,177000,171.23,3.95,167.53,165.65,2.53
-20260604,178,178,178,178,177000,171.79,3.61,169.25,165.87,2.28
-20260611,182,182,181.5,181.5,182000,172.6,5.15,171.07,166.16,2.1
+20260608,160.5,167,160.5,164,10000,170.63,-3.88,168.55,165.63,0.14
+20260609,170,171,170,170,4000,170.57,-0.34,169.8,165.73,0.06
+20260611,182,182,181.5,181.5,3000,171.49,5.84,171.62,165.96,0.04
+20260618,169,169,169,169,1000,171.28,-1.33,172.85,165.89,0.01
 ```
 
 ## Latest TDCC Snapshot

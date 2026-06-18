@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2342 茂矽
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:11 Asia/Taipei
+- generated_at: 2026-06-18 22:23:10 Asia/Taipei
 - stock_id: 2342
 - stock_name: 茂矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -114,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 48.8
-- high: 51.5
-- low: 47.25
-- close: 50.2
-- volume: 50499689
-- ma5: 44.51
-- ema23_primary: 42.16
-- distance_to_ema23_pct: 19.06
-- ma20: 42.28
-- ma60: 36.44
-- ma120: 34.05
-- return_5d: 21.26
-- return_20d: 24.1
-- volume_ratio: 4.81
-- distance_to_ma20_pct_auxiliary: 18.74
-- distance_to_high_60_pct: -2.52
+- date: 20260618
+- open: 52
+- high: 55.2
+- low: 51.3
+- close: 55.2
+- volume: 29235308
+- ma5: 47.61
+- ema23_primary: 43.21
+- distance_to_ema23_pct: 27.75
+- ma20: 43.27
+- ma60: 37.21
+- ma120: 34.56
+- return_5d: 39.04
+- return_20d: 36.46
+- volume_ratio: 2.31
+- distance_to_ma20_pct_auxiliary: 27.57
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,39.5,40.2,38.05,39.65,3850197,37.65,5.32,37.36,32.84,0.4
-20260519,39.75,40.3,37.6,38.55,5533234,37.72,2.2,37.73,32.97,0.56
-20260520,39.1,39.4,38,38.25,2390871,37.77,1.28,38.02,33.1,0.24
-20260521,39.95,41.5,39.95,40.45,4483929,37.99,6.48,38.38,33.26,0.45
 20260522,41.3,41.6,40.4,41.4,4583060,38.27,8.17,38.85,33.43,0.46
 20260525,43.35,44.4,42.2,43.15,8930361,38.68,11.56,39.43,33.61,0.87
 20260526,45.85,47.45,43.05,43.35,19274704,39.07,10.96,40.03,33.81,1.73
@@ -149,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,42.55,43.3,41.5,41.7,5208118,40.13,3.92,41.89,34.55,0.44
 20260602,41.75,42.4,39.7,40.6,4794854,40.17,1.08,41.93,34.72,0.41
 20260603,40.7,44.65,40.5,44.65,15954646,40.54,10.14,42.08,34.96,1.49
-20260604,41.75,42.4,39.7,40.6,4794854,40.54,0.14,41.81,35.16,0.47
-20260605,43.05,43.3,40,41.4,8124688,40.62,1.93,41.69,35.36,0.91
-20260611,38.85,39.95,36.65,39.7,5401622,40.54,-2.07,41.52,35.51,0.64
-20260612,40.55,42.45,40.55,40.9,6056369,40.57,0.82,41.36,35.67,0.75
-20260615,41.9,44.85,41.75,43.7,11727111,40.83,7.03,41.49,35.88,1.47
-20260616,44.75,48.05,44.75,48.05,15338141,41.43,15.97,41.79,36.14,1.85
-20260617,48.8,51.5,47.25,50.2,50499689,42.16,19.06,42.28,36.44,4.81
+20260604,43.3,47.25,42.5,43.05,18426716,40.75,5.65,41.93,35.2,1.7
+20260605,43.05,43.3,40,41.4,8124688,40.8,1.46,41.81,35.4,0.84
+20260608,37.3,39.75,37.3,38.9,4264816,40.64,-4.29,41.6,35.53,0.47
+20260609,38.9,41.6,38.1,41.35,5211948,40.7,1.59,41.47,35.7,0.6
+20260610,41,42,38.8,38.85,7074624,40.55,-4.19,41.36,35.84,0.85
+20260611,38.85,39.95,36.65,39.7,5401622,40.48,-1.92,41.23,35.96,0.66
+20260612,40.55,42.45,40.55,40.9,6056369,40.51,0.96,41.26,36.1,0.75
+20260615,41.9,44.85,41.75,43.7,11727111,40.78,7.16,41.46,36.26,1.38
+20260616,44.75,48.05,44.75,48.05,15338141,41.38,16.11,41.94,36.51,1.7
+20260617,48.8,51.5,47.25,50.2,50499689,42.12,19.19,42.53,36.81,4.43
+20260618,52,55.2,51.3,55.2,29235308,43.21,27.75,43.27,37.21,2.31
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2342 | 茂矽 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2342 | 茂矽 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2342 | 茂矽 | 13 | 2 | 5 | 10 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 2342 | 茂矽 | 14 | 3 | 5 | 10 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

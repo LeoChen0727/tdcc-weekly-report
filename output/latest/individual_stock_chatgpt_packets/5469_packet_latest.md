@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:14 Asia/Taipei
+- generated_at: 2026-06-18 22:24:12 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 85.7
-- high: 86.7
-- low: 84.6
-- close: 86.6
-- volume: 1953118
-- ma5: 84.82
-- ema23_primary: 84.72
-- distance_to_ema23_pct: 2.22
-- ma20: 83.86
-- ma60: 85.35
-- ma120: 90.29
-- return_5d: 3.1
-- return_20d: 8.79
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.27
-- distance_to_high_60_pct: -13.4
+- date: 20260618
+- open: 87.5
+- high: 87.6
+- low: 86
+- close: 86.8
+- volume: 2319451
+- ma5: 86.06
+- ema23_primary: 84.45
+- distance_to_ema23_pct: 2.79
+- ma20: 84.44
+- ma60: 85.11
+- ma120: 89.79
+- return_5d: 7.69
+- return_20d: 6.37
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 2.79
+- distance_to_high_60_pct: -13.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,78.3,79,76.8,78.6,3148708,84.66,-7.16,86.36,87.54,0.68
-20260519,78.8,80.9,78.5,79.4,2474890,84.22,-5.72,85.52,87.27,0.59
-20260520,80,80,78.3,79,1918030,83.79,-5.71,84.67,87.02,0.47
-20260521,80,82.4,79.8,81.6,2696980,83.6,-2.4,83.94,86.79,0.68
 20260522,82.5,83.5,82.4,82.9,2093159,83.55,-0.77,83.47,86.53,0.58
 20260525,83.8,84.3,83.2,83.5,3048237,83.54,-0.05,83.08,86.23,0.85
 20260526,84,84.4,82.5,83.1,2412688,83.5,-0.48,82.7,86.04,0.68
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,86,86.2,84.5,86,3655630,84.1,2.26,82.73,85.64,0.95
 20260602,86.6,86.6,83.6,85.9,3723117,84.25,1.96,82.8,85.59,0.96
 20260603,86.2,88.2,85.7,86.9,5093574,84.47,2.87,82.95,85.57,1.3
-20260604,86.6,86.6,83.6,85.9,3723117,84.59,1.55,83.03,85.64,0.93
-20260605,85.6,85.6,82.2,84,3005036,84.54,-0.64,83.14,85.61,0.76
-20260611,81.5,82.1,77.7,80.6,2506488,84.21,-4.29,82.92,85.48,0.67
-20260612,82.2,85.3,82.2,83.7,3051234,84.17,-0.56,82.97,85.42,0.83
-20260615,84.4,88.4,83.2,87.5,7358003,84.45,3.61,83.28,85.42,1.88
-20260616,88,88.7,85.6,85.7,5107316,84.55,1.36,83.5,85.39,1.25
-20260617,85.7,86.7,84.6,86.6,1953118,84.72,2.22,83.86,85.35,0.49
+20260604,87.6,87.6,85.1,85.6,2526030,84.57,1.22,83.02,85.64,0.64
+20260605,85.6,85.6,82.2,84,3005036,84.52,-0.61,83.13,85.61,0.77
+20260608,76,80.8,76,80.1,3030460,84.15,-4.81,82.88,85.47,0.81
+20260609,80.5,83.6,80.4,83.2,1778120,84.07,-1.04,82.9,85.4,0.49
+20260610,82,86.6,80.5,80.6,4051134,83.78,-3.8,82.87,85.28,1.11
+20260611,81.5,82.1,77.7,80.6,2506488,83.52,-3.49,82.84,85.17,0.68
+20260612,82.2,85.3,82.2,83.7,3051234,83.53,0.2,83.05,85.08,0.83
+20260615,84.4,88.4,83.2,87.5,7358003,83.86,4.34,83.49,85.05,1.9
+20260616,88,88.7,85.6,85.7,5107316,84.02,2,83.81,85.03,1.27
+20260617,85.7,86.7,84.6,86.6,1953118,84.23,2.81,84.19,85.03,0.49
+20260618,87.5,87.6,86,86.8,2319451,84.45,2.79,84.44,85.11,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 5469 | 瀚宇博 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 5469 | 瀚宇博 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 5469 | 瀚宇博 | 1 | 1 | 2 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 5469 | 瀚宇博 | 2 | 2 | 3 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5469 | 瀚宇博 | 45 | 0 | 975070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

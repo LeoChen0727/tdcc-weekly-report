@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:26 Asia/Taipei
+- generated_at: 2026-06-18 22:24:24 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 255
-- high: 272.5
-- low: 253
-- close: 267.5
-- volume: 10448303
-- ma5: 257.9
-- ema23_primary: 262.41
-- distance_to_ema23_pct: 1.94
-- ma20: 261.65
-- ma60: 238.43
-- ma120: 178.88
-- return_5d: 5.11
-- return_20d: 5.73
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 2.24
-- distance_to_high_60_pct: -16.93
+- date: 20260618
+- open: 274
+- high: 290
+- low: 272.5
+- close: 280
+- volume: 22287192
+- ma5: 264.3
+- ema23_primary: 261.72
+- distance_to_ema23_pct: 6.99
+- ma20: 264.32
+- ma60: 245.77
+- ma120: 183.58
+- return_5d: 12.9
+- return_20d: 13.59
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: 5.93
+- distance_to_high_60_pct: -13.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,243,247,238,245,9088747,259.24,-5.49,276.45,196.67,0.55
-20260519,243.5,252.5,238.5,240.5,8631504,257.68,-6.67,274.38,198.71,0.61
-20260520,241,241,230,236.5,9834281,255.91,-7.59,271.9,200.68,0.82
-20260521,244,253,244,246.5,8211242,255.13,-3.38,269.38,202.77,0.79
 20260522,253,270.5,250,262,12036161,255.7,2.46,268.75,205.11,1.17
 20260525,270,276,265,267,15399710,256.64,4.04,268.3,207.33,1.48
 20260526,269.5,278,260.5,274.5,20587613,258.13,6.34,268.77,209.47,1.89
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,283,295,282,295,31063246,263.38,12.01,270.48,219,2.11
 20260602,293,294.5,268,273,26520106,264.18,3.34,269.93,221.42,1.68
 20260603,275,278.5,268,270,12618497,264.66,2.02,269.18,223.79,0.79
-20260604,293,294.5,268,273,26520106,265.36,2.88,267.85,226.43,1.57
-20260605,257.5,257.5,240,254.5,7795202,264.45,-3.76,266.2,228.56,0.46
-20260611,252.5,260,236.5,248,10874563,263.08,-5.73,263.57,230.47,0.63
-20260612,260,263.5,249.5,252.5,9064998,262.2,-3.7,261.93,232.47,0.56
-20260615,259.5,269,259,263.5,7633970,262.31,0.45,261.43,234.57,0.48
-20260616,267,270.5,255,258,7694528,261.95,-1.51,260.93,236.53,0.5
-20260617,255,272.5,253,267.5,10448303,262.41,1.94,261.65,238.43,0.68
+20260604,266.5,267.5,258,260.5,7187932,264.32,-1.44,267.23,226.22,0.45
+20260605,257.5,257.5,240,254.5,7795202,263.5,-3.41,265.57,228.35,0.49
+20260608,229.5,244.5,229.5,243.5,7487353,261.83,-7,262.73,230.18,0.46
+20260609,249,259,242,257,9522888,261.43,-1.69,261.3,232.26,0.63
+20260610,250,272,249.5,254,15359092,260.81,-2.61,260.32,234.2,1.01
+20260611,252.5,260,236.5,248,10874563,259.74,-4.52,259.32,236,0.73
+20260612,260,263.5,249.5,252.5,9064998,259.14,-2.56,259.3,237.64,0.61
+20260615,259.5,269,259,263.5,7633970,259.5,1.54,260.23,239.53,0.52
+20260616,267,270.5,255,258,7694528,259.38,-0.53,261.1,241.3,0.53
+20260617,255,272.5,253,267.5,10448303,260.05,2.86,262.65,243.37,0.71
+20260618,274,290,272.5,280,22287192,261.72,6.99,264.32,245.77,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6213 | 聯茂 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.原發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 3.0元。 3.變更後發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 2.99892738元。 4.變更原因:本公司因員工認股權執行，致本公司流通在外股份總數有所變動，故發放  比率隨之調整。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 6213 | 聯茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.原發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 3.0元。 3.變更後發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 2.99892738元。 4.變更原因:本公司因員工認股權執行，致本公司流通在外股份總數有所變動，故發放  比率隨之調整。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 6213 | 聯茂 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.原發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 3.0元。 3.變更後發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 2.99892738元。 4.變更原因:本公司因員工認股權執行，致本公司流通在外股份總數有所變動，故發放  比率隨之調整。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6213 | 聯茂 | 11 | 8 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6213 | 聯茂 | 12 | 9 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6213 | 聯茂 | 0 | 5 | 0.0 | 10210.0 | 0.0 | no_signal |
+| 20260618 | 6213 | 聯茂 | 111 | 5 | 31811820.0 | 12010.0 | 2648.78 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

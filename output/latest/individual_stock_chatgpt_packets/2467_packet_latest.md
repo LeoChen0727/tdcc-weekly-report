@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:18 Asia/Taipei
+- generated_at: 2026-06-18 22:23:17 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 560
-- high: 590
-- low: 560
-- close: 585
-- volume: 1257474
-- ma5: 563.8
-- ema23_primary: 584.71
-- distance_to_ema23_pct: 0.05
-- ma20: 598.15
-- ma60: 535.02
-- ma120: 406.22
-- return_5d: 0.86
-- return_20d: -0.34
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -2.2
-- distance_to_high_60_pct: -15.46
+- date: 20260618
+- open: 585
+- high: 605
+- low: 576
+- close: 599
+- volume: 1650001
+- ma5: 575.2
+- ema23_primary: 582.41
+- distance_to_ema23_pct: 2.85
+- ma20: 598.65
+- ma60: 548.75
+- ma120: 417.59
+- return_5d: 10.52
+- return_20d: 2.39
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 0.06
+- distance_to_high_60_pct: -13.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,579,594,561,594,1506671,559.48,6.17,573.58,453,0.56
-20260519,589,599,569,576,1437604,560.86,2.7,573.88,458.12,0.53
-20260520,578,602,547,554,2978151,560.28,-1.12,573.58,462.82,1.04
-20260521,579,602,569,585,1952197,562.34,4.03,572.98,468.02,0.67
 20260522,598,625,591,603,2458444,565.73,6.59,576.23,473.39,0.82
 20260525,617,663,614,663,3970310,573.84,15.54,582.48,479.77,1.26
 20260526,670,692,661,668,4304760,581.68,14.84,591.1,486.03,1.29
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,634,647,625,637,1405177,596.45,6.8,603.2,504.42,0.5
 20260602,637,637,582,588,3530661,595.75,-1.3,604.05,507.55,1.26
 20260603,600,626,599,615,2340843,597.35,2.95,606.45,511.25,0.85
-20260604,637,637,582,588,3530661,596.57,-1.44,608.15,515.15,1.26
-20260605,626,626,580,580,3038548,595.19,-2.55,610.3,518.9,1.06
-20260611,530,553,520,542,1427345,590.76,-8.25,607.9,521.8,0.52
-20260612,573,573,548,552,989861,587.53,-6.05,603.05,524.92,0.39
-20260615,570,580,568,576,957211,586.57,-1.8,600.55,528.46,0.39
-20260616,590,594,564,564,1204735,584.69,-3.54,598.25,531.55,0.51
-20260617,560,590,560,585,1257474,584.71,0.05,598.15,535.02,0.55
+20260604,615,646,608,626,2881475,599.74,4.38,610.05,515.78,1.04
+20260605,626,626,580,580,3038548,598.09,-3.03,612.2,519.53,1.07
+20260608,522,577,522,568,1821387,595.59,-4.63,611.1,522.87,0.66
+20260609,588,600,571,574,1860780,593.79,-3.33,607.35,526.35,0.72
+20260610,568,579,540,540,1663681,589.31,-8.37,603.05,529.29,0.67
+20260611,530,553,520,542,1427345,585.36,-7.41,599.65,532.02,0.59
+20260612,573,573,548,552,989861,582.58,-5.25,597.9,534.94,0.42
+20260615,570,580,568,576,957211,582.03,-1.04,597,537.86,0.41
+20260616,590,594,564,564,1204735,580.53,-2.85,596.4,541.07,0.52
+20260617,560,590,560,585,1257474,580.9,0.71,597.95,544.69,0.57
+20260618,585,605,576,599,1650001,582.41,2.85,598.65,548.75,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2467 | 志聖 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_3d |
-| 20260617 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 2467 | 志聖 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2467 | 志聖 | 2 | 2 | 3 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2467 | 志聖 | 3 | 3 | 3 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2467 | 志聖 | 0 | 2 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 2467 | 志聖 | 60 | 2 | 6812720.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

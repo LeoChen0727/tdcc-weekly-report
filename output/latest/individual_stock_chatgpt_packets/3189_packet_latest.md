@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:37 Asia/Taipei
+- generated_at: 2026-06-18 22:23:37 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,37 +56,36 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 642
-- high: 706
-- low: 640
-- close: 706
-- volume: 29986280
-- ma5: 647.4
-- ema23_primary: 636.19
-- distance_to_ema23_pct: 10.97
-- ma20: 655.5
-- ma60: 502.79
-- ma120: 361.17
-- return_5d: -0.84
-- return_20d: 45.27
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 7.7
-- distance_to_high_60_pct: -9.25
+- date: 20260618
+- open: 738
+- high: 738
+- low: 702
+- close: 724
+- volume: 27743868
+- ma5: 668.4
+- ema23_primary: 650.1
+- distance_to_ema23_pct: 11.37
+- ma20: 688.95
+- ma60: 523.96
+- ma120: 379.03
+- return_5d: 16.96
+- return_20d: 30.69
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 5.09
+- distance_to_high_60_pct: -6.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,472,510,460,505,20228783,474.24,6.49,497.9,386.51,0.57
-20260519,515,530,497,513,37470963,477.47,7.44,502.02,390.81,1.04
-20260520,513,520,481,504,39836206,479.68,5.07,503.55,394.98,1.11
-20260521,540,554,531,554,35212876,485.87,14.02,506.68,399.79,1
 20260522,588,609,588,609,11454728,496.13,22.75,513.17,405.07,0.35
 20260525,664,669,660,669,8536899,510.54,31.04,520.33,410.88,0.28
 20260526,670,719,654,696,50429815,525.99,32.32,529.38,417.05,1.67
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,740,775,740,774,6218324,584.32,32.46,569.92,444.94,0.24
 20260602,778,778,710,743,6753281,597.54,24.34,580.73,452.37,0.27
 20260603,740,749,730,739,4661433,609.33,21.28,593.55,459.82,0.2
-20260604,778,778,710,743,6753281,620.47,19.75,606.08,467.8,0.29
-20260605,662,725,623,712,7602120,628.1,13.36,618.77,475.1,0.35
-20260611,674,693,594,619,31037944,627.34,-1.33,624.58,480.57,1.4
-20260612,661,664,599,610,27158125,625.89,-2.54,630.38,485.93,1.23
-20260615,631,660,621,660,21349711,628.74,4.97,638.5,491.63,0.97
-20260616,660,688,637,642,26698363,629.84,1.93,644.5,496.72,1.27
-20260617,642,706,640,706,29986280,636.19,10.97,655.5,502.79,1.44
+20260604,706,720,681,692,6144218,616.22,12.3,603.52,466.95,0.27
+20260605,662,725,623,712,7602120,624.2,14.07,616.23,474.25,0.35
+20260608,641,698,641,698,8137218,630.35,10.73,625.98,481.04,0.39
+20260609,705,732,683,714,5537626,637.32,12.03,636.98,488.12,0.28
+20260610,705,723,650,660,6573701,639.21,3.25,645.1,493.83,0.35
+20260611,674,693,594,619,31037944,637.53,-2.91,649.95,498.53,1.7
+20260612,661,664,599,610,27158125,635.23,-3.97,656.15,503.01,1.51
+20260615,631,660,621,660,21349711,637.3,3.56,663.9,507.92,1.19
+20260616,660,688,637,642,26698363,637.69,0.68,670.35,512.23,1.53
+20260617,642,706,640,706,29986280,643.38,9.73,680.45,517.66,1.77
+20260618,738,738,702,724,27743868,650.1,11.37,688.95,523.96,1.67
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3189 | 景碩 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.75元 3.變更後發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.51756444元 4.變更原因:因本公司流通在外股份數量變動，故調整現金股利之配息率 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 3189 | 景碩 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.75元 3.變更後發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.51756444元 4.變更原因:因本公司流通在外股份數量變動，故調整現金股利之配息率 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260617 | 3189 | 景碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.75元 3.變更後發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.51756444元 4.變更原因:因本公司流通在外股份數量變動，故調整現金股利之配息率 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3189 | 景碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.75元 3.變更後發放股利種類及金額: 普通股現金股利新台幣799,620,430元，每股配發新台幣1.51756444元 4.變更原因:因本公司流通在外股份數量變動，故調整現金股利之配息率 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3189 | 景碩 | 6 | 5 | 5 | 6 | 8 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 3189 | 景碩 | 7 | 2 | 5 | 7 | 9 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3189 | 景碩 | 0 | 14 | 0.0 | 85270.0 | 0.0 | no_signal |
+| 20260618 | 3189 | 景碩 | 130 | 12 | 6397580.0 | 96960.0 | 65.98 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

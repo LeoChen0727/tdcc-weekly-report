@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3003 健和興
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:30 Asia/Taipei
+- generated_at: 2026-06-18 22:23:29 Asia/Taipei
 - stock_id: 3003
 - stock_name: 健和興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,8 +91,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
+- date: 20260618
 - open: 67.4
-- high: 67.8
-- low: 66.4
-- close: 67
-- volume: 3580906
-- ma5: 65.76
-- ema23_primary: 62.19
-- distance_to_ema23_pct: 7.74
-- ma20: 62.51
-- ma60: 56.45
-- ma120: 52.5
-- return_5d: 6.52
-- return_20d: 14.33
-- volume_ratio: 1.92
-- distance_to_ma20_pct_auxiliary: 7.18
-- distance_to_high_60_pct: -1.76
+- high: 71.3
+- low: 67.2
+- close: 69.9
+- volume: 4157767
+- ma5: 66.34
+- ema23_primary: 63.26
+- distance_to_ema23_pct: 10.49
+- ma20: 63.66
+- ma60: 57.44
+- ma120: 53.08
+- return_5d: 4.33
+- return_20d: 15.54
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 9.79
+- distance_to_high_60_pct: -1.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,57.7,60,56.3,59,1020092,56.15,5.07,56.3,52.37,0.9
-20260519,58.5,59.2,58,58.3,604675,56.33,3.49,56.45,52.55,0.55
-20260520,58.3,59.1,57.7,59,709662,56.55,4.33,56.66,52.73,0.64
-20260521,59.7,60.8,59.3,60.5,969804,56.88,6.36,56.88,52.92,0.89
 20260522,60.9,62.2,59.4,61.9,1655637,57.3,8.03,57.27,53.13,1.49
 20260525,62.9,63.5,60.8,61,1738481,57.61,5.89,57.62,53.31,1.51
 20260526,61.6,62.8,59.2,62.7,1591485,58.03,8.04,58.06,53.51,1.32
@@ -148,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,63.2,63.4,62,62.1,979968,59.33,4.66,59.59,54.33,0.67
 20260602,62.1,62.1,60.3,61.8,1100329,59.54,3.8,59.9,54.53,0.74
 20260603,61.8,62.8,61,62.6,836454,59.79,4.69,60.23,54.72,0.56
-20260604,62.1,62.1,60.3,61.8,1100329,59.96,3.07,60.53,54.96,0.72
-20260605,63,63.4,61.4,62.9,1293492,60.21,4.47,60.89,55.18,0.84
-20260611,64.4,67,63.8,67,2701628,60.77,10.25,61.28,55.46,1.73
-20260612,67.4,68.2,63.9,63.9,3197937,61.03,4.7,61.49,55.67,1.99
-20260615,64.2,65.5,63,63.5,2511017,61.24,3.69,61.77,55.89,1.5
-20260616,64.2,68.2,63.2,67.4,4818449,61.75,9.15,62.09,56.18,2.72
-20260617,67.4,67.8,66.4,67,3580906,62.19,7.74,62.51,56.45,1.92
+20260604,62.5,63.3,61.5,62.5,707970,60.02,4.13,60.57,54.97,0.47
+20260605,63,63.4,61.4,62.9,1293492,60.26,4.38,60.92,55.2,0.85
+20260608,58,61.4,57.5,61,1185773,60.32,1.13,61.02,55.37,0.81
+20260609,61.8,64.5,61.2,64.2,1829862,60.64,5.86,61.24,55.58,1.27
+20260610,64.2,66.6,64,64.1,2481735,60.93,5.2,61.55,55.81,1.65
+20260611,64.4,67,63.8,67,2701628,61.44,9.05,61.85,56.1,1.8
+20260612,67.4,68.2,63.9,63.9,3197937,61.64,3.66,62.12,56.32,2.04
+20260615,64.2,65.5,63,63.5,2511017,61.8,2.75,62.34,56.53,1.53
+20260616,64.2,68.2,63.2,67.4,4818449,62.26,8.25,62.8,56.82,2.6
+20260617,67.4,67.8,66.4,67,3580906,62.66,6.93,63.2,57.09,1.79
+20260618,67.4,71.3,67.2,69.9,4157767,63.26,10.49,63.66,57.44,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260617 | 3003 | 健和興 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 16.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260617 | 3003 | 健和興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3003 | 健和興 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_many_days | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3003 | 健和興 | 6 | 6 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3003 | 健和興 | 7 | 1 | 5 | 7 | 12 | continued_many_days | 連續 7 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9946 三發地產
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:22 Asia/Taipei
+- generated_at: 2026-06-18 22:25:12 Asia/Taipei
 - stock_id: 9946
 - stock_name: 三發地產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 19.8
-- high: 20.55
-- low: 19.6
-- close: 20.5
-- volume: 1978222
-- ma5: 19.1
-- ema23_primary: 17.53
-- distance_to_ema23_pct: 16.91
-- ma20: 17.24
-- ma60: 17.06
-- ma120: 17.44
-- return_5d: 19.53
-- return_20d: 22.02
-- volume_ratio: 1.91
-- distance_to_ma20_pct_auxiliary: 18.89
-- distance_to_high_60_pct: -2.38
+- date: 20260618
+- open: 20.7
+- high: 21.85
+- low: 20.4
+- close: 20.6
+- volume: 3024717
+- ma5: 19.66
+- ema23_primary: 17.89
+- distance_to_ema23_pct: 15.16
+- ma20: 17.52
+- ma60: 17.04
+- ma120: 17.45
+- return_5d: 15.73
+- return_20d: 22.62
+- volume_ratio: 2.26
+- distance_to_ma20_pct_auxiliary: 17.6
+- distance_to_high_60_pct: -5.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,16.7,17.15,16.55,16.8,936185,16.56,1.44,16.3,17.01,1.47
-20260519,16.95,17.1,16.7,16.7,389866,16.57,0.77,16.31,17.01,0.63
-20260520,16.7,16.8,16.55,16.8,393668,16.59,1.26,16.32,17.02,0.62
-20260521,16.8,16.9,16.75,16.8,380742,16.61,1.15,16.32,17.02,0.61
 20260522,16.8,16.85,16.7,16.8,485554,16.62,1.05,16.35,17.02,0.81
 20260525,16.8,16.9,16.4,16.4,718925,16.61,-1.24,16.36,17.01,1.16
 20260526,16.4,16.45,16.2,16.35,307518,16.58,-1.42,16.37,17.01,0.51
@@ -146,13 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,16.45,16.55,16.2,16.55,555667,16.53,0.12,16.47,16.99,0.91
 20260602,16.55,16.55,16.35,16.55,326585,16.53,0.11,16.51,16.98,0.54
 20260603,16.55,16.9,16.45,16.9,584000,16.56,2.04,16.57,16.97,0.95
-20260604,16.55,16.55,16.35,16.55,326585,16.56,-0.07,16.61,16.97,0.54
-20260605,17.1,17.25,16.95,17.15,1646474,16.61,3.25,16.66,16.97,2.49
-20260611,18.1,18.1,17.5,17.8,1485233,16.71,6.52,16.72,16.97,2.11
-20260612,17.95,18.35,17.8,17.95,1602968,16.81,6.76,16.78,16.98,2.14
-20260615,18.15,19.35,17.85,19.3,2936230,17.02,13.39,16.91,17,3.58
-20260616,20.1,21,19.5,19.95,4544523,17.26,15.56,17.06,17.02,4.62
-20260617,19.8,20.55,19.6,20.5,1978222,17.53,16.91,17.24,17.06,1.91
+20260604,16.9,17.05,16.85,16.95,790328,16.59,2.14,16.63,16.98,1.26
+20260605,17.1,17.25,16.95,17.15,1646474,16.64,3.06,16.68,16.98,2.4
+20260608,16.8,16.95,16.4,16.85,1092324,16.66,1.15,16.69,16.96,1.54
+20260609,16.85,17.1,16.75,16.95,846673,16.68,1.6,16.7,16.95,1.18
+20260610,16.75,17.85,16.75,17.8,2743093,16.78,6.1,16.76,16.95,3.53
+20260611,18.1,18.1,17.5,17.8,1485233,16.86,5.57,16.8,16.93,1.89
+20260612,17.95,18.35,17.8,17.95,1602968,16.95,5.89,16.86,16.93,1.95
+20260615,18.15,19.35,17.85,19.3,2936230,17.15,12.55,16.98,16.95,3.19
+20260616,20.1,21,19.5,19.95,4544523,17.38,14.78,17.14,16.98,4.03
+20260617,19.8,20.55,19.6,20.5,1978222,17.64,16.21,17.33,17.01,1.64
+20260618,20.7,21.85,20.4,20.6,3024717,17.89,15.16,17.52,17.04,2.26
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9946 | 三發地產 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 9946 | 三發地產 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9946 | 三發地產 | 6 | 1 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 9946 | 三發地產 | 7 | 2 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

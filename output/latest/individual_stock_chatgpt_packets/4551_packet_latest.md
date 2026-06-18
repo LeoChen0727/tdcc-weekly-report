@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:59 Asia/Taipei
+- generated_at: 2026-06-18 22:23:58 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -114,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 200
-- high: 201.5
-- low: 193
-- close: 201.5
-- volume: 2542965
-- ma5: 168.5
-- ema23_primary: 156.74
-- distance_to_ema23_pct: 28.55
-- ma20: 156.15
-- ma60: 142.85
-- ma120: 130.98
-- return_5d: 42.4
-- return_20d: 33.44
-- volume_ratio: 1.9
-- distance_to_ma20_pct_auxiliary: 29.04
+- date: 20260618
+- open: 221
+- high: 221.5
+- low: 216
+- close: 221.5
+- volume: 4096111
+- ma5: 185.1
+- ema23_primary: 160.71
+- distance_to_ema23_pct: 37.83
+- ma20: 157.97
+- ma60: 144.97
+- ma120: 132.4
+- return_5d: 59.93
+- return_20d: 39.75
+- volume_ratio: 2.59
+- distance_to_ma20_pct_auxiliary: 40.21
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,151,152.5,144,145.5,989733,141.38,2.91,140.35,131.79,1.24
-20260519,145.5,152,145.5,146,753242,141.76,2.99,140.65,132.18,0.92
-20260520,146,150.5,144.5,148.5,714092,142.33,4.34,141.05,132.6,0.86
-20260521,152.5,162,151.5,158.5,2183097,143.67,10.32,142.03,133.21,2.36
 20260522,159.5,159.5,154.5,155.5,1104146,144.66,7.49,143,133.72,1.16
 20260525,157,158,155,157,755993,145.69,7.76,144.3,134.27,0.78
 20260526,158.5,159.5,154,156,654998,146.55,6.45,145.68,134.81,0.68
@@ -149,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,158,158,152,153.5,908144,148.72,3.21,149.68,136.78,0.82
 20260602,154,155.5,150.5,152.5,943237,149.04,2.32,150.18,137.26,0.85
 20260603,154,157,151,151.5,1123529,149.24,1.51,151,137.75,1.01
-20260604,154,155.5,150.5,152.5,943237,149.51,2,151.88,138.44,0.83
-20260605,149,150.5,140,141.5,1367225,148.84,-4.93,152.2,138.85,1.17
-20260611,137.5,139,132.5,138.5,924025,147.98,-6.41,151.7,139.14,0.8
-20260612,142,152,142,152,1741843,148.32,2.48,151.53,139.66,1.57
-20260615,167,167,161.5,167,3128196,149.87,11.43,152.22,140.42,2.59
-20260616,183,183.5,182,183.5,2379377,152.68,20.19,153.62,141.53,1.9
-20260617,200,201.5,193,201.5,2542965,156.74,28.55,156.15,142.85,1.9
+20260604,151.5,151.5,142,145,1209234,148.89,-2.61,151.5,138.32,1.05
+20260605,149,150.5,140,141.5,1367225,148.27,-4.57,151.82,138.72,1.15
+20260608,130,140.5,128,139.5,2037217,147.54,-5.45,151.38,139.03,1.66
+20260609,139,144,137.5,144,1864948,147.25,-2.2,150.8,139.42,1.57
+20260610,141.5,144,136,137.5,1144781,146.43,-6.1,150.03,139.68,0.97
+20260611,137.5,139,132.5,138.5,924025,145.77,-4.99,149.18,140.04,0.8
+20260612,142,152,142,152,1741843,146.29,3.9,149.22,140.54,1.45
+20260615,167,167,161.5,167,3128196,148.02,12.82,150.3,141.28,2.39
+20260616,183,183.5,182,183.5,2379377,150.97,21.54,152.18,142.23,1.71
+20260617,200,201.5,193,201.5,2542965,155.18,29.85,154.82,143.47,1.71
+20260618,221,221.5,216,221.5,4096111,160.71,37.83,157.97,144.97,2.59
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4551 | 智伸科 | true_breakout | 嚴格突破 | 97.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 4551 | 智伸科 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4551 | 智伸科 | 4 | 3 | 4 | 5 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 4551 | 智伸科 | 5 | 4 | 5 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4551 | 智伸科 | 24 | 0 | 3016520.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

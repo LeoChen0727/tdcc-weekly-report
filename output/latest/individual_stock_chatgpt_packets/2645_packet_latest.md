@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2645 長榮航太
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:24 Asia/Taipei
+- generated_at: 2026-06-18 22:23:23 Asia/Taipei
 - stock_id: 2645
 - stock_name: 長榮航太
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 167.5
+- date: 20260618
+- open: 168
 - high: 171.5
 - low: 167
-- close: 168
-- volume: 633927
-- ma5: 168
-- ema23_primary: 164.22
-- distance_to_ema23_pct: 2.3
-- ma20: 163.62
-- ma60: 158.05
-- ma120: 157.39
-- return_5d: -0.89
-- return_20d: 11.63
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 2.67
-- distance_to_high_60_pct: -3.72
+- close: 170
+- volume: 1052269
+- ma5: 168.6
+- ema23_primary: 165.66
+- distance_to_ema23_pct: 2.62
+- ma20: 166.62
+- ma60: 159.04
+- ma120: 158.29
+- return_5d: 1.8
+- return_20d: 4.62
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 2.03
+- distance_to_high_60_pct: -2.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,150.5,151.5,149,150,1006008,156.22,-3.98,158.65,158.29,0.6
-20260519,151,154.5,150,152,880200,155.87,-2.48,157.95,158.18,0.55
-20260520,152,155.5,151.5,152.5,935870,155.59,-1.98,157.25,158.06,0.59
-20260521,154.5,166,154.5,162.5,3593758,156.16,4.06,157.1,158.03,2.12
 20260522,163,164.5,159,160.5,1489709,156.53,2.54,156.85,157.83,0.89
 20260525,162.5,164,160,162.5,1149766,157.02,3.49,156.8,157.64,0.68
 20260526,162.5,162.5,158,158.5,1082679,157.15,0.86,156.62,157.38,0.64
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,167,174.5,166,172.5,3117717,159.9,7.88,158.7,156.98,1.64
 20260602,172,172,164,166,2121806,160.41,3.49,159,156.96,1.09
 20260603,166,168,164.5,168,1085483,161.04,4.32,159.55,157.03,0.55
-20260604,172,172,164,166,2121806,161.45,2.82,159.9,157.26,1.07
-20260605,166.5,172,161.5,169.5,2336557,162.12,4.55,160.18,157.48,1.22
-20260611,168,169.5,165.5,167,1196532,162.53,2.75,160.8,157.6,0.68
-20260612,169,171,166,166.5,1057718,162.86,2.23,161.28,157.72,0.62
-20260615,168,173.5,167.5,170.5,1463198,163.5,4.28,162,157.88,0.85
-20260616,171,171,167.5,168,695905,163.87,2.52,162.75,157.98,0.42
-20260617,167.5,171.5,167,168,633927,164.22,2.3,163.62,158.05,0.39
+20260604,168,168.5,165,165,726445,161.37,2.25,159.85,157.24,0.38
+20260605,166.5,172,161.5,169.5,2336557,162.05,4.6,160.12,157.47,1.26
+20260608,161.5,167,160,166,1779344,162.38,2.23,160.7,157.57,1.04
+20260609,166,174.5,166,173.5,2962578,163.3,6.24,161.53,157.8,1.69
+20260610,172.5,173,168.5,168.5,1733380,163.74,2.91,162.15,157.93,0.97
+20260611,168,169.5,165.5,167,1196532,164.01,1.82,162.85,158.02,0.68
+20260612,169,171,166,166.5,1057718,164.22,1.39,163.65,158.06,0.61
+20260615,168,173.5,167.5,170.5,1463198,164.74,3.5,164.68,158.18,0.83
+20260616,171,171,167.5,168,695905,165.01,1.81,165.47,158.4,0.4
+20260617,167.5,171.5,167,168,633927,165.26,1.66,166.25,158.65,0.37
+20260618,168,171.5,167,170,1052269,165.66,2.62,166.62,159.04,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2645 | 長榮航太 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2645 | 長榮航太 | 1 | 1 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2645 | 長榮航太 | 42 | 0 | 1524610.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

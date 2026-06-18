@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:08 Asia/Taipei
+- generated_at: 2026-06-18 22:24:58 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 895
-- high: 920
-- low: 871
-- close: 885
-- volume: 17286897
-- ma5: 854.6
-- ema23_primary: 860.09
-- distance_to_ema23_pct: 2.9
-- ma20: 864.2
-- ma60: 779.32
-- ma120: 567.36
-- return_5d: 4.73
-- return_20d: 12.6
+- date: 20260618
+- open: 900
+- high: 912
+- low: 874
+- close: 874
+- volume: 17763806
+- ma5: 868
+- ema23_primary: 862.29
+- distance_to_ema23_pct: 1.36
+- ma20: 873.8
+- ma60: 800.63
+- ma120: 587.25
+- return_5d: 8.3
+- return_20d: 0.23
 - volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 2.41
-- distance_to_high_60_pct: -14.49
+- distance_to_ma20_pct_auxiliary: 0.02
+- distance_to_high_60_pct: -15.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,775,798,765,791,10859623,830.61,-4.77,882.95,656.88,0.55
-20260519,800,830,786,798,9881030,827.89,-3.61,883.05,663.24,0.51
-20260520,807,843,783,829,12893086,827.98,0.12,885.05,670.23,0.7
-20260521,885,903,862,872,18744950,831.65,4.85,888.5,677.83,1.02
 20260522,904,952,904,934,17476938,840.18,11.17,895.45,685.77,0.99
 20260525,940,947,879,884,30914905,843.83,4.76,895.95,692.12,1.71
 20260526,888,947,871,922,24438087,850.35,8.43,896.4,698.27,1.37
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,842,923,838,905,21446815,858.2,5.45,879.85,722.64,1.21
 20260602,905,907,834,862,14435807,858.52,0.41,873.1,729.33,0.81
 20260603,860,920,856,904,17486574,862.31,4.83,871.3,736.57,0.99
-20260604,905,907,834,862,14435807,862.28,-0.03,867.05,743.88,0.81
-20260605,865,875,813,845,14136931,860.84,-1.84,866.6,750.83,0.81
-20260611,845,863,777,807,19365377,856.36,-5.76,861.55,756.44,1.09
-20260612,850,868,812,819,13021503,853.24,-4.01,857.5,762.28,0.74
-20260615,842,865,830,860,10103522,853.81,0.73,856.5,768.03,0.58
-20260616,860,929,858,902,16662698,857.82,5.15,859.25,773.63,0.96
-20260617,895,920,871,885,17286897,860.09,2.9,864.2,779.32,1
+20260604,870,900,866,878,8813911,863.62,1.67,867.85,744.15,0.5
+20260605,865,875,813,845,14136931,862.07,-1.98,867.4,751.1,0.82
+20260608,761,853,761,831,15131933,859.48,-3.31,863.55,757.11,0.88
+20260609,852,914,842,914,18885820,864.02,5.78,864.25,764.53,1.08
+20260610,894,912,843,847,17501947,862.6,-1.81,862.6,770.07,0.99
+20260611,845,863,777,807,19365377,857.97,-5.94,860.6,774.08,1.1
+20260612,850,868,812,819,13021503,854.72,-4.18,862.25,778.67,0.75
+20260615,842,865,830,860,10103522,855.16,0.57,865.7,783.55,0.58
+20260616,860,929,858,902,16662698,859.06,5,870.9,789.23,0.94
+20260617,895,920,871,885,17286897,861.23,2.76,873.7,794.97,0.97
+20260618,900,912,874,874,17763806,862.29,1.36,873.8,800.63,1
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8046 | 南電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
-| 20260617 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 8046 | 南電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8046 | 南電 | 16 | 10 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 8046 | 南電 | 17 | 11 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8046 | 南電 | 0 | 11 | 0.0 | 37260.0 | 0.0 | no_signal |
+| 20260618 | 8046 | 南電 | 93 | 9 | 1686690.0 | 50000.0 | 33.73 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

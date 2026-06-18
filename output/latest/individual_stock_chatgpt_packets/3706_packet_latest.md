@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:52 Asia/Taipei
+- generated_at: 2026-06-18 22:23:51 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 83.6
-- high: 86.6
-- low: 83.6
-- close: 86.3
-- volume: 19912299
-- ma5: 85.64
-- ema23_primary: 87.18
-- distance_to_ema23_pct: -1.01
-- ma20: 87.44
-- ma60: 83.55
-- ma120: 83.08
-- return_5d: -6.6
-- return_20d: 8.01
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -1.31
-- distance_to_high_60_pct: -16.62
+- date: 20260618
+- open: 86.4
+- high: 87.5
+- low: 86.2
+- close: 86.9
+- volume: 10099896
+- ma5: 85.72
+- ema23_primary: 87.16
+- distance_to_ema23_pct: -0.3
+- ma20: 88.75
+- ma60: 83.95
+- ma120: 83.17
+- return_5d: 0.46
+- return_20d: 4.07
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -2.09
+- distance_to_high_60_pct: -16.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,79.3,80.3,77.8,80.1,8216802,82.74,-3.2,83.45,81.16,0.56
-20260519,80.1,81,79.6,80.7,8211781,82.57,-2.27,83.28,81.22,0.57
-20260520,80.7,80.8,79.9,80.3,7923561,82.38,-2.53,83.05,81.24,0.56
-20260521,81.5,83.6,81,83.5,15896258,82.48,1.24,82.96,81.33,1.11
 20260522,84.3,88.4,83.6,87.8,37196613,82.92,5.88,83.22,81.46,2.43
 20260525,89.3,89.3,87.2,88.5,30434560,83.39,6.13,83.56,81.59,1.85
 20260526,89.1,89.7,86.4,87.4,19983885,83.72,4.39,83.86,81.69,1.17
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,90.8,94.5,90.8,93.5,62080953,84.91,10.12,84.97,82.29,2.61
 20260602,94.5,97.3,91.6,95.2,68634143,85.77,11,85.52,82.52,2.6
 20260603,97.6,103.5,93.6,100,99764313,86.95,15,86.13,82.84,3.37
-20260604,94.5,97.3,91.6,95.2,68634143,87.64,8.62,86.52,83.13,2.17
-20260605,92.5,94.8,89.1,92.4,34244447,88.04,4.95,86.83,83.35,1.05
-20260611,85.6,88,84.3,86.5,13982746,87.91,-1.6,86.81,83.41,0.44
-20260612,88.9,89.6,85.5,85.5,17563129,87.71,-2.52,86.8,83.45,0.54
-20260615,86.6,87.4,85.3,85.6,14738280,87.53,-2.21,86.97,83.5,0.47
-20260616,86.3,86.7,84.2,84.3,16734980,87.26,-3.4,87.12,83.51,0.53
-20260617,83.6,86.6,83.6,86.3,19912299,87.18,-1.01,87.44,83.55,0.62
+20260604,98,102,93.9,93.9,60949533,87.53,7.27,86.45,83.11,1.95
+20260605,92.5,94.8,89.1,92.4,34244447,87.94,5.07,86.77,83.33,1.07
+20260608,83.5,88,83.5,87.3,24364932,87.89,-0.67,86.79,83.4,0.76
+20260609,91.7,92,89.5,91.8,30502944,88.21,4.07,87.08,83.55,0.92
+20260610,90.2,90.4,86.1,86.1,29555463,88.04,-2.2,87.28,83.6,0.89
+20260611,85.6,88,84.3,86.5,13982746,87.91,-1.6,87.55,83.65,0.42
+20260612,88.9,89.6,85.5,85.5,17563129,87.71,-2.52,87.83,83.68,0.53
+20260615,86.6,87.4,85.3,85.6,14738280,87.53,-2.21,88.11,83.7,0.44
+20260616,86.3,86.7,84.2,84.3,16734980,87.26,-3.39,88.28,83.73,0.49
+20260617,83.6,86.6,83.6,86.3,19912299,87.18,-1.01,88.58,83.82,0.57
+20260618,86.4,87.5,86.2,86.9,10099896,87.16,-0.3,88.75,83.95,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3706 | 神達 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 3706 | 神達 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3706 | 神達 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3706 | 神達 | 17 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3706 | 神達 | 0 | 2 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 3706 | 神達 | 102 | 2 | 8591140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

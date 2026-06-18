@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:35 Asia/Taipei
+- generated_at: 2026-06-18 22:24:33 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 924
-- high: 953
-- low: 921
-- close: 933
-- volume: 2679540
-- ma5: 922
-- ema23_primary: 978.68
-- distance_to_ema23_pct: -4.67
-- ma20: 1023.35
-- ma60: 804.2
-- ma120: 621.99
-- return_5d: -7.62
-- return_20d: -13.61
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -8.83
-- distance_to_high_60_pct: -28.51
+- date: 20260618
+- open: 942
+- high: 1025
+- low: 942
+- close: 1025
+- volume: 5511532
+- ma5: 949
+- ema23_primary: 969.94
+- distance_to_ema23_pct: 5.68
+- ma20: 1011.45
+- ma60: 830.4
+- ma120: 640.15
+- return_5d: 15.17
+- return_20d: 17.01
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 1.34
+- distance_to_high_60_pct: -21.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,1030,1150,995,1135,7996123,880.05,28.97,896.3,622.3,1.09
-20260519,1095,1100,1025,1025,5976731,892.13,14.89,913.45,632.62,0.86
-20260520,1000,1025,953,973,7417516,898.87,8.25,926.1,642.01,1.08
-20260521,995,1010,876,876,17381719,896.96,-2.34,930.3,650.01,2.3
 20260522,919,963,906,963,8159956,902.47,6.71,939.2,659.35,1.24
 20260525,1010,1055,981,1055,4567035,915.18,15.28,952.55,670.07,0.75
 20260526,1055,1125,1045,1080,10066961,928.91,16.27,968.9,680.94,1.58
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,1240,1305,1115,1125,11967569,986.52,14.04,1024.2,727.56,1.47
 20260602,1140,1155,1045,1075,6639528,993.9,8.16,1031.2,738.13,0.79
 20260603,1110,1165,1090,1100,5331477,1002.74,9.7,1037.95,749.23,0.63
-20260604,1140,1155,1045,1075,6639528,1008.76,6.57,1045.45,760.42,0.76
-20260605,1030,1055,999,1010,5307163,1008.86,0.11,1052.2,770.13,0.6
-20260611,893,917,846,890,5544297,998.96,-10.91,1048.6,777.61,0.62
-20260612,940,974,920,932,4366481,993.38,-6.18,1042.45,785.05,0.5
-20260615,954,969,931,931,2772853,988.18,-5.79,1037,791.72,0.34
-20260616,945,974,920,924,3865709,982.83,-5.99,1030.7,798.32,0.49
-20260617,924,953,921,933,2679540,978.68,-4.67,1023.35,804.2,0.35
+20260604,1060,1150,1055,1055,4002822,1007.09,4.76,1044.45,760.09,0.47
+20260605,1030,1055,999,1010,5307163,1007.34,0.26,1051.2,769.8,0.61
+20260608,909,909,909,909,933349,999.14,-9.02,1048.55,777.59,0.11
+20260609,921,966,890,963,5978058,996.13,-3.33,1043.95,785.55,0.71
+20260610,928,989,892,894,5662890,987.62,-9.48,1036.65,791.6,0.7
+20260611,893,917,846,890,5544297,979.48,-9.14,1028.65,797.63,0.7
+20260612,940,974,920,932,4366481,975.53,-4.46,1021.25,803.5,0.57
+20260615,954,969,931,931,2772853,971.82,-4.2,1011.05,809.48,0.38
+20260616,945,974,920,924,3865709,967.83,-4.53,1006,815.7,0.53
+20260617,924,953,921,933,2679540,964.93,-3.31,1004,822.03,0.38
+20260618,942,1025,942,1025,5511532,969.94,5.68,1011.45,830.4,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6531 | 愛普* | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
-| 20260617 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 6531 | 愛普* | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6531 | 愛普* | 7 | 7 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6531 | 愛普* | 8 | 5 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6531 | 愛普* | 0 | 3 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 6531 | 愛普* | 89 | 3 | 5572060.0 | 400.0 | 13930.15 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

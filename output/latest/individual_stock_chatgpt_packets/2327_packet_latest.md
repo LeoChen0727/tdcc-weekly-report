@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:10 Asia/Taipei
+- generated_at: 2026-06-18 22:23:09 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 276
+- latest_price_date: 20260618
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,8 +87,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 936
-- high: 998
-- low: 930
-- close: 984
-- volume: 56180641
-- ma5: 914.2
-- ema23_primary: 731.19
-- distance_to_ema23_pct: 34.58
-- ma20: 744.7
-- ma60: 457.27
-- ma120: 358
-- return_5d: 27.96
-- return_20d: 116.03
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 32.13
-- distance_to_high_60_pct: -1.6
+- date: 20260618
+- open: 1015
+- high: 1080
+- low: 974
+- close: 1080
+- volume: 93655965
+- ma5: 961.8
+- ema23_primary: 780.21
+- distance_to_ema23_pct: 38.42
+- ma20: 808.85
+- ma60: 495.5
+- ma120: 378.19
+- return_5d: 28.27
+- return_20d: 88.81
+- volume_ratio: 1.8
+- distance_to_ma20_pct_auxiliary: 33.52
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,475,501,467.5,501,92207451,372.06,34.66,362.98,302.92,1.81
-20260519,501,516,485.5,497,89070238,382.47,29.94,371.85,307.03,1.66
-20260520,514,545,503,520,84883235,393.93,32,381.7,311.47,1.51
-20260521,561,572,560,572,24699193,408.77,39.93,394.52,316.73,0.44
 20260522,605,629,600,629,73991747,427.12,47.26,411.23,322.52,1.3
 20260525,679,691,662,691,67663245,449.11,53.86,430.93,329.02,1.16
 20260526,674,678,631,661,29457930,466.77,41.61,448.73,335.04,0.5
@@ -148,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,765,811,765,790,32143661,548.73,43.97,531.88,365.73,0.58
 20260602,771,847,757,846,23216094,573.51,47.51,556.75,375.38,0.42
 20260603,810,844,810,820,16771572,594.05,38.04,580.85,384.62,0.32
-20260604,771,847,757,846,23216094,615.04,37.55,604.58,394.58,0.45
-20260605,708,778,670,769,29037062,627.87,22.48,623.58,403.09,0.6
-20260611,850,861,761,842,121334804,645.72,30.4,646.1,412.72,2.34
-20260612,919,919,852,855,90466919,663.16,28.93,667.88,422.77,1.7
-20260615,921,940,921,940,42102101,686.23,36.98,693.88,434.14,0.8
-20260616,970,1000,950,950,79608290,708.21,34.14,718.27,445.64,1.43
-20260617,936,998,930,984,56180641,731.19,34.58,744.7,457.27,1.07
+20260604,775,788,743,743,24383227,606.46,22.51,599.42,392.87,0.47
+20260605,708,778,670,769,29037062,620,24.03,618.42,401.38,0.6
+20260608,693,751,693,751,26219850,630.92,19.03,636.4,409.48,0.56
+20260609,790,826,772,826,52270522,647.18,27.63,656.73,419.06,1.12
+20260610,864,908,803,819,100512220,661.5,23.81,676.67,428.41,2.05
+20260611,850,861,761,842,121334804,676.54,24.46,695.67,438.11,2.24
+20260612,919,919,852,855,90466919,691.41,23.66,715.65,447.59,1.71
+20260615,921,940,921,940,42102101,712.13,32,737.6,458.58,0.84
+20260616,970,1000,950,950,79608290,731.95,29.79,760.25,469.83,1.6
+20260617,936,998,930,984,56180641,752.95,30.69,783.45,481.72,1.16
+20260618,1015,1080,974,1080,93655965,780.21,38.42,808.85,495.5,1.8
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2327 | 國巨* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2327 | 國巨* | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  | mixed_flow | continued_overheated | 1.事實發生日:115/06/17 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理 3.財務業務資訊: 　期間　　　　　　　月　　　　　　　　　　　季　　　　　　最近四季累計 ＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝ 　　　　　 最近一月　　 與去年　　　最近一季　　與去年　　　114年第2季 　科目　　 115年5月　  同期增減%　 115年第1季　同期增減%　 至115年第1季 　　　　　(合併自結數) 　　　　　　(合併核閱數)　　　　　(合併查核/核閱數) ＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝＝ 營業收入　　 15,058　　  47.5%　　　38,166　　　22.7%　　   139,992  (百萬) 稅前淨利　　　4,005　　　84.8%　　　10,325　　　43.9%　 　　 34,271  (百萬) 歸屬母公司 業主淨利　　　3,275　　 112.7%　　　 8,001　　　44.7%　　　  26,105  (百萬) 每股盈餘　　　 1.60　　 112.7%        3.90      44.7%         12.72  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2327 | 國巨* | 5 | 1 | 5 | 5 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 2327 | 國巨* | 6 | 1 | 5 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2327 | 國巨* | 0 | 39 | 0.0 | 631880.0 | 0.0 | no_signal |
+| 20260618 | 2327 | 國巨* | 270 | 37 | 77477260.0 | 1087530.0 | 71.24 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:20 Asia/Taipei
+- generated_at: 2026-06-18 22:25:10 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 74.1
-- high: 74.4
-- low: 72
-- close: 73
-- volume: 2484021
-- ma5: 73.58
-- ema23_primary: 68.78
-- distance_to_ema23_pct: 6.13
-- ma20: 69.42
-- ma60: 64.45
-- ma120: 73.06
-- return_5d: 5.64
-- return_20d: 4.14
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 5.16
-- distance_to_high_60_pct: -4.33
+- date: 20260618
+- open: 73
+- high: 73.9
+- low: 72.1
+- close: 72.1
+- volume: 980872
+- ma5: 73.26
+- ema23_primary: 69.38
+- distance_to_ema23_pct: 3.93
+- ma20: 69.52
+- ma60: 64.54
+- ma120: 72.43
+- return_5d: -2.17
+- return_20d: 3
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 3.71
+- distance_to_high_60_pct: -5.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,70,71,67.3,68.4,4717338,61.63,10.99,59.87,65.75,2.18
-20260519,68.1,70.6,67.3,68.5,2449898,62.2,10.13,60.26,65.51,1.09
-20260520,68.5,69.6,67.5,68.5,1683649,62.73,9.21,60.6,65.28,0.73
-20260521,68.6,70.7,68.5,70,2660265,63.33,10.53,61.02,65.08,1.11
 20260522,69.6,69.6,67.5,67.8,3290541,63.7,6.43,61.42,64.91,1.34
 20260525,68.5,68.9,67.3,68.2,1424014,64.08,6.43,61.95,64.74,0.59
 20260526,68.2,68.2,66.1,67.3,1786005,64.35,4.59,62.46,64.59,0.74
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,67,68,66,68,1162826,64.98,4.64,64.22,64.17,0.45
 20260602,68.1,69.3,67.6,68.9,1614625,65.31,5.5,64.76,64.14,0.61
 20260603,69.5,69.9,68.1,69.3,1293156,65.64,5.57,65.41,64.13,0.5
-20260604,68.1,69.3,67.6,68.9,1614625,65.91,4.53,66.05,64.12,0.62
-20260605,68.7,69.8,67.5,69.1,1217061,66.18,4.41,66.72,64.13,0.47
-20260611,69.4,75.5,68.7,73.7,4794831,66.81,10.32,67.53,64.19,1.75
-20260612,74.7,75.4,72.7,73.4,3083751,67.36,8.97,68.22,64.25,1.12
-20260615,74,76,73,73.7,2903092,67.88,8.57,68.76,64.33,1.09
-20260616,73.7,76.3,73.2,74.1,2067938,68.4,8.33,69.28,64.39,0.81
-20260617,74.1,74.4,72,73,2484021,68.78,6.13,69.42,64.45,1.07
+20260604,69.3,69.8,67.4,68.6,1220445,65.89,4.12,66.03,64.12,0.47
+20260605,68.7,69.8,67.5,69.1,1217061,66.16,4.45,66.7,64.12,0.47
+20260608,65,68.6,65,68,1681554,66.31,2.55,67.22,64.09,0.66
+20260609,67.5,69.4,67,68.6,1138710,66.5,3.16,67.68,64.07,0.46
+20260610,67.7,69.5,67.7,69,1220768,66.71,3.43,67.98,64.07,0.53
+20260611,69.4,75.5,68.7,73.7,4794831,67.29,9.52,68.48,64.12,2.05
+20260612,74.7,75.4,72.7,73.4,3083751,67.8,8.26,68.64,64.19,1.45
+20260615,74,76,73,73.7,2903092,68.29,7.92,68.91,64.28,1.42
+20260616,73.7,76.3,73.2,74.1,2067938,68.78,7.74,69.19,64.4,1.02
+20260617,74.1,74.4,72,73,2484021,69.13,5.6,69.42,64.48,1.21
+20260618,73,73.9,72.1,72.1,980872,69.38,3.93,69.52,64.54,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 9914 | 美利達 | 7 | 0 | 134030.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

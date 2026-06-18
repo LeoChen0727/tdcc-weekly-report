@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:29 Asia/Taipei
+- generated_at: 2026-06-18 22:24:27 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,48 +112,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 1585
-- high: 1690
-- low: 1570
-- close: 1670
-- volume: 1649000
-- ma5: 1551
-- ema23_primary: 1495.13
-- distance_to_ema23_pct: 11.7
-- ma20: 1528
-- ma60: 1124.22
-- ma120: 806.81
-- return_5d: 3.73
-- return_20d: 27.97
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: 9.29
-- distance_to_high_60_pct: -7.99
+- date: 20260618
+- open: 1790
+- high: 1835
+- low: 1770
+- close: 1835
+- volume: 3462000
+- ma5: 1623
+- ema23_primary: 1535.67
+- distance_to_ema23_pct: 19.49
+- ma20: 1601.5
+- ma60: 1195.52
+- ma120: 846.36
+- return_5d: 24.41
+- return_20d: 38.49
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 14.58
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,1210,1265,1200,1260,2672000,1167.49,7.92,1182.6,798.57,0.55
-20260519,1250,1305,1210,1225,1398000,1172.29,4.5,1196.35,810.18,0.29
-20260520,1260,1300,1190,1205,1568000,1175.01,2.55,1208.45,821.4,0.34
-20260521,1325,1325,1325,1325,705000,1187.51,11.58,1226.05,834.62,0.15
 20260522,1455,1455,1445,1455,1454000,1209.8,20.27,1251.3,849.88,0.33
 20260525,1600,1600,1590,1600,1600000,1242.32,28.79,1279.05,867.18,0.37
 20260526,1640,1700,1560,1580,1630000,1270.46,24.36,1308.55,883.9,0.39
 20260527,1640,1735,1575,1630,1654000,1300.42,25.34,1341.75,901.98,0.4
 20260528,1615,1695,1525,1540,1586000,1320.39,16.63,1370,918.65,0.39
 20260529,1615,1690,1610,1690,1677000,1351.19,25.08,1404,937.85,0.42
-20260601,1690,1815,1650,1705,1740,1380.67,23.49,1433.75,958.09,0
+20260601,1690,1815,1650,1705,1740000,1380.67,23.49,1433.75,958.09,0.46
 20260602,1700,1700,1565,1590,1612,1398.12,13.72,1452.25,976.16,0
-20260603,1605,1730,1585,1695,1665000,1422.86,19.13,1471.25,996.01,0.74
-20260604,1605,1730,1585,1695,1665000,1445.53,17.26,1483.75,1016.69,0.78
-20260605,1645,1715,1530,1610,1609000,1459.24,10.33,1495.75,1035.74,1.07
-20260611,1520,1555,1400,1475,1478000,1460.55,0.99,1496.75,1052.18,1.02
-20260612,1580,1620,1430,1430,1497000,1458.01,-1.92,1495.75,1068.47,1.03
-20260615,1490,1570,1490,1570,1549000,1467.34,7,1501.75,1086.35,1.07
-20260616,1590,1660,1580,1610,1614000,1479.23,8.84,1509.75,1104.8,1.14
-20260617,1585,1690,1570,1670,1649000,1495.13,11.7,1528,1124.22,1.15
+20260603,1605,1730,1585,1695,1665000,1422.86,19.13,1471.25,996.01,0.71
+20260604,1680,1705,1640,1695,1673000,1445.53,17.26,1483.75,1016.69,0.76
+20260605,1645,1715,1530,1610,1609000,1459.24,10.33,1495.75,1035.74,1.01
+20260608,1450,1545,1450,1535,5496000,1465.55,4.74,1499.75,1053.18,3.15
+20260609,1550,1620,1480,1615,8699000,1478.01,9.27,1508,1072.56,4.13
+20260610,1590,1705,1490,1500,8634000,1479.84,1.36,1510.5,1089.27,3.53
+20260611,1520,1555,1400,1475,8042000,1479.44,-0.3,1511.75,1105.47,2.93
+20260612,1580,1620,1430,1430,8780000,1475.32,-3.07,1518,1120.88,2.82
+20260615,1490,1570,1490,1570,4650000,1483.21,5.85,1533.5,1138.2,1.45
+20260616,1590,1660,1580,1610,5624000,1493.77,7.78,1552.75,1155.3,1.64
+20260617,1585,1690,1570,1670,5922000,1508.46,10.71,1576,1173.9,1.63
+20260618,1790,1835,1770,1835,3462000,1535.67,19.49,1601.5,1195.52,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6274 | 台燿 | true_breakout | 嚴格突破 | 61.0 |  |  | neckline_challenge |  |  | first_seen | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 承認114年度盈餘分派案，普通股每股配發現金股利7.506577元。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6274 | 台燿 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

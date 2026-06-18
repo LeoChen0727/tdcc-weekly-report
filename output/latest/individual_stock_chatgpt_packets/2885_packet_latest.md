@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:28 Asia/Taipei
+- generated_at: 2026-06-18 22:23:27 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 65.4
-- high: 67.4
-- low: 65.3
-- close: 66.7
-- volume: 27549998
-- ma5: 64.52
-- ema23_primary: 60.09
-- distance_to_ema23_pct: 11.01
-- ma20: 59.77
-- ma60: 53.15
-- ma120: 47.69
-- return_5d: 2.14
-- return_20d: 21.72
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 11.59
-- distance_to_high_60_pct: -1.04
+- date: 20260618
+- open: 66.8
+- high: 68.2
+- low: 66.5
+- close: 68
+- volume: 42276322
+- ma5: 65.8
+- ema23_primary: 61.64
+- distance_to_ema23_pct: 10.31
+- ma20: 61.91
+- ma60: 54.56
+- ma120: 48.6
+- return_5d: 10.39
+- return_20d: 24.31
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 9.85
+- distance_to_high_60_pct: -0.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,54.8,55,53.9,54.3,24072430,53.03,2.4,53.44,48.52,0.89
-20260519,54.5,56.3,54.4,54.7,32971846,53.17,2.88,53.61,48.7,1.19
-20260520,55,55.5,54.5,55.1,20110457,53.33,3.32,53.82,48.88,0.73
-20260521,55.5,56.1,54.6,54.7,26797060,53.44,2.35,54.05,49.05,0.99
 20260522,54.5,55.5,54.4,55.1,25396600,53.58,2.84,54.29,49.19,0.95
 20260525,55.1,56.1,54.9,56.1,28737220,53.79,4.29,54.6,49.33,1.07
 20260526,56.7,57.4,56.3,57.3,37682542,54.08,5.95,54.92,49.5,1.39
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,59.3,59.6,58.3,59.2,31159437,55.63,6.42,56.3,50.31,0.99
 20260602,59.1,59.9,58.9,59.6,30836882,55.96,6.5,56.52,50.55,0.98
 20260603,60.4,64.1,59.7,63.7,45088634,56.61,12.53,56.89,50.85,1.39
-20260604,59.1,59.9,58.9,59.6,30836882,56.86,4.83,57.06,51.11,0.95
-20260605,63.7,66.7,62,65.3,40414143,57.56,13.45,57.51,51.46,1.22
-20260611,62.3,62.3,60.7,61.6,30141911,57.9,6.4,57.76,51.75,0.9
-20260612,63,64.1,62.6,63.9,23267953,58.4,9.43,58.23,52.08,0.7
-20260615,66,66,64.6,65,16187794,58.95,10.27,58.69,52.44,0.49
-20260616,65.6,66.5,64.8,65.4,26712275,59.48,9.95,59.18,52.79,0.81
-20260617,65.4,67.4,65.3,66.7,27549998,60.09,11.01,59.77,53.15,0.83
+20260604,63.8,65.2,63,63.9,33224766,57.21,11.69,57.28,51.18,1.02
+20260605,63.7,66.7,62,65.3,40414143,57.89,12.8,57.72,51.53,1.21
+20260608,63.9,64.6,60.9,62,47187669,58.23,6.47,57.99,51.83,1.37
+20260609,62,65.2,62,64.8,31001284,58.78,10.25,58.51,52.17,0.9
+20260610,64.3,64.5,62.2,62.3,30654583,59.07,5.47,58.83,52.49,0.88
+20260611,62.3,62.3,60.7,61.6,30141911,59.28,3.91,59.13,52.77,0.85
+20260612,63,64.1,62.6,63.9,23267953,59.67,7.09,59.59,53.09,0.66
+20260615,66,66,64.6,65,16187794,60.11,8.13,60.12,53.43,0.46
+20260616,65.6,66.5,64.8,65.4,26712275,60.55,8.01,60.66,53.78,0.77
+20260617,65.4,67.4,65.3,66.7,27549998,61.06,9.23,61.24,54.16,0.79
+20260618,66.8,68.2,66.5,68,42276322,61.64,10.31,61.91,54.56,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -183,20 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2885 | 元大金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:元大創業投資股份有限公司及元大壹創業投資股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 一、元大創業投資股份有限公司（簡稱「元大創投」）與 元大壹創業投資股份有限公司（簡稱「元大壹創投」）於民國115年6月16日， 分別經其董事會決議通過合併，並以元大創投為存續公司， 元大壹創投為消滅公司（下稱「本合併案」）， 合併基準日暫定為115年9月30日。 二、自合併基準日起，元大壹創投之帳列資產、負債及一切權利義務， 均由元大創投概括承受。 三、謹依公司法第319條準用第73條及企業併購法第23條之規定 辦理公告本合併案，如債權人對本合併案有異議者， 請於公告日起31日內，檢附債權證明文件， 以書面方式郵寄掛號（以郵戳日為憑）向元大壹創投提出， 逾期即視為無異議。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:元大創業投資股份有限公司及元大壹創業投資股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 一、元大創業投資股份有限公司（簡稱「元大創投」）與 元大壹創業投資股份有限公司（簡稱「元大壹創投」）於民國115年6月16日， 分別經其董事會決議通過合併，並以元大創投為存續公司， 元大壹創投為消滅公司（下稱「本合併案」）， 合併基準日暫定為115年9月30日。 二、自合併基準日起，元大壹創投之帳列資產、負債及一切權利義務， 均由元大創投概括承受。 三、謹依公司法第319條準用第73條及企業併購法第23條之規定 辦理公告本合併案，如債權人對本合併案有異議者， 請於公告日起31日內，檢附債權證明文件， 以書面方式郵寄掛號（以郵戳日為憑）向元大壹創投提出， 逾期即視為無異議。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2885 | 元大金 | 4 | 3 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2885 | 元大金 | 17 | 0 | 1793690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

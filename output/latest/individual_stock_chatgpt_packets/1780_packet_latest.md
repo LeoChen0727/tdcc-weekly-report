@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1780 立弘
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:02 Asia/Taipei
+- generated_at: 2026-06-18 22:23:00 Asia/Taipei
 - stock_id: 1780
 - stock_name: 立弘
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260617
-- price_rows: 1
+- latest_price_date: 20260618
+- price_rows: 2
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,12 +112,12 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 24
-- high: 29
-- low: 24
-- close: 28.4
-- volume: 26000
+- date: 20260618
+- open: 27.8
+- high: 28.5
+- low: 26.5
+- close: 26.95
+- volume: 961000
 - ma5:
 - ema23_primary:
 - distance_to_ema23_pct:
@@ -134,7 +134,8 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,24,29,24,28.4,26000,,,,,
+20260617,24,29,24,28.4,1775000,,,,,
+20260618,27.8,28.5,26.5,26.95,961000,,,,,
 ```
 
 ## Latest TDCC Snapshot

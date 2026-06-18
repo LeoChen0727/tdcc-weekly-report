@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:55 Asia/Taipei
+- generated_at: 2026-06-18 22:22:53 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 328
-- high: 334
+- date: 20260618
+- open: 325
+- high: 333
 - low: 321
-- close: 323.5
-- volume: 3483602
-- ma5: 339.8
-- ema23_primary: 342.2
-- distance_to_ema23_pct: -5.46
-- ma20: 340.93
-- ma60: 340.98
-- ma120: 370.26
-- return_5d: -9
-- return_20d: -4.71
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: -5.11
-- distance_to_high_60_pct: -17.47
+- close: 327
+- volume: 2918848
+- ma5: 336.4
+- ema23_primary: 341.29
+- distance_to_ema23_pct: -4.19
+- ma20: 343.3
+- ma60: 339.01
+- ma120: 368.62
+- return_5d: -4.94
+- return_20d: -4.66
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -4.75
+- distance_to_high_60_pct: -10.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,336,342,326.5,328,1150305,340.36,-3.63,338.82,359.76,0.95
-20260519,325,327,319,320,1679544,338.66,-5.51,337.12,358.02,1.37
-20260520,325,335,324.5,330.5,3409958,337.98,-2.21,336.4,356.38,2.64
-20260521,338,348,331,343,2248351,338.4,1.36,336.43,355,1.68
 20260522,344.5,346,341,342.5,1765917,338.74,1.11,336.9,353.42,1.36
 20260525,341.5,344.5,332.5,335,1557572,338.43,-1.01,336.73,351.8,1.18
 20260526,339.5,339.5,330.5,334.5,2021842,338.1,-1.07,337.25,350.31,1.49
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,342.5,353,339,353,2955046,339.39,4.01,338.45,345.92,1.85
 20260602,352.5,356.5,347.5,351.5,2149468,340.4,3.26,339.2,345.19,1.28
 20260603,352,361.5,352,360.5,1784548,342.08,5.39,340.57,344.63,1.03
-20260604,352.5,356.5,347.5,351.5,2149468,342.86,2.52,341.4,344.14,1.2
-20260605,359.5,364,353,355.5,1395454,343.91,3.37,341.98,343.87,0.78
-20260611,347.5,348,340.5,344,1105506,343.92,0.02,341.9,343.24,0.62
-20260612,354,355.5,343.5,344.5,1118128,343.97,0.15,341.9,342.68,0.63
-20260615,352,352,342,343.5,2555067,343.93,-0.13,341.62,342.21,1.37
-20260616,341,349.5,335.5,343.5,3659738,343.9,-0.11,341.73,341.77,1.82
-20260617,328,334,321,323.5,3483602,342.2,-5.46,340.93,340.98,1.64
+20260604,360,366.5,355,363.5,2500934,343.86,5.71,342,344.34,1.39
+20260605,359.5,364,353,355.5,1395454,344.83,3.09,342.57,344.07,0.78
+20260608,343,346.5,335,337.5,1430908,344.22,-1.95,342.18,343.33,0.79
+20260609,337,348.5,337,348.5,1109015,344.58,1.14,342.38,342.84,0.61
+20260610,346,349.5,340.5,344,1039260,344.53,-0.15,342.12,342.38,0.57
+20260611,347.5,348,340.5,344,1105506,344.49,-0.14,342.25,341.95,0.6
+20260612,354,355.5,343.5,344.5,1118128,344.49,0,342.5,341.51,0.61
+20260615,352,352,342,343.5,2555067,344.4,-0.26,343.27,340.7,1.34
+20260616,341,349.5,335.5,343.5,3659738,344.33,-0.24,344.45,340.22,1.82
+20260617,328,334,321,323.5,3483602,342.59,-5.57,344.1,339.48,1.73
+20260618,325,333,321,327,2918848,341.29,-4.19,343.3,339.01,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1476 | 儒鴻 | 18 | 0 | 1036450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

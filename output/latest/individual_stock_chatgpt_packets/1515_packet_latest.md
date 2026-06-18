@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1515 力山
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:56 Asia/Taipei
+- generated_at: 2026-06-18 22:22:54 Asia/Taipei
 - stock_id: 1515
 - stock_name: 力山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 23.45
-- high: 25.7
-- low: 23.3
-- close: 25.7
-- volume: 3382897
-- ma5: 23.79
-- ema23_primary: 23.13
-- distance_to_ema23_pct: 11.12
-- ma20: 22.82
-- ma60: 23.07
-- ma120: 25.04
-- return_5d: -2.28
-- return_20d: 13.72
-- volume_ratio: 2.89
-- distance_to_ma20_pct_auxiliary: 12.6
-- distance_to_high_60_pct: -7.55
+- date: 20260618
+- open: 25.75
+- high: 27.2
+- low: 25.3
+- close: 25.9
+- volume: 3323092
+- ma5: 24.39
+- ema23_primary: 23.61
+- distance_to_ema23_pct: 9.72
+- ma20: 23.43
+- ma60: 23.09
+- ma120: 24.91
+- return_5d: 13.1
+- return_20d: 16.93
+- volume_ratio: 2.03
+- distance_to_ma20_pct_auxiliary: 10.54
+- distance_to_high_60_pct: -6.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,22.85,22.85,22,22.1,239564,22.69,-2.61,22.47,23.99,0.51
-20260519,22.1,22.35,21.9,21.9,344373,22.63,-3.21,22.41,23.92,0.73
-20260520,21.9,22.05,21.8,22,215193,22.57,-2.54,22.35,23.85,0.46
-20260521,22.05,22.25,22.05,22.15,241799,22.54,-1.73,22.3,23.78,0.53
 20260522,22.15,22.85,22,22.65,469109,22.55,0.45,22.27,23.72,1.03
 20260525,23.15,23.15,22.6,22.9,470821,22.58,1.43,22.29,23.65,1.01
 20260526,22.9,23.55,22.75,22.75,465983,22.59,0.7,22.32,23.58,1.01
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,21.8,22.2,21.5,22.1,1313444,22.4,-1.36,22.33,23.3,1.93
 20260602,22.25,22.25,21.7,22,623563,22.37,-1.66,22.33,23.25,0.89
 20260603,22.35,23,21.9,23,1105529,22.42,2.57,22.38,23.2,1.51
-20260604,22.25,22.25,21.7,22,623563,22.39,-1.73,22.38,23.16,0.85
-20260605,27.8,27.8,25.15,26.3,7961635,22.71,15.79,22.6,23.18,7.12
-20260611,23.4,23.4,22.5,22.9,540491,22.73,0.75,22.54,23.14,0.5
-20260612,23.45,23.65,23.3,23.35,458874,22.78,2.5,22.56,23.11,0.45
-20260615,23.9,23.9,23.5,23.6,554326,22.85,3.29,22.61,23.09,0.54
-20260616,23.8,23.8,23.4,23.4,384172,22.9,2.21,22.67,23.06,0.37
-20260617,23.45,25.7,23.3,25.7,3382897,23.13,11.12,22.82,23.07,2.89
+20260604,23.5,25.3,23.1,25.3,3446047,22.66,11.64,22.55,23.21,3.93
+20260605,27.8,27.8,25.15,26.3,7961635,22.97,14.52,22.77,23.24,6.32
+20260608,23.75,24.45,23.7,23.85,1963795,23.04,3.52,22.75,23.21,1.52
+20260609,24.3,24.75,23.6,23.85,1317740,23.11,3.22,22.8,23.19,1.03
+20260610,23.25,23.8,23.1,23.35,956381,23.13,0.96,22.83,23.17,0.73
+20260611,23.4,23.4,22.5,22.9,540491,23.11,-0.9,22.87,23.13,0.41
+20260612,23.45,23.65,23.3,23.35,458874,23.13,0.96,22.91,23.09,0.35
+20260615,23.9,23.9,23.5,23.6,554326,23.17,1.87,22.98,23.07,0.42
+20260616,23.8,23.8,23.4,23.4,384172,23.19,0.92,23.06,23.05,0.29
+20260617,23.45,25.7,23.3,25.7,3382897,23.4,9.85,23.24,23.06,2.28
+20260618,25.75,27.2,25.3,25.9,3323092,23.61,9.72,23.43,23.09,2.03
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1515 | 力山 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1515 | 力山 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1515 | 力山 | 1 | 1 | 1 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 1515 | 力山 | 2 | 2 | 2 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

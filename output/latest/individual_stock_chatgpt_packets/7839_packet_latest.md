@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7839 達人網
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:06 Asia/Taipei
+- generated_at: 2026-06-18 22:24:57 Asia/Taipei
 - stock_id: 7839
 - stock_name: 達人網
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260617
-- price_rows: 3
+- latest_price_date: 20260618
+- price_rows: 4
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,12 +112,12 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 48.8
-- high: 48.8
-- low: 47
-- close: 47.3
-- volume: 48000
+- date: 20260618
+- open: 47.3
+- high: 48.3
+- low: 47.1
+- close: 47.2
+- volume: 57000
 - ma5:
 - ema23_primary:
 - distance_to_ema23_pct:
@@ -134,9 +134,10 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260615,53,54.1,49,52.5,51000,,,,,
-20260616,53.5,53.5,49.5,49.5,52000,,,,,
-20260617,48.8,48.8,47,47.3,48000,,,,,
+20260615,53,54.1,49,52.5,450000,,,,,
+20260616,53.5,53.5,49.5,49.5,186000,,,,,
+20260617,48.8,48.8,47,47.3,79000,,,,,
+20260618,47.3,48.3,47.1,47.2,57000,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2489 瑞軒
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:19 Asia/Taipei
+- generated_at: 2026-06-18 22:23:18 Asia/Taipei
 - stock_id: 2489
 - stock_name: 瑞軒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 277
+- latest_price_date: 20260618
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 46
-- high: 49.6
-- low: 45.5
-- close: 48.6
-- volume: 58646344
-- ma5: 44.43
-- ema23_primary: 45.95
-- distance_to_ema23_pct: 5.76
-- ma20: 47.16
-- ma60: 42.33
-- ma120: 33.03
-- return_5d: 0.41
-- return_20d: 20.45
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 3.04
-- distance_to_high_60_pct: -15.77
+- date: 20260618
+- open: 49
+- high: 49.2
+- low: 47.7
+- close: 48.15
+- volume: 27365297
+- ma5: 45.86
+- ema23_primary: 45.66
+- distance_to_ema23_pct: 5.45
+- ma20: 47.54
+- ma60: 42.71
+- ma120: 34.03
+- return_5d: 17.44
+- return_20d: 2.88
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 1.29
+- distance_to_high_60_pct: -16.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,40.3,40.3,37.5,39.75,22810783,41.18,-3.47,41.69,38.93,0.6
-20260519,39.75,42.65,39.5,41.5,33625384,41.21,0.72,41.64,39.23,0.86
-20260520,41.55,44,40.55,42.55,66608667,41.32,2.98,41.54,39.52,1.58
-20260521,44.3,46.8,43.2,46.8,97194722,41.77,12.03,41.67,39.85,2.08
 20260522,50.7,51.4,50.7,51.4,29542292,42.58,20.72,42.17,40.21,0.62
 20260525,56.5,56.5,56.5,56.5,6706560,43.74,29.18,43.08,40.6,0.14
 20260526,57.5,57.7,50.9,51.7,127851563,44.4,16.44,43.9,40.86,2.4
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,50.1,50.4,48.65,48.65,31391915,45.8,6.22,45.52,41.4,0.6
 20260602,49.7,50.8,47.15,47.8,31703123,45.97,3.99,45.6,41.47,0.64
 20260603,48.5,52.5,48.5,50.1,76506592,46.31,8.18,45.89,41.58,1.64
-20260604,49.7,50.8,47.15,47.8,31703123,46.44,2.94,46.07,41.72,0.7
-20260605,48,49.3,46.2,48.4,24065334,46.6,3.86,46.41,41.93,0.54
-20260611,40.9,42.5,39.5,41,21619785,46.13,-11.13,46.31,41.99,0.48
-20260612,42.8,43.4,41.65,41.65,12526057,45.76,-8.98,46.3,42.06,0.29
-20260615,42.7,45.8,42.45,45,23640893,45.7,-1.52,46.48,42.12,0.54
-20260616,45.5,49.5,45.45,45.9,64134727,45.71,0.41,46.75,42.19,1.41
-20260617,46,49.6,45.5,48.6,58646344,45.95,5.76,47.16,42.33,1.24
+20260604,49.1,49.4,48,49.05,24152094,46.54,5.39,46.13,41.74,0.53
+20260605,48,49.3,46.2,48.4,24065334,46.69,3.65,46.47,41.95,0.54
+20260608,43.6,43.6,43.6,43.6,7072317,46.44,-6.11,46.5,42.06,0.16
+20260609,43.65,44.6,42.15,44.25,30088278,46.25,-4.33,46.62,42.17,0.7
+20260610,43.6,45,40.7,40.8,26669274,45.8,-10.92,46.6,42.16,0.61
+20260611,40.9,42.5,39.5,41,21619785,45.4,-9.69,46.62,42.14,0.5
+20260612,42.8,43.4,41.65,41.65,12526057,45.09,-7.62,46.69,42.17,0.29
+20260615,42.7,45.8,42.45,45,23640893,45.08,-0.18,46.95,42.27,0.55
+20260616,45.5,49.5,45.45,45.9,64134727,45.15,1.66,47.17,42.32,1.44
+20260617,46,49.6,45.5,48.6,59390344,45.44,6.96,47.47,42.49,1.35
+20260618,49,49.2,47.7,48.15,27365297,45.66,5.45,47.54,42.71,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2489 | 瑞軒 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
+| 20260618 | 2489 | 瑞軒 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2489 | 瑞軒 | 1 | 1 | 2 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2489 | 瑞軒 | 2 | 2 | 3 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2489 | 瑞軒 | 0 | 2 | 0.0 | 28160.0 | 0.0 | no_signal |
+| 20260618 | 2489 | 瑞軒 | 13 | 2 | 3644710.0 | 42500.0 | 85.76 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

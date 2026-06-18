@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6742 澤米
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:42 Asia/Taipei
+- generated_at: 2026-06-18 22:24:40 Asia/Taipei
 - stock_id: 6742
 - stock_name: 澤米
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -114,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 61.4
-- high: 67.5
-- low: 61
-- close: 67.5
-- volume: 7843952
-- ma5: 58.86
-- ema23_primary: 55.72
-- distance_to_ema23_pct: 21.15
-- ma20: 58.12
-- ma60: 46.72
-- ma120: 45.81
-- return_5d: 16.38
-- return_20d: 53.41
-- volume_ratio: 2.05
-- distance_to_ma20_pct_auxiliary: 16.13
-- distance_to_high_60_pct: 0
+- date: 20260618
+- open: 68.1
+- high: 71.1
+- low: 66
+- close: 69
+- volume: 18058340
+- ma5: 61.74
+- ema23_primary: 57.6
+- distance_to_ema23_pct: 19.79
+- ma20: 59.63
+- ma60: 48.06
+- ma120: 46.33
+- return_5d: 26.37
+- return_20d: 11.83
+- volume_ratio: 4.72
+- distance_to_ma20_pct_auxiliary: 15.7
+- distance_to_high_60_pct: -2.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,44.15,48.35,43.15,47.5,3620133,41.35,14.87,41.05,41.66,5.24
-20260519,46.5,52.2,46.25,52.2,6094432,42.26,23.53,41.46,41.8,6.23
-20260520,53.6,57.4,52.5,56.1,11288669,43.41,29.23,42.07,42.02,7.37
-20260521,57.3,61.7,55.1,61.7,10790909,44.93,37.31,42.96,42.3,5.3
 20260522,61,63.7,60,61.5,10296566,46.31,32.79,43.96,42.56,4.09
 20260525,60.5,60.5,59,59.5,2134507,47.41,25.49,44.91,42.82,0.82
 20260526,59.6,60.5,59.1,59.6,902029,48.43,23.07,45.9,43.08,0.34
@@ -149,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,59,60.3,59,60.3,1170396,51.31,17.52,49.59,44.12,0.42
 20260602,61.2,61.8,58.8,59.1,942948,51.96,13.74,50.54,44.41,0.33
 20260603,61.5,61.5,60.8,61.4,1378066,52.75,16.41,51.66,44.75,0.48
-20260604,61.2,61.8,58.8,59.1,942948,53.28,10.93,52.68,45.09,0.32
-20260605,61,61.5,57.3,58,1371732,53.67,8.07,53.65,45.39,0.46
-20260611,56.5,58.7,54,54.6,3120183,53.75,1.59,54.4,45.59,1
-20260612,57.2,57.3,52.5,52.8,2058657,53.67,-1.62,55.03,45.76,0.64
-20260615,53.2,58,53.2,58,3404167,54.03,7.35,56,46.02,1.02
-20260616,60,63.2,58.3,61.4,6857961,54.64,12.36,56.95,46.31,1.88
-20260617,61.4,67.5,61,67.5,7843952,55.72,21.15,58.12,46.72,2.05
+20260604,60.1,63.9,60.1,63.6,2113976,53.65,18.54,52.9,45.17,0.71
+20260605,61,61.5,57.3,58,1371732,54.01,7.38,53.87,45.47,0.45
+20260608,52.2,55.9,52.2,54.5,1483563,54.05,0.82,54.62,45.66,0.48
+20260609,55.2,59.9,51,59.9,2879520,54.54,9.82,55.61,45.95,0.9
+20260610,61,65.1,59.8,59.8,8065446,54.98,8.77,56.67,46.24,2.24
+20260611,56.5,58.7,54,54.6,3120183,54.95,-0.63,57.27,46.42,0.84
+20260612,57.2,57.3,52.5,52.8,2058657,54.77,-3.6,57.72,46.59,0.57
+20260615,53.2,58,53.2,58,3404167,55.04,5.38,58.24,46.84,0.95
+20260616,60,63.2,58.3,61.4,6857961,55.57,10.49,58.7,47.17,1.89
+20260617,61.4,67.5,61,67.5,7843952,56.56,19.34,59.27,47.6,2.27
+20260618,68.1,71.1,66,69,18058340,57.6,19.79,59.63,48.06,4.72
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6742 | 澤米 | true_breakout | 嚴格突破 | 114.0 |  |  | breakout_confirmed |  |  | continued_many_days | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
+| 20260618 | 6742 | 澤米 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6742 | 澤米 | 5 | 1 | 5 | 5 | 8 | continued_many_days | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260618 | 6742 | 澤米 | 6 | 2 | 5 | 6 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1810 和成
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:03 Asia/Taipei
+- generated_at: 2026-06-18 22:23:02 Asia/Taipei
 - stock_id: 1810
 - stock_name: 和成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 20.1
-- high: 20.5
-- low: 19.85
-- close: 20.2
-- volume: 1854587
-- ma5: 20.35
-- ema23_primary: 19.7
-- distance_to_ema23_pct: 2.52
-- ma20: 19.72
-- ma60: 18.47
-- ma120: 18.44
-- return_5d: -10.62
-- return_20d: 7.45
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 2.45
-- distance_to_high_60_pct: -10.62
+- date: 20260618
+- open: 20.35
+- high: 20.35
+- low: 19.75
+- close: 19.9
+- volume: 2167857
+- ma5: 20.19
+- ema23_primary: 20.04
+- distance_to_ema23_pct: -0.72
+- ma20: 20.26
+- ma60: 18.7
+- ma120: 18.59
+- return_5d: -3.86
+- return_20d: 3.92
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -1.79
+- distance_to_high_60_pct: -13.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,18.7,18.9,18.25,18.4,1545671,18.2,1.11,18.22,18.04,0.81
-20260519,18.6,19.1,18.5,18.6,1718461,18.23,2.02,18.21,18.04,0.91
-20260520,18.65,18.7,18.25,18.4,799271,18.25,0.84,18.2,18.04,0.44
-20260521,18.5,19.2,18.5,19.15,2710050,18.32,4.52,18.23,18.05,1.46
 20260522,19.25,19.4,18.9,19.05,1421432,18.38,3.63,18.27,18.04,0.77
 20260525,19.2,19.35,18.75,18.9,1454676,18.43,2.58,18.32,18.03,0.77
 20260526,19.1,19.1,18.55,18.75,1103473,18.45,1.61,18.39,18.02,0.58
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,19.75,20.4,19.35,20.05,6187457,18.87,6.27,18.88,18.09,1.83
 20260602,20.3,20.3,19.3,19.6,3555436,18.93,3.55,18.93,18.11,1.05
 20260603,19.85,20.2,19.4,20.1,3591382,19.03,5.65,19,18.13,1.07
-20260604,20.3,20.3,19.3,19.6,3555436,19.07,2.76,19.05,18.17,1.02
-20260605,22.1,22.6,21.85,22.6,23846581,19.37,16.69,19.26,18.25,5.29
-20260611,20.85,21.05,20.3,20.7,3840995,19.48,6.27,19.39,18.3,0.83
-20260612,21.3,21.3,20.5,20.55,2568144,19.57,5.02,19.51,18.35,0.55
-20260615,20.7,20.9,20.25,20.45,2875334,19.64,4.12,19.59,18.39,0.61
-20260616,20.4,20.5,19.8,19.85,2301394,19.66,0.97,19.65,18.43,0.5
-20260617,20.1,20.5,19.85,20.2,1854587,19.7,2.52,19.72,18.47,0.41
+20260604,20.1,20.55,19.8,20.55,2810429,19.15,7.3,19.1,18.19,0.82
+20260605,22.1,22.6,21.85,22.6,23846581,19.44,16.26,19.3,18.27,5.33
+20260608,20.35,22.3,20.35,22,15995700,19.65,11.94,19.5,18.34,3.08
+20260609,22.7,23,21.2,21.5,8314271,19.81,8.55,19.67,18.4,1.49
+20260610,21.2,21.9,21.1,21.1,6119423,19.91,5.95,19.79,18.46,1.06
+20260611,20.85,21.05,20.3,20.7,3840995,19.98,3.6,19.88,18.51,0.67
+20260612,21.3,21.3,20.5,20.55,2568144,20.03,2.61,19.97,18.56,0.45
+20260615,20.7,20.9,20.25,20.45,2875334,20.06,1.93,20.07,18.6,0.5
+20260616,20.4,20.5,19.8,19.85,2301394,20.05,-0.97,20.14,18.63,0.4
+20260617,20.1,20.5,19.85,20.2,1854587,20.06,0.71,20.23,18.67,0.32
+20260618,20.35,20.35,19.75,19.9,2167857,20.04,-0.72,20.26,18.7,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1810 | 和成 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1810 | 和成 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1810 | 和成 | 2 | 2 | 3 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 1810 | 和成 | 3 | 3 | 3 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

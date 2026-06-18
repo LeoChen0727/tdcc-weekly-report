@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:16 Asia/Taipei
+- generated_at: 2026-06-18 22:24:15 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 82
-- high: 85.4
-- low: 82
-- close: 85.2
-- volume: 2880870
-- ma5: 83.06
-- ema23_primary: 78.38
-- distance_to_ema23_pct: 8.7
-- ma20: 77.05
-- ma60: 78.01
-- ma120: 78.97
-- return_5d: 10.08
-- return_20d: 11.66
-- volume_ratio: 1.71
-- distance_to_ma20_pct_auxiliary: 10.58
-- distance_to_high_60_pct: -0.23
+- date: 20260618
+- open: 85.8
+- high: 87.5
+- low: 82.6
+- close: 83.2
+- volume: 2506069
+- ma5: 83.3
+- ema23_primary: 79.31
+- distance_to_ema23_pct: 4.91
+- ma20: 77.97
+- ma60: 78.24
+- ma120: 79.02
+- return_5d: 1.46
+- return_20d: 9.76
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 6.7
+- distance_to_high_60_pct: -4.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,76,76.3,75.6,76.3,683356,77.9,-2.06,77.64,77.66,0.8
-20260519,76.3,76.3,75.4,75.5,747118,77.7,-2.84,77.53,77.64,0.88
-20260520,76.1,76.3,75,75.6,741009,77.53,-2.49,77.44,77.61,0.88
-20260521,76.2,76.2,75,75.8,739444,77.38,-2.05,77.42,77.59,0.92
 20260522,75.6,75.6,75,75.5,679783,77.23,-2.24,77.33,77.56,0.86
 20260525,75.5,75.5,74.3,75,830751,77.04,-2.65,77.2,77.53,1.04
 20260526,74.9,75.2,74.5,75.1,730942,76.88,-2.32,77.07,77.51,0.91
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,74.3,74.8,73.7,74.7,1101614,76.21,-1.98,76.41,77.45,1.24
 20260602,74.7,74.7,73.5,73.7,2209390,76,-3.03,76.22,77.43,2.3
 20260603,73.9,74,72.7,73.6,2112279,75.8,-2.91,76.01,77.4,2.04
-20260604,74.7,74.7,73.5,73.7,2209390,75.63,-2.55,75.77,77.4,2.02
-20260605,76.4,78.4,75.3,77.4,4073265,75.78,2.14,75.72,77.44,3.26
-20260611,83.9,84.8,81,82,4890123,76.29,7.48,75.84,77.54,3.36
-20260612,83,84.8,82.5,83.4,3054351,76.89,8.47,76.06,77.68,1.94
-20260615,83.4,83.5,80.7,82.4,2037694,77.35,6.54,76.32,77.8,1.25
-20260616,82.4,83.2,82.2,82.3,818570,77.76,5.84,76.61,77.91,0.52
-20260617,82,85.4,82,85.2,2880870,78.38,8.7,77.05,78.01,1.71
+20260604,73.8,74.6,73.5,74.2,2131829,75.67,-1.94,75.79,77.41,1.96
+20260605,76.4,78.4,75.3,77.4,4073265,75.81,2.09,75.74,77.45,3.27
+20260608,75.5,78.9,75.4,76.8,2283956,75.9,1.19,75.61,77.47,1.73
+20260609,76.8,78.5,76.8,77.7,1453036,76.05,2.18,75.53,77.5,1.07
+20260610,77.5,84.5,77.2,83.5,7398814,76.67,8.91,75.86,77.64,4.41
+20260611,83.9,84.8,81,82,4890123,77.11,6.34,76.12,77.75,2.65
+20260612,83,84.8,82.5,83.4,3054351,77.64,7.43,76.48,77.82,1.57
+20260615,83.4,83.5,80.7,82.4,2037694,78.03,5.6,76.78,77.89,1.01
+20260616,82.4,83.2,82.2,82.3,818570,78.39,4.99,77.12,77.98,0.41
+20260617,82,85.4,82,85.2,2880870,78.96,7.91,77.61,78.12,1.35
+20260618,85.8,87.5,82.6,83.2,2506069,79.31,4.91,77.97,78.24,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5534 | 長虹 | 4 | 0 | 27290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

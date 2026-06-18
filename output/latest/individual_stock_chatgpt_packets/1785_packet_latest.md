@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1785 光洋科
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:03 Asia/Taipei
+- generated_at: 2026-06-18 22:23:01 Asia/Taipei
 - stock_id: 1785
 - stock_name: 光洋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,10 +91,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +110,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,48 +118,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 142.5
-- high: 145
-- low: 140.5
-- close: 143.5
-- volume: 143000
-- ma5: 143.7
-- ema23_primary: 145.47
-- distance_to_ema23_pct: -1.35
-- ma20: 144.88
-- ma60: 135.88
-- ma120: 100.61
-- return_5d: 5.13
-- return_20d: -6.21
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -0.95
-- distance_to_high_60_pct: -22.43
+- date: 20260618
+- open: 146
+- high: 150
+- low: 144
+- close: 149
+- volume: 15008000
+- ma5: 144.4
+- ema23_primary: 143.71
+- distance_to_ema23_pct: 3.68
+- ma20: 143.65
+- ma60: 138.47
+- ma120: 102.99
+- return_5d: 2.41
+- return_20d: 4.56
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 3.72
+- distance_to_high_60_pct: -19.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,152,152,140,143.5,24063000,149.4,-3.95,158.75,111.63,0.81
-20260519,144,149.5,140,143,18461000,148.87,-3.94,158.22,113.02,0.62
-20260520,143,143.5,136,138,17149000,147.96,-6.73,157.38,114.31,0.57
-20260521,142,145.5,139,142.5,15151000,147.51,-3.39,156.68,115.69,0.49
 20260522,143,147.5,142.5,144,145000,147.21,-2.18,156.65,117.05,0
 20260525,147.5,154,143,151,149000,147.53,2.35,156.9,118.53,0.01
 20260526,155.5,156.5,147,148,151000,147.57,0.29,156.85,119.96,0.01
 20260527,148.5,149.5,142,143,145000,147.19,-2.85,155.82,121.31,0.01
 20260528,145,157,144,146,152000,147.09,-0.74,154.43,122.7,0.01
 20260529,156.5,160.5,151.5,158.5,157000,148.04,7.07,154.07,124.32,0.01
-20260601,160,168,156,157,161,148.79,5.52,153.43,125.99,0
+20260601,160,168,156,157,161000,148.79,5.52,153.43,125.99,0.01
 20260602,155.5,155.5,141.5,144,147,148.39,-2.96,152.62,127.34,0
 20260603,145,145.5,140.5,142,143000,147.85,-3.96,151.3,128.6,0.01
-20260604,145,145.5,140.5,142,143000,147.37,-3.64,149.15,129.84,0.01
-20260605,137,140,132.5,136.5,137000,146.46,-6.8,147.62,130.88,0.01
-20260611,137,145.5,134.5,145.5,141000,146.38,-0.6,146.95,131.97,0.02
-20260612,148.5,151,141,141.5,146000,145.97,-3.07,146.1,132.94,0.02
-20260615,144.5,149,142,145.5,145000,145.94,-0.3,145.68,134,0.02
-20260616,146,148.5,141,142.5,144000,145.65,-2.16,145.35,135,0.03
-20260617,142.5,145,140.5,143.5,143000,145.47,-1.35,144.88,135.88,0.04
+20260604,140,144.5,138.5,139.5,141000,147.16,-5.2,149.03,129.8,0.01
+20260605,137,140,132.5,136.5,137000,146.27,-6.68,147.5,130.84,0.01
+20260608,123,132,123,130.5,12303000,144.96,-9.97,146.07,131.68,1.32
+20260609,131.5,135,129,133,9431000,143.96,-7.61,144.8,132.51,1.1
+20260610,132,140,131.5,132.5,11467000,143,-7.35,143.72,133.35,1.45
+20260611,137,145.5,134.5,145.5,31071000,143.21,1.6,143.55,134.4,3.74
+20260612,148.5,151,141,141.5,38954000,143.07,-1.1,142.97,135.25,4.34
+20260615,144.5,149,142,145.5,17484000,143.27,1.55,143.07,136.01,2.02
+20260616,146,148.5,141,142.5,12789000,143.21,-0.49,143.05,136.7,1.53
+20260617,142.5,145,140.5,143.5,5894000,143.23,0.19,143.32,137.5,0.76
+20260618,146,150,144,149,15008000,143.71,3.68,143.65,138.47,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1785 | 光洋科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1785 | 光洋科 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

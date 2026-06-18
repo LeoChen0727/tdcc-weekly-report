@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2731 雄獅
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:25 Asia/Taipei
+- generated_at: 2026-06-18 22:23:24 Asia/Taipei
 - stock_id: 2731
 - stock_name: 雄獅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 152
-- high: 155
+- date: 20260618
+- open: 153.5
+- high: 154
 - low: 152
-- close: 152.5
-- volume: 1233378
+- close: 152
+- volume: 1161676
 - ma5: 152.4
-- ema23_primary: 160.72
-- distance_to_ema23_pct: -5.11
-- ma20: 162.15
-- ma60: 161.68
-- ma120: 165.67
-- return_5d: -12.1
-- return_20d: -4.09
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -5.95
-- distance_to_high_60_pct: -14.08
+- ema23_primary: 159.52
+- distance_to_ema23_pct: -4.71
+- ma20: 162.1
+- ma60: 161.17
+- ma120: 165.57
+- return_5d: 0
+- return_20d: -5
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -6.23
+- distance_to_high_60_pct: -14.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,158.5,161,157.5,160.5,853096,160.51,-0.01,159.78,164.92,0.95
-20260519,160,162.5,160,160.5,719304,160.51,-0.01,159.78,164.53,0.79
-20260520,161.5,161.5,159.5,160,450948,160.47,-0.29,159.72,164.28,0.5
-20260521,161,161,160,160,400735,160.43,-0.27,159.72,164.03,0.45
 20260522,161.5,162,160,160,456869,160.39,-0.24,159.82,163.72,0.53
 20260525,161.5,161.5,159.5,160,924795,160.36,-0.22,159.95,163.45,1.06
 20260526,163.5,168,163,168,2764384,161,4.35,160.43,163.37,2.83
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,168,170,167.5,169.5,1230464,162.84,4.09,161.93,163.21,1.08
 20260602,170,171.5,168.5,169.5,1444290,163.39,3.74,162.4,163.32,1.24
 20260603,170.5,171.5,169,171,1289701,164.03,4.25,162.93,163.36,1.09
-20260604,170,171.5,168.5,169.5,1444290,164.48,3.05,163.22,163.44,1.21
-20260605,177,177.5,173,173.5,2400450,165.23,5,163.93,163.45,2.01
-20260611,154.5,154.5,151.5,152,1196651,164.13,-7.39,163.55,163.04,1
-20260612,154,154,152,152,861346,163.12,-6.82,163.25,162.65,0.74
-20260615,154,155,151.5,152.5,1568903,162.24,-6,162.88,162.3,1.31
-20260616,153.5,154,152,153,633433,161.47,-5.24,162.47,161.97,0.53
-20260617,152,155,152,152.5,1233378,160.72,-5.11,162.15,161.68,1.02
+20260604,172,178,171,175,3040483,164.94,6.1,163.5,163.53,2.39
+20260605,177,177.5,173,173.5,2400450,165.65,4.74,164.2,163.54,1.89
+20260608,168.5,172,166.5,172,2946446,166.18,3.5,164.82,163.47,2.15
+20260609,155.5,160.5,155.5,156,4093842,165.33,-5.65,164.72,163.14,2.75
+20260610,156,156.5,154.5,154.5,1438469,164.43,-6.04,164.45,162.82,0.95
+20260611,154.5,154.5,151.5,152,1196651,163.4,-6.97,164,162.48,0.78
+20260612,154,154,152,152,861346,162.45,-6.43,163.65,162.18,0.56
+20260615,154,155,151.5,152.5,1568903,161.62,-5.64,163.25,161.89,1
+20260616,153.5,154,152,153,633433,160.9,-4.91,162.88,161.64,0.4
+20260617,152,155,152,152.5,1233378,160.2,-4.81,162.5,161.37,0.77
+20260618,153.5,154,152,152,1161676,159.52,-4.71,162.1,161.17,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -198,9 +199,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2731 | 雄獅 | 8 | 0 | 65280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

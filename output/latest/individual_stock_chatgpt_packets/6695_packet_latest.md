@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6695 芯鼎
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:41 Asia/Taipei
+- generated_at: 2026-06-18 22:24:39 Asia/Taipei
 - stock_id: 6695
 - stock_name: 芯鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 53
-- high: 54.7
-- low: 52.5
-- close: 54.5
-- volume: 1149614
-- ma5: 52.45
-- ema23_primary: 53.4
-- distance_to_ema23_pct: 2.06
-- ma20: 55.09
-- ma60: 47.25
-- ma120: 45.31
-- return_5d: 3.22
-- return_20d: 5.01
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -1.06
-- distance_to_high_60_pct: -20.32
+- date: 20260618
+- open: 54.5
+- high: 59.2
+- low: 54.3
+- close: 58.4
+- volume: 2758613
+- ma5: 54.22
+- ema23_primary: 53.36
+- distance_to_ema23_pct: 9.44
+- ma20: 55.43
+- ma60: 47.99
+- ma120: 45.54
+- return_5d: 17.86
+- return_20d: 13.4
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 5.36
+- distance_to_high_60_pct: -14.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,51.6,51.7,49.75,51,1294910,47.58,7.2,47.68,42.82,0.38
-20260519,51,52.4,48.9,49.35,2257597,47.72,3.41,48.03,42.93,0.65
-20260520,49.5,51.5,49.05,50.6,1342950,47.96,5.5,48.37,43.06,0.4
-20260521,51.2,51.9,50.4,51.5,1499684,48.26,6.72,48.67,43.22,0.47
 20260522,52.5,56.6,52.1,56.6,7404023,48.95,15.62,49.39,43.44,2.14
 20260525,62.2,62.2,62.2,62.2,2024209,50.06,24.26,50.34,43.77,0.58
 20260526,66.8,68.4,63.5,64,12381547,51.22,24.95,51.43,44.13,3.03
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,58.1,58.5,56.5,57.2,1764565,53.33,7.25,53.95,45.25,0.47
 20260602,57.7,57.8,54.2,55,1993599,53.47,2.86,54.17,45.5,0.54
 20260603,56,57.9,55.6,57.3,2324641,53.79,6.52,54.59,45.78,0.63
-20260604,57.7,57.8,54.2,55,1993599,53.89,2.06,54.93,46.06,0.54
-20260605,53.2,53.2,50.5,52.8,971018,53.8,-1.86,54.93,46.28,0.29
-20260611,50,51.5,48.8,49.55,1060847,53.45,-7.29,54.7,46.44,0.35
-20260612,51,51.4,50.3,50.3,557687,53.18,-5.42,54.62,46.61,0.19
-20260615,55,55.3,52.4,55.3,1234080,53.36,3.63,54.84,46.86,0.43
-20260616,55,57.1,52.2,52.6,2529677,53.3,-1.31,54.95,47.05,0.86
-20260617,53,54.7,52.5,54.5,1149614,53.4,2.06,55.09,47.25,0.42
+20260604,56.6,56.6,52.8,53.1,2296617,53.73,-1.18,54.84,46.03,0.62
+20260605,53.2,53.2,50.5,52.8,971018,53.66,-1.59,54.83,46.25,0.29
+20260608,47.7,50.3,47.65,49.5,1193591,53.31,-7.15,54.61,46.41,0.39
+20260609,50.3,52.2,49.8,52.1,607775,53.21,-2.08,54.61,46.6,0.21
+20260610,51.1,55.2,51.1,51.2,1209709,53.04,-3.47,54.63,46.79,0.42
+20260611,50,51.5,48.8,49.55,1060847,52.75,-6.07,54.59,46.92,0.37
+20260612,51,51.4,50.3,50.3,557687,52.55,-4.27,54.51,47.06,0.21
+20260615,55,55.3,52.4,55.3,1234080,52.78,4.78,54.73,47.27,0.47
+20260616,55,57.1,52.2,52.6,2529677,52.76,-0.3,54.89,47.47,0.95
+20260617,53,54.7,52.5,54.5,1149614,52.91,3.01,55.08,47.68,0.44
+20260618,54.5,59.2,54.3,58.4,2758613,53.36,9.44,55.43,47.99,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6695 | 芯鼎 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6695 | 芯鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6695 | 芯鼎 | 3 | 3 | 3 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6695 | 芯鼎 | 4 | 4 | 4 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

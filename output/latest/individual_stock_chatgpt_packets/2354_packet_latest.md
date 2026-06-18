@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2354 鴻準
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:12 Asia/Taipei
+- generated_at: 2026-06-18 22:23:10 Asia/Taipei
 - stock_id: 2354
 - stock_name: 鴻準
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 56.5
-- high: 57.5
-- low: 56.5
-- close: 57.5
-- volume: 3792624
-- ma5: 57.08
-- ema23_primary: 59.06
-- distance_to_ema23_pct: -2.65
-- ma20: 59.77
-- ma60: 55.88
-- ma120: 57.4
-- return_5d: -5.12
-- return_20d: -3.2
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -3.79
-- distance_to_high_60_pct: -13.4
+- date: 20260618
+- open: 57.8
+- high: 58.2
+- low: 57.5
+- close: 57.9
+- volume: 8137908
+- ma5: 57.42
+- ema23_primary: 58.5
+- distance_to_ema23_pct: -1.03
+- ma20: 59.52
+- ma60: 56.13
+- ma120: 57.18
+- return_5d: 3.02
+- return_20d: -1.7
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -2.71
+- distance_to_high_60_pct: -12.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,59.1,59.4,57.6,58.6,6720036,57.07,2.67,56.48,54.77,0.34
-20260519,58.6,59.5,57.7,57.7,7021885,57.13,1,56.78,54.76,0.36
-20260520,57.8,58,56.7,57.5,8052171,57.16,0.6,57.02,54.76,0.41
-20260521,57.8,59.9,57.8,58.9,12060068,57.3,2.79,57.26,54.76,0.62
 20260522,59.1,60.4,58.7,60.2,10293287,57.54,4.61,57.65,54.78,0.53
 20260525,61.5,61.6,60.1,61.1,13341786,57.84,5.63,58.13,54.82,0.67
 20260526,61.6,61.9,59.5,60.5,9924230,58.06,4.2,58.6,54.83,0.49
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,61.6,64,61.4,62.8,32610376,58.8,6.81,60.34,55.03,1.44
 20260602,63.5,64.5,62.8,64,30238205,59.23,8.05,60.62,55.17,1.35
 20260603,65,66.4,63.2,65.1,37299914,59.72,9.01,60.66,55.34,1.86
-20260604,63.5,64.5,62.8,64,30238205,60.08,6.53,60.7,55.53,1.64
-20260605,61.6,62,59.7,60.6,11897761,60.12,0.8,60.66,55.66,0.67
-20260611,55.9,56.7,55.4,56.2,8444984,59.79,-6.01,60.38,55.7,0.49
-20260612,57.6,58,57,57,5196500,59.56,-4.3,60.11,55.75,0.32
-20260615,58.7,59,57.7,57.7,5234094,59.4,-2.87,59.96,55.81,0.34
-20260616,58.4,58.4,56.9,57,5324442,59.2,-3.72,59.86,55.85,0.36
-20260617,56.5,57.5,56.5,57.5,3792624,59.06,-2.65,59.77,55.88,0.27
+20260604,64.6,64.8,62.2,62.3,16419811,59.93,3.95,60.61,55.51,0.93
+20260605,61.6,62,59.7,60.6,11897761,59.99,1.02,60.57,55.64,0.7
+20260608,55,56.8,54.9,56.4,13376502,59.69,-5.51,60.31,55.67,0.8
+20260609,57,59.2,56.5,58.8,9143338,59.62,-1.37,60.12,55.75,0.58
+20260610,57.7,58.4,56.1,56.3,9575280,59.34,-5.12,59.91,55.8,0.62
+20260611,55.9,56.7,55.4,56.2,8444984,59.08,-4.87,59.77,55.81,0.56
+20260612,57.6,58,57,57,5196500,58.9,-3.23,59.65,55.84,0.37
+20260615,58.7,59,57.7,57.7,5234094,58.8,-1.88,59.6,55.89,0.37
+20260616,58.4,58.4,56.9,57,5324442,58.65,-2.82,59.56,55.95,0.38
+20260617,56.5,57.5,56.5,57.5,3792624,58.56,-1.81,59.56,56.02,0.27
+20260618,57.8,58.2,57.5,57.9,8137908,58.5,-1.03,59.52,56.13,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2354 | 鴻準 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2354 | 鴻準 | 1 | 1 | 1 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2354 | 鴻準 | 0 | 3 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 2354 | 鴻準 | 38 | 3 | 1272350.0 | 24200.0 | 52.58 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

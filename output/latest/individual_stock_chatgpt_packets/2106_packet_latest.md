@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2106 建大
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:07 Asia/Taipei
+- generated_at: 2026-06-18 22:23:06 Asia/Taipei
 - stock_id: 2106
 - stock_name: 建大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 17.95
-- high: 18
-- low: 17.75
-- close: 17.75
-- volume: 940165
-- ma5: 17.97
-- ema23_primary: 17.58
-- distance_to_ema23_pct: 0.99
-- ma20: 17.34
-- ma60: 17.7
-- ma120: 18.72
-- return_5d: -1.66
-- return_20d: 6.61
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 2.39
-- distance_to_high_60_pct: -7.55
+- date: 20260618
+- open: 17.8
+- high: 18.15
+- low: 17.8
+- close: 17.85
+- volume: 806789
+- ma5: 17.96
+- ema23_primary: 17.67
+- distance_to_ema23_pct: 1.01
+- ma20: 17.55
+- ma60: 17.69
+- ma120: 18.63
+- return_5d: -0.28
+- return_20d: 5.93
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 1.69
+- distance_to_high_60_pct: -7.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,16.65,16.8,16.5,16.8,637183,17.45,-3.73,17.44,18.31,0.9
-20260519,16.75,17.05,16.75,16.85,535735,17.4,-3.17,17.36,18.27,0.76
-20260520,16.8,16.85,16.6,16.7,579498,17.34,-3.71,17.27,18.22,0.81
-20260521,16.8,16.9,16.75,16.85,772786,17.3,-2.61,17.2,18.17,1.08
 20260522,16.85,16.9,16.6,16.7,1245216,17.25,-3.2,17.14,18.11,1.72
 20260525,16.7,16.7,16.4,16.65,1903748,17.2,-3.21,17.09,18.05,2.41
 20260526,16.65,16.85,16.65,16.7,795443,17.16,-2.68,17.05,17.99,1.02
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,16.9,17.05,16.7,17.05,2262433,17.05,-0.01,16.93,17.79,2.54
 20260602,17.15,18.2,17.15,18.1,3112386,17.14,5.61,16.97,17.77,3.03
 20260603,18.1,18.45,18.05,18.25,2741415,17.23,5.91,17.02,17.76,2.42
-20260604,17.15,18.2,17.15,18.1,3112386,17.3,4.6,17.05,17.75,2.49
-20260605,18.4,18.4,17.85,18.05,1419643,17.37,3.94,17.09,17.73,1.1
-20260611,18.25,18.25,17.8,17.9,676995,17.41,2.81,17.12,17.72,0.52
-20260612,18.1,18.2,17.95,18.05,772684,17.46,3.36,17.17,17.71,0.59
-20260615,18.35,18.35,18.1,18.1,768185,17.52,3.33,17.22,17.71,0.59
-20260616,18.35,18.35,17.95,18.05,586560,17.56,2.78,17.28,17.7,0.46
-20260617,17.95,18,17.75,17.75,940165,17.58,0.99,17.34,17.7,0.74
+20260604,18.6,18.75,18.35,18.4,1320219,17.33,6.18,17.06,17.75,1.14
+20260605,18.4,18.4,17.85,18.05,1419643,17.39,3.8,17.11,17.74,1.18
+20260608,17.45,17.65,17.25,17.5,942350,17.4,0.59,17.11,17.72,0.77
+20260609,17.5,17.9,17.5,17.75,658679,17.43,1.85,17.15,17.7,0.54
+20260610,17.6,18.3,17.6,18.15,767602,17.49,3.79,17.2,17.7,0.63
+20260611,18.25,18.25,17.8,17.9,676995,17.52,2.16,17.25,17.7,0.57
+20260612,18.1,18.2,17.95,18.05,772684,17.57,2.76,17.32,17.69,0.65
+20260615,18.35,18.35,18.1,18.1,768185,17.61,2.78,17.39,17.69,0.64
+20260616,18.35,18.35,17.95,18.05,586560,17.65,2.28,17.45,17.69,0.49
+20260617,17.95,18,17.75,17.75,1549165,17.66,0.53,17.5,17.69,1.24
+20260618,17.8,18.15,17.8,17.85,806789,17.67,1.01,17.55,17.69,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2106 | 建大 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/17 1.召開法人說明會之日期：115/06/17 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：公告本公司受邀參加國泰綜合證券舉辦之線上法說會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2106 | 建大 | 1 | 1 | 1 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

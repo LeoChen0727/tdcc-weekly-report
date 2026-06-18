@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4585 達明
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:01 Asia/Taipei
+- generated_at: 2026-06-18 22:23:59 Asia/Taipei
 - stock_id: 4585
 - stock_name: 達明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 167
+- latest_price_date: 20260618
+- price_rows: 171
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 305
-- high: 308
-- low: 304
-- close: 306
-- volume: 109841
-- ma5: 306.6
-- ema23_primary: 330.18
-- distance_to_ema23_pct: -7.32
-- ma20: 337.7
-- ma60: 321.29
-- ma120: 329.47
-- return_5d: -11.56
-- return_20d: -13.56
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: -9.39
-- distance_to_high_60_pct: -19.05
+- date: 20260618
+- open: 306
+- high: 314
+- low: 306
+- close: 313.5
+- volume: 190568
+- ma5: 307.9
+- ema23_primary: 326.19
+- distance_to_ema23_pct: -3.89
+- ma20: 334.12
+- ma60: 322.21
+- ma120: 329.2
+- return_5d: 2.12
+- return_20d: -7.52
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -6.17
+- distance_to_high_60_pct: -17.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,355,360.5,341,348,1480832,328.52,5.93,326.77,318.34,2
-20260519,358,363,335.5,341,1221693,329.56,3.47,328.23,318.27,1.56
-20260520,341.5,341.5,327,327,605409,329.35,-0.71,328.98,318.03,0.75
-20260521,330,340.5,330,339,458591,330.15,2.68,329.95,318.07,0.57
 20260522,339,351,337,351,810692,331.89,5.76,332.35,318.18,1
 20260525,370,370,355,357.5,867871,334.02,7.03,335.2,318.38,1.03
 20260526,360,372.5,353.5,360.5,953414,336.23,7.22,337.77,318.68,1.09
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,365,376,357,371.5,1444750,340.71,9.04,343.7,319.2,1.56
 20260602,378,378,345,351,1169305,341.57,2.76,344.15,319.72,1.3
 20260603,354.5,357,345,347,569643,342.02,1.46,344.6,320.22,0.65
-20260604,378,378,345,351,1169305,342.77,2.4,345.27,321.14,1.29
-20260605,349.5,349.5,336,346,512609,343.04,0.86,346.1,321.88,0.57
-20260611,319,320,300.5,307,573567,340.03,-9.72,344.35,321.76,0.64
-20260612,318,318,304,304.5,506568,337.07,-9.66,342.62,321.6,0.56
-20260615,306.5,313.5,306.5,309,235251,334.73,-7.69,341.45,321.57,0.26
-20260616,312,312,305.5,306.5,189707,332.38,-7.79,340.1,321.46,0.22
-20260617,305,308,304,306,109841,330.18,-7.32,337.7,321.29,0.15
+20260604,343.5,348,337,342,363168,342.02,-0.01,344.82,320.99,0.42
+20260605,349.5,349.5,336,346,512609,342.35,1.07,345.65,321.73,0.6
+20260608,318,329,316,326,424734,340.99,-4.4,344.85,321.93,0.5
+20260609,329.5,334.5,325.5,330.5,270237,340.11,-2.83,344.43,322.2,0.32
+20260610,326.5,332.5,321,322.5,288921,338.65,-4.77,343.93,322.4,0.35
+20260611,319,320,300.5,307,573567,336.01,-8.63,342.6,322.29,0.68
+20260612,318,318,304,304.5,506568,333.38,-8.66,340.12,322.1,0.69
+20260615,306.5,313.5,306.5,309,235251,331.35,-6.75,338.18,321.94,0.35
+20260616,312,312,305.5,306.5,189707,329.28,-6.92,336.45,321.92,0.31
+20260617,305,308,304,306,109841,327.34,-6.52,335.4,321.95,0.18
+20260618,306,314,306,313.5,190568,326.19,-3.89,334.12,322.21,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4585 | 達明 | 25 | 0 | 1228920.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

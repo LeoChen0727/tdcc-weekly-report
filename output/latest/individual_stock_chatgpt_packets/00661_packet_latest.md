@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00661 元大日經225
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:44 Asia/Taipei
+- generated_at: 2026-06-18 22:22:41 Asia/Taipei
 - stock_id: 00661
 - stock_name: 元大日經225
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260617
-- price_rows: 16
+- latest_price_date: 20260618
+- price_rows: 20
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 89.8
-- high: 90.25
-- low: 89.6
-- close: 90
-- volume: 56316
-- ma5: 87.56
-- ema23_primary: 85.33
-- distance_to_ema23_pct: 5.47
-- ma20: 85.73
-- ma60: 85.73
-- ma120: 85.73
-- return_5d: 4.71
+- date: 20260618
+- open: 91.65
+- high: 91.95
+- low: 91.35
+- close: 91.95
+- volume: 70989
+- ma5: 89.38
+- ema23_primary: 85.77
+- distance_to_ema23_pct: 7.2
+- ma20: 85.66
+- ma60: 85.66
+- ma120: 85.66
+- return_5d: 10.98
 - return_20d:
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 4.98
-- distance_to_high_60_pct: -0.33
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 7.34
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,85.7,86.35,85.7,85.85,145362,82.92,3.54,84.02,84.02,0.95
 20260602,85.1,85.75,84.6,85.75,147589,83.15,3.12,84.24,84.24,0.97
 20260603,87.35,88.45,87.35,88.35,102613,83.59,5.7,84.69,84.69,0.7
-20260604,85.1,85.75,84.6,85.75,147589,83.77,2.37,84.8,84.8,1.01
-20260605,85.5,85.95,84.85,85.95,94776,83.95,2.38,84.9,84.9,0.67
-20260611,81.75,82.9,81.6,82.85,382391,83.86,-1.2,84.73,84.73,2.36
-20260612,85.75,86,84.9,85.85,136886,84.02,2.17,84.82,84.82,0.86
-20260615,89.15,89.75,89.15,89.3,98233,84.46,5.73,85.14,85.14,0.63
-20260616,89.4,90.3,89.05,89.8,123416,84.91,5.76,85.45,85.45,0.81
-20260617,89.8,90.25,89.6,90,56316,85.33,5.47,85.73,85.73,0.38
+20260604,86.65,86.9,86.2,86.6,109481,83.84,3.3,84.89,84.89,0.77
+20260605,85.5,85.95,84.85,85.95,94776,84.01,2.31,84.98,84.98,0.69
+20260608,82.5,82.95,81.5,82.05,703733,83.85,-2.15,84.74,84.74,3.8
+20260609,82.6,84.25,82.6,84.2,234220,83.88,0.38,84.7,84.7,1.24
+20260610,83.3,83.8,82.2,82.45,115626,83.76,-1.56,84.54,84.54,0.63
+20260611,81.75,82.9,81.6,82.85,382391,83.68,-1,84.42,84.42,1.94
+20260612,85.75,86,84.9,85.85,136886,83.86,2.37,84.51,84.51,0.71
+20260615,89.15,89.75,89.15,89.3,98233,84.32,5.91,84.79,84.79,0.52
+20260616,89.4,90.3,89.05,89.8,123416,84.77,5.93,85.07,85.07,0.67
+20260617,89.8,90.25,89.6,90,56316,85.21,5.62,85.33,85.33,0.32
+20260618,91.65,91.95,91.35,91.95,70989,85.77,7.2,85.66,85.66,0.41
 ```
 
 ## Latest TDCC Snapshot

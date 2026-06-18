@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:34 Asia/Taipei
+- generated_at: 2026-06-18 22:24:32 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,38 +56,38 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,48 +112,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 76
-- high: 83
-- low: 75
-- close: 78.6
-- volume: 79000
-- ma5: 72.1
-- ema23_primary: 64.86
-- distance_to_ema23_pct: 21.18
-- ma20: 63.91
-- ma60: 59.97
-- ma120: 62.67
-- return_5d: 13.42
-- return_20d: 31
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 22.99
-- distance_to_high_60_pct: -5.3
+- date: 20260618
+- open: 78.3
+- high: 80.7
+- low: 75.8
+- close: 78.1
+- volume: 3404000
+- ma5: 73.92
+- ema23_primary: 66.65
+- distance_to_ema23_pct: 17.18
+- ma20: 65.47
+- ma60: 60.7
+- ma120: 62.97
+- return_5d: 13.19
+- return_20d: 26.38
+- volume_ratio: 1.81
+- distance_to_ma20_pct_auxiliary: 19.29
+- distance_to_high_60_pct: -5.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,59.7,62,58.3,61.8,365000,58.56,5.53,58.66,58.54,1.42
-20260519,62.3,63.6,60.2,60.4,740000,58.72,2.87,58.69,58.5,2.63
-20260520,60.4,63,60.4,60.5,524000,58.87,2.78,58.67,58.46,1.81
-20260521,61,62.8,61,61.8,310000,59.11,4.55,58.72,58.48,1.06
 20260522,62,63,61.1,62.3,62000,59.38,4.92,58.9,58.49,0.22
 20260525,63.1,64,61.7,61.8,63000,59.58,3.73,59.06,58.49,0.23
 20260526,62,62.4,60.5,60.8,61000,59.68,1.88,59.25,58.49,0.23
 20260527,61.2,61.2,59,59.1,60000,59.63,-0.89,59.31,58.46,0.23
 20260528,59,59.9,57.3,57.6,58000,59.46,-3.13,59.31,58.4,0.22
 20260529,57.8,59.8,57.8,59,59000,59.42,-0.71,59.38,58.39,0.23
-20260601,59.6,61.4,58,60.5,60,59.51,1.66,59.41,58.45,0
+20260601,59.6,61.4,58,60.5,60000,59.51,1.66,59.41,58.45,0.24
 20260602,60.6,60.8,59.2,60,60,59.55,0.75,59.42,58.48,0
 20260603,60.9,62.5,60.6,61.4,62000,59.71,2.83,59.54,58.53,0.27
-20260604,60.9,62.5,60.6,61.4,62000,59.85,2.59,59.67,58.63,0.27
-20260605,62.7,69.3,62.5,69.3,68000,60.64,14.29,60.23,58.84,0.31
-20260611,62.8,69,62.8,69,67000,61.33,12.5,60.84,59.02,0.31
-20260612,71.7,72.9,66.6,66.6,69000,61.77,7.82,61.35,59.15,0.33
-20260615,66.2,71,66.2,69.7,69000,62.43,11.64,62.02,59.35,0.34
-20260616,70.2,76.6,69.3,76.6,75000,63.61,20.41,62.98,59.65,0.38
-20260617,76,83,75,78.6,79000,64.86,21.18,63.91,59.97,0.55
+20260604,61.6,63.8,60.8,63,62000,59.98,5.03,59.75,58.66,0.27
+20260605,62.7,69.3,62.5,69.3,68000,60.76,14.06,60.31,58.87,0.3
+20260608,63.2,68,62.4,65.2,2377000,61.13,6.66,60.73,58.98,7.16
+20260609,66,71.7,65.6,68,4049000,61.7,10.21,61.31,59.14,7.72
+20260610,66.9,71.4,62.8,62.8,2606000,61.79,1.63,61.64,59.22,4.01
+20260611,62.8,69,62.8,69,2194000,62.39,10.59,62.22,59.4,2.94
+20260612,71.7,72.9,66.6,66.6,3128000,62.74,6.15,62.55,59.52,3.7
+20260615,66.2,71,66.2,69.7,2004000,63.32,10.07,62.94,59.7,2.16
+20260616,70.2,76.6,69.3,76.6,6186000,64.43,18.89,63.75,60,5.16
+20260617,76,83,75,78.6,11124000,65.61,19.8,64.66,60.35,6.43
+20260618,78.3,80.7,75.8,78.1,3404000,66.65,17.18,65.47,60.7,1.81
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6517 | 保勝光學 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6517 | 保勝光學 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

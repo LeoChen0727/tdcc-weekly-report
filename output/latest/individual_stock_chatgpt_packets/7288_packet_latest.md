@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7288 精材群益5B售05
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:57 Asia/Taipei
+- generated_at: 2026-06-18 22:24:51 Asia/Taipei
 - stock_id: 7288
 - stock_name: 精材群益5B售05
-- packet_status: standard_180d_window_packet
-- latest_price_date: 20251031
-- price_rows: 136
+- packet_status: partial_rawdata_packet
+- latest_price_date: 20250407
+- price_rows: 1
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: TDCC history missing
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,48 +112,29 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20251031
+- date: 20250407
 - open: 0.98
 - high: 1
 - low: 0.89
 - close: 1
 - volume: 21000
-- ma5: 1
-- ema23_primary: 1
-- distance_to_ema23_pct: 0
-- ma20: 1
-- ma60: 1
-- ma120: 1
-- return_5d: 0
-- return_20d: 0
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 0
-- distance_to_high_60_pct: 0
+- ma5:
+- ema23_primary:
+- distance_to_ema23_pct:
+- ma20:
+- ma60:
+- ma120:
+- return_5d:
+- return_20d:
+- volume_ratio:
+- distance_to_ma20_pct_auxiliary:
+- distance_to_high_60_pct:
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20250926,0.98,1,0.89,1,21000,1,0,1,1,1
-20250930,0.98,1,0.89,1,21000,1,0,1,1,1
-20251001,0.98,1,0.89,1,21000,1,0,1,1,1
-20251002,0.98,1,0.89,1,21000,1,0,1,1,1
-20251003,0.98,1,0.89,1,21000,1,0,1,1,1
-20251007,0.98,1,0.89,1,21000,1,0,1,1,1
-20251008,0.98,1,0.89,1,21000,1,0,1,1,1
-20251009,0.98,1,0.89,1,21000,1,0,1,1,1
-20251013,0.98,1,0.89,1,21000,1,0,1,1,1
-20251014,0.98,1,0.89,1,21000,1,0,1,1,1
-20251016,0.98,1,0.89,1,21000,1,0,1,1,1
-20251020,0.98,1,0.89,1,21000,1,0,1,1,1
-20251021,0.98,1,0.89,1,21000,1,0,1,1,1
-20251022,0.98,1,0.89,1,21000,1,0,1,1,1
-20251023,0.98,1,0.89,1,21000,1,0,1,1,1
-20251027,0.98,1,0.89,1,21000,1,0,1,1,1
-20251028,0.98,1,0.89,1,21000,1,0,1,1,1
-20251029,0.98,1,0.89,1,21000,1,0,1,1,1
-20251030,0.98,1,0.89,1,21000,1,0,1,1,1
-20251031,0.98,1,0.89,1,21000,1,0,1,1,1
+20250407,0.98,1,0.89,1,21000,,,,,
 ```
 
 ## Latest TDCC Snapshot

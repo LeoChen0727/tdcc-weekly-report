@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6134 萬旭
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:21 Asia/Taipei
+- generated_at: 2026-06-18 22:24:19 Asia/Taipei
 - stock_id: 6134
 - stock_name: 萬旭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,48 +113,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 34.8
-- high: 36.2
-- low: 34.75
-- close: 35.5
-- volume: 36000
-- ma5: 35.64
-- ema23_primary: 34.55
-- distance_to_ema23_pct: 2.76
-- ma20: 34.37
-- ma60: 32.1
-- ma120: 30.91
-- return_5d: 0.42
-- return_20d: 16.97
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 3.29
-- distance_to_high_60_pct: -15.07
+- date: 20260618
+- open: 36
+- high: 36
+- low: 35.05
+- close: 35.55
+- volume: 1072000
+- ma5: 35.66
+- ema23_primary: 34.64
+- distance_to_ema23_pct: 2.64
+- ma20: 35.12
+- ma60: 32.31
+- ma120: 31.23
+- return_5d: 0.28
+- return_20d: 14.86
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 1.22
+- distance_to_high_60_pct: -14.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,30.35,31.55,29.6,31,428000,31.43,-1.36,31.34,31.12,0.4
-20260519,31.45,31.75,30,30.3,448000,31.33,-3.3,31.29,31.1,0.42
-20260520,30.85,31.55,30,30.15,645000,31.24,-3.47,31.25,31.1,0.61
-20260521,30.5,31.1,30.5,30.95,229000,31.21,-0.84,31.22,31.12,0.22
 20260522,31,32.1,31,31.85,32000,31.26,1.87,31.29,31.12,0.03
 20260525,32.55,32.7,31.8,32.05,32000,31.33,2.3,31.34,31.11,0.04
 20260526,32.4,32.65,31.4,32.65,32000,31.44,3.85,31.45,31.12,0.04
 20260527,33,33.5,31.9,33.3,33000,31.6,5.4,31.6,31.13,0.04
 20260528,34.2,35.8,32.85,32.95,34000,31.71,3.92,31.73,31.14,0.04
 20260529,34,36.2,33.8,36.2,36000,32.08,12.83,32.03,31.17,0.05
-20260601,39.75,39.8,39.45,39.8,40,32.73,21.62,32.49,31.28,0
+20260601,39.75,39.8,39.45,39.8,40000,32.73,21.62,32.49,31.28,0.06
 20260602,41.55,41.8,36.6,38.15,39,33.18,14.99,32.82,31.38,0
 20260603,39.7,39.7,37.1,37.25,38000,33.52,11.14,33.12,31.46,0.06
-20260604,39.7,39.7,37.1,37.25,38000,33.83,10.12,33.4,31.6,0.06
-20260605,36.45,37.3,34.9,35.35,36000,33.95,4.11,33.51,31.69,0.08
-20260611,34.2,36.3,32.4,35.45,34000,34.08,4.02,33.6,31.76,0.11
-20260612,35.55,37.75,35.5,35.5,37000,34.2,3.81,33.72,31.84,0.15
-20260615,35.75,37.1,35.3,36.7,36000,34.41,6.67,33.95,31.95,0.17
-20260616,37.25,37.7,35.05,35.05,36000,34.46,1.71,34.11,32.02,0.21
-20260617,34.8,36.2,34.75,35.5,36000,34.55,2.76,34.37,32.1,0.32
+20260604,37,39.05,36.3,36.6,37000,33.77,8.37,33.37,31.59,0.06
+20260605,36.45,37.3,34.9,35.35,36000,33.91,4.26,33.48,31.68,0.08
+20260608,31.85,34.25,31.85,34.15,1756000,33.93,0.66,33.51,31.73,4.41
+20260609,34.75,35.25,33.5,34.15,1462000,33.94,0.61,33.56,31.78,3.54
+20260610,33.55,37.55,33.55,34.2,3826000,33.97,0.69,33.66,31.85,6.86
+20260611,34.2,36.3,32.4,35.45,2237000,34.09,3.99,33.84,31.93,3.57
+20260612,35.55,37.75,35.5,35.5,3465000,34.21,3.78,34.1,32.01,4.67
+20260615,35.75,37.1,35.3,36.7,1644000,34.41,6.64,34.38,32.09,2.05
+20260616,37.25,37.7,35.05,35.05,2397000,34.47,1.69,34.62,32.14,2.66
+20260617,34.8,36.2,34.75,35.5,934000,34.55,2.74,34.89,32.21,1.02
+20260618,36,36,35.05,35.55,1072000,34.64,2.64,35.12,32.31,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6134 | 萬旭 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6134 | 萬旭 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

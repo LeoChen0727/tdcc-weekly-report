@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:28 Asia/Taipei
+- generated_at: 2026-06-18 22:23:27 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 282
+- latest_price_date: 20260618
+- price_rows: 286
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 35.3
-- high: 35.9
-- low: 35.05
-- close: 35.5
-- volume: 60281414
-- ma5: 34.71
-- ema23_primary: 32.94
-- distance_to_ema23_pct: 7.77
-- ma20: 32.44
-- ma60: 32.29
-- ma120: 32.88
-- return_5d: 6.45
-- return_20d: 11.11
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 9.42
-- distance_to_high_60_pct: -1.11
+- date: 20260618
+- open: 35.5
+- high: 36.25
+- low: 35.4
+- close: 35.4
+- volume: 98205698
+- ma5: 35.02
+- ema23_primary: 33.42
+- distance_to_ema23_pct: 5.94
+- ma20: 32.97
+- ma60: 32.47
+- ma120: 32.94
+- return_5d: 4.58
+- return_20d: 12.2
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: 7.39
+- distance_to_high_60_pct: -2.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,32.2,32.2,31.7,31.7,33257380,32.14,-1.38,32.2,32.73,0.86
-20260519,31.8,32.4,31.75,32,34018806,32.13,-0.41,32.15,32.7,0.88
-20260520,32,32.05,31.6,31.7,32499681,32.1,-1.23,32.09,32.66,0.85
-20260521,32.05,32.05,31.55,31.55,28628175,32.05,-1.56,32.02,32.62,0.76
 20260522,31.5,31.8,31.3,31.3,40828522,31.99,-2.15,31.96,32.56,1.09
 20260525,31.3,31.35,30.9,30.9,47765179,31.9,-3.13,31.88,32.5,1.26
 20260526,30.9,31.5,30.9,31.15,48567179,31.84,-2.15,31.8,32.44,1.26
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,30.95,31.5,30.8,31.45,59743502,31.61,-0.51,31.62,32.2,1.33
 20260602,31.4,32.2,31.4,32.2,78075377,31.66,1.7,31.65,32.17,1.67
 20260603,32.3,33.3,32.05,33,78949449,31.77,3.86,31.71,32.15,1.62
-20260604,31.4,32.2,31.4,32.2,78075377,31.81,1.23,31.71,32.13,1.54
-20260605,33.45,33.6,32.9,33.35,49409021,31.94,4.43,31.75,32.13,0.97
-20260611,33.65,33.85,33.05,33.85,45609225,32.1,5.46,31.83,32.14,0.88
-20260612,34.15,34.7,33.95,34.35,50080952,32.28,6.4,31.96,32.16,0.96
-20260615,34.85,34.85,34.4,34.65,41423794,32.48,6.68,32.1,32.19,0.79
-20260616,34.7,35.35,34.45,35.2,59663562,32.71,7.62,32.27,32.24,1.1
-20260617,35.3,35.9,35.05,35.5,60281414,32.94,7.77,32.44,32.29,1.09
+20260604,33,33.7,32.9,33.45,71753146,31.91,4.82,31.77,32.15,1.43
+20260605,33.45,33.6,32.9,33.35,49409021,32.03,4.11,31.82,32.15,0.97
+20260608,32.75,33.1,32.3,32.9,60140936,32.1,2.48,31.85,32.14,1.15
+20260609,32.9,34.35,32.9,34.2,88605638,32.28,5.95,31.97,32.16,1.63
+20260610,34,34.15,33.15,33.65,59541179,32.39,3.88,32.05,32.17,1.07
+20260611,33.65,33.85,33.05,33.85,45609225,32.51,4.11,32.16,32.2,0.81
+20260612,34.15,34.7,33.95,34.35,50080952,32.67,5.15,32.27,32.24,0.87
+20260615,34.85,34.85,34.4,34.65,41423794,32.83,5.53,32.42,32.28,0.72
+20260616,34.7,35.35,34.45,35.2,59663562,33.03,6.57,32.58,32.33,1.01
+20260617,35.3,35.9,35.05,35.5,60281414,33.24,6.81,32.77,32.4,1
+20260618,35.5,36.25,35.4,35.4,98205698,33.42,5.94,32.97,32.47,1.54
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | 1.事實發生日:115/06/15 2.捐贈原由:依據玉山銀行97.3.3第6屆第16次及104.1.30第9屆第6次董事會決議，捐贈予 玉山志工基金會，運用於玉山黃金種子計畫，協助偏遠地區學校建置「玉山圖書館」。 3.捐贈金額:新臺幣 5,768,188 元 4.受贈對象:財團法人玉山志工社會福利慈善事業基金會 5.與公司關係:關係人 6.表示反對或保留意見之獨立董事姓名及簡歷:無 7.前揭獨立董事表示反對或保留之意見:無 8.其他應敘明事項:無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_14d |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2884 | 玉山金 | 16 | 6 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2884 | 玉山金 | 11 | 0 | 1820320.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

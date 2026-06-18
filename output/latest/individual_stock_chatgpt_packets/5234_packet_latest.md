@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5234 達興材料
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:09 Asia/Taipei
+- generated_at: 2026-06-18 22:24:08 Asia/Taipei
 - stock_id: 5234
 - stock_name: 達興材料
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 389
-- high: 389
-- low: 378.5
-- close: 382.5
-- volume: 302083
-- ma5: 386.3
-- ema23_primary: 404.05
-- distance_to_ema23_pct: -5.33
-- ma20: 407.48
-- ma60: 404.99
-- ma120: 383.09
-- return_5d: -5.2
-- return_20d: -4.14
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -6.13
-- distance_to_high_60_pct: -23.42
+- date: 20260618
+- open: 385.5
+- high: 401.5
+- low: 385
+- close: 396
+- volume: 583634
+- ma5: 389.3
+- ema23_primary: 399.46
+- distance_to_ema23_pct: -0.87
+- ma20: 403.98
+- ma60: 405.38
+- ma120: 384.87
+- return_5d: 3.94
+- return_20d: -4.46
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.97
+- distance_to_high_60_pct: -20.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,399.5,414.5,383,404.5,660692,415.69,-2.69,428.07,401.1,0.67
-20260519,406,412,395.5,397.5,540310,414.17,-4.03,425.12,401.75,0.56
-20260520,400.5,414.5,397,402,554532,413.16,-2.7,422.12,402.1,0.58
-20260521,412,424,409.5,414.5,739022,413.27,0.3,420.2,402.53,0.81
 20260522,420,451,420,443.5,1290718,415.79,6.66,420.12,403.1,1.43
 20260525,448.5,458,437,449.5,1058956,418.6,7.38,421.4,403.24,1.18
 20260526,450.5,461,433,439,1050832,420.3,4.45,422.32,403.06,1.14
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,411,415,406,412.5,522893,418.53,-1.44,416.9,404.27,0.6
 20260602,412.5,412.5,396.5,403,811209,417.24,-3.41,415.62,404.32,0.92
 20260603,409.5,411,398.5,399,608548,415.72,-4.02,414.9,404.43,0.71
-20260604,412.5,412.5,396.5,403,811209,414.66,-2.81,415.12,405.27,0.97
-20260605,392,405.5,378.5,403.5,827572,413.73,-2.47,414.9,405.81,1.01
-20260611,383.5,388.5,368.5,381,452182,411,-7.3,413.23,405.77,0.56
-20260612,392,393,387,390.5,237098,409.29,-4.59,411.1,405.58,0.32
-20260615,396,398,386,389,473951,407.6,-4.56,409.77,405.49,0.66
-20260616,393.5,395,388.5,388.5,221625,406.01,-4.31,408.3,405.31,0.31
-20260617,389,389,378.5,382.5,302083,404.05,-5.33,407.48,404.99,0.45
+20260604,399,401,390,391,591824,413.66,-5.48,414.52,405.07,0.72
+20260605,392,405.5,378.5,403.5,827572,412.81,-2.26,414.3,405.61,1.02
+20260608,365,392,365,389,769393,410.83,-5.31,413.02,405.71,0.95
+20260609,391,404,383,391.5,586526,409.22,-4.33,410.95,405.53,0.77
+20260610,388.5,407,383.5,384,605610,407.12,-5.68,409.38,405.36,0.8
+20260611,383.5,388.5,368.5,381,452182,404.94,-5.91,407.52,405.05,0.61
+20260612,392,393,387,390.5,237098,403.74,-3.28,407.1,404.87,0.33
+20260615,396,398,386,389,473951,402.51,-3.36,406.32,404.7,0.68
+20260616,393.5,395,388.5,388.5,221625,401.34,-3.2,405.88,404.64,0.32
+20260617,389,389,378.5,382.5,302083,399.77,-4.32,404.9,404.71,0.45
+20260618,385.5,401.5,385,396,583634,399.46,-0.87,403.98,405.38,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 5234 | 達興材料 | 0 | 2 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 5234 | 達興材料 | 66 | 2 | 3637940.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1809 中釉
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:03 Asia/Taipei
+- generated_at: 2026-06-18 22:23:02 Asia/Taipei
 - stock_id: 1809
 - stock_name: 中釉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 48.7
-- high: 52
-- low: 48.1
-- close: 51.7
-- volume: 7600643
-- ma5: 49.78
-- ema23_primary: 46.05
-- distance_to_ema23_pct: 12.26
-- ma20: 46.88
-- ma60: 35.24
-- ma120: 28.78
-- return_5d: -13.26
-- return_20d: 33.94
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 10.29
-- distance_to_high_60_pct: -15.52
+- date: 20260618
+- open: 51.9
+- high: 52.3
+- low: 51
+- close: 51.4
+- volume: 5665424
+- ma5: 50.4
+- ema23_primary: 48
+- distance_to_ema23_pct: 7.07
+- ma20: 50.1
+- ma60: 36.81
+- ma120: 30.01
+- return_5d: 6.42
+- return_20d: 31.12
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 2.6
+- distance_to_high_60_pct: -16.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,38.6,38.6,36.55,37.6,3027153,32.98,14.01,31.95,28.17,0.31
-20260519,38.45,40,38.3,38.3,1920649,33.42,14.59,32.46,28.42,0.2
-20260520,39.7,39.7,38.45,38.45,1836059,33.84,13.62,33.01,28.68,0.19
-20260521,39.05,39.95,39.05,39.2,1993002,34.29,14.32,33.52,28.94,0.22
 20260522,38.95,41.55,38.85,41.5,4046781,34.89,18.95,34.26,29.22,0.44
 20260525,42.5,45.65,42.5,45.65,5416039,35.79,27.56,35.26,29.57,0.58
 20260526,46.9,50,44.6,49.3,6371593,36.91,33.56,36.47,29.99,0.67
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,43.55,47.9,42.65,47.9,13633772,39.15,22.34,40.01,31.19,1.19
 20260602,49.9,52.6,49.9,52.6,7761848,40.27,30.6,41.09,31.64,0.71
 20260603,57.8,57.8,49.85,56.2,44368140,41.6,35.09,42.19,32.15,3.62
-20260604,49.9,52.6,49.9,52.6,7761848,42.52,23.71,43.09,32.63,0.73
-20260605,57.9,61.2,56.5,59.6,25658588,43.94,35.63,44.27,33.23,2.38
-20260611,50.7,50.8,47.1,48.3,10069662,44.31,9.02,44.71,33.62,0.95
-20260612,50.7,51.4,47.8,47.9,7509993,44.6,7.39,45.08,34,0.81
-20260615,49.1,51.9,49.1,51.5,6672010,45.18,13.99,45.71,34.42,0.71
-20260616,52.1,52.1,49.1,49.5,6467327,45.54,8.7,46.22,34.83,0.68
-20260617,48.7,52,48.1,51.7,7600643,46.05,12.26,46.88,35.24,0.77
+20260604,56.5,61.8,56.3,58.5,36365243,43.01,36.01,43.39,32.73,3
+20260605,57.9,61.2,56.5,59.6,25658588,44.39,34.26,44.57,33.33,2.1
+20260608,53.7,55.7,53.7,53.7,8664084,45.17,18.89,45.27,33.81,0.72
+20260609,53,59,51,56.3,24586840,46.1,22.14,46.07,34.33,2.13
+20260610,55.9,59,50.7,50.7,25167621,46.48,9.08,46.65,34.74,2.01
+20260611,50.7,50.8,47.1,48.3,10069662,46.63,3.58,47.1,35.12,0.78
+20260612,50.7,51.4,47.8,47.9,7509993,46.74,2.49,47.57,35.48,0.57
+20260615,49.1,51.9,49.1,51.5,6672010,47.13,9.26,48.27,35.84,0.5
+20260616,52.1,52.1,49.1,49.5,6467327,47.33,4.58,48.83,36.12,0.48
+20260617,48.7,52,48.1,51.7,7600643,47.7,8.4,49.49,36.45,0.55
+20260618,51.9,52.3,51,51.4,5665424,48,7.07,50.1,36.81,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1809 | 中釉 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260623; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1809 | 中釉 | 1 | 1 | 1 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

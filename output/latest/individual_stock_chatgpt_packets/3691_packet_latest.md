@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:51 Asia/Taipei
+- generated_at: 2026-06-18 22:23:50 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,48 +113,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 155.5
-- high: 158
-- low: 151
-- close: 157
-- volume: 154000
-- ma5: 159.5
-- ema23_primary: 152.94
-- distance_to_ema23_pct: 2.65
-- ma20: 155.45
-- ma60: 132.08
-- ma120: 117.37
-- return_5d: -1.88
-- return_20d: 2.95
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: 1
-- distance_to_high_60_pct: -11.3
+- date: 20260618
+- open: 156
+- high: 156.5
+- low: 152
+- close: 154.5
+- volume: 1973000
+- ma5: 157
+- ema23_primary: 154.77
+- distance_to_ema23_pct: -0.17
+- ma20: 158.32
+- ma60: 135.04
+- ma120: 120.16
+- return_5d: -7.49
+- return_20d: 8.42
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -2.42
+- distance_to_high_60_pct: -13.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,157,167,150,154,9123000,132.67,16.08,129.43,119.68,3.95
-20260519,153.5,155.5,144,147,3038000,133.87,9.81,130.72,120.4,1.26
-20260520,145.5,145.5,138,139,1796000,134.29,3.5,131.72,120.97,0.73
-20260521,142.5,145.5,142,142.5,1077000,134.98,5.57,133,121.59,0.44
 20260522,143.5,146.5,140.5,143.5,143000,135.69,5.76,134.57,122.23,0.06
 20260525,145,148,141.5,144.5,145000,136.42,5.92,136.43,122.86,0.06
 20260526,145,158.5,139,157,152000,138.14,13.66,138.82,123.52,0.06
 20260527,165,168,153,155.5,161000,139.58,11.4,141.12,123.96,0.07
 20260528,158,161.5,147.5,151,155000,140.54,7.45,143.03,124.22,0.07
 20260529,155,163,149,162,156000,142.32,13.82,145.22,124.72,0.07
-20260601,170,173,161,169.5,168,144.59,17.23,147.22,125.57,0
+20260601,170,173,161,169.5,168000,144.59,17.23,147.22,125.57,0.08
 20260602,173,173,155,159,164,145.79,9.06,148.43,126.22,0
 20260603,159,166,156.5,163.5,162000,147.27,11.02,149.8,126.99,0.08
-20260604,159,166,156.5,163.5,162000,148.62,10.01,151.4,127.83,0.09
-20260605,162.5,165,154,160,159000,149.57,6.98,152.65,128.63,0.09
-20260611,160,167.5,156,167,162000,151.02,10.58,153.95,129.45,0.1
-20260612,170.5,177,157.5,158.5,167000,151.64,4.52,154.12,130.18,0.11
-20260615,162,165.5,155.5,158,160000,152.17,3.83,154.32,130.88,0.12
-20260616,161.5,163.5,156.5,157,160000,152.57,2.9,155.22,131.45,0.14
-20260617,155.5,158,151,157,154000,152.94,2.65,155.45,132.08,0.18
+20260604,163.5,175.5,162.5,164.5,168000,148.7,10.62,151.45,127.85,0.09
+20260605,162.5,165,154,160,159000,149.64,6.92,152.7,128.65,0.09
+20260608,145,155,145,154.5,1976000,150.05,2.97,153.38,129.26,1.11
+20260609,156,168.5,150.5,167,4331000,151.46,10.26,153.97,130.13,2.34
+20260610,165,178,163,163,7852000,152.42,6.94,154.43,130.92,3.86
+20260611,160,167.5,156,167,5478000,153.64,8.7,155.82,131.65,2.65
+20260612,170.5,177,157.5,158.5,7975000,154.04,2.89,156.12,132.31,3.61
+20260615,162,165.5,155.5,158,2717000,154.37,2.35,156.32,132.97,1.44
+20260616,161.5,163.5,156.5,157,2121000,154.59,1.56,156.82,133.66,1.15
+20260617,155.5,158,151,157,2648000,154.79,1.43,157.72,134.34,1.4
+20260618,156,156.5,152,154.5,1973000,154.77,-0.17,158.32,135.04,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3691 | 碩禾 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3691 | 碩禾 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

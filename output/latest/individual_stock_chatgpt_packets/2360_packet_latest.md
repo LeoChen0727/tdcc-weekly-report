@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:12 Asia/Taipei
+- generated_at: 2026-06-18 22:23:11 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 2225
-- high: 2255
-- low: 2165
-- close: 2230
-- volume: 2743677
-- ma5: 2261
-- ema23_primary: 2328.04
-- distance_to_ema23_pct: -4.21
-- ma20: 2367.75
-- ma60: 2074.33
-- ma120: 1553.35
-- return_5d: -13.06
-- return_20d: -0.45
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -5.82
-- distance_to_high_60_pct: -20.21
+- date: 20260618
+- open: 2315
+- high: 2360
+- low: 2275
+- close: 2310
+- volume: 1983387
+- ma5: 2285
+- ema23_primary: 2330.7
+- distance_to_ema23_pct: -0.89
+- ma20: 2417
+- ma60: 2129.25
+- ma120: 1606.6
+- return_5d: 5.48
+- return_20d: 1.76
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -4.43
+- distance_to_high_60_pct: -17.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,2125,2200,2125,2185,2303570,2138.46,2.18,2173.25,1741.58,0.51
-20260519,2130,2130,1975,2055,4295379,2131.5,-3.59,2173.5,1758.67,1
-20260520,2090,2095,2020,2065,1914996,2125.96,-2.87,2175.5,1775.75,0.47
-20260521,2210,2270,2190,2270,1519450,2137.96,6.18,2187.5,1796.08,0.38
 20260522,2380,2380,2245,2270,3643007,2148.97,5.63,2204,1814.67,0.95
 20260525,2345,2460,2310,2460,2662774,2174.89,13.11,2231,1835.25,0.7
 20260526,2550,2590,2450,2500,2805851,2201.98,13.53,2259.75,1856,0.76
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,2520,2710,2500,2580,3918391,2310.7,11.65,2347,1933.75,1.07
 20260602,2570,2605,2390,2420,3018185,2319.8,4.32,2356.25,1950.67,0.84
 20260603,2470,2555,2450,2545,1597378,2338.57,8.83,2366.25,1970.17,0.48
-20260604,2570,2605,2390,2420,3018185,2345.36,3.18,2371,1989.83,0.92
-20260605,2645,2660,2470,2565,2347549,2363.66,8.52,2387.75,2009.92,0.73
-20260611,2200,2240,2065,2190,3133771,2349.19,-6.78,2379.25,2021.5,0.98
-20260612,2300,2320,2230,2295,1795530,2344.67,-2.12,2372,2034.83,0.59
-20260615,2400,2400,2250,2265,1995600,2338.03,-3.12,2365,2047.08,0.66
-20260616,2265,2385,2265,2325,2495049,2336.95,-0.51,2368.25,2061.67,0.85
-20260617,2225,2255,2165,2230,2743677,2328.04,-4.21,2367.75,2074.33,0.95
+20260604,2510,2670,2510,2620,2502013,2362.02,10.92,2381,1993.17,0.77
+20260605,2645,2660,2470,2565,2347549,2378.94,7.82,2397.75,2013.25,0.74
+20260608,2310,2470,2310,2450,3370208,2384.86,2.73,2402.25,2029.17,1.06
+20260609,2450,2480,2375,2390,3312487,2385.29,0.2,2399.75,2044.08,1.06
+20260610,2330,2370,2205,2210,3194991,2370.68,-6.78,2390,2055.42,1.01
+20260611,2200,2240,2065,2190,3133771,2355.62,-7.03,2386.5,2067.75,1.02
+20260612,2300,2320,2230,2295,1795530,2350.57,-2.36,2389.25,2081.5,0.6
+20260615,2400,2400,2250,2265,1995600,2343.44,-3.35,2393.25,2093.17,0.67
+20260616,2265,2385,2265,2325,2495049,2341.9,-0.72,2406.75,2105.33,0.86
+20260617,2225,2255,2165,2230,2743677,2332.58,-4.4,2415,2116.08,0.93
+20260618,2315,2360,2275,2310,1983387,2330.7,-0.89,2417,2129.25,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2360 | 致茂 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.發放股利種類及金額:現金股利港幣51,924,638.77元 3.其他應敘明事項:NEWORLD ELECTRONICS LIMITED為本公司100%持有之子公司。；calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
-| 20260617 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.發放股利種類及金額:現金股利港幣51,924,638.77元 3.其他應敘明事項:NEWORLD ELECTRONICS LIMITED為本公司100%持有之子公司。；calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 2360 | 致茂 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會決議日期:115/06/16 2.發放股利種類及金額:現金股利港幣51,924,638.77元 3.其他應敘明事項:NEWORLD ELECTRONICS LIMITED為本公司100%持有之子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2360 | 致茂 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2360 | 致茂 | 17 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2360 | 致茂 | 0 | 5 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 2360 | 致茂 | 54 | 5 | 3869120.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

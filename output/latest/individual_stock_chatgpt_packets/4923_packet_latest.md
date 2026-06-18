@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4923 力士
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:05 Asia/Taipei
+- generated_at: 2026-06-18 22:24:03 Asia/Taipei
 - stock_id: 4923
 - stock_name: 力士
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,9 +87,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -104,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -112,48 +114,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 47.5
-- high: 52.5
-- low: 47.15
-- close: 52.5
-- volume: 51000
-- ma5: 48.4
-- ema23_primary: 44.37
-- distance_to_ema23_pct: 18.32
-- ma20: 44.41
-- ma60: 38.74
-- ma120: 34.88
-- return_5d: 14.88
-- return_20d: 43.25
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 18.23
+- date: 20260618
+- open: 53.3
+- high: 57.7
+- low: 53.3
+- close: 57.7
+- volume: 4684000
+- ma5: 51.3
+- ema23_primary: 45.74
+- distance_to_ema23_pct: 26.14
+- ma20: 46.43
+- ma60: 39.34
+- ma120: 35.5
+- return_5d: 33.56
+- return_20d: 49.1
+- volume_ratio: 5.13
+- distance_to_ma20_pct_auxiliary: 24.27
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,36,36.55,34.75,36.55,196000,36.15,1.11,35.61,34.58,0.6
-20260519,36.8,36.8,35.25,35.6,121000,36.1,-1.4,35.64,34.63,0.36
-20260520,35.95,38.75,35.95,37.55,652000,36.23,3.66,35.81,34.72,1.81
-20260521,38.05,39.35,37.45,38.7,820000,36.43,6.23,36.04,34.82,2.08
 20260522,39.1,42.1,38.5,40.2,40000,36.75,9.4,36.4,34.94,0.1
 20260525,41,42.35,39.3,41.05,41000,37.1,10.63,36.78,35.08,0.1
 20260526,41.3,45.15,39.2,45.15,43000,37.77,19.52,37.37,35.29,0.11
 20260527,49.65,49.65,49.65,49.65,50000,38.76,28.08,38.2,35.57,0.13
 20260528,49.15,51.1,46.35,48.85,49000,39.6,23.34,38.98,35.84,0.13
 20260529,48.85,49.6,46.9,47,48000,40.22,16.85,39.67,36.1,0.12
-20260601,47,47.15,45.1,45.1,46,40.63,11.01,40.09,36.35,0
+20260601,47,47.15,45.1,45.1,46000,40.63,11.01,40.09,36.35,0.12
 20260602,45.1,45.1,42,42.2,43,40.76,3.54,40.34,36.55,0
 20260603,42.6,46.4,42.25,46.4,45000,41.23,12.54,40.79,36.83,0.14
-20260604,42.6,46.4,42.25,46.4,45000,41.66,11.38,41.26,37.13,0.15
-20260605,42.75,47.95,42.7,45.7,46000,42,8.82,41.76,37.4,0.15
-20260611,43.4,44.7,41.6,43.2,43000,42.1,2.62,42.05,37.62,0.14
-20260612,44.35,47.5,44.35,47.5,47000,42.55,11.64,42.55,37.93,0.17
-20260615,51.5,51.5,48.45,51,50000,43.25,17.92,43.15,38.26,0.24
-20260616,51,51.3,47.45,47.8,49000,43.63,9.56,43.61,38.49,0.34
-20260617,47.5,52.5,47.15,52.5,51000,44.37,18.32,44.41,38.74,0.42
+20260604,46.4,47.3,43.8,43.8,45000,41.44,5.69,41.13,37.09,0.15
+20260605,42.75,47.95,42.7,45.7,46000,41.8,9.34,41.63,37.36,0.15
+20260608,41.25,46.3,41.2,44.9,955000,42.06,6.76,42.01,37.61,2.76
+20260609,45.4,47.45,45.1,45.45,1213000,42.34,7.35,42.41,37.88,3.11
+20260610,45.45,47,43.5,43.5,884000,42.44,2.51,42.63,38.09,2.5
+20260611,43.4,44.7,41.6,43.2,406000,42.5,1.65,42.86,38.24,1.31
+20260612,44.35,47.5,44.35,47.5,1332000,42.92,10.68,43.4,38.4,3.79
+20260615,51.5,51.5,48.45,51,4117000,43.59,17,44.12,38.56,7.52
+20260616,51,51.3,47.45,47.8,1562000,43.94,8.78,44.73,38.73,2.52
+20260617,47.5,52.5,47.15,52.5,2649000,44.65,17.57,45.48,38.99,3.68
+20260618,53.3,57.7,53.3,57.7,4684000,45.74,26.14,46.43,39.34,5.13
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4923 | 力士 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4923 | 力士 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

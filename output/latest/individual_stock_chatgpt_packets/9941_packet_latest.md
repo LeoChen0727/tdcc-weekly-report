@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9941 裕融
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:21 Asia/Taipei
+- generated_at: 2026-06-18 22:25:11 Asia/Taipei
 - stock_id: 9941
 - stock_name: 裕融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 81.6
-- high: 83.5
+- date: 20260618
+- open: 82
+- high: 82.5
 - low: 81.2
 - close: 81.4
-- volume: 1788959
-- ma5: 83.6
-- ema23_primary: 78.5
-- distance_to_ema23_pct: 3.7
-- ma20: 77.13
-- ma60: 76.95
-- ma120: 79.01
-- return_5d: -0.61
-- return_20d: 11.35
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 5.54
-- distance_to_high_60_pct: -7.18
+- volume: 1392321
+- ma5: 82.34
+- ema23_primary: 80.11
+- distance_to_ema23_pct: 1.62
+- ma20: 79.36
+- ma60: 77.43
+- ma120: 78.77
+- return_5d: -7.18
+- return_20d: 10.45
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 2.57
+- distance_to_high_60_pct: -8.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,73.1,75,72.9,74.3,1756158,75.79,-1.97,76.5,76.28,0.97
-20260519,74.3,75.4,73.6,73.6,1149032,75.61,-2.66,76.28,76.21,0.64
-20260520,74.3,74.4,73.6,73.7,872711,75.45,-2.32,76.05,76.16,0.49
-20260521,73.7,74.3,73.7,73.7,889490,75.3,-2.13,75.79,76.11,0.51
 20260522,74.6,74.6,73,73.5,1691505,75.15,-2.2,75.52,76.08,0.97
 20260525,73.7,74,72.6,72.9,1980189,74.97,-2.76,75.26,76.05,1.12
 20260526,73,73.5,72.6,72.8,1374770,74.78,-2.65,74.97,76.04,0.78
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,73.1,73.8,72.5,73.6,1983182,74.24,-0.86,73.95,76,1.14
 20260602,73.8,78,73.2,77,7926666,74.47,3.4,74.02,76.08,3.95
 20260603,78.2,83.8,77.9,82.7,10531711,75.16,10.04,74.36,76.19,4.29
-20260604,73.8,78,73.2,77,7926666,75.31,2.25,74.4,76.23,2.88
-20260605,82.1,83.4,80.8,81.9,8343720,75.86,7.96,74.71,76.32,2.77
-20260611,87,87.7,85.7,87.7,5846401,76.85,14.13,75.33,76.52,1.81
-20260612,87.1,87.2,84.3,84.3,3093668,77.47,8.82,75.83,76.67,0.94
-20260615,83.6,83.7,81.2,83,2848199,77.93,6.51,76.29,76.79,0.86
-20260616,83.1,83.2,81.3,81.6,2174784,78.23,4.3,76.72,76.87,0.65
-20260617,81.6,83.5,81.2,81.4,1788959,78.5,3.7,77.13,76.95,0.53
+20260604,82.2,85,80.7,82,8784731,75.73,8.29,74.65,76.31,3.14
+20260605,82.1,83.4,80.8,81.9,8343720,76.24,7.42,74.96,76.41,2.73
+20260608,79.2,83,77.9,83,6820137,76.8,8.07,75.35,76.52,2.06
+20260609,83,85.4,81.8,84.1,7323234,77.41,8.64,75.84,76.67,2.05
+20260610,83.7,89,83.3,86.4,9201159,78.16,10.54,76.47,76.85,2.34
+20260611,87,87.7,85.7,87.7,5846401,78.96,11.07,77.19,77.03,1.41
+20260612,87.1,87.2,84.3,84.3,3093668,79.4,6.17,77.75,77.16,0.73
+20260615,83.6,83.7,81.2,83,2848199,79.7,4.14,78.19,77.24,0.66
+20260616,83.1,83.2,81.3,81.6,2174784,79.86,2.18,78.59,77.33,0.5
+20260617,81.6,83.5,81.2,81.4,1788959,79.99,1.77,78.97,77.37,0.41
+20260618,82,82.5,81.2,81.4,1392321,80.11,1.62,79.36,77.43,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9941 | 裕融 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 9941 | 裕融 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞:新鑫股份有限公司一一五年度第一期 無擔保普通公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:新台幣15億元整 5.每張面額:新台幣壹佰萬元 6.發行價格:依票面金額十足發行 7.發行期間:3年期 8.發行利率:票面利率(固定年利率)2.09% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:償還金融機構借款 11.承銷方式:委託承銷商對外公開承銷 12.公司債受託人:永豐商業銀行股份有限公司 13.承銷或代銷機構:委任凱基證券股份有限公司為主辦承銷商 14.發行保證人:不適用 15.代理還本付息機構:華南商業銀行股份有限公司敦化分行 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:不適用 19.買回條件:不適用 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9941 | 裕融 | 9 | 4 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 9941 | 裕融 | 10 | 5 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

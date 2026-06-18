@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2483 百容
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:19 Asia/Taipei
+- generated_at: 2026-06-18 22:23:18 Asia/Taipei
 - stock_id: 2483
 - stock_name: 百容
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,38 +56,38 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: no_entry_now
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 36.15
-- high: 38.5
-- low: 35.85
-- close: 36.05
-- volume: 6612185
-- ma5: 36.56
-- ema23_primary: 29.16
-- distance_to_ema23_pct: 23.61
-- ma20: 28.25
-- ma60: 24.27
-- ma120: 22.12
-- return_5d: 18.39
-- return_20d: 49.9
-- volume_ratio: 2.21
-- distance_to_ma20_pct_auxiliary: 27.62
-- distance_to_high_60_pct: -10.32
+- date: 20260618
+- open: 36.1
+- high: 39.65
+- low: 36.1
+- close: 39.65
+- volume: 8963992
+- ma5: 37.56
+- ema23_primary: 31.16
+- distance_to_ema23_pct: 27.25
+- ma20: 30.47
+- ma60: 25.2
+- ma120: 22.67
+- return_5d: 14.43
+- return_20d: 61.18
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 30.14
+- distance_to_high_60_pct: -1.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,24,24.5,23.7,24.2,391276,23.22,4.21,23.41,22.08,0.73
-20260519,24.5,24.6,23.65,23.8,327444,23.27,2.28,23.43,22.14,0.62
-20260520,23.95,24.05,23.1,23.4,359024,23.28,0.51,23.41,22.2,0.67
-20260521,23.8,24.75,23.5,24.6,622846,23.39,5.17,23.44,22.27,1.13
 20260522,24.85,26,24.65,25.95,985912,23.6,9.94,23.55,22.36,1.7
 20260525,26.4,26.4,25,25.35,794602,23.75,6.74,23.67,22.43,1.31
 20260526,25.55,26.25,25.4,25.8,822929,23.92,7.86,23.88,22.5,1.42
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,26,26.5,25.3,25.5,684756,24.39,4.54,24.47,22.68,1.03
 20260602,25.9,25.9,24.65,25.5,777067,24.49,4.14,24.58,22.73,1.14
 20260603,25.85,26.25,25.45,25.5,575535,24.57,3.78,24.68,22.77,0.84
-20260604,25.9,25.9,24.65,25.5,777067,24.65,3.46,24.77,22.84,1.1
-20260605,27.35,30.45,25.8,30.45,10502940,25.13,21.16,25.1,23,8.7
-20260611,31.5,34.65,30.4,34.65,5780640,25.92,33.66,25.65,23.23,3.91
-20260612,37,38.1,37,38.1,3345238,26.94,41.43,26.32,23.5,2.16
-20260615,40,40.2,37.4,38.15,17828612,27.87,36.87,27.07,23.78,7.43
-20260616,38.4,38.9,35.65,35.85,6693168,28.54,25.62,27.65,24.03,2.48
-20260617,36.15,38.5,35.85,36.05,6612185,29.16,23.61,28.25,24.27,2.21
+20260604,25.55,27.85,25.5,27.7,2339040,24.83,11.55,24.88,22.88,2.99
+20260605,27.35,30.45,25.8,30.45,10502940,25.3,20.36,25.21,23.04,8.17
+20260608,27.45,33.45,27.45,33.45,10875945,25.98,28.76,25.7,23.24,6.01
+20260609,36.75,36.75,33.45,33.6,18955865,26.61,26.25,26.15,23.44,7.12
+20260610,32.4,35.85,31.3,31.5,10201735,27.02,16.58,26.56,23.61,3.26
+20260611,31.5,34.65,30.4,34.65,5780640,27.66,25.29,27.08,23.84,1.71
+20260612,37,38.1,37,38.1,3345238,28.53,33.56,27.78,24.12,0.95
+20260615,40,40.2,37.4,38.15,17828612,29.33,30.08,28.48,24.39,4.06
+20260616,38.4,38.9,35.65,35.85,6693168,29.87,20.01,29.08,24.63,1.42
+20260617,36.15,38.5,35.85,36.05,6612185,30.39,18.64,29.71,24.88,1.32
+20260618,36.1,39.65,36.1,39.65,8963992,31.16,27.25,30.47,25.2,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2483 | 百容 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2483 | 百容 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2483 | 百容 | 7 | 2 | 5 | 7 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 2483 | 百容 | 8 | 1 | 5 | 8 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:13 Asia/Taipei
+- generated_at: 2026-06-18 22:23:12 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 346
-- high: 349.5
-- low: 343
-- close: 347.5
-- volume: 5752681
-- ma5: 345.4
-- ema23_primary: 342.67
-- distance_to_ema23_pct: 1.41
-- ma20: 347.6
-- ma60: 295.72
-- ma120: 265.65
-- return_5d: -5.83
-- return_20d: 6.43
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -0.03
-- distance_to_high_60_pct: -13.56
+- date: 20260618
+- open: 348
+- high: 353
+- low: 344
+- close: 344
+- volume: 8646604
+- ma5: 346.2
+- ema23_primary: 343.36
+- distance_to_ema23_pct: 0.19
+- ma20: 353.7
+- ma60: 302.35
+- ma120: 269.1
+- return_5d: 1.18
+- return_20d: 8.69
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -2.74
+- distance_to_high_60_pct: -14.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,336,351,328,330.5,39137868,296.52,11.46,297.3,257.68,2.82
-20260519,320,324,304.5,305,33752266,297.23,2.61,298.6,259.03,2.23
-20260520,309,313.5,300,302,13967293,297.63,1.47,299.27,260.29,0.93
-20260521,308,319.5,305,316.5,15510557,299.2,5.78,300.85,261.74,1.01
 20260522,318.5,325,311.5,322.5,13226599,301.14,7.09,303.23,263.33,0.85
 20260525,331.5,343,331,336.5,17128036,304.09,10.66,306.15,265.14,1.06
 20260526,340,340.5,330,336,11025246,306.75,9.54,308.7,266.82,0.67
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,385,396,376.5,387,38916483,322.07,20.16,324.75,275.29,1.94
 20260602,387.5,395,379.5,390.5,25610532,327.78,19.14,330.3,278.17,1.21
 20260603,392,402,377,399,23444363,333.71,19.56,335.2,281.17,1.11
-20260604,387.5,395,379.5,390.5,25610532,338.44,15.38,339.27,284.09,1.21
-20260605,370,375,358.5,369,17414787,340.99,8.21,341.88,286.56,0.83
-20260611,344,348.5,332,340,12564228,340.91,-0.27,342.65,288.36,0.61
-20260612,352,354,341,342,8171537,341,0.29,343.7,290.26,0.4
-20260615,350,353.5,343.5,349.5,5695443,341.71,2.28,345.5,292.2,0.29
-20260616,352.5,352.5,345,348,5609570,342.23,1.69,346.55,294.06,0.29
-20260617,346,349.5,343,347.5,5752681,342.67,1.41,347.6,295.72,0.31
+20260604,391,392.5,372.5,374,22721974,337.07,10.96,338.45,283.82,1.08
+20260605,370,375,358.5,369,17414787,339.73,8.62,341.05,286.28,0.84
+20260608,335,349,335,345,15202762,340.17,1.42,342.07,288.17,0.74
+20260609,349.5,360,343,359,12395319,341.74,5.05,343.98,290.35,0.61
+20260610,350,357,343,344.5,15746992,341.97,0.74,345.52,292.21,0.76
+20260611,344,348.5,332,340,12564228,341.8,-0.53,346.18,293.93,0.62
+20260612,352,354,341,342,8171537,341.82,0.05,346.95,295.5,0.41
+20260615,350,353.5,343.5,349.5,5695443,342.46,2.06,347.9,297.17,0.31
+20260616,352.5,352.5,345,348,5609570,342.92,1.48,350.05,298.84,0.34
+20260617,346,349.5,343,347.5,5752681,343.3,1.22,352.32,300.49,0.35
+20260618,348,353,344,344,8646604,343.36,0.19,353.7,302.35,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2376 | 技嘉 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2376 | 技嘉 | 4 | 4 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2376 | 技嘉 | 119 | 0 | 9545950.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

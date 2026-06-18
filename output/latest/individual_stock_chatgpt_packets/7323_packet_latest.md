@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7323 M31統一63購02
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:59 Asia/Taipei
+- generated_at: 2026-06-18 22:24:52 Asia/Taipei
 - stock_id: 7323
 - stock_name: M31統一63購02
-- packet_status: standard_180d_window_packet
-- latest_price_date: 20251031
-- price_rows: 136
+- packet_status: partial_rawdata_packet
+- latest_price_date: 20250407
+- price_rows: 1
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: TDCC history missing
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,48 +112,29 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20251031
+- date: 20250407
 - open: 0.42
 - high: 0.43
 - low: 0.41
 - close: 0.43
 - volume: 37000
-- ma5: 0.43
-- ema23_primary: 0.43
-- distance_to_ema23_pct: 0
-- ma20: 0.43
-- ma60: 0.43
-- ma120: 0.43
-- return_5d: 0
-- return_20d: 0
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 0
-- distance_to_high_60_pct: 0
+- ma5:
+- ema23_primary:
+- distance_to_ema23_pct:
+- ma20:
+- ma60:
+- ma120:
+- return_5d:
+- return_20d:
+- volume_ratio:
+- distance_to_ma20_pct_auxiliary:
+- distance_to_high_60_pct:
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20250926,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20250930,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251001,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251002,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251003,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251007,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251008,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251009,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251013,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251014,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251016,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251020,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251021,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251022,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251023,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251027,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251028,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251029,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251030,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
-20251031,0.42,0.43,0.41,0.43,37000,0.43,0,0.43,0.43,1
+20250407,0.42,0.43,0.41,0.43,37000,,,,,
 ```
 
 ## Latest TDCC Snapshot

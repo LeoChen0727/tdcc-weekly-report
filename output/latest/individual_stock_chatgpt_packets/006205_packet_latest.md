@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:44 Asia/Taipei
+- generated_at: 2026-06-18 22:22:41 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260617
-- price_rows: 16
+- latest_price_date: 20260618
+- price_rows: 20
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 41.05
-- high: 41.2
-- low: 41
-- close: 41.07
-- volume: 214865
-- ma5: 40.83
-- ema23_primary: 40.86
-- distance_to_ema23_pct: 0.52
-- ma20: 40.91
-- ma60: 40.91
-- ma120: 40.91
-- return_5d: 1.43
+- date: 20260618
+- open: 41.07
+- high: 41.63
+- low: 41.07
+- close: 41.54
+- volume: 747761
+- ma5: 41.14
+- ema23_primary: 40.73
+- distance_to_ema23_pct: 1.98
+- ma20: 40.73
+- ma60: 40.73
+- ma120: 40.73
+- return_5d: 3.95
 - return_20d:
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: 0.4
-- distance_to_high_60_pct: -1.44
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 2
+- distance_to_high_60_pct: -0.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -143,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40.89,40.92,40.4,40.63,605620,40.81,-0.44,40.93,40.93,0.61
 20260602,40.6,41.1,40.36,41.1,709356,40.83,0.65,40.95,40.95,0.74
 20260603,41.1,41.35,40.81,41.21,773651,40.86,0.85,40.98,40.98,0.83
-20260604,40.6,41.1,40.36,41.1,709356,40.88,0.53,40.99,40.99,0.78
-20260605,40.53,40.76,40.39,40.49,683769,40.85,-0.88,40.94,40.94,0.77
-20260611,39.92,40.14,39.78,39.96,566753,40.78,-2,40.86,40.86,0.65
-20260612,40,41.01,40,40.95,465964,40.79,0.39,40.87,40.87,0.56
-20260615,40.8,41.33,40.8,41.05,250654,40.81,0.58,40.88,40.88,0.32
-20260616,41.1,41.42,41.1,41.1,226973,40.84,0.64,40.9,40.9,0.3
-20260617,41.05,41.2,41,41.07,214865,40.86,0.52,40.91,40.91,0.3
+20260604,41.2,41.2,40.74,40.74,356683,40.85,-0.28,40.95,40.95,0.41
+20260605,40.53,40.76,40.39,40.49,683769,40.82,-0.82,40.91,40.91,0.79
+20260608,40,40,39.42,39.42,1294442,40.71,-3.16,40.79,40.79,1.44
+20260609,39.18,39.6,39.18,39.6,650674,40.61,-2.5,40.7,40.7,0.74
+20260610,39.72,40.06,39.72,39.79,955129,40.55,-1.86,40.63,40.63,1.08
+20260611,39.92,40.14,39.78,39.96,566753,40.5,-1.33,40.59,40.59,0.66
+20260612,40,41.01,40,40.95,465964,40.53,1.02,40.61,40.61,0.56
+20260615,40.8,41.33,40.8,41.05,250654,40.58,1.16,40.63,40.63,0.31
+20260616,41.1,41.42,41.1,41.1,226973,40.62,1.18,40.66,40.66,0.29
+20260617,41.05,41.2,41,41.07,214865,40.66,1.01,40.68,40.68,0.29
+20260618,41.07,41.63,41.07,41.54,747761,40.73,1.98,40.73,40.73,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -173,14 +178,14 @@ no_rows,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6205 | 詮欣 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6205 | 詮欣 | 9 | 7 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

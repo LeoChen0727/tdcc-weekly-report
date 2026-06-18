@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:25 Asia/Taipei
+- generated_at: 2026-06-18 22:24:23 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 533
-- high: 544
-- low: 523
-- close: 541
-- volume: 1689533
-- ma5: 541.4
-- ema23_primary: 489.75
-- distance_to_ema23_pct: 10.47
-- ma20: 492.9
-- ma60: 395.44
-- ma120: 337.22
-- return_5d: 7.34
-- return_20d: 34.08
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 9.76
-- distance_to_high_60_pct: -9.38
+- date: 20260618
+- open: 545
+- high: 567
+- low: 539
+- close: 567
+- volume: 2071505
+- ma5: 554
+- ema23_primary: 501.43
+- distance_to_ema23_pct: 13.08
+- ma20: 513.52
+- ma60: 411.01
+- ma120: 346.11
+- return_5d: 12.5
+- return_20d: 32.01
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 10.41
+- distance_to_high_60_pct: -5.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,398,411.5,392.5,410.5,2313281,386.29,6.27,396.5,326.52,0.66
-20260519,409.5,414.5,400,405,1806955,387.85,4.42,397.02,328.9,0.52
-20260520,405.5,412,399,404,1554449,389.2,3.8,397.35,331.22,0.48
-20260521,415,430,412,429.5,3030426,392.56,9.41,399.3,333.99,0.94
 20260522,444,447.5,436,442,2960893,396.68,11.43,402.6,336.71,0.94
 20260525,477,486,475,486,1790886,404.12,20.26,407.6,340.02,0.58
 20260526,489,529,489,506,6296212,412.61,22.63,413.88,343.59,1.94
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,518,518,505,513,1688106,439.94,16.61,438.93,358,0.48
 20260602,515,517,498,517,1971616,446.36,15.83,446.07,361.88,0.56
 20260603,529,529,508,510,1845332,451.67,12.92,451.8,365.71,0.55
-20260604,515,517,498,517,1971616,457.11,13.1,458,369.89,0.6
-20260605,505,511,486,504,2147682,461.02,9.32,462.7,373.77,0.69
-20260611,508,521,485.5,504,2485493,464.6,8.48,466.65,377.41,0.83
-20260612,523,554,523,548,4102722,471.55,16.21,473.07,381.82,1.36
-20260615,580,597,563,573,4067961,480,19.37,480.75,386.77,1.31
-20260616,575,580,538,541,3679743,485.09,11.53,486.02,391.12,1.22
-20260617,533,544,523,541,1689533,489.75,10.47,492.9,395.44,0.62
+20260604,508,525,504,504,1864545,456.03,10.52,457.35,369.68,0.56
+20260605,505,511,486,504,2147682,460.02,9.56,462.05,373.56,0.69
+20260608,457,489,457,487.5,1618289,462.31,5.45,465.18,376.92,0.55
+20260609,498,520,497,520,1845076,467.12,11.32,470.2,380.86,0.65
+20260610,520,545,500,500,3581949,469.86,6.41,474.23,384.59,1.22
+20260611,508,521,485.5,504,2485493,472.71,6.62,477.65,388.32,0.9
+20260612,523,554,523,548,4102722,478.98,14.41,484.88,392.77,1.57
+20260615,580,597,563,573,4067961,486.82,17.7,493,397.56,1.51
+20260616,575,580,538,541,3679743,491.33,10.11,499.8,401.9,1.32
+20260617,533,544,523,541,1689533,495.47,9.19,506.65,406.12,0.6
+20260618,545,567,539,567,2071505,501.43,13.08,513.52,411.01,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 56.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 6196 | 帆宣 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6196 | 帆宣 | 1 | 1 | 3 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6196 | 帆宣 | 2 | 1 | 3 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6196 | 帆宣 | 0 | 2 | 0.0 | 424400.0 | 0.0 | no_signal |
+| 20260618 | 6196 | 帆宣 | 86 | 2 | 15201550.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

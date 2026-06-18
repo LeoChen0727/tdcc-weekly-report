@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2034 允強
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:06 Asia/Taipei
+- generated_at: 2026-06-18 22:23:04 Asia/Taipei
 - stock_id: 2034
 - stock_name: 允強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 20.6
+- date: 20260618
+- open: 20.9
 - high: 21.05
-- low: 20.55
-- close: 20.9
-- volume: 1728642
-- ma5: 20.54
+- low: 20.7
+- close: 20.85
+- volume: 1356623
+- ma5: 20.7
 - ema23_primary: 20.4
-- distance_to_ema23_pct: 2.46
-- ma20: 20.21
+- distance_to_ema23_pct: 2.19
+- ma20: 20.31
 - ma60: 20.49
-- ma120: 20.65
-- return_5d: 1.95
-- return_20d: 5.29
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 3.41
-- distance_to_high_60_pct: -5
+- ma120: 20.66
+- return_5d: 3.99
+- return_20d: 4.51
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 2.65
+- distance_to_high_60_pct: -5.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,19.8,19.95,19.65,19.7,1471759,20.58,-4.29,20.76,20.53,0.74
-20260519,19.65,19.9,19.55,19.6,1131105,20.5,-4.39,20.7,20.5,0.58
-20260520,19.7,19.9,19.55,19.8,721207,20.44,-3.14,20.62,20.48,0.38
-20260521,19.9,20,19.75,19.95,725364,20.4,-2.21,20.55,20.46,0.39
 20260522,19.9,19.95,19.75,19.8,948245,20.35,-2.71,20.52,20.45,0.52
 20260525,19.9,20.95,19.9,20.8,3498973,20.39,2.02,20.55,20.45,1.82
 20260526,21,21,20.05,20.2,2202422,20.37,-0.85,20.55,20.44,1.13
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,20.2,20.35,19.9,20.2,2237759,20.3,-0.48,20.32,20.43,1.29
 20260602,20.2,20.25,19.95,20.1,1861750,20.28,-0.89,20.29,20.43,1.04
 20260603,20.1,20.65,20,20.5,3257072,20.3,0.99,20.24,20.43,1.76
-20260604,20.2,20.25,19.95,20.1,1861750,20.28,-0.9,20.17,20.44,1
-20260605,20.45,20.5,20,20.5,1961796,20.3,0.98,20.13,20.46,1.03
-20260611,20.15,20.15,19.7,20.05,1342738,20.28,-1.13,20.08,20.46,0.73
-20260612,20.05,20.5,20.05,20.25,2599497,20.28,-0.14,20.08,20.46,1.45
-20260615,20.8,21.15,20.6,20.8,3022426,20.32,2.36,20.12,20.47,1.63
-20260616,21,21.25,20.65,20.7,2507485,20.35,1.71,20.16,20.48,1.32
-20260617,20.6,21.05,20.55,20.9,1728642,20.4,2.46,20.21,20.49,0.91
+20260604,20.6,20.65,20.2,20.3,1510589,20.3,0,20.18,20.45,0.82
+20260605,20.45,20.5,20,20.5,1961796,20.32,0.9,20.14,20.46,1.04
+20260608,19.7,20.15,19.6,20.05,2301725,20.29,-1.2,20.09,20.46,1.23
+20260609,20,20.35,20,20.05,1255206,20.27,-1.1,20.08,20.46,0.71
+20260610,19.95,20.2,19.95,19.95,1456442,20.25,-1.47,20.08,20.46,0.84
+20260611,20.15,20.15,19.7,20.05,1342738,20.23,-0.89,20.08,20.46,0.78
+20260612,20.05,20.5,20.05,20.25,2599497,20.23,0.09,20.1,20.46,1.47
+20260615,20.8,21.15,20.6,20.8,3022426,20.28,2.57,20.16,20.46,1.64
+20260616,21,21.25,20.65,20.7,2507485,20.31,1.9,20.21,20.47,1.31
+20260617,20.6,21.05,20.55,20.9,1728642,20.36,2.64,20.27,20.48,0.88
+20260618,20.9,21.05,20.7,20.85,1356623,20.4,2.19,20.31,20.49,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2034 | 允強 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)盈餘配發現金股利新台幣 105,799,118元(每股 NT$0.2元)。 (2)資本公積發放現金股利新台幣 423,196,471元(每股 NT$0.8元)。 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/18 6.停止過戶起始日期:115/07/19 7.停止過戶截止日期:115/07/23 8.除權（息）基準日:115/07/23 9.債券最後申請轉換日期:115/06/25 10.債券停止轉換起始日期:115/06/29 11.債券停止轉換截止日期:115/07/23 12.普通股現金股利發放日期:115/08/13 13.其他應敘明事項: 如嗣後因股本變動，致影響流通在外股份數量，股東股息總金額因此發生變動 者，授權董事長全權處理變更相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2034 | 允強 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)盈餘配發現金股利新台幣 105,799,118元(每股 NT$0.2元)。 (2)資本公積發放現金股利新台幣 423,196,471元(每股 NT$0.8元)。 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/18 6.停止過戶起始日期:115/07/19 7.停止過戶截止日期:115/07/23 8.除權（息）基準日:115/07/23 9.債券最後申請轉換日期:115/06/25 10.債券停止轉換起始日期:115/06/29 11.債券停止轉換截止日期:115/07/23 12.普通股現金股利發放日期:115/08/13 13.其他應敘明事項: 如嗣後因股本變動，致影響流通在外股份數量，股東股息總金額因此發生變動 者，授權董事長全權處理變更相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2034 | 允強 | 1 | 1 | 3 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2034 | 允強 | 2 | 2 | 4 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2034 | 允強 | 7 | 0 | 143830.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

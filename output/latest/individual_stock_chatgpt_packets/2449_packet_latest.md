@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:17 Asia/Taipei
+- generated_at: 2026-06-18 22:23:16 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 276
-- high: 281.5
-- low: 273
-- close: 280.5
-- volume: 8684534
-- ma5: 278.7
-- ema23_primary: 298.02
-- distance_to_ema23_pct: -5.88
-- ma20: 300.98
-- ma60: 295.44
-- ma120: 284.1
-- return_5d: -9.37
-- return_20d: -6.34
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: -6.8
-- distance_to_high_60_pct: -23.05
+- date: 20260618
+- open: 287
+- high: 308.5
+- low: 287
+- close: 308.5
+- volume: 52543047
+- ma5: 286
+- ema23_primary: 296.02
+- distance_to_ema23_pct: 4.22
+- ma20: 302.38
+- ma60: 294.48
+- ma120: 286.38
+- return_5d: 13.42
+- return_20d: 7.87
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 2.03
+- distance_to_high_60_pct: -15.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,298,299.5,286,295,28058967,300.56,-1.85,300.85,295.43,0.71
-20260519,297,302,289,289,25944056,299.6,-3.54,301.75,295.38,0.65
-20260520,288.5,289,276.5,277.5,33608273,297.76,-6.8,301.57,294.98,0.84
-20260521,286,292.5,285,286,22235703,296.78,-3.63,301.5,294.52,0.56
 20260522,292,301,290.5,296,26407806,296.71,-0.24,302.43,294.18,0.68
 20260525,305,318.5,302.5,317,53596825,298.4,6.23,303.98,294.02,1.36
 20260526,319.5,348.5,308,338.5,100783059,301.75,12.18,306.73,294.33,2.35
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,328.5,329.5,317,318,51661349,307.31,3.48,310.73,295.27,1.05
 20260602,320.5,324,298,306.5,48921030,307.24,-0.24,308.35,295.46,1.01
 20260603,309.5,328,309,322.5,46358752,308.51,4.53,308.05,296.09,0.96
-20260604,320.5,324,298,306.5,48921030,308.34,-0.6,306.43,296.67,1
-20260605,317.5,317.5,300.5,309.5,28827200,308.44,0.34,306.35,296.94,0.59
-20260611,269.5,275.5,263.5,272,20303142,305.4,-10.94,304.98,296.38,0.44
-20260612,285,287,280.5,282,16442069,303.45,-7.07,304.02,296.07,0.36
-20260615,292,298,280.5,281,24332715,301.58,-6.82,302.82,295.83,0.55
-20260616,284,284,277.5,278,15208454,299.62,-7.21,301.93,295.67,0.35
-20260617,276,281.5,273,280.5,8684534,298.02,-5.88,300.98,295.44,0.21
+20260604,320.5,333,315.5,322,39706538,309.63,3.99,307.2,296.93,0.82
+20260605,317.5,317.5,300.5,309.5,28827200,309.62,-0.04,307.12,297.2,0.6
+20260608,279.5,289.5,279,288.5,37192419,307.86,-6.29,306.57,296.91,0.8
+20260609,290,293,283.5,291,23113376,306.46,-5.04,306.07,296.76,0.5
+20260610,287,291,271.5,272,31183365,303.59,-10.4,304.43,296.37,0.69
+20260611,269.5,275.5,263.5,272,20303142,300.95,-9.62,303.23,296.1,0.46
+20260612,285,287,280.5,282,16442069,299.37,-5.8,302.35,295.9,0.38
+20260615,292,298,280.5,281,24332715,297.84,-5.66,301.65,295.2,0.56
+20260616,284,284,277.5,278,15208454,296.19,-6.14,301.1,294.57,0.35
+20260617,276,281.5,273,280.5,8684534,294.88,-4.88,301.25,294.11,0.21
+20260618,287,308.5,287,308.5,52543047,296.02,4.22,302.38,294.48,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -185,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2449 | 京元電子 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2449 | 京元電子 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 2449 | 京元電子 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2449 | 京元電子 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2449 | 京元電子 | 17 | 2 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2449 | 京元電子 | 0 | 8 | 0.0 | 76810.0 | 0.0 | no_signal |
+| 20260618 | 2449 | 京元電子 | 258 | 8 | 22772230.0 | 104310.0 | 218.31 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

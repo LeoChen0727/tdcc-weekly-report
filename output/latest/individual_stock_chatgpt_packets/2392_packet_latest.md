@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2392 正崴
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:14 Asia/Taipei
+- generated_at: 2026-06-18 22:23:12 Asia/Taipei
 - stock_id: 2392
 - stock_name: 正崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 281
+- latest_price_date: 20260618
+- price_rows: 285
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 40.55
-- high: 41
-- low: 39.65
-- close: 40.05
-- volume: 1581611
-- ma5: 39.64
+- date: 20260618
+- open: 39.95
+- high: 40.5
+- low: 39.75
+- close: 39.75
+- volume: 1700490
+- ma5: 39.94
 - ema23_primary: 39.21
-- distance_to_ema23_pct: 2.13
-- ma20: 38.93
-- ma60: 37.35
-- ma120: 37.85
-- return_5d: -1.6
-- return_20d: 18.49
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 2.88
-- distance_to_high_60_pct: -9.49
+- distance_to_ema23_pct: 1.38
+- ma20: 39.7
+- ma60: 37.48
+- ma120: 37.86
+- return_5d: 3.92
+- return_20d: 7.72
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 0.14
+- distance_to_high_60_pct: -10.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,34,34.2,32.95,33.5,3981398,36.82,-9.02,37.52,36.93,1.12
-20260519,33.55,35.45,33.35,34.3,3057555,36.61,-6.32,37.41,36.86,0.84
-20260520,34.4,35.9,34.05,35.6,2519276,36.53,-2.54,37.17,36.8,0.73
-20260521,35.85,37.05,35.7,36.9,2489512,36.56,0.93,37.03,36.77,0.76
 20260522,37.05,38.2,36.3,38.05,3893276,36.68,3.73,37.02,36.76,1.18
 20260525,38.65,39,37.8,38.6,2401828,36.84,4.77,37.09,36.74,0.73
 20260526,38.8,39.1,38.1,38.7,2125226,37,4.6,37.2,36.72,0.64
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40.05,42.2,39.7,41.85,5764870,37.66,11.13,37.57,36.72,1.49
 20260602,42.3,42.3,40.4,41.75,3957505,38,9.87,37.8,36.81,1.02
 20260603,42.3,44.25,42.15,44.15,7219012,38.51,14.64,38.09,36.94,1.77
-20260604,42.3,42.3,40.4,41.75,3957505,38.78,7.65,38.23,37,0.96
-20260605,41.7,41.8,40.35,40.7,2462617,38.94,4.52,38.23,37.09,0.61
-20260611,37.45,38.25,36.65,38.25,1871656,38.88,-1.63,38.21,37.12,0.48
-20260612,39.1,40.3,38.9,39.35,2722493,38.92,1.1,38.22,37.16,0.69
-20260615,39.8,40.4,39.15,40.25,1734321,39.03,3.12,38.32,37.24,0.44
-20260616,40.75,42.5,40.25,40.3,2902223,39.14,2.97,38.62,37.31,0.72
-20260617,40.55,41,39.65,40.05,1581611,39.21,2.13,38.93,37.35,0.48
+20260604,44,44,41.65,42,3925228,38.8,8.24,38.24,37.01,0.95
+20260605,41.7,41.8,40.35,40.7,2462617,38.96,4.46,38.25,37.09,0.61
+20260608,37.6,39.4,37.6,39.2,2331414,38.98,0.56,38.27,37.14,0.59
+20260609,39.2,39.9,38.65,39.05,1879084,38.99,0.16,38.26,37.17,0.48
+20260610,39,39.35,37.3,37.4,2694409,38.85,-3.74,38.22,37.2,0.68
+20260611,37.45,38.25,36.65,38.25,1871656,38.8,-1.43,38.41,37.25,0.47
+20260612,39.1,40.3,38.9,39.35,2722493,38.85,1.29,38.69,37.28,0.81
+20260615,39.8,40.4,39.15,40.25,1734321,38.97,3.29,39.03,37.32,0.54
+20260616,40.75,42.5,40.25,40.3,2902223,39.08,3.13,39.33,37.38,0.9
+20260617,40.55,41,39.65,40.05,1581611,39.16,2.28,39.55,37.43,0.5
+20260618,39.95,40.5,39.75,39.75,1700490,39.21,1.38,39.7,37.48,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2392 | 正崴 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2392 | 正崴 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2392 | 正崴 | 4 | 4 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2392 | 正崴 | 5 | 5 | 5 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2392 | 正崴 | 12 | 0 | 355220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

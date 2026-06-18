@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:07 Asia/Taipei
+- generated_at: 2026-06-18 22:23:05 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 22.1
-- high: 22.3
-- low: 21.05
-- close: 21.2
-- volume: 6696911
-- ma5: 21.96
-- ema23_primary: 20.76
-- distance_to_ema23_pct: 2.1
-- ma20: 20.5
-- ma60: 20.04
-- ma120: 18.37
-- return_5d: -2.3
-- return_20d: 2.17
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 3.43
-- distance_to_high_60_pct: -6.61
+- date: 20260618
+- open: 21.2
+- high: 22.05
+- low: 21.2
+- close: 21.4
+- volume: 4944708
+- ma5: 21.81
+- ema23_primary: 21.02
+- distance_to_ema23_pct: 1.83
+- ma20: 20.76
+- ma60: 20.09
+- ma120: 18.56
+- return_5d: -3.39
+- return_20d: 4.65
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 3.1
+- distance_to_high_60_pct: -5.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,20.7,20.8,20.1,20.4,4472465,20.17,1.14,19.92,19.73,0.63
-20260519,20.6,20.8,20.1,20.25,2728500,20.18,0.36,20.01,19.79,0.4
-20260520,20.25,20.4,19.65,20.35,4846150,20.19,0.78,20.09,19.86,0.69
-20260521,20.45,20.65,20.2,20.45,2830863,20.21,1.17,20.18,19.93,0.4
 20260522,20.5,20.5,19.75,19.8,5476070,20.18,-1.88,20.21,19.97,0.77
 20260525,19.8,19.8,19.2,19.5,5589920,20.12,-3.09,20.26,19.96,0.78
 20260526,19.7,19.75,19.2,19.25,3510625,20.05,-3.99,20.2,19.94,0.54
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,19.05,19.55,18.85,19.45,3630300,19.77,-1.6,20.11,19.91,0.59
 20260602,19.55,20.25,19.4,20.25,5841615,19.81,2.24,20.14,19.93,0.93
 20260603,20.35,21.8,20.2,21.7,11281876,19.96,8.7,20.23,19.94,1.73
-20260604,19.55,20.25,19.4,20.25,5841615,19.99,1.31,20.27,19.92,0.9
-20260605,22.25,22.25,20.9,21.7,7037783,20.13,7.8,20.34,19.94,1.23
-20260611,21.2,22.15,21,22.15,7502660,20.3,9.12,20.4,19.97,1.37
-20260612,22.45,22.7,21.75,22.1,8070019,20.45,8.07,20.44,19.99,1.45
-20260615,22.4,22.6,21.6,22.3,6345977,20.6,8.24,20.47,20,1.13
-20260616,22.45,22.45,21.75,22.05,4861671,20.72,6.4,20.48,20.03,0.88
-20260617,22.1,22.3,21.05,21.2,6696911,20.76,2.1,20.5,20.04,1.22
+20260604,21.7,22.7,21.5,22.25,11105474,20.15,10.4,20.38,19.96,1.64
+20260605,22.25,22.25,20.9,21.7,7037783,20.28,6.98,20.45,19.97,1.18
+20260608,21.05,21.35,20.55,21.15,6299350,20.36,3.9,20.45,19.99,1.11
+20260609,21.3,21.65,20.9,21.05,3930446,20.41,3.12,20.43,19.99,0.71
+20260610,21,21.45,20.95,21.05,3283003,20.47,2.85,20.41,19.98,0.6
+20260611,21.2,22.15,21,22.15,7502660,20.61,7.49,20.41,20.01,1.36
+20260612,22.45,22.7,21.75,22.1,8070019,20.73,6.6,20.48,20.03,1.46
+20260615,22.4,22.6,21.6,22.3,6345977,20.86,6.89,20.58,20.05,1.13
+20260616,22.45,22.45,21.75,22.05,4861671,20.96,5.2,20.67,20.05,0.85
+20260617,22.1,22.3,21.05,21.2,6696911,20.98,1.04,20.71,20.06,1.15
+20260618,21.2,22.05,21.2,21.4,4944708,21.02,1.83,20.76,20.09,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2103 | 台橡 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:照案承認114年度盈餘分配案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:照案承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_7d |
+| 20260618 | 2103 | 台橡 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | continued_2_3d | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:無 3.其他應敘明事項:無；calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2103 | 台橡 | 2 | 2 | 3 | 7 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260618 | 2103 | 台橡 | 3 | 3 | 3 | 7 | 14 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2103 | 台橡 | 6 | 0 | 1968210.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

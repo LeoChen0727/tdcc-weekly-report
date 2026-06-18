@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:22 Asia/Taipei
+- generated_at: 2026-06-18 22:23:21 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 282
+- latest_price_date: 20260618
+- price_rows: 286
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 5.81
-- high: 6.05
-- low: 5.55
-- close: 5.9
-- volume: 2768978
-- ma5: 5.79
-- ema23_primary: 5.6
-- distance_to_ema23_pct: 5.45
-- ma20: 5.51
-- ma60: 5.52
+- date: 20260618
+- open: 5.97
+- high: 5.98
+- low: 5.8
+- close: 5.81
+- volume: 1743215
+- ma5: 5.81
+- ema23_primary: 5.66
+- distance_to_ema23_pct: 2.73
+- ma20: 5.68
+- ma60: 5.5
 - ma120: 5.61
-- return_5d: -4.38
-- return_20d: 24.21
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 7.14
-- distance_to_high_60_pct: -14.37
+- return_5d: 1.75
+- return_20d: 15.97
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 2.34
+- distance_to_high_60_pct: -15.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,4.76,4.81,4.7,4.8,1104420,5.13,-6.52,5.1,5.68,0.5
-20260519,4.88,5.1,4.84,5,3648713,5.12,-2.41,5.07,5.67,1.58
-20260520,5.02,5.15,4.89,4.95,2034240,5.11,-3.11,5.04,5.66,0.87
-20260521,5,5.03,4.92,5.01,2323644,5.1,-1.78,5.02,5.66,0.97
 20260522,5.01,5.05,4.95,5.03,2223498,5.09,-1.27,5,5.65,0.92
 20260525,5.16,5.18,4.99,5.08,3205752,5.09,-0.27,4.98,5.65,1.27
 20260526,5.11,5.11,5,5.05,2094493,5.09,-0.78,4.97,5.64,0.83
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,5.24,5.76,5.15,5.76,5897093,5.15,11.86,4.99,5.6,2.26
 20260602,6.33,6.33,6.27,6.33,6290340,5.25,20.62,5.06,5.59,2.25
 20260603,6.89,6.89,6.36,6.4,17416607,5.34,19.77,5.14,5.58,4.96
-20260604,6.33,6.33,6.27,6.33,6290340,5.43,16.66,5.21,5.57,1.72
-20260605,6.08,6.38,6.02,6.17,5436271,5.49,12.43,5.27,5.57,1.41
-20260611,5.89,5.89,5.55,5.71,1529516,5.51,3.7,5.31,5.55,0.4
-20260612,5.68,5.84,5.68,5.75,1794253,5.53,4.04,5.35,5.54,0.47
-20260615,5.84,5.98,5.81,5.85,1370196,5.55,5.34,5.4,5.54,0.36
-20260616,5.85,5.85,5.7,5.72,1466782,5.57,2.74,5.45,5.53,0.39
-20260617,5.81,6.05,5.55,5.9,2768978,5.6,5.45,5.51,5.52,0.73
+20260604,6.15,6.2,6,6.08,6913074,5.41,12.49,5.2,5.57,1.87
+20260605,6.08,6.38,6.02,6.17,5436271,5.47,12.82,5.26,5.56,1.4
+20260608,5.71,6,5.71,5.89,3465703,5.5,7.01,5.31,5.55,0.87
+20260609,5.89,6.09,5.86,5.88,2034877,5.54,6.23,5.35,5.54,0.52
+20260610,5.88,5.99,5.82,5.83,1899065,5.56,4.86,5.4,5.54,0.48
+20260611,5.89,5.89,5.55,5.71,1529516,5.57,2.47,5.45,5.53,0.39
+20260612,5.68,5.84,5.68,5.75,1794253,5.59,2.91,5.5,5.52,0.46
+20260615,5.84,5.98,5.81,5.85,1370196,5.61,4.3,5.55,5.51,0.35
+20260616,5.85,5.85,5.7,5.72,1466782,5.62,1.81,5.59,5.51,0.38
+20260617,5.81,6.05,5.55,5.9,2768978,5.64,4.58,5.64,5.5,0.72
+20260618,5.97,5.98,5.8,5.81,1743215,5.66,2.73,5.68,5.5,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2601 | 益航 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/16 2.被背書保證之: (1)公司名稱:Reliance Steamship S.A. (2)與提供背書保證公司之關係: Reliance Steamship S.A.為本公司直接持股100%之子公司 (3)背書保證之限額(仟元):22,555,569 (4)原背書保證之餘額(仟元):0 (5)本次新增背書保證之金額(仟元):84,659 (6)迄事實發生日止背書保證餘額(仟元):84,659 (7)被背書保證公司實際動支金額(仟元):40,762 (8)本次新增背書保證之原因: 借款擔保 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):377,160 (2)累積盈虧金額(仟元):41,625 5.解除背書保證責任之: (1)條件: 清償借款 (2)日期: 依合約規定 6.背書保證之總限額(仟元): 37,592,615 7.迄事實發生日為止，背書保證餘額(仟元): 6,005,985 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 79.88 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 9.78 10.其他應敘明事項: 無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2601 | 益航 | 1 | 1 | 2 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

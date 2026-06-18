@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00657 國泰日經225
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:44 Asia/Taipei
+- generated_at: 2026-06-18 22:22:41 Asia/Taipei
 - stock_id: 00657
 - stock_name: 國泰日經225
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260617
-- price_rows: 16
+- latest_price_date: 20260618
+- price_rows: 20
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 81.25
-- high: 81.65
-- low: 81.05
-- close: 81.45
-- volume: 24186
-- ma5: 79.23
-- ema23_primary: 77.35
-- distance_to_ema23_pct: 5.3
-- ma20: 77.74
-- ma60: 77.74
-- ma120: 77.74
-- return_5d: 4.62
+- date: 20260618
+- open: 82.6
+- high: 83.05
+- low: 82.5
+- close: 82.9
+- volume: 27543
+- ma5: 80.79
+- ema23_primary: 77.71
+- distance_to_ema23_pct: 6.68
+- ma20: 77.66
+- ma60: 77.66
+- ma120: 77.66
+- return_5d: 10.39
 - return_20d:
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 4.78
-- distance_to_high_60_pct: -0.24
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 6.75
+- distance_to_high_60_pct: -0.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,77.8,78.35,77.8,77.9,228852,75.29,3.46,76.33,76.33,1.53
 20260602,76.85,77.75,76.6,77.75,55286,75.5,2.98,76.51,76.51,0.4
 20260603,79.4,80.25,79.4,80,58750,75.87,5.44,76.89,76.89,0.46
-20260604,76.85,77.75,76.6,77.75,55286,76.03,2.26,76.98,76.98,0.45
-20260605,77.65,77.85,77.5,77.85,13750,76.18,2.19,77.06,77.06,0.12
-20260611,74.65,75.35,74.05,75.1,369275,76.09,-1.3,76.9,76.9,2.77
-20260612,77.6,77.9,77.2,77.75,114165,76.23,2,76.96,76.96,0.87
-20260615,81.15,81.4,80.8,80.8,37507,76.61,5.47,77.24,77.24,0.3
-20260616,81.55,81.65,80.6,81.05,37777,76.98,5.29,77.49,77.49,0.32
-20260617,81.25,81.65,81.05,81.45,24186,77.35,5.3,77.74,77.74,0.21
+20260604,78.5,78.65,78.15,78.6,25879,76.1,3.29,77.06,77.06,0.22
+20260605,77.65,77.85,77.5,77.85,13750,76.25,2.1,77.14,77.14,0.13
+20260608,74.95,75.05,74.1,74.5,115431,76.1,-2.1,76.92,76.92,1.05
+20260609,75.3,76.45,75.25,76.3,88203,76.12,0.24,76.87,76.87,0.82
+20260610,75.75,75.9,74.55,74.75,32309,76,-1.65,76.72,76.72,0.31
+20260611,74.65,75.35,74.05,75.1,369275,75.93,-1.09,76.61,76.61,3.07
+20260612,77.6,77.9,77.2,77.75,114165,76.08,2.2,76.68,76.68,0.95
+20260615,81.15,81.4,80.8,80.8,37507,76.47,5.66,76.92,76.92,0.33
+20260616,81.55,81.65,80.6,81.05,37777,76.85,5.46,77.15,77.15,0.34
+20260617,81.25,81.65,81.05,81.45,24186,77.24,5.45,77.38,77.38,0.23
+20260618,82.6,83.05,82.5,82.9,27543,77.71,6.68,77.66,77.66,0.27
 ```
 
 ## Latest TDCC Snapshot

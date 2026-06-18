@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5536 聖暉*
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:16 Asia/Taipei
+- generated_at: 2026-06-18 22:24:15 Asia/Taipei
 - stock_id: 5536
 - stock_name: 聖暉*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,42 +56,41 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,48 +112,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 1170
-- high: 1190
-- low: 1140
-- close: 1190
-- volume: 1174000
-- ma5: 1175
-- ema23_primary: 1052.18
-- distance_to_ema23_pct: 13.1
-- ma20: 1047.05
-- ma60: 892.77
-- ma120: 806.99
-- return_5d: 5.31
-- return_20d: 16.1
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 13.65
-- distance_to_high_60_pct: -7.75
+- date: 20260618
+- open: 1190
+- high: 1270
+- low: 1185
+- close: 1265
+- volume: 1092000
+- ma5: 1213
+- ema23_primary: 1085.75
+- distance_to_ema23_pct: 16.51
+- ma20: 1087.1
+- ma60: 922.38
+- ma120: 818.14
+- return_5d: 17.67
+- return_20d: 36.17
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 16.36
+- distance_to_high_60_pct: -1.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,1000,1035,965,985,1945000,888.86,10.82,906.4,773.25,0.88
-20260519,992,992,902,944,2555000,893.46,5.66,910.45,778.67,1.16
-20260520,942,962,911,916,1253000,895.33,2.31,911.75,783.63,0.59
-20260521,942,954,912,929,1469000,898.14,3.44,913.4,788.48,0.69
 20260522,935,952,922,927,935000,900.55,2.94,912.3,792.95,0.48
 20260525,940,955,934,949,944000,904.58,4.91,911.15,797.6,0.52
 20260526,967,1040,966,1035,1018000,915.45,13.06,916.5,803.17,0.58
 20260527,1050,1130,1005,1110,1089000,931.66,19.14,927.95,809.62,0.63
 20260528,1110,1110,1030,1035,1060000,940.27,10.07,936.65,815.2,0.61
 20260529,1050,1060,993,993,1016000,944.67,5.12,945.05,820.28,0.6
-20260601,998,1025,988,1005,1003,949.7,5.82,952.6,826.4,0
+20260601,998,1025,988,1005,1003000,949.7,5.82,952.6,826.4,0.59
 20260602,1020,1020,971,998,993,953.72,4.64,959.5,831.57,0
-20260603,1005,1065,999,1055,1029000,962.16,9.65,968.4,838.02,0.66
-20260604,1005,1065,999,1055,1029000,969.9,8.77,978.1,844.63,0.67
-20260605,1115,1205,1115,1130,1160000,983.24,14.93,991.6,851.95,0.77
-20260611,1110,1125,1040,1075,1072000,990.89,8.49,1000.55,858.25,0.72
-20260612,1135,1180,1120,1180,1165000,1006.65,17.22,1015.3,866.3,0.8
-20260615,1220,1280,1200,1255,1250000,1027.34,22.16,1030.55,875.9,0.93
-20260616,1255,1290,1145,1175,1200000,1039.65,13.02,1038.8,884.05,1.01
-20260617,1170,1190,1140,1190,1174000,1052.18,13.1,1047.05,892.77,1.05
+20260603,1005,1065,999,1055,1029000,962.16,9.65,968.4,838.02,0.64
+20260604,1085,1160,1075,1120,1129000,975.31,14.83,981.35,845.72,0.71
+20260605,1115,1205,1115,1130,1160000,988.21,14.35,994.85,853.03,0.74
+20260608,1050,1095,1030,1050,1526000,993.35,5.7,1002.55,858.92,0.97
+20260609,1080,1120,1055,1105,1072000,1002.66,10.21,1013.55,865.72,0.7
+20260610,1120,1160,1090,1090,1159000,1009.94,7.93,1020.55,872.57,0.82
+20260611,1110,1125,1040,1075,883000,1015.36,5.87,1023.8,879.05,0.71
+20260612,1135,1180,1120,1180,1101000,1029.08,14.67,1031.55,887.6,0.94
+20260615,1220,1280,1200,1255,959000,1047.91,19.76,1045.05,897.13,0.86
+20260616,1255,1290,1145,1175,1085000,1058.5,11.01,1056.6,905.38,1.04
+20260617,1170,1190,1140,1190,433000,1069.46,11.27,1070.3,913.35,0.43
+20260618,1190,1270,1185,1265,1092000,1085.75,16.51,1087.1,922.38,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5536 | 聖暉* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.董事會決議日期:115/06/17 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 聖暉工程科技股份有限公司國內第二次無擔保轉換公司債 聖暉工程科技股份有限公司國內第三次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額: 第二次：發行總面額新臺幣15億元為上限 第三次：發行總面額新臺幣15億元為上限 5.每張面額: 第二次：新臺幣10萬元整 第三次：新臺幣10萬元整 6.發行價格: 第二次：依票面金額之101~103%發行　 第三次：採競價拍賣方式發行，底標以票面金額之102~103%發行，實際發行價格依競價 拍賣結果而定 7.發行期間: 第二次：3年 第三次：3年 8.發行利率: 第二次：票面利率0% 第三次：票面利率0% 9.擔保品之總類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:充實營運資金 11.承銷方式: 第二次：採詢價圈購方式辦理公開銷售 第三次：採競價拍賣方式辦理公開銷售 12.公司債受託人:未定 13.承銷或代銷機構:國票綜合證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:本公司股務代理機構 16.簽證機構:不適用 17.能轉換股份者，其轉換價格及轉換辦法: 相關轉換辦法將依有關法令規定辦理，並報奉相關主管機關核准後另行公告 18.賣回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 19.買回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 20.附有轉換、交換或認股者，其換股基準日: 將依有關法令辦理，俟報奉主管機關核准後另行公告 21.附有轉換、交換或認股者，對股權可能稀釋情形: 將依有關法令辦理，俟報奉主管機關核准後另行公告 22.其他應敘明事項: (1)本次可轉換公司債俟奉呈主管機關申報生效後，擬授權董事長另訂發行日，並將向 中華民國證券櫃檯買賣中心申請櫃檯買賣。 (2)本次公司債發行計畫之重要內容及發行相關事宜，如遇法令變更、經主管機關修正 或券商公會指示或要求，或因應客觀環境需要而須修正或調整時，擬授權董事長全權 處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5536 | 聖暉* | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

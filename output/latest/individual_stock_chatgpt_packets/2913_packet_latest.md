@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2913 農林
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:29 Asia/Taipei
+- generated_at: 2026-06-18 22:23:28 Asia/Taipei
 - stock_id: 2913
 - stock_name: 農林
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 11.15
-- high: 11.25
-- low: 11.05
+- date: 20260618
+- open: 11.2
+- high: 11.35
+- low: 11.15
 - close: 11.15
-- volume: 6373061
-- ma5: 11.15
-- ema23_primary: 11.15
-- distance_to_ema23_pct: 0.02
-- ma20: 11.03
-- ma60: 11.55
-- ma120: 12.35
-- return_5d: -0.89
-- return_20d: 2.29
-- volume_ratio: 2.47
-- distance_to_ma20_pct_auxiliary: 1.13
+- volume: 3101888
+- ma5: 11.16
+- ema23_primary: 11.16
+- distance_to_ema23_pct: -0.08
+- ma20: 11.09
+- ma60: 11.48
+- ma120: 12.27
+- return_5d: 0.45
+- return_20d: 1.36
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 0.59
 - distance_to_high_60_pct: -14.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,10.95,10.95,10.75,10.85,1462670,11.37,-4.57,11.27,12.08,0.65
-20260519,10.9,11,10.8,10.9,1995556,11.33,-3.8,11.22,12.04,0.92
-20260520,10.9,11.1,10.85,10.9,1425162,11.29,-3.49,11.18,12.01,0.7
-20260521,10.95,11,10.85,11,882650,11.27,-2.4,11.14,11.98,0.45
 20260522,11,11.05,10.85,10.9,1280536,11.24,-3.02,11.12,11.94,0.69
 20260525,10.95,10.95,10.65,10.8,3437044,11.2,-3.59,11.09,11.9,1.83
 20260526,10.85,10.85,10.7,10.8,1224282,11.17,-3.3,11.07,11.86,0.68
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,10.8,11.2,10.75,11.1,3473475,11.07,0.28,10.98,11.72,1.77
 20260602,11.2,11.3,11,11.3,2276195,11.09,1.91,10.99,11.7,1.13
 20260603,11.3,11.55,11.15,11.5,5212484,11.12,3.39,11.01,11.68,2.4
-20260604,11.2,11.3,11,11.3,2276195,11.14,1.46,11.01,11.66,1.07
-20260605,11.55,11.55,11.2,11.25,3299221,11.15,0.93,11.01,11.65,1.49
-20260611,11.2,11.35,11,11.1,3484326,11.14,-0.38,11,11.62,1.5
-20260612,11.15,11.35,11.1,11.2,1954994,11.15,0.47,11,11.61,0.82
-20260615,11.3,11.35,11.15,11.2,1721569,11.15,0.43,11.01,11.59,0.74
-20260616,11.15,11.25,11.05,11.1,2403880,11.15,-0.43,11.01,11.57,1.02
-20260617,11.15,11.25,11.05,11.15,6373061,11.15,0.02,11.03,11.55,2.47
+20260604,11.55,11.8,11.4,11.5,7987471,11.15,3.1,11.02,11.67,3.31
+20260605,11.55,11.55,11.2,11.25,3299221,11.16,0.79,11.02,11.65,1.32
+20260608,10.8,11.15,10.6,11.05,3764158,11.15,-0.92,11.01,11.63,1.44
+20260609,11,11.15,11,11,1489184,11.14,-1.26,10.99,11.61,0.56
+20260610,10.95,11.65,10.9,11.45,12436125,11.17,2.55,11.02,11.59,3.95
+20260611,11.2,11.35,11,11.1,3484326,11.16,-0.54,11.02,11.57,1.08
+20260612,11.15,11.35,11.1,11.2,1954994,11.16,0.33,11.04,11.55,0.61
+20260615,11.3,11.35,11.15,11.2,1721569,11.17,0.3,11.05,11.54,0.53
+20260616,11.15,11.25,11.05,11.1,2403880,11.16,-0.55,11.06,11.52,0.74
+20260617,11.15,11.25,11.05,11.15,6373061,11.16,-0.09,11.08,11.5,1.82
+20260618,11.2,11.35,11.15,11.15,3101888,11.16,-0.08,11.09,11.48,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2913 | 農林 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2913 | 農林 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2913 | 農林 | 1 | 1 | 3 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 2913 | 農林 | 2 | 2 | 4 | 6 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

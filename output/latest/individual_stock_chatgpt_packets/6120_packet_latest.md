@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6120 達運
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:20 Asia/Taipei
+- generated_at: 2026-06-18 22:24:18 Asia/Taipei
 - stock_id: 6120
 - stock_name: 達運
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 276
+- latest_price_date: 20260618
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 13.8
-- high: 14.75
-- low: 13.7
-- close: 14.7
-- volume: 5211381
-- ma5: 13.92
-- ema23_primary: 14.15
-- distance_to_ema23_pct: 3.87
-- ma20: 14.21
-- ma60: 13.7
-- ma120: 13.38
-- return_5d: -3.92
-- return_20d: 16.67
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 3.41
-- distance_to_high_60_pct: -10.91
+- date: 20260618
+- open: 15.05
+- high: 15.4
+- low: 14.75
+- close: 15.05
+- volume: 5538967
+- ma5: 14.26
+- ema23_primary: 14.19
+- distance_to_ema23_pct: 6.06
+- ma20: 14.49
+- ma60: 13.75
+- ma120: 13.41
+- return_5d: 12.73
+- return_20d: 12.31
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 3.86
+- distance_to_high_60_pct: -8.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,12.55,12.75,12.25,12.75,1959042,13.18,-3.29,13.24,13.3,0.56
-20260519,12.8,13.1,12.6,12.65,1982818,13.14,-3.73,13.14,13.3,0.57
-20260520,12.8,12.85,12.5,12.85,1807342,13.12,-2.02,13.05,13.31,0.54
-20260521,12.9,13.5,12.9,13.4,5778820,13.14,1.99,13,13.32,1.68
 20260522,13.4,14.7,13.4,14.7,13984511,13.27,10.78,13.06,13.35,3.65
 20260525,15,15.55,14.85,15.15,11824535,13.43,12.84,13.18,13.38,2.79
 20260526,15.3,15.35,13.85,14,8405416,13.47,3.91,13.22,13.39,1.9
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,14.5,15.5,14.3,14.9,8166804,13.71,8.71,13.45,13.46,1.64
 20260602,15.1,15.5,14.5,15.45,8345628,13.85,11.54,13.57,13.51,1.6
 20260603,15.7,16.5,15.55,16.1,12546434,14.04,14.68,13.72,13.55,2.19
-20260604,15.1,15.5,14.5,15.45,8345628,14.16,9.14,13.83,13.6,1.4
-20260605,15.45,15.65,14.6,15.3,5512479,14.25,7.35,13.95,13.64,0.91
-20260611,13.5,13.55,12.95,13.35,4179244,14.18,-5.83,13.98,13.64,0.68
-20260612,13.65,14.05,13.65,13.65,2449342,14.13,-3.42,14.01,13.65,0.41
-20260615,13.95,14.35,13.9,14.1,3433721,14.13,-0.21,14.07,13.66,0.57
-20260616,14.2,14.25,13.8,13.8,2186750,14.1,-2.15,14.11,13.68,0.36
-20260617,13.8,14.75,13.7,14.7,5211381,14.15,3.87,14.21,13.7,0.86
+20260604,15.9,16,15.2,15.85,6382712,14.19,11.7,13.85,13.61,1.09
+20260605,15.45,15.65,14.6,15.3,5512479,14.28,7.12,13.97,13.65,0.93
+20260608,13.9,14.4,13.85,14.35,3886497,14.29,0.43,14.05,13.67,0.65
+20260609,14.2,14.25,13.45,13.85,6579744,14.25,-2.82,14.09,13.67,1.08
+20260610,13.7,14.3,13.5,13.5,3957299,14.19,-4.86,14.12,13.68,0.64
+20260611,13.5,13.55,12.95,13.35,4179244,14.12,-5.45,14.14,13.69,0.67
+20260612,13.65,14.05,13.65,13.65,2449342,14.08,-3.05,14.19,13.69,0.4
+20260615,13.95,14.35,13.9,14.1,3433721,14.08,0.13,14.26,13.7,0.55
+20260616,14.2,14.25,13.8,13.8,2186750,14.06,-1.84,14.31,13.71,0.35
+20260617,13.8,14.75,13.7,14.7,5211381,14.11,4.17,14.41,13.72,0.82
+20260618,15.05,15.4,14.75,15.05,5538967,14.19,6.06,14.49,13.75,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6120 | 達運 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
+| 20260618 | 6120 | 達運 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蔡國新 4.舊任者簡歷:本公司董事長暨策略長 5.新任者姓名:蔡國新 6.新任者簡歷:本公司董事長暨策略長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事全面改選 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6120 | 達運 | 3 | 3 | 3 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6120 | 達運 | 4 | 4 | 4 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6120 | 達運 | 8 | 0 | 210430.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

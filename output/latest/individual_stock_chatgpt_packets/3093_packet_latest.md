@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3093 港建*
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:35 Asia/Taipei
+- generated_at: 2026-06-18 22:23:34 Asia/Taipei
 - stock_id: 3093
 - stock_name: 港建*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,48 +112,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 64
-- high: 65.9
-- low: 62.7
-- close: 64.4
-- volume: 65000
-- ma5: 62.76
-- ema23_primary: 58.05
-- distance_to_ema23_pct: 10.93
-- ma20: 55.73
-- ma60: 56.81
-- ma120: 42.1
-- return_5d: 0.62
-- return_20d: 27.52
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: 15.55
-- distance_to_high_60_pct: -16.9
+- date: 20260618
+- open: 64.2
+- high: 65.7
+- low: 63.6
+- close: 65
+- volume: 1876000
+- ma5: 63.7
+- ema23_primary: 59.88
+- distance_to_ema23_pct: 8.55
+- ma20: 58.97
+- ma60: 57.88
+- ma120: 43.43
+- return_5d: 7.79
+- return_20d: 34.16
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 10.23
+- distance_to_high_60_pct: -16.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,50,52,49,51,1158000,57.38,-11.13,60.02,49.08,0.31
-20260519,51.5,51.5,48.4,48.55,1564000,56.65,-14.3,58.78,49.45,0.44
-20260520,48.6,49.7,47.8,47.8,768000,55.91,-14.51,57.7,49.81,0.24
-20260521,48.35,49.85,47.9,48.45,867000,55.29,-12.37,56.89,50.18,0.29
 20260522,48.7,53.2,48.7,52.1,52000,55.02,-5.31,56.45,50.62,0.02
 20260525,52.1,56.6,50.9,56,54000,55.1,1.62,56.16,51.12,0.02
 20260526,56,59.6,53.9,58.4,57000,55.38,5.45,56.3,51.65,0.03
 20260527,57.9,59.2,54.3,54.7,57000,55.32,-1.13,55.98,52.08,0.03
 20260528,54.5,55.6,51.7,52.3,54000,55.07,-5.03,55.47,52.45,0.03
 20260529,52.7,53.8,51.8,52.4,52000,54.85,-4.46,55.16,52.84,0.03
-20260601,52.5,53.1,51.6,52,52,54.61,-4.78,54.86,53.25,0
+20260601,52.5,53.1,51.6,52,52000,54.61,-4.78,54.86,53.25,0.03
 20260602,52.1,52.1,50,51,51,54.31,-6.09,54.22,53.63,0
 20260603,51.5,56.1,51.3,56.1,54000,54.46,3.01,53.78,54.04,0.06
-20260604,51.5,56.1,51.3,56.1,54000,54.6,2.75,53.46,54.41,0.07
-20260605,61.5,64,58.6,64,62000,55.38,15.57,53.7,54.93,0.1
-20260611,60.8,61.6,58.6,60.3,60000,55.79,8.08,53.74,55.37,0.1
-20260612,62.4,62.4,59.1,60.4,61000,56.17,7.52,53.88,55.77,0.12
-20260615,60.6,65.7,60.3,64.7,63000,56.88,13.74,54.43,56.17,0.15
-20260616,64.8,66.2,62.4,64,64000,57.48,11.35,55.04,56.49,0.19
-20260617,64,65.9,62.7,64.4,65000,58.05,10.93,55.73,56.81,0.25
+20260604,56.1,61.7,56.1,61.7,59000,55.06,12.05,53.74,54.51,0.08
+20260605,61.5,64,58.6,64,62000,55.81,14.68,53.98,55.02,0.09
+20260608,57.7,70.4,57.7,66,9971000,56.66,16.49,54.3,55.56,9.15
+20260609,66,68.6,62.8,63.2,9996000,57.2,10.49,54.59,56,6.59
+20260610,63.4,67.9,60.4,60.6,5800000,57.49,5.42,54.93,56.34,3.39
+20260611,60.8,61.6,58.6,60.3,1897000,57.72,4.47,55.35,56.6,1.11
+20260612,62.4,62.4,59.1,60.4,1561000,57.94,4.24,55.85,56.84,0.91
+20260615,60.6,65.7,60.3,64.7,3432000,58.51,10.59,56.53,57.09,1.89
+20260616,64.8,66.2,62.4,64,1950000,58.96,8.54,57.31,57.26,1.06
+20260617,64,65.9,62.7,64.4,2333000,59.42,8.39,58.14,57.52,1.22
+20260618,64.2,65.7,63.6,65,1876000,59.88,8.55,58.97,57.88,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3093 | 港建* | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3093 | 港建* | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

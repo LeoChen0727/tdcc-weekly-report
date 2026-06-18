@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:25 Asia/Taipei
+- generated_at: 2026-06-18 22:24:23 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 100
-- high: 101
-- low: 99
-- close: 100
-- volume: 4602149
-- ma5: 97.86
-- ema23_primary: 97.76
-- distance_to_ema23_pct: 2.29
-- ma20: 96.83
+- date: 20260618
+- open: 101
+- high: 101.5
+- low: 99.7
+- close: 100.5
+- volume: 5831524
+- ma5: 99.56
+- ema23_primary: 97.68
+- distance_to_ema23_pct: 2.88
+- ma20: 97.52
 - ma60: 97.93
-- ma120: 103.96
-- return_5d: -0.5
-- return_20d: 10.13
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 3.28
-- distance_to_high_60_pct: -13.79
+- ma120: 103.19
+- return_5d: 9.24
+- return_20d: 5.24
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 3.06
+- distance_to_high_60_pct: -13.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,90.2,91.5,89.3,90.4,4317357,97.68,-7.45,101.03,99.4,0.39
-20260519,91.6,94.6,90.9,92.8,8098855,97.27,-4.6,99.95,99.2,0.82
-20260520,93,94.5,91.9,94.2,4627171,97.02,-2.9,98.98,99.02,0.52
-20260521,95.4,98,94.8,95.5,5789437,96.89,-1.44,98.16,98.88,0.67
 20260522,96.6,97.4,96.2,96.8,5335510,96.88,-0.09,97.65,98.7,0.66
 20260525,98.9,99,97.5,98,5737322,96.98,1.06,97.1,98.5,0.76
 20260526,98.7,98.7,95.6,96.2,4478285,96.91,-0.73,96.56,98.32,0.62
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,97.6,98,96.2,96.2,5561748,96.94,-0.77,95.58,97.8,0.75
 20260602,97,97.9,95.8,97,4531630,96.95,0.05,95.43,97.76,0.62
 20260603,97.7,103.5,97.3,100.5,15277066,97.24,3.35,95.48,97.81,2
-20260604,97,97.9,95.8,97,4531630,97.22,-0.23,95.33,97.91,0.6
-20260605,97.5,101.5,94.3,100.5,10604877,97.5,3.08,95.58,98.02,1.43
-20260611,91.4,93.7,90,92,4565976,97.04,-5.19,95.44,97.92,0.63
-20260612,93.8,95.2,93.7,93.8,3113897,96.77,-3.07,95.44,97.87,0.43
-20260615,96,103,94.4,103,21334896,97.29,5.87,95.97,97.93,2.69
-20260616,104.5,105.5,100,100.5,19613977,97.56,3.02,96.36,97.95,2.26
-20260617,100,101,99,100,4602149,97.76,2.29,96.83,97.93,0.54
+20260604,101,102,97.8,98.2,9121831,97.32,0.9,95.39,97.93,1.17
+20260605,97.5,101.5,94.3,100.5,10604877,97.59,2.98,95.64,98.04,1.39
+20260608,90.8,95.2,90.7,94.7,6277911,97.35,-2.72,95.64,97.98,0.82
+20260609,95,98.6,95,98,5092621,97.4,0.61,95.84,98.01,0.67
+20260610,97.1,99.8,92.2,92.4,6765550,96.98,-4.73,95.84,97.89,0.89
+20260611,91.4,93.7,90,92,4565976,96.57,-4.73,95.81,97.77,0.6
+20260612,93.8,95.2,93.7,93.8,3113897,96.34,-2.63,95.97,97.65,0.42
+20260615,96,103,94.4,103,21334896,96.89,6.3,96.59,97.69,2.59
+20260616,104.5,105.5,100,100.5,19613977,97.19,3.4,96.98,97.74,2.23
+20260617,100,101,99,100,4602149,97.43,2.64,97.27,97.8,0.52
+20260618,101,101.5,99.7,100.5,5831524,97.68,2.88,97.52,97.93,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6191 | 精成科 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6191 | 精成科 | 1 | 1 | 2 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6191 | 精成科 | 0 | 3 | 0.0 | 7990.0 | 0.0 | no_signal |
+| 20260618 | 6191 | 精成科 | 60 | 3 | 3412900.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

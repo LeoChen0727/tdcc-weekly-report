@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:12 Asia/Taipei
+- generated_at: 2026-06-18 22:23:10 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 277
+- latest_price_date: 20260618
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 30.2
-- high: 30.8
-- low: 30
-- close: 30.8
-- volume: 5207881
-- ma5: 30.67
-- ema23_primary: 29.21
-- distance_to_ema23_pct: 5.46
-- ma20: 29.29
-- ma60: 26.11
-- ma120: 25.55
-- return_5d: -0.96
-- return_20d: 22.22
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 5.16
-- distance_to_high_60_pct: -11.11
+- date: 20260618
+- open: 30.9
+- high: 31.1
+- low: 30.6
+- close: 30.85
+- volume: 4568981
+- ma5: 30.83
+- ema23_primary: 29.7
+- distance_to_ema23_pct: 3.89
+- ma20: 30.34
+- ma60: 26.57
+- ma120: 25.69
+- return_5d: 2.66
+- return_20d: 13.42
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 1.68
+- distance_to_high_60_pct: -13.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,25.4,25.4,24.85,25.1,3373080,25.05,0.2,25.12,24.56,0.58
-20260519,25,25.4,24.9,25.05,4426633,25.05,-0,25.09,24.56,0.77
-20260520,25.1,26.2,25.1,26.05,8673044,25.13,3.64,25.11,24.57,1.44
-20260521,26.45,27.45,26.1,27.2,16011038,25.31,7.48,25.17,24.61,2.46
 20260522,28.2,29.3,28.05,28.75,31150472,25.59,12.34,25.36,24.65,4.04
 20260525,29.3,29.3,28.1,28.65,17372030,25.85,10.84,25.56,24.69,2.11
 20260526,29,29.15,28,28.1,9803852,26.04,7.93,25.77,24.72,1.16
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,29.4,31.5,29.2,30.65,27389242,26.85,14.16,26.66,24.98,2.51
 20260602,30.65,31.5,30.15,31.5,21947683,27.24,15.65,26.99,25.11,1.86
 20260603,33.75,34.65,33.7,34.65,12684313,27.85,24.4,27.43,25.29,1.07
-20260604,30.65,31.5,30.15,31.5,21947683,28.16,11.87,27.74,25.43,1.76
-20260605,33.5,33.65,30.9,31.1,26702502,28.4,9.49,28.05,25.57,1.97
-20260611,30.1,30.35,29.3,30.05,5885351,28.54,5.29,28.27,25.67,0.44
-20260612,30.9,31.3,30.7,31,8443093,28.75,7.84,28.52,25.79,0.63
-20260615,31.45,31.7,31.05,31.3,8721153,28.96,8.09,28.78,25.91,0.65
-20260616,31.65,31.65,30.2,30.2,6928027,29.06,3.92,29.01,26.01,0.51
-20260617,30.2,30.8,30,30.8,5207881,29.21,5.46,29.29,26.11,0.39
+20260604,35.5,35.55,33.85,34.25,63832638,28.39,20.65,27.88,25.48,4.38
+20260605,33.5,33.65,30.9,31.1,26702502,28.61,8.69,28.19,25.61,1.71
+20260608,28.2,30.2,28.2,30.1,15954965,28.74,4.74,28.41,25.72,1
+20260609,30.85,30.95,29.95,30.65,9267678,28.9,6.07,28.65,25.83,0.57
+20260610,30.2,31.15,30,30.1,8307873,29,3.8,28.84,25.93,0.52
+20260611,30.1,30.35,29.3,30.05,5885351,29.08,3.32,29.06,26.03,0.37
+20260612,30.9,31.3,30.7,31,8443093,29.24,6,29.35,26.14,0.52
+20260615,31.45,31.7,31.05,31.3,8721153,29.42,6.41,29.66,26.25,0.53
+20260616,31.65,31.65,30.2,30.2,6928027,29.48,2.44,29.92,26.34,0.42
+20260617,30.2,30.8,30,30.8,5207881,29.59,4.09,30.16,26.45,0.32
+20260618,30.9,31.1,30.6,30.85,4568981,29.7,3.89,30.34,26.57,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2352 | 佳世達 | 2 | 2 | 2 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2352 | 佳世達 | 3 | 3 | 3 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2352 | 佳世達 | 0 | 2 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 2352 | 佳世達 | 20 | 2 | 510440.0 | 293180.0 | 1.74 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

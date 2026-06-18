@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8464 億豐
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:16 Asia/Taipei
+- generated_at: 2026-06-18 22:25:06 Asia/Taipei
 - stock_id: 8464
 - stock_name: 億豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,9 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 353.5
-- high: 355
-- low: 344.5
-- close: 349.5
-- volume: 923694
-- ma5: 346
-- ema23_primary: 333.21
-- distance_to_ema23_pct: 4.89
-- ma20: 324.68
-- ma60: 343.83
-- ma120: 368.93
-- return_5d: 6.39
-- return_20d: 10.95
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 7.65
-- distance_to_high_60_pct: -14.13
+- date: 20260618
+- open: 345
+- high: 358
+- low: 338.5
+- close: 358
+- volume: 1306211
+- ma5: 350.2
+- ema23_primary: 336.56
+- distance_to_ema23_pct: 6.37
+- ma20: 329.95
+- ma60: 340.89
+- ma120: 367.38
+- return_5d: 6.23
+- return_20d: 12.58
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 8.5
+- distance_to_high_60_pct: -8.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,311.5,322.5,310,316,1091726,342.42,-7.72,345.5,365.3,1.09
-20260519,319,323,312,317,1687184,340.3,-6.85,342.88,363.66,1.58
-20260520,317,317.5,306,309,1419742,337.69,-8.5,339.4,361.76,1.3
-20260521,315,320.5,313,318,1331564,336.05,-5.37,336.7,360.39,1.18
 20260522,318,318,311.5,316.5,992233,334.42,-5.36,334.4,358.8,0.87
 20260525,315.5,323,312.5,319,1818651,333.14,-4.24,332.55,357.27,1.55
 20260526,318,324,313.5,315.5,876725,331.67,-4.87,330.8,355.54,0.76
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,321,325.5,318,324,2260844,326.68,-0.82,323.43,350.84,1.84
 20260602,323.5,324.5,317.5,322,1968274,326.29,-1.31,322.3,350.07,1.5
 20260603,323.5,327.5,318.5,324,2169120,326.1,-0.64,321.5,349.21,1.6
-20260604,323.5,324.5,317.5,322,1968274,325.75,-1.15,321.25,348.49,1.44
-20260605,331.5,334.5,327,328.5,583180,325.98,0.77,320.52,347.85,0.43
-20260611,339.5,341,329.5,337,415987,326.9,3.09,320.62,346.9,0.32
-20260612,337.5,348.5,337.5,348.5,567283,328.7,6.02,321.32,346.26,0.44
-20260615,354,354,340.5,344,463820,329.98,4.25,321.8,345.56,0.37
-20260616,347.5,354,341,351,937151,331.73,5.81,322.95,344.73,0.74
-20260617,353.5,355,344.5,349.5,923694,333.21,4.89,324.68,343.83,0.77
+20260604,328,332,323,331.5,748807,326.55,1.52,321.73,348.65,0.57
+20260605,331.5,334.5,327,328.5,583180,326.71,0.55,321,348.01,0.46
+20260608,321.5,331,312,327.5,1256336,326.77,0.22,320.62,346.9,0.97
+20260609,327,334,327,333,635582,327.29,1.74,320.55,346,0.5
+20260610,332,342.5,326,337.5,631983,328.14,2.85,320.7,345.19,0.51
+20260611,339.5,341,329.5,337,415987,328.88,2.47,321.15,344.12,0.34
+20260612,337.5,348.5,337.5,348.5,567283,330.52,5.44,322.82,343.22,0.49
+20260615,354,354,340.5,344,463820,331.64,3.73,324.23,342.35,0.41
+20260616,347.5,354,341,351,937151,333.25,5.33,325.93,341.81,0.86
+20260617,353.5,355,344.5,349.5,923694,334.61,4.45,327.95,341.23,0.87
+20260618,345,358,338.5,358,1306211,336.56,6.37,329.95,340.89,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8464 | 億豐 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:  林奇威  黃勝義  洪崇欽 4.舊任者簡歷:  林奇威/億豐綜合工業股份有限公司獨立董事  黃勝義/億豐綜合工業股份有限公司獨立董事  洪崇欽/億豐綜合工業股份有限公司獨立董事 5.新任者姓名:待董事會委任 6.新任者簡歷:待董事會委任 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  任期屆滿 8.異動原因:任期屆滿 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/04~115/06/20 10.新任生效日期:尚未委任 11.其他應敘明事項:   新任薪資報酬委員將於董事會委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8464 | 億豐 | 1 | 1 | 1 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8464 | 億豐 | 7 | 0 | 26060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

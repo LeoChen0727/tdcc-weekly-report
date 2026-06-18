@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3094 聯傑
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:35 Asia/Taipei
+- generated_at: 2026-06-18 22:23:35 Asia/Taipei
 - stock_id: 3094
 - stock_name: 聯傑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -88,11 +92,12 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -106,7 +111,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -114,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 36.95
-- high: 39.75
-- low: 36.95
-- close: 39
-- volume: 14212332
-- ma5: 34.38
-- ema23_primary: 33.39
-- distance_to_ema23_pct: 16.81
-- ma20: 34.44
-- ma60: 28.71
-- ma120: 26.68
-- return_5d: 22.45
-- return_20d: 19.45
-- volume_ratio: 3.75
-- distance_to_ma20_pct_auxiliary: 13.24
-- distance_to_high_60_pct: -1.89
+- date: 20260618
+- open: 39
+- high: 39.55
+- low: 38
+- close: 38.25
+- volume: 5046865
+- ma5: 36.18
+- ema23_primary: 33.34
+- distance_to_ema23_pct: 14.71
+- ma20: 33.73
+- ma60: 29.24
+- ma120: 26.92
+- return_5d: 30.77
+- return_20d: 6.4
+- volume_ratio: 1.66
+- distance_to_ma20_pct_auxiliary: 13.38
+- distance_to_high_60_pct: -3.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,32.05,33.95,30.8,33.7,2942561,29.02,16.12,28.98,25.43,0.88
-20260519,33.4,35.9,33.2,34.25,4341541,29.46,16.27,29.42,25.59,1.25
-20260520,34.25,37,33.85,36.3,8378852,30.03,20.89,29.93,25.78,2.18
-20260521,37.4,37.45,35.55,35.95,6364853,30.52,17.79,30.34,25.97,1.64
 20260522,35.95,36.6,35.2,35.35,3206109,30.92,14.31,30.79,26.14,0.82
 20260525,35.7,37,35.7,36.6,4570406,31.4,16.57,31.26,26.32,1.14
 20260526,37,37,34.5,34.95,2762556,31.69,10.28,31.7,26.49,0.67
@@ -149,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,33.7,34.55,33.4,34,1803792,32.48,4.67,33.27,27.14,0.42
 20260602,34.3,35.5,32.7,33.75,1724141,32.59,3.56,33.58,27.31,0.39
 20260603,33.5,33.6,32.6,32.7,1506207,32.6,0.31,33.7,27.46,0.37
-20260604,34.3,35.5,32.7,33.75,1724141,32.69,3.23,33.72,27.65,0.45
-20260605,32.9,33.25,31.65,31.85,1029382,32.62,-2.37,33.76,27.81,0.3
-20260611,29.8,29.8,28.3,29.25,450611,32.34,-9.56,33.68,27.91,0.14
-20260612,30.15,32.15,30.1,32.15,1780010,32.33,-0.55,33.72,28.05,0.56
-20260615,33.1,35.35,33,35.35,4822593,32.58,8.51,33.95,28.26,1.43
-20260616,36.8,37.4,35,36.15,5594275,32.88,9.96,34.12,28.46,1.69
-20260617,36.95,39.75,36.95,39,14212332,33.39,16.81,34.44,28.71,3.75
+20260604,32.7,33.1,32.4,32.7,928672,32.61,0.28,33.66,27.63,0.25
+20260605,32.9,33.25,31.65,31.85,1029382,32.54,-2.13,33.71,27.79,0.31
+20260608,28.9,29.75,28.8,29.55,878734,32.29,-8.5,33.64,27.89,0.27
+20260609,30.15,31,28.95,30.45,1017000,32.14,-5.26,33.59,28.01,0.32
+20260610,30.1,30.8,28.85,28.9,894221,31.87,-9.32,33.51,28.11,0.29
+20260611,29.8,29.8,28.3,29.25,450611,31.65,-7.59,33.33,28.2,0.16
+20260612,30.15,32.15,30.1,32.15,1780010,31.69,1.44,33.31,28.34,0.67
+20260615,33.1,35.35,33,35.35,4822593,32,10.47,33.39,28.52,1.75
+20260616,36.8,37.4,35,36.15,5594275,32.34,11.77,33.48,28.73,1.99
+20260617,36.95,39.75,36.95,39,14212332,32.9,18.54,33.62,28.98,4.57
+20260618,39,39.55,38,38.25,5046865,33.34,14.71,33.73,29.24,1.66
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3094 | 聯傑 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
+| 20260618 | 3094 | 聯傑 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3094 | 聯傑 | 4 | 1 | 4 | 8 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 3094 | 聯傑 | 5 | 1 | 5 | 8 | 12 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

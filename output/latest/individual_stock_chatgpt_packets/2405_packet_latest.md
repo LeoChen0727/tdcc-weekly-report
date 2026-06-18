@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2405 輔信
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:15 Asia/Taipei
+- generated_at: 2026-06-18 22:23:13 Asia/Taipei
 - stock_id: 2405
 - stock_name: 輔信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 18.65
-- high: 19.5
-- low: 18.65
-- close: 19.4
-- volume: 4655437
-- ma5: 18.92
-- ema23_primary: 18
-- distance_to_ema23_pct: 7.79
-- ma20: 17.9
-- ma60: 16.28
-- ma120: 16.6
-- return_5d: -5.37
-- return_20d: 27.21
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 8.36
-- distance_to_high_60_pct: -11.01
+- date: 20260618
+- open: 19.5
+- high: 19.7
+- low: 18.85
+- close: 18.9
+- volume: 4329566
+- ma5: 19.05
+- ema23_primary: 18.31
+- distance_to_ema23_pct: 3.2
+- ma20: 18.65
+- ma60: 16.52
+- ma120: 16.62
+- return_5d: 3.56
+- return_20d: 18.12
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 1.33
+- distance_to_high_60_pct: -13.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,15.3,15.45,15.05,15.2,1473969,15.3,-0.65,15.32,15.46,0.74
-20260519,15.4,15.4,14.95,15,2388315,15.27,-1.8,15.29,15.45,1.17
-20260520,15.15,15.5,15,15.5,2515394,15.29,1.35,15.25,15.44,1.24
-20260521,15.75,16.1,15.5,16,4554649,15.35,4.22,15.24,15.45,2.13
 20260522,16.35,16.85,16.15,16.55,5532772,15.45,7.1,15.29,15.46,2.46
 20260525,16.9,17.45,16.7,17.05,8397429,15.59,9.4,15.39,15.47,3.24
 20260526,17.25,17.25,16.3,16.65,4467699,15.67,6.23,15.47,15.48,1.63
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,17.8,18.75,17.45,18.4,15182646,16.15,13.91,15.89,15.59,3.39
 20260602,18.55,20.2,18.45,20.2,33872396,16.49,22.5,16.12,15.67,5.58
 20260603,20.8,21.8,19.75,21.7,40433130,16.92,28.22,16.45,15.78,5.07
-20260604,18.55,20.2,18.45,20.2,33872396,17.2,17.46,16.69,15.87,3.55
-20260605,20.05,21.2,19.95,20.5,15464961,17.47,17.33,16.97,15.96,1.52
-20260611,18.45,18.7,17.85,18.25,5772408,17.54,4.06,17.11,16.01,0.56
-20260612,18.95,19.25,18.7,18.7,3874850,17.63,6.04,17.28,16.07,0.37
-20260615,19.2,19.85,19.05,19.45,4290726,17.79,9.36,17.5,16.15,0.4
-20260616,19.7,19.8,18.8,18.8,3753256,17.87,5.2,17.7,16.21,0.35
-20260617,18.65,19.5,18.65,19.4,4655437,18,7.79,17.9,16.28,0.43
+20260604,20.6,20.95,20.2,20.25,15978481,17.2,17.72,16.69,15.87,1.85
+20260605,20.05,21.2,19.95,20.5,15464961,17.48,17.3,16.97,15.96,1.66
+20260608,18.45,19.7,18.45,19.4,8200127,17.64,10,17.17,16.03,0.85
+20260609,19.55,20.1,19.2,19.75,6590639,17.81,10.88,17.39,16.11,0.67
+20260610,19.5,20.25,18.55,18.6,7479579,17.88,4.04,17.57,16.17,0.73
+20260611,18.45,18.7,17.85,18.25,5772408,17.91,1.9,17.74,16.23,0.56
+20260612,18.95,19.25,18.7,18.7,3874850,17.98,4.03,17.91,16.29,0.37
+20260615,19.2,19.85,19.05,19.45,4290726,18.1,7.47,18.12,16.36,0.41
+20260616,19.7,19.8,18.8,18.8,3753256,18.16,3.54,18.31,16.42,0.35
+20260617,18.65,19.5,18.65,19.4,4655437,18.26,6.24,18.51,16.47,0.44
+20260618,19.5,19.7,18.85,18.9,4329566,18.31,3.2,18.65,16.52,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2405 | 輔信 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:資本公積發放現金總額新台幣34,342,730元 每股配發現金新台幣0.1元 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/28 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2405 | 輔信 | 1 | 1 | 1 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

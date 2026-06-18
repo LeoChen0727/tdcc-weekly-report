@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:57 Asia/Taipei
+- generated_at: 2026-06-18 22:22:56 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -56,38 +56,38 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 61.8
-- high: 63.7
-- low: 59.9
-- close: 61.6
-- volume: 2670969
-- ma5: 62.3
-- ema23_primary: 57.93
-- distance_to_ema23_pct: 6.33
-- ma20: 58.06
-- ma60: 47.39
-- ma120: 46.21
-- return_5d: -5.67
-- return_20d: 37.65
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 6.09
-- distance_to_high_60_pct: -15.03
+- date: 20260618
+- open: 63.1
+- high: 67.7
+- low: 61
+- close: 67.7
+- volume: 6707844
+- ma5: 63.84
+- ema23_primary: 59.25
+- distance_to_ema23_pct: 14.26
+- ma20: 61.24
+- ma60: 48.77
+- ma120: 46.91
+- return_5d: 12.83
+- return_20d: 48.14
+- volume_ratio: 2.27
+- distance_to_ma20_pct_auxiliary: 10.54
+- distance_to_high_60_pct: -6.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,44.8,45.8,44.5,45.15,497907,43.13,4.69,42.73,42.47,0.57
-20260519,45.25,46.3,45.2,45.3,625952,43.31,4.6,42.91,42.48,0.72
-20260520,45.3,45.4,44.65,45,480341,43.45,3.57,43.07,42.45,0.55
-20260521,45.3,45.75,44.6,45.7,774136,43.64,4.73,43.16,42.45,0.95
 20260522,45.7,46.1,45.1,46.05,728898,43.84,5.05,43.36,42.45,0.92
 20260525,46.05,46.35,45.45,46,808204,44.02,4.5,43.59,42.46,0.99
 20260526,50.6,50.6,50.6,50.6,1592814,44.57,13.54,44.08,42.58,1.84
@@ -146,13 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,65.6,72.5,60.7,69.9,7979932,50.23,39.15,48.5,43.88,3.6
 20260602,70,70,64.9,69.8,4931104,51.86,34.58,49.93,44.33,2.03
 20260603,69,69.8,67.1,67.8,1597771,53.19,27.46,51.22,44.74,0.65
-20260604,70,70,64.9,69.8,4931104,54.58,27.89,52.53,45.23,1.9
-20260605,66,66,63.4,65.3,905197,55.47,17.72,53.6,45.63,0.35
-20260611,57.5,60,57,60,567633,55.85,7.44,54.41,45.92,0.22
-20260612,61.7,61.7,60,60.1,702611,56.2,6.94,55.21,46.24,0.27
-20260615,61,64.6,61,64,1154641,56.85,12.57,56.2,46.63,0.45
-20260616,65.7,65.9,63.6,65.8,1393798,57.6,14.24,57.22,47.04,0.54
-20260617,61.8,63.7,59.9,61.6,2670969,57.93,6.33,58.06,47.39,1
+20260604,67.9,67.9,65.6,66.3,1773487,54.28,22.13,52.35,45.17,0.73
+20260605,66,66,63.4,65.3,905197,55.2,18.29,53.42,45.57,0.37
+20260608,58.8,61.6,58.8,60.5,1422554,55.64,8.73,54.26,45.88,0.58
+20260609,63.3,64.5,60.5,62,1863153,56.17,10.37,55.16,46.22,0.74
+20260610,60.7,62,57.8,58,1154064,56.33,2.97,55.85,46.51,0.46
+20260611,57.5,60,57,60,567633,56.63,5.95,56.58,46.83,0.23
+20260612,61.7,61.7,60,60.1,702611,56.92,5.58,57.34,47.15,0.28
+20260615,61,64.6,61,64,1154641,57.51,11.28,58.29,47.53,0.46
+20260616,65.7,65.9,63.6,65.8,1393798,58.2,13.05,59.31,47.96,0.55
+20260617,61.8,63.7,59.9,61.6,2670969,58.48,5.33,60.14,48.31,1.01
+20260618,63.1,67.7,61,67.7,6707844,59.25,14.26,61.24,48.77,2.27
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1563 | 巧新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1563 | 巧新 | 1 | 1 | 1 | 2 | 6 | repeated_but_no_breakout | 近 10 日上榜 2 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

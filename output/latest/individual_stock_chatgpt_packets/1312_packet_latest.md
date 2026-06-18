@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1312 國喬
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:50 Asia/Taipei
+- generated_at: 2026-06-18 22:22:48 Asia/Taipei
 - stock_id: 1312
 - stock_name: 國喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 13.2
-- high: 13.45
-- low: 13
-- close: 13.25
-- volume: 11283900
-- ma5: 12.98
-- ema23_primary: 12.38
-- distance_to_ema23_pct: 7.07
-- ma20: 11.88
-- ma60: 12.58
-- ma120: 12.64
-- return_5d: -7.99
-- return_20d: 27.4
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 11.54
-- distance_to_high_60_pct: -14.24
+- date: 20260618
+- open: 13.35
+- high: 13.75
+- low: 13.3
+- close: 13.5
+- volume: 11579478
+- ma5: 13.11
+- ema23_primary: 12.7
+- distance_to_ema23_pct: 6.26
+- ma20: 12.53
+- ma60: 12.55
+- ma120: 12.71
+- return_5d: 5.06
+- return_20d: 27.36
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 7.73
+- distance_to_high_60_pct: -14.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,10.6,10.75,10.5,10.5,3935338,11.95,-12.12,11.98,13.05,0.51
-20260519,10.5,10.8,10.45,10.5,3197063,11.83,-11.23,11.84,13.01,0.44
-20260520,10.6,10.6,10.3,10.4,3932133,11.71,-11.18,11.71,12.97,0.58
-20260521,10.5,10.7,10.5,10.6,3632645,11.62,-8.75,11.6,12.93,0.56
 20260522,10.65,10.65,10.25,10.4,5402415,11.52,-9.68,11.47,12.89,0.93
 20260525,10.5,10.5,10.1,10.4,7388699,11.42,-8.95,11.36,12.83,1.26
 20260526,10.4,10.45,10.1,10.1,6179709,11.31,-10.71,11.23,12.77,1.05
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,11.5,12.2,11.1,12.05,23812360,11.27,6.96,10.99,12.63,2.96
 20260602,13.25,13.25,13.25,13.25,11632791,11.43,15.91,11.05,12.64,1.39
 20260603,14.55,14.55,14.55,14.55,18059123,11.69,24.46,11.2,12.65,2.01
-20260604,13.25,13.25,13.25,13.25,11632791,11.82,12.09,11.26,12.63,1.25
-20260605,14.2,14.45,13.35,14.4,29686786,12.04,19.64,11.4,12.65,2.81
-20260611,13.2,13.3,12.65,12.85,11211465,12.1,6.17,11.45,12.64,1.04
-20260612,13,13.3,12.9,12.95,7718513,12.17,6.37,11.52,12.62,0.7
-20260615,13.05,13.1,12.65,12.7,8911473,12.22,3.95,11.61,12.6,0.82
-20260616,12.8,13.55,12.75,13.15,13824252,12.3,6.95,11.74,12.59,1.23
-20260617,13.2,13.45,13,13.25,11283900,12.38,7.07,11.88,12.58,0.98
+20260604,14.9,15.8,14.1,14.2,126456090,11.9,19.33,11.3,12.65,8.41
+20260605,14.2,14.45,13.35,14.4,29686786,12.11,18.93,11.44,12.66,1.82
+20260608,13.5,14.2,13.45,13.65,17866255,12.24,11.55,11.54,12.67,1.06
+20260609,13.65,14.4,13.65,13.75,14125248,12.36,11.22,11.65,12.66,0.81
+20260610,13.5,13.95,13.2,13.2,13999425,12.43,6.17,11.76,12.65,0.8
+20260611,13.2,13.3,12.65,12.85,11211465,12.47,3.07,11.87,12.64,0.63
+20260612,13,13.3,12.9,12.95,7718513,12.51,3.54,12,12.62,0.43
+20260615,13.05,13.1,12.65,12.7,8911473,12.52,1.41,12.11,12.6,0.49
+20260616,12.8,13.55,12.75,13.15,13824252,12.58,4.57,12.24,12.58,0.74
+20260617,13.2,13.45,13,13.25,11283900,12.63,4.89,12.39,12.57,0.59
+20260618,13.35,13.75,13.3,13.5,11579478,12.7,6.26,12.53,12.55,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1312 | 國喬 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1312 | 國喬 | 1 | 1 | 1 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1312 | 國喬 | 30 | 0 | 1274320.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

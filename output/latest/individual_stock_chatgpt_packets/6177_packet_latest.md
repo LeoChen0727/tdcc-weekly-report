@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6177 達麗
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:24 Asia/Taipei
+- generated_at: 2026-06-18 22:24:22 Asia/Taipei
 - stock_id: 6177
 - stock_name: 達麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,27 +56,27 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -92,8 +92,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 47.25
-- high: 48.4
-- low: 46.9
-- close: 48.25
-- volume: 2954979
-- ma5: 47.38
-- ema23_primary: 45.37
-- distance_to_ema23_pct: 6.34
-- ma20: 44.58
-- ma60: 45.85
-- ma120: 47.56
-- return_5d: 6.16
-- return_20d: 5.81
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 8.24
-- distance_to_high_60_pct: -3.88
+- date: 20260618
+- open: 48.85
+- high: 51.7
+- low: 48.8
+- close: 50.4
+- volume: 8039039
+- ma5: 47.98
+- ema23_primary: 46.01
+- distance_to_ema23_pct: 9.54
+- ma20: 45.01
+- ma60: 45.82
+- ma120: 47.55
+- return_5d: 6.33
+- return_20d: 12.88
+- volume_ratio: 3.07
+- distance_to_ma20_pct_auxiliary: 11.97
+- distance_to_high_60_pct: -2.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,45.8,46.05,45.25,45.4,1206171,46.06,-1.44,45.73,46.63,0.92
-20260519,45.4,45.65,44.75,44.8,1262148,45.96,-2.52,45.73,46.59,0.99
-20260520,44.9,44.9,44.4,44.65,914724,45.85,-2.62,45.72,46.54,0.74
-20260521,44.75,45.25,44.6,44.65,916858,45.75,-2.4,45.69,46.47,0.76
 20260522,44.6,44.7,44.1,44.25,1750520,45.63,-3.01,45.59,46.39,1.45
 20260525,44.15,44.15,42.45,42.65,3864115,45.38,-6.01,45.43,46.29,2.87
 20260526,42.65,42.8,41.55,42.2,3594344,45.11,-6.46,45.31,46.2,2.48
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,42.45,43.7,42.1,43.6,1553593,44.38,-1.76,44.74,45.88,0.93
 20260602,43.8,43.8,42.85,43,1344905,44.27,-2.86,44.62,45.83,0.79
 20260603,43.25,44.65,42.65,44.2,2322612,44.26,-0.14,44.55,45.8,1.31
-20260604,43.8,43.8,42.85,43,1344905,44.16,-2.62,44.41,45.77,0.76
-20260605,44.65,45.8,44.6,45.45,1732991,44.26,2.68,44.34,45.77,0.97
-20260611,47.8,47.9,46.45,47.4,4254593,44.53,6.46,44.35,45.8,2.19
-20260612,47.9,48.15,47,47.15,2901830,44.74,5.38,44.35,45.82,1.44
-20260615,47.45,47.45,46.25,47.2,1760346,44.95,5.01,44.38,45.84,0.88
-20260616,46.75,47.45,46.75,46.9,762658,45.11,3.96,44.44,45.85,0.39
-20260617,47.25,48.4,46.9,48.25,2954979,45.37,6.34,44.58,45.85,1.46
+20260604,44.1,45,44.1,44.65,1336962,44.29,0.8,44.49,45.8,0.75
+20260605,44.65,45.8,44.6,45.45,1732991,44.39,2.39,44.42,45.8,0.97
+20260608,43.9,45,43.9,44.65,1791097,44.41,0.54,44.3,45.78,0.99
+20260609,44.4,45.65,44.4,44.95,826467,44.46,1.11,44.19,45.77,0.46
+20260610,45.1,47.85,44.7,46.6,5487184,44.64,4.4,44.19,45.78,2.81
+20260611,47.8,47.9,46.45,47.4,4254593,44.87,5.65,44.27,45.79,2.06
+20260612,47.9,48.15,47,47.15,2901830,45.06,4.65,44.35,45.78,1.34
+20260615,47.45,47.45,46.25,47.2,1760346,45.23,4.34,44.44,45.78,0.81
+20260616,46.75,47.45,46.75,46.9,762658,45.37,3.36,44.55,45.77,0.35
+20260617,47.25,48.4,46.9,48.25,2954979,45.61,5.78,44.73,45.77,1.31
+20260618,48.85,51.7,48.8,50.4,8039039,46.01,9.54,45.01,45.82,3.07
 ```
 
 ## Latest TDCC Snapshot
@@ -191,20 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6177 | 達麗 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 6177 | 達麗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260617 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 15.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260617 | 6177 | 達麗 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6177 | 達麗 | true_breakout | 嚴格突破 | 131.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6177 | 達麗 | 1 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6177 | 達麗 | 2 | 1 | 4 | 9 | 16 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6177 | 達麗 | 7 | 0 | 314590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

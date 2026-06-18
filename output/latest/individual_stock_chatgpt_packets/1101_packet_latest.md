@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1101 台泥
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:47 Asia/Taipei
+- generated_at: 2026-06-18 22:22:45 Asia/Taipei
 - stock_id: 1101
 - stock_name: 台泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 282
+- latest_price_date: 20260618
+- price_rows: 286
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 24.5
+- date: 20260618
+- open: 24.6
 - high: 24.8
-- low: 24.45
-- close: 24.55
-- volume: 26236790
-- ma5: 24.54
-- ema23_primary: 24.47
-- distance_to_ema23_pct: 0.34
-- ma20: 24.33
-- ma60: 24.32
-- ma120: 24.46
-- return_5d: 0.61
-- return_20d: 1.87
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 0.89
-- distance_to_high_60_pct: -7.01
+- low: 24.5
+- close: 24.5
+- volume: 33250276
+- ma5: 24.59
+- ema23_primary: 24.39
+- distance_to_ema23_pct: 0.45
+- ma20: 24.3
+- ma60: 24.34
+- ma120: 24.51
+- return_5d: 1.03
+- return_20d: 1.24
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 0.81
+- distance_to_high_60_pct: -7.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,24.1,24.15,23.7,24.05,31808031,24.6,-2.25,24.63,24.64,1.17
-20260519,24.1,24.4,24.1,24.2,27849412,24.57,-1.51,24.6,24.62,1
-20260520,24.3,24.4,24,24.15,25264963,24.53,-1.57,24.57,24.6,0.89
-20260521,24.15,24.35,23.95,24.2,20020628,24.51,-1.25,24.56,24.57,0.7
 20260522,24.2,24.2,23.95,24.1,22434398,24.47,-1.52,24.54,24.54,0.81
 20260525,24.1,24.45,23.95,24.3,33786766,24.46,-0.65,24.53,24.5,1.2
 20260526,24.3,24.6,23.95,23.95,31297642,24.42,-1.91,24.51,24.46,1.11
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,24.4,24.7,24.2,24.55,35557711,24.34,0.88,24.44,24.34,1.15
 20260602,24.55,24.8,24.4,24.65,33068326,24.36,1.18,24.46,24.34,1.06
 20260603,24.65,25.2,24.45,24.85,45323366,24.4,1.83,24.45,24.33,1.45
-20260604,24.55,24.8,24.4,24.65,33068326,24.42,0.93,24.41,24.34,1.07
-20260605,24.5,24.6,24.2,24.4,31313266,24.42,-0.09,24.38,24.34,1.01
-20260611,23.95,24.35,23.8,24.25,31962933,24.41,-0.64,24.32,24.33,1.01
-20260612,24.35,24.85,24.25,24.55,30216569,24.42,0.54,24.3,24.32,0.95
-20260615,24.95,25.4,24.8,24.85,41019136,24.46,1.61,24.31,24.32,1.26
-20260616,25,25.1,24.5,24.5,30785043,24.46,0.17,24.31,24.32,0.95
-20260617,24.5,24.8,24.45,24.55,26236790,24.47,0.34,24.33,24.32,0.81
+20260604,24.9,24.95,24.45,24.45,37205139,24.41,0.18,24.4,24.33,1.19
+20260605,24.5,24.6,24.2,24.4,31313266,24.41,-0.03,24.37,24.34,1
+20260608,23.85,24,23.55,23.85,51860722,24.36,-2.09,24.3,24.32,1.58
+20260609,23.9,24.15,23.85,23.95,27355323,24.33,-1.54,24.25,24.3,0.84
+20260610,23.95,24.25,23.85,23.9,31959243,24.29,-1.61,24.2,24.29,0.97
+20260611,23.95,24.35,23.8,24.25,31962933,24.29,-0.15,24.19,24.28,0.96
+20260612,24.35,24.85,24.25,24.55,30216569,24.31,0.99,24.21,24.28,0.91
+20260615,24.95,25.4,24.8,24.85,41019136,24.35,2.04,24.25,24.29,1.22
+20260616,25,25.1,24.5,24.5,30785043,24.37,0.55,24.27,24.3,0.91
+20260617,24.5,24.8,24.45,24.55,26236790,24.38,0.69,24.29,24.31,0.78
+20260618,24.6,24.8,24.5,24.5,33250276,24.39,0.45,24.3,24.34,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1101 | 台泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:臺灣水泥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據本公司國內第一次無擔保轉換公司債發行及轉換辦法第十五條規定 調整轉換價格。 6.因應措施:本公司自115年7月7日(除息基準日)起，本公司國內第一次無擔保轉換 公司債之轉換價格由每股新台幣35.2元調整為34.0元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_14d |
+| 20260618 | 1101 | 台泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_2_3d | 1.事實發生日:115/06/16 2.公司名稱:臺灣水泥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據本公司國內第一次無擔保轉換公司債發行及轉換辦法第十五條規定 調整轉換價格。 6.因應措施:本公司自115年7月7日(除息基準日)起，本公司國內第一次無擔保轉換 公司債之轉換價格由每股新台幣35.2元調整為34.0元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1101 | 台泥 | 2 | 2 | 3 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 1101 | 台泥 | 3 | 3 | 4 | 7 | 8 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1101 | 台泥 | 0 | 2 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 1101 | 台泥 | 36 | 2 | 699550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

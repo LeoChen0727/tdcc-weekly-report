@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6138 茂達
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:21 Asia/Taipei
+- generated_at: 2026-06-18 22:24:19 Asia/Taipei
 - stock_id: 6138
 - stock_name: 茂達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,48 +118,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 317
-- high: 332
-- low: 313
-- close: 326
-- volume: 325000
-- ma5: 314.1
-- ema23_primary: 313.36
-- distance_to_ema23_pct: 4.03
-- ma20: 325.38
-- ma60: 267.47
-- ma120: 248.14
-- return_5d: 0.77
-- return_20d: 14.59
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 0.19
-- distance_to_high_60_pct: -14.99
+- date: 20260618
+- open: 342
+- high: 358.5
+- low: 342
+- close: 358.5
+- volume: 2387000
+- ma5: 327.4
+- ema23_primary: 315.36
+- distance_to_ema23_pct: 13.68
+- ma20: 328.77
+- ma60: 273.06
+- ma120: 251.26
+- return_5d: 22.77
+- return_20d: 18.71
+- volume_ratio: 4.12
+- distance_to_ma20_pct_auxiliary: 9.04
+- distance_to_high_60_pct: -6.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,283,296,276.5,296,1457000,261.37,13.25,259.55,236.47,0.99
-20260519,296,298.5,280,282,1519000,263.09,7.19,262.02,237.29,0.99
-20260520,284,309,281,308.5,2588000,266.87,15.6,265.6,238.5,1.58
-20260521,312,316,300.5,302,2973000,269.8,11.93,268.4,239.61,1.73
 20260522,305,325,298,318.5,314000,273.86,16.3,272.35,240.98,0.19
 20260525,332,350,325,350,340000,280.2,24.91,277.18,242.82,0.22
 20260526,383.5,383.5,354,369.5,368000,287.65,28.46,283.3,245.04,0.24
 20260527,376,377,354,355.5,362000,293.3,21.21,288.9,247.01,0.24
 20260528,361,365.5,331,343,350000,297.44,15.32,294.1,248.82,0.23
 20260529,353,355.5,341.5,345.5,348000,301.45,14.61,299.6,250.84,0.23
-20260601,349.5,354.5,342,353,349,305.74,15.46,305.05,253.15,0
+20260601,349.5,354.5,342,353,349000,305.74,15.46,305.05,253.15,0.23
 20260602,356,356,322,329,334,307.68,6.93,308.93,254.91,0
-20260603,333.5,337.5,328,330.5,333000,309.58,6.76,312.93,256.7,0.25
-20260604,333.5,337.5,328,330.5,333000,311.33,6.16,316.35,258.59,0.26
-20260605,321.5,327,311,323.5,319000,312.34,3.57,319.5,260.27,0.26
-20260611,290,295.5,283.5,292,291000,310.65,-6,319.85,261.25,0.26
-20260612,304,319,302,313,311000,310.84,0.69,321.02,262.68,0.32
-20260615,323,330,317,327,325000,312.19,4.74,323,264.35,0.36
-20260616,330,331,312.5,312.5,319000,312.21,0.09,323.3,265.83,0.42
-20260617,317,332,313,326,325000,313.36,4.03,325.38,267.47,0.49
+20260603,333.5,337.5,328,330.5,333000,309.58,6.76,312.93,256.7,0.24
+20260604,327.5,334,325,325.5,329000,310.91,4.69,316.1,258.51,0.25
+20260605,321.5,327,311,323.5,319000,311.96,3.7,319.25,260.18,0.26
+20260608,292,302,292,301,637000,311.05,-3.23,320.05,261.32,0.56
+20260609,304,317,303.5,311,566000,311.04,-0.01,321.12,262.71,0.55
+20260610,305,313,290,291,674000,309.37,-5.94,321.3,263.78,0.69
+20260611,290,295.5,283.5,292,728000,307.92,-5.17,320.57,264.93,0.86
+20260612,304,319,302,313,695000,308.35,1.51,322,266.34,0.91
+20260615,323,330,317,327,826000,309.9,5.52,323.55,267.93,1.13
+20260616,330,331,312.5,312.5,768000,310.12,0.77,325.07,269.18,1.11
+20260617,317,332,313,326,903000,311.44,4.67,325.95,270.78,1.48
+20260618,342,358.5,342,358.5,2387000,315.36,13.68,328.77,273.06,4.12
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6138 | 茂達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6138 | 茂達 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

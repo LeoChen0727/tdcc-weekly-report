@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:31 Asia/Taipei
+- generated_at: 2026-06-18 22:23:30 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 117.5
-- high: 127
-- low: 117
-- close: 122.5
-- volume: 14167878
-- ma5: 117
-- ema23_primary: 115.22
-- distance_to_ema23_pct: 6.32
-- ma20: 119.2
-- ma60: 90.52
-- ma120: 74.31
-- return_5d: 13.43
-- return_20d: 10.36
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 2.77
-- distance_to_high_60_pct: -16.95
+- date: 20260618
+- open: 123
+- high: 128
+- low: 120.5
+- close: 126.5
+- volume: 11958970
+- ma5: 121.5
+- ema23_primary: 114.85
+- distance_to_ema23_pct: 10.14
+- ma20: 119.38
+- ma60: 93.59
+- ma120: 76.26
+- return_5d: 21.63
+- return_20d: 9.52
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 5.97
+- distance_to_high_60_pct: -14.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,107,111,104,111,1370972,97.52,13.83,96.77,71.18,0.21
-20260519,111.5,111.5,102.5,102.5,1159279,97.93,4.66,98.6,71.93,0.19
-20260520,105,108.5,103,105,862501,98.52,6.58,100.34,72.73,0.15
-20260521,112,115.5,112,115.5,1105849,99.94,15.57,102.27,73.73,0.21
 20260522,118,123,118,121,1522134,101.69,18.99,104.86,74.76,0.32
 20260525,127,133,127,133,2242944,104.3,27.52,108.13,75.97,0.48
 20260526,140,145.5,123,126,21713325,106.11,18.75,111.06,77.09,3.98
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,138.5,141,125,126,15785863,113.47,11.05,120.08,81.9,2.1
 20260602,124.5,126.5,118.5,118.5,7910814,113.89,4.05,120.6,82.93,1.04
 20260603,120.5,122,112.5,115.5,9013879,114.02,1.3,120.65,83.91,1.3
-20260604,124.5,126.5,118.5,118.5,7910814,114.39,3.59,120.65,84.98,1.12
-20260605,108.5,110.5,103,108,4538327,113.86,-5.15,120.2,85.85,0.63
-20260611,101,106,98.3,104,5035912,113.04,-8,118.97,86.6,0.71
-20260612,114,114,110.5,114,4297699,113.12,0.78,118.6,87.5,0.59
-20260615,122,125,118.5,125,10244720,114.11,9.54,118.8,88.59,1.34
-20260616,125.5,134.5,119,119.5,29035493,114.56,4.31,118.62,89.54,3.21
-20260617,117.5,127,117,122.5,14167878,115.22,6.32,119.2,90.52,1.46
+20260604,113.5,114.5,109,110.5,4569912,113.73,-2.84,120.25,84.84,0.66
+20260605,108.5,110.5,103,108,4538327,113.25,-4.64,119.8,85.72,0.65
+20260608,97.2,106.5,97.2,104,4965303,112.48,-7.54,118.58,86.47,0.71
+20260609,107,113,102,112,6130078,112.44,-0.39,118.1,87.34,0.86
+20260610,107,113.5,103,103,5033055,111.65,-7.75,117.2,88.06,0.69
+20260611,101,106,98.3,104,5035912,111.02,-6.32,116.25,88.75,0.67
+20260612,114,114,110.5,114,4297699,111.26,2.46,116.4,89.58,0.56
+20260615,122,125,118.5,125,10244720,112.41,11.2,117.1,90.58,1.27
+20260616,125.5,134.5,119,119.5,29035493,113,5.75,117.95,91.5,3.06
+20260617,117.5,127,117,122.5,14167878,113.79,7.65,118.83,92.5,1.4
+20260618,123,128,120.5,126.5,11958970,114.85,10.14,119.38,93.59,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3016 | 嘉晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d |
-| 20260617 | 3016 | 嘉晶 | pullback_rebound | 回檔後短線轉強 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d |
-| 20260617 | 3016 | 嘉晶 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 3016 | 嘉晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3016 | 嘉晶 | 14 | 7 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 3016 | 嘉晶 | 15 | 5 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3016 | 嘉晶 | 0 | 3 | 0.0 | 180790.0 | 0.0 | no_signal |
+| 20260618 | 3016 | 嘉晶 | 42 | 3 | 7631260.0 | 257260.0 | 29.66 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

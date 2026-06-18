@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:31 Asia/Taipei
+- generated_at: 2026-06-18 22:24:29 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,11 +88,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -106,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 580
-- high: 582
-- low: 550
-- close: 572
-- volume: 9906984
-- ma5: 532.6
-- ema23_primary: 539.33
-- distance_to_ema23_pct: 6.06
-- ma20: 568.05
-- ma60: 426.22
-- ma120: 333.89
-- return_5d: -1.72
-- return_20d: 22.22
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 0.7
-- distance_to_high_60_pct: -17.46
+- date: 20260618
+- open: 597
+- high: 629
+- low: 597
+- close: 629
+- volume: 6364019
+- ma5: 562.2
+- ema23_primary: 542.92
+- distance_to_ema23_pct: 15.86
+- ma20: 573.33
+- ma60: 443.4
+- ma120: 345.29
+- return_5d: 30.77
+- return_20d: 12.93
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 9.71
+- distance_to_high_60_pct: -9.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,505,514,488,514,6942597,422.11,21.77,435.43,329.57,0.89
-20260519,525,544,478,482,16951551,427.1,12.85,441.25,333.18,2.02
-20260520,480,518,465,507,12572679,433.76,16.88,446.9,337.19,1.57
-20260521,532,557,520,557,4861114,444.03,25.44,454.62,341.81,0.65
 20260522,564,573,547,562,12171875,453.86,23.83,461.95,346.43,1.8
 20260525,609,618,577,618,7094823,467.54,32.18,471.05,351.98,1.04
 20260526,646,651,612,630,9435070,481.08,30.96,481.55,357.83,1.35
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,600,636,593,606,7635267,522.11,16.07,522.7,381.93,0.93
 20260602,597,598,564,578,6658979,526.76,9.73,529.8,387.33,0.79
 20260603,594,603,584,599,3778452,532.78,12.43,538.55,393.11,0.45
-20260604,597,598,564,578,6658979,536.55,7.72,546.23,398.86,0.77
-20260605,574,590,556,582,4298180,540.34,7.71,554.05,404.35,0.49
-20260611,471.5,492,456.5,481,7928760,535.39,-10.16,554.7,408,0.91
-20260612,509,509,478,487,4306532,531.36,-8.35,555.23,411.58,0.51
-20260615,507,535,506,535,4919020,531.66,0.63,558.6,415.83,0.59
-20260616,570,588,562,588,4677052,536.36,9.63,562.85,421.26,0.57
-20260617,580,582,550,572,9906984,539.33,6.06,568.05,426.22,1.23
+20260604,581,589,565,570,3131605,535.89,6.37,545.83,398.73,0.37
+20260605,574,590,556,582,4298180,539.73,7.83,553.65,404.22,0.5
+20260608,524,534,524,524,3698288,538.42,-2.68,556.45,408.58,0.44
+20260609,509,537,501,528,6923697,537.55,-1.78,559.02,412.85,0.85
+20260610,515,527,490.5,492.5,5672555,533.8,-7.74,560.27,416.39,0.7
+20260611,471.5,492,456.5,481,7928760,529.4,-9.14,559.17,420.03,0.98
+20260612,509,509,478,487,4306532,525.86,-7.39,560.12,423.57,0.56
+20260615,507,535,506,535,4919020,526.62,1.59,561.17,427.67,0.65
+20260616,570,588,562,588,4677052,531.74,10.58,566.48,432.79,0.67
+20260617,580,582,550,572,9906984,535.09,6.9,569.73,437.56,1.45
+20260618,597,629,597,629,6364019,542.92,15.86,573.33,443.4,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -184,20 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6415 | 矽力*-KY | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 6415 | 矽力*-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6415 | 矽力*-KY | 7 | 7 | 5 | 7 | 12 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6415 | 矽力*-KY | 0 | 1 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 6415 | 矽力*-KY | 96 | 1 | 10465390.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:21 Asia/Taipei
+- generated_at: 2026-06-18 22:24:19 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 34.25
-- high: 36.4
-- low: 33.55
-- close: 35.1
-- volume: 1646820
-- ma5: 33.92
-- ema23_primary: 35.68
-- distance_to_ema23_pct: -1.62
-- ma20: 36.88
-- ma60: 30.83
-- ma120: 21.73
-- return_5d: -8.83
-- return_20d: 24.25
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -4.83
-- distance_to_high_60_pct: -26.03
+- date: 20260618
+- open: 35.1
+- high: 35.5
+- low: 34.2
+- close: 34.85
+- volume: 1186671
+- ma5: 34.57
+- ema23_primary: 35.27
+- distance_to_ema23_pct: -1.19
+- ma20: 37.05
+- ma60: 31.38
+- ma120: 22.5
+- return_5d: 10.28
+- return_20d: 2.5
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -5.93
+- distance_to_high_60_pct: -26.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,31.05,31.05,31.05,31.05,1463094,30.16,2.95,32.29,23.98,0.61
-20260519,34.15,34.15,34.15,34.15,4123963,30.49,11.99,32.28,24.38,2
-20260520,34.9,37.3,33.1,34.5,6659839,30.83,11.92,32.26,24.77,3.24
-20260521,33,34.5,31.5,34,3412308,31.09,9.36,32.31,25.16,1.59
 20260522,33.8,36.5,33.3,34,2552418,31.33,8.51,32.49,25.54,1.17
 20260525,34,34,31.6,32.5,3451519,31.43,3.4,32.57,25.9,1.49
 20260526,32.95,35.75,32.5,35.75,5123644,31.79,12.45,32.82,26.31,2.01
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,46.05,46.05,41.4,44.4,7282455,35.21,26.11,34.91,28.23,1.89
 20260602,42.1,42.45,40.05,40.35,3751674,35.64,13.23,35.1,28.6,0.94
 20260603,40.35,41.7,39.75,40,2592120,36,11.11,35.31,28.97,0.64
-20260604,42.1,42.45,40.05,40.35,3751674,36.36,10.97,35.51,29.36,0.92
-20260605,38.1,40.5,37.8,38.5,2200329,36.54,5.36,35.77,29.71,0.54
-20260611,32.6,32.6,30,31.6,1880791,36.13,-12.54,35.69,29.93,0.46
-20260612,32.5,33,31.5,32.05,1271094,35.79,-10.45,35.71,30.16,0.31
-20260615,35.25,35.25,35.25,35.25,363236,35.74,-1.38,36.05,30.42,0.09
-20260616,38.75,38.75,35.5,35.6,2999237,35.73,-0.37,36.54,30.65,0.74
-20260617,34.25,36.4,33.55,35.1,1646820,35.68,-1.62,36.88,30.83,0.43
+20260604,40,40.2,39.2,39.4,1470292,36.28,8.59,35.46,29.35,0.37
+20260605,38.1,40.5,37.8,38.5,2200329,36.47,5.57,35.73,29.69,0.56
+20260608,34.65,36.55,34.65,35.5,1517811,36.39,-2.44,35.84,29.98,0.39
+20260609,35.5,36.1,34.1,35.1,1280398,36.28,-3.25,36.01,30.27,0.33
+20260610,35,36,32,32.5,1682333,35.97,-9.63,36.21,30.47,0.43
+20260611,32.6,32.6,30,31.6,1880791,35.6,-11.24,36.5,30.63,0.48
+20260612,32.5,33,31.5,32.05,1271094,35.31,-9.22,36.69,30.76,0.35
+20260615,35.25,35.25,35.25,35.25,363236,35.3,-0.14,36.9,30.92,0.1
+20260616,38.75,38.75,35.5,35.6,2999237,35.33,0.78,36.98,31.04,0.85
+20260617,34.25,36.4,33.55,35.1,1646820,35.31,-0.59,37.01,31.19,0.5
+20260618,35.1,35.5,34.2,34.85,1186671,35.27,-1.19,37.05,31.38,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -186,13 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6141 | 柏承 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_7d |
-| 20260617 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 6141 | 柏承 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/17 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:NA 4.舊任者簡歷:NA 5.新任者職稱及姓名:顧成龍 6.新任者簡歷:柏承(南通)微電子科技有限公司/管理部經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:缺額補選 9.新任者選任時持股數:NA 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/03/10~117/03/10 11.新任生效日期:115/06/17 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:NA 14.同任期監察人變動比率:NA 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6141 | 柏承 | 2 | 2 | 4 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6141 | 柏承 | 3 | 3 | 4 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1714 和桐
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:00 Asia/Taipei
+- generated_at: 2026-06-18 22:22:59 Asia/Taipei
 - stock_id: 1714
 - stock_name: 和桐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 18
-- high: 19.25
-- low: 18
-- close: 19.25
-- volume: 26798201
-- ma5: 16.7
-- ema23_primary: 12.39
-- distance_to_ema23_pct: 55.31
-- ma20: 11.58
-- ma60: 10.32
-- ma120: 9.65
-- return_5d: 67.39
-- return_20d: 95.63
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 66.2
-- distance_to_high_60_pct: 0
+- date: 20260618
+- open: 20.05
+- high: 20.7
+- low: 20.05
+- close: 20.35
+- volume: 31934556
+- ma5: 17.89
+- ema23_primary: 13.58
+- distance_to_ema23_pct: 49.85
+- ma20: 12.75
+- ma60: 10.71
+- ma120: 9.89
+- return_5d: 41.32
+- return_20d: 107.65
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 59.6
+- distance_to_high_60_pct: -1.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,9.85,9.88,9.64,9.75,4572793,9.68,0.71,9.64,9.65,0.87
-20260519,9.75,9.93,9.64,9.67,3149552,9.68,-0.11,9.64,9.66,0.6
-20260520,9.67,9.69,9.49,9.52,2903173,9.67,-1.52,9.62,9.67,0.57
-20260521,9.54,9.81,9.54,9.8,3167892,9.68,1.26,9.62,9.68,0.63
 20260522,9.8,9.8,9.62,9.67,2312963,9.68,-0.08,9.61,9.69,0.49
 20260525,9.71,9.71,9.54,9.65,2528560,9.68,-0.26,9.61,9.69,0.55
 20260526,9.65,9.7,9.51,9.51,2555825,9.66,-1.57,9.6,9.68,0.56
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,9.66,9.96,9.51,9.81,8125580,9.62,1.93,9.61,9.66,1.67
 20260602,9.89,10.1,9.77,10,8891763,9.66,3.57,9.65,9.67,1.7
 20260603,10.1,11,10.05,11,48728192,9.77,12.62,9.74,9.68,6.52
-20260604,9.89,10.1,9.77,10,8891763,9.79,2.18,9.78,9.69,1.16
-20260605,12.1,12.15,10.9,11.5,64868308,9.93,15.81,9.9,9.72,6.01
-20260611,13.95,14.4,13.3,14.4,98457282,10.3,39.78,10.13,9.79,6.44
-20260612,14.95,15.7,14.15,15.2,132650748,10.71,41.92,10.37,9.89,6.36
-20260615,16,16.7,16,16.7,50826789,11.21,48.98,10.71,10.02,2.2
-20260616,17.4,18.2,16.8,17.95,32707061,11.77,52.49,11.11,10.16,1.34
-20260617,18,19.25,18,19.25,26798201,12.39,55.31,11.58,10.32,1.05
+20260604,11.9,12.1,11.6,12.1,39115552,9.96,21.46,9.89,9.72,4.26
+20260605,12.1,12.15,10.9,11.5,64868308,10.09,13.97,10,9.75,5.27
+20260608,12.65,12.65,12.65,12.65,19134628,10.3,22.77,10.14,9.8,1.49
+20260609,13.9,13.9,13.9,13.9,14826814,10.6,31.09,10.33,9.88,1.18
+20260610,14.25,14.7,12.9,13.1,110513494,10.81,21.17,10.49,9.94,6.24
+20260611,13.95,14.4,13.3,14.4,98457282,11.11,29.61,10.71,10.02,4.4
+20260612,14.95,15.7,14.15,15.2,132650748,11.45,32.74,10.97,10.11,4.61
+20260615,16,16.7,16,16.7,50826789,11.89,40.47,11.32,10.23,1.63
+20260616,17.4,18.2,16.8,17.95,32707061,12.39,44.83,11.74,10.37,1
+20260617,18,19.25,18,19.25,26798201,12.96,48.48,12.22,10.53,0.79
+20260618,20.05,20.7,20.05,20.35,31934556,13.58,49.85,12.75,10.71,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1714 | 和桐 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1714 | 和桐 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1714 | 和桐 | 16 | 2 | 5 | 10 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 1714 | 和桐 | 17 | 3 | 5 | 10 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1714 | 和桐 | 4 | 0 | 2517380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

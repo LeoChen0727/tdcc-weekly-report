@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6265 方土昶
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:29 Asia/Taipei
+- generated_at: 2026-06-18 22:24:27 Asia/Taipei
 - stock_id: 6265
 - stock_name: 方土昶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,10 +88,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,8 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,48 +113,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 55.4
-- high: 57.2
-- low: 54.7
-- close: 57.2
-- volume: 56000
-- ma5: 57.62
-- ema23_primary: 53.34
-- distance_to_ema23_pct: 7.23
-- ma20: 53.63
-- ma60: 45.18
-- ma120: 40.89
-- return_5d: -0.69
-- return_20d: 27.11
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 6.66
-- distance_to_high_60_pct: -8.92
+- date: 20260618
+- open: 56.8
+- high: 58.4
+- low: 56.6
+- close: 57.6
+- volume: 6448000
+- ma5: 57.6
+- ema23_primary: 54.41
+- distance_to_ema23_pct: 5.86
+- ma20: 56.31
+- ma60: 45.91
+- ma120: 42.11
+- return_5d: -0.17
+- return_20d: 31.66
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 2.28
+- distance_to_high_60_pct: -10.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,45.05,46,42.6,45.75,6760000,42.59,7.42,42.03,40.29,0.59
-20260519,45,45,42.15,42.5,8290000,42.58,-0.19,42.25,40.35,0.71
-20260520,42.85,43,40.75,41.6,5286000,42.5,-2.12,42.32,40.4,0.46
-20260521,42.6,44.15,42.4,43.75,5330000,42.6,2.69,42.55,40.51,0.46
 20260522,45.35,48.1,45.35,48.1,48000,43.06,11.7,43.12,40.64,0
 20260525,50.9,52.9,48.7,52.9,51000,43.88,20.55,43.97,40.83,0
 20260526,53.4,54.4,51,52.9,53000,44.63,18.52,44.65,41.05,0
 20260527,57,58.1,53.9,55,56000,45.5,20.89,45.37,41.3,0.01
 20260528,55,57.8,52.8,53.8,55000,46.19,16.48,45.88,41.55,0.01
 20260529,55,56,53,55.2,55000,46.94,17.6,46.66,41.87,0.01
-20260601,56,57.9,54.9,56,56,47.69,17.41,47.34,42.25,0
+20260601,56,57.9,54.9,56,56000,47.69,17.41,47.34,42.25,0.01
 20260602,56,61.6,55.5,61.6,60,48.85,26.09,48.25,42.68,0
 20260603,62.3,62.8,58.3,58.9,60000,49.69,18.53,48.99,43.06,0.01
-20260604,62.3,62.8,58.3,58.9,60000,50.46,16.73,49.76,43.48,0.01
-20260605,62,62,57.6,57.6,58000,51.05,12.82,50.44,43.86,0.01
-20260611,57.6,59.7,55.1,57.7,57000,51.61,11.81,51.05,44.19,0.01
-20260612,59.4,62.2,58.7,58.9,60000,52.21,12.8,51.75,44.48,0.02
-20260615,60.6,61.1,58.2,58.4,60000,52.73,10.75,52.53,44.79,0.02
-20260616,59.1,60.2,55.7,55.9,57000,52.99,5.48,53.02,44.98,0.03
-20260617,55.4,57.2,54.7,57.2,56000,53.34,7.23,53.63,45.18,0.04
+20260604,58.5,64.7,58.5,63.9,64000,50.87,25.6,50.01,43.56,0.01
+20260605,62,62,57.6,57.6,58000,51.44,11.99,50.69,43.94,0.01
+20260608,51.9,53.4,51.9,52.9,5800000,51.56,2.6,51.06,44.2,1.38
+20260609,54.3,56.4,52.5,55.5,8307000,51.89,6.97,51.59,44.43,2.06
+20260610,57.2,60.5,56.1,56.3,15435000,52.25,7.74,52.27,44.7,3.43
+20260611,57.6,59.7,55.1,57.7,11833000,52.71,9.47,52.84,44.92,2.93
+20260612,59.4,62.2,58.7,58.9,15440000,53.22,10.67,53.54,45.15,3.72
+20260615,60.6,61.1,58.2,58.4,8823000,53.65,8.84,54.17,45.34,2.07
+20260616,59.1,60.2,55.7,55.9,9313000,53.84,3.82,54.84,45.51,2.16
+20260617,55.4,57.2,54.7,57.2,4924000,54.12,5.69,55.62,45.67,1.15
+20260618,56.8,58.4,56.6,57.6,6448000,54.41,5.86,56.31,45.91,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6265 | 方土昶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6265 | 方土昶 | 1 | 1 | 1 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

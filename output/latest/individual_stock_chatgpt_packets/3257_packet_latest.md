@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3257 虹冠電
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:39 Asia/Taipei
+- generated_at: 2026-06-18 22:23:38 Asia/Taipei
 - stock_id: 3257
 - stock_name: 虹冠電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 55.1
-- high: 55.7
-- low: 54.8
-- close: 55.6
-- volume: 243206
-- ma5: 54.98
-- ema23_primary: 57.79
-- distance_to_ema23_pct: -3.79
-- ma20: 58.62
-- ma60: 55.69
-- ma120: 60
-- return_5d: -8.25
-- return_20d: 3.93
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: -5.14
-- distance_to_high_60_pct: -21.91
+- date: 20260618
+- open: 56
+- high: 61.1
+- low: 56
+- close: 61.1
+- volume: 1935181
+- ma5: 56.52
+- ema23_primary: 57.44
+- distance_to_ema23_pct: 6.36
+- ma20: 58.91
+- ma60: 55.71
+- ma120: 59.75
+- return_5d: 14.42
+- return_20d: 8.14
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 3.71
+- distance_to_high_60_pct: -14.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,53.5,54.1,52,53.9,344623,54.44,-0.98,54.45,55.48,0.81
-20260519,54.1,55.2,53.6,54.2,353793,54.42,-0.4,54.47,55.38,0.83
-20260520,54.2,54.9,53.8,54.7,491506,54.44,0.48,54.45,55.28,1.12
-20260521,55.1,56.6,54.9,56.5,1418345,54.61,3.46,54.44,55.22,2.97
 20260522,53.6,53.6,51.8,52.8,918330,54.46,-3.05,54.37,55.09,1.88
 20260525,53.7,55.9,53,54.4,1200945,54.46,-0.1,54.37,54.99,2.26
 20260526,55.1,59.8,54.7,59.8,3309619,54.9,8.92,54.67,54.99,4.83
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,67.1,67.9,66.1,66.7,1940952,58.09,14.82,57.04,55.38,1.3
 20260602,66.1,66.2,61.3,63.1,1701509,58.51,7.84,57.42,55.47,1.09
 20260603,63.5,64.7,61.8,62.1,987003,58.81,5.6,57.79,55.54,0.62
-20260604,66.1,66.2,61.3,63.1,1701509,59.17,6.65,58.24,55.7,1.05
-20260605,62.7,62.7,60.3,60.6,549040,59.29,2.22,58.52,55.8,0.34
-20260611,52.9,54.2,52.2,53.4,317629,58.8,-9.18,58.43,55.76,0.2
-20260612,54.3,56,54.2,55.2,286889,58.5,-5.63,58.41,55.75,0.18
-20260615,55.3,56.4,54.7,55.6,592375,58.25,-4.56,58.48,55.74,0.36
-20260616,56.9,56.9,54.6,55.1,247008,57.99,-4.99,58.51,55.72,0.15
-20260617,55.1,55.7,54.8,55.6,243206,57.79,-3.79,58.62,55.69,0.15
+20260604,61.5,63.2,61.4,62.3,471434,59.1,5.41,58.2,55.68,0.3
+20260605,62.7,62.7,60.3,60.6,549040,59.23,2.32,58.48,55.79,0.35
+20260608,54.8,56.5,54.6,56,951935,58.96,-5.01,58.52,55.79,0.6
+20260609,56.1,56.7,55,56,778057,58.71,-4.62,58.55,55.79,0.48
+20260610,55.2,56.1,53,53,619953,58.23,-8.99,58.48,55.74,0.38
+20260611,52.9,54.2,52.2,53.4,317629,57.83,-7.66,58.42,55.7,0.2
+20260612,54.3,56,54.2,55.2,286889,57.61,-4.19,58.51,55.66,0.18
+20260615,55.3,56.4,54.7,55.6,592375,57.44,-3.21,58.59,55.62,0.37
+20260616,56.9,56.9,54.6,55.1,247008,57.25,-3.75,58.64,55.59,0.15
+20260617,55.1,55.7,54.8,55.6,243206,57.11,-2.65,58.69,55.59,0.15
+20260618,56,61.1,56,61.1,1935181,57.44,6.36,58.91,55.71,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3257 | 虹冠電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3257 | 虹冠電 | 1 | 1 | 1 | 3 | 10 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

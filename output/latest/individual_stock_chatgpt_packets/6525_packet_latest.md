@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6525 捷敏-KY
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:34 Asia/Taipei
+- generated_at: 2026-06-18 22:24:32 Asia/Taipei
 - stock_id: 6525
 - stock_name: 捷敏-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -92,12 +88,11 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -111,6 +106,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -118,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 125.5
-- high: 134.5
-- low: 124
-- close: 130
-- volume: 5791651
-- ma5: 126.1
-- ema23_primary: 118.91
-- distance_to_ema23_pct: 9.33
-- ma20: 121.3
-- ma60: 101.15
-- ma120: 89.78
-- return_5d: 7.44
-- return_20d: 23.81
-- volume_ratio: 2.32
-- distance_to_ma20_pct_auxiliary: 7.17
-- distance_to_high_60_pct: -5.8
+- date: 20260618
+- open: 136
+- high: 143
+- low: 135
+- close: 143
+- volume: 4186904
+- ma5: 131.4
+- ema23_primary: 121.25
+- distance_to_ema23_pct: 17.94
+- ma20: 123.65
+- ma60: 103.84
+- ma120: 91.36
+- return_5d: 22.75
+- return_20d: 25.44
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: 15.65
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,102.5,112.5,101,110.5,1515196,100.07,10.42,100.02,88.36,1.09
-20260519,110,112.5,108.5,110,1304649,100.9,9.02,100.97,88.87,0.91
-20260520,110,115,110,113.5,1475717,101.95,11.33,102.01,89.44,1
-20260521,115.5,118,113.5,114,1271612,102.95,10.73,102.89,90.01,0.86
 20260522,114,117,112.5,116,994347,104.04,11.49,104.11,90.6,0.67
 20260525,119,125,116.5,122,2471726,105.54,15.6,105.56,91.26,1.57
 20260526,125,134,124,134,4298446,107.91,24.18,107.78,92.14,2.48
@@ -153,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,124,124.5,119,120.5,1403119,112.52,7.09,114.08,94.94,0.65
 20260602,120.5,122,116,119.5,1407011,113.1,5.66,114.92,95.58,0.66
 20260603,122,122.5,120,120,906127,113.68,5.56,115.78,96.25,0.44
-20260604,120.5,122,116,119.5,1407011,114.16,4.68,116.28,96.97,0.72
-20260605,116,122.5,112,121,3006917,114.73,5.46,117,97.64,1.5
-20260611,112.5,117,111,116.5,926425,114.88,1.41,117.35,98.19,0.47
-20260612,120,127,119,125.5,2673102,115.76,8.41,118.25,98.88,1.3
-20260615,126,132,122.5,131.5,5396543,117.08,12.32,119.53,99.66,2.36
-20260616,130.5,131.5,124.5,127,4405839,117.9,7.72,120.05,100.38,1.83
-20260617,125.5,134.5,124,130,5791651,118.91,9.33,121.3,101.15,2.32
+20260604,120,122,115,119.5,1232659,114.16,4.68,116.28,96.97,0.63
+20260605,116,122.5,112,121,3006917,114.73,5.46,117,97.64,1.51
+20260608,114,120.5,113.5,119,2214534,115.09,3.4,117.47,98.23,1.1
+20260609,120,121,116,119,1154872,115.41,3.11,118.05,98.82,0.57
+20260610,118,122.5,114,114,1588363,115.3,-1.12,118.45,99.31,0.77
+20260611,112.5,117,111,116.5,926425,115.4,0.96,118.45,99.85,0.46
+20260612,120,127,119,125.5,2673102,116.24,7.97,119.47,100.54,1.37
+20260615,126,132,122.5,131.5,5396543,117.51,11.91,120.53,101.34,2.51
+20260616,130.5,131.5,124.5,127,4405839,118.3,7.35,121.38,102.04,1.91
+20260617,125.5,134.5,124,130,5791651,119.28,8.99,122.2,102.81,2.3
+20260618,136,143,135,143,4186904,121.25,17.94,123.65,103.84,1.57
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6525 | 捷敏-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6525 | 捷敏-KY | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6525 | 捷敏-KY | 1 | 1 | 3 | 5 | 9 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 6525 | 捷敏-KY | 2 | 1 | 4 | 6 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

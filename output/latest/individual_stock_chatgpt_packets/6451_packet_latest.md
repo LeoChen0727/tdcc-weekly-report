@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6451 訊芯-KY
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:32 Asia/Taipei
+- generated_at: 2026-06-18 22:24:30 Asia/Taipei
 - stock_id: 6451
 - stock_name: 訊芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 539
-- high: 555
-- low: 535
-- close: 543
-- volume: 2658122
-- ma5: 523.5
-- ema23_primary: 552.96
-- distance_to_ema23_pct: -1.8
-- ma20: 570.7
-- ma60: 463.31
-- ma120: 318.14
-- return_5d: -18.47
-- return_20d: -5.89
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -4.85
-- distance_to_high_60_pct: -26.52
+- date: 20260618
+- open: 543
+- high: 573
+- low: 534
+- close: 561
+- volume: 4036949
+- ma5: 535.8
+- ema23_primary: 557.26
+- distance_to_ema23_pct: 0.67
+- ma20: 588.92
+- ma60: 484.09
+- ma120: 332.01
+- return_5d: 12.31
+- return_20d: 12.42
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -4.74
+- distance_to_high_60_pct: -25.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,569,583,520,520,7779087,460.36,12.96,467.7,344.17,1.83
-20260519,520,520,472,484,7176117,462.33,4.69,466.55,349.35,1.58
-20260520,485,494,476,485.5,4243268,464.26,4.58,467.12,354.48,0.9
-20260521,495.5,523,492.5,499,4553627,467.15,6.82,467.27,360.03,0.93
 20260522,516,533,502,524,4693315,471.89,11.04,471.15,365.73,0.92
 20260525,549,576,544,576,3614079,480.57,19.86,479.85,371.98,0.69
 20260526,600,633,556,632,9341995,493.19,28.15,492.48,379,1.67
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,573,627,573,627,5780775,522.5,20,525.5,405,0.88
 20260602,656,689,645,659,10771261,533.87,23.44,532.4,412.73,1.64
 20260603,702,724,702,724,3420114,549.72,31.7,544.73,421.63,0.55
-20260604,656,689,645,659,10771261,558.82,17.93,553.17,429.77,1.66
-20260605,660,739,644,666,10262439,567.76,17.3,564.42,437.99,1.53
-20260611,545,545,499.5,499.5,7505099,562.07,-11.13,566.62,443.16,1.09
-20260612,530,530,500,502,4236331,557.06,-9.88,568.9,448.26,0.63
-20260615,530,544,508,524,3461734,554.31,-5.47,571.2,453.4,0.53
-20260616,540,576,535,549,8528470,553.86,-0.88,572.4,458.6,1.32
-20260617,539,555,535,543,2658122,552.96,-1.8,570.7,463.31,0.42
+20260604,700,756,676,680,11188135,560.57,21.3,554.23,430.12,1.72
+20260605,660,739,644,666,10262439,569.36,16.97,565.48,438.34,1.53
+20260608,600,615,600,600,2760474,571.91,4.91,572.7,445.18,0.41
+20260609,608,635,588,616,6576067,575.59,7.02,580.67,452.18,0.99
+20260610,583,613,555,555,5744109,573.87,-3.29,584.52,457.84,0.87
+20260611,545,545,499.5,499.5,7505099,567.67,-12.01,583.25,462.22,1.16
+20260612,530,530,500,502,4236331,562.2,-10.71,579.5,466.24,0.67
+20260615,530,544,508,524,3461734,559.02,-6.26,579.7,470.32,0.56
+20260616,540,576,535,549,8528470,558.18,-1.65,582.95,474.94,1.38
+20260617,539,555,535,543,2658122,556.92,-2.5,585.83,479.42,0.43
+20260618,543,573,534,561,4036949,557.26,0.67,588.92,484.09,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6451 | 訊芯-KY | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6451 | 訊芯-KY | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6451 | 訊芯-KY | 1 | 1 | 2 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6451 | 訊芯-KY | 2 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6451 | 訊芯-KY | 0 | 3 | 0.0 | 62530.0 | 0.0 | no_signal |
+| 20260618 | 6451 | 訊芯-KY | 55 | 3 | 1631820.0 | 73300.0 | 22.26 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

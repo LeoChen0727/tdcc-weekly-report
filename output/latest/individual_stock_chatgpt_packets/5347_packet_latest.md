@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5347 世界
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:12 Asia/Taipei
+- generated_at: 2026-06-18 22:24:10 Asia/Taipei
 - stock_id: 5347
 - stock_name: 世界
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,48 +118,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 169.5
-- high: 169.5
-- low: 164.5
-- close: 166.5
-- volume: 167000
-- ma5: 168.7
-- ema23_primary: 165.18
-- distance_to_ema23_pct: 0.8
-- ma20: 166.07
-- ma60: 147.38
-- ma120: 132.58
-- return_5d: 3.1
-- return_20d: -5.67
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 0.26
-- distance_to_high_60_pct: -10.24
+- date: 20260618
+- open: 167
+- high: 174.5
+- low: 165
+- close: 174.5
+- volume: 16874000
+- ma5: 171.3
+- ema23_primary: 164.88
+- distance_to_ema23_pct: 5.83
+- ma20: 166.1
+- ma60: 150.25
+- ma120: 134.86
+- return_5d: 8.05
+- return_20d: 6.73
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 5.06
+- distance_to_high_60_pct: -5.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,159,161,159,159,16457000,155.34,2.36,156.15,133.1,0.38
-20260519,159.5,165.5,152.5,157.5,101760000,155.52,1.27,157.07,133.62,2.24
-20260520,160.5,162,156,159,44856000,155.81,2.05,158.1,134.2,0.99
-20260521,162.5,166,160.5,163.5,21236000,156.45,4.5,159.03,134.82,0.5
 20260522,165,167.5,158,162,161000,156.91,3.24,160.32,135.44,0
 20260525,162.5,172.5,160,168.5,168000,157.88,6.73,161.72,135.96,0
 20260526,170,172.5,164,165,167000,158.47,4.12,163.05,136.46,0
 20260527,169.5,171.5,165.5,166,169000,159.1,4.34,164.05,137,0
 20260528,167.5,170.5,160,161.5,165000,159.3,1.38,164.93,137.53,0.01
 20260529,164.5,168,161,168,165000,160.03,4.98,166.05,138.28,0.01
-20260601,175,184.5,174.5,179,182,161.61,10.76,167.45,139.33,0
+20260601,175,184.5,174.5,179,182000,161.61,10.76,167.45,139.33,0.01
 20260602,179,183.5,165,171.5,172,162.43,5.58,168.32,140.2,0
 20260603,172.5,175,168,168,170000,162.9,3.13,168.28,141.03,0.01
-20260604,172.5,175,168,168,170000,163.32,2.87,167.4,141.99,0.01
-20260605,161,163,155.5,161.5,160000,163.17,-1.02,167.1,142.82,0.01
-20260611,153,161.5,151.5,161.5,159000,163.03,-0.94,166.45,143.62,0.01
-20260612,169,173.5,168,169.5,171000,163.57,3.63,166.43,144.65,0.01
-20260615,174.5,176.5,170.5,174.5,174000,164.48,6.09,166.75,145.66,0.01
-20260616,177,177,169,171.5,173000,165.06,3.9,166.57,146.58,0.01
-20260617,169.5,169.5,164.5,166.5,167000,165.18,0.8,166.07,147.38,0.02
+20260604,166,168,160,163,163000,162.9,0.06,167.15,141.91,0.01
+20260605,161,163,155.5,161.5,160000,162.79,-0.79,166.85,142.74,0.01
+20260608,145.5,156.5,145.5,156.5,32208000,162.26,-3.55,165.95,143.45,1.71
+20260609,158.5,163,153.5,161,24008000,162.16,-0.71,165.5,144.34,1.36
+20260610,158,161.5,151.5,152.5,24248000,161.35,-5.49,164.72,144.98,1.38
+20260611,153,161.5,151.5,161.5,34997000,161.37,0.08,164.05,145.74,2.01
+20260612,169,173.5,168,169.5,34093000,162.04,4.6,163.7,146.59,2.03
+20260615,174.5,176.5,170.5,174.5,27174000,163.08,7,164.47,147.48,1.57
+20260616,177,177,169,171.5,20378000,163.78,4.71,165.18,148.38,1.54
+20260617,169.5,169.5,164.5,166.5,12060000,164.01,1.52,165.55,149.22,1.04
+20260618,167,174.5,165,174.5,16874000,164.88,5.83,166.1,150.25,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5347 | 世界 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分派普通股現金股利總額新台幣8,403,265,598元， 每股配發新台幣4.5元。 3.變更後發放股利種類及金額: 盈餘分派普通股現金股利總額新台幣8,403,265,598元， 每股配發新台幣4.47377334元。 4.變更原因:每股現金股利金額之細微變動係由於在115/2/2董事會決議並經 115/5/28股東會通過之現金股利於決議後至配息基準日期間，本公司「民國 113年限制員工權利新股」有增資發行限制員工權利新股12,175,195股與員工 未達發行辦法所訂條件而執行收回1,227,958股事宜，且本公司「海外第一次 無擔保轉換公司債」尚無任何債權人請求轉換成普通股，因此本公司實際流通 在外之股數變更為1,878,339,592股。 5.其他應敘明事項:依據本公司115/5/28股東會決議，授權董事長依決議之普通股 現金股利總額，按配息基準日本公司實際流通在外股份之數量，調整配息比率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5347 | 世界 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

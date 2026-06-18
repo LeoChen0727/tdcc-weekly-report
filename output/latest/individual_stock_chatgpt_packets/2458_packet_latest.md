@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2458 義隆
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:18 Asia/Taipei
+- generated_at: 2026-06-18 22:23:16 Asia/Taipei
 - stock_id: 2458
 - stock_name: 義隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,8 +91,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 150.5
-- high: 158
-- low: 148.5
-- close: 156.5
-- volume: 3853182
-- ma5: 150.6
-- ema23_primary: 154.43
-- distance_to_ema23_pct: 1.34
-- ma20: 158.05
-- ma60: 143.32
-- ma120: 133.16
-- return_5d: -1.26
-- return_20d: 9.82
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -0.98
-- distance_to_high_60_pct: -7.94
+- date: 20260618
+- open: 159.5
+- high: 172
+- low: 159.5
+- close: 172
+- volume: 14910283
+- ma5: 155.8
+- ema23_primary: 155.44
+- distance_to_ema23_pct: 10.65
+- ma20: 159.4
+- ma60: 144.76
+- ma120: 134.18
+- return_5d: 17.81
+- return_20d: 8.52
+- volume_ratio: 3.69
+- distance_to_ma20_pct_auxiliary: 7.9
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,140,145,138,145,2087946,140.91,2.91,140.9,133.88,0.52
-20260519,145.5,153,145,147,6138861,141.41,3.95,141.5,134.36,1.46
-20260520,146,154.5,145.5,153,5029399,142.38,7.46,142.3,134.9,1.18
-20260521,159,164,157,158.5,7374831,143.72,10.28,143.22,135.56,1.74
 20260522,160,164.5,157,162,4498869,145.25,11.53,144.53,136.28,1.08
 20260525,167,169,163,163.5,4093334,146.77,11.4,145.88,137.03,0.98
 20260526,165,167,161,166,2806262,148.37,11.88,147.38,137.8,0.68
@@ -148,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,164,168,161,167,5356022,152.88,9.23,152.88,140.47,1.2
 20260602,168,168.5,162.5,167.5,3289884,154.1,8.69,154.22,140.98,0.75
 20260603,169.5,169.5,163.5,165,2727260,155.01,6.45,155.38,141.54,0.63
-20260604,168,168.5,162.5,167.5,3289884,156.05,7.34,156.55,142.16,0.78
-20260605,161.5,163,157,158.5,2441865,156.25,1.44,156.9,142.58,0.62
-20260611,146.5,148,141,146,2813181,155.4,-6.05,156.7,142.67,0.74
-20260612,150,151.5,146,146.5,1893242,154.66,-5.28,156.75,142.72,0.5
-20260615,149.5,155,147.5,151,2870446,154.35,-2.17,157.18,142.86,0.78
-20260616,152.5,156,151,153,3035515,154.24,-0.8,157.35,143.06,0.84
-20260617,150.5,158,148.5,156.5,3853182,154.43,1.34,158.05,143.32,1.06
+20260604,166,167,161,162,2926878,155.59,4.12,156.28,142.07,0.7
+20260605,161.5,163,157,158.5,2441865,155.83,1.71,156.62,142.49,0.63
+20260608,146,158.5,146,156.5,3220539,155.89,0.39,156.95,142.75,0.84
+20260609,163.5,164.5,152.5,161,5489631,156.32,3,157.72,143.05,1.4
+20260610,158,159,146,146.5,5684781,155.5,-5.79,157.93,143.11,1.41
+20260611,146.5,148,141,146,2813181,154.71,-5.63,157.75,143.19,0.71
+20260612,150,151.5,146,146.5,1893242,154.02,-4.88,157.95,143.29,0.49
+20260615,149.5,155,147.5,151,2870446,153.77,-1.8,158.25,143.46,0.74
+20260616,152.5,156,151,153,3035515,153.71,-0.46,158.55,143.73,0.81
+20260617,150.5,158,148.5,156.5,3853182,153.94,1.66,158.72,144.07,1.05
+20260618,159.5,172,159.5,172,14910283,155.44,10.65,159.4,144.76,3.69
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2458 | 義隆 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2458 | 義隆 | true_breakout | 嚴格突破 | 136.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2458 | 義隆 | 4 | 4 | 4 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 2458 | 義隆 | 5 | 1 | 5 | 8 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2458 | 義隆 | 30 | 0 | 13807940.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:22 Asia/Taipei
+- generated_at: 2026-06-18 22:23:21 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 11.1
-- high: 11.2
-- low: 11
+- date: 20260618
+- open: 11.25
+- high: 11.35
+- low: 11.1
 - close: 11.2
-- volume: 3573031
-- ma5: 11.07
-- ema23_primary: 10.49
-- distance_to_ema23_pct: 6.79
-- ma20: 10.3
+- volume: 4688438
+- ma5: 11.11
+- ema23_primary: 10.66
+- distance_to_ema23_pct: 5.07
+- ma20: 10.51
 - ma60: 10.48
-- ma120: 10.69
-- return_5d: 6.67
-- return_20d: 12.56
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 8.69
-- distance_to_high_60_pct: -1.75
+- ma120: 10.7
+- return_5d: 1.82
+- return_20d: 11.44
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 6.53
+- distance_to_high_60_pct: -2.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,9.94,9.96,9.81,9.92,2689321,10.32,-3.83,10.31,10.71,1.09
-20260519,9.9,10.05,9.9,10,1619309,10.29,-2.81,10.27,10.7,0.67
-20260520,9.99,10,9.93,10,1119949,10.27,-2.58,10.24,10.68,0.47
-20260521,10.05,10.1,10,10.05,1701362,10.25,-1.92,10.21,10.67,0.72
 20260522,10.1,10.1,9.98,10,1767823,10.23,-2.22,10.19,10.65,0.79
 20260525,10,10,9.85,9.91,4452459,10.2,-2.84,10.16,10.63,1.9
 20260526,9.95,9.99,9.86,9.99,2151206,10.18,-1.89,10.14,10.62,0.93
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,9.87,9.95,9.82,9.92,2285051,10.1,-1.76,10.04,10.55,0.98
 20260602,9.99,10.35,9.98,10.25,6334109,10.11,1.38,10.04,10.53,2.48
 20260603,10.35,10.4,10.15,10.3,5049816,10.13,1.72,10.05,10.51,1.86
-20260604,9.99,10.35,9.98,10.25,6334109,10.14,1.12,10.05,10.5,2.17
-20260605,10.4,10.6,10.35,10.5,4529130,10.17,3.28,10.06,10.48,1.48
-20260611,11,11.1,10.85,11,9859218,10.24,7.46,10.09,10.48,2.86
-20260612,11.1,11.4,11.05,11.1,6793820,10.31,7.68,10.14,10.48,1.85
-20260615,11.2,11.2,10.95,11,3748362,10.37,6.12,10.19,10.48,1.02
-20260616,11,11.2,11,11.05,4635238,10.42,6.02,10.24,10.48,1.23
-20260617,11.1,11.2,11,11.2,3573031,10.49,6.79,10.3,10.48,0.95
+20260604,10.3,10.5,10.2,10.35,5402542,10.14,2.02,10.05,10.5,1.88
+20260605,10.4,10.6,10.35,10.5,4529130,10.17,3.2,10.06,10.49,1.5
+20260608,10.2,10.65,10.15,10.65,5186710,10.21,4.27,10.08,10.48,1.64
+20260609,11,11.4,11,11.05,18281196,10.28,7.45,10.13,10.48,4.61
+20260610,10.9,11.5,10.75,11.15,25092422,10.36,7.67,10.18,10.48,4.98
+20260611,11,11.1,10.85,11,9859218,10.41,5.67,10.23,10.48,1.83
+20260612,11.1,11.4,11.05,11.1,6793820,10.47,6.05,10.29,10.47,1.22
+20260615,11.2,11.2,10.95,11,3748362,10.51,4.65,10.34,10.47,0.67
+20260616,11,11.2,11,11.05,4635238,10.56,4.68,10.4,10.47,0.8
+20260617,11.1,11.2,11,11.2,3573031,10.61,5.56,10.46,10.48,0.61
+20260618,11.25,11.35,11.1,11.2,4688438,10.66,5.07,10.51,10.48,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -185,13 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 18.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260618 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2547 | 日勝生 | 7 | 3 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2547 | 日勝生 | 8 | 2 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

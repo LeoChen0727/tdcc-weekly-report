@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:53 Asia/Taipei
+- generated_at: 2026-06-18 22:22:50 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 16.8
-- high: 16.9
-- low: 16.65
-- close: 16.85
-- volume: 1916082
-- ma5: 16.68
-- ema23_primary: 16.06
-- distance_to_ema23_pct: 4.95
-- ma20: 15.76
-- ma60: 16.11
-- ma120: 16.38
-- return_5d: 1.51
-- return_20d: 10.86
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 6.92
-- distance_to_high_60_pct: -1.75
+- date: 20260618
+- open: 16.9
+- high: 17.3
+- low: 16.9
+- close: 16.95
+- volume: 2826616
+- ma5: 16.8
+- ema23_primary: 16.25
+- distance_to_ema23_pct: 4.28
+- ma20: 16.07
+- ma60: 16.12
+- ma120: 16.4
+- return_5d: 3.67
+- return_20d: 10.78
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 5.46
+- distance_to_high_60_pct: -2.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,15.2,15.25,15.1,15.15,1241210,15.9,-4.71,15.88,16.6,0.63
-20260519,15.15,15.3,15.15,15.2,1034449,15.84,-4.04,15.8,16.56,0.54
-20260520,15.3,15.3,15.05,15.15,1929928,15.78,-4.01,15.74,16.52,1
-20260521,15.2,15.3,15.15,15.3,987448,15.74,-2.81,15.69,16.48,0.52
 20260522,15.25,15.3,15.15,15.2,1689614,15.7,-3.17,15.64,16.44,0.95
 20260525,15.2,15.2,14.95,15.1,3637339,15.65,-3.5,15.61,16.39,1.98
 20260526,15.05,15.15,14.95,15,1710024,15.59,-3.81,15.57,16.34,0.94
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,15.4,15.7,15.2,15.55,4225210,15.5,0.35,15.43,16.17,1.9
 20260602,15.55,15.8,15.5,15.75,2814639,15.52,1.5,15.42,16.14,1.22
 20260603,15.95,16.75,15.95,16.65,7514492,15.61,6.65,15.45,16.12,2.92
-20260604,15.55,15.8,15.5,15.75,2814639,15.62,0.81,15.44,16.1,1.07
-20260605,16.9,16.9,16.3,16.6,2844292,15.7,5.7,15.47,16.1,1.06
-20260611,16.6,16.6,16.1,16.35,1426572,15.76,3.76,15.5,16.1,0.54
-20260612,16.5,16.8,16.45,16.65,2247716,15.83,5.16,15.54,16.1,0.86
-20260615,16.85,16.95,16.7,16.75,2034409,15.91,5.29,15.61,16.1,0.78
-20260616,16.8,17.05,16.75,16.8,2315674,15.98,5.11,15.68,16.11,0.9
-20260617,16.8,16.9,16.65,16.85,1916082,16.06,4.95,15.76,16.11,0.75
+20260604,16.8,17.2,16.65,16.9,7335282,15.72,7.52,15.49,16.12,2.58
+20260605,16.9,16.9,16.3,16.6,2844292,15.79,5.12,15.53,16.12,0.97
+20260608,15.9,16.25,15.8,16.15,3363687,15.82,2.07,15.54,16.11,1.13
+20260609,16.05,16.65,16.05,16.35,2551563,15.87,3.05,15.58,16.11,0.86
+20260610,16.25,16.6,16.25,16.45,2106987,15.91,3.36,15.62,16.11,0.72
+20260611,16.6,16.6,16.1,16.35,1426572,15.95,2.5,15.67,16.1,0.5
+20260612,16.5,16.8,16.45,16.65,2247716,16.01,4,15.74,16.1,0.78
+20260615,16.85,16.95,16.7,16.75,2034409,16.07,4.23,15.82,16.1,0.7
+20260616,16.8,17.05,16.75,16.8,2315674,16.13,4.14,15.9,16.11,0.78
+20260617,16.8,16.9,16.65,16.85,1916082,16.19,4.07,15.99,16.11,0.64
+20260618,16.9,17.3,16.9,16.95,2826616,16.25,4.28,16.07,16.12,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1434 | 福懋 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1434 | 福懋 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1434 | 福懋 | 10 | 6 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 1434 | 福懋 | 11 | 7 | 5 | 10 | 11 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:18 Asia/Taipei
+- generated_at: 2026-06-18 22:24:16 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 24.55
+- date: 20260618
+- open: 24.75
 - high: 25
-- low: 24.5
+- low: 24.7
 - close: 24.75
-- volume: 28807379
-- ma5: 24.28
-- ema23_primary: 23.46
-- distance_to_ema23_pct: 5.51
-- ma20: 23.22
-- ma60: 23.27
-- ma120: 23.6
-- return_5d: 5.54
-- return_20d: 8.32
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 6.58
+- volume: 33174894
+- ma5: 24.46
+- ema23_primary: 23.67
+- distance_to_ema23_pct: 4.56
+- ma20: 23.48
+- ma60: 23.34
+- ma120: 23.59
+- return_5d: 3.77
+- return_20d: 9.03
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 5.4
 - distance_to_high_60_pct: -1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,22.8,22.8,22.7,22.7,14200917,23.06,-1.57,23.02,23.37,0.81
-20260519,22.7,23,22.65,22.8,20666593,23.04,-1.04,22.98,23.35,1.16
-20260520,22.9,22.9,22.7,22.7,15588366,23.01,-1.35,22.94,23.33,0.87
-20260521,22.8,22.85,22.65,22.7,13084403,22.99,-1.24,22.9,23.31,0.74
 20260522,22.7,22.8,22.65,22.7,15434059,22.96,-1.14,22.88,23.29,0.9
 20260525,22.7,22.7,22.6,22.65,17695942,22.94,-1.25,22.86,23.26,1.03
 20260526,22.65,22.8,22.65,22.7,14984565,22.92,-0.94,22.85,23.24,0.9
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,22.85,22.95,22.6,22.85,29130456,22.88,-0.13,22.81,23.17,1.44
 20260602,22.8,23.1,22.7,23.05,31996097,22.89,0.68,22.82,23.16,1.51
 20260603,23.1,23.5,22.95,23.4,31552327,22.94,2.02,22.84,23.16,1.43
-20260604,22.8,23.1,22.7,23.05,31996097,22.95,0.46,22.84,23.16,1.42
-20260605,23.7,23.7,23.3,23.45,28747769,22.99,2.01,22.86,23.17,1.24
-20260611,23.9,23.9,23.6,23.85,23269984,23.06,3.43,22.91,23.18,0.98
-20260612,24.25,24.25,23.9,24.05,26503384,23.14,3.92,22.97,23.2,1.11
-20260615,24.3,24.35,24,24.15,21471650,23.23,3.98,23.04,23.21,0.89
-20260616,24.25,24.7,24.1,24.6,41356167,23.34,5.4,23.13,23.24,1.64
-20260617,24.55,25,24.5,24.75,28807379,23.46,5.51,23.22,23.27,1.12
+20260604,23.4,24,23.35,23.7,44263958,23,3.04,22.88,23.18,1.91
+20260605,23.7,23.7,23.3,23.45,28747769,23.04,1.79,22.9,23.18,1.21
+20260608,23,23.35,22.9,23.05,28384272,23.04,0.05,22.9,23.18,1.16
+20260609,23.05,24,23.05,23.85,46115818,23.11,3.22,22.95,23.19,1.8
+20260610,23.6,23.95,23.6,23.8,24784314,23.16,2.75,23,23.2,0.95
+20260611,23.9,23.9,23.6,23.85,23269984,23.22,2.71,23.05,23.22,0.88
+20260612,24.25,24.25,23.9,24.05,26503384,23.29,3.26,23.11,23.23,0.99
+20260615,24.3,24.35,24,24.15,21471650,23.36,3.37,23.19,23.25,0.79
+20260616,24.25,24.7,24.1,24.6,41356167,23.46,4.84,23.28,23.27,1.47
+20260617,24.55,25,24.5,24.75,28807379,23.57,5,23.38,23.3,1
+20260618,24.75,25,24.7,24.75,33174894,23.67,4.56,23.48,23.34,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -185,13 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過114年度決算盈餘分配承認案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過114年度營運報告及財務報表承認案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 承認事項:追認經董事會通過新任董事案 討論事項: 1.通過法定檢查人EY會計師事務所續約案 2.解除董事暨法定檢查人114年職務責任討論案 7.其他應敘明事項:無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
-| 20260617 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_many_days | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過114年度決算盈餘分配承認案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過114年度營運報告及財務報表承認案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 承認事項:追認經董事會通過新任董事案 討論事項: 1.通過法定檢查人EY會計師事務所續約案 2.解除董事暨法定檢查人114年職務責任討論案 7.其他應敘明事項:無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過114年度決算盈餘分配承認案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過114年度營運報告及財務報表承認案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 承認事項:追認經董事會通過新任董事案 討論事項: 1.通過法定檢查人EY會計師事務所續約案 2.解除董事暨法定檢查人114年職務責任討論案 7.其他應敘明事項:無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 5880 | 合庫金 | 16 | 6 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260618 | 5880 | 合庫金 | 17 | 7 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

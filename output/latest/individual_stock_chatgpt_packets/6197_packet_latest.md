@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:25 Asia/Taipei
+- generated_at: 2026-06-18 22:24:23 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 320
-- high: 333
-- low: 319
-- close: 333
-- volume: 2147003
-- ma5: 326
-- ema23_primary: 288.46
-- distance_to_ema23_pct: 15.44
-- ma20: 288.75
-- ma60: 224.89
-- ma120: 186.03
-- return_5d: 2.46
-- return_20d: 52.4
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 15.32
-- distance_to_high_60_pct: -2.63
+- date: 20260618
+- open: 333.5
+- high: 356
+- low: 333
+- close: 347.5
+- volume: 4373191
+- ma5: 332
+- ema23_primary: 302.3
+- distance_to_ema23_pct: 14.95
+- ma20: 311.7
+- ma60: 234.59
+- ma120: 192.92
+- return_5d: 9.45
+- return_20d: 46.01
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 11.49
+- distance_to_high_60_pct: -2.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,215.5,224,212,218.5,2008660,210.45,3.83,211.05,181.62,0.34
-20260519,219.5,221,212,216,2129571,210.91,2.41,212.4,182.8,0.37
-20260520,217,219.5,213,217,1598671,211.42,2.64,213.95,183.99,0.28
-20260521,224,238.5,222,238,6691517,213.63,11.41,216.47,185.57,1.14
 20260522,244.5,258,240.5,256,9330534,217.16,17.88,219.9,187.41,1.59
 20260525,264.5,279,257.5,274,7820023,221.9,23.48,224.88,189.51,1.34
 20260526,277.5,287.5,272,279.5,7419502,226.7,23.29,229.95,191.66,1.23
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,300.5,318,297,309,7216843,246.35,25.43,246.9,201.13,1.25
 20260602,312,316,303.5,311,5369208,251.74,23.54,250.28,203.79,1
 20260603,330,338,320.5,329,6076492,258.18,27.43,255,206.8,1.16
-20260604,312,316,303.5,311,5369208,262.58,18.44,258.98,209.56,1.02
-20260605,325,329.5,301.5,325,7243579,267.78,21.37,264.3,212.36,1.35
-20260611,328,333,304,317.5,7438140,271.93,16.76,268.73,214.91,1.34
-20260612,330.5,335.5,318,327.5,4878141,276.56,18.42,273.4,217.52,0.87
-20260615,335.5,342,330.5,331.5,3735725,281.14,17.91,278.32,220.12,0.66
-20260616,334,335.5,318,320.5,3530676,284.42,12.69,283.02,222.53,0.63
-20260617,320,333,319,333,2147003,288.46,15.44,288.75,224.89,0.39
+20260604,318,325,316.5,316.5,5187713,263.04,20.32,259.25,209.65,0.99
+20260605,325,329.5,301.5,325,7243579,268.2,21.18,264.57,212.45,1.35
+20260608,298,329.5,298,327,7264645,273.1,19.74,269.48,215.16,1.31
+20260609,333.5,343.5,320.5,343,9634091,278.93,22.97,274.93,218.03,1.65
+20260610,336,351.5,324.5,325.5,7812997,282.81,15.1,279.55,220.53,1.29
+20260611,328,333,304,317.5,7438140,285.7,11.13,284.1,222.89,1.2
+20260612,330.5,335.5,318,327.5,4878141,289.18,13.25,289.55,225.16,0.77
+20260615,335.5,342,330.5,331.5,3735725,292.71,13.25,295.2,227.43,0.58
+20260616,334,335.5,318,320.5,3530676,295.02,8.63,300.43,229.51,0.55
+20260617,320,333,319,333,2147003,298.19,11.67,306.23,231.8,0.33
+20260618,333.5,356,333,347.5,4373191,302.3,14.95,311.7,234.59,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6197 | 佳必琪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6197 | 佳必琪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6197 | 佳必琪 | 1 | 1 | 1 | 3 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6197 | 佳必琪 | 2 | 2 | 2 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6197 | 佳必琪 | 104 | 0 | 50251590.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

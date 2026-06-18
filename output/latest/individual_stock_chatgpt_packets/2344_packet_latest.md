@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:11 Asia/Taipei
+- generated_at: 2026-06-18 22:23:10 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 195
-- high: 199
-- low: 186.5
-- close: 199
-- volume: 225916174
-- ma5: 182.7
-- ema23_primary: 157.09
-- distance_to_ema23_pct: 26.68
-- ma20: 155.95
-- ma60: 118.82
-- ma120: 109.78
-- return_5d: 22.84
-- return_20d: 53.67
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 27.61
-- distance_to_high_60_pct: -0.99
+- date: 20260618
+- open: 203.5
+- high: 218.5
+- low: 201.5
+- close: 218.5
+- volume: 338003801
+- ma5: 195.1
+- ema23_primary: 163.52
+- distance_to_ema23_pct: 33.62
+- ma20: 165.72
+- ma60: 122.25
+- ma120: 113.04
+- return_5d: 39.62
+- return_20d: 91.67
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 31.84
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,126,134,119,130.5,192808793,109.47,19.21,104.7,104.55,0.92
-20260519,125,127,117.5,117.5,184930796,110.14,6.69,106.29,104.72,0.88
-20260520,117.5,119,112,115.5,150894253,110.58,4.45,107.51,104.92,0.72
-20260521,120,122.5,113.5,114,209614242,110.87,2.83,108.68,105.06,0.98
 20260522,116.5,125,115.5,125,193146658,112.05,11.56,110.54,105.23,0.89
 20260525,120.5,133,119,128.5,357612926,113.42,13.3,112.56,105.34,1.57
 20260526,133.5,141,133,141,336105421,115.72,21.85,114.91,105.72,1.45
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,168,173.5,166,168,295190831,127.8,31.45,127.49,108.41,1.11
 20260602,174,184.5,171.5,184.5,270430116,132.53,39.21,131.78,109.62,1.01
 20260603,188,193,177,177.5,332157125,136.28,30.25,135.22,110.8,1.21
-20260604,174,184.5,171.5,184.5,270430116,140.3,31.51,138.75,112.19,1
-20260605,169,172.5,162,162,228440187,142.1,14,141.5,113.14,0.84
-20260611,154,162.5,149,156.5,237289830,143.3,9.21,143.45,113.84,0.86
-20260612,169.5,172,166,172,213495727,145.69,18.05,145.97,114.89,0.79
-20260615,179.5,189,175,189,229481900,149.3,26.59,149.32,116.23,0.83
-20260616,198.5,201,191.5,197,355003301,153.28,28.52,152.47,117.56,1.3
-20260617,195,199,186.5,199,225916174,157.09,26.68,155.95,118.82,0.85
+20260604,175,188,175,179.5,227016133,139.88,28.33,138.5,112.11,0.85
+20260605,169,172.5,162,162,228440187,141.72,14.31,141.25,113.05,0.84
+20260608,146,157,146,154,179964848,142.75,7.88,143.07,113.72,0.66
+20260609,160.5,161,153.5,156.5,203232684,143.89,8.76,144.82,114.51,0.76
+20260610,152,163.5,148,149,185310442,144.32,3.24,146.18,115.18,0.69
+20260611,154,162.5,149,156.5,237289830,145.33,7.68,147.3,115.84,0.92
+20260612,169.5,172,166,172,213495727,147.55,16.57,149.43,116.64,0.85
+20260615,179.5,189,175,189,229481900,151.01,25.16,152.35,117.66,0.9
+20260616,198.5,201,191.5,197,355003301,154.84,27.23,156.32,118.91,1.35
+20260617,195,199,186.5,199,226916174,158.52,25.54,160.5,120.39,0.85
+20260618,203.5,218.5,201.5,218.5,338003801,163.52,33.62,165.72,122.25,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2344 | 華邦電 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | mixed_flow | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2344 | 華邦電 | 1 | 1 | 1 | 5 | 12 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2344 | 華邦電 | 0 | 24 | 0.0 | 803960.0 | 0.0 | no_signal |
+| 20260618 | 2344 | 華邦電 | 238 | 24 | 106161800.0 | 1454250.0 | 73.0 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

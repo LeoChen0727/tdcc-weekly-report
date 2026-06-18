@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:07 Asia/Taipei
+- generated_at: 2026-06-18 22:24:57 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 277.5
-- high: 297
-- low: 277.5
-- close: 295.5
-- volume: 2695775
-- ma5: 284.8
-- ema23_primary: 284.41
-- distance_to_ema23_pct: 3.9
-- ma20: 293.12
-- ma60: 245.47
-- ma120: 217.19
-- return_5d: -2.64
-- return_20d: 7.85
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 0.81
-- distance_to_high_60_pct: -4.68
+- date: 20260618
+- open: 301
+- high: 305
+- low: 298
+- close: 300.5
+- volume: 2607613
+- ma5: 287.6
+- ema23_primary: 286.48
+- distance_to_ema23_pct: 4.89
+- ma20: 294.65
+- ma60: 251.67
+- ma120: 220.89
+- return_5d: 4.89
+- return_20d: 1.01
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 1.99
+- distance_to_high_60_pct: -3.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,270,276,268,275,1577181,247.44,11.14,246.9,213.93,0.57
-20260519,275,285,271.5,280.5,3171675,250.2,12.11,249.97,215.39,1.12
-20260520,280.5,294,276,285.5,3570495,253.14,12.78,253.3,216.98,1.22
-20260521,292.5,300,287.5,297.5,3070090,256.83,15.83,256.15,218.78,1.05
 20260522,297,297,287,292,2245245,259.77,12.41,259.52,220.41,0.81
 20260525,293.5,294.5,288.5,291,1820441,262.37,10.91,262.6,221.97,0.66
 20260526,292.5,292.5,286.5,289.5,1111575,264.63,9.4,265.9,223.53,0.41
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,306,310,298,309,3666800,276.3,11.84,281.02,230.97,1.12
 20260602,309,309,296.5,302,2799664,278.44,8.46,284.4,232.83,0.83
 20260603,307,310,303.5,304,1975322,280.57,8.35,287.52,234.65,0.58
-20260604,309,309,296.5,302,2799664,282.36,6.96,289.35,236.52,0.86
-20260605,301.5,306,298,303.5,2132066,284.12,6.82,290.88,238.36,0.71
-20260611,288,294.5,283,286.5,1378867,284.32,0.77,291.77,239.9,0.47
-20260612,293,298,287,289.5,1835683,284.75,1.67,292.55,241.43,0.63
-20260615,278.5,287,274,274,2195793,283.85,-3.47,292.85,242.64,0.75
-20260616,278,281,270,278.5,1982276,283.41,-1.73,292.05,243.92,0.73
-20260617,277.5,297,277.5,295.5,2695775,284.41,3.9,293.12,245.47,1.04
+20260604,302.5,307,302.5,303.5,1217315,282.48,7.44,289.43,236.54,0.38
+20260605,301.5,306,298,303.5,2132066,284.23,6.78,290.95,238.38,0.73
+20260608,274.5,287,274,285,1391999,284.3,0.25,291.77,239.9,0.49
+20260609,289,303,289,295.5,1294427,285.23,3.6,292.85,241.53,0.46
+20260610,295,302,286,286.5,1535291,285.34,0.41,293.77,242.95,0.55
+20260611,288,294.5,283,286.5,1378867,285.43,0.37,293.38,244.36,0.54
+20260612,293,298,287,289.5,1835683,285.77,1.3,294.15,245.81,0.77
+20260615,278.5,287,274,274,2195793,284.79,-3.79,294.1,247.02,0.91
+20260616,278,281,270,278.5,1982276,284.27,-2.03,294,248.34,0.84
+20260617,277.5,297,277.5,295.5,2695775,285.2,3.61,294.5,249.92,1.17
+20260618,301,305,298,300.5,2607613,286.48,4.89,294.65,251.67,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -184,20 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8016 | 矽創 | 7 | 7 | 5 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8016 | 矽創 | 27 | 0 | 12908490.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

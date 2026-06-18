@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:47 Asia/Taipei
+- generated_at: 2026-06-18 22:22:45 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 35.4
-- high: 35.9
-- low: 35.35
-- close: 35.55
-- volume: 15191719
-- ma5: 35.26
-- ema23_primary: 34.6
-- distance_to_ema23_pct: 2.75
-- ma20: 34.28
-- ma60: 34.83
-- ma120: 35.42
-- return_5d: 3.34
-- return_20d: 3.49
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 3.71
-- distance_to_high_60_pct: -1.66
+- date: 20260618
+- open: 35.6
+- high: 36.05
+- low: 35.5
+- close: 35.8
+- volume: 19588297
+- ma5: 35.52
+- ema23_primary: 34.69
+- distance_to_ema23_pct: 3.19
+- ma20: 34.27
+- ma60: 34.85
+- ma120: 35.3
+- return_5d: 3.77
+- return_20d: 2.43
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 4.47
+- distance_to_high_60_pct: -0.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,34.3,34.55,34.1,34.35,9040498,35.01,-1.9,35.11,35.05,0.94
-20260519,34.7,35.2,34.45,34.8,9446874,35,-0.56,35.1,35.04,1.02
-20260520,35,35,34.5,34.5,8318546,34.96,-1.3,35.06,35.03,0.92
-20260521,34.75,34.95,34.5,34.95,6909878,34.95,-0.01,35.03,35.02,0.77
 20260522,34.6,34.8,34.4,34.4,11752214,34.91,-1.46,34.95,35,1.35
 20260525,34.45,34.5,33.6,33.6,26457340,34.8,-3.45,34.83,34.96,2.72
 20260526,33.55,33.65,33.25,33.25,15247384,34.67,-4.1,34.73,34.92,1.54
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,34,34.15,33.65,33.8,16350534,34.28,-1.4,34.36,34.79,0.77
 20260602,33.7,34.4,33.6,33.8,26335137,34.24,-1.29,34.3,34.78,1.18
 20260603,33.85,34.45,33.5,34.2,16795242,34.24,-0.11,34.25,34.78,0.73
-20260604,33.7,34.4,33.6,33.8,26335137,34.2,-1.17,34.2,34.77,1.1
-20260605,34.3,34.55,34.1,34.4,14863674,34.22,0.53,34.17,34.77,0.61
-20260611,34.5,34.75,34.25,34.5,16391484,34.24,0.76,34.16,34.78,0.67
-20260612,34.9,35.5,34.65,35.2,15449386,34.32,2.56,34.19,34.79,0.62
-20260615,35.55,36,35.4,35.45,15860235,34.41,3.01,34.2,34.8,0.63
-20260616,35.55,35.95,35.25,35.6,19014408,34.51,3.15,34.22,34.82,0.74
-20260617,35.4,35.9,35.35,35.55,15191719,34.6,2.75,34.28,34.83,0.59
+20260604,34.2,34.65,34,34.35,13879045,34.25,0.3,34.22,34.78,0.6
+20260605,34.3,34.55,34.1,34.4,14863674,34.26,0.41,34.2,34.78,0.63
+20260608,33.7,34,33.5,33.75,17810071,34.22,-1.36,34.15,34.78,0.74
+20260609,33.65,34.15,33.65,33.9,13168150,34.19,-0.85,34.12,34.77,0.54
+20260610,33.8,34.6,33.8,34.4,16526384,34.21,0.56,34.07,34.76,0.67
+20260611,34.5,34.75,34.25,34.5,16391484,34.23,0.78,34.03,34.76,0.66
+20260612,34.9,35.5,34.65,35.2,15449386,34.31,2.59,34.08,34.77,0.62
+20260615,35.55,36,35.4,35.45,15860235,34.41,3.03,34.13,34.78,0.62
+20260616,35.55,35.95,35.25,35.6,19014408,34.51,3.17,34.17,34.81,0.73
+20260617,35.4,35.9,35.35,35.55,15191719,34.59,2.76,34.23,34.82,0.58
+20260618,35.6,36.05,35.5,35.8,19588297,34.69,3.19,34.27,34.85,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1102 | 亞泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.股東會決議日:115/06/16 2.許可從事競業行為之董事姓名及職稱: 董事:李坤炎 董事:徐旭平 董事:余東霖 董事:陳志賢 董事:金崇仁 3.許可從事競業行為之項目: 熟料、水泥、石灰石、預拌混凝土、水泥製品銷售等與水泥相關之項目。 4.許可從事競業行為之期間:115/06/16起為期3年。 5.決議情形（請依公司法第209條說明表決結果）: 發行股份總數三分之二以上股東出席，投票表決後，照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 不適用 7.所擔任該大陸地區事業之公司名稱及職務: 不適用 8.所擔任該大陸地區事業地址: 不適用 9.所擔任該大陸地區事業營業項目: 不適用 10.對本公司財務業務之影響程度: 不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1102 | 亞泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東會決議日:115/06/16 2.許可從事競業行為之董事姓名及職稱: 董事:李坤炎 董事:徐旭平 董事:余東霖 董事:陳志賢 董事:金崇仁 3.許可從事競業行為之項目: 熟料、水泥、石灰石、預拌混凝土、水泥製品銷售等與水泥相關之項目。 4.許可從事競業行為之期間:115/06/16起為期3年。 5.決議情形（請依公司法第209條說明表決結果）: 發行股份總數三分之二以上股東出席，投票表決後，照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 不適用 7.所擔任該大陸地區事業之公司名稱及職務: 不適用 8.所擔任該大陸地區事業地址: 不適用 9.所擔任該大陸地區事業營業項目: 不適用 10.對本公司財務業務之影響程度: 不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1102 | 亞泥 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 1102 | 亞泥 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1102 | 亞泥 | 1 | 0 | 12220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

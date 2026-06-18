@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:56 Asia/Taipei
+- generated_at: 2026-06-18 22:22:54 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 31.1
-- high: 31.55
-- low: 31.05
-- close: 31.45
-- volume: 594847
-- ma5: 31.17
-- ema23_primary: 31.45
-- distance_to_ema23_pct: 0.02
-- ma20: 30.99
-- ma60: 31.67
-- ma120: 38.84
-- return_5d: -2.02
-- return_20d: 6.61
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 1.49
-- distance_to_high_60_pct: -10.53
+- date: 20260618
+- open: 32
+- high: 32.8
+- low: 32
+- close: 32.1
+- volume: 1442521
+- ma5: 31.41
+- ema23_primary: 31.38
+- distance_to_ema23_pct: 2.29
+- ma20: 31.33
+- ma60: 31.5
+- ma120: 38.31
+- return_5d: 3.88
+- return_20d: 8.26
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 2.45
+- distance_to_high_60_pct: -7.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,29.45,29.45,28.9,29.25,1081556,31.6,-7.43,31.39,35.09,0.78
-20260519,29.25,29.7,29,29.2,689029,31.4,-7,31.24,34.79,0.5
-20260520,29.45,29.45,28.85,29.1,691073,31.21,-6.75,31.07,34.48,0.5
-20260521,29.2,29.65,29.2,29.65,621407,31.08,-4.59,30.95,34.23,0.45
 20260522,29.65,29.7,29.25,29.45,729760,30.94,-4.82,30.84,33.99,0.54
 20260525,29.55,29.9,29.05,29.2,1045104,30.8,-5.18,30.73,33.74,0.77
 20260526,29.2,29.5,29,29.1,775512,30.65,-5.07,30.62,33.5,0.57
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,33.95,33.95,32.65,32.85,5206287,31.06,5.77,30.76,32.77,2.19
 20260602,32.85,33.15,32,33.1,2790419,31.23,5.99,30.83,32.62,1.13
 20260603,33.1,33.45,32.8,33.2,1698585,31.39,5.75,30.93,32.47,0.68
-20260604,32.85,33.15,32,33.1,2790419,31.54,4.96,30.88,32.35,1.12
-20260605,32.8,32.8,32.05,32.1,848771,31.58,1.64,30.88,32.21,0.38
-20260611,30.85,31.6,30.65,30.9,981099,31.53,-1.99,30.85,32.03,0.44
-20260612,31.05,31.45,31,31.05,736208,31.49,-1.39,30.83,31.88,0.34
-20260615,31.25,31.65,31.05,31.2,903446,31.46,-0.83,30.84,31.79,0.41
-20260616,31.2,31.6,31,31.25,692525,31.44,-0.62,30.89,31.73,0.33
-20260617,31.1,31.55,31.05,31.45,594847,31.45,0.02,30.99,31.67,0.29
+20260604,33,33.1,32.45,32.8,1284630,31.51,4.09,30.87,32.35,0.53
+20260605,32.8,32.8,32.05,32.1,848771,31.56,1.71,30.87,32.2,0.39
+20260608,29,30.65,28.95,30.35,1360382,31.46,-3.53,30.8,32.02,0.63
+20260609,30.35,31.3,30.35,31.1,919144,31.43,-1.05,30.79,31.86,0.43
+20260610,30.5,31.6,30.5,30.85,823512,31.38,-1.69,30.78,31.77,0.39
+20260611,30.85,31.6,30.65,30.9,981099,31.34,-1.41,30.82,31.7,0.47
+20260612,31.05,31.45,31,31.05,736208,31.32,-0.85,30.89,31.64,0.36
+20260615,31.25,31.65,31.05,31.2,903446,31.31,-0.34,30.99,31.59,0.45
+20260616,31.2,31.6,31,31.25,692525,31.3,-0.17,31.09,31.54,0.34
+20260617,31.1,31.55,31.05,31.45,594847,31.31,0.43,31.21,31.51,0.29
+20260618,32,32.8,32,32.1,1442521,31.38,2.29,31.33,31.5,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1522 | 堤維西 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:  票決通過本公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  票決通過本公司114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1522 | 堤維西 | 1 | 1 | 1 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1522 | 堤維西 | 3 | 0 | 13710.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7805 威聯通
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:06 Asia/Taipei
+- generated_at: 2026-06-18 22:24:57 Asia/Taipei
 - stock_id: 7805
 - stock_name: 威聯通
-- packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 248
+- packet_status: standard_rawdata_packet
+- latest_price_date: 20260618
+- price_rows: 117
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,48 +113,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 688
-- high: 690
-- low: 681
-- close: 683
-- volume: 685000
-- ma5: 690.8
-- ema23_primary: 731.14
-- distance_to_ema23_pct: -6.58
-- ma20: 745.1
-- ma60: 709.53
-- ma120: 682.54
-- return_5d: -9.89
-- return_20d: -3.67
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -8.33
-- distance_to_high_60_pct: -16.3
+- date: 20260618
+- open: 684
+- high: 692
+- low: 683
+- close: 692
+- volume: 54000
+- ma5: 691.6
+- ema23_primary: 723.61
+- distance_to_ema23_pct: -4.37
+- ma20: 746.1
+- ma60: 713.08
+- ma120: 676.78
+- return_5d: 0.58
+- return_20d: -3.62
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: -7.25
+- distance_to_high_60_pct: -15.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,705,728,690,714,108000,705.92,1.15,713.4,674.68,0.64
-20260519,714,717,699,705,84000,705.84,-0.12,711.75,677.07,0.54
-20260520,706,709,700,700,76000,705.35,-0.76,710.65,678.43,0.59
-20260521,713,728,713,718,131000,706.41,1.64,710.65,679.27,1.07
 20260522,729,788,729,764,760000,711.21,7.42,712.75,681.08,5.2
 20260525,787,806,775,784,788000,717.27,9.3,716.1,683.03,4.41
 20260526,784,795,764,784,781000,722.83,8.46,720.65,684.92,3.7
 20260527,807,807,771,776,779000,727.26,6.7,724.9,687.05,3.15
 20260528,778,815,777,785,794000,732.08,7.23,730.25,689.68,2.81
 20260529,790,810,790,797,800000,737.49,8.07,735.7,692.87,2.5
-20260601,806,816,791,799,804,742.61,7.59,740.1,696.58,0
+20260601,806,816,791,799,804000,742.61,7.59,740.1,696.58,2.3
 20260602,797,802,780,794,790,746.89,6.31,743.6,700.05,0
-20260603,801,801,779,785,784000,750.07,4.66,746.95,703.1,2.32
-20260604,801,801,779,785,784000,752.98,4.25,750.55,706.65,2.11
-20260605,757,770,744,758,755000,753.4,0.61,752.65,708.8,1.86
-20260611,693,699,678,688,688000,747.95,-8.02,750.45,708.97,1.61
-20260612,710,710,696,701,702000,744.04,-5.78,749,709.47,1.53
-20260615,711,712,698,698,702000,740.2,-5.7,748.15,709.6,1.44
-20260616,699,699,683,684,689000,735.52,-7,746.4,709.5,1.33
-20260617,688,690,681,683,685000,731.14,-6.58,745.1,709.53,1.26
+20260603,801,801,779,785,784000,750.07,4.66,746.95,703.1,2.08
+20260604,778,782,755,764,769000,751.23,1.7,749.5,706.3,1.87
+20260605,757,770,744,758,755000,751.79,0.83,751.6,708.45,1.7
+20260608,729,745,708,745,131000,751.23,-0.83,752.25,709.57,0.3
+20260609,721,745,720,737,156000,750.04,-1.74,752.6,710.67,0.35
+20260610,726,728,699,704,210000,746.21,-5.66,752.05,710.9,0.47
+20260611,693,699,678,688,136000,741.36,-7.2,750.5,710.87,0.3
+20260612,710,710,696,701,74000,737.99,-5.01,750.1,711.2,0.17
+20260615,711,712,698,698,66000,734.66,-4.99,749.3,711.6,0.15
+20260616,699,699,683,684,82000,730.44,-6.36,748.25,711.98,0.18
+20260617,688,690,681,683,61000,726.48,-5.99,747.4,712.45,0.14
+20260618,684,692,683,692,54000,723.61,-4.37,746.1,713.08,0.12
 ```
 
 ## Latest TDCC Snapshot

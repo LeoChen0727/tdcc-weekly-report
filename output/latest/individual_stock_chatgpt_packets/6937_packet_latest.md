@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:49 Asia/Taipei
+- generated_at: 2026-06-18 22:24:47 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 269
-- high: 271.5
-- low: 262
-- close: 271
-- volume: 464053
-- ma5: 272.9
-- ema23_primary: 292.73
-- distance_to_ema23_pct: -7.42
-- ma20: 296.98
-- ma60: 292.62
-- ma120: 261.73
-- return_5d: -3.73
-- return_20d: -7.51
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -8.75
-- distance_to_high_60_pct: -24.41
+- date: 20260618
+- open: 272
+- high: 281
+- low: 271.5
+- close: 279.5
+- volume: 558001
+- ma5: 273.3
+- ema23_primary: 287.58
+- distance_to_ema23_pct: -2.81
+- ma20: 294.95
+- ma60: 293.07
+- ma120: 263.61
+- return_5d: 0.72
+- return_20d: -5.09
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -5.24
+- distance_to_high_60_pct: -22.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,286,288,275,286,516668,300.69,-4.89,310.12,275.86,0.39
-20260519,288,293.5,279.5,281,346187,299.05,-6.04,307.35,276.66,0.27
-20260520,285,295.5,278,279.5,564452,297.42,-6.03,304.77,277.59,0.48
-20260521,287,294.5,287,294.5,457685,297.18,-0.9,303.23,278.83,0.4
 20260522,301,323.5,296,323.5,1646094,299.37,8.06,304.75,280.48,1.5
 20260525,330,352,330,351.5,2500871,303.72,15.73,307.65,282.56,2.15
 20260526,355,355,337.5,337.5,1480605,306.53,10.1,309.75,284.46,1.23
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,303,312,295,311,1017386,307.54,1.13,308.4,288.98,1.01
 20260602,311.5,311.5,295.5,300.5,719593,306.95,-2.1,306.57,289.83,0.76
 20260603,305,305,297,298,604135,306.21,-2.68,305.52,290.68,0.68
-20260604,311.5,311.5,295.5,300.5,719593,305.73,-1.71,304.55,291.82,0.81
-20260605,296,296,280,281.5,899073,303.71,-7.31,303.3,292.34,1.01
-20260611,282.5,282.5,266.5,277.5,457333,301.53,-7.97,302.4,292.61,0.53
-20260612,289,289,275,276.5,538957,299.44,-7.66,301.2,292.79,0.64
-20260615,282,282.5,268.5,269,523238,296.9,-9.4,299.55,292.68,0.62
-20260616,278,278,264.5,270.5,520254,294.7,-8.21,298.07,292.77,0.62
-20260617,269,271.5,262,271,464053,292.73,-7.42,296.98,292.62,0.56
+20260604,295.5,299.5,293,297,400573,305.44,-2.76,304.38,291.77,0.46
+20260605,296,296,280,281.5,899073,303.44,-7.23,303.12,292.28,1.03
+20260608,253.5,274.5,253.5,268,875212,300.49,-10.81,301.75,292.39,1.01
+20260609,272,293,268,284,950205,299.12,-5.05,300.93,292.7,1.09
+20260610,280,294.5,270,272.5,711173,296.9,-8.22,299.45,292.65,0.81
+20260611,282.5,282.5,266.5,277.5,457333,295.28,-6.02,298.32,292.85,0.53
+20260612,289,289,275,276.5,538957,293.72,-5.86,297.5,292.79,0.62
+20260615,282,282.5,268.5,269,523238,291.66,-7.77,296.65,292.69,0.6
+20260616,278,278,264.5,270.5,520254,289.89,-6.69,296.12,292.62,0.6
+20260617,269,271.5,262,271,464053,288.32,-6.01,295.7,292.68,0.53
+20260618,272,281,271.5,279.5,558001,287.58,-2.81,294.95,293.07,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6937 | 天虹 | 0 | 1 | 0.0 | 9270.0 | 0.0 | no_signal |
+| 20260618 | 6937 | 天虹 | 44 | 1 | 886410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

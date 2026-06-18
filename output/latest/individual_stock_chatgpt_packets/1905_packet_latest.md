@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1905 華紙
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:04 Asia/Taipei
+- generated_at: 2026-06-18 22:23:02 Asia/Taipei
 - stock_id: 1905
 - stock_name: 華紙
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -114,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 15.55
-- high: 15.55
-- low: 15.55
-- close: 15.55
-- volume: 37075531
-- ma5: 13.64
-- ema23_primary: 12.9
-- distance_to_ema23_pct: 20.55
-- ma20: 12.53
-- ma60: 13.25
-- ma120: 12.61
-- return_5d: 19.16
-- return_20d: 29.58
-- volume_ratio: 5.38
-- distance_to_ma20_pct_auxiliary: 24.15
-- distance_to_high_60_pct: -16.17
+- date: 20260618
+- open: 15.95
+- high: 17.1
+- low: 15.4
+- close: 17.1
+- volume: 44217266
+- ma5: 14.52
+- ema23_primary: 13.36
+- distance_to_ema23_pct: 27.95
+- ma20: 13
+- ma60: 13.41
+- ma120: 12.69
+- return_5d: 34.65
+- return_20d: 41.32
+- volume_ratio: 3.83
+- distance_to_ma20_pct_auxiliary: 31.51
+- distance_to_high_60_pct: -7.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,12.2,12.25,11.95,12,3313587,12.85,-6.58,12.91,13.06,0.6
-20260519,12.05,12.1,11.8,11.85,3145806,12.76,-7.15,12.84,13.06,0.63
-20260520,11.95,11.95,11.8,11.8,2932741,12.68,-6.95,12.71,13.06,0.64
-20260521,11.85,12.2,11.75,12.1,2951711,12.63,-4.22,12.6,13.06,0.69
 20260522,12.15,12.15,11.9,12.1,2769456,12.59,-3.88,12.52,13.06,0.69
 20260525,12.15,12.25,11.75,12.25,5981013,12.56,-2.47,12.45,13.06,1.51
 20260526,12.35,12.4,11.9,12,3701519,12.51,-4.11,12.38,13.05,1.07
@@ -149,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,11.95,12.2,11.8,12.15,4198922,12.36,-1.69,12.16,13.04,1.17
 20260602,12.15,12.25,12,12.25,3353052,12.35,-0.81,12.13,13.04,0.92
 20260603,12.25,12.75,12.15,12.75,8576386,12.38,2.96,12.14,13.05,2.17
-20260604,12.15,12.25,12,12.25,3353052,12.37,-0.98,12.12,13.06,0.85
-20260605,13.4,13.55,12.65,13.05,17669865,12.43,5,12.15,13.08,3.77
-20260611,13.15,13.15,12.6,12.7,4993710,12.45,2,12.16,13.09,1.04
-20260612,12.9,13.05,12.75,12.9,3345268,12.49,3.3,12.21,13.11,0.71
-20260615,13.05,13.15,12.8,12.9,4332978,12.52,3.01,12.24,13.14,0.92
-20260616,13,14.15,12.75,14.15,14957118,12.66,11.78,12.35,13.18,2.81
-20260617,15.55,15.55,15.55,15.55,37075531,12.9,20.55,12.53,13.25,5.38
+20260604,13,14,12.75,14,41543307,12.52,11.84,12.21,13.09,7.11
+20260605,13.4,13.55,12.65,13.05,17669865,12.56,3.88,12.23,13.11,2.68
+20260608,12.25,12.95,12.1,12.7,6515269,12.57,1.01,12.25,13.12,0.96
+20260609,12.75,13.25,12.35,12.8,8536471,12.59,1.65,12.29,13.14,1.23
+20260610,12.95,13.4,12.9,12.95,7744941,12.62,2.6,12.33,13.17,1.08
+20260611,13.15,13.15,12.6,12.7,4993710,12.63,0.56,12.36,13.19,0.69
+20260612,12.9,13.05,12.75,12.9,3345268,12.65,1.97,12.4,13.21,0.47
+20260615,13.05,13.15,12.8,12.9,4332978,12.67,1.8,12.45,13.22,0.6
+20260616,13,14.15,12.75,14.15,14957118,12.8,10.59,12.56,13.27,1.93
+20260617,15.55,15.55,15.55,15.55,37075531,13.02,19.39,12.75,13.33,3.91
+20260618,15.95,17.1,15.4,17.1,44217266,13.36,27.95,13,13.41,3.83
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1905 | 華紙 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補:   承認本公司2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:   承認本公司2025年度決算表冊。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1905 | 華紙 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_inflow | continued_overheated | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補:   承認本公司2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:   承認本公司2025年度決算表冊。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1905 | 華紙 | 2 | 2 | 2 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 1905 | 華紙 | 3 | 3 | 3 | 7 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1905 | 華紙 | 3 | 0 | 1571170.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

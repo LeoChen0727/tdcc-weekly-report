@@ -1,9 +1,9 @@
-# INDIVIDUAL STOCK CHATGPT PACKET - 0063 元大台灣50正2
+# INDIVIDUAL STOCK CHATGPT PACKET - 0063 元大滬深300正2
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:44 Asia/Taipei
+- generated_at: 2026-06-18 22:22:41 Asia/Taipei
 - stock_id: 0063
-- stock_name: 元大台灣50正2
+- stock_name: 元大滬深300正2
 - packet_status: insufficient_price_data
 - latest_price_date: 
 - price_rows: 0
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 0063 | 元大台灣50正2 | 0 | 182 | 0.0 | 9075120.0 | 0.0 | put_inflow |
+| 20260618 | 0063 | 元大滬深300正2 | 656 | 180 | 77797890.0 | 3977460.0 | 19.56 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

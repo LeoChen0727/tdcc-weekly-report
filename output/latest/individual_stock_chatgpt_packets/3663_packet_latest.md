@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3663 鑫科
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:50 Asia/Taipei
+- generated_at: 2026-06-18 22:23:49 Asia/Taipei
 - stock_id: 3663
 - stock_name: 鑫科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,10 +91,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +110,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,48 +118,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 70.5
-- high: 78.1
-- low: 69.4
-- close: 78.1
-- volume: 76000
-- ma5: 71.64
-- ema23_primary: 77.87
-- distance_to_ema23_pct: 0.3
-- ma20: 81.78
-- ma60: 74.58
-- ma120: 66.71
-- return_5d: -0.51
-- return_20d: 13.19
-- volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: -4.49
-- distance_to_high_60_pct: -16.74
+- date: 20260618
+- open: 85.8
+- high: 85.9
+- low: 82.3
+- close: 85.7
+- volume: 10691000
+- ma5: 74.92
+- ema23_primary: 76.98
+- distance_to_ema23_pct: 11.32
+- ma20: 80.45
+- ma60: 74.56
+- ma120: 67.64
+- return_5d: 23.67
+- return_20d: 2.39
+- volume_ratio: 6.78
+- distance_to_ma20_pct_auxiliary: 6.52
+- distance_to_high_60_pct: -8.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,68.2,75.9,66.7,75.9,5500000,70.41,7.8,70.6,68.75,1.51
-20260519,76.3,83.4,76.2,83.4,14543000,71.49,16.66,71.11,69.15,3.51
-20260520,85.5,86,78.6,78.6,16000000,72.08,9.04,71.36,69.39,3.31
-20260521,81,85.8,78.9,83.7,11804000,73.05,14.57,71.68,69.65,2.36
 20260522,84.5,90.9,83.3,86.9,87000,74.21,17.11,72.45,69.99,0.02
 20260525,87.9,93.6,87.9,91.7,91000,75.66,21.19,73.62,70.44,0.02
 20260526,91.4,91.9,87.8,91.4,90000,76.98,18.74,74.86,70.92,0.02
 20260527,92.1,92.1,87.7,89.9,90000,78.05,15.18,75.98,71.33,0.02
 20260528,90,91.9,85,85.7,89000,78.69,8.91,76.95,71.73,0.02
 20260529,87,90.5,85,88,88000,79.47,10.74,78.03,72.22,0.02
-20260601,88.6,93.8,88.6,89.5,91,80.3,11.45,78.86,72.81,0
+20260601,88.6,93.8,88.6,89.5,91000,80.3,11.45,78.86,72.81,0.02
 20260602,90.1,91.4,84.4,86.3,87,80.8,6.8,79.43,73.32,0
 20260603,85.9,89.5,83.6,83.9,86000,81.06,3.5,80.11,73.77,0.03
-20260604,85.9,89.5,83.6,83.9,86000,81.3,3.2,80.58,74.26,0.03
-20260605,82.5,83,76.4,78.5,79000,81.06,-3.16,80.91,74.57,0.03
-20260611,67.3,69.5,64.8,69.3,67000,80.08,-13.47,80.97,74.62,0.02
-20260612,71.9,72.1,67.9,67.9,70000,79.07,-14.12,80.96,74.54,0.03
-20260615,68.9,74,68.7,71.9,71000,78.47,-8.37,81.17,74.51,0.03
-20260616,73.6,75.5,70.2,71,72000,77.85,-8.8,81.32,74.48,0.03
-20260617,70.5,78.1,69.4,78.1,76000,77.87,0.3,81.78,74.58,0.03
+20260604,83.6,86.5,82.4,82.5,84000,81.18,1.63,80.52,74.23,0.03
+20260605,82.5,83,76.4,78.5,79000,80.96,-3.03,80.83,74.54,0.03
+20260608,70.7,72.8,70.7,72.3,1758000,80.24,-9.89,81.06,74.65,0.6
+20260609,73,73,70,71.6,2019000,79.52,-9.95,81.22,74.63,0.69
+20260610,71.1,73.9,67,67,2542000,78.47,-14.62,81.19,74.52,0.85
+20260611,67.3,69.5,64.8,69.3,1917000,77.71,-10.82,81.25,74.46,0.63
+20260612,71.9,72.1,67.9,67.9,1804000,76.89,-11.69,81.2,74.39,0.61
+20260615,68.9,74,68.7,71.9,3476000,76.48,-5.98,81,74.35,1.23
+20260616,73.6,75.5,70.2,71,2954000,76.02,-6.6,80.38,74.29,1.31
+20260617,70.5,78.1,69.4,78.1,3506000,76.19,2.5,80.36,74.4,2.15
+20260618,85.8,85.9,82.3,85.7,10691000,76.98,11.32,80.45,74.56,6.78
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3663 | 鑫科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東會決議日:115/06/17 2.許可從事競業行為之董事姓名及職稱: (1)董事：中盈投資開發股份有限公司法人代表人：李建輝 (2)董事：中盈投資開發股份有限公司法人代表人：陳世新 (3)董事：景裕國際股份有限公司法人代表人：李政和 (4)董事：聯合再生能源股份有限公司司法人代表人：潘蕾蕾 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之業務 4.許可從事競業行為之期間:任職本公司董事職務之期間 5.決議情形（請依公司法第209條說明表決結果）:經表決後照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 董事：中盈投資開發股份有限公司法人代表人：李建輝 7.所擔任該大陸地區事業之公司名稱及職務: 常州中鋼精密鍛材有限公司法人董事：李建輝 8.所擔任該大陸地區事業地址: 江蘇省常州市武進經濟開發區長揚路18號 9.所擔任該大陸地區事業營業項目: 純鈦鎳、鈦鎳合金與特殊不銹鋼等加工銷售 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3663 | 鑫科 | 1 | 1 | 1 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

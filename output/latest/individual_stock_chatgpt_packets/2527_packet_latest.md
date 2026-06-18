@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:21 Asia/Taipei
+- generated_at: 2026-06-18 22:23:20 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 39.35
-- high: 39.35
-- low: 38.25
-- close: 38.9
-- volume: 1569832
-- ma5: 37.82
-- ema23_primary: 36.27
-- distance_to_ema23_pct: 7.26
-- ma20: 35.97
-- ma60: 34.05
-- ma120: 31.8
-- return_5d: 7.02
-- return_20d: 16.82
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 8.16
-- distance_to_high_60_pct: -4.54
+- date: 20260618
+- open: 39
+- high: 40.45
+- low: 39
+- close: 39.8
+- volume: 2006523
+- ma5: 38.86
+- ema23_primary: 36.5
+- distance_to_ema23_pct: 9.05
+- ma20: 36.52
+- ma60: 34.47
+- ma120: 32.04
+- return_5d: 15.03
+- return_20d: 19.34
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: 8.97
+- distance_to_high_60_pct: -2.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,33.3,33.7,32.7,33.65,324658,33.91,-0.78,34.38,32.19,0.58
-20260519,33.3,33.7,33.1,33.25,119408,33.86,-1.8,34.23,32.26,0.22
-20260520,33.05,33.2,32.7,33,231368,33.79,-2.33,34.07,32.31,0.45
-20260521,33.15,33.7,33.1,33.35,241061,33.75,-1.19,34,32.37,0.49
 20260522,33.35,33.55,33.05,33.55,339236,33.73,-0.55,33.97,32.43,0.73
 20260525,33.7,35.1,33.7,34.95,621616,33.84,3.29,34.02,32.5,1.34
 20260526,35.25,35.6,34.8,35.15,436099,33.95,3.55,34.03,32.57,0.98
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,36.75,37.25,36.2,36.75,437332,34.74,5.79,34.46,32.92,0.88
 20260602,37,37,36.05,36.6,395300,34.89,4.89,34.6,33.02,0.8
 20260603,37.2,37.4,36.85,37.25,621953,35.09,6.16,34.77,33.13,1.23
-20260604,37,37,36.05,36.6,395300,35.22,3.93,34.87,33.25,0.79
-20260605,36.6,36.65,36,36.35,358492,35.31,2.95,34.95,33.36,0.71
-20260611,34.8,35.35,34.15,34.6,322398,35.25,-1.85,34.96,33.44,0.7
-20260612,35,37,35,36.5,701326,35.35,3.24,35.1,33.56,1.53
-20260615,36.55,39.85,36,39.15,2294490,35.67,9.75,35.35,33.73,4.15
-20260616,40.3,40.75,39.5,39.95,5496568,36.03,10.89,35.69,33.91,6.83
-20260617,39.35,39.35,38.25,38.9,1569832,36.27,7.26,35.97,34.05,1.82
+20260604,37.5,37.5,36.65,37,328350,35.25,4.97,34.88,33.26,0.66
+20260605,36.6,36.65,36,36.35,358492,35.34,2.86,34.97,33.37,0.72
+20260608,34.4,34.8,33.9,34.55,364033,35.27,-2.05,34.98,33.45,0.79
+20260609,34.6,35.25,34.6,35.05,336973,35.26,-0.58,35.05,33.55,0.77
+20260610,34.45,35.95,34.2,34.6,697747,35.2,-1.71,35.07,33.64,1.54
+20260611,34.8,35.35,34.15,34.6,322398,35.15,-1.57,35.13,33.72,0.72
+20260612,35,37,35,36.5,701326,35.26,3.51,35.3,33.83,1.52
+20260615,36.55,39.85,36,39.15,2294490,35.59,10.01,35.57,33.97,4.1
+20260616,40.3,40.75,39.5,39.95,5496568,35.95,11.12,35.91,34.14,6.63
+20260617,39.35,39.35,38.25,38.9,1569832,36.2,7.47,36.2,34.29,1.75
+20260618,39,40.45,39,39.8,2006523,36.5,9.05,36.52,34.47,2.04
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2527 | 宏璟 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260618 | 2527 | 宏璟 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3580 友威科
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:48 Asia/Taipei
+- generated_at: 2026-06-18 22:23:47 Asia/Taipei
 - stock_id: 3580
 - stock_name: 友威科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,48 +113,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 96.8
-- high: 105
-- low: 95.7
+- date: 20260618
+- open: 102.5
+- high: 105.5
+- low: 99.6
 - close: 101.5
-- volume: 101000
-- ma5: 97.38
-- ema23_primary: 100.37
-- distance_to_ema23_pct: 1.13
-- ma20: 103.89
-- ma60: 89.45
-- ma120: 78
-- return_5d: 0.99
-- return_20d: -3.33
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -2.3
+- volume: 1540000
+- ma5: 98.68
+- ema23_primary: 100.3
+- distance_to_ema23_pct: 1.19
+- ma20: 103.42
+- ma60: 91.34
+- ma120: 79.39
+- return_5d: 6.84
+- return_20d: 1.5
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: -1.86
 - distance_to_high_60_pct: -13.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,102,104,98.2,101,4117000,90.75,11.3,90.09,77.99,1.33
-20260519,107,111,107,111,5046000,92.43,20.08,91.47,78.73,1.59
-20260520,113,114.5,99.9,99.9,10645000,93.06,7.35,92.34,79.3,2.92
-20260521,95.2,101.5,95.2,100,7681000,93.64,6.8,93.26,79.87,1.94
 20260522,100.5,109,99.2,104,104000,94.5,10.05,94.56,80.49,0.03
 20260525,108,114,107.5,111,112000,95.87,15.78,96.14,81.22,0.03
 20260526,113,113.5,106.5,113,110000,97.3,16.13,97.83,81.94,0.03
 20260527,113.5,114.5,105,107,110000,98.11,9.06,99.11,82.56,0.03
 20260528,108.5,110,99.9,101,104000,98.35,2.69,99.97,83.1,0.03
 20260529,104,106,101.5,104,104000,98.82,5.24,100.88,83.72,0.03
-20260601,105,114,104.5,113,112,100,13,101.81,84.56,0
+20260601,105,114,104.5,113,112000,100,13,101.81,84.56,0.03
 20260602,113,118,108,108.5,111,100.71,7.73,102.28,85.29,0
 20260603,111.5,116.5,107.5,108.5,111000,101.36,7.04,103.11,85.96,0.04
-20260604,111.5,116.5,107.5,108.5,111000,101.96,6.42,104.11,86.7,0.04
-20260605,105,107.5,98.5,100.5,102000,101.83,-1.31,104.69,87.25,0.04
-20260611,100.5,101.5,92.8,95,97000,101.26,-6.19,104.59,87.66,0.04
-20260612,99.1,101,94.3,94.3,97000,100.68,-6.34,104.19,88.05,0.04
-20260615,97.4,99.7,95,97.5,97000,100.42,-2.91,103.91,88.5,0.05
-20260616,99.9,102.5,96.6,98.6,99000,100.27,-1.66,104.06,88.95,0.06
-20260617,96.8,105,95.7,101.5,101000,100.37,1.13,103.89,89.45,0.07
+20260604,107,112,104.5,106,108000,101.75,4.18,103.98,86.66,0.04
+20260605,105,107.5,98.5,100.5,102000,101.64,-1.12,104.57,87.2,0.04
+20260608,90.5,101,90.5,99.6,1843000,101.47,-1.85,104.7,87.7,0.73
+20260609,101.5,102.5,96.5,101,1936000,101.43,-0.43,104.62,88.2,0.8
+20260610,100,111,99.3,103,4735000,101.56,1.41,104.62,88.73,2.03
+20260611,100.5,101.5,92.8,95,2763000,101.02,-5.96,104.6,89.12,1.2
+20260612,99.1,101,94.3,94.3,1707000,100.46,-6.13,104.06,89.51,0.82
+20260615,97.4,99.7,95,97.5,1440000,100.21,-2.7,103.89,89.94,0.74
+20260616,99.9,102.5,96.6,98.6,1455000,100.08,-1.48,103.27,90.41,0.82
+20260617,96.8,105,95.7,101.5,1844000,100.2,1.3,103.35,90.91,1.39
+20260618,102.5,105.5,99.6,101.5,1540000,100.3,1.19,103.42,91.34,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3580 | 友威科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3580 | 友威科 | 1 | 1 | 1 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

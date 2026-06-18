@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:22 Asia/Taipei
+- generated_at: 2026-06-18 22:23:21 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 47
-- high: 47.25
-- low: 46.45
-- close: 46.45
-- volume: 1106283
-- ma5: 46.78
-- ema23_primary: 45.8
-- distance_to_ema23_pct: 1.41
-- ma20: 44.53
-- ma60: 50.55
-- ma120: 57.55
-- return_5d: -5.78
-- return_20d: 24.03
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 4.31
-- distance_to_high_60_pct: -37.23
+- date: 20260618
+- open: 46.5
+- high: 46.6
+- low: 44.1
+- close: 44.1
+- volume: 2753988
+- ma5: 46.24
+- ema23_primary: 46.11
+- distance_to_ema23_pct: -4.36
+- ma20: 45.75
+- ma60: 49.22
+- ma120: 57.1
+- return_5d: -5.77
+- return_20d: -5.06
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -3.6
+- distance_to_high_60_pct: -33.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,38,38.5,37.05,37.9,3502796,46.26,-18.07,45.19,58.06,0.96
-20260519,37.85,39.7,37.7,38.6,2790271,45.62,-15.39,44.36,57.69,0.78
-20260520,42.4,42.45,42.4,42.45,2373059,45.36,-6.41,43.87,57.39,0.69
-20260521,46.55,46.6,44.05,46.45,12034102,45.45,2.21,43.61,57.15,3.1
 20260522,46.7,49.3,45.35,45.5,6869124,45.45,0.11,43.39,56.85,1.72
 20260525,46,46,41.95,42.2,5389413,45.18,-6.6,43.1,56.52,1.32
 20260526,42.45,43,39.95,40.8,3719460,44.82,-8.96,42.83,56.18,0.93
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,46.5,48.1,46.1,47,4006244,44.66,5.25,42.44,54.63,1.01
 20260602,47,47.4,45.6,45.75,1920465,44.75,2.24,42.51,54.21,0.49
 20260603,45.95,46,45.05,45.8,1353134,44.84,2.15,42.62,53.66,0.35
-20260604,47,47.4,45.6,45.75,1920465,44.91,1.87,42.73,53.22,0.5
-20260605,47,49.85,47,49.3,6513299,45.28,8.89,43.09,52.78,1.61
-20260611,49.45,49.5,46.25,46.8,2777238,45.4,3.07,43.26,52.32,0.7
-20260612,47.2,47.6,46.1,46.85,1702434,45.52,2.91,43.48,51.86,0.43
-20260615,47,47.3,46.25,46.8,1474557,45.63,2.56,43.72,51.41,0.37
-20260616,46.8,47.4,46.25,47,1599305,45.74,2.74,44.08,50.97,0.42
-20260617,47,47.25,46.45,46.45,1106283,45.8,1.41,44.53,50.55,0.31
+20260604,45.8,46.75,45.45,46.1,1972857,44.94,2.58,42.75,53.23,0.51
+20260605,47,49.85,47,49.3,6513299,45.3,8.82,43.1,52.78,1.61
+20260608,48.15,48.15,45.2,47.5,4812146,45.49,4.43,43.31,52.34,1.18
+20260609,48.1,49.85,47.75,48.9,3068790,45.77,6.84,43.63,51.91,0.74
+20260610,49.5,51.4,48.15,48.9,5928346,46.03,6.23,43.98,51.5,1.36
+20260611,49.45,49.5,46.25,46.8,2777238,46.1,1.53,44.33,51.05,0.66
+20260612,47.2,47.6,46.1,46.85,1702434,46.16,1.5,44.8,50.64,0.43
+20260615,47,47.3,46.25,46.8,1474557,46.21,1.27,45.24,50.26,0.38
+20260616,46.8,47.4,46.25,47,1599305,46.28,1.56,45.66,49.88,0.42
+20260617,47,47.25,46.45,46.45,1106283,46.29,0.34,45.87,49.57,0.29
+20260618,46.5,46.6,44.1,44.1,2753988,46.11,-4.36,45.75,49.22,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -184,21 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2543 | 皇昌 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
-| 20260617 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260617 | 2543 | 皇昌 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 12.0 | B_可觀察 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2543 | 皇昌 | 8 | 6 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2543 | 皇昌 | 21 | 0 | 193180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

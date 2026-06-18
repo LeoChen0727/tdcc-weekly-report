@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3234 光環
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:39 Asia/Taipei
+- generated_at: 2026-06-18 22:23:38 Asia/Taipei
 - stock_id: 3234
 - stock_name: 光環
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,9 +87,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -104,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -112,48 +114,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 116.5
-- high: 134.5
-- low: 116.5
-- close: 132
-- volume: 129000
-- ma5: 119.5
-- ema23_primary: 115.73
-- distance_to_ema23_pct: 14.06
-- ma20: 113.59
-- ma60: 106
-- ma120: 83.27
-- return_5d: 5.6
-- return_20d: 36.79
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 16.21
-- distance_to_high_60_pct: -7.69
+- date: 20260618
+- open: 133
+- high: 145
+- low: 129.5
+- close: 145
+- volume: 8411000
+- ma5: 126.7
+- ema23_primary: 118.9
+- distance_to_ema23_pct: 21.95
+- ma20: 119.43
+- ma60: 108.22
+- ma120: 85.95
+- return_5d: 33.03
+- return_20d: 47.21
+- volume_ratio: 4.95
+- distance_to_ma20_pct_auxiliary: 21.41
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,94,96,91,95.9,1207000,102.5,-6.44,105.92,96.36,0.5
-20260519,96.5,96.9,91.8,91.8,1193000,101.61,-9.65,104.41,96.71,0.52
-20260520,91.9,99.4,91,97,1580000,101.22,-4.17,103.36,97.06,0.69
-20260521,98,101,97.5,98.5,1337000,101,-2.47,102.53,97.43,0.59
 20260522,100,106.5,100,104,103000,101.25,2.72,102.28,97.84,0.05
 20260525,108,111,106,107,108000,101.73,5.18,102.33,98.18,0.05
 20260526,106,110.5,100.5,110.5,105000,102.46,7.85,102.78,98.46,0.05
 20260527,111.5,111.5,102.5,103.5,106000,102.54,0.93,102.41,98.59,0.06
 20260528,103.5,104.5,98,98.6,101000,102.22,-3.54,102.02,98.48,0.05
 20260529,100,108,99.6,108,107000,102.7,5.16,101.74,98.69,0.07
-20260601,118.5,118.5,118.5,118.5,118,104.01,13.93,102.24,99.22,0
+20260601,118.5,118.5,118.5,118.5,118000,104.01,13.93,102.24,99.22,0.08
 20260602,129,130,120,130,128,106.18,22.43,103.42,99.99,0
 20260603,142,143,138,143,143000,109.25,30.89,105.42,101.04,0.12
-20260604,142,143,138,143,143000,112.06,27.61,107.44,102.22,0.13
-20260605,131,133,124,125,127000,113.14,10.48,108.79,103.07,0.14
-20260611,113,113,104.5,109,109000,112.79,-3.36,109.36,103.53,0.13
-20260612,116,116,109,111.5,112000,112.69,-1.05,109.59,103.96,0.17
-20260615,115,122.5,112.5,122.5,118000,113.5,7.93,110.67,104.53,0.23
-20260616,122,128.5,120,122.5,123000,114.25,7.22,111.81,105.15,0.28
-20260617,116.5,134.5,116.5,132,129000,115.73,14.06,113.59,106,0.37
+20260604,140,142,131,136.5,137000,111.52,22.4,107.11,102.11,0.13
+20260605,131,133,124,125,127000,112.64,10.97,108.47,102.97,0.14
+20260608,112.5,125,112.5,124,3891000,113.59,9.17,109.79,103.67,3.81
+20260609,131,132,123,124.5,3315000,114.5,8.74,110.67,104.32,3.26
+20260610,114.5,121,112.5,113,3477000,114.37,-1.2,111.27,104.73,3.36
+20260611,113,113,104.5,109,1946000,113.93,-4.32,111.74,105.12,1.85
+20260612,116,116,109,111.5,1462000,113.72,-1.96,112.49,105.63,1.42
+20260615,115,122.5,112.5,122.5,2780000,114.45,7.03,113.82,106.26,2.51
+20260616,122,128.5,120,122.5,2860000,115.13,6.41,115.36,106.74,2.4
+20260617,116.5,134.5,116.5,132,4721000,116.53,13.27,117.11,107.31,3.5
+20260618,133,145,129.5,145,8411000,118.9,21.95,119.43,108.22,4.95
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3234 | 光環 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3234 | 光環 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9921 巨大
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:20 Asia/Taipei
+- generated_at: 2026-06-18 22:25:10 Asia/Taipei
 - stock_id: 9921
 - stock_name: 巨大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 76.1
-- high: 77
-- low: 75
-- close: 75.2
-- volume: 1988809
-- ma5: 75.84
-- ema23_primary: 72.03
-- distance_to_ema23_pct: 4.4
-- ma20: 71.33
-- ma60: 70.41
-- ma120: 79.41
-- return_5d: 6.21
-- return_20d: -0.92
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 5.43
-- distance_to_high_60_pct: -5.05
+- date: 20260618
+- open: 75.4
+- high: 76
+- low: 73.8
+- close: 74.1
+- volume: 2136328
+- ma5: 75.52
+- ema23_primary: 72.42
+- distance_to_ema23_pct: 2.32
+- ma20: 71.48
+- ma60: 70.45
+- ma120: 78.6
+- return_5d: -2.11
+- return_20d: 4.66
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 3.66
+- distance_to_high_60_pct: -6.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,76.3,77.2,72.1,72.3,2947428,70.72,2.23,69.56,72.91,1.24
-20260519,72.3,73.9,71.3,72,2147875,70.83,1.66,69.7,72.66,0.88
-20260520,72,72.1,70.1,70.6,1441632,70.81,-0.29,69.72,72.38,0.59
-20260521,70.8,71.6,70.6,70.8,1075911,70.81,-0.01,69.73,72.1,0.44
 20260522,71,71.4,69.9,70.3,1560412,70.76,-0.66,69.81,71.86,0.64
 20260525,70.9,71,68.5,69.5,1765658,70.66,-1.64,69.92,71.63,0.73
 20260526,69.3,70,67.8,68,1879426,70.44,-3.46,70.02,71.39,0.78
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,69.4,70.5,68.2,69.8,2297644,69.84,-0.06,70.28,70.57,0.94
 20260602,69.6,70.5,69.4,69.8,1846686,69.84,-0.05,70.3,70.42,0.76
 20260603,70.5,71.4,69.1,70.4,2247381,69.88,0.74,70.38,70.29,0.91
-20260604,69.6,70.5,69.4,69.8,1846686,69.88,-0.11,70.48,70.2,0.75
-20260605,70.2,71.2,69.2,70.8,1341632,69.95,1.21,70.72,70.15,0.55
-20260611,72.6,77.2,72.3,75.7,4311513,70.43,7.48,71.02,70.2,1.73
-20260612,76.4,77.5,75.2,75.4,2613252,70.85,6.43,71.18,70.26,1.09
-20260615,77,77.5,75.6,76.2,1933760,71.29,6.88,71.2,70.35,0.86
-20260616,77,78.2,75.4,76.7,2479849,71.74,6.91,71.36,70.38,1.11
-20260617,76.1,77,75,75.2,1988809,72.03,4.4,71.33,70.41,0.95
+20260604,70.8,71.4,68.6,70.6,2210768,69.94,0.94,70.52,70.22,0.9
+20260605,70.2,71.2,69.2,70.8,1341632,70.02,1.12,70.76,70.17,0.55
+20260608,68.8,71.5,67.9,70.6,1851520,70.06,0.76,70.8,70.13,0.78
+20260609,70.4,71.7,69.6,71.3,1463148,70.17,1.61,70.76,70.12,0.66
+20260610,70.4,72.4,70.4,72,1899345,70.32,2.39,70.58,70.14,0.91
+20260611,72.6,77.2,72.3,75.7,4311513,70.77,6.97,70.69,70.15,1.99
+20260612,76.4,77.5,75.2,75.4,2613252,71.15,5.97,70.66,70.18,1.28
+20260615,77,77.5,75.6,76.2,1933760,71.57,6.46,70.86,70.25,0.97
+20260616,77,78.2,75.4,76.7,2479849,72,6.53,71.09,70.36,1.23
+20260617,76.1,77,75,75.2,1988809,72.27,4.06,71.32,70.43,0.97
+20260618,75.4,76,73.8,74.1,2136328,72.42,2.32,71.48,70.45,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9921 | 巨大 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 9921 | 巨大 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9921 | 巨大 | 1 | 1 | 3 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 9921 | 巨大 | 2 | 2 | 3 | 5 | 5 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 9921 | 巨大 | 10 | 0 | 505370.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

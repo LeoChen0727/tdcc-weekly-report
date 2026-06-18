@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:32 Asia/Taipei
+- generated_at: 2026-06-18 22:24:30 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 70.8
-- high: 77.4
-- low: 69.7
-- close: 77.3
-- volume: 9041894
-- ma5: 72.44
-- ema23_primary: 75.2
-- distance_to_ema23_pct: 2.8
-- ma20: 75.7
-- ma60: 69.93
-- ma120: 58
-- return_5d: -6.3
-- return_20d: 15.89
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 2.11
-- distance_to_high_60_pct: -15.15
+- date: 20260618
+- open: 78.1
+- high: 78.3
+- low: 76
+- close: 76.4
+- volume: 6567679
+- ma5: 73.88
+- ema23_primary: 75.21
+- distance_to_ema23_pct: 1.58
+- ma20: 77.54
+- ma60: 70.83
+- ma120: 59.02
+- return_5d: 10.4
+- return_20d: 9.3
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -1.47
+- distance_to_high_60_pct: -19.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,66.7,67.7,65.3,67.2,3998799,69.7,-3.58,73.82,62.72,0.44
-20260519,67.2,70.9,66.8,68.1,9334287,69.56,-2.1,73.03,63.15,1.32
-20260520,68.1,68.6,62.9,63.6,9669415,69.07,-7.91,72.22,63.48,1.37
-20260521,65,69.9,64.7,69.9,10396943,69.13,1.11,71.63,63.93,1.43
 20260522,70.8,76.8,70.4,76.1,22341219,69.72,9.16,71.64,64.48,2.79
 20260525,78,78.5,74.5,74.6,17672817,70.12,6.39,71.66,64.98,2.07
 20260526,76,82,73.2,82,23937751,71.11,15.31,72.12,65.63,2.51
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,78.4,84.1,78,83.9,36104373,73.13,14.73,72.08,67.31,2.39
 20260602,84,86.4,79.9,82.9,25276861,73.94,12.11,72.19,67.74,1.57
 20260603,88.9,91.1,88.9,91.1,7647761,75.37,20.86,73.11,68.22,0.49
-20260604,84,86.4,79.9,82.9,25276861,76,9.08,73.7,68.66,1.55
-20260605,84.2,86.3,79.3,82.5,16185596,76.54,7.78,74.56,69.07,0.98
-20260611,70.9,71.9,67.1,69.2,6937390,75.93,-8.86,74.69,69.17,0.42
-20260612,72,72.9,70.3,71.1,4096856,75.53,-5.86,74.85,69.29,0.25
-20260615,73.8,75.1,72.7,73.5,4174785,75.36,-2.47,75.05,69.46,0.26
-20260616,74.5,75.1,71,71.1,3510143,75,-5.21,75.17,69.65,0.22
-20260617,70.8,77.4,69.7,77.3,9041894,75.2,2.8,75.7,69.93,0.56
+20260604,91.5,95.1,85.1,86,40084286,76.26,12.77,73.86,68.71,2.35
+20260605,84.2,86.3,79.3,82.5,16185596,76.78,7.45,74.71,69.12,0.94
+20260608,74.3,79.6,74.3,78.9,10886249,76.96,2.53,75.33,69.39,0.62
+20260609,79.3,79.5,74.4,75.8,13496449,76.86,-1.38,75.72,69.58,0.76
+20260610,74.1,76.5,71.2,71.3,10103578,76.4,-6.67,75.81,69.72,0.57
+20260611,70.9,71.9,67.1,69.2,6937390,75.8,-8.7,75.84,69.87,0.39
+20260612,72,72.9,70.3,71.1,4096856,75.41,-5.71,76.06,70.05,0.23
+20260615,73.8,75.1,72.7,73.5,4174785,75.25,-2.32,76.38,70.22,0.23
+20260616,74.5,75.1,71,71.1,3510143,74.9,-5.07,76.53,70.33,0.2
+20260617,70.8,77.4,69.7,77.3,9041894,75.1,2.93,77.22,70.56,0.52
+20260618,78.1,78.3,76,76.4,6567679,75.21,1.58,77.54,70.83,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6456 | GIS-KY | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.投資計畫內容: 本公司董事會核准子公司業桓科技(成都)有限公司追減專案預算新台幣6.82億元， 並將該專案及預算金額移轉至業成科技(成都)有限公司繼續執行。 3.預計投資金額:新台幣6.82億元。 4.預計投資日期:於董事會通過後進行二家子公司資本支出專案預算調整。 5.資金來源:子公司營運資金支應。 6.具體目的:為子公司間營運效益最大化考量，故進行本次專案預算調整。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6456 | GIS-KY | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.投資計畫內容: 本公司董事會核准子公司業桓科技(成都)有限公司追減專案預算新台幣6.82億元， 並將該專案及預算金額移轉至業成科技(成都)有限公司繼續執行。 3.預計投資金額:新台幣6.82億元。 4.預計投資日期:於董事會通過後進行二家子公司資本支出專案預算調整。 5.資金來源:子公司營運資金支應。 6.具體目的:為子公司間營運效益最大化考量，故進行本次專案預算調整。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6456 | GIS-KY | 4 | 4 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6456 | GIS-KY | 5 | 5 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6456 | GIS-KY | 51 | 0 | 5058300.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

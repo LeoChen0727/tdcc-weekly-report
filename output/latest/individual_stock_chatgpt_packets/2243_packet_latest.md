@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:09 Asia/Taipei
+- generated_at: 2026-06-18 22:23:07 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 嚴格突破
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 43.5
-- high: 48.2
-- low: 42.65
-- close: 47
-- volume: 2219163
-- ma5: 40.78
-- ema23_primary: 30.82
-- distance_to_ema23_pct: 52.48
-- ma20: 28.84
-- ma60: 24.77
-- ma120: 18.4
-- return_5d: 67.56
-- return_20d: 121.7
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 62.97
-- distance_to_high_60_pct: -2.49
+- date: 20260618
+- open: 49
+- high: 51.7
+- low: 49
+- close: 51.7
+- volume: 1614835
+- ma5: 44.35
+- ema23_primary: 33.17
+- distance_to_ema23_pct: 55.87
+- ma20: 31.55
+- ma60: 25.8
+- ma120: 19.18
+- return_5d: 52.73
+- return_20d: 135
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 63.87
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,21.3,22.65,20.95,21.7,876240,23.01,-5.69,24.09,19.66,0.51
-20260519,21.85,22.35,21.5,21.6,532571,22.89,-5.65,24.07,19.83,0.31
-20260520,21.55,21.95,20.9,20.9,600912,22.73,-8.04,23.95,19.98,0.36
-20260521,21.65,22,20.95,22,900681,22.67,-2.94,23.87,20.15,0.54
 20260522,22.45,22.95,22.2,22.8,627322,22.68,0.54,23.81,20.33,0.38
 20260525,22.8,23.5,22.15,23.5,954090,22.75,3.32,23.77,20.52,0.6
 20260526,23.55,24,23,23.5,610555,22.81,3.03,23.7,20.71,0.4
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,27.3,30,27.2,29.95,3608920,23.95,25.05,23.61,21.67,2.83
 20260602,29.35,29.45,27.1,28,3049156,24.29,15.28,23.71,21.94,2.27
 20260603,27.95,28.1,26.35,27,1123766,24.51,10.14,23.74,22.19,0.83
-20260604,29.35,29.45,27.1,28,3049156,24.8,12.88,23.82,22.46,2.11
-20260605,27.55,29.1,27.55,28.05,1848401,25.07,11.87,24.03,22.72,1.29
-20260611,30.8,33.85,30.3,33.85,4387150,25.81,31.17,24.64,23.05,2.93
-20260612,34.45,37.2,34.1,37.2,3763311,26.76,39.04,25.39,23.42,2.33
-20260615,39.3,40.9,39,40.9,3098658,27.93,46.42,26.35,23.84,1.78
-20260616,44.8,44.95,44.05,44.95,3124210,29.35,53.14,27.55,24.3,1.68
-20260617,43.5,48.2,42.65,47,2219163,30.82,52.48,28.84,24.77,1.14
+20260604,28,29.7,27.25,29.65,4018447,24.94,18.88,23.9,22.49,2.69
+20260605,27.55,29.1,27.55,28.05,1848401,25.2,11.31,24.11,22.75,1.24
+20260608,25.25,27.95,25.25,27.75,1974871,25.41,9.2,24.42,22.98,1.38
+20260609,27.85,28.5,27.5,28.5,992978,25.67,11.02,24.73,23.2,0.71
+20260610,28,31.2,28,30.8,2128874,26.1,18.02,25.19,23.45,1.44
+20260611,30.8,33.85,30.3,33.85,4387150,26.74,26.57,25.83,23.73,2.64
+20260612,34.45,37.2,34.1,37.2,3763311,27.62,34.71,26.63,24.04,2.06
+20260615,39.3,40.9,39,40.9,3098658,28.72,42.4,27.59,24.38,1.6
+20260616,44.8,44.95,44.05,44.95,3124210,30.07,49.46,28.76,24.8,1.51
+20260617,43.5,48.2,42.65,47,2219163,31.49,49.28,30.07,25.25,1.03
+20260618,49,51.7,49,51.7,1614835,33.17,55.87,31.55,25.8,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2243 | 宏旭-KY | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2243 | 宏旭-KY | true_breakout | 嚴格突破 | 61.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2243 | 宏旭-KY | 5 | 1 | 5 | 8 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 2243 | 宏旭-KY | 6 | 1 | 5 | 8 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

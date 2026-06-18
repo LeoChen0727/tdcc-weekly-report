@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2331 精英
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:11 Asia/Taipei
+- generated_at: 2026-06-18 22:23:09 Asia/Taipei
 - stock_id: 2331
 - stock_name: 精英
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 20.8
-- high: 22.35
-- low: 20.75
-- close: 22.25
-- volume: 4859029
-- ma5: 21.36
-- ema23_primary: 21.8
-- distance_to_ema23_pct: 2.06
-- ma20: 21.63
-- ma60: 21.46
-- ma120: 23.35
-- return_5d: -1.98
-- return_20d: 14.99
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 2.85
-- distance_to_high_60_pct: -16.04
+- date: 20260618
+- open: 22.05
+- high: 22.8
+- low: 21.95
+- close: 22.4
+- volume: 4167566
+- ma5: 21.71
+- ema23_primary: 21.71
+- distance_to_ema23_pct: 3.19
+- ma20: 22.06
+- ma60: 21.31
+- ma120: 23.26
+- return_5d: 8.47
+- return_20d: 14.29
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 1.53
+- distance_to_high_60_pct: -15.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,19.25,19.3,18.75,19,2201770,20.69,-8.15,20.62,22.51,0.99
-20260519,19.1,19.3,18.75,18.95,1241147,20.54,-7.75,20.48,22.4,0.57
-20260520,18.85,19.05,18.6,18.65,1803379,20.38,-8.51,20.31,22.29,0.84
-20260521,18.9,19.7,18.9,19.6,2042737,20.32,-3.54,20.19,22.19,0.96
 20260522,19.7,21.3,19.4,20.85,8000801,20.36,2.39,20.19,22.09,3.43
 20260525,21.15,22.25,21,21.8,12607687,20.48,6.43,20.27,21.99,4.43
 20260526,22,22,20.65,21.15,5471595,20.54,2.98,20.31,21.88,1.81
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,24,24.4,23.85,24.4,7498574,20.96,16.39,20.58,21.6,1.83
 20260602,26,26.5,24.8,25.6,36583316,21.35,19.9,20.79,21.63,6.24
 20260603,25.3,25.3,24.05,24.6,12147649,21.62,13.78,20.96,21.64,1.91
-20260604,26,26.5,24.8,25.6,36583316,21.95,16.61,21.21,21.69,4.56
-20260605,23.1,23.15,22.25,22.7,3920752,22.02,3.11,21.33,21.68,0.48
-20260611,20.95,21.1,20.2,20.65,3777736,21.9,-5.71,21.32,21.61,0.46
-20260612,21.3,21.8,21.2,21.3,2774810,21.85,-2.52,21.36,21.57,0.34
-20260615,21.85,21.85,21.4,21.6,2362948,21.83,-1.05,21.43,21.53,0.29
-20260616,21.9,21.95,21,21,2224587,21.76,-3.5,21.49,21.49,0.27
-20260617,20.8,22.35,20.75,22.25,4859029,21.8,2.06,21.63,21.46,0.59
+20260604,24.35,24.5,23.3,23.35,6724060,21.77,7.28,21.1,21.65,1.03
+20260605,23.1,23.15,22.25,22.7,3920752,21.84,3.92,21.22,21.64,0.59
+20260608,20.5,21.6,20.5,21.5,3416532,21.81,-1.44,21.25,21.59,0.51
+20260609,21.55,22.5,20.9,22,6644499,21.83,0.78,21.32,21.56,0.96
+20260610,21.75,22.6,20.55,21.15,6175583,21.77,-2.86,21.38,21.51,0.87
+20260611,20.95,21.1,20.2,20.65,3777736,21.68,-4.75,21.41,21.47,0.53
+20260612,21.3,21.8,21.2,21.3,2774810,21.65,-1.61,21.51,21.42,0.39
+20260615,21.85,21.85,21.4,21.6,2362948,21.64,-0.2,21.64,21.38,0.33
+20260616,21.9,21.95,21,21,2224587,21.59,-2.73,21.74,21.34,0.31
+20260617,20.8,22.35,20.75,22.25,4859029,21.65,2.79,21.92,21.31,0.66
+20260618,22.05,22.8,21.95,22.4,4167566,21.71,3.19,22.06,21.31,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2331 | 精英 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2331 | 精英 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2331 | 精英 | 1 | 1 | 2 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2331 | 精英 | 2 | 2 | 3 | 5 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2331 | 精英 | 18 | 0 | 353140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

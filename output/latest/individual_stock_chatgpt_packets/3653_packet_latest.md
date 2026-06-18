@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:50 Asia/Taipei
+- generated_at: 2026-06-18 22:23:49 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 3730
-- high: 3990
-- low: 3720
-- close: 3990
-- volume: 1554824
-- ma5: 3784
-- ema23_primary: 3810.93
-- distance_to_ema23_pct: 4.7
-- ma20: 3640
-- ma60: 4071.67
-- ma120: 3472.75
-- return_5d: 10.22
-- return_20d: 15.15
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 9.62
-- distance_to_high_60_pct: -29.82
+- date: 20260618
+- open: 3990
+- high: 4230
+- low: 3935
+- close: 3965
+- volume: 2001751
+- ma5: 3853
+- ema23_primary: 3819.23
+- distance_to_ema23_pct: 3.82
+- ma20: 3767
+- ma60: 4066.33
+- ma120: 3501.92
+- return_5d: 9.53
+- return_20d: 19.07
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 5.26
+- distance_to_high_60_pct: -30.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,3305,3345,3200,3270,1062497,4134.36,-20.91,4534.5,3937,0.71
-20260519,3260,3260,2995,3090,1137582,4047.33,-23.65,4438,3936.08,0.76
-20260520,3010,3030,2800,3030,1475086,3962.55,-23.53,4321,3930.75,0.99
-20260521,3280,3330,3220,3330,521459,3909.84,-14.83,4217,3932.83,0.36
 20260522,3505,3660,3475,3660,638947,3889.02,-5.89,4134.5,3942.5,0.45
 20260525,3750,3770,3700,3770,693208,3879.1,-2.81,4054.5,3956.33,0.48
 20260526,3830,3830,3670,3670,692286,3861.68,-4.96,3990,3965.33,0.48
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,3550,3895,3550,3840,2419419,3798.05,1.1,3664,4006.5,1.3
 20260602,3995,4165,3880,3990,2994152,3814.05,4.61,3624.5,4020.67,1.54
 20260603,4040,4210,3860,3905,1925173,3821.63,2.18,3604.5,4028.83,0.97
-20260604,3995,4165,3880,3990,2994152,3835.66,4.02,3610.25,4042.33,1.46
-20260605,3550,3680,3460,3620,1169958,3817.69,-5.18,3608.75,4044.42,0.65
-20260611,3800,3860,3420,3620,2496268,3801.21,-4.77,3589,4046.67,1.44
-20260612,3755,3820,3495,3690,1850384,3791.94,-2.69,3577.5,4050.83,1.12
-20260615,3800,3970,3775,3835,1451242,3795.53,1.04,3592.75,4060.67,0.88
-20260616,3940,3950,3765,3785,1083519,3794.65,-0.25,3613.75,4067.25,0.65
-20260617,3730,3990,3720,3990,1554824,3810.93,4.7,3640,4071.67,0.92
+20260604,3800,3875,3695,3730,1442589,3813.99,-2.2,3597.25,4038,0.73
+20260605,3550,3680,3460,3620,1169958,3797.82,-4.68,3595.75,4040.08,0.67
+20260608,3260,3860,3260,3820,2195430,3799.67,0.54,3586,4045.67,1.34
+20260609,3915,4060,3855,3935,2263039,3810.95,3.26,3586.75,4053.92,1.44
+20260610,3800,4000,3740,3800,2153645,3810.04,-0.26,3600.25,4063.17,1.33
+20260611,3800,3860,3420,3620,2496268,3794.2,-4.59,3613,4067,1.48
+20260612,3755,3820,3495,3690,1850384,3785.52,-2.52,3624.25,4066.42,1.06
+20260615,3800,3970,3775,3835,1451242,3789.64,1.2,3652.5,4064,0.82
+20260616,3940,3950,3765,3785,1083519,3789.25,-0.11,3687.25,4062.08,0.62
+20260617,3730,3990,3720,3990,1554824,3805.98,4.83,3735.25,4064.42,0.88
+20260618,3990,4230,3935,3965,2001751,3819.23,3.82,3767,4066.33,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3653 | 健策 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 3653 | 健策 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 3653 | 健策 | pattern | 型態觀察 | 51.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3653 | 健策 | 4 | 4 | 4 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3653 | 健策 | 5 | 5 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3653 | 健策 | 0 | 5 | 0.0 | 612400.0 | 0.0 | no_signal |
+| 20260618 | 3653 | 健策 | 30 | 5 | 4247560.0 | 836070.0 | 5.08 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

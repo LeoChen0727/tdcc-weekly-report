@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:39 Asia/Taipei
+- generated_at: 2026-06-18 22:23:38 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,48 +113,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 412
-- high: 417
-- low: 405.5
-- close: 416
-- volume: 412000
-- ma5: 411.2
-- ema23_primary: 422.25
-- distance_to_ema23_pct: -1.48
-- ma20: 419.57
-- ma60: 413.92
-- ma120: 349.61
-- return_5d: -1.3
-- return_20d: -2.12
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -0.85
-- distance_to_high_60_pct: -20.76
+- date: 20260618
+- open: 420
+- high: 425
+- low: 412
+- close: 423
+- volume: 12103000
+- ma5: 416.9
+- ema23_primary: 418.97
+- distance_to_ema23_pct: 0.96
+- ma20: 419.9
+- ma60: 409.93
+- ma120: 357.1
+- return_5d: 7.22
+- return_20d: 2.42
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 0.74
+- distance_to_high_60_pct: -14.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,413,420,402,418,11410000,425.85,-1.84,433.62,381.13,0.34
-20260519,415.5,415.5,389,390,14256000,422.86,-7.77,435.23,382.46,0.43
-20260520,394.5,410,385,405.5,14399000,421.42,-3.78,435.82,384.27,0.45
-20260521,425,426.5,413,413,13226000,420.71,-1.83,435.4,386.25,0.44
 20260522,419.5,428,414,417.5,421000,420.45,-0.7,436.4,388.2,0.02
 20260525,421.5,421.5,405,407.5,411000,419.37,-2.83,436.77,389.77,0.02
 20260526,410.5,416,406.5,410,411000,418.59,-2.05,435.27,391.64,0.02
 20260527,430,437.5,410.5,412.5,423000,418.08,-1.33,431.7,393.76,0.02
 20260528,414.5,421,403,404.5,413000,416.95,-2.99,429.18,395.64,0.02
 20260529,413.5,420,411,415,416000,416.79,-0.43,428.12,398.04,0.03
-20260601,422,432.5,420.5,427,427,417.64,2.24,427.43,400.79,0
+20260601,422,432.5,420.5,427,427000,417.64,2.24,427.43,400.79,0.03
 20260602,434,469.5,430,469.5,457,421.96,11.27,428.5,403.87,0
 20260603,480.5,481,456.5,462,469000,425.3,8.63,428.52,406.77,0.04
-20260604,480.5,481,456.5,462,469000,428.35,7.85,428.55,409.41,0.05
-20260605,444.5,444.5,414.5,421.5,427000,427.78,-1.47,427.2,411.12,0.06
-20260611,388,399.5,378,394.5,390000,425.01,-7.18,424.07,411.85,0.06
-20260612,416,422,405.5,405.5,413000,423.38,-4.22,422.07,412.8,0.08
-20260615,414.5,435,413,423,426000,423.35,-0.08,421.52,413.86,0.09
-20260616,430,434,417,417,424000,422.82,-1.38,420.02,414.23,0.11
-20260617,412,417,405.5,416,412000,422.25,-1.48,419.57,413.92,0.14
+20260604,457,476,451.5,458,463000,428.02,7,428.35,409.34,0.05
+20260605,444.5,444.5,414.5,421.5,427000,427.48,-1.4,427,411.05,0.06
+20260608,379.5,404.5,379.5,403,14330000,425.44,-5.27,424.3,411.93,1.99
+20260609,425,425,412,421,10736000,425.07,-0.96,423.07,413.13,1.6
+20260610,412,420.5,390,390,11259000,422.15,-7.61,420.88,413.64,1.74
+20260611,388,399.5,378,394.5,13824000,419.84,-6.04,418.25,413.63,2.23
+20260612,416,422,405.5,405.5,11982000,418.65,-3.14,417.27,413.15,2
+20260615,414.5,435,413,423,16112000,419.01,0.95,417.52,412.24,2.59
+20260616,430,434,417,417,13924000,418.84,-0.44,418.88,410.44,2.24
+20260617,412,417,405.5,416,8232000,418.61,-0.62,419.4,409.75,1.4
+20260618,420,425,412,423,12103000,418.97,0.96,419.9,409.93,2.07
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3260 | 威剛 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3260 | 威剛 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

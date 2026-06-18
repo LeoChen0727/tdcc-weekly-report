@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:26 Asia/Taipei
+- generated_at: 2026-06-18 22:23:25 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
+- date: 20260618
 - open: 22.95
-- high: 23.1
+- high: 23.15
 - low: 22.65
-- close: 22.95
-- volume: 26548647
-- ma5: 22.67
-- ema23_primary: 21.35
-- distance_to_ema23_pct: 7.48
-- ma20: 21
-- ma60: 20.93
-- ma120: 20.78
-- return_5d: 6.99
-- return_20d: 13.33
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 9.29
-- distance_to_high_60_pct: -0.65
+- close: 22.85
+- volume: 38635314
+- ma5: 22.77
+- ema23_primary: 21.68
+- distance_to_ema23_pct: 5.38
+- ma20: 21.4
+- ma60: 21.04
+- ma120: 20.84
+- return_5d: 2.24
+- return_20d: 12.56
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 6.79
+- distance_to_high_60_pct: -1.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,20.25,20.3,20.15,20.2,16583977,20.79,-2.82,20.93,20.88,0.86
-20260519,20.3,20.65,20.2,20.5,20855453,20.76,-1.26,20.87,20.88,1.07
-20260520,20.6,20.6,20.35,20.35,15208959,20.73,-1.82,20.82,20.87,0.78
-20260521,20.35,20.5,20.3,20.3,17270818,20.69,-1.9,20.76,20.86,0.88
 20260522,20.3,20.45,20.25,20.3,25690679,20.66,-1.74,20.72,20.84,1.29
 20260525,20.35,20.35,20.15,20.2,29062602,20.62,-2.04,20.68,20.81,1.4
 20260526,20.25,20.3,20.15,20.15,19853538,20.58,-2.1,20.64,20.79,0.96
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,20.3,20.55,20.15,20.45,26990622,20.48,-0.15,20.45,20.73,1.15
 20260602,20.4,20.65,20.3,20.6,36952646,20.49,0.53,20.45,20.73,1.49
 20260603,20.7,21.2,20.6,21.1,49122546,20.54,2.72,20.45,20.74,1.85
-20260604,20.4,20.65,20.3,20.6,36952646,20.55,0.26,20.44,20.74,1.35
-20260605,21.35,21.5,21.05,21.45,33928699,20.62,4.02,20.46,20.76,1.2
-20260611,22.3,22.4,21.95,22.35,42757660,20.77,7.63,20.54,20.79,1.44
-20260612,22.5,22.95,22.45,22.6,39882208,20.92,8.04,20.64,20.82,1.33
-20260615,22.95,23.05,22.5,22.65,31499249,21.06,7.54,20.75,20.85,1.04
-20260616,22.75,22.9,22.6,22.8,21365037,21.21,7.51,20.86,20.89,0.71
-20260617,22.95,23.1,22.65,22.95,26548647,21.35,7.48,21,20.93,0.89
+20260604,21,21.6,20.95,21.4,53337581,20.61,3.82,20.48,20.75,1.89
+20260605,21.35,21.5,21.05,21.45,33928699,20.68,3.71,20.5,20.77,1.17
+20260608,21,21.2,20.8,21,31518796,20.71,1.4,20.51,20.78,1.05
+20260609,21.05,22.4,21.05,22.3,92513795,20.84,7,20.59,20.8,2.81
+20260610,22.05,22.5,22,22.35,62205010,20.97,6.59,20.69,20.83,1.79
+20260611,22.3,22.4,21.95,22.35,42757660,21.08,6.01,20.79,20.86,1.2
+20260612,22.5,22.95,22.45,22.6,39882208,21.21,6.56,20.9,20.89,1.11
+20260615,22.95,23.05,22.5,22.65,31499249,21.33,6.19,21.02,20.92,0.86
+20260616,22.75,22.9,22.6,22.8,21365037,21.45,6.29,21.14,20.96,0.58
+20260617,22.95,23.1,22.65,22.95,26548647,21.58,6.37,21.27,21,0.71
+20260618,22.95,23.15,22.65,22.85,38635314,21.68,5.38,21.4,21.04,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2801 | 彰銀 | 3 | 3 | 4 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2801 | 彰銀 | 4 | 4 | 4 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

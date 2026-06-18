@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8104 錸寶
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:10 Asia/Taipei
+- generated_at: 2026-06-18 22:25:01 Asia/Taipei
 - stock_id: 8104
 - stock_name: 錸寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 38.7
-- high: 42.35
-- low: 38.7
+- date: 20260618
+- open: 42.5
+- high: 43.15
+- low: 41.4
 - close: 42.35
-- volume: 4458690
-- ma5: 39.41
-- ema23_primary: 38.58
-- distance_to_ema23_pct: 9.78
-- ma20: 38.44
-- ma60: 35.73
-- ma120: 35.34
-- return_5d: -1.74
-- return_20d: 24.93
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 10.16
-- distance_to_high_60_pct: -6.51
+- volume: 7310968
+- ma5: 40.16
+- ema23_primary: 39.26
+- distance_to_ema23_pct: 7.86
+- ma20: 39.91
+- ma60: 36.2
+- ma120: 35.64
+- return_5d: 9.71
+- return_20d: 22.75
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 6.11
+- distance_to_high_60_pct: -11.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,33.7,34.4,33.1,34.25,455172,34.52,-0.78,34.87,34.72,0.39
-20260519,34.4,34.45,33.55,33.55,547669,34.44,-2.58,34.61,34.67,0.54
-20260520,33.55,34.05,33.3,33.6,371544,34.37,-2.24,34.38,34.66,0.39
-20260521,34.25,34.95,34,34.5,746133,34.38,0.35,34.24,34.66,0.84
 20260522,34.35,35.75,34.35,35.4,1196386,34.47,2.71,34.23,34.65,1.39
 20260525,36.25,36.35,35.15,35.9,1280986,34.58,3.8,34.29,34.64,1.44
 20260526,36.45,36.8,34.95,34.95,1161172,34.62,0.97,34.33,34.59,1.28
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,41.25,43,40.05,41.5,7200896,36.3,14.32,35.63,34.81,3.08
 20260602,40.65,41.15,39,40.55,2984609,36.65,10.63,35.91,34.91,1.23
 20260603,40.45,44.6,39.6,44.6,11336115,37.32,19.52,36.41,35.06,3.83
-20260604,40.65,41.15,39,40.55,2984609,37.59,7.88,36.71,35.17,0.97
-20260605,43.8,45.3,41.8,43.1,7896415,38.05,13.28,37.17,35.32,2.31
-20260611,39.25,39.85,38,38.6,1229885,38.09,1.33,37.37,35.39,0.36
-20260612,39.5,40,38.55,38.55,1353900,38.13,1.1,37.57,35.45,0.39
-20260615,39.5,39.7,38.7,38.9,940236,38.19,1.85,37.83,35.52,0.27
-20260616,39.5,40.15,37.5,38.65,2249181,38.23,1.09,38.02,35.59,0.65
-20260617,38.7,42.35,38.7,42.35,4458690,38.58,9.78,38.44,35.73,1.22
+20260604,46.1,47.8,42.75,42.75,17657002,37.77,13.19,36.82,35.21,4.64
+20260605,43.8,45.3,41.8,43.1,7896415,38.21,12.79,37.28,35.36,1.9
+20260608,38.8,40.6,38.8,40.25,2666923,38.38,4.86,37.56,35.45,0.63
+20260609,40.25,41.6,38.8,41.25,3452331,38.62,6.8,37.9,35.56,0.79
+20260610,40.3,42.6,38.85,39.25,2707439,38.67,1.49,38.17,35.63,0.61
+20260611,39.25,39.85,38,38.6,1229885,38.67,-0.18,38.36,35.71,0.28
+20260612,39.5,40,38.55,38.55,1353900,38.66,-0.28,38.59,35.78,0.3
+20260615,39.5,39.7,38.7,38.9,940236,38.68,0.57,38.83,35.85,0.21
+20260616,39.5,40.15,37.5,38.65,2249181,38.68,-0.07,39.08,35.93,0.49
+20260617,38.7,42.35,38.7,42.35,4458690,38.98,8.64,39.52,36.05,0.94
+20260618,42.5,43.15,41.4,42.35,7310968,39.26,7.86,39.91,36.2,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8104 | 錸寶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.發生變動日期:115/06/17 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名:董事 錸寶科技股份有限公司代表人：楊慰芬 4.舊任者簡歷:錸寶科技股份有限公司代表人：楊慰芬，鈺德科技股份有限公司董事長 5.新任者職稱及姓名:董事 錸寶科技股份有限公司代表人：楊慰芬 6.新任者簡歷:錸寶科技股份有限公司代表人：楊慰芬，鈺德科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:全面改選 9.新任者選任時持股數:75,000,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/03/02~115/03/01 11.新任生效日期:115/06/17 12.同任期董事變動比率:任期屆滿全面改選，不適用 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8104 | 錸寶 | 1 | 1 | 3 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

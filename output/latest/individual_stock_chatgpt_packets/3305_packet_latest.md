@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3305 昇貿
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:40 Asia/Taipei
+- generated_at: 2026-06-18 22:23:39 Asia/Taipei
 - stock_id: 3305
 - stock_name: 昇貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 140
-- high: 143
-- low: 138
-- close: 142.5
-- volume: 1762137
-- ma5: 142.3
-- ema23_primary: 144.28
-- distance_to_ema23_pct: -1.24
-- ma20: 150.38
-- ma60: 124.94
-- ma120: 117.79
-- return_5d: -8.65
-- return_20d: 2.89
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: -5.24
-- distance_to_high_60_pct: -15.93
+- date: 20260618
+- open: 143
+- high: 146
+- low: 141
+- close: 146
+- volume: 2759767
+- ma5: 143.5
+- ema23_primary: 143.91
+- distance_to_ema23_pct: 1.45
+- ma20: 151.53
+- ma60: 127.39
+- ma120: 119.25
+- return_5d: 4.29
+- return_20d: 5.04
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -13.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,140,140,127,137,27488332,119.24,14.89,116.78,111.49,3.11
-20260519,140,150,135.5,138,34056285,120.8,14.23,117.75,111.94,3.33
-20260520,136.5,141,133,135,13097232,121.99,10.67,118.62,112.33,1.22
-20260521,138,144,137,139,11598578,123.41,12.64,119.83,112.83,1.05
 20260522,139,149,138,146,12605498,125.29,16.53,121.7,113.42,1.1
 20260525,151,160.5,150,160.5,13539729,128.22,25.17,124.47,114.22,1.13
 20260526,162.5,166,157,163.5,17035367,131.16,24.66,127.42,115.01,1.34
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,160.5,167.5,154,167.5,12706781,139.93,19.7,138.15,118.12,0.88
 20260602,168,168,155,157.5,10982260,141.4,11.39,140.47,118.96,0.73
 20260603,158,167,156.5,163,8924483,143.2,13.83,142.82,119.92,0.6
-20260604,168,168,155,157.5,10982260,144.39,9.08,144.78,120.91,0.73
-20260605,158,158.5,149,156,5940424,145.36,7.32,146.82,121.8,0.4
-20260611,138,140.5,131,140,6544259,144.91,-3.39,147.97,122.37,0.43
-20260612,145.5,149,143,144.5,6238423,144.88,-0.26,148.78,123.03,0.43
-20260615,147,148,143,144,3612818,144.8,-0.55,149.45,123.73,0.27
-20260616,145,146.5,140,140.5,2987359,144.44,-2.73,150.18,124.37,0.24
-20260617,140,143,138,142.5,1762137,144.28,-1.24,150.38,124.94,0.15
+20260604,160,162,157.5,160,4169581,144.6,10.65,144.9,120.95,0.28
+20260605,158,158.5,149,156,5940424,145.55,7.18,146.95,121.84,0.41
+20260608,140.5,146.5,140.5,145,5371450,145.5,-0.34,148.35,122.49,0.36
+20260609,146,146,133,142,12352225,145.21,-2.21,149.03,123.12,0.87
+20260610,140.5,147,136,136.5,7135149,144.48,-5.53,149.32,123.69,0.54
+20260611,138,140.5,131,140,6544259,144.11,-2.85,150.03,124.32,0.51
+20260612,145.5,149,143,144.5,6238423,144.14,0.25,150.32,124.92,0.52
+20260615,147,148,143,144,3612818,144.13,-0.09,150.68,125.45,0.33
+20260616,145,146.5,140,140.5,2987359,143.83,-2.31,150.8,125.98,0.32
+20260617,140,143,138,142.5,1762137,143.72,-0.85,151.18,126.62,0.2
+20260618,143,146,141,146,2759767,143.91,1.45,151.53,127.39,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3305 | 昇貿 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 3305 | 昇貿 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配現金股利:新台幣320,543,870元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:115/06/24 10.債券停止轉換起始日期:115/06/26 11.債券停止轉換截止日期:115/07/21 12.普通股現金股利發放日期:115/08/13 13.其他應敘明事項: (1)依據本公司115年6月11日股東常會決議並授權董事長訂定除息基準日等事宜。 (2)如嗣後因股本變動，致影響流通在外股份數量，股東配股配息率因此發生變動者， 授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3305 | 昇貿 | 8 | 7 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3305 | 昇貿 | 9 | 5 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3305 | 昇貿 | 0 | 2 | 0.0 | 4560.0 | 0.0 | no_signal |
+| 20260618 | 3305 | 昇貿 | 95 | 2 | 19405820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

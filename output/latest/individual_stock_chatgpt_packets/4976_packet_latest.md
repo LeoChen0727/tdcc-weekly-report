@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:07 Asia/Taipei
+- generated_at: 2026-06-18 22:24:05 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -114,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 38.05
-- high: 41.85
-- low: 37
-- close: 41.7
-- volume: 27817865
-- ma5: 35.95
-- ema23_primary: 33.25
-- distance_to_ema23_pct: 25.42
-- ma20: 33.05
-- ma60: 30.45
-- ma120: 30.54
-- return_5d: 23.74
-- return_20d: 36.72
-- volume_ratio: 8.71
-- distance_to_ma20_pct_auxiliary: 26.17
-- distance_to_high_60_pct: -0.36
+- date: 20260618
+- open: 44.6
+- high: 44.9
+- low: 42.2
+- close: 43.9
+- volume: 18480906
+- ma5: 38.16
+- ema23_primary: 34.55
+- distance_to_ema23_pct: 27.06
+- ma20: 34.16
+- ma60: 30.96
+- ma120: 30.75
+- return_5d: 33.64
+- return_20d: 33.23
+- volume_ratio: 4.04
+- distance_to_ma20_pct_auxiliary: 28.51
+- distance_to_high_60_pct: -2.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,30.7,31.55,30.3,31.3,842865,29.72,5.3,29.73,29.52,1.15
-20260519,30.9,32.6,30.8,30.8,1688764,29.81,3.31,29.74,29.52,2.23
-20260520,30.8,31.65,30.5,30.9,863795,29.9,3.33,29.73,29.52,1.14
-20260521,31.65,33.2,31.05,32.95,2600830,30.16,9.26,29.84,29.56,3.03
 20260522,33.1,33.4,32.4,32.9,1857220,30.39,8.27,30.02,29.58,2.04
 20260525,33.3,33.6,32.2,32.5,1393146,30.56,6.34,30.19,29.59,1.45
 20260526,32.9,33.75,32.15,32.2,1554231,30.7,4.89,30.35,29.61,1.54
@@ -149,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,31.5,32.45,31.3,32.3,1055416,30.91,4.5,30.82,29.67,0.93
 20260602,32.4,33.1,31.3,31.95,1015363,31,3.08,30.95,29.7,0.87
 20260603,32.05,34.95,31.95,34.65,3453416,31.3,10.7,31.25,29.78,2.64
-20260604,32.4,33.1,31.3,31.95,1015363,31.36,1.9,31.36,29.84,0.77
-20260605,34.75,35.2,33.55,33.7,2635193,31.55,6.81,31.59,29.93,1.86
-20260611,33.2,33.4,31.95,32.85,2248134,31.66,3.76,31.79,29.97,1.49
-20260612,33.8,34.05,32.55,32.55,1162502,31.73,2.57,31.94,30.03,0.75
-20260615,33.1,35.2,32.8,34.6,2920638,31.97,8.22,32.15,30.12,1.78
-20260616,34.6,38.05,34.5,38.05,6809301,32.48,17.15,32.49,30.26,3.57
-20260617,38.05,41.85,37,41.7,27817865,33.25,25.42,33.05,30.45,8.71
+20260604,33.95,34.95,33.25,34.5,1715948,31.57,9.29,31.48,29.88,1.26
+20260605,34.75,35.2,33.55,33.7,2635193,31.75,6.16,31.72,29.97,1.81
+20260608,30.4,32.8,30.4,32.35,1225383,31.8,1.74,31.89,30.01,0.82
+20260609,32.35,35.55,32.3,35.55,3338505,32.11,10.72,32.2,30.11,2.04
+20260610,35.45,38.65,33.55,33.8,9873575,32.25,4.81,32.36,30.19,4.74
+20260611,33.2,33.4,31.95,32.85,2248134,32.3,1.7,32.44,30.25,1.06
+20260612,33.8,34.05,32.55,32.55,1162502,32.32,0.71,32.55,30.29,0.56
+20260615,33.1,35.2,32.8,34.6,2920638,32.51,6.43,32.71,30.37,1.34
+20260616,34.6,38.05,34.5,38.05,6809301,32.97,15.4,33.07,30.51,2.8
+20260617,38.05,41.85,37,41.7,27817865,33.7,23.74,33.61,30.71,7.36
+20260618,44.6,44.9,42.2,43.9,18480906,34.55,27.06,34.16,30.96,4.04
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4976 | 佳凌 | true_breakout | 嚴格突破 | 109.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 4976 | 佳凌 | true_breakout | 嚴格突破 | 81.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4976 | 佳凌 | 16 | 2 | 5 | 10 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 4976 | 佳凌 | 17 | 3 | 5 | 10 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

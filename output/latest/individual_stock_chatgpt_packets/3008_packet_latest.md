@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:31 Asia/Taipei
+- generated_at: 2026-06-18 22:23:30 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,24 +56,24 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
 - thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
@@ -87,9 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -114,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 5065
-- high: 5310
-- low: 4960
-- close: 5145
-- volume: 5581398
-- ma5: 4522
-- ema23_primary: 3811.46
-- distance_to_ema23_pct: 34.99
-- ma20: 3831
-- ma60: 2945.25
-- ma120: 2651.71
-- return_5d: 39.81
-- return_20d: 49.35
-- volume_ratio: 2.15
-- distance_to_ma20_pct_auxiliary: 34.3
-- distance_to_high_60_pct: -3.11
+- date: 20260618
+- open: 5115
+- high: 5295
+- low: 5090
+- close: 5195
+- volume: 2984416
+- ma5: 4728
+- ema23_primary: 3989.93
+- distance_to_ema23_pct: 30.2
+- ma20: 4001.25
+- ma60: 3068.08
+- ma120: 2722.08
+- return_5d: 24.73
+- return_20d: 50.14
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 29.83
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,3400,3400,3125,3290,4461026,2737.49,20.18,2704.75,2472.58,2.06
-20260519,3445,3615,3325,3365,5982140,2789.78,20.62,2737.5,2490.5,2.57
-20260520,3330,3410,3200,3200,1168759,2823.96,13.32,2765.25,2505.08,0.51
-20260521,3285,3520,3280,3460,1745376,2876.97,20.27,2809,2524.58,0.76
 20260522,3450,3595,3450,3540,1289200,2932.22,20.73,2861.75,2544.08,0.57
 20260525,3635,3845,3635,3845,1446961,3008.29,27.81,2928,2567.67,0.64
 20260526,3875,3875,3665,3665,1129814,3063.01,19.65,2980.5,2588.5,0.52
@@ -149,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,3630,3835,3630,3835,1342805,3215.59,19.26,3181.25,2664.33,0.62
 20260602,3780,3850,3705,3850,1408889,3268.46,17.79,3246.5,2689.17,0.64
 20260603,3920,4225,3820,3985,3706976,3328.17,19.74,3319.75,2715.92,1.6
-20260604,3780,3850,3705,3850,1408889,3371.65,14.19,3383.5,2742,0.61
-20260605,3750,3750,3570,3680,2295854,3397.35,8.32,3439,2765,0.97
-20260611,4000,4310,4000,4165,4290350,3461.32,20.33,3520,2794.58,1.69
-20260612,4300,4355,4020,4020,3557528,3507.88,14.6,3581.25,2822.33,1.39
-20260615,4080,4420,4035,4420,3675345,3583.89,23.33,3659.75,2856.92,1.46
-20260616,4480,4860,4450,4860,3306359,3690.23,31.7,3746,2899.5,1.34
-20260617,5065,5310,4960,5145,5581398,3811.46,34.99,3831,2945.25,2.15
+20260604,3940,3995,3785,3825,2589597,3369.57,13.52,3382.25,2741.58,1.09
+20260605,3750,3750,3570,3680,2295854,3395.44,8.38,3437.75,2764.58,0.95
+20260608,3330,3550,3325,3535,2683427,3407.07,3.75,3487.25,2783.67,1.07
+20260609,3800,3885,3755,3885,2232485,3446.9,12.71,3541.75,2809.17,0.9
+20260610,4180,4270,4100,4130,5970214,3503.82,17.87,3605.75,2838.92,2.34
+20260611,4000,4310,4000,4165,4290350,3558.92,17.03,3657.25,2869.92,1.68
+20260612,4300,4355,4020,4020,3557528,3597.34,11.75,3686,2896.92,1.38
+20260615,4080,4420,4035,4420,3675345,3665.9,20.57,3742.5,2929.92,1.45
+20260616,4480,4860,4450,4860,3306359,3765.41,29.07,3817.25,2972.25,1.38
+20260617,5065,5310,4960,5145,5632398,3880.37,32.59,3914.5,3018.75,2.15
+20260618,5115,5295,5090,5195,2984416,3989.93,30.2,4001.25,3068.08,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3008 | 大立光 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | no_signal | continued_overheated | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:114/9/4~115/6/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長 民國115年6月15日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易數量: 一批；總金額為新台幣647,560,741元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 大族激光科技產業集團股份有限公司; 與公司關係:無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂購協議規定 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式:比價及議價;  決策單位: 依本公司核決權限規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:是 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3008 | 大立光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 1.事實發生日:115/06/17 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  期   間   最近一月   與去年       最近一季       與去年      最近四季累計 	    115年4月   同期增減％   115年第1季     同期增減％  114年第2季至                                                               115年第1季   科   目    (IFRS合併               (IFRS合併                  (IFRS合併              自結數)                   核閱數)                 核閱數) =========  ==========  =========   ============   =========   ===========              金額           (%)           金額           (%)     金額 =========  ==========  =========   ============   =========   =========== 營業收入      5,362      24.48        15,544        6.62         62,113 (百萬) 稅前淨利      2,262      87.07        7,288         -5.55        25,472 (百萬) 歸屬母公司    1,831      88.54        6,123         -4.97        20,955 業主淨利 (百萬) 每股盈餘      13.95      91.88        46.63         -3.42        157.76 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3008 | 大立光 | 6 | 3 | 5 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 3008 | 大立光 | 7 | 1 | 5 | 8 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3008 | 大立光 | 0 | 12 | 0.0 | 577420.0 | 0.0 | no_signal |
+| 20260618 | 3008 | 大立光 | 228 | 11 | 35408920.0 | 370740.0 | 95.51 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

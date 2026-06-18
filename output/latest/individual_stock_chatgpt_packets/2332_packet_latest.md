@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:11 Asia/Taipei
+- generated_at: 2026-06-18 22:23:09 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -114,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 17.45
-- high: 18.25
-- low: 16.95
-- close: 18.25
-- volume: 35055219
-- ma5: 16.4
-- ema23_primary: 15.93
-- distance_to_ema23_pct: 14.6
-- ma20: 15.9
-- ma60: 15.11
-- ma120: 15.4
-- return_5d: 11.96
-- return_20d: 32.25
-- volume_ratio: 4.01
-- distance_to_ma20_pct_auxiliary: 14.76
+- date: 20260618
+- open: 19.5
+- high: 20.05
+- low: 19.5
+- close: 20.05
+- volume: 16857466
+- ma5: 17.27
+- ema23_primary: 16.22
+- distance_to_ema23_pct: 23.59
+- ma20: 16.36
+- ma60: 15.19
+- ma120: 15.42
+- return_5d: 27.71
+- return_20d: 37.33
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: 22.52
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,13.6,14.2,13.45,14,3285858,14.24,-1.68,14.17,14.93,0.83
-20260519,14.1,14.25,13.8,13.85,2514989,14.21,-2.51,14.1,14.91,0.64
-20260520,14,14.1,13.75,13.95,1640733,14.19,-1.66,14.04,14.89,0.42
-20260521,14.1,14.7,14,14.6,6143574,14.22,2.67,14.01,14.88,1.51
 20260522,14.65,15.7,14.45,15.45,12015319,14.32,7.87,14.05,14.87,2.83
 20260525,15.85,16,15.4,15.7,8723136,14.44,8.75,14.13,14.87,2.14
 20260526,16.1,16.15,15.2,15.5,6702381,14.53,6.71,14.2,14.87,1.64
@@ -149,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,17.1,17.1,16.55,16.7,6996956,15.06,10.86,14.69,14.93,1.18
 20260602,17,17.4,16.55,17.3,9919798,15.25,13.44,14.85,14.96,1.58
 20260603,17.6,17.6,16.75,16.85,13710836,15.38,9.53,14.98,14.98,2.03
-20260604,17,17.4,16.55,17.3,9919798,15.54,11.3,15.14,15.01,1.4
-20260605,16.5,16.65,16.05,16.3,4136724,15.61,4.44,15.26,15.02,0.58
-20260611,15.7,15.95,15.35,15.7,3090704,15.61,0.55,15.35,15.03,0.44
-20260612,16,16.2,15.5,15.5,3072165,15.6,-0.67,15.42,15.03,0.43
-20260615,15.8,16.15,15.65,15.95,2869296,15.63,2.02,15.54,15.04,0.41
-20260616,16.2,16.75,15.6,16.6,6831352,15.71,5.64,15.68,15.07,0.95
-20260617,17.45,18.25,16.95,18.25,35055219,15.93,14.6,15.9,15.11,4.01
+20260604,16.7,16.8,16.45,16.55,6642174,15.48,6.9,15.1,15,0.96
+20260605,16.5,16.65,16.05,16.3,4136724,15.55,4.83,15.22,15.01,0.6
+20260608,15,15.45,14.9,15.4,5764822,15.54,-0.88,15.3,15.01,0.82
+20260609,15.1,15.6,15.1,15.35,6548538,15.52,-1.1,15.36,15.01,0.91
+20260610,15.4,16.25,15.25,15.6,7600992,15.53,0.46,15.46,15.02,1.04
+20260611,15.7,15.95,15.35,15.7,3090704,15.54,1.01,15.56,15.03,0.42
+20260612,16,16.2,15.5,15.5,3072165,15.54,-0.25,15.64,15.03,0.42
+20260615,15.8,16.15,15.65,15.95,2869296,15.57,2.42,15.74,15.03,0.39
+20260616,16.2,16.75,15.6,16.6,6831352,15.66,6.01,15.88,15.05,0.91
+20260617,17.45,18.25,16.95,18.25,35055219,15.87,14.96,16.09,15.1,3.81
+20260618,19.5,20.05,19.5,20.05,16857466,16.22,23.59,16.36,15.19,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2332 | 友訊 | true_breakout | 嚴格突破 | 126.0 |  |  | breakout_confirmed |  |  | continued_many_days | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2樓（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之第二季投資論壇，說明本公司營運展望與經營績效。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2332 | 友訊 | true_breakout | 嚴格突破 | 97.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2樓（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之第二季投資論壇，說明本公司營運展望與經營績效。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2332 | 友訊 | 5 | 1 | 5 | 7 | 12 | continued_many_days | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260618 | 2332 | 友訊 | 6 | 2 | 5 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2332 | 友訊 | 2 | 0 | 112440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

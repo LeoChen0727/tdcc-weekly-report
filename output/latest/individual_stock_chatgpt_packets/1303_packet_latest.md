@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1303 南亞
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:50 Asia/Taipei
+- generated_at: 2026-06-18 22:22:48 Asia/Taipei
 - stock_id: 1303
 - stock_name: 南亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 114.5
-- high: 126.5
-- low: 113.5
-- close: 126.5
-- volume: 92092374
-- ma5: 112.38
-- ema23_primary: 102.28
-- distance_to_ema23_pct: 23.68
-- ma20: 99.73
-- ma60: 89.75
-- ma120: 80.83
-- return_5d: 21.05
-- return_20d: 48.3
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: 26.84
+- date: 20260618
+- open: 139
+- high: 139
+- low: 135
+- close: 139
+- volume: 134284623
+- ma5: 120.8
+- ema23_primary: 105.42
+- distance_to_ema23_pct: 31.86
+- ma20: 104.48
+- ma60: 91.53
+- ma120: 82.38
+- return_5d: 43.45
+- return_20d: 59.22
+- volume_ratio: 1.59
+- distance_to_ma20_pct_auxiliary: 33.04
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,84.1,84.8,82.1,84.2,43497103,87.25,-3.49,88.5,84.23,0.57
-20260519,84.4,86.7,81.7,81.7,59035662,86.79,-5.86,88.31,84.3,0.79
-20260520,82.3,82.8,80.4,80.8,45033101,86.29,-6.36,87.92,84.43,0.6
-20260521,83.1,88.3,83.1,87.3,71604549,86.37,1.07,87.82,84.57,0.95
 20260522,88,89.1,86.7,86.7,45973684,86.4,0.35,87.89,84.62,0.63
 20260525,87.4,89.2,86.4,87.1,32588153,86.46,0.74,87.95,84.56,0.45
 20260526,87.8,94.4,87.8,90.8,104635302,86.82,4.58,88.11,84.49,1.42
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,98.7,107.5,97.5,107.5,111908983,90.22,19.15,89.73,85.26,1.4
 20260602,110,118,108.5,112.5,151715085,92.08,22.18,90.66,85.76,1.87
 20260603,118.5,118.5,107,113,77820950,93.82,20.44,91.61,86.27,1
-20260604,110,118,108.5,112.5,151715085,95.38,17.95,92.72,86.91,1.86
-20260605,109,109,100.5,104.5,53708093,96.14,8.7,93.52,87.36,0.66
-20260611,93.2,99.2,93.1,96.9,56196247,96.2,0.73,93.79,87.6,0.69
-20260612,101,106.5,101,106.5,54209344,97.06,9.73,94.66,88.08,0.67
-20260615,108.5,117,106.5,117,85711486,98.72,18.52,96.19,88.64,1.04
-20260616,120.5,123,114,115,107797121,100.08,14.91,97.67,89.07,1.27
-20260617,114.5,126.5,113.5,126.5,92092374,102.28,23.68,99.73,89.75,1.08
+20260604,111,117,110.5,111,55044623,95.25,16.53,92.65,86.89,0.72
+20260605,109,109,100.5,104.5,53708093,96.02,8.83,93.44,87.33,0.7
+20260608,96.1,98.9,95.2,97.5,55665706,96.15,1.41,93.75,87.58,0.73
+20260609,100,101,96.9,99.2,68161804,96.4,2.9,94.25,87.95,0.89
+20260610,97.6,101,94.6,94.8,44236886,96.27,-1.52,94.67,88.14,0.58
+20260611,93.2,99.2,93.1,96.9,56196247,96.32,0.6,95.25,88.26,0.74
+20260612,101,106.5,101,106.5,54209344,97.17,9.6,96.31,88.61,0.73
+20260615,108.5,117,106.5,117,85711486,98.82,18.4,97.94,89.13,1.12
+20260616,120.5,123,114,115,107797121,100.17,14.81,99.61,89.64,1.36
+20260617,114.5,126.5,113.5,126.5,92092374,102.36,23.58,101.89,90.44,1.13
+20260618,139,139,135,139,134284623,105.42,31.86,104.48,91.53,1.59
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1303 | 南亞 | true_breakout | 嚴格突破 | 61.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1303 | 南亞 | true_breakout | 嚴格突破 | 59.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1303 | 南亞 | 1 | 1 | 3 | 5 | 8 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260618 | 1303 | 南亞 | 2 | 2 | 3 | 5 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1303 | 南亞 | 0 | 13 | 0.0 | 179920.0 | 0.0 | no_signal |
+| 20260618 | 1303 | 南亞 | 249 | 12 | 28450610.0 | 166140.0 | 171.24 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

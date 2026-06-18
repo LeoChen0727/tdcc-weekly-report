@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6472 保瑞
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:32 Asia/Taipei
+- generated_at: 2026-06-18 22:24:31 Asia/Taipei
 - stock_id: 6472
 - stock_name: 保瑞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 405.5
-- high: 421
-- low: 405.5
-- close: 412.5
-- volume: 1892782
-- ma5: 399.8
-- ema23_primary: 382.6
-- distance_to_ema23_pct: 7.81
-- ma20: 371.93
-- ma60: 407.45
-- ma120: 460.27
+- date: 20260618
+- open: 417
+- high: 425.5
+- low: 413
+- close: 422.5
+- volume: 1287852
+- ma5: 408.2
+- ema23_primary: 389.2
+- distance_to_ema23_pct: 8.56
+- ma20: 376.27
+- ma60: 402.09
+- ma120: 456.94
 - return_5d: 11.04
-- return_20d: 16.86
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 10.91
-- distance_to_high_60_pct: -21.58
+- return_20d: 10.03
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 12.28
+- distance_to_high_60_pct: -10.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,353,388,338,388,2767967,405.97,-4.43,403.93,444.86,2.1
-20260519,404,405.5,367,372,3218794,403.14,-7.72,402.07,441.76,2.26
-20260520,377,396,375,383.5,2180945,401.5,-4.48,400.43,439.1,1.45
-20260521,393,393,376.5,384,1595665,400.04,-4.01,398.68,437.33,1.03
 20260522,386,391,376,379.5,1938051,398.33,-4.73,397.1,435.39,1.21
 20260525,384.5,384.5,366,366.5,1940384,395.68,-7.37,395,432.83,1.17
 20260526,369.5,372.5,355,355.5,1301184,392.33,-9.39,392.48,430.26,0.77
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,348,359.5,342,356.5,1047654,378.92,-5.92,379.77,420.88,0.58
 20260602,356.5,362,348,350,730473,376.51,-7.04,376.9,418.68,0.4
 20260603,358,358,349,354,532240,374.63,-5.51,374.12,416.49,0.29
-20260604,356.5,362,348,350,730473,372.58,-6.06,370.93,414.78,0.4
-20260605,364.5,377,360.5,371.5,1321960,372.49,-0.27,368.55,413.31,0.74
-20260611,404,404,378.5,380.5,1662956,373.16,1.97,367.15,411.76,0.93
-20260612,384,391,383,390.5,706145,374.6,4.24,366.48,410.57,0.42
-20260615,397,416.5,394.5,410,1958717,377.55,8.59,366.82,409.79,1.15
-20260616,407,412.5,398.5,405.5,1450773,379.88,6.74,368.95,408.6,0.87
-20260617,405.5,421,405.5,412.5,1892782,382.6,7.81,371.93,407.45,1.21
+20260604,355.5,372.5,352.5,363,1310251,373.66,-2.85,371.57,415,0.71
+20260605,364.5,377,360.5,371.5,1321960,373.48,-0.53,369.2,413.52,0.73
+20260608,363.5,393.5,362.5,391,3431781,374.94,4.28,368.32,412.15,1.79
+20260609,391,404.5,384,390,2666248,376.2,3.67,367.62,410.95,1.4
+20260610,393,413,393,398,3305702,378.01,5.29,367.38,409.98,1.66
+20260611,404,404,378.5,380.5,1662956,378.22,0.6,368.25,408.37,0.84
+20260612,384,391,383,390.5,706145,379.25,2.97,370.12,406.85,0.39
+20260615,397,416.5,394.5,410,1958717,381.81,7.38,371.23,405.08,1.12
+20260616,407,412.5,398.5,405.5,1450773,383.78,5.66,372.9,403.79,0.87
+20260617,405.5,421,405.5,412.5,1892782,386.18,6.82,374.35,402.61,1.15
+20260618,417,425.5,413,422.5,1287852,389.2,8.56,376.27,402.09,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6472 | 保瑞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6472 | 保瑞 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6472 | 保瑞 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260618 | 6472 | 保瑞 | 2 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6472 | 保瑞 | 0 | 1 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 6472 | 保瑞 | 73 | 1 | 7715580.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

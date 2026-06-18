@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4968 立積
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:06 Asia/Taipei
+- generated_at: 2026-06-18 22:24:05 Asia/Taipei
 - stock_id: 4968
 - stock_name: 立積
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 106
-- high: 109.5
-- low: 106
-- close: 108
-- volume: 361372
-- ma5: 107.1
-- ema23_primary: 113.33
-- distance_to_ema23_pct: -4.7
-- ma20: 114.05
-- ma60: 113.05
-- ma120: 117.6
-- return_5d: -4.85
-- return_20d: -3.14
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -5.3
-- distance_to_high_60_pct: -19.4
+- date: 20260618
+- open: 109
+- high: 114
+- low: 108.5
+- close: 113.5
+- volume: 1018206
+- ma5: 109
+- ema23_primary: 111.99
+- distance_to_ema23_pct: 1.35
+- ma20: 113.2
+- ma60: 113.08
+- ma120: 116.75
+- return_5d: 9.13
+- return_20d: -2.16
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 0.27
+- distance_to_high_60_pct: -15.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,110,111,107,111,666819,115.81,-4.15,118.9,113.05,0.28
-20260519,110.5,115,109,110,954193,115.32,-4.61,118.55,112.92,0.44
-20260520,110,114,109.5,113,688422,115.13,-1.85,118.1,112.79,0.33
-20260521,115,116,114,116,821370,115.2,0.69,117.4,112.75,0.46
 20260522,117,120,115.5,119.5,1392984,115.56,3.41,117.22,112.7,0.94
 20260525,122,122.5,119,120.5,1396760,115.97,3.91,117.08,112.66,1
 20260526,121.5,122.5,117,119,1228406,116.22,2.39,116.92,112.6,0.91
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,117.5,119,116,117,1175706,116.27,0.63,116.8,112.36,0.86
 20260602,119,123,117,120,2908795,116.58,2.93,116.75,112.42,2.12
 20260603,121.5,122,117.5,117.5,1182686,116.66,0.72,116.75,112.47,0.9
-20260604,119,123,117,120,2908795,116.94,2.62,116.78,112.73,2.1
-20260605,115.5,116,112,113.5,999394,116.65,-2.7,116.47,112.89,0.75
-20260611,105,107.5,103,104,582402,115.6,-10.03,115.62,112.84,0.45
-20260612,107,109.5,106.5,107,582215,114.88,-6.86,114.95,112.88,0.47
-20260615,109.5,110.5,108,109.5,676713,114.43,-4.31,114.65,112.97,0.55
-20260616,110,111,107,107,440851,113.81,-5.99,114.22,113.02,0.37
-20260617,106,109.5,106,108,361372,113.33,-4.7,114.05,113.05,0.31
+20260604,117,118,116,116.5,961490,116.64,-0.12,116.6,112.67,0.75
+20260605,115.5,116,112,113.5,999394,116.38,-2.48,116.3,112.83,0.81
+20260608,103,107,103,107,1257863,115.6,-7.44,115.6,112.83,1.02
+20260609,107,110.5,106,110,636121,115.13,-4.46,115.08,112.92,0.53
+20260610,107.5,110.5,106,106,581153,114.37,-7.32,114.6,112.95,0.5
+20260611,105,107.5,103,104,582402,113.51,-8.38,114.03,112.95,0.51
+20260612,107,109.5,106.5,107,582215,112.97,-5.28,113.8,112.97,0.52
+20260615,109.5,110.5,108,109.5,676713,112.68,-2.82,113.72,113,0.61
+20260616,110,111,107,107,440851,112.2,-4.64,113.58,113.03,0.41
+20260617,106,109.5,106,108,361372,111.85,-3.45,113.33,112.95,0.34
+20260618,109,114,108.5,113.5,1018206,111.99,1.35,113.2,113.08,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4968 | 立積 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4968 | 立積 | 1 | 1 | 1 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4968 | 立積 | 0 | 3 | 0.0 | 12950.0 | 0.0 | no_signal |
+| 20260618 | 4968 | 立積 | 33 | 3 | 786200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

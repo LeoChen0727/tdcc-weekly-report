@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6239 力成
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:28 Asia/Taipei
+- generated_at: 2026-06-18 22:24:26 Asia/Taipei
 - stock_id: 6239
 - stock_name: 力成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 等待回檔
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
 - entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -86,7 +86,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 343
-- high: 363
-- low: 340
-- close: 345
-- volume: 42824859
-- ma5: 339.8
-- ema23_primary: 313.91
-- distance_to_ema23_pct: 9.91
-- ma20: 321.1
-- ma60: 248.2
-- ma120: 232.78
-- return_5d: 2.07
-- return_20d: 39.11
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 7.44
-- distance_to_high_60_pct: -10.85
+- date: 20260618
+- open: 344
+- high: 369.5
+- low: 337.5
+- close: 363.5
+- volume: 62259885
+- ma5: 345.9
+- ema23_primary: 319.82
+- distance_to_ema23_pct: 13.66
+- ma20: 337.82
+- ma60: 256.43
+- ma120: 238.3
+- return_5d: 9.16
+- return_20d: 41.16
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: 7.6
+- distance_to_high_60_pct: -6.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,245.5,253.5,240,250,44344455,224.4,11.41,222.4,217.72,1.85
-20260519,246.5,246.5,225.5,227,34157853,224.62,1.06,223.35,217.46,1.36
-20260520,225,240.5,224.5,234.5,20428858,225.44,4.02,224.43,217.37,0.8
-20260521,246.5,257.5,246.5,257.5,25307576,228.11,12.88,226.38,217.61,0.98
 20260522,283,283,283,283,7198413,232.69,21.62,230.18,218.18,0.29
 20260525,311,311,311,311,3433065,239.21,30.01,235.22,219.07,0.14
 20260526,342,342,325.5,342,57938700,247.78,38.03,241.47,220.47,2.15
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,382,386,366,366,14415513,281.29,30.12,271.18,228.53,0.45
 20260602,369.5,369.5,329.5,347,24564465,286.76,21.01,277.15,230.57,0.79
 20260603,342,353,333,343,15557902,291.45,17.69,282.57,232.54,0.53
-20260604,369.5,369.5,329.5,347,24564465,296.08,17.2,288.4,234.95,0.83
-20260605,339,350,323,338,16699684,299.57,12.83,294.2,237.01,0.57
-20260611,309.5,333,301,333,17419175,302.36,10.13,299.57,238.97,0.59
-20260612,346,363.5,322.5,347.5,93629797,306.12,13.52,305.62,241.35,2.81
-20260615,350,350,327,327,53148794,307.86,6.22,310.38,243.45,1.5
-20260616,329,357,321,346.5,52667088,311.08,11.39,316.25,245.82,1.42
-20260617,343,363,340,345,42824859,313.91,9.91,321.1,248.2,1.18
+20260604,340,360,339,354,15978964,296.66,19.33,288.75,235.07,0.55
+20260605,339,350,323,338,16699684,300.11,12.63,294.55,237.12,0.58
+20260608,304.5,312.5,304.5,309,14379409,300.85,2.71,298.73,238.68,0.5
+20260609,315,327.5,305,321,11574547,302.53,6.11,303.45,240.62,0.4
+20260610,319,328.5,296,303,13977660,302.57,0.14,307,242.32,0.49
+20260611,309.5,333,301,333,17419175,305.1,9.14,312.2,244.47,0.61
+20260612,346,363.5,322.5,347.5,93629797,308.64,12.59,317.18,246.89,3.08
+20260615,350,350,327,327,53148794,310.17,5.43,321.02,248.82,1.72
+20260616,329,357,321,346.5,52667088,313.19,10.63,327,251.18,1.66
+20260617,343,363,340,345,42824859,315.85,9.23,332.52,253.57,1.3
+20260618,344,369.5,337.5,363.5,62259885,319.82,13.66,337.82,256.43,1.79
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6239 | 力成 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 6239 | 力成 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6239 | 力成 | 6 | 6 | 5 | 9 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 6239 | 力成 | 7 | 1 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6239 | 力成 | 0 | 9 | 0.0 | 106650.0 | 0.0 | no_signal |
+| 20260618 | 6239 | 力成 | 204 | 9 | 73183040.0 | 369000.0 | 198.33 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

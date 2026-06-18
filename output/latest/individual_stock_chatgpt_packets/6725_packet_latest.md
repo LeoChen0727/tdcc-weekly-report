@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6725 矽科宏晟
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:41 Asia/Taipei
+- generated_at: 2026-06-18 22:24:40 Asia/Taipei
 - stock_id: 6725
 - stock_name: 矽科宏晟
-- packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 243
+- packet_status: standard_rawdata_packet
+- latest_price_date: 20260618
+- price_rows: 112
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,11 +87,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +106,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,48 +114,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 320
-- high: 341
-- low: 317
-- close: 334
-- volume: 334000
-- ma5: 302.3
-- ema23_primary: 315.84
-- distance_to_ema23_pct: 5.75
-- ma20: 313.8
-- ma60: 315.19
-- ma120: 292.59
-- return_5d: 11.33
-- return_20d: 13.03
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 6.44
-- distance_to_high_60_pct: -21.23
+- date: 20260618
+- open: 334
+- high: 367
+- low: 328
+- close: 367
+- volume: 1499000
+- ma5: 321.1
+- ema23_primary: 314.09
+- distance_to_ema23_pct: 16.84
+- ma20: 315.32
+- ma60: 319.1
+- ma120: 288.5
+- return_5d: 34.43
+- return_20d: 25.26
+- volume_ratio: 4.13
+- distance_to_ma20_pct_auxiliary: 16.39
+- distance_to_high_60_pct: -13.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,292,306.5,292,298,373000,324.17,-8.07,341.35,290.24,0.51
-20260519,298,304,290,290,240000,321.32,-9.75,335.4,291.04,0.36
-20260520,290,292,284,285.5,233000,318.34,-10.32,330.3,291.8,0.41
-20260521,289,295,289,293,194000,316.23,-7.35,326.07,292.67,0.37
 20260522,296.5,322,296.5,322,317000,316.71,1.67,324.32,293.93,0.7
 20260525,328.5,339.5,325,331.5,332000,317.94,4.26,323.15,295.27,0.78
 20260526,333,348,323,346,339000,320.28,8.03,323.02,296.79,0.86
 20260527,353,360.5,334,340.5,347000,321.96,5.76,322.75,298.18,0.89
 20260528,340.5,345,322,323,332000,322.05,0.29,321.88,299.45,0.85
 20260529,331,334,323,333,328000,322.96,3.11,320.82,301.02,0.89
-20260601,337,337,325,325.5,328,323.17,0.72,319.57,302.86,0
+20260601,337,337,325,325.5,328000,323.17,0.72,319.57,302.86,0.92
 20260602,334,336,324,327.5,330,323.54,1.23,319,304.52,0
-20260603,334.5,334.5,324.5,324.5,327000,323.62,0.27,318.68,306.09,1.07
-20260604,334.5,334.5,324.5,324.5,327000,323.69,0.25,318.15,307.93,1.07
-20260605,310.5,310.5,292.5,300,301000,321.72,-6.75,316.8,309.08,1.02
-20260611,278.5,279,273,273,276000,317.66,-14.06,314.25,309.61,0.94
-20260612,277,289,277,283.5,283000,314.81,-9.95,312.02,310.56,1
-20260615,294,306.5,294,301,300000,313.66,-4.04,311.25,311.85,1.06
-20260616,307,327.5,302,320,316000,314.19,1.85,311.88,313.52,1.13
-20260617,320,341,317,334,334000,315.84,5.75,313.8,315.19,1.21
+20260603,334.5,334.5,324.5,324.5,327000,323.62,0.27,318.68,306.09,1.02
+20260604,324,324,310.5,310.5,315000,322.52,-3.73,317.45,307.69,0.98
+20260605,310.5,310.5,292.5,300,301000,320.65,-6.44,316.1,308.85,0.97
+20260608,276,284,274,281.5,266000,317.38,-11.31,313.98,309.52,0.86
+20260609,295,295.5,281.5,284.5,158000,314.64,-9.58,311.8,310.48,0.54
+20260610,280,293,278,278,199000,311.59,-10.78,309.88,311.39,0.7
+20260611,278.5,279,273,273,171000,308.37,-11.47,308.15,312.27,0.62
+20260612,277,289,277,283.5,149000,306.3,-7.44,307.55,313.11,0.57
+20260615,294,306.5,294,301,199000,305.86,-1.59,307.7,314.12,0.78
+20260616,307,327.5,302,320,514000,307.04,4.22,309.2,315.55,1.92
+20260617,320,341,317,334,836000,309.28,7.99,311.62,317.24,2.81
+20260618,334,367,328,367,1499000,314.09,16.84,315.32,319.1,4.13
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6725 | 矽科宏晟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6725 | 矽科宏晟 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

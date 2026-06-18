@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:33 Asia/Taipei
+- generated_at: 2026-06-18 22:23:32 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 198.5
-- high: 204.5
-- low: 197
-- close: 202
-- volume: 6145388
-- ma5: 193.4
-- ema23_primary: 196.55
-- distance_to_ema23_pct: 2.77
-- ma20: 201.32
-- ma60: 177.5
-- ma120: 171.68
-- return_5d: 5.21
-- return_20d: 6.32
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 0.34
-- distance_to_high_60_pct: -12.55
+- date: 20260618
+- open: 203
+- high: 209.5
+- low: 201.5
+- close: 209
+- volume: 9212415
+- ma5: 199.6
+- ema23_primary: 194.38
+- distance_to_ema23_pct: 7.52
+- ma20: 198.75
+- ma60: 179.07
+- ma120: 172.04
+- return_5d: 17.42
+- return_20d: 0.48
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 5.16
+- distance_to_high_60_pct: -9.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,184.5,193.5,177,193,10899387,180.27,7.06,182.62,164.05,0.54
-20260519,190,197,186,188.5,10331541,180.96,4.17,183.32,164.57,0.52
-20260520,189.5,194,184,189.5,7924700,181.67,4.31,183.8,164.92,0.41
-20260521,195.5,208,195,208,25033779,183.87,13.13,185.25,165.68,1.28
 20260522,210,216.5,205,211,28366148,186.13,13.36,187.38,166.43,1.42
 20260525,218,231,209,218.5,30348381,188.82,15.72,189.05,167.29,1.53
 20260526,219.5,219.5,207,208,20600438,190.42,9.23,190.12,167.97,1.13
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,209.5,214,205,211,11475001,195.44,7.96,197.47,170.83,0.62
 20260602,212,217,201,209.5,14574649,196.62,6.55,199.1,171.68,0.78
 20260603,211.5,212,203,203,9487831,197.15,2.97,200.18,172.42,0.52
-20260604,212,217,201,209.5,14574649,198.18,5.71,201.6,173.51,0.8
-20260605,190.5,195.5,183,192,8741854,197.66,-2.86,202.3,174.28,0.48
-20260611,174.5,179,172.5,178,5096409,196.02,-9.19,201.43,174.68,0.3
-20260612,185,191,184,184,4770456,195.02,-5.65,200.2,175.18,0.31
-20260615,190.5,202,190,202,13753200,195.6,3.27,200.6,176.03,0.92
-20260616,202,206,198.5,201,10273849,196.05,2.52,200.72,176.78,0.71
-20260617,198.5,204.5,197,202,6145388,196.55,2.77,201.32,177.5,0.44
+20260604,200.5,201,191.5,191.5,12281381,196.68,-2.63,200.7,173.21,0.68
+20260605,190.5,195.5,183,192,8741854,196.29,-2.18,201.4,173.97,0.48
+20260608,173,177.5,173,176,7469794,194.6,-9.56,200.43,174.34,0.44
+20260609,179,187,175,186,6348624,193.88,-4.06,199.3,174.88,0.41
+20260610,182,185.5,174,174.5,5691680,192.27,-9.24,198.32,175.27,0.39
+20260611,174.5,179,172.5,178,5096409,191.08,-6.84,197.3,175.64,0.37
+20260612,185,191,184,184,4770456,190.49,-3.41,197,176.06,0.36
+20260615,190.5,202,190,202,13753200,191.45,5.51,197.45,176.69,1.02
+20260616,202,206,198.5,201,10273849,192.24,4.56,198.07,177.37,0.76
+20260617,198.5,204.5,197,202,6145388,193.06,4.63,198.7,178.11,0.46
+20260618,203,209.5,201.5,209,9212415,194.38,7.52,198.75,179.07,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3035 | 智原 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3035 | 智原 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3035 | 智原 | 4 | 4 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3035 | 智原 | 5 | 5 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3035 | 智原 | 0 | 1 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 3035 | 智原 | 122 | 1 | 22142700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

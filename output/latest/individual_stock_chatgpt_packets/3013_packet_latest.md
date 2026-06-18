@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:31 Asia/Taipei
+- generated_at: 2026-06-18 22:23:30 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 110.5
-- high: 113
-- low: 109.5
+- date: 20260618
+- open: 113.5
+- high: 115
+- low: 113
 - close: 113
-- volume: 1547425
-- ma5: 109.8
-- ema23_primary: 114.77
-- distance_to_ema23_pct: -1.54
-- ma20: 115.48
-- ma60: 108.51
-- ma120: 112.87
-- return_5d: -7.38
-- return_20d: 9.71
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -2.15
+- volume: 2330671
+- ma5: 111.2
+- ema23_primary: 114.05
+- distance_to_ema23_pct: -0.92
+- ma20: 118.12
+- ma60: 109.45
+- ma120: 112.07
+- return_5d: 6.6
+- return_20d: 12.44
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -4.34
 - distance_to_high_60_pct: -16.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,101.5,102,98.2,101,2414444,106.64,-5.29,108.92,104.32,0.51
-20260519,101,102.5,99.6,99.7,1494977,106.06,-6,108.31,104.14,0.32
-20260520,99,100.5,98.3,98.5,1878577,105.43,-6.58,107.73,104,0.42
-20260521,100.5,102,100.5,100.5,1855722,105.02,-4.31,106.71,103.88,0.47
 20260522,101.5,110.5,101.5,110.5,6115722,105.48,4.76,106.78,103.89,1.76
 20260525,113.5,121.5,113,121.5,19744095,106.81,13.75,107.23,104.06,4.82
 20260526,123,124.5,118.5,124,13122956,108.25,14.55,107.78,104.25,2.89
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,123.5,127,122,123.5,8444497,111.94,10.33,110.19,105.16,1.64
 20260602,129.5,135.5,129.5,133.5,27832864,113.74,17.38,111.44,105.68,4.35
 20260603,135,136,131,133.5,11378155,115.38,15.7,112.73,106.22,1.67
-20260604,129.5,135.5,129.5,133.5,27832864,116.89,14.21,114.16,106.89,3.46
-20260605,128,128.5,120,122,6191942,117.32,3.99,114.91,107.41,0.76
-20260611,107.5,108.5,102,106,3396718,116.37,-8.91,114.61,107.61,0.42
-20260612,110,110.5,107,107.5,1522354,115.64,-7.04,114.48,107.87,0.19
-20260615,110,114.5,107.5,112,3507106,115.33,-2.89,114.73,108.06,0.44
-20260616,113,113.5,110.5,110.5,1886272,114.93,-3.85,114.98,108.27,0.24
-20260617,110.5,113,109.5,113,1547425,114.77,-1.54,115.48,108.51,0.19
+20260604,131,132,128,129.5,5624017,116.56,11.1,113.96,106.83,0.81
+20260605,128,128.5,120,122,6191942,117.01,4.26,114.71,107.34,0.88
+20260608,110,121,110,120.5,5164469,117.3,2.73,115.14,107.78,0.74
+20260609,115.5,117.5,114,114.5,6177784,117.07,-2.19,115.36,108.17,0.86
+20260610,112.5,115,108.5,108.5,4271157,116.36,-6.75,115.44,108.3,0.59
+20260611,107.5,108.5,102,106,3396718,115.49,-8.22,115.46,108.43,0.46
+20260612,110,110.5,107,107.5,1522354,114.83,-6.38,115.69,108.57,0.21
+20260615,110,114.5,107.5,112,3507106,114.59,-2.26,116.23,108.78,0.48
+20260616,113,113.5,110.5,110.5,1886272,114.25,-3.28,116.78,108.99,0.26
+20260617,110.5,113,109.5,113,1547425,114.15,-1,117.5,109.21,0.21
+20260618,113.5,115,113,113,2330671,114.05,-0.92,118.12,109.45,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3013 | 晟銘電 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利新台幣82,055,572元。 4.除權（息）交易日:115/07/14 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.債券最後申請轉換日期:115/06/23 10.債券停止轉換起始日期:115/06/25 11.債券停止轉換截止日期:115/07/20 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:嗣後因法令變更或主管機關調整，或公司債轉換股份， 或本公司買回公司股份等因素致影響流通在外股份數量致需調整分配比率時， 授權董事長調整配息比率等相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3013 | 晟銘電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利新台幣82,055,572元。 4.除權（息）交易日:115/07/14 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.債券最後申請轉換日期:115/06/23 10.債券停止轉換起始日期:115/06/25 11.債券停止轉換截止日期:115/07/20 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:嗣後因法令變更或主管機關調整，或公司債轉換股份， 或本公司買回公司股份等因素致影響流通在外股份數量致需調整分配比率時， 授權董事長調整配息比率等相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3013 | 晟銘電 | 3 | 3 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3013 | 晟銘電 | 4 | 4 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3013 | 晟銘電 | 75 | 0 | 2447740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:13 Asia/Taipei
+- generated_at: 2026-06-18 22:24:12 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 474.5
-- high: 481
-- low: 463.5
-- close: 478
-- volume: 866570
-- ma5: 467.1
-- ema23_primary: 450.86
-- distance_to_ema23_pct: 6.02
-- ma20: 452.75
-- ma60: 406.47
-- ma120: 361.9
-- return_5d: 4.25
-- return_20d: 18.61
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 5.58
-- distance_to_high_60_pct: -3.24
+- date: 20260618
+- open: 485
+- high: 485
+- low: 472.5
+- close: 475.5
+- volume: 972862
+- ma5: 471.6
+- ema23_primary: 453.75
+- distance_to_ema23_pct: 4.79
+- ma20: 463.07
+- ma60: 414.81
+- ma120: 366.93
+- return_5d: 4.97
+- return_20d: 13.48
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 2.68
+- distance_to_high_60_pct: -3.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,400,401,390.5,400.5,824225,405.87,-1.32,416.6,366.57,1.07
-20260519,402,405.5,391.5,394,638051,404.88,-2.69,415.38,367.62,0.83
-20260520,401,403,396,397,665096,404.22,-1.79,413.52,368.93,0.89
-20260521,402,419.5,402,419,772248,405.45,3.34,412.88,370.57,1.03
 20260522,424,454.5,422,449.5,2028959,409.12,9.87,414.38,372.46,2.59
 20260525,479.5,494,470.5,485,1301701,415.45,16.74,417.82,374.8,1.6
 20260526,485,485,475,481,1217719,420.91,14.28,421.52,377.02,1.47
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,456,456,448.5,453,672845,431.48,4.99,430.85,385.48,0.75
 20260602,459,467,449.5,466,1067700,434.36,7.28,433.57,387.77,1.14
 20260603,476,491,472,473,1100577,437.58,8.09,435.98,390.18,1.15
-20260604,459,467,449.5,466,1067700,439.95,5.92,438.35,392.74,1.1
-20260605,465,465,448,458.5,1356842,441.49,3.85,440.12,395.12,1.39
-20260611,454,456.5,434.5,453,925647,442.45,2.38,441.23,397.1,0.95
-20260612,467,476.5,460.5,466,1281475,444.42,4.86,443.35,399.32,1.3
-20260615,476,476,462.5,468,781506,446.38,4.84,446.12,401.6,0.79
-20260616,470,480,469.5,470.5,1034043,448.39,4.93,449,403.99,1.01
-20260617,474.5,481,463.5,478,866570,450.86,6.02,452.75,406.47,0.84
+20260604,479.5,484,461.5,464.5,838752,439.82,5.61,438.27,392.72,0.87
+20260605,465,465,448,458.5,1356842,441.38,3.88,440.05,395.09,1.41
+20260608,420,443,419.5,437.5,788419,441.06,-0.81,440.38,396.82,0.82
+20260609,442,456,440.5,456,767260,442.3,3.1,442,398.88,0.81
+20260610,456,466,443.5,449.5,1059492,442.9,1.49,443.85,400.84,1.1
+20260611,454,456.5,434.5,453,925647,443.74,2.09,445.85,402.94,0.94
+20260612,467,476.5,460.5,466,1281475,445.6,4.58,449,405.22,1.26
+20260615,476,476,462.5,468,781506,447.46,4.59,452.38,407.37,0.77
+20260616,470,480,469.5,470.5,1034043,449.38,4.7,456.2,409.72,1
+20260617,474.5,481,463.5,478,866570,451.77,5.81,460.25,412.24,0.83
+20260618,485,485,472.5,475.5,972862,453.75,4.79,463.07,414.81,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5434 | 崇越 | 11 | 0 | 427210.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

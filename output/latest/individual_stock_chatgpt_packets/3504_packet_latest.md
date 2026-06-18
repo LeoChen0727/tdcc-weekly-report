@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3504 揚明光
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:45 Asia/Taipei
+- generated_at: 2026-06-18 22:23:44 Asia/Taipei
 - stock_id: 3504
 - stock_name: 揚明光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 89.5
-- high: 97.8
-- low: 85.5
-- close: 86.5
-- volume: 15344294
-- ma5: 81.7
-- ema23_primary: 78.32
-- distance_to_ema23_pct: 10.44
-- ma20: 80.54
-- ma60: 67.78
-- ma120: 61.37
-- return_5d: 6.92
-- return_20d: 11.9
-- volume_ratio: 3.6
-- distance_to_ma20_pct_auxiliary: 7.4
-- distance_to_high_60_pct: -11.55
+- date: 20260618
+- open: 87.8
+- high: 91.5
+- low: 85.7
+- close: 91.2
+- volume: 6086004
+- ma5: 84.78
+- ema23_primary: 79.62
+- distance_to_ema23_pct: 14.54
+- ma20: 80.67
+- ma60: 69.31
+- ma120: 62.35
+- return_5d: 20.32
+- return_20d: 6.29
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: 13.05
+- distance_to_high_60_pct: -6.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,75.2,82,73.8,75.3,4967930,66.2,13.74,67.61,60.76,1.99
-20260519,75.3,81.6,75.3,78.2,5997159,67.2,16.37,67.94,61.14,2.43
-20260520,81.5,86,81,82.3,10777606,68.46,20.22,68.34,61.6,4.11
-20260521,83.5,90,83.5,85.8,7588569,69.91,22.74,69.02,62.14,2.67
 20260522,86.1,86.4,82.5,83.4,4148850,71.03,17.42,69.82,62.61,1.43
 20260525,83.4,85.6,82.5,82.7,3241340,72,14.86,70.64,62.98,1.11
 20260526,83.1,83.5,78.5,80.3,2233059,72.69,10.46,71.38,63.3,0.74
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,78.2,80.8,78.2,78.4,1522648,74.18,5.68,74.05,64.29,0.48
 20260602,78.8,79.9,76.2,79.4,1679997,74.62,6.41,74.7,64.61,0.52
 20260603,80,83.9,78.4,83.7,3937405,75.37,11.05,75.64,64.99,1.17
-20260604,78.8,79.9,76.2,79.4,1679997,75.71,4.87,76.34,65.39,0.49
-20260605,81.3,84,79.6,80.9,3267290,76.14,6.25,77.28,65.83,0.92
-20260611,77.6,80,73.9,75.8,1752065,76.11,-0.41,77.93,66.14,0.49
-20260612,76.7,78.6,74.7,74.7,1081880,76,-1.71,78.39,66.44,0.3
-20260615,76.8,82.1,76.7,82.1,2329942,76.5,7.31,79.18,66.83,0.63
-20260616,83.5,89.8,83.5,89.4,9166123,77.58,15.24,80.08,67.33,2.28
-20260617,89.5,97.8,85.5,86.5,15344294,78.32,10.44,80.54,67.78,3.6
+20260604,83,83.6,79.9,80.5,1877142,75.8,6.2,76.39,65.41,0.55
+20260605,81.3,84,79.6,80.9,3267290,76.23,6.13,77.33,65.84,0.92
+20260608,72.9,74.4,72.9,72.9,1401924,75.95,-4.01,77.84,66.11,0.39
+20260609,75,80.1,73.6,80.1,2029980,76.3,4.99,78.56,66.5,0.55
+20260610,78.5,86.4,77.3,79,4798753,76.52,3.24,79.2,66.84,1.24
+20260611,77.6,80,73.9,75.8,1752065,76.46,-0.86,79.42,67.11,0.46
+20260612,76.7,78.6,74.7,74.7,1081880,76.31,-2.11,79.3,67.37,0.32
+20260615,76.8,82.1,76.7,82.1,2329942,76.8,6.91,79.64,67.75,0.73
+20260616,83.5,89.8,83.5,89.4,9166123,77.85,14.84,80.19,68.24,2.72
+20260617,89.5,97.8,85.5,86.5,15344294,78.57,10.1,80.41,68.71,4.27
+20260618,87.8,91.5,85.7,91.2,6086004,79.62,14.54,80.67,69.31,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3504 | 揚明光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3504 | 揚明光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | base_building |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3504 | 揚明光 | 3 | 2 | 3 | 7 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260618 | 3504 | 揚明光 | 4 | 3 | 4 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:33 Asia/Taipei
+- generated_at: 2026-06-18 22:23:32 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 970
-- high: 1010
+- date: 20260618
+- open: 1000
+- high: 1005
 - low: 965
-- close: 988
-- volume: 18169059
-- ma5: 937
-- ema23_primary: 934.13
-- distance_to_ema23_pct: 5.77
-- ma20: 959.25
-- ma60: 776.36
-- ma120: 551.58
-- return_5d: 5.89
-- return_20d: 20.34
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 3
-- distance_to_high_60_pct: -12.57
+- close: 968
+- volume: 21005907
+- ma5: 959.8
+- ema23_primary: 935.61
+- distance_to_ema23_pct: 3.46
+- ma20: 977.55
+- ma60: 801.59
+- ma120: 575.16
+- return_5d: 13.35
+- return_20d: 6.96
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -0.98
+- distance_to_high_60_pct: -14.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,791,818,776,816,21413916,792.72,2.94,825.2,611.57,0.85
-20260519,821,860,808,818,23542123,794.83,2.92,832.2,619.41,0.91
-20260520,819,830,793,823,21306136,797.17,3.24,837.85,626.93,0.8
-20260521,870,905,868,905,32618917,806.16,12.26,847.3,635.87,1.17
 20260522,932,986,931,970,42132962,819.81,18.32,859.4,645.27,1.42
 20260525,1020,1030,978,990,24465071,833.99,18.71,869.4,654.34,0.8
 20260526,992,1085,989,1085,34270461,854.91,26.91,881.7,664.78,1.08
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,1070,1100,1025,1050,19127603,912.81,15.03,921.1,704.24,0.67
 20260602,1050,1050,950,975,29360754,917.99,6.21,924.7,712.99,1.02
 20260603,976,1010,964,1000,19513439,924.83,8.13,931.8,722.46,0.71
-20260604,1050,1050,950,975,29360754,929.01,4.95,935.75,732.23,1.06
-20260605,950,969,890,933,26076886,929.34,0.39,941.5,740.71,0.96
-20260611,884,906,811,854,27061060,923.06,-7.48,941.15,747.17,1
-20260612,922,930,890,902,15944333,921.31,-2.1,942.5,754.21,0.6
-20260615,948,961,920,960,16599358,924.53,3.84,945.9,761.74,0.64
-20260616,986,1005,965,981,20022281,929.24,5.57,950.9,768.94,0.79
-20260617,970,1010,965,988,18169059,934.13,5.77,959.25,776.36,0.73
+20260604,977,1005,970,971,13760914,928.68,4.56,935.55,732.16,0.51
+20260605,950,969,890,933,26076886,929.04,0.43,941.3,740.64,0.99
+20260608,840,925,840,911,25312312,927.53,-1.78,943.8,748.06,0.96
+20260609,950,972,920,969,23269699,930.99,4.08,948.5,756.21,0.9
+20260610,938,960,875,884,26494510,927.07,-4.65,948.1,762.48,1.02
+20260611,884,906,811,854,27061060,920.98,-7.27,946.75,767.56,1.05
+20260612,922,930,890,902,15944333,919.4,-1.89,950.8,773.54,0.64
+20260615,948,961,920,960,16599358,922.78,4.03,958,779.88,0.67
+20260616,986,1005,965,981,20022281,927.64,5.75,966.15,786.54,0.82
+20260617,970,1010,965,988,18169059,932.67,5.93,974.4,793.77,0.74
+20260618,1000,1005,965,968,21005907,935.61,3.46,977.55,801.59,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3037 | 欣興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 3037 | 欣興 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3037 | 欣興 | 8 | 7 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 3037 | 欣興 | 9 | 5 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3037 | 欣興 | 0 | 34 | 0.0 | 6160.0 | 0.0 | no_signal |
+| 20260618 | 3037 | 欣興 | 194 | 33 | 5850600.0 | 1270.0 | 4606.77 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8374 羅昇
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:14 Asia/Taipei
+- generated_at: 2026-06-18 22:25:04 Asia/Taipei
 - stock_id: 8374
 - stock_name: 羅昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 90.5
-- high: 90.9
-- low: 88.8
-- close: 90.2
-- volume: 329121
-- ma5: 90.48
-- ema23_primary: 96.3
-- distance_to_ema23_pct: -6.34
-- ma20: 101.33
-- ma60: 86.32
-- ma120: 84.72
-- return_5d: -8.24
-- return_20d: -12.43
-- volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: -10.99
-- distance_to_high_60_pct: -23.88
+- date: 20260618
+- open: 91.5
+- high: 92.2
+- low: 90.2
+- close: 91
+- volume: 523639
+- ma5: 90.86
+- ema23_primary: 94.63
+- distance_to_ema23_pct: -3.84
+- ma20: 98.87
+- ma60: 87.58
+- ma120: 85.08
+- return_5d: 2.13
+- return_20d: -8.17
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -7.96
+- distance_to_high_60_pct: -23.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,105,113,103.5,113,8498681,88.51,27.66,87.53,79.78,4.26
-20260519,110,110,102,102,8446308,89.64,13.79,88.53,80.03,3.56
-20260520,102,102,95.3,96.9,3041794,90.24,7.38,89.31,80.22,1.22
-20260521,97.1,101.5,96.6,99.1,3362305,90.98,8.92,90.14,80.46,1.28
 20260522,99.9,109,99.6,109,5607226,92.48,17.86,91.75,80.81,1.95
 20260525,113,118.5,111,112.5,6047352,94.15,19.49,93.58,81.22,1.91
 20260526,111,117,107.5,110.5,3295480,95.51,15.69,95.36,81.63,1
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,108,114,106,112,4619522,98.94,13.2,99.95,83.19,1.31
 20260602,109.5,109.5,101,102,2560755,99.2,2.82,100.56,83.59,0.73
 20260603,101,105.5,100.5,101,1631542,99.35,1.66,101.06,84,0.47
-20260604,109.5,109.5,101,102,2560755,99.57,2.44,101.63,84.54,0.73
-20260605,100,106.5,98.3,98.3,3283268,99.46,-1.17,102.11,84.97,0.91
-20260611,90.2,91,86.2,89.1,679691,98.6,-9.64,102.09,85.2,0.19
-20260612,92.7,93.3,90.1,90.6,489332,97.93,-7.49,102.06,85.5,0.14
-20260615,93.9,94,91.8,92.5,492996,97.48,-5.11,102.17,85.81,0.14
-20260616,94.7,94.7,90,90,404299,96.86,-7.08,101.97,86.07,0.12
-20260617,90.5,90.9,88.8,90.2,329121,96.3,-6.34,101.33,86.32,0.11
+20260604,100,102.5,96.1,99,1721925,99.32,-0.32,101.48,84.49,0.5
+20260605,100,106.5,98.3,98.3,3283268,99.23,-0.94,101.97,84.92,0.92
+20260608,88.5,91.2,88.5,90.2,1096702,98.48,-8.41,102,85.17,0.31
+20260609,91.6,99,91.6,94,1342150,98.11,-4.19,102.14,85.52,0.37
+20260610,92,97.1,89.5,89.5,1002758,97.39,-8.1,102.1,85.79,0.28
+20260611,90.2,91,86.2,89.1,679691,96.7,-7.86,101.86,86.03,0.19
+20260612,92.7,93.3,90.1,90.6,489332,96.19,-5.81,101.23,86.29,0.15
+20260615,93.9,94,91.8,92.5,492996,95.88,-3.53,100.21,86.59,0.18
+20260616,94.7,94.7,90,90,404299,95.39,-5.65,99.61,86.88,0.17
+20260617,90.5,90.9,88.8,90.2,329121,94.96,-5.01,99.28,87.21,0.15
+20260618,91.5,92.2,90.2,91,523639,94.63,-3.84,98.87,87.58,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8374 | 羅昇 | 11 | 0 | 152720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

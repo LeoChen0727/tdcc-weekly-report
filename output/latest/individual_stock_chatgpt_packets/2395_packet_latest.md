@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:14 Asia/Taipei
+- generated_at: 2026-06-18 22:23:13 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 472
-- high: 488.5
-- low: 470.5
-- close: 488.5
-- volume: 1732444
-- ma5: 478.1
-- ema23_primary: 475.99
-- distance_to_ema23_pct: 2.63
-- ma20: 488.3
-- ma60: 410.32
-- ma120: 355.55
-- return_5d: -1.51
-- return_20d: 6.31
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 0.04
-- distance_to_high_60_pct: -7.83
+- date: 20260618
+- open: 494.5
+- high: 504
+- low: 490
+- close: 494
+- volume: 4327273
+- ma5: 484.1
+- ema23_primary: 477.85
+- distance_to_ema23_pct: 3.38
+- ma20: 492.27
+- ma60: 419.69
+- ma120: 362.27
+- return_5d: 6.47
+- return_20d: 6.58
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 0.35
+- distance_to_high_60_pct: -8.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,451,462,439,457.5,4156066,415.21,10.18,409.8,360.38,0.86
-20260519,463,477,457.5,461.5,4170741,419.07,10.12,414.7,363.22,0.85
-20260520,462,471,457.5,465,3232585,422.9,9.96,419.73,366.01,0.66
-20260521,475,479.5,462,463.5,3953423,426.28,8.73,424.85,368.65,0.79
 20260522,467,472.5,458.5,469,5009787,429.84,9.11,430.48,371.22,0.98
 20260525,499,510,490.5,498.5,5141719,435.56,14.45,437.7,374.12,0.97
 20260526,498.5,511,485.5,510,4127639,441.77,15.45,445.05,377.07,0.78
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,505,525,505,517,3813940,459.83,12.43,471.25,388.69,0.68
 20260602,520,530,508,515,6795914,464.43,10.89,477.18,391.57,1.2
 20260603,519,520,500,513,4019813,468.48,9.5,482.35,393.87,0.73
-20260604,520,530,508,515,6795914,472.35,9.03,485.9,396.67,1.26
-20260605,511,515,493,496,5250790,474.32,4.57,486.88,399.18,1.02
-20260611,456,467,449,464,4185113,473.46,-2,486.15,401.14,0.82
-20260612,475,481,469.5,473,1178582,473.42,-0.09,485.07,403.27,0.24
-20260615,486,494,480.5,485,1974869,474.39,2.24,486.1,405.65,0.42
-20260616,493,493,475,480,1707551,474.86,1.08,486.85,407.98,0.38
-20260617,472,488.5,470.5,488.5,1732444,475.99,2.63,488.3,410.32,0.4
+20260604,509,539,508,522,4921053,472.94,10.37,486.25,396.78,0.93
+20260605,511,515,493,496,5250790,474.86,4.45,487.23,399.29,1.04
+20260608,456,474.5,456,471,3763357,474.54,-0.75,486.85,401.38,0.76
+20260609,473.5,492,473.5,489.5,4107302,475.78,2.88,486.6,403.78,0.84
+20260610,485,493,462,465.5,3732799,474.93,-1.98,486.65,405.83,0.78
+20260611,456,467,449,464,4185113,474.02,-2.11,486.6,407.9,0.88
+20260612,475,481,469.5,473,1178582,473.93,-0.2,487.27,409.98,0.26
+20260615,486,494,480.5,485,1974869,474.85,2.14,488.65,412.25,0.44
+20260616,493,493,475,480,1707551,475.28,0.99,489.57,414.55,0.39
+20260617,472,488.5,470.5,488.5,2442444,476.38,2.54,490.75,416.96,0.57
+20260618,494.5,504,490,494,4327273,477.85,3.38,492.27,419.69,1
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2395 | 研華 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 2395 | 研華 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2395 | 研華 | 7 | 6 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2395 | 研華 | 8 | 5 | 5 | 9 | 13 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2395 | 研華 | 52 | 0 | 7758450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

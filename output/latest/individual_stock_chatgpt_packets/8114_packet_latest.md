@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:11 Asia/Taipei
+- generated_at: 2026-06-18 22:25:01 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 208.5
-- high: 209
-- low: 204
-- close: 209
-- volume: 828767
-- ma5: 208.9
-- ema23_primary: 224.88
-- distance_to_ema23_pct: -7.06
-- ma20: 235.62
-- ma60: 201.44
-- ma120: 190.52
-- return_5d: -8.73
-- return_20d: -3.24
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -11.3
-- distance_to_high_60_pct: -24.41
+- date: 20260618
+- open: 212
+- high: 214
+- low: 209.5
+- close: 212
+- volume: 605008
+- ma5: 209.7
+- ema23_primary: 219.47
+- distance_to_ema23_pct: -3.4
+- ma20: 230.9
+- ma60: 202.9
+- ma120: 191.53
+- return_5d: 1.92
+- return_20d: -12.4
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -8.19
+- distance_to_high_60_pct: -23.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,202,216,202,214,926338,200.27,6.86,198.18,181.72,0.52
-20260519,216,227.5,215.5,215.5,647170,201.54,6.93,200.1,182.46,0.36
-20260520,218.5,237,218.5,237,968502,204.49,15.9,202.65,183.55,0.55
-20260521,248,248,235,242,635254,207.62,16.56,205.07,184.7,0.36
 20260522,238,242,236,236.5,491264,210.02,12.61,207.57,185.71,0.29
 20260525,253.5,260,245,260,1511023,214.19,21.39,211.3,187.13,0.89
 20260526,266,266,250,260.5,731050,218.05,19.47,215.05,188.55,0.43
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,247,264,238.5,259.5,2148303,228.74,13.45,229,193.92,1.14
 20260602,260,262,239.5,254.5,2336554,230.88,10.23,232.78,195.3,1.19
 20260603,258.5,262.5,245,246,1337097,232.14,5.97,236.2,196.41,0.67
-20260604,260,262,239.5,254.5,2336554,234.01,8.76,239.9,197.83,1.12
-20260605,237.5,241,227.5,229,1339998,233.59,-1.96,241.43,198.75,0.67
-20260611,202,212.5,200,208,1466966,231.46,-10.13,240.93,199.26,0.78
-20260612,215,222,209,210.5,978380,229.71,-8.36,239.47,199.87,0.58
-20260615,217.5,224,207,209,991926,227.98,-8.33,237.57,200.43,0.7
-20260616,212,215.5,206.5,208,1364873,226.32,-8.09,235.97,200.97,1.04
-20260617,208.5,209,204,209,828767,224.88,-7.06,235.62,201.44,0.66
+20260604,245,248,237,238.5,1264950,232.67,2.5,239.1,197.57,0.62
+20260605,237.5,241,227.5,229,1339998,232.37,-1.45,240.62,198.48,0.69
+20260608,206.5,206.5,206.5,206.5,463086,230.21,-10.3,240.05,198.97,0.26
+20260609,199.5,214.5,199,209,2371672,228.44,-8.51,238.53,199.55,1.45
+20260610,206.5,211.5,201.5,202.5,1114167,226.28,-10.51,236.3,200,0.81
+20260611,202,212.5,200,208,1466966,224.76,-7.46,234.7,200.54,1.14
+20260612,215,222,209,210.5,978380,223.57,-5.85,234.43,201.04,0.78
+20260615,217.5,224,207,209,991926,222.36,-6.01,234.18,201.43,0.79
+20260616,212,215.5,206.5,208,1364873,221.16,-5.95,233.8,201.89,1.06
+20260617,208.5,209,204,209,828767,220.15,-5.06,232.4,202.32,0.65
+20260618,212,214,209.5,212,605008,219.47,-3.4,230.9,202.9,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8114 | 振樺電 | 14 | 0 | 232170.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

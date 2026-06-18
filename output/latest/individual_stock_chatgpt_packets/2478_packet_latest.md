@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:19 Asia/Taipei
+- generated_at: 2026-06-18 22:23:17 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -114,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 205.5
-- high: 227.5
-- low: 205.5
-- close: 227.5
-- volume: 18754227
-- ma5: 194.4
-- ema23_primary: 144.33
-- distance_to_ema23_pct: 57.63
-- ma20: 142.56
-- ma60: 93.76
-- ma120: 79.12
-- return_5d: 51.67
-- return_20d: 172.46
-- volume_ratio: 1.71
-- distance_to_ma20_pct_auxiliary: 59.59
-- distance_to_high_60_pct: 0
+- date: 20260618
+- open: 236
+- high: 241
+- low: 223
+- close: 234
+- volume: 36381648
+- ma5: 205.7
+- ema23_primary: 158.12
+- distance_to_ema23_pct: 47.99
+- ma20: 157.95
+- ma60: 101.13
+- ma120: 83.14
+- return_5d: 31.83
+- return_20d: 101.72
+- volume_ratio: 2.81
+- distance_to_ma20_pct_auxiliary: 48.15
+- distance_to_high_60_pct: -2.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,83.7,91.8,82.5,91.8,11855627,76.04,20.72,75.26,69.26,2.12
-20260519,89,98.4,88.1,96.3,23925011,77.73,23.89,76.31,69.88,3.7
-20260520,96.2,105.5,96,105.5,9247910,80.04,31.8,77.89,70.67,1.36
-20260521,112.5,116,112,116,4626999,83.04,39.69,80.08,71.61,0.67
 20260522,125.5,127.5,125.5,127.5,3699889,86.74,46.98,83.14,72.66,0.53
 20260525,134,134,119,120,25874117,89.52,34.05,85.86,73.5,3.15
 20260526,120,121.5,112,119,3880856,91.97,29.39,88.5,74.28,0.47
@@ -149,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,140.5,152.5,140.5,144,3472752,104.15,38.26,101.12,78.38,0.39
 20260602,144,145,130,143,3194844,107.39,33.16,104.42,79.58,0.38
 20260603,142,143,136.5,137,1292660,109.86,24.71,107.44,80.7,0.16
-20260604,144,145,130,143,3194844,112.62,26.98,110.58,81.98,0.42
-20260605,134.5,150,126,150,4349162,115.73,29.61,114.17,83.33,0.6
-20260611,180,187,162,177.5,36879434,120.88,46.84,119.16,85.12,4.13
-20260612,189,194.5,168,171.5,24711057,125.1,37.09,123.73,86.86,2.5
-20260615,180.5,188.5,180.5,188.5,10643908,130.38,44.57,129.11,88.87,1.04
-20260616,200,207,200,207,16112836,136.77,51.35,135.35,91.19,1.53
-20260617,205.5,227.5,205.5,227.5,18754227,144.33,57.63,142.56,93.76,1.71
+20260604,133.5,140,130,137.5,2078141,112.16,22.59,110.31,81.89,0.27
+20260605,134.5,150,126,150,4349162,115.31,30.08,113.9,83.24,0.6
+20260608,135,153.5,135,152,3928037,118.37,28.41,117.61,84.61,0.54
+20260609,161,167,151.5,167,22316543,122.42,36.41,121.95,86.27,2.77
+20260610,164,183.5,163.5,170,27954824,126.39,34.51,126.41,87.97,3.03
+20260611,180,187,162,177.5,36879434,130.65,35.86,131.18,89.8,3.48
+20260612,189,194.5,168,171.5,24711057,134.05,27.94,135.58,91.43,2.18
+20260615,180.5,188.5,180.5,188.5,10643908,138.59,36.01,140.41,93.39,0.94
+20260616,200,207,200,207,16112836,144.29,43.46,145.95,95.64,1.48
+20260617,205.5,227.5,205.5,227.5,18754227,151.22,50.44,152.05,98.3,1.65
+20260618,236,241,223,234,36381648,158.12,47.99,157.95,101.13,2.81
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2478 | 大毅 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2478 | 大毅 | true_breakout | 嚴格突破 | 81.0 |  |  | platform_breakout |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2478 | 大毅 | 5 | 2 | 5 | 5 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 2478 | 大毅 | 6 | 3 | 5 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2478 | 大毅 | 17 | 0 | 4083770.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

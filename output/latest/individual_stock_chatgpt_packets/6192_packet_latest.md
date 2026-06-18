@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6192 巨路
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:25 Asia/Taipei
+- generated_at: 2026-06-18 22:24:23 Asia/Taipei
 - stock_id: 6192
 - stock_name: 巨路
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 117
-- high: 117.5
-- low: 116
-- close: 116.5
-- volume: 172986
+- date: 20260618
+- open: 117.5
+- high: 118.5
+- low: 117
+- close: 117.5
+- volume: 120736
 - ma5: 117.1
-- ema23_primary: 123.68
-- distance_to_ema23_pct: -5.8
-- ma20: 125.78
-- ma60: 122.29
-- ma120: 119.49
-- return_5d: -9.69
-- return_20d: -7.91
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -7.37
-- distance_to_high_60_pct: -14.34
+- ema23_primary: 123.31
+- distance_to_ema23_pct: -4.71
+- ma20: 125.5
+- ma60: 122.72
+- ma120: 120.22
+- return_5d: 0
+- return_20d: -10.31
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -6.37
+- distance_to_high_60_pct: -13.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,126,129.5,125.5,127,285405,123.62,2.74,122.78,121.61,0.61
-20260519,127,127,122.5,124,289832,123.65,0.28,122.72,121.66,0.64
-20260520,124,126.5,124,126,192346,123.85,1.74,122.83,121.72,0.45
-20260521,127,131.5,127,131,603249,124.44,5.27,123.03,121.87,1.43
 20260522,130.5,132,128.5,132,374467,125.07,5.54,123.72,122,0.92
 20260525,132,134,130,131,420897,125.57,4.33,124.45,122.12,1.02
 20260526,131,132.5,129.5,131.5,376039,126.06,4.32,125.25,122.17,0.89
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,128.5,130,128,129,414671,126.72,1.8,127.6,122.17,0.85
 20260602,129,129,125.5,127.5,293657,126.78,0.56,127.88,122.16,0.62
 20260603,127.5,131,127.5,130.5,237294,127.09,2.68,128.38,122.22,0.51
-20260604,129,129,125.5,127.5,293657,127.13,0.29,128.68,122.38,0.63
-20260605,128,129,126,129,192031,127.28,1.35,128.93,122.46,0.44
-20260611,122.5,122.5,116.5,117.5,1507815,126.47,-7.09,128.4,122.45,3.18
-20260612,119,119.5,117.5,117.5,358903,125.72,-6.54,127.67,122.45,0.78
-20260615,118,118.5,116.5,116.5,312226,124.95,-6.76,127.08,122.38,0.68
-20260616,116.5,118,116.5,117.5,183887,124.33,-5.5,126.28,122.36,0.44
-20260617,117,117.5,116,116.5,172986,123.68,-5.8,125.78,122.29,0.43
+20260604,130.5,131,128,128.5,217309,127.21,1.01,128.72,122.39,0.47
+20260605,128,129,126,129,192031,127.36,1.29,128.97,122.47,0.44
+20260608,121,128.5,121,126.5,395038,127.29,-0.62,128.9,122.62,0.95
+20260609,125.5,130,125.5,128.5,248379,127.39,0.87,128.72,122.8,0.63
+20260610,128.5,131.5,128.5,129,383262,127.52,1.16,128.75,122.94,0.96
+20260611,122.5,122.5,116.5,117.5,1507815,126.69,-7.25,127.95,122.92,3.55
+20260612,119,119.5,117.5,117.5,358903,125.92,-6.69,127.5,122.87,0.87
+20260615,118,118.5,116.5,116.5,312226,125.14,-6.9,126.97,122.76,0.75
+20260616,116.5,118,116.5,117.5,183887,124.5,-5.62,126.65,122.73,0.45
+20260617,117,117.5,116,116.5,172986,123.83,-5.92,126.17,122.7,0.42
+20260618,117.5,118.5,117,117.5,120736,123.31,-4.71,125.5,122.72,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6192 | 巨路 | 1 | 0 | 39750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

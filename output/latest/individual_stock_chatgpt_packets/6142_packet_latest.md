@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6142 友勁
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:21 Asia/Taipei
+- generated_at: 2026-06-18 22:24:20 Asia/Taipei
 - stock_id: 6142
 - stock_name: 友勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 8.54
-- high: 9.39
-- low: 8.54
-- close: 9.39
-- volume: 1930082
-- ma5: 8.68
-- ema23_primary: 8.58
-- distance_to_ema23_pct: 9.39
-- ma20: 8.37
-- ma60: 8.95
-- ma120: 9.29
-- return_5d: 7.81
-- return_20d: 16.94
-- volume_ratio: 2.59
-- distance_to_ma20_pct_auxiliary: 12.15
-- distance_to_high_60_pct: -12.65
+- date: 20260618
+- open: 9.69
+- high: 9.9
+- low: 9.41
+- close: 9.61
+- volume: 4571590
+- ma5: 8.94
+- ema23_primary: 8.65
+- distance_to_ema23_pct: 11.13
+- ma20: 8.53
+- ma60: 8.86
+- ma120: 9.27
+- return_5d: 16.06
+- return_20d: 19.98
+- volume_ratio: 5.05
+- distance_to_ma20_pct_auxiliary: 12.69
+- distance_to_high_60_pct: -7.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,7.97,8.04,7.85,7.92,446578,8.76,-9.6,8.79,9.37,0.47
-20260519,7.99,7.99,7.8,7.84,659255,8.68,-9.72,8.71,9.33,0.76
-20260520,7.77,7.94,7.77,7.83,317595,8.61,-9.09,8.64,9.3,0.43
-20260521,7.86,8.18,7.86,8.01,631623,8.56,-6.46,8.58,9.28,0.88
 20260522,8.01,8.25,7.98,8.25,789615,8.54,-3.36,8.53,9.25,1.14
 20260525,8.25,8.46,8.02,8.12,925586,8.5,-4.5,8.49,9.23,1.34
 20260526,8.15,8.16,7.9,8.1,842324,8.47,-4.35,8.45,9.2,1.21
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,8.39,8.79,8.27,8.52,1213144,8.41,1.36,8.32,9.09,1.56
 20260602,8.59,8.73,8.3,8.72,1133383,8.43,3.42,8.3,9.08,1.47
 20260603,8.66,8.97,8.66,8.92,716727,8.47,5.28,8.3,9.06,0.92
-20260604,8.59,8.73,8.3,8.72,1133383,8.49,2.67,8.3,9.05,1.42
-20260605,8.82,8.82,8.64,8.71,333777,8.51,2.34,8.29,9.04,0.42
-20260611,8.16,8.3,8.11,8.28,274064,8.49,-2.49,8.28,9.01,0.36
-20260612,8.35,8.61,8.33,8.43,377473,8.49,-0.67,8.27,8.99,0.52
-20260615,8.43,8.89,8.43,8.74,516965,8.51,2.73,8.29,8.98,0.72
-20260616,8.74,8.82,8.41,8.54,474955,8.51,0.35,8.3,8.96,0.67
-20260617,8.54,9.39,8.54,9.39,1930082,8.58,9.39,8.37,8.95,2.59
+20260604,8.88,8.97,8.79,8.8,598792,8.5,3.53,8.3,9.05,0.78
+20260605,8.82,8.82,8.64,8.71,333777,8.52,2.26,8.3,9.04,0.44
+20260608,8.28,8.44,8.1,8.4,391301,8.51,-1.26,8.29,9.02,0.53
+20260609,8.4,8.44,8.25,8.31,446485,8.49,-2.13,8.28,9,0.63
+20260610,8.31,8.39,8.2,8.3,400526,8.47,-2.07,8.27,8.97,0.58
+20260611,8.16,8.3,8.11,8.28,274064,8.46,-2.11,8.27,8.95,0.4
+20260612,8.35,8.61,8.33,8.43,377473,8.46,-0.31,8.29,8.92,0.6
+20260615,8.43,8.89,8.43,8.74,516965,8.48,3.07,8.34,8.9,0.81
+20260616,8.74,8.82,8.41,8.54,474955,8.48,0.65,8.37,8.88,0.76
+20260617,8.54,9.39,8.54,9.39,1930082,8.56,9.69,8.45,8.86,2.73
+20260618,9.69,9.9,9.41,9.61,4571590,8.65,11.13,8.53,8.86,5.05
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6142 | 友勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6142 | 友勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6142 | 友勁 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260618 | 6142 | 友勁 | 2 | 2 | 2 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

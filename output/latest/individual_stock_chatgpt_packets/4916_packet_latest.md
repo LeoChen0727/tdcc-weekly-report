@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:05 Asia/Taipei
+- generated_at: 2026-06-18 22:24:03 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -92,6 +92,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 99.7
-- high: 102.5
+- date: 20260618
+- open: 99
+- high: 103.5
 - low: 97.2
-- close: 98.7
-- volume: 7385383
-- ma5: 103.84
-- ema23_primary: 98.59
-- distance_to_ema23_pct: 0.11
-- ma20: 103.52
-- ma60: 75.88
-- ma120: 68.24
-- return_5d: -17.75
-- return_20d: 45.79
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -4.65
-- distance_to_high_60_pct: -20.72
+- close: 103.5
+- volume: 8356190
+- ma5: 101.64
+- ema23_primary: 101.95
+- distance_to_ema23_pct: 1.52
+- ma20: 109.22
+- ma60: 79.39
+- ma120: 70.24
+- return_5d: -9.61
+- return_20d: 4.76
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -5.24
+- distance_to_high_60_pct: -18.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,73.8,74.4,73.5,74.4,8465884,65.07,14.34,65.6,61.98,1.08
-20260519,81.8,81.8,81.8,81.8,3578609,66.47,23.07,66.27,62.32,0.5
-20260520,83.1,89.9,80.2,89.9,36726561,68.42,31.4,67.4,62.76,4.35
-20260521,92.8,98.8,87,98.8,46915796,70.95,39.25,68.86,63.4,4.66
 20260522,100,105,97.4,98.3,50432884,73.23,34.24,70.47,63.98,4.23
 20260525,100,105,99.2,101.5,25271124,75.59,34.28,72.26,64.59,1.97
 20260526,100,101,95,100.5,5515128,77.66,29.41,74.17,65.21,0.43
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,117,123.5,115.5,119,6365233,86.9,36.94,83.36,68.36,0.48
 20260602,116,116,110,114,4086731,89.16,27.86,85.81,69.24,0.31
 20260603,120,124.5,118,124.5,3693035,92.11,35.17,88.87,70.29,0.28
-20260604,116,116,110,114,4086731,93.93,21.37,91.42,71.26,0.31
-20260605,122,122,111,120,3292659,96.1,24.87,94.31,72.3,0.25
-20260611,114,121,110.5,114.5,16647738,97.64,17.27,96.69,73.2,1.24
-20260612,118.5,120.5,106.5,107.5,14018208,98.46,9.18,98.64,73.98,1.03
-20260615,107.5,108,99.2,99.5,15514853,98.54,0.97,100.36,74.62,1.1
-20260616,101,101.5,97.6,99,7504184,98.58,0.42,101.97,75.28,0.53
-20260617,99.7,102.5,97.2,98.7,7385383,98.59,0.11,103.52,75.88,0.54
+20260604,122,127.5,120,122.5,2939889,94.64,29.44,91.84,71.4,0.22
+20260605,122,122,111,120,3292659,96.75,24.03,94.74,72.44,0.25
+20260608,108,119,108,116,3708077,98.36,17.94,97.19,73.37,0.29
+20260609,118,125,108.5,119.5,13605010,100.12,19.36,99.75,74.34,1.06
+20260610,120,122.5,111,111.5,13995793,101.07,10.32,102.06,75.19,1.05
+20260611,114,121,110.5,114.5,16647738,102.19,12.05,104.44,76.1,1.21
+20260612,118.5,120.5,106.5,107.5,14018208,102.63,4.75,106.43,76.86,1.02
+20260615,107.5,108,99.2,99.5,15514853,102.37,-2.8,107.69,77.48,1.1
+20260616,101,101.5,97.6,99,7504184,102.09,-3.02,108.55,78.07,0.52
+20260617,99.7,102.5,97.2,98.7,7385383,101.81,-3.05,108.98,78.69,0.58
+20260618,99,103.5,97.2,103.5,8356190,101.95,1.52,109.22,79.39,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4916 | 事欣科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 4916 | 事欣科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 4916 | 事欣科 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4916 | 事欣科 | 5 | 5 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 4916 | 事欣科 | 6 | 3 | 5 | 6 | 8 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4916 | 事欣科 | 0 | 1 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 4916 | 事欣科 | 25 | 1 | 2002150.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

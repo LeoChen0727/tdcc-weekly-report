@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:11 Asia/Taipei
+- generated_at: 2026-06-18 22:23:09 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 2355
-- high: 2385
-- low: 2350
-- close: 2385
-- volume: 28090393
-- ma5: 2344
-- ema23_primary: 2307.55
-- distance_to_ema23_pct: 3.36
-- ma20: 2313.5
-- ma60: 2133.42
-- ma120: 1929.04
-- return_5d: 0.85
-- return_20d: 5.3
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 3.09
-- distance_to_high_60_pct: -2.25
+- date: 20260618
+- open: 2395
+- high: 2415
+- low: 2385
+- close: 2410
+- volume: 49982610
+- ma5: 2376
+- ema23_primary: 2316.19
+- distance_to_ema23_pct: 4.05
+- ma20: 2334
+- ma60: 2164.5
+- ma120: 1957.08
+- return_5d: 7.11
+- return_20d: 8.07
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 3.26
+- distance_to_high_60_pct: -1.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,2225,2260,2215,2240,32966937,2176.88,2.9,2202.25,2001.5,0.76
-20260519,2220,2230,2205,2205,45585931,2179.22,1.18,2211.25,2008,1.03
-20260520,2205,2210,2185,2185,38332945,2179.7,0.24,2218,2013.08,0.85
-20260521,2240,2255,2230,2230,24929331,2183.9,2.11,2227,2018.33,0.56
 20260522,2245,2260,2225,2255,26823133,2189.82,2.98,2235.75,2024.25,0.62
 20260525,2275,2310,2275,2310,28250944,2199.84,5.01,2242,2030,0.67
 20260526,2320,2325,2270,2270,32781470,2205.68,2.92,2242.25,2034.25,0.82
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,2355,2415,2350,2355,60942792,2241.84,5.05,2267.25,2059.83,1.46
 20260602,2390,2400,2360,2380,41532527,2253.35,5.62,2273.75,2067.83,0.98
 20260603,2425,2440,2410,2425,29219904,2267.66,6.94,2282.5,2076.75,0.7
-20260604,2390,2400,2360,2380,41532527,2277.02,4.52,2286,2086.25,0.99
-20260605,2395,2405,2350,2365,43403895,2284.35,3.53,2289.75,2094.83,1.02
-20260611,2240,2260,2210,2250,46417523,2281.49,-1.38,2290.5,2100,1.09
-20260612,2325,2325,2290,2310,26306885,2283.86,1.14,2293.25,2107.08,0.64
-20260615,2360,2375,2345,2375,30228535,2291.46,3.65,2301,2115.58,0.75
-20260616,2375,2400,2350,2400,37145708,2300.5,4.32,2307.5,2124.83,0.92
-20260617,2355,2385,2350,2385,28090393,2307.55,3.36,2313.5,2133.42,0.7
+20260604,2385,2415,2385,2385,32542948,2277.44,4.72,2286.25,2086.33,0.78
+20260605,2395,2405,2350,2365,43403895,2284.73,3.51,2290,2094.92,1.03
+20260608,2230,2320,2230,2295,52273858,2285.59,0.41,2293,2100.83,1.23
+20260609,2305,2320,2295,2305,38847544,2287.21,0.78,2295.5,2107.83,0.93
+20260610,2285,2300,2255,2255,54194021,2284.52,-1.29,2297.25,2114.33,1.28
+20260611,2240,2260,2210,2250,46417523,2281.65,-1.39,2296.25,2121.08,1.09
+20260612,2325,2325,2290,2310,26306885,2284.01,1.14,2298.5,2128.42,0.62
+20260615,2360,2375,2345,2375,30228535,2291.59,3.64,2305.25,2136.25,0.72
+20260616,2375,2400,2350,2400,37145708,2300.63,4.32,2315,2145.42,0.89
+20260617,2355,2385,2350,2385,30059393,2307.66,3.35,2325,2154.5,0.73
+20260618,2395,2415,2385,2410,49982610,2316.19,4.05,2334,2164.5,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2330 | 台積電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2330 | 台積電 | 10 | 5 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2330 | 台積電 | 11 | 5 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2330 | 台積電 | 0 | 191 | 0.0 | 2660540.0 | 0.0 | put_inflow |
+| 20260618 | 2330 | 台積電 | 905 | 189 | 177384740.0 | 2155620.0 | 82.29 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

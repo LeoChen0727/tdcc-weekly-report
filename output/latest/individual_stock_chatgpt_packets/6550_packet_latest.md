@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:35 Asia/Taipei
+- generated_at: 2026-06-18 22:24:34 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
+- date: 20260618
 - open: 13.3
-- high: 13.6
+- high: 13.75
 - low: 13.15
-- close: 13.2
-- volume: 1162926
-- ma5: 13.25
-- ema23_primary: 14.59
-- distance_to_ema23_pct: -9.53
-- ma20: 14.37
-- ma60: 17.21
-- ma120: 23.89
-- return_5d: -1.49
-- return_20d: -21.89
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -8.14
-- distance_to_high_60_pct: -43.59
+- close: 13.65
+- volume: 1766322
+- ma5: 13.29
+- ema23_primary: 14.2
+- distance_to_ema23_pct: -3.88
+- ma20: 13.78
+- ma60: 16.7
+- ma120: 23.32
+- return_5d: 1.49
+- return_20d: -15.22
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -0.91
+- distance_to_high_60_pct: -34.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,16.9,16.9,16.15,16.15,1868927,17.92,-9.9,17.64,22.03,1.4
-20260519,16.05,16.45,16,16.2,1219043,17.78,-8.89,17.5,21.82,0.91
-20260520,16.2,16.3,16,16.2,1590141,17.65,-8.21,17.33,21.6,1.21
-20260521,16.25,16.3,15.9,16.1,1948604,17.52,-8.11,17.2,21.37,1.46
 20260522,16,16.35,16,16.25,861354,17.41,-6.69,17.13,21.09,0.67
 20260525,16.25,17,16.2,16.75,1902080,17.36,-3.51,17.1,20.78,1.43
 20260526,15.1,15.1,15.1,15.1,1481148,17.17,-12.06,16.98,20.48,1.1
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,13.3,13.5,12.8,13.1,4636857,16.16,-18.95,16.21,19.3,1.84
 20260602,13,13.5,12.85,13.3,1924930,15.92,-16.48,15.99,19.01,0.74
 20260603,13.4,13.55,12.95,13.25,2220554,15.7,-15.61,15.76,18.72,0.83
-20260604,13,13.5,12.85,13.3,1924930,15.5,-14.2,15.52,18.46,0.71
-20260605,13.2,13.65,13.05,13.4,2101496,15.33,-12.56,15.31,18.2,0.76
-20260611,13.15,13.55,12.95,13.45,1490130,15.17,-11.33,15.13,17.93,0.54
-20260612,13.55,13.55,13.05,13.2,1181195,15.01,-12.03,14.98,17.71,0.44
-20260615,13.35,13.35,13,13.2,937492,14.85,-11.14,14.74,17.52,0.35
-20260616,13.2,13.4,13,13.2,1043376,14.72,-10.31,14.55,17.38,0.41
-20260617,13.3,13.6,13.15,13.2,1162926,14.59,-9.53,14.37,17.21,0.46
+20260604,13.25,13.35,12.95,13.1,1635144,15.48,-15.4,15.51,18.46,0.61
+20260605,13.2,13.65,13.05,13.4,2101496,15.31,-12.48,15.3,18.2,0.77
+20260608,12.7,13.6,12.65,13.15,1520321,15.13,-13.09,15.11,17.92,0.56
+20260609,13.15,13.35,12.9,13.15,1331633,14.97,-12.13,14.95,17.7,0.49
+20260610,13.15,13.25,12.95,13,1101474,14.8,-12.17,14.71,17.51,0.41
+20260611,13.15,13.55,12.95,13.45,1490130,14.69,-8.43,14.53,17.38,0.57
+20260612,13.55,13.55,13.05,13.2,1181195,14.56,-9.37,14.35,17.2,0.46
+20260615,13.35,13.35,13,13.2,937492,14.45,-8.66,14.2,17.04,0.37
+20260616,13.2,13.4,13,13.2,1043376,14.35,-7.99,14.05,16.91,0.42
+20260617,13.3,13.6,13.15,13.2,1162926,14.25,-7.38,13.9,16.8,0.47
+20260618,13.3,13.75,13.15,13.65,1766322,14.2,-3.88,13.78,16.7,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6550 | 北極星藥業-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

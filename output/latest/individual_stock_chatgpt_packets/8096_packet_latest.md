@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:10 Asia/Taipei
+- generated_at: 2026-06-18 22:25:00 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,9 +87,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -104,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -112,48 +114,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 144.5
-- high: 152.5
-- low: 141.5
-- close: 150
-- volume: 148000
-- ma5: 138.3
-- ema23_primary: 124.78
-- distance_to_ema23_pct: 20.21
-- ma20: 125.88
-- ma60: 103.8
-- ma120: 81.78
-- return_5d: 16.73
-- return_20d: 56.41
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 19.17
-- distance_to_high_60_pct: -1.64
+- date: 20260618
+- open: 150
+- high: 156.5
+- low: 147.5
+- close: 155.5
+- volume: 9641000
+- ma5: 145.2
+- ema23_primary: 127.89
+- distance_to_ema23_pct: 21.59
+- ma20: 130.47
+- ma60: 106.61
+- ma120: 84.38
+- return_5d: 28.51
+- return_20d: 43.98
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: 19.18
+- distance_to_high_60_pct: -0.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,94.2,105,92.2,105,34521000,94.72,10.85,94.61,85.79,2.2
-20260519,105,113,103,105.5,39768000,95.62,10.33,95.19,86.47,2.41
-20260520,106,111,103.5,107.5,23186000,96.61,11.27,95.89,87.19,1.35
-20260521,108.5,113.5,106.5,108,21542000,97.56,10.7,96.5,87.91,1.22
 20260522,110.5,118.5,110,118.5,116000,99.3,19.33,97.91,88.71,0.01
 20260525,121,126.5,117.5,124.5,122000,101.4,22.78,99.7,89.53,0.01
 20260526,124.5,125,117,119.5,120000,102.91,16.12,101.09,90.28,0.01
 20260527,123,125,117.5,121,120000,104.42,15.88,102.58,91.1,0.01
 20260528,121.5,129,120,121,124000,105.8,14.37,104.03,91.94,0.01
 20260529,124.5,127.5,118.5,122.5,123000,107.19,14.28,105.69,92.89,0.01
-20260601,124,134.5,123.5,134.5,130,109.47,22.87,107.75,94.11,0
+20260601,124,134.5,123.5,134.5,130000,109.47,22.87,107.75,94.11,0.01
 20260602,137,145,132,137,137,111.76,22.58,109.79,95.34,0
 20260603,136.5,140,134.5,136.5,137000,113.82,19.92,111.78,96.58,0.01
-20260604,136.5,140,134.5,136.5,137000,115.71,17.96,113.81,97.78,0.01
-20260605,131.5,137.5,122.5,128.5,129000,116.78,10.04,115.44,98.75,0.01
-20260611,120,128,117,121,122000,117.13,3.3,116.58,99.51,0.01
-20260612,127,133,126,132.5,131000,118.41,11.9,118.36,100.5,0.02
-20260615,137,145.5,133.5,145.5,141000,120.67,20.58,120.9,101.66,0.02
-20260616,147,150,142,142.5,145000,122.49,16.34,123.17,102.65,0.02
-20260617,144.5,152.5,141.5,150,148000,124.78,20.21,125.88,103.8,0.02
+20260604,134,142,134,136,138000,115.67,17.57,113.78,97.78,0.01
+20260605,131.5,137.5,122.5,128.5,129000,116.74,10.07,115.42,98.74,0.01
+20260608,116,121.5,116,119.5,11546000,116.97,2.16,116.47,99.48,1.24
+20260609,122,130,121,125.5,14114000,117.68,6.64,117.91,100.35,1.54
+20260610,124,131,117.5,118,8997000,117.71,0.25,119.08,101.05,0.98
+20260611,120,128,117,121,10703000,117.98,2.56,120.27,101.68,1.21
+20260612,127,133,126,132.5,12488000,119.19,11.16,122.1,102.54,1.4
+20260615,137,145.5,133.5,145.5,11406000,121.38,19.87,124.12,103.48,1.47
+20260616,147,150,142,142.5,15495000,123.14,15.72,125.97,104.42,2.37
+20260617,144.5,152.5,141.5,150,13118000,125.38,19.63,128.1,105.47,2.17
+20260618,150,156.5,147.5,155.5,9641000,127.89,21.59,130.47,106.61,1.77
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8096 | 擎亞 | true_breakout | 嚴格突破 | 82.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 8096 | 擎亞 | 1 | 1 | 1 | 3 | 10 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

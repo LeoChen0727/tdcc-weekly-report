@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:32 Asia/Taipei
+- generated_at: 2026-06-18 22:23:31 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -106,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 310.5
-- high: 314.5
-- low: 307
-- close: 313
-- volume: 552882
-- ma5: 313.4
-- ema23_primary: 309.12
-- distance_to_ema23_pct: 1.26
-- ma20: 312.55
-- ma60: 288.25
-- ma120: 251.75
-- return_5d: -4.86
-- return_20d: 11.39
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 0.14
-- distance_to_high_60_pct: -5.72
+- date: 20260618
+- open: 314
+- high: 327.5
+- low: 310.5
+- close: 327.5
+- volume: 1450867
+- ma5: 317.3
+- ema23_primary: 312.29
+- distance_to_ema23_pct: 4.87
+- ma20: 315.88
+- ma60: 292.33
+- ma120: 255.24
+- return_5d: 6.33
+- return_20d: 4.47
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 3.68
+- distance_to_high_60_pct: -3.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,284,294,278,294,1851343,287.15,2.38,289.9,263.68,0.73
-20260519,295,314,294.5,307.5,3913394,288.85,6.46,291.3,264.89,1.5
-20260520,314,319,303,303.5,3933817,290.07,4.63,292.35,266.02,1.45
-20260521,309,314.5,306,313.5,2217359,292.02,7.36,293.85,267.37,0.81
 20260522,317,322,314,314.5,2355982,293.89,7.01,295.68,268.62,0.87
 20260525,321.5,323,312.5,314,1668991,295.57,6.24,296.88,269.84,0.64
 20260526,315.5,319.5,310.5,316,1178755,297.27,6.3,298.82,271.04,0.47
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,316.5,321.5,313,318,1837382,301.7,5.4,304.75,276.11,0.79
 20260602,316,318,306.5,313,1688155,302.64,3.42,305.95,277.43,0.74
 20260603,319,321,310.5,318,2455356,303.92,4.63,306.57,278.93,1.14
-20260604,316,318,306.5,313,1688155,304.68,2.73,306.73,280.48,0.82
-20260605,312,332,309,329,4294930,306.71,7.27,308.05,282.2,1.98
-20260611,306.5,310.5,297,308,1486028,306.82,0.39,308.35,283.48,0.69
-20260612,315.5,317,310.5,314,711992,307.41,2.14,308.98,284.69,0.34
-20260615,316,319,314,319,975813,308.38,3.44,309.95,285.9,0.47
-20260616,320,323,312,313,1198684,308.76,1.37,310.95,287.12,0.58
-20260617,310.5,314.5,307,313,552882,309.12,1.26,312.55,288.25,0.28
+20260604,318.5,318.5,310.5,312.5,661862,304.64,2.58,306.7,280.48,0.33
+20260605,312,332,309,329,4294930,306.67,7.28,308.02,282.19,2.03
+20260608,316,340,312,322.5,5000971,307.99,4.71,309.05,283.71,2.18
+20260609,326,330.5,318.5,329,2915131,309.74,6.22,310.43,285.18,1.25
+20260610,322,329.5,305.5,306.5,3032827,309.47,-0.96,310.77,286.18,1.25
+20260611,306.5,310.5,297,308,1486028,309.35,-0.44,311.52,287.31,0.61
+20260612,315.5,317,310.5,314,711992,309.73,1.38,313.18,288.46,0.3
+20260615,316,319,314,319,975813,310.51,2.74,314.43,289.6,0.43
+20260616,320,323,312,313,1198684,310.71,0.74,314.7,290.73,0.56
+20260617,310.5,314.5,307,313,552882,310.9,0.67,315.18,291.44,0.28
+20260618,314,327.5,310.5,327.5,1450867,312.29,4.87,315.88,292.33,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3023 | 信邦 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3023 | 信邦 | 1 | 1 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3023 | 信邦 | 16 | 0 | 1012750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

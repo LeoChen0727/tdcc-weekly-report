@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:28 Asia/Taipei
+- generated_at: 2026-06-18 22:23:26 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 36.95
-- high: 38.6
-- low: 36.95
-- close: 38.1
-- volume: 32919856
-- ma5: 36.78
-- ema23_primary: 34.27
-- distance_to_ema23_pct: 11.18
-- ma20: 33.34
-- ma60: 33.66
-- ma120: 33.44
-- return_5d: 9.48
-- return_20d: 17.59
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 14.26
-- distance_to_high_60_pct: -1.3
+- date: 20260618
+- open: 38.15
+- high: 39.2
+- low: 38
+- close: 38.35
+- volume: 67936605
+- ma5: 37.32
+- ema23_primary: 35.01
+- distance_to_ema23_pct: 9.55
+- ma20: 34.25
+- ma60: 33.88
+- ma120: 33.63
+- return_5d: 7.57
+- return_20d: 19.66
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 11.96
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,32.65,32.65,31.85,31.85,21630660,33.27,-4.28,33.47,34.22,1.03
-20260519,32.1,33.15,32,32.2,26823110,33.18,-2.97,33.28,34.19,1.27
-20260520,32.2,32.6,31.95,32.05,31589810,33.09,-3.14,33.12,34.15,1.45
-20260521,32.5,32.5,31.95,32.05,30912031,33,-2.89,32.96,34.11,1.39
 20260522,32,32.4,31.6,31.95,32193459,32.92,-2.93,32.8,34.03,1.42
 20260525,32,32,30.55,30.55,66355162,32.72,-6.63,32.57,33.92,2.63
 20260526,30.85,31.45,30.15,30.15,79395720,32.5,-7.24,32.32,33.8,2.81
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,30.55,33.45,30.55,32.85,92466538,32.01,2.62,31.96,33.41,2.22
 20260602,32.5,34.4,32.4,34.05,115623011,32.18,5.8,32.03,33.39,2.46
 20260603,34.15,36.5,33.7,36.4,83036548,32.53,11.88,32.22,33.41,1.65
-20260604,32.5,34.4,32.4,34.05,115623011,32.66,4.25,32.25,33.4,2.11
-20260605,37.15,37.25,34.5,34.8,40543106,32.84,5.97,32.33,33.41,0.73
-20260611,35.25,36.3,34.7,35.65,28478851,33.07,7.79,32.45,33.43,0.5
-20260612,35.9,37,35.75,36,38300652,33.32,8.05,32.62,33.47,0.67
-20260615,37.5,37.5,36.1,36.7,18966806,33.6,9.23,32.82,33.52,0.33
-20260616,36.7,37.6,36.55,37.45,27840857,33.92,10.41,33.06,33.58,0.48
-20260617,36.95,38.6,36.95,38.1,32919856,34.27,11.18,33.34,33.66,0.55
+20260604,36,38.6,35.5,37.7,92745091,32.96,14.37,32.44,33.46,1.73
+20260605,37.15,37.25,34.5,34.8,40543106,33.12,5.08,32.51,33.47,0.74
+20260608,34.1,34.45,33,33.5,38433694,33.15,1.06,32.52,33.46,0.69
+20260609,33.35,35.6,33.35,35.45,40383122,33.34,6.33,32.67,33.48,0.71
+20260610,34.8,35.9,34.55,35.35,28108247,33.51,5.5,32.8,33.51,0.49
+20260611,35.25,36.3,34.7,35.65,28478851,33.69,5.83,32.95,33.54,0.49
+20260612,35.9,37,35.75,36,38300652,33.88,6.26,33.13,33.59,0.64
+20260615,37.5,37.5,36.1,36.7,18966806,34.11,7.58,33.37,33.64,0.32
+20260616,36.7,37.6,36.55,37.45,27840857,34.39,8.89,33.63,33.71,0.47
+20260617,36.95,38.6,36.95,38.1,32919856,34.7,9.79,33.94,33.79,0.55
+20260618,38.15,39.2,38,38.35,67936605,35.01,9.55,34.25,33.88,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2880 | 華南金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 2880 | 華南金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2880 | 華南金 | 16 | 2 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2880 | 華南金 | 17 | 3 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2880 | 華南金 | 2 | 0 | 725490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

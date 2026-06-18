@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:07 Asia/Taipei
+- generated_at: 2026-06-18 22:24:58 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 314.5
-- high: 314.5
-- low: 302.5
+- date: 20260618
+- open: 311
+- high: 317.5
+- low: 305
 - close: 311.5
-- volume: 6617586
-- ma5: 312.6
-- ema23_primary: 302.15
-- distance_to_ema23_pct: 3.1
-- ma20: 311.2
-- ma60: 244.47
-- ma120: 210.72
-- return_5d: -7.7
-- return_20d: 8.35
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 0.1
+- volume: 7052137
+- ma5: 314.1
+- ema23_primary: 304.95
+- distance_to_ema23_pct: 2.15
+- ma20: 320.15
+- ma60: 252.69
+- ma120: 215.4
+- return_5d: 2.47
+- return_20d: 16.45
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -2.7
 - distance_to_high_60_pct: -14.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,285,285,270,278.5,23298034,235.47,18.27,238.15,201.33,1.11
-20260519,275,275.5,257,262,17656719,237.69,10.23,241.72,202.93,0.84
-20260520,264.5,267,254.5,258.5,7566033,239.42,7.97,244.18,204.44,0.38
-20260521,269,281.5,263.5,267.5,12476640,241.76,10.65,246.05,206.12,0.66
 20260522,280.5,294,280.5,294,8520221,246.11,19.46,249.75,208.08,0.49
 20260525,308,321,305.5,311.5,14593592,251.56,23.83,253.22,210.28,0.86
 20260526,319.5,335,309,311,13567730,256.52,21.24,257.3,212.42,0.85
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,329,359.5,327.5,356.5,15191948,279,27.78,275.05,222.48,0.99
 20260602,351,354,333,335,8161543,283.66,18.1,279.75,225.1,0.54
 20260603,348,355.5,335,344.5,8947128,288.73,19.31,285.15,227.91,0.6
-20260604,351,354,333,335,8161543,292.59,14.49,290.45,230.83,0.55
-20260605,340,343,327.5,337.5,6896147,296.33,13.89,296.02,233.66,0.47
-20260611,313,316,285,304,8963255,296.97,2.37,299.52,235.78,0.61
-20260612,320,328,310,315,5171505,298.47,5.54,303.35,238.13,0.37
-20260615,324.5,327.5,313.5,318.5,6151855,300.14,6.12,307.38,240.29,0.45
-20260616,325,337,314,314,9730955,301.3,4.22,310,242.43,0.76
-20260617,314.5,314.5,302.5,311.5,6617586,302.15,3.1,311.2,244.47,0.59
+20260604,341,351,337,341,5926654,293.09,16.35,290.75,230.93,0.4
+20260605,340,343,327.5,337.5,6896147,296.79,13.72,296.32,233.76,0.48
+20260608,304,304,304,304,4245639,297.39,2.22,299.82,235.88,0.3
+20260609,312,323,302,309,6336689,298.36,3.57,303.35,238.13,0.47
+20260610,305,339.5,305,315,9291070,299.75,5.09,307.2,240.23,0.69
+20260611,313,316,285,304,8963255,300.1,1.3,309.32,242.2,0.71
+20260612,320,328,310,315,5171505,301.34,4.53,310.7,244.3,0.47
+20260615,324.5,327.5,313.5,318.5,6151855,302.77,5.19,312.7,246.32,0.6
+20260616,325,337,314,314,9730955,303.71,3.39,315.3,248.43,0.99
+20260617,314.5,314.5,302.5,311.5,6617586,304.36,2.35,317.95,250.53,0.68
+20260618,311,317.5,305,311.5,7052137,304.95,2.15,320.15,252.69,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260618 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8028 | 昇陽半導體 | 5 | 5 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 8028 | 昇陽半導體 | 6 | 5 | 5 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 8028 | 昇陽半導體 | 0 | 2 | 0.0 | 900.0 | 0.0 | no_signal |
+| 20260618 | 8028 | 昇陽半導體 | 157 | 2 | 16325630.0 | 5920.0 | 2757.71 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:18 Asia/Taipei
+- generated_at: 2026-06-18 22:24:17 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,48 +113,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 18.35
-- high: 18.5
+- date: 20260618
+- open: 18.2
+- high: 18.4
 - low: 18.05
-- close: 18.2
-- volume: 18000
-- ma5: 18.36
-- ema23_primary: 18.12
-- distance_to_ema23_pct: 0.46
-- ma20: 18.16
-- ma60: 15.41
-- ma120: 13.98
-- return_5d: -19.47
-- return_20d: 22.97
-- volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 0.19
-- distance_to_high_60_pct: -20.52
+- close: 18.35
+- volume: 2761000
+- ma5: 18.46
+- ema23_primary: 18.27
+- distance_to_ema23_pct: 0.42
+- ma20: 18.97
+- ma60: 15.74
+- ma120: 14.26
+- return_5d: 2.8
+- return_20d: 19.16
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -3.28
+- distance_to_high_60_pct: -23.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,14.7,14.95,14.4,14.85,2254000,14.73,0.83,14.65,13.93,0.58
-20260519,14.95,15.1,14.5,14.5,2671000,14.71,-1.42,14.72,13.94,0.67
-20260520,14.5,14.7,14.4,14.5,1963000,14.69,-1.3,14.78,13.96,0.49
-20260521,14.85,15.45,14.75,15.4,3380000,14.75,4.41,14.89,13.99,0.83
 20260522,15.55,15.65,15.25,15.65,15000,14.82,5.57,15,14.03,0
 20260525,15.95,16.25,15.7,16,16000,14.92,7.22,15.12,14.07,0
 20260526,16.1,16.5,15.75,16.35,16000,15.04,8.7,15.24,14.1,0
 20260527,16.65,17.95,16.65,17.95,18000,15.28,17.44,15.43,14.14,0.01
 20260528,18.3,18.5,17.6,18,18000,15.51,16.05,15.63,14.2,0.01
 20260529,18.3,19.5,18.15,19.3,19000,15.83,21.95,15.88,14.29,0.01
-20260601,19.85,20.05,19.2,19.75,20,16.15,22.27,16.14,14.4,0
+20260601,19.85,20.05,19.2,19.75,20000,16.15,22.27,16.14,14.4,0.01
 20260602,19.75,20.95,19.4,20.85,20,16.54,26.02,16.44,14.52,0
 20260603,21.3,22.9,20.9,22.9,22000,17.07,34.12,16.84,14.68,0.01
-20260604,21.3,22.9,20.9,22.9,22000,17.56,30.41,17.18,14.85,0.01
-20260605,22.5,22.7,21,22.6,22000,17.98,25.7,17.5,15.01,0.01
-20260611,17.75,18.05,17.3,17.85,18000,17.97,-0.66,17.55,15.07,0.01
-20260612,18.65,19.05,18.45,18.5,19000,18.01,2.7,17.65,15.15,0.02
-20260615,19.4,19.5,18.75,18.85,19000,18.08,4.24,17.82,15.25,0.02
-20260616,19.05,19.15,18.4,18.4,19000,18.11,1.6,18,15.33,0.03
-20260617,18.35,18.5,18.05,18.2,18000,18.12,0.46,18.16,15.41,0.03
+20260604,22.85,24,22.25,22.5,23000,17.53,28.38,17.16,14.84,0.01
+20260605,22.5,22.7,21,22.6,22000,17.95,25.91,17.48,15,0.01
+20260608,20.4,20.75,20.35,20.35,5924000,18.15,12.13,17.65,15.11,3.14
+20260609,19.65,19.65,18.35,19.1,11728000,18.23,4.78,17.79,15.2,5.71
+20260610,18.75,19.15,17.85,18,9012000,18.21,-1.15,17.92,15.28,4.04
+20260611,17.75,18.05,17.3,17.85,5238000,18.18,-1.81,18.06,15.35,2.3
+20260612,18.65,19.05,18.45,18.5,5425000,18.21,1.61,18.25,15.43,2.27
+20260615,19.4,19.5,18.75,18.85,5157000,18.26,3.23,18.45,15.51,2.03
+20260616,19.05,19.15,18.4,18.4,3754000,18.27,0.7,18.64,15.59,1.45
+20260617,18.35,18.5,18.05,18.2,2808000,18.27,-0.36,18.82,15.66,1.07
+20260618,18.2,18.4,18.05,18.35,2761000,18.27,0.42,18.97,15.74,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6015 | 宏遠證 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 承認本公司一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認本公司一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉: 通過本公司第十七屆董事(含獨立董事)改選案。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6015 | 宏遠證 | 1 | 1 | 1 | 3 | 10 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

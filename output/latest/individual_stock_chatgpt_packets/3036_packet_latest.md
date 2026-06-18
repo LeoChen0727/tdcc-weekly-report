@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:33 Asia/Taipei
+- generated_at: 2026-06-18 22:23:32 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 282
+- latest_price_date: 20260618
+- price_rows: 286
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,9 +87,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 216
-- high: 225.5
-- low: 214.5
-- close: 224
-- volume: 8856401
-- ma5: 226
-- ema23_primary: 256.92
-- distance_to_ema23_pct: -12.81
-- ma20: 271.45
-- ma60: 243.89
-- ma120: 204.72
-- return_5d: -20.28
-- return_20d: -17.04
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -17.48
-- distance_to_high_60_pct: -27.27
+- date: 20260618
+- open: 224.5
+- high: 229
+- low: 220.5
+- close: 222.5
+- volume: 17383768
+- ma5: 224
+- ema23_primary: 249.96
+- distance_to_ema23_pct: -10.99
+- ma20: 264.18
+- ma60: 243.1
+- ma120: 207.67
+- return_5d: -4.3
+- return_20d: -23.67
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -15.78
+- distance_to_high_60_pct: -27.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,271,271,258.5,263.5,8558521,238.96,10.27,229.5,221.63,0.65
-20260519,265,274.5,262,265,9225075,241.13,9.9,231.9,223.45,0.71
-20260520,270.5,291.5,267.5,279,23525822,244.28,14.21,234.97,225.29,1.71
-20260521,281,293,278.5,291.5,16763571,248.22,17.44,238.88,227.23,1.19
 20260522,291,301.5,288.5,289,12509307,251.62,14.86,243.03,229.09,0.88
 20260525,292,308,289,301.5,13776354,255.77,17.88,248.15,231.11,0.96
 20260526,299,303.5,291.5,293.5,8573585,258.92,13.36,252.78,232.95,0.59
@@ -153,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,286.5,291.5,281,287.5,8860375,268.08,7.24,269.62,239.93,0.6
 20260602,296.5,301,285,290.5,18458785,269.95,7.61,273.7,241.26,1.2
 20260603,296,298.5,288,292.5,15503677,271.83,7.6,277.62,242.54,1
-20260604,296.5,301,285,290.5,18458785,273.38,6.26,281.2,243.79,1.2
-20260605,283,284.5,273,281,15071106,274.02,2.55,283.23,244.78,0.95
-20260611,235.5,237,222.5,232.5,25183186,270.56,-14.07,281.62,244.79,1.57
-20260612,239.5,240,228.5,228.5,12663837,267.05,-14.44,279.27,244.74,0.87
-20260615,236.5,236.5,225,226,14730403,263.63,-14.27,276.38,244.58,1.06
-20260616,227,229,218,219,10161761,259.91,-15.74,273.75,244.32,0.75
-20260617,216,225.5,214.5,224,8856401,256.92,-12.81,271.45,243.89,0.67
+20260604,290,291.5,277.5,282,14366028,272.68,3.42,280.77,243.65,0.94
+20260605,283,284.5,273,281,15071106,273.37,2.79,282.8,244.63,0.96
+20260608,247,254.5,246,250,28334956,271.42,-7.89,282.07,244.94,1.77
+20260609,255,255.5,246,250,16056299,269.64,-7.28,280.8,245.25,1.1
+20260610,250,251,238,239.5,19661986,267.13,-10.34,278.57,245.32,1.38
+20260611,235.5,237,222.5,232.5,25183186,264.24,-12.01,276.62,245.28,1.72
+20260612,239.5,240,228.5,228.5,12663837,261.26,-12.54,274.55,244.93,0.87
+20260615,236.5,236.5,225,226,14730403,258.32,-12.51,272.68,244.43,0.99
+20260616,227,229,218,219,10161761,255.05,-14.13,270.38,243.91,0.68
+20260617,216,225.5,214.5,224,11356401,252.46,-11.27,267.62,243.41,0.8
+20260618,224.5,229,220.5,222.5,17383768,249.96,-10.99,264.18,243.1,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3036 | 文曄 | 13 | 7 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3036 | 文曄 | 0 | 1 | 0.0 | 8040.0 | 0.0 | no_signal |
+| 20260618 | 3036 | 文曄 | 77 | 1 | 11574700.0 | 12640.0 | 915.72 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

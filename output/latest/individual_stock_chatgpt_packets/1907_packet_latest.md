@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1907 永豐餘
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:04 Asia/Taipei
+- generated_at: 2026-06-18 22:23:02 Asia/Taipei
 - stock_id: 1907
 - stock_name: 永豐餘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 28.15
+- date: 20260618
+- open: 27.6
 - high: 28.3
-- low: 27.25
-- close: 27.5
-- volume: 12935825
-- ma5: 26.44
-- ema23_primary: 25.27
-- distance_to_ema23_pct: 8.81
-- ma20: 25.01
-- ma60: 24.99
-- ma120: 25.23
-- return_5d: 5.57
-- return_20d: 10
-- volume_ratio: 5.73
-- distance_to_ma20_pct_auxiliary: 9.95
-- distance_to_high_60_pct: -3.34
+- low: 27.15
+- close: 28.2
+- volume: 6038265
+- ma5: 26.94
+- ema23_primary: 25.74
+- distance_to_ema23_pct: 9.56
+- ma20: 25.5
+- ma60: 25.17
+- ma120: 25.24
+- return_5d: 9.73
+- return_20d: 13.94
+- volume_ratio: 2.1
+- distance_to_ma20_pct_auxiliary: 10.6
+- distance_to_high_60_pct: -0.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,25,25,24.2,24.2,1595143,24.48,-1.12,24.24,25,1.1
-20260519,24.45,24.65,24.15,24.4,1353562,24.47,-0.28,24.21,24.97,0.95
-20260520,24.4,24.45,23.95,24.2,1619373,24.45,-1.01,24.15,24.94,1.11
-20260521,24.3,24.85,24.3,24.75,843770,24.47,1.14,24.14,24.92,0.58
 20260522,24.55,24.75,24.4,24.45,792612,24.47,-0.08,24.14,24.89,0.56
 20260525,24.5,24.9,24.2,24.85,1076230,24.5,1.42,24.17,24.87,0.77
 20260526,24.6,24.9,24.4,24.5,1020035,24.5,-0.01,24.2,24.84,0.75
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,24.45,24.6,23.95,24.45,1534656,24.42,0.11,24.29,24.77,1.12
 20260602,24.3,24.55,24.2,24.35,1826457,24.42,-0.28,24.32,24.77,1.29
 20260603,24.5,25.45,24.5,25.05,4037754,24.47,2.37,24.38,24.78,2.6
-20260604,24.3,24.55,24.2,24.35,1826457,24.46,-0.45,24.39,24.78,1.16
-20260605,26.45,26.65,25.5,26.05,3605006,24.59,5.92,24.49,24.81,2.12
-20260611,26.35,26.35,25.35,25.7,970316,24.69,4.11,24.57,24.83,0.57
-20260612,26.05,26.05,25.75,25.8,867128,24.78,4.12,24.68,24.86,0.52
-20260615,26.45,26.45,25.9,26.25,1243387,24.9,5.42,24.76,24.89,0.74
-20260616,26.35,27.45,26,26.95,3479456,25.07,7.49,24.89,24.94,1.95
-20260617,28.15,28.3,27.25,27.5,12935825,25.27,8.81,25.01,24.99,5.73
+20260604,25.1,27.55,25.1,26.4,7894403,24.63,7.18,24.5,24.82,4.2
+20260605,26.45,26.65,25.5,26.05,3605006,24.75,5.25,24.59,24.84,1.8
+20260608,25.15,25.8,25,25.35,1724093,24.8,2.22,24.66,24.86,0.84
+20260609,25.25,26.2,25.15,25.55,1604024,24.86,2.77,24.75,24.88,0.78
+20260610,25.25,26.35,25.25,26.1,2197112,24.97,4.54,24.83,24.92,1.05
+20260611,26.35,26.35,25.35,25.7,970316,25.03,2.69,24.89,24.94,0.47
+20260612,26.05,26.05,25.75,25.8,867128,25.09,2.83,24.93,24.96,0.44
+20260615,26.45,26.45,25.9,26.25,1243387,25.19,4.22,25.03,25,0.64
+20260616,26.35,27.45,26,26.95,3479456,25.33,6.38,25.16,25.05,1.7
+20260617,28.15,28.3,27.25,27.5,12935825,25.52,7.78,25.32,25.11,4.96
+20260618,27.6,28.3,27.15,28.2,6038265,25.74,9.56,25.5,25.17,2.1
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1907 | 永豐餘 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1907 | 永豐餘 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1907 | 永豐餘 | 3 | 2 | 3 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 1907 | 永豐餘 | 4 | 3 | 4 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

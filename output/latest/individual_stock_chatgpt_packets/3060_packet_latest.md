@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3060 銘異
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:34 Asia/Taipei
+- generated_at: 2026-06-18 22:23:33 Asia/Taipei
 - stock_id: 3060
 - stock_name: 銘異
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -114,32 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 35
-- high: 37.25
-- low: 34.2
-- close: 37.25
-- volume: 12454369
-- ma5: 33.03
-- ema23_primary: 30.99
-- distance_to_ema23_pct: 20.21
-- ma20: 30.32
-- ma60: 29.89
-- ma120: 31.11
-- return_5d: 20.94
-- return_20d: 38.73
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 22.84
-- distance_to_high_60_pct: 0
+- date: 20260618
+- open: 37.75
+- high: 38.95
+- low: 36.7
+- close: 37.9
+- volume: 22559230
+- ma5: 34.78
+- ema23_primary: 31.53
+- distance_to_ema23_pct: 20.2
+- ma20: 31.24
+- ma60: 29.77
+- ma120: 31.14
+- return_5d: 30.02
+- return_20d: 37.57
+- volume_ratio: 3.24
+- distance_to_ma20_pct_auxiliary: 21.33
+- distance_to_high_60_pct: -2.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,26.5,27.1,26.15,26.95,1281123,28.44,-5.24,28.24,29.87,0.49
-20260519,27.3,27.5,26.7,26.75,1166124,28.3,-5.48,28.06,29.8,0.45
-20260520,27.05,27.3,26.5,26.6,858509,28.16,-5.53,27.87,29.75,0.34
-20260521,27.2,27.6,26.95,27.55,1277801,28.11,-1.98,27.75,29.7,0.52
 20260522,27.75,28.85,27.75,28.85,2515376,28.17,2.42,27.81,29.65,1.08
 20260525,29.25,29.4,28.4,29,3144615,28.24,2.7,27.91,29.57,1.33
 20260526,29.05,29.3,28.1,28.35,1791412,28.25,0.36,27.96,29.49,0.75
@@ -149,13 +145,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,30.5,30.9,29.55,29.65,3286586,28.58,3.73,28.25,29.3,1.38
 20260602,30.05,32.6,29.75,32.6,15593440,28.92,12.73,28.45,29.33,5.04
 20260603,34.55,35.05,32.75,33.75,21825145,29.32,15.1,28.73,29.38,5.34
-20260604,30.05,32.6,29.75,32.6,15593440,29.59,10.16,28.92,29.46,3.29
-20260605,31.5,31.7,29.8,30.8,3353654,29.69,3.72,29.06,29.5,0.7
-20260611,29.6,29.95,28.25,29.15,1653867,29.65,-1.68,29.09,29.49,0.35
-20260612,30.35,31.7,30.15,31.15,2843707,29.77,4.62,29.22,29.55,0.59
-20260615,33.05,34.25,31.9,33.7,10398496,30.1,11.95,29.5,29.65,1.98
-20260616,33.75,35.45,33.4,33.9,9955659,30.42,11.45,29.8,29.75,1.77
-20260617,35,37.25,34.2,37.25,12454369,30.99,20.21,30.32,29.89,2.03
+20260604,33.5,34.35,31.7,31.95,5785606,29.54,8.16,28.89,29.45,1.36
+20260605,31.5,31.7,29.8,30.8,3353654,29.65,3.9,29.02,29.49,0.78
+20260608,27.75,29.2,27.75,28.9,2543924,29.58,-2.31,29.04,29.48,0.59
+20260609,29.35,31.15,28.8,30.8,2824206,29.68,3.76,29.16,29.53,0.65
+20260610,29.9,31.45,29,29.15,2870959,29.64,-1.65,29.21,29.55,0.65
+20260611,29.6,29.95,28.25,29.15,1653867,29.6,-1.52,29.28,29.57,0.38
+20260612,30.35,31.7,30.15,31.15,2843707,29.73,4.78,29.49,29.61,0.64
+20260615,33.05,34.25,31.9,33.7,10398496,30.06,12.11,29.83,29.65,2.13
+20260616,33.75,35.45,33.4,33.9,9955659,30.38,11.59,30.19,29.66,1.87
+20260617,35,37.25,34.2,37.25,12454369,30.95,20.35,30.72,29.7,2.11
+20260618,37.75,38.95,36.7,37.9,22559230,31.53,20.2,31.24,29.77,3.24
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3060 | 銘異 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
+| 20260618 | 3060 | 銘異 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:謝錦興 4.舊任者簡歷:本公司董事長、執行長 5.新任者姓名:謝錦興 6.新任者簡歷:本公司董事長、執行長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:配合本公司115年6月17日股東常會全面改選董事，故重新推選董事長。 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3060 | 銘異 | 5 | 1 | 5 | 6 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 3060 | 銘異 | 6 | 2 | 5 | 7 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

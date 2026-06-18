@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6901 鑽石投資
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:47 Asia/Taipei
+- generated_at: 2026-06-18 22:24:45 Asia/Taipei
 - stock_id: 6901
 - stock_name: 鑽石投資
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 15.55
-- high: 16.3
-- low: 15.35
-- close: 16.15
-- volume: 2664418
-- ma5: 15.99
-- ema23_primary: 14.38
-- distance_to_ema23_pct: 12.31
-- ma20: 14
-- ma60: 13.96
-- ma120: 15.29
-- return_5d: 12.94
-- return_20d: 16.19
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 15.34
-- distance_to_high_60_pct: -5.56
+- date: 20260618
+- open: 16.25
+- high: 17.2
+- low: 16.2
+- close: 16.55
+- volume: 3578798
+- ma5: 16.09
+- ema23_primary: 14.94
+- distance_to_ema23_pct: 10.79
+- ma20: 14.54
+- ma60: 14.11
+- ma120: 15.28
+- return_5d: 3.12
+- return_20d: 17.38
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 13.8
+- distance_to_high_60_pct: -4.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,14.15,14.15,13.45,13.65,948365,13.89,-1.71,13.79,14.55,0.64
-20260519,13.7,14.15,13.55,13.65,928373,13.87,-1.57,13.76,14.51,0.62
-20260520,13.65,13.65,13.35,13.45,643504,13.83,-2.77,13.72,14.46,0.43
-20260521,13.7,14.5,13.7,14.1,2501849,13.86,1.77,13.71,14.43,1.57
 20260522,14.15,14.2,13.75,14,1342642,13.87,0.96,13.72,14.38,0.83
 20260525,14,14,13.25,13.3,2531195,13.82,-3.76,13.7,14.31,1.5
 20260526,13.3,13.3,12.7,12.8,2695331,13.73,-6.81,13.65,14.23,1.5
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,12.55,13.15,12.4,13.15,1430649,13.39,-1.78,13.42,13.96,0.7
 20260602,13,13.25,12.8,13.2,1308644,13.37,-1.29,13.4,13.91,0.63
 20260603,13.2,14.45,13.2,14.35,3095780,13.45,6.66,13.46,13.89,1.42
-20260604,13,13.25,12.8,13.2,1308644,13.43,-1.73,13.46,13.86,0.59
-20260605,14.4,14.5,14,14.3,1183789,13.51,5.88,13.53,13.85,0.53
-20260611,16.5,16.5,15.4,16.05,3033611,13.72,17.01,13.62,13.87,1.4
-20260612,16.15,16.8,16,16.2,2894922,13.92,16.34,13.76,13.89,1.29
-20260615,16.35,17.1,15.95,16,3405886,14.1,13.5,13.82,13.91,1.65
-20260616,16,16.25,15.5,15.55,2633478,14.22,9.37,13.89,13.93,1.34
-20260617,15.55,16.3,15.35,16.15,2664418,14.38,12.31,14,13.96,1.32
+20260604,14.3,15.7,14,14.5,4408756,13.54,7.08,13.53,13.88,1.87
+20260605,14.4,14.5,14,14.3,1183789,13.6,5.11,13.59,13.87,0.5
+20260608,13.7,15.7,13.65,15.7,7754472,13.78,13.94,13.67,13.88,3.04
+20260609,15.85,17.25,15.55,16,14410314,13.96,14.58,13.8,13.91,4.49
+20260610,15.7,16.75,15.6,16.1,5087805,14.14,13.84,13.87,13.93,1.63
+20260611,16.5,16.5,15.4,16.05,3033611,14.3,12.23,13.96,13.96,1
+20260612,16.15,16.8,16,16.2,2894922,14.46,12.04,14.07,13.98,0.93
+20260615,16.35,17.1,15.95,16,3405886,14.59,9.68,14.19,14.01,1.06
+20260616,16,16.25,15.5,15.55,2633478,14.67,6.01,14.29,14.03,0.8
+20260617,15.55,16.3,15.35,16.15,2664418,14.79,9.18,14.42,14.07,0.78
+20260618,16.25,17.2,16.2,16.55,3578798,14.94,10.79,14.54,14.11,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6901 | 鑽石投資 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6901 | 鑽石投資 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6901 | 鑽石投資 | 1 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6901 | 鑽石投資 | 2 | 1 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

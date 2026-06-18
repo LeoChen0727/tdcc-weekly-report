@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6205 詮欣
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:25 Asia/Taipei
+- generated_at: 2026-06-18 22:24:24 Asia/Taipei
 - stock_id: 6205
 - stock_name: 詮欣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 80.4
-- high: 84.3
-- low: 80
-- close: 81.2
-- volume: 1392471
-- ma5: 82.02
-- ema23_primary: 82.11
-- distance_to_ema23_pct: -1.11
-- ma20: 81.67
-- ma60: 74.96
-- ma120: 63.52
-- return_5d: -1.1
-- return_20d: 5.73
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -0.57
-- distance_to_high_60_pct: -22.3
+- date: 20260618
+- open: 81.6
+- high: 82.5
+- low: 80.7
+- close: 81.3
+- volume: 753901
+- ma5: 82.54
+- ema23_primary: 81.56
+- distance_to_ema23_pct: -0.31
+- ma20: 82.53
+- ma60: 76.39
+- ma120: 64.89
+- return_5d: 3.3
+- return_20d: 5.31
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -1.49
+- distance_to_high_60_pct: -22.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,75.4,77.1,72.5,76.2,1699918,79.93,-4.66,85.08,65.52,0.19
-20260519,76.2,77.5,72.9,73.8,1687856,79.42,-7.07,84.72,65.94,0.2
-20260520,73.8,74.9,72.2,72.5,1173296,78.84,-8.04,83.89,66.33,0.15
-20260521,74.5,79.5,73.2,77.2,2854127,78.7,-1.91,83.39,66.81,0.39
 20260522,77.8,84.9,77.2,84.9,4617635,79.22,7.17,83.7,67.39,0.64
 20260525,85.5,88.5,83.2,86.5,6668759,79.83,8.36,84.12,67.98,0.92
 20260526,86.5,86.5,81.6,83,2959434,80.09,3.63,84.33,68.54,0.42
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,78,81.5,77.7,81.2,1384344,79.87,1.67,82.39,70.3,0.32
 20260602,81.2,89.3,79.9,89.3,8792071,80.65,10.72,81.94,70.9,2.23
 20260603,89,94,87.6,91.2,13657048,81.53,11.86,81.8,71.53,3.57
-20260604,81.2,89.3,79.9,89.3,8792071,82.18,8.67,81.72,72.18,2.27
-20260605,84.2,86.5,81,82.1,1676347,82.17,-0.09,81.58,72.7,0.45
-20260611,75.2,79.1,74.5,78.7,1680596,81.88,-3.89,81.22,73.14,0.46
-20260612,80,86.5,80,86.5,3323013,82.27,5.15,81.25,73.72,0.9
-20260615,86.5,86.9,83.3,83.3,4303397,82.35,1.15,81.39,74.16,1.15
-20260616,85.9,85.9,80.2,80.4,1137291,82.19,-2.18,81.44,74.59,0.31
-20260617,80.4,84.3,80,81.2,1392471,82.11,-1.11,81.67,74.96,0.38
+20260604,90,90.6,84.5,86,3720175,81.9,5,81.56,72.13,1.03
+20260605,84.2,86.5,81,82.1,1676347,81.92,0.22,81.42,72.65,0.48
+20260608,73.9,83.3,73.9,82.1,1802422,81.93,0.2,81.22,73.14,0.53
+20260609,84,85.5,81.2,81.7,2051748,81.91,-0.26,81.01,73.64,0.61
+20260610,80.4,82.2,75,75.2,1932163,81.36,-7.57,80.75,73.94,0.59
+20260611,75.2,79.1,74.5,78.7,1680596,81.13,-3,80.72,74.34,0.51
+20260612,80,86.5,80,86.5,3323013,81.58,6.03,81.2,74.8,0.99
+20260615,86.5,86.9,83.3,83.3,4303397,81.72,1.93,81.56,75.25,1.24
+20260616,85.9,85.9,80.2,80.4,1137291,81.61,-1.49,81.89,75.63,0.33
+20260617,80.4,84.3,80,81.2,1392471,81.58,-0.47,82.33,76,0.4
+20260618,81.6,82.5,80.7,81.3,753901,81.56,-0.31,82.53,76.39,0.23
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6205 | 詮欣 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6205 | 詮欣 | 9 | 7 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

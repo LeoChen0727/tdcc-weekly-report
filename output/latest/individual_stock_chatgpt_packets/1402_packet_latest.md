@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1402 遠東新
 
 ## Metadata
-- generated_at: 2026-06-17 22:22:52 Asia/Taipei
+- generated_at: 2026-06-18 22:22:50 Asia/Taipei
 - stock_id: 1402
 - stock_name: 遠東新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 28.55
-- high: 29.15
-- low: 28.25
-- close: 28.8
-- volume: 30949414
-- ma5: 27.86
-- ema23_primary: 26.84
-- distance_to_ema23_pct: 7.3
-- ma20: 26.6
-- ma60: 26.4
+- date: 20260618
+- open: 28.85
+- high: 29.3
+- low: 28.75
+- close: 28.85
+- volume: 38500260
+- ma5: 28.15
+- ema23_primary: 27.21
+- distance_to_ema23_pct: 6.03
+- ma20: 26.91
+- ma60: 26.51
 - ma120: 27.29
-- return_5d: 4.54
-- return_20d: 8.88
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 8.27
-- distance_to_high_60_pct: -1.2
+- return_5d: 5.29
+- return_20d: 6.07
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 7.23
+- distance_to_high_60_pct: -1.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,26.25,26.4,25.95,25.95,19880751,26.3,-1.33,26.12,26.93,1.4
-20260519,26.1,26.8,26.1,26.25,22412426,26.3,-0.17,26.13,26.89,1.53
-20260520,26.2,26.75,26.05,26.75,15690953,26.33,1.58,26.17,26.87,1.09
-20260521,26.8,27.2,26.65,27.2,25120187,26.41,3.01,26.23,26.85,1.68
 20260522,27.1,27.15,26.75,27,35815467,26.45,2.06,26.27,26.83,2.24
 20260525,27,27.2,26.5,27.2,39203721,26.52,2.58,26.32,26.81,2.25
 20260526,26.95,27.2,25.8,26.05,52666174,26.48,-1.62,26.33,26.77,2.68
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,25.6,25.6,24.65,25.05,78316034,25.98,-3.59,26.11,26.5,1.53
 20260602,25.1,26.8,25.1,26.25,125381435,26.01,0.94,26.14,26.47,2.2
 20260603,26.85,27.7,26.45,27.3,96933858,26.11,4.54,26.2,26.44,1.58
-20260604,25.1,26.8,25.1,26.25,125381435,26.13,0.48,26.21,26.4,1.87
-20260605,27.75,28.1,27.2,27.55,71493771,26.24,4.98,26.28,26.38,1.02
-20260611,27.65,27.9,27.35,27.4,38339578,26.34,4.02,26.34,26.36,0.54
-20260612,27.7,27.7,26.7,27,30282505,26.4,2.29,26.35,26.35,0.42
-20260615,27.25,27.6,27,27.55,17989540,26.49,4,26.39,26.35,0.25
-20260616,27.6,28.75,27.5,28.55,40154934,26.66,7.08,26.48,26.37,0.55
-20260617,28.55,29.15,28.25,28.8,30949414,26.84,7.3,26.6,26.4,0.42
+20260604,27.3,28.2,27.2,27.55,64194291,26.23,5.02,26.27,26.42,1
+20260605,27.75,28.1,27.2,27.55,71493771,26.34,4.58,26.35,26.4,1.07
+20260608,26.7,27.05,26.4,26.75,67921480,26.38,1.41,26.37,26.37,0.97
+20260609,26.75,27.9,26.75,27.7,59386230,26.49,4.58,26.42,26.37,0.83
+20260610,27.55,27.95,27.15,27.65,49549886,26.58,4.01,26.46,26.38,0.67
+20260611,27.65,27.9,27.35,27.4,38339578,26.65,2.81,26.5,26.38,0.52
+20260612,27.7,27.7,26.7,27,30282505,26.68,1.19,26.52,26.38,0.41
+20260615,27.25,27.6,27,27.55,17989540,26.75,2.98,26.61,26.39,0.24
+20260616,27.6,28.75,27.5,28.55,40154934,26.9,6.12,26.72,26.42,0.53
+20260617,28.55,29.15,28.25,28.8,30949414,27.06,6.42,26.82,26.46,0.41
+20260618,28.85,29.3,28.75,28.85,38500260,27.21,6.03,26.91,26.51,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1402 | 遠東新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_many_days | 1.證券名稱: 亞洲水泥股份有限公司 普通股股票 2.交易日期:115/6/3~115/6/16 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年06月16日 5.交易數量、每單位價格及交易總金額: 交易數量：8,692,000股 每單位價格：新台幣34.90元整 交易總金額：新台幣303,393,696元整 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 企業採權益法評價之被投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有股數：14,785,674股 持有金額：新台幣581,961,540元整 持股比例：0.42% 權利受限情形:無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 佔總資產比例：0.82% 佔股東權益比例：1.29% 營運資金：新台幣-2,597,834仟元整 資金來源：營業收入 10.取得或處分之具體目的: 增加投資 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 1402 | 遠東新 | 16 | 16 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1402 | 遠東新 | 7 | 0 | 2360060.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

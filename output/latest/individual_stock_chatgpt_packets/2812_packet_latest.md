@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2812 台中銀
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:26 Asia/Taipei
+- generated_at: 2026-06-18 22:23:25 Asia/Taipei
 - stock_id: 2812
 - stock_name: 台中銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 19.85
-- high: 20.15
+- date: 20260618
+- open: 19.95
+- high: 20.1
 - low: 19.8
-- close: 19.85
-- volume: 27486457
-- ma5: 19.58
-- ema23_primary: 19.28
-- distance_to_ema23_pct: 2.93
-- ma20: 19.02
-- ma60: 19.85
-- ma120: 20.29
-- return_5d: 2.85
-- return_20d: 5.87
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: 4.35
-- distance_to_high_60_pct: -6.15
+- close: 19.8
+- volume: 22418129
+- ma5: 19.7
+- ema23_primary: 19.39
+- distance_to_ema23_pct: 2.11
+- ma20: 19.16
+- ma60: 19.8
+- ma120: 20.24
+- return_5d: 3.12
+- return_20d: 4.21
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 3.34
+- distance_to_high_60_pct: -6.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,18.55,18.9,18.5,18.85,21964043,19.76,-4.58,19.77,20.36,1.06
-20260519,18.85,19.3,18.7,19.15,16848788,19.7,-2.82,19.7,20.33,0.81
-20260520,19.15,19.15,18.9,18.9,10579347,19.64,-3.76,19.62,20.31,0.51
-20260521,18.95,19.05,18.9,19,7968092,19.58,-2.99,19.55,20.28,0.39
 20260522,19,19.05,18.9,18.95,9345144,19.53,-2.98,19.5,20.25,0.48
 20260525,19,19,18.75,18.75,13345189,19.47,-3.68,19.43,20.22,0.71
 20260526,18.75,18.95,18.7,18.85,10409943,19.42,-2.91,19.39,20.18,0.58
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,18.45,18.45,18.1,18.4,41743083,19.15,-3.93,19.11,20.04,2.03
 20260602,18.35,18.75,18.25,18.7,18764721,19.12,-2.17,19.05,20.01,0.9
 20260603,18.75,19.4,18.7,19.25,27278741,19.13,0.64,19.03,19.99,1.28
-20260604,18.35,18.75,18.25,18.7,18764721,19.09,-2.05,18.98,19.96,0.88
-20260605,19.45,19.55,19.15,19.3,20260580,19.11,1,18.95,19.95,0.94
-20260611,19.3,19.3,19.05,19.2,12756792,19.12,0.44,18.93,19.92,0.59
-20260612,19.35,19.65,19.35,19.5,13229252,19.15,1.84,18.92,19.9,0.62
-20260615,19.65,19.8,19.6,19.6,14134088,19.19,2.16,18.93,19.88,0.68
-20260616,19.7,19.9,19.55,19.75,20585737,19.23,2.69,18.97,19.86,1.06
-20260617,19.85,20.15,19.8,19.85,27486457,19.28,2.93,19.02,19.85,1.5
+20260604,19.35,19.65,19.25,19.4,29039373,19.15,1.31,19.01,19.98,1.33
+20260605,19.45,19.55,19.15,19.3,20260580,19.16,0.72,18.99,19.96,0.92
+20260608,18.8,19.1,18.6,19.05,21697134,19.15,-0.54,18.95,19.93,0.96
+20260609,19.05,19.75,19.05,19.7,24967617,19.2,2.61,18.96,19.91,1.09
+20260610,19.6,19.65,19.3,19.4,18308641,19.22,0.96,18.96,19.89,0.82
+20260611,19.3,19.3,19.05,19.2,12756792,19.21,-0.07,18.97,19.86,0.62
+20260612,19.35,19.65,19.35,19.5,13229252,19.24,1.36,19,19.85,0.7
+20260615,19.65,19.8,19.6,19.6,14134088,19.27,1.72,19.04,19.83,0.76
+20260616,19.7,19.9,19.55,19.75,20585737,19.31,2.29,19.07,19.82,1.1
+20260617,19.85,20.15,19.8,19.85,27486457,19.35,2.57,19.12,19.81,1.4
+20260618,19.95,20.1,19.8,19.8,22418129,19.39,2.11,19.16,19.8,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -184,16 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2812 | 台中銀 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2812 | 台中銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2812 | 台中銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2812 | 台中銀 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

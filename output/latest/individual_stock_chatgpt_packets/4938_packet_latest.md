@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:05 Asia/Taipei
+- generated_at: 2026-06-18 22:24:04 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 82.9
-- high: 83.2
-- low: 81
-- close: 83
-- volume: 20911923
-- ma5: 87.6
-- ema23_primary: 86.8
-- distance_to_ema23_pct: -4.38
-- ma20: 86.36
-- ma60: 82.39
-- ma120: 76.45
-- return_5d: -14.34
-- return_20d: 8.5
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -3.89
-- distance_to_high_60_pct: -19.02
+- date: 20260618
+- open: 83.8
+- high: 86.6
+- low: 82.9
+- close: 82.9
+- volume: 26848809
+- ma5: 85.1
+- ema23_primary: 87.46
+- distance_to_ema23_pct: -5.21
+- ma20: 89.08
+- ma60: 83.32
+- ma120: 77.16
+- return_5d: -13.1
+- return_20d: 4.8
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -6.94
+- distance_to_high_60_pct: -19.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,77,77.5,75.8,76.5,10111329,80.58,-5.07,82.06,77.71,0.75
-20260519,77.2,78,76.8,76.9,8017022,80.28,-4.21,81.77,77.83,0.61
-20260520,76.9,77.7,76.6,77.2,10080428,80.02,-3.52,81.43,77.93,0.78
-20260521,78,79.5,77.7,79.1,12044909,79.94,-1.06,81.15,78.08,0.96
 20260522,79.1,81.1,79.1,80.7,14071678,80.01,0.87,80.98,78.24,1.17
 20260525,81.7,82.7,81.1,81.2,18210538,80.11,1.37,80.83,78.39,1.48
 20260526,81.8,82.5,80.7,81.4,8234361,80.21,1.48,80.75,78.53,0.68
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,92,92.1,89.5,91.2,39426487,82.11,11.07,81.59,79.54,2.49
 20260602,92,99.5,90.8,97.8,62079513,83.41,17.25,82.41,80.02,3.35
 20260603,100,102.5,96.9,98.5,57606262,84.67,16.33,83.15,80.47,2.77
-20260604,92,99.5,90.8,97.8,62079513,85.77,14.03,83.83,80.94,2.65
-20260605,97,97.4,91.3,96.9,37968825,86.69,11.77,84.45,81.39,1.53
-20260611,96.1,96.6,93.8,95.4,30841509,87.42,9.13,85.05,81.81,1.2
-20260612,96,97,93.1,93.1,23486337,87.89,5.92,85.65,82.08,0.89
-20260615,87,90,83.4,83.5,67091323,87.53,-4.6,85.73,82.2,2.31
-20260616,84.5,84.8,82.3,83,24517805,87.15,-4.76,86.03,82.31,0.86
-20260617,82.9,83.2,81,83,20911923,86.8,-4.38,86.36,82.39,0.73
+20260604,101,101,95.6,97,45248354,85.7,13.19,83.78,80.93,2.01
+20260605,97,97.4,91.3,96.9,37968825,86.63,11.85,84.41,81.38,1.59
+20260608,89,94.5,87.6,92.1,37235560,87.09,5.76,84.84,81.74,1.47
+20260609,91.2,97.5,89.3,95.1,34210579,87.76,8.37,85.55,82.04,1.3
+20260610,93,99.4,92.4,94.8,40678327,88.34,7.31,86.19,82.36,1.46
+20260611,96.1,96.6,93.8,95.4,30841509,88.93,7.27,87.11,82.67,1.12
+20260612,96,97,93.1,93.1,23486337,89.28,4.28,87.94,82.91,0.84
+20260615,87,90,83.4,83.5,67091323,88.8,-5.96,88.3,83,2.18
+20260616,84.5,84.8,82.3,83,24517805,88.31,-6.02,88.6,83.1,0.78
+20260617,82.9,83.2,81,83,20911923,87.87,-5.54,88.89,83.2,0.65
+20260618,83.8,86.6,82.9,82.9,26848809,87.46,-5.21,89.08,83.32,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4938 | 和碩 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 4938 | 和碩 | 2 | 2 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4938 | 和碩 | 25 | 0 | 2754890.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

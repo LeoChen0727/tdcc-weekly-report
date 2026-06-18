@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6505 台塑化
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:33 Asia/Taipei
+- generated_at: 2026-06-18 22:24:32 Asia/Taipei
 - stock_id: 6505
 - stock_name: 台塑化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 52
-- high: 53
-- low: 51.6
-- close: 52.6
-- volume: 6691768
-- ma5: 52.56
-- ema23_primary: 52.76
-- distance_to_ema23_pct: -0.3
-- ma20: 52.12
-- ma60: 53.57
-- ma120: 52.43
-- return_5d: -4.88
-- return_20d: 2.53
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 0.91
-- distance_to_high_60_pct: -12.04
+- date: 20260618
+- open: 52.6
+- high: 55.3
+- low: 52.5
+- close: 53.5
+- volume: 13997185
+- ma5: 52.98
+- ema23_primary: 52.8
+- distance_to_ema23_pct: 1.32
+- ma20: 52.5
+- ma60: 53.35
+- ma120: 52.55
+- return_5d: 4.09
+- return_20d: 4.29
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 1.9
+- distance_to_high_60_pct: -8.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,51.1,51.9,50.8,51.2,6761865,53.34,-4.02,53.12,54.98,0.73
-20260519,51.6,52.2,50.9,51.3,5550604,53.17,-3.52,52.99,55,0.61
-20260520,51.6,51.8,50.3,51.2,6816291,53.01,-3.41,52.9,55.04,0.76
-20260521,51.4,51.7,50.9,51.3,4249170,52.87,-2.96,52.83,55.07,0.48
 20260522,51.1,51.3,50.6,51,5352015,52.71,-3.24,52.8,55.05,0.63
 20260525,51.3,51.3,49.3,49.5,13646379,52.44,-5.61,52.69,55.01,1.56
 20260526,49.5,50.2,49.1,49.3,7903750,52.18,-5.52,52.56,54.9,0.9
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,51.6,53.8,50.7,53.3,11498399,51.92,2.66,51.94,54.47,1.4
 20260602,53.4,54.7,52.9,54.5,12690822,52.14,4.53,51.89,54.44,1.5
 20260603,54.8,56.5,53.9,55.9,16107498,52.45,6.58,51.95,54.34,1.81
-20260604,53.4,54.7,52.9,54.5,12690822,52.62,3.57,52.05,54.11,1.46
-20260605,57.5,57.7,55,55.3,10995075,52.84,4.65,52.17,54.01,1.25
-20260611,51.5,51.9,50.3,51.4,7607052,52.72,-2.51,52.04,53.9,0.88
-20260612,51.5,53,51.4,52.8,5713177,52.73,0.13,52.02,53.8,0.67
-20260615,53.5,53.6,52.5,53.3,6606199,52.78,0.99,52.05,53.73,0.76
-20260616,53.7,54.3,52.6,52.7,6752182,52.77,-0.13,52.06,53.64,0.77
-20260617,52,53,51.6,52.6,6691768,52.76,-0.3,52.12,53.57,0.76
+20260604,56.5,58.1,55.7,57.5,16387352,52.87,8.76,52.2,54.16,1.84
+20260605,57.5,57.7,55,55.3,10995075,53.07,4.2,52.32,54.06,1.23
+20260608,52.8,53.5,51.9,52.6,8476427,53.03,-0.82,52.25,53.97,0.95
+20260609,52.1,52.8,51.7,52.4,9226963,52.98,-1.1,52.22,53.87,1.03
+20260610,52,52.2,50.7,51,9674170,52.82,-3.44,52.12,53.75,1.05
+20260611,51.5,51.9,50.3,51.4,7607052,52.7,-2.46,52.07,53.64,0.81
+20260612,51.5,53,51.4,52.8,5713177,52.71,0.18,52.15,53.58,0.61
+20260615,53.5,53.6,52.5,53.3,6606199,52.76,1.03,52.25,53.51,0.71
+20260616,53.7,54.3,52.6,52.7,6752182,52.75,-0.1,52.32,53.44,0.72
+20260617,52,53,51.6,52.6,6691768,52.74,-0.26,52.39,53.38,0.72
+20260618,52.6,55.3,52.5,53.5,13997185,52.8,1.32,52.5,53.35,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -184,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6505 | 台塑化 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6505 | 台塑化 | 1 | 1 | 2 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6505 | 台塑化 | 0 | 1 | 0.0 | 0.0 |  | no_signal |
+| 20260618 | 6505 | 台塑化 | 41 | 1 | 2306640.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

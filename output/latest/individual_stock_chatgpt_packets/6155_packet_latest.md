@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6155 鈞寶
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:22 Asia/Taipei
+- generated_at: 2026-06-18 22:24:20 Asia/Taipei
 - stock_id: 6155
 - stock_name: 鈞寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,37 +56,36 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -112,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 88.2
-- high: 91.5
-- low: 87.4
-- close: 89.6
-- volume: 19222493
-- ma5: 86.7
-- ema23_primary: 70.8
-- distance_to_ema23_pct: 26.55
-- ma20: 69.55
-- ma60: 54.78
-- ma120: 51.84
-- return_5d: 12.99
-- return_20d: 81.74
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 28.83
-- distance_to_high_60_pct: -5.68
+- date: 20260618
+- open: 90.2
+- high: 98.5
+- low: 90.1
+- close: 98.5
+- volume: 22494851
+- ma5: 89.58
+- ema23_primary: 75.18
+- distance_to_ema23_pct: 31.02
+- ma20: 75.1
+- ma60: 57.06
+- ma120: 53.16
+- return_5d: 17.12
+- return_20d: 65.82
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 31.16
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,49.3,53.4,49.1,52,4804333,49.24,5.6,48.89,47.39,1.21
-20260519,51.3,52.3,49.2,50.9,2798849,49.38,3.08,48.94,47.46,0.69
-20260520,51,55.9,50.8,55.9,8528353,49.92,11.97,49.27,47.64,1.94
-20260521,56.5,61,55.4,59.4,28328641,50.71,17.13,49.84,47.87,4.94
 20260522,59.2,65.3,57,61.2,23088794,51.59,18.63,50.71,48.06,3.4
 20260525,62.3,64.7,61.1,61.2,11088750,52.39,16.82,51.62,48.23,1.52
 20260526,61.4,61.5,56.8,59.4,6620869,52.97,12.13,52.22,48.38,0.88
@@ -147,13 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,63,69,63,69,20681711,56.23,22.7,55.46,49.29,2.09
 20260602,69,75.9,64.5,75.9,29741511,57.87,31.15,56.84,49.77,2.63
 20260603,75.5,78.1,71.3,71.4,13693482,59,21.02,58.09,50.19,1.15
-20260604,69,75.9,64.5,75.9,29741511,60.41,25.65,59.34,50.74,2.26
-20260605,70.7,79.3,69,79.3,16373795,61.98,27.94,60.65,51.33,1.27
-20260611,79.6,84.1,76.3,84.1,27732952,63.83,31.77,62.3,51.98,1.97
-20260612,88.6,89.5,80.7,82,35767260,65.34,25.5,63.8,52.62,2.29
-20260615,83.6,90.2,83.6,90.2,18777210,67.41,33.8,65.72,53.39,1.14
-20260616,92.5,95,87.5,87.6,35156345,69.09,26.78,67.53,54.1,1.98
-20260617,88.2,91.5,87.4,89.6,19222493,70.8,26.55,69.55,54.78,1.04
+20260604,71.3,75,68.9,72.1,8863091,60.09,19.98,59.16,50.68,0.73
+20260605,70.7,79.3,69,79.3,16373795,61.69,28.54,60.46,51.26,1.38
+20260608,72.3,86.7,72.3,77.3,63979426,62.99,22.71,61.77,51.8,4.32
+20260609,78,85,76.8,80.7,40930368,64.47,25.18,63.21,52.42,2.46
+20260610,79.2,88.5,76.4,76.5,34412605,65.47,16.85,64.44,52.96,1.89
+20260611,79.6,84.1,76.3,84.1,27732952,67.02,25.48,66.08,53.62,1.44
+20260612,88.6,89.5,80.7,82,35767260,68.27,20.11,67.72,54.17,1.73
+20260615,83.6,90.2,83.6,90.2,18777210,70.1,28.68,69.62,54.84,0.88
+20260616,92.5,95,87.5,87.6,35156345,71.56,22.42,71.46,55.48,1.53
+20260617,88.2,91.5,87.4,89.6,19222493,73.06,22.64,73.14,56.16,0.82
+20260618,90.2,98.5,90.1,98.5,22494851,75.18,31.02,75.1,57.06,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +184,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6155 | 鈞寶 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利分配總金額：新台幣70,419,190元，每股配發0.8元 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 現金股利預計於115年7月31日以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6155 | 鈞寶 | true_breakout | 嚴格突破 | 71.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利分配總金額：新台幣70,419,190元，每股配發0.8元 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 現金股利預計於115年7月31日以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6155 | 鈞寶 | 6 | 1 | 5 | 9 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260618 | 6155 | 鈞寶 | 7 | 1 | 5 | 9 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

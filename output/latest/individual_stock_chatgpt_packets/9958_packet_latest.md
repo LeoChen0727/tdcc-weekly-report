@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:22 Asia/Taipei
+- generated_at: 2026-06-18 22:25:12 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 113
-- high: 117
-- low: 112
-- close: 116.5
-- volume: 3211833
-- ma5: 112.8
-- ema23_primary: 108.3
-- distance_to_ema23_pct: 7.57
-- ma20: 106.75
-- ma60: 108.47
-- ma120: 121.55
-- return_5d: -3.72
-- return_20d: 11.48
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 9.13
-- distance_to_high_60_pct: -10.38
+- date: 20260618
+- open: 116
+- high: 116.5
+- low: 113.5
+- close: 115
+- volume: 2599236
+- ma5: 113.5
+- ema23_primary: 110.38
+- distance_to_ema23_pct: 4.18
+- ma20: 109.55
+- ma60: 107.92
+- ma120: 120.83
+- return_5d: 3.14
+- return_20d: 11.65
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 4.97
+- distance_to_high_60_pct: -8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,104.5,107,102.5,105.5,1665995,105.97,-0.45,104.33,114.77,0.94
-20260519,106,112,103.5,104,2638314,105.81,-1.71,104.1,114.43,1.49
-20260520,104,104.5,101,101,2268844,105.41,-4.18,103.83,114,1.25
-20260521,102.5,104,101.5,103,867560,105.21,-2.1,103.55,113.62,0.48
 20260522,103.5,103.5,101.5,101.5,2097489,104.9,-3.24,103.38,113.11,1.17
 20260525,102,106,100.5,104.5,4061512,104.86,-0.35,103.45,112.71,2.11
 20260526,106.5,108,104,105,2504890,104.88,0.12,103.6,112.28,1.28
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,104,107,104,105,2195799,104.47,0.51,103.83,110.88,0.98
 20260602,106,106,101.5,102.5,2334822,104.3,-1.73,103.88,110.53,1.02
 20260603,103.5,109,103,107,4265291,104.53,2.37,104.15,110.26,1.75
-20260604,106,106,101.5,102.5,2334822,104.36,-1.78,104,109.91,0.97
-20260605,122,124.5,114.5,121,19788351,105.74,14.43,104.9,109.87,5.95
-20260611,111.5,114.5,108.5,111.5,3247768,106.22,4.97,105.3,109.5,0.95
-20260612,112.5,114.5,111.5,112.5,1728181,106.75,5.39,105.7,109.23,0.5
-20260615,114,114,110,110,2218975,107.02,2.79,105.97,108.94,0.64
-20260616,110,114,109,113.5,3036252,107.56,5.52,106.15,108.67,0.88
-20260617,113,117,112,116.5,3211833,108.3,7.57,106.75,108.47,0.95
+20260604,107.5,117.5,106.5,117.5,5299933,105.61,11.26,104.75,110.16,2.08
+20260605,122,124.5,114.5,121,19788351,106.89,13.2,105.65,110.12,5.7
+20260608,111,116,111,115,5631722,107.57,6.91,106.22,109.81,1.52
+20260609,115.5,116.5,113,113.5,4545398,108.06,5.03,106.67,109.56,1.17
+20260610,113,116,111,111,3523712,108.31,2.49,107,109.28,0.89
+20260611,111.5,114.5,108.5,111.5,3247768,108.57,2.7,107.08,108.98,0.83
+20260612,112.5,114.5,111.5,112.5,1728181,108.9,3.31,107.47,108.71,0.46
+20260615,114,114,110,110,2218975,108.99,0.93,107.7,108.4,0.58
+20260616,110,114,109,113.5,3036252,109.37,3.78,108.17,108.19,0.79
+20260617,113,117,112,116.5,3211833,109.96,5.95,108.95,108.02,0.83
+20260618,116,116.5,113.5,115,2599236,110.38,4.18,109.55,107.92,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9958 | 世紀鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 9958 | 世紀鋼 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9958 | 世紀鋼 | 16 | 5 | 5 | 10 | 16 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 9958 | 世紀鋼 | 17 | 6 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 9958 | 世紀鋼 | 32 | 0 | 2114390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

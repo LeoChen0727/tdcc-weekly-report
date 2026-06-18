@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:06 Asia/Taipei
+- generated_at: 2026-06-18 22:24:05 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 168
-- high: 172.5
-- low: 165
-- close: 172.5
-- volume: 720213
-- ma5: 168.1
-- ema23_primary: 169.25
-- distance_to_ema23_pct: 1.92
-- ma20: 171.45
-- ma60: 160.62
-- ma120: 153.37
-- return_5d: 2.37
-- return_20d: 2.07
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 0.61
-- distance_to_high_60_pct: -5.48
+- date: 20260618
+- open: 172.5
+- high: 179
+- low: 172.5
+- close: 174
+- volume: 1786570
+- ma5: 170.3
+- ema23_primary: 168.67
+- distance_to_ema23_pct: 3.16
+- ma20: 170.05
+- ma60: 162.12
+- ma120: 154.26
+- return_5d: 6.75
+- return_20d: -2.79
+- volume_ratio: 1.68
+- distance_to_ma20_pct_auxiliary: 2.32
+- distance_to_high_60_pct: -4.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,166,171.5,163.5,171,922667,163.07,4.87,163.2,152.43,0.47
-20260519,172,173,165.5,167,977011,163.39,2.21,163.78,152.78,0.5
-20260520,167,172.5,165.5,171,1070505,164.03,4.25,164.62,153.18,0.55
-20260521,174.5,182.5,173.5,179,3218324,165.28,8.3,165.12,153.78,1.67
 20260522,179.5,179.5,172.5,175.5,1886207,166.13,5.64,165.8,154.28,1.11
 20260525,179,179.5,175,175.5,1566788,166.91,5.15,166.57,154.66,0.92
 20260526,177,177.5,171.5,174.5,1273986,167.54,4.15,167.35,155.09,0.75
@@ -148,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,171.5,175,168,175,1771929,168.97,3.57,170.7,156.83,1
 20260602,176,176,168.5,173,1380749,169.3,2.18,171.4,157.36,0.77
 20260603,173,174.5,170.5,171.5,801025,169.49,1.19,172.15,157.77,0.45
-20260604,176,176,168.5,173,1380749,169.78,1.9,172.75,158.27,0.77
-20260605,167,169,163,168.5,794586,169.67,-0.69,172.68,158.6,0.5
-20260611,160.5,166,159.5,163,615381,169.12,-3.62,172.3,158.87,0.4
-20260612,166,170,165.5,166,558627,168.86,-1.69,171.72,159.24,0.41
-20260615,168,172,167.5,171,669341,169.04,1.16,171.6,159.68,0.53
-20260616,172.5,173,166.5,168,494978,168.95,-0.56,171.28,160.12,0.41
-20260617,168,172.5,165,172.5,720213,169.25,1.92,171.45,160.62,0.62
+20260604,172,172.5,168,168,753138,169.36,-0.8,172.5,158.18,0.43
+20260605,167,169,163,168.5,794586,169.29,-0.47,172.43,158.52,0.51
+20260608,153,158.5,153,158,952155,168.35,-6.15,171.8,158.7,0.63
+20260609,159.5,170,159.5,169.5,1151279,168.45,0.63,171.4,159.13,0.85
+20260610,166.5,170,163.5,163.5,946324,168.03,-2.7,170.9,159.45,0.74
+20260611,160.5,166,159.5,163,615381,167.61,-2.75,170.32,159.8,0.5
+20260612,166,170,165.5,166,558627,167.48,-0.88,170.18,160.2,0.47
+20260615,168,172,167.5,171,669341,167.77,1.92,170.18,160.67,0.57
+20260616,172.5,173,166.5,168,494978,167.79,0.12,170.22,161.12,0.43
+20260617,168,172.5,165,172.5,720213,168.18,2.57,170.3,161.57,0.64
+20260618,172.5,179,172.5,174,1786570,168.67,3.16,170.05,162.12,1.68
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +194,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4961 | 天鈺 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4961 | 天鈺 | 1 | 1 | 1 | 3 | 10 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 4961 | 天鈺 | 8 | 0 | 2441720.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9907 統一實
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:20 Asia/Taipei
+- generated_at: 2026-06-18 22:25:10 Asia/Taipei
 - stock_id: 9907
 - stock_name: 統一實
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 16.5
-- high: 16.7
-- low: 16.4
-- close: 16.65
-- volume: 8170460
-- ma5: 16.7
-- ema23_primary: 16.56
-- distance_to_ema23_pct: 0.51
-- ma20: 16.25
-- ma60: 17.28
-- ma120: 17.83
-- return_5d: 0
-- return_20d: 3.42
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: 2.46
-- distance_to_high_60_pct: -11.2
+- date: 20260618
+- open: 16.7
+- high: 16.85
+- low: 16.6
+- close: 16.7
+- volume: 11090252
+- ma5: 16.69
+- ema23_primary: 16.6
+- distance_to_ema23_pct: 0.59
+- ma20: 16.4
+- ma60: 17.19
+- ma120: 17.78
+- return_5d: -0.3
+- return_20d: 4.05
+- volume_ratio: 2.35
+- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_high_60_pct: -10.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,16,16.1,15.8,15.9,6503182,17.2,-7.58,17.29,18.02,1.35
-20260519,16.05,16.25,15.9,16,3599179,17.1,-6.46,17.19,17.99,0.75
-20260520,16.1,16.1,15.85,15.9,4015151,17,-6.49,17.09,17.96,0.84
-20260521,16,16.15,15.9,16.05,2750731,16.92,-5.17,17,17.92,0.58
 20260522,16.05,16.15,15.9,15.95,3990305,16.84,-5.3,16.91,17.87,0.86
 20260525,16,16.05,15.85,15.95,2994642,16.77,-4.88,16.82,17.82,0.65
 20260526,15.95,16.1,15.85,15.85,3809121,16.69,-5.05,16.71,17.76,0.83
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,16.1,16.25,16.05,16.2,4822284,16.48,-1.69,16.37,17.55,1.04
 20260602,16.25,16.4,16.25,16.35,4422741,16.47,-0.71,16.31,17.51,0.95
 20260603,16.5,16.8,16.45,16.75,5255346,16.49,1.57,16.28,17.48,1.16
-20260604,16.25,16.4,16.25,16.35,4422741,16.48,-0.78,16.24,17.44,0.98
-20260605,16.85,16.85,16.65,16.65,4764767,16.49,0.95,16.21,17.41,1.05
-20260611,16.5,16.75,16.45,16.75,4380395,16.51,1.42,16.2,17.38,0.96
-20260612,16.75,16.85,16.7,16.7,3546813,16.53,1.03,16.2,17.35,0.79
-20260615,16.8,16.85,16.7,16.75,4369083,16.55,1.22,16.21,17.33,1.01
-20260616,16.75,16.8,16.5,16.65,6997359,16.56,0.56,16.22,17.31,1.6
-20260617,16.5,16.7,16.4,16.65,8170460,16.56,0.51,16.25,17.28,1.85
+20260604,16.8,16.8,16.6,16.8,4283284,16.52,1.72,16.26,17.45,0.95
+20260605,16.85,16.85,16.65,16.65,4764767,16.53,0.74,16.24,17.41,1.05
+20260608,16.2,16.55,16.2,16.45,4160019,16.52,-0.43,16.21,17.38,0.92
+20260609,16.45,16.75,16.45,16.55,4503824,16.52,0.16,16.2,17.35,0.99
+20260610,16.55,16.8,16.55,16.7,3527906,16.54,0.98,16.21,17.33,0.82
+20260611,16.5,16.75,16.45,16.75,4380395,16.56,1.17,16.23,17.31,1.03
+20260612,16.75,16.85,16.7,16.7,3546813,16.57,0.8,16.25,17.28,0.88
+20260615,16.8,16.85,16.7,16.75,4369083,16.58,1.01,16.3,17.26,1.11
+20260616,16.75,16.8,16.5,16.65,6997359,16.59,0.37,16.33,17.23,1.71
+20260617,16.5,16.7,16.4,16.65,8170460,16.59,0.34,16.37,17.21,1.9
+20260618,16.7,16.85,16.6,16.7,11090252,16.6,0.59,16.4,17.19,2.35
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9907 | 統一實 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
+| 20260618 | 9907 | 統一實 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9907 | 統一實 | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 9907 | 統一實 | 2 | 2 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

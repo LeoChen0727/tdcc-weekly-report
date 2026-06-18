@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:19 Asia/Taipei
+- generated_at: 2026-06-18 22:25:09 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,10 +87,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -110,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -118,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 26.2
+- date: 20260618
+- open: 26.5
 - high: 26.75
 - low: 26.15
-- close: 26.45
-- volume: 19911212
-- ma5: 26.45
-- ema23_primary: 26.2
-- distance_to_ema23_pct: 0.95
-- ma20: 26
-- ma60: 26.91
-- ma120: 28.79
-- return_5d: 0
-- return_20d: 1.73
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 1.71
-- distance_to_high_60_pct: -9.88
+- close: 26.15
+- volume: 43192125
+- ma5: 26.42
+- ema23_primary: 26.24
+- distance_to_ema23_pct: -0.35
+- ma20: 26.08
+- ma60: 26.75
+- ma120: 28.63
+- return_5d: -0.57
+- return_20d: 1.36
+- volume_ratio: 2.11
+- distance_to_ma20_pct_auxiliary: 0.28
+- distance_to_high_60_pct: -10.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,26.5,26.65,26.05,26.35,16398819,26.48,-0.5,26.14,28.24,1
-20260519,26.35,26.65,26.1,26.1,14663811,26.45,-1.33,26.07,28.16,0.92
-20260520,26.2,26.2,25.65,25.65,18311172,26.38,-2.78,26,28.07,1.18
-20260521,25.75,25.9,25.6,25.8,16077250,26.34,-2.03,25.95,27.98,1.08
 20260522,25.8,25.9,25.7,25.8,12592104,26.29,-1.87,25.91,27.9,0.87
 20260525,25.85,25.85,25.55,25.65,13594173,26.24,-2.24,25.86,27.81,0.94
 20260526,25.7,25.85,25.5,25.55,11925417,26.18,-2.41,25.82,27.72,0.83
@@ -153,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,25.5,25.8,25.4,25.8,22820802,25.97,-0.66,25.77,27.4,1.54
 20260602,25.75,26.35,25.65,26.1,23730546,25.98,0.46,25.79,27.33,1.53
 20260603,26.3,26.5,26.05,26.5,23295142,26.02,1.83,25.84,27.27,1.44
-20260604,25.75,26.35,25.65,26.1,23730546,26.03,0.27,25.84,27.22,1.43
-20260605,26.55,26.65,26.35,26.45,21050890,26.07,1.47,25.87,27.17,1.23
-20260611,26.35,26.45,26.1,26.3,17328850,26.09,0.82,25.89,27.11,1.01
-20260612,26.5,26.8,26.45,26.65,17856600,26.13,1.98,25.93,27.05,1.04
-20260615,26.85,26.9,26.55,26.65,19240511,26.18,1.81,25.96,27,1.1
-20260616,26.8,26.8,26.2,26.2,22470929,26.18,0.09,25.98,26.95,1.24
-20260617,26.2,26.75,26.15,26.45,19911212,26.2,0.95,26,26.91,1.1
+20260604,26.5,26.7,26.35,26.4,21945612,26.06,1.32,25.86,27.22,1.33
+20260605,26.55,26.65,26.35,26.45,21050890,26.09,1.38,25.89,27.17,1.24
+20260608,25.8,26.05,25.55,25.9,21151181,26.07,-0.66,25.89,27.1,1.23
+20260609,26,26.65,26,26.5,24459293,26.11,1.5,25.92,27.04,1.38
+20260610,26.6,26.9,26.35,26.5,28067010,26.14,1.37,25.95,26.99,1.52
+20260611,26.35,26.45,26.1,26.3,17328850,26.15,0.56,25.97,26.95,0.93
+20260612,26.5,26.8,26.45,26.65,17856600,26.2,1.73,26,26.9,0.96
+20260615,26.85,26.9,26.55,26.65,19240511,26.23,1.59,26.02,26.86,1.03
+20260616,26.8,26.8,26.2,26.2,22470929,26.23,-0.12,26.02,26.82,1.18
+20260617,26.2,26.75,26.15,26.45,19911212,26.25,0.77,26.06,26.79,1.04
+20260618,26.5,26.75,26.15,26.15,43192125,26.24,-0.35,26.08,26.75,2.11
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9904 | 寶成 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-
-## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9904 | 寶成 | 1 | 1 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-
-## Warrant Context
 | status |
 | --- |
 | no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 9904 | 寶成 | 10 | 0 | 1590820.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

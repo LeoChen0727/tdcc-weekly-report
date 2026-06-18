@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9939 宏全
 
 ## Metadata
-- generated_at: 2026-06-17 22:25:21 Asia/Taipei
+- generated_at: 2026-06-18 22:25:11 Asia/Taipei
 - stock_id: 9939
 - stock_name: 宏全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 132
-- high: 134
-- low: 131.5
+- date: 20260618
+- open: 134
+- high: 135.5
+- low: 133
 - close: 134
-- volume: 1067138
-- ma5: 133.2
-- ema23_primary: 126.21
-- distance_to_ema23_pct: 6.17
-- ma20: 126.62
-- ma60: 119.43
-- ma120: 119.65
-- return_5d: 5.1
-- return_20d: 7.2
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 5.82
+- volume: 1065930
+- ma5: 133.6
+- ema23_primary: 127.69
+- distance_to_ema23_pct: 4.94
+- ma20: 127.7
+- ma60: 120.22
+- ma120: 120.05
+- return_5d: 1.52
+- return_20d: 6.35
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 4.93
 - distance_to_high_60_pct: -1.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,124.5,125,122,122.5,1515343,116.99,4.71,115.97,117.77,0.9
-20260519,123.5,128,122.5,125.5,2753310,117.7,6.63,116.3,117.88,1.61
-20260520,124,125,122.5,124,1499198,118.22,4.89,116.5,117.96,0.87
-20260521,125,127,124.5,126,1179693,118.87,6,116.92,118.05,0.68
 20260522,127.5,128.5,125.5,127,1407526,119.55,6.23,117.55,118.1,0.82
 20260525,127,127,124.5,124.5,1284661,119.96,3.78,118.15,118.14,0.75
 20260526,124.5,125,122.5,122.5,840719,120.17,1.94,118.67,118.12,0.49
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,124,124.5,122,124.5,1107552,121.13,2.78,120.88,118.2,0.63
 20260602,124.5,125.5,123.5,123.5,1240114,121.33,1.79,121.47,118.25,0.7
 20260603,124,127,123,126.5,2343058,121.76,3.89,122.25,118.37,1.27
-20260604,124.5,125.5,123.5,123.5,1240114,121.91,1.31,122.9,118.42,0.68
-20260605,125.5,129.5,124.5,127.5,1877464,122.37,4.19,123.7,118.49,1.01
-20260611,130.5,132,129,132,1490328,123.18,7.16,124.3,118.65,0.89
-20260612,131.5,134,131.5,133.5,1546205,124.04,7.63,124.85,118.89,1.01
-20260615,134.5,136,133,133.5,1903061,124.82,6.95,125.58,119.11,1.22
-20260616,133.5,134.5,132,133,1045015,125.51,5.97,126.17,119.28,0.68
-20260617,132,134,131.5,134,1067138,126.21,6.17,126.62,119.43,0.75
+20260604,126,127.5,125,125.5,2296578,122.07,2.81,123,118.46,1.22
+20260605,125.5,129.5,124.5,127.5,1877464,122.53,4.06,123.8,118.53,0.99
+20260608,122.5,127,122.5,126,1057297,122.82,2.59,124.1,118.58,0.62
+20260609,125,130,125,127,1032878,123.16,3.11,124.33,118.72,0.67
+20260610,128,133,127.5,130.5,3305244,123.78,5.43,124.9,118.88,2.02
+20260611,130.5,132,129,132,1490328,124.46,6.06,125.45,119.03,0.91
+20260612,131.5,134,131.5,133.5,1546205,125.21,6.62,125.88,119.18,1
+20260615,134.5,136,133,133.5,1903061,125.9,6.03,126.42,119.38,1.21
+20260616,133.5,134.5,132,133,1045015,126.5,5.14,126.8,119.62,0.7
+20260617,132,134,131.5,134,1067138,127.12,5.41,127.3,119.91,0.73
+20260618,134,135.5,133,134,1065930,127.69,4.94,127.7,120.22,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9939 | 宏全 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:宏全國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司因配發普通股現金股利，依本公司國內第二次無擔保轉換公司債發行　 及轉換辦法第11條規定調整轉換價格。 6.因應措施:自除息基準日(115月7月8日)起，國內第二次無擔保轉換公司債轉換價格由 新台幣161.2元調整為153.7元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 9939 | 宏全 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:宏全國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司因配發普通股現金股利，依本公司國內第二次無擔保轉換公司債發行　 及轉換辦法第11條規定調整轉換價格。 6.因應措施:自除息基準日(115月7月8日)起，國內第二次無擔保轉換公司債轉換價格由 新台幣161.2元調整為153.7元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 9939 | 宏全 | 2 | 2 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 9939 | 宏全 | 3 | 3 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 9939 | 宏全 | 7 | 0 | 10640.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

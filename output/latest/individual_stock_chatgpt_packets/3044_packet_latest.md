@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:33 Asia/Taipei
+- generated_at: 2026-06-18 22:23:32 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 546
-- high: 574
-- low: 538
-- close: 571
-- volume: 6030813
-- ma5: 523.6
-- ema23_primary: 503.8
-- distance_to_ema23_pct: 13.34
-- ma20: 503.75
-- ma60: 446.68
-- ma120: 396.68
-- return_5d: 14.66
-- return_20d: 19.58
-- volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: 13.35
-- distance_to_high_60_pct: -0.52
+- date: 20260618
+- open: 580
+- high: 583
+- low: 562
+- close: 573
+- volume: 6881994
+- ma5: 541.4
+- ema23_primary: 509
+- distance_to_ema23_pct: 12.57
+- ma20: 511.35
+- ma60: 456.29
+- ma120: 403.39
+- return_5d: 18.39
+- return_20d: 17.42
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: 12.06
+- distance_to_high_60_pct: -1.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,468,474,462,469,3716190,462.51,1.4,473.88,405.13,0.56
-20260519,469,487,460.5,462.5,4083804,462.51,-0,476.32,406.47,0.62
-20260520,468.5,470,454,462.5,2697683,462.51,-0,477.25,407.93,0.43
-20260521,472.5,492,471,488,3779490,464.64,5.03,478.68,409.59,0.62
 20260522,494.5,497.5,485,490.5,3674391,466.79,5.08,480.07,411.34,0.62
 20260525,498.5,507,489,494,4527864,469.06,5.32,480.75,413.04,0.79
 20260526,501,515,497,510,4580380,472.47,7.94,482,414.93,0.85
@@ -147,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,530,540,512,518,5048181,484.75,6.86,493.77,424.12,0.91
 20260602,516,517,497,508,5329553,486.69,4.38,494.95,426.47,0.96
 20260603,509,516,501,510,4155121,488.63,4.37,496.05,428.67,0.77
-20260604,516,517,497,508,5329553,490.25,3.62,496.45,431.18,0.99
-20260605,509,511,485.5,498,3630294,490.89,1.45,497.3,433.45,0.68
-20260611,471,497.5,468.5,484,3295044,490.32,-1.29,497.02,435.56,0.63
-20260612,502,509,494.5,497,2333144,490.87,1.25,497.82,437.86,0.46
-20260615,510,520,499,520,3480416,493.3,5.41,497.38,440.19,0.76
-20260616,532,558,529,546,7309686,497.69,9.71,499.07,443.26,1.63
-20260617,546,574,538,571,6030813,503.8,13.34,503.75,446.68,1.36
+20260604,507,514,501,512,2666573,490.58,4.37,496.65,431.24,0.51
+20260605,509,511,485.5,498,3630294,491.2,1.38,497.5,433.52,0.7
+20260608,464,481,454,478,4506697,490.1,-2.47,496.93,435.52,0.87
+20260609,475,504,475,500,4612051,490.92,1.85,497.88,437.88,0.91
+20260610,490,502,477,479,6576180,489.93,-2.23,495.38,439.52,1.37
+20260611,471,497.5,468.5,484,3295044,489.44,-1.11,493.98,441.56,0.73
+20260612,502,509,494.5,497,2333144,490.07,1.42,494.95,443.75,0.55
+20260615,510,520,499,520,3480416,492.56,5.57,497.5,446.19,0.82
+20260616,532,558,529,546,7309686,497.01,9.86,501.68,449.19,1.66
+20260617,546,574,538,571,6030813,503.18,13.48,507.1,452.66,1.32
+20260618,580,583,562,573,6881994,509,12.57,511.35,456.29,1.46
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3044 | 健鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3044 | 健鼎 | 16 | 1 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3044 | 健鼎 | 0 | 3 | 0.0 | 4660.0 | 0.0 | no_signal |
+| 20260618 | 3044 | 健鼎 | 70 | 3 | 16987840.0 | 7090.0 | 2396.03 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6869 雲豹能源
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:46 Asia/Taipei
+- generated_at: 2026-06-18 22:24:44 Asia/Taipei
 - stock_id: 6869
 - stock_name: 雲豹能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 77.4
-- high: 77.9
-- low: 77.1
-- close: 77.7
-- volume: 561556
-- ma5: 78.52
-- ema23_primary: 82.15
-- distance_to_ema23_pct: -5.41
-- ma20: 81.76
-- ma60: 85.09
-- ma120: 93.57
-- return_5d: -7.39
-- return_20d: -4.19
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -4.97
-- distance_to_high_60_pct: -24.93
+- date: 20260618
+- open: 77.8
+- high: 78.9
+- low: 77.3
+- close: 77.3
+- volume: 541157
+- ma5: 78.28
+- ema23_primary: 81.52
+- distance_to_ema23_pct: -5.17
+- ma20: 82.22
+- ma60: 84.1
+- ma120: 93.19
+- return_5d: -1.53
+- return_20d: -5.27
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -5.98
+- distance_to_high_60_pct: -17.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,81,81,78.5,78.8,828791,85.01,-7.3,84.5,92.86,1.14
-20260519,78.9,79.6,77,77.2,685316,84.36,-8.49,83.95,92.41,0.94
-20260520,77.5,79.4,77.5,78.8,404128,83.9,-6.07,83.43,91.95,0.55
-20260521,81,82.8,80.9,81.6,874839,83.7,-2.51,83.09,91.6,1.15
 20260522,81.7,81.9,80.5,80.7,568193,83.45,-3.3,82.86,91.23,0.76
 20260525,81.6,86,81.6,83.2,902573,83.43,-0.28,82.91,90.9,1.19
 20260526,83.7,85.9,83.6,83.8,907002,83.46,0.4,83.03,90.4,1.19
@@ -148,13 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,85.4,85.9,84.2,85.3,820183,83.85,1.73,83.33,88.77,0.93
 20260602,85.2,85.3,83.6,84.4,855767,83.89,0.6,83.36,88.36,0.95
 20260603,85.4,88.5,82.8,87,1777604,84.15,3.38,83.56,88.02,1.85
-20260604,85.2,85.3,83.6,84.4,855767,84.17,0.27,83.44,87.66,0.89
-20260605,88.1,88.5,83.5,83.9,1001730,84.15,-0.3,83.27,87.31,1.04
-20260611,82,82,78.1,78.5,1040717,83.68,-6.19,82.85,86.78,1.06
-20260612,80.3,80.3,78.9,79.4,321527,83.32,-4.71,82.58,86.31,0.34
-20260615,79.6,80.6,78.8,78.8,397514,82.95,-5,82.14,85.9,0.44
-20260616,79.1,79.3,77.7,78.2,560031,82.55,-5.27,81.93,85.49,0.65
-20260617,77.4,77.9,77.1,77.7,561556,82.15,-5.41,81.76,85.09,0.67
+20260604,88.5,91.3,87.4,88.2,2707634,84.49,4.39,83.63,87.72,2.58
+20260605,88.1,88.5,83.5,83.9,1001730,84.44,-0.64,83.46,87.37,0.95
+20260608,78,81,77.7,80.9,785739,84.14,-3.86,83.16,86.88,0.74
+20260609,80.9,82,80,81.6,447094,83.93,-2.78,83,86.45,0.43
+20260610,81.3,82.8,81,82,470849,83.77,-2.12,82.72,86.09,0.48
+20260611,82,82,78.1,78.5,1040717,83.33,-5.8,82.53,85.69,1.06
+20260612,80.3,80.3,78.9,79.4,321527,83,-4.34,82.44,85.31,0.34
+20260615,79.6,80.6,78.8,78.8,397514,82.65,-4.66,82.44,84.97,0.43
+20260616,79.1,79.3,77.7,78.2,560031,82.28,-4.96,82.49,84.66,0.61
+20260617,77.4,77.9,77.1,77.7,561556,81.9,-5.13,82.44,84.33,0.61
+20260618,77.8,78.9,77.3,77.3,541157,81.52,-5.17,82.22,84.1,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -194,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6869 | 雲豹能源 | 18 | 0 | 89840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

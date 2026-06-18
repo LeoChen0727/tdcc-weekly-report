@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:15 Asia/Taipei
+- generated_at: 2026-06-18 22:23:13 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 1225
-- high: 1295
-- low: 1225
-- close: 1280
-- volume: 4750890
-- ma5: 1282
-- ema23_primary: 1173.15
-- distance_to_ema23_pct: 9.11
-- ma20: 1181
-- ma60: 1024.83
-- ma120: 1005.95
-- return_5d: 6.22
-- return_20d: 28
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 8.38
-- distance_to_high_60_pct: -10.49
+- date: 20260618
+- open: 1295
+- high: 1305
+- low: 1245
+- close: 1265
+- volume: 3238724
+- ma5: 1296
+- ema23_primary: 1188.8
+- distance_to_ema23_pct: 6.41
+- ma20: 1212.75
+- ma60: 1043.12
+- ma120: 1015.53
+- return_5d: 5.86
+- return_20d: 15
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 4.31
+- distance_to_high_60_pct: -11.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,990,1035,982,1005,3966345,987.31,1.79,994.25,969.42,0.82
-20260519,1000,1040,995,1030,4467827,990.87,3.95,994.5,971.62,0.95
-20260520,1030,1070,1015,1025,5761085,993.71,3.15,995.75,973.57,1.24
-20260521,1045,1120,1045,1100,7100659,1002.57,9.72,1000.75,976.52,1.47
 20260522,1125,1170,1105,1155,5166332,1015.27,13.76,1009.75,979.72,1.1
 20260525,1185,1270,1165,1245,5552089,1034.42,20.36,1022.55,984.13,1.17
 20260526,1285,1345,1250,1265,8007559,1053.63,20.06,1037.35,987.97,1.62
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,1170,1175,1135,1175,2682577,1090.58,7.74,1080.8,996.38,0.52
 20260602,1175,1180,1135,1150,3749353,1095.53,4.97,1089.45,997.22,0.72
 20260603,1155,1180,1130,1155,5099192,1100.49,4.95,1098,998.13,0.97
-20260604,1175,1180,1135,1150,3749353,1104.61,4.11,1105.65,999.47,0.71
-20260605,1210,1280,1190,1205,6169316,1112.98,8.27,1115.15,1002.22,1.18
-20260611,1185,1230,1140,1195,4892552,1119.81,6.71,1123.65,1004.05,0.94
-20260612,1280,1310,1265,1310,6101859,1135.66,15.35,1139.5,1008.13,1.15
-20260615,1380,1430,1360,1380,5578755,1156.02,19.37,1157.25,1014.3,1.08
-20260616,1380,1380,1245,1245,6617233,1163.44,7.01,1167,1018.98,1.28
-20260617,1225,1295,1225,1280,4750890,1173.15,9.11,1181,1024.83,0.93
+20260604,1150,1245,1150,1230,6428543,1111.28,10.68,1109.65,1000.8,1.19
+20260605,1210,1280,1190,1205,6169316,1119.09,7.68,1119.15,1003.55,1.15
+20260608,1100,1120,1085,1110,4582659,1118.33,-0.75,1123.4,1003.97,0.86
+20260609,1125,1195,1090,1190,4413118,1124.3,5.84,1133.25,1006.05,0.83
+20260610,1170,1210,1150,1150,4162415,1126.45,2.09,1139.5,1008.38,0.81
+20260611,1185,1230,1140,1195,4892552,1132.16,5.55,1146.75,1012.23,0.97
+20260612,1280,1310,1265,1310,6101859,1146.98,14.21,1162.25,1018.58,1.21
+20260615,1380,1430,1360,1380,5578755,1166.4,18.31,1181,1025.95,1.09
+20260616,1380,1380,1245,1245,6617233,1172.95,6.14,1191.75,1031.45,1.26
+20260617,1225,1295,1225,1280,4750890,1181.87,8.3,1204.5,1037.28,0.91
+20260618,1295,1305,1245,1265,3238724,1188.8,6.41,1212.75,1043.12,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -183,20 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2404 | 漢唐 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260617 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2404 | 漢唐 | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2404 | 漢唐 | 0 | 10 | 0.0 | 550990.0 | 0.0 | no_signal |
+| 20260618 | 2404 | 漢唐 | 235 | 9 | 22878780.0 | 722220.0 | 31.68 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

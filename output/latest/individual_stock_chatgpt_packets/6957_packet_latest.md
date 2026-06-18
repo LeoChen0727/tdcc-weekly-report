@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6957 裕慶-KY
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:49 Asia/Taipei
+- generated_at: 2026-06-18 22:24:48 Asia/Taipei
 - stock_id: 6957
 - stock_name: 裕慶-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 192.5
-- high: 193.5
-- low: 190.5
-- close: 191
-- volume: 103322
-- ma5: 190.3
-- ema23_primary: 176.76
-- distance_to_ema23_pct: 8.05
-- ma20: 174.18
-- ma60: 164.59
-- ma120: 175.74
-- return_5d: -0.26
-- return_20d: 19.38
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 9.66
-- distance_to_high_60_pct: -4.02
+- date: 20260618
+- open: 190.5
+- high: 190.5
+- low: 186.5
+- close: 189.5
+- volume: 76783
+- ma5: 191.1
+- ema23_primary: 181.21
+- distance_to_ema23_pct: 4.58
+- ma20: 180.95
+- ma60: 166.72
+- ma120: 175.58
+- return_5d: 2.16
+- return_20d: 18.44
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 4.73
+- distance_to_high_60_pct: -4.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,157,160.5,157,159.5,62851,160.28,-0.49,160.25,163.69,0.73
-20260519,158,163,157,160,136002,160.26,-0.16,160.12,163.33,1.52
-20260520,160,161,159,160,44101,160.24,-0.15,160.03,163,0.49
-20260521,160,162,160,160,60526,160.22,-0.14,159.93,162.77,0.67
 20260522,161.5,163.5,160.5,160.5,84295,160.24,0.16,159.93,162.47,0.93
 20260525,160,160,157.5,160,118833,160.22,-0.14,159.9,162.15,1.31
 20260526,160,160,157,159.5,83816,160.16,-0.41,160,161.88,0.91
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,168,172.5,166,171.5,222891,162.43,5.58,161.5,161.34,2.05
 20260602,174,181,174,181,373742,163.98,10.38,162.55,161.5,3.01
 20260603,183,199,183,188,559919,165.98,13.27,163.85,161.75,3.78
-20260604,174,181,174,181,373742,167.23,8.23,164.8,162.1,2.28
-20260605,197.5,197.5,186,191.5,246634,169.25,13.14,166.4,162.53,1.44
-20260611,190.5,190.5,183,185.5,176916,170.61,8.73,167.72,162.79,1.03
-20260612,187.5,190.5,187.5,189.5,103081,172.18,10.06,169.25,163.17,0.59
-20260615,190,194,189.5,192.5,138005,173.87,10.71,170.93,163.62,0.77
-20260616,193.5,194.5,192,193,97219,175.47,9.99,172.62,164.11,0.56
-20260617,192.5,193.5,190.5,191,103322,176.76,8.05,174.18,164.59,0.6
+20260604,189,197.5,188,194,278155,168.31,15.26,165.45,162.32,1.75
+20260605,197.5,197.5,186,191.5,246634,170.25,12.48,167.05,162.74,1.48
+20260608,182,195,182,191.5,244760,172.02,11.33,168.68,163.11,1.43
+20260609,192,196,191,192,229970,173.68,10.55,170.32,163.53,1.28
+20260610,189,193.5,188,189,254434,174.96,8.03,171.82,163.93,1.34
+20260611,190.5,190.5,183,185.5,176916,175.84,5.5,173.15,164.28,0.94
+20260612,187.5,190.5,187.5,189.5,103081,176.98,7.08,174.62,164.74,0.55
+20260615,190,194,189.5,192.5,138005,178.27,7.98,176.28,165.26,0.72
+20260616,193.5,194.5,192,193,97219,179.5,7.52,177.93,165.81,0.51
+20260617,192.5,193.5,190.5,191,103322,180.46,5.84,179.47,166.29,0.54
+20260618,190.5,190.5,186.5,189.5,76783,181.21,4.58,180.95,166.72,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6957 | 裕慶-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

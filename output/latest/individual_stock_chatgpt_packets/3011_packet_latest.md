@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3011 今皓
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:31 Asia/Taipei
+- generated_at: 2026-06-18 22:23:30 Asia/Taipei
 - stock_id: 3011
 - stock_name: 今皓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,6 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 14.45
-- high: 14.9
+- date: 20260618
+- open: 15
+- high: 15
 - low: 14.45
-- close: 14.85
-- volume: 796497
-- ma5: 14.55
-- ema23_primary: 14.06
-- distance_to_ema23_pct: 5.61
-- ma20: 13.89
-- ma60: 13.38
-- ma120: 13.54
-- return_5d: 0.34
-- return_20d: 20.24
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 6.87
-- distance_to_high_60_pct: -7.48
+- close: 14.55
+- volume: 1029376
+- ma5: 14.65
+- ema23_primary: 14.19
+- distance_to_ema23_pct: 2.55
+- ma20: 14.2
+- ma60: 13.49
+- ma120: 13.58
+- return_5d: 3.56
+- return_20d: 8.18
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 2.48
+- distance_to_high_60_pct: -9.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,12.3,12.55,12.1,12.4,497498,13.25,-6.43,13.61,12.97,0.31
-20260519,12.5,13.4,12.5,12.95,1138435,13.23,-2.09,13.59,12.97,0.73
-20260520,13,13.3,12.9,13.05,394982,13.21,-1.23,13.54,12.97,0.26
-20260521,13.25,13.9,13.2,13.45,1604619,13.23,1.65,13.48,12.98,1.14
 20260522,13.6,13.75,13.4,13.7,1311571,13.27,3.23,13.42,12.98,1.14
 20260525,13.8,14,12.95,13.1,2224221,13.26,-1.18,13.38,12.98,1.91
 20260526,13.1,13.2,12.8,13.05,1669556,13.24,-1.43,13.37,12.98,1.45
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,13.25,14.5,13.25,14.5,7269545,13.33,8.78,13.3,13.03,4.95
 20260602,14.95,15.15,14.1,14.9,6785037,13.46,10.7,13.34,13.08,3.82
 20260603,14.7,15.25,14.35,14.85,3178416,13.58,9.38,13.4,13.11,1.69
-20260604,14.95,15.15,14.1,14.9,6785037,13.69,8.87,13.47,13.15,3.14
-20260605,15.2,15.2,14.55,14.8,1565330,13.78,7.41,13.54,13.2,0.72
-20260611,13.95,14.15,13.65,14.05,989594,13.8,1.8,13.55,13.22,0.45
-20260612,14.25,14.95,14.2,14.5,1778575,13.86,4.62,13.6,13.26,0.81
-20260615,14.8,15.15,14.75,14.8,1380039,13.94,6.18,13.67,13.3,0.62
-20260616,15,15.25,14.5,14.55,1111620,13.99,4.01,13.77,13.34,0.51
-20260617,14.45,14.9,14.45,14.85,796497,14.06,5.61,13.89,13.38,0.36
+20260604,14.8,15.3,14.5,15.2,3056305,13.71,10.86,13.48,13.16,1.55
+20260605,15.2,15.2,14.55,14.8,1565330,13.8,7.23,13.55,13.2,0.79
+20260608,13.5,14.85,13.5,14.55,2395181,13.86,4.94,13.59,13.24,1.15
+20260609,14.5,15.05,14.4,14.55,1421181,13.92,4.51,13.64,13.27,0.69
+20260610,14.55,14.8,13.9,13.95,1381642,13.92,0.19,13.67,13.3,0.66
+20260611,13.95,14.15,13.65,14.05,989594,13.93,0.83,13.74,13.33,0.48
+20260612,14.25,14.95,14.2,14.5,1778575,13.98,3.71,13.85,13.36,0.85
+20260615,14.8,15.15,14.75,14.8,1380039,14.05,5.34,13.97,13.4,0.64
+20260616,15,15.25,14.5,14.55,1111620,14.09,3.25,14.05,13.43,0.52
+20260617,14.45,14.9,14.45,14.85,796497,14.15,4.91,14.14,13.46,0.37
+20260618,15,15,14.45,14.55,1029376,14.19,2.55,14.2,13.49,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3011 | 今皓 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3011 | 今皓 | 1 | 1 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

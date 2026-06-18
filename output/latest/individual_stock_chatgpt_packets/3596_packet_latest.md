@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:49 Asia/Taipei
+- generated_at: 2026-06-18 22:23:47 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 186.5
-- high: 195
-- low: 185.5
-- close: 193.5
-- volume: 3524270
-- ma5: 186.8
-- ema23_primary: 185.71
-- distance_to_ema23_pct: 4.2
-- ma20: 187.43
-- ma60: 177.84
-- ma120: 181
-- return_5d: 1.57
-- return_20d: 5.45
-- volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: 3.24
-- distance_to_high_60_pct: -7.42
+- date: 20260618
+- open: 196.5
+- high: 196.5
+- low: 189.5
+- close: 191.5
+- volume: 3840006
+- ma5: 188.9
+- ema23_primary: 185.92
+- distance_to_ema23_pct: 3
+- ma20: 188
+- ma60: 177.22
+- ma120: 181.09
+- return_5d: 5.8
+- return_20d: 4.08
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 1.86
+- distance_to_high_60_pct: -2.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,184.5,187,181,183,1464644,175.09,4.52,171.88,180.62,0.86
-20260519,183.5,188,178,179,2203068,175.42,2.04,172.1,180.56,1.25
-20260520,179.5,182,175,181.5,1571156,175.92,3.17,172.47,180.57,0.88
-20260521,183,185,181,184,1223510,176.6,4.19,173,180.57,0.69
 20260522,186,189,184,189,1806763,177.63,6.4,174.05,180.57,1.03
 20260525,192,193,186.5,189,3150555,178.58,5.84,175.28,180.57,1.68
 20260526,190.5,192.5,188.5,191.5,1792286,179.66,6.59,176.75,180.65,0.93
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,191,195.5,188,193.5,3205909,182.28,6.16,182.03,180.1,1.48
 20260602,195,195,189,191.5,1810052,183.05,4.62,183.35,179.94,0.81
 20260603,193,193,189.5,190.5,1473989,183.67,3.72,184.43,179.73,0.66
-20260604,195,195,189,191.5,1810052,184.32,3.89,185.62,179.64,0.8
-20260605,188,191,184,190.5,1858074,184.84,3.06,186.25,179.54,0.92
-20260611,184,184,177.5,181,2087981,184.52,-1.91,186.1,179.15,1.07
-20260612,185.5,186.5,181.5,182.5,1325836,184.35,-1,186.18,178.77,0.7
-20260615,186,191.5,184,190.5,1923766,184.86,3.05,186.55,178.44,1.02
-20260616,191,191,184.5,186.5,2197819,185,0.81,186.93,178.07,1.15
-20260617,186.5,195,185.5,193.5,3524270,185.71,4.2,187.43,177.84,1.8
+20260604,190,190,186.5,188,1181489,184.03,2.16,185.45,179.58,0.53
+20260605,188,191,184,190.5,1858074,184.57,3.21,186.07,179.48,0.94
+20260608,175.5,183.5,175.5,181,1137576,184.27,-1.78,185.93,179.09,0.61
+20260609,182,186,182,185.5,861312,184.37,0.61,186.15,178.76,0.48
+20260610,184,189.5,181,184.5,1921448,184.38,0.06,186.22,178.33,1.07
+20260611,184,184,177.5,181,2087981,184.1,-1.69,186.32,177.88,1.15
+20260612,185.5,186.5,181.5,182.5,1325836,183.97,-0.8,186.28,177.46,0.76
+20260615,186,191.5,184,190.5,1923766,184.51,3.24,186.65,177.28,1.09
+20260616,191,191,184.5,186.5,2197819,184.68,0.99,187.03,177.1,1.25
+20260617,186.5,195,185.5,193.5,3524270,185.41,4.36,187.62,177.12,1.89
+20260618,196.5,196.5,189.5,191.5,3840006,185.92,3,188,177.22,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3596 | 智易 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3596 | 智易 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3596 | 智易 | 1 | 1 | 2 | 7 | 13 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260618 | 3596 | 智易 | 2 | 2 | 3 | 7 | 14 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3596 | 智易 | 12 | 0 | 3023760.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

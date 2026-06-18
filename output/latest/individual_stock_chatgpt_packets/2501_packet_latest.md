@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:20 Asia/Taipei
+- generated_at: 2026-06-18 22:23:19 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 26
-- high: 27.15
-- low: 25.75
-- close: 27
-- volume: 10354050
-- ma5: 26.4
-- ema23_primary: 24.08
-- distance_to_ema23_pct: 12.15
-- ma20: 23.44
-- ma60: 23.56
-- ma120: 23.21
-- return_5d: 12.03
-- return_20d: 22.17
-- volume_ratio: 1.9
-- distance_to_ma20_pct_auxiliary: 15.18
-- distance_to_high_60_pct: -1.28
+- date: 20260618
+- open: 27.15
+- high: 28.4
+- low: 26.6
+- close: 26.85
+- volume: 12652565
+- ma5: 26.62
+- ema23_primary: 24.64
+- distance_to_ema23_pct: 8.99
+- ma20: 24.11
+- ma60: 23.7
+- ma120: 23.32
+- return_5d: 4.27
+- return_20d: 20.13
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: 11.34
+- distance_to_high_60_pct: -5.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,22.1,22.25,21.85,22.1,1775769,23.13,-4.47,23.58,23.3,0.36
-20260519,22.2,22.5,22.15,22.2,1546142,23.06,-3.71,23.45,23.3,0.32
-20260520,22.25,22.3,22.05,22.3,1304080,22.99,-3.01,23.33,23.3,0.27
-20260521,22.3,22.4,22.15,22.35,1534093,22.94,-2.57,23.17,23.3,0.34
 20260522,22.3,22.3,21.95,22.05,2757248,22.86,-3.56,22.96,23.29,0.64
 20260525,22.05,22.05,21.7,21.8,3198754,22.78,-4.29,22.77,23.27,0.75
 20260526,21.8,21.9,21.6,21.7,2239689,22.69,-4.35,22.53,23.26,0.55
@@ -153,13 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,22.65,23,22.35,22.95,5070997,22.62,1.45,22.38,23.22,1.53
 20260602,22.9,22.9,22.6,22.7,2458605,22.63,0.32,22.39,23.22,0.74
 20260603,22.85,23.25,22.65,23.15,3384505,22.67,2.11,22.41,23.23,1.04
-20260604,22.9,22.9,22.6,22.7,2458605,22.67,0.12,22.37,23.24,0.78
-20260605,23.45,24.2,23.4,24.1,7339164,22.79,5.74,22.42,23.27,2.16
-20260611,26.65,26.95,25.1,25.75,23980930,23.04,11.77,22.58,23.32,5.4
-20260612,25.85,27.35,25.8,26.5,12355496,23.33,13.6,22.78,23.38,2.55
-20260615,26.85,27.15,25.75,27,8222268,23.63,14.24,23.01,23.45,1.61
-20260616,27.05,27.05,25.7,25.75,6627336,23.81,8.15,23.2,23.5,1.3
-20260617,26,27.15,25.75,27,10354050,24.08,12.15,23.44,23.56,1.9
+20260604,23.25,23.6,23.15,23.5,3920714,22.74,3.34,22.41,23.25,1.21
+20260605,23.45,24.2,23.4,24.1,7339164,22.85,5.45,22.46,23.29,2.11
+20260608,23.5,24.1,23.25,23.95,4993275,22.95,4.38,22.53,23.31,1.4
+20260609,23.7,24.7,23.7,24.2,3610105,23.05,4.99,22.62,23.33,1.02
+20260610,24.4,26.6,23.9,26.6,21728841,23.35,13.94,22.82,23.39,4.85
+20260611,26.65,26.95,25.1,25.75,23980930,23.55,9.36,23.01,23.44,4.5
+20260612,25.85,27.35,25.8,26.5,12355496,23.79,11.38,23.23,23.49,2.14
+20260615,26.85,27.15,25.75,27,8222268,24.06,12.22,23.48,23.55,1.35
+20260616,27.05,27.05,25.7,25.75,6627336,24.2,6.4,23.66,23.59,1.04
+20260617,26,27.15,25.75,27,10354050,24.43,10.5,23.89,23.64,1.52
+20260618,27.15,28.4,26.6,26.85,12652565,24.64,8.99,24.11,23.7,1.72
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2501 | 國建 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2501 | 國建 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 2501 | 國建 | 1 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 2501 | 國建 | 2 | 2 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

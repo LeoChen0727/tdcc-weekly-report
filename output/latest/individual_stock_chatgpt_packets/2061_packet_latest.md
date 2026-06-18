@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2061 風青
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:06 Asia/Taipei
+- generated_at: 2026-06-18 22:23:05 Asia/Taipei
 - stock_id: 2061
 - stock_name: 風青
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 152
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,6 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -112,48 +114,48 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 44.95
-- high: 48.05
-- low: 43.9
-- close: 48.05
-- volume: 46000
-- ma5: 40.12
-- ema23_primary: 34.18
-- distance_to_ema23_pct: 40.6
-- ma20: 34.17
-- ma60: 23.33
-- ma120: 20.8
-- return_5d: 20.73
-- return_20d: 127.19
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: 40.63
+- date: 20260618
+- open: 50
+- high: 52.8
+- low: 49.3
+- close: 52.8
+- volume: 6580000
+- ma5: 44.09
+- ema23_primary: 36.64
+- distance_to_ema23_pct: 44.1
+- ma20: 37.91
+- ma60: 24.94
+- ma120: 21.55
+- return_5d: 60.24
+- return_20d: 115.51
+- volume_ratio: 6.54
+- distance_to_ma20_pct_auxiliary: 39.28
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,20.8,22,20.8,21.75,353000,19.72,10.32,19.43,17.92,0.31
-20260519,21.75,21.9,21.15,21.7,357000,19.88,9.15,19.71,17.97,0.31
-20260520,21.7,22.5,21.4,22.3,959000,20.08,11.04,20.04,18.05,0.8
-20260521,24.5,24.5,23.65,24.5,7518000,20.45,19.8,20.47,18.15,4.81
 20260522,24.7,26.95,24.1,26.65,26000,20.97,27.1,21.03,18.3,0.02
 20260525,27.4,29.3,27.4,29.3,29000,21.66,35.26,21.64,18.49,0.02
 20260526,30.95,32.2,30,32.2,32000,22.54,42.86,22.32,18.73,0.02
 20260527,31.55,34.6,31.55,33.6,33000,23.46,43.21,23.03,18.99,0.03
 20260528,32.9,33.9,32.7,33,33000,24.26,36.04,23.72,19.24,0.03
 20260529,34.4,36.3,33.3,36.3,35000,25.26,43.7,24.57,19.55,0.03
-20260601,37.4,39.9,37.4,39.9,39,26.48,50.68,25.59,19.93,0
+20260601,37.4,39.9,37.4,39.9,39000,26.48,50.68,25.59,19.93,0.03
 20260602,40.2,42.9,38.55,38.65,41,27.49,40.57,26.52,20.28,0
 20260603,41.5,41.55,40.25,41.55,41000,28.67,44.95,27.57,20.69,0.04
-20260604,41.5,41.55,40.25,41.55,41000,29.74,39.71,28.59,21.08,0.05
-20260605,44.3,44.3,39.45,39.8,40000,30.58,30.16,29.55,21.46,0.05
-20260611,36,36,32.95,32.95,33000,30.78,7.07,30.09,21.71,0.05
-20260612,32.15,36.15,32.15,36.15,34000,31.22,15.78,30.83,22.02,0.05
-20260615,38.95,39.75,38.95,39.75,39000,31.93,24.48,31.73,22.39,0.07
-20260616,43.15,43.7,42,43.7,44000,32.91,32.77,32.82,22.82,0.09
-20260617,44.95,48.05,43.9,48.05,46000,34.18,40.6,34.17,23.33,0.09
+20260604,44.75,44.95,43.1,43.8,44000,29.93,46.36,28.7,21.12,0.05
+20260605,44.3,44.3,39.45,39.8,40000,30.75,29.43,29.66,21.5,0.05
+20260608,35.85,35.95,35.85,35.85,683000,31.17,15,30.35,21.8,0.92
+20260609,35.85,39.4,35.85,37.6,527000,31.71,18.57,31.16,22.13,0.76
+20260610,36.7,37.95,36.6,36.6,361000,32.12,13.96,31.9,22.45,0.55
+20260611,36,36,32.95,32.95,938000,32.19,2.37,32.46,22.7,1.47
+20260612,32.15,36.15,32.15,36.15,751000,32.52,11.17,33.21,23.01,1.17
+20260615,38.95,39.75,38.95,39.75,794000,33.12,20.02,34.11,23.38,1.2
+20260616,43.15,43.7,42,43.7,3016000,34,28.52,35.21,23.82,3.79
+20260617,44.95,48.05,43.9,48.05,6124000,35.17,36.61,36.49,24.34,5.81
+20260618,50,52.8,49.3,52.8,6580000,36.64,44.1,37.91,24.94,6.54
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2061 | 風青 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 2061 | 風青 | 1 | 1 | 1 | 3 | 10 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

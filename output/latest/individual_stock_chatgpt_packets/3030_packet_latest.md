@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3030 德律
 
 ## Metadata
-- generated_at: 2026-06-17 22:23:32 Asia/Taipei
+- generated_at: 2026-06-18 22:23:31 Asia/Taipei
 - stock_id: 3030
 - stock_name: 德律
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 325
-- high: 336
-- low: 322.5
-- close: 332.5
-- volume: 1135806
-- ma5: 326.9
-- ema23_primary: 361.87
-- distance_to_ema23_pct: -8.12
-- ma20: 373
-- ma60: 336.88
-- ma120: 266.6
-- return_5d: -9.15
-- return_20d: -15.82
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -10.86
-- distance_to_high_60_pct: -27.32
+- date: 20260618
+- open: 333.5
+- high: 344
+- low: 333
+- close: 340.5
+- volume: 1669989
+- ma5: 332.4
+- ema23_primary: 354.16
+- distance_to_ema23_pct: -3.86
+- ma20: 366.8
+- ma60: 342.41
+- ma120: 272.31
+- return_5d: 8.79
+- return_20d: -10.75
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -7.17
+- distance_to_high_60_pct: -25.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,385.5,388,377.5,387,1071328,364.89,6.06,371.02,292.08,0.18
-20260519,386.5,386.5,348.5,361,2622513,364.56,-0.98,371.98,294.99,0.47
-20260520,349,354,338,347,2337793,363.1,-4.43,372.27,297.71,0.44
-20260521,362,381.5,361,381.5,2005317,364.63,4.63,373.45,300.98,0.41
 20260522,395,419.5,395,419.5,5603787,369.2,13.62,378.3,304.7,1.23
 20260525,446,457.5,415.5,418,8265283,373.27,11.98,383.43,308.28,1.79
 20260526,424,426,405,409.5,4162702,376.29,8.83,388.25,311.72,0.91
@@ -147,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,415,417.5,401,408,3596224,384.91,6,399.77,323.02,0.86
 20260602,403,403,368,371,8973271,383.75,-3.32,397.62,325.06,2.07
 20260603,373,376.5,363.5,372.5,3703907,382.81,-2.69,395.6,327.18,0.96
-20260604,403,403,368,371,8973271,381.83,-2.84,393.27,329.51,2.25
-20260605,365,367.5,347.5,366,2982664,380.51,-3.81,392.1,331.52,0.75
-20260611,318,326,293,313,4469684,374.88,-16.51,387.9,332.52,1.09
-20260612,336.5,336.5,318,322.5,1785557,370.52,-12.96,383.62,333.27,0.43
-20260615,327,346.5,326,336,2782443,367.64,-8.61,379.73,334.24,0.66
-20260616,341,344.5,330,330.5,1775225,364.54,-9.34,376.12,335.58,0.42
-20260617,325,336,322.5,332.5,1135806,361.87,-8.12,373,336.88,0.27
+20260604,370,377,363,365,2882835,381.33,-4.28,392.98,329.41,0.78
+20260605,365,367.5,347.5,366,2982664,380.05,-3.7,391.8,331.43,0.81
+20260608,330,357,330,351,3299550,377.63,-7.05,389.5,333.06,0.88
+20260609,352,352,344,344,2693718,374.83,-8.22,386.3,334.16,0.71
+20260610,340,345,323,323,3535743,370.51,-12.82,381.75,334.92,0.9
+20260611,318,326,293,313,4469684,365.71,-14.41,377.27,335.97,1.1
+20260612,336.5,336.5,318,322.5,1785557,362.11,-10.94,373.65,337.1,0.44
+20260615,327,346.5,326,336,2782443,359.94,-6.65,371.1,338.36,0.67
+20260616,341,344.5,330,330.5,1775225,357.48,-7.55,369.57,339.48,0.43
+20260617,325,336,322.5,332.5,1135806,355.4,-6.44,368.85,340.76,0.28
+20260618,333.5,344,333,340.5,1669989,354.16,-3.86,366.8,342.41,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3030 | 德律 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 3030 | 德律 | 1 | 1 | 1 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 3030 | 德律 | 0 | 7 | 0.0 | 16400.0 | 0.0 | no_signal |
+| 20260618 | 3030 | 德律 | 161 | 7 | 13682670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

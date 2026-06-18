@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-06-17 22:24:30 Asia/Taipei
+- generated_at: 2026-06-18 22:24:29 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260617
-- price_rows: 283
+- latest_price_date: 20260618
+- price_rows: 287
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260617
-- open: 92.3
-- high: 94
-- low: 91.4
-- close: 92.5
-- volume: 2421312
-- ma5: 92.28
-- ema23_primary: 95.17
-- distance_to_ema23_pct: -2.81
-- ma20: 97.86
-- ma60: 86.44
-- ma120: 86.81
-- return_5d: -5.52
-- return_20d: 4.99
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -5.48
-- distance_to_high_60_pct: -17.41
+- date: 20260618
+- open: 92.5
+- high: 93.2
+- low: 91.5
+- close: 91.6
+- volume: 3883724
+- ma5: 92.32
+- ema23_primary: 93.89
+- distance_to_ema23_pct: -2.44
+- ma20: 97.28
+- ma60: 87.23
+- ma120: 86.86
+- return_5d: 0.22
+- return_20d: -5.66
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -5.84
+- distance_to_high_60_pct: -18.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260518,88.1,90,86.1,88.4,1338023,85.92,2.88,84.88,83.25,0.41
-20260519,88.4,92.3,88,92.2,3003114,86.45,6.65,85.6,83.28,0.89
-20260520,92.5,94.9,91,94.5,3503569,87.12,8.47,86.39,83.34,0.99
-20260521,96,99.5,94,97.1,4712421,87.95,10.4,87.28,83.46,1.27
 20260522,99.8,101,96.5,100.5,4925428,89,12.93,88.44,83.61,1.27
 20260525,103,107,100.5,104,4384371,90.25,15.24,89.72,83.81,1.08
 20260526,105,106.5,100.5,102,3535885,91.23,11.81,90.96,83.97,0.85
@@ -148,13 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,104.5,112,103.5,106,7794032,94.37,12.32,95.08,84.43,1.92
 20260602,106.5,108.5,101.5,104,6512002,95.18,9.27,95.76,84.61,1.65
 20260603,106.5,106.5,100.5,104.5,5816496,95.95,8.91,96.62,84.85,1.44
-20260604,106.5,108.5,101.5,104,6512002,96.62,7.63,97.47,85.21,1.52
-20260605,102.5,102.5,97.2,97.9,5894566,96.73,1.21,98.06,85.47,1.31
-20260611,87,91.5,86.8,91.4,4838571,96.29,-5.07,97.95,85.62,1.09
-20260612,93.2,94.8,91.6,91.7,2642915,95.9,-4.38,97.72,85.81,0.65
-20260615,93,95.5,89.4,94.2,3710152,95.76,-1.63,97.65,86.04,0.9
-20260616,94.3,95.2,91.3,91.6,5500769,95.41,-4,97.64,86.23,1.29
-20260617,92.3,94,91.4,92.5,2421312,95.17,-2.81,97.86,86.44,0.57
+20260604,105,105,101,103,5202835,96.54,6.69,97.42,85.19,1.24
+20260605,102.5,102.5,97.2,97.9,5894566,96.65,1.29,98.02,85.45,1.33
+20260608,88.2,95.7,88.2,94,5414590,96.43,-2.52,98.03,85.65,1.23
+20260609,90.3,90.5,87.5,88.9,8007699,95.8,-7.21,97.66,85.79,1.85
+20260610,88,89.5,86.2,87,4133477,95.07,-8.49,97.23,85.9,0.94
+20260611,87,91.5,86.8,91.4,4838571,94.77,-3.55,97.22,86.09,1.08
+20260612,93.2,94.8,91.6,91.7,2642915,94.51,-2.97,97.39,86.28,0.59
+20260615,93,95.5,89.4,94.2,3710152,94.48,-0.3,97.69,86.52,0.81
+20260616,94.3,95.2,91.3,91.6,5500769,94.24,-2.81,97.66,86.73,1.17
+20260617,92.3,94,91.4,92.5,2421312,94.1,-1.7,97.56,86.97,0.52
+20260618,92.5,93.2,91.5,91.6,3883724,93.89,-2.44,97.28,87.23,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6412 | 群電 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6412 | 群電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | 6412 | 群電 | 1 | 1 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260618 | 6412 | 群電 | 2 | 2 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6412 | 群電 | 27 | 0 | 3367470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
