@@ -1,9 +1,9 @@
 # Catalyst Layer Validation
 
-- generated_at: `2026-06-18 13:09:04 Asia/Taipei`
+- generated_at: `2026-06-18 13:51:01 Asia/Taipei`
 - status: `pass`
 - schema_only: `False`
-- all_candidates_rows: `319`
+- all_candidates_rows: `478`
 - catalyst_performance_rows: `711`
 - catalyst_summary_rows: `10`
 - catalyst_needs_review_rows: `2`
