@@ -53,6 +53,8 @@ REQUIRED_COLUMNS = {
     "rank_reason_zh",
     "entry_rule_id",
     "entry_price_basis",
+    "entry_date",
+    "entry_price",
     "stop_loss_rule_id",
     "stop_loss_price",
     "stop_loss_label_zh",
@@ -416,6 +418,10 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
             fail("pending_confirmation data rows must not carry a selected trigger")
         if pending_data["confirmation_date"].astype(str).str.strip().ne("").any():
             fail("pending_confirmation data rows must not carry a confirmation date")
+        if pending_data["entry_date"].astype(str).str.strip().ne("").any():
+            fail("pending_confirmation data rows must not carry an entry date")
+        if pending_data["entry_price"].astype(str).str.strip().ne("").any():
+            fail("pending_confirmation data rows must not carry an entry price")
         if not pending_data["entry_price_status_zh"].astype(str).str.contains("尚未確認").all():
             fail("pending_confirmation data rows must clearly state that entry price is not available")
     confirmed_ids = {
@@ -532,6 +538,12 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         ]
         if not bad_active_dates.empty:
             fail("active_operation confirmation date cannot be after the report date")
+        missing_active_entry = active_data[
+            active_data["entry_date"].astype(str).str.strip().eq("")
+            | active_data["entry_price"].astype(str).str.strip().eq("")
+        ]
+        if not missing_active_entry.empty:
+            fail("active_operation data rows must carry structured entry_date and entry_price")
     active_empty = active[active["row_type"].astype(str).eq("empty_state")]
     if not active_empty.empty and active_empty["row_action_status"].astype(str).ne("empty_state").any():
         fail("active_operation empty rows must carry row_action_status=empty_state")
@@ -569,9 +581,15 @@ def validate_pdf_generator_boundary() -> None:
         '"pending_confirmation": 5',
         '"active_operation": 5',
         "limit_volume_operation_rows_for_pdf_view",
+        "VOLUME_TRIGGER_LABELS",
+        "entry_date",
+        "entry_price",
+        "selected_trigger_id",
+        "stop_loss_price",
+        "final_rank_score",
     ]:
         if token not in source:
-            fail(f"PDF generator must enforce volume operation highlight display limit: {token}")
+            fail(f"PDF generator must enforce structured volume operation rendering: {token}")
     forbidden = [
         "volume_breakout_operation_pdf_preview_latest.csv",
         "volume_breakout_confirmed_operation_rank_latest.csv",

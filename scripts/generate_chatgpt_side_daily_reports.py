@@ -71,6 +71,23 @@ VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
     "pending_confirmation": 5,
     "active_operation": 5,
 }
+VOLUME_TRIGGER_LABELS = {
+    "pullback_5ma_confirmed": "回測 5 日線後站回",
+    "next_day_break_signal_high_confirmed": "隔日突破訊號高點",
+    "next_day_continuation_confirmed": "隔日續強確認",
+    "pullback_10ma_confirmed": "回測 10 日線後站回",
+}
+VOLUME_ENTRY_RULE_LABELS = {
+    "confirmation_next_open": "確認後下一交易日開盤",
+    "pending_confirmation": "尚未確認，不列進場價",
+}
+VOLUME_STOP_RULE_LABELS = {
+    "signal_low_stop": "跌破停損基準",
+    "signal_low_stop_after_confirmation": "尚未確認，不列停損價",
+}
+VOLUME_EXIT_RULE_LABELS = {
+    "signal_low_stop_or_fixed_10d_close": "跌破停損基準，否則最多第 10 個交易日收盤",
+}
 
 REQUEST_DATE = ""
 OUTPUT_SUFFIX = "_current_rules"
@@ -1956,20 +1973,93 @@ def limit_volume_operation_rows_for_pdf_view(
     return rows.copy()
 
 
+def volume_operation_date_label(value) -> str:
+    text = clean(value)
+    if not text:
+        return "-"
+    return date_slash(text)
+
+
+def volume_operation_score_label(row: pd.Series) -> str:
+    operation_score = num(row.get("operation_score"), 2)
+    final_score = num(row.get("final_rank_score"), 2)
+    parts = []
+    if operation_score:
+        parts.append(f"操作 {operation_score}")
+    if final_score:
+        parts.append(f"最終 {final_score}")
+    return " / ".join(parts) if parts else "-"
+
+
+def volume_operation_trigger_label(row: pd.Series) -> str:
+    trigger_id = clean(row.get("selected_trigger_id"))
+    if trigger_id:
+        return VOLUME_TRIGGER_LABELS.get(trigger_id, trigger_id)
+    matched = clean(row.get("matched_trigger_ids"))
+    if matched:
+        labels = [
+            VOLUME_TRIGGER_LABELS.get(token.strip(), token.strip())
+            for token in matched.replace(";", "|").replace(",", "|").split("|")
+            if token.strip()
+        ]
+        if labels:
+            return " / ".join(labels)
+    return "-"
+
+
+def volume_operation_entry_label(row: pd.Series, status: str) -> str:
+    if status == "pending_confirmation":
+        return "尚未確認，不列進場價"
+    entry_date = clean(row.get("entry_date"))
+    entry_price = clean(row.get("entry_price"))
+    if entry_date or entry_price:
+        date = date_slash(entry_date) if entry_date else "進場日未提供"
+        price = entry_price if entry_price else "進場價未提供"
+        return f"{date} / {price}"
+    rule_id = clean(row.get("entry_rule_id"))
+    basis = clean(row.get("entry_price_basis"))
+    label = VOLUME_ENTRY_RULE_LABELS.get(rule_id, rule_id or basis)
+    if status == "confirmed_operation" and rule_id == "confirmation_next_open":
+        return f"{label}，尚未產生"
+    return label or "-"
+
+
+def volume_operation_stop_label(row: pd.Series, status: str) -> str:
+    if status == "pending_confirmation":
+        return "尚未確認，不列停損價"
+    label = clean(row.get("stop_loss_label_zh"))
+    price = clean(row.get("stop_loss_price"))
+    if label and price:
+        return f"{label} {price}"
+    if label or price:
+        return label or price
+    rule_id = clean(row.get("stop_loss_rule_id"))
+    return VOLUME_STOP_RULE_LABELS.get(rule_id, rule_id or "-")
+
+
+def volume_operation_exit_label(row: pd.Series) -> str:
+    rule_id = clean(row.get("exit_rule_id"))
+    holding_days = clean(row.get("planned_holding_days"))
+    label = VOLUME_EXIT_RULE_LABELS.get(rule_id, rule_id)
+    if rule_id == "signal_low_stop_or_fixed_10d_close" and holding_days and holding_days != "10":
+        return f"跌破停損基準，否則最多第 {holding_days} 個交易日收盤"
+    return label or "-"
+
+
 def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
     data = [[
         "排名",
         "股票",
         "確認方式",
+        "確認日",
         "買入方式",
-        "進場價狀態",
-        "停損價",
+        "停損基準",
         "出場規則",
+        "操作 / 最終分數",
         "樣本數",
         "勝率",
-        "平均報酬",
         "中位數報酬",
-        "信心",
+        "排名原因",
     ]]
     if rows.empty:
         data.append(["-", "-", "-", "-", "-", "-", "目前無已確認操作。", "-", "-", "-", "-", "-"])
@@ -1978,65 +2068,79 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
             [
                 clean(row.get("display_order"), "-"),
                 clean(row.get("stock_display"), "-"),
-                clean(row.get("trigger_zh"), "-"),
-                clean(row.get("entry_basis_zh"), "-"),
-                clean(row.get("entry_price_status_zh"), "-"),
-                clean(row.get("stop_basis_zh"), "-"),
-                clean(row.get("exit_rule_zh"), "-"),
+                volume_operation_trigger_label(row),
+                volume_operation_date_label(first_text(row.get("confirmation_date"), row.get("selected_confirmation_date"))),
+                volume_operation_entry_label(row, "confirmed_operation"),
+                volume_operation_stop_label(row, "confirmed_operation"),
+                volume_operation_exit_label(row),
+                volume_operation_score_label(row),
                 clean(row.get("sample_size"), "-"),
                 clean(row.get("win_rate_zh"), "-"),
-                clean(row.get("avg_return_zh"), "-"),
                 clean(row.get("median_return_zh"), "-"),
-                clean(row.get("confidence_zh"), "-"),
+                clean(row.get("rank_reason_zh"), "-"),
             ]
         )
     return build_table(
         data,
-        [8 * mm, 20 * mm, 20 * mm, 24 * mm, 24 * mm, 28 * mm, 44 * mm, 11 * mm, 14 * mm, 15 * mm, 17 * mm, 13 * mm],
+        [8 * mm, 18 * mm, 27 * mm, 18 * mm, 31 * mm, 28 * mm, 35 * mm, 28 * mm, 11 * mm, 14 * mm, 17 * mm, 38 * mm],
         12.0,
         header_bg=colors.HexColor("#7f6000"),
     )
 
 
 def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
-    data = [["股票", "等待天數", "等待分組", "待確認條件", "進場價狀態", "停損基準", "狀態"]]
+    data = [["股票", "等待天數", "等待分組", "待確認條件", "模型分數 / 排名原因", "進場 / 停損狀態", "狀態"]]
     if rows.empty:
-        data.append(["-", "-", "-", "目前無待確認列。", "不列進場價", "-", "待確認"])
+        data.append(["-", "-", "-", "目前無待確認列。", "-", "不列進場價 / 不列停損價", "待確認"])
     for _, row in rows.iterrows():
+        score_text = volume_operation_score_label(row)
+        reason = clean(row.get("rank_reason_zh"))
+        if reason:
+            score_text = f"{score_text} / {reason}" if score_text != "-" else reason
         data.append(
             [
                 clean(row.get("stock_display"), "-"),
                 clean(row.get("pending_age_zh"), "-"),
                 clean(row.get("pending_group_zh"), "-"),
                 clean(row.get("pending_confirmation_zh"), "-"),
-                first_text(row.get("entry_price_status_zh"), row.get("entry_basis_zh"), default="尚未確認，不列進場價"),
-                clean(row.get("stop_basis_zh"), "-"),
+                score_text,
+                f'{volume_operation_entry_label(row, "pending_confirmation")} / {volume_operation_stop_label(row, "pending_confirmation")}',
                 clean(row.get("operation_status_zh"), "待確認"),
             ]
         )
     return build_table(
         data,
-        [28 * mm, 24 * mm, 36 * mm, 50 * mm, 34 * mm, 42 * mm, 22 * mm],
+        [26 * mm, 20 * mm, 24 * mm, 62 * mm, 76 * mm, 40 * mm, 25 * mm],
         12.0,
         header_bg=colors.HexColor("#5f7530"),
     )
 
 
 def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
-    data = [["狀態", "股票 / 說明", "備註"]]
+    data = [["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]]
     if rows.empty:
-        data.append(["操作中", "目前無資料", "目前無操作中追蹤列。"])
+        data.append(["目前無資料", "-", "-", "-", "-", "-", "-", "目前無操作中追蹤列。"])
     for _, row in rows.iterrows():
+        age = clean(row.get("operation_age_days"))
+        planned = clean(row.get("planned_holding_days"))
+        age_text = "-"
+        if age or planned:
+            age_text = f"{age or '-'} / {planned or '-'}"
         data.append(
             [
-                clean(row.get("operation_status_zh"), "操作中"),
                 clean(row.get("stock_display"), "目前無資料"),
-                first_text(row.get("adapter_note_zh"), row.get("pdf_note_zh"), default="目前無操作中追蹤列。"),
+                volume_operation_trigger_label(row),
+                volume_operation_entry_label(row, "active_operation"),
+                volume_operation_stop_label(row, "active_operation"),
+                age_text,
+                volume_operation_exit_label(row),
+                volume_operation_score_label(row),
+                first_text(row.get("rank_reason_zh"), row.get("adapter_note_zh"), row.get("pdf_note_zh"), default="目前無操作中追蹤列。"),
             ]
         )
     return build_table(
         data,
-        [30 * mm, 58 * mm, 148 * mm],
+        [30 * mm, 28 * mm, 36 * mm, 34 * mm, 22 * mm, 46 * mm, 32 * mm, 45 * mm],
         12.0,
         header_bg=colors.HexColor("#44546a"),
     )
@@ -2058,7 +2162,7 @@ def render_volume_range_breakout_operation_section(
         inputs,
         line,
     )
-    active_rows = filter_volume_operation_rows_for_line(
+    active_all = filter_volume_operation_rows_for_line(
         volume_operation_frame(inputs, pdf_view, "active_operation"),
         inputs,
         line,
@@ -2077,14 +2181,19 @@ def render_volume_range_breakout_operation_section(
         & ~pending_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
     ].copy() if not pending_all.empty else pd.DataFrame()
     pending = limit_volume_operation_rows_for_pdf_view(pending, pdf_view, "pending_confirmation")
+    active_rows = active_all[
+        active_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & active_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("active_operation")
+        & ~active_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not active_all.empty else pd.DataFrame()
     active_rows = limit_volume_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
 
     story.append(Spacer(1, 6))
-    if not volume_operation_has_data_rows(confirmed_all, pending_all, active_rows):
+    if not volume_operation_has_data_rows(confirmed_all, pending_all, active_all):
         story.append(
             para(
                 volume_operation_empty_text(
-                    pending_all if not pending_all.empty else active_rows if not active_rows.empty else confirmed_all,
+                    pending_all if not pending_all.empty else active_all if not active_all.empty else confirmed_all,
                     "今日沒有可顯示的放量攻擊操作列。",
                 ),
                 BODY_SMALL,
