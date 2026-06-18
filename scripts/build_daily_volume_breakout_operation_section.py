@@ -37,6 +37,10 @@ FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_lat
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
+DAILY_THEME_STATUS_HISTORY_CSVS = [
+    ROOT / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv",
+    ROOT / "output" / "history" / "daily_candidates" / "daily_theme_status_history.csv",
+]
 STOCK_PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
@@ -45,7 +49,7 @@ EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audi
 EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
 
 MODEL_ID = "volume_range_breakout"
-LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+stock_price_history"
+LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+selected_volume_breakout_history+stock_price_history"
 APPROVAL_SOURCE = "approved_operation_patterns_latest.csv"
 PDF_VIEWS = ("highlight", "full")
 PDF_SECTIONS = (
@@ -376,6 +380,67 @@ def daily_volume_signal_rows(signals: pd.DataFrame, daily_signal_date: str) -> p
     return volume.sort_values(["_display_order_num", "stock_id"]).drop(columns=["_display_order_num"], errors="ignore")
 
 
+def volume_breakout_event_signal_rows(report_date: str) -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+    for path in DAILY_THEME_STATUS_HISTORY_CSVS:
+        frame = read_csv(path)
+        if not frame.empty:
+            frames.append(frame)
+    if not frames:
+        return pd.DataFrame()
+    selected = pd.concat(frames, ignore_index=True, sort=False)
+    for col in ["signal_date", "stock_id", "volume_breakout_type", "selection_status"]:
+        if col not in selected.columns:
+            selected[col] = ""
+    report_date = normalize_date_text(report_date)
+    out = selected.copy()
+    out["signal_date"] = out["signal_date"].map(normalize_date_text)
+    out["stock_id"] = out["stock_id"].map(stock_id_key)
+    out = out[
+        out["volume_breakout_type"].astype(str).str.strip().eq("bottom_volume_attack")
+        & out["selection_status"].astype(str).str.strip().eq("selected")
+        & out["signal_date"].astype(str).ne("")
+        & out["stock_id"].astype(str).ne("")
+    ].copy()
+    if report_date:
+        out = out[out["signal_date"].astype(str).le(report_date)].copy()
+    if out.empty:
+        return pd.DataFrame()
+    out = out.drop_duplicates(["signal_date", "stock_id"], keep="last")
+
+    risks: list[str] = []
+    for _, row in out.iterrows():
+        row_risks: list[str] = []
+        if true_text(row.get("false_breakout_risk")):
+            row_risks.append("false_breakout_risk")
+        if true_text(row.get("overheated_breakout")):
+            row_risks.append("overheated_breakout")
+        risks.append(" | ".join(row_risks))
+
+    score = pd.to_numeric(out.get("volume_breakout_score", pd.Series(dtype=str)), errors="coerce")
+    out["model_id"] = MODEL_ID
+    out["model_name_zh"] = "放量攻擊模型"
+    out["model_group"] = "pdf_core_model"
+    out["model_score"] = score.fillna(0).round(1).astype(str)
+    out["final_rank_score"] = out["model_score"]
+    out["base_model_score"] = out["model_score"]
+    out["operation_score"] = ""
+    out["tdcc_score"] = ""
+    out["pattern_score"] = ""
+    out["risk_penalty"] = ""
+    out["rank_reason_zh"] = ""
+    out["model_rank"] = ""
+    out["display_rank"] = ""
+    out["report_bucket"] = ""
+    out["stock_name"] = out.get("stock_name", pd.Series(dtype=str)).map(safe_str)
+    out["effective_primary_theme"] = ""
+    out["risk_penalty_tags"] = risks
+    out["next_confirmation"] = ""
+    out["snapshot_report_date"] = out["signal_date"]
+    out["source_row_index"] = out.index.map(lambda idx: f"selected_volume_breakout_history:{idx}")
+    return out
+
+
 def signal_pending_text(row: pd.Series) -> str:
     return (
         safe_str(row.get("next_confirmation_zh"))
@@ -520,6 +585,10 @@ def signal_snapshot_paths(report_date: str) -> list[Path]:
 
 def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
+    event_history = volume_breakout_event_signal_rows(report_date)
+    if not event_history.empty:
+        frames.append(event_history)
+
     signal_log = read_csv(MODEL_SIGNAL_LOG_CSV)
     if not signal_log.empty and {"model_id", "signal_date"}.issubset(signal_log.columns):
         signal_log = signal_log[
@@ -1125,7 +1194,7 @@ def lifecycle_state_for_signal(
                     display_order,
                 )
                 lifecycle_state = "confirmed_operation"
-                priority = 0
+                priority = 1
             else:
                 record = confirmed_unranked_record(
                     signal,
@@ -1142,7 +1211,7 @@ def lifecycle_state_for_signal(
                     display_order,
                 )
                 lifecycle_state = "confirmed_unranked_operation"
-                priority = 1
+                priority = 2
             for audit in audit_rows:
                 audit["operation_asof_date"] = report_date
                 audit["operation_lifecycle_state"] = lifecycle_state
@@ -1181,7 +1250,7 @@ def lifecycle_state_for_signal(
                     audit["operation_asof_date"] = report_date
                     audit["operation_lifecycle_state"] = "active_operation"
                     audit["generated_at"] = generated_at
-                return 1, record, audit_rows
+                return 0, record, audit_rows
         for audit in audit_rows:
             audit["operation_asof_date"] = report_date
             audit["operation_lifecycle_state"] = "expired"
@@ -1189,7 +1258,7 @@ def lifecycle_state_for_signal(
         return 90, None, audit_rows
 
     if signal_age <= MAX_CONFIRM_DAYS and not signal_low_broken(price, signal_idx, report_idx, signal_low):
-        return 2, pending_record(signal, signal_age, approval, generated_at, report_date, daily_volume_count, display_order), audit_rows
+        return 3, pending_record(signal, signal_age, approval, generated_at, report_date, daily_volume_count, display_order), audit_rows
     return 90, None, audit_rows
 
 

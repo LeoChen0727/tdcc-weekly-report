@@ -27,6 +27,10 @@ from tracking_utils import (  # noqa: E402
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 VOLUME_BREAKOUT_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
+DAILY_THEME_STATUS_HISTORY_CSVS = [
+    Path("output/history/daily_signals/daily_theme_status_history.csv"),
+    Path("output/history/daily_candidates/daily_theme_status_history.csv"),
+]
 TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 TDCC_HOLDER_RATIO = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
 WEEKLY_SURGE_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
@@ -2336,20 +2340,121 @@ def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
     return out[cols].drop_duplicates(["signal_date", "report_bucket", "stock_id", "model_id"], keep="first")
 
 
+def selected_volume_breakout_history_signals(max_signal_date: str = "") -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+    for path in DAILY_THEME_STATUS_HISTORY_CSVS:
+        frame = read_csv(path, dtype=str, keep_default_na=False)
+        if not frame.empty:
+            frames.append(frame)
+    if not frames:
+        return pd.DataFrame(columns=snapshot_model_signals(pd.DataFrame()).columns)
+
+    selected = pd.concat(frames, ignore_index=True, sort=False)
+    for col in ["signal_date", "stock_id", "volume_breakout_type", "selection_status"]:
+        if col not in selected.columns:
+            selected[col] = ""
+    selected["signal_date"] = selected["signal_date"].map(lambda value: safe_str(value).replace("-", "").replace("/", ""))
+    selected["stock_id"] = selected["stock_id"].map(normalize_code)
+    selected = selected[
+        selected["signal_date"].astype(str).str.fullmatch(r"\d{8}", na=False)
+        & selected["stock_id"].astype(str).ne("")
+        & selected["volume_breakout_type"].astype(str).str.strip().eq("bottom_volume_attack")
+        & selected["selection_status"].astype(str).str.strip().eq("selected")
+    ].copy()
+    if max_signal_date:
+        selected = selected[selected["signal_date"].astype(str).le(max_signal_date)].copy()
+    if selected.empty:
+        return pd.DataFrame(columns=snapshot_model_signals(pd.DataFrame()).columns)
+
+    def risk_tags(row: pd.Series) -> str:
+        risks: list[str] = []
+        if safe_str(row.get("false_breakout_risk")).lower() in {"true", "1", "1.0"}:
+            risks.append("false_breakout_risk")
+        if safe_str(row.get("overheated_breakout")).lower() in {"true", "1", "1.0"}:
+            risks.append("overheated_breakout")
+        priority = safe_str(row.get("volume_breakout_priority"))
+        if priority.startswith("B_"):
+            risks.append(priority)
+        return " | ".join(dict.fromkeys(risks))
+
+    out = pd.DataFrame(
+        {
+            "signal_date": selected["signal_date"],
+            "report_bucket": "",
+            "stock_id": selected["stock_id"],
+            "stock_name": selected.get("stock_name", pd.Series(dtype=str)).map(safe_str),
+            "model_id": "volume_range_breakout",
+            "model_name_zh": "放量攻擊模型",
+            "model_group": "pdf_core_model",
+            "base_model_score": selected.get("volume_breakout_score", selected.get("model_score", "")),
+            "operation_score": "",
+            "tdcc_score": "",
+            "pattern_score": "",
+            "risk_penalty": "",
+            "final_rank_score": selected.get("volume_breakout_score", selected.get("model_score", "")),
+            "rank_reason_zh": "",
+            "model_score": selected.get("volume_breakout_score", selected.get("model_score", "")),
+            "model_rank": "",
+            "effective_primary_theme": selected.get("theme_name", ""),
+            "risk_penalty_tags": selected.apply(risk_tags, axis=1),
+            "next_confirmation": selected.get("next_volume_breakout_confirmation", ""),
+        }
+    )
+    return out.drop_duplicates(["signal_date", "stock_id", "model_id"], keep="last")
+
+
 def update_model_signal_log(signals: pd.DataFrame) -> pd.DataFrame:
     MODEL_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     current = snapshot_model_signals(signals)
     history = read_csv(MODEL_SIGNAL_LOG_CSV, dtype=str, keep_default_na=False)
+    current_dates = set(current.get("signal_date", pd.Series(dtype=str)).astype(str).tolist())
+    current_dates.discard("")
+    max_current_date = max(current_dates) if current_dates else ""
+    supplemental = selected_volume_breakout_history_signals(max_current_date)
     if history.empty:
-        merged = current
+        merged_base = pd.DataFrame()
     else:
-        current_dates = set(current.get("signal_date", pd.Series(dtype=str)).astype(str).tolist())
-        current_dates.discard("")
         if current_dates and "signal_date" in history.columns:
-            max_current_date = max(current_dates)
             history = history[history["signal_date"].astype(str) <= max_current_date].copy()
             history = history[~history["signal_date"].astype(str).isin(current_dates)].copy()
-        merged = pd.concat([history, current], ignore_index=True, sort=False)
+        merged_base = history
+
+    def keyset(frame: pd.DataFrame) -> set[tuple[str, str, str]]:
+        if frame.empty:
+            return set()
+        for col in ["signal_date", "stock_id", "model_id"]:
+            if col not in frame.columns:
+                return set()
+        return {
+            (safe_str(row.get("signal_date")), normalize_code(row.get("stock_id")), safe_str(row.get("model_id")))
+            for _, row in frame.iterrows()
+        }
+
+    if not supplemental.empty:
+        base_for_keys = merged_base
+        if not merged_base.empty and {"report_bucket", "model_id"}.issubset(merged_base.columns):
+            base_for_keys = merged_base[
+                ~(
+                    merged_base["model_id"].astype(str).eq("volume_range_breakout")
+                    & merged_base["report_bucket"].astype(str).str.strip().eq("")
+                )
+            ].copy()
+        existing_keys = keyset(base_for_keys) | keyset(current)
+        supplemental = supplemental[
+            ~supplemental.apply(
+                lambda row: (
+                    safe_str(row.get("signal_date")),
+                    normalize_code(row.get("stock_id")),
+                    safe_str(row.get("model_id")),
+                )
+                in existing_keys,
+                axis=1,
+            )
+        ].copy()
+
+    frames = [frame for frame in [merged_base, supplemental, current] if not frame.empty]
+    merged = pd.concat(frames, ignore_index=True, sort=False) if frames else pd.DataFrame(columns=current.columns)
+    if not merged.empty:
         merged = merged.drop_duplicates(["signal_date", "report_bucket", "stock_id", "model_id"], keep="last")
     if not merged.empty:
         merged = merged.sort_values(["signal_date", "model_id", "report_bucket", "stock_id"]).reset_index(drop=True)

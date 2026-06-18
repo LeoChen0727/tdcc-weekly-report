@@ -15,6 +15,11 @@ EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audi
 EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
+MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
+DAILY_THEME_STATUS_HISTORY_CSVS = [
+    ROOT / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv",
+    ROOT / "output" / "history" / "daily_candidates" / "daily_theme_status_history.csv",
+]
 DOCS_SECTION_CSV = DOCS_LATEST_DIR / SECTION_CSV.name
 DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
 DOCS_EVIDENCE_AUDIT_CSV = DOCS_LATEST_DIR / EVIDENCE_AUDIT_CSV.name
@@ -24,7 +29,7 @@ PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section_contract.md"
 
 MODEL_ID = "volume_range_breakout"
-LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+stock_price_history"
+LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+selected_volume_breakout_history+stock_price_history"
 PDF_VIEWS = {"highlight", "full"}
 PDF_SECTIONS = {
     "confirmed_operation",
@@ -35,6 +40,7 @@ PDF_SECTIONS = {
 HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmation"}
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
+LINEAGE_LOOKBACK_CALENDAR_DAYS = 45
 
 REQUIRED_COLUMNS = {
     "model_id",
@@ -217,6 +223,77 @@ def require_nonempty_csv(path: Path, required_columns: set[str]) -> pd.DataFrame
     if missing:
         fail(f"{path.relative_to(ROOT).as_posix()} missing columns: {missing}")
     return df
+
+
+def selected_volume_breakout_history(report_date: str) -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+    for path in DAILY_THEME_STATUS_HISTORY_CSVS:
+        if path.exists():
+            frames.append(read_csv(path))
+    if not frames:
+        fail("missing selected volume breakout history sources")
+    selected = pd.concat(frames, ignore_index=True, sort=False)
+    for col in ["signal_date", "stock_id", "volume_breakout_type", "selection_status"]:
+        if col not in selected.columns:
+            selected[col] = ""
+    selected["signal_date"] = selected["signal_date"].map(normalize_date_text)
+    selected["stock_id"] = selected["stock_id"].map(stock_id_text)
+    selected = selected[
+        selected["signal_date"].astype(str).str.len().eq(8)
+        & selected["stock_id"].astype(str).ne("")
+        & selected["volume_breakout_type"].astype(str).str.strip().eq("bottom_volume_attack")
+        & selected["selection_status"].astype(str).str.strip().eq("selected")
+    ].copy()
+    if selected.empty:
+        return selected
+    report_date = normalize_date_text(report_date)
+    if report_date:
+        cutoff = (
+            pd.to_datetime(report_date, format="%Y%m%d") - pd.Timedelta(days=LINEAGE_LOOKBACK_CALENDAR_DAYS)
+        ).strftime("%Y%m%d")
+        selected = selected[
+            selected["signal_date"].astype(str).ge(cutoff)
+            & selected["signal_date"].astype(str).le(report_date)
+        ].copy()
+    return selected.drop_duplicates(["signal_date", "stock_id"], keep="last")
+
+
+def validate_selected_volume_breakout_model_lineage(section: pd.DataFrame) -> None:
+    report_dates = sorted(
+        {
+            normalize_date_text(value)
+            for value in section.get("daily_signal_date", pd.Series(dtype=str)).tolist()
+            if normalize_date_text(value)
+        }
+    )
+    report_date = report_dates[-1] if report_dates else ""
+    selected = selected_volume_breakout_history(report_date)
+    if selected.empty:
+        return
+    if not MODEL_SIGNAL_LOG_CSV.exists():
+        fail(f"missing formal model signal log: {MODEL_SIGNAL_LOG_CSV.relative_to(ROOT).as_posix()}")
+    model_log = read_csv(MODEL_SIGNAL_LOG_CSV)
+    for col in ["signal_date", "stock_id", "model_id"]:
+        if col not in model_log.columns:
+            fail(f"formal model signal log missing column: {col}")
+    formal = model_log[model_log["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    formal_keys = {
+        (normalize_date_text(row.get("signal_date")), stock_id_text(row.get("stock_id")))
+        for _, row in formal.iterrows()
+    }
+    missing = sorted(
+        {
+            (normalize_date_text(row.get("signal_date")), stock_id_text(row.get("stock_id")))
+            for _, row in selected.iterrows()
+        }
+        - formal_keys
+    )
+    if missing:
+        sample = ", ".join(f"{date}/{stock}" for date, stock in missing[:20])
+        fail(
+            "selected bottom_volume_attack rows missing formal volume_range_breakout model log lineage: "
+            f"{sample}"
+        )
 
 
 def eligible_formal_triggers(formal_summary: pd.DataFrame) -> set[str]:
@@ -716,6 +793,7 @@ def main() -> int:
     section = read_csv(SECTION_CSV)
     audit = read_csv(EVIDENCE_AUDIT_CSV)
     validate_shape(section, formal_summary, audit)
+    validate_selected_volume_breakout_model_lineage(section)
     validate_display_text(section)
     validate_pdf_generator_boundary()
     validate_packet_builder_boundary()

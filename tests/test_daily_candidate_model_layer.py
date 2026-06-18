@@ -640,21 +640,87 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         )
         original_dir = model_layer.MODEL_HISTORY_DIR
         original_csv = model_layer.MODEL_SIGNAL_LOG_CSV
+        original_theme_history = model_layer.DAILY_THEME_STATUS_HISTORY_CSVS
         with tempfile.TemporaryDirectory() as tmpdir:
             temp_dir = Path(tmpdir)
             temp_csv = temp_dir / "daily_candidate_model_signal_log.csv"
+            temp_theme_history = temp_dir / "daily_theme_status_history.csv"
             old_history.to_csv(temp_csv, index=False, encoding="utf-8-sig")
+            pd.DataFrame(columns=["signal_date", "stock_id", "volume_breakout_type", "selection_status"]).to_csv(
+                temp_theme_history,
+                index=False,
+            )
             model_layer.MODEL_HISTORY_DIR = temp_dir
             model_layer.MODEL_SIGNAL_LOG_CSV = temp_csv
+            model_layer.DAILY_THEME_STATUS_HISTORY_CSVS = [temp_theme_history]
             try:
                 out = update_model_signal_log(current)
             finally:
                 model_layer.MODEL_HISTORY_DIR = original_dir
                 model_layer.MODEL_SIGNAL_LOG_CSV = original_csv
+                model_layer.DAILY_THEME_STATUS_HISTORY_CSVS = original_theme_history
 
         current_day = out[out["signal_date"].astype(str).eq("20260531")]
         self.assertEqual(set(current_day["model_id"]), {"volume_range_breakout"})
         self.assertIn("price_pullback_23ema", set(out["model_id"]))
+
+    def test_model_signal_log_backfills_selected_bottom_volume_attack_lineage(self) -> None:
+        current = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260618",
+                    "report_bucket": "mainstream",
+                    "stock_id": "1905",
+                    "stock_name": "Test",
+                    "model_id": "volume_range_breakout",
+                    "model_name_zh": "放量攻擊模型",
+                    "model_group": "pdf_core_model",
+                    "model_score": "70",
+                    "model_rank": "1",
+                }
+            ]
+        )
+        original_dir = model_layer.MODEL_HISTORY_DIR
+        original_csv = model_layer.MODEL_SIGNAL_LOG_CSV
+        original_theme_history = model_layer.DAILY_THEME_STATUS_HISTORY_CSVS
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_csv = temp_dir / "daily_candidate_model_signal_log.csv"
+            temp_theme_history = temp_dir / "daily_theme_status_history.csv"
+            pd.DataFrame(columns=["signal_date", "report_bucket", "stock_id", "model_id"]).to_csv(
+                temp_csv,
+                index=False,
+            )
+            pd.DataFrame(
+                [
+                    {
+                        "signal_date": "20260611",
+                        "stock_id": "2243",
+                        "stock_name": "Test2243",
+                        "theme_name": "Auto",
+                        "volume_breakout_type": "bottom_volume_attack",
+                        "volume_breakout_priority": "B_bottom_volume_attack_with_risk",
+                        "selection_status": "selected",
+                    }
+                ]
+            ).to_csv(temp_theme_history, index=False)
+            model_layer.MODEL_HISTORY_DIR = temp_dir
+            model_layer.MODEL_SIGNAL_LOG_CSV = temp_csv
+            model_layer.DAILY_THEME_STATUS_HISTORY_CSVS = [temp_theme_history]
+            try:
+                out = update_model_signal_log(current)
+            finally:
+                model_layer.MODEL_HISTORY_DIR = original_dir
+                model_layer.MODEL_SIGNAL_LOG_CSV = original_csv
+                model_layer.DAILY_THEME_STATUS_HISTORY_CSVS = original_theme_history
+
+        backfilled = out[
+            out["signal_date"].astype(str).eq("20260611")
+            & out["stock_id"].astype(str).eq("2243")
+            & out["model_id"].astype(str).eq("volume_range_breakout")
+        ]
+        self.assertEqual(len(backfilled), 1)
+        self.assertNotIn("true_breakout", set(out["model_id"].astype(str)))
 
     def test_mainstream_bucket_does_not_change_score(self) -> None:
         mainstream = make_row(

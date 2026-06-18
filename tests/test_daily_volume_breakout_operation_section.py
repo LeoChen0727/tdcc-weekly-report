@@ -82,14 +82,21 @@ def formal_summary(
 def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_rows: list[dict[str, str]]) -> Path:
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
     signal_log = tmp_path / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
+    theme_history = tmp_path / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv"
     price_dir = tmp_path / "data" / "stock_price_history"
     snapshot_dir.mkdir(parents=True)
     signal_log.parent.mkdir(parents=True)
+    theme_history.parent.mkdir(parents=True)
     price_dir.mkdir(parents=True)
     pd.DataFrame(columns=["signal_date", "model_id", "stock_id", "stock_name"]).to_csv(signal_log, index=False)
+    pd.DataFrame(columns=["signal_date", "stock_id", "stock_name", "volume_breakout_type", "selection_status"]).to_csv(
+        theme_history,
+        index=False,
+    )
     pd.DataFrame(price_rows).to_csv(price_dir / f"{stock_id}.csv", index=False)
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
     monkeypatch.setattr(builder, "MODEL_SIGNAL_LOG_CSV", signal_log)
+    monkeypatch.setattr(builder, "DAILY_THEME_STATUS_HISTORY_CSVS", [theme_history])
     monkeypatch.setattr(builder, "STOCK_PRICE_HISTORY_DIR", price_dir)
     return snapshot_dir
 
@@ -199,6 +206,36 @@ def test_lifecycle_reads_published_signal_log_when_snapshot_is_missing(monkeypat
     assert set(confirmed["buy_rank_eligible"]) == {"True"}
 
 
+def test_lifecycle_reads_selected_volume_history_when_model_log_is_missing(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    assert not (snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv").exists()
+    pd.DataFrame(
+        [
+            {
+                "signal_date": "20260616",
+                "stock_id": "1234",
+                "stock_name": "Test",
+                "volume_breakout_type": "bottom_volume_attack",
+                "selection_status": "selected",
+            }
+        ]
+    ).to_csv(builder.DAILY_THEME_STATUS_HISTORY_CSVS[0], index=False)
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    assert confirmed["stock_id"].tolist() == ["1234", "1234"]
+    assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
+    assert set(confirmed["signal_date"]) == {"20260616"}
+
+
 def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path) -> None:
     snapshot_dir = patch_lifecycle_sources(
         monkeypatch,
@@ -226,6 +263,35 @@ def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path)
     assert set(active["selected_trigger_id"]) == {"next_day_break_signal_high_confirmed"}
     assert set(active["confirmation_date"]) == {"20260616"}
     assert backtest_lifecycle_state("1234", "20260615", "20260617") == "active_operation"
+
+
+def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypatch, tmp_path) -> None:
+    patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "11.7", "high": "13", "low": "11.6", "close": "12.8", "volume": "1300"},
+        ],
+    )
+    pd.DataFrame(
+        [
+            volume_signal("1234", "20260615", "1"),
+            volume_signal("1234", "20260616", "2"),
+        ]
+    ).to_csv(builder.MODEL_SIGNAL_LOG_CSV, index=False)
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    assert active["stock_id"].tolist() == ["1234", "1234"]
+    assert confirmed.empty
+    assert set(active["signal_date"]) == {"20260615"}
+    assert set(active["confirmation_date"]) == {"20260616"}
+    assert set(active["row_action_status"]) == {"active_operation"}
 
 
 def test_lifecycle_expired_signal_matches_backtest_terminal_state(monkeypatch, tmp_path) -> None:
