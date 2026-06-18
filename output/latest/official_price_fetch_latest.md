@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-18 12:33:25 Asia/Taipei`
+- generated_at: `2026-06-18 13:01:11 Asia/Taipei`
 - target_date: `20260618`
 - saved_price_date: `20260617`
 - is_target_date: `False`
@@ -32,7 +32,7 @@
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260618&type=ALLBUT0999&response=json -> status=200, chars=25
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=0
 - Trying TWSE batch source=TWSE_RWD_CSV_MI_INDEX date=20260618
-- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260618&type=ALLBUT0999&response=csv -> status=307, chars=686
+- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260618&type=ALLBUT0999&response=csv -> status=200, chars=0
 - Trying TWSE batch source=TWSE_LEGACY_JSON_MI_INDEX date=20260618
 - GET https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260618&type=ALLBUT0999 -> status=200, chars=25
 - TWSE_LEGACY_JSON_MI_INDEX: parsed TWSE rows=0
@@ -51,9 +51,11 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260618
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/18&s=0,asc,0 -> status=200, chars=1420506
-- TPEX_OLD_DAILY_JSON: parsed TPEx JSON rows=4709
-- TPEx batch selected source=TPEX_OLD_DAILY_JSON, rows=4709
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/18&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
+- Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260618
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/18&s=0,asc,0 -> status=200, chars=1409831
+- TPEX_OLD_DAILY_CSV: parsed TPEx CSV rows=4709
+- TPEx batch selected source=TPEX_OLD_DAILY_CSV, rows=4709
 - date=20260618 twse_rows=0 tpex_rows=4709 total_rows=4709 full_market_ok=False
 - Reject stale TPEx target-date rows: 100.0% match previous file daily_price_20260617.csv
 - Published previous valid daily price file as latest: data/daily_price/daily_price_20260617.csv

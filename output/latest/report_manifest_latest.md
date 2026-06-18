@@ -1,6 +1,6 @@
 # 每日報告 Manifest
 
-- 產生時間：`2026-06-18 12:42:04 Asia/Taipei`
+- 產生時間：`2026-06-18 13:09:02 Asia/Taipei`
 - 主資料日期：`20260617`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
