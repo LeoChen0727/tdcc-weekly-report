@@ -364,6 +364,7 @@ jobs:
           git add data/theme_events/ data/company_calendar/ data/macro_events/ data/fundamental_catalysts/ data/event_catalysts/ || true
           git add data/market_index_history.csv data/market_index_ohlc_history.csv || true
           git add output/history/reports/ output/history/warrant_daily/ output/history/warrant_flow/ || true
+          git add output/history/daily_candidate_models/ || true
           git add output/history/daily_signals/daily_candidate_signal_log.csv || true
           git add output/history/daily_signals/daily_theme_status_history.csv || true
           git add output/history/daily_model_snapshots/ || true

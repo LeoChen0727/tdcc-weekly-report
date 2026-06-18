@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,7 @@ import build_daily_volume_breakout_operation_section as builder  # noqa: E402
 import build_volume_breakout_confirmed_operation_backtest as operation_backtest  # noqa: E402
 import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
 import validate_chatgpt_side_volume_operation_pdf_integration as pdf_integration_validator  # noqa: E402
+import validate_daily_volume_breakout_operation_section as section_validator  # noqa: E402
 
 
 def approval_stub() -> dict[str, str]:
@@ -82,21 +84,14 @@ def formal_summary(
 def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_rows: list[dict[str, str]]) -> Path:
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
     signal_log = tmp_path / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
-    theme_history = tmp_path / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv"
     price_dir = tmp_path / "data" / "stock_price_history"
     snapshot_dir.mkdir(parents=True)
     signal_log.parent.mkdir(parents=True)
-    theme_history.parent.mkdir(parents=True)
     price_dir.mkdir(parents=True)
     pd.DataFrame(columns=["signal_date", "model_id", "stock_id", "stock_name"]).to_csv(signal_log, index=False)
-    pd.DataFrame(columns=["signal_date", "stock_id", "stock_name", "volume_breakout_type", "selection_status"]).to_csv(
-        theme_history,
-        index=False,
-    )
     pd.DataFrame(price_rows).to_csv(price_dir / f"{stock_id}.csv", index=False)
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
     monkeypatch.setattr(builder, "MODEL_SIGNAL_LOG_CSV", signal_log)
-    monkeypatch.setattr(builder, "DAILY_THEME_STATUS_HISTORY_CSVS", [theme_history])
     monkeypatch.setattr(builder, "STOCK_PRICE_HISTORY_DIR", price_dir)
     return snapshot_dir
 
@@ -206,7 +201,7 @@ def test_lifecycle_reads_published_signal_log_when_snapshot_is_missing(monkeypat
     assert set(confirmed["buy_rank_eligible"]) == {"True"}
 
 
-def test_lifecycle_reads_selected_volume_history_when_model_log_is_missing(monkeypatch, tmp_path) -> None:
+def test_lifecycle_does_not_read_selected_volume_history_as_adapter_source(monkeypatch, tmp_path) -> None:
     snapshot_dir = patch_lifecycle_sources(
         monkeypatch,
         tmp_path,
@@ -217,23 +212,9 @@ def test_lifecycle_reads_selected_volume_history_when_model_log_is_missing(monke
         ],
     )
     assert not (snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv").exists()
-    pd.DataFrame(
-        [
-            {
-                "signal_date": "20260616",
-                "stock_id": "1234",
-                "stock_name": "Test",
-                "volume_breakout_type": "bottom_volume_attack",
-                "selection_status": "selected",
-            }
-        ]
-    ).to_csv(builder.DAILY_THEME_STATUS_HISTORY_CSVS[0], index=False)
     out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
 
-    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
-    assert confirmed["stock_id"].tolist() == ["1234", "1234"]
-    assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
-    assert set(confirmed["signal_date"]) == {"20260616"}
+    assert out.empty
 
 
 def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path) -> None:
@@ -592,6 +573,71 @@ def test_daily_pipeline_runs_volume_breakout_operation_adapter() -> None:
 
     assert "python scripts/build_daily_volume_breakout_operation_section.py" in workflow
     assert "python scripts/validate_daily_volume_breakout_operation_section.py" in workflow
+
+
+def test_volume_operation_validator_rejects_unsynced_model_signal_log(monkeypatch, tmp_path) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    history_dir = tmp_path / "output" / "history" / "daily_candidate_models"
+    latest_dir.mkdir(parents=True)
+    history_dir.mkdir(parents=True)
+
+    freshness = latest_dir / "data_freshness_latest.csv"
+    latest_signals = latest_dir / "daily_candidate_model_signals_for_report_latest.csv"
+    signal_log = history_dir / "daily_candidate_model_signal_log.csv"
+
+    pd.DataFrame(
+        [
+            {
+                "main_price_date": "20260618",
+                "report_ready": "True",
+                "warrant_ready": "True",
+                "daily_pdf_ready": "True",
+            }
+        ]
+    ).to_csv(freshness, index=False)
+    pd.DataFrame(
+        [
+            {
+                "signal_date": "20260618",
+                "report_bucket": "mainstream",
+                "stock_id": "2061",
+                "model_id": "volume_range_breakout",
+            }
+        ]
+    ).to_csv(latest_signals, index=False)
+    pd.DataFrame(
+        [
+            {
+                "signal_date": "20260618",
+                "report_bucket": "mainstream",
+                "stock_id": "3002",
+                "model_id": "volume_range_breakout",
+            }
+        ]
+    ).to_csv(signal_log, index=False)
+
+    monkeypatch.setattr(section_validator, "DATA_FRESHNESS_CSV", freshness)
+    monkeypatch.setattr(section_validator, "DAILY_SIGNALS_CSV", latest_signals)
+    monkeypatch.setattr(section_validator, "MODEL_SIGNAL_LOG_CSV", signal_log)
+
+    section = pd.DataFrame([{"daily_signal_date": "20260618"}])
+    with pytest.raises(SystemExit):
+        section_validator.validate_latest_signal_log_sync(section)
+
+
+def test_volume_operation_builder_rejects_latest_signal_date_mismatch() -> None:
+    signals = pd.DataFrame(
+        [
+            {
+                "signal_date": "20260618",
+                "stock_id": "2061",
+                "model_id": "volume_range_breakout",
+            }
+        ]
+    )
+
+    with pytest.raises(RuntimeError, match="main_price_date=20260617"):
+        builder.require_latest_signals_match_report_date(signals, "20260617")
 
 
 def test_daily_pdf_generator_does_not_read_research_operation_artifacts_directly() -> None:

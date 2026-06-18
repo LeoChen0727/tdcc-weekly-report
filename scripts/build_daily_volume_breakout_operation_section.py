@@ -37,10 +37,6 @@ FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_lat
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
-DAILY_THEME_STATUS_HISTORY_CSVS = [
-    ROOT / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv",
-    ROOT / "output" / "history" / "daily_candidates" / "daily_theme_status_history.csv",
-]
 STOCK_PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
@@ -49,7 +45,7 @@ EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audi
 EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
 
 MODEL_ID = "volume_range_breakout"
-LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+selected_volume_breakout_history+stock_price_history"
+LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
 APPROVAL_SOURCE = "approved_operation_patterns_latest.csv"
 PDF_VIEWS = ("highlight", "full")
 PDF_SECTIONS = (
@@ -274,7 +270,10 @@ def true_text(value: Any) -> bool:
 
 
 def normalize_date_text(value: Any) -> str:
-    text = safe_str(value).replace("-", "").replace("/", "")
+    text = safe_str(value)
+    if text.endswith(".0"):
+        text = text[:-2]
+    text = text.replace("-", "").replace("/", "")
     return text if len(text) == 8 and text.isdigit() else ""
 
 
@@ -302,6 +301,30 @@ def main_price_date() -> str:
     if freshness.empty or "main_price_date" not in freshness.columns:
         return ""
     return normalize_date_text(freshness.iloc[0].get("main_price_date"))
+
+
+def signal_dates_in_frame(frame: pd.DataFrame) -> set[str]:
+    if frame.empty or "signal_date" not in frame.columns:
+        return set()
+    return {
+        date
+        for date in frame["signal_date"].map(normalize_date_text).tolist()
+        if date
+    }
+
+
+def require_latest_signals_match_report_date(signals: pd.DataFrame, report_date: str) -> None:
+    report_date = normalize_date_text(report_date)
+    dates = signal_dates_in_frame(signals)
+    if not dates:
+        return
+    if dates != {report_date}:
+        observed = ", ".join(sorted(dates))
+        raise RuntimeError(
+            "daily candidate model signals must be a same-date latest artifact before "
+            "building volume breakout operations: "
+            f"main_price_date={report_date or 'missing'} signal_dates={observed}"
+        )
 
 
 def approval_context(approval: pd.DataFrame) -> dict[str, str]:
@@ -379,66 +402,6 @@ def daily_volume_signal_rows(signals: pd.DataFrame, daily_signal_date: str) -> p
     volume["_display_order_num"] = volume["_display_order_num"].fillna(999999)
     return volume.sort_values(["_display_order_num", "stock_id"]).drop(columns=["_display_order_num"], errors="ignore")
 
-
-def volume_breakout_event_signal_rows(report_date: str) -> pd.DataFrame:
-    frames: list[pd.DataFrame] = []
-    for path in DAILY_THEME_STATUS_HISTORY_CSVS:
-        frame = read_csv(path)
-        if not frame.empty:
-            frames.append(frame)
-    if not frames:
-        return pd.DataFrame()
-    selected = pd.concat(frames, ignore_index=True, sort=False)
-    for col in ["signal_date", "stock_id", "volume_breakout_type", "selection_status"]:
-        if col not in selected.columns:
-            selected[col] = ""
-    report_date = normalize_date_text(report_date)
-    out = selected.copy()
-    out["signal_date"] = out["signal_date"].map(normalize_date_text)
-    out["stock_id"] = out["stock_id"].map(stock_id_key)
-    out = out[
-        out["volume_breakout_type"].astype(str).str.strip().eq("bottom_volume_attack")
-        & out["selection_status"].astype(str).str.strip().eq("selected")
-        & out["signal_date"].astype(str).ne("")
-        & out["stock_id"].astype(str).ne("")
-    ].copy()
-    if report_date:
-        out = out[out["signal_date"].astype(str).le(report_date)].copy()
-    if out.empty:
-        return pd.DataFrame()
-    out = out.drop_duplicates(["signal_date", "stock_id"], keep="last")
-
-    risks: list[str] = []
-    for _, row in out.iterrows():
-        row_risks: list[str] = []
-        if true_text(row.get("false_breakout_risk")):
-            row_risks.append("false_breakout_risk")
-        if true_text(row.get("overheated_breakout")):
-            row_risks.append("overheated_breakout")
-        risks.append(" | ".join(row_risks))
-
-    score = pd.to_numeric(out.get("volume_breakout_score", pd.Series(dtype=str)), errors="coerce")
-    out["model_id"] = MODEL_ID
-    out["model_name_zh"] = "放量攻擊模型"
-    out["model_group"] = "pdf_core_model"
-    out["model_score"] = score.fillna(0).round(1).astype(str)
-    out["final_rank_score"] = out["model_score"]
-    out["base_model_score"] = out["model_score"]
-    out["operation_score"] = ""
-    out["tdcc_score"] = ""
-    out["pattern_score"] = ""
-    out["risk_penalty"] = ""
-    out["rank_reason_zh"] = ""
-    out["model_rank"] = ""
-    out["display_rank"] = ""
-    out["report_bucket"] = ""
-    out["stock_name"] = out.get("stock_name", pd.Series(dtype=str)).map(safe_str)
-    out["effective_primary_theme"] = ""
-    out["risk_penalty_tags"] = risks
-    out["next_confirmation"] = ""
-    out["snapshot_report_date"] = out["signal_date"]
-    out["source_row_index"] = out.index.map(lambda idx: f"selected_volume_breakout_history:{idx}")
-    return out
 
 
 def signal_pending_text(row: pd.Series) -> str:
@@ -585,10 +548,6 @@ def signal_snapshot_paths(report_date: str) -> list[Path]:
 
 def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
-    event_history = volume_breakout_event_signal_rows(report_date)
-    if not event_history.empty:
-        frames.append(event_history)
-
     signal_log = read_csv(MODEL_SIGNAL_LOG_CSV)
     if not signal_log.empty and {"model_id", "signal_date"}.issubset(signal_log.columns):
         signal_log = signal_log[
@@ -1486,6 +1445,7 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     approval = read_csv(APPROVAL_CSV)
     formal_summary = read_csv(FORMAL_SUMMARY_CSV)
     report_date = main_price_date()
+    require_latest_signals_match_report_date(signals, report_date)
     daily_signal_date, daily_volume_count = daily_signal_context(signals, report_date)
     generated_at = now_text()
     approval_info = approval_context(approval)
