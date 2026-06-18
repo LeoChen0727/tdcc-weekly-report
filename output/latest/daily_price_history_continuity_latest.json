@@ -22,7 +22,7 @@
   "non_trading_days_in_window": [],
   "daily_price_files": {
     "20260529": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260529.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260529.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 6821,
@@ -34,7 +34,7 @@
       ]
     },
     "20260601": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260601.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260601.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 6892,
@@ -46,7 +46,7 @@
       ]
     },
     "20260602": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260602.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260602.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 6631,
@@ -58,7 +58,7 @@
       ]
     },
     "20260603": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260603.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260603.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 6824,
@@ -70,7 +70,7 @@
       ]
     },
     "20260604": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260604.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260604.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 6706,
@@ -82,7 +82,7 @@
       ]
     },
     "20260605": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260605.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260605.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 6431,
@@ -94,7 +94,7 @@
       ]
     },
     "20260608": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260608.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260608.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2127,
@@ -106,7 +106,7 @@
       ]
     },
     "20260609": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260609.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260609.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2129,
@@ -118,7 +118,7 @@
       ]
     },
     "20260610": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260610.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260610.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2128,
@@ -130,7 +130,7 @@
       ]
     },
     "20260611": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260611.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260611.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2132,
@@ -142,7 +142,7 @@
       ]
     },
     "20260612": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260612.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260612.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2126,
@@ -154,7 +154,7 @@
       ]
     },
     "20260615": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260615.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260615.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2133,
@@ -166,7 +166,7 @@
       ]
     },
     "20260616": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260616.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260616.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2133,
@@ -178,7 +178,7 @@
       ]
     },
     "20260617": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260617.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260617.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2126,
@@ -190,7 +190,7 @@
       ]
     },
     "20260618": {
-      "path": "C:/Users/p4693/Documents/Codex/2026-06-11/tdcc-daily-production/data/daily_price/daily_price_20260618.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260618.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2132,

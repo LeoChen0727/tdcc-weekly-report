@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-06-18 19:34:38 Asia/Taipei",
+  "generated_at": "2026-06-18 20:49:43 Asia/Taipei",
   "target_date": "20260618",
   "saved_price_date": "20260618",
   "is_target_date": true,
   "result": "success_target_full_market",
   "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
   "twse_rows": 1237,
-  "tpex_rows": 5314,
-  "total_rows": 6551,
+  "tpex_rows": 895,
+  "total_rows": 2132,
   "full_market_ok": true,
   "stale_markets": [],
   "stale_market_rows": 0,
   "data_quality_note": "",
   "market_same_ratios": {
-    "TPEx": 0.011570654849827671,
+    "TPEx": 0.0011337868480725624,
     "TWSE": 0.0
   },
   "attempts": [
     {
       "date": "20260618",
       "twse_rows": 1237,
-      "tpex_rows": 5314,
-      "total_rows": 6551,
+      "tpex_rows": 895,
+      "total_rows": 2132,
       "twse_ok": true,
       "tpex_ok": true,
       "full_market_ok": true,
