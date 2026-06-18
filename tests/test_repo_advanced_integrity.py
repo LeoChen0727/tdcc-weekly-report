@@ -24,6 +24,20 @@ def test_advanced_integrity_gate_is_hooked_into_daily_pipeline() -> None:
 
     assert "python scripts/validate_repo_advanced_integrity.py" in workflow
     assert "validate_repo_advanced_integrity.py" in boundary
+    assert "validate(include_external_sources=False)" in boundary
+
+
+def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    refresh_idx = workflow.index("- name: Update catalyst data tables")
+    advanced_idx = workflow.index("python scripts/validate_repo_advanced_integrity.py")
+    preflight_idx = workflow.index("- name: Validate Apps Script workflow triggers")
+    install_idx = workflow.index("- name: Install dependencies")
+
+    assert preflight_idx < install_idx < refresh_idx < advanced_idx
 
 
 def test_advanced_integrity_contracts_exist() -> None:

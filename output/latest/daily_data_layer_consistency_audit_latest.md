@@ -4,7 +4,7 @@
 - main_price_date: `20260618`
 - readme_main_price_date: `20260618`
 - readme_index_main_price_date: `20260618`
-- model_signal_rows: `385`
+- model_signal_rows: `574`
 - volume_watch_rows: `22`
 - volume_theme_other_rows: `0`
 - group_rotation_rows: `10`
@@ -31,7 +31,7 @@
   "readme_report_ready": "True",
   "readme_index_main_price_date": "20260618",
   "readme_index_report_ready": "True",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/376853a2d8b86d2f19ad76ac993ece2050eefde9/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/414031ce4977ba38d4de7ac44d20242b4ded440c/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt",
   "readme_cache_bypass_order": [
     "readme_date_stamped_raw_url",
     "readme_date_stamped_github_api_url",
@@ -72,8 +72,8 @@
   "individual_stock_read_protocol_present": true,
   "individual_stock_protocol_pages_first_count": 0,
   "effective_model_signal_date": "20260618",
-  "model_signal_rows": 385,
-  "raw_model_signal_rows": 385,
+  "model_signal_rows": 574,
+  "raw_model_signal_rows": 574,
   "volume_watch_rows": 22,
   "volume_theme_stock_rows": 22,
   "group_rotation_rows": 10,

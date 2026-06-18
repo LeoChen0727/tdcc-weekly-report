@@ -176,7 +176,7 @@ def run_repo_advanced_integrity_validation() -> list[str]:
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
-    return list(module.validate())
+    return list(module.validate(include_external_sources=False))
 
 
 def main() -> int:

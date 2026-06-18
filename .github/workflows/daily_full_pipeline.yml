@@ -46,7 +46,6 @@ jobs:
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_semantic_integrity.py
-          python scripts/validate_repo_advanced_integrity.py
           python scripts/validate_repo_code_isolation_policy.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
           python scripts/validate_pdf_production_inventory.py
@@ -134,6 +133,10 @@ jobs:
         run: |
           python scripts/update_event_calendar_data.py
           python scripts/update_event_catalyst_data.py
+
+      - name: Validate refreshed external-source integrity
+        run: |
+          python scripts/validate_repo_advanced_integrity.py
 
       - name: Apply fundamental and event catalyst layer
         run: |

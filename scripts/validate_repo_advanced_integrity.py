@@ -412,14 +412,15 @@ def validate_external_source_contract() -> list[str]:
     return errors
 
 
-def validate() -> list[str]:
+def validate(*, include_external_sources: bool = True) -> list[str]:
     errors: list[str] = []
     errors.extend(validate_required_configs())
     errors.extend(validate_runtime_file_lineage_contract())
     errors.extend(validate_pdf_golden_contract())
     errors.extend(validate_historical_replay_semantics())
     errors.extend(validate_model_condition_spec())
-    errors.extend(validate_external_source_contract())
+    if include_external_sources:
+        errors.extend(validate_external_source_contract())
     return errors
 
 
