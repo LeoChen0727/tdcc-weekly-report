@@ -1,6 +1,6 @@
 # Daily Volume Breakout Operation Evidence Audit
 
-- generated_at: `2026-06-18 11:51:01 Asia/Taipei`
+- generated_at: `2026-06-18 12:14:25 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - purpose: row-level audit proving daily adapter evidence is attributed to each stock's own TDCC/trigger/pattern context.
 - rule: confirmed/active daily rows must use `positive_row_evidence`; preview, pending queue, and global best evidence are not valid sources.

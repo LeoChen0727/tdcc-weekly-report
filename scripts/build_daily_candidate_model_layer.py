@@ -2623,7 +2623,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         score_fields = volume_breakout_operation_score_fields(pd.Series(score_source), score, risks)
         final_score = score_fields["final_rank_score"]
         if score_fields["rank_reason_zh"]:
-            comps.append(f"operation_rank:{score_fields['rank_reason_zh']}")
+            comps.append(f"操作排序:{score_fields['rank_reason_zh']}")
         rows.append(
             {
                 "signal_date": signal_date or text(row, "signal_date", "date"),
