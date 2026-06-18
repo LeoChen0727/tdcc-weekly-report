@@ -1,14 +1,14 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-19 01:11:16 Asia/Taipei`
+- generated_at: `2026-06-19 02:37:14 Asia/Taipei`
 - target_date: `20260619`
 - saved_price_date: `20260618`
 - is_target_date: `False`
 - result: `failed_no_target_data`
 - reason: 目標日官方來源與 fallback 都沒有取得任何可用日線資料；latest 保留上一個有效交易日。
-- twse_rows: `1234`
+- twse_rows: `0`
 - tpex_rows: `0`
-- total_rows: `1234`
+- total_rows: `0`
 - full_market_ok: `False`
 
 ## Output Paths
@@ -18,7 +18,7 @@
 
 ## Fetch Attempts
 
-- 20260619: TWSE=1234 / TPEx=0 / Total=1234 / full_market_ok=False
+- 20260619: TWSE=0 / TPEx=0 / Total=0 / full_market_ok=False
 
 ## Fetch Logs
 
@@ -29,14 +29,18 @@
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260619&type=ALLBUT0999&response=json -> status=200, chars=25
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=0
 - Trying TWSE batch source=TWSE_RWD_CSV_MI_INDEX date=20260619
-- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260619&type=ALLBUT0999&response=csv -> status=200, chars=0
+- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260619&type=ALLBUT0999&response=csv -> status=307, chars=686
 - Trying TWSE batch source=TWSE_LEGACY_JSON_MI_INDEX date=20260619
 - GET https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260619&type=ALLBUT0999 -> status=200, chars=25
 - TWSE_LEGACY_JSON_MI_INDEX: parsed TWSE rows=0
 - Trying TWSE batch source=TWSE_OPENAPI_STOCK_DAY_ALL date=20260619
-- GET https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL -> status=200, chars=308048
-- TWSE_OPENAPI_STOCK_DAY_ALL: parsed TWSE OpenAPI rows=1234
-- TWSE batch selected source=TWSE_OPENAPI_STOCK_DAY_ALL, rows=1234
+- GET https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL -> status=200, chars=686
+- TWSE_OPENAPI_STOCK_DAY_ALL: JSON parse failed or not list
+- TWSE batch best rows=0
+- TWSE batch insufficient rows=0; start individual fallback
+- TWSE individual fallback start: stocks=1237 date=20260619 budget_seconds=180
+- TWSE individual fallback parsed rows=0
+- TWSE kept batch rows=0; fallback rows=0
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260619
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/19&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
@@ -56,8 +60,7 @@
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/19&s=0,asc,0 -> status=200, chars=1408708
 - TPEX_OLD_DAILY_CSV: rejected response date 20260618; target date is 20260619
 - Trying TPEx batch source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES date=20260619
-- GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes -> status=200, chars=3846514
-- TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES: rejected response dates ['20260618']; target date is 20260619
+- GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes failed: ChunkedEncodingError: Response ended prematurely
 - TPEx batch best rows=0
-- date=20260619 twse_rows=1234 tpex_rows=0 total_rows=1234 full_market_ok=False
+- date=20260619 twse_rows=0 tpex_rows=0 total_rows=0 full_market_ok=False
 - Published previous valid daily price file as latest: data/daily_price/daily_price_20260618.csv

@@ -557,6 +557,7 @@ def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) 
         ].copy()
         if not signal_log.empty:
             signal_log["snapshot_report_date"] = signal_log["signal_date"].map(normalize_date_text)
+            signal_log["_source_priority"] = 1
             frames.append(signal_log)
 
     for path in signal_snapshot_paths(report_date):
@@ -567,12 +568,14 @@ def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) 
         if frame.empty:
             continue
         frame["snapshot_report_date"] = normalize_date_text(path.stem.rsplit("_", 1)[-1])
+        frame["_source_priority"] = 2
         frames.append(frame)
 
     current = daily_volume_signal_rows(current_signals, report_date)
     if not current.empty:
         current = current.copy()
         current["snapshot_report_date"] = normalize_date_text(report_date)
+        current["_source_priority"] = 3
         frames.append(current)
 
     if not frames:
@@ -583,7 +586,7 @@ def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) 
     out["signal_date"] = out["signal_date"].map(normalize_date_text)
     out["stock_id"] = out.get("stock_id", pd.Series(dtype=str)).map(stock_id_key)
     out = out[(out["signal_date"] != "") & (out["stock_id"] != "")].copy()
-    out = out.drop_duplicates(["signal_date", "stock_id", "model_id"], keep="last")
+    out = collapse_signal_history_rows(out)
     if "display_rank" in out.columns:
         out["_display_order_num"] = pd.to_numeric(out["display_rank"], errors="coerce")
     elif "model_rank" in out.columns:
@@ -595,6 +598,43 @@ def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) 
         columns=["_display_order_num"],
         errors="ignore",
     )
+
+
+def collapse_signal_history_rows(out: pd.DataFrame) -> pd.DataFrame:
+    if out.empty:
+        return out
+    work = out.copy()
+    if "_source_priority" not in work.columns:
+        work["_source_priority"] = 0
+    if "display_rank" in work.columns:
+        work["_display_order_num"] = pd.to_numeric(work["display_rank"], errors="coerce")
+    elif "model_rank" in work.columns:
+        work["_display_order_num"] = pd.to_numeric(work["model_rank"], errors="coerce")
+    else:
+        work["_display_order_num"] = math.nan
+    work["_source_priority"] = pd.to_numeric(work["_source_priority"], errors="coerce").fillna(0)
+    work["_display_order_num"] = work["_display_order_num"].fillna(999999)
+    work = work.sort_values(
+        ["signal_date", "stock_id", "model_id", "_source_priority", "_display_order_num"],
+        ascending=[True, True, True, False, True],
+    )
+
+    rows: list[dict[str, Any]] = []
+    for _, part in work.groupby(["signal_date", "stock_id", "model_id"], sort=False, dropna=False):
+        record: dict[str, Any] = {}
+        for col in work.columns:
+            if col in {"_source_priority", "_display_order_num"}:
+                continue
+            values = [safe_str(value) for value in part[col].tolist() if safe_str(value)]
+            record[col] = values[0] if values else ""
+        for rank_col in ["display_rank", "model_rank"]:
+            if rank_col in part.columns:
+                nums = pd.to_numeric(part[rank_col], errors="coerce").dropna()
+                if not nums.empty:
+                    best = float(nums.min())
+                    record[rank_col] = str(int(best)) if best.is_integer() else f"{best:g}"
+        rows.append(record)
+    return pd.DataFrame(rows)
 
 
 def format_md_date(date: str) -> str:
@@ -1108,6 +1148,43 @@ def pending_record(
     return record
 
 
+def source_gap_audit_payload(
+    signal: pd.Series,
+    report_date: str,
+    reason: str,
+    generated_at: str,
+) -> dict[str, Any]:
+    return {
+        "model_id": MODEL_ID,
+        "operation_asof_date": normalize_date_text(report_date),
+        "stock_id": stock_id_key(signal.get("stock_id")),
+        "stock_name": safe_str(signal.get("stock_name")),
+        "signal_date": normalize_date_text(signal.get("signal_date")),
+        "selected_trigger_id": "",
+        "selected_confirmation_date": "",
+        "operation_lifecycle_state": "source_gap",
+        "audit_status": "source_gap",
+        "included_in_daily_adapter": "False",
+        "tdcc_list_type": "",
+        "tdcc_rank": "",
+        "rank_bucket": "",
+        "classification_id": "",
+        "attack_method": "",
+        "price_position_type": "",
+        "risk_type": "",
+        "evidence_confluence_scope": "",
+        "evidence_confluence_id": "",
+        "evidence_sample_size": "",
+        "evidence_win_rate": "",
+        "evidence_avg_return": "",
+        "evidence_median_return": "",
+        "evidence_out_of_sample_pass": "",
+        "ranking_research_score": "",
+        "reason": reason,
+        "generated_at": generated_at,
+    }
+
+
 def lifecycle_state_for_signal(
     signal: pd.Series,
     report_date: str,
@@ -1120,21 +1197,42 @@ def lifecycle_state_for_signal(
     stock_id = stock_id_key(signal.get("stock_id"))
     signal_date = normalize_date_text(signal.get("signal_date"))
     if not stock_id or not signal_date:
+        audit_rows.append(source_gap_audit_payload(signal, report_date, "missing_signal_identity", generated_at))
         return 99, None, audit_rows
+    price_path = STOCK_PRICE_HISTORY_DIR / f"{stock_id}.csv"
     price = load_price_history(stock_id)
     if price.empty:
+        reason = "missing_stock_price_history_file" if not price_path.exists() else "unusable_stock_price_history"
+        audit_rows.append(source_gap_audit_payload(signal, report_date, reason, generated_at))
         return 99, None, audit_rows
     signal_positions = price.index[price["date"].astype(str).eq(signal_date)].tolist()
     report_positions = price.index[price["date"].astype(str).eq(report_date)].tolist()
-    if not signal_positions or not report_positions:
+    if not signal_positions:
+        audit_rows.append(
+            source_gap_audit_payload(signal, report_date, "signal_date_missing_in_stock_price_history", generated_at)
+        )
+        return 99, None, audit_rows
+    if not report_positions:
+        audit_rows.append(
+            source_gap_audit_payload(
+                signal,
+                report_date,
+                "operation_asof_date_missing_in_stock_price_history",
+                generated_at,
+            )
+        )
         return 99, None, audit_rows
     signal_idx = int(signal_positions[-1])
     report_idx = int(report_positions[-1])
     if signal_idx > report_idx:
+        audit_rows.append(source_gap_audit_payload(signal, report_date, "signal_date_after_operation_asof_date", generated_at))
         return 99, None, audit_rows
     signal_age = report_idx - signal_idx
     display_order = safe_str(signal.get("display_rank") or signal.get("model_rank") or "999999")
     signal_low = price_at(price.iloc[signal_idx], "low")
+    if math.isnan(signal_low):
+        audit_rows.append(source_gap_audit_payload(signal, report_date, "signal_low_missing_in_stock_price_history", generated_at))
+        return 99, None, audit_rows
 
     selected = selected_confirmation(price, signal_idx, report_idx)
     if selected is not None:

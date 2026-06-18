@@ -49,6 +49,16 @@ HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmati
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
 LINEAGE_LOOKBACK_CALENDAR_DAYS = 45
+AUDIT_STATUSES = {"candidate_evaluated", "positive_row_evidence", "source_gap"}
+SOURCE_GAP_REASONS = {
+    "missing_signal_identity",
+    "missing_stock_price_history_file",
+    "unusable_stock_price_history",
+    "signal_date_missing_in_stock_price_history",
+    "operation_asof_date_missing_in_stock_price_history",
+    "signal_date_after_operation_asof_date",
+    "signal_low_missing_in_stock_price_history",
+}
 
 REQUIRED_COLUMNS = {
     "model_id",
@@ -511,6 +521,35 @@ def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFr
         fail(f"evidence audit marks non-rendered rows as included_in_daily_adapter=True: {extra_included[:20]}")
 
 
+def validate_source_gap_audit(audit: pd.DataFrame) -> None:
+    if audit.empty:
+        return
+    missing = sorted(REQUIRED_AUDIT_COLUMNS - set(audit.columns))
+    if missing:
+        fail(f"evidence audit missing columns: {missing}")
+    bad_status = sorted(set(audit["audit_status"].astype(str)) - AUDIT_STATUSES)
+    if bad_status:
+        fail(f"evidence audit has unsupported audit_status values: {bad_status}")
+    gaps = audit[audit["audit_status"].astype(str).eq("source_gap")].copy()
+    if gaps.empty:
+        return
+    if gaps["included_in_daily_adapter"].astype(str).ne("False").any():
+        fail("source_gap audit rows must never be included in the daily adapter")
+    if gaps["operation_lifecycle_state"].astype(str).ne("source_gap").any():
+        fail("source_gap audit rows must carry operation_lifecycle_state=source_gap")
+    bad_reasons = sorted(set(gaps["reason"].astype(str)) - SOURCE_GAP_REASONS)
+    if bad_reasons:
+        fail(f"source_gap audit rows have unsupported reasons: {bad_reasons}")
+    identity_required = gaps[~gaps["reason"].astype(str).eq("missing_signal_identity")].copy()
+    missing_identity = identity_required[
+        identity_required["stock_id"].astype(str).str.strip().eq("")
+        | identity_required["signal_date"].astype(str).str.strip().eq("")
+        | identity_required["operation_asof_date"].astype(str).str.strip().eq("")
+    ]
+    if not missing_identity.empty:
+        fail("source_gap audit rows must preserve stock_id, signal_date, and operation_asof_date")
+
+
 def validate_file_presence() -> None:
     for path in [
         SECTION_CSV,
@@ -909,6 +948,7 @@ def main() -> int:
     section = read_csv(SECTION_CSV)
     audit = read_csv(EVIDENCE_AUDIT_CSV)
     validate_shape(section, formal_summary, audit)
+    validate_source_gap_audit(audit)
     validate_latest_signal_log_sync(section)
     validate_selected_volume_breakout_model_lineage(section)
     validate_display_text(section)

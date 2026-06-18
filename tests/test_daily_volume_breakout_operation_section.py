@@ -299,6 +299,56 @@ def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypa
     assert set(suppressed["included_in_daily_adapter"]) == {"False"}
 
 
+def test_lifecycle_collapses_duplicate_signal_sources_without_last_row_overwrite(monkeypatch, tmp_path) -> None:
+    patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.2", "high": "10.7", "low": "10.4", "close": "10.5", "volume": "900"},
+        ],
+    )
+    pd.DataFrame(
+        [
+            {**volume_signal("1234", "20260616"), "report_bucket": "mainstream", "model_rank": "1", "display_rank": ""},
+            {**volume_signal("1234", "20260616"), "report_bucket": "non_mainstream", "model_rank": "99", "display_rank": ""},
+        ]
+    ).to_csv(builder.MODEL_SIGNAL_LOG_CSV, index=False)
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    pending = out[out["pdf_section"].eq("pending_confirmation") & out["row_type"].eq("data")]
+    assert pending["stock_id"].tolist() == ["1234"]
+    assert set(pending["display_order"]) == {"1"}
+    assert set(pending["signal_date"]) == {"20260616"}
+
+
+def test_lifecycle_audits_missing_report_date_price_gap(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260616", "open": "10.2", "high": "10.7", "low": "10.4", "close": "10.5", "volume": "900"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260615")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+        index=False,
+    )
+
+    out, audit = build_rows_and_audit_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    assert out.empty
+    assert audit["audit_status"].tolist() == ["source_gap"]
+    assert audit["operation_lifecycle_state"].tolist() == ["source_gap"]
+    assert audit["included_in_daily_adapter"].tolist() == ["False"]
+    assert audit["reason"].tolist() == ["operation_asof_date_missing_in_stock_price_history"]
+    section_validator.validate_source_gap_audit(audit)
+
+
 def test_lifecycle_expired_signal_matches_backtest_terminal_state(monkeypatch, tmp_path) -> None:
     snapshot_dir = patch_lifecycle_sources(
         monkeypatch,

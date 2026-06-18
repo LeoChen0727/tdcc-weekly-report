@@ -13,6 +13,10 @@ The adapter also emits an audit-only artifact:
 - `output/latest/daily_volume_breakout_operation_evidence_audit_latest.md`
 
 This audit explains why confirmed/active candidates were included or excluded. It is not a PDF source.
+It must also record source gaps for lifecycle candidates that cannot be evaluated
+because stock price history is missing the signal date, as-of date, or required
+price fields. Source-gap rows are audit-only and must never be rendered as daily
+operation rows.
 
 The PDF renderer must not read these research artifacts directly:
 
@@ -58,6 +62,11 @@ states. That lifecycle artifact is not a PDF or daily adapter source.
 - `confirmed_unranked_operation` data rows are lifecycle-confirmed rows that did not pass the buy-ranking evidence gate. They must remain `buy_rank_eligible=False`, must not carry entry price, stop price, or exit guidance, and must be rendered only in full PDFs.
 - `confirmed_operation`, `confirmed_unranked_operation`, and `active_operation` data rows must use row-level evidence attribution when matching evidence exists. The adapter must match the selected trigger plus that stock's TDCC list type, rank bucket, and best available confluence row before copying sample size, win rate, average return, or median return.
 - If no positive row-level evidence exists for a confirmation on the report date, the adapter must keep the lifecycle-confirmed row in `confirmed_unranked_operation` instead of dropping it from the full report. It must not enter `active_operation`.
+- If a lifecycle source signal cannot be evaluated because stock price history is
+  missing or incomplete, the adapter must emit `audit_status=source_gap` in
+  `daily_volume_breakout_operation_evidence_audit_latest.csv`, keep
+  `included_in_daily_adapter=False`, and emit no operation data row for that
+  signal.
 - The adapter must carry `operation_asof_date` and `operation_source_date_status` on every row.
 - Data rows are valid only when `operation_asof_date` equals `daily_signal_date`, which is the daily report date from `main_price_date`.
 - Operation data rows must have a stock-level taxonomy/basic industry source before they can be routed to a PDF line. Valid report memberships are only `mainstream`, `non_mainstream`, or both. The PDF renderer must not invent a report line when taxonomy/source data is missing.
