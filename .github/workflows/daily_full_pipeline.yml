@@ -246,11 +246,6 @@ jobs:
             --baseline "$RUNNER_TEMP/tdcc_daily_baseline/data_freshness_latest.csv" \
             --current output/latest/data_freshness_latest.csv
 
-      - name: Publish daily model snapshots
-        run: |
-          python scripts/update_daily_published_model_snapshots.py
-          python scripts/validate_daily_published_model_snapshots.py
-
       - name: Build daily market report artifacts
         run: |
           python build_daily_market_report_artifacts.py
@@ -275,6 +270,11 @@ jobs:
       - name: Build ChatGPT daily report rules
         run: |
           python build_chatgpt_daily_report_rules.py
+
+      - name: Publish daily model snapshots
+        run: |
+          python scripts/update_daily_published_model_snapshots.py
+          python scripts/validate_daily_published_model_snapshots.py
 
       - name: Validate catalyst layer
         run: |
@@ -375,6 +375,7 @@ jobs:
           git add output/history/market_risk/ || true
 
           python scripts/validate_daily_staged_paths.py
+          python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_no_conflict_markers.py
           git status --short
           git commit -m "Update daily report artifacts and packets" || echo "No changes to commit"
