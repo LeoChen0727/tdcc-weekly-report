@@ -71,6 +71,33 @@ def write_ready_sources(repo: Path, date: str = "20260616") -> None:
         "\n".join(f"{key}={value}" for key, value in readme.items()) + "\n",
         encoding="utf-8",
     )
+    packet = {
+        "generated_at": "2026-06-16 20:31:25 Asia/Taipei",
+        "repo": "LeoChen0727/tdcc-weekly-report",
+        "main_price_date": date,
+        "report_ready": "True",
+        "all_candidates_date": date,
+        "official_price_fetch_date": date,
+        "stock_monitor_date": date,
+        "warrant_flow_date": date,
+        "warrant_ready": "True",
+        "daily_pdf_ready": "True",
+    }
+    packet_text = "\n".join(
+        [
+            "CHATGPT DAILY REPORT PACKET",
+            "",
+            *(f"{key}: {value}" for key, value in packet.items()),
+            "",
+            "CHATGPT_DELIVERY_CONTRACT",
+            "official_chatgpt_side_pdf_entrypoint: python scripts/run_chatgpt_daily_report_entrypoint.py",
+            "",
+        ]
+    )
+    (repo / "output" / "latest" / "chatgpt_daily_report_packet_latest.txt").write_text(
+        packet_text,
+        encoding="utf-8",
+    )
 
 
 def commit_all(repo: Path, message: str) -> str:
@@ -145,3 +172,32 @@ def test_entrypoint_passes_source_ref_to_generator_env(tmp_path: Path, monkeypat
     assert len(paths) == 6
     assert captured["env"]["CHATGPT_DAILY_REPORT_ENTRYPOINT"] == "1"
     assert captured["env"]["CHATGPT_DAILY_SOURCE_REF"] == "histlocal/codex/historical-report-source-20260615"
+
+
+def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
+    state = {
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "main_price_date": "20260616",
+        "report_ready": True,
+        "warrant_ready": True,
+        "daily_pdf_ready": True,
+        "freshness_path": "origin/main:output/latest/data_freshness_latest.csv",
+        "readme_path": "origin/main:output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+        "packet_path": "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt",
+    }
+    pdf_paths = [tmp_path / f"report_{idx}.pdf" for idx in range(6)]
+
+    manifest_path = entrypoint.write_runtime_manifest(
+        output_dir=tmp_path,
+        entry_state=state,
+        source_state=state,
+        pdf_paths=pdf_paths,
+        source_root=tmp_path / "source",
+    )
+
+    text = manifest_path.read_text(encoding="utf-8")
+    assert "chatgpt_daily_report_runtime_manifest" in text
+    assert '"main_price_date": "20260616"' in text
+    assert "chatgpt_daily_report_packet_latest.txt" in text
+    assert '"pdf_count": 6' in text

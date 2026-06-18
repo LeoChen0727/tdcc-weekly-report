@@ -1,110 +1,69 @@
-請用 tdcc-weekly-report 的多入口資料流程產出每日台股全市場候選股分析。請先讀原始資料與 packet，不要優先用 PDF。
+請用 tdcc-weekly-report 的正式每日台股推薦流程產出報告。這份文件是給新對話的入口規則；不要用舊的 Pages-first 或 repo artifact PDF 流程。
 
-資料來源優先順序：
+## 正式 PDF 產生入口
 
-1. 優先讀 READ_ME_FIRST_DAILY_REPORT.txt。
-2. 依 READ_ME_FIRST 裡的 URL 讀 packet、CSV、source tables、signal logs、warrant tables、market tables、catalyst logs、validation files。
-3. PDF 只作為輔助與可分享成品，不是第一資料來源。
-4. 只有在原始 CSV / packet / source tables 讀不到時，才使用 PDF 內容。
-5. 如果本次只能使用 PDF，請在回答第一行明確寫：
-   本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
+正式產出六份 ChatGPT-side PDF 時，只能在固定 daily production worktree 執行：
 
-入口檔：
+`C:\Users\p4693\Documents\Codex\2026-06-11\tdcc-daily-production`
 
-優先讀 GitHub Pages：
+先執行 source gate：
 
-https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
+`python scripts/run_chatgpt_daily_report_entrypoint.py --source-gate-only`
 
-如果 Pages 讀不到，再讀 raw：
+只有 gate 通過後，才執行正式產生：
 
-https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
+`python scripts/run_chatgpt_daily_report_entrypoint.py`
 
-請解析 READ_ME_FIRST 的 key=value，至少讀取：
+不要直接執行 `scripts/generate_chatgpt_side_daily_reports.py`。那是 renderer，不是正式入口。
 
-- main_price_date
-- report_ready
-- preferred_chatgpt_url
-- packet_pages_url
-- packet_commit_raw_url
-- packet_latest_raw_url
-- packet_github_api_url
-- rules_pages_url
-- rules_raw_url
-- daily_market_curated_pdf_pages_url
-- daily_market_full_table_pdf_pages_url
-- warrant_market_report_pdf_pages_url
-- market_risk_dashboard_pdf_pages_url
-- daily_signal_performance_summary_raw_url
-- catalyst_needs_review_csv_raw_url
-- catalyst_needs_review_md_raw_url
-- read_order
+## 日期與來源規則
 
-讀取順序：
+- 不准自己判斷今天日期。
+- 正式 report date 只能使用 `origin/main:output/latest/data_freshness_latest.csv` 的 `main_price_date`。
+- 必須全部成立才可產出 PDF：
+  - `report_ready=True`
+  - `warrant_ready=True`
+  - `daily_pdf_ready=True`
+- source gate 必須用 `git fetch origin main` 與 `git show origin/main:<path>` 讀遠端 main。
+- 不准用本機 `output/latest`、OneDrive/helper、GitHub Pages、raw URL cache 或舊 PDF 檔名來決定日期。
+- raw / GitHub API / Pages 只能作為人工診斷輔助；如果它們和 `git show origin/main` 不一致，以 `git show origin/main` 為準。
 
-1. 先讀 rules_pages_url；失敗再讀 rules_raw_url。
-2. 再讀 preferred_chatgpt_url。
-3. 如果 preferred_chatgpt_url 失敗，依 read_order 讀：
-   packet_pages_url
-   packet_commit_raw_url
-   packet_latest_raw_url
-   packet_github_api_url
-4. 如果讀 packet_github_api_url，要解析 GitHub API JSON 的 content 欄位並 base64 decode。
-5. packet 必須包含：
-   CHATGPT DAILY REPORT PACKET
-   EMBEDDED SUMMARY REPORT
-   EMBEDDED FULL REPORT
+## 必須一致的 structured source
 
-正式分析資料規則：
+source gate 必須交叉確認以下三份都屬於同一個 `main_price_date`，且 readiness 欄位一致：
 
-- 原始資料優先，PDF 輔助。
-- 不准用舊日期資料重做今天報告。
-- 不准把讀取工具失敗或 cache miss 說成 GitHub 沒更新。
-- 如果所有入口都讀不到，只能說：讀取工具失敗，目前無法取得 GitHub 已產出的報告內容。
-- 如果資料日期不一致，先指出日期不一致，不要硬分析。
-- 如果只讀到 PDF，必須在回答開頭揭露只使用 PDF。
+1. `origin/main:output/latest/data_freshness_latest.csv`
+2. `origin/main:output/latest/READ_ME_FIRST_DAILY_REPORT.txt`
+3. `origin/main:output/latest/chatgpt_daily_report_packet_latest.txt`
 
-每日候選股分析請使用六大分類，不要新增第七大分類：
+任一份讀不到、日期不一致、ready 欄位不一致，都必須停止，不可用舊資料補產。
 
-1. 嚴格突破
-2. 區間內轉強 / 挑戰前高觀察
-3. 營收爆發低反應股
-4. 營收成長股價回檔
-5. 回檔後短線轉強
-6. 型態觀察
+## 六份正式 ChatGPT-side PDF
 
-事件 / 財報 / 題材催化層只作為跨分類標籤，不是新分類。請讀取 catalyst_needs_review_*：
+正式交付是六份 PDF：
 
-- model_effect_allowed=False 的資料不能影響分數、排名、升級、降級或 similar_to_shihsinko_flag。
-- pdf_effect_allowed=False 的資料不能當成正式 PDF 推薦理由。
-- 股東會日期、BLS CPI / 就業、未有明確來源的展覽 / 新技術驗證 / 新聞 / 法說 / 重大訊息，在正式 source row 進入資料表前，只能列為待確認，不得當作利多。
+1. 主流股每日推薦精華
+2. 主流股完整候選名單
+3. 非主流股每日推薦精華
+4. 非主流股完整候選名單
+5. 權證市場輔助分析
+6. 市場風險與大盤期權背景
 
-報告輸出架構：
+repo 內 `docs/latest/*.pdf` 或 `output/latest/*.pdf` 是 pipeline artifact / shareable reference，不等於使用者要求的六份 ChatGPT-side PDF。
 
-一、資料狀態確認
-二、今日總覽
-三、族群性分析 / 今日族群輪動
-四、分類解讀
-五、財報 / 事件催化觀察
-六、權證市場與資金熱度輔助
-七、大盤 / 期權 / 市場風險背景
-八、今日優先追蹤清單
-九、風險提醒
-十、明日觀察重點
+## PDF 內容邊界
 
-請同時提供四份成品連結或摘要：
+- PDF renderer 只能 render program-side structured artifact。
+- 不准在 PDF 端重新計算買點、停損、出場、排名、主流/非主流分類或模型判斷。
+- 不准把 pending 股票寫成已確認操作。
+- 放量攻擊 operation 只能讀 `output/latest/daily_volume_breakout_operation_section_latest.csv`。
+- 其他模型尚未有 approved operation guidance 時，不可把模型命中寫成買進建議。
 
-1. 每日推薦精華 PDF：daily_market_curated_pdf_pages_url
-2. 每日完整表格 PDF：daily_market_full_table_pdf_pages_url
-3. 權證市場報告 PDF：warrant_market_report_pdf_pages_url
-4. 大盤 / 期權 / 市場風險 PDF：market_risk_dashboard_pdf_pages_url
+## 成功輸出證據
 
-注意：
+正式 entrypoint 完成後，輸出資料夾必須包含：
 
-- 權證只作輔助訊號，不可單獨作為買進理由。
-- 大盤期權資料是背景，不是個股買賣指令。
-- TDCC 是背景確認，不是硬篩選。
-- 不要把不同分類分數混成總排名。
-- 不要把區間轉強混入嚴格突破。
-- 不要把營收爆發低反應股混入營收成長股價回檔。
-- 營建 / 交屋認列型營收不能因單月 YoY 暴增就列為最優先，必須等 EPS、毛利率、合約負債、建案交屋進度、TDCC 與股價確認。
-- 不要分析使用者個人持股、成本、損益、融資風險或個人部位操作。
+- 六份檔名含 `<main_price_date>_requested_repo<main_price_date>` 的 PDF。
+- `chatgpt_daily_report_runtime_manifest.json`，記錄 `source_ref`、`source_commit_sha`、`main_price_date`、三個 gate 檔與六份 PDF 路徑。
+
+回覆使用者時，要提供可直接開啟的 PDF 資料夾連結與六份 PDF 路徑。

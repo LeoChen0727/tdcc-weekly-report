@@ -12,7 +12,9 @@ Repo:
 https://github.com/LeoChen0727/tdcc-weekly-report
 
 Local checkout:
-<paste current local checkout path>
+C:\Users\p4693\Documents\Codex\2026-06-11\tdcc-daily-production
+
+Do not use OneDrive/helper copies as durable source for daily production.
 
 Do not open or ask me to open the old crashed Codex conversation.
 

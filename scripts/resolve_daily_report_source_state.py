@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import subprocess
 import sys
 from io import StringIO
@@ -23,6 +24,7 @@ from scripts.validate_daily_publish_freshness_gate import (  # noqa: E402
 DEFAULT_SOURCE_REF = "origin/main"
 FRESHNESS_PATH = "output/latest/data_freshness_latest.csv"
 README_PATH = "output/latest/READ_ME_FIRST_DAILY_REPORT.txt"
+PACKET_PATH = "output/latest/chatgpt_daily_report_packet_latest.txt"
 
 DATE_FIELDS_REQUIRED_TO_MATCH_MAIN = (
     "actual_stock_price_history_date",
@@ -42,6 +44,23 @@ README_FIELDS_REQUIRED_TO_MATCH_FRESHNESS = (
     "warrant_flow_date",
     "warrant_ready",
     "daily_pdf_ready",
+)
+
+PACKET_FIELDS_REQUIRED_TO_MATCH_FRESHNESS = {
+    "main_price_date": "main_price_date",
+    "report_ready": "report_ready",
+    "all_candidates_date": "all_candidates_date",
+    "official_price_fetch_date": "official_price_fetch_date",
+    "stock_monitor_date": "stock_monitor_price_date",
+    "warrant_flow_date": "warrant_flow_date",
+    "warrant_ready": "warrant_ready",
+    "daily_pdf_ready": "daily_pdf_ready",
+}
+
+PACKET_REQUIRED_MARKERS = (
+    "CHATGPT DAILY REPORT PACKET",
+    "CHATGPT_DELIVERY_CONTRACT",
+    "official_chatgpt_side_pdf_entrypoint:",
 )
 
 STATE_FIELDS_REQUIRED_TO_MATCH_LOCAL = (
@@ -134,9 +153,14 @@ def parse_key_value_text(text: str) -> dict[str, str]:
     fields: dict[str, str] = {}
     for raw_line in text.splitlines():
         line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
+        if not line or line.startswith("#") or line.startswith("|"):
             continue
-        key, value = line.split("=", 1)
+        if "=" in line:
+            key, value = line.split("=", 1)
+        elif ":" in line and re.match(r"^-?\s*[A-Za-z0-9_ -]+:\s*", line):
+            key, value = line.lstrip("- ").split(":", 1)
+        else:
+            continue
         fields[key.strip().lstrip("\ufeff")] = value.strip()
     return fields
 
@@ -189,19 +213,51 @@ def validate_readme_matches_freshness(
     return errors
 
 
+def validate_packet_matches_freshness(
+    packet_text: str,
+    packet_fields: dict[str, str],
+    freshness_row: dict[str, str],
+    source_label: str,
+) -> list[str]:
+    errors: list[str] = []
+    for marker in PACKET_REQUIRED_MARKERS:
+        if marker not in packet_text:
+            errors.append(f"{source_label}: packet missing required marker {marker!r}")
+
+    for packet_field, freshness_field in PACKET_FIELDS_REQUIRED_TO_MATCH_FRESHNESS.items():
+        packet_value = packet_fields.get(packet_field, "")
+        freshness_value = freshness_row.get(freshness_field, "")
+        if packet_field.endswith("_date") or freshness_field.endswith("_date"):
+            if normalize_date(packet_value) != normalize_date(freshness_value):
+                errors.append(
+                    f"{source_label}: packet {packet_field}={packet_value or '<missing>'} does not match "
+                    f"freshness {freshness_field}={freshness_value or '<missing>'}"
+                )
+        elif str(packet_value).strip() != str(freshness_value).strip():
+            errors.append(
+                f"{source_label}: packet {packet_field}={packet_value or '<missing>'} does not match "
+                f"freshness {freshness_field}={freshness_value or '<missing>'}"
+            )
+    return errors
+
+
 def validate_local_matches_origin(
     repo_root: Path,
     origin_freshness: dict[str, str],
     origin_readme: dict[str, str],
+    origin_packet: dict[str, str],
 ) -> list[str]:
     errors: list[str] = []
     local_freshness_path = repo_root / FRESHNESS_PATH
     local_readme_path = repo_root / README_PATH
+    local_packet_path = repo_root / PACKET_PATH
 
     if not local_freshness_path.exists():
         return [f"local {FRESHNESS_PATH} is missing; cannot mirror {DEFAULT_SOURCE_REF}"]
     if not local_readme_path.exists():
         return [f"local {README_PATH} is missing; cannot mirror {DEFAULT_SOURCE_REF}"]
+    if not local_packet_path.exists():
+        return [f"local {PACKET_PATH} is missing; cannot mirror {DEFAULT_SOURCE_REF}"]
 
     try:
         local_freshness = parse_freshness_text(
@@ -212,10 +268,11 @@ def validate_local_matches_origin(
         return [f"local {FRESHNESS_PATH} is unreadable: {exc}"]
 
     local_readme = parse_key_value_text(local_readme_path.read_text(encoding="utf-8", errors="replace"))
+    local_packet = parse_key_value_text(local_packet_path.read_text(encoding="utf-8", errors="replace"))
 
     for field in STATE_FIELDS_REQUIRED_TO_MATCH_LOCAL:
-        origin_value = origin_freshness.get(field, origin_readme.get(field, ""))
-        local_value = local_freshness.get(field, local_readme.get(field, ""))
+        origin_value = origin_freshness.get(field, origin_readme.get(field, origin_packet.get(field, "")))
+        local_value = local_freshness.get(field, local_readme.get(field, local_packet.get(field, "")))
         if field.endswith("_date"):
             if normalize_date(local_value) != normalize_date(origin_value):
                 errors.append(
@@ -252,15 +309,18 @@ def resolve_daily_report_source_state(
     source_commit = git_rev_parse(repo_root, source_ref)
     freshness_text = git_show_text(repo_root, source_ref, FRESHNESS_PATH)
     readme_text = git_show_text(repo_root, source_ref, README_PATH)
+    packet_text = git_show_text(repo_root, source_ref, PACKET_PATH)
 
     freshness_row = parse_freshness_text(freshness_text, f"{source_ref}:{FRESHNESS_PATH}")
     readme_fields = parse_key_value_text(readme_text)
+    packet_fields = parse_key_value_text(packet_text)
 
     errors: list[str] = []
     errors.extend(validate_freshness_row(freshness_row, f"{source_ref}:{FRESHNESS_PATH}"))
     errors.extend(validate_readme_matches_freshness(readme_fields, freshness_row, f"{source_ref}:{README_PATH}"))
+    errors.extend(validate_packet_matches_freshness(packet_text, packet_fields, freshness_row, f"{source_ref}:{PACKET_PATH}"))
     if require_local_match:
-        errors.extend(validate_local_matches_origin(repo_root, freshness_row, readme_fields))
+        errors.extend(validate_local_matches_origin(repo_root, freshness_row, readme_fields, packet_fields))
 
     if errors:
         raise DailyReportSourceError(errors)
@@ -272,6 +332,7 @@ def resolve_daily_report_source_state(
         "source_commit_sha": source_commit,
         "freshness_path": f"{source_ref}:{FRESHNESS_PATH}",
         "readme_path": f"{source_ref}:{README_PATH}",
+        "packet_path": f"{source_ref}:{PACKET_PATH}",
         "main_price_date": main_price_date,
         "report_ready": is_true(freshness_row.get("report_ready", "")),
         "warrant_ready": is_true(freshness_row.get("warrant_ready", "")),
@@ -279,6 +340,7 @@ def resolve_daily_report_source_state(
         "allow_report_generation": True,
         "freshness_fields": freshness_row,
         "readme_fields": readme_fields,
+        "packet_fields": packet_fields,
     }
 
 
