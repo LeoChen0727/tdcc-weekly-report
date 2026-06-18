@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18 22:14:52 Asia/Taipei",
+  "generated_at": "2026-06-19 00:04:39 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -27,11 +27,12 @@
   "sources": {
     "TWSE monthly revenue OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap05_L (Caused by NewConnectionError(\"HTTPSConnection(host='openapi.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))",
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "status": "ok",
+      "rows": 1082,
+      "error": "",
+      "http_status": 200,
+      "matched_tracked_rows": 387,
+      "stored_rows": 387,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
@@ -40,17 +41,18 @@
       "rows": 890,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 139,
-      "stored_rows": 139,
+      "matched_tracked_rows": 165,
+      "stored_rows": 165,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap04_L (Caused by NewConnectionError(\"HTTPSConnection(host='openapi.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))",
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "status": "ok",
+      "rows": 308,
+      "error": "",
+      "http_status": 200,
+      "matched_tracked_rows": 131,
+      "stored_rows": 131,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     },
     "TPEX material information OpenAPI": {
@@ -59,8 +61,8 @@
       "rows": 295,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 51,
-      "stored_rows": 51,
+      "matched_tracked_rows": 67,
+      "stored_rows": 67,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }

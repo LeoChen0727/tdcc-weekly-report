@@ -1,13 +1,13 @@
 # Calendar Data Source Status
 
-- generated_at: `2026-06-18 23:37:07 Asia/Taipei`
+- generated_at: `2026-06-19 00:04:31 Asia/Taipei`
 - policy: Official/known-calendar sources are stored. Missing or blocked sources remain pending instead of being fabricated.
 
 | source | status | rows | url | note |
 |---|---|---:|---|---|
 | twse_ex_right_ex_dividend | ok | 289 | https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json |  |
 | twse_shareholder_meeting_from_dividend_distribution | ok | 544 | https://openapi.twse.com.tw/v1/opendata/t187ap45_L | TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available. |
-| monthly_revenue_expected_window | rule_based_expected_window | 479 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
+| monthly_revenue_expected_window | rule_based_expected_window | 555 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
 | federal_reserve_fomc | ok | 13 | https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm |  |
 | bea_release_schedule | ok | 22 | https://www.bea.gov/news/schedule |  |
 | bls_cpi_release_schedule | ok | 6 | https://www.bls.gov/schedule/news_release/cpi.htm | Parsed 6 release rows from the official BLS schedule table. |
