@@ -1,11 +1,14 @@
 dimension,bucket,sample_size,avg_return_d5,avg_return_d10,avg_return_d20,avg_relative_return_vs_benchmark_d5,avg_relative_return_vs_benchmark_d20,effective_count,pending_count,last_updated
-event_type,capacity_expansion,2,,,,,,0,2,2026-06-18 08:06:13 Asia/Taipei
-event_type,investor_conference,14,,,,,,0,14,2026-06-18 08:06:13 Asia/Taipei
-event_type,material_information,84,,,,,,0,84,2026-06-18 08:06:13 Asia/Taipei
-event_type,new_order,20,,,,,,0,20,2026-06-18 08:06:13 Asia/Taipei
-event_type,product_certification,4,,,,,,0,4,2026-06-18 08:06:13 Asia/Taipei
-event_type,quarterly_financial,501,,,,,,0,501,2026-06-18 08:06:13 Asia/Taipei
-event_type,shareholder_meeting,86,,,,,,0,86,2026-06-18 08:06:13 Asia/Taipei
-catalyst_confidence,high,711,,,,,,0,711,2026-06-18 08:06:13 Asia/Taipei
-price_reaction_level,blank,711,,,,,,0,711,2026-06-18 08:06:13 Asia/Taipei
-success_label,pending,711,,,,,,0,711,2026-06-18 08:06:13 Asia/Taipei
+event_type,capacity_expansion,2,,,,,,0,2,2026-06-18 18:06:02 Asia/Taipei
+event_type,investor_conference,16,,,,,,0,16,2026-06-18 18:06:02 Asia/Taipei
+event_type,material_information,98,-2.23,-3.34,-8.91,0.77,-9.28,0,94,2026-06-18 18:06:02 Asia/Taipei
+event_type,new_order,20,,,,,,0,20,2026-06-18 18:06:02 Asia/Taipei
+event_type,product_certification,4,,,,,,0,4,2026-06-18 18:06:02 Asia/Taipei
+event_type,quarterly_financial,536,,,,,,0,536,2026-06-18 18:06:02 Asia/Taipei
+event_type,shareholder_meeting,97,,,,,,0,97,2026-06-18 18:06:02 Asia/Taipei
+catalyst_confidence,high,773,-2.23,-3.34,-8.91,0.77,-9.28,0,769,2026-06-18 18:06:02 Asia/Taipei
+price_reaction_level,blank,3,,,,,,0,0,2026-06-18 18:06:02 Asia/Taipei
+price_reaction_level,blank,770,-2.23,-3.34,-8.91,0.77,-9.28,0,769,2026-06-18 18:06:02 Asia/Taipei
+success_label,missing_price_history,3,,,,,,0,0,2026-06-18 18:06:02 Asia/Taipei
+success_label,mixed_or_pending,1,-2.23,-3.34,-8.91,0.77,-9.28,0,0,2026-06-18 18:06:02 Asia/Taipei
+success_label,pending,769,,,,,,0,769,2026-06-18 18:06:02 Asia/Taipei
