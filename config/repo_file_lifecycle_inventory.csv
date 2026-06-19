@@ -199,6 +199,7 @@ scripts/validate_repo_advanced_integrity.py,python,repo_infrastructure,active,.g
 scripts/validate_repo_code_isolation_policy.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,tests/test_repo_code_isolation_policy.py,AGENTS.md;docs/CODEX_THREAD_WORKFLOW.md;rules/master_priority_rules.md,,,business-surface code isolation policy gate,,high
 scripts/validate_repo_file_lifecycle_inventory.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,tests/test_repo_file_lifecycle_inventory.py,docs/repo_production_inventory.md,,,repo-wide file lifecycle and deletion-readiness inventory gate,,high
 scripts/plan_workspace_cleanup.py,python,repo_infrastructure,active,,,tests/test_workspace_cleanup_policy.py,docs/workspace_cleanup_policy.md,,,dry-run workspace cleanup planner for ignored generated outputs,,high
+scripts/apply_workspace_cleanup.py,python,repo_infrastructure,active,,,tests/test_workspace_cleanup_policy.py,docs/workspace_cleanup_policy.md,,,manifest-bound workspace cleanup apply and quarantine tool,,high
 scripts/validate_workspace_cleanup_policy.py,python,repo_infrastructure,active,,,tests/test_workspace_cleanup_policy.py,docs/workspace_cleanup_policy.md,,,workspace cleanup policy and manifest validator,,high
 docs/workspace_cleanup_policy.md,guidance_doc,repo_infrastructure,active,,,,,,,workspace cleanup governance policy,,none
 docs/workspace_cleanup_initial_audit_20260619.md,guidance_doc,repo_infrastructure,active,,,,,,,initial workspace cleanup audit summary for Phase 1,,none
