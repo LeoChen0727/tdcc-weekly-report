@@ -44,6 +44,70 @@ def test_bls_release_table_parser_extracts_macro_rows(monkeypatch) -> None:
     assert set(rows["event_type"]) == {"US_CPI"}
 
 
+def test_twse_ex_right_failed_fetch_uses_protected_recent_cache(tmp_path, monkeypatch) -> None:
+    cached_path = tmp_path / "company_event_calendar.csv"
+    cached = {col: "" for col in calendar.COMPANY_COLUMNS}
+    cached.update(
+        {
+            "event_date": "20260622",
+            "event_end_date": "20260622",
+            "stock_id": "2330",
+            "stock_name": "\u53f0\u7a4d\u96fb",
+            "market": "TWSE",
+            "event_type": "ex_dividend",
+            "event_name": "\u9664\u606f",
+            "event_status": "confirmed",
+            "event_confidence": "high",
+            "catalyst_tags": "dividend_calendar",
+            "source": calendar.TWSE_EX_RIGHT_SOURCE,
+            "source_url": calendar.TWSE_EX_RIGHT_URL,
+            "days_to_event": "3",
+            "proximity_bucket": "within_3d",
+            "expected_impact": "calendar_event_not_standalone_catalyst",
+            "notes": "cash_dividend=1.0",
+            "last_updated": "2026-06-18 10:00:00 Asia/Taipei",
+        }
+    )
+    pd.DataFrame([cached], columns=calendar.COMPANY_COLUMNS).to_csv(cached_path, index=False, encoding="utf-8-sig")
+
+    def fake_fetch_json(url: str):
+        return None, {"url": url, "status": "failed", "rows": 0, "error": "timeout", "http_status": ""}
+
+    monkeypatch.setattr(calendar, "COMPANY_EVENT_CALENDAR", cached_path)
+    monkeypatch.setattr(calendar, "fetch_json", fake_fetch_json)
+
+    rows, status = calendar.twse_ex_right_rows(date(2026, 6, 19))
+
+    assert status["status"] == "degraded_ok"
+    assert status["cached_rows"] == 1
+    assert status["model_effect_allowed"] is False
+    assert status["pdf_effect_allowed"] is False
+    assert len(rows) == 1
+    row = rows.iloc[0]
+    assert row["event_status"] == "source_degraded_cached"
+    assert row["event_confidence"] == "low"
+    assert str(row["days_to_event"]) == "3"
+    assert "calendar_source_degraded" in row["catalyst_tags"]
+    assert "model_effect_allowed=False" in row["notes"]
+    assert "pdf_effect_allowed=False" in row["notes"]
+
+
+def test_twse_ex_right_failed_fetch_without_recent_cache_stays_failed(tmp_path, monkeypatch) -> None:
+    cached_path = tmp_path / "missing_company_event_calendar.csv"
+
+    def fake_fetch_json(url: str):
+        return None, {"url": url, "status": "failed", "rows": 0, "error": "timeout", "http_status": ""}
+
+    monkeypatch.setattr(calendar, "COMPANY_EVENT_CALENDAR", cached_path)
+    monkeypatch.setattr(calendar, "fetch_json", fake_fetch_json)
+
+    rows, status = calendar.twse_ex_right_rows(date(2026, 6, 19))
+
+    assert status["status"] == "failed"
+    assert status["cached_rows"] == 0
+    assert rows.empty
+
+
 def test_monthly_revenue_rows_are_eps_unconfirmed(monkeypatch) -> None:
     def fake_fetch_json_list(url: str):
         if "t187ap05_L" in url:

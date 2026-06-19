@@ -40,6 +40,48 @@ def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> N
     assert preflight_idx < install_idx < refresh_idx < advanced_idx
 
 
+def test_calendar_degraded_external_source_requires_effect_guards() -> None:
+    good = {
+        "sources": {
+            "twse_ex_right_ex_dividend": {
+                "cached_rows": 1,
+                "model_effect_allowed": False,
+                "pdf_effect_allowed": False,
+                "note": "cached reminder-only data",
+            }
+        }
+    }
+    assert validator.validate_degraded_external_source("calendar_sources", good, "degraded_ok") == []
+
+    bad = {
+        "sources": {
+            "twse_ex_right_ex_dividend": {
+                "cached_rows": 1,
+                "model_effect_allowed": True,
+                "pdf_effect_allowed": False,
+                "note": "cached reminder-only data",
+            }
+        }
+    }
+    errors = validator.validate_degraded_external_source("calendar_sources", bad, "degraded_ok")
+    assert any("model_effect_allowed=False" in error for error in errors)
+
+
+def test_calendar_degraded_external_source_requires_cached_rows() -> None:
+    bad = {
+        "sources": {
+            "twse_ex_right_ex_dividend": {
+                "cached_rows": 0,
+                "model_effect_allowed": False,
+                "pdf_effect_allowed": False,
+                "note": "cached reminder-only data",
+            }
+        }
+    }
+    errors = validator.validate_degraded_external_source("calendar_sources", bad, "degraded_ok")
+    assert any("cached_rows > 0" in error for error in errors)
+
+
 def test_advanced_integrity_contracts_exist() -> None:
     for path in validator.REQUIRED_CONFIGS:
         assert path.exists(), path

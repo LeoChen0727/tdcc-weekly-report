@@ -54,6 +54,8 @@ PRICE_HISTORY_DIR = DATA_DIR / "stock_price_history"
 REVENUE_CATEGORIES = {"revenue_breakout_low_response", "revenue_pullback"}
 CONSTRUCTION_RECOGNITION_TYPES = {"營建認列型", "交屋認列型"}
 SUPPORTIVE_TDCC = {"strong_accumulation", "mild_accumulation"}
+DEGRADED_CALENDAR_STATUS = "source_degraded_cached"
+DEGRADED_CALENDAR_TAG = "calendar_source_degraded"
 
 CATALYST_COLUMNS = [
     "theme_strength_score",
@@ -589,6 +591,19 @@ def load_calendar_source() -> tuple[pd.DataFrame, str]:
     return pd.DataFrame(), ""
 
 
+def degraded_calendar_row(calendar: pd.Series) -> bool:
+    status = first_value(calendar, ["event_status"]).lower()
+    tags = split_tags(first_value(calendar, ["catalyst_tags"]))
+    expected_impact = first_value(calendar, ["expected_impact"]).lower()
+    notes = first_value(calendar, ["notes"]).lower()
+    return (
+        status == DEGRADED_CALENDAR_STATUS
+        or DEGRADED_CALENDAR_TAG in tags
+        or "degraded_reminder_only" in expected_impact
+        or "source_status=degraded_ok" in notes
+    )
+
+
 def calendar_flags(calendar: pd.Series | None) -> dict[str, str]:
     if calendar is None:
         return {
@@ -600,6 +615,7 @@ def calendar_flags(calendar: pd.Series | None) -> dict[str, str]:
             "days_to_nearest_event": "",
             "event_calendar_source": "",
             "summary": "",
+            "calendar_effect_allowed": "False",
         }
 
     event_type = first_value(calendar, ["event_type"])
@@ -610,21 +626,33 @@ def calendar_flags(calendar: pd.Series | None) -> dict[str, str]:
     status = first_value(calendar, ["event_status"])
     source = first_value(calendar, ["source", "source_url"])
     raw_tags = split_tags(first_value(calendar, ["catalyst_tags"]))
-    tags = list(dict.fromkeys(raw_tags + ([f"calendar_{event_type}"] if event_type else [])))
+    degraded = degraded_calendar_row(calendar)
+    if degraded:
+        tags = [DEGRADED_CALENDAR_TAG]
+    else:
+        tags = list(dict.fromkeys(raw_tags + ([f"calendar_{event_type}"] if event_type else [])))
     proximity_score = 0
-    try:
-        day_num = abs(int(float(days)))
-        if day_num <= 3:
-            proximity_score = 3
-        elif day_num <= 7:
-            proximity_score = 2
-        elif day_num <= 14:
-            proximity_score = 1
-    except Exception:
-        proximity_score = 0
+    if not degraded:
+        try:
+            day_num = abs(int(float(days)))
+            if day_num <= 3:
+                proximity_score = 3
+            elif day_num <= 7:
+                proximity_score = 2
+            elif day_num <= 14:
+                proximity_score = 1
+        except Exception:
+            proximity_score = 0
     summary = ""
     if event_type and event_date:
-        summary = f"calendar event: {event_type} on {event_date}; status={status or 'unknown'}; proximity={bucket or days}"
+        if degraded:
+            summary = (
+                f"degraded calendar context only: {event_type} on {event_date}; "
+                f"status={status or 'unknown'}; proximity={bucket or days}; "
+                "model_effect_allowed=False; pdf_effect_allowed=False"
+            )
+        else:
+            summary = f"calendar event: {event_type} on {event_date}; status={status or 'unknown'}; proximity={bucket or days}"
     return {
         "event_calendar_tags": ";".join(tags),
         "event_proximity_score": str(proximity_score),
@@ -634,6 +662,7 @@ def calendar_flags(calendar: pd.Series | None) -> dict[str, str]:
         "days_to_nearest_event": days,
         "event_calendar_source": source,
         "summary": summary,
+        "calendar_effect_allowed": bool_text(not degraded),
     }
 
 
@@ -693,7 +722,9 @@ def derive_row(
     reaction = price_reaction(stock_id, catalyst_date, row)
 
     tags = list(fin_info["tags"])
-    event_tag_list = split_tags(event_info["event_tags"]) + split_tags(calendar_info["event_calendar_tags"])
+    event_tag_list = split_tags(event_info["event_tags"])
+    if calendar_info.get("calendar_effect_allowed") != "False":
+        event_tag_list += split_tags(calendar_info["event_calendar_tags"])
     theme_tag_list = split_tags(theme_info["theme_tags"])
     if revenue_unconfirmed:
         tags.append("revenue_good_eps_unconfirmed")
