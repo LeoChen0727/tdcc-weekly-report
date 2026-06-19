@@ -2,9 +2,9 @@
 
 - status: `pass`
 - main_price_date: `20260618`
-- theme_rows: `36`
-- two_line_rows: `723`
-- all_candidate_rows: `723`
+- theme_rows: `38`
+- two_line_rows: `756`
+- all_candidate_rows: `756`
 
 ## Errors
 
