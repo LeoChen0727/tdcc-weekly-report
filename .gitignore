@@ -1,6 +1,8 @@
 __pycache__/
 *.pyc
 chatgpt_side_outputs*/
+_workspace_quarantine/
+workspace_cleanup_reports/
 
 docs/latest/individual_stock_chatgpt_packets/
 docs/latest/individual_stock_price_windows/
