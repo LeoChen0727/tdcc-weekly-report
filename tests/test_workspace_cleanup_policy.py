@@ -102,6 +102,46 @@ def test_non_empty_candidate_does_not_plan_delete() -> None:
     assert reason
 
 
+def test_mixed_output_child_pdf_is_quarantine_candidate() -> None:
+    classification, action, reason = planner.classify_mixed_output_child(
+        "chatgpt_side_outputs/20260612_requested_repo20260612_daily_highlight_current_rules.pdf",
+        [
+            {
+                "relative_path": "chatgpt_side_outputs/20260612_requested_repo20260612_daily_highlight_current_rules.pdf",
+                "is_dir": False,
+                "size": 10,
+            }
+        ],
+        [],
+        descendant_permission_denied=False,
+        descendant_reparse=False,
+    )
+
+    assert classification == "stale_candidate"
+    assert action == "quarantine"
+    assert reason == "old_pdf_not_latest_layout_baseline"
+
+
+def test_mixed_output_child_inspection_image_is_quarantine_candidate() -> None:
+    classification, action, reason = planner.classify_mixed_output_child(
+        "chatgpt_side_outputs/inspect_daily_highlight_page1.png",
+        [
+            {
+                "relative_path": "chatgpt_side_outputs/inspect_daily_highlight_page1.png",
+                "is_dir": False,
+                "size": 10,
+            }
+        ],
+        [],
+        descendant_permission_denied=False,
+        descendant_reparse=False,
+    )
+
+    assert classification == "diagnostic_candidate"
+    assert action == "quarantine"
+    assert reason == "old_layout_inspection_image"
+
+
 def test_pdf_report_key_removes_date_and_source_tokens() -> None:
     key = planner.pdf_report_key(
         "chatgpt_side_outputs_official/20260618/"
@@ -354,6 +394,19 @@ def test_apply_delete_rechecks_live_empty_directory() -> None:
             apply_cleanup.assert_live_empty_directory(candidate, candidate.relative_to(ROOT).as_posix())
     finally:
         shutil.rmtree(candidate, ignore_errors=True)
+
+
+def test_apply_live_fingerprint_supports_file_actions() -> None:
+    candidate = ROOT / "workspace_cleanup_reports" / "apply_file_fingerprint_candidate.txt"
+    candidate.parent.mkdir(parents=True, exist_ok=True)
+    candidate.write_text("before", encoding="utf-8")
+    try:
+        first = apply_cleanup.live_fingerprint_hash(candidate)
+        candidate.write_text("after", encoding="utf-8")
+        second = apply_cleanup.live_fingerprint_hash(candidate)
+        assert first != second
+    finally:
+        candidate.unlink(missing_ok=True)
 
 
 def test_apply_quarantine_manifest_uses_manual_only_recovery_hint() -> None:

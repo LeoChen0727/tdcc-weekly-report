@@ -174,7 +174,7 @@ def validate_row_static(row: dict[str, Any], protected_rows: list[policy.Protect
 def live_fingerprint_hash(path: Path) -> str:
     if planner.is_reparse_point(path):
         raise ApplyError(f"action path is a reparse point: {path.relative_to(ROOT).as_posix()}")
-    details, permission_denied, reparse_points = planner.scan_tree(path)
+    details, permission_denied, reparse_points = planner.scan_path(path)
     if permission_denied:
         raise ApplyError(f"permission denied under action path: {permission_denied}")
     if reparse_points:
