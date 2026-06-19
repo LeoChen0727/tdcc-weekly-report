@@ -37,6 +37,12 @@ Rows in `catalyst_needs_review_latest.csv` are blocked from model and PDF effect
 
 When a reminder-layer source is `stale_ok` or `degraded_blocked_effect`, downstream catalyst application must force `event_proximity_score=0` and must not promote degraded calendar tags into `catalyst_tags`. Reports may disclose the event as degraded/stale context only. They must not silently treat it as fresh confirmed catalyst evidence, and the row must not affect score, rank, upgrade/downgrade, or formal PDF recommendation reasons.
 
+## Hard-Gate Evidence
+
+Daily Full Pipeline records calendar-source status before `validate_repo_advanced_integrity.py` runs. The workflow writes the TWSE status, rows, live/cache counts, consecutive live failures, needs-review flags, and GitHub run metadata to the GitHub Actions step summary and uploads the `calendar-source-integrity-precheck` artifact from `output/debug/external_source_integrity_precheck/`.
+
+If the status escalates to `failed`, the integrity validator still hard-fails. That failed run is not committed back to `main`; the durable evidence for the failed gate is the Actions run summary and artifact. The artifact upload is diagnostic and non-blocking, so it does not create a new production gate. `validate_daily_production_boundaries.py` guards this workflow ordering so the evidence step stays before the hard gate.
+
 ## Report Source Priority
 
 ChatGPT and downstream report readers should use original structured data first: packet fields, CSV/raw URLs, signal logs, warrant tables, market tables, catalyst source logs, and validation files. PDF files are auxiliary/shareable outputs. If raw/source tables cannot be read and only PDF content is used, the report must disclose that at the beginning.
