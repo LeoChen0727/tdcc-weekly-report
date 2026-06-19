@@ -1185,6 +1185,43 @@ def source_gap_audit_payload(
     }
 
 
+def lifecycle_suppression_audit_payload(
+    record: dict[str, Any],
+    winner: dict[str, Any],
+    generated_at: str,
+) -> dict[str, Any]:
+    winner_state = safe_str(winner.get("pdf_section") or winner.get("operation_status"))
+    return {
+        "model_id": MODEL_ID,
+        "operation_asof_date": normalize_date_text(record.get("operation_asof_date")),
+        "stock_id": stock_id_key(record.get("stock_id")),
+        "stock_name": safe_str(record.get("stock_name")),
+        "signal_date": normalize_date_text(record.get("signal_date")),
+        "selected_trigger_id": safe_str(record.get("selected_trigger_id")),
+        "selected_confirmation_date": normalize_date_text(record.get("selected_confirmation_date")),
+        "operation_lifecycle_state": safe_str(record.get("pdf_section") or record.get("operation_status")),
+        "audit_status": "lifecycle_suppressed",
+        "included_in_daily_adapter": "False",
+        "tdcc_list_type": safe_str(record.get("evidence_tdcc_list_type")),
+        "tdcc_rank": "",
+        "rank_bucket": safe_str(record.get("evidence_rank_bucket")),
+        "classification_id": "",
+        "attack_method": "",
+        "price_position_type": "",
+        "risk_type": "",
+        "evidence_confluence_scope": safe_str(record.get("evidence_confluence_scope")),
+        "evidence_confluence_id": safe_str(record.get("evidence_confluence_id")),
+        "evidence_sample_size": safe_str(record.get("sample_size")),
+        "evidence_win_rate": safe_str(record.get("win_rate_zh")),
+        "evidence_avg_return": safe_str(record.get("avg_return_zh")),
+        "evidence_median_return": safe_str(record.get("median_return_zh")),
+        "evidence_out_of_sample_pass": safe_str(record.get("evidence_out_of_sample_pass")),
+        "ranking_research_score": "",
+        "reason": f"same_stock_lifecycle_suppressed_by_{winner_state}",
+        "generated_at": generated_at,
+    }
+
+
 def lifecycle_state_for_signal(
     signal: pd.Series,
     report_date: str,
@@ -1344,9 +1381,9 @@ def build_lifecycle_rows(
     if history.empty:
         return [], []
 
-    best_by_stock: dict[str, tuple[int, dict[str, Any]]] = {}
+    candidates_by_stock: dict[str, list[tuple[int, int, dict[str, Any]]]] = {}
     audit_rows: list[dict[str, Any]] = []
-    for _, signal in history.iterrows():
+    for seq, (_, signal) in enumerate(history.iterrows()):
         priority, record, signal_audit = lifecycle_state_for_signal(
             signal,
             report_date,
@@ -1359,9 +1396,15 @@ def build_lifecycle_rows(
         if record is None:
             continue
         stock_id = stock_id_key(record.get("stock_id"))
-        previous = best_by_stock.get(stock_id)
-        if previous is None or priority < previous[0]:
-            best_by_stock[stock_id] = (priority, record)
+        candidates_by_stock.setdefault(stock_id, []).append((priority, seq, record))
+
+    best_by_stock: dict[str, tuple[int, dict[str, Any]]] = {}
+    for stock_id, candidates in candidates_by_stock.items():
+        candidates = sorted(candidates, key=lambda item: (item[0], item[1]))
+        winner_priority, _winner_seq, winner = candidates[0]
+        best_by_stock[stock_id] = (winner_priority, winner)
+        for _priority, _seq, record in candidates[1:]:
+            audit_rows.append(lifecycle_suppression_audit_payload(record, winner, generated_at))
 
     base_rows = [item[1] for item in sorted(best_by_stock.values(), key=lambda item: (item[0], number_text(item[1].get("display_order")), item[1].get("stock_id", "")))]
     selected_evidence_keys = {

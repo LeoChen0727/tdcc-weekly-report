@@ -49,7 +49,7 @@ HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmati
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
 LINEAGE_LOOKBACK_CALENDAR_DAYS = 45
-AUDIT_STATUSES = {"candidate_evaluated", "positive_row_evidence", "source_gap"}
+AUDIT_STATUSES = {"candidate_evaluated", "positive_row_evidence", "source_gap", "lifecycle_suppressed"}
 SOURCE_GAP_REASONS = {
     "missing_signal_identity",
     "missing_stock_price_history_file",
@@ -550,6 +550,31 @@ def validate_source_gap_audit(audit: pd.DataFrame) -> None:
         fail("source_gap audit rows must preserve stock_id, signal_date, and operation_asof_date")
 
 
+def validate_lifecycle_suppression_audit(audit: pd.DataFrame) -> None:
+    if audit.empty:
+        return
+    suppressed = audit[audit["audit_status"].astype(str).eq("lifecycle_suppressed")].copy()
+    if suppressed.empty:
+        return
+    if suppressed["included_in_daily_adapter"].astype(str).ne("False").any():
+        fail("lifecycle_suppressed audit rows must never be included in the daily adapter")
+    bad_states = sorted(set(suppressed["operation_lifecycle_state"].astype(str)) - PDF_SECTIONS)
+    if bad_states:
+        fail(f"lifecycle_suppressed audit rows have invalid lifecycle states: {bad_states}")
+    missing_identity = suppressed[
+        suppressed["stock_id"].astype(str).str.strip().eq("")
+        | suppressed["signal_date"].astype(str).str.strip().eq("")
+        | suppressed["operation_asof_date"].astype(str).str.strip().eq("")
+    ]
+    if not missing_identity.empty:
+        fail("lifecycle_suppressed audit rows must preserve stock_id, signal_date, and operation_asof_date")
+    bad_reason = suppressed[
+        ~suppressed["reason"].astype(str).str.startswith("same_stock_lifecycle_suppressed_by_")
+    ]
+    if not bad_reason.empty:
+        fail("lifecycle_suppressed audit rows must explain the selected same-stock lifecycle winner")
+
+
 def validate_file_presence() -> None:
     for path in [
         SECTION_CSV,
@@ -949,6 +974,7 @@ def main() -> int:
     audit = read_csv(EVIDENCE_AUDIT_CSV)
     validate_shape(section, formal_summary, audit)
     validate_source_gap_audit(audit)
+    validate_lifecycle_suppression_audit(audit)
     validate_latest_signal_log_sync(section)
     validate_selected_volume_breakout_model_lineage(section)
     validate_display_text(section)

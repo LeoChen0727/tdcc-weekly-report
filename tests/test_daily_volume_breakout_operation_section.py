@@ -299,6 +299,43 @@ def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypa
     assert set(suppressed["included_in_daily_adapter"]) == {"False"}
 
 
+def test_active_operation_audits_new_pending_same_stock_suppression(monkeypatch, tmp_path) -> None:
+    patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "11.7", "high": "12.5", "low": "11.6", "close": "12", "volume": "1100"},
+        ],
+    )
+    pd.DataFrame(
+        [
+            volume_signal("1234", "20260615", "1"),
+            volume_signal("1234", "20260617", "2"),
+        ]
+    ).to_csv(builder.MODEL_SIGNAL_LOG_CSV, index=False)
+
+    out, audit = build_rows_and_audit_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
+    pending = out[out["pdf_section"].eq("pending_confirmation") & out["row_type"].eq("data")]
+    assert set(active["signal_date"]) == {"20260615"}
+    assert pending.empty
+    suppressed = audit[audit["audit_status"].eq("lifecycle_suppressed")]
+    assert suppressed[["stock_id", "signal_date", "operation_lifecycle_state"]].to_dict("records") == [
+        {
+            "stock_id": "1234",
+            "signal_date": "20260617",
+            "operation_lifecycle_state": "pending_confirmation",
+        }
+    ]
+    assert set(suppressed["included_in_daily_adapter"]) == {"False"}
+    assert set(suppressed["reason"]) == {"same_stock_lifecycle_suppressed_by_active_operation"}
+    section_validator.validate_lifecycle_suppression_audit(audit)
+
+
 def test_lifecycle_collapses_duplicate_signal_sources_without_last_row_overwrite(monkeypatch, tmp_path) -> None:
     patch_lifecycle_sources(
         monkeypatch,
