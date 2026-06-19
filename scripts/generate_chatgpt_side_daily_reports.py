@@ -118,6 +118,17 @@ def append_page_break_once(story: list) -> None:
     story.append(PageBreak())
 
 
+def curated_specs_with_volume_last(specs: list[pd.Series]) -> list[pd.Series]:
+    regular_specs: list[pd.Series] = []
+    volume_specs: list[pd.Series] = []
+    for spec in specs:
+        if clean(spec.get("model_id")) == VOLUME_BREAKOUT_MODEL_ID:
+            volume_specs.append(spec)
+        else:
+            regular_specs.append(spec)
+    return regular_specs + volume_specs
+
+
 def read_readme_value(key: str, default: str = "") -> str:
     if REMOTE_README.get(key):
         return REMOTE_README[key]
@@ -2232,8 +2243,11 @@ def render_volume_range_breakout_operation_section(
     active_rows = limit_volume_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
 
     story.append(Spacer(1, 6))
-    story.append(Paragraph("已確認操作 / 可列買入排名", H2))
-    story.append(build_volume_confirmed_operation_table(confirmed))
+    story.append(Paragraph('已確認操作 <font color="#1f4e79">/ 可列買入排名</font>', H2))
+    if confirmed.empty and pdf_view == "highlight":
+        story.append(para(volume_operation_empty_text(confirmed_all, "目前無已確認操作。"), BODY_SMALL))
+    else:
+        story.append(build_volume_confirmed_operation_table(confirmed))
     story.append(Spacer(1, 5))
     if pdf_view == "full":
         story.append(Paragraph("已確認但未通過買入排名門檻", H2))
@@ -3370,7 +3384,7 @@ def build_mainstream_curated_pdf(
     operation_seen: set[str] = set()
     started_model_sections = False
     limit = MAIN_REPORT_MAINSTREAM_LIMIT
-    for spec in mainstream_curated_core_model_specs(inputs):
+    for spec in curated_specs_with_volume_last(mainstream_curated_core_model_specs(inputs)):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         ranked_rows = mainstream_curated_model_signal_rows(inputs, model_id)
@@ -3380,9 +3394,6 @@ def build_mainstream_curated_pdf(
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
-        desc = clean(spec.get("model_description_zh"))
-        if desc and model_id != VOLUME_BREAKOUT_MODEL_ID:
-            story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
             continue
@@ -3421,7 +3432,7 @@ def build_non_mainstream_curated_pdf(
     operation_seen: set[str] = set()
     started_model_sections = False
     limit = MAIN_REPORT_NON_MAINSTREAM_LIMIT
-    for spec in non_mainstream_curated_core_model_specs(inputs):
+    for spec in curated_specs_with_volume_last(non_mainstream_curated_core_model_specs(inputs)):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         ranked_rows = non_mainstream_curated_model_signal_rows(inputs, model_id)
@@ -3431,9 +3442,6 @@ def build_non_mainstream_curated_pdf(
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
-        desc = clean(spec.get("model_description_zh"))
-        if desc and model_id != VOLUME_BREAKOUT_MODEL_ID:
-            story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
             continue
