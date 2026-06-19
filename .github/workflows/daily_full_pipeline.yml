@@ -134,6 +134,101 @@ jobs:
           python scripts/update_event_calendar_data.py
           python scripts/update_event_catalyst_data.py
 
+      - name: Record calendar source status before integrity gate
+        if: always()
+        run: |
+          mkdir -p output/debug/external_source_integrity_precheck
+          python - <<'PY'
+          from pathlib import Path
+          import csv
+          import json
+          import os
+          import shutil
+
+          out_dir = Path("output/debug/external_source_integrity_precheck")
+          out_dir.mkdir(parents=True, exist_ok=True)
+          status_path = Path("output/latest/calendar_data_source_status_latest.json")
+          needs_review_path = Path("output/latest/catalyst_needs_review_latest.csv")
+          lines = [
+              "## Calendar Source Integrity Precheck",
+              "",
+              "This summary is written before `validate_repo_advanced_integrity.py`, so failed gates still leave run evidence.",
+              "",
+              f"- github_run_id: `{os.environ.get('GITHUB_RUN_ID', '')}`",
+              f"- github_run_attempt: `{os.environ.get('GITHUB_RUN_ATTEMPT', '')}`",
+              f"- github_sha: `{os.environ.get('GITHUB_SHA', '')}`",
+              f"- github_ref_name: `{os.environ.get('GITHUB_REF_NAME', '')}`",
+              "",
+          ]
+          if status_path.exists():
+              try:
+                  data = json.loads(status_path.read_text(encoding="utf-8-sig"))
+                  twse = data.get("sources", {}).get("twse_ex_right_ex_dividend", {})
+                  lines.extend(
+                      [
+                          f"- generated_at: `{data.get('generated_at', '')}`",
+                          f"- twse_ex_right_ex_dividend.status: `{twse.get('status', '')}`",
+                          f"- rows: `{twse.get('rows', '')}`",
+                          f"- live_rows: `{twse.get('live_rows', '')}`",
+                          f"- cached_rows: `{twse.get('cached_rows', '')}`",
+                          f"- blocked_rows: `{twse.get('blocked_rows', '')}`",
+                          f"- consecutive_live_failures: `{twse.get('consecutive_live_failures', '')}`",
+                          f"- max_consecutive_live_failures: `{twse.get('max_consecutive_live_failures', '')}`",
+                          f"- calendar_effect_allowed: `{twse.get('calendar_effect_allowed', '')}`",
+                          f"- note: `{twse.get('note', twse.get('error', ''))}`",
+                          "",
+                      ]
+                  )
+              except Exception as exc:
+                  lines.append(f"- status_json_parse_error: `{exc}`")
+          else:
+              lines.append("- status_json_missing: `output/latest/calendar_data_source_status_latest.json`")
+
+          if needs_review_path.exists():
+              with needs_review_path.open("r", encoding="utf-8-sig", newline="") as fh:
+                  review_rows = list(csv.DictReader(fh))
+              twse_review = [row for row in review_rows if row.get("item_id") == "twse_ex_right_ex_dividend_degraded"]
+              lines.append(f"- catalyst_needs_review_rows: `{len(review_rows)}`")
+              lines.append(f"- twse_needs_review_rows: `{len(twse_review)}`")
+              for row in twse_review[:3]:
+                  lines.append(
+                      f"- twse_needs_review: status=`{row.get('current_status', '')}`, "
+                      f"model_effect_allowed=`{row.get('model_effect_allowed', '')}`, "
+                      f"pdf_effect_allowed=`{row.get('pdf_effect_allowed', '')}`"
+                  )
+              lines.append("")
+          else:
+              lines.append("- needs_review_missing: `output/latest/catalyst_needs_review_latest.csv`")
+
+          summary_path = out_dir / "calendar_source_integrity_precheck.md"
+          summary_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          step_summary = os.environ.get("GITHUB_STEP_SUMMARY")
+          if step_summary:
+              with open(step_summary, "a", encoding="utf-8") as fh:
+                  fh.write("\n".join(lines) + "\n")
+
+          for path in [
+              status_path,
+              Path("output/latest/calendar_data_source_status_latest.md"),
+              needs_review_path,
+              Path("output/latest/catalyst_needs_review_latest.md"),
+              Path("output/latest/event_calendar_validation_latest.json"),
+              Path("output/latest/event_calendar_validation_latest.md"),
+          ]:
+              if path.exists():
+                  shutil.copy2(path, out_dir / path.name)
+          PY
+
+      - name: Upload calendar source precheck evidence
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: calendar-source-integrity-precheck
+          path: output/debug/external_source_integrity_precheck/
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Validate refreshed external-source integrity
         run: |
           python scripts/validate_repo_advanced_integrity.py

@@ -109,6 +109,21 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def require_workflow_order(text: str, labels: list[str]) -> list[str]:
+    errors: list[str] = []
+    last_index = -1
+    for label in labels:
+        index = text.find(label)
+        if index < 0:
+            errors.append(f"daily_full_pipeline missing workflow marker: {label}")
+            continue
+        if index < last_index:
+            errors.append("daily_full_pipeline workflow markers are out of order: " + " -> ".join(labels))
+            break
+        last_index = index
+    return errors
+
+
 def run_code_isolation_policy_validation() -> list[str]:
     spec = importlib.util.spec_from_file_location(
         "validate_repo_code_isolation_policy",
@@ -233,6 +248,32 @@ def main() -> int:
     staged_path_validation_count = daily_text.count("python scripts/validate_daily_staged_paths.py")
     if staged_path_validation_count < 2:
         errors.append("daily_full_pipeline must validate staged paths before both daily commit steps")
+
+    calendar_precheck_literals = {
+        "Record calendar source status before integrity gate": "daily_full_pipeline must record calendar status before the external-source hard gate",
+        "Upload calendar source precheck evidence": "daily_full_pipeline must upload calendar precheck evidence before the external-source hard gate",
+        "calendar-source-integrity-precheck": "daily_full_pipeline must expose a stable calendar-source evidence artifact",
+        "GITHUB_STEP_SUMMARY": "daily_full_pipeline must write calendar-source hard-gate evidence to the step summary",
+        "GITHUB_RUN_ID": "daily_full_pipeline calendar-source evidence must include the GitHub run id",
+        "actions/upload-artifact@v4": "daily_full_pipeline must upload hard-gate precheck artifacts",
+        "output/debug/external_source_integrity_precheck": "daily_full_pipeline must keep calendar-source hard-gate evidence in a stable debug path",
+        "retention-days: 30": "daily_full_pipeline must retain calendar-source precheck evidence long enough for debugging",
+        "continue-on-error: true": "daily_full_pipeline diagnostic artifact upload must not become a new production hard gate",
+    }
+    for literal, message in calendar_precheck_literals.items():
+        if literal not in daily_text:
+            errors.append(f"{message}: missing {literal!r}")
+    errors.extend(
+        require_workflow_order(
+            daily_text,
+            [
+                "- name: Update catalyst data tables",
+                "- name: Record calendar source status before integrity gate",
+                "- name: Upload calendar source precheck evidence",
+                "- name: Validate refreshed external-source integrity",
+            ],
+        )
+    )
 
     if not STAGED_PATH_VALIDATOR.exists():
         errors.append(f"missing daily staged path validator: {STAGED_PATH_VALIDATOR}")
