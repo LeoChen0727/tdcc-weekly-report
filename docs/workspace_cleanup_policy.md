@@ -20,6 +20,7 @@ This policy separates tracked repository lifecycle work from local generated-out
 - Phase 3 adds apply/quarantine tooling.
 - Phase 4 performs the first cleanup PR. Permanent delete is limited to truly empty directories; all other output cleanup starts with quarantine.
 - Every ChatGPT-side daily PDF report kind must retain at least the latest PDF as a layout-comparison baseline before any older PDF output can be quarantined or deleted.
+- Replay and comparison evidence that still needs to be retained may be moved out of the repository root into `_workspace_retained_outputs/`. This is an archive location, not a deletion queue.
 
 ## Protected Paths
 
@@ -52,7 +53,7 @@ Rows containing a latest layout baseline must use `planned_action=keep`. Apply t
 
 `scripts/plan_workspace_cleanup.py` is dry-run only.
 
-It may scan `chatgpt_side_outputs*` by filesystem because these outputs are ignored by git. It must not scan `_workspace_quarantine/` as a cleanup candidate. A manifest row must contain an exact repository-relative path, not a wildcard.
+It may scan `chatgpt_side_outputs*` by filesystem because these outputs are ignored by git. It must not scan `_workspace_quarantine/` or `_workspace_retained_outputs/` as cleanup candidates. A manifest row must contain an exact repository-relative path, not a wildcard.
 
 `latest_manifest.json` is only a pointer. Tools may accept it, but must first resolve the full manifest, verify `report_id`, and verify the manifest hash before using any row for a decision.
 
@@ -81,3 +82,5 @@ When introduced later, apply must:
 Full local reports stay in ignored `workspace_cleanup_reports/`.
 
 Tracked summaries may be written only when explicitly requested with `--history-summary`; overwriting a tracked summary requires `--overwrite-history-summary`.
+
+Retained local evidence that should not clutter the repository root stays in ignored `_workspace_retained_outputs/`. Moving evidence there must preserve an archive manifest or an equivalent path-level record so future cleanup work can tell why it was retained.
