@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20 01:27:45 Asia/Taipei",
+  "generated_at": "2026-06-20 02:03:53 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -31,16 +31,14 @@
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
-      "status": "ok",
-      "rows": 544,
-      "error": "",
-      "http_status": 200,
-      "note": "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
+      "status": "failed",
+      "rows": 0,
+      "error": "HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap45_L (Caused by ConnectTimeoutError(<HTTPSConnection(host='openapi.twse.com.tw', port=443) at 0x7f84f6373a50>, 'Connection to openapi.twse.com.tw timed out. (connect timeout=30)'))"
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 555,
+      "rows": 479,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
@@ -75,8 +73,8 @@
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
-      "status": "partial_coverage_twse_only",
-      "rows": 544,
+      "status": "blocked_or_unavailable",
+      "rows": 0,
       "note": "TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
     }
   }
