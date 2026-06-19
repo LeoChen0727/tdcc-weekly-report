@@ -70,6 +70,37 @@ def dotted_get(data: dict[str, Any], path: str) -> Any:
     return current
 
 
+def false_bool(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value is False
+    return str(value or "").strip().lower() in {"false", "0", "no", "n", ""}
+
+
+def validate_degraded_external_source(source_id: str, data: dict[str, Any], observed_status: str) -> list[str]:
+    errors: list[str] = []
+    if source_id != "calendar_sources" or observed_status != "degraded_ok":
+        return errors
+
+    twse = dotted_get(data, "sources.twse_ex_right_ex_dividend")
+    if not isinstance(twse, dict):
+        return ["external source calendar_sources degraded_ok missing sources.twse_ex_right_ex_dividend object"]
+
+    try:
+        cached_count = int(twse.get("cached_rows", 0))
+    except Exception:
+        cached_count = 0
+    if cached_count <= 0:
+        errors.append("external source calendar_sources degraded_ok requires cached_rows > 0")
+    if not false_bool(twse.get("model_effect_allowed")):
+        errors.append("external source calendar_sources degraded_ok requires model_effect_allowed=False")
+    if not false_bool(twse.get("pdf_effect_allowed")):
+        errors.append("external source calendar_sources degraded_ok requires pdf_effect_allowed=False")
+    note = str(twse.get("note", ""))
+    if "reminder-only" not in note and "reminder only" not in note:
+        errors.append("external source calendar_sources degraded_ok requires reminder-only note")
+    return errors
+
+
 def ast_tree(path: Path) -> ast.Module:
     return ast.parse(read_text(path), filename=rel(path))
 

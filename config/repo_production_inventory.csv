@@ -178,6 +178,7 @@ tests/test_daily_theme_leadership_layer.py,test_python,daily_production,active,d
 tests/test_daily_volume_breakout_operation_section.py,test_python,daily_production,active,daily production test: test_daily_volume_breakout_operation_section,,
 tests/test_data_freshness_latest.py,test_python,daily_production,active,daily production test: test_data_freshness_latest,,
 tests/test_event_catalyst_source_parsers.py,test_python,catalyst_event,active,catalyst/event test: test_event_catalyst_source_parsers,,
+tests/test_fundamental_catalyst_layer.py,test_python,catalyst_event,active,catalyst/event test: test_fundamental_catalyst_layer,,
 tests/test_fetch_official_daily_price_quality.py,test_python,official_price_data,active,official price data test: test_fetch_official_daily_price_quality,,
 tests/test_daily_price_history_continuity.py,test_python,official_price_data,active,official price data test: test_daily_price_history_continuity,,
 tests/test_historical_pattern_operation_registry.py,test_python,research_backtest,active,research/backtest test: test_historical_pattern_operation_registry,,

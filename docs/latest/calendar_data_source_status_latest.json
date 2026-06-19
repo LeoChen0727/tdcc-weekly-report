@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19 21:00:47 Asia/Taipei",
+  "generated_at": "2026-06-19 22:13:09 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -24,7 +24,8 @@
       "status": "ok",
       "rows": 289,
       "error": "",
-      "http_status": 200
+      "http_status": 200,
+      "live_rows": 289
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",

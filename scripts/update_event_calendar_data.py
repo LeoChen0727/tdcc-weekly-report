@@ -38,6 +38,10 @@ ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 COMPANY_THEME_MAPPING = THEME_EVENTS_DIR / "company_theme_mapping.csv"
 
 TWSE_EX_RIGHT_URL = "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json"
+TWSE_EX_RIGHT_SOURCE = "TWSE ex-right/ex-dividend calendar"
+TWSE_EX_RIGHT_CACHE_MAX_AGE_DAYS = 7
+TWSE_EX_RIGHT_CACHE_LOOKBACK_DAYS = 7
+TWSE_EX_RIGHT_CACHE_LOOKAHEAD_DAYS = 60
 TWSE_DIVIDEND_DISTRIBUTION_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap45_L"
 FED_FOMC_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 BEA_SCHEDULE_URL = "https://www.bea.gov/news/schedule"
@@ -216,6 +220,24 @@ def parse_ymd(value: Any) -> date | None:
         return None
 
 
+def parse_date_from_text(value: Any) -> date | None:
+    text = safe_str(value)
+    match = re.search(r"\b(20\d{2})-(\d{2})-(\d{2})\b", text)
+    if not match:
+        return parse_ymd(text)
+    try:
+        return date(int(match.group(1)), int(match.group(2)), int(match.group(3)))
+    except ValueError:
+        return None
+
+
+def add_semicolon_tag(value: Any, tag: str) -> str:
+    tags = [safe_str(item) for item in safe_str(value).replace(",", ";").split(";") if safe_str(item)]
+    if tag not in tags:
+        tags.append(tag)
+    return ";".join(tags)
+
+
 def days_to(value: Any, base: date | None = None) -> str:
     day = parse_ymd(value)
     if day is None:
@@ -312,10 +334,80 @@ def stock_universe() -> pd.DataFrame:
     )
 
 
+def cached_twse_ex_right_rows(base: date, failed_status: dict[str, Any]) -> tuple[pd.DataFrame, dict[str, Any]]:
+    existing = read_csv(COMPANY_EVENT_CALENDAR, dtype=str)
+    status = dict(failed_status)
+    status.setdefault("url", TWSE_EX_RIGHT_URL)
+    status["live_rows"] = 0
+    status["cached_rows"] = 0
+    status["cache_max_age_days"] = TWSE_EX_RIGHT_CACHE_MAX_AGE_DAYS
+    status["cache_window_days"] = {
+        "lookback": TWSE_EX_RIGHT_CACHE_LOOKBACK_DAYS,
+        "lookahead": TWSE_EX_RIGHT_CACHE_LOOKAHEAD_DAYS,
+    }
+    status["model_effect_allowed"] = False
+    status["pdf_effect_allowed"] = False
+
+    if existing.empty:
+        status["status"] = "failed"
+        status["note"] = "TWSE live fetch failed and no cached ex-right/ex-dividend rows are available."
+        return pd.DataFrame(columns=COMPANY_COLUMNS), status
+
+    cached = ensure_columns(existing, COMPANY_COLUMNS).copy()
+    cached = cached[cached["source"].map(safe_str) == TWSE_EX_RIGHT_SOURCE]
+    if cached.empty:
+        status["status"] = "failed"
+        status["note"] = "TWSE live fetch failed and no cached TWSE ex-right/ex-dividend rows are available."
+        return pd.DataFrame(columns=COMPANY_COLUMNS), status
+
+    min_event_date = base - timedelta(days=TWSE_EX_RIGHT_CACHE_LOOKBACK_DAYS)
+    max_event_date = base + timedelta(days=TWSE_EX_RIGHT_CACHE_LOOKAHEAD_DAYS)
+    min_cache_date = base - timedelta(days=TWSE_EX_RIGHT_CACHE_MAX_AGE_DAYS)
+    cached["_event_day"] = cached["event_date"].map(parse_ymd)
+    cached["_cache_day"] = cached["last_updated"].map(parse_date_from_text)
+    cached = cached[
+        cached["_event_day"].map(lambda day: day is not None and min_event_date <= day <= max_event_date)
+        & cached["_cache_day"].map(lambda day: day is not None and day >= min_cache_date)
+    ]
+    if cached.empty:
+        status["status"] = "failed"
+        status["note"] = (
+            "TWSE live fetch failed and cached rows are missing, too old, or outside the trusted reminder window."
+        )
+        return pd.DataFrame(columns=COMPANY_COLUMNS), status
+
+    cached = cached[COMPANY_COLUMNS].copy()
+    cached["days_to_event"] = cached["event_date"].map(lambda value: days_to(value, base))
+    cached["proximity_bucket"] = cached["event_date"].map(lambda value: proximity_bucket(value, base))
+    cached["event_status"] = "source_degraded_cached"
+    cached["event_confidence"] = "low"
+    cached["catalyst_tags"] = cached["catalyst_tags"].map(lambda value: add_semicolon_tag(value, "calendar_source_degraded"))
+    original_error = safe_str(status.get("error")) or "TWSE live fetch did not return parseable rows."
+    cached["expected_impact"] = "calendar_event_degraded_reminder_only"
+    cached["notes"] = cached["notes"].map(
+        lambda value: (
+            f"{safe_str(value)}; source_status=degraded_ok; cached_reminder_only=True; "
+            "model_effect_allowed=False; pdf_effect_allowed=False; "
+            f"live_fetch_error={original_error}"
+        ).strip("; ")
+    )
+
+    status["status"] = "degraded_ok"
+    status["rows"] = int(len(cached))
+    status["cached_rows"] = int(len(cached))
+    status["cached_last_updated_min"] = safe_str(cached["last_updated"].min()) if "last_updated" in cached else ""
+    status["cached_last_updated_max"] = safe_str(cached["last_updated"].max()) if "last_updated" in cached else ""
+    status["note"] = (
+        "TWSE live fetch failed; using recent cached ex-right/ex-dividend rows as degraded reminder-only data. "
+        "Rows are low-confidence and cannot affect model score, rank, upgrade/downgrade, or formal PDF recommendation reasons."
+    )
+    return cached, status
+
+
 def twse_ex_right_rows(base: date) -> tuple[pd.DataFrame, dict[str, Any]]:
     data, status = fetch_json(TWSE_EX_RIGHT_URL)
-    if not data:
-        return pd.DataFrame(columns=COMPANY_COLUMNS), status
+    if not isinstance(data, dict):
+        return cached_twse_ex_right_rows(base, status)
     fields = data.get("fields") or []
     rows: list[dict[str, str]] = []
     for raw in data.get("data") or []:
@@ -354,7 +446,7 @@ def twse_ex_right_rows(base: date) -> tuple[pd.DataFrame, dict[str, Any]]:
                 "event_status": "confirmed",
                 "event_confidence": "high",
                 "catalyst_tags": "dividend_calendar",
-                "source": "TWSE ex-right/ex-dividend calendar",
+                "source": TWSE_EX_RIGHT_SOURCE,
                 "source_url": TWSE_EX_RIGHT_URL,
                 "days_to_event": days_to(event_date, base),
                 "proximity_bucket": proximity_bucket(event_date, base),
@@ -364,6 +456,11 @@ def twse_ex_right_rows(base: date) -> tuple[pd.DataFrame, dict[str, Any]]:
             }
         )
     status["rows"] = len(rows)
+    status["live_rows"] = len(rows)
+    if not rows:
+        status["status"] = "failed"
+        status["error"] = "TWSE payload was reachable but parsed zero ex-right/ex-dividend rows."
+        return cached_twse_ex_right_rows(base, status)
     return pd.DataFrame(rows, columns=COMPANY_COLUMNS), status
 
 
@@ -822,6 +919,29 @@ def needs_review_rows(status: dict[str, Any]) -> pd.DataFrame:
                 "last_checked_at": generated_at,
                 "notes": notes,
             }
+        )
+
+    twse_ex_right = sources.get("twse_ex_right_ex_dividend", {})
+    twse_status = safe_str(twse_ex_right.get("status"))
+    if twse_status and twse_status != "ok":
+        add(
+            item_id="twse_ex_right_ex_dividend_degraded",
+            source_area="company_calendar",
+            requested_data="TWSE ex-right/ex-dividend calendar",
+            current_status=twse_status,
+            owner="codex_data_source_work",
+            required_evidence=(
+                "Live TWSE response with parseable rows, or recent cached rows explicitly marked degraded reminder-only."
+            ),
+            next_action=(
+                "Restore live TWSE fetch. Until then, cached rows remain low-confidence reminder-only data and must not affect score/rank/PDF recommendation reasons."
+                if twse_status == "degraded_ok"
+                else "Fix TWSE fetch/parser or remove event calendar effects when no trusted cached rows are available."
+            ),
+            source_url=safe_str(twse_ex_right.get("url")) or TWSE_EX_RIGHT_URL,
+            notes=safe_str(twse_ex_right.get("note"))
+            or safe_str(twse_ex_right.get("error"))
+            or "TWSE ex-right/ex-dividend source is not confirmed ok.",
         )
 
     shareholder = sources.get("mops_shareholder_meeting_calendar", {})
