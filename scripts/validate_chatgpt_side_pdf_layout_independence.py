@@ -36,6 +36,17 @@ REPORT_SPECIFIC_LAYOUT_COMPONENTS = [
     "build_non_mainstream_curated_operation_page",
 ]
 
+REQUIRED_DAILY_HIGHLIGHT_LAYOUT_MARKERS = {
+    'DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"': "daily highlight layout contract",
+    'DAILY_HIGHLIGHT_MODEL_ORDER_POLICY = "program_side_order"': "daily highlight model order policy",
+    'DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY = "table_empty_state"': (
+        "daily highlight volume empty confirmed table policy"
+    ),
+    "def highlight_specs_in_layout_order(": "daily highlight layout-order helper",
+    "def should_render_highlight_model_description(": "daily highlight description policy helper",
+    "def should_render_highlight_confirmed_empty_table(": "daily highlight volume empty-state policy helper",
+}
+
 OTHER_PDF_TEMPLATE_ENTRYPOINTS = {
     TDCC_WEEKLY_GENERATOR: [
         "write_tdcc_weekly_highlight_pdf",
@@ -59,6 +70,7 @@ FORBIDDEN_SHARED_LAYOUT_ENTRIES = [
     "def append_group_rotation_end_section(",
     "def build_operation_page(",
     "def operation_representatives(",
+    "def curated_specs_with_volume_last(",
     "line_titles(",
     "LINE_TITLE_MAP",
 ]
@@ -124,6 +136,10 @@ def validate() -> list[str]:
         if f"def {name}(" not in text:
             errors.append(f"missing report-specific layout component: {name}")
 
+    for marker, label in REQUIRED_DAILY_HIGHLIGHT_LAYOUT_MARKERS.items():
+        if marker not in text:
+            errors.append(f"missing {label}: {marker}")
+
     for forbidden in FORBIDDEN_SHARED_LAYOUT_ENTRIES:
         if forbidden in text:
             errors.append(f"forbidden shared PDF layout entry remains: {forbidden}")
@@ -158,6 +174,19 @@ def validate() -> list[str]:
         for forbidden in FORBIDDEN_CHATGPT_SIDE_BUILDER_CALLS:
             if forbidden in body:
                 errors.append(f"{name} still calls shared ChatGPT-side model loop: {forbidden}")
+
+    for name, required_loop in {
+        "build_mainstream_curated_pdf": "highlight_specs_in_layout_order(mainstream_curated_core_model_specs(inputs))",
+        "build_non_mainstream_curated_pdf": (
+            "highlight_specs_in_layout_order(non_mainstream_curated_core_model_specs(inputs))"
+        ),
+    }.items():
+        try:
+            body = function_text(text, name)
+        except ValueError:
+            continue
+        if required_loop not in body:
+            errors.append(f"{name} does not use the daily highlight layout-order contract")
 
     for path, entrypoints in OTHER_PDF_TEMPLATE_ENTRYPOINTS.items():
         text_for_path = other_texts[path]

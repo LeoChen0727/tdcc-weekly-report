@@ -70,6 +70,10 @@ VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
     "confirmed_operation": 10,
     "active_operation": 5,
 }
+DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"
+DAILY_HIGHLIGHT_MODEL_ORDER_POLICY = "program_side_order"
+DAILY_HIGHLIGHT_DESCRIPTION_POLICY = "program_side_non_volume"
+DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY = "table_empty_state"
 VOLUME_TRIGGER_LABELS = {
     "pullback_5ma_confirmed": "回測 5 日線後站回",
     "next_day_break_signal_high_confirmed": "隔日突破訊號高點",
@@ -118,15 +122,29 @@ def append_page_break_once(story: list) -> None:
     story.append(PageBreak())
 
 
-def curated_specs_with_volume_last(specs: list[pd.Series]) -> list[pd.Series]:
-    regular_specs: list[pd.Series] = []
-    volume_specs: list[pd.Series] = []
-    for spec in specs:
-        if clean(spec.get("model_id")) == VOLUME_BREAKOUT_MODEL_ID:
-            volume_specs.append(spec)
-        else:
-            regular_specs.append(spec)
-    return regular_specs + volume_specs
+def highlight_specs_in_layout_order(specs: list[pd.Series]) -> list[pd.Series]:
+    if DAILY_HIGHLIGHT_MODEL_ORDER_POLICY == "program_side_order":
+        return list(specs)
+    raise ValueError(f"unsupported daily highlight model order policy: {DAILY_HIGHLIGHT_MODEL_ORDER_POLICY}")
+
+
+def should_render_highlight_model_description(model_id: str) -> bool:
+    if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "program_side_non_volume":
+        return model_id != VOLUME_BREAKOUT_MODEL_ID
+    if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "none":
+        return False
+    raise ValueError(f"unsupported daily highlight description policy: {DAILY_HIGHLIGHT_DESCRIPTION_POLICY}")
+
+
+def should_render_highlight_confirmed_empty_table() -> bool:
+    if DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY == "table_empty_state":
+        return True
+    if DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY == "text_empty_state":
+        return False
+    raise ValueError(
+        "unsupported daily highlight confirmed-empty policy: "
+        f"{DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY}"
+    )
 
 
 def read_readme_value(key: str, default: str = "") -> str:
@@ -2243,8 +2261,8 @@ def render_volume_range_breakout_operation_section(
     active_rows = limit_volume_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
 
     story.append(Spacer(1, 6))
-    story.append(Paragraph('已確認操作 <font color="#1f4e79">/ 可列買入排名</font>', H2))
-    if confirmed.empty and pdf_view == "highlight":
+    story.append(Paragraph("已確認操作 / 可列買入排名", H2))
+    if confirmed.empty and pdf_view == "highlight" and not should_render_highlight_confirmed_empty_table():
         story.append(para(volume_operation_empty_text(confirmed_all, "目前無已確認操作。"), BODY_SMALL))
     else:
         story.append(build_volume_confirmed_operation_table(confirmed))
@@ -3384,7 +3402,7 @@ def build_mainstream_curated_pdf(
     operation_seen: set[str] = set()
     started_model_sections = False
     limit = MAIN_REPORT_MAINSTREAM_LIMIT
-    for spec in curated_specs_with_volume_last(mainstream_curated_core_model_specs(inputs)):
+    for spec in highlight_specs_in_layout_order(mainstream_curated_core_model_specs(inputs)):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         ranked_rows = mainstream_curated_model_signal_rows(inputs, model_id)
@@ -3394,6 +3412,9 @@ def build_mainstream_curated_pdf(
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
+        desc = clean(spec.get("model_description_zh"))
+        if desc and should_render_highlight_model_description(model_id):
+            story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
             continue
@@ -3432,7 +3453,7 @@ def build_non_mainstream_curated_pdf(
     operation_seen: set[str] = set()
     started_model_sections = False
     limit = MAIN_REPORT_NON_MAINSTREAM_LIMIT
-    for spec in curated_specs_with_volume_last(non_mainstream_curated_core_model_specs(inputs)):
+    for spec in highlight_specs_in_layout_order(non_mainstream_curated_core_model_specs(inputs)):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         ranked_rows = non_mainstream_curated_model_signal_rows(inputs, model_id)
@@ -3442,6 +3463,9 @@ def build_non_mainstream_curated_pdf(
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
+        desc = clean(spec.get("model_description_zh"))
+        if desc and should_render_highlight_model_description(model_id):
+            story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
             continue
