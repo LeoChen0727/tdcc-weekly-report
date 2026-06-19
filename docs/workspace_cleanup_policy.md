@@ -73,6 +73,8 @@ When introduced later, apply must:
 - Refuse tracked code and protected paths.
 - Resolve `latest_manifest.json` to the full manifest before any decision.
 - Recheck empty directories using the live filesystem before deletion.
+- Quarantine non-empty cleanup targets first, with a default 14-day `expires_at`.
+- Create a one-time reminder after files are actually moved to `_workspace_quarantine/`, using the cleanup report id and `QUARANTINE_MANIFEST.csv` as the review target.
 
 ## Reporting
 

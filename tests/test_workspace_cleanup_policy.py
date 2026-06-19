@@ -1,8 +1,13 @@
 from __future__ import annotations
 
+import csv
 import json
+import shutil
 from pathlib import Path
 
+import pytest
+
+from scripts import apply_workspace_cleanup as apply_cleanup
 from scripts import plan_workspace_cleanup as planner
 from scripts import validate_workspace_cleanup_policy as validator
 
@@ -265,3 +270,121 @@ def test_layout_baseline_manifest_row_must_keep() -> None:
     )
     validator.validate_manifest(pointer_path, protected_rows, errors)
     assert any("layout baseline row must be kept" in error for error in errors)
+
+
+def write_apply_test_manifest(report_id: str, rows: list[dict[str, object]]) -> tuple[Path, Path, dict[str, object]]:
+    manifest = {
+        "report_id": report_id,
+        "manifest_hash": "",
+        "rows": rows,
+        "git_head": "test-head",
+        "git_status_porcelain_after_planner": "",
+        "generated_at_utc": "2026-06-20T00:00:00+00:00",
+    }
+    manifest["manifest_hash"] = apply_cleanup.manifest_hash(manifest)
+    manifest_dir = ROOT / "workspace_cleanup_reports" / report_id
+    manifest_dir.mkdir(parents=True, exist_ok=True)
+    manifest_path = manifest_dir / "manifest.json"
+    pointer_path = manifest_dir / "latest_manifest.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    pointer_path.write_text(
+        json.dumps(
+            {
+                "report_id": report_id,
+                "manifest_path": manifest_path.relative_to(ROOT).as_posix(),
+                "manifest_hash": manifest["manifest_hash"],
+                "generated_at": manifest["generated_at_utc"],
+            }
+        ),
+        encoding="utf-8",
+    )
+    return manifest_path, pointer_path, manifest
+
+
+def test_apply_latest_manifest_pointer_resolves_to_full_manifest() -> None:
+    manifest_path, pointer_path, manifest = write_apply_test_manifest("apply_pointer_validation", [])
+
+    loaded = apply_cleanup.load_manifest(pointer_path)
+
+    assert loaded.path == manifest_path
+    assert loaded.pointer_path == pointer_path
+    assert loaded.data["manifest_hash"] == manifest["manifest_hash"]
+
+
+def test_apply_rejects_pointer_hash_mismatch() -> None:
+    _, pointer_path, _ = write_apply_test_manifest("apply_pointer_hash_validation", [])
+    pointer = json.loads(pointer_path.read_text(encoding="utf-8"))
+    pointer["manifest_hash"] = "bad"
+    pointer_path.write_text(json.dumps(pointer), encoding="utf-8")
+
+    with pytest.raises(apply_cleanup.ApplyError, match="pointer hash"):
+        apply_cleanup.load_manifest(pointer_path)
+
+
+def test_apply_delete_requires_allow_delete(monkeypatch: pytest.MonkeyPatch) -> None:
+    candidate = ROOT / "workspace_cleanup_reports" / "apply_delete_candidate"
+    shutil.rmtree(candidate, ignore_errors=True)
+    candidate.mkdir(parents=True)
+    try:
+        manifest = {
+            "rows": [
+                {
+                    "path": candidate.relative_to(ROOT).as_posix(),
+                    "planned_action": "delete",
+                    "file_count": 0,
+                }
+            ]
+        }
+        monkeypatch.setattr(apply_cleanup, "validate_manifest_context", lambda *_args, **_kwargs: None)
+        monkeypatch.setattr(apply_cleanup, "git_tracked_files", lambda: set())
+
+        with pytest.raises(apply_cleanup.ApplyError, match="--allow-delete"):
+            apply_cleanup.validate_manifest_actions(manifest, allow_delete=False, max_age_hours=24)
+    finally:
+        shutil.rmtree(candidate, ignore_errors=True)
+
+
+def test_apply_delete_rechecks_live_empty_directory() -> None:
+    candidate = ROOT / "workspace_cleanup_reports" / "apply_non_empty_delete_candidate"
+    shutil.rmtree(candidate, ignore_errors=True)
+    candidate.mkdir(parents=True)
+    (candidate / "child.txt").write_text("not empty", encoding="utf-8")
+    try:
+        with pytest.raises(apply_cleanup.ApplyError, match="not empty"):
+            apply_cleanup.assert_live_empty_directory(candidate, candidate.relative_to(ROOT).as_posix())
+    finally:
+        shutil.rmtree(candidate, ignore_errors=True)
+
+
+def test_apply_quarantine_manifest_uses_manual_only_recovery_hint() -> None:
+    source = ROOT / "workspace_cleanup_reports" / "apply_quarantine_candidate"
+    quarantine_root = ROOT / "workspace_cleanup_reports" / "apply_quarantine_root"
+    shutil.rmtree(source, ignore_errors=True)
+    shutil.rmtree(quarantine_root, ignore_errors=True)
+    source.mkdir(parents=True)
+    (source / "artifact.txt").write_text("diagnostic", encoding="utf-8")
+    try:
+        rows = apply_cleanup.apply_actions(
+            {"report_id": "apply_quarantine_validation"},
+            [
+                {
+                    "path": source.relative_to(ROOT).as_posix(),
+                    "planned_action": "quarantine",
+                    "evidence_reason": "test_diagnostic",
+                }
+            ],
+            quarantine_root=quarantine_root,
+            allow_delete=False,
+            owner="test",
+            expires_days=30,
+        )
+
+        manifest_path = quarantine_root / "QUARANTINE_MANIFEST.csv"
+        with manifest_path.open("r", encoding="utf-8", newline="") as fh:
+            manifest_rows = list(csv.DictReader(fh))
+        assert rows[0]["recovery_hint"].startswith("manual-only:")
+        assert manifest_rows[0]["recovery_hint"].startswith("manual-only:")
+        assert not source.exists()
+    finally:
+        shutil.rmtree(source, ignore_errors=True)
+        shutil.rmtree(quarantine_root, ignore_errors=True)

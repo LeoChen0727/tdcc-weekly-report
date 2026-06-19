@@ -134,6 +134,7 @@ scripts/validate_repo_code_isolation_policy.py,python,repo_infrastructure,active
 scripts/validate_repo_advanced_integrity.py,python,repo_infrastructure,active,"repo advanced integrity gate for runtime lineage contracts, PDF golden contracts, historical replay, model AST parity, and external source contracts",,
 scripts/validate_repo_file_lifecycle_inventory.py,python,repo_infrastructure,active,repo-wide file lifecycle and deletion-readiness inventory gate,,
 scripts/plan_workspace_cleanup.py,python,repo_infrastructure,active,dry-run workspace cleanup planner for ignored generated outputs,,
+scripts/apply_workspace_cleanup.py,python,repo_infrastructure,active,manifest-bound workspace cleanup apply and quarantine tool; not allowed in automatic production workflows,,
 scripts/validate_workspace_cleanup_policy.py,python,repo_infrastructure,active,workspace cleanup policy and manifest validator,,
 scripts/validate_repo_production_inventory.py,python,repo_infrastructure,active,repo-wide script and workflow ownership inventory gate,,
 scripts/repair_daily_price_range.py,python,official_price_data,active,official price data script: repair_daily_price_range,.github/workflows/repair_daily_price_range.yml;.github/workflows/repair_one_daily_price.yml,
