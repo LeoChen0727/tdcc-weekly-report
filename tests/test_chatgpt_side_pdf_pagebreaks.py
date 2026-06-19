@@ -24,6 +24,22 @@ def test_append_page_break_once_does_not_duplicate_consecutive_breaks() -> None:
     assert isinstance(story[-1], generator.PageBreak)
 
 
+def test_curated_specs_with_volume_last_keeps_daily_highlights_first() -> None:
+    specs = [
+        generator.pd.Series({"model_id": generator.VOLUME_BREAKOUT_MODEL_ID}),
+        generator.pd.Series({"model_id": "price_pullback_23ema"}),
+        generator.pd.Series({"model_id": "tdcc_short_term_continuation_d5_d10"}),
+    ]
+
+    ordered = generator.curated_specs_with_volume_last(specs)
+
+    assert [row["model_id"] for row in ordered] == [
+        "price_pullback_23ema",
+        "tdcc_short_term_continuation_d5_d10",
+        generator.VOLUME_BREAKOUT_MODEL_ID,
+    ]
+
+
 def _function_text(text: str, name: str, next_name: str) -> str:
     start = text.index(f"def {name}(")
     end = text.index(f"\ndef {next_name}(", start)
@@ -41,8 +57,10 @@ def test_curated_pdfs_use_single_pagebreak_helper_before_model_sections() -> Non
 
     assert "append_page_break_once(story)\n        story.append(Paragraph(model_name, H1))" in mainstream_text
     assert "build_mainstream_curated_operation_page(row, all_map, two_map, story, vol_map)" in mainstream_text
+    assert "story.append(para(desc, BODY_SMALL))" not in mainstream_text
     assert "append_page_break_once(story)\n        story.append(Paragraph(model_name, H1))" in non_mainstream_text
     assert "build_non_mainstream_curated_operation_page(row, all_map, two_map, story, vol_map)" in non_mainstream_text
+    assert "story.append(para(desc, BODY_SMALL))" not in non_mainstream_text
 
 
 def test_group_rotation_end_sections_use_single_pagebreak_helper() -> None:
