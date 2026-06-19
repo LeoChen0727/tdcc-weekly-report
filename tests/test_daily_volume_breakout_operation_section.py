@@ -776,7 +776,8 @@ def test_daily_pdf_generator_omits_obsolete_volume_breakout_explanatory_text() -
         "待確認列只作觀察",
     ]:
         assert token not in source
-    assert "story.append(para(desc, BODY_SMALL))" not in source
+    assert 'DAILY_HIGHLIGHT_DESCRIPTION_POLICY = "program_side_non_volume"' in source
+    assert "should_render_highlight_model_description(model_id)" in source
 
     forbidden_text = "".join(pdf_integration_validator.FORBIDDEN_VOLUME_EXPLANATORY_TEXT)
     for token in [
@@ -1203,8 +1204,11 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
     story: list = []
     pdf_generator.render_volume_range_breakout_operation_section(story, {"volume_operation": rows}, "highlight")
 
-    assert len(captured_tables) == 1
-    assert captured_tables[0][0][:2] == ["股票", "確認方式"]
+    assert len(captured_tables) == 2
+    confirmed, active = captured_tables
+    assert confirmed[0][:2] == ["排名", "股票"]
+    assert confirmed[1][6] == "目前無已確認操作。"
+    assert active[0][:2] == ["股票", "確認方式"]
     story_text = "\n".join(
         flowable.getPlainText()
         for flowable in story

@@ -5,8 +5,10 @@ import json
 
 from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
     EXPECTED_TITLES,
+    HIGHLIGHT_LAYOUT_TITLES,
     RUNTIME_MANIFEST_NAME,
     pdf_paths_from_stdout,
+    validate_highlight_layout_texts,
     validate_runtime_manifest,
     validate_pdf_path_contract,
     validate_source_gate_echo,
@@ -147,6 +149,57 @@ def test_replay_runtime_manifest_rejects_wrong_date(tmp_path: Path) -> None:
     errors = validate_runtime_manifest(paths, tmp_path, state)
 
     assert any("main_price_date" in error for error in errors)
+
+
+def test_replay_highlight_layout_contract_accepts_legacy_volume_first() -> None:
+    pages = {
+        "主流股每日推薦精華": [
+            "主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+            "股價回檔模型\n新上榜\n重複上榜",
+        ],
+        "非主流股每日推薦精華": [
+            "非主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+            "股價回檔模型\n新上榜\n重複上榜",
+        ],
+    }
+
+    assert validate_highlight_layout_texts(pages) == []
+
+
+def test_replay_highlight_title_matching_prefers_non_mainstream() -> None:
+    assert HIGHLIGHT_LAYOUT_TITLES.index("非主流股每日推薦精華") < HIGHLIGHT_LAYOUT_TITLES.index("主流股每日推薦精華")
+
+
+def test_replay_highlight_layout_contract_rejects_reordered_first_page() -> None:
+    pages = {
+        "主流股每日推薦精華": [
+            "主流股每日推薦精華\n股價回檔模型\n新上榜\n重複上榜",
+            "放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+        ],
+        "非主流股每日推薦精華": [
+            "非主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+        ],
+    }
+
+    errors = validate_highlight_layout_texts(pages)
+
+    assert any("first page missing required layout text: 放量攻擊模型" in error for error in errors)
+    assert any("must not start with stock-model tables" in error for error in errors)
+
+
+def test_replay_highlight_layout_contract_rejects_pending_operation_text() -> None:
+    pages = {
+        "主流股每日推薦精華": [
+            "主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中\n待確認",
+        ],
+        "非主流股每日推薦精華": [
+            "非主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+        ],
+    }
+
+    errors = validate_highlight_layout_texts(pages)
+
+    assert any("forbidden operation-layer text: 待確認" in error for error in errors)
 
 
 def test_daily_workflow_runs_new_conversation_replay_gate() -> None:

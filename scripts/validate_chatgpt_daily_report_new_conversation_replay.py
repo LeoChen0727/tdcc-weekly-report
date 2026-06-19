@@ -29,6 +29,21 @@ EXPECTED_TITLES = (
     "權證市場輔助分析",
     "市場風險與大盤期權背景",
 )
+HIGHLIGHT_LAYOUT_TITLES = (
+    "非主流股每日推薦精華",
+    "主流股每日推薦精華",
+)
+HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT = (
+    "放量攻擊模型",
+    "已確認操作 / 可列買入排名",
+    "操作中",
+)
+HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT = (
+    "待確認",
+    "未達買入排名證據",
+    "lifecycle_suppressed",
+    "程式推薦買進",
+)
 
 
 class ReplayValidationError(RuntimeError):
@@ -188,6 +203,47 @@ def validate_pdf_files_open(paths: list[Path]) -> list[str]:
     return errors
 
 
+def validate_highlight_layout_texts(title_to_pages: dict[str, list[str]]) -> list[str]:
+    errors: list[str] = []
+    for title in HIGHLIGHT_LAYOUT_TITLES:
+        pages = title_to_pages.get(title, [])
+        if not pages:
+            errors.append(f"{title}: missing text pages for daily highlight layout validation")
+            continue
+        first_page = pages[0]
+        full_text = "\n".join(pages)
+        for token in HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT:
+            if token not in first_page:
+                errors.append(f"{title}: first page missing required layout text: {token}")
+        if "股價回檔模型" in first_page:
+            errors.append(f"{title}: first page must not start with stock-model tables before volume operations")
+        for token in HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT:
+            if token in full_text:
+                errors.append(f"{title}: highlight PDF contains forbidden operation-layer text: {token}")
+    return errors
+
+
+def validate_pdf_highlight_layout_contract(paths: list[Path]) -> list[str]:
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:  # pragma: no cover - dependency is installed in CI.
+        return [f"pypdf import failed for highlight layout validation: {exc}"]
+
+    title_to_pages: dict[str, list[str]] = {}
+    errors: list[str] = []
+    for path in paths:
+        matched_title = next((title for title in HIGHLIGHT_LAYOUT_TITLES if title in path.name), "")
+        if not matched_title:
+            continue
+        try:
+            reader = PdfReader(str(path))
+            title_to_pages[matched_title] = [page.extract_text() or "" for page in reader.pages]
+        except Exception as exc:
+            errors.append(f"{matched_title}: pypdf text extraction failed for {path}: {exc}")
+    errors.extend(validate_highlight_layout_texts(title_to_pages))
+    return errors
+
+
 def validate_runtime_manifest(paths: list[Path], output_dir: Path, state: dict) -> list[str]:
     errors: list[str] = []
     manifest_path = output_dir / RUNTIME_MANIFEST_NAME
@@ -286,6 +342,7 @@ def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple
     errors.extend(validate_source_gate_echo(stdout, state, source_ref))
     errors.extend(validate_pdf_path_contract(paths, output_dir, main_price_date))
     errors.extend(validate_pdf_files_open(paths))
+    errors.extend(validate_pdf_highlight_layout_contract(paths))
     errors.extend(validate_runtime_manifest(paths, output_dir, state))
 
     if errors:
