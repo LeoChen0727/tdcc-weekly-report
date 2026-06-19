@@ -1,6 +1,6 @@
 # Event Calendar Validation
 
-- generated_at: `2026-06-19 19:46:26 Asia/Taipei`
+- generated_at: `2026-06-19 20:03:49 Asia/Taipei`
 - status: `pass`
 - schema_only: `False`
 
