@@ -76,28 +76,61 @@ def false_bool(value: Any) -> bool:
     return str(value or "").strip().lower() in {"false", "0", "no", "n", ""}
 
 
+def int_value(value: Any, default: int = 0) -> int:
+    try:
+        return int(value)
+    except Exception:
+        return default
+
+
 def validate_degraded_external_source(source_id: str, data: dict[str, Any], observed_status: str) -> list[str]:
     errors: list[str] = []
-    if source_id != "calendar_sources" or observed_status != "degraded_ok":
+    if source_id != "calendar_sources" or observed_status not in {"stale_ok", "degraded_blocked_effect"}:
         return errors
 
     twse = dotted_get(data, "sources.twse_ex_right_ex_dividend")
     if not isinstance(twse, dict):
-        return ["external source calendar_sources degraded_ok missing sources.twse_ex_right_ex_dividend object"]
+        return [f"external source calendar_sources {observed_status} missing sources.twse_ex_right_ex_dividend object"]
 
-    try:
-        cached_count = int(twse.get("cached_rows", 0))
-    except Exception:
-        cached_count = 0
-    if cached_count <= 0:
-        errors.append("external source calendar_sources degraded_ok requires cached_rows > 0")
+    consecutive = int_value(twse.get("consecutive_live_failures"), 9999)
+    max_consecutive = int_value(twse.get("max_consecutive_live_failures"), 0)
+    if max_consecutive <= 0:
+        errors.append(f"external source calendar_sources {observed_status} requires max_consecutive_live_failures > 0")
+    if consecutive <= 0:
+        errors.append(f"external source calendar_sources {observed_status} requires consecutive_live_failures > 0")
+    if max_consecutive > 0 and consecutive > max_consecutive:
+        errors.append(
+            f"external source calendar_sources {observed_status} consecutive_live_failures={consecutive} exceeds max={max_consecutive}"
+        )
     if not false_bool(twse.get("model_effect_allowed")):
-        errors.append("external source calendar_sources degraded_ok requires model_effect_allowed=False")
+        errors.append(f"external source calendar_sources {observed_status} requires model_effect_allowed=False")
     if not false_bool(twse.get("pdf_effect_allowed")):
-        errors.append("external source calendar_sources degraded_ok requires pdf_effect_allowed=False")
+        errors.append(f"external source calendar_sources {observed_status} requires pdf_effect_allowed=False")
+    if not false_bool(twse.get("calendar_effect_allowed")):
+        errors.append(f"external source calendar_sources {observed_status} requires calendar_effect_allowed=False")
+
+    cached_count = int_value(twse.get("cached_rows"), 0)
     note = str(twse.get("note", ""))
-    if "reminder-only" not in note and "reminder only" not in note:
-        errors.append("external source calendar_sources degraded_ok requires reminder-only note")
+    if observed_status == "stale_ok":
+        stale_max = int_value(twse.get("stale_max_trading_days"), 0)
+        cache_age_max = int_value(twse.get("cache_age_trading_days_max"), 9999)
+        if cached_count <= 0:
+            errors.append("external source calendar_sources stale_ok requires cached_rows > 0")
+        if stale_max <= 0:
+            errors.append("external source calendar_sources stale_ok requires stale_max_trading_days > 0")
+        if cache_age_max > stale_max:
+            errors.append(
+                f"external source calendar_sources stale_ok cache_age_trading_days_max={cache_age_max} exceeds stale_max={stale_max}"
+            )
+        if "stale reminder-only" not in note and "stale reminder only" not in note:
+            errors.append("external source calendar_sources stale_ok requires stale reminder-only note")
+    elif observed_status == "degraded_blocked_effect":
+        blocked_count = int_value(twse.get("blocked_rows"), 0)
+        cached_total = int_value(twse.get("cached_total_rows"), 0)
+        if max(blocked_count, cached_count, cached_total) <= 0:
+            errors.append("external source calendar_sources degraded_blocked_effect requires cached or blocked rows > 0")
+        if "blocked-effect" not in note and "blocked effect" not in note and "cannot affect" not in note:
+            errors.append("external source calendar_sources degraded_blocked_effect requires blocked-effect note")
     return errors
 
 
@@ -440,6 +473,8 @@ def validate_external_source_contract() -> list[str]:
             allowed = set(split_list(row.get("allowed_statuses", "")))
             if str(observed_status) not in allowed:
                 errors.append(f"external source {source_id} status {json_path}={observed_status!r} not in {sorted(allowed)}")
+            else:
+                errors.extend(validate_degraded_external_source(source_id, data, str(observed_status)))
     return errors
 
 

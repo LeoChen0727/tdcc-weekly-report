@@ -54,8 +54,9 @@ PRICE_HISTORY_DIR = DATA_DIR / "stock_price_history"
 REVENUE_CATEGORIES = {"revenue_breakout_low_response", "revenue_pullback"}
 CONSTRUCTION_RECOGNITION_TYPES = {"營建認列型", "交屋認列型"}
 SUPPORTIVE_TDCC = {"strong_accumulation", "mild_accumulation"}
-DEGRADED_CALENDAR_STATUS = "source_degraded_cached"
+DEGRADED_CALENDAR_STATUSES = {"source_degraded_cached", "source_stale_cached", "source_degraded_blocked"}
 DEGRADED_CALENDAR_TAG = "calendar_source_degraded"
+STALE_CALENDAR_TAG = "calendar_source_stale"
 
 CATALYST_COLUMNS = [
     "theme_strength_score",
@@ -597,9 +598,14 @@ def degraded_calendar_row(calendar: pd.Series) -> bool:
     expected_impact = first_value(calendar, ["expected_impact"]).lower()
     notes = first_value(calendar, ["notes"]).lower()
     return (
-        status == DEGRADED_CALENDAR_STATUS
+        status in DEGRADED_CALENDAR_STATUSES
         or DEGRADED_CALENDAR_TAG in tags
+        or STALE_CALENDAR_TAG in tags
+        or "stale_reminder_only" in expected_impact
+        or "degraded_blocked_no_effect" in expected_impact
         or "degraded_reminder_only" in expected_impact
+        or "source_status=stale_ok" in notes
+        or "source_status=degraded_blocked_effect" in notes
         or "source_status=degraded_ok" in notes
     )
 

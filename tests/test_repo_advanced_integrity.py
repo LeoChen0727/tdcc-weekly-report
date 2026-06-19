@@ -45,25 +45,35 @@ def test_calendar_degraded_external_source_requires_effect_guards() -> None:
         "sources": {
             "twse_ex_right_ex_dividend": {
                 "cached_rows": 1,
+                "stale_max_trading_days": 3,
+                "cache_age_trading_days_max": 1,
+                "consecutive_live_failures": 1,
+                "max_consecutive_live_failures": 2,
                 "model_effect_allowed": False,
                 "pdf_effect_allowed": False,
-                "note": "cached reminder-only data",
+                "calendar_effect_allowed": False,
+                "note": "cached stale reminder-only data",
             }
         }
     }
-    assert validator.validate_degraded_external_source("calendar_sources", good, "degraded_ok") == []
+    assert validator.validate_degraded_external_source("calendar_sources", good, "stale_ok") == []
 
     bad = {
         "sources": {
             "twse_ex_right_ex_dividend": {
                 "cached_rows": 1,
+                "stale_max_trading_days": 3,
+                "cache_age_trading_days_max": 1,
+                "consecutive_live_failures": 1,
+                "max_consecutive_live_failures": 2,
                 "model_effect_allowed": True,
                 "pdf_effect_allowed": False,
-                "note": "cached reminder-only data",
+                "calendar_effect_allowed": False,
+                "note": "cached stale reminder-only data",
             }
         }
     }
-    errors = validator.validate_degraded_external_source("calendar_sources", bad, "degraded_ok")
+    errors = validator.validate_degraded_external_source("calendar_sources", bad, "stale_ok")
     assert any("model_effect_allowed=False" in error for error in errors)
 
 
@@ -72,14 +82,43 @@ def test_calendar_degraded_external_source_requires_cached_rows() -> None:
         "sources": {
             "twse_ex_right_ex_dividend": {
                 "cached_rows": 0,
+                "stale_max_trading_days": 3,
+                "cache_age_trading_days_max": 1,
+                "consecutive_live_failures": 1,
+                "max_consecutive_live_failures": 2,
                 "model_effect_allowed": False,
                 "pdf_effect_allowed": False,
-                "note": "cached reminder-only data",
+                "calendar_effect_allowed": False,
+                "note": "cached stale reminder-only data",
             }
         }
     }
-    errors = validator.validate_degraded_external_source("calendar_sources", bad, "degraded_ok")
+    errors = validator.validate_degraded_external_source("calendar_sources", bad, "stale_ok")
     assert any("cached_rows > 0" in error for error in errors)
+
+
+def test_calendar_degraded_external_source_expires_after_consecutive_failures() -> None:
+    bad = {
+        "sources": {
+            "twse_ex_right_ex_dividend": {
+                "blocked_rows": 1,
+                "cached_total_rows": 1,
+                "consecutive_live_failures": 3,
+                "max_consecutive_live_failures": 2,
+                "model_effect_allowed": False,
+                "pdf_effect_allowed": False,
+                "calendar_effect_allowed": False,
+                "note": "blocked-effect context cannot affect scoring",
+            }
+        }
+    }
+    errors = validator.validate_degraded_external_source("calendar_sources", bad, "degraded_blocked_effect")
+    assert any("exceeds max" in error for error in errors)
+
+
+def test_external_source_contract_runs_bounded_degradation_validator() -> None:
+    text = (ROOT / "scripts" / "validate_repo_advanced_integrity.py").read_text(encoding="utf-8")
+    assert "validate_degraded_external_source(source_id, data, str(observed_status))" in text
 
 
 def test_advanced_integrity_contracts_exist() -> None:
