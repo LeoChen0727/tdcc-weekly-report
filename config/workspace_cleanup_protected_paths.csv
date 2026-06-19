@@ -1,0 +1,12 @@
+path,match_type,path_required,scope,owner,protected_reason,hard_block,review_required
+.git/,prefix,true,repo,repo_infrastructure,git repository metadata must never be cleaned,true,true
+.github/workflows/,prefix,true,repo,repo_infrastructure,workflow definitions are tracked source and must use PR lifecycle,true,true
+config/,prefix,true,repo,repo_infrastructure,configuration files are cleanup hard blocks; governance PRs may edit config,true,true
+rules/,prefix,true,repo,repo_infrastructure,active rule documents are tracked guidance,true,true
+PROJECT_RULES.md,exact,false,repo,repo_infrastructure,project hard rules must never be cleaned if present,true,true
+output/latest/,prefix,true,daily_production,repo_infrastructure,latest structured outputs and freshness gate are protected,true,true
+docs/latest/,prefix,true,daily_production,repo_infrastructure,published latest docs artifacts are protected,true,true
+scripts/run_chatgpt_daily_report_entrypoint.py,exact,true,daily_production,daily_production,official daily PDF entrypoint is high risk,true,true
+scripts/generate_chatgpt_side_daily_reports.py,exact,true,daily_production,daily_production,canonical ChatGPT-side PDF renderer is high risk,true,true
+scripts/generate_repo_chatgpt_side_reports.py,exact,false,daily_production,daily_production,legacy helper path must not be reintroduced as cleanup target,true,true
+generate_repo_chatgpt_side_reports.py,exact,false,daily_production,daily_production,legacy helper path must not be reintroduced as cleanup target,true,true
