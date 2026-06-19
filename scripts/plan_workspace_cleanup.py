@@ -19,9 +19,11 @@ ROOT = Path(__file__).resolve().parents[1]
 PROTECTED_PATHS = ROOT / "config" / "workspace_cleanup_protected_paths.csv"
 REPORT_TIMEZONE = "Asia/Taipei"
 MANIFEST_SCHEMA_VERSION = "1"
-PLANNER_VERSION = "1"
+PLANNER_VERSION = "2"
 OUTPUT_GLOBS = ("chatgpt_side_outputs*",)
 SMALL_HASH_SUFFIXES = {".json", ".csv", ".md", ".txt"}
+MIXED_OUTPUT_ROOTS = {"chatgpt_side_outputs"}
+IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png"}
 PDF_DATE_RE = re.compile(r"20\d{6}")
 REPORT_KEY_DROP_TOKENS = {
     "branch",
@@ -199,6 +201,41 @@ def scan_tree(path: Path) -> tuple[list[dict[str, object]], list[str], list[str]
     return details, permission_denied, reparse_points
 
 
+def file_fingerprint_detail(path: Path) -> tuple[list[dict[str, object]], list[str], list[str]]:
+    path_rel = rel(path)
+    permission_denied: list[str] = []
+    try:
+        st = path.stat(follow_symlinks=False)
+    except PermissionError:
+        return [], [path_rel], []
+    except OSError as exc:
+        return [], [f"{path_rel} ({exc})"], []
+
+    item: dict[str, object] = {
+        "relative_path": path_rel,
+        "size": st.st_size,
+        "mtime_ns": st.st_mtime_ns,
+        "mtime_iso": mtime_iso(st.st_mtime_ns),
+        "is_dir": False,
+    }
+    if path.suffix.lower() in SMALL_HASH_SUFFIXES:
+        try:
+            item["sha256"] = hash_small_file(path)
+        except PermissionError:
+            permission_denied.append(path_rel)
+    return [item], permission_denied, []
+
+
+def scan_path(path: Path) -> tuple[list[dict[str, object]], list[str], list[str]]:
+    if is_reparse_point(path):
+        raise PlannerError(f"candidate root is reparse point: {rel(path)}")
+    if path.is_dir():
+        return scan_tree(path)
+    if path.is_file():
+        return file_fingerprint_detail(path)
+    return [], [f"{rel(path)} (not a file or directory)"], []
+
+
 def fingerprint_hash(details: list[dict[str, object]]) -> str:
     payload = json.dumps(details, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
@@ -328,6 +365,90 @@ def classify_candidate(
     return "unknown_quarantine_candidate", "report_only", "insufficient_evidence"
 
 
+def classify_mixed_output_child(
+    rel_path: str,
+    details: list[dict[str, object]],
+    protected_rows: list[ProtectedPath],
+    descendant_permission_denied: bool,
+    descendant_reparse: bool,
+) -> tuple[str, str, str]:
+    protected, protected_match = matches_protected(rel_path, protected_rows)
+    if protected:
+        return "protected_keep", "keep", f"protected_path:{protected_match}"
+    if descendant_permission_denied:
+        return "unknown_quarantine_candidate", "report_only", "descendant_permission_denied"
+    if descendant_reparse:
+        return "unknown_quarantine_candidate", "report_only", "descendant_reparse_point"
+
+    path = Path(rel_path)
+    name = path.name.lower()
+    suffix = path.suffix.lower()
+    file_count = sum(1 for item in details if not bool(item.get("is_dir")))
+    dir_count = sum(1 for item in details if bool(item.get("is_dir")))
+    pdf_count = sum(1 for item in details if str(item.get("relative_path", "")).lower().endswith(".pdf"))
+    manifest_present = any("manifest" in Path(str(item.get("relative_path", ""))).name.lower() for item in details)
+
+    if file_count == 0 and dir_count == 0 and suffix == "":
+        return "stale_candidate", "delete", "empty_directory"
+    if suffix == ".pdf":
+        return "stale_candidate", "quarantine", "old_pdf_not_latest_layout_baseline"
+    if suffix == ".csv" and ("validation" in name or "audit" in name):
+        return "diagnostic_candidate", "quarantine", "old_validation_or_audit_artifact"
+    if suffix in IMAGE_SUFFIXES and (name.startswith("inspect_") or "screenshot" in name):
+        return "diagnostic_candidate", "quarantine", "old_layout_inspection_image"
+    if suffix == "" and (name == "charts" or name.startswith("verify_") or "highlight" in name or "lifecycle" in name):
+        return "diagnostic_candidate", "quarantine", "old_verification_artifact_directory"
+    if not manifest_present and pdf_count == 0:
+        return "stale_candidate", "quarantine", "mixed_output_child_no_manifest_and_no_pdf"
+    return "unknown_quarantine_candidate", "report_only", "mixed_output_child_insufficient_evidence"
+
+
+def row_from_scan(
+    candidate: Path,
+    candidate_rel: str,
+    details: list[dict[str, object]],
+    permission_denied: list[str],
+    reparse_points: list[str],
+    classification: str,
+    planned_action: str,
+    reason: str,
+) -> dict[str, object]:
+    if planned_action in {"quarantine", "delete"} and (permission_denied or reparse_points):
+        planned_action = "report_only"
+    pdf_names = sorted(
+        Path(str(item.get("relative_path", ""))).name
+        for item in details
+        if str(item.get("relative_path", "")).lower().endswith(".pdf")
+    )
+    total_bytes = sum(int(item.get("size", 0)) for item in details)
+    newest_mtime_ns = max((int(item.get("mtime_ns", 0)) for item in details), default=0)
+    file_count = sum(1 for item in details if not bool(item.get("is_dir")))
+    dir_count = sum(1 for item in details if bool(item.get("is_dir")))
+    return {
+        "path": candidate_rel,
+        "planned_action": planned_action,
+        "classification": classification,
+        "evidence_reason": reason,
+        "protected_check_result": "not_protected",
+        "path_kind": "directory" if candidate.is_dir() else "file",
+        "file_count": file_count,
+        "dir_count": dir_count,
+        "total_bytes": total_bytes,
+        "newest_mtime": mtime_iso(newest_mtime_ns) if newest_mtime_ns else "",
+        "pdf_count": len(pdf_names),
+        "pdf_names": pdf_names,
+        "manifest_present": any("manifest" in Path(str(item.get("relative_path", ""))).name.lower() for item in details),
+        "path_fingerprint_hash": fingerprint_hash(details),
+        "fingerprint_detail": details,
+        "permission_denied": permission_denied,
+        "reparse_points": reparse_points,
+        "replaced_by_path": "",
+        "replaced_by_main_price_date": "",
+        "replaced_by_source_ref": "",
+        "evidence_file": "",
+    }
+
+
 def build_rows(protected_rows: list[ProtectedPath]) -> tuple[list[dict[str, object]], dict[str, object]]:
     rows: list[dict[str, object]] = []
     scanned_roots: list[str] = []
@@ -360,8 +481,47 @@ def build_rows(protected_rows: list[ProtectedPath]) -> tuple[list[dict[str, obje
             except PermissionError as exc:
                 raise PlannerError(f"candidate root permission denied: {candidate_rel}: {exc}") from exc
 
+            if candidate.name in MIXED_OUTPUT_ROOTS and candidate.is_dir():
+                try:
+                    children = sorted(candidate.iterdir(), key=lambda p: p.name.lower())
+                except PermissionError as exc:
+                    raise PlannerError(f"candidate root permission denied: {candidate_rel}: {exc}") from exc
+                scanned_roots.append(candidate_rel)
+                for child in children:
+                    child_rel = rel(child)
+                    if matches_protected(child_rel, protected_rows)[0]:
+                        protected_candidate_count += 1
+                        skipped_roots.append({"path": child_rel, "reason": "protected"})
+                        continue
+                    try:
+                        details, permission_denied, reparse_points = scan_path(child)
+                    except PlannerError as exc:
+                        if "reparse point" in str(exc):
+                            reparse_point_candidate_count += 1
+                        raise
+                    classification, planned_action, reason = classify_mixed_output_child(
+                        child_rel,
+                        details,
+                        protected_rows,
+                        descendant_permission_denied=bool(permission_denied),
+                        descendant_reparse=bool(reparse_points),
+                    )
+                    rows.append(
+                        row_from_scan(
+                            child,
+                            child_rel,
+                            details,
+                            permission_denied,
+                            reparse_points,
+                            classification,
+                            planned_action,
+                            reason,
+                        )
+                    )
+                continue
+
             scanned_roots.append(candidate_rel)
-            details, permission_denied, reparse_points = scan_tree(candidate)
+            details, permission_denied, reparse_points = scan_path(candidate)
             classification, planned_action, reason = classify_candidate(
                 candidate_rel,
                 details,
@@ -369,41 +529,17 @@ def build_rows(protected_rows: list[ProtectedPath]) -> tuple[list[dict[str, obje
                 descendant_permission_denied=bool(permission_denied),
                 descendant_reparse=bool(reparse_points),
             )
-            if planned_action in {"quarantine", "delete"} and (permission_denied or reparse_points):
-                planned_action = "report_only"
-            pdf_names = sorted(
-                Path(str(item.get("relative_path", ""))).name
-                for item in details
-                if str(item.get("relative_path", "")).lower().endswith(".pdf")
-            )
-            total_bytes = sum(int(item.get("size", 0)) for item in details)
-            newest_mtime_ns = max((int(item.get("mtime_ns", 0)) for item in details), default=0)
-            file_count = sum(1 for item in details if not bool(item.get("is_dir")))
-            dir_count = sum(1 for item in details if bool(item.get("is_dir")))
             rows.append(
-                {
-                    "path": candidate_rel,
-                    "planned_action": planned_action,
-                    "classification": classification,
-                    "evidence_reason": reason,
-                    "protected_check_result": "not_protected",
-                    "path_kind": "directory" if candidate.is_dir() else "file",
-                    "file_count": file_count,
-                    "dir_count": dir_count,
-                    "total_bytes": total_bytes,
-                    "newest_mtime": mtime_iso(newest_mtime_ns) if newest_mtime_ns else "",
-                    "pdf_count": len(pdf_names),
-                    "pdf_names": pdf_names,
-                    "manifest_present": any("manifest" in Path(str(item.get("relative_path", ""))).name.lower() for item in details),
-                    "path_fingerprint_hash": fingerprint_hash(details),
-                    "fingerprint_detail": details,
-                    "permission_denied": permission_denied,
-                    "reparse_points": reparse_points,
-                    "replaced_by_path": "",
-                    "replaced_by_main_price_date": "",
-                    "replaced_by_source_ref": "",
-                    "evidence_file": "",
-                }
+                row_from_scan(
+                    candidate,
+                    candidate_rel,
+                    details,
+                    permission_denied,
+                    reparse_points,
+                    classification,
+                    planned_action,
+                    reason,
+                )
             )
 
     summary = {
