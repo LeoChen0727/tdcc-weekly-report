@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19 16:59:42 Asia/Taipei",
+  "generated_at": "2026-06-19 19:45:14 Asia/Taipei",
   "sources": {
     "institutional_fo": {
       "status": "ok",
@@ -21,7 +21,7 @@
     },
     "put_call_ratio": {
       "status": "ok",
-      "rows": 23,
+      "rows": 19,
       "latest_date": "20260618",
       "message": ""
     },

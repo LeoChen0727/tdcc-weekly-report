@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-19 16:51:26 Asia/Taipei`
+- generated_at: `2026-06-19 19:35:17 Asia/Taipei`
 - target_date: `20260619`
 - saved_price_date: `20260618`
 - is_target_date: `False`
@@ -41,21 +41,22 @@
 - TWSE_OPENAPI_STOCK_DAY_ALL: parsed TWSE OpenAPI rows=1237
 - TWSE batch selected source=TWSE_OPENAPI_STOCK_DAY_ALL, rows=1237
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260619
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/19&type=EW&response=json -> status=200, chars=11371
-- TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/19&type=EW&response=json -> status=525, chars=953
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260619
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/19&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_JSON date=20260619
-- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/06/19&se=EW failed: ReadTimeout: HTTPSConnectionPool(host='www.tpex.org.tw', port=443): Read timed out. (read timeout=25)
+- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/06/19&se=EW -> status=200, chars=393
+- TPEX_OTC_QUOTES_NO1430_JSON: parsed TPEx JSON rows=0
 - Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_CSV date=20260619
-- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=csv&d=115/06/19&se=EW -> status=522, chars=975
+- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=csv&d=115/06/19&se=EW -> status=520, chars=959
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260619
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/19&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/19&s=0,asc,0 -> status=520, chars=959
 - Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260619
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/19&s=0,asc,0 failed: ConnectionError: HTTPSConnectionPool(host='www.tpex.org.tw', port=443): Read timed out.
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/19&s=0,asc,0 -> status=200, chars=1408708
+- TPEX_OLD_DAILY_CSV: rejected response date 20260618; target date is 20260619
 - Trying TPEx batch source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES date=20260619
-- GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes failed: ReadTimeout: HTTPSConnectionPool(host='www.tpex.org.tw', port=443): Read timed out. (read timeout=25)
+- GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes -> status=520, chars=959
 - TPEx batch best rows=0
 - date=20260619 twse_rows=1237 tpex_rows=0 total_rows=1237 full_market_ok=False
 - Reject stale TWSE target-date rows: 100.0% match previous file daily_price_20260618.csv

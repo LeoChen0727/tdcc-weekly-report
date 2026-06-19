@@ -1,32 +1,32 @@
 # Daily Theme Status History
 
-- generated_at: `2026-06-19 16:59:19 Asia/Taipei`
+- generated_at: `2026-06-19 19:44:43 Asia/Taipei`
 - latest_signal_date: `20260618`
-- latest_rows: `525`
-- history_rows: `5378`
+- latest_rows: `548`
+- history_rows: `5401`
 - purpose: Persist stock-level mainstream/non-mainstream and volume-attack labels by signal date for no-lookahead backtests.
 - caveat: Historical rows begin when this tracker starts unless older snapshots are backfilled from archived artifacts.
 
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 382 |
-| mainstream_supported | 140 |
-| non_mainstream | 3 |
+| mainstream_overheated | 431 |
+| mainstream_supported | 112 |
+| non_mainstream | 5 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 382 |
-| mainstream_follow_through | 127 |
-| emerging_theme | 10 |
-| mainstream_leader | 3 |
-| single_name_signal | 3 |
+| mainstream_overheated | 431 |
+| mainstream_follow_through | 82 |
+| mainstream_leader | 19 |
+| emerging_theme | 11 |
+| single_name_signal | 5 |
 
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
 | --- | --- |
-| blank | 503 |
+| blank | 526 |
 | overheated_volume_theme | 20 |
 | non_mainstream_volume_watch | 1 |
 | single_stock_volume_attack | 1 |
@@ -52,6 +52,11 @@
 | 20260618 | 1582 | 信錦 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260618 | 1590 | 亞德客-KY | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260618 | 1597 | 直得 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260618 | 1605 | 華新 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260618 | 1608 | 華榮 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260618 | 1609 | 大亞 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260618 | 1611 | 中電 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260618 | 1612 | 宏泰 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260618 | 1708 | 東鹼 | 化學工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 1709 | 和益 | 化學工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 1710 | 東聯 | 化學工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
@@ -59,19 +64,14 @@
 | 20260618 | 1714 | 和桐 | 化學工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 1727 | 中華化 | 化學工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260618 | 1773 | 勝一 | 化學工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260618 | 1785 | 光洋科 | TPEx | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260618 | 1785 | 光洋科 | 其他電子業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 1808 | 潤隆 | 建材營造 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate | C_僅觀察_營建認列型需基本面確認 |  |  |
+| 20260618 | 1815 | 富喬 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260618 | 1904 | 正隆 | 造紙工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 1905 | 華紙 | 造紙工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
 | 20260618 | 1907 | 永豐餘 | 造紙工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 1909 | 榮成 | 造紙工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 2049 | 上銀 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260618 | 2061 | 風青 | TPEx | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
+| 20260618 | 2061 | 風青 | 電器電纜 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
 | 20260618 | 2201 | 裕隆 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260618 | 2206 | 三陽工業 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260618 | 2207 | 和泰車 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260618 | 2221 | 大甲 | TPEx | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260618 | 2241 | 艾姆勒 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260618 | 2243 | 宏旭-KY | 汽車工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260618 | 2302 | 麗正 | 半導體業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
 
