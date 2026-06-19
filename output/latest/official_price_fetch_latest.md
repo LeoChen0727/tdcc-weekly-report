@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-19 23:04:28 Asia/Taipei`
+- generated_at: `2026-06-19 23:46:41 Asia/Taipei`
 - target_date: `20260619`
 - saved_price_date: `20260618`
 - is_target_date: `False`
@@ -47,7 +47,8 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/19&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_JSON date=20260619
-- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/06/19&se=EW -> status=520, chars=959
+- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/06/19&se=EW -> status=200, chars=393
+- TPEX_OTC_QUOTES_NO1430_JSON: parsed TPEx JSON rows=0
 - Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_CSV date=20260619
 - GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=csv&d=115/06/19&se=EW -> status=200, chars=219
 - TPEX_OTC_QUOTES_NO1430_CSV: parsed TPEx CSV rows=0
@@ -55,8 +56,7 @@
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/19&s=0,asc,0 -> status=200, chars=1419313
 - TPEX_OLD_DAILY_JSON: rejected response dates ['20260618']; target date is 20260619
 - Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260619
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/19&s=0,asc,0 -> status=200, chars=1408708
-- TPEX_OLD_DAILY_CSV: rejected response date 20260618; target date is 20260619
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/19&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
 - Trying TPEx batch source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES date=20260619
 - GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes -> status=200, chars=3846514
 - TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES: rejected response dates ['20260618']; target date is 20260619

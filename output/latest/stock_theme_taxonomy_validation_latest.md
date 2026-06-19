@@ -1,6 +1,6 @@
 # Stock Theme Taxonomy Validation
 
-- generated_at: 2026-06-19 23:15:17 Asia/Taipei
+- generated_at: 2026-06-19 23:57:04 Asia/Taipei
 - total_rows: 2372
 - mainstream_count: 1068
 - non_mainstream_count: 896
