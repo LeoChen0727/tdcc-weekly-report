@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19 23:56:29 Asia/Taipei",
+  "generated_at": "2026-06-20 00:52:44 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -27,12 +27,11 @@
   "sources": {
     "TWSE monthly revenue OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-      "status": "ok",
-      "rows": 1082,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 387,
-      "stored_rows": 387,
+      "status": "failed",
+      "rows": 0,
+      "error": "HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap05_L (Caused by ConnectTimeoutError(<HTTPSConnection(host='openapi.twse.com.tw', port=443) at 0x7f93cdbf1b10>, 'Connection to openapi.twse.com.tw timed out. (connect timeout=30)'))",
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
