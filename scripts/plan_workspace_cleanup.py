@@ -43,6 +43,7 @@ REPORT_KEY_DROP_TOKENS = {
     "rules",
     "source",
 }
+REPORT_KEY_SAFE_RE = re.compile(r"[^A-Za-z0-9._-]+")
 
 
 class PlannerError(RuntimeError):
@@ -219,7 +220,13 @@ def pdf_report_key(pdf_rel_path: str) -> str:
         if lowered in REPORT_KEY_DROP_TOKENS:
             continue
         kept.append(token)
-    return "_".join(kept).strip("_") or stem
+    raw_key = "_".join(kept).strip("_") or stem
+    safe_key = REPORT_KEY_SAFE_RE.sub("_", raw_key).strip("._-").lower()
+    safe_key = re.sub(r"_+", "_", safe_key)
+    if safe_key:
+        return safe_key
+    digest = hashlib.sha256(raw_key.encode("utf-8", errors="surrogatepass")).hexdigest()
+    return f"report_{digest[:12]}"
 
 
 def pdf_source_date(pdf_rel_path: str) -> str:

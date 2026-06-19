@@ -105,6 +105,20 @@ def test_pdf_report_key_removes_date_and_source_tokens() -> None:
     assert key == "daily_highlight"
 
 
+def test_pdf_report_key_is_ascii_stable_for_non_ascii_titles() -> None:
+    first = planner.pdf_report_key(
+        "chatgpt_side_outputs_official/20260618/"
+        "20260618_requested_repo20260618_\u4e3b\u6d41\u80a1_current_rules.pdf"
+    )
+    second = planner.pdf_report_key(
+        "chatgpt_side_outputs_official/20260619/"
+        "20260619_requested_repo20260619_\u4e3b\u6d41\u80a1_current_rules.pdf"
+    )
+    assert first == second
+    assert first.startswith("report_")
+    assert first.isascii()
+
+
 def test_latest_pdf_layout_baseline_forces_keep() -> None:
     rows = [
         {
