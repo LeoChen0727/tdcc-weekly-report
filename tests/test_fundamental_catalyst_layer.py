@@ -19,11 +19,11 @@ def test_degraded_calendar_context_has_no_model_effect() -> None:
             "event_date": "20260622",
             "days_to_event": "3",
             "proximity_bucket": "within_3d",
-            "event_status": "source_degraded_cached",
-            "catalyst_tags": "dividend_calendar;calendar_source_degraded",
+            "event_status": "source_stale_cached",
+            "catalyst_tags": "dividend_calendar;calendar_source_stale;calendar_source_degraded",
             "source": "TWSE ex-right/ex-dividend calendar",
-            "expected_impact": "calendar_event_degraded_reminder_only",
-            "notes": "source_status=degraded_ok; model_effect_allowed=False; pdf_effect_allowed=False",
+            "expected_impact": "calendar_event_stale_reminder_only",
+            "notes": "source_status=stale_ok; model_effect_allowed=False; pdf_effect_allowed=False",
         }
     )
 
@@ -52,11 +52,11 @@ def test_degraded_calendar_tag_is_not_promoted_to_catalyst_tags() -> None:
             "event_date": "20260622",
             "days_to_event": "3",
             "proximity_bucket": "within_3d",
-            "event_status": "source_degraded_cached",
+            "event_status": "source_degraded_blocked",
             "catalyst_tags": "dividend_calendar;calendar_source_degraded",
             "source": "TWSE ex-right/ex-dividend calendar",
-            "expected_impact": "calendar_event_degraded_reminder_only",
-            "notes": "source_status=degraded_ok; model_effect_allowed=False; pdf_effect_allowed=False",
+            "expected_impact": "calendar_event_degraded_blocked_no_effect",
+            "notes": "source_status=degraded_blocked_effect; model_effect_allowed=False; pdf_effect_allowed=False",
         }
     )
 

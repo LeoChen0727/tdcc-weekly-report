@@ -16,8 +16,9 @@ This layer stores known or expected calendar events before the daily candidate r
 
 - TWSE ex-right/ex-dividend calendar: official endpoint, stored when reachable.
   - `ok`: live TWSE response was fetched and parsed.
-  - `degraded_ok`: live TWSE fetch or parsing failed, but recent cached rows exist inside the trusted reminder window. These rows are rewritten as `event_status=source_degraded_cached`, `event_confidence=low`, and `calendar_source_degraded` reminder tags. Downstream catalyst application must force `event_proximity_score=0` and must not promote degraded calendar tags into `catalyst_tags`. They are allowed only as reminder context and must not affect score, rank, upgrade/downgrade, or formal PDF recommendation reasons.
-  - `failed`: live TWSE fetch/parsing failed and no trusted cached rows are available. The source must be listed in `catalyst_needs_review_latest.*`; event calendar effects from that source are not trusted.
+  - `stale_ok`: live TWSE fetch or parsing failed, but recent cached rows exist inside the trusted reminder window. The stale fallback is bounded to 3 trading days and 2 consecutive live failures. These rows are rewritten as `event_status=source_stale_cached`, `event_confidence=low`, `calendar_source_stale`, and `calendar_source_degraded`.
+  - `degraded_blocked_effect`: live TWSE fetch or parsing failed and the cached rows are no longer trusted for stale use, but a cached baseline exists and the consecutive-failure limit has not expired. The row can be disclosed as degraded context only.
+  - `failed`: live TWSE fetch/parsing failed and there is no cached baseline, or the bounded degradation window expired. This remains a hard gate in `validate_repo_advanced_integrity.py`.
 - Monthly revenue expected window: rule-based Taiwan reporting calendar reminder, not a confirmed company catalyst.
 - Federal Reserve FOMC calendar: official page, parsed when reachable.
 - BEA release schedule: official page, parsed when reachable.
@@ -34,7 +35,7 @@ Calendar proximity is a reminder layer. It can add `event_calendar_tags`, `neare
 
 Rows in `catalyst_needs_review_latest.csv` are blocked from model and PDF effects. `model_effect_allowed=False` means the row cannot affect score, rank, upgrade, downgrade, or `similar_to_shihsinko_flag`. `pdf_effect_allowed=False` means the row cannot be used as a formal recommendation reason in generated PDFs.
 
-When a reminder-layer source is `degraded_ok`, downstream reports may disclose the event as degraded/stale context only. They must not silently treat it as fresh confirmed catalyst evidence.
+When a reminder-layer source is `stale_ok` or `degraded_blocked_effect`, downstream catalyst application must force `event_proximity_score=0` and must not promote degraded calendar tags into `catalyst_tags`. Reports may disclose the event as degraded/stale context only. They must not silently treat it as fresh confirmed catalyst evidence, and the row must not affect score, rank, upgrade/downgrade, or formal PDF recommendation reasons.
 
 ## Report Source Priority
 
