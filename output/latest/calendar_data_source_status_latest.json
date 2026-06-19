@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19 14:51:23 Asia/Taipei",
+  "generated_at": "2026-06-19 16:07:16 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -28,15 +28,16 @@
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "Expecting value: line 1 column 1 (char 0)",
-      "http_status": 200
+      "status": "ok",
+      "rows": 544,
+      "error": "",
+      "http_status": 200,
+      "note": "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 479,
+      "rows": 555,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
@@ -71,8 +72,8 @@
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
-      "status": "blocked_or_unavailable",
-      "rows": 0,
+      "status": "partial_coverage_twse_only",
+      "rows": 544,
       "note": "TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
     }
   }

@@ -1,16 +1,16 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-06-19 14:51:55 Asia/Taipei
+- generated_at: 2026-06-19 16:08:32 Asia/Taipei
 - total_rows: 2372
 - mainstream_count: 1068
-- non_mainstream_count: 897
+- non_mainstream_count: 896
 - effective_mainstream_count: 1068
 - effective_non_mainstream_count: 1304
 - mainstream_conflict_count: 9
 - dual_report_membership_count: 9
 - mainstream_report_eligible_count: 1068
 - non_mainstream_report_eligible_count: 1313
-- unknown_count: 407
+- unknown_count: 408
 - manual_override_count: 5
 - authorized_seed_count: 129
 
