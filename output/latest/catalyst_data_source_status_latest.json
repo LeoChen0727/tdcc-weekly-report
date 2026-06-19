@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19 16:07:55 Asia/Taipei",
+  "generated_at": "2026-06-19 16:56:20 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -41,8 +41,8 @@
       "rows": 890,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 165,
-      "stored_rows": 165,
+      "matched_tracked_rows": 142,
+      "stored_rows": 142,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
@@ -61,8 +61,8 @@
       "rows": 170,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 54,
-      "stored_rows": 54,
+      "matched_tracked_rows": 44,
+      "stored_rows": 44,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }
