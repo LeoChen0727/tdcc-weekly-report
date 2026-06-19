@@ -1,7 +1,9 @@
 __pycache__/
+.pytest_cache/
 *.pyc
 chatgpt_side_outputs*/
 _workspace_quarantine/
+_workspace_retained_outputs/
 workspace_cleanup_reports/
 
 docs/latest/individual_stock_chatgpt_packets/
