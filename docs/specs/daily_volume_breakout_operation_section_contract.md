@@ -17,6 +17,10 @@ It must also record source gaps for lifecycle candidates that cannot be evaluate
 because stock price history is missing the signal date, as-of date, or required
 price fields. Source-gap rows are audit-only and must never be rendered as daily
 operation rows.
+It must also record same-stock lifecycle suppression when only one operation row
+can be rendered for a stock. Suppressed rows are audit-only, must carry
+`audit_status=lifecycle_suppressed`, and must never be rendered as daily
+operation rows.
 
 The PDF renderer must not read these research artifacts directly:
 
@@ -67,6 +71,11 @@ states. That lifecycle artifact is not a PDF or daily adapter source.
   `daily_volume_breakout_operation_evidence_audit_latest.csv`, keep
   `included_in_daily_adapter=False`, and emit no operation data row for that
   signal.
+- If multiple lifecycle records exist for the same stock, the adapter may render
+  only the highest-priority lifecycle row for that stock. Every lower-priority or
+  later same-priority suppressed record must emit `audit_status=lifecycle_suppressed`,
+  keep `included_in_daily_adapter=False`, and preserve its own `stock_id`,
+  `signal_date`, `operation_asof_date`, and lifecycle state in the audit.
 - The adapter must carry `operation_asof_date` and `operation_source_date_status` on every row.
 - Data rows are valid only when `operation_asof_date` equals `daily_signal_date`, which is the daily report date from `main_price_date`.
 - Operation data rows must have a stock-level taxonomy/basic industry source before they can be routed to a PDF line. Valid report memberships are only `mainstream`, `non_mainstream`, or both. The PDF renderer must not invent a report line when taxonomy/source data is missing.

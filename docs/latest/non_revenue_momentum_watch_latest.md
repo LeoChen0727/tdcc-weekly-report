@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-06-18 22:01:08 UTC`
+- generated_at: `2026-06-19 06:15:51 UTC`
 - main_price_date: `20260618`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -26,7 +26,7 @@
 | non_revenue_momentum_type | stock_id | stock_name | theme_name | presentation_priority | model_score | revenue_confirmation_status | theme_final_status | theme_structural_status | theme_mainstream_label | theme_volume_attack_status | volume_breakout_type | volume_ratio | tdcc_status | warrant_flow_signal | interpretation | next_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | A_fund_flow_confirmed_revenue_unconfirmed | 6919 | 康霈* | TWSE |  | 69.0 | revenue_data_missing | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 6.92 |  | call_strong_inflow | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
-| A_fund_flow_confirmed_revenue_unconfirmed | 1301 | 台塑 | 塑膠工業 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 4.41 |  | call_strong_inflow | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
+| A_fund_flow_confirmed_revenue_unconfirmed | 1301 | 台塑 | 塑膠工業 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 4.41 |  | call_put_bullish | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
 | A_fund_flow_confirmed_revenue_unconfirmed | 2002 | 中鋼 | 鋼鐵工業 |  | 69.0 | revenue_negative | mainstream_leader | non_mainstream_theme | non_mainstream_flow_active |  |  | 3.94 |  | call_inflow | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
 | A_fund_flow_confirmed_revenue_unconfirmed | 3211 | 順達 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 1.71 |  |  | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
 | C_hot_money_watch | 6620 | 漢達 | 生技醫療業 |  | 117.0 | revenue_negative | mainstream_leader | non_mainstream_theme | non_mainstream_flow_active |  |  | 5.08 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |

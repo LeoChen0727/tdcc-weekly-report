@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260618`
-- 產生時間：`2026-06-19 06:04:31 Asia/Taipei`
+- 產生時間：`2026-06-19 14:18:58 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260618`
@@ -34,15 +34,15 @@
 | 1449 佳和 | 營收成長股價回檔 | score 44 / theme 38.5/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;紡織纖維;shareh... | 大戶溫和增加 |
 | 2301 光寶科 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;m... | 大戶同步增加 |
 | 2368 金像電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
-| 1449 佳和 | 型態觀察 | score 34 / theme 38.5/5 / event_confirmed;low_reaction_after_catalyst;new_order;紡織纖維;shareholder_meeting_calendar;calend... | 大戶溫和增加 |
 | 2206 三陽工業 | 型態觀察 | score 34 / theme 99.6/5 / event_confirmed;low_reaction_after_catalyst;new_order;汽車工業;shareholder_meeting_calendar;calend... | 大戶溫和增加 |
+| 1449 佳和 | 型態觀察 | score 34 / theme 38.5/5 / event_confirmed;low_reaction_after_catalyst;new_order;紡織纖維;shareholder_meeting_calendar;calend... | 大戶溫和增加 |
 | 1314 中石化 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;塑膠工業;monthly_revenue_calendar;calendar_... | 大戶溫和增加 |
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
-| 3303 岱稜 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
+| 6207 雷科 | 嚴格突破 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電子零組件業;monthly_revenue_calendar;calenda... | 大戶同步增加 |
+| 5381 光譜 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電機機械;monthly_revenue_calendar;calendar_... | 大戶溫和增加 |
 | 2633 台灣高鐵 | 型態觀察 | score 34 / theme 76.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 2891 中信金 | 營收成長股價回檔 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2368 金像電 | 型態觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;capacity_expansion;電子零組件業;dividend_calendar;calen... | 大戶溫和增加 |
-| 8210 勤誠 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;電腦及週邊設備業;divide... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -116,22 +116,10 @@
 - 優先級：
 - 連續上榜：連續上榜但過熱；近5日 2；近10日 4；多分類 range_rebound
 - TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / dividend_calendar;calendar_ex_dividend;塑膠工業 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 202606...
-- 摘要：區間轉強 / 距前高-8.17% / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；異常放量上漲；量比4.41x；月營收YoY 0.7%；累計YoY -3.8%；TDCC近幾週大戶籌碼轉弱
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
-### 1590 亞德客-KY
-- 族群：電機機械
-- 分數 / 排名：69.0 / 
-- 優先級：
-- 連續上榜：訊號鈍化；近5日 1；近10日 3；多分類 pullback_rebound|range_rebound|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電機機械 / monthly_revenue_calendar;calendar_monthly...
-- 摘要：區間轉強 / 距前高-13.75% / 大戶同步增加 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步累積；call_strong_inflow；認購權證成交金額明顯升溫；區間內轉強；量比1.33x；月營收YoY 40.4%；累計YoY 27.3%；TDCC近幾週400張與1000張同步累積
+- 摘要：區間轉強 / 距前高-8.17% / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；異常放量上漲；量比4.41x；月營收YoY 0.7%；累計YoY -3.8%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2388 威盛
@@ -140,10 +128,10 @@
 - 優先級：
 - 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 range_rebound
 - TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / shareholder_meeting;半導體業;dividend_calendar;calendar_ex_dividend / shareholder_meeting;半導體業 / dividend_calendar;cal...
-- 摘要：區間轉強 / 距前高-10.84% / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；區間內轉強；量比2.96x；月營收YoY 88.1%；累計YoY 34.3%；TDCC近幾週大戶籌碼轉弱
+- 摘要：區間轉強 / 距前高-10.84% / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；區間內轉強；量比2.96x；月營收YoY 88.1%；累計YoY 34.3%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2409 友達
@@ -152,22 +140,34 @@
 - 優先級：
 - 連續上榜：反覆上榜未突破；近5日 4；近10日 6；多分類 range_rebound
 - TDCC：大戶溫和增加
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / investor_conference;光電業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / investor_conference;光電...
-- 摘要：區間轉強 / 距前高-4.9% / 大戶溫和增加 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張合計增加；call_strong_inflow；認購權證成交金額明顯升溫；區間內轉強；量比1.62x；月營收YoY -1.4%；累計YoY -3.7%；TDCC近幾週大戶溫和增加
+- 摘要：區間轉強 / 距前高-4.9% / 大戶溫和增加 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張合計增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；區間內轉強；量比1.62x；月營收YoY -1.4%；累計YoY -3.7%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
-### 2441 超豐
+### 3450 聯鈞
 - 族群：半導體業
 - 分數 / 排名：69.0 / 
 - 優先級：
-- 連續上榜：訊號鈍化；近5日 5；近10日 8；多分類 range_rebound|revenue_pullback
-- TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
+- 連續上榜：連續 3 日；近5日 4；近10日 7；多分類 range_rebound
+- TDCC：大戶同步增加
+- 權證：call_put_bullish / 3.0
+- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;optical_communication_theme;optical components;o...
+- 摘要：區間轉強 / 距前高-6.15% / 大戶同步增加 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步累積；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；區間內轉強；量比1.27x；月營收YoY 49.9%；累計YoY -1.9%；TDCC近幾週400張與1000張同步累積
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+
+### 3583 辛耘
+- 族群：半導體業
+- 分數 / 排名：69.0 / 
+- 優先級：
+- 連續上榜：反覆上榜未突破；近5日 3；近10日 6；多分類 range_rebound
+- TDCC：大戶溫和增加
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / monthly_revenue_calendar;calendar_monthly...
-- 摘要：區間轉強 / 距前高-8.78% / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；區間內轉強；量比1.15x；月營收YoY 20.9%；累計YoY 19.4%；TDCC近幾週大戶籌碼轉弱
+- 摘要：區間轉強 / 距前高-11.98% / 大戶溫和增加 / call_put_bullish / 3.0
+- 完整原因：近幾週其中一項大戶級距增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；區間內轉強；量比1.17x；月營收YoY 1.5%；累計YoY 9.0%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ## 營收爆發低反應股
@@ -240,10 +240,10 @@
 - 優先級：
 - 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_pullback
 - TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;半導體業;dividend_calendar;calendar_ex_di...
-- 摘要：TDCC轉弱 / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比0.45x；月營收YoY 224.4%；累計YoY 264.0%；TDCC近幾週大戶籌碼轉弱
+- 摘要：TDCC轉弱 / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.45x；月營收YoY 224.4%；累計YoY 264.0%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2360 致茂
@@ -303,7 +303,7 @@
 - 連續上榜：訊號鈍化；近5日 1；近10日 3；多分類 pattern|pullback_rebound|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他電子業 / monthly_revenue_calendar;calendar_monthl...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / investor_conference;mainstream_growth;monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他電子業 / in...
 - 摘要：回檔轉強 / pullback_rebound / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；量比1.21x；月營收YoY 93.8%；累計YoY 80.5%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -364,22 +364,10 @@
 - 優先級：
 - 連續上榜：訊號鈍化；近5日 4；近10日 7；多分類 pattern
 - TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 1 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電機機械;monthly_revenue_calendar;calendar_monthly_revenue_expec...
-- 摘要：pattern_watch / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比0.88x；月營收YoY 8.4%；累計YoY 14.9%；TDCC近幾週大戶籌碼轉弱
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
-### 1513 中興電
-- 族群：電機機械
-- 分數 / 排名：54.0 / 
-- 優先級：
-- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern
-- TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電機機械 / monthly_revenue_calendar;calendar_monthly...
-- 摘要：pattern_watch / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比0.87x；月營收YoY 3.6%；累計YoY 2.3%；TDCC近幾週大戶籌碼轉弱
+- 摘要：pattern_watch / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.88x；月營收YoY 8.4%；累計YoY 14.9%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 1605 華新
@@ -388,10 +376,10 @@
 - 優先級：
 - 連續上榜：反覆上榜未突破；近5日 5；近10日 9；多分類 pattern
 - TDCC：大戶溫和增加
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 55.9/5 / material_information;電器電纜;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / material_information;...
-- 摘要：pattern_watch / 大戶溫和增加 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張合計增加；call_strong_inflow；認購權證成交金額明顯升溫；量比0.84x；月營收YoY 11.1%；累計YoY -5.4%；TDCC近幾週大戶溫和增加
+- 摘要：pattern_watch / 大戶溫和增加 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張合計增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.84x；月營收YoY 11.1%；累計YoY -5.4%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2338 光罩
@@ -400,20 +388,32 @@
 - 優先級：
 - 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 pattern
 - TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / shareholder_meeting;半導體業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / shareholder_meeting;半...
-- 摘要：pattern_watch / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比0.76x；月營收YoY -7.5%；累計YoY -6.1%；TDCC近幾週大戶籌碼轉弱
+- 摘要：pattern_watch / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.76x；月營收YoY -7.5%；累計YoY -6.1%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
-### 2351 順德
+### 2363 矽統
 - 族群：半導體業
 - 分數 / 排名：54.0 / 
 - 優先級：
-- 連續上榜：反覆上榜未突破；近5日 5；近10日 10；多分類 pattern|pullback_rebound|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：call_strong_inflow / 2.0
+- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_pullback
+- TDCC：大戶溫和增加
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / monthly_revenue_calendar;calendar_monthly...
-- 摘要：pattern_watch / 大戶同步增加 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步累積；call_strong_inflow；認購權證成交金額明顯升溫；量比1.79x；月營收YoY 36.8%；累計YoY 19.1%；TDCC近幾週400張與1000張同步累積
+- 摘要：pattern_watch / 大戶溫和增加 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張合計增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.73x；月營收YoY 88.8%；累計YoY 107.9%；TDCC近幾週大戶溫和增加
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+
+### 3006 晶豪科
+- 族群：半導體業
+- 分數 / 排名：54.0 / 
+- 優先級：
+- 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 pattern|revenue_pullback
+- TDCC：大戶同步增加
+- 權證：call_put_bullish / 3.0
+- 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;半導體業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window;memory_theme;DRAM IC;D...
+- 摘要：pattern_watch / 大戶同步增加 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步累積；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.75x；月營收YoY 296.8%；累計YoY 223.5%；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
