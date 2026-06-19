@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:16 Asia/Taipei
+- generated_at: 2026-06-19 22:24:20 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.取得會計師「內部控制專案審查報告」日期:115/06/18 2.委請會計師出具內部控制專案審查報告日期:115/04/07 3.委請會計師出具內部控制專案審查報告之緣由:依據金融監督管理委員會114/12/31 金管銀國字第11402743121號函辦理。 4.申報公告「內部控制專案審查報告」內容之日期:115/06/18 5.意見類型:依據所執行之程序及所獲取之證據，未發現確信標的資訊之設計有效性 所有重大方面有因未遵循其相關辦法而無法允當表達之情事。 6.其他應敘明事項(內部控制專案審查報告全文請至公開資訊觀測站查閱，路徑為：公司 治理/內部控制專區/內部控制審查報告): https://mops.twse.com.tw/mops/#/web/t06hsg20；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

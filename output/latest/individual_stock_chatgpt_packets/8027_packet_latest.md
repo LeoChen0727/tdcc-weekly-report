@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:57 Asia/Taipei
+- generated_at: 2026-06-19 22:25:00 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8027 | 鈦昇 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 8027 | 鈦昇 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | 1.發生變動日期:115/06/18 2.功能性委員會名稱:審計委員會 3.舊任者姓名: 呂植富 高坤勇 彭慎翔 4.舊任者簡歷: 呂植富/國巨股份有限公司品質長兼楠梓分公司負責人 高坤勇/有朮股份有限公司董事長 彭慎翔/漢民科技股份有限公司副總經理 5.新任者姓名: 彭慎翔 賴志煌 林子健 6.新任者簡歷: 彭慎翔/漢民科技股份有限公司副總經理 賴志煌/國立清華大學半導體研究學院副院長 林子健/南山人壽證券投資部副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/18 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | first_seen | 1.發生變動日期:115/06/18 2.功能性委員會名稱:審計委員會 3.舊任者姓名: 呂植富 高坤勇 彭慎翔 4.舊任者簡歷: 呂植富/國巨股份有限公司品質長兼楠梓分公司負責人 高坤勇/有朮股份有限公司董事長 彭慎翔/漢民科技股份有限公司副總經理 5.新任者姓名: 彭慎翔 賴志煌 林子健 6.新任者簡歷: 彭慎翔/漢民科技股份有限公司副總經理 賴志煌/國立清華大學半導體研究學院副院長 林子健/南山人壽證券投資部副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/18 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

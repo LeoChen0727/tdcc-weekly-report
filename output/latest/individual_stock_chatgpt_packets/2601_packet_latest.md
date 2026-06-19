@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-06-18 22:23:21 Asia/Taipei
+- generated_at: 2026-06-19 22:23:25 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2601 | 益航 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/16 2.被背書保證之: (1)公司名稱:Reliance Steamship S.A. (2)與提供背書保證公司之關係: Reliance Steamship S.A.為本公司直接持股100%之子公司 (3)背書保證之限額(仟元):22,555,569 (4)原背書保證之餘額(仟元):0 (5)本次新增背書保證之金額(仟元):84,659 (6)迄事實發生日止背書保證餘額(仟元):84,659 (7)被背書保證公司實際動支金額(仟元):40,762 (8)本次新增背書保證之原因: 借款擔保 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):377,160 (2)累積盈虧金額(仟元):41,625 5.解除背書保證責任之: (1)條件: 清償借款 (2)日期: 依合約規定 6.背書保證之總限額(仟元): 37,592,615 7.迄事實發生日為止，背書保證餘額(仟元): 6,005,985 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 79.88 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 9.78 10.其他應敘明事項: 無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 2601 | 益航 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/18 2.公司名稱:益航股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年6月18日股東常會決議通過辦理減資，依公司法第281條準 用同法第73及74條規定，辦理致債權人公告。 6.因應措施: (1)本公司業經115年6月18日股東常會決議通過辦理減資彌補虧損。 (2)本公司實收資本額為新台幣8,247,760,670元，分為824,776,067股，每股面額 新台幣10元，為健全公司財務結構與未來營運發展需求，擬辦理減少資本額新台幣 1,343,970,560元，以彌補累積虧損，銷除已發行股份134,397,056股，減資比率 16.2949753%，減資後實收資本額為新台幣6,903,790,110元。 (3)經股東常會決議通過及主管機關核准後，由董事長另訂減資基準日與減資換發 股票基準日。 (4)本公司債權人如對前述減少資本之決議有異議者，請於公告日起三十一日內以 書面檢附債權證明文件親交或郵寄(以郵戳日為憑)向本公司提出聲明，逾期未表示異議 視為無異議。債權人提出異議後，若轉讓債權，則喪失異議權，已向本公司提出之異議 視為撤回，特此公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次減資為彌補虧損，無實質現金流出，對公司營運資金無重大影響。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

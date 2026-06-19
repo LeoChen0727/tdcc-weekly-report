@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:24 Asia/Taipei
+- generated_at: 2026-06-19 22:24:27 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6207 | 雷科 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6207 | 雷科 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | first_seen | 1.事實發生日:115/06/18 2.發生緣由:本公司於今日9:06接獲櫃買中心通知，本公司可轉換 公司債雷科五(代號:62075)已達應公布注意交易資訊標準，爰奉 櫃買中心指示公布下列訊息，以供投資人參酌 3.財務業務資訊: 雷科五(62075)轉換公司債相關資訊： 到期日期：117/08/26 實際發行總額：新台幣600,000,000元整 本月發行餘額：新台幣125,600,000元整 (截至115/06/17) 最新轉換價格：50.7元 轉換標的收盤價格(代號：6207)：164元 (115/06/17) 轉換公司債收盤價格(代號:62075)：321元 (115/06/17) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

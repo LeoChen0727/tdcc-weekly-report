@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6472 保瑞
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:31 Asia/Taipei
+- generated_at: 2026-06-19 22:24:34 Asia/Taipei
 - stock_id: 6472
 - stock_name: 保瑞
 - packet_status: standard_180d_window_packet
@@ -185,7 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6472 | 保瑞 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6472 | 保瑞 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/06/18 2.公開發行公司及其子公司資金貸與他人之餘額達該公開發行公司最近期財務報表 淨值百分之二十以上者: (1)接受資金貸與之公司名稱:Bora Pharmaceuticals USA Inc. (2)與資金貸與他人公司之關係: 本公司100%直接持股之子公司(由子公司Bora Global Ltd.貸與) (3)資金貸與之限額(仟元):3,897,602 (4)迄事實發生日為止資金貸與餘額(仟元):2,573,770 (5)迄事實發生日為止資金貸與原因: 充實收購馬里蘭州CDMO營運資產所需之營運資金。 (1)接受資金貸與之公司名稱:Bora Pharmaceuticals Inc. (2)與資金貸與他人公司之關係: 為本公司100%間接持股之子公司(由子公司Bora Pharmaceuticals USA Inc.貸與) (3)資金貸與之限額(仟元):26,821,545 (4)迄事實發生日為止資金貸與餘額(仟元):789,500 (5)迄事實發生日為止資金貸與原因: 充實Bora Pharmaceuticals Inc.拓展CDMO業務所需之營運資金。 (1)接受資金貸與之公司名稱:Upsher-Smith Laboratories, LLC (2)與資金貸與他人公司之關係: 為本公司100%間接持股之子公司(由子公司TWi Pharmaceuticals USA, Inc.貸與) (3)資金貸與之限額(仟元):26,821,545 (4)迄事實發生日為止資金貸與餘額(仟元):167,374 (5)迄事實發生日為止資金貸與原因: 充實營運資金及償還借款 (1)接受資金貸與之公司名稱:Upsher-Smith Laboratories, LLC (2)與資金貸與他人公司之關係: 為本公司100%間接持股之子公司(由子公司TWi Pharmaceuticals USA, Inc.貸與) (3)資金貸與之限額(仟元):2,438,660 (4)迄事實發生日為止資金貸與餘額(仟元):1,175,608 (5)迄事實發生日為止資金貸與原因: 充實營運資金以及逾期應收帳款轉列其他應收款。 (1)接受資金貸與之公司名稱:Bora Pharmaceuticals Injectables Inc. (2)與資金貸與他人公司之關係: 為本公司100%間接持股之子公司(由子公司Bora Pharmaceuticals USA Inc.貸與) (3)資金貸與之限額(仟元):26,821,545 (4)迄事實發生日為止資金貸與餘額(仟元):236,850 (5)迄事實發生日為止資金貸與原因: 充實營運資金及償還借款。 3.迄事實發生日為止，資金貸與餘額(仟元): 4,943,102 4.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 33.93 5.公司貸與他人資金之來源: 子公司本身 6.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6472 | 保瑞 | 73 | 1 | 7715580.0 | 0.0 |  | call_strong_inflow |
+| 20260618 | 6472 | 保瑞 | 73 | 1 | 7715580.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

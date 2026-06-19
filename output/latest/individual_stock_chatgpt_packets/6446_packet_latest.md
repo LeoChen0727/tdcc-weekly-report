@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:30 Asia/Taipei
+- generated_at: 2026-06-19 22:24:33 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
@@ -185,7 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6446 | 藥華藥 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6446 | 藥華藥 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_many_days | 1.事實發生日:115/06/18 2.公司名稱:藥華醫藥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:115年6月18日工商時報報導： 「法人預估全年營收有機會突破 200 億元再創新高， 獲利將大賺逾二股本，有機會登上生技獲利王。」 7.發生緣由:媒體報導說明 8.因應措施:本公司並未發布任何預測性財務及業務資訊， 針對工商時報本次有關本公司之財務預測性報導，純屬媒體及法人推估。 本公司財務及業務相關資訊，請依「公開資訊觀測站」揭露為主。 9.其他應敘明事項:新藥開發時程長、投入經費高且並未保證能一定成功， 此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

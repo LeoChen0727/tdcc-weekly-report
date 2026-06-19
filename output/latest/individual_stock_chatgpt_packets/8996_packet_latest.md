@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-06-18 22:25:09 Asia/Taipei
+- generated_at: 2026-06-19 22:25:12 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8996 | 高力 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 8996 | 高力 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依證券櫃檯買賣中心通知辦理 3.公司債相關資訊: 高力四(89964)轉債相關資訊 到期日期：117/12/06 實際發行總額：新台幣1,000,000,000元整 本月發行餘額：新台幣29,400,000元整(截至115/06/18) 最新轉(交)換價格：232.2 轉換標的收市價格(8996)：1590.00(115/06/18) 轉債收市價格(89964)：554.00(115/06/18) 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

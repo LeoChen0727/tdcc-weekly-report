@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-06-18 22:23:30 Asia/Taipei
+- generated_at: 2026-06-19 22:23:34 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3008 | 大立光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 1.事實發生日:115/06/17 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  期   間   最近一月   與去年       最近一季       與去年      最近四季累計 	    115年4月   同期增減％   115年第1季     同期增減％  114年第2季至                                                               115年第1季   科   目    (IFRS合併               (IFRS合併                  (IFRS合併              自結數)                   核閱數)                 核閱數) =========  ==========  =========   ============   =========   ===========              金額           (%)           金額           (%)     金額 =========  ==========  =========   ============   =========   =========== 營業收入      5,362      24.48        15,544        6.62         62,113 (百萬) 稅前淨利      2,262      87.07        7,288         -5.55        25,472 (百萬) 歸屬母公司    1,831      88.54        6,123         -4.97        20,955 業主淨利 (百萬) 每股盈餘      13.95      91.88        46.63         -3.42        157.76 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 3008 | 大立光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 1.董事會決議日期:115/06/18 2.發放股利種類及金額:發放現金股利人民幣118,745,228.71元。 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

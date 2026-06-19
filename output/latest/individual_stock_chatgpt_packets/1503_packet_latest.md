@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1503 士電
 
 ## Metadata
-- generated_at: 2026-06-18 22:22:53 Asia/Taipei
+- generated_at: 2026-06-19 22:22:58 Asia/Taipei
 - stock_id: 1503
 - stock_name: 士電
 - packet_status: standard_180d_window_packet
@@ -185,7 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1503 | 士電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | stale_signal | 1.股東會決議日:115/06/17 2.許可從事競業行為之董事姓名及職稱:  許育瑞-董事長  大河內一彥-常務董事  謝漢章-常務董事  許家堯-常務董事  甘明弘-董事  中野雅弘-董事  香村英彰-董事  喜多村育典-董事  程相智-董事  郭約瑟-董事  李水源-董事  林伯峰-董事  林信義-常務暨獨立董事  羅春田-獨立董事  王瑜玲-獨立董事 3.許可從事競業行為之項目:與本公司營業範圍相關之項目。 4.許可從事競業行為之期間:任職於本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:  經全體出席股東表決通過同意解除新任董事競業之限制。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:  許育瑞-董事長-不適用  大河內一彥-常務董事-不適用  謝漢章-常務董事  許家堯-常務董事-不適用  甘明弘-董事-不適用  中野雅弘-董事-不適用  香村英彰-董事-不適用  喜多村育典-董事-不適用  程相智-董事  郭約瑟-董事-不適用  李水源-董事  林伯峰-董事-不適用  林信義-常務暨獨立董事-不適用  羅春田-獨立董事-不適用  王瑜玲-獨立董事-不適用 7.所擔任該大陸地區事業之公司名稱及職務:  謝漢章-常務董事  士林電機(蘇州)電力設備有限公司-董事  程相智-董事  三菱電機低壓電器(廈門)有限公司-副董事長  李水源-董事  常州士林三葉電機有限公司-董事  常州三菱電機士林電裝品有限公司-董事  三葉士林電機(武漢)有限公司-董事 8.所擔任該大陸地區事業地址:  士林電機(蘇州)電力設備有限公司-江蘇省蘇州市相城區黃橋工業園永方路16號  三菱電機低壓電器(廈門)有限公司-福建省廈門市集美區英瑤路122-126(雙號)2層  常州士林三葉電機有限公司-江蘇省常州市新北區電子科技產業園新四路9號  常州三菱電機士林電裝品有限公司-江蘇省常州市新北區瀏陽河路100號  三葉士林電機(武漢)有限公司-湖北省武漢市東西湖區徑河街三店中路157號 9.所擔任該大陸地區事業營業項目:  士林電機(蘇州)電力設備有限公司-經營電容器和變壓器等  三菱電機低壓電器(廈門)有限公司-經營低壓開關和電磁開關  常州士林三葉電機有限公司-經營起動電機和機動車零配件  常州三菱電機士林電裝品有限公司-經營起動電動機和發電機等  三葉士林電機(武漢)有限公司-經營汽車用燃油泵及馬達電控系統等 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 1503 | 士電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | stale_signal | 1.事實發生日:115/06/18 2.公司名稱:士林電機廠股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報 6.報導內容:士電總經理郭約瑟、程相智會後受訪表示， 目前在手訂單逾600億元，尤其AI電力需求大爆發，預期今年外銷營收可望 年增三成，較往年大躍進，全年營收、獲利雙位數成長，... 7.發生緣由:大眾傳播媒體報導 8.因應措施: 本公司未提供財務預測，有關本公司相關之財務數據， 敬請投資大眾參閱公開資訊觀測站。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

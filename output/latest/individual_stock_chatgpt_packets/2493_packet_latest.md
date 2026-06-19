@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-06-18 22:23:18 Asia/Taipei
+- generated_at: 2026-06-19 22:23:23 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
@@ -185,7 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2493 | 揚博 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  | call_inflow | continued_overheated | 1.事實發生日:115/06/16 2.發生緣由:依臺灣證券交易所通知辦理 3.財務業務資訊: 期間              (月)                    (季)             (最近四季累計)             最近一月 與去年同期   最近一季   與去年同期     114年第2季至 科目       115年05月 增     減%  115年第1季  增     減%     115年第1季              (IFRS-合併自結數)      (IFRS-合併核閱數)     (IFRS-合併查核數) ========   ========== ==========  ========== ==========   ================= 營業收入       372      24.91%        938       1.24%           3,780 (百萬) 稅前淨利        77     735.72%        192      -8.98%             682 (百萬) 歸屬母公司 業主淨利        63     726.80%        159      -9.53%             536 (百萬) 每股盈餘      0.49     712.50%       1.26      -9.35%            4.23 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:本公司營運一切正常，公司於集中市場股票價格變動係由市場自由 交易機制所決定，與公司並無關聯。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2493 | 揚博 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  | no_signal | continued_overheated | 1.事實發生日:115/06/16 2.發生緣由:依臺灣證券交易所通知辦理 3.財務業務資訊: 期間              (月)                    (季)             (最近四季累計)             最近一月 與去年同期   最近一季   與去年同期     114年第2季至 科目       115年05月 增     減%  115年第1季  增     減%     115年第1季              (IFRS-合併自結數)      (IFRS-合併核閱數)     (IFRS-合併查核數) ========   ========== ==========  ========== ==========   ================= 營業收入       372      24.91%        938       1.24%           3,780 (百萬) 稅前淨利        77     735.72%        192      -8.98%             682 (百萬) 歸屬母公司 業主淨利        63     726.80%        159      -9.53%             536 (百萬) 每股盈餘      0.49     712.50%       1.26      -9.35%            4.23 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:本公司營運一切正常，公司於集中市場股票價格變動係由市場自由 交易機制所決定，與公司並無關聯。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2493 | 揚博 | 71 | 2 | 15484810.0 | 0.0 |  | call_inflow |
+| 20260618 | 2493 | 揚博 | 71 | 2 | 15484810.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

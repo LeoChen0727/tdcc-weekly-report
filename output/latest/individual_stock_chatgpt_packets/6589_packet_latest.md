@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6589 台康生技
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:35 Asia/Taipei
+- generated_at: 2026-06-19 22:24:38 Asia/Taipei
 - stock_id: 6589
 - stock_name: 台康生技
 - packet_status: standard_180d_window_packet
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260618 | 6589 | 台康生技 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:台康生技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:   (1)衛生福利部中央健康保險署於今日公告，      自115年7月1日起，進一步擴增益康平EIRGASUN 420 mg用於      HER2陽性早期乳癌(Early Breast Cancer, EBC)相關健保給付範圍，      以進一步與國際治療指引接軌，      此藥品已於115年6月1日起納入全民健康保險給付。   (2)本次健保給付範圍擴增，有助提升藥品臨床可近性，      預期對本公司營運具正面影響。   (3)根據「財團法人醫藥品查驗中心醫療科技評估報告」推估，      未來五年每年可望嘉惠約1,566至1,755位早期乳癌病患。 6.因應措施:發布重大訊息。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6589 | 台康生技 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:台康生技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:   (1)衛生福利部中央健康保險署於今日公告，      自115年7月1日起，進一步擴增益康平EIRGASUN 420 mg用於      HER2陽性早期乳癌(Early Breast Cancer, EBC)相關健保給付範圍，      以進一步與國際治療指引接軌，      此藥品已於115年6月1日起納入全民健康保險給付。   (2)本次健保給付範圍擴增，有助提升藥品臨床可近性，      預期對本公司營運具正面影響。   (3)根據「財團法人醫藥品查驗中心醫療科技評估報告」推估，      未來五年每年可望嘉惠約1,566至1,755位早期乳癌病患。 6.因應措施:發布重大訊息。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

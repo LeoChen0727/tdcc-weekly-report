@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:16 Asia/Taipei
+- generated_at: 2026-06-19 22:24:20 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過114年度決算盈餘分配承認案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過114年度營運報告及財務報表承認案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 承認事項:追認經董事會通過新任董事案 討論事項: 1.通過法定檢查人EY會計師事務所續約案 2.解除董事暨法定檢查人114年職務責任討論案 7.其他應敘明事項:無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/18 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:蘇佐政 4.舊任者簡歷:本公司總經理 5.新任者姓名:蘇佐政 6.新任者簡歷:本公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:續任 8.異動原因:配合董事改選，董事會委聘 9.新任生效日期:115/06/18 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/18 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:蘇佐政 4.舊任者簡歷:本公司總經理 5.新任者姓名:蘇佐政 6.新任者簡歷:本公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:續任 8.異動原因:配合董事改選，董事會委聘 9.新任生效日期:115/06/18 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

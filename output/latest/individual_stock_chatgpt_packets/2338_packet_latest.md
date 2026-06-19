@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2338 光罩
 
 ## Metadata
-- generated_at: 2026-06-18 22:23:09 Asia/Taipei
+- generated_at: 2026-06-19 22:23:14 Asia/Taipei
 - stock_id: 2338
 - stock_name: 光罩
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2338 | 光罩 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 2338 | 光罩 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | 1.股東會決議日:115/06/18 2.許可從事競業行為之董事姓名及職稱: (二余)俊光董事 陳立惇董事 吳昭宜董事 精金科技(股)公司法人董事代表人:林忠翰 王偉臣獨立董事 彭穎慧獨立董事 3.許可從事競業行為之項目: 投資或經營其他與本公司營業範圍相同或類似的公司之行為 4.許可從事競業行為之期間:任職本公司董事職務之期間。 5.決議情形（請依公司法第209條說明表決結果）: 股東常會票決通過 表決時出席股東表決權數：257,146,585權 贊成權數：246,154,832權(含電子方式行使表決權11,667,157權)， 佔總表決權數95.72% 反對權數：236,882權(含電子方式行使表決權236,882權)， 佔總表決權數：0.09% 無效權數：0權，佔總表決權數：0% 棄權及未投票權數：10,754,871 權(含電子方式行使表決權2,854,142權)， 佔總表決權數：4.18% 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:不適用。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

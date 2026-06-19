@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:12 Asia/Taipei
+- generated_at: 2026-06-19 22:24:17 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5469 | 瀚宇博 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260618 | 5469 | 瀚宇博 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東會決議日:115/06/18 2.許可從事競業行為之董事姓名及職稱:  (1)董事 焦佑衡  (2)董事 華新科技(股)公司  (3)董事 華新科技(股)公司代表人賴偉珍  (4)董事 華新科技(股)公司代表人陶正國  (5)董事 金鑫投資(股)公司  (6)董事 行行投資有限公司  (7)獨立董事 盧啟昌  (8)獨立董事 苑竣唐 3.許可從事競業行為之項目:  (1)董事 焦佑衡     華新科技(股)公司董事長     閎暉實業(股)公司董事長     信昌電子陶瓷(股)公司董事長     台灣精星科技(股)公司董事長     精成科技(股)公司董事長兼執行長     華東科技(股)公司董事長兼執行長     佳邦科技(股)公司董事長(法人董事代表人)     嘉聯益科技(股)公司副董事長兼總策略長     華新麗華(股)公司董事     Lincstech Circuit Singapore Pte.Ltd.董事     晟成實業(股)公司法人董事代表人  (2)董事 華新科技(股）公司     佳邦科技(股)公司董事長     信昌電子陶瓷(股)公司董事     華東科技(股)公司董事     閎暉實業(股)公司董事     博德新能(股)公司董事     華成自動化設備(股)公司董事長  (3)董事 華新科技(股)公司代表人賴偉珍     精成科技(股)公司法人董事代表人     嘉聯益科技(股)公司董事長(法人董事代表人)  (4)董事 華新科技(股)公司代表人陶正國     精成科技(股)公司總經理     川億電腦(深圳)有限公司法人董事代表人     怡寬電子(深圳)有限公司法人董事代表人     東莞瑞升電子有限公司法人董事代表人     川億電腦(重慶)有限公司法人董事代表人     Lincstech EPC Co.,Ltd.董事     Lincstech Circuit Malaysia Sdn.Bhd.董事     Lincstech Circuit Singapore Pte.Ltd.董事     Lincstech Co.,Ltd.代表取締役會長     Lincstech YGA Co.,Ltd.取締役  (5)董事 金鑫投資(股)公司     華邦電子(股)公司董事     新唐科技(股)公司董事  (6)董事 行行投資有限公司     精成科技(股)公司董事  (7)獨立董事 盧啟昌     力麗企業(股)公司獨立董事  (8)獨立董事 苑竣唐     太平洋電線電纜(股)公司董事長 4.許可從事競業行為之期間:任職本公司董事期間 5.決議情形（請依公司法第209條說明表決結果）: 經代表已發行股份總數過半數股東之出席，出席股東表決權三分之二以上同意通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:  董事 華新科技(股)公司代表人陶正國 7.所擔任該大陸地區事業之公司名稱及職務:  董事 華新科技(股)公司代表人陶正國  川億電腦(深圳)有限公司法人董事代表人  怡寬電子(深圳)有限公司法人董事代表人  東莞瑞升電子有限公司法人董事代表人  川億電腦(重慶)有限公司法人董事代表人 8.所擔任該大陸地區事業地址:  川億電腦(深圳)有限公司:深圳市龍崗區橫崗鎮銀海工業城5棟  怡寬電子(深圳)有限公司:深圳市龍崗區橫崗街道銀荷社區銀源街2號401  東莞瑞升電子有限公司:中國廣東省東莞市黃江鎮裕元工業區  川億電腦(重慶)有限公司:重慶市永川區塘灣路6號15幢 9.所擔任該大陸地區事業營業項目:  川億電腦(深圳)有限公司:印刷電路板之產銷業務  怡寬電子(深圳)有限公司:印刷電路板之產銷業務  東莞瑞升電子有限公司:印刷電路板之產銷業務  川億電腦(重慶)有限公司:印刷電路板之產銷業務 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

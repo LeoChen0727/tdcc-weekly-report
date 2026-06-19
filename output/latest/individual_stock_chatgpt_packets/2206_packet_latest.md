@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2206 三陽工業
 
 ## Metadata
-- generated_at: 2026-06-18 22:23:06 Asia/Taipei
+- generated_at: 2026-06-19 22:23:11 Asia/Taipei
 - stock_id: 2206
 - stock_name: 三陽工業
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2206 | 三陽工業 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
+| 20260618 | 2206 | 三陽工業 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.主管機關核准減資日期:115/05/19 2.辦理資本變更登記完成日期:115/06/16 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:   (1)本公司原實收資本額為新台幣7,836,756,040元，      註銷庫藏股後實收資本額為新台幣7,736,756,040元。   (2)註銷前流通在外股數為783,675,604股，      註銷股份後流通在外股數為773,675,604股，差異為10,000,000股。   (3)註銷前每股淨值為新台幣34.81元，      註銷後每股淨值為新台幣35.26元。      (以115年第1季財報為計算基礎) 4.預計換股作業計畫:不適用。 5.預計減資新股上市後之上市普通股股數:不適用。 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用。 8.其他應敘明事項:本公司於115年06月18日接獲經濟部之變更登記核准函。；calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

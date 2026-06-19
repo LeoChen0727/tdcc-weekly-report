@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:31 Asia/Taipei
+- generated_at: 2026-06-19 22:24:34 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
@@ -185,7 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6488 | 環球晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 6488 | 環球晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 一、基本資料 (一)單月                     115年5月         114年5月        與去年同期增減 營業收入(百萬元)              4,842            5,007            -3.30% 稅前淨利(百萬元)              3,985              403            889.80% 歸屬母公司業主淨利(百萬元)     3,503              270          1,199.28% 每股盈餘(元)                   7.33             0.56          1,208.93%  (二)單季                    115年第1季      114年第1季        與去年同期增減 營業收入(百萬元)             13,985           15,595            -10.32% 稅前淨利(百萬元)              2,347            2,133             10.03% 歸屬母公司業主淨利(百萬元)     1,896            1,456             30.22% 每股盈餘(元)                  3.97              3.05             30.16%  (三)最近四季累計       114年第2季至115年第1季 營業收入(百萬元)             58,988 稅前淨利(百萬元)              9,730 歸屬母公司業主淨利(百萬元)     7,752 每股盈餘(元)                  16.21 每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）: 無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事: 無 6.其他應敘明事項:  註1：本公司本業營運狀況穩定，115年5月每股盈餘較高，主係因持有之 Siltronic AG股票價格上升，認列評價損益所致，該等評價損益屬未實現 之金融資產公允價值變動影響，在未實際處分Siltronic AG股票前，將隨 該股票價格波動而有所變動，請投資人審慎評估相關風險。 另每股盈餘亦受本公司德國子公司以Siltronic AG股票為認股標的 所發行之海外附認股權公司債相關評價損益影響，該等評價損益係依現有 市場資訊估算之公允價值變動金額，實際數仍應以經會計師查核（核閱） 之財務報告為準。  註2：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併數，未經會計師查核(閱)，僅供投資人參考。  註3：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。  註4：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

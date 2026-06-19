@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1319 東陽
 
 ## Metadata
-- generated_at: 2026-06-18 22:22:49 Asia/Taipei
+- generated_at: 2026-06-19 22:22:53 Asia/Taipei
 - stock_id: 1319
 - stock_name: 東陽
 - packet_status: standard_180d_window_packet
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1319 | 東陽 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:林幹雄、蔡明田、鄭雁玲 4.舊任者簡歷:林幹雄/開銘實業股份有限公司總經理、 蔡明田/成功大學工程管理學院工程管理碩士專班兼任教授、 鄭雁玲/就業情報資訊(股)公司職涯顧問 5.新任者姓名:尚未委任 6.新任者簡歷:尚未委任 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:薪資報酬委員會委員任期與董事會董事任期相同，配合董事會董事 任期屆滿解任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/29~115/06/18 10.新任生效日期:尚未委任 11.其他應敘明事項:新任委員待召開董事會重新委任後,另行公告；calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
+| 20260618 | 1319 | 東陽 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:林幹雄、蔡明田、鄭雁玲 4.舊任者簡歷:林幹雄/開銘實業股份有限公司總經理、 蔡明田/成功大學工程管理學院工程管理碩士專班兼任教授、 鄭雁玲/就業情報資訊(股)公司職涯顧問 5.新任者姓名:尚未委任 6.新任者簡歷:尚未委任 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:薪資報酬委員會委員任期與董事會董事任期相同，配合董事會董事 任期屆滿解任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/29~115/06/18 10.新任生效日期:尚未委任 11.其他應敘明事項:新任委員待召開董事會重新委任後,另行公告；calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

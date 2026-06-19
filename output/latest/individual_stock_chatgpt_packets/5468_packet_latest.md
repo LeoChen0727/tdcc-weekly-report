@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5468 凱鈺
 
 ## Metadata
-- generated_at: 2026-06-18 22:24:12 Asia/Taipei
+- generated_at: 2026-06-19 22:24:17 Asia/Taipei
 - stock_id: 5468
 - stock_name: 凱鈺
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5468 | 凱鈺 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260618 | 5468 | 凱鈺 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 本公司之基本資料公告如下:(單位：百萬元) (1)單月           最近一單月        去年同月        與去年同期增減(%)                  (115年05月)      (114年05月) 營業收入               12                  9            35 稅前淨利              0.1                 -2            106(由虧轉盈) 歸屬母公司業主淨利     0.1                 -2            106(由虧轉盈) 每股盈餘(元)       0.0025            -0.0644            104(由虧轉盈)  (2)單季          最近一季單季    去年同季單季     與去年同期增減(%)                   (115/Q1)       (114/Q1) 營業收入               48              29               65 稅前淨利               7                1              623 歸屬母公司業主淨利      7                1              623 每股盈餘(元)        0.12             0.03              340  (3)最近四季累計                 114年第2季至115年第1季 營業收入                    181 稅前淨利                     -8 歸屬母公司業主淨利            -8 每股盈餘(元)              -0.13 公司每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註一：115年5月及去年同期比較數之財務資料係本公司採IFRS會計準 則編製之合併自結數，係未經會計師查核(閱)，僅供投資人參考。 註二：最近一季115年第1季係指單季數字，業經會計師核閱，僅供投資 人參考。 註三：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合 併數，業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
