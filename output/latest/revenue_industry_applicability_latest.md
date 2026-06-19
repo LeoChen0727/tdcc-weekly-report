@@ -1,9 +1,9 @@
 # 產業營收適用性檢查
 
-- generated_at: `2026-06-19 21:00:43 Asia/Taipei`
+- generated_at: `2026-06-19 22:38:46 Asia/Taipei`
 - source: `output/latest/all_candidates_latest.csv`
-- construction_like_rows: `43`
-- revenue_category_construction_rows: `23`
+- construction_like_rows: `32`
+- revenue_category_construction_rows: `12`
 
 ## 規則
 
@@ -14,17 +14,6 @@
 
 | date | stock_id | stock_name | industry | category | revaluation_priority | recognition_type | revenue_applicability_note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1808 | 潤隆 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 2542 | 興富發 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 5534 | 長虹 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 5522 | 遠雄 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 1316 | 上曜 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 2536 | 宏普 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 2543 | 皇昌 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 2547 | 日勝生 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 2539 | 櫻花建 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 2515 | 中工 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
-| 20260618 | 2548 | 華固 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260618 | 1316 | 上曜 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260618 | 2515 | 中工 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260618 | 2536 | 宏普 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |

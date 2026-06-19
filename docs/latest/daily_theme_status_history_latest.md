@@ -1,6 +1,6 @@
 # Daily Theme Status History
 
-- generated_at: `2026-06-19 21:04:30 Asia/Taipei`
+- generated_at: `2026-06-19 22:43:57 Asia/Taipei`
 - latest_signal_date: `20260618`
 - latest_rows: `548`
 - history_rows: `5401`
@@ -10,17 +10,17 @@
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 431 |
-| mainstream_supported | 112 |
+| mainstream_overheated | 437 |
+| mainstream_supported | 106 |
 | non_mainstream | 5 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 431 |
-| mainstream_follow_through | 82 |
+| mainstream_overheated | 437 |
+| mainstream_follow_through | 75 |
 | mainstream_leader | 19 |
-| emerging_theme | 11 |
+| emerging_theme | 12 |
 | single_name_signal | 5 |
 
 ## Volume Attack Theme Status Counts
@@ -34,6 +34,7 @@
 ## Latest Stock-Level Rows
 | signal_date | stock_id | stock_name | theme_name | theme_final_status | theme_status_group | theme_volume_attack_status | candidate_source_type | presentation_priority | volume_breakout_type | selection_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 1316 | 上曜 | 建材營造 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | C_僅觀察_營建認列型需基本面確認 |  |  |
 | 20260618 | 1319 | 東陽 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260618 | 1434 | 福懋 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 1440 | 南紡 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
@@ -73,5 +74,4 @@
 | 20260618 | 1909 | 榮成 | 造紙工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260618 | 2049 | 上銀 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260618 | 2061 | 風青 | 電器電纜 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
-| 20260618 | 2201 | 裕隆 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 
