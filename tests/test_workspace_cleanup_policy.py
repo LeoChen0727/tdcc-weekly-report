@@ -97,6 +97,63 @@ def test_non_empty_candidate_does_not_plan_delete() -> None:
     assert reason
 
 
+def test_pdf_report_key_removes_date_and_source_tokens() -> None:
+    key = planner.pdf_report_key(
+        "chatgpt_side_outputs_official/20260618/"
+        "20260618_requested_repo20260618_daily_highlight_current_rules.pdf"
+    )
+    assert key == "daily_highlight"
+
+
+def test_latest_pdf_layout_baseline_forces_keep() -> None:
+    rows = [
+        {
+            "path": "chatgpt_side_outputs_old",
+            "planned_action": "quarantine",
+            "classification": "diagnostic_candidate",
+            "evidence_reason": "name_contains_diagnostic",
+            "fingerprint_detail": [
+                {
+                    "relative_path": (
+                        "chatgpt_side_outputs_old/"
+                        "20260617_requested_repo20260617_daily_highlight_current_rules.pdf"
+                    ),
+                    "is_dir": False,
+                    "mtime_ns": 1,
+                }
+            ],
+        },
+        {
+            "path": "chatgpt_side_outputs_new",
+            "planned_action": "quarantine",
+            "classification": "diagnostic_candidate",
+            "evidence_reason": "name_contains_diagnostic",
+            "fingerprint_detail": [
+                {
+                    "relative_path": (
+                        "chatgpt_side_outputs_new/"
+                        "20260618_requested_repo20260618_daily_highlight_current_rules.pdf"
+                    ),
+                    "is_dir": False,
+                    "mtime_ns": 2,
+                }
+            ],
+        },
+    ]
+    summary: dict[str, object] = {}
+
+    planner.mark_latest_pdf_layout_baselines(rows, summary)
+
+    assert rows[0]["planned_action"] == "quarantine"
+    assert rows[0]["layout_baseline_keep"] is False
+    assert rows[1]["planned_action"] == "keep"
+    assert rows[1]["classification"] == "comparison_evidence_keep"
+    assert rows[1]["layout_baseline_keep"] is True
+    assert rows[1]["layout_baseline_report_keys"] == ["daily_highlight"]
+    assert summary["layout_baseline_report_count"] == 1
+    assert summary["layout_baseline_pdf_count"] == 1
+
+
 def test_gitignore_contains_quarantine_and_report_paths() -> None:
     text = (ROOT / ".gitignore").read_text(encoding="utf-8")
     assert "_workspace_quarantine/" in text
@@ -156,3 +213,41 @@ def test_permission_denied_does_not_produce_applyable_action() -> None:
     assert classification == "unknown_quarantine_candidate"
     assert action == "report_only"
     assert reason == "descendant_permission_denied"
+
+
+def test_layout_baseline_manifest_row_must_keep() -> None:
+    protected_rows = validator.load_protected_rows([])
+    errors: list[str] = []
+    manifest = {
+        "report_id": "baseline-test",
+        "manifest_hash": "",
+        "rows": [
+            {
+                "path": "chatgpt_side_outputs_baseline",
+                "planned_action": "quarantine",
+                "layout_baseline_keep": True,
+            }
+        ],
+        "git_status_porcelain_before_planner": "",
+        "git_status_porcelain_after_planner": "",
+        "history_summary_path": "",
+    }
+    manifest["manifest_hash"] = validator.canonical_manifest_hash(manifest)
+    manifest_dir = ROOT / "workspace_cleanup_reports" / "baseline_manifest_validation"
+    manifest_dir.mkdir(parents=True, exist_ok=True)
+    manifest_path = manifest_dir / "manifest.json"
+    pointer_path = manifest_dir / "latest_manifest.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    pointer_path.write_text(
+        json.dumps(
+            {
+                "report_id": "baseline-test",
+                "manifest_path": manifest_path.relative_to(ROOT).as_posix(),
+                "manifest_hash": manifest["manifest_hash"],
+                "generated_at": "2026-06-19T00:00:00+00:00",
+            }
+        ),
+        encoding="utf-8",
+    )
+    validator.validate_manifest(pointer_path, protected_rows, errors)
+    assert any("layout baseline row must be kept" in error for error in errors)
