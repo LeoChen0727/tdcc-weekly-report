@@ -19,6 +19,7 @@ This policy separates tracked repository lifecycle work from local generated-out
 - Phase 2 is human review only.
 - Phase 3 adds apply/quarantine tooling.
 - Phase 4 performs the first cleanup PR. Permanent delete is limited to truly empty directories; all other output cleanup starts with quarantine.
+- Every ChatGPT-side daily PDF report kind must retain at least the latest PDF as a layout-comparison baseline before any older PDF output can be quarantined or deleted.
 
 ## Protected Paths
 
@@ -38,6 +39,14 @@ The planner and validator must hard block protected paths, including:
 - legacy `generate_repo_chatgpt_side_reports.py` locations if present
 
 Dynamic evidence, such as official PDF folders, replay evidence, runtime manifests, and freshness-gate evidence, is detected by the planner rather than hard-coded as a static protected path.
+
+## PDF Layout Baseline Retention
+
+The cleanup planner must detect PDF report kinds across `chatgpt_side_outputs*` and mark the latest PDF for each report kind as a layout baseline.
+
+Baseline PDFs are not retained because the report content has long-term business value. They are retained so later PDF runs can be compared against the latest known layout and catch accidental template, pagination, section, or typography drift.
+
+Rows containing a latest layout baseline must use `planned_action=keep`. Apply tooling must refuse to quarantine or delete those rows unless a newer replacement baseline is present in the same verified manifest.
 
 ## Planner Contract
 

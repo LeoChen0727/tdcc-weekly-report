@@ -5,6 +5,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import stat
 import subprocess
 import sys
@@ -21,6 +22,27 @@ MANIFEST_SCHEMA_VERSION = "1"
 PLANNER_VERSION = "1"
 OUTPUT_GLOBS = ("chatgpt_side_outputs*",)
 SMALL_HASH_SUFFIXES = {".json", ".csv", ".md", ".txt"}
+PDF_DATE_RE = re.compile(r"20\d{6}")
+REPORT_KEY_DROP_TOKENS = {
+    "branch",
+    "clean",
+    "contract",
+    "current",
+    "diagnostic",
+    "final",
+    "layout",
+    "manual",
+    "new",
+    "official",
+    "pdf",
+    "postmerge",
+    "preview",
+    "replay",
+    "repo",
+    "requested",
+    "rules",
+    "source",
+}
 
 
 class PlannerError(RuntimeError):
@@ -181,6 +203,88 @@ def fingerprint_hash(details: list[dict[str, object]]) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def pdf_report_key(pdf_rel_path: str) -> str:
+    stem = Path(pdf_rel_path).stem
+    kept: list[str] = []
+    for token in stem.split("_"):
+        lowered = token.lower()
+        if not token:
+            continue
+        if PDF_DATE_RE.fullmatch(token):
+            continue
+        if PDF_DATE_RE.fullmatch(lowered.removeprefix("repo").removeprefix("requestedrepo")):
+            continue
+        if lowered.startswith("repo") and PDF_DATE_RE.fullmatch(lowered.removeprefix("repo")):
+            continue
+        if lowered in REPORT_KEY_DROP_TOKENS:
+            continue
+        kept.append(token)
+    return "_".join(kept).strip("_") or stem
+
+
+def pdf_source_date(pdf_rel_path: str) -> str:
+    matches = PDF_DATE_RE.findall(pdf_rel_path)
+    return max(matches) if matches else ""
+
+
+def mark_latest_pdf_layout_baselines(rows: list[dict[str, object]], scan_summary: dict[str, object]) -> None:
+    latest_by_report: dict[str, dict[str, object]] = {}
+    for row in rows:
+        for item in row.get("fingerprint_detail", []):
+            pdf_rel_path = str(item.get("relative_path", ""))
+            if not pdf_rel_path.lower().endswith(".pdf"):
+                continue
+            report_key = pdf_report_key(pdf_rel_path)
+            if not report_key:
+                continue
+            candidate = {
+                "report_key": report_key,
+                "path": pdf_rel_path,
+                "root_path": row.get("path", ""),
+                "pdf_name": Path(pdf_rel_path).name,
+                "source_date": pdf_source_date(pdf_rel_path),
+                "mtime_ns": int(item.get("mtime_ns", 0) or 0),
+            }
+            current = latest_by_report.get(report_key)
+            current_sort = (
+                str(current.get("source_date", "")) if current else "",
+                int(current.get("mtime_ns", 0) if current else 0),
+                str(current.get("path", "")) if current else "",
+            )
+            candidate_sort = (
+                str(candidate["source_date"]),
+                int(candidate["mtime_ns"]),
+                str(candidate["path"]),
+            )
+            if current is None or candidate_sort > current_sort:
+                latest_by_report[report_key] = candidate
+
+    baseline_paths = {str(item["path"]) for item in latest_by_report.values()}
+    baseline_rows: dict[str, list[dict[str, object]]] = {}
+    for item in latest_by_report.values():
+        baseline_rows.setdefault(str(item["root_path"]), []).append(item)
+
+    for row in rows:
+        row_baselines = sorted(baseline_rows.get(str(row.get("path", "")), []), key=lambda item: str(item["report_key"]))
+        row["layout_baseline_keep"] = bool(row_baselines)
+        row["layout_baseline_report_keys"] = [str(item["report_key"]) for item in row_baselines]
+        row["layout_baseline_pdf_names"] = [str(item["pdf_name"]) for item in row_baselines]
+        row["layout_baseline_pdf_paths"] = [str(item["path"]) for item in row_baselines]
+        if not row_baselines:
+            continue
+        if row.get("planned_action") in {"quarantine", "delete"}:
+            row["planned_action"] = "keep"
+            if row.get("classification") not in {"official_keep", "replay_evidence_keep", "protected_keep"}:
+                row["classification"] = "comparison_evidence_keep"
+        reason = str(row.get("evidence_reason", ""))
+        if "layout_baseline_latest_pdf" not in reason:
+            row["evidence_reason"] = f"{reason};layout_baseline_latest_pdf" if reason else "layout_baseline_latest_pdf"
+
+    scan_summary["layout_baseline_report_count"] = len(latest_by_report)
+    scan_summary["layout_baseline_pdf_count"] = len(baseline_paths)
+    scan_summary["layout_baseline_roots"] = sorted(baseline_rows)
+
+
 def classify_candidate(
     rel_path: str,
     details: list[dict[str, object]],
@@ -304,6 +408,7 @@ def build_rows(protected_rows: list[ProtectedPath]) -> tuple[list[dict[str, obje
         "protected_candidate_count": protected_candidate_count,
         "reparse_point_candidate_count": reparse_point_candidate_count,
     }
+    mark_latest_pdf_layout_baselines(rows, summary)
     return rows, summary
 
 
@@ -334,6 +439,9 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
         "pdf_count",
         "manifest_present",
         "path_fingerprint_hash",
+        "layout_baseline_keep",
+        "layout_baseline_report_keys",
+        "layout_baseline_pdf_names",
     ]
     with path.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
@@ -367,6 +475,12 @@ def summary_markdown(manifest: dict[str, object]) -> str:
         lines.append("- none: 0")
     lines.extend(
         [
+            "",
+            "## Layout Baseline",
+            "",
+            f"- report kinds: `{manifest.get('workspace_output_scan_summary', {}).get('layout_baseline_report_count', 0)}`",
+            f"- baseline PDFs: `{manifest.get('workspace_output_scan_summary', {}).get('layout_baseline_pdf_count', 0)}`",
+            f"- baseline roots: `{', '.join(manifest.get('workspace_output_scan_summary', {}).get('layout_baseline_roots', []))}`",
             "",
             "Full local manifests are ignored under `workspace_cleanup_reports/`.",
             "This summary is review metadata only and is not an apply manifest.",

@@ -225,6 +225,8 @@ def validate_manifest(manifest_arg: Path, protected_rows: list[ProtectedRow], er
             errors.append(f"manifest row includes tracked file: {rel_path}")
         if row.get("planned_action") == "delete" and int(row.get("file_count", 1) or 1) != 0:
             errors.append(f"manifest delete row is not empty: {rel_path}")
+        if str(row.get("layout_baseline_keep", "")).lower() == "true" and row.get("planned_action") != "keep":
+            errors.append(f"layout baseline row must be kept: {rel_path}")
 
     before = str(manifest.get("git_status_porcelain_before_planner", ""))
     after = str(manifest.get("git_status_porcelain_after_planner", ""))
