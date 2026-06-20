@@ -35,12 +35,16 @@ copy a retired path as the current deliverable.
 
 ## Repo Artifact Daily PDFs
 
-These files may exist only as repo source/reference artifacts. They are not final ChatGPT-side deliverables and must not be copied or linked as public `docs/latest` daily recommendation PDFs:
+These files may exist only as repo source/reference artifacts. They are not final ChatGPT-side deliverables and must not be copied or linked as public `docs/latest` daily recommendation PDFs.
 
-- `daily_market_summary_latest.pdf`
-- `daily_market_full_latest.pdf`
-- `每日全市場候選股監測報告_精華版.pdf`
-- `完整候選股清單_完整版表格.pdf`
+| File | Current role | Lifecycle status |
+| --- | --- | --- |
+| `daily_market_summary_latest.pdf` | compatibility_alias for the repo daily market summary PDF in `output/latest` | must_keep_until_packet_and_raw_health_consumers_move |
+| `daily_market_full_latest.pdf` | compatibility_alias for the repo daily market full PDF in `output/latest` | must_keep_until_packet_and_raw_health_consumers_move |
+| `每日全市場候選股監測報告_精華版.pdf` | legacy_canonical_copy produced by `build_daily_market_report_artifacts.py` before alias copy | deprecated_output_latest_repo_artifact |
+| `完整候選股清單_完整版表格.pdf` | legacy_canonical_copy produced by `build_daily_market_report_artifacts.py` before alias copy | deprecated_output_latest_repo_artifact |
+
+Moving these artifacts to `published_reports/daily_market/`, renaming them, or retiring them requires a reviewed PR that updates the producer, alias copier, packet/README/raw-health references, report manifest, lineage inventory, validators, and tests in the same change. Do not manually delete the workspace PDFs.
 
 ## Auxiliary Internal PDFs
 
