@@ -34,6 +34,7 @@ PDF_PRODUCERS: tuple[PdfProducer, ...] = (
         ),
         validator_paths=(
             "scripts/validate_chatgpt_side_pdf_contract.py",
+            "scripts/validate_daily_pdf_contract_consumers.py",
             "scripts/validate_chatgpt_side_pdf_layout_independence.py",
             "scripts/validate_chatgpt_side_volume_operation_pdf_integration.py",
         ),

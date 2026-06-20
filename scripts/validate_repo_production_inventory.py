@@ -191,6 +191,7 @@ REQUIRED_WORKFLOW_COMMANDS = {
     DAILY_WORKFLOW: (
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_pdf_production_inventory.py",
+        "python scripts/validate_daily_pdf_contract_consumers.py",
         "python scripts/validate_repo_code_isolation_policy.py",
     ),
     ".github/workflows/research_backtest_pipeline.yml": (
