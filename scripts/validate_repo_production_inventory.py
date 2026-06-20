@@ -197,7 +197,10 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_research_production_boundaries.py",
     ),
-    ".github/workflows/tdcc_weekly.yml": ("python scripts/validate_repo_production_inventory.py",),
+    ".github/workflows/tdcc_weekly.yml": (
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_tdcc_report_contract_consumers.py",
+    ),
     ".github/workflows/tdcc_history_backfill.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/individual_stock_report.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/individual_stock_data_refresh.yml": ("python scripts/validate_repo_production_inventory.py",),

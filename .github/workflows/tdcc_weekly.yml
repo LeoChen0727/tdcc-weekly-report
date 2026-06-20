@@ -62,6 +62,10 @@ jobs:
         run: |
           python scripts/build_tdcc_weekly_candidate_reports.py
 
+      - name: Validate TDCC report contract consumers
+        run: |
+          python scripts/validate_tdcc_report_contract_consumers.py
+
       - name: Validate TDCC weekly candidate reports
         run: |
           python scripts/validate_tdcc_weekly_candidate_reports.py

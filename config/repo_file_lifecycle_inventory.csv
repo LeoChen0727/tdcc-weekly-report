@@ -14,7 +14,7 @@
 .github/workflows/research_backtest_pipeline.yml,workflow,research_backtest,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md;docs/pdf_production_inventory.md;docs/repo_production_inventory.md;docs/thread_templates/research_backtest.md;rules/rules_index_latest.md,,,research backtest workflow boundary,,medium
 .github/workflows/signal_performance_tracker.yml,workflow,research_backtest,active,,,,,,,research backtest workflow boundary,,medium
 .github/workflows/tdcc_history_backfill.yml,workflow,tdcc_weekly,active,,,,docs/repo_production_inventory.md;rules/rules_index_latest.md,,,tdcc weekly workflow boundary,,medium
-.github/workflows/tdcc_weekly.yml,workflow,tdcc_weekly,active,,,,docs/pdf_production_inventory.md;docs/repo_production_inventory.md;docs/tdcc_weekly_artifact_relocation_plan_20260621.md,,,tdcc weekly workflow boundary,,medium
+.github/workflows/tdcc_weekly.yml,workflow,tdcc_weekly,active,,,,docs/pdf_production_inventory.md;docs/repo_production_inventory.md;docs/tdcc_report_contract_consumer_governance.md;docs/tdcc_weekly_artifact_relocation_plan_20260621.md,,,tdcc weekly workflow boundary,,medium
 .github/workflows/test_tdcc_trend.yml,workflow,diagnostics,manual_diagnostic,,,,,,,diagnostics workflow boundary,,low
 .github/workflows/warrant_flow.yml,workflow,warrant,active,,,,docs/repo_production_inventory.md,,,warrant workflow boundary,,high
 .github/workflows/weekly_theme_review.yml,workflow,catalyst_event,active,,,,docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md,,,catalyst event workflow boundary,,medium
@@ -53,6 +53,7 @@ docs/output_latest_cleanup_round1_summary_20260621.md,guidance_doc,repo_infrastr
 docs/individual_stock_artifact_relocation_plan_20260620.md,guidance_doc,individual_stock,active,,,,,,,individual-stock output/latest relocation plan; no deletion approval,,none
 docs/research_backtest_artifact_relocation_plan_20260621.md,guidance_doc,research_backtest,active,,,,,,,research/backtest output/latest relocation plan; advisory artifacts only; no production promotion,,none
 docs/tdcc_weekly_artifact_relocation_plan_20260621.md,guidance_doc,tdcc_weekly,active,,,,docs/output_latest_artifact_audit_20260620.md;docs/output_latest_artifact_layout.md,,,TDCC weekly output/latest relocation plan; retains root compatibility aliases until producer/consumer migration,,none
+docs/tdcc_report_contract_consumer_governance.md,guidance_doc,tdcc_weekly,active,,,,,,,TDCC weekly model/catalyst contract consumer governance,,none
 docs/output_latest_artifact_layout.md,guidance_doc,repo_infrastructure,active,,,,docs/pdf_production_inventory.md,,,active project guidance checked for executable command references,,none
 docs/pdf_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/repo_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
@@ -221,6 +222,7 @@ scripts/validate_stock_model_contract_registry.py,python,repo_infrastructure,act
 scripts/validate_stock_theme_taxonomy.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,,,,,validator: validate_stock_theme_taxonomy,,high
 scripts/validate_surge_precondition_model.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,,,,,research/backtest script: validate_surge_precondition_model,,medium
 scripts/validate_tdcc_chatgpt_tracking_outputs.py,python,tdcc_weekly,active,.github/workflows/tdcc_history_backfill.yml;.github/workflows/tdcc_weekly.yml,,tests/test_tdcc_chatgpt_tracking_outputs.py,,,,TDCC ChatGPT tracking output validator,,medium
+scripts/validate_tdcc_report_contract_consumers.py,python,tdcc_weekly,active,.github/workflows/tdcc_weekly.yml,,tests/test_tdcc_report_contract_consumers.py,docs/tdcc_report_contract_consumer_governance.md,,,TDCC weekly model/catalyst contract consumer validator,,medium
 scripts/validate_tdcc_weekly_candidate_reports.py,python,tdcc_weekly,active,.github/workflows/tdcc_weekly.yml,,tests/test_tdcc_weekly_delivery_filenames.py,docs/pdf_production_inventory.md,,,TDCC weekly/holder-flow script: validate_tdcc_weekly_candidate_reports,,medium
 scripts/validate_tdcc_weekly_ranking_backtest.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,tests/test_tdcc_weekly_ranking_backtest.py,,,,research/backtest script: validate_tdcc_weekly_ranking_backtest,,medium
 scripts/validate_volume_attack_theme_layer.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,,,,,validator: validate_volume_attack_theme_layer,,high
@@ -280,6 +282,7 @@ tests/test_stock_theme_manual_import.py,test_python,daily_production,active,,,,,
 tests/test_stock_theme_taxonomy.py,test_python,daily_production,active,,,,,,,daily production test: test_stock_theme_taxonomy,,high
 tests/test_tdcc_chatgpt_tracking_outputs.py,test_python,tdcc_weekly,active,,,,,,,TDCC weekly/holder-flow test: test_tdcc_chatgpt_tracking_outputs,,medium
 tests/test_tdcc_holder_ratio_fallback.py,test_python,tdcc_weekly,active,,,,,,,TDCC weekly/holder-flow test: test_tdcc_holder_ratio_fallback,,medium
+tests/test_tdcc_report_contract_consumers.py,test_python,tdcc_weekly,active,,,,docs/tdcc_report_contract_consumer_governance.md,,,TDCC weekly model/catalyst contract consumer validator test,,medium
 tests/test_tdcc_weekly_delivery_filenames.py,test_python,tdcc_weekly,active,,,,docs/tdcc_weekly_artifact_relocation_plan_20260621.md,,,TDCC weekly/holder-flow test: test_tdcc_weekly_delivery_filenames,,medium
 tests/test_tdcc_weekly_ranking_backtest.py,test_python,tdcc_weekly,active,,,,,,,TDCC weekly/holder-flow test: test_tdcc_weekly_ranking_backtest,,medium
 tests/test_theme_event_watch.py,test_python,catalyst_event,active,,,,,,,catalyst/event test: test_theme_event_watch,,medium
