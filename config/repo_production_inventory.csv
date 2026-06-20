@@ -163,6 +163,7 @@ tests/conftest.py,test_python,repo_infrastructure,active,pytest shared fixture/c
 tests/test_all_candidates_date_capping.py,test_python,daily_production,active,daily production test: test_all_candidates_date_capping,,
 tests/test_approved_operation_patterns.py,test_python,research_backtest,active,research/backtest test: test_approved_operation_patterns,,
 tests/test_catalyst_pages_sync.py,test_python,catalyst_event,active,catalyst/event test: test_catalyst_pages_sync,,
+tests/test_event_catalyst_overlay_contract.py,test_python,catalyst_event,active,catalyst/event test: test_event_catalyst_overlay_contract,,
 tests/test_chatgpt_daily_report_entrypoint.py,test_python,daily_production,active,daily production test: test_chatgpt_daily_report_entrypoint,,
 tests/test_chatgpt_daily_report_new_conversation_replay.py,test_python,daily_production,active,daily production test: test_chatgpt_daily_report_new_conversation_replay,,
 tests/test_chatgpt_side_pdf_contract.py,test_python,daily_production,active,daily production test: test_chatgpt_side_pdf_contract,,
