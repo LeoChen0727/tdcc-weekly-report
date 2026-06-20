@@ -109,6 +109,7 @@ scripts/validate_chatgpt_side_volume_operation_pdf_integration.py,python,repo_in
 scripts/validate_daily_candidate_model_layer.py,python,repo_infrastructure,active,validator: validate_daily_candidate_model_layer,,
 scripts/validate_daily_candidate_regression_cases.py,python,repo_infrastructure,active,validator: validate_daily_candidate_regression_cases,,
 scripts/validate_daily_model_research_parity.py,python,research_backtest,active,research/backtest script: validate_daily_model_research_parity,.github/workflows/research_backtest_pipeline.yml;.github/workflows/signal_performance_tracker.yml,
+scripts/validate_research_against_stock_model_contract.py,python,research_backtest,active,research/backtest stock model contract parity monitor,,
 scripts/validate_daily_production_boundaries.py,python,repo_infrastructure,active,daily production boundary gate,,
 scripts/validate_daily_publish_freshness_gate.py,python,repo_infrastructure,active,validator: validate_daily_publish_freshness_gate,,
 scripts/validate_daily_published_model_snapshots.py,python,daily_production,active,daily production model snapshot history validator,.github/workflows/daily_full_pipeline.yml;.github/workflows/diagnose_stock_selection.yml;.github/workflows/research_backtest_pipeline.yml,
