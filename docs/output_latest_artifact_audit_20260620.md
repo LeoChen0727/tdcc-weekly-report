@@ -1,128 +1,200 @@
 # output/latest CSV / MD Artifact Audit - 20260620
 
-Scope: classification-only audit for CSV and Markdown artifacts under `output/latest`, scanned recursively. No files were moved or deleted.
+Scope: classification-only inventory for CSV and Markdown artifacts under `output/latest`, scanned recursively. No CSV/MD artifacts were moved or deleted by this audit.
+
+## Rules Applied
+
+- Root `output/latest` may keep machine-readable latest aliases and pipeline/validator/packet dependencies.
+- Human-facing PDFs are outside this CSV/MD audit and are governed by the daily market published reports cleanup PR.
+- PDF layout experiments must not be stored in `output/latest`.
+- CSV/MD artifacts required by pipeline, validators, packets, manifests, `docs/latest`, or raw-link surfaces remain classified as keep.
+- Artifacts owned by TDCC weekly, research/backtest, or individual-stock lanes are marked by `owner_lane` only; this daily PR does not move, delete, or repair them.
+- `recommended_action` is restricted to `keep`, `review`, `candidate_for_future_cleanup`, or `unknown`; this audit does not approve deletion.
+
+## Method
+
+- Artifact list: `rg --files output/latest -g *.csv -g *.md`.
+- Reference evidence: `rg -F output/latest/` across repo workflow, script, test, doc, config, latest-output, and latest-doc scopes, then parsed for CSV/MD paths. This audit document and the generated inventory CSV were excluded as consumers to avoid self-reference.
+- Lineage evidence: report artifact lineage, repo lifecycle inventory, and runtime file lineage contract CSVs.
+- Last modified date: newest git log occurrence for each tracked path, using `core.quotePath=false` so non-ASCII paths are compared literally; filesystem mtime is only a fallback for new/untracked paths.
+- Full source-level consumer evidence is in the inventory CSV; the Markdown summary intentionally avoids embedding exact workflow references.
 
 ## Summary
 
-- Total CSV/MD artifacts scanned: `7487`
+- Total CSV/MD artifacts inventoried: `7487`
+- CSV artifacts: `4928`
+- Markdown artifacts: `2559`
 - Root-level artifacts: `289`
 - Subdirectory artifacts: `7198`
 - Tracked in git: `7487`
 - Inventory CSV: `config/output_latest_artifact_inventory.csv`
 
-## Primary Classification Counts
+## Classification Counts
 
-| Primary classification | Count |
+| Value | Count |
 | --- | ---: |
-| `pipeline_necessary` | 163 |
-| `validator_necessary` | 0 |
-| `packet_manifest_necessary` | 7251 |
-| `docs_raw_link_necessary` | 0 |
-| `diagnostic_stale_candidate` | 40 |
-| `unknown` | 33 |
+| `pipeline_necessary` | 22 |
+| `validator_necessary` | 11 |
+| `packet_manifest_necessary` | 51 |
+| `docs_raw_link_necessary` | 25 |
+| `diagnostic_stale_candidate` | 18 |
+| `unknown` | 30 |
+| `belongs_to_other_lane` | 7330 |
 
-## Category Flag Counts
+## Owner Lane Counts
 
-A file can have multiple category flags when it has more than one kind of evidence.
-
-| Category flag | Count |
+| Value | Count |
 | --- | ---: |
-| `pipeline_necessary` | 163 |
-| `validator_necessary` | 25 |
-| `packet_manifest_necessary` | 7361 |
-| `docs_raw_link_necessary` | 7370 |
-| `diagnostic_stale_candidate` | 40 |
-| `unknown` | 33 |
+| `daily_production` | 140 |
+| `individual_stock` | 7215 |
+| `market_risk` | 9 |
+| `research_backtest` | 73 |
+| `tdcc_weekly` | 42 |
+| `warrant` | 8 |
 
-## Largest Directory Groups
+## Recommended Action Counts
 
-| Scope directory | Count |
+| Value | Count |
 | --- | ---: |
-| `individual_stock_chatgpt_packets` | 2397 |
-| `individual_stock_price_windows` | 2397 |
-| `individual_stock_tdcc_windows` | 2397 |
-| `.` | 289 |
-| `individual_stock_reports` | 7 |
+| `keep` | 109 |
+| `review` | 7330 |
+| `candidate_for_future_cleanup` | 18 |
+| `unknown` | 30 |
 
-## Classification Rules
+## Delete Risk Counts
 
-- `pipeline_necessary`: referenced by workflow/script/config lineage/lifecycle as an input or output.
-- `validator_necessary`: referenced by validators or tests, or declared as validator-covered lineage.
-- `packet_manifest_necessary`: referenced by packet, manifest, README, or ChatGPT handoff surfaces.
-- `docs_raw_link_necessary`: referenced by `docs/latest`, raw-health, publish checks, or raw/API link surfaces.
-- `diagnostic_stale_candidate`: no hard dependency found, but filename indicates audit, validation, debug, backtest, proposal, preview, candidate, research, performance, status, repair, evidence, registry, or similar diagnostic/stale surfaces.
-- `unknown`: no hard dependency found and no diagnostic/stale naming signal found.
+| Value | Count |
+| --- | ---: |
+| `high` | 7426 |
+| `medium` | 31 |
+| `unknown` | 30 |
 
-## Cleanup Boundary
+## High-Risk Keep Samples
 
-This audit is not deletion approval. Artifacts classified as `diagnostic_stale_candidate` or `unknown` must not be manually deleted. A later cleanup PR must update lifecycle evidence before moving, retiring, or deleting any artifact.
+These rows have direct pipeline, validator, packet/manifest, docs/latest, or raw-link evidence. They should remain in place unless a later PR moves every known consumer first.
+
+| path | classification | owner_lane | delete_risk |
+| --- | --- | --- | --- |
+| `output/latest/all_candidates_latest.csv` | `validator_necessary` | `daily_production` | `high` |
+| `output/latest/all_candidates_latest.md` | `pipeline_necessary` | `daily_production` | `high` |
+| `output/latest/astrology_read_protocol_latest.md` | `docs_raw_link_necessary` | `daily_production` | `high` |
+| `output/latest/calendar_data_source_status_latest.md` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/candidate_repeat_appearance_latest.csv` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/candidate_repeat_appearance_latest.md` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/catalyst_data_source_status_latest.md` | `pipeline_necessary` | `daily_production` | `high` |
+| `output/latest/catalyst_layer_validation_latest.md` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/catalyst_needs_review_latest.csv` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/catalyst_needs_review_latest.md` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/catalyst_summary_latest.csv` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/catalyst_summary_latest.md` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/chatgpt_indicator_usage_guide_latest.md` | `packet_manifest_necessary` | `daily_production` | `high` |
+| `output/latest/company_industry_snapshot_latest.csv` | `validator_necessary` | `daily_production` | `high` |
+| `output/latest/current_holdings_pattern_latest.csv` | `pipeline_necessary` | `daily_production` | `high` |
+| `output/latest/current_holdings_pattern_latest.md` | `pipeline_necessary` | `daily_production` | `high` |
+| `output/latest/daily_candidate_frontpage_unique_latest.csv` | `docs_raw_link_necessary` | `daily_production` | `high` |
+| `output/latest/daily_candidate_frontpage_unique_latest.md` | `pipeline_necessary` | `daily_production` | `high` |
+| `output/latest/daily_candidate_group_rotation_latest.csv` | `docs_raw_link_necessary` | `daily_production` | `high` |
+| `output/latest/daily_candidate_group_rotation_latest.md` | `docs_raw_link_necessary` | `daily_production` | `high` |
+| `...(+89)` | `` | `` | `` |
 
 ## Diagnostic / Stale Candidate Samples
 
-- `output/latest/candidate_repeat_appearance_validation_latest.md`
-- `output/latest/chip_flow_source_status_latest.md`
-- `output/latest/daily_candidate_regression_2484_latest.csv`
-- `output/latest/daily_candidate_regression_2484_latest.md`
-- `output/latest/daily_candidate_regression_8069_latest.csv`
-- `output/latest/daily_candidate_regression_8069_latest.md`
-- `output/latest/daily_data_layer_consistency_audit_latest.md`
-- `output/latest/daily_price_history_continuity_latest.md`
-- `output/latest/daily_signal_performance_validation_latest.md`
-- `output/latest/daily_theme_leadership_validation_latest.md`
-- `output/latest/daily_volume_breakout_operation_evidence_audit_latest.csv`
-- `output/latest/daily_volume_breakout_operation_evidence_audit_latest.md`
-- `output/latest/historical_pattern_operation_registry_latest.csv`
-- `output/latest/historical_pattern_operation_registry_latest.md`
-- `output/latest/repair_daily_price_range_latest.csv`
-- `output/latest/repair_daily_price_range_latest.md`
-- `output/latest/repair_one_daily_price_latest.md`
-- `output/latest/revenue_breakout_low_response_debug_latest.md`
-- `output/latest/stock_price_history_manifest.md`
-- `output/latest/stock_theme_authorized_seed_preview_latest.csv`
-- `output/latest/stock_theme_authorized_seed_preview_latest.md`
-- `output/latest/tdcc_history_backfill_manifest_latest.csv`
-- `output/latest/tdcc_signal_effectiveness_latest.csv`
-- `output/latest/volume_attack_theme_layer_validation_latest.md`
-- `output/latest/volume_breakout_buy_signal_best_candidates_latest.csv`
-- `output/latest/volume_breakout_buy_signal_evidence_registry_latest.csv`
-- `output/latest/volume_breakout_buy_signal_grid_latest.csv`
-- `output/latest/volume_breakout_buy_signal_grid_summary_latest.md`
-- `output/latest/volume_breakout_buy_signal_proposal_latest.md`
-- `output/latest/volume_breakout_confirmed_operation_backtest_latest.csv`
+These rows have diagnostic/stale naming evidence but no hard daily-production keep classification in this audit. They are candidates for later lifecycle review only, not deletion in this PR.
+
+| path | owner_lane | recommended_action | delete_risk |
+| --- | --- | --- | --- |
+| `output/latest/candidate_repeat_appearance_validation_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/chip_flow_source_status_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/daily_candidate_regression_2484_latest.csv` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/daily_candidate_regression_2484_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/daily_candidate_regression_8069_latest.csv` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/daily_candidate_regression_8069_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/daily_data_layer_consistency_audit_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/daily_price_history_continuity_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/repair_daily_price_range_latest.csv` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/repair_daily_price_range_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/repair_one_daily_price_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/revenue_breakout_low_response_debug_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/volume_breakout_buy_signal_evidence_registry_latest.csv` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/volume_breakout_buy_signal_proposal_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/volume_breakout_tdcc_buy_signal_evidence_registry_latest.csv` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/volume_breakout_tdcc_buy_signal_proposal_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/weekly_10pct_vs_20pct_surge_volume_comparison_latest.csv` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+| `output/latest/weekly_10pct_vs_20pct_surge_volume_comparison_latest.md` | `daily_production` | `candidate_for_future_cleanup` | `medium` |
+
+## Non-Daily Owner Samples
+
+These rows appear to belong to another lane. They are marked for ownership review only; this PR does not cross into those lanes.
+
+| path | owner_lane | classification | recommended_action |
+| --- | --- | --- | --- |
+| `output/latest/approved_operation_patterns_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/approved_operation_patterns_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_parameter_recommendations_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_parameter_recommendations_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_parameter_research_horizon_detail_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_parameter_research_horizon_detail_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_parameter_research_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_parameter_research_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_research_parity_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_model_research_parity_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_published_snapshot_ranking_backtest_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_published_snapshot_ranking_backtest_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_short_term_specialty_packet_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_signal_performance_monthly_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_signal_performance_summary_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_signal_performance_summary_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_signal_performance_validation_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_signal_performance_weekly_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_volume_breakout_operation_evidence_audit_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_volume_breakout_operation_evidence_audit_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_volume_breakout_operation_section_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/daily_volume_breakout_operation_section_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/explosive_volume_up_backtest_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/explosive_volume_up_backtest_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/explosive_volume_up_position_backtest_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/historical_pattern_operation_registry_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/historical_pattern_operation_registry_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
+| `output/latest/individual_stock_available_raw_data_index.csv` | `individual_stock` | `belongs_to_other_lane` | `review` |
+| `output/latest/individual_stock_available_raw_data_index.md` | `individual_stock` | `belongs_to_other_lane` | `review` |
+| `output/latest/individual_stock_available_raw_data_index_slim.csv` | `individual_stock` | `belongs_to_other_lane` | `review` |
+| `...(+7300)` | `` | `` | `` |
 
 ## Unknown Samples
 
-- `output/latest/breakout_latest.csv`
-- `output/latest/daily_pattern_watch_latest.csv`
-- `output/latest/futures_options_call_put_latest.csv`
-- `output/latest/futures_options_contracts_latest.csv`
-- `output/latest/futures_options_institutional_fo_latest.csv`
-- `output/latest/futures_options_put_call_ratio_latest.csv`
-- `output/latest/official_price_fetch_latest.md`
-- `output/latest/pullback_rebound_latest.csv`
-- `output/latest/range_rebound_watch_latest.csv`
-- `output/latest/reorganize_output_files_latest.md`
-- `output/latest/revenue_breakout_low_response_latest.csv`
-- `output/latest/revenue_breakout_low_response_latest.md`
-- `output/latest/revenue_industry_applicability_latest.md`
-- `output/latest/revenue_pullback_latest.csv`
-- `output/latest/surge_model_score_latest.csv`
-- `output/latest/surge_model_score_latest.md`
-- `output/latest/taiwan_vix_latest.csv`
-- `output/latest/volume_breakout_confirmed_operation_rank_latest.md`
-- `output/latest/volume_breakout_formal_operation_lifecycle_latest.csv`
-- `output/latest/volume_breakout_pattern_classification_latest.csv`
-- `output/latest/volume_breakout_pattern_classification_latest.md`
-- `output/latest/volume_breakout_pattern_dimension_latest.csv`
-- `output/latest/volume_breakout_pattern_dimension_latest.md`
-- `output/latest/volume_breakout_pending_operation_queue_latest.md`
-- `output/latest/weekly_10pct_vs_20pct_surge_volume_comparison_latest.csv`
-- `output/latest/weekly_10pct_vs_20pct_surge_volume_comparison_latest.md`
-- `output/latest/weekly_20pct_surge_volume_events_latest.csv`
-- `output/latest/weekly_20pct_surge_volume_hit_rate_latest.csv`
-- `output/latest/weekly_20pct_surge_volume_hit_rate_latest.md`
-- `output/latest/weekly_surge_5d_avg_volume_comparison_latest.csv`
+Unknown rows have no direct consumer evidence and no diagnostic/stale naming signal. They require future lifecycle review before any cleanup. The CSV contains every unknown row; this summary omits retired-surface names to avoid creating new guidance references.
 
-## Method
+| path | owner_lane | recommended_action | notes |
+| --- | --- | --- | --- |
+| `output/latest/breakout_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/daily_pattern_watch_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/institutional_investor_flow_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/official_daily_price_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete` |
+| `output/latest/official_price_fetch_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/pullback_rebound_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/range_rebound_watch_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/reorganize_output_files_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/revenue_breakout_low_response_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete` |
+| `output/latest/revenue_breakout_low_response_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/revenue_industry_applicability_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/revenue_pullback_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/surge_model_score_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/surge_model_score_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/taiwan_vix_latest.csv` | `market_risk` | `unknown` | `classification_only_no_move_no_delete` |
+| `output/latest/volume_breakout_buy_signal_best_candidates_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete` |
+| `output/latest/volume_breakout_buy_signal_grid_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete` |
+| `output/latest/volume_breakout_buy_signal_grid_summary_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/volume_breakout_pattern_classification_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/volume_breakout_pattern_classification_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/volume_breakout_pattern_dimension_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/volume_breakout_pattern_dimension_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/volume_breakout_tdcc_buy_signal_best_candidates_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/volume_breakout_tdcc_buy_signal_grid_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/volume_breakout_tdcc_buy_signal_grid_summary_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/weekly_20pct_surge_volume_events_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/weekly_20pct_surge_volume_hit_rate_latest.csv` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
+| `output/latest/weekly_20pct_surge_volume_hit_rate_latest.md` | `daily_production` | `unknown` | `classification_only_no_move_no_delete;no_rg_or_lineage_consumer_found` |
 
-The audit scanned tracked repo text references, workflows, validators, tests, `config/report_artifact_lineage.csv`, and `config/repo_file_lifecycle_inventory.csv`. It also searched generated latest/docs surfaces for raw-link and packet references. The full row-level classification is in `config/output_latest_artifact_inventory.csv`.
+## Completion Boundary
+
+This audit is classification-only. It did not move, delete, or rewrite any CSV/MD artifact under `output/latest`, and it does not authorize later deletion without a separate lifecycle cleanup PR.
