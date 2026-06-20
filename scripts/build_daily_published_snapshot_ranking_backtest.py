@@ -14,6 +14,7 @@ from tracking_utils import (  # noqa: E402
     DOCS_LATEST_DIR,
     HISTORY_DIR,
     LATEST_DIR,
+    RESEARCH_LATEST_DIR,
     STOCK_PRICE_HISTORY_DIR,
     markdown_table,
     normalize_code,
@@ -29,8 +30,8 @@ SNAPSHOT_DIR = HISTORY_DIR / "daily_model_snapshots"
 MANIFEST_CSV = SNAPSHOT_DIR / "daily_published_model_snapshot_manifest.csv"
 RESEARCH_HISTORY_DIR = HISTORY_DIR / "research"
 
-OUT_CSV = LATEST_DIR / "daily_published_snapshot_ranking_backtest_latest.csv"
-OUT_MD = LATEST_DIR / "daily_published_snapshot_ranking_backtest_latest.md"
+OUT_CSV = RESEARCH_LATEST_DIR / "daily_published_snapshot_ranking_backtest_latest.csv"
+OUT_MD = RESEARCH_LATEST_DIR / "daily_published_snapshot_ranking_backtest_latest.md"
 EVENTS_CSV = RESEARCH_HISTORY_DIR / "daily_published_snapshot_ranking_events.csv"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name

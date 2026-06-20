@@ -47,6 +47,7 @@ docs/latest/chatgpt_daily_report_packet_latest.txt,generated_guidance,repo_infra
 docs/market_regime_data_source_plan.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/output_latest_artifact_audit_20260620.md,guidance_doc,repo_infrastructure,active,,,,,,,classification-only output/latest CSV/MD artifact audit; not deletion approval,,none
 docs/individual_stock_artifact_relocation_plan_20260620.md,guidance_doc,individual_stock,active,,,,,,,individual-stock output/latest relocation plan; no deletion approval,,none
+docs/research_backtest_artifact_relocation_plan_20260621.md,guidance_doc,research_backtest,active,,,,,,,research/backtest output/latest relocation plan; advisory artifacts only; no production promotion,,none
 docs/output_latest_artifact_layout.md,guidance_doc,repo_infrastructure,active,,,,docs/pdf_production_inventory.md,,,active project guidance checked for executable command references,,none
 docs/pdf_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/repo_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none

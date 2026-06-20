@@ -14,7 +14,7 @@ from research_weekly_20pct_surge_volume import build_stock_day_frame  # noqa: E4
 from research_weekly_surge_technical_grid import add_technical_features  # noqa: E402
 from research_weekly_surge_theme_segments import attach_theme_labels  # noqa: E402
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
-from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
+from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
 
 
 HISTORY_DIR = Path("output/history/research")
@@ -22,8 +22,8 @@ OUT_CSV = LATEST_DIR / "daily_model_parameter_research_latest.csv"
 OUT_MD = LATEST_DIR / "daily_model_parameter_research_latest.md"
 OUT_DETAIL_CSV = LATEST_DIR / "daily_model_parameter_research_horizon_detail_latest.csv"
 OUT_DETAIL_MD = LATEST_DIR / "daily_model_parameter_research_horizon_detail_latest.md"
-OUT_PARITY_CSV = LATEST_DIR / "daily_model_research_parity_latest.csv"
-OUT_PARITY_MD = LATEST_DIR / "daily_model_research_parity_latest.md"
+OUT_PARITY_CSV = RESEARCH_LATEST_DIR / "daily_model_research_parity_latest.csv"
+OUT_PARITY_MD = RESEARCH_LATEST_DIR / "daily_model_research_parity_latest.md"
 HISTORY_CSV = HISTORY_DIR / "daily_model_parameter_research.csv"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name

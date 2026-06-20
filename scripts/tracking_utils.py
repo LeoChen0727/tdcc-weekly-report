@@ -17,6 +17,7 @@ RAW_PREFIX = f"https://raw.githubusercontent.com/{REPO}/main"
 PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
 
 LATEST_DIR = Path("output/latest")
+RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
 DOCS_LATEST_DIR = Path("docs/latest")
 DATA_DIR = Path("data")
 HISTORY_DIR = Path("output/history")

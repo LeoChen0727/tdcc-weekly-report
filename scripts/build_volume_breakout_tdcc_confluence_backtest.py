@@ -16,14 +16,15 @@ from tracking_utils import normalize_code, normalize_date, safe_str, to_number, 
 
 ROOT = Path(".")
 LATEST_DIR = ROOT / "output" / "latest"
+RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
 RESEARCH_HISTORY_DIR = ROOT / "output" / "history" / "research"
 
 OPERATION_EVENTS_CSV = RESEARCH_HISTORY_DIR / "historical_pattern_operation_events.csv"
 CLASSIFICATION_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_pattern_classification_events.csv"
 TDCC_EVENTS_CSV = RESEARCH_HISTORY_DIR / "tdcc_weekly_ranking_backtest_events.csv"
 
-LATEST_SUMMARY_CSV = LATEST_DIR / "volume_breakout_tdcc_confluence_backtest_latest.csv"
-LATEST_SUMMARY_MD = LATEST_DIR / "volume_breakout_tdcc_confluence_backtest_latest.md"
+LATEST_SUMMARY_CSV = RESEARCH_LATEST_DIR / "volume_breakout_tdcc_confluence_backtest_latest.csv"
+LATEST_SUMMARY_MD = RESEARCH_LATEST_DIR / "volume_breakout_tdcc_confluence_backtest_latest.md"
 HISTORY_SUMMARY_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_tdcc_confluence_backtest.csv"
 HISTORY_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_tdcc_confluence_events.csv"
 

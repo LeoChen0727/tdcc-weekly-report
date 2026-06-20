@@ -8,10 +8,10 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text, read_csv, safe_str, write_csv  # noqa: E402
+from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, read_csv, safe_str, write_csv  # noqa: E402
 
 
-PARITY_CSV = LATEST_DIR / "daily_model_research_parity_latest.csv"
+PARITY_CSV = RESEARCH_LATEST_DIR / "daily_model_research_parity_latest.csv"
 REGISTRY_CSV = LATEST_DIR / "historical_pattern_operation_registry_latest.csv"
 DAILY_VOLUME_ADAPTER_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"

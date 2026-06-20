@@ -32,11 +32,12 @@ from volume_breakout_operation_utils import (  # noqa: E402
 
 ROOT = Path(".")
 LATEST_DIR = ROOT / "output" / "latest"
+RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
 RESEARCH_HISTORY_DIR = ROOT / "output" / "history" / "research"
 TDCC_EVENTS_CSV = RESEARCH_HISTORY_DIR / "tdcc_weekly_ranking_backtest_events.csv"
 
-LATEST_SUMMARY_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_backtest_latest.csv"
-LATEST_SUMMARY_MD = LATEST_DIR / "volume_breakout_confirmed_operation_backtest_latest.md"
+LATEST_SUMMARY_CSV = RESEARCH_LATEST_DIR / "volume_breakout_confirmed_operation_backtest_latest.csv"
+LATEST_SUMMARY_MD = RESEARCH_LATEST_DIR / "volume_breakout_confirmed_operation_backtest_latest.md"
 HISTORY_SUMMARY_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation_backtest.csv"
 HISTORY_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation_events.csv"
 LATEST_FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
