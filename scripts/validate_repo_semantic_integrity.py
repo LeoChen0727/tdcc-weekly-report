@@ -13,7 +13,7 @@ LINEAGE_CSV = ROOT / "config" / "report_artifact_lineage.csv"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 DAILY_BOUNDARY_VALIDATOR = ROOT / "scripts" / "validate_daily_production_boundaries.py"
 TAXONOMY_CSV = ROOT / "output" / "latest" / "stock_theme_taxonomy_latest.csv"
-MODEL_PARITY_CSV = ROOT / "output" / "latest" / "daily_model_research_parity_latest.csv"
+MODEL_PARITY_CSV = ROOT / "output" / "latest" / "research_backtest" / "daily_model_research_parity_latest.csv"
 MODEL_PARAMETERS_CSV = ROOT / "output" / "latest" / "daily_candidate_model_parameters_latest.csv"
 OPERATION_SECTION_CSV = ROOT / "output" / "latest" / "daily_volume_breakout_operation_section_latest.csv"
 

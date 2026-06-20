@@ -7,7 +7,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from tracking_utils import DAILY_SIGNALS_DIR, LATEST_DIR, main_price_date_from_freshness, normalize_date  # noqa: E402
+from tracking_utils import DAILY_SIGNALS_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, main_price_date_from_freshness, normalize_date  # noqa: E402
 
 
 SIGNAL_LOG = DAILY_SIGNALS_DIR / "daily_candidate_signal_log.csv"
@@ -18,7 +18,7 @@ WEEKLY_MD = LATEST_DIR / "daily_signal_performance_weekly_latest.md"
 WEEKLY_PDF = LATEST_DIR / "daily_signal_performance_weekly_latest.pdf"
 MONTHLY_MD = LATEST_DIR / "daily_signal_performance_monthly_latest.md"
 MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest.pdf"
-VALIDATION_MD = LATEST_DIR / "daily_signal_performance_validation_latest.md"
+VALIDATION_MD = RESEARCH_LATEST_DIR / "daily_signal_performance_validation_latest.md"
 
 FORBIDDEN = ["我的持股", "個人部位", "成本", "損益", "融資風險", "持有張數"]
 

@@ -1,7 +1,7 @@
 # Daily Signal Performance Validation
 
 status: pass
-main_price_date: `20260616`
-signal_log_rows: `8838`
+main_price_date: `20260618`
+signal_log_rows: `9786`
 performance_rows: `8838`
 summary_rows: `119`

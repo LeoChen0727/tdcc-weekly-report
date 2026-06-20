@@ -9,6 +9,7 @@ import pandas as pd
 
 PRICE_DIR = Path("data/stock_price_history")
 LATEST_DIR = Path("output/latest")
+RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
 HISTORY_DIR = Path("output/history/research")
 
 EVENTS_CSV = LATEST_DIR / "weekly_20pct_surge_volume_events_latest.csv"
@@ -16,10 +17,10 @@ SUMMARY_CSV = LATEST_DIR / "weekly_20pct_surge_volume_hit_rate_latest.csv"
 SUMMARY_MD = LATEST_DIR / "weekly_20pct_surge_volume_hit_rate_latest.md"
 TARGET_COMPARISON_CSV = LATEST_DIR / "weekly_10pct_vs_20pct_surge_volume_comparison_latest.csv"
 TARGET_COMPARISON_MD = LATEST_DIR / "weekly_10pct_vs_20pct_surge_volume_comparison_latest.md"
-WEEKLY_VOLUME_COMPARISON_CSV = LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.csv"
-WEEKLY_VOLUME_COMPARISON_MD = LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.md"
-NEXT_OPEN_COMPARISON_CSV = LATEST_DIR / "weekly_surge_next_open_hit_rate_latest.csv"
-NEXT_OPEN_COMPARISON_MD = LATEST_DIR / "weekly_surge_next_open_hit_rate_latest.md"
+WEEKLY_VOLUME_COMPARISON_CSV = RESEARCH_LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.csv"
+WEEKLY_VOLUME_COMPARISON_MD = RESEARCH_LATEST_DIR / "weekly_surge_5d_avg_volume_comparison_latest.md"
+NEXT_OPEN_COMPARISON_CSV = RESEARCH_LATEST_DIR / "weekly_surge_next_open_hit_rate_latest.csv"
+NEXT_OPEN_COMPARISON_MD = RESEARCH_LATEST_DIR / "weekly_surge_next_open_hit_rate_latest.md"
 HISTORY_EVENTS_CSV = HISTORY_DIR / "weekly_20pct_surge_volume_events.csv"
 
 FORWARD_DAYS = 5

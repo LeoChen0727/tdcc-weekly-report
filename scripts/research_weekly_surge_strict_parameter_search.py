@@ -12,11 +12,12 @@ from research_weekly_surge_technical_grid import add_technical_features
 
 
 LATEST_DIR = Path("output/latest")
+RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
 HISTORY_DIR = Path("output/history/research")
 
 OUT_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.csv"
 OUT_MD = LATEST_DIR / "weekly_surge_strict_parameter_search_latest.md"
-ALL_RULES_CSV = LATEST_DIR / "weekly_surge_strict_parameter_search_all_rules_latest.csv"
+ALL_RULES_CSV = RESEARCH_LATEST_DIR / "weekly_surge_strict_parameter_search_all_rules_latest.csv"
 HISTORY_CSV = HISTORY_DIR / "weekly_surge_strict_parameter_search.csv"
 
 WINDOWS = list(range(1, 11)) + [20]

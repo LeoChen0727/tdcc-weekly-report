@@ -23,7 +23,7 @@ ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 TRACER = ROOT / "scripts" / "trace_runtime_file_lineage.py"
 FRESHNESS_CSV = ROOT / "output" / "latest" / "data_freshness_latest.csv"
 MODEL_PARAMETERS_CSV = ROOT / "output" / "latest" / "daily_candidate_model_parameters_latest.csv"
-MODEL_PARITY_CSV = ROOT / "output" / "latest" / "daily_model_research_parity_latest.csv"
+MODEL_PARITY_CSV = ROOT / "output" / "latest" / "research_backtest" / "daily_model_research_parity_latest.csv"
 MODEL_REGISTRY_CSV = ROOT / "output" / "latest" / "daily_report_model_registry_latest.csv"
 
 

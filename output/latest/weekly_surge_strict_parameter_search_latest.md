@@ -8,7 +8,7 @@
 - target: D+1 open to D+1 / ... / D+10 / D+20 max high >= 10%.
 - win_rate_definition: selected stock-days whose post-entry intraperiod high touches +10%; this is not D+N close-to-close win rate.
 - close_exit_definition: D+1 open entry to D+N close exit; close-exit win rate uses return > 0.
-- complete_rules_csv: `output/latest/weekly_surge_strict_parameter_search_latest.csv` and `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv` contain every tested rule with win rate and return metrics.
+- complete_rules_csv: `output/latest/weekly_surge_strict_parameter_search_latest.csv` and `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv` contain every tested rule with win rate and return metrics.
 - strictness: no latest theme labels are used. Features are price/volume/technical, TDCC as-of data, and market regime derived from historical index data.
 - use: parameter discovery only; do not change core model weights from this table.
 
@@ -112,7 +112,7 @@
 
 ## D+1 Full Rule Table
 
-完整 D+1 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+1 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+2 Rules - Large Enough
 
@@ -171,7 +171,7 @@
 
 ## D+2 Full Rule Table
 
-完整 D+2 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+2 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+3 Rules - Large Enough
 
@@ -230,7 +230,7 @@
 
 ## D+3 Full Rule Table
 
-完整 D+3 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+3 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+4 Rules - Large Enough
 
@@ -289,7 +289,7 @@
 
 ## D+4 Full Rule Table
 
-完整 D+4 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+4 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+5 Rules - Large Enough
 
@@ -348,7 +348,7 @@
 
 ## D+5 Full Rule Table
 
-完整 D+5 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+5 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+6 Rules - Large Enough
 
@@ -407,7 +407,7 @@
 
 ## D+6 Full Rule Table
 
-完整 D+6 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+6 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+7 Rules - Large Enough
 
@@ -466,7 +466,7 @@
 
 ## D+7 Full Rule Table
 
-完整 D+7 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+7 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+8 Rules - Large Enough
 
@@ -525,7 +525,7 @@
 
 ## D+8 Full Rule Table
 
-完整 D+8 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+8 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+9 Rules - Large Enough
 
@@ -584,7 +584,7 @@
 
 ## D+9 Full Rule Table
 
-完整 D+9 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+9 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+10 Rules - Large Enough
 
@@ -643,7 +643,7 @@
 
 ## D+10 Full Rule Table
 
-完整 D+10 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+10 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
 ## Best D+20 Rules - Large Enough
 
@@ -702,5 +702,5 @@
 
 ## D+20 Full Rule Table
 
-完整 D+20 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
+完整 D+20 規則已列在 `output/latest/weekly_surge_strict_parameter_search_latest.csv` / `output/latest/research_backtest/weekly_surge_strict_parameter_search_all_rules_latest.csv`。 Markdown 只列前段，避免 ChatGPT-friendly 報告過大；CSV 保留全部條件、勝率與報酬。
 
