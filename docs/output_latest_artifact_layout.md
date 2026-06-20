@@ -50,6 +50,42 @@ Do not move a pipeline dependency only because it is human-readable. First
 identify the producer, consumer, validator, packet, workflow, and lifecycle
 inventory entries that depend on the path.
 
+## TDCC Weekly Artifacts
+
+Machine-facing TDCC weekly CSV/MD artifacts should migrate toward:
+
+```text
+output/latest/tdcc_weekly/
+```
+
+Canonical subdirectories for future TDCC weekly cleanup are:
+
+- `output/latest/tdcc_weekly/history/`
+- `output/latest/tdcc_weekly/holder_flow/`
+- `output/latest/tdcc_weekly/rankings/`
+- `output/latest/tdcc_weekly/reports/`
+- `output/latest/tdcc_weekly/tracking/`
+- `output/latest/tdcc_weekly/status/`
+- `output/latest/tdcc_weekly/diagnostics/`
+
+The current root `output/latest/tdcc_*` CSV/MD files are compatibility aliases
+when TDCC weekly builders, validators, workflows, rules, packets, raw links, or
+docs/latest still depend on those exact paths. Do not retire a TDCC weekly root
+alias until the producer, validator, workflow staging, docs/latest mirror, and
+raw-link packet surfaces are updated in the same reviewed PR.
+
+TDCC weekly human-facing PDFs belong under:
+
+```text
+output/latest/published_reports/tdcc_weekly/
+```
+
+The detailed TDCC weekly root-alias plan is:
+
+```text
+docs/tdcc_weekly_artifact_relocation_plan_20260621.md
+```
+
 ## Individual Stock Reports
 
 Individual-stock human and packet-facing artifacts belong under:
