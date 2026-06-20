@@ -200,6 +200,7 @@ tests/test_stock_theme_manual_import.py,test_python,daily_production,active,dail
 tests/test_stock_theme_taxonomy.py,test_python,daily_production,active,daily production test: test_stock_theme_taxonomy,,
 tests/test_tdcc_chatgpt_tracking_outputs.py,test_python,tdcc_weekly,active,TDCC weekly/holder-flow test: test_tdcc_chatgpt_tracking_outputs,,
 tests/test_tdcc_holder_ratio_fallback.py,test_python,tdcc_weekly,active,TDCC weekly/holder-flow test: test_tdcc_holder_ratio_fallback,,
+tests/test_tdcc_weekly_delivery_filenames.py,test_python,tdcc_weekly,active,TDCC weekly/holder-flow test: test_tdcc_weekly_delivery_filenames,,
 tests/test_tdcc_weekly_ranking_backtest.py,test_python,tdcc_weekly,active,TDCC weekly/holder-flow test: test_tdcc_weekly_ranking_backtest,,
 tests/test_theme_event_watch.py,test_python,catalyst_event,active,catalyst/event test: test_theme_event_watch,,
 tests/test_tracking_utils.py,test_python,tdcc_weekly,active,TDCC weekly/holder-flow test: test_tracking_utils,,
@@ -225,7 +226,7 @@ tests/test_warrant_market_report_fallback.py,test_python,warrant,active,warrant 
 .github/workflows/research_backtest_pipeline.yml,workflow,research_backtest,active,research backtest workflow boundary,,git add output/latest/daily_model_parameter_recommendations_latest.csv;git add output/latest/model_operation_readiness_latest.csv;git add output/latest/daily_signal_performance_*.csv
 .github/workflows/signal_performance_tracker.yml,workflow,research_backtest,active,research backtest workflow boundary,,
 .github/workflows/tdcc_history_backfill.yml,workflow,tdcc_weekly,active,tdcc weekly workflow boundary,,git add data/tdcc_stock_history/ data/tdcc_stock_history_raw/;git add output/latest/tdcc_* output/history/tdcc_signals/ output/history/tdcc/
-.github/workflows/tdcc_weekly.yml,workflow,tdcc_weekly,active,tdcc weekly workflow boundary,,git add data/tdcc_stock_history/ data/tdcc_stock_history_raw/;git add output/latest/tdcc_* output/history/tdcc_signals/ output/history/tdcc/;git add docs/latest/tdcc_* docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md
+.github/workflows/tdcc_weekly.yml,workflow,tdcc_weekly,active,tdcc weekly workflow boundary,,git add data/tdcc_stock_history/ data/tdcc_stock_history_raw/;git add output/latest/tdcc_* output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_*.pdf output/history/tdcc_signals/ output/history/tdcc/;git add docs/latest/tdcc_* docs/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_*.pdf docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md
 .github/workflows/test_tdcc_trend.yml,workflow,diagnostics,manual_diagnostic,diagnostics workflow boundary,,
 .github/workflows/warrant_flow.yml,workflow,warrant,active,warrant workflow boundary,,git add output/latest/warrant_daily_raw_latest.csv;git add output/latest/warrant_flow_latest.csv;git add output/history/warrant_daily/;git add output/latest/data_freshness_latest.csv
 .github/workflows/weekly_theme_review.yml,workflow,catalyst_event,active,catalyst event workflow boundary,,
