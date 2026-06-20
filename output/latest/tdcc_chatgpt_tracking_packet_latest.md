@@ -466,6 +466,10 @@
 - tdcc_weekly_candidate_full_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.pdf
 - tdcc_weekly_candidate_highlight_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_highlight_latest.pdf
 - tdcc_weekly_candidate_full_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_full_latest.pdf
+- tdcc_weekly_candidate_highlight_delivery_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/TDCC大戶籌碼週報_精華版_20260618.pdf
+- tdcc_weekly_candidate_full_delivery_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/TDCC大戶籌碼週報_完整版_20260618.pdf
+- tdcc_weekly_candidate_highlight_delivery_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/TDCC大戶籌碼週報_精華版_20260618.pdf
+- tdcc_weekly_candidate_full_delivery_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/TDCC大戶籌碼週報_完整版_20260618.pdf
 
 ## Model Tuning Recommendation
 - tuning_status: not_ready

@@ -43,6 +43,8 @@ HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
 FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
 HIGHLIGHT_PDF = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.pdf"
 FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
+DELIVERY_HIGHLIGHT_PDF_PREFIX = "TDCC大戶籌碼週報_精華版"
+DELIVERY_FULL_PDF_PREFIX = "TDCC大戶籌碼週報_完整版"
 SECTION_MANIFEST_CSV = LATEST_DIR / "tdcc_weekly_report_section_manifest_latest.csv"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 
@@ -1633,6 +1635,37 @@ def report_date_from_ready_csvs(highlight: pd.DataFrame, full: pd.DataFrame) -> 
     return highlight_date
 
 
+def delivery_pdf_path(report_kind: str, signal_date: str) -> Path:
+    date = safe_str(signal_date)
+    if not re.fullmatch(r"\d{8}", date):
+        raise RuntimeError(f"TDCC delivery PDF signal_date must be YYYYMMDD, got: {signal_date!r}")
+    if report_kind == "highlight":
+        return LATEST_DIR / f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_{date}.pdf"
+    if report_kind == "full":
+        return LATEST_DIR / f"{DELIVERY_FULL_PDF_PREFIX}_{date}.pdf"
+    raise ValueError(f"unsupported TDCC delivery report kind: {report_kind}")
+
+
+def delivery_pdf_paths(signal_date: str) -> dict[str, Path]:
+    return {
+        "highlight": delivery_pdf_path("highlight", signal_date),
+        "full": delivery_pdf_path("full", signal_date),
+    }
+
+
+def sync_delivery_pdf(canonical_path: Path, delivery_path: Path) -> None:
+    if not canonical_path.exists() or canonical_path.stat().st_size < 10_000:
+        raise RuntimeError(f"canonical TDCC PDF not generated or too small: {canonical_path}")
+    delivery_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(canonical_path, delivery_path)
+
+
+def docs_sync_paths(signal_date: str) -> list[Path]:
+    paths = list(DOCS_SYNC_PATHS)
+    paths.extend(delivery_pdf_paths(signal_date).values())
+    return paths
+
+
 def write_report_md(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str, report_date: str) -> None:
     lines = [
         f"# {title}",
@@ -1815,9 +1848,9 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame, manifest: pd.D
             raise RuntimeError(f"TDCC PDF not generated or too small: {path}")
 
 
-def sync_docs_latest() -> None:
+def sync_docs_latest(signal_date: str) -> None:
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    for src in DOCS_SYNC_PATHS:
+    for src in docs_sync_paths(signal_date):
         if not src.exists():
             continue
         dst = DOCS_LATEST_DIR / src.name
@@ -1864,6 +1897,9 @@ def main() -> int:
 
     write_tdcc_weekly_highlight_pdf(highlight_for_render, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版", render_manifest, report_date)
     write_tdcc_weekly_full_pdf(full_for_render, FULL_PDF, "TDCC 大戶籌碼週報完整版", render_manifest, report_date)
+    delivery_paths = delivery_pdf_paths(report_date)
+    sync_delivery_pdf(HIGHLIGHT_PDF, delivery_paths["highlight"])
+    sync_delivery_pdf(FULL_PDF, delivery_paths["full"])
 
     fields = {
         "tdcc_weekly_report_section_manifest_csv_raw_url": raw_url(SECTION_MANIFEST_CSV),
@@ -1876,11 +1912,15 @@ def main() -> int:
         "tdcc_weekly_candidate_full_pdf_raw_url": raw_url(FULL_PDF),
         "tdcc_weekly_candidate_highlight_pdf_pages_url": pages_url(HIGHLIGHT_PDF),
         "tdcc_weekly_candidate_full_pdf_pages_url": pages_url(FULL_PDF),
+        "tdcc_weekly_candidate_highlight_delivery_pdf_raw_url": raw_url(delivery_paths["highlight"]),
+        "tdcc_weekly_candidate_full_delivery_pdf_raw_url": raw_url(delivery_paths["full"]),
+        "tdcc_weekly_candidate_highlight_delivery_pdf_pages_url": pages_url(delivery_paths["highlight"]),
+        "tdcc_weekly_candidate_full_delivery_pdf_pages_url": pages_url(delivery_paths["full"]),
     }
     upsert_readme_fields(fields)
     append_tracking_packet(fields)
     validate_outputs(highlight_for_render, full_for_render, render_manifest)
-    sync_docs_latest()
+    sync_docs_latest(report_date)
 
     print(f"latest_signal_date={meta.get('latest_signal_date', '')}")
     for path in [
@@ -1892,6 +1932,8 @@ def main() -> int:
         FULL_FOR_REPORT_CSV,
         HIGHLIGHT_PDF,
         FULL_PDF,
+        delivery_paths["highlight"],
+        delivery_paths["full"],
     ]:
         print(f"Saved: {path}")
     return 0
