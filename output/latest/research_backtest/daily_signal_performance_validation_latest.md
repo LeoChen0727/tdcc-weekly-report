@@ -3,5 +3,5 @@
 status: pass
 main_price_date: `20260618`
 signal_log_rows: `9786`
-performance_rows: `8838`
-summary_rows: `119`
+performance_rows: `9786`
+summary_rows: `122`
