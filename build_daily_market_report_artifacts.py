@@ -55,9 +55,14 @@ PDF_KLINE_MIN_DAYS = 60
 
 # 中文檔名：給人看
 LATEST_SUMMARY_MD = LATEST_DIR / "每日全市場候選股監測報告_精華版.md"
-LATEST_SUMMARY_PDF = LATEST_DIR / "每日全市場候選股監測報告_精華版.pdf"
 LATEST_FULL_MD = LATEST_DIR / "完整候選股清單_完整版.md"
-LATEST_FULL_PDF = LATEST_DIR / "完整候選股清單_完整版表格.pdf"
+PUBLISHED_DAILY_MARKET_DIR = LATEST_DIR / "published_reports" / "daily_market"
+PUBLISHED_SUMMARY_PDF_STEM = "每日全市場候選股監測報告_精華版"
+PUBLISHED_FULL_PDF_STEM = "完整候選股清單_完整版"
+LEGACY_ROOT_DAILY_MARKET_PDFS = (
+    LATEST_DIR / "每日全市場候選股監測報告_精華版.pdf",
+    LATEST_DIR / "完整候選股清單_完整版表格.pdf",
+)
 
 # 英文 alias：給 ChatGPT / raw 工具穩定讀取
 LATEST_SUMMARY_ALIAS_MD = LATEST_DIR / "daily_market_summary_latest.md"
@@ -187,6 +192,26 @@ def normalize_date(value) -> str:
     if len(digits) >= 8:
         return digits[:8]
     return ""
+
+
+def published_daily_market_summary_pdf(main_date: str) -> Path:
+    date_text = normalize_date(main_date)
+    if not date_text:
+        raise ValueError("main_price_date is required for published daily market summary PDF")
+    return PUBLISHED_DAILY_MARKET_DIR / f"{PUBLISHED_SUMMARY_PDF_STEM}_{date_text}.pdf"
+
+
+def published_daily_market_full_pdf(main_date: str) -> Path:
+    date_text = normalize_date(main_date)
+    if not date_text:
+        raise ValueError("main_price_date is required for published daily market full PDF")
+    return PUBLISHED_DAILY_MARKET_DIR / f"{PUBLISHED_FULL_PDF_STEM}_{date_text}.pdf"
+
+
+def remove_legacy_root_daily_market_pdfs() -> None:
+    for path in LEGACY_ROOT_DAILY_MARKET_PDFS:
+        if path.exists():
+            path.unlink()
 
 
 def raw_url_for_path(path: str | Path) -> str:
@@ -2008,6 +2033,8 @@ def build_manifest(
     main_date: str,
     report_ready: bool,
     meta: dict,
+    latest_summary_pdf: Path,
+    latest_full_pdf: Path,
     history_summary_md: Path,
     history_summary_pdf: Path,
     history_full_md: Path,
@@ -2046,14 +2073,14 @@ def build_manifest(
             str(history_full_alias_pdf),
             str(LATEST_SUMMARY_MD),
             str(LATEST_FULL_MD),
-            str(LATEST_SUMMARY_PDF),
-            str(LATEST_FULL_PDF),
+            str(latest_summary_pdf),
+            str(latest_full_pdf),
         ],
 
         "latest_summary_md": str(LATEST_SUMMARY_MD),
-        "latest_summary_pdf": str(LATEST_SUMMARY_PDF),
+        "latest_summary_pdf": str(latest_summary_pdf),
         "latest_full_md": str(LATEST_FULL_MD),
-        "latest_full_pdf": str(LATEST_FULL_PDF),
+        "latest_full_pdf": str(latest_full_pdf),
 
         "latest_summary_alias_md": str(LATEST_SUMMARY_ALIAS_MD),
         "latest_summary_alias_pdf": str(LATEST_SUMMARY_ALIAS_PDF),
@@ -2154,8 +2181,12 @@ def write_manifest_files(manifest: dict) -> None:
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    PUBLISHED_DAILY_MARKET_DIR.mkdir(parents=True, exist_ok=True)
 
     main_date, report_ready, meta = get_main_price_date()
+    latest_summary_pdf = published_daily_market_summary_pdf(main_date)
+    latest_full_pdf = published_daily_market_full_pdf(main_date)
+    remove_legacy_root_daily_market_pdfs()
 
     candidates = load_candidates()
     chart_manifest = load_chart_manifest()
@@ -2180,7 +2211,7 @@ def main() -> int:
     LATEST_FULL_MD.write_text(full_md, encoding="utf-8")
 
     build_summary_pdf(
-        path=LATEST_SUMMARY_PDF,
+        path=latest_summary_pdf,
         candidates=candidates,
         chart_manifest=chart_manifest,
         meta=meta,
@@ -2189,7 +2220,7 @@ def main() -> int:
     )
 
     build_full_pdf(
-        path=LATEST_FULL_PDF,
+        path=latest_full_pdf,
         candidates=candidates,
         meta=meta,
         main_date=main_date,
@@ -2199,8 +2230,8 @@ def main() -> int:
     # 寫英文 latest alias
     shutil.copyfile(LATEST_SUMMARY_MD, LATEST_SUMMARY_ALIAS_MD)
     shutil.copyfile(LATEST_FULL_MD, LATEST_FULL_ALIAS_MD)
-    shutil.copyfile(LATEST_SUMMARY_PDF, LATEST_SUMMARY_ALIAS_PDF)
-    shutil.copyfile(LATEST_FULL_PDF, LATEST_FULL_ALIAS_PDF)
+    shutil.copyfile(latest_summary_pdf, LATEST_SUMMARY_ALIAS_PDF)
+    shutil.copyfile(latest_full_pdf, LATEST_FULL_ALIAS_PDF)
 
     # 中文日期版
     history_summary_md = HISTORY_REPORT_DIR / f"{main_date}_每日全市場候選股監測報告_精華版.md"
@@ -2209,9 +2240,9 @@ def main() -> int:
     history_full_pdf = HISTORY_REPORT_DIR / f"{main_date}_完整候選股清單_完整版表格.pdf"
 
     shutil.copyfile(LATEST_SUMMARY_MD, history_summary_md)
-    shutil.copyfile(LATEST_SUMMARY_PDF, history_summary_pdf)
+    shutil.copyfile(latest_summary_pdf, history_summary_pdf)
     shutil.copyfile(LATEST_FULL_MD, history_full_md)
-    shutil.copyfile(LATEST_FULL_PDF, history_full_pdf)
+    shutil.copyfile(latest_full_pdf, history_full_pdf)
 
     # 英文日期版 alias
     history_summary_alias_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.md"
@@ -2228,6 +2259,8 @@ def main() -> int:
         main_date=main_date,
         report_ready=report_ready,
         meta=meta,
+        latest_summary_pdf=latest_summary_pdf,
+        latest_full_pdf=latest_full_pdf,
         history_summary_md=history_summary_md,
         history_summary_pdf=history_summary_pdf,
         history_full_md=history_full_md,
@@ -2241,9 +2274,9 @@ def main() -> int:
     write_manifest_files(manifest)
 
     print(f"Saved: {LATEST_SUMMARY_MD}")
-    print(f"Saved: {LATEST_SUMMARY_PDF}")
+    print(f"Saved: {latest_summary_pdf}")
     print(f"Saved: {LATEST_FULL_MD}")
-    print(f"Saved: {LATEST_FULL_PDF}")
+    print(f"Saved: {latest_full_pdf}")
     print(f"Saved alias: {LATEST_SUMMARY_ALIAS_MD}")
     print(f"Saved alias: {LATEST_SUMMARY_ALIAS_PDF}")
     print(f"Saved alias: {LATEST_FULL_ALIAS_MD}")

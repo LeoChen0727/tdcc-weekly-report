@@ -29,16 +29,16 @@ def test_inventory_tracks_every_pdf_purpose() -> None:
 
 def test_daily_market_repo_artifact_lifecycle_is_explicit() -> None:
     lifecycle = inventory.DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE
-    names = {name for name, _role, _status in lifecycle}
+    paths = {path for path, _role, _status in lifecycle}
 
-    assert names == {
-        "daily_market_summary_latest.pdf",
-        "daily_market_full_latest.pdf",
-        "每日全市場候選股監測報告_精華版.pdf",
-        "完整候選股清單_完整版表格.pdf",
+    assert paths == {
+        "output/latest/daily_market_summary_latest.pdf",
+        "output/latest/daily_market_full_latest.pdf",
+        "output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_YYYYMMDD.pdf",
+        "output/latest/published_reports/daily_market/完整候選股清單_完整版_YYYYMMDD.pdf",
     }
     assert inventory.REPO_ARTIFACT_DAILY_PDF_NAMES == tuple(
-        name for name, _role, _status in lifecycle
+        Path(path).name for path, _role, _status in lifecycle
     )
 
     inventory_doc = (ROOT / "docs" / "pdf_production_inventory.md").read_text(
@@ -47,11 +47,14 @@ def test_daily_market_repo_artifact_lifecycle_is_explicit() -> None:
     lineage = (ROOT / "config" / "report_artifact_lineage.csv").read_text(
         encoding="utf-8-sig"
     )
-    for name, role, status in lifecycle:
-        assert name in inventory_doc
+    for path, role, status in lifecycle:
+        assert path in inventory_doc
         assert role in inventory_doc
         assert status in inventory_doc
-        assert f"output/latest/{name}" in lineage
+        assert path in lineage
+    for path in inventory.LEGACY_ROOT_DAILY_MARKET_PDF_PATHS:
+        rel = path.relative_to(ROOT).as_posix()
+        assert rel not in lineage
 
 
 def test_docs_latest_root_pdfs_are_classified() -> None:

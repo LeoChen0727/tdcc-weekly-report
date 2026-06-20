@@ -37,14 +37,16 @@ copy a retired path as the current deliverable.
 
 These files may exist only as repo source/reference artifacts. They are not final ChatGPT-side deliverables and must not be copied or linked as public `docs/latest` daily recommendation PDFs.
 
+Human-facing daily market PDFs are date-stamped published reports under `output/latest/published_reports/daily_market/`. The date segment must come from `output/latest/data_freshness_latest.csv` field `main_price_date`, not from wall-clock runtime.
+
 | File | Current role | Lifecycle status |
 | --- | --- | --- |
-| `daily_market_summary_latest.pdf` | compatibility_alias for the repo daily market summary PDF in `output/latest` | must_keep_until_packet_and_raw_health_consumers_move |
-| `daily_market_full_latest.pdf` | compatibility_alias for the repo daily market full PDF in `output/latest` | must_keep_until_packet_and_raw_health_consumers_move |
-| `每日全市場候選股監測報告_精華版.pdf` | legacy_canonical_copy produced by `build_daily_market_report_artifacts.py` before alias copy | deprecated_output_latest_repo_artifact |
-| `完整候選股清單_完整版表格.pdf` | legacy_canonical_copy produced by `build_daily_market_report_artifacts.py` before alias copy | deprecated_output_latest_repo_artifact |
+| `output/latest/daily_market_summary_latest.pdf` | compatibility_alias for packet/raw-health consumers | must_keep_until_packet_and_raw_health_consumers_move |
+| `output/latest/daily_market_full_latest.pdf` | compatibility_alias for packet/raw-health consumers | must_keep_until_packet_and_raw_health_consumers_move |
+| `output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_YYYYMMDD.pdf` | published_human_pdf generated from the daily market summary PDF | published_date_stamped_daily_market_pdf |
+| `output/latest/published_reports/daily_market/完整候選股清單_完整版_YYYYMMDD.pdf` | published_human_pdf generated from the daily market full PDF | published_date_stamped_daily_market_pdf |
 
-Moving these artifacts to `published_reports/daily_market/`, renaming them, or retiring them requires a reviewed PR that updates the producer, alias copier, packet/README/raw-health references, report manifest, lineage inventory, validators, and tests in the same change. Do not manually delete the workspace PDFs.
+The legacy root Chinese PDFs `output/latest/每日全市場候選股監測報告_精華版.pdf` and `output/latest/完整候選股清單_完整版表格.pdf` are retired. They must not be regenerated, retained in `output/latest` root, or restored as compatibility aliases. Retiring the English compatibility aliases requires a later reviewed PR that first moves packet/raw-health consumers.
 
 ## Auxiliary Internal PDFs
 
