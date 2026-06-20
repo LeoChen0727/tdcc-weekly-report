@@ -48,6 +48,7 @@ docs/market_regime_data_source_plan.md,guidance_doc,repo_infrastructure,active,,
 docs/output_latest_artifact_audit_20260620.md,guidance_doc,repo_infrastructure,active,,,,,,,classification-only output/latest CSV/MD artifact audit; not deletion approval,,none
 docs/diagnostic_stale_artifact_review_20260621.md,guidance_doc,repo_infrastructure,active,,,,,,,diagnostic stale output/latest artifact review and relocation plan; no deletion approval,,none
 docs/unknown_output_artifact_review_20260621.md,guidance_doc,repo_infrastructure,active,,,,,,,unknown output/latest artifact review and quarantine plan; no deletion approval,,none
+docs/output_latest_cleanup_round1_summary_20260621.md,guidance_doc,repo_infrastructure,active,,,,,,,output/latest cleanup round 1 guardrail summary; no deletion approval,,none
 docs/individual_stock_artifact_relocation_plan_20260620.md,guidance_doc,individual_stock,active,,,,,,,individual-stock output/latest relocation plan; no deletion approval,,none
 docs/research_backtest_artifact_relocation_plan_20260621.md,guidance_doc,research_backtest,active,,,,,,,research/backtest output/latest relocation plan; advisory artifacts only; no production promotion,,none
 docs/tdcc_weekly_artifact_relocation_plan_20260621.md,guidance_doc,tdcc_weekly,active,,,,docs/output_latest_artifact_audit_20260620.md;docs/output_latest_artifact_layout.md,,,TDCC weekly output/latest relocation plan; retains root compatibility aliases until producer/consumer migration,,none
