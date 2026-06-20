@@ -45,6 +45,7 @@ docs/latest/READ_ME_FIRST_DAILY_REPORT.txt,generated_guidance,repo_infrastructur
 docs/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt,generated_guidance,repo_infrastructure,generated_artifact,,,,,,,generated active guidance artifact checked for stale command references,,none
 docs/latest/chatgpt_daily_report_packet_latest.txt,generated_guidance,repo_infrastructure,generated_artifact,,,,,,,generated active guidance artifact checked for stale command references,,none
 docs/market_regime_data_source_plan.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
+docs/output_latest_artifact_audit_20260620.md,guidance_doc,repo_infrastructure,active,,,,,,,classification-only output/latest CSV/MD artifact audit; not deletion approval,,none
 docs/output_latest_artifact_layout.md,guidance_doc,repo_infrastructure,active,,,,docs/pdf_production_inventory.md,,,active project guidance checked for executable command references,,none
 docs/pdf_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/repo_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
