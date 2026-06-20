@@ -352,6 +352,7 @@ jobs:
       - name: Validate official daily PDF contract
         run: |
           python scripts/validate_chatgpt_side_pdf_contract.py
+          python scripts/validate_daily_pdf_contract_consumers.py
           python scripts/validate_pdf_production_inventory.py
 
       - name: Build ChatGPT indicator usage guide

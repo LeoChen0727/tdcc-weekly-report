@@ -10,7 +10,7 @@ see `docs/output_latest_artifact_layout.md`.
 
 | Purpose | Producer | Validator | Publisher / Exposure |
 | --- | --- | --- | --- |
-| ChatGPT-side daily six-PDF deliverables | `scripts/run_chatgpt_daily_report_entrypoint.py` -> `scripts/generate_chatgpt_side_daily_reports.py` | `scripts/validate_chatgpt_side_pdf_contract.py`, `scripts/validate_chatgpt_side_pdf_layout_independence.py`, `scripts/validate_chatgpt_side_volume_operation_pdf_integration.py` | User-selected output directory only. These PDFs are not produced by Daily Full Pipeline and are not published to `docs/latest`. |
+| ChatGPT-side daily six-PDF deliverables | `scripts/run_chatgpt_daily_report_entrypoint.py` -> `scripts/generate_chatgpt_side_daily_reports.py` | `scripts/validate_chatgpt_side_pdf_contract.py`, `scripts/validate_daily_pdf_contract_consumers.py`, `scripts/validate_chatgpt_side_pdf_layout_independence.py`, `scripts/validate_chatgpt_side_volume_operation_pdf_integration.py` | User-selected output directory only. These PDFs are not produced by Daily Full Pipeline and are not published to `docs/latest`. |
 | Daily repo market source artifacts | `build_daily_market_report_artifacts.py` | `scripts/validate_daily_production_boundaries.py`, `scripts/validate_daily_report_source_preflight.py`, `scripts/validate_daily_staged_paths.py` | `output/latest` and `output/history/reports` only. These are source/reference artifacts and must not be presented as completed ChatGPT-side daily recommendation PDFs. |
 | TDCC weekly candidate reports | `scripts/build_tdcc_weekly_candidate_reports.py` | `scripts/validate_tdcc_weekly_candidate_reports.py`, `scripts/validate_pdf_facing_display_text.py` | `output/latest`, `output/history`, and `docs/latest` through `tdcc_weekly.yml`. |
 | Market risk/background dashboard | `scripts/build_market_regime_dashboard.py` | `scripts/validate_market_regime_dashboard.py` | `output/latest` only in daily production. It may be cited as structured background but must not be published to `docs/latest` as a daily recommendation PDF. |
@@ -64,6 +64,7 @@ These files may exist in `output/latest` for internal source/reference use. Dail
 `scripts/validate_pdf_production_inventory.py` is the executable gate for this inventory. It must fail closed when:
 
 - a retired fixed daily PDF producer or validator file returns;
+- ChatGPT-side daily PDFs consume model or catalyst/event fields outside the approved contracts;
 - a retired daily PDF filename appears in Daily Full Pipeline, README publisher, packet builder, current README, packet, or `docs/latest`;
 - a repo artifact daily PDF or auxiliary internal PDF is published under `docs/latest`;
 - `output/latest` or `docs/latest` keeps stale date-stamped daily README files from dates other than the current `main_price_date`;
