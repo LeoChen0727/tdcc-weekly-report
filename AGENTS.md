@@ -114,3 +114,11 @@ Full-list PDFs can be large. Page-count validation must define an explicit
 reasonable range instead of treating the current high page count as an implicit
 failure.
 
+## PDF Delivery Link Reporting Rule
+
+When a task produces or prepares PDF deliverables for the user, the final reply
+must include directly clickable links to the generated PDF files whenever
+possible. At minimum, include a clickable link to the folder that contains the
+PDF deliverables. Local links must use absolute workspace paths so the user can
+open the folder or files with one click.
+

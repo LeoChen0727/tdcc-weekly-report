@@ -71,6 +71,8 @@ The canonical latest PDF names above must remain available as internal artifacts
 
 The {signal_date} value must come only from the unique matching signal_date in the highlight and full report-ready CSV files. Do not use the computer date, README date, Pages date, daily main_price_date, or old PDF date for external delivery filenames. If highlight and full report-ready CSV dates differ, fail closed before creating the external delivery PDFs.
 
+When reporting TDCC weekly PDF delivery completion to the user, include clickable links to the delivered PDF files when possible. At minimum, include a clickable link to `output/latest/published_reports/tdcc_weekly/` using the absolute local workspace path.
+
 PDF text and table content must use 標楷體 / DFKai-SB at 14 pt. Page count is not fixed; do not treat five pages as a rule.
 
 TDCC ranking sections and daily-model cross sections must use different PDF table contracts:
