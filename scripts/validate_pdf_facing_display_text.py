@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import re
 from pathlib import Path
 from typing import Iterable
@@ -90,11 +91,41 @@ def extract_pdf_text(path: Path) -> str:
     return "\n".join(page.extract_text() or "" for page in reader.pages)
 
 
+def report_ready_signal_date() -> str:
+    paths = [
+        Path("output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv"),
+        Path("output/latest/tdcc_weekly_candidate_full_for_report_latest.csv"),
+    ]
+    dates_by_path: list[set[str]] = []
+    for path in paths:
+        if not path.exists():
+            return ""
+        with path.open("r", encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            dates = {row.get("signal_date", "").strip() for row in reader if row.get("signal_date", "").strip()}
+        dates_by_path.append(dates)
+    if len(dates_by_path) != 2 or any(len(dates) != 1 for dates in dates_by_path):
+        return ""
+    highlight_date = next(iter(dates_by_path[0]))
+    full_date = next(iter(dates_by_path[1]))
+    return highlight_date if highlight_date == full_date else ""
+
+
+def tdcc_delivery_pdfs() -> list[Path]:
+    signal_date = report_ready_signal_date()
+    if not signal_date:
+        return []
+    return [
+        Path(f"output/latest/TDCC大戶籌碼週報_精華版_{signal_date}.pdf"),
+        Path(f"output/latest/TDCC大戶籌碼週報_完整版_{signal_date}.pdf"),
+    ]
+
+
 def iter_sources() -> Iterable[tuple[Path, str]]:
     for path in PDF_FACING_FILES:
         if path.exists():
             yield path, path.read_text(encoding="utf-8", errors="replace")
-    for path in PDF_FACING_PDFS:
+    for path in [*PDF_FACING_PDFS, *tdcc_delivery_pdfs()]:
         if path.exists():
             yield path, extract_pdf_text(path)
 
@@ -120,7 +151,8 @@ def main() -> int:
     problems: list[str] = []
     warnings: list[str] = []
 
-    for path in REQUIRED_TDCC_PDFS:
+    required_pdfs = [*REQUIRED_TDCC_PDFS, *tdcc_delivery_pdfs()]
+    for path in required_pdfs:
         if not path.exists():
             problems.append(f"{path}: missing required TDCC weekly PDF")
 

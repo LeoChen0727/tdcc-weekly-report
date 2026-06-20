@@ -24,6 +24,8 @@ HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
 FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
 HIGHLIGHT_PDF = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.pdf"
 FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
+DELIVERY_HIGHLIGHT_PDF_PREFIX = "TDCC大戶籌碼週報_精華版"
+DELIVERY_FULL_PDF_PREFIX = "TDCC大戶籌碼週報_完整版"
 
 EFFECTIVE_INCREASE_THRESHOLD = 0.5
 LOW_VOLUME_MA20_LOTS_THRESHOLD = 1000.0
@@ -400,6 +402,37 @@ def read_pdf_text(path: Path, errors: list[str]) -> str:
         return ""
 
 
+def delivery_pdf_path(report_kind: str, signal_date: str) -> Path:
+    date = safe_str(signal_date)
+    if not re.fullmatch(r"\d{8}", date):
+        raise RuntimeError(f"TDCC delivery PDF signal_date must be YYYYMMDD, got: {signal_date!r}")
+    if report_kind == "highlight":
+        return LATEST_DIR / f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_{date}.pdf"
+    if report_kind == "full":
+        return LATEST_DIR / f"{DELIVERY_FULL_PDF_PREFIX}_{date}.pdf"
+    raise ValueError(f"unsupported TDCC delivery report kind: {report_kind}")
+
+
+def read_pdf_page_count_and_text(path: Path, errors: list[str]) -> tuple[int, str]:
+    if not path.exists() or path.stat().st_size < 10_000:
+        errors.append(f"missing or too-small TDCC PDF: {path.as_posix()}")
+        return 0, ""
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:
+        errors.append(f"pypdf unavailable for PDF validation: {exc}")
+        return 0, ""
+    try:
+        reader = PdfReader(str(path))
+        text = "\n".join(page.extract_text() or "" for page in reader.pages)
+        if not text.strip():
+            errors.append(f"TDCC PDF has no extractable text: {path.as_posix()}")
+        return len(reader.pages), text
+    except Exception as exc:
+        errors.append(f"failed to open or extract PDF text from {path.as_posix()}: {exc}")
+        return 0, ""
+
+
 def tdcc_data_dates_from_text(text: str) -> list[str]:
     return sorted(set(re.findall(r"TDCC data date:\s*([0-9]{8})", text)))
 
@@ -456,6 +489,28 @@ def validate_pdf_artifact(
     if not text:
         return
     validate_artifact(text, label, report_kind, expected_signal_date, manifest, errors)
+
+
+def validate_delivery_pdf_artifact(
+    canonical_path: Path,
+    delivery_path: Path,
+    label: str,
+    report_kind: str,
+    expected_signal_date: str,
+    manifest: pd.DataFrame,
+    errors: list[str],
+) -> None:
+    canonical_pages, canonical_text = read_pdf_page_count_and_text(canonical_path, errors)
+    delivery_pages, delivery_text = read_pdf_page_count_and_text(delivery_path, errors)
+    if canonical_pages and delivery_pages and canonical_pages != delivery_pages:
+        errors.append(
+            f"{label} page count must match canonical PDF: "
+            f"{delivery_path.as_posix()}={delivery_pages}, {canonical_path.as_posix()}={canonical_pages}"
+        )
+    if delivery_text:
+        validate_artifact(delivery_text, label, report_kind, expected_signal_date, manifest, errors)
+    if canonical_text and delivery_text and canonical_text.strip() != delivery_text.strip():
+        errors.append(f"{label} extractable text must match canonical PDF")
 
 
 def validate_signal_dates(highlight: pd.DataFrame, full: pd.DataFrame, errors: list[str]) -> str:
@@ -576,6 +631,24 @@ def main() -> None:
         validate_markdown_artifact(FULL_MD, "full Markdown", "full", signal_date, manifest, errors)
         validate_pdf_artifact(HIGHLIGHT_PDF, "highlight PDF", "highlight", signal_date, manifest, errors)
         validate_pdf_artifact(FULL_PDF, "full PDF", "full", signal_date, manifest, errors)
+        validate_delivery_pdf_artifact(
+            HIGHLIGHT_PDF,
+            delivery_pdf_path("highlight", signal_date),
+            "highlight delivery PDF",
+            "highlight",
+            signal_date,
+            manifest,
+            errors,
+        )
+        validate_delivery_pdf_artifact(
+            FULL_PDF,
+            delivery_pdf_path("full", signal_date),
+            "full delivery PDF",
+            "full",
+            signal_date,
+            manifest,
+            errors,
+        )
     else:
         for path in [HIGHLIGHT_PDF, FULL_PDF]:
             if not path.exists() or path.stat().st_size < 10_000:
