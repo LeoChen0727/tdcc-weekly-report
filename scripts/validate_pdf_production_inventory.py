@@ -103,11 +103,31 @@ RETIRED_FIXED_DAILY_PDF_NAMES = (
     "non_mainstream_full_candidate_list_latest.pdf",
 )
 
-REPO_ARTIFACT_DAILY_PDF_NAMES = (
-    "daily_market_summary_latest.pdf",
-    "daily_market_full_latest.pdf",
-    "每日全市場候選股監測報告_精華版.pdf",
-    "完整候選股清單_完整版表格.pdf",
+DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE = (
+    (
+        "daily_market_summary_latest.pdf",
+        "compatibility_alias",
+        "must_keep_until_packet_and_raw_health_consumers_move",
+    ),
+    (
+        "daily_market_full_latest.pdf",
+        "compatibility_alias",
+        "must_keep_until_packet_and_raw_health_consumers_move",
+    ),
+    (
+        "每日全市場候選股監測報告_精華版.pdf",
+        "legacy_canonical_copy",
+        "deprecated_output_latest_repo_artifact",
+    ),
+    (
+        "完整候選股清單_完整版表格.pdf",
+        "legacy_canonical_copy",
+        "deprecated_output_latest_repo_artifact",
+    ),
+)
+
+REPO_ARTIFACT_DAILY_PDF_NAMES = tuple(
+    name for name, _role, _status in DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE
 )
 
 AUXILIARY_INTERNAL_PDF_NAMES = (
@@ -172,6 +192,10 @@ def validate_inventory_document(errors: list[str]) -> None:
     for marker in required_markers:
         if marker not in text:
             errors.append(f"PDF production inventory missing marker: {marker}")
+    for name, role, status in DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE:
+        for marker in (name, role, status):
+            if marker not in text:
+                errors.append(f"PDF production inventory missing daily market lifecycle marker: {marker}")
     for producer in PDF_PRODUCERS:
         if producer.purpose not in text:
             errors.append(f"PDF production inventory missing producer purpose: {producer.purpose}")
