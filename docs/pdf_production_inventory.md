@@ -2,6 +2,10 @@
 
 Scope: repository-owned PDF producers, validators, and publishers. This file is a production boundary document. It does not define stock selection, model parameters, scoring, ranking, or operation guidance.
 
+For the broader `output/latest` directory layout, including machine-readable
+aliases, human-facing published PDFs, validator artifacts, and deletion rules,
+see `docs/output_latest_artifact_layout.md`.
+
 ## Official Producers
 
 | Purpose | Producer | Validator | Publisher / Exposure |
