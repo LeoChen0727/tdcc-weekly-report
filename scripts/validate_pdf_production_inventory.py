@@ -105,29 +105,43 @@ RETIRED_FIXED_DAILY_PDF_NAMES = (
 
 DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE = (
     (
-        "daily_market_summary_latest.pdf",
+        "output/latest/daily_market_summary_latest.pdf",
         "compatibility_alias",
         "must_keep_until_packet_and_raw_health_consumers_move",
     ),
     (
-        "daily_market_full_latest.pdf",
+        "output/latest/daily_market_full_latest.pdf",
         "compatibility_alias",
         "must_keep_until_packet_and_raw_health_consumers_move",
     ),
     (
-        "每日全市場候選股監測報告_精華版.pdf",
-        "legacy_canonical_copy",
-        "deprecated_output_latest_repo_artifact",
+        "output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_YYYYMMDD.pdf",
+        "published_human_pdf",
+        "published_date_stamped_daily_market_pdf",
     ),
     (
-        "完整候選股清單_完整版表格.pdf",
-        "legacy_canonical_copy",
-        "deprecated_output_latest_repo_artifact",
+        "output/latest/published_reports/daily_market/完整候選股清單_完整版_YYYYMMDD.pdf",
+        "published_human_pdf",
+        "published_date_stamped_daily_market_pdf",
     ),
 )
 
 REPO_ARTIFACT_DAILY_PDF_NAMES = tuple(
-    name for name, _role, _status in DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE
+    Path(path).name for path, _role, _status in DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE
+)
+
+DAILY_MARKET_COMPATIBILITY_ALIAS_PATHS = (
+    OUTPUT_LATEST / "daily_market_summary_latest.pdf",
+    OUTPUT_LATEST / "daily_market_full_latest.pdf",
+)
+
+LEGACY_ROOT_DAILY_MARKET_PDF_PATHS = (
+    OUTPUT_LATEST / "每日全市場候選股監測報告_精華版.pdf",
+    OUTPUT_LATEST / "完整候選股清單_完整版表格.pdf",
+)
+
+LEGACY_ROOT_DAILY_MARKET_PDF_NAMES = tuple(
+    path.name for path in LEGACY_ROOT_DAILY_MARKET_PDF_PATHS
 )
 
 AUXILIARY_INTERNAL_PDF_NAMES = (
@@ -138,6 +152,7 @@ AUXILIARY_INTERNAL_PDF_NAMES = (
 FORBIDDEN_DOCS_LATEST_PDF_NAMES = (
     *RETIRED_FIXED_DAILY_PDF_NAMES,
     *REPO_ARTIFACT_DAILY_PDF_NAMES,
+    *LEGACY_ROOT_DAILY_MARKET_PDF_NAMES,
     *AUXILIARY_INTERNAL_PDF_NAMES,
 )
 
@@ -174,6 +189,17 @@ def current_main_price_date() -> str:
     if not rows:
         return ""
     return re.sub(r"[^0-9]", "", str(rows[0].get("main_price_date", "")))[:8]
+
+
+def daily_market_published_pdf_paths(main_date: str) -> tuple[Path, ...]:
+    date_text = re.sub(r"[^0-9]", "", str(main_date))[:8]
+    if len(date_text) != 8:
+        return ()
+    published_dir = OUTPUT_LATEST / "published_reports" / "daily_market"
+    return (
+        published_dir / f"每日全市場候選股監測報告_精華版_{date_text}.pdf",
+        published_dir / f"完整候選股清單_完整版_{date_text}.pdf",
+    )
 
 
 def validate_inventory_document(errors: list[str]) -> None:
@@ -220,6 +246,17 @@ def validate_output_latest(errors: list[str]) -> None:
         path = OUTPUT_LATEST / name
         if path.exists():
             errors.append(f"retired fixed daily PDF artifact still exists: {path.relative_to(ROOT).as_posix()}")
+    for path in LEGACY_ROOT_DAILY_MARKET_PDF_PATHS:
+        if path.exists():
+            errors.append(f"legacy root daily market PDF still exists: {path.relative_to(ROOT).as_posix()}")
+    for path in DAILY_MARKET_COMPATIBILITY_ALIAS_PATHS:
+        if not path.exists():
+            errors.append(f"daily market compatibility alias missing: {path.relative_to(ROOT).as_posix()}")
+    main_date = current_main_price_date()
+    if main_date:
+        for path in daily_market_published_pdf_paths(main_date):
+            if not path.exists():
+                errors.append(f"published daily market PDF missing: {path.relative_to(ROOT).as_posix()}")
 
 
 def validate_public_surface_text(errors: list[str]) -> None:
