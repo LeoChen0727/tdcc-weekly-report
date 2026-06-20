@@ -45,6 +45,7 @@ HIGHLIGHT_PDF = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.pdf"
 FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
 DELIVERY_HIGHLIGHT_PDF_PREFIX = "TDCC大戶籌碼週報_精華版"
 DELIVERY_FULL_PDF_PREFIX = "TDCC大戶籌碼週報_完整版"
+DELIVERY_PDF_DIR = LATEST_DIR / "published_reports" / "tdcc_weekly"
 SECTION_MANIFEST_CSV = LATEST_DIR / "tdcc_weekly_report_section_manifest_latest.csv"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 
@@ -1640,9 +1641,9 @@ def delivery_pdf_path(report_kind: str, signal_date: str) -> Path:
     if not re.fullmatch(r"\d{8}", date):
         raise RuntimeError(f"TDCC delivery PDF signal_date must be YYYYMMDD, got: {signal_date!r}")
     if report_kind == "highlight":
-        return LATEST_DIR / f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_{date}.pdf"
+        return DELIVERY_PDF_DIR / f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_{date}.pdf"
     if report_kind == "full":
-        return LATEST_DIR / f"{DELIVERY_FULL_PDF_PREFIX}_{date}.pdf"
+        return DELIVERY_PDF_DIR / f"{DELIVERY_FULL_PDF_PREFIX}_{date}.pdf"
     raise ValueError(f"unsupported TDCC delivery report kind: {report_kind}")
 
 
@@ -1658,6 +1659,36 @@ def sync_delivery_pdf(canonical_path: Path, delivery_path: Path) -> None:
         raise RuntimeError(f"canonical TDCC PDF not generated or too small: {canonical_path}")
     delivery_path.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(canonical_path, delivery_path)
+
+
+def assert_pdf_openable(path: Path) -> None:
+    if not path.exists() or path.stat().st_size < 10_000:
+        raise RuntimeError(f"TDCC delivery PDF missing or too small: {path}")
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:
+        raise RuntimeError(f"pypdf unavailable for TDCC delivery PDF validation: {exc}") from exc
+    try:
+        reader = PdfReader(str(path))
+        if len(reader.pages) <= 0:
+            raise RuntimeError(f"TDCC delivery PDF has no pages: {path}")
+    except Exception as exc:
+        raise RuntimeError(f"TDCC delivery PDF cannot be opened: {path}: {exc}") from exc
+
+
+def validate_delivery_pdfs(paths: dict[str, Path]) -> None:
+    for path in paths.values():
+        assert_pdf_openable(path)
+
+
+def cleanup_flat_delivery_pdfs(base_dir: Path) -> None:
+    for pattern in [
+        f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_*.pdf",
+        f"{DELIVERY_FULL_PDF_PREFIX}_*.pdf",
+    ]:
+        for path in base_dir.glob(pattern):
+            if path.is_file():
+                path.unlink()
 
 
 def docs_sync_paths(signal_date: str) -> list[Path]:
@@ -1853,7 +1884,12 @@ def sync_docs_latest(signal_date: str) -> None:
     for src in docs_sync_paths(signal_date):
         if not src.exists():
             continue
-        dst = DOCS_LATEST_DIR / src.name
+        try:
+            relative = src.relative_to(LATEST_DIR)
+        except ValueError:
+            relative = Path(src.name)
+        dst = DOCS_LATEST_DIR / relative
+        dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src, dst)
 
 
@@ -1900,6 +1936,9 @@ def main() -> int:
     delivery_paths = delivery_pdf_paths(report_date)
     sync_delivery_pdf(HIGHLIGHT_PDF, delivery_paths["highlight"])
     sync_delivery_pdf(FULL_PDF, delivery_paths["full"])
+    validate_delivery_pdfs(delivery_paths)
+    cleanup_flat_delivery_pdfs(LATEST_DIR)
+    cleanup_flat_delivery_pdfs(DOCS_LATEST_DIR)
 
     fields = {
         "tdcc_weekly_report_section_manifest_csv_raw_url": raw_url(SECTION_MANIFEST_CSV),

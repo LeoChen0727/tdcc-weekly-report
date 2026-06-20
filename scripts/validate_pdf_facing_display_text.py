@@ -116,8 +116,8 @@ def tdcc_delivery_pdfs() -> list[Path]:
     if not signal_date:
         return []
     return [
-        Path(f"output/latest/TDCC大戶籌碼週報_精華版_{signal_date}.pdf"),
-        Path(f"output/latest/TDCC大戶籌碼週報_完整版_{signal_date}.pdf"),
+        Path(f"output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_{signal_date}.pdf"),
+        Path(f"output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_{signal_date}.pdf"),
     ]
 
 

@@ -26,6 +26,7 @@ HIGHLIGHT_PDF = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.pdf"
 FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
 DELIVERY_HIGHLIGHT_PDF_PREFIX = "TDCC大戶籌碼週報_精華版"
 DELIVERY_FULL_PDF_PREFIX = "TDCC大戶籌碼週報_完整版"
+DELIVERY_PDF_DIR = LATEST_DIR / "published_reports" / "tdcc_weekly"
 
 EFFECTIVE_INCREASE_THRESHOLD = 0.5
 LOW_VOLUME_MA20_LOTS_THRESHOLD = 1000.0
@@ -407,9 +408,9 @@ def delivery_pdf_path(report_kind: str, signal_date: str) -> Path:
     if not re.fullmatch(r"\d{8}", date):
         raise RuntimeError(f"TDCC delivery PDF signal_date must be YYYYMMDD, got: {signal_date!r}")
     if report_kind == "highlight":
-        return LATEST_DIR / f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_{date}.pdf"
+        return DELIVERY_PDF_DIR / f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_{date}.pdf"
     if report_kind == "full":
-        return LATEST_DIR / f"{DELIVERY_FULL_PDF_PREFIX}_{date}.pdf"
+        return DELIVERY_PDF_DIR / f"{DELIVERY_FULL_PDF_PREFIX}_{date}.pdf"
     raise ValueError(f"unsupported TDCC delivery report kind: {report_kind}")
 
 
@@ -513,6 +514,16 @@ def validate_delivery_pdf_artifact(
         errors.append(f"{label} extractable text must match canonical PDF")
 
 
+def validate_no_root_delivery_pdfs(errors: list[str]) -> None:
+    stale = [
+        *LATEST_DIR.glob(f"{DELIVERY_HIGHLIGHT_PDF_PREFIX}_*.pdf"),
+        *LATEST_DIR.glob(f"{DELIVERY_FULL_PDF_PREFIX}_*.pdf"),
+    ]
+    if stale:
+        paths = ", ".join(path.as_posix() for path in sorted(stale))
+        errors.append(f"TDCC Chinese delivery PDFs must not remain in output/latest root: {paths}")
+
+
 def validate_signal_dates(highlight: pd.DataFrame, full: pd.DataFrame, errors: list[str]) -> str:
     highlight_dates = sorted_signal_dates(highlight)
     full_dates = sorted_signal_dates(full)
@@ -608,6 +619,7 @@ def main() -> None:
         errors.append("consecutive accumulation source ranking contains rows below 2-week 800/1000 effective streak")
 
     signal_date = validate_signal_dates(highlight, full, errors)
+    validate_no_root_delivery_pdfs(errors)
 
     source_date_sets = {
         "weekly": sorted_signal_dates(weekly),
