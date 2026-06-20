@@ -66,8 +66,8 @@ Both user-facing deliverables must be PDF files:
 
 The canonical latest PDF names above must remain available as internal artifacts. External delivery must also publish date-stamped Chinese PDF copies:
 
-- output/latest/TDCC大戶籌碼週報_精華版_{signal_date}.pdf
-- output/latest/TDCC大戶籌碼週報_完整版_{signal_date}.pdf
+- output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_{signal_date}.pdf
+- output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_{signal_date}.pdf
 
 The {signal_date} value must come only from the unique matching signal_date in the highlight and full report-ready CSV files. Do not use the computer date, README date, Pages date, daily main_price_date, or old PDF date for external delivery filenames. If highlight and full report-ready CSV dates differ, fail closed before creating the external delivery PDFs.
 

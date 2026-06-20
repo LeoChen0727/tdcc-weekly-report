@@ -129,7 +129,7 @@ jobs:
               output/latest/tdcc_weekly_candidate_full_latest.md \
               output/latest/tdcc_weekly_candidate_highlight_latest.pdf \
               output/latest/tdcc_weekly_candidate_full_latest.pdf \
-              output/latest/TDCC大戶籌碼週報_*.pdf \
+              output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_*.pdf \
               output/latest/tdcc_weekly_candidate_report_validation_latest.md \
               output/latest/tdcc_weekly_candidate_report_validation_latest.json \
               output/latest/tdcc_chatgpt_tracking_validation_latest.md \
@@ -162,12 +162,14 @@ jobs:
         run: |
           mkdir -p docs/latest
           shopt -s nullglob
-          for file in output/latest/tdcc_* output/latest/TDCC大戶籌碼週報_*.pdf; do
+          for file in output/latest/tdcc_* output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_*.pdf; do
             if [ "$(basename "$file")" = "tdcc_trend_debug_latest.csv" ]; then
               continue
             fi
             if [ -f "$file" ]; then
-              cp "$file" "docs/latest/$(basename "$file")"
+              rel="${file#output/latest/}"
+              mkdir -p "docs/latest/$(dirname "$rel")"
+              cp "$file" "docs/latest/$rel"
             fi
           done
 
@@ -179,13 +181,19 @@ jobs:
           output_dir = Path("output/latest")
           docs_dir = Path("docs/latest")
           mismatches = []
-          src_files = [*sorted(output_dir.glob("tdcc_*")), *sorted(output_dir.glob("TDCC大戶籌碼週報_*.pdf"))]
+          src_files = [
+              *sorted(output_dir.glob("tdcc_*")),
+              *sorted((output_dir / "published_reports" / "tdcc_weekly").glob("TDCC大戶籌碼週報_*.pdf")),
+          ]
           for src in src_files:
               if not src.is_file():
                   continue
               if src.name == "tdcc_trend_debug_latest.csv":
                   continue
-              dst = docs_dir / src.name
+              try:
+                  dst = docs_dir / src.relative_to(output_dir)
+              except ValueError:
+                  dst = docs_dir / src.name
               if not dst.exists():
                   mismatches.append(f"missing docs/latest/{src.name}")
                   continue
@@ -203,8 +211,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/tdcc_stock_history/ data/tdcc_stock_history_raw/ || true
-          git add output/latest/tdcc_* output/latest/TDCC大戶籌碼週報_*.pdf output/history/tdcc_signals/ output/history/tdcc/ || true
-          git add docs/latest/tdcc_* docs/latest/TDCC大戶籌碼週報_*.pdf docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md || true
+          git add output/latest/tdcc_* output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_*.pdf output/history/tdcc_signals/ output/history/tdcc/ || true
+          git add docs/latest/tdcc_* docs/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_*.pdf docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md || true
           git status --short
           git commit -m "Update TDCC weekly report, ABM, and signal effectiveness" || echo "No changes to commit"
           git push
