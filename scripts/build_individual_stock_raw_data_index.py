@@ -9,6 +9,7 @@ import re
 import pandas as pd
 
 
+VALID_STOCK_ID_RE = re.compile(r"^[0-9]{4,6}$")
 OWNER_REPO = "LeoChen0727/tdcc-weekly-report"
 RAW_PREFIX = f"https://raw.githubusercontent.com/{OWNER_REPO}/main"
 PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
@@ -24,20 +25,20 @@ ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 DAILY_CANDIDATE_LOG = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
 
-AVAILABLE_INDEX_CSV = LATEST_DIR / "individual_stock_available_raw_data_index.csv"
-AVAILABLE_INDEX_MD = LATEST_DIR / "individual_stock_available_raw_data_index.md"
-AVAILABLE_INDEX_SLIM_CSV = LATEST_DIR / "individual_stock_available_raw_data_index_slim.csv"
-AVAILABLE_INDEX_SLIM_MD = LATEST_DIR / "individual_stock_available_raw_data_index_slim.md"
-READ_PROTOCOL_MD = LATEST_DIR / "individual_stock_read_protocol_latest.md"
-REPORT_INDEX_CSV = LATEST_DIR / "individual_stock_reports_index.csv"
-REPORT_INDEX_MD = LATEST_DIR / "individual_stock_reports_index.md"
-DOCS_AVAILABLE_INDEX_CSV = Path("docs/latest/individual_stock_available_raw_data_index.csv")
-DOCS_AVAILABLE_INDEX_MD = Path("docs/latest/individual_stock_available_raw_data_index.md")
-DOCS_AVAILABLE_INDEX_SLIM_CSV = Path("docs/latest/individual_stock_available_raw_data_index_slim.csv")
-DOCS_AVAILABLE_INDEX_SLIM_MD = Path("docs/latest/individual_stock_available_raw_data_index_slim.md")
-DOCS_READ_PROTOCOL_MD = Path("docs/latest/individual_stock_read_protocol_latest.md")
-DOCS_REPORT_INDEX_CSV = Path("docs/latest/individual_stock_reports_index.csv")
-DOCS_REPORT_INDEX_MD = Path("docs/latest/individual_stock_reports_index.md")
+AVAILABLE_INDEX_CSV = REPORT_DIR / "individual_stock_available_raw_data_index.csv"
+AVAILABLE_INDEX_MD = REPORT_DIR / "individual_stock_available_raw_data_index.md"
+AVAILABLE_INDEX_SLIM_CSV = REPORT_DIR / "individual_stock_available_raw_data_index_slim.csv"
+AVAILABLE_INDEX_SLIM_MD = REPORT_DIR / "individual_stock_available_raw_data_index_slim.md"
+READ_PROTOCOL_MD = REPORT_DIR / "individual_stock_read_protocol_latest.md"
+REPORT_INDEX_CSV = REPORT_DIR / "individual_stock_reports_index.csv"
+REPORT_INDEX_MD = REPORT_DIR / "individual_stock_reports_index.md"
+DOCS_AVAILABLE_INDEX_CSV = DOCS_REPORT_DIR / "individual_stock_available_raw_data_index.csv"
+DOCS_AVAILABLE_INDEX_MD = DOCS_REPORT_DIR / "individual_stock_available_raw_data_index.md"
+DOCS_AVAILABLE_INDEX_SLIM_CSV = DOCS_REPORT_DIR / "individual_stock_available_raw_data_index_slim.csv"
+DOCS_AVAILABLE_INDEX_SLIM_MD = DOCS_REPORT_DIR / "individual_stock_available_raw_data_index_slim.md"
+DOCS_READ_PROTOCOL_MD = DOCS_REPORT_DIR / "individual_stock_read_protocol_latest.md"
+DOCS_REPORT_INDEX_CSV = DOCS_REPORT_DIR / "individual_stock_reports_index.csv"
+DOCS_REPORT_INDEX_MD = DOCS_REPORT_DIR / "individual_stock_reports_index.md"
 
 
 def now_text() -> str:
@@ -65,6 +66,10 @@ def normalize_stock_id(value: Any) -> str:
     if text.isdigit() and len(text) < 4:
         return text.zfill(4)
     return text
+
+
+def is_valid_stock_id(value: Any) -> bool:
+    return bool(VALID_STOCK_ID_RE.fullmatch(normalize_stock_id(value)))
 
 
 def normalize_date(value: Any) -> str:
@@ -151,22 +156,25 @@ def collect_stock_ids() -> set[str]:
     for folder in [DATA_PRICE_DIR, DATA_TDCC_DIR]:
         for path in folder.glob("*.csv"):
             stock_id = normalize_stock_id(path.stem)
-            if stock_id:
+            if is_valid_stock_id(stock_id):
                 stock_ids.add(stock_id)
     for path in REPORT_DIR.glob("*_latest.md"):
         stock_id = normalize_stock_id(path.stem.replace("_latest", ""))
-        if stock_id:
+        if is_valid_stock_id(stock_id):
             stock_ids.add(stock_id)
     for path in SELL_DIR.glob("*_sell_strategy_summary.md"):
         stock_id = normalize_stock_id(path.stem.replace("_sell_strategy_summary", ""))
-        if stock_id:
+        if is_valid_stock_id(stock_id):
             stock_ids.add(stock_id)
 
     for path in [ALL_CANDIDATES_CSV, WARRANT_FLOW_CSV, DAILY_CANDIDATE_LOG]:
         df = read_csv(path)
         code_col = first_existing(df, ["stock_id", "code", "ticker"])
         if code_col:
-            stock_ids.update(normalize_stock_id(x) for x in df[code_col].tolist() if normalize_stock_id(x))
+            for value in df[code_col].tolist():
+                stock_id = normalize_stock_id(value)
+                if is_valid_stock_id(stock_id):
+                    stock_ids.add(stock_id)
     return stock_ids
 
 
@@ -421,7 +429,7 @@ def write_slim_index_md(index: pd.DataFrame, path: Path) -> None:
         f"- partial_rawdata_report: {status_counts.get('partial_rawdata_report', 0)}",
         f"- insufficient_data: {status_counts.get('insufficient_data', 0)}",
         f"- csv_raw_url: {raw_url(AVAILABLE_INDEX_SLIM_CSV)}",
-        f"- csv_pages_url: {pages_url_for(Path('docs/latest/individual_stock_available_raw_data_index_slim.csv'))}",
+        f"- csv_pages_url: {pages_url_for(DOCS_AVAILABLE_INDEX_SLIM_CSV)}",
         f"- csv_github_api_url: {github_api_url(AVAILABLE_INDEX_SLIM_CSV)}",
         "",
         "## Usage",
@@ -467,9 +475,9 @@ def write_read_protocol_md(path: Path) -> None:
         "",
         "| logical_source | first_url | fallback_url | final_fallback |",
         "| --- | --- | --- | --- |",
-        "| individual_chatgpt_packet | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md` | GitHub API contents + base64 decode | Pages auxiliary only after date/checksum match |",
-        "| price_window_180_html | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.html` | GitHub API contents + base64 decode | Pages auxiliary only after date/checksum match |",
-        "| price_window_180_txt | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.txt` | GitHub API contents + base64 decode | Pages auxiliary only after date/checksum match |",
+        "| individual_chatgpt_packet | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/chatgpt_packets/{stock_id}_packet_latest.md` | GitHub API contents + base64 decode | Pages auxiliary only after date/checksum match |",
+        "| price_window_180_html | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/{stock_id}_price_window_180_latest.html` | GitHub API contents + base64 decode | Pages auxiliary only after date/checksum match |",
+        "| price_window_180_txt | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/{stock_id}_price_window_180_latest.txt` | GitHub API contents + base64 decode | Pages auxiliary only after date/checksum match |",
         "| price_history | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/{stock_id}.csv` | `https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/{stock_id}.csv?ref=main` | decode GitHub API JSON `content` from base64 |",
         "| tdcc_history | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/tdcc_stock_history/{stock_id}.csv` | `https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/tdcc_stock_history/{stock_id}.csv?ref=main` | decode GitHub API JSON `content` from base64 |",
         "| individual_report_md_optional | `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/{stock_id}_latest.md` | `https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/{stock_id}_latest.md?ref=main` | if missing, continue with raw price / TDCC |",
@@ -505,7 +513,7 @@ def write_read_protocol_md(path: Path) -> None:
         "",
         "## ChatGPT Instruction",
         "",
-        "If a prepared individual report is missing, do not say the repo lacks data. Read raw or GitHub API contents for `individual_stock_chatgpt_packets/{stock_id}_packet_latest.md` first. Use Pages only as an auxiliary endpoint after date/checksum confirmation. Only after packet and price raw/API both fail should the report be downgraded to event-only or insufficient-data.",
+        "If a prepared individual report is missing, do not say the repo lacks data. Read raw or GitHub API contents for `individual_stock_reports/chatgpt_packets/{stock_id}_packet_latest.md` first. Use Pages only as an auxiliary endpoint after date/checksum confirmation. Only after packet and price raw/API both fail should the report be downgraded to event-only or insufficient-data.",
         "",
     ]
     path.parent.mkdir(parents=True, exist_ok=True)

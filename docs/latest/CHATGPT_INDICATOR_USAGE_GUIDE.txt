@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-06-20 10:05:55 UTC`
+- generated_at: `2026-06-20 22:37:50 台北標準時間`
 - main_price_date: `20260618`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -62,7 +62,7 @@
 | Next-open +10pct multifactor current candidates | output/latest/weekly_surge_multifactor_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, research_caveat | D_background_only=91; A_research_watch=30; C_short_term_watch=25; B_research_confirm=21 / rows=167 | Current research watchlist for next-open +10pct touch hypotheses. Use as a separate research section only; do not mix into core candidate ranking. |
 | Next-open +10pct strict parameter search | output/latest/weekly_surge_strict_parameter_search_latest.csv | rule_name, target_window, entry_basis, target_return_pct, selected_stock_days, hit_rate_pct, median_next_open_to_high_return_pct, sample_status | ok_initial_sample=21285; insufficient_sample=5654 / rows=26939 | No latest-theme labels are used. Entry is D+1 open; hit means next-open to D+N high touches +10%. This is not weekly candlestick analysis. Research only. |
 | Next-open +10pct strict parameter current candidates | output/latest/weekly_surge_strict_parameter_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, best_d10_rule, research_caveat | B_strict_research_confirm=43; A_strict_research_watch=23; D_background_only=13; C_strict_short_term_watch=11 / rows=90 | Current strict research watchlist using no latest-theme label. Keep as a standalone D+5/D+10 research table, not core ranking. |
-| Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2290; ok=83; insufficient_data=24 | Check before single-stock analysis. |
+| Individual stock raw availability | output/latest/individual_stock_reports/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | ok=1948; partial=425; insufficient_data=24 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=2 | Currently source-limited; do not upgrade without confirmed source rows. |
 
 ## Task-Specific Rules
@@ -123,7 +123,7 @@
 - Company/theme mapping alone is background, not a confirmed event catalyst.
 
 ### Single stock analysis
-- First check `individual_stock_available_raw_data_index_slim.csv` and the stock-specific packet if available.
+- First check `output/latest/individual_stock_reports/individual_stock_available_raw_data_index_slim.csv` and the stock-specific packet if available.
 - Price history must come from `data/stock_price_history/{stock_id}.csv` or the stock packet; TDCC must come from `data/tdcc_stock_history/{stock_id}.csv` or the stock packet.
 - If price raw data is unavailable, do not produce a standard raw-data technical report.
 - If TDCC history is under 8 weeks, mark `insufficient_tdcc_history` and do not force a full TDCC backtest conclusion.

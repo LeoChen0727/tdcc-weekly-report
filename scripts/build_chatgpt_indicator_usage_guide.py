@@ -12,6 +12,7 @@ from tracking_utils import main_price_date_from_freshness
 ROOT = Path(".")
 LATEST_DIR = ROOT / "output" / "latest"
 DOCS_LATEST_DIR = ROOT / "docs" / "latest"
+INDIVIDUAL_STOCK_REPORTS_DIR = LATEST_DIR / "individual_stock_reports"
 
 OUT_MD = LATEST_DIR / "chatgpt_indicator_usage_guide_latest.md"
 OUT_TXT = LATEST_DIR / "CHATGPT_INDICATOR_USAGE_GUIDE.txt"
@@ -141,7 +142,7 @@ def build_guide() -> str:
     market_timing = read_csv(LATEST_DIR / "market_timing_backtest_latest.csv")
     surge = read_csv(LATEST_DIR / "surge_precondition_candidates_latest.csv")
     performance = read_csv(LATEST_DIR / "daily_signal_performance_summary_latest.csv")
-    individual_index = read_csv(LATEST_DIR / "individual_stock_available_raw_data_index_slim.csv")
+    individual_index = read_csv(INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_available_raw_data_index_slim.csv")
     catalyst_needs_review = read_csv(LATEST_DIR / "catalyst_needs_review_latest.csv")
     volume_breakout = read_csv(LATEST_DIR / "volume_breakout_watch_latest.csv")
     volume_attack_theme = read_csv(LATEST_DIR / "volume_attack_theme_layer_latest.csv")
@@ -438,7 +439,7 @@ def build_guide() -> str:
         ],
         [
             "Individual stock raw availability",
-            "output/latest/individual_stock_available_raw_data_index_slim.csv",
+            "output/latest/individual_stock_reports/individual_stock_available_raw_data_index_slim.csv",
             "data_quality_status, report_status, price/TDCC row counts",
             count_values(individual_index, "data_quality_status"),
             "Check before single-stock analysis.",
@@ -517,7 +518,7 @@ def build_guide() -> str:
     lines.append("")
 
     lines.append("### Single stock analysis")
-    lines.append("- First check `individual_stock_available_raw_data_index_slim.csv` and the stock-specific packet if available.")
+    lines.append("- First check `output/latest/individual_stock_reports/individual_stock_available_raw_data_index_slim.csv` and the stock-specific packet if available.")
     lines.append("- Price history must come from `data/stock_price_history/{stock_id}.csv` or the stock packet; TDCC must come from `data/tdcc_stock_history/{stock_id}.csv` or the stock packet.")
     lines.append("- If price raw data is unavailable, do not produce a standard raw-data technical report.")
     lines.append("- If TDCC history is under 8 weeks, mark `insufficient_tdcc_history` and do not force a full TDCC backtest conclusion.")

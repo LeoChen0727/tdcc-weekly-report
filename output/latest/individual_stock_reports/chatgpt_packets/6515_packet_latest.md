@@ -1,0 +1,209 @@
+# INDIVIDUAL STOCK CHATGPT PACKET - 6515 穎崴
+
+## Metadata
+- generated_at: 2026-06-20 22:55:56 Asia/Taipei
+- stock_id: 6515
+- stock_name: 穎崴
+- packet_status: standard_180d_window_packet
+- latest_price_date: 20260618
+- price_rows: 287
+- latest_tdcc_date: 20260618
+- tdcc_rows: 8
+- tdcc_history_status: tdcc_history_ready
+- individual_report_md_exists: False
+- sell_strategy_summary_exists: False
+- notes:
+
+## Stable Read URLs
+- packet_pages_url: not_published_to_pages_use_raw_or_github_api
+- packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/chatgpt_packets/6515_packet_latest.md
+- packet_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/chatgpt_packets/6515_packet_latest.md?ref=main
+- price_window_180_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_window_180_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/6515_price_window_180_latest.csv
+- price_window_180_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/price_windows/6515_price_window_180_latest.csv?ref=main
+- price_window_180_txt_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_window_180_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/6515_price_window_180_latest.txt
+- price_window_180_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/price_windows/6515_price_window_180_latest.txt?ref=main
+- price_window_180_html_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_window_180_html_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/6515_price_window_180_latest.html
+- price_window_180_html_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/price_windows/6515_price_window_180_latest.html?ref=main
+- tdcc_window_pages_url: not_published_to_pages_use_raw_or_github_api
+- tdcc_window_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/tdcc_windows/6515_tdcc_window_latest.csv
+- tdcc_window_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/tdcc_windows/6515_tdcc_window_latest.csv?ref=main
+- tdcc_window_txt_pages_url: not_published_to_pages_use_raw_or_github_api
+- tdcc_window_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/tdcc_windows/6515_tdcc_window_latest.txt
+- tdcc_window_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/tdcc_windows/6515_tdcc_window_latest.txt?ref=main
+- price_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/6515.csv
+- price_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/6515.csv?ref=main
+- tdcc_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/tdcc_stock_history/6515.csv
+- tdcc_pages_url: not_published_to_pages_use_raw_or_github_api
+- tdcc_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/tdcc_stock_history/6515.csv?ref=main
+- individual_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/6515_latest.md
+- individual_report_md_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/6515_latest.md
+- individual_report_md_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/6515_latest.md?ref=main
+
+## Data Quality Rules
+- This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
+- Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
+- For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
+- The full historical CSV remains available for Python backtests.
+- If price_rows < 60, do not produce a standard technical report.
+- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
+
+## ACTION_DISPLAY
+- pdf_visible: true
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+
+## ACTION_DECISION
+- pdf_visible: false
+- internal_use_only: true
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
+- Do not print ACTION_DECISION, action_rating, starter_position, decision_score, model_slug, packet, raw field, or 程式端欄位 in investor-facing PDF prose.
+- Treat post-entry watch display text as management items, not as buy-before blockers.
+
+## Latest Price Snapshot
+- date: 20260618
+- open: 9500
+- high: 9610
+- low: 9400
+- close: 9450
+- volume: 195369
+- ma5: 9672
+- ema23_primary: 9151.32
+- distance_to_ema23_pct: 3.26
+- ma20: 8915.5
+- ma60: 9150.5
+- ma120: 6719.21
+- return_5d: 8.37
+- return_20d: -0.63
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 6
+- distance_to_high_60_pct: -17.75
+
+## Recent Price Preview
+This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
+```csv
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260522,9590,9700,8615,8700,882919,9566.62,-9.06,9898.75,8172.5,2.4
+20260525,9100,9110,8785,8850,542583,9506.9,-6.91,9838.25,8240.58,1.48
+20260526,8950,9075,8655,8905,318908,9456.74,-5.83,9804.5,8305.67,0.91
+20260527,9795,9795,9795,9795,232078,9484.93,3.27,9787.5,8383.67,0.66
+20260528,10000,10100,8935,9120,1108573,9454.52,-3.54,9734.25,8456.08,2.8
+20260529,9205,9390,8665,8665,685628,9388.73,-7.71,9648.25,8521.67,1.63
+20260601,8820,8895,8575,8705,322592,9331.75,-6.72,9548.5,8591.33,0.76
+20260602,8655,8700,7895,8080,752319,9227.44,-12.44,9449.75,8646.42,1.69
+20260603,8290,8405,8080,8220,307043,9143.48,-10.1,9354.25,8695.92,0.7
+20260604,8150,8710,8150,8650,344631,9102.36,-4.97,9293.75,8757.08,0.79
+20260605,8470,8735,8285,8425,237461,9045.91,-6.86,9233.5,8806.25,0.54
+20260608,7585,8645,7585,8380,547718,8990.42,-6.79,9148,8847.58,1.21
+20260609,8620,8640,8255,8610,384273,8958.72,-3.89,9081,8885.58,0.84
+20260610,8510,8735,8125,8125,227104,8889.24,-8.6,8993.5,8916.25,0.51
+20260611,8015,8750,8015,8720,552827,8875.14,-1.75,8902.5,8958.92,1.23
+20260612,9495,9590,9235,9590,613346,8934.71,7.33,8893,9008.42,1.32
+20260615,10200,10240,9670,9925,665184,9017.24,10.07,8877.25,9053.5,1.38
+20260616,9955,10150,9745,9945,366700,9094.55,9.35,8900,9099.08,0.76
+20260617,9885,9950,9400,9450,308483,9124.17,3.57,8918.5,9124.42,0.64
+20260618,9500,9610,9400,9450,195369,9151.32,3.26,8915.5,9150.5,0.41
+```
+
+## Latest TDCC Snapshot
+- as_of_date: 20260618
+- over_400_ratio: 50.01
+- over_600_ratio: 47.57
+- over_800_ratio: 41.94
+- over_1000_ratio: 37.27
+- over_400_change_1w: -0.55
+- over_800_change_1w: 0.86
+- over_1000_change_1w: 0.86
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: True
+
+## TDCC Preview
+This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
+```csv
+as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
+20260430,53.78,,44.88,,40.01,,0,False,False
+20260508,54.42,0.64,44.35,-0.53,36.91,-3.1,1,False,False
+20260515,53.55,-0.87,43.69,-0.66,36.42,-0.49,0,False,False
+20260522,53.51,-0.04,43.59,-0.1,36.4,-0.02,0,False,False
+20260529,52.13,-1.38,43.44,-0.15,36.46,0.06,1,False,True
+20260605,51.37,-0.76,40.68,-2.76,36.01,-0.45,0,False,False
+20260612,50.56,-0.81,41.08,0.4,36.41,0.4,1,False,True
+20260618,50.01,-0.55,41.94,0.86,37.27,0.86,2,False,True
+```
+
+## Candidate Context
+| status |
+| --- |
+| no rows |
+
+## Repeat Appearance Context
+| status |
+| --- |
+| no rows |
+
+## Warrant Context
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 6515 | 穎崴 | 11 | 0 | 77500.0 | 0.0 |  | no_signal |
+
+## Interpretation Guardrails
+- ACTION_DISPLAY is the PDF-visible report language contract.
+- ACTION_DECISION is internal model context only; do not print its raw field names or raw values in investor-facing prose.
+- Use entry_strategy_zh, position_sizing_zh, add_position_strategy_zh, take_profit_strategy_zh, risk_control_zh, and post_entry_watch_zh for report text.
+- For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
+- For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
+- Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.
+- Warrant signals are auxiliary only and must not be used as a standalone reason.

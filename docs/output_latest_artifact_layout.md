@@ -50,6 +50,28 @@ Do not move a pipeline dependency only because it is human-readable. First
 identify the producer, consumer, validator, packet, workflow, and lifecycle
 inventory entries that depend on the path.
 
+## Individual Stock Reports
+
+Individual-stock human and packet-facing artifacts belong under:
+
+```text
+output/latest/individual_stock_reports/
+```
+
+Canonical subdirectories:
+
+- `output/latest/individual_stock_reports/chatgpt_packets/`
+- `output/latest/individual_stock_reports/price_windows/`
+- `output/latest/individual_stock_reports/tdcc_windows/`
+
+Individual-stock index and read-protocol CSV/MD files also belong directly
+under `output/latest/individual_stock_reports/`, not the `output/latest` root.
+
+The `output/latest` root may retain machine aliases that are shared with daily
+pipeline, raw-health, or sell-strategy checks, such as technical snapshots,
+raw-data fetch status, stock-price manifests, or sell-strategy performance
+summaries. These aliases are not the per-stock report payload directory.
+
 ## PDF Layout Experiments
 
 PDF layout experiments, screenshots, previews, ad hoc render checks, and lab

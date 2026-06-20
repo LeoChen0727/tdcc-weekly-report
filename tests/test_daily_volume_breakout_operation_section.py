@@ -820,7 +820,14 @@ def test_pdf_chart_renderer_prefers_local_source_worktree_price_window(monkeypat
     assert chart is not None
     assert chart.exists()
     assert calls == [
-        str(tmp_path / "output" / "latest" / "individual_stock_price_windows" / "2330_price_window_180_latest.csv")
+        str(
+            tmp_path
+            / "output"
+            / "latest"
+            / "individual_stock_reports"
+            / "price_windows"
+            / "2330_price_window_180_latest.csv"
+        )
     ]
 
 

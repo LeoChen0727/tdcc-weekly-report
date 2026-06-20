@@ -25,6 +25,10 @@ API_PREFIX = f"https://api.github.com/repos/{OWNER_REPO}/contents"
 BLOB_PREFIX = f"https://github.com/{OWNER_REPO}/blob/main"
 
 LATEST_DIR = Path("output/latest")
+INDIVIDUAL_STOCK_REPORTS_DIR = LATEST_DIR / "individual_stock_reports"
+INDIVIDUAL_STOCK_PACKET_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "chatgpt_packets"
+INDIVIDUAL_STOCK_PRICE_WINDOW_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "price_windows"
+INDIVIDUAL_STOCK_TDCC_WINDOW_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "tdcc_windows"
 FETCH_STATUS_CSV = LATEST_DIR / "raw_data_fetch_status_latest.csv"
 FETCH_STATUS_MD = LATEST_DIR / "raw_data_fetch_status_latest.md"
 DOCS_FETCH_STATUS_CSV = Path("docs/latest/raw_data_fetch_status_latest.csv")
@@ -61,11 +65,11 @@ CORE_PATHS = [
     ("surge_model_backtest", Path("output/latest/surge_model_backtest_latest.csv")),
     ("surge_model_feature_importance", Path("output/latest/surge_model_feature_importance_latest.csv")),
     ("daily_signal_performance_summary", Path("output/latest/daily_signal_performance_summary_latest.md")),
-    ("individual_stock_available_raw_data_index", Path("output/latest/individual_stock_available_raw_data_index.csv")),
-    ("individual_stock_available_raw_data_index_slim", Path("output/latest/individual_stock_available_raw_data_index_slim.csv")),
-    ("individual_stock_reports_index", Path("output/latest/individual_stock_reports_index.csv")),
-    ("individual_stock_chatgpt_packet_index", Path("output/latest/individual_stock_chatgpt_packet_index.csv")),
-    ("individual_stock_chatgpt_packet_index_md", Path("output/latest/individual_stock_chatgpt_packet_index.md")),
+    ("individual_stock_available_raw_data_index", INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_available_raw_data_index.csv"),
+    ("individual_stock_available_raw_data_index_slim", INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_available_raw_data_index_slim.csv"),
+    ("individual_stock_reports_index", INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_reports_index.csv"),
+    ("individual_stock_chatgpt_packet_index", INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_chatgpt_packet_index.csv"),
+    ("individual_stock_chatgpt_packet_index_md", INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_chatgpt_packet_index.md"),
 ]
 
 
@@ -384,11 +388,11 @@ def stock_paths(stock_id: str) -> list[tuple[str, Path]]:
     return [
         ("stock_price_history", Path(f"data/stock_price_history/{stock_id}.csv")),
         ("tdcc_stock_history", Path(f"data/tdcc_stock_history/{stock_id}.csv")),
-        ("individual_stock_chatgpt_packet", Path(f"output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md")),
-        ("individual_stock_price_window_180_html", Path(f"output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.html")),
-        ("individual_stock_price_window_180_txt", Path(f"output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.txt")),
-        ("individual_stock_tdcc_window_txt", Path(f"output/latest/individual_stock_tdcc_windows/{stock_id}_tdcc_window_latest.txt")),
-        ("individual_stock_report_md", Path(f"output/latest/individual_stock_reports/{stock_id}_latest.md")),
+        ("individual_stock_chatgpt_packet", INDIVIDUAL_STOCK_PACKET_DIR / f"{stock_id}_packet_latest.md"),
+        ("individual_stock_price_window_180_html", INDIVIDUAL_STOCK_PRICE_WINDOW_DIR / f"{stock_id}_price_window_180_latest.html"),
+        ("individual_stock_price_window_180_txt", INDIVIDUAL_STOCK_PRICE_WINDOW_DIR / f"{stock_id}_price_window_180_latest.txt"),
+        ("individual_stock_tdcc_window_txt", INDIVIDUAL_STOCK_TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.txt"),
+        ("individual_stock_report_md", INDIVIDUAL_STOCK_REPORTS_DIR / f"{stock_id}_latest.md"),
         ("sell_strategy_summary", Path(f"output/history/sell_strategy_backtest/{stock_id}_sell_strategy_summary.md")),
         ("sell_strategy_backtest", Path(f"output/history/sell_strategy_backtest/{stock_id}_sell_strategy_backtest.csv")),
     ]
@@ -398,7 +402,7 @@ def build_check_list(stock_ids: list[str], include_all_core: bool) -> list[tuple
     items: list[tuple[str, Path, str]] = []
     if include_all_core:
         items.extend((label, path, "") for label, path in CORE_PATHS)
-        for report_path in sorted(Path("output/latest/individual_stock_reports").glob("*_latest.md")):
+        for report_path in sorted(INDIVIDUAL_STOCK_REPORTS_DIR.glob("*_latest.md")):
             stock_id = normalize_stock_id(report_path.stem.replace("_latest", ""))
             if stock_id:
                 items.extend((label, path, stock_id) for label, path in stock_paths(stock_id))
@@ -417,7 +421,10 @@ def build_check_list(stock_ids: list[str], include_all_core: bool) -> list[tuple
 
 def write_csv(df: pd.DataFrame, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
+    clean = df.copy()
+    for col in clean.columns:
+        clean[col] = clean[col].map(lambda value: re.sub(r"[\r\n]+", " ", safe_str(value)).strip())
+    clean.to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
 
 
 def md_table(df: pd.DataFrame, columns: list[str], limit: int = 120) -> list[str]:

@@ -11,10 +11,10 @@ Read in this order:
 1. `output/latest/READ_ME_FIRST_DAILY_REPORT.txt`
 2. `rules/master_priority_rules.md`
 3. `rules/single_stock_report_rules.md`
-4. `output/latest/individual_stock_read_protocol_latest.md`
-5. `output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md`
-6. `output/latest/individual_stock_price_windows/{stock_id}_price_window_180_latest.html` or `.txt`
-7. `output/latest/individual_stock_tdcc_windows/{stock_id}_tdcc_window_latest.txt`
+4. `output/latest/individual_stock_reports/individual_stock_read_protocol_latest.md`
+5. `output/latest/individual_stock_reports/chatgpt_packets/{stock_id}_packet_latest.md`
+6. `output/latest/individual_stock_reports/price_windows/{stock_id}_price_window_180_latest.html` or `.txt`
+7. `output/latest/individual_stock_reports/tdcc_windows/{stock_id}_tdcc_window_latest.txt`
 8. `data/stock_price_history/{stock_id}.csv` and `data/tdcc_stock_history/{stock_id}.csv` only when the compact windows are insufficient or a full history is required.
 
 If raw CSV does not expand, use the packet, HTML/TXT price window, TDCC window, index, or GitHub API contents endpoint. Do not replace repo price or TDCC data with external websites.
