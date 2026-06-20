@@ -200,6 +200,7 @@ scripts/validate_event_calendar_data.py,python,catalyst_event,active,.github/wor
 scripts/validate_historical_pattern_operation_registry.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,,,,,research/backtest script: validate_historical_pattern_operation_registry,,medium
 scripts/validate_volume_breakout_buy_signal_grid.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,,,,,research/backtest script: validate_volume_breakout_buy_signal_grid,,medium
 scripts/validate_volume_breakout_tdcc_buy_signal_grid.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,,,,,research/backtest script: validate_volume_breakout_tdcc_buy_signal_grid,,medium
+scripts/validate_individual_pdf_contract_consumers.py,python,individual_stock,active,,,tests/test_individual_pdf_contract_consumers.py,,,,Individual PDF model/catalyst contract consumer validator,,medium
 scripts/validate_individual_stock_outputs.py,python,individual_stock,active,.github/workflows/individual_stock_data_refresh.yml;.github/workflows/individual_stock_report.yml,,,docs/individual_stock_artifact_relocation_plan_20260620.md;docs/pdf_production_inventory.md,,,individual stock report/data script: validate_individual_stock_outputs,,medium
 scripts/validate_market_regime_dashboard.py,python,market_risk,active,.github/workflows/daily_full_pipeline.yml,,,docs/pdf_production_inventory.md,,,market risk/context script: validate_market_regime_dashboard,,medium
 scripts/validate_market_sentiment_context.py,python,market_risk,active,.github/workflows/daily_full_pipeline.yml,,,,,,market risk/context script: validate_market_sentiment_context,,medium
@@ -264,6 +265,7 @@ tests/test_data_freshness_latest.py,test_python,daily_production,active,,,,,,,da
 tests/test_event_catalyst_source_parsers.py,test_python,catalyst_event,active,,,,,,,catalyst/event test: test_event_catalyst_source_parsers,,medium
 tests/test_fundamental_catalyst_layer.py,test_python,catalyst_event,active,,,,,,,catalyst/event test: test_fundamental_catalyst_layer,,medium
 tests/test_fetch_official_daily_price_quality.py,test_python,official_price_data,active,,,,,,,official price data test: test_fetch_official_daily_price_quality,,high
+tests/test_individual_pdf_contract_consumers.py,test_python,individual_stock,active,,,,,,,Individual PDF model/catalyst contract consumer validator test,,medium
 tests/test_individual_stock_outputs.py,test_python,individual_stock,active,,,,,,,individual stock artifact relocation regression test,,medium
 tests/test_daily_price_history_continuity.py,test_python,official_price_data,active,,,,,,,official price data test: test_daily_price_history_continuity,,high
 tests/test_historical_pattern_operation_registry.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_historical_pattern_operation_registry,,medium
