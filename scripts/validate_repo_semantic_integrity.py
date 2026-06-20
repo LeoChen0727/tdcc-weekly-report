@@ -45,6 +45,11 @@ ALLOWED_CROSS_OWNER_IMPORTS = {
         "scripts/build_daily_candidate_model_layer.py",
     ),
     (
+        "scripts/validate_research_against_stock_model_contract.py",
+        "daily_production",
+        "scripts/build_daily_candidate_model_layer.py",
+    ),
+    (
         "scripts/build_daily_model_parameter_research.py",
         "daily_production",
         "scripts/build_daily_candidate_model_layer.py",

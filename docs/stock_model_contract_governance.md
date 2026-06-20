@@ -20,6 +20,7 @@ The registry records ownership and consumer approval. It does not define model c
 - Individual PDF consumers may use rows with `approved_for_individual_pdf=true`.
 - Consumers must not treat a missing approval as implicit permission.
 - Research/backtest may compare against this registry, but must not write research recommendations into production baseline tables without an explicit promotion PR.
+- Research/backtest contract parity validation reads this registry directly as the source of truth. It does not require or recreate `output/latest/stock_model_contract_snapshot_latest.json`.
 - Changing a model condition, score function, score profile, or approval flag requires a reviewed PR and validation evidence.
 
 ## Validation
