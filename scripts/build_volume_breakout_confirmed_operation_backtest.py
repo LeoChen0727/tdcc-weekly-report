@@ -48,6 +48,10 @@ LATEST_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.
 LATEST_RANK_MD = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.md"
 LATEST_PENDING_CSV = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.csv"
 LATEST_PENDING_MD = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.md"
+LATEST_STATUS_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_status_summary_latest.csv"
+LATEST_STATUS_SUMMARY_MD = LATEST_DIR / "volume_breakout_formal_operation_status_summary_latest.md"
+DAILY_MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
+DAILY_VOLUME_ADAPTER_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 
 MODEL_ID = "volume_range_breakout"
 OVERLAY_MODEL_ID = "tdcc_weekly_ranking_formula"
@@ -378,6 +382,43 @@ PENDING_COLUMNS = [
     "attack_method",
     "price_position_type",
     "approved_for_daily",
+]
+
+STATUS_SUMMARY_COLUMNS = [
+    "model_id",
+    "research_id",
+    "status_bucket",
+    "status_source",
+    "as_published_report_bucket",
+    "trigger_id",
+    "tdcc_list_type",
+    "metric_sample_scope",
+    "current_row_count",
+    "current_data_row_count",
+    "mature_sample_size",
+    "unique_signal_events",
+    "unique_stocks",
+    "win_rate",
+    "avg_return",
+    "median_return",
+    "max_drawdown",
+    "avg_mfe",
+    "avg_mae",
+    "avg_holding_days",
+    "out_of_sample_size",
+    "out_of_sample_win_rate",
+    "out_of_sample_avg_return",
+    "out_of_sample_median_return",
+    "out_of_sample_pass",
+    "confidence_status",
+    "entry_rule_id",
+    "stop_loss_rule_id",
+    "exit_rule_id",
+    "approved_for_daily",
+    "generated_at",
+    "data_start_date",
+    "data_end_date",
+    "status_note",
 ]
 
 DIMENSION_SCOPES = [
@@ -1042,6 +1083,74 @@ def ensure_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     return out[columns]
 
 
+def snapshot_report_bucket(row: pd.Series) -> str:
+    bucket = safe_str(row.get("report_bucket"))
+    if bucket:
+        return bucket
+    memberships = set(
+        item.strip()
+        for item in safe_str(row.get("report_line_memberships")).replace(",", "|").split("|")
+        if item.strip()
+    )
+    if boolish(row.get("mainstream_report_eligible")):
+        memberships.add("mainstream")
+    if boolish(row.get("non_mainstream_report_eligible")):
+        memberships.add("non_mainstream")
+    ordered = [item for item in ["mainstream", "non_mainstream"] if item in memberships]
+    return "|".join(ordered) if ordered else "unclassified_snapshot"
+
+
+def load_as_published_report_bucket_lookup() -> pd.DataFrame:
+    rows: list[dict[str, str]] = []
+    for path in sorted(DAILY_MODEL_SNAPSHOT_DIR.glob("daily_candidate_model_signals_for_report_*.csv")):
+        snap = read_csv(path)
+        if snap.empty or not {"signal_date", "stock_id", "model_id"}.issubset(snap.columns):
+            continue
+        snap = snap[snap["model_id"].astype(str).eq(MODEL_ID)].copy()
+        if snap.empty:
+            continue
+        snap["signal_date"] = snap["signal_date"].map(normalize_date)
+        snap["stock_id"] = snap["stock_id"].map(normalize_code)
+        snap = snap[(snap["signal_date"] != "") & (snap["stock_id"] != "")]
+        for _, row in snap.iterrows():
+            rows.append(
+                {
+                    "signal_date": safe_str(row.get("signal_date")),
+                    "stock_id": safe_str(row.get("stock_id")),
+                    "as_published_report_bucket": snapshot_report_bucket(row),
+                }
+            )
+    if not rows:
+        return pd.DataFrame(columns=["signal_date", "stock_id", "as_published_report_bucket"])
+
+    lookup = pd.DataFrame(rows).drop_duplicates()
+    grouped = (
+        lookup.groupby(["signal_date", "stock_id"], dropna=False)["as_published_report_bucket"]
+        .apply(lambda values: "|".join(dict.fromkeys(sorted(safe_str(value) for value in values if safe_str(value)))))
+        .reset_index()
+    )
+    return grouped
+
+
+def attach_as_published_report_bucket(events: pd.DataFrame, lookup: pd.DataFrame | None = None) -> pd.DataFrame:
+    out = events.copy()
+    if out.empty:
+        out["as_published_report_bucket"] = ""
+        return out
+    out["signal_date"] = out["signal_date"].map(normalize_date)
+    out["stock_id"] = out["stock_id"].map(normalize_code)
+    source = load_as_published_report_bucket_lookup() if lookup is None else lookup.copy()
+    if source.empty:
+        out["as_published_report_bucket"] = "snapshot_missing"
+        return out
+    source["signal_date"] = source["signal_date"].map(normalize_date)
+    source["stock_id"] = source["stock_id"].map(normalize_code)
+    source = source.drop_duplicates(["signal_date", "stock_id"])
+    out = out.merge(source, on=["signal_date", "stock_id"], how="left")
+    out["as_published_report_bucket"] = out["as_published_report_bucket"].map(safe_str).replace("", "snapshot_missing")
+    return out
+
+
 def trigger_priority(trigger_id: Any) -> int:
     return TRIGGER_PRIORITY.get(safe_str(trigger_id), 999)
 
@@ -1549,6 +1658,178 @@ def build_rank_output(rank_base: pd.DataFrame, summary: pd.DataFrame) -> pd.Data
     return out.drop(columns=["_score", "_tdcc_rank"])[RANK_COLUMNS]
 
 
+def status_metric_row(
+    part: pd.DataFrame,
+    status_bucket: str,
+    status_source: str,
+    report_bucket: str,
+    trigger_id: str,
+    tdcc_list_type: str,
+    metric_sample_scope: str,
+    generated_at: str,
+    data_start: str,
+    data_end: str,
+    current_row_count: int | None = None,
+    current_data_row_count: int | None = None,
+    status_note: str = "",
+) -> dict[str, Any]:
+    if "mature_sample_eligible" in part.columns:
+        metric_part = part[part["mature_sample_eligible"].map(boolish)].copy()
+    else:
+        metric_part = part.copy()
+
+    def numeric_metric(col: str) -> pd.Series:
+        if col not in metric_part.columns:
+            return pd.Series(dtype="float64")
+        return pd.to_numeric(metric_part[col], errors="coerce")
+
+    returns = numeric_metric("return_pct").dropna()
+    mfe = numeric_metric("mfe_pct")
+    mae = numeric_metric("mae_pct")
+    holding = numeric_metric("holding_days")
+    if "out_of_sample" in metric_part.columns:
+        oos = metric_part[metric_part["out_of_sample"].map(boolish)]
+    else:
+        oos = metric_part.head(0)
+    oos_returns = pd.to_numeric(oos["return_pct"], errors="coerce").dropna() if "return_pct" in oos.columns else pd.Series(dtype="float64")
+    sample_size = int(len(returns))
+    out_size = int(len(oos_returns))
+    row_pass = out_of_sample_pass(metric_part) if sample_size else False
+    return {
+        "model_id": MODEL_ID,
+        "research_id": RESEARCH_ID,
+        "status_bucket": status_bucket,
+        "status_source": status_source,
+        "as_published_report_bucket": report_bucket,
+        "trigger_id": trigger_id,
+        "tdcc_list_type": tdcc_list_type,
+        "metric_sample_scope": metric_sample_scope,
+        "current_row_count": len(part) if current_row_count is None else current_row_count,
+        "current_data_row_count": len(part) if current_data_row_count is None else current_data_row_count,
+        "mature_sample_size": sample_size,
+        "unique_signal_events": int(part[["signal_date", "stock_id"]].drop_duplicates().shape[0])
+        if {"signal_date", "stock_id"}.issubset(part.columns)
+        else 0,
+        "unique_stocks": int(part["stock_id"].astype(str).nunique()) if "stock_id" in part.columns else 0,
+        "win_rate": pct_round((returns > 0).mean() * 100 if sample_size else math.nan, 2),
+        "avg_return": pct_round(returns.mean() if sample_size else math.nan),
+        "median_return": pct_round(returns.median() if sample_size else math.nan),
+        "max_drawdown": pct_round(mae.min()),
+        "avg_mfe": pct_round(mfe.mean()),
+        "avg_mae": pct_round(mae.mean()),
+        "avg_holding_days": pct_round(holding.mean(), 2),
+        "out_of_sample_size": out_size,
+        "out_of_sample_win_rate": pct_round((oos_returns > 0).mean() * 100 if out_size else math.nan, 2),
+        "out_of_sample_avg_return": pct_round(oos_returns.mean() if out_size else math.nan),
+        "out_of_sample_median_return": pct_round(oos_returns.median() if out_size else math.nan),
+        "out_of_sample_pass": row_pass,
+        "confidence_status": confidence_status(sample_size, out_size, row_pass) if sample_size else "not_applicable",
+        "entry_rule_id": ENTRY_RULE_ID if sample_size else "",
+        "stop_loss_rule_id": STOP_RULE_ID if sample_size else "",
+        "exit_rule_id": EXIT_RULE_ID if sample_size else "",
+        "approved_for_daily": False,
+        "generated_at": generated_at,
+        "data_start_date": data_start,
+        "data_end_date": data_end,
+        "status_note": status_note,
+    }
+
+
+def build_historical_status_summary(events: pd.DataFrame, generated_at: str) -> list[dict[str, Any]]:
+    if events.empty:
+        return []
+    enriched = attach_as_published_report_bucket(events)
+    data_start = safe_str(enriched["confirmation_date"].min()) if "confirmation_date" in enriched.columns else ""
+    data_end = safe_str(enriched["confirmation_date"].max()) if "confirmation_date" in enriched.columns else ""
+    rows: list[dict[str, Any]] = []
+    group_sets = [
+        ["trigger_id", "tdcc_list_type"],
+        ["as_published_report_bucket", "trigger_id", "tdcc_list_type"],
+    ]
+    for group_cols in group_sets:
+        for keys, part in enriched.groupby(group_cols, dropna=False):
+            key_values = keys if isinstance(keys, tuple) else (keys,)
+            values = dict(zip(group_cols, key_values, strict=False))
+            rows.append(
+                status_metric_row(
+                    part,
+                    "confirmed_operation",
+                    "historical_mature_formal_event",
+                    safe_str(values.get("as_published_report_bucket")) or "all_events",
+                    safe_str(values.get("trigger_id")),
+                    safe_str(values.get("tdcc_list_type")),
+                    METRIC_SAMPLE_SCOPE,
+                    generated_at,
+                    data_start,
+                    data_end,
+                    status_note="historical selected formal operation rows; report bucket comes only from as-published daily snapshots when available",
+                )
+            )
+    return rows
+
+
+def build_current_adapter_status_summary(generated_at: str) -> list[dict[str, Any]]:
+    adapter = read_csv(DAILY_VOLUME_ADAPTER_CSV)
+    if adapter.empty:
+        return []
+    if "pdf_view" in adapter.columns:
+        adapter = adapter[adapter["pdf_view"].astype(str).eq("full")].copy()
+    if adapter.empty:
+        return []
+    adapter["row_type"] = adapter.get("row_type", pd.Series([""] * len(adapter))).map(safe_str)
+    adapter["operation_status"] = adapter.get("operation_status", adapter.get("pdf_section", "")).map(safe_str)
+    adapter["selected_trigger_id"] = adapter.get("selected_trigger_id", pd.Series([""] * len(adapter))).map(safe_str)
+    adapter["evidence_tdcc_list_type"] = adapter.get("evidence_tdcc_list_type", pd.Series([""] * len(adapter))).map(safe_str)
+    if {"signal_date", "stock_id"}.issubset(adapter.columns):
+        adapter = attach_as_published_report_bucket(adapter)
+    else:
+        adapter["as_published_report_bucket"] = "snapshot_missing"
+    rows: list[dict[str, Any]] = []
+    group_cols = ["operation_status", "as_published_report_bucket", "selected_trigger_id", "evidence_tdcc_list_type"]
+    for keys, part in adapter.groupby(group_cols, dropna=False):
+        status_bucket, report_bucket, trigger_id, tdcc_list_type = (safe_str(value) for value in keys)
+        data_count = int(part["row_type"].eq("data").sum())
+        rows.append(
+            status_metric_row(
+                part,
+                status_bucket,
+                "current_daily_adapter_full_view",
+                report_bucket or "snapshot_missing",
+                trigger_id,
+                tdcc_list_type,
+                "current_unmatured_status_count_only",
+                generated_at,
+                safe_str(part.get("signal_date", pd.Series(dtype=str)).min()) if "signal_date" in part.columns else "",
+                safe_str(part.get("signal_date", pd.Series(dtype=str)).max()) if "signal_date" in part.columns else "",
+                current_row_count=len(part),
+                current_data_row_count=data_count,
+                status_note="current daily adapter full view; report bucket comes from as-published daily snapshots when available",
+            )
+        )
+    return rows
+
+
+def build_status_summary(events: pd.DataFrame) -> pd.DataFrame:
+    generated_at = now_text()
+    rows = build_historical_status_summary(events, generated_at)
+    rows.extend(build_current_adapter_status_summary(generated_at))
+    if not rows:
+        return pd.DataFrame(columns=STATUS_SUMMARY_COLUMNS)
+    out = ensure_columns(pd.DataFrame(rows), STATUS_SUMMARY_COLUMNS)
+    out["_source_order"] = out["status_source"].map(
+        {
+            "historical_mature_formal_event": 0,
+            "current_daily_adapter_full_view": 1,
+        }
+    ).fillna(9)
+    out["_sample"] = pd.to_numeric(out["mature_sample_size"], errors="coerce").fillna(0)
+    out = out.sort_values(
+        ["_source_order", "status_bucket", "as_published_report_bucket", "trigger_id", "tdcc_list_type", "_sample"],
+        ascending=[True, True, True, True, True, False],
+    ).reset_index(drop=True)
+    return out.drop(columns=["_source_order", "_sample"])[STATUS_SUMMARY_COLUMNS]
+
+
 def markdown_table(df: pd.DataFrame, columns: list[str], limit: int) -> list[str]:
     if df.empty:
         return ["_No rows._"]
@@ -1751,12 +2032,88 @@ def write_formal_summary_markdown(summary: pd.DataFrame, events: pd.DataFrame, l
     LATEST_FORMAL_SUMMARY_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
+def write_status_summary_markdown(status_summary: pd.DataFrame) -> None:
+    lines = [
+        "# Volume Breakout Formal Operation Status Summary",
+        "",
+        f"- generated_at: `{now_text()}`",
+        f"- model_id: `{MODEL_ID}`",
+        "- scope: research only; all rows keep `approved_for_daily=False`.",
+        "- as_published_report_bucket comes only from historical daily model snapshots; missing snapshots are labeled `snapshot_missing`.",
+        "- current daily adapter rows use the full PDF view only to avoid highlight/full duplicate counts.",
+        "",
+    ]
+    if status_summary.empty:
+        lines.append("_No rows._")
+    else:
+        counts = (
+            status_summary.groupby(["status_source", "status_bucket"], dropna=False)
+            .agg(rows=("model_id", "size"), current_data_rows=("current_data_row_count", lambda s: int(pd.to_numeric(s, errors="coerce").fillna(0).sum())))
+            .reset_index()
+        )
+        lines.extend(
+            [
+                "## Status Counts",
+                "",
+                *markdown_table(counts, ["status_source", "status_bucket", "rows", "current_data_rows"], 80),
+                "",
+                "## Mature Performance Rows",
+                "",
+            ]
+        )
+        mature = status_summary[status_summary["status_source"].eq("historical_mature_formal_event")].copy()
+        mature["_sample"] = pd.to_numeric(mature["mature_sample_size"], errors="coerce").fillna(0)
+        mature = mature.sort_values(["_sample", "median_return", "avg_return"], ascending=[False, False, False]).drop(columns=["_sample"])
+        lines.extend(
+            markdown_table(
+                mature,
+                [
+                    "status_bucket",
+                    "as_published_report_bucket",
+                    "trigger_id",
+                    "tdcc_list_type",
+                    "mature_sample_size",
+                    "win_rate",
+                    "avg_return",
+                    "median_return",
+                    "out_of_sample_pass",
+                    "confidence_status",
+                ],
+                80,
+            )
+        )
+        current = status_summary[status_summary["status_source"].eq("current_daily_adapter_full_view")].copy()
+        if not current.empty:
+            lines.extend(
+                [
+                    "",
+                    "## Current Adapter Full View",
+                    "",
+                    *markdown_table(
+                        current,
+                        [
+                            "status_bucket",
+                            "as_published_report_bucket",
+                            "trigger_id",
+                            "tdcc_list_type",
+                            "current_row_count",
+                            "current_data_row_count",
+                            "metric_sample_scope",
+                        ],
+                        80,
+                    ),
+                ]
+            )
+    LATEST_STATUS_SUMMARY_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+
+
 def main() -> int:
     formal_lifecycle = build_lifecycle_events()
     events = apply_lifecycle_state_columns(build_base_events(), formal_lifecycle)
     summary = summarize(events)
     formal_events = formal_operation_events(events)
     formal_summary = summarize(formal_events)
+    status_summary = build_status_summary(formal_events)
     rank_base, pending = build_latest_confirmation_frames()
     rank = build_rank_output(rank_base, formal_summary if not formal_summary.empty else summary)
 
@@ -1767,15 +2124,18 @@ def main() -> int:
     write_csv(summary, HISTORY_SUMMARY_CSV)
     write_csv(summary, LATEST_SUMMARY_CSV)
     write_csv(formal_summary, LATEST_FORMAL_SUMMARY_CSV)
+    write_csv(status_summary, LATEST_STATUS_SUMMARY_CSV)
     write_csv(rank, LATEST_RANK_CSV)
     write_csv(pending, LATEST_PENDING_CSV)
     write_summary_markdown(summary, events)
     write_formal_summary_markdown(formal_summary, formal_events, formal_lifecycle)
+    write_status_summary_markdown(status_summary)
     write_rank_markdown(rank, pending)
 
     print(f"Saved: {LATEST_SUMMARY_CSV} rows={len(summary)}")
     print(f"Saved: {HISTORY_EVENTS_CSV} rows={len(events)}")
     print(f"Saved: {LATEST_FORMAL_SUMMARY_CSV} rows={len(formal_summary)}")
+    print(f"Saved: {LATEST_STATUS_SUMMARY_CSV} rows={len(status_summary)}")
     print(f"Saved: {HISTORY_FORMAL_EVENTS_CSV} rows={len(formal_events)}")
     print(f"Saved: {LATEST_FORMAL_LIFECYCLE_CSV} rows={len(formal_lifecycle)}")
     print(f"Saved: {LATEST_RANK_CSV} rows={len(rank)}")

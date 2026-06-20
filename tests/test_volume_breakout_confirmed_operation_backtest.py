@@ -16,7 +16,9 @@ from build_volume_breakout_confirmed_operation_backtest import (  # noqa: E402
     METRIC_SAMPLE_SCOPE,
     TRIGGER_MAP,
     add_operation_selection_columns,
+    attach_as_published_report_bucket,
     attach_tdcc_asof,
+    build_current_adapter_status_summary,
     find_confirmation,
     formal_operation_events,
     lifecycle_state_for_signal,
@@ -24,6 +26,7 @@ from build_volume_breakout_confirmed_operation_backtest import (  # noqa: E402
     simulate_confirmed_trade,
     summarize,
 )
+import build_volume_breakout_confirmed_operation_backtest as backtest_builder  # noqa: E402
 import build_daily_volume_breakout_operation_section as daily_builder  # noqa: E402
 
 
@@ -307,3 +310,95 @@ def test_formal_operation_uses_priority_when_confirmation_date_ties() -> None:
 
     assert selected["trigger_id"].tolist() == ["pullback_5ma_confirmed"]
     assert selected.iloc[0]["selected_trigger_priority"] == "1"
+
+
+def test_as_published_report_bucket_comes_from_snapshot_lookup() -> None:
+    events = pd.DataFrame(
+        [
+            minimal_event(signal_date="20260601", stock_id="1234"),
+            minimal_event(signal_date="20260602", stock_id="5678"),
+        ]
+    )
+    lookup = pd.DataFrame(
+        [
+            {
+                "signal_date": "20260601",
+                "stock_id": "1234",
+                "as_published_report_bucket": "non_mainstream",
+            }
+        ]
+    )
+
+    out = attach_as_published_report_bucket(events, lookup)
+
+    buckets = dict(zip(out["stock_id"], out["as_published_report_bucket"], strict=False))
+    assert buckets["1234"] == "non_mainstream"
+    assert buckets["5678"] == "snapshot_missing"
+
+
+def test_current_adapter_status_summary_uses_full_view_without_highlight_duplicates(monkeypatch, tmp_path) -> None:
+    adapter = pd.DataFrame(
+        [
+            {
+                "pdf_view": "full",
+                "pdf_section": "confirmed_operation",
+                "operation_status": "confirmed_operation",
+                "row_type": "empty_state",
+                "stock_id": "",
+                "selected_trigger_id": "",
+                "evidence_tdcc_list_type": "",
+            },
+            {
+                "pdf_view": "full",
+                "pdf_section": "confirmed_unranked_operation",
+                "operation_status": "confirmed_unranked_operation",
+                "row_type": "data",
+                "stock_id": "1111",
+                "selected_trigger_id": "pullback_5ma_confirmed",
+                "evidence_tdcc_list_type": "no_tdcc",
+            },
+            {
+                "pdf_view": "full",
+                "pdf_section": "active_operation",
+                "operation_status": "active_operation",
+                "row_type": "data",
+                "stock_id": "2222",
+                "selected_trigger_id": "pullback_5ma_confirmed",
+                "evidence_tdcc_list_type": "no_tdcc",
+            },
+            {
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "operation_status": "active_operation",
+                "row_type": "data",
+                "stock_id": "2222",
+                "selected_trigger_id": "pullback_5ma_confirmed",
+                "evidence_tdcc_list_type": "no_tdcc",
+            },
+            {
+                "pdf_view": "full",
+                "pdf_section": "pending_confirmation",
+                "operation_status": "pending_confirmation",
+                "row_type": "data",
+                "stock_id": "3333",
+                "selected_trigger_id": "",
+                "evidence_tdcc_list_type": "",
+            },
+        ]
+    )
+    path = tmp_path / "daily_volume_breakout_operation_section_latest.csv"
+    adapter.to_csv(path, index=False)
+    monkeypatch.setattr(backtest_builder, "DAILY_VOLUME_ADAPTER_CSV", path)
+
+    out = pd.DataFrame(build_current_adapter_status_summary("2026-06-20 00:00:00 Asia/Taipei"))
+
+    assert set(out["status_bucket"]) == {
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "active_operation",
+        "pending_confirmation",
+    }
+    active = out[out["status_bucket"].eq("active_operation")].iloc[0]
+    assert int(active["current_data_row_count"]) == 1
+    assert int(active["mature_sample_size"]) == 0
+    assert active["metric_sample_scope"] == "current_unmatured_status_count_only"

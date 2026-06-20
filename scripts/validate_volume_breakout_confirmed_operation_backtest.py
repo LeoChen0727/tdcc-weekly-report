@@ -22,6 +22,8 @@ LATEST_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.
 LATEST_RANK_MD = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.md"
 LATEST_PENDING_CSV = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.csv"
 LATEST_PENDING_MD = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.md"
+LATEST_STATUS_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_status_summary_latest.csv"
+LATEST_STATUS_SUMMARY_MD = LATEST_DIR / "volume_breakout_formal_operation_status_summary_latest.md"
 
 REQUIRED_SUMMARY_COLUMNS = {
     "model_id",
@@ -158,6 +160,30 @@ REQUIRED_PENDING_COLUMNS = {
     "approved_for_daily",
 }
 
+REQUIRED_STATUS_SUMMARY_COLUMNS = {
+    "model_id",
+    "research_id",
+    "status_bucket",
+    "status_source",
+    "as_published_report_bucket",
+    "trigger_id",
+    "tdcc_list_type",
+    "metric_sample_scope",
+    "current_row_count",
+    "current_data_row_count",
+    "mature_sample_size",
+    "win_rate",
+    "avg_return",
+    "median_return",
+    "out_of_sample_pass",
+    "confidence_status",
+    "entry_rule_id",
+    "stop_loss_rule_id",
+    "exit_rule_id",
+    "approved_for_daily",
+    "status_note",
+}
+
 EXPECTED_TRIGGERS = {
     "pullback_5ma_confirmed",
     "next_day_break_signal_high_confirmed",
@@ -178,6 +204,13 @@ EXPECTED_LIFECYCLE_STATES = {
     "confirmed_operation",
     "active_operation",
     "expired",
+}
+
+EXPECTED_CURRENT_ADAPTER_STATES = {
+    "pending_confirmation",
+    "confirmed_operation",
+    "confirmed_unranked_operation",
+    "active_operation",
 }
 
 LIFECYCLE_DEFINITION_ID = "daily_volume_breakout_operation_lifecycle_v1"
@@ -240,6 +273,8 @@ def main() -> int:
         LATEST_RANK_MD,
         LATEST_PENDING_CSV,
         LATEST_PENDING_MD,
+        LATEST_STATUS_SUMMARY_CSV,
+        LATEST_STATUS_SUMMARY_MD,
     ]:
         check_file(path, allow_short_md=path in {LATEST_RANK_MD, LATEST_PENDING_MD})
 
@@ -252,6 +287,7 @@ def main() -> int:
     lifecycle_history = read_csv(HISTORY_FORMAL_LIFECYCLE_CSV)
     rank = read_csv(LATEST_RANK_CSV)
     pending = read_csv(LATEST_PENDING_CSV)
+    status_summary = read_csv(LATEST_STATUS_SUMMARY_CSV)
     if summary.empty:
         fail(f"{LATEST_SUMMARY_CSV} has no rows")
     if history.empty:
@@ -266,6 +302,8 @@ def main() -> int:
         fail(f"{LATEST_FORMAL_LIFECYCLE_CSV} has no rows")
     if lifecycle_history.empty:
         fail(f"{HISTORY_FORMAL_LIFECYCLE_CSV} has no rows")
+    if status_summary.empty:
+        fail(f"{LATEST_STATUS_SUMMARY_CSV} has no rows")
 
     missing_summary = sorted(REQUIRED_SUMMARY_COLUMNS - set(summary.columns))
     if missing_summary:
@@ -291,6 +329,9 @@ def main() -> int:
     missing_pending = sorted(REQUIRED_PENDING_COLUMNS - set(pending.columns))
     if missing_pending:
         fail(f"{LATEST_PENDING_CSV} missing columns: {missing_pending}")
+    missing_status_summary = sorted(REQUIRED_STATUS_SUMMARY_COLUMNS - set(status_summary.columns))
+    if missing_status_summary:
+        fail(f"{LATEST_STATUS_SUMMARY_CSV} missing columns: {missing_status_summary}")
 
     forbidden = sorted(
         (
@@ -301,6 +342,7 @@ def main() -> int:
             | set(formal_lifecycle.columns)
             | set(rank.columns)
             | set(pending.columns)
+            | set(status_summary.columns)
         )
         & FORBIDDEN_PRODUCTION_FIELDS
     )
@@ -317,6 +359,8 @@ def main() -> int:
         fail("formal event model_id must be volume_range_breakout")
     if set(formal_lifecycle["model_id"].astype(str)) != {"volume_range_breakout"}:
         fail("formal lifecycle model_id must be volume_range_breakout")
+    if set(status_summary["model_id"].astype(str)) != {"volume_range_breakout"}:
+        fail("status summary model_id must be volume_range_breakout")
     if set(summary["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
         fail("summary overlay_model_id must be tdcc_weekly_ranking_formula")
     if set(events["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
@@ -336,6 +380,7 @@ def main() -> int:
         ("formal_lifecycle", formal_lifecycle),
         ("rank", rank),
         ("pending", pending),
+        ("status_summary", status_summary),
     ]:
         if "approved_for_daily" in df.columns and not false_only(df["approved_for_daily"]):
             fail(f"{label} approved_for_daily must remain false")
@@ -450,6 +495,44 @@ def main() -> int:
         if str(row["operation_lifecycle_state"]) != lifecycle_state_lookup.get(key):
             fail(f"formal event lifecycle state must match lifecycle artifact for signal={key[0]} stock={key[1]}")
 
+    status_sources = set(status_summary["status_source"].astype(str))
+    expected_status_sources = {"historical_mature_formal_event", "current_daily_adapter_full_view"}
+    missing_status_sources = sorted(expected_status_sources - status_sources)
+    if missing_status_sources:
+        fail(f"status summary missing status_source rows: {missing_status_sources}")
+    bad_status_sources = sorted(status_sources - expected_status_sources)
+    if bad_status_sources:
+        fail(f"status summary has unexpected status_source values: {bad_status_sources}")
+
+    historical_status = status_summary[status_summary["status_source"].astype(str).eq("historical_mature_formal_event")]
+    if historical_status.empty:
+        fail("status summary must include historical mature formal event rows")
+    if set(historical_status["status_bucket"].astype(str)) != {"confirmed_operation"}:
+        fail("historical status summary rows must be confirmed_operation only")
+    if set(historical_status["metric_sample_scope"].astype(str)) != {METRIC_SAMPLE_SCOPE}:
+        fail(f"historical status summary metric_sample_scope must be {METRIC_SAMPLE_SCOPE}")
+    historical_samples = pd.to_numeric(historical_status["mature_sample_size"], errors="coerce")
+    if historical_samples.isna().any() or (historical_samples <= 0).any():
+        fail("historical status summary mature_sample_size must be positive")
+
+    current_status = status_summary[status_summary["status_source"].astype(str).eq("current_daily_adapter_full_view")]
+    current_states = set(current_status["status_bucket"].astype(str))
+    missing_current_states = sorted(EXPECTED_CURRENT_ADAPTER_STATES - current_states)
+    if missing_current_states:
+        fail(f"status summary missing current daily adapter states: {missing_current_states}")
+    current_samples = pd.to_numeric(current_status["mature_sample_size"], errors="coerce").fillna(-1)
+    if (current_samples != 0).any():
+        fail("current daily adapter status rows must not claim mature performance samples")
+    current_scope = set(current_status["metric_sample_scope"].astype(str))
+    if current_scope != {"current_unmatured_status_count_only"}:
+        fail(f"current daily adapter status rows have wrong metric_sample_scope: {sorted(current_scope)}")
+    current_data_counts = pd.to_numeric(current_status["current_data_row_count"], errors="coerce").fillna(0)
+    if current_data_counts.sum() <= 0:
+        fail("current daily adapter status summary must count at least one data row")
+    current_data_status = current_status[current_data_counts > 0]
+    if not (current_data_status["as_published_report_bucket"].astype(str) != "snapshot_missing").any():
+        fail("current daily adapter status summary must contain at least one as-published snapshot report bucket match")
+
     trigger_scope = formal_summary[
         formal_summary["confluence_scope"].astype(str).eq("operation_trigger")
         & formal_summary["confluence_id"].astype(str).eq("all_confirmed_volume_breakout")
@@ -536,7 +619,8 @@ def main() -> int:
         "volume breakout confirmed operation validation passed "
         f"summary_rows={len(summary)} event_rows={len(events)} "
         f"formal_summary_rows={len(formal_summary)} formal_event_rows={len(formal_events)} "
-        f"formal_lifecycle_rows={len(formal_lifecycle)} rank_rows={len(rank)} pending_rows={len(pending)}"
+        f"formal_lifecycle_rows={len(formal_lifecycle)} status_summary_rows={len(status_summary)} "
+        f"rank_rows={len(rank)} pending_rows={len(pending)}"
     )
     return 0
 

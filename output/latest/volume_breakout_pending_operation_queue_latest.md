@@ -1,6 +1,6 @@
 # Volume Breakout Pending Operation Queue
 
-- generated_at: `2026-06-19 03:07:29 Asia/Taipei`
+- generated_at: `2026-06-20 07:24:16 Asia/Taipei`
 - queue_date: `20260618`
 - pending rows are not ranked operation rows; they are waiting for confirmation.
 - scope: research only; all rows keep `approved_for_daily=False`.
