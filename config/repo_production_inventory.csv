@@ -181,6 +181,7 @@ tests/test_data_freshness_latest.py,test_python,daily_production,active,daily pr
 tests/test_event_catalyst_source_parsers.py,test_python,catalyst_event,active,catalyst/event test: test_event_catalyst_source_parsers,,
 tests/test_fundamental_catalyst_layer.py,test_python,catalyst_event,active,catalyst/event test: test_fundamental_catalyst_layer,,
 tests/test_fetch_official_daily_price_quality.py,test_python,official_price_data,active,official price data test: test_fetch_official_daily_price_quality,,
+tests/test_individual_stock_outputs.py,test_python,individual_stock,active,individual stock artifact relocation regression test,,
 tests/test_daily_price_history_continuity.py,test_python,official_price_data,active,official price data test: test_daily_price_history_continuity,,
 tests/test_historical_pattern_operation_registry.py,test_python,research_backtest,active,research/backtest test: test_historical_pattern_operation_registry,,
 tests/test_volume_breakout_buy_signal_grid.py,test_python,research_backtest,active,research/backtest test: test_volume_breakout_buy_signal_grid,,
@@ -216,7 +217,7 @@ tests/test_warrant_market_report_fallback.py,test_python,warrant,active,warrant 
 .github/workflows/debug_tpex_fetch.yml,workflow,diagnostics,manual_diagnostic,diagnostics workflow boundary,,
 .github/workflows/diagnose_stock_selection.yml,workflow,diagnostics,manual_diagnostic,diagnostics workflow boundary,,
 .github/workflows/event_catalyst_update.yml,workflow,catalyst_event,active,catalyst event workflow boundary,,
-.github/workflows/individual_stock_data_refresh.yml,workflow,individual_stock,active,individual stock workflow boundary,,git add output/latest/individual_stock_chatgpt_packets/;git add output/latest/individual_stock_price_windows/;git add docs/latest/individual_stock_chatgpt_packet_index.*
+.github/workflows/individual_stock_data_refresh.yml,workflow,individual_stock,active,individual stock workflow boundary,,git add output/latest/individual_stock_reports/;git add docs/latest/individual_stock_reports/
 .github/workflows/individual_stock_report.yml,workflow,individual_stock,active,individual stock workflow boundary,,git add output/latest/individual_stock_reports/;git add docs/latest/individual_stock_reports/
 .github/workflows/official_price_backfill.yml,workflow,official_price_data,active,official price data workflow boundary,,
 .github/workflows/official_price_fetch.yml,workflow,official_price_data,active,official price data workflow boundary,,

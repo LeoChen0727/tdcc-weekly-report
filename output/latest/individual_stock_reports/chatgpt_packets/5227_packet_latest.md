@@ -1,0 +1,207 @@
+# INDIVIDUAL STOCK CHATGPT PACKET - 5227 立凱-KY
+
+## Metadata
+- generated_at: 2026-06-20 22:55:15 Asia/Taipei
+- stock_id: 5227
+- stock_name: 立凱-KY
+- packet_status: standard_180d_window_packet
+- latest_price_date: 20260618
+- price_rows: 152
+- latest_tdcc_date: 20260618
+- tdcc_rows: 8
+- tdcc_history_status: tdcc_history_ready
+- individual_report_md_exists: False
+- sell_strategy_summary_exists: False
+- notes:
+
+## Stable Read URLs
+- packet_pages_url: not_published_to_pages_use_raw_or_github_api
+- packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/chatgpt_packets/5227_packet_latest.md
+- packet_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/chatgpt_packets/5227_packet_latest.md?ref=main
+- price_window_180_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_window_180_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/5227_price_window_180_latest.csv
+- price_window_180_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/price_windows/5227_price_window_180_latest.csv?ref=main
+- price_window_180_txt_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_window_180_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/5227_price_window_180_latest.txt
+- price_window_180_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/price_windows/5227_price_window_180_latest.txt?ref=main
+- price_window_180_html_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_window_180_html_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/price_windows/5227_price_window_180_latest.html
+- price_window_180_html_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/price_windows/5227_price_window_180_latest.html?ref=main
+- tdcc_window_pages_url: not_published_to_pages_use_raw_or_github_api
+- tdcc_window_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/tdcc_windows/5227_tdcc_window_latest.csv
+- tdcc_window_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/tdcc_windows/5227_tdcc_window_latest.csv?ref=main
+- tdcc_window_txt_pages_url: not_published_to_pages_use_raw_or_github_api
+- tdcc_window_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/tdcc_windows/5227_tdcc_window_latest.txt
+- tdcc_window_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/tdcc_windows/5227_tdcc_window_latest.txt?ref=main
+- price_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5227.csv
+- price_pages_url: not_published_to_pages_use_raw_or_github_api
+- price_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/5227.csv?ref=main
+- tdcc_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/tdcc_stock_history/5227.csv
+- tdcc_pages_url: not_published_to_pages_use_raw_or_github_api
+- tdcc_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/tdcc_stock_history/5227.csv?ref=main
+- individual_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/5227_latest.md
+- individual_report_md_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/5227_latest.md
+- individual_report_md_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/5227_latest.md?ref=main
+
+## Data Quality Rules
+- This packet is generated from repo raw CSV files so ChatGPT does not need to expand large CSV files first.
+- Use this packet first for single-stock analysis. Use raw/pages/API URLs only when deeper inspection is needed.
+- For chart or K-line work, always read `price_window_180_html_pages_url` or `price_window_180_txt_*` first. The 20-row preview is not enough for technical analysis.
+- Single-stock chart and main conclusion should use 23EMA as the primary moving-average observation line.
+- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
+- The full historical CSV remains available for Python backtests.
+- If price_rows < 60, do not produce a standard technical report.
+- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
+
+## ACTION_DISPLAY
+- pdf_visible: true
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
+- risk_control_zh: 股價乖離過大
+- post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+
+## ACTION_DECISION
+- pdf_visible: false
+- internal_use_only: true
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
+- position_sizing: observe_only
+
+### management_plan
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- model_recommended
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- price_too_extended
+
+### chatgpt_instruction
+- Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
+- Do not print ACTION_DECISION, action_rating, starter_position, decision_score, model_slug, packet, raw field, or 程式端欄位 in investor-facing PDF prose.
+- Treat post-entry watch display text as management items, not as buy-before blockers.
+
+## Latest Price Snapshot
+- date: 20260618
+- open: 41.2
+- high: 41.2
+- low: 38.8
+- close: 39.9
+- volume: 2101000
+- ma5: 36.61
+- ema23_primary: 29.2
+- distance_to_ema23_pct: 36.65
+- ma20: 28.27
+- ma60: 24.35
+- ma120: 25.09
+- return_5d: 41.99
+- return_20d: 54.95
+- volume_ratio: 4.38
+- distance_to_ma20_pct_auxiliary: 41.15
+- distance_to_high_60_pct: -3.16
+
+## Recent Price Preview
+This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
+```csv
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260522,25.75,27.25,25.5,26.4,26000,23.05,14.54,22.3,23.34,0.1
+20260525,26.4,26.4,25,25.5,26000,23.25,9.66,22.51,23.36,0.1
+20260526,25.9,25.9,24.6,24.6,25000,23.37,5.28,22.72,23.35,0.1
+20260527,24.65,25.6,24.3,24.65,25000,23.47,5.01,22.93,23.35,0.1
+20260528,24.65,25.2,24.3,24.35,25000,23.55,3.41,23.03,23.33,0.1
+20260529,24.35,24.9,24,24.55,24000,23.63,3.89,23.16,23.31,0.11
+20260601,24.55,25,24.4,24.7,25000,23.72,4.14,23.32,23.31,0.12
+20260602,24.7,24.75,24.2,24.4,25,23.78,2.63,23.46,23.29,0
+20260603,24.4,24.55,24.4,24.5,24000,23.84,2.79,23.65,23.28,0.12
+20260604,24.6,26.3,24.5,26.3,26000,24.04,9.39,23.92,23.32,0.13
+20260605,26.5,26.85,25.15,25.2,26000,24.14,4.4,24.14,23.33,0.13
+20260608,23.4,27.35,23.4,27,664000,24.38,10.76,24.45,23.36,2.98
+20260609,27,27,26.3,26.5,258000,24.55,7.93,24.72,23.38,1.12
+20260610,25.5,27.2,25.5,25.55,366000,24.64,3.71,24.96,23.38,1.5
+20260611,25.3,28.1,24.8,28.1,806000,24.93,12.74,25.28,23.41,2.96
+20260612,30.9,30.9,30.9,30.9,348000,25.42,21.54,25.66,23.49,1.44
+20260615,33.95,33.95,33.95,33.95,278000,26.13,29.91,26.2,23.62,1.14
+20260616,37.3,37.3,37.3,37.3,446000,27.06,37.82,26.79,23.83,2.01
+20260617,41,41,38.6,41,4080000,28.23,45.26,27.56,24.09,10.49
+20260618,41.2,41.2,38.8,39.9,2101000,29.2,36.65,28.27,24.35,4.38
+```
+
+## Latest TDCC Snapshot
+- as_of_date: 20260618
+- over_400_ratio: 19.36
+- over_600_ratio: 17.83
+- over_800_ratio: 15.71
+- over_1000_ratio: 12.87
+- over_400_change_1w: -0.15
+- over_800_change_1w: -0.08
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
+
+## TDCC Preview
+This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
+```csv
+as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
+20260430,18.65,,14.32,,12.87,,0,False,False
+20260508,18.96,0.31,15.7,1.38,12.87,0,1,False,True
+20260515,19.03,0.07,15.77,0.07,12.87,0,2,False,True
+20260522,19.45,0.42,15.79,0.02,12.87,0,3,False,True
+20260529,19.45,0,15.79,0,12.87,0,0,False,False
+20260605,19.51,0.06,15.79,0,12.87,0,1,False,False
+20260612,19.51,0,15.79,0,12.87,0,0,False,False
+20260618,19.36,-0.15,15.71,-0.08,12.87,0,0,False,False
+```
+
+## Candidate Context
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5227 | 立凱-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: (一)單月(最近一月單月自結數)                              115年5月  /  114年5月  /   與去年同期增減% ------------------------  -------------  ------------  --------------- 營業收入(百萬元)               1.14        38.85            (97.07) 稅前淨利(百萬元)             (25.23)      (27.34)             7.72 歸屬母公司業主淨利(百萬元)   (25.23)      (27.34)             7.72 每股盈餘(元)                  (0.37)       (0.40)             7.50 ============================================================================ (二)單季(最近一季單季，會計師查核數)                              115年第1季 /  114年第1季  / 與去年同期增減% -------------------------  -------------  ------------  --------------- 營業收入(百萬元)               50.19         194.21          (74.16) 稅前淨利(百萬元)              (97.56)        (35.57)        (174.28) 歸屬母公司業主淨利(百萬元)    (97.56)        (35.57)        (174.28) 每股盈餘(元)                   (1.43)         (0.52)        (175.00) ============================================================================ (三)最近四季累計(會計師查核數)                            114年第2季至115年第1季                        -------------------------------- 營業收入(百萬元)                  256.63 稅前淨利(百萬元)                  (14.62) 歸屬母公司業主淨利(百萬元)        (50.14) 每股盈餘(元)                       (0.74) ============================================================================ (四)公司每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:本公司於6/12已發布重訊澄清媒體報導，並於 6/17公告本公司現金增資認股基準日相關事宜(補充公告發行價格 、代收及存儲價款銀行)。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合併數， 未經會計師查核(閱)，僅供投資人參考。 (2)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會計師查 核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+
+## Repeat Appearance Context
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260618 | 5227 | 立凱-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+
+## Warrant Context
+| status |
+| --- |
+| no rows |
+
+## Interpretation Guardrails
+- ACTION_DISPLAY is the PDF-visible report language contract.
+- ACTION_DECISION is internal model context only; do not print its raw field names or raw values in investor-facing prose.
+- Use entry_strategy_zh, position_sizing_zh, add_position_strategy_zh, take_profit_strategy_zh, risk_control_zh, and post_entry_watch_zh for report text.
+- For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
+- For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
+- Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.
+- Warrant signals are auxiliary only and must not be used as a standalone reason.

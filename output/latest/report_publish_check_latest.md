@@ -1,10 +1,10 @@
 # Report Publish Check
 
-- generated_at: `2026-06-20 02:11:23 Asia/Taipei`
+- generated_at: `2026-06-20 22:38:08 Asia/Taipei`
 - main_price_date: `20260618`
 - report_ready: `True`
-- artifact_commit_sha: `4e5c773d191e10c825a71ff0ca3cc029b28e80a8`
-- preferred_chatgpt_url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/4e5c773d191e10c825a71ff0ca3cc029b28e80a8/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt`
+- artifact_commit_sha: `c0f2c9db6905bbc244719643ae719c370b430bea`
+- preferred_chatgpt_url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c0f2c9db6905bbc244719643ae719c370b430bea/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt`
 - rules_pages_url: `https://LeoChen0727.github.io/tdcc-weekly-report/latest/CHATGPT_DAILY_REPORT_RULES.txt`
 - rules_raw_url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/CHATGPT_DAILY_REPORT_RULES.txt`
 - pdf_kline_status_pages_url: `https://LeoChen0727.github.io/tdcc-weekly-report/latest/pdf_kline_chart_status_latest.md`
@@ -31,28 +31,29 @@
 
 ```text
 curl -I -L --max-time 30 https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-HTTP/2 200 
-server: GitHub.com
-content-type: text/plain; charset=utf-8
-last-modified: Fri, 19 Jun 2026 17:49:09 GMT
-access-control-allow-origin: *
-strict-transport-security: max-age=31556952
-etag: "6a358115-9e3c6"
-expires: Fri, 19 Jun 2026 18:21:21 GMT
-cache-control: max-age=600
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 371904
+Server: GitHub.com
+Content-Type: text/plain; charset=utf-8
+Last-Modified: Sat, 20 Jun 2026 14:06:18 GMT
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31556952
+ETag: "6a369e5a-5acc0"
+expires: Sat, 20 Jun 2026 14:34:56 GMT
+Cache-Control: max-age=600
 x-proxy-cache: MISS
-x-github-request-id: EA52:1516A3:347D:3773:6A358649
-accept-ranges: bytes
-age: 0
-date: Fri, 19 Jun 2026 18:11:21 GMT
-via: 1.1 varnish
-x-served-by: cache-dfw-kdfw8210080-DFW
-x-cache: MISS
-x-cache-hits: 0
-x-timer: S1781892682.575600,VS0,VE119
-vary: Accept-Encoding
-x-fastly-request-id: 7423cd5a60cbfa70c3cf219003ea7fd1777cc4ff
-content-length: 648134
+X-GitHub-Request-Id: 295E:89A58:2350F1:25C84A:6A36A2B8
+Accept-Ranges: bytes
+Age: 0
+Date: Sat, 20 Jun 2026 14:38:04 GMT
+Via: 1.1 varnish
+X-Served-By: cache-sin-wsat1880032-SIN
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1781966284.251935,VS0,VE235
+Vary: Accept-Encoding
+X-Fastly-Request-ID: f68361f84738c33ef0b0bbdc6c616a405cd0ff98
 
 
 STDERR:
@@ -60,115 +61,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0  632k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-
-```
-
-### curl -L | head -50
-
-```text
-curl -L --max-time 30 https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-CHATGPT DAILY REPORT PACKET
-
-generated_at: 2026-06-20 01:33:27 Asia/Taipei
-repo: LeoChen0727/tdcc-weekly-report
-main_price_date: 20260618
-report_ready: True
-all_candidates_date: 20260618
-official_price_fetch_date: 20260618
-stock_monitor_date: 20260618
-warrant_flow_date: 20260618
-warrant_ready: True
-warrant_ready_note: warrant_flow_date matches main_price_date
-daily_pdf_ready: True
-daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
-
-CHATGPT_DELIVERY_CONTRACT
-repo_artifacts_are_sources_not_final_deliverables: True
-report_ready_meaning: repo data packet is available; this does not mean ChatGPT has produced the user's requested report.
-official_chatgpt_side_pdf_entrypoint: python scripts/run_chatgpt_daily_report_entrypoint.py
-if_user_asks_status_only: report source data readiness and packet/rule links only; do not present repo artifact PDFs as final reports.
-if_user_asks_do_today_report_or_six_pdfs: run the official ChatGPT-side PDF entrypoint; do not stop at repo artifacts.
-default_daily_full_market_chatgpt_deliverables: 主流每日推薦精華 PDF|主流完整候選清單 PDF|非主流每日推薦精華 PDF|非主流完整候選清單 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF
-do_not_replace_required_chatgpt_pdfs_with_repo_artifacts: True
-do_not_paste_full_text_instead_of_pdf_unless_user_requests_text_only: True
-
-PACKET_PATHS
-latest_packet_path: output/latest/chatgpt_daily_report_packet_latest.txt
-history_packet_path: output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt
-
-SUMMARY_PDF_KLINE_STATUS
-summary_pdf_path: output/latest/daily_market_summary_latest.pdf
-summary_pdf_kline_policy: local_price_redraw_first
-summary_pdf_kline_status: generated
-summary_pdf_kline_output_dir: output/latest/charts/pdf_kline
-summary_pdf_kline_total_charts: 30
-summary_pdf_kline_local_price_redraw_count: 30
-summary_pdf_kline_chart_path_fallback_count: 0
-summary_pdf_kline_missing_count: 0
-summary_pdf_kline_status_md_path: output/latest/pdf_kline_chart_status_latest.md
-summary_pdf_chart_path_and_chart_url_are_fallback_only: True
-do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed: True
-note: The summary PDF K-line charts are generated by the pipeline from local/repo daily price data first. Candidate chart_path/chart_url values are fallback references only.
-
-DATA SOURCE PRIORITY
-priority_1: Use original structured data first: CSV files, packet fields, source logs, signal logs, warrant tables, market tables, and validated raw URLs.
-priority_2: Use Markdown reports as readable summaries only after checking the structured data when available.
-priority_3: Use PDF reports only when raw/packet/source-table data cannot be read, or when the user specifically asks for the shareable PDF artifact.
-pdf_only_disclosure_required: True
-pdf_only_disclosure_text: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
-note: PDFs are auxiliary outputs. They are not the primary source when raw data is available.
-STDERR:
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  632k  100  632k    0     0  4264k      0 --:--:-- --:--:-- --:--:-- 4276k
-
-```
-
-## packet_commit_raw_url
-
-- ok: `True`
-- type: `plain`
-- url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/4e5c773d191e10c825a71ff0ca3cc029b28e80a8/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt`
-
-### curl -I
-
-```text
-curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/4e5c773d191e10c825a71ff0ca3cc029b28e80a8/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt
-HTTP/2 200 
-cache-control: max-age=300
-content-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
-content-type: text/plain; charset=utf-8
-etag: "d5dda2f51af49fcd40f0ce414d4be909d99bd699dcab9a6c9d6e1e4c5af84cc6"
-strict-transport-security: max-age=31536000
-x-content-type-options: nosniff
-x-frame-options: deny
-x-xss-protection: 1; mode=block
-x-github-request-id: DE36:206AD9:10ED:155E:6A358649
-accept-ranges: bytes
-date: Fri, 19 Jun 2026 18:11:22 GMT
-via: 1.1 varnish
-x-served-by: cache-dfw-kdfw8210153-DFW
-x-cache: MISS
-x-cache-hits: 0
-x-timer: S1781892682.918290,VS0,VE142
-vary: Authorization,Accept-Encoding
-access-control-allow-origin: *
-cross-origin-resource-policy: cross-origin
-x-fastly-request-id: 0f44df6497aa1930d8e191ba19196cf2cd933bc1
-expires: Fri, 19 Jun 2026 18:16:22 GMT
-source-age: 0
-content-length: 371904
-
-
-STDERR:
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  363k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0  363k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 
 ```
@@ -176,7 +69,7 @@ STDERR:
 ### curl -L | head -50
 
 ```text
-curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/4e5c773d191e10c825a71ff0ca3cc029b28e80a8/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt
+curl -L --max-time 30 https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 CHATGPT DAILY REPORT PACKET
 
 generated_at: 2026-06-20 02:10:38 Asia/Taipei
@@ -232,7 +125,117 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  363k  100  363k    0     0  2847k      0 --:--:-- --:--:-- --:--:-- 2859k
+100  363k  100  363k    0     0   841k      0 --:--:-- --:--:-- --:--:--  846k
+
+```
+
+## packet_commit_raw_url
+
+- ok: `True`
+- type: `plain`
+- url: `https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c0f2c9db6905bbc244719643ae719c370b430bea/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt`
+
+### curl -I
+
+```text
+curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c0f2c9db6905bbc244719643ae719c370b430bea/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 371904
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: text/plain; charset=utf-8
+ETag: "d5dda2f51af49fcd40f0ce414d4be909d99bd699dcab9a6c9d6e1e4c5af84cc6"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 41C8:25E023:F30468:112DE0E:6A36A2B9
+Accept-Ranges: bytes
+Date: Sat, 20 Jun 2026 14:38:05 GMT
+Via: 1.1 varnish
+X-Served-By: cache-sin-wsat1880040-SIN
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1781966285.246281,VS0,VE263
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 1d188a9ef7622f029760d9e43d71d2f6a041be7c
+Expires: Sat, 20 Jun 2026 14:43:05 GMT
+Source-Age: 0
+
+
+STDERR:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  363k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  363k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+
+```
+
+### curl -L | head -50
+
+```text
+curl -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/c0f2c9db6905bbc244719643ae719c370b430bea/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt
+CHATGPT DAILY REPORT PACKET
+
+generated_at: 2026-06-20 02:10:38 Asia/Taipei
+repo: LeoChen0727/tdcc-weekly-report
+main_price_date: 20260618
+report_ready: True
+all_candidates_date: 20260618
+official_price_fetch_date: 20260618
+stock_monitor_date: 20260618
+warrant_flow_date: 20260618
+warrant_ready: True
+warrant_ready_note: warrant_flow_date matches main_price_date
+daily_pdf_ready: True
+daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
+
+CHATGPT_DELIVERY_CONTRACT
+repo_artifacts_are_sources_not_final_deliverables: True
+report_ready_meaning: repo data packet is available; this does not mean ChatGPT has produced the user's requested report.
+official_chatgpt_side_pdf_entrypoint: python scripts/run_chatgpt_daily_report_entrypoint.py
+if_user_asks_status_only: report source data readiness and packet/rule links only; do not present repo artifact PDFs as final reports.
+if_user_asks_do_today_report_or_six_pdfs: run the official ChatGPT-side PDF entrypoint; do not stop at repo artifacts.
+default_daily_full_market_chatgpt_deliverables: 主流每日推薦精華 PDF|主流完整候選清單 PDF|非主流每日推薦精華 PDF|非主流完整候選清單 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF
+do_not_replace_required_chatgpt_pdfs_with_repo_artifacts: True
+do_not_paste_full_text_instead_of_pdf_unless_user_requests_text_only: True
+
+PACKET_PATHS
+latest_packet_path: output/latest/chatgpt_daily_report_packet_latest.txt
+history_packet_path: output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt
+
+SUMMARY_PDF_KLINE_STATUS
+summary_pdf_path: output/latest/daily_market_summary_latest.pdf
+summary_pdf_kline_policy: local_price_redraw_first
+summary_pdf_kline_status: generated
+summary_pdf_kline_output_dir: output/latest/charts/pdf_kline
+summary_pdf_kline_total_charts: 15
+summary_pdf_kline_local_price_redraw_count: 15
+summary_pdf_kline_chart_path_fallback_count: 0
+summary_pdf_kline_missing_count: 0
+summary_pdf_kline_status_md_path: output/latest/pdf_kline_chart_status_latest.md
+summary_pdf_chart_path_and_chart_url_are_fallback_only: True
+do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed: True
+note: The summary PDF K-line charts are generated by the pipeline from local/repo daily price data first. Candidate chart_path/chart_url values are fallback references only.
+
+DATA SOURCE PRIORITY
+priority_1: Use original structured data first: CSV files, packet fields, source logs, signal logs, warrant tables, market tables, and validated raw URLs.
+priority_2: Use Markdown reports as readable summaries only after checking the structured data when available.
+priority_3: Use PDF reports only when raw/packet/source-table data cannot be read, or when the user specifically asks for the shareable PDF artifact.
+pdf_only_disclosure_required: True
+pdf_only_disclosure_text: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
+note: PDFs are auxiliary outputs. They are not the primary source when raw data is available.
+STDERR:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  363k  100  363k    0     0   842k      0 --:--:-- --:--:-- --:--:--  848k
 
 ```
 
@@ -246,30 +249,31 @@ STDERR:
 
 ```text
 curl -I -L --max-time 30 https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
-HTTP/2 200 
-cache-control: max-age=300
-content-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
-content-type: text/plain; charset=utf-8
-etag: "d5dda2f51af49fcd40f0ce414d4be909d99bd699dcab9a6c9d6e1e4c5af84cc6"
-strict-transport-security: max-age=31536000
-x-content-type-options: nosniff
-x-frame-options: deny
-x-xss-protection: 1; mode=block
-x-github-request-id: A340:115F4:1D70:247B:6A35864A
-accept-ranges: bytes
-date: Fri, 19 Jun 2026 18:11:22 GMT
-via: 1.1 varnish
-x-served-by: cache-dfw-kdfw8210146-DFW
-x-cache: MISS
-x-cache-hits: 0
-x-timer: S1781892682.262502,VS0,VE138
-vary: Authorization,Accept-Encoding
-access-control-allow-origin: *
-cross-origin-resource-policy: cross-origin
-x-fastly-request-id: 492ae48fb9c0d633045bde5e6481657731ff3777
-expires: Fri, 19 Jun 2026 18:16:22 GMT
-source-age: 0
-content-length: 371904
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 371904
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: text/plain; charset=utf-8
+ETag: "d5dda2f51af49fcd40f0ce414d4be909d99bd699dcab9a6c9d6e1e4c5af84cc6"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: D132:2CC570:1F0BDD:3C7040:6A36A2BA
+Accept-Ranges: bytes
+Date: Sat, 20 Jun 2026 14:38:06 GMT
+Via: 1.1 varnish
+X-Served-By: cache-sin-wsat1880096-SIN
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1781966286.230135,VS0,VE261
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 23e7ba9a47b6cbe09a4329df07b40400be585823
+Expires: Sat, 20 Jun 2026 14:43:06 GMT
+Source-Age: 0
 
 
 STDERR:
@@ -277,6 +281,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  363k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0  363k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 
 ```
@@ -340,7 +345,7 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  363k  100  363k    0     0  2861k      0 --:--:-- --:--:-- --:--:-- 2882k
+100  363k  100  363k    0     0   882k      0 --:--:-- --:--:-- --:--:--  887k
 
 ```
 
@@ -354,31 +359,31 @@ STDERR:
 
 ```text
 curl -I -L --max-time 30 https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
-HTTP/2 200 
-access-control-allow-origin: *
-access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
-cache-control: private, max-age=60, s-maxage=60
-content-length: 513614
-content-security-policy: default-src 'none'
-content-type: application/json; charset=utf-8
-date: Fri, 19 Jun 2026 18:11:22 GMT
-etag: "feb9c0048e988fc74eab620a5ab516da02e69bde"
-last-modified: Fri, 19 Jun 2026 18:10:46 GMT
-referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
-vary: Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding, Accept, X-Requested-With
-x-accepted-github-permissions: contents=read
-x-content-type-options: nosniff
-x-frame-options: deny
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+Cache-Control: public, max-age=60, s-maxage=60
+Content-Length: 513614
+Content-Security-Policy: default-src 'none'
+Content-Type: application/json; charset=utf-8
+Date: Sat, 20 Jun 2026 14:38:07 GMT
+ETag: "feb9c0048e988fc74eab620a5ab516da02e69bde"
+Last-Modified: Sat, 20 Jun 2026 14:05:03 GMT
+Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+Vary: Accept, Accept-Encoding, Accept, X-Requested-With
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
 x-github-api-version-selected: 2022-11-28
-x-github-media-type: github.v3; format=json
-x-xss-protection: 0
-x-github-request-id: 6000:3E5ADC:2E626:ADA45:6A35864A
-server: github.com
-x-ratelimit-limit: 5000
-x-ratelimit-remaining: 4994
-x-ratelimit-reset: 1781894866
-x-ratelimit-used: 6
-x-ratelimit-resource: core
+X-GitHub-Media-Type: github.v3; format=json
+X-XSS-Protection: 0
+Server: github.com
+Accept-Ranges: bytes
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 57
+X-RateLimit-Used: 3
+X-RateLimit-Resource: core
+X-RateLimit-Reset: 1781969100
+X-GitHub-Request-Id: C90E:349317:B40C08:D3C05C:6A36A5CF
 
 
 STDERR:
@@ -469,7 +474,6 @@ STDERR:
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  501k  100  501k    0     0   908k      0 --:--:-- --:--:-- --:--:--  907k
+100  501k  100  501k    0     0  1139k      0 --:--:-- --:--:-- --:--:-- 1147k
 
 ```

@@ -15,7 +15,9 @@ AUDIT_MD = LATEST_DIR / "daily_data_layer_consistency_audit_latest.md"
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 README_INDEX_JSON = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT_INDEX.json"
 CHATGPT_DAILY_RULES = LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
-INDIVIDUAL_STOCK_READ_PROTOCOL = LATEST_DIR / "individual_stock_read_protocol_latest.md"
+INDIVIDUAL_STOCK_READ_PROTOCOL = (
+    LATEST_DIR / "individual_stock_reports" / "individual_stock_read_protocol_latest.md"
+)
 
 MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 RAW_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_latest.csv"

@@ -59,8 +59,8 @@ DATA = REPO / "data"
 OUT = env_path("CHATGPT_DAILY_OUTPUT_DIR", REPO / "chatgpt_side_outputs")
 CHARTS = OUT / "charts"
 TDCC_WINDOW_DIRS = [
-    LATEST / "individual_stock_tdcc_windows",
-    REPO / "docs" / "latest" / "individual_stock_tdcc_windows",
+    LATEST / "individual_stock_reports" / "tdcc_windows",
+    REPO / "docs" / "latest" / "individual_stock_reports" / "tdcc_windows",
 ]
 REMOTE_README: dict[str, str] = {}
 REMOTE_LATEST_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest"
@@ -1368,7 +1368,7 @@ def plot_stock_chart(
     candidate_row: pd.Series | None = None,
 ) -> Path | None:
     remote_template = REMOTE_README.get("individual_stock_price_raw_url_template")
-    local_source = LATEST / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.csv"
+    local_source = LATEST / "individual_stock_reports" / "price_windows" / f"{stock_id}_price_window_180_latest.csv"
     df = read_csv(local_source)
     if df.empty and remote_template:
         try:
@@ -4027,8 +4027,8 @@ def configure_paths(args: argparse.Namespace) -> None:
     OUT = args.output_dir.expanduser().resolve()
     CHARTS = OUT / "charts"
     TDCC_WINDOW_DIRS = [
-        LATEST / "individual_stock_tdcc_windows",
-        REPO / "docs" / "latest" / "individual_stock_tdcc_windows",
+        LATEST / "individual_stock_reports" / "tdcc_windows",
+        REPO / "docs" / "latest" / "individual_stock_reports" / "tdcc_windows",
     ]
 
 

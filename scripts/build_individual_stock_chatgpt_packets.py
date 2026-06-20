@@ -12,6 +12,7 @@ import pandas as pd
 from action_decision_utils import compute_action_decision
 
 
+VALID_STOCK_ID_RE = re.compile(r"^[0-9]{4,6}$")
 OWNER_REPO = "LeoChen0727/tdcc-weekly-report"
 RAW_PREFIX = f"https://raw.githubusercontent.com/{OWNER_REPO}/main"
 PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
@@ -20,15 +21,15 @@ PAGES_NOT_PUBLISHED = "not_published_to_pages_use_raw_or_github_api"
 DATA_PRICE_DIR = Path("data/stock_price_history")
 DATA_TDCC_DIR = Path("data/tdcc_stock_history")
 LATEST_DIR = Path("output/latest")
-PACKET_DIR = LATEST_DIR / "individual_stock_chatgpt_packets"
-PRICE_WINDOW_DIR = LATEST_DIR / "individual_stock_price_windows"
-TDCC_WINDOW_DIR = LATEST_DIR / "individual_stock_tdcc_windows"
-PACKET_INDEX_CSV = LATEST_DIR / "individual_stock_chatgpt_packet_index.csv"
-PACKET_INDEX_MD = LATEST_DIR / "individual_stock_chatgpt_packet_index.md"
-DOCS_PACKET_INDEX_CSV = Path("docs/latest/individual_stock_chatgpt_packet_index.csv")
-DOCS_PACKET_INDEX_MD = Path("docs/latest/individual_stock_chatgpt_packet_index.md")
 REPORT_DIR = LATEST_DIR / "individual_stock_reports"
+PACKET_DIR = REPORT_DIR / "chatgpt_packets"
+PRICE_WINDOW_DIR = REPORT_DIR / "price_windows"
+TDCC_WINDOW_DIR = REPORT_DIR / "tdcc_windows"
+PACKET_INDEX_CSV = REPORT_DIR / "individual_stock_chatgpt_packet_index.csv"
+PACKET_INDEX_MD = REPORT_DIR / "individual_stock_chatgpt_packet_index.md"
 DOCS_REPORT_DIR = Path("docs/latest/individual_stock_reports")
+DOCS_PACKET_INDEX_CSV = DOCS_REPORT_DIR / "individual_stock_chatgpt_packet_index.csv"
+DOCS_PACKET_INDEX_MD = DOCS_REPORT_DIR / "individual_stock_chatgpt_packet_index.md"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
@@ -62,6 +63,10 @@ def normalize_stock_id(value: Any) -> str:
     if text.isdigit() and len(text) < 4:
         return text.zfill(4)
     return text
+
+
+def is_valid_stock_id(value: Any) -> bool:
+    return bool(VALID_STOCK_ID_RE.fullmatch(normalize_stock_id(value)))
 
 
 def normalize_date(value: Any) -> str:
@@ -348,17 +353,26 @@ def stock_name_from_frames(stock_id: str, frames: list[pd.DataFrame]) -> str:
 def collect_stock_ids(frames: list[pd.DataFrame]) -> list[str]:
     ids: set[str] = set()
     for path in DATA_PRICE_DIR.glob("*.csv"):
-        ids.add(normalize_stock_id(path.stem))
+        stock_id = normalize_stock_id(path.stem)
+        if is_valid_stock_id(stock_id):
+            ids.add(stock_id)
     for path in DATA_TDCC_DIR.glob("*.csv"):
-        ids.add(normalize_stock_id(path.stem))
+        stock_id = normalize_stock_id(path.stem)
+        if is_valid_stock_id(stock_id):
+            ids.add(stock_id)
     for path in REPORT_DIR.glob("*_latest.md"):
-        ids.add(normalize_stock_id(path.name.split("_", 1)[0]))
+        stock_id = normalize_stock_id(path.name.split("_", 1)[0])
+        if is_valid_stock_id(stock_id):
+            ids.add(stock_id)
     for df in frames:
         if df.empty:
             continue
         code_col = first_existing(df, ["stock_id", "code", "證券代號", "股票代號"])
         if code_col:
-            ids.update(normalize_stock_id(x) for x in df[code_col].tolist() if normalize_stock_id(x))
+            for value in df[code_col].tolist():
+                stock_id = normalize_stock_id(value)
+                if is_valid_stock_id(stock_id):
+                    ids.add(stock_id)
     return sorted(ids)
 
 
@@ -524,7 +538,7 @@ def build_packet(
         f"- tdcc_history_status: {tdcc_status}",
         f"- individual_report_md_exists: {report_md.exists()}",
         f"- sell_strategy_summary_exists: {sell_summary.exists()}",
-        f"- notes: {notes}",
+        f"- notes: {notes}".rstrip(),
         "",
         "## Stable Read URLs",
         f"- packet_pages_url: {PAGES_NOT_PUBLISHED}",
@@ -823,7 +837,7 @@ def write_index_md(index: pd.DataFrame) -> None:
         "",
         "## Usage",
         "",
-        "1. For any stock, read `output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md` first.",
+        "1. For any stock, read `output/latest/individual_stock_reports/chatgpt_packets/{stock_id}_packet_latest.md` first.",
         "2. If raw/pages packet does not expand, read the GitHub API contents endpoint and base64-decode `content`.",
         "3. For K-line, 23EMA, volume, support/resistance, and pattern checks, always read the stock's `price_window_180_html_*` URL from the packet. The 20-row preview is not enough.",
         "4. For the main individual-stock report K-line chart, draw only the latest half-year trading window by default: `126` trading days. Keep the 180-day window for analysis context.",
@@ -892,7 +906,7 @@ def main() -> int:
     main_date = current_main_price_date()
     shared_frames = [all_candidates_df, warrant_df, repeat_df]
 
-    selected = [normalize_stock_id(x) for x in args.stock_id if normalize_stock_id(x)]
+    selected = [normalize_stock_id(x) for x in args.stock_id if is_valid_stock_id(x)]
     if selected:
         stock_ids = sorted(set(selected))
         merge_existing = True

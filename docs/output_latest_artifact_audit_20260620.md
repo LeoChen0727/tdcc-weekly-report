@@ -24,8 +24,8 @@ Scope: classification-only inventory for CSV and Markdown artifacts under `outpu
 - Total CSV/MD artifacts inventoried: `7487`
 - CSV artifacts: `4928`
 - Markdown artifacts: `2559`
-- Root-level artifacts: `289`
-- Subdirectory artifacts: `7198`
+- Root-level artifacts: `280`
+- Subdirectory artifacts: `7207`
 - Tracked in git: `7487`
 - Inventory CSV: `config/output_latest_artifact_inventory.csv`
 
@@ -33,13 +33,13 @@ Scope: classification-only inventory for CSV and Markdown artifacts under `outpu
 
 | Value | Count |
 | --- | ---: |
-| `pipeline_necessary` | 22 |
+| `pipeline_necessary` | 30 |
 | `validator_necessary` | 11 |
-| `packet_manifest_necessary` | 51 |
+| `packet_manifest_necessary` | 7258 |
 | `docs_raw_link_necessary` | 25 |
 | `diagnostic_stale_candidate` | 18 |
 | `unknown` | 30 |
-| `belongs_to_other_lane` | 7330 |
+| `belongs_to_other_lane` | 115 |
 
 ## Owner Lane Counts
 
@@ -56,8 +56,8 @@ Scope: classification-only inventory for CSV and Markdown artifacts under `outpu
 
 | Value | Count |
 | --- | ---: |
-| `keep` | 109 |
-| `review` | 7330 |
+| `keep` | 7324 |
+| `review` | 115 |
 | `candidate_for_future_cleanup` | 18 |
 | `unknown` | 30 |
 
@@ -65,9 +65,47 @@ Scope: classification-only inventory for CSV and Markdown artifacts under `outpu
 
 | Value | Count |
 | --- | ---: |
-| `high` | 7426 |
-| `medium` | 31 |
+| `high` | 7427 |
+| `medium` | 30 |
 | `unknown` | 30 |
+
+## Individual-Stock Relocation Update
+
+This PR moves individual-stock report payload artifacts from `output/latest`
+root-level scatter paths into the canonical umbrella:
+
+```text
+output/latest/individual_stock_reports/
+```
+
+Moved or repointed artifact rows:
+
+- `output/latest/individual_stock_chatgpt_packets/` -> `output/latest/individual_stock_reports/chatgpt_packets/`
+- `output/latest/individual_stock_price_windows/` -> `output/latest/individual_stock_reports/price_windows/`
+- `output/latest/individual_stock_tdcc_windows/` -> `output/latest/individual_stock_reports/tdcc_windows/`
+- Root individual-stock index/read-protocol CSV/MD files -> `output/latest/individual_stock_reports/`
+
+Current individual-stock inventory:
+
+- `owner_lane=individual_stock`: `7215`
+- Under `output/latest/individual_stock_reports/`: `7207`
+- Retained root machine aliases/dependencies: `8`
+- Root files whose names still start with `individual_stock`: `2`
+
+Retained root aliases/dependencies:
+
+- `output/latest/individual_stock_technical_snapshot_latest.csv`
+- `output/latest/individual_stock_technical_snapshot_latest.md`
+- `output/latest/raw_data_fetch_status_latest.csv`
+- `output/latest/raw_data_fetch_status_latest.md`
+- `output/latest/sell_strategy_performance_latest.csv`
+- `output/latest/sell_strategy_performance_latest.md`
+- `output/latest/stock_price_history_manifest.csv`
+- `output/latest/stock_price_history_manifest.md`
+
+The retained root files are machine-readable pipeline or shared raw-data
+dependencies, not per-stock report payloads. They are marked `keep` in
+`config/output_latest_artifact_inventory.csv`.
 
 ## High-Risk Keep Samples
 
@@ -155,10 +193,7 @@ These rows appear to belong to another lane. They are marked for ownership revie
 | `output/latest/explosive_volume_up_position_backtest_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
 | `output/latest/historical_pattern_operation_registry_latest.csv` | `research_backtest` | `belongs_to_other_lane` | `review` |
 | `output/latest/historical_pattern_operation_registry_latest.md` | `research_backtest` | `belongs_to_other_lane` | `review` |
-| `output/latest/individual_stock_available_raw_data_index.csv` | `individual_stock` | `belongs_to_other_lane` | `review` |
-| `output/latest/individual_stock_available_raw_data_index.md` | `individual_stock` | `belongs_to_other_lane` | `review` |
-| `output/latest/individual_stock_available_raw_data_index_slim.csv` | `individual_stock` | `belongs_to_other_lane` | `review` |
-| `...(+7300)` | `` | `` | `` |
+| `...(+88)` | `` | `` | `` |
 
 ## Unknown Samples
 
@@ -197,4 +232,7 @@ Unknown rows have no direct consumer evidence and no diagnostic/stale naming sig
 
 ## Completion Boundary
 
-This audit is classification-only. It did not move, delete, or rewrite any CSV/MD artifact under `output/latest`, and it does not authorize later deletion without a separate lifecycle cleanup PR.
+The original audit was classification-only. The follow-up individual-stock
+relocation PR moved/repointed individual-stock report payload artifacts into
+`output/latest/individual_stock_reports/` and updated the inventory. It did not
+retire, delete, or move TDCC weekly or research/backtest artifacts.

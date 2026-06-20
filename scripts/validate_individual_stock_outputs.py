@@ -8,6 +8,10 @@ from pathlib import Path
 
 LATEST_DIR = Path("output/latest")
 DOCS_LATEST_DIR = Path("docs/latest")
+INDIVIDUAL_STOCK_REPORTS_DIR = LATEST_DIR / "individual_stock_reports"
+DOCS_INDIVIDUAL_STOCK_REPORTS_DIR = DOCS_LATEST_DIR / "individual_stock_reports"
+PACKET_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "chatgpt_packets"
+PRICE_WINDOW_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "price_windows"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 
@@ -191,17 +195,17 @@ def validate_stock(stock_id: str, main_price_date: str) -> list[str]:
     checks = [
         (
             "output packet latest_price_date",
-            LATEST_DIR / "individual_stock_chatgpt_packets" / f"{stock_id}_packet_latest.md",
+            PACKET_DIR / f"{stock_id}_packet_latest.md",
             latest_price_date_from_packet,
         ),
         (
             "output 180d txt price window",
-            LATEST_DIR / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.txt",
+            PRICE_WINDOW_DIR / f"{stock_id}_price_window_180_latest.txt",
             latest_price_date_from_txt_window,
         ),
         (
             "output 180d csv price window",
-            LATEST_DIR / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.csv",
+            PRICE_WINDOW_DIR / f"{stock_id}_price_window_180_latest.csv",
             latest_price_date_from_csv_window,
         ),
     ]
@@ -216,16 +220,16 @@ def validate_stock(stock_id: str, main_price_date: str) -> list[str]:
             )
 
     packet_paths = [
-        LATEST_DIR / "individual_stock_chatgpt_packets" / f"{stock_id}_packet_latest.md",
+        PACKET_DIR / f"{stock_id}_packet_latest.md",
     ]
     for path in packet_paths:
         errors.extend(validate_action_display_packet(stock_id, path))
 
     report_paths = [
-        LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.md",
-        DOCS_LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.md",
-        LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.pdf",
-        DOCS_LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.pdf",
+        INDIVIDUAL_STOCK_REPORTS_DIR / f"{stock_id}_latest.md",
+        DOCS_INDIVIDUAL_STOCK_REPORTS_DIR / f"{stock_id}_latest.md",
+        INDIVIDUAL_STOCK_REPORTS_DIR / f"{stock_id}_latest.pdf",
+        DOCS_INDIVIDUAL_STOCK_REPORTS_DIR / f"{stock_id}_latest.pdf",
     ]
     for path in report_paths:
         errors.extend(validate_report_display_text(stock_id, path))
@@ -248,7 +252,7 @@ def main() -> int:
     stock_ids = [str(x).strip() for x in args.stock_id if str(x).strip()]
     skipped_non_current: list[str] = []
     if args.all:
-        index_path = LATEST_DIR / "individual_stock_chatgpt_packet_index.csv"
+        index_path = INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_chatgpt_packet_index.csv"
         if not index_path.exists():
             raise SystemExit(f"ERROR: Missing packet index: {index_path}")
         with index_path.open("r", encoding="utf-8-sig", newline="") as fh:
