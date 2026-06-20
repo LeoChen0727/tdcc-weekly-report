@@ -107,6 +107,31 @@ The retained root files are machine-readable pipeline or shared raw-data
 dependencies, not per-stock report payloads. They are marked `keep` in
 `config/output_latest_artifact_inventory.csv`.
 
+## TDCC Weekly Relocation Update
+
+The follow-up TDCC weekly holder-flow review handles the `owner_lane=tdcc_weekly`
+audit slice as a compatibility-alias plan, not an immediate root deletion.
+
+- `owner_lane=tdcc_weekly`: `42`
+- relocated in this phase: `0`
+- compatibility aliases retained: `42`
+- `output/latest` root CSV/MD reduction in this phase: `0`
+- target machine container for future reviewed migration:
+  `output/latest/tdcc_weekly/`
+- target human-facing PDF container already in force:
+  `output/latest/published_reports/tdcc_weekly/`
+
+The retained root aliases are still consumed by TDCC weekly builders,
+validators, workflows, rules, tracking packets, docs/latest mirrors, or raw-link
+surfaces. `tdcc_weekly_ranking_backtest_*` remains out of scope for this TDCC
+holder-flow cleanup because active consumers are in the research/backtest
+workflow and validator.
+
+Full plan:
+
+- `docs/tdcc_weekly_artifact_relocation_plan_20260621.md`
+- `docs/tdcc_weekly_artifact_relocation_plan_20260621.csv`
+
 ## High-Risk Keep Samples
 
 These rows have direct pipeline, validator, packet/manifest, docs/latest, or raw-link evidence. They should remain in place unless a later PR moves every known consumer first.
