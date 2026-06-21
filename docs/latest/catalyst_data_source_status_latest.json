@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21 08:05:48 Asia/Taipei",
+  "generated_at": "2026-06-21 18:05:19 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -58,7 +58,7 @@
     "TPEX material information OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
       "status": "ok",
-      "rows": 2,
+      "rows": 1,
       "error": "",
       "http_status": 200,
       "matched_tracked_rows": 0,
