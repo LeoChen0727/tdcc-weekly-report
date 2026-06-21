@@ -1,6 +1,6 @@
 # Next-Open +10pct Touch Strict Parameter Search
 
-- generated_at: `2026-06-21 00:30:40 Asia/Taipei`
+- generated_at: `2026-06-21 21:00:07 Asia/Taipei`
 - legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.
 - display_name_zh: `短線動能條件參數搜尋：隔日開盤進場，D+1 到 D+10 / D+20 高點觸及 +10%`.
 - not_weekly_candle: `True`.

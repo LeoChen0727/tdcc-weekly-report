@@ -1,6 +1,6 @@
 # Five-Trading-Day Surge Theme Segment Next-Open Research
 
-- generated_at: `2026-06-21 00:19:04 Asia/Taipei`
+- generated_at: `2026-06-21 20:47:21 Asia/Taipei`
 - entry_basis: D+1 open, because the signal is only known after D0 close.
 - target: max high from D+1 through D+1 / ... / D+10 / D+20 reaches at least 10% above D+1 open.
 - strict_no_lookahead_history: joins `daily_theme_status_history.csv` on signal_date + stock_id.

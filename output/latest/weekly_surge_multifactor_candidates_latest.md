@@ -1,6 +1,6 @@
 # Next-Open +10pct Multifactor Candidates
 
-- generated_at: `2026-06-21 00:23:05 Asia/Taipei`
+- generated_at: `2026-06-21 20:52:00 Asia/Taipei`
 - use: research watchlist only; do not mix into daily candidate core ranking.
 - entry_basis: D+1 open.
 - target: next-open to D+1 / ... / D+10 / D+20 high >= 10%.
