@@ -33,11 +33,25 @@ def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> N
     )
 
     refresh_idx = workflow.index("- name: Update catalyst data tables")
+    freshness_idx = workflow.index(
+        "- name: Refresh data freshness before external-source integrity gate"
+    )
+    freshness_build_idx = workflow.index("python build_data_freshness_latest.py", freshness_idx)
+    freshness_validate_idx = workflow.index(
+        "python scripts/validate_data_freshness_latest.py", freshness_idx
+    )
     advanced_idx = workflow.index("python scripts/validate_repo_advanced_integrity.py")
     preflight_idx = workflow.index("- name: Validate Apps Script workflow triggers")
     install_idx = workflow.index("- name: Install dependencies")
 
-    assert preflight_idx < install_idx < refresh_idx < advanced_idx
+    assert (
+        preflight_idx
+        < install_idx
+        < refresh_idx
+        < freshness_build_idx
+        < freshness_validate_idx
+        < advanced_idx
+    )
 
 
 def test_calendar_degraded_external_source_requires_effect_guards() -> None:
