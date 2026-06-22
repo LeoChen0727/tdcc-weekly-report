@@ -1,9 +1,9 @@
 # Catalyst Layer Validation
 
-- generated_at: `2026-06-22 18:06:34 Asia/Taipei`
+- generated_at: `2026-06-22 22:48:40 Asia/Taipei`
 - status: `pass`
 - schema_only: `False`
-- all_candidates_rows: `470`
+- all_candidates_rows: `778`
 - catalyst_performance_rows: `1077`
 - catalyst_summary_rows: `14`
 - catalyst_needs_review_rows: `2`
@@ -14,7 +14,7 @@
 |---|---:|
 | theme_event_calendar | 1 |
 | company_theme_mapping | 28 |
-| quarterly_catalyst | 699 |
-| event_catalyst_log | 649 |
+| quarterly_catalyst | 778 |
+| event_catalyst_log | 650 |
 
 No validation errors.
