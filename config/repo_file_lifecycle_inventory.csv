@@ -41,6 +41,7 @@ docs/daily_pdf_template_independence_inventory.md,guidance_doc,repo_infrastructu
 docs/event_calendar_data_layer.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/event_catalyst_overlay_governance.md,guidance_doc,catalyst_event,active,,,,,,,event/catalyst overlay governance and phase-one disclosure-only contract,,medium
 docs/model_surface_registry_governance.md,guidance_doc,repo_infrastructure,active,,,,,,,model surface registry governance for model classification and lane routing,,high
+docs/model_review_backlog.md,guidance_doc,repo_infrastructure,active,,,,,,,model surface review backlog for owner lane routing and human review priority,,medium
 docs/fundamental_catalyst_layer.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/latest/CHATGPT_DAILY_REPORT_RULES.txt,generated_guidance,repo_infrastructure,generated_artifact,,,,,,,generated active guidance artifact checked for stale command references,,none
 docs/latest/READ_ME_FIRST_DAILY_REPORT.txt,generated_guidance,repo_infrastructure,generated_artifact,,,,,,,generated active guidance artifact checked for stale command references,,none
