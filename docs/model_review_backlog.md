@@ -28,8 +28,9 @@ High-priority manual review:
 
 - `revenue_unreacted_range`: research proxy is broad, so proxy stats must not be
   used directly for production tuning.
-- `near_high_neckline_challenge`: distance-field sign semantics need a business
-  meaning check before parameter tuning.
+- `near_high_neckline_challenge`: condition and scoring use opposite sides of
+  the pressure-distance sign convention; formal model-change review is required
+  before tuning.
 - `tdcc_short_term_continuation_d5_d10`: only TDCC-weekly-approved stock model,
   so consumer expansion requires independent review.
 - `tdcc_weekly_ranking_formula`: TDCC weekly ranking model, not a stock entry
@@ -60,7 +61,7 @@ Low-priority / monitor:
 | `hot_theme_pullback` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Confirm whether theme-related research variants are true improvements or only exploratory alternatives. |
 | `revenue_unreacted_range` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first, then `daily_model_maintenance` if promotion is approved | high | Review revenue proxy width and data completeness. Current proxy is too broad for direct production tuning. |
 | `w_bottom_right_side` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review pattern definition and research variant performance before any production change. |
-| `near_high_neckline_challenge` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `daily_model_maintenance` for field semantics; `research_backtest` for evidence after semantics are confirmed | high | Confirm whether distance fields use the same positive/negative meaning in condition and scoring. Do not tune until semantics are clear. |
+| `near_high_neckline_challenge` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `daily_model_maintenance` for formal semantics decision; `research_backtest` for evidence after production intent is fixed | high | Blocker confirmed: condition currently accepts pressure distance `0..5`, while scoring rewards `-5..0`. Do not tune until a formal model-change PR decides the intended side of the pressure level. |
 | `platform_strengthening` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review whether platform-strengthening variants are materially different from production baseline. |
 | `pullback_short_reclaim` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review reclaim signal definitions and evidence before any production threshold change. |
 | `tdcc_stealth_accumulation` | `tdcc_stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Keep separate from TDCC weekly approval. Review only as a daily stock entry model unless consumer approval changes. |
@@ -71,7 +72,9 @@ Low-priority / monitor:
 
 ## Recommended Execution Order
 
-1. `near_high_neckline_challenge`: settle distance-field business meaning.
+1. `near_high_neckline_challenge`: decide whether production should mean
+   "near pressure from below", "just reclaimed above pressure", or two separate
+   surfaces.
 2. `revenue_unreacted_range`: narrow or validate the research proxy before any
    parameter discussion.
 3. `group_fund_rotation`: create a theme-level contract and backtest plan.
