@@ -34,6 +34,34 @@ production validation must run `scripts/validate_repo_code_isolation_policy.py`
 and `scripts/validate_chatgpt_side_pdf_layout_independence.py`; weakening these
 guards requires changing the validator and tests in the same reviewed PR.
 
+## Formal Daily Model Change Rule
+
+Formal daily Taiwan stock recommendation model, ranking, or scoring changes
+belong to the `daily_model_maintenance` lane:
+
+```text
+C:\Users\p4693\Documents\Codex\projects\taiwan-stock-recommendation\maintenance\daily-model-maintenance
+```
+
+When changing formal production model conditions, ranking, or scoring, update
+`config/stock_model_contract_registry.csv` in the same change when the contract
+surface is affected.
+
+After any formal daily model/ranking/scoring change, check research/backtest
+parity. If research/backtest parity is inconsistent, do not copy research
+recommendations or variants into the production baseline. Report that the
+`research_backtest` lane must be synchronized, or create an explicit
+promotion/sync PR when that is requested.
+
+Required validation for formal daily model/ranking/scoring changes:
+
+```text
+python scripts/validate_stock_model_contract_registry.py
+python scripts/validate_daily_pdf_contract_consumers.py
+python scripts/validate_research_against_stock_model_contract.py
+python scripts/validate_daily_model_research_parity.py
+```
+
 ## Official Daily PDF Entrypoint
 
 Official ChatGPT-side daily PDF generation must start from:

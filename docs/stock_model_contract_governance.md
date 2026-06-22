@@ -33,4 +33,4 @@ python scripts/validate_stock_model_contract_registry.py
 
 The validator checks the registry schema, unique `model_id`, strict true/false values for the three `approved_for_*` columns, source-file existence, and alignment with `config/daily_model_condition_spec.csv`.
 
-The initial registry intentionally keeps `input_columns=pending_review` because existing model conditions read columns through helper functions. That field should be replaced by model-specific input column lists only after a source-backed audit.
+`input_columns` must list the source-backed model inputs used by each model's condition and scoring path. Include fallback alias columns that helper functions read, and use explicit source prefixes such as `stock_price_history.*` when a model depends on sibling data outside the current candidate row. Do not return an audited model to `pending_review` unless the source path changes and the field list can no longer be proven.
