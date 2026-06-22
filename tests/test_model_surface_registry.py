@@ -67,6 +67,33 @@ def test_tdcc_weekly_stock_model_allowlist_stays_explicit() -> None:
     assert approved_stock_surfaces == ["tdcc_short_term_continuation_d5_d10"]
 
 
+def test_tdcc_weekly_ranking_formula_is_report_ranking_surface() -> None:
+    surfaces = {row["surface_id"]: row for row in registry_rows()}
+    stock_ids = {row["model_id"] for row in stock_contract_rows()}
+
+    tdcc_ranking = surfaces["tdcc_weekly_ranking_formula"]
+    assert "tdcc_weekly_ranking_formula" not in stock_ids
+    assert tdcc_ranking["surface_type"] == "tdcc_weekly_ranking_model"
+    assert tdcc_ranking["selection_level"] == "tdcc_weekly_report"
+    assert tdcc_ranking["formal_contract_file"] == "pending_tdcc_ranking_contract"
+    assert tdcc_ranking["primary_source_file"] == "scripts/build_tdcc_weekly_candidate_reports.py"
+    assert "scripts/build_tdcc_weekly_ranking_backtest.py" in tdcc_ranking["implementation_sources"]
+    assert tdcc_ranking["approved_for_tdcc_weekly_pdf"] == "true"
+    assert tdcc_ranking["approved_for_daily_pdf"] == "false"
+    assert tdcc_ranking["stock_entry_signal"] == "false"
+    assert tdcc_ranking["research_parity_status"] == "research_backtest_advisory_only"
+
+
+def test_script_declared_model_ids_are_registered() -> None:
+    ids_by_path, errors = validator.collect_declared_script_model_ids()
+    registered_ids = {row["surface_id"] for row in registry_rows()}
+
+    assert errors == []
+    assert "tdcc_weekly_ranking_formula" in ids_by_path["scripts/build_tdcc_weekly_ranking_backtest.py"]
+    for path, model_ids in ids_by_path.items():
+        assert model_ids <= registered_ids, path
+
+
 def test_event_catalyst_overlay_is_not_stock_entry_signal() -> None:
     surfaces = {row["surface_id"]: row for row in registry_rows()}
 
