@@ -1,6 +1,6 @@
 # Upcoming Macro Event Calendar
 
-- generated_at: `2026-06-21 18:26:29 Asia/Taipei`
+- generated_at: `2026-06-22 08:05:43 Asia/Taipei`
 - rows: `18`
 - note: Macro events are market-risk reminders for the market dashboard. They are not individual stock catalysts by themselves.
 
@@ -8,21 +8,21 @@
 
 | event_date | event_name | event_type | region | importance | days_to_event | proximity_bucket | related_themes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260617 | FOMC decision (June 16-17, 2026) | FOMC | US | high | -4 | recent | macro_liquidity;USD_rates;global_risk |
-| 20260625 | GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Person... | US_PCE_personal_income | US | high | 4 | within_7d | US_PCE;inflation;consumption;global_risk |
-| 20260625 | Personal Income and Outlays, May 2026 | US_PCE_personal_income | US | high | 4 | within_7d | US_PCE;inflation;consumption;global_risk |
-| 20260702 | Employment Situation release schedule: June 2026 | US_employment_situation | US | high | 11 | within_14d | US_jobs;Fed_policy;global_growth;global_risk |
-| 20260707 | U.S. International Trade in Goods and Services, May 2026 | US_trade | US | medium | 16 | within_30d | US_trade;export_cycle;global_growth |
-| 20260714 | CPI release schedule: June 2026 | US_CPI | US | high | 23 | within_30d | US_CPI;inflation;Fed_policy;global_risk |
-| 20260729 | FOMC decision (July 28-29, 2026) | FOMC | US | high | 38 | within_60d | macro_liquidity;USD_rates;global_risk |
-| 20260730 | GDP (Advance Estimate), 2nd Quarter 2026 | US_GDP | US | medium | 39 | within_60d | US_GDP;global_growth;global_risk |
-| 20260730 | Personal Income and Outlays, June 2026 | US_PCE_personal_income | US | high | 39 | within_60d | US_PCE;inflation;consumption;global_risk |
-| 20260804 | U.S. International Trade in Goods and Services, June 2026 | US_trade | US | medium | 44 | within_60d | US_trade;export_cycle;global_growth |
-| 20260807 | Employment Situation release schedule: July 2026 | US_employment_situation | US | high | 47 | within_60d | US_jobs;Fed_policy;global_growth;global_risk |
-| 20260812 | CPI release schedule: July 2026 | US_CPI | US | high | 52 | within_60d | US_CPI;inflation;Fed_policy;global_risk |
-| 20260826 | GDP (Second Estimate) and Corporate Profits, 2nd Quarter 2026 | US_GDP | US | medium | 66 | future | US_GDP;global_growth;global_risk |
-| 20260826 | Personal Income and Outlays, July 2026 | US_PCE_personal_income | US | high | 66 | future | US_PCE;inflation;consumption;global_risk |
-| 20260903 | U.S. International Trade in Goods and Services, July 2026 | US_trade | US | medium | 74 | future | US_trade;export_cycle;global_growth |
-| 20260904 | Employment Situation release schedule: August 2026 | US_employment_situation | US | high | 75 | future | US_jobs;Fed_policy;global_growth;global_risk |
-| 20260911 | CPI release schedule: August 2026 | US_CPI | US | high | 82 | future | US_CPI;inflation;Fed_policy;global_risk |
-| 20260916 | FOMC decision (September 15-16, 2026) | FOMC | US | high | 87 | future | macro_liquidity;USD_rates;global_risk |
+| 20260617 | FOMC decision (June 16-17, 2026) | FOMC | US | high | -5 | recent | macro_liquidity;USD_rates;global_risk |
+| 20260625 | GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Person... | US_PCE_personal_income | US | high | 3 | within_3d | US_PCE;inflation;consumption;global_risk |
+| 20260625 | Personal Income and Outlays, May 2026 | US_PCE_personal_income | US | high | 3 | within_3d | US_PCE;inflation;consumption;global_risk |
+| 20260702 | Employment Situation release schedule: June 2026 | US_employment_situation | US | high | 10 | within_14d | US_jobs;Fed_policy;global_growth;global_risk |
+| 20260707 | U.S. International Trade in Goods and Services, May 2026 | US_trade | US | medium | 15 | within_30d | US_trade;export_cycle;global_growth |
+| 20260714 | CPI release schedule: June 2026 | US_CPI | US | high | 22 | within_30d | US_CPI;inflation;Fed_policy;global_risk |
+| 20260729 | FOMC decision (July 28-29, 2026) | FOMC | US | high | 37 | within_60d | macro_liquidity;USD_rates;global_risk |
+| 20260730 | GDP (Advance Estimate), 2nd Quarter 2026 | US_GDP | US | medium | 38 | within_60d | US_GDP;global_growth;global_risk |
+| 20260730 | Personal Income and Outlays, June 2026 | US_PCE_personal_income | US | high | 38 | within_60d | US_PCE;inflation;consumption;global_risk |
+| 20260804 | U.S. International Trade in Goods and Services, June 2026 | US_trade | US | medium | 43 | within_60d | US_trade;export_cycle;global_growth |
+| 20260807 | Employment Situation release schedule: July 2026 | US_employment_situation | US | high | 46 | within_60d | US_jobs;Fed_policy;global_growth;global_risk |
+| 20260812 | CPI release schedule: July 2026 | US_CPI | US | high | 51 | within_60d | US_CPI;inflation;Fed_policy;global_risk |
+| 20260826 | GDP (Second Estimate) and Corporate Profits, 2nd Quarter 2026 | US_GDP | US | medium | 65 | future | US_GDP;global_growth;global_risk |
+| 20260826 | Personal Income and Outlays, July 2026 | US_PCE_personal_income | US | high | 65 | future | US_PCE;inflation;consumption;global_risk |
+| 20260903 | U.S. International Trade in Goods and Services, July 2026 | US_trade | US | medium | 73 | future | US_trade;export_cycle;global_growth |
+| 20260904 | Employment Situation release schedule: August 2026 | US_employment_situation | US | high | 74 | future | US_jobs;Fed_policy;global_growth;global_risk |
+| 20260911 | CPI release schedule: August 2026 | US_CPI | US | high | 81 | future | US_CPI;inflation;Fed_policy;global_risk |
+| 20260916 | FOMC decision (September 15-16, 2026) | FOMC | US | high | 86 | future | macro_liquidity;USD_rates;global_risk |
