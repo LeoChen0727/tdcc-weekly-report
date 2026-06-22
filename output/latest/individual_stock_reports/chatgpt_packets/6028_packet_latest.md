@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6028 公勝保經
 
 ## Metadata
-- generated_at: 2026-06-21 22:24:01 Asia/Taipei
+- generated_at: 2026-06-22 22:23:56 Asia/Taipei
 - stock_id: 6028
 - stock_name: 公勝保經
 - packet_status: partial_rawdata_packet

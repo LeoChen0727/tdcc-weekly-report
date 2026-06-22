@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0200 兆豐半導體氣候N
 
 ## Metadata
-- generated_at: 2026-06-21 22:22:28 Asia/Taipei
+- generated_at: 2026-06-22 22:22:35 Asia/Taipei
 - stock_id: 0200
 - stock_name: 兆豐半導體氣候N
 - packet_status: partial_rawdata_packet
