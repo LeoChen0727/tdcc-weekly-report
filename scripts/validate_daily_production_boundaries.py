@@ -113,13 +113,10 @@ def require_workflow_order(text: str, labels: list[str]) -> list[str]:
     errors: list[str] = []
     last_index = -1
     for label in labels:
-        index = text.find(label)
+        index = text.find(label, last_index + 1)
         if index < 0:
             errors.append(f"daily_full_pipeline missing workflow marker: {label}")
             continue
-        if index < last_index:
-            errors.append("daily_full_pipeline workflow markers are out of order: " + " -> ".join(labels))
-            break
         last_index = index
     return errors
 
@@ -270,6 +267,9 @@ def main() -> int:
                 "- name: Update catalyst data tables",
                 "- name: Record calendar source status before integrity gate",
                 "- name: Upload calendar source precheck evidence",
+                "- name: Refresh data freshness before external-source integrity gate",
+                "python build_data_freshness_latest.py",
+                "python scripts/validate_data_freshness_latest.py",
                 "- name: Validate refreshed external-source integrity",
             ],
         )

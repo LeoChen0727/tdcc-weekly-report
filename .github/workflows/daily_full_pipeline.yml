@@ -229,6 +229,11 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+      - name: Refresh data freshness before external-source integrity gate
+        run: |
+          python build_data_freshness_latest.py
+          python scripts/validate_data_freshness_latest.py
+
       - name: Validate refreshed external-source integrity
         run: |
           python scripts/validate_repo_advanced_integrity.py
