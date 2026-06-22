@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import csv
 import re
 from pathlib import Path
@@ -52,18 +53,21 @@ ALLOWED_SURFACE_TYPES = {
     "stock_entry_model",
     "tdcc_stock_entry_model",
     "tdcc_specialty_stock_model",
+    "tdcc_weekly_ranking_model",
     "theme_fund_rotation_model",
     "event_catalyst_overlay_surface",
 }
 
 ALLOWED_SELECTION_LEVELS = {
     "individual_stock",
+    "tdcc_weekly_report",
     "theme_group",
     "candidate_overlay",
 }
 
 ALLOWED_CONTRACT_SENTINELS = {
     "pending_review",
+    "pending_tdcc_ranking_contract",
     "pending_theme_model_contract",
     "not_applicable",
 }
@@ -71,6 +75,7 @@ ALLOWED_CONTRACT_SENTINELS = {
 ALLOWED_PARITY_STATUSES = {
     "ok",
     "warning_research_variant_only",
+    "research_backtest_advisory_only",
     "pending_backtest_optimization",
     "disclosure_only_not_ranked",
     "pending_review",
@@ -78,6 +83,7 @@ ALLOWED_PARITY_STATUSES = {
 
 BOOL_VALUES = {"true", "false"}
 SURFACE_ID_RE = re.compile(r"^[a-z0-9_]+$")
+MODEL_ID_CONSTANT_RE = re.compile(r"(^MODEL_ID$|_MODEL_ID$)")
 DATE_RE = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
 STOCK_SURFACE_TYPES = {"stock_entry_model", "tdcc_stock_entry_model", "tdcc_specialty_stock_model"}
 
@@ -180,6 +186,41 @@ def validate_rows(rows: list[dict[str, str]]) -> list[str]:
     return errors
 
 
+def collect_declared_script_model_ids() -> tuple[dict[str, set[str]], list[str]]:
+    ids_by_path: dict[str, set[str]] = {}
+    errors: list[str] = []
+    for path in sorted((ROOT / "scripts").glob("*.py")):
+        try:
+            tree = ast.parse(path.read_text(encoding="utf-8-sig"))
+        except SyntaxError as exc:
+            errors.append(f"could not parse script for model ids: {rel(path)}:{exc.lineno}: {exc.msg}")
+            continue
+
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Assign):
+                continue
+            if not isinstance(node.value, ast.Constant) or not isinstance(node.value.value, str):
+                continue
+            model_id = str(node.value.value).strip()
+            if not model_id:
+                continue
+            for target in node.targets:
+                if isinstance(target, ast.Name) and MODEL_ID_CONSTANT_RE.search(target.id):
+                    ids_by_path.setdefault(rel(path), set()).add(model_id)
+
+    return ids_by_path, errors
+
+
+def validate_declared_script_model_ids(surface_rows: list[dict[str, str]]) -> list[str]:
+    ids_by_path, errors = collect_declared_script_model_ids()
+    surface_ids = {row.get("surface_id", "") for row in surface_rows}
+    for path, model_ids in sorted(ids_by_path.items()):
+        for model_id in sorted(model_ids):
+            if model_id not in surface_ids:
+                errors.append(f"script-declared model_id missing from model surface registry: {model_id} ({path})")
+    return errors
+
+
 def validate_stock_contract_alignment(surface_rows: list[dict[str, str]]) -> list[str]:
     errors: list[str] = []
     stock_rows, stock_fields, stock_errors = load_csv_rows(STOCK_MODEL_CONTRACT)
@@ -226,6 +267,27 @@ def validate_stock_contract_alignment(surface_rows: list[dict[str, str]]) -> lis
         if group.get("stock_entry_signal") != "false":
             errors.append("group_fund_rotation must not be a stock entry signal")
 
+    tdcc_ranking = surfaces.get("tdcc_weekly_ranking_formula")
+    if tdcc_ranking is None:
+        errors.append("model surface registry must include tdcc_weekly_ranking_formula")
+    else:
+        if tdcc_ranking.get("surface_type") != "tdcc_weekly_ranking_model":
+            errors.append("tdcc_weekly_ranking_formula must be classified as tdcc_weekly_ranking_model")
+        if tdcc_ranking.get("selection_level") != "tdcc_weekly_report":
+            errors.append("tdcc_weekly_ranking_formula must use selection_level=tdcc_weekly_report")
+        if tdcc_ranking.get("formal_contract_file") == rel(STOCK_MODEL_CONTRACT):
+            errors.append("tdcc_weekly_ranking_formula must not reference stock_model_contract_registry.csv")
+        if tdcc_ranking.get("stock_entry_signal") != "false":
+            errors.append("tdcc_weekly_ranking_formula must not be a stock entry signal")
+        if tdcc_ranking.get("approved_for_tdcc_weekly_pdf") != "true":
+            errors.append("tdcc_weekly_ranking_formula must be approved for TDCC weekly PDF use")
+        if tdcc_ranking.get("approved_for_daily_pdf") != "false":
+            errors.append("tdcc_weekly_ranking_formula must not be approved for daily PDF use")
+        if "scripts/build_tdcc_weekly_ranking_backtest.py" not in split_semicolon(
+            tdcc_ranking.get("implementation_sources", "")
+        ):
+            errors.append("tdcc_weekly_ranking_formula must list the research/backtest implementation source")
+
     event = surfaces.get("event_catalyst_overlay")
     if event is None:
         errors.append("model surface registry must include event_catalyst_overlay")
@@ -244,6 +306,7 @@ def validate() -> list[str]:
     if errors:
         return errors
     errors.extend(validate_rows(rows))
+    errors.extend(validate_declared_script_model_ids(rows))
     errors.extend(validate_stock_contract_alignment(rows))
     return errors
 

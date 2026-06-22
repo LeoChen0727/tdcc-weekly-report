@@ -12,6 +12,7 @@ The registry covers:
 
 - formal individual-stock entry models;
 - TDCC/chip-related stock models;
+- TDCC weekly report ranking formulas such as `tdcc_weekly_ranking_formula`;
 - theme-level fund-flow models such as `group_fund_rotation`;
 - event and catalyst overlay surfaces;
 - research/backtest advisory variants;
@@ -33,6 +34,13 @@ does not produce an individual-stock entry signal.
 That distinction matters because stock-model consumers, research parity checks,
 and TDCC weekly model allowlists should not treat a theme rotation section as a
 stock entry model.
+
+`tdcc_weekly_ranking_formula` also belongs in `model_surface_registry.csv`, not
+in `stock_model_contract_registry.csv`. It ranks TDCC weekly holder-flow report
+sections and is approved for TDCC weekly PDF use, but it is not a daily stock
+entry signal and must not be treated as a production buy model. The
+research/backtest mirror is advisory-only unless a separate promotion PR changes
+that status.
 
 ## Change Rule
 
@@ -59,4 +67,5 @@ python scripts/validate_model_surface_registry.py
 
 The validator checks schema, unique `surface_id`, strict boolean fields,
 repo-relative source paths, alignment with `stock_model_contract_registry.csv`,
-and the required non-stock classification for `group_fund_rotation`.
+script-declared `MODEL_ID` / `*_MODEL_ID` coverage, and the required non-stock
+classification for `group_fund_rotation` and `tdcc_weekly_ranking_formula`.
