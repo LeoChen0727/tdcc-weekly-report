@@ -42,6 +42,20 @@ entry signal and must not be treated as a production buy model. The
 research/backtest mirror is advisory-only unless a separate promotion PR changes
 that status.
 
+Taiwan stock taxonomy is an upstream classification layer, not an individual
+stock entry model by itself. Mainstream / non-mainstream grouping, hot-theme
+classification, industry/theme mapping, and theme-level fund rotation inputs
+should be owned by a dedicated taxonomy maintenance role once that role is
+registered in the project-level conversation lane registry. Those taxonomy
+surfaces may feed stock models, PDFs, and research/backtest, but taxonomy
+changes must not silently change model scoring or ranking without a formal
+model-change PR.
+
+For breakout-related model work, use
+`docs/specs/breakout_model_taxonomy_governance_handoff.md` as the handoff
+between taxonomy classification, breakout event features, and formal stock
+entry models.
+
 ## Change Rule
 
 When adding or reclassifying a model surface:

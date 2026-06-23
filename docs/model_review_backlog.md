@@ -6,6 +6,13 @@ This backlog is the human-review queue for model surfaces listed in
 It is not a tuning recommendation and does not change production model
 conditions, scoring, ranking, PDF layout, or research baselines.
 
+The breakout-related model review is now grouped by shared business meaning in
+`docs/specs/breakout_model_taxonomy_governance_handoff.md`. That handoff keeps
+`volume_range_breakout` as the current production baseline while
+`w_bottom_right_side`, `near_high_neckline_challenge`, `platform_strengthening`,
+and a proposed future `neckline_volume_breakout_confirmation` are reviewed as a
+model group instead of isolated model ids.
+
 ## How To Use This Backlog
 
 Review means deciding business logic and boundaries, not reviewing code.
@@ -26,6 +33,11 @@ an explicit promotion/sync PR.
 
 High-priority manual review:
 
+- Breakout model group: review `near_high_neckline_challenge`,
+  `platform_strengthening`, `w_bottom_right_side`, and `volume_range_breakout`
+  together before any production tuning. Do not add
+  `neckline_volume_breakout_confirmation` to formal registries until production
+  code, contract, tests, and parity handling exist.
 - `revenue_unreacted_range`: research proxy is broad, so proxy stats must not be
   used directly for production tuning.
 - `near_high_neckline_challenge`: condition and scoring use opposite sides of
@@ -72,15 +84,19 @@ Low-priority / monitor:
 
 ## Recommended Execution Order
 
-1. `near_high_neckline_challenge`: decide whether production should mean
-   "near pressure from below", "just reclaimed above pressure", or two separate
-   surfaces.
-2. `revenue_unreacted_range`: narrow or validate the research proxy before any
+1. Breakout model group: use
+   `docs/specs/breakout_model_taxonomy_governance_handoff.md` to define the
+   taxonomy layer, breakout event feature layer, and stock-entry model layer
+   before changing production code.
+2. `near_high_neckline_challenge` / `platform_strengthening`: decide whether
+   these surfaces are deprecated, downgraded to observation, or replaced by a
+   formal `neckline_volume_breakout_confirmation` model-change PR.
+3. `revenue_unreacted_range`: narrow or validate the research proxy before any
    parameter discussion.
-3. `group_fund_rotation`: create a theme-level contract and backtest plan.
-4. `tdcc_weekly_ranking_formula`: document TDCC weekly ranking boundaries and
+4. `group_fund_rotation`: create a theme-level contract and backtest plan.
+5. `tdcc_weekly_ranking_formula`: document TDCC weekly ranking boundaries and
    keep it separate from stock entry models.
-5. `tdcc_short_term_continuation_d5_d10`: review TDCC weekly consumer impact
+6. `tdcc_short_term_continuation_d5_d10`: review TDCC weekly consumer impact
    before any consumer expansion.
-6. Remaining `warning_research_variant_only` stock models: handle through
+7. Remaining `warning_research_variant_only` stock models: handle through
    research parity or explicit promotion/sync PRs.
