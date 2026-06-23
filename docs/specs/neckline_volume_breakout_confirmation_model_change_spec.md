@@ -124,11 +124,10 @@ Initial distance handling:
 | `3..5` | acceptable confirmation score zone |
 | `> 5` | still eligible if the neckline reference is audited; do not reject or penalize solely because the breakout distance is large |
 
-Do not add an automatic "too far above neckline" exclusion or penalty in the
-first implementation. Do not reject or penalize solely because
-`neckline_distance_pct > 10` or `return_20d_pct` is high. Breakout quality
-should be handled through candle-quality score components, false-breakout risk
-tags, TDCC/revenue inputs, and later research evidence.
+Do not add a generic "price extension is too high" exclusion or penalty in the
+first implementation. Breakout quality should be handled through candle-quality
+score components, false-breakout risk tags, TDCC/revenue inputs, and later
+research evidence.
 
 ## Initial Entry Condition Proposal
 
