@@ -1,0 +1,305 @@
+# Neckline Volume Breakout Confirmation Model Change Spec
+
+This document defines the intended production model change for
+`neckline_volume_breakout_confirmation`.
+
+It does not change production model conditions, scoring, ranking, PDF layout,
+research baselines, or model contracts. It is the implementation spec that must
+be reviewed before a formal model-change PR edits production code.
+
+## Purpose
+
+The intended model is a confirmed neckline breakout with volume expansion. It
+is not a generic previous-high breakout, not a near-pressure watch signal, and
+not a platform-inside strengthening signal.
+
+The model should eventually replace or reduce the need for these currently
+blocked or overlapping production surfaces:
+
+- `near_high_neckline_challenge`
+- `platform_strengthening`
+
+Those existing model ids must not be deleted or deprecated until a formal
+production model-change PR updates code, contracts, tests, and parity handling.
+
+## Current Production Evidence
+
+Current production behavior shows three different concepts:
+
+| model_id | current production meaning | issue for this change |
+|---|---|---|
+| `volume_range_breakout` | confirmed range or previous-high volume breakout | Keep unchanged as current baseline. It is the only current stock model with research parity status `ok`. |
+| `w_bottom_right_side` | W-bottom right-side setup near the neckline, before confirmed breakout | Useful structured neckline source, but current entry condition rejects already-confirmed breakouts. |
+| `near_high_neckline_challenge` | near pressure before confirmed breakout | Condition and scoring use opposite sides of the distance sign convention. |
+| `platform_strengthening` | platform-inside strengthening before confirmed breakout | Not a confirmed breakout model. |
+
+The confirmed blocker for `near_high_neckline_challenge` is:
+
+- production condition accepts pressure distance `0..5`, meaning price is at or
+  above the pressure level by up to 5%;
+- scoring rewards pressure distance `-5..0`, meaning price is below the
+  pressure level by up to 5%;
+- research proxy follows the below-pressure scoring side more closely than the
+  production condition.
+
+Therefore the next production change should not tune the old model in place.
+It should create an explicit confirmed-breakout model and then decide whether
+the old pre-breakout surfaces should remain, be downgraded, or be deprecated.
+
+## Proposed Model Identity
+
+```text
+model_id: neckline_volume_breakout_confirmation
+model_name: Neckline volume breakout confirmation
+owner_lane: daily_model_maintenance
+selection_level: individual_stock
+surface_type: stock_entry_model
+```
+
+Business meaning:
+
+```text
+The stock has closed above an auditable neckline reference with clear volume
+confirmation, and the breakout is not already over-extended.
+```
+
+## Neckline Reference Rule
+
+Do not call the signal a neckline model if the implementation only uses a
+generic previous-N-day high or 60-day high.
+
+Allowed neckline references, in priority order:
+
+1. `w_bottom_neckline`: the highest high between two qualifying troughs from
+   the existing W-bottom price-history detector.
+2. `structured_neckline`: a future audited structured-neckline detector with a
+   documented window, reference price, and distance field.
+3. `explicit_upstream_neckline_breakout`: an upstream row that explicitly marks
+   `neckline_breakout_flag=true` or
+   `volume_breakout_type=neckline_volume_breakout` and provides an audited
+   neckline distance field.
+
+Rejected references:
+
+- `previous_20d_high` by itself;
+- `previous_60d_high` by itself;
+- `range_high` by itself;
+- `platform_high` by itself;
+- broad `pattern` text without a price-history or audited upstream neckline
+  reference.
+
+If only a generic previous-high or range-high reference exists, the stock may
+belong to `volume_range_breakout`, but it must not enter
+`neckline_volume_breakout_confirmation`.
+
+## Sign Convention
+
+Use this convention for all neckline distance fields:
+
+```text
+neckline_distance_pct = (close / neckline_price - 1) * 100
+```
+
+Interpretation:
+
+| range | meaning |
+|---|---|
+| `< 0` | close is below the neckline |
+| `0` | close is at the neckline |
+| `> 0` | close is above the neckline |
+
+The confirmed breakout zone for the first implementation should be:
+
+```text
+0 <= neckline_distance_pct <= 5
+```
+
+Suggested over-extension handling:
+
+| neckline_distance_pct | treatment |
+|---|---|
+| `< 0` | reject; this is still a challenge/watch setup, not confirmed breakout |
+| `0..3` | strongest confirmation zone |
+| `3..5` | acceptable confirmation zone |
+| `5..10` | over-extension warning; do not add confirmation bonus |
+| `> 10` | reject as too extended for initial production entry |
+
+These thresholds are intentionally conservative. They can be changed only after
+research/backtest evidence is reviewed through an explicit promotion or sync PR.
+
+## Initial Entry Condition Proposal
+
+The production implementation should create a new independent condition
+function. It must not rewrite `cond_volume_breakout`,
+`cond_w_bottom_right`, `cond_neckline_challenge`, or
+`cond_platform_strength` as shared hard gates.
+
+Recommended condition:
+
+```text
+has_audited_neckline_reference
+and 0 <= neckline_distance_pct <= 5
+and has_volume_confirmation
+and not too_extended_after_breakout
+```
+
+Where:
+
+```text
+has_audited_neckline_reference =
+  detected W-bottom neckline context is available
+  or audited structured-neckline context is available
+  or explicit upstream neckline breakout flag/type is present with audited
+     distance fields
+```
+
+Recommended first implementation for `has_volume_confirmation`:
+
+```text
+volume_ratio >= 2.0
+and volume_ma20_lots >= 1000 when volume_ma20_lots is available
+```
+
+Locked-limit-up handling may be added only if the implementation can prove the
+day is a true locked or near-locked breakout day using price fields. If this is
+not available, do not silently loosen the volume rule.
+
+Recommended first implementation for `too_extended_after_breakout`:
+
+```text
+neckline_distance_pct > 10
+or return_20d_pct >= 35
+```
+
+The `return_20d_pct` rule may be implemented as a penalty instead of a hard
+reject if selection counts become too narrow, but that choice must be explicit
+in the production PR.
+
+## Position-Level Rule
+
+This model is intended to represent a mid-to-high-position neckline
+confirmation. It should not require the same low-position rule as
+`volume_range_breakout` or `w_bottom_right_side`.
+
+Recommended feature:
+
+```text
+price_position_120d = (close - low_120d) / (high_120d - low_120d)
+```
+
+Initial interpretation:
+
+| price_position_120d | treatment |
+|---|---|
+| `< 0.35` | low-position; likely belongs to W-bottom or range breakout review |
+| `0.35..0.80` | preferred mid-position confirmation zone |
+| `> 0.80` | high-position; allowed only with over-extension penalty or warning |
+
+Do not block the first implementation solely because `price_position_120d` is
+unavailable. If it is unavailable, register the input as pending for research
+validation and keep over-extension controls through neckline distance and
+20-day return.
+
+## Initial Scoring Proposal
+
+The new score profile must be independent. Do not reuse an existing profile in
+a way that makes future tuning of another model change this model.
+
+Recommended score components:
+
+| component | proposed role |
+|---|---|
+| base score | base confirmation score for passing the entry condition |
+| neckline reference quality | bonus for W-bottom or audited structured neckline; smaller bonus for explicit upstream-only neckline |
+| distance quality | strongest bonus for `0..3`, smaller bonus for `3..5`; no bonus above 5 |
+| volume strength | bonus above `2.0`, capped; extra bonus above `3.0` if not overextended |
+| TDCC positive behavior | score bonus only, not entry hard gate |
+| TDCC distribution or weakening | penalty or risk tag |
+| revenue growth or catalyst evidence | score bonus only, not entry hard gate |
+| revenue deterioration | penalty or risk tag |
+| false-breakout risk | penalty or risk tag |
+| high recent return | penalty or rejection according to the explicit production PR choice |
+
+TDCC and revenue must not become entry hard gates in the first implementation
+unless research evidence explicitly supports that promotion.
+
+## Contract Requirements
+
+When the production implementation is created, update:
+
+```text
+config/daily_model_condition_spec.csv
+config/stock_model_contract_registry.csv
+config/model_surface_registry.csv
+tests/test_daily_candidate_model_layer.py
+tests/test_stock_model_contract_registry.py
+tests/test_model_surface_registry.py
+```
+
+The contract must state:
+
+- exact `condition_function`;
+- exact `score_function`;
+- exact `score_profile_id`;
+- input columns used for entry condition;
+- input columns used only for score bonus;
+- input columns used only for penalties or risk tags;
+- `approved_for_daily_pdf`;
+- `approved_for_tdcc_weekly_pdf`;
+- `approved_for_individual_pdf`;
+- research parity status.
+
+Do not add `neckline_volume_breakout_confirmation` to formal registries until
+production code and tests exist in the same PR.
+
+## Deprecation Plan For Existing Surfaces
+
+Do not delete old model ids as the first implementation step.
+
+Recommended rollout:
+
+1. Add `neckline_volume_breakout_confirmation` as a new independent model.
+2. Validate selection counts and overlap against
+   `near_high_neckline_challenge`, `platform_strengthening`,
+   `w_bottom_right_side`, and `volume_range_breakout`.
+3. If the new model covers the intended confirmed-breakout surface, mark
+   `near_high_neckline_challenge` and/or `platform_strengthening` as deprecated
+   through contract fields in a separate explicit model-change step.
+4. Only remove old code after contracts, tests, daily PDF consumers, and
+   research/backtest parity no longer require those model ids.
+
+## Research And Parity Requirements
+
+Research/backtest remains advisory-only.
+
+Expected first parity state after production implementation may be one of:
+
+- `missing_research_baseline`, if no matching research model exists yet;
+- `warning_research_variant_only`, if research has a proxy or variant;
+- `ok`, only if research/backtest confirms the production condition and scoring
+  contract exactly enough for parity.
+
+Do not write research recommendations, research variants, or backtest-optimized
+thresholds directly into the production baseline.
+
+If research/backtest is not aligned after the production PR, report that the
+`research_backtest` lane needs synchronization or open a separate promotion/sync
+PR only when explicitly requested.
+
+## Required Validation For Production PR
+
+When production code is changed, run at minimum:
+
+```text
+python scripts/validate_model_surface_registry.py
+python scripts/validate_stock_model_contract_registry.py
+python scripts/validate_daily_pdf_contract_consumers.py
+python scripts/validate_research_against_stock_model_contract.py
+python scripts/validate_daily_model_research_parity.py
+python scripts/validate_repo_semantic_integrity.py
+python -m pytest tests/test_daily_candidate_model_layer.py tests/test_stock_model_contract_registry.py tests/test_model_surface_registry.py -q
+```
+
+This spec-only change should run repository governance validators, but it does
+not require production model parity to change because no production model
+condition, scoring, ranking, or contract row is edited here.

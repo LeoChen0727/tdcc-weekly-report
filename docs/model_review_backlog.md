@@ -38,6 +38,10 @@ High-priority manual review:
   together before any production tuning. Do not add
   `neckline_volume_breakout_confirmation` to formal registries until production
   code, contract, tests, and parity handling exist.
+- `neckline_volume_breakout_confirmation`: formal design is now specified in
+  `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md`.
+  Next implementation step belongs to `daily_model_maintenance` and must be a
+  model-change PR, not an in-place rename of the old near/platform models.
 - `revenue_unreacted_range`: research proxy is broad, so proxy stats must not be
   used directly for production tuning.
 - `near_high_neckline_challenge`: condition and scoring use opposite sides of
@@ -90,7 +94,9 @@ Low-priority / monitor:
    before changing production code.
 2. `near_high_neckline_challenge` / `platform_strengthening`: decide whether
    these surfaces are deprecated, downgraded to observation, or replaced by a
-   formal `neckline_volume_breakout_confirmation` model-change PR.
+   formal `neckline_volume_breakout_confirmation` model-change PR. Use
+   `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md` as
+   the production implementation contract before editing code.
 3. `revenue_unreacted_range`: narrow or validate the research proxy before any
    parameter discussion.
 4. `group_fund_rotation`: create a theme-level contract and backtest plan.
