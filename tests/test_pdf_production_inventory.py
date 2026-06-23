@@ -94,6 +94,17 @@ def test_daily_workflow_cleans_stale_readmes_before_pdf_inventory_validation() -
     assert alias_step < contract_validation
 
 
+def test_daily_workflow_stages_readme_deletions_with_git_pathspecs() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert 'git add -A -- "output/latest/READ_ME_FIRST_DAILY_REPORT*.txt"' in workflow
+    assert workflow.count('git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt"') >= 2
+    assert "git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt" not in workflow
+    assert "git add docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt" not in workflow
+
+
 def test_report_aliases_remove_stale_date_stamped_readmes(tmp_path: Path) -> None:
     current = tmp_path / "READ_ME_FIRST_DAILY_REPORT_20260617.txt"
     stale = tmp_path / "READ_ME_FIRST_DAILY_REPORT_20260616.txt"

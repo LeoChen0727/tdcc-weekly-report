@@ -454,7 +454,7 @@ jobs:
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
           git add data/daily_price/ data/stock_price_history/ || true
           git add output/latest/ || true
-          git add docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
+          git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt" || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add docs/latest/pdf_kline_chart_status_latest.md || true
           git add docs/latest/catalyst_*_latest.* docs/latest/upcoming_*_calendar_latest.* docs/latest/theme_event_watch_latest.* || true
@@ -514,7 +514,7 @@ jobs:
           python scripts/validate_no_conflict_markers.py
 
           # Publish step only commits readme, URL checks, ChatGPT entry files, and small daily surfaces.
-          git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
+          git add -A -- "output/latest/READ_ME_FIRST_DAILY_REPORT*.txt" || true
           git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.* || true
           git add output/latest/report_publish_check_latest.* || true
           git add output/latest/daily_data_layer_consistency_audit_latest.* || true
@@ -526,7 +526,7 @@ jobs:
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
+          git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt" || true
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.* || true
           git add docs/latest/report_publish_check_latest.* || true
           git add docs/latest/daily_data_layer_consistency_audit_latest.* || true
