@@ -254,6 +254,22 @@ def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
     assert "git add output/latest/ docs/latest/ || true" not in text
 
 
+def test_daily_workflow_requires_current_usable_warrant_fetch_with_evidence() -> None:
+    daily_text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    warrant_text = (ROOT / ".github" / "workflows" / "warrant_flow.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python scripts/fetch_official_warrant_daily.py --require-current-usable" in daily_text
+    assert "- name: Upload warrant fetch evidence" in daily_text
+    assert "output/latest/warrant_daily_fetch_latest.md" in daily_text
+    assert "output/debug/warrant_fetch_debug_latest.md" in daily_text
+    assert "output/debug/warrant_fetch_debug_latest.csv" in daily_text
+    assert "--require-current-usable" not in warrant_text
+
+
 def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"

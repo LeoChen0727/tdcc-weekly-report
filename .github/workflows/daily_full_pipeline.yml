@@ -115,7 +115,20 @@ jobs:
           OFFICIAL_WARRANT_FETCH_MAX_SECONDS: "360"
           OFFICIAL_WARRANT_REQUEST_TIMEOUT: "8"
         run: |
-          python scripts/fetch_official_warrant_daily.py
+          python scripts/fetch_official_warrant_daily.py --require-current-usable
+
+      - name: Upload warrant fetch evidence
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: warrant-fetch-evidence
+          path: |
+            output/latest/warrant_daily_fetch_latest.md
+            output/debug/warrant_fetch_debug_latest.md
+            output/debug/warrant_fetch_debug_latest.csv
+          if-no-files-found: ignore
+          retention-days: 30
 
       - name: Build stock-level warrant flow
         run: |

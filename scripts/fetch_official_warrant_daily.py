@@ -1196,6 +1196,14 @@ def main() -> int:
         default="",
         help="YYYYMMDD. Default: latest date in data/daily_price or Taiwan today.",
     )
+    parser.add_argument(
+        "--require-current-usable",
+        action="store_true",
+        help=(
+            "Fail when the requested/latest date has no same-date usable "
+            "stock-level warrant quote rows."
+        ),
+    )
     args = parser.parse_args()
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -1205,6 +1213,10 @@ def main() -> int:
     requested_date = args.date.strip() or get_latest_price_date()
     deadline = time.monotonic() + FETCH_MAX_SECONDS
 
+    fetch_kwargs = {"deadline": deadline}
+    if args.require_current_usable:
+        fetch_kwargs["lookback_days"] = 0
+
     (
         date_str,
         mapping,
@@ -1213,7 +1225,7 @@ def main() -> int:
         logs,
         debug_rows,
         fallback_warning,
-    ) = fetch_warrant_data_with_quote_fallback(requested_date, deadline=deadline)
+    ) = fetch_warrant_data_with_quote_fallback(requested_date, **fetch_kwargs)
 
     write_debug(
         debug_rows,
@@ -1254,20 +1266,32 @@ def main() -> int:
             logs.append("official_fetch_rows_without_usable_quotes_no_same_date_fallback")
             out.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
             out.to_csv(HISTORY_DIR / f"warrant_daily_{date_str}.csv", index=False, encoding="utf-8-sig")
+            warning = (
+                fallback_warning
+                or "official warrant fetch produced rows without usable quote values; "
+                "no same-date fallback was available."
+            )
+            if args.require_current_usable:
+                warning = (
+                    f"{warning} --require-current-usable requires same-date "
+                    "rows with usable quote values."
+                )
             write_status(
                 date_str=date_str,
                 rows=len(out),
                 mapping_rows=len(mapping),
                 quote_rows=len(quotes),
                 logs=logs,
-                warning=(
-                    fallback_warning
-                    or "official warrant fetch produced rows without usable quote values; "
-                    "no same-date fallback was available."
-                ),
+                warning=warning,
                 requested_date=requested_date,
             )
             print(f"Saved mapping-only warrant raw data without usable quotes: {RAW_LATEST}, rows={len(out)}")
+            if args.require_current_usable:
+                print(
+                    "Required same-date usable warrant raw data is unavailable; "
+                    "failing because --require-current-usable was set."
+                )
+                return 1
             return 0
 
         empty = pd.DataFrame(columns=RAW_COLUMNS)
@@ -1287,6 +1311,12 @@ def main() -> int:
         )
 
         print("No usable stock-level warrant raw data. Empty raw file created.")
+        if args.require_current_usable:
+            print(
+                "Required same-date usable warrant raw data is unavailable; "
+                "failing because --require-current-usable was set."
+            )
+            return 1
         return 0
 
     out.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
