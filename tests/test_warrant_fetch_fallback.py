@@ -104,3 +104,90 @@ def test_mapping_only_live_fetch_preserves_existing_same_date_raw_snapshot(tmp_p
 
     latest_raw = pd.read_csv(latest_dir / "warrant_daily_raw_latest.csv", dtype=str)
     assert latest_raw.loc[0, "turnover"] == "1000"
+
+
+def test_require_current_usable_preserves_existing_same_date_raw_snapshot(tmp_path, monkeypatch):
+    latest_dir, history_dir = patch_warrant_fetch_paths(tmp_path, monkeypatch)
+    raw_snapshot("20260623").to_csv(history_dir / "warrant_daily_20260623.csv", index=False, encoding="utf-8")
+    captured = {}
+
+    def fake_fetch(requested_date, lookback_days=10, deadline=None):
+        captured["lookback_days"] = lookback_days
+        return (
+            "20260623",
+            pd.DataFrame(),
+            pd.DataFrame(),
+            pd.DataFrame(columns=warrant_fetch.RAW_COLUMNS),
+            ["live fetch returned no usable rows"],
+            [],
+            "live fetch failed",
+        )
+
+    monkeypatch.setattr(warrant_fetch, "get_latest_price_date", lambda: "20260623")
+    monkeypatch.setattr(warrant_fetch, "fetch_warrant_data_with_quote_fallback", fake_fetch)
+    monkeypatch.setattr(sys, "argv", ["fetch_official_warrant_daily.py", "--require-current-usable"])
+
+    assert warrant_fetch.main() == 0
+    assert captured["lookback_days"] == 0
+
+    latest_raw = pd.read_csv(latest_dir / "warrant_daily_raw_latest.csv", dtype=str)
+    assert latest_raw.loc[0, "date"] == "20260623"
+    assert latest_raw.loc[0, "turnover"] == "1000"
+
+
+def test_require_current_usable_rejects_mapping_only_without_same_date_fallback(tmp_path, monkeypatch):
+    latest_dir, _ = patch_warrant_fetch_paths(tmp_path, monkeypatch)
+    mapping_only = raw_snapshot("20260623")
+    mapping_only[["volume", "turnover", "close"]] = ""
+    captured = {}
+
+    def fake_fetch(requested_date, lookback_days=10, deadline=None):
+        captured["lookback_days"] = lookback_days
+        return (
+            "20260623",
+            mapping_only,
+            pd.DataFrame(),
+            mapping_only,
+            ["live fetch returned mapping rows only"],
+            [],
+            "live fetch had no quotes",
+        )
+
+    monkeypatch.setattr(warrant_fetch, "get_latest_price_date", lambda: "20260623")
+    monkeypatch.setattr(warrant_fetch, "fetch_warrant_data_with_quote_fallback", fake_fetch)
+    monkeypatch.setattr(sys, "argv", ["fetch_official_warrant_daily.py", "--require-current-usable"])
+
+    assert warrant_fetch.main() == 1
+    assert captured["lookback_days"] == 0
+
+    latest_raw = pd.read_csv(latest_dir / "warrant_daily_raw_latest.csv", dtype=str)
+    status = (latest_dir / "warrant_daily_fetch_latest.md").read_text(encoding="utf-8")
+    assert latest_raw.loc[0, "date"] == "20260623"
+    assert "--require-current-usable requires same-date rows with usable quote values" in status
+
+
+def test_require_current_usable_rejects_empty_without_same_date_fallback(tmp_path, monkeypatch):
+    latest_dir, _ = patch_warrant_fetch_paths(tmp_path, monkeypatch)
+    captured = {}
+
+    def fake_fetch(requested_date, lookback_days=10, deadline=None):
+        captured["lookback_days"] = lookback_days
+        return (
+            "20260623",
+            pd.DataFrame(),
+            pd.DataFrame(),
+            pd.DataFrame(columns=warrant_fetch.RAW_COLUMNS),
+            ["live fetch returned no usable rows"],
+            [],
+            "live fetch failed",
+        )
+
+    monkeypatch.setattr(warrant_fetch, "get_latest_price_date", lambda: "20260623")
+    monkeypatch.setattr(warrant_fetch, "fetch_warrant_data_with_quote_fallback", fake_fetch)
+    monkeypatch.setattr(sys, "argv", ["fetch_official_warrant_daily.py", "--require-current-usable"])
+
+    assert warrant_fetch.main() == 1
+    assert captured["lookback_days"] == 0
+
+    latest_raw = pd.read_csv(latest_dir / "warrant_daily_raw_latest.csv", dtype=str)
+    assert latest_raw.empty
