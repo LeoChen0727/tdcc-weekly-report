@@ -49,6 +49,16 @@ def require(errors: list[str], condition: bool, message: str) -> None:
         errors.append(message)
 
 
+def warrant_grace_allows_publish(row: dict[str, str]) -> bool:
+    return bool(
+        str(row.get("warrant_source_status", "")).strip() == "warning_grace"
+        and is_true(row.get("warrant_daily_publish_allowed"))
+        and str(row.get("warrant_pdf_visibility", "")).strip() == "hidden_unavailable"
+        and not is_true(row.get("warrant_model_effect_allowed"))
+        and not is_true(row.get("warrant_pdf_effect_allowed"))
+    )
+
+
 RAW_THEME_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_ -]*$")
 UNRESOLVED_THEME_VALUES = {"", "其他", "其他業", "other", "theme_unknown", "unclassified", "needs_manual_review"}
 
@@ -136,8 +146,9 @@ def main() -> int:
         and warrant_date == main_date
         and not warrant_data_unavailable
     )
+    expected_warrant_publish_allowed = expected_warrant_ready or warrant_grace_allows_publish(row)
     group_rotation_theme_ready, group_rotation_theme_note = group_rotation_theme_state()
-    expected_daily_pdf_ready = expected_report_ready and expected_warrant_ready and group_rotation_theme_ready
+    expected_daily_pdf_ready = expected_report_ready and expected_warrant_publish_allowed and group_rotation_theme_ready
 
     require(
         errors,
@@ -167,6 +178,12 @@ def main() -> int:
             or "observe-only" in warrant_ready_note,
             "stale/missing/unavailable warrant state must be explicit in warrant_ready_note",
         )
+        if expected_warrant_publish_allowed:
+            require(
+                errors,
+                "warrant source unavailable within bounded grace" in str(row.get("daily_pdf_ready_note", "")),
+                "bounded warrant grace must be explicit in daily_pdf_ready_note",
+            )
 
     if errors:
         for error in errors:

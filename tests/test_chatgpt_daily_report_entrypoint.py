@@ -48,6 +48,14 @@ def write_ready_sources(repo: Path, date: str = "20260616") -> None:
         "report_ready_note": "core daily data dates match main_price_date",
         "warrant_ready": "True",
         "warrant_ready_note": "warrant_flow_date matches main_price_date",
+        "warrant_source_status": "ok",
+        "warrant_source_status_note": "current-date warrant layer ready",
+        "warrant_source_consecutive_unavailable_days": "0",
+        "warrant_source_max_warning_days": "2",
+        "warrant_daily_publish_allowed": "True",
+        "warrant_pdf_visibility": "visible",
+        "warrant_model_effect_allowed": "True",
+        "warrant_pdf_effect_allowed": "True",
         "daily_pdf_ready": "True",
         "daily_pdf_ready_note": "core daily data and warrant layer are ready",
         "stock_monitor_note": "ready",
@@ -64,6 +72,8 @@ def write_ready_sources(repo: Path, date: str = "20260616") -> None:
         "report_ready": "True",
         "warrant_flow_date": date,
         "warrant_ready": "True",
+        "warrant_daily_publish_allowed": "True",
+        "warrant_pdf_visibility": "visible",
         "daily_pdf_ready": "True",
         "commit_sha": "1" * 40,
     }
@@ -81,6 +91,8 @@ def write_ready_sources(repo: Path, date: str = "20260616") -> None:
         "stock_monitor_date": date,
         "warrant_flow_date": date,
         "warrant_ready": "True",
+        "warrant_daily_publish_allowed": "True",
+        "warrant_pdf_visibility": "visible",
         "daily_pdf_ready": "True",
     }
     packet_text = "\n".join(

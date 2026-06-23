@@ -332,6 +332,13 @@ def extract_data_freshness() -> dict[str, str]:
         "warrant_flow_date": "",
         "warrant_ready": "",
         "warrant_ready_note": "",
+        "warrant_source_status": "",
+        "warrant_source_status_note": "",
+        "warrant_source_consecutive_unavailable_days": "",
+        "warrant_daily_publish_allowed": "",
+        "warrant_pdf_visibility": "",
+        "warrant_model_effect_allowed": "",
+        "warrant_pdf_effect_allowed": "",
         "daily_pdf_ready": "",
         "daily_pdf_ready_note": "",
     }
@@ -349,6 +356,13 @@ def extract_data_freshness() -> dict[str, str]:
                 result["warrant_flow_date"] = normalize_date(row.get("warrant_flow_date", ""))
                 result["warrant_ready"] = str(row.get("warrant_ready", "")).strip()
                 result["warrant_ready_note"] = str(row.get("warrant_ready_note", "")).strip()
+                result["warrant_source_status"] = str(row.get("warrant_source_status", "")).strip()
+                result["warrant_source_status_note"] = str(row.get("warrant_source_status_note", "")).strip()
+                result["warrant_source_consecutive_unavailable_days"] = str(row.get("warrant_source_consecutive_unavailable_days", "")).strip()
+                result["warrant_daily_publish_allowed"] = str(row.get("warrant_daily_publish_allowed", "")).strip()
+                result["warrant_pdf_visibility"] = str(row.get("warrant_pdf_visibility", "")).strip()
+                result["warrant_model_effect_allowed"] = str(row.get("warrant_model_effect_allowed", "")).strip()
+                result["warrant_pdf_effect_allowed"] = str(row.get("warrant_pdf_effect_allowed", "")).strip()
                 result["daily_pdf_ready"] = str(row.get("daily_pdf_ready", "")).strip()
                 result["daily_pdf_ready_note"] = str(row.get("daily_pdf_ready_note", "")).strip()
                 return result
@@ -523,6 +537,13 @@ def build_readme(
     warrant_flow_date: str,
     warrant_ready: str,
     warrant_ready_note: str,
+    warrant_source_status: str,
+    warrant_source_status_note: str,
+    warrant_source_consecutive_unavailable_days: str,
+    warrant_daily_publish_allowed: str,
+    warrant_pdf_visibility: str,
+    warrant_model_effect_allowed: str,
+    warrant_pdf_effect_allowed: str,
     daily_pdf_ready: str,
     daily_pdf_ready_note: str,
     commit_sha: str,
@@ -605,6 +626,13 @@ def build_readme(
         f"warrant_flow_date={warrant_flow_date}",
         f"warrant_ready={warrant_ready}",
         f"warrant_ready_note={warrant_ready_note}",
+        f"warrant_source_status={warrant_source_status}",
+        f"warrant_source_status_note={warrant_source_status_note}",
+        f"warrant_source_consecutive_unavailable_days={warrant_source_consecutive_unavailable_days}",
+        f"warrant_daily_publish_allowed={warrant_daily_publish_allowed}",
+        f"warrant_pdf_visibility={warrant_pdf_visibility}",
+        f"warrant_model_effect_allowed={warrant_model_effect_allowed}",
+        f"warrant_pdf_effect_allowed={warrant_pdf_effect_allowed}",
         f"daily_pdf_ready={daily_pdf_ready}",
         f"daily_pdf_ready_note={daily_pdf_ready_note}",
         f"commit_sha={commit_sha}",
@@ -1063,6 +1091,9 @@ def build_readme_index(
     report_ready: str,
     warrant_flow_date: str,
     warrant_ready: str,
+    warrant_source_status: str,
+    warrant_daily_publish_allowed: str,
+    warrant_pdf_visibility: str,
     daily_pdf_ready: str,
     daily_pdf_ready_note: str,
     commit_sha: str,
@@ -1079,6 +1110,9 @@ def build_readme_index(
         "report_ready": report_ready,
         "warrant_flow_date": warrant_flow_date,
         "warrant_ready": warrant_ready,
+        "warrant_source_status": warrant_source_status,
+        "warrant_daily_publish_allowed": warrant_daily_publish_allowed,
+        "warrant_pdf_visibility": warrant_pdf_visibility,
         "daily_pdf_ready": daily_pdf_ready,
         "daily_pdf_ready_note": daily_pdf_ready_note,
         "commit_sha": commit_sha,
@@ -1419,6 +1453,13 @@ def main() -> int:
         warrant_flow_date=freshness.get("warrant_flow_date", ""),
         warrant_ready=freshness.get("warrant_ready", ""),
         warrant_ready_note=freshness.get("warrant_ready_note", ""),
+        warrant_source_status=freshness.get("warrant_source_status", ""),
+        warrant_source_status_note=freshness.get("warrant_source_status_note", ""),
+        warrant_source_consecutive_unavailable_days=freshness.get("warrant_source_consecutive_unavailable_days", ""),
+        warrant_daily_publish_allowed=freshness.get("warrant_daily_publish_allowed", ""),
+        warrant_pdf_visibility=freshness.get("warrant_pdf_visibility", ""),
+        warrant_model_effect_allowed=freshness.get("warrant_model_effect_allowed", ""),
+        warrant_pdf_effect_allowed=freshness.get("warrant_pdf_effect_allowed", ""),
         daily_pdf_ready=freshness.get("daily_pdf_ready", ""),
         daily_pdf_ready_note=freshness.get("daily_pdf_ready_note", ""),
         commit_sha=commit_sha,
@@ -1492,6 +1533,9 @@ def main() -> int:
         report_ready=report_ready,
         warrant_flow_date=freshness.get("warrant_flow_date", ""),
         warrant_ready=freshness.get("warrant_ready", ""),
+        warrant_source_status=freshness.get("warrant_source_status", ""),
+        warrant_daily_publish_allowed=freshness.get("warrant_daily_publish_allowed", ""),
+        warrant_pdf_visibility=freshness.get("warrant_pdf_visibility", ""),
         daily_pdf_ready=freshness.get("daily_pdf_ready", ""),
         daily_pdf_ready_note=freshness.get("daily_pdf_ready_note", ""),
         commit_sha=commit_sha,
@@ -1553,6 +1597,13 @@ def main() -> int:
         "warrant_flow_date": freshness.get("warrant_flow_date", ""),
         "warrant_ready": freshness.get("warrant_ready", ""),
         "warrant_ready_note": freshness.get("warrant_ready_note", ""),
+        "warrant_source_status": freshness.get("warrant_source_status", ""),
+        "warrant_source_status_note": freshness.get("warrant_source_status_note", ""),
+        "warrant_source_consecutive_unavailable_days": freshness.get("warrant_source_consecutive_unavailable_days", ""),
+        "warrant_daily_publish_allowed": freshness.get("warrant_daily_publish_allowed", ""),
+        "warrant_pdf_visibility": freshness.get("warrant_pdf_visibility", ""),
+        "warrant_model_effect_allowed": freshness.get("warrant_model_effect_allowed", ""),
+        "warrant_pdf_effect_allowed": freshness.get("warrant_pdf_effect_allowed", ""),
         "daily_pdf_ready": freshness.get("daily_pdf_ready", ""),
         "daily_pdf_ready_note": freshness.get("daily_pdf_ready_note", ""),
         "commit_sha": commit_sha,

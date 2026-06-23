@@ -24,6 +24,14 @@ def write_freshness(path: Path, **overrides: object) -> None:
         "report_ready_note": "core daily data dates match main_price_date",
         "warrant_ready": "True",
         "warrant_ready_note": "warrant_flow_date matches main_price_date",
+        "warrant_source_status": "ok",
+        "warrant_source_status_note": "current-date warrant layer ready",
+        "warrant_source_consecutive_unavailable_days": "0",
+        "warrant_source_max_warning_days": "2",
+        "warrant_daily_publish_allowed": "True",
+        "warrant_pdf_visibility": "visible",
+        "warrant_model_effect_allowed": "True",
+        "warrant_pdf_effect_allowed": "True",
         "daily_pdf_ready": "True",
         "daily_pdf_ready_note": "core daily data and warrant layer are ready for daily PDF source use",
         "stock_monitor_note": "ready",
@@ -42,6 +50,29 @@ def test_publish_gate_passes_ready_current_without_regression(tmp_path):
     write_freshness(current)
 
     assert gate.validate_daily_publish_freshness(current, baseline) == []
+
+
+def test_publish_gate_allows_bounded_warrant_grace_when_effects_are_hidden(tmp_path):
+    current = tmp_path / "current.csv"
+    write_freshness(
+        current,
+        warrant_ready="False",
+        warrant_ready_note="warrant_flow_date matches main_price_date but stock-level warrant data is unavailable",
+        warrant_source_status="warning_grace",
+        warrant_source_status_note="current-date warrant source unavailable within bounded grace window",
+        warrant_source_consecutive_unavailable_days="1",
+        warrant_daily_publish_allowed="True",
+        warrant_pdf_visibility="hidden_unavailable",
+        warrant_model_effect_allowed="False",
+        warrant_pdf_effect_allowed="False",
+        daily_pdf_ready="True",
+        daily_pdf_ready_note=(
+            "core daily data is ready; warrant source unavailable within bounded grace, "
+            "warrant_pdf_visibility=hidden_unavailable"
+        ),
+    )
+
+    assert gate.validate_daily_publish_freshness(current, None) == []
 
 
 def test_publish_gate_rejects_raw_official_newer_than_usable_history(tmp_path):

@@ -43,6 +43,8 @@ def patch_warrant_fetch_paths(tmp_path, monkeypatch):
     monkeypatch.setattr(warrant_fetch, "HISTORY_DIR", history_dir)
     monkeypatch.setattr(warrant_fetch, "RAW_LATEST", latest_dir / "warrant_daily_raw_latest.csv")
     monkeypatch.setattr(warrant_fetch, "FETCH_STATUS_MD", latest_dir / "warrant_daily_fetch_latest.md")
+    monkeypatch.setattr(warrant_fetch, "SOURCE_STATUS_JSON", latest_dir / "warrant_source_status_latest.json")
+    monkeypatch.setattr(warrant_fetch, "SOURCE_STATUS_MD", latest_dir / "warrant_source_status_latest.md")
     monkeypatch.setattr(warrant_fetch, "DEBUG_MD", debug_dir / "warrant_fetch_debug_latest.md")
     monkeypatch.setattr(warrant_fetch, "DEBUG_CSV", debug_dir / "warrant_fetch_debug_latest.csv")
     monkeypatch.setattr(warrant_fetch, "PRICE_DIR", price_dir)
@@ -77,6 +79,7 @@ def test_empty_live_fetch_preserves_existing_same_date_raw_snapshot(tmp_path, mo
     assert latest_raw.loc[0, "date"] == "20260611"
     assert latest_raw.loc[0, "stock_id"] == "2330"
     assert "preserved existing same-date raw snapshot" in status
+    assert (latest_dir / "warrant_source_status_latest.json").exists()
 
 
 def test_mapping_only_live_fetch_preserves_existing_same_date_raw_snapshot(tmp_path, monkeypatch):

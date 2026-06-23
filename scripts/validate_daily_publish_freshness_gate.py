@@ -29,6 +29,16 @@ def is_true(value: object) -> bool:
     return str(value).strip().lower() == "true"
 
 
+def warrant_grace_allows_publish(row: dict[str, str]) -> bool:
+    return bool(
+        str(row.get("warrant_source_status", "")).strip() == "warning_grace"
+        and is_true(row.get("warrant_daily_publish_allowed", ""))
+        and str(row.get("warrant_pdf_visibility", "")).strip() == "hidden_unavailable"
+        and not is_true(row.get("warrant_model_effect_allowed", ""))
+        and not is_true(row.get("warrant_pdf_effect_allowed", ""))
+    )
+
+
 def read_one_row(path: Path) -> dict[str, str]:
     df = pd.read_csv(path, dtype=str).fillna("")
     if len(df) != 1:
@@ -56,8 +66,11 @@ def require_current_ready(row: dict[str, str]) -> list[str]:
 
     if not is_true(row.get("report_ready", "")):
         errors.append(f"report_ready must be True before publishing daily artifacts: {row.get('report_ready_note', '')}")
-    if not is_true(row.get("warrant_ready", "")):
-        errors.append(f"warrant_ready must be True before publishing daily artifacts: {row.get('warrant_ready_note', '')}")
+    if not is_true(row.get("warrant_ready", "")) and not warrant_grace_allows_publish(row):
+        errors.append(
+            "warrant_ready must be True before publishing daily artifacts unless bounded "
+            f"warrant_unavailable grace hides warrant model/PDF effects: {row.get('warrant_ready_note', '')}"
+        )
     if not is_true(row.get("daily_pdf_ready", "")):
         errors.append(
             "daily_pdf_ready must be True before publishing daily artifacts: "
@@ -75,9 +88,12 @@ def require_no_baseline_regression(current: dict[str, str], baseline: dict[str, 
     if current_main and baseline_main and current_main < baseline_main:
         errors.append(f"main_price_date regressed from {baseline_main} to {current_main}")
 
-    for field in ("report_ready", "warrant_ready", "daily_pdf_ready"):
+    for field in ("report_ready", "daily_pdf_ready"):
         if is_true(baseline.get(field, "")) and not is_true(current.get(field, "")):
             errors.append(f"{field} regressed from True to {current.get(field, '')}")
+    if is_true(baseline.get("warrant_ready", "")) and not is_true(current.get("warrant_ready", "")):
+        if not warrant_grace_allows_publish(current):
+            errors.append(f"warrant_ready regressed from True to {current.get('warrant_ready', '')}")
 
     baseline_history = normalize_date(baseline.get("actual_stock_price_history_date", ""))
     current_history = normalize_date(current.get("actual_stock_price_history_date", ""))

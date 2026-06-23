@@ -263,8 +263,15 @@ def test_daily_workflow_requires_current_usable_warrant_fetch_with_evidence() ->
     )
 
     assert "python scripts/fetch_official_warrant_daily.py --require-current-usable" in daily_text
+    assert "timeout-minutes: 18" in daily_text
+    assert 'OFFICIAL_WARRANT_FETCH_MAX_SECONDS: "180"' in daily_text
+    assert 'OFFICIAL_WARRANT_FETCH_ATTEMPTS: "3"' in daily_text
+    assert 'OFFICIAL_WARRANT_FETCH_RETRY_SLEEP_SECONDS: "180"' in daily_text
+    assert "python scripts/validate_warrant_source_status.py --allow-noncritical-grace" in daily_text
     assert "- name: Upload warrant fetch evidence" in daily_text
     assert "output/latest/warrant_daily_fetch_latest.md" in daily_text
+    assert "output/latest/warrant_source_status_latest.md" in daily_text
+    assert "output/latest/warrant_source_status_latest.json" in daily_text
     assert "output/debug/warrant_fetch_debug_latest.md" in daily_text
     assert "output/debug/warrant_fetch_debug_latest.csv" in daily_text
     assert "--require-current-usable" not in warrant_text

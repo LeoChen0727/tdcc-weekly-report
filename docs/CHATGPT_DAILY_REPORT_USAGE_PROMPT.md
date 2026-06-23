@@ -22,8 +22,9 @@
 - 正式 report date 只能使用 `origin/main:output/latest/data_freshness_latest.csv` 的 `main_price_date`。
 - 必須全部成立才可產出 PDF：
   - `report_ready=True`
-  - `warrant_ready=True`
+  - `warrant_ready=True`, or `warrant_ready=False` only when `warrant_daily_publish_allowed=True` and `warrant_pdf_visibility=hidden_unavailable`
   - `daily_pdf_ready=True`
+- If `warrant_pdf_visibility=hidden_unavailable`, do not use old warrant data in the report; treat warrant analysis as unavailable/observe-only.
 - source gate 必須用 `git fetch origin main` 與 `git show origin/main:<path>` 讀遠端 main。
 - 不准用本機 `output/latest`、OneDrive/helper、GitHub Pages、raw URL cache 或舊 PDF 檔名來決定日期。
 - raw / GitHub API / Pages 只能作為人工診斷輔助；如果它們和 `git show origin/main` 不一致，以 `git show origin/main` 為準。

@@ -120,11 +120,72 @@ def test_daily_pdf_ready_requires_resolved_group_rotation_theme_display():
     ready, note = freshness.determine_daily_pdf_ready(
         report_ready=True,
         warrant_ready=True,
+        warrant_publish_allowed=True,
         report_ready_note="core daily data dates match main_price_date",
         warrant_ready_note="warrant_flow_date matches main_price_date",
+        warrant_source_status="ok",
+        warrant_pdf_visibility="visible",
         group_rotation_theme_ready=False,
         group_rotation_theme_note="group rotation has unresolved/raw theme rows",
     )
 
     assert ready is False
     assert "group rotation theme display not ready" in note
+
+
+def test_warrant_publish_policy_resets_to_ok_when_current_warrant_is_ready():
+    result = freshness.warrant_publish_policy(
+        True,
+        {
+            "status": "warning_grace",
+            "warrant_pdf_visibility": "hidden_unavailable",
+            "daily_publish_allowed": "True",
+            "model_effect_allowed": "False",
+            "pdf_effect_allowed": "False",
+        },
+    )
+
+    assert result == (
+        True,
+        "ok",
+        "current-date warrant layer ready",
+        "visible",
+        "True",
+        "True",
+        "0",
+    )
+
+
+def test_daily_pdf_ready_allows_bounded_warrant_grace_without_using_warrant_layer():
+    ready, note = freshness.determine_daily_pdf_ready(
+        report_ready=True,
+        warrant_ready=False,
+        warrant_publish_allowed=True,
+        report_ready_note="core daily data dates match main_price_date",
+        warrant_ready_note="warrant_flow_date matches main_price_date but stock-level warrant data is unavailable",
+        warrant_source_status="warning_grace",
+        warrant_pdf_visibility="hidden_unavailable",
+        group_rotation_theme_ready=True,
+        group_rotation_theme_note="group rotation themes resolved for PDF display",
+    )
+
+    assert ready is True
+    assert "warrant source unavailable within bounded grace" in note
+    assert "warrant_pdf_visibility=hidden_unavailable" in note
+
+
+def test_daily_pdf_ready_rejects_warrant_failure_outside_bounded_grace():
+    ready, note = freshness.determine_daily_pdf_ready(
+        report_ready=True,
+        warrant_ready=False,
+        warrant_publish_allowed=False,
+        report_ready_note="core daily data dates match main_price_date",
+        warrant_ready_note="current-date warrant source failed beyond bounded grace",
+        warrant_source_status="failed",
+        warrant_pdf_visibility="blocked_unavailable",
+        group_rotation_theme_ready=True,
+        group_rotation_theme_note="group rotation themes resolved for PDF display",
+    )
+
+    assert ready is False
+    assert "warrant layer not ready" in note

@@ -22,6 +22,7 @@ ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 WARRANT_DAILY_FETCH_MD = LATEST_DIR / "warrant_daily_fetch_latest.md"
+WARRANT_SOURCE_STATUS_JSON = LATEST_DIR / "warrant_source_status_latest.json"
 WARRANT_MARKET_REPORT_MD = LATEST_DIR / "warrant_market_report_latest.md"
 GROUP_ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 
@@ -375,6 +376,67 @@ def extract_warrant_flow_date() -> str:
     return date
 
 
+def true_text(value: object) -> bool:
+    return str(value).strip().lower() in {"true", "1", "yes", "y"}
+
+
+def read_warrant_source_status() -> dict[str, str]:
+    if not WARRANT_SOURCE_STATUS_JSON.exists():
+        return {}
+    try:
+        data = json.loads(WARRANT_SOURCE_STATUS_JSON.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    return {str(key): str(value) for key, value in data.items()}
+
+
+def warrant_publish_policy(
+    warrant_ready: bool,
+    source_status: dict[str, str],
+) -> tuple[bool, str, str, str, str, str, str]:
+    if warrant_ready:
+        return (
+            True,
+            "ok",
+            "current-date warrant layer ready",
+            "visible",
+            "True",
+            "True",
+            "0",
+        )
+
+    status = source_status.get("status", "")
+    publish_allowed = true_text(source_status.get("daily_publish_allowed", ""))
+    visibility = source_status.get("warrant_pdf_visibility", "")
+    model_effect_allowed = source_status.get("model_effect_allowed", "")
+    pdf_effect_allowed = source_status.get("pdf_effect_allowed", "")
+    consecutive_days = source_status.get("consecutive_unavailable_trading_days", "")
+    note = source_status.get("note", "")
+
+    if status == "warning_grace" and publish_allowed and visibility == "hidden_unavailable":
+        return (
+            True,
+            status,
+            note or "current-date warrant source unavailable within bounded grace window",
+            visibility,
+            model_effect_allowed or "False",
+            pdf_effect_allowed or "False",
+            consecutive_days,
+        )
+
+    return (
+        False,
+        status or "missing_status",
+        note or "current-date warrant source is not available for daily production",
+        visibility or "blocked_unavailable",
+        model_effect_allowed or "False",
+        pdf_effect_allowed or "False",
+        consecutive_days,
+    )
+
+
 def determine_report_ready(
     main_price_date: str,
     all_candidates_date: str,
@@ -415,17 +477,26 @@ def determine_warrant_ready(
 def determine_daily_pdf_ready(
     report_ready: bool,
     warrant_ready: bool,
+    warrant_publish_allowed: bool,
     report_ready_note: str,
     warrant_ready_note: str,
+    warrant_source_status: str = "",
+    warrant_pdf_visibility: str = "",
     group_rotation_theme_ready: bool = True,
     group_rotation_theme_note: str = "",
 ) -> tuple[bool, str]:
     if not report_ready:
         return False, f"core daily data not ready: {report_ready_note}"
-    if not warrant_ready:
-        return False, f"warrant layer not ready: {warrant_ready_note}"
     if not group_rotation_theme_ready:
         return False, f"group rotation theme display not ready: {group_rotation_theme_note}"
+    if not warrant_ready:
+        if not warrant_publish_allowed:
+            return False, f"warrant layer not ready: {warrant_ready_note}"
+        return True, (
+            "core daily data is ready; warrant source unavailable within bounded grace, "
+            f"warrant_pdf_visibility={warrant_pdf_visibility or 'hidden_unavailable'}, "
+            f"warrant_source_status={warrant_source_status or 'warning_grace'}"
+        )
     suffix = f"; {group_rotation_theme_note}" if group_rotation_theme_note else ""
     return True, f"core daily data, warrant layer, and PDF theme display are ready for daily PDF source use{suffix}"
 
@@ -461,12 +532,25 @@ def build_status() -> pd.DataFrame:
         warrant_data_ready=raw_warrant_data_ready,
         warrant_data_note=raw_warrant_data_note,
     )
+    warrant_source_status_data = read_warrant_source_status()
+    (
+        warrant_daily_publish_allowed,
+        warrant_source_status,
+        warrant_source_status_note,
+        warrant_pdf_visibility,
+        warrant_model_effect_allowed,
+        warrant_pdf_effect_allowed,
+        warrant_source_consecutive_unavailable_days,
+    ) = warrant_publish_policy(warrant_ready, warrant_source_status_data)
     group_rotation_theme_ready, group_rotation_theme_note = group_rotation_theme_state()
     daily_pdf_ready, daily_pdf_ready_note = determine_daily_pdf_ready(
         report_ready=report_ready,
         warrant_ready=warrant_ready,
+        warrant_publish_allowed=warrant_daily_publish_allowed,
         report_ready_note=report_ready_note,
         warrant_ready_note=warrant_ready_note,
+        warrant_source_status=warrant_source_status,
+        warrant_pdf_visibility=warrant_pdf_visibility,
         group_rotation_theme_ready=group_rotation_theme_ready,
         group_rotation_theme_note=group_rotation_theme_note,
     )
@@ -487,6 +571,14 @@ def build_status() -> pd.DataFrame:
         "report_ready_note": report_ready_note,
         "warrant_ready": warrant_ready,
         "warrant_ready_note": warrant_ready_note,
+        "warrant_source_status": warrant_source_status,
+        "warrant_source_status_note": warrant_source_status_note,
+        "warrant_source_consecutive_unavailable_days": warrant_source_consecutive_unavailable_days,
+        "warrant_source_max_warning_days": warrant_source_status_data.get("max_warning_days", ""),
+        "warrant_daily_publish_allowed": warrant_daily_publish_allowed,
+        "warrant_pdf_visibility": warrant_pdf_visibility,
+        "warrant_model_effect_allowed": warrant_model_effect_allowed,
+        "warrant_pdf_effect_allowed": warrant_pdf_effect_allowed,
         "daily_pdf_ready": daily_pdf_ready,
         "daily_pdf_ready_note": daily_pdf_ready_note,
         "stock_monitor_note": component_note(raw_stock_monitor_date, stock_monitor_date, main_price_date),
@@ -515,6 +607,13 @@ def write_markdown(df: pd.DataFrame) -> None:
         f"- report_ready_note: {row.get('report_ready_note', '')}",
         f"- warrant_ready: `{row.get('warrant_ready', '')}`",
         f"- warrant_ready_note: {row.get('warrant_ready_note', '')}",
+        f"- warrant_source_status: `{row.get('warrant_source_status', '')}`",
+        f"- warrant_source_status_note: {row.get('warrant_source_status_note', '')}",
+        f"- warrant_source_consecutive_unavailable_days: `{row.get('warrant_source_consecutive_unavailable_days', '')}`",
+        f"- warrant_daily_publish_allowed: `{row.get('warrant_daily_publish_allowed', '')}`",
+        f"- warrant_pdf_visibility: `{row.get('warrant_pdf_visibility', '')}`",
+        f"- warrant_model_effect_allowed: `{row.get('warrant_model_effect_allowed', '')}`",
+        f"- warrant_pdf_effect_allowed: `{row.get('warrant_pdf_effect_allowed', '')}`",
         f"- daily_pdf_ready: `{row.get('daily_pdf_ready', '')}`",
         f"- daily_pdf_ready_note: {row.get('daily_pdf_ready_note', '')}",
         "",

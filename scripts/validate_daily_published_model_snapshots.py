@@ -35,10 +35,39 @@ FORBIDDEN_SNAPSHOT_PATH_FRAGMENTS = (
 )
 
 
+def true_text(value: object) -> bool:
+    return safe_str(value).lower() in {"true", "1", "yes", "y"}
+
+
+def warrant_grace_allows_publish(row: dict[str, str]) -> bool:
+    return bool(
+        safe_str(row.get("warrant_source_status", "")) == "warning_grace"
+        and true_text(row.get("warrant_daily_publish_allowed", ""))
+        and safe_str(row.get("warrant_pdf_visibility", "")) == "hidden_unavailable"
+        and not true_text(row.get("warrant_model_effect_allowed", ""))
+        and not true_text(row.get("warrant_pdf_effect_allowed", ""))
+    )
+
+
 def load_manifest(manifest_path: Path = MANIFEST_PATH) -> pd.DataFrame:
     manifest = read_csv(manifest_path, dtype=str)
     if manifest.empty:
         raise RuntimeError(f"{manifest_path.as_posix()} is missing or empty")
+    migration_defaults = {
+        "warrant_source_status": "ok",
+        "warrant_daily_publish_allowed": "True",
+        "warrant_pdf_visibility": "visible",
+        "warrant_model_effect_allowed": "True",
+        "warrant_pdf_effect_allowed": "True",
+    }
+    warrant_ready_values = (
+        manifest["warrant_ready"]
+        if "warrant_ready" in manifest.columns
+        else pd.Series([""] * len(manifest), index=manifest.index)
+    )
+    for col, default in migration_defaults.items():
+        if col not in manifest.columns:
+            manifest[col] = warrant_ready_values.map(lambda value: default if safe_str(value) == "True" else "")
     missing = [col for col in MANIFEST_COLUMNS if col not in manifest.columns]
     if missing:
         raise RuntimeError(f"{manifest_path.as_posix()} missing columns: {missing}")
@@ -138,9 +167,11 @@ def validate_current_report_snapshots(
             errors.append(f"{artifact_id}: column_count mismatch")
         if safe_str(row.get("main_price_date", "")) != report_date:
             errors.append(f"{artifact_id}: main_price_date mismatch")
-        for col in ("report_ready", "warrant_ready", "daily_pdf_ready"):
+        for col in ("report_ready", "daily_pdf_ready"):
             if safe_str(row.get(col, "")) != "True":
                 errors.append(f"{artifact_id}: {col} must be True")
+        if safe_str(row.get("warrant_ready", "")) != "True" and not warrant_grace_allows_publish(row):
+            errors.append(f"{artifact_id}: warrant_ready must be True unless bounded warrant grace hides effects")
         if safe_str(row.get("purpose", "")) != "as_published_daily_model_snapshot":
             errors.append(f"{artifact_id}: unexpected purpose")
 
