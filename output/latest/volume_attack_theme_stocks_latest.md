@@ -1,6 +1,6 @@
 # Volume Attack Theme Stocks
 
-- generated_at: `2026-06-23 23:03:46 Asia/Taipei`
+- generated_at: `2026-06-24 00:38:15 Asia/Taipei`
 - signal_date: `20260623`
 - rule: Every volume attack stock row carries explicit mainstream/non-mainstream status.
 
@@ -22,7 +22,7 @@
 |       2369 | 菱生           | 半導體業         | mainstream_overheated | core_mainstream_theme     | core_mainstream_overheated | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         2.7886 |               | call_strong_inflow    | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       6168 | 宏齊           | 光電業          | mainstream_overheated | core_mainstream_theme     | core_mainstream_overheated | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         3.3354 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       4147 | 中裕           | 生技醫療業        | mainstream_overheated | non_mainstream_theme      | non_mainstream_overheated  | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         3.8087 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-|       8261 | 富鼎           | 半導體業         | mainstream_overheated | core_mainstream_theme     | core_mainstream_overheated | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         2.0039 |               | no_signal             | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+|       8261 | 富鼎           | 半導體業         | mainstream_overheated | core_mainstream_theme     | core_mainstream_overheated | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         2.0039 |               | call_strong_inflow    | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       3360 | 尚立           | 電子通路業        | mainstream_overheated | non_mainstream_theme      | non_mainstream_overheated  | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         5.1176 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       5489 | 彩富           | 其他電子業_待細分    | single_name_signal    | market_theme              | core_mainstream            | single_stock_volume_attack   | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         2.9843 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       7828 | 創新服務         | 半導體業_待細分     | single_name_signal    | market_theme              | core_mainstream            | single_stock_volume_attack   | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         0.3185 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |

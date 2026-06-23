@@ -6083,21 +6083,21 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260623,non_mainstream,6645,金萬林-創,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,85.2,7,生技醫療業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
 20260623,non_mainstream,6949,沛爾生醫-創,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,97.2,1,生技醫療業,,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
 20260623,mainstream,2369,菱生,volume_range_breakout,放量攻擊模型,pdf_core_model,85.6,7,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,78.3,4.0,0.0,3.3,0.0,85.6,突破品質 +3.3 | 收近高點 +4
-20260623,mainstream,3257,虹冠電,volume_range_breakout,放量攻擊模型,pdf_core_model,75.3,13,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,69.9,4.0,0.0,1.4,0.0,75.3,突破品質 +1.4 | 收近高點 +4
+20260623,mainstream,3257,虹冠電,volume_range_breakout,放量攻擊模型,pdf_core_model,75.3,14,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,69.9,4.0,0.0,1.4,0.0,75.3,突破品質 +1.4 | 收近高點 +4
 20260623,mainstream,3360,尚立,volume_range_breakout,放量攻擊模型,pdf_core_model,71.3,16,電子通路業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,71.0,0.0,0.0,0.2,0.0,71.3,突破品質 +0.2
 20260623,mainstream,3374,精材,volume_range_breakout,放量攻擊模型,pdf_core_model,98.0,1,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,89.0,4.0,0.0,5.0,0.0,98.0,突破品質 +5.0 | 收近高點 +4
 20260623,mainstream,3675,德微,volume_range_breakout,放量攻擊模型,pdf_core_model,87.4,6,半導體業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,78.7,4.0,0.0,4.7,0.0,87.4,突破品質 +4.7 | 收近高點 +4
 20260623,mainstream,3707,漢磊,volume_range_breakout,放量攻擊模型,pdf_core_model,81.1,9,半導體業,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,75.7,4.0,0.0,1.4,0.0,81.1,突破品質 +1.4 | 收近高點 +4
-20260623,mainstream,5302,太欣,volume_range_breakout,放量攻擊模型,pdf_core_model,77.5,12,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,72.5,4.0,0.0,1.1,0.0,77.5,突破品質 +1.1 | 收近高點 +4
+20260623,mainstream,5302,太欣,volume_range_breakout,放量攻擊模型,pdf_core_model,77.5,13,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,72.5,4.0,0.0,1.1,0.0,77.5,突破品質 +1.1 | 收近高點 +4
 20260623,mainstream,5468,凱鈺,volume_range_breakout,放量攻擊模型,pdf_core_model,79.4,10,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,70.4,4.0,0.0,5.0,0.0,79.4,突破品質 +5.0 | 收近高點 +4
 20260623,mainstream,5489,彩富,volume_range_breakout,放量攻擊模型,pdf_core_model,93.9,3,其他電子業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,72.9,6.0,0.0,15.0,0.0,93.9,鎖量漲停突破 +16 | 突破品質 +5.0
-20260623,mainstream,6168,宏齊,volume_range_breakout,放量攻擊模型,pdf_core_model,72.1,14,光電業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,66.2,4.0,0.0,1.9,0.0,72.1,突破品質 +1.9 | 收近高點 +4
+20260623,mainstream,6168,宏齊,volume_range_breakout,放量攻擊模型,pdf_core_model,72.1,15,光電業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,66.2,4.0,0.0,1.9,0.0,72.1,突破品質 +1.9 | 收近高點 +4
 20260623,mainstream,6525,捷敏-KY,volume_range_breakout,放量攻擊模型,pdf_core_model,81.6,8,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,72.6,4.0,0.0,5.0,0.0,81.6,突破品質 +5.0 | 收近高點 +4
 20260623,mainstream,6909,創控,volume_range_breakout,放量攻擊模型,pdf_core_model,97.8,2,半導體業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,76.8,6.0,0.0,15.0,0.0,97.8,鎖量漲停突破 +16 | 突破品質 +5.0
 20260623,mainstream,7828,創新服務,volume_range_breakout,放量攻擊模型,pdf_core_model,78.4,11,半導體業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,56.9,10.0,0.0,11.6,0.0,78.4,鎖量漲停突破 +16 | 鎖量且量比低於2.0 +4 | 突破品質 +1.6
 20260623,mainstream,8024,佑華,volume_range_breakout,放量攻擊模型,pdf_core_model,88.1,5,半導體業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,82.3,4.0,0.0,1.7,0.0,88.1,突破品質 +1.7 | 收近高點 +4
 20260623,mainstream,8054,安國,volume_range_breakout,放量攻擊模型,pdf_core_model,89.1,4,半導體業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,83.4,4.0,0.0,1.7,0.0,89.1,突破品質 +1.7 | 收近高點 +4
-20260623,mainstream,8261,富鼎,volume_range_breakout,放量攻擊模型,pdf_core_model,72.0,15,功率元件/二極體,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,63.0,4.0,0.0,5.0,0.0,72.0,突破品質 +5.0 | 收近高點 +4
+20260623,mainstream,8261,富鼎,volume_range_breakout,放量攻擊模型,pdf_core_model,78.0,12,功率元件/二極體,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,69.0,4.0,0.0,5.0,0.0,78.0,突破品質 +5.0 | 收近高點 +4
 20260623,non_mainstream,4147,中裕,volume_range_breakout,放量攻擊模型,pdf_core_model,73.0,3,生技醫療業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,68.8,4.0,0.0,0.2,0.0,73.0,突破品質 +0.2 | 收近高點 +4
 20260623,non_mainstream,4716,大立,volume_range_breakout,放量攻擊模型,pdf_core_model,90.1,1,化學工業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,65.1,10.0,0.0,15.0,0.0,90.1,鎖量漲停突破 +16 | 鎖量且量比低於2.0 +4 | 突破品質 +5.0
 20260623,non_mainstream,4924,欣厚-KY,volume_range_breakout,放量攻擊模型,pdf_core_model,70.9,4,綠能環保,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,70.1,0.0,0.0,0.8,0.0,70.9,突破品質 +0.8

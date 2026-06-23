@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "generated_at": "2026-06-24 00:36:19 Asia/Taipei",
+  "requested_date": "20260623",
+  "target_date": "20260623",
+  "data_date": "20260623",
+  "last_unavailable_date": "",
+  "consecutive_unavailable_trading_days": 0,
+  "max_warning_days": 2,
+  "hard_fail_after_days": 3,
+  "daily_publish_allowed": true,
+  "warrant_pdf_visibility": "visible",
+  "model_effect_allowed": true,
+  "pdf_effect_allowed": true,
+  "final_rows": 28979,
+  "mapping_rows": 29040,
+  "quote_rows": 0,
+  "note": "preserved existing same-date usable raw snapshot from output/latest/warrant_daily_raw_latest.csv"
+}

@@ -1,6 +1,6 @@
 # 每日全市場股價監測報告
 
-- 產生時間：`2026-06-23 22:58:17 Asia/Taipei`
+- 產生時間：`2026-06-24 00:33:29 Asia/Taipei`
 - 主資料日期：`20260623`
 - 最新官方價格資料日：`20260623`
 - 價格資料筆數：`598789`
@@ -150,7 +150,7 @@
 
 ## 權證金流輔助欄位
 
-- 更新時間：`2026-06-23 23:01:06 Asia/Taipei`
+- 更新時間：`2026-06-24 00:36:28 Asia/Taipei`
 - 狀態：`Merged warrant flow into all candidates. rows=642, matched_rows=279`
 - 權證金流檔案：`output/latest/warrant_flow_latest.csv`
 

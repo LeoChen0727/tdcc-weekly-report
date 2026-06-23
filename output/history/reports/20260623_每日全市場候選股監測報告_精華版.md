@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260623`
-- 產生時間：`2026-06-23 23:07:31 Asia/Taipei`
+- 產生時間：`2026-06-24 00:41:57 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260623`
@@ -40,9 +40,9 @@
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2885 元大金 | 營收成長股價回檔 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 6670 復盛應用 | 營收成長股價回檔 | score 28 / theme 27.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividen... | 大戶溫和增加 |
-| 6214 精誠 | 營收成長股價回檔 | score 28 / theme 35.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividen... | 大戶溫和增加 |
-| 2374 佳能 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
 | 2451 創見 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;半導體業;dividend_ca... | 大戶溫和增加 |
+| 2374 佳能 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
+| 8070 長華* | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶同步增加 |
 
 ## 精華候選股
 
@@ -277,7 +277,7 @@
 - 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：call_put_bullish / 3.0
-- 財報 / 事件催化：score 5 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;capacity_expansion;電子零組件業;dividend_calendar;calendar_ex_dividend / re...
+- 財報 / 事件催化：score 5 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;capacity_expansion;電子零組件業;monthly_revenue_calendar;calendar_monthly_r...
 - 摘要：TDCC增加 / 大戶溫和增加 / call_put_bullish / 3.0
 - 完整原因：近幾週400張與1000張合計增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比1.48x；月營收YoY 87.3%；累計YoY 66.7%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
