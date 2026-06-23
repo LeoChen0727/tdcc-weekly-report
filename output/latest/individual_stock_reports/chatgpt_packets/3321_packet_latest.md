@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3321 同泰
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:24 Asia/Taipei
+- generated_at: 2026-06-23 22:23:31 Asia/Taipei
 - stock_id: 3321
 - stock_name: 同泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 284
+- latest_price_date: 20260622
+- price_rows: 285
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,6 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -111,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 23.5
-- high: 24.4
-- low: 22.9
-- close: 24.3
-- volume: 1245803
-- ma5: 22.63
-- ema23_primary: 20.12
-- distance_to_ema23_pct: 20.77
-- ma20: 20.16
-- ma60: 17.46
-- ma120: 17.75
-- return_5d: 23.66
-- return_20d: 58.82
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 20.57
-- distance_to_high_60_pct: -0.41
+- date: 20260622
+- open: 25.3
+- high: 26.7
+- low: 24.2
+- close: 26.7
+- volume: 2507217
+- ma5: 23.88
+- ema23_primary: 20.67
+- distance_to_ema23_pct: 29.17
+- ma20: 20.69
+- ma60: 17.63
+- ma120: 17.82
+- return_5d: 30.56
+- return_20d: 67.4
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 29.03
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,15.45,15.95,15.35,15.95,358394,15.98,-0.16,16.05,16.32,1.01
 20260525,15.95,16.6,15.8,16.55,631153,16.02,3.29,16.07,16.28,1.7
 20260526,16.55,18.2,16.25,18.2,1623857,16.2,12.32,16.18,16.27,3.72
 20260527,18.45,19.3,17.85,19.05,2174519,16.44,15.87,16.32,16.28,4.05
@@ -153,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,22.6,23.35,21.65,22.25,1992547,19.38,14.8,19.29,17.24,1.65
 20260617,22.05,24.4,21.9,23.7,1498819,19.74,20.05,19.7,17.35,1.18
 20260618,23.5,24.4,22.9,24.3,1245803,20.12,20.77,20.16,17.46,0.94
+20260622,25.3,26.7,24.2,26.7,2507217,20.67,29.17,20.69,17.63,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260622 | 3321 | 同泰 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: shareholder_meeting on 20260625; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260622 | 3321 | 同泰 | 1 | 1 | 4 | 6 | 11 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

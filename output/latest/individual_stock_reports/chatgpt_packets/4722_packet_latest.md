@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4722 國精化
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:42 Asia/Taipei
+- generated_at: 2026-06-23 22:23:53 Asia/Taipei
 - stock_id: 4722
 - stock_name: 國精化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 269.5
-- high: 290
-- low: 261
-- close: 277.5
-- volume: 5294631
-- ma5: 249.7
-- ema23_primary: 250.1
-- distance_to_ema23_pct: 10.96
-- ma20: 262.05
-- ma60: 218.72
-- ma120: 196.62
-- return_5d: 34.71
-- return_20d: 6.53
-- volume_ratio: 2.35
-- distance_to_ma20_pct_auxiliary: 5.9
-- distance_to_high_60_pct: -5.93
+- date: 20260622
+- open: 280
+- high: 304.5
+- low: 280
+- close: 284.5
+- volume: 3090668
+- ma5: 261.3
+- ema23_primary: 252.97
+- distance_to_ema23_pct: 12.46
+- ma20: 261.95
+- ma60: 220.63
+- ma120: 197.6
+- return_5d: 25.61
+- return_20d: -0.7
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 8.61
+- distance_to_high_60_pct: -6.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,272.5,286.5,269,286.5,6927447,228.75,25.25,224.25,194.92,1.44
 20260525,287.5,295,279.5,284,5291857,233.35,21.71,229.4,196.51,1.07
 20260526,284.5,284.5,272,275.5,1282974,236.86,16.31,234.28,197.65,0.26
 20260527,275.5,275.5,270.5,270.5,999818,239.67,12.87,238.72,198.54,0.2
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,247,251,237.5,240,2930711,246.12,-2.49,259.85,215.45,1.35
 20260617,238.5,264,237.5,264,3454193,247.61,6.62,261.2,216.89,1.63
 20260618,269.5,290,261,277.5,5294631,250.1,10.96,262.05,218.72,2.35
+20260622,280,304.5,280,284.5,3090668,252.97,12.46,261.95,220.63,1.5
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4722 | 國精化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_14d |
+| 20260622 | 4722 | 國精化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | degraded calendar context only: ex_dividend on 20260630; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4722 | 國精化 | 4 | 2 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 4722 | 國精化 | 5 | 3 | 5 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4722 | 國精化 | 53 | 2 | 12575160.0 | 100710.0 | 124.87 | call_inflow |
+| 20260622 | 4722 | 國精化 | 51 | 2 | 10882750.0 | 78870.0 | 137.98 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

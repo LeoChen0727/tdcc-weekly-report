@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4571 鈞興-KY
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:41 Asia/Taipei
+- generated_at: 2026-06-23 22:23:51 Asia/Taipei
 - stock_id: 4571
 - stock_name: 鈞興-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 180.5
-- high: 184
-- low: 179.5
+- date: 20260622
+- open: 183.5
+- high: 185
+- low: 181.5
 - close: 181.5
-- volume: 268697
-- ma5: 180.2
-- ema23_primary: 191.58
-- distance_to_ema23_pct: -5.26
-- ma20: 198.6
-- ma60: 183.22
-- ma120: 176.77
-- return_5d: 1.4
-- return_20d: -15.97
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -8.61
+- volume: 349168
+- ma5: 180.3
+- ema23_primary: 190.74
+- distance_to_ema23_pct: -4.84
+- ma20: 196.2
+- ma60: 183.54
+- ma120: 176.95
+- return_5d: 0.28
+- return_20d: -20.91
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -7.49
 - distance_to_high_60_pct: -24.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,219.5,237.5,218.5,229.5,2160477,197.73,16.07,197.28,174.42,1.29
 20260525,232,237.5,226,227,1498329,200.17,13.4,200.05,175.25,0.89
 20260526,227,230.5,221,224,919615,202.15,10.81,203.1,176.06,0.54
 20260527,224,227,215.5,218,1705799,203.48,7.14,205.5,176.64,0.97
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,183,183,178.5,179.5,230847,193.72,-7.34,201.9,182.57,0.23
 20260617,178,181.5,178,179,219814,192.5,-7.01,200.32,182.85,0.24
 20260618,180.5,184,179.5,181.5,268697,191.58,-5.26,198.6,183.22,0.31
+20260622,183.5,185,181.5,181.5,349168,190.74,-4.84,196.2,183.54,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4571 | 鈞興-KY | 12 | 1 | 275390.0 | 0.0 |  | no_signal |
+| 20260622 | 4571 | 鈞興-KY | 12 | 1 | 791980.0 | 53820.0 | 14.72 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

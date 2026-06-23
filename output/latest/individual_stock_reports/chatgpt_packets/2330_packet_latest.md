@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:56 Asia/Taipei
+- generated_at: 2026-06-23 22:22:58 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 2395
-- high: 2415
-- low: 2385
-- close: 2410
-- volume: 49982610
-- ma5: 2376
-- ema23_primary: 2316.19
-- distance_to_ema23_pct: 4.05
-- ma20: 2334
-- ma60: 2164.5
-- ma120: 1957.08
-- return_5d: 7.11
-- return_20d: 8.07
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 3.26
-- distance_to_high_60_pct: -1.23
+- date: 20260622
+- open: 2455
+- high: 2510
+- low: 2455
+- close: 2510
+- volume: 45207883
+- ma5: 2416
+- ema23_primary: 2332.34
+- distance_to_ema23_pct: 7.62
+- ma20: 2346.75
+- ma60: 2176.17
+- ma120: 1966.04
+- return_5d: 8.66
+- return_20d: 11.31
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 6.96
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,2245,2260,2225,2255,26823133,2189.82,2.98,2235.75,2024.25,0.62
 20260525,2275,2310,2275,2310,28250944,2199.84,5.01,2242,2030,0.67
 20260526,2320,2325,2270,2270,32781470,2205.68,2.92,2242.25,2034.25,0.82
 20260527,2310,2330,2290,2300,40272350,2213.54,3.91,2246.5,2039.33,1.03
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,2375,2400,2350,2400,37145708,2300.63,4.32,2315,2145.42,0.89
 20260617,2355,2385,2350,2385,30059393,2307.66,3.35,2325,2154.5,0.73
 20260618,2395,2415,2385,2410,49982610,2316.19,4.05,2334,2164.5,1.18
+20260622,2455,2510,2455,2510,45207883,2332.34,7.62,2346.75,2176.17,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | mixed_flow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2330 | 台積電 | 11 | 5 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2330 | 台積電 | 12 | 6 | 5 | 10 | 13 | continued_many_days | 連續 12 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2330 | 台積電 | 905 | 189 | 177384740.0 | 2155620.0 | 82.29 | no_signal |
+| 20260622 | 2330 | 台積電 | 912 | 188 | 333969980.0 | 3887670.0 | 85.9 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

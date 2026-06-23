@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6924 榮惠-KY創
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:21 Asia/Taipei
+- generated_at: 2026-06-23 22:24:40 Asia/Taipei
 - stock_id: 6924
 - stock_name: 榮惠-KY創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 268
+- latest_price_date: 20260622
+- price_rows: 269
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 116.5
-- high: 125
-- low: 116.5
-- close: 125
-- volume: 52626
-- ma5: 115.7
-- ema23_primary: 135.85
-- distance_to_ema23_pct: -7.99
-- ma20: 151.03
-- ma60: 114.77
-- ma120: 91.27
-- return_5d: 3.31
-- return_20d: -23.78
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -17.23
-- distance_to_high_60_pct: -35.4
+- date: 20260622
+- open: 133.5
+- high: 133.5
+- low: 126
+- close: 126.5
+- volume: 38554
+- ma5: 117.6
+- ema23_primary: 135.07
+- distance_to_ema23_pct: -6.35
+- ma20: 148.93
+- ma60: 115.63
+- ma120: 91.79
+- return_5d: 8.12
+- return_20d: -24.93
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -15.06
+- distance_to_high_60_pct: -34.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,164.5,170,164.5,168.5,65534,120.73,39.56,114.97,88.71,0.46
 20260525,165,165,155,162,179135,124.17,30.46,118.65,90.33,1.19
 20260526,163,163,156.5,161,68098,127.24,26.53,122.24,91.94,0.45
 20260527,163.5,164.5,158.5,164,64857,130.31,25.86,126,93.6,0.42
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,113.5,114,113,113,12002,138.92,-18.66,155.43,113.32,0.1
 20260617,109.5,114,109.5,114,17206,136.84,-16.69,152.97,113.92,0.14
 20260618,116.5,125,116.5,125,52626,135.85,-7.99,151.03,114.77,0.45
+20260622,133.5,133.5,126,126.5,38554,135.07,-6.35,148.93,115.63,0.33
 ```
 
 ## Latest TDCC Snapshot

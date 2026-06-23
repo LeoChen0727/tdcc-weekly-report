@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:01 Asia/Taipei
+- generated_at: 2026-06-23 22:24:16 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 333.5
-- high: 356
-- low: 333
-- close: 347.5
-- volume: 4373191
-- ma5: 332
-- ema23_primary: 302.3
-- distance_to_ema23_pct: 14.95
-- ma20: 311.7
-- ma60: 234.59
-- ma120: 192.92
-- return_5d: 9.45
-- return_20d: 46.01
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 11.49
-- distance_to_high_60_pct: -2.39
+- date: 20260622
+- open: 352
+- high: 359
+- low: 346
+- close: 353
+- volume: 4317386
+- ma5: 337.1
+- ema23_primary: 306.52
+- distance_to_ema23_pct: 15.16
+- ma20: 316.55
+- ma60: 237.58
+- ma120: 194.77
+- return_5d: 7.79
+- return_20d: 37.89
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 11.51
+- distance_to_high_60_pct: -1.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,244.5,258,240.5,256,9330534,217.16,17.88,219.9,187.41,1.59
 20260525,264.5,279,257.5,274,7820023,221.9,23.48,224.88,189.51,1.34
 20260526,277.5,287.5,272,279.5,7419502,226.7,23.29,229.95,191.66,1.23
 20260527,279.5,291,277.5,281.5,5861480,231.27,21.72,234.62,193.78,0.95
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,334,335.5,318,320.5,3530676,295.02,8.63,300.43,229.51,0.55
 20260617,320,333,319,333,2147003,298.19,11.67,306.23,231.8,0.33
 20260618,333.5,356,333,347.5,4373191,302.3,14.95,311.7,234.59,0.69
+20260622,352,359,346,353,4317386,306.52,15.16,316.55,237.58,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6197 | 佳必琪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6197 | 佳必琪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6197 | 佳必琪 | 2 | 2 | 2 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 6197 | 佳必琪 | 3 | 3 | 3 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6197 | 佳必琪 | 104 | 0 | 50251590.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 6197 | 佳必琪 | 102 | 0 | 30863450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

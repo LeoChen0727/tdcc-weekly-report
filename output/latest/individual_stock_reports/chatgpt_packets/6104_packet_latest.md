@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6104 創惟
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:56 Asia/Taipei
+- generated_at: 2026-06-23 22:24:10 Asia/Taipei
 - stock_id: 6104
 - stock_name: 創惟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 100.5
-- high: 106
-- low: 100.5
-- close: 103.5
-- volume: 3469000
-- ma5: 100.92
-- ema23_primary: 100.36
-- distance_to_ema23_pct: 3.13
-- ma20: 100.94
-- ma60: 97.34
-- ma120: 97.44
-- return_5d: 4.97
-- return_20d: 1.97
-- volume_ratio: 2.68
-- distance_to_ma20_pct_auxiliary: 2.53
-- distance_to_high_60_pct: -5.48
+- date: 20260622
+- open: 105
+- high: 110.5
+- low: 105
+- close: 108.5
+- volume: 5713000
+- ma5: 102.82
+- ema23_primary: 101.03
+- distance_to_ema23_pct: 7.39
+- ma20: 101.22
+- ma60: 97.6
+- ma120: 97.51
+- return_5d: 9.6
+- return_20d: 5.34
+- volume_ratio: 3.63
+- distance_to_ma20_pct_auxiliary: 7.19
+- distance_to_high_60_pct: -1.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,102,103.5,101,103,102000,98.13,4.97,99.07,95.74,0.05
 20260525,104.5,104.5,102.5,103,103000,98.53,4.54,99.27,95.8,0.05
 20260526,104,104.5,101,101.5,102000,98.78,2.75,99.5,95.82,0.06
 20260527,103,103,98.2,99,100000,98.8,0.21,99.48,95.78,0.06
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,103,103.5,99.1,99.1,1548000,100.03,-0.93,100.66,97.14,1.21
 20260617,99.2,101,97.5,100.5,1104000,100.07,0.43,100.84,97.19,0.87
 20260618,100.5,106,100.5,103.5,3469000,100.36,3.13,100.94,97.34,2.68
+20260622,105,110.5,105,108.5,5713000,101.03,7.39,101.22,97.6,3.63
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6104 | 創惟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6104 | 創惟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6104 | 創惟 | 1 | 1 | 1 | 3 | 10 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260622 | 6104 | 創惟 | 2 | 2 | 2 | 3 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

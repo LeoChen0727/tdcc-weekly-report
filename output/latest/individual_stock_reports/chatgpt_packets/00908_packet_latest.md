@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 14.94
-- high: 14.94
-- low: 14.82
-- close: 14.82
-- volume: 320432
-- ma5: 15
-- ema23_primary: 14.69
-- distance_to_ema23_pct: 0.86
-- ma20: 14.65
+- date: 20260622
+- open: 14.82
+- high: 14.84
+- low: 14.78
+- close: 14.8
+- volume: 242769
+- ma5: 14.96
+- ema23_primary: 14.7
+- distance_to_ema23_pct: 0.66
+- ma20: 14.67
 - ma60: 14.65
 - ma120: 14.65
-- return_5d: -1.2
-- return_20d:
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: 1.18
-- distance_to_high_60_pct: -2.24
+- return_5d: -1.4
+- return_20d: 2.92
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 0.9
+- distance_to_high_60_pct: -2.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,14.38,14.39,14.37,14.38,63379,,,,,
 20260525,14.34,14.39,14.34,14.37,283371,,,,,
 20260526,14.38,14.39,14.37,14.38,122536,,,,,
 20260527,14.42,14.49,14.42,14.45,125438,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,15.02,15.03,15,15.02,228731,14.65,2.52,14.62,14.62,1.23
 20260617,15.03,15.03,15.01,15.03,14509,14.68,2.37,14.64,14.64,0.08
 20260618,14.94,14.94,14.82,14.82,320432,14.69,0.86,14.65,14.65,1.75
+20260622,14.82,14.84,14.78,14.8,242769,14.7,0.66,14.67,14.65,1.26
 ```
 
 ## Latest TDCC Snapshot

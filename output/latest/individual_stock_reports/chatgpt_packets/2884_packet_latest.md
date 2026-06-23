@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:12 Asia/Taipei
+- generated_at: 2026-06-23 22:23:17 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 286
+- latest_price_date: 20260622
+- price_rows: 287
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 35.5
-- high: 36.25
-- low: 35.4
-- close: 35.4
-- volume: 98205698
-- ma5: 35.02
-- ema23_primary: 33.42
-- distance_to_ema23_pct: 5.94
-- ma20: 32.97
-- ma60: 32.47
-- ma120: 32.94
-- return_5d: 4.58
-- return_20d: 12.2
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 7.39
-- distance_to_high_60_pct: -2.34
+- date: 20260622
+- open: 36
+- high: 36.6
+- low: 35.7
+- close: 35.8
+- volume: 106058238
+- ma5: 35.31
+- ema23_primary: 33.61
+- distance_to_ema23_pct: 6.5
+- ma20: 33.19
+- ma60: 32.54
+- ma120: 32.97
+- return_5d: 4.22
+- return_20d: 14.38
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 7.86
+- distance_to_high_60_pct: -2.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,31.5,31.8,31.3,31.3,40828522,31.99,-2.15,31.96,32.56,1.09
 20260525,31.3,31.35,30.9,30.9,47765179,31.9,-3.13,31.88,32.5,1.26
 20260526,30.9,31.5,30.9,31.15,48567179,31.84,-2.15,31.8,32.44,1.26
 20260527,31.15,31.25,30.95,31.15,52347427,31.78,-1.98,31.74,32.37,1.33
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,34.7,35.35,34.45,35.2,59663562,33.03,6.57,32.58,32.33,1.01
 20260617,35.3,35.9,35.05,35.5,60281414,33.24,6.81,32.77,32.4,1
 20260618,35.5,36.25,35.4,35.4,98205698,33.42,5.94,32.97,32.47,1.54
+20260622,36,36.6,35.7,35.8,106058238,33.61,6.5,33.19,32.54,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2884 | 玉山金 | 11 | 0 | 1820320.0 | 0.0 |  | call_inflow |
+| 20260622 | 2884 | 玉山金 | 11 | 0 | 895040.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

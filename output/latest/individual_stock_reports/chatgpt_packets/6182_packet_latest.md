@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:00 Asia/Taipei
+- generated_at: 2026-06-23 22:24:15 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,31 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: no_entry_now
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -88,8 +86,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 119.5
-- high: 122
-- low: 110
-- close: 120
-- volume: 113776000
-- ma5: 105.52
-- ema23_primary: 87.34
-- distance_to_ema23_pct: 37.39
-- ma20: 91.31
-- ma60: 59.16
-- ma120: 46.91
-- return_5d: 48.33
-- return_20d: 88.68
-- volume_ratio: 6.28
-- distance_to_ma20_pct_auxiliary: 31.43
-- distance_to_high_60_pct: -1.64
+- date: 20260622
+- open: 121
+- high: 123
+- low: 115
+- close: 116.5
+- volume: 81366000
+- ma5: 111.04
+- ema23_primary: 89.77
+- distance_to_ema23_pct: 29.78
+- ma20: 93.64
+- ma60: 60.55
+- ma120: 47.64
+- return_5d: 31.05
+- return_20d: 66.67
+- volume_ratio: 3.67
+- distance_to_ma20_pct_auxiliary: 24.42
+- distance_to_high_60_pct: -5.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,65.5,69.9,65.4,69.9,69000,52.38,33.45,52.02,40.73,0
 20260525,75.9,76.8,75.9,76.8,77000,54.41,41.14,53.83,41.42,0
 20260526,84.4,84.4,84.4,84.4,84000,56.91,48.3,56.03,42.25,0
 20260527,85.4,92.8,79.3,90.2,88000,59.69,51.12,58.55,43.15,0
@@ -155,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,104,107,103,107,18794000,81.68,31,85.68,56.45,3.09
 20260617,107,117.5,103.5,114,170233000,84.37,35.12,88.48,57.73,12.18
 20260618,119.5,122,110,120,113776000,87.34,37.39,91.31,59.16,6.28
+20260622,121,123,115,116.5,81366000,89.77,29.78,93.64,60.55,3.67
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6182 | 合晶 | true_breakout | 嚴格突破 | 88.0 |  |  | breakout_confirmed |  |  | first_seen | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:資深財務副總經理 2.發生變動日期:115/06/18 3.舊任者姓名、級職及簡歷:不適用 4.新任者姓名、級職及簡歷:毛瑞源 資深財務副總經理   簡歷:合晶科技 財務處副總經理        上海合晶 董事暨台灣辦事處法人代表        上海合晶 董事長暨台灣辦事處法人代表 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/07/01 8.其他應敘明事項:經本公司第十一屆第十四次董事會決議通過。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/06/22 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: ----------------------------(單月)----------------------------------------- 期間          最近一月(115年5月)   去年同月(114年5月)    與去年同期增減﹪ 營業收入(百萬元)    889                  794                  11.94% 稅前淨利(百萬元)     39                   30                  30.00% 歸屬母公司業主 淨利(損)(百萬元)     28                  -24                 216.67% 每股盈餘(元)       0.05                -0.04                 225.00% ----------------------------(單季)----------------------------------------- 期間     最近一季單季(115年第1季)   去年同期(114年第1季)   與去年同期增減﹪ 營業收入(百萬元)   2,478                 2,304                 7.55% 稅前淨利(百萬元)      36                   134               -73.13% 歸屬母公司業主 淨利(損)(百萬元)       2                    30               -93.33% 每股盈餘(元)           0                  0.05              -100.00% -----------------------(最近四季累計)--------------------------------------                   (114年第2季至115年第1季) 營業收入(百萬元)              9,991 稅前淨利(百萬元)                516 歸屬母公司業主淨利(損)(百萬元)   24 每股盈餘(元)                   0.04 --------------------------------------------------------------------------- 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: (1)以上115年05月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之    合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，係經會計師查核(閱)。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經    會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6182 | 合晶 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260622 | 6182 | 合晶 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

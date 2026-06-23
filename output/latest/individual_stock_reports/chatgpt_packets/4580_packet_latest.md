@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4580 捷流閥業
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:41 Asia/Taipei
+- generated_at: 2026-06-23 22:23:52 Asia/Taipei
 - stock_id: 4580
 - stock_name: 捷流閥業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
+- date: 20260622
 - open: 82
-- high: 82.5
-- low: 81.6
-- close: 82.5
-- volume: 61000
-- ma5: 81.78
-- ema23_primary: 81.88
-- distance_to_ema23_pct: 0.76
-- ma20: 82.2
-- ma60: 81.11
-- ma120: 81.26
-- return_5d: 2.36
-- return_20d: 0.61
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 0.36
-- distance_to_high_60_pct: -2.37
+- high: 84.7
+- low: 82
+- close: 83.1
+- volume: 211000
+- ma5: 82.18
+- ema23_primary: 81.98
+- distance_to_ema23_pct: 1.36
+- ma20: 82.25
+- ma60: 81.18
+- ma120: 81.27
+- return_5d: 2.47
+- return_20d: 0.97
+- volume_ratio: 3.11
+- distance_to_ma20_pct_auxiliary: 1.04
+- distance_to_high_60_pct: -1.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,81.6,82.4,81.6,82.3,82000,81.36,1.16,81.33,80.67,1.22
 20260525,83.4,83.4,82.4,82.9,83000,81.48,1.74,81.45,80.68,1.19
 20260526,82.9,83,82.4,82.9,83000,81.6,1.59,81.64,80.69,1.17
 20260527,82.9,82.9,82,82.4,82000,81.67,0.9,81.78,80.69,1.12
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,81.5,81.7,81,81.7,38000,81.81,-0.13,82.16,81.04,0.61
 20260617,81.1,82.3,81.1,82,24000,81.82,0.22,82.18,81.07,0.39
 20260618,82,82.5,81.6,82.5,61000,81.88,0.76,82.2,81.11,0.99
+20260622,82,84.7,82,83.1,211000,81.98,1.36,82.25,81.18,3.11
 ```
 
 ## Latest TDCC Snapshot

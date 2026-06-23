@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009802 富邦旗艦50
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:35 Asia/Taipei
+- generated_at: 2026-06-23 22:22:31 Asia/Taipei
 - stock_id: 009802
 - stock_name: 富邦旗艦50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 19.98
-- high: 20.03
-- low: 19.8
-- close: 19.89
-- volume: 5456416
-- ma5: 19.78
-- ema23_primary: 19.58
-- distance_to_ema23_pct: 1.56
-- ma20: 19.88
-- ma60: 19.88
-- ma120: 19.88
-- return_5d: 4.68
-- return_20d:
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 0.03
-- distance_to_high_60_pct: -5.91
+- date: 20260622
+- open: 20.13
+- high: 20.33
+- low: 20.1
+- close: 20.16
+- volume: 9290150
+- ma5: 19.93
+- ema23_primary: 19.63
+- distance_to_ema23_pct: 2.69
+- ma20: 19.98
+- ma60: 19.9
+- ma120: 19.9
+- return_5d: 3.86
+- return_20d: 9.98
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 0.93
+- distance_to_high_60_pct: -4.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,17.89,18.35,17.89,18.33,9072409,,,,,
 20260525,19.2,19.67,19.2,19.64,18704432,,,,,
 20260526,20,20,19.47,19.6,15949083,,,,,
 20260527,20.32,20.82,20.29,20.49,23027742,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,19.94,19.97,19.64,19.89,5458572,19.54,1.81,19.89,19.89,0.46
 20260617,19.77,19.82,19.54,19.77,4772949,19.56,1.09,19.88,19.88,0.42
 20260618,19.98,20.03,19.8,19.89,5456416,19.58,1.56,19.88,19.88,0.49
+20260622,20.13,20.33,20.1,20.16,9290150,19.63,2.69,19.98,19.9,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -190,7 +190,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 9802 | 鈺齊-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260622 | 9802 | 鈺齊-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

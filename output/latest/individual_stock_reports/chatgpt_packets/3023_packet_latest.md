@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:16 Asia/Taipei
+- generated_at: 2026-06-23 22:23:21 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 314
-- high: 327.5
-- low: 310.5
-- close: 327.5
-- volume: 1450867
-- ma5: 317.3
-- ema23_primary: 312.29
-- distance_to_ema23_pct: 4.87
-- ma20: 315.88
-- ma60: 292.33
-- ma120: 255.24
-- return_5d: 6.33
-- return_20d: 4.47
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 3.68
-- distance_to_high_60_pct: -3.68
+- date: 20260622
+- open: 328.5
+- high: 339
+- low: 328
+- close: 333
+- volume: 1974886
+- ma5: 321.1
+- ema23_primary: 314.01
+- distance_to_ema23_pct: 6.05
+- ma20: 316.8
+- ma60: 293.71
+- ma120: 256.29
+- return_5d: 6.05
+- return_20d: 5.88
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 5.11
+- distance_to_high_60_pct: -2.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,317,322,314,314.5,2355982,293.89,7.01,295.68,268.62,0.87
 20260525,321.5,323,312.5,314,1668991,295.57,6.24,296.88,269.84,0.64
 20260526,315.5,319.5,310.5,316,1178755,297.27,6.3,298.82,271.04,0.47
 20260527,320,320,310.5,312,1242263,298.5,4.52,300.68,272.18,0.52
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,320,323,312,313,1198684,310.71,0.74,314.7,290.73,0.56
 20260617,310.5,314.5,307,313,552882,310.9,0.67,315.18,291.44,0.28
 20260618,314,327.5,310.5,327.5,1450867,312.29,4.87,315.88,292.33,0.74
+20260622,328.5,339,328,333,1974886,314.01,6.05,316.8,293.71,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3023 | 信邦 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3023 | 信邦 | 1 | 1 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3023 | 信邦 | 2 | 2 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3023 | 信邦 | 16 | 0 | 1012750.0 | 0.0 |  | no_signal |
+| 20260622 | 3023 | 信邦 | 16 | 0 | 4417640.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

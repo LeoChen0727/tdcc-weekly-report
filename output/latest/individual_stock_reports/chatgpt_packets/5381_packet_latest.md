@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5381 光譜
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:51 Asia/Taipei
+- generated_at: 2026-06-23 22:24:04 Asia/Taipei
 - stock_id: 5381
 - stock_name: 光譜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 146
+- latest_price_date: 20260622
+- price_rows: 147
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 27.8
-- high: 28.35
-- low: 27.7
-- close: 27.8
-- volume: 1052000
-- ma5: 28
-- ema23_primary: 28.24
-- distance_to_ema23_pct: -1.55
-- ma20: 28.54
-- ma60: 25.75
-- ma120: 26.08
-- return_5d: -9.3
-- return_20d: 9.88
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -2.58
-- distance_to_high_60_pct: -21.69
+- date: 20260622
+- open: 27.9
+- high: 29.45
+- low: 27.2
+- close: 29.2
+- volume: 2995000
+- ma5: 28.23
+- ema23_primary: 28.32
+- distance_to_ema23_pct: 3.12
+- ma20: 28.73
+- ma60: 25.82
+- ma120: 26.13
+- return_5d: 4.1
+- return_20d: 14.73
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 1.65
+- distance_to_high_60_pct: -17.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,25.65,25.75,25.25,25.45,25000,24.8,2.6,24.44,24.93,0.02
 20260525,26,26.8,25.6,26.55,26000,24.95,6.41,24.63,24.94,0.02
 20260526,27.2,27.25,26.2,26.75,27000,25.1,6.57,24.83,24.96,0.03
 20260527,27.2,27.3,26.2,26.2,27000,25.19,4,24.98,24.98,0.03
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,28.9,29.35,28.15,28.15,2108000,28.34,-0.66,28.27,25.68,0.73
 20260617,28.1,28.1,27.2,27.6,1831000,28.28,-2.39,28.41,25.71,0.62
 20260618,27.8,28.35,27.7,27.8,1052000,28.24,-1.55,28.54,25.75,0.35
+20260622,27.9,29.45,27.2,29.2,2995000,28.32,3.12,28.73,25.82,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5381 | 光譜 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | first_seen | 1.主管機關核准減資日期:115/06/12 2.辦理資本變更登記完成日期:115/06/12 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)收回已發行之限制員工權利新股註銷減資前：    本公司實收資本額為新台幣2,078,350,620元，流通在外股數為207,835,062股    (已扣除本公司暨子公司持有之本公司庫藏股股數)，每股淨值為新台幣10.92元。 (2)本次註銷減資新台幣1,445,000元，註銷股份144,500股。 (3)收回已發行之限制員工權利新股註銷減資後：    本公司實收資本額為新台幣2,076,905,620元，流通在外股數為207,690,562股    (已扣除本公司暨子公司持有之本公司庫藏股股數)，每股淨值為新台幣10.93元。 4.預計換股作業計畫:不適用 5.預計減資新股上櫃後之上櫃普通股股數:不適用 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 8.其他應敘明事項: (1)本公司於115/06/17接獲主管機關變更登記核准函。 (2)以上每股淨值係依最近一期(115年第一季)會計師查核財務報告計算。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 5381 | 光譜 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.主管機關核准減資日期:115/06/12 2.辦理資本變更登記完成日期:115/06/12 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)收回已發行之限制員工權利新股註銷減資前：    本公司實收資本額為新台幣2,078,350,620元，流通在外股數為207,835,062股    (已扣除本公司暨子公司持有之本公司庫藏股股數)，每股淨值為新台幣10.92元。 (2)本次註銷減資新台幣1,445,000元，註銷股份144,500股。 (3)收回已發行之限制員工權利新股註銷減資後：    本公司實收資本額為新台幣2,076,905,620元，流通在外股數為207,690,562股    (已扣除本公司暨子公司持有之本公司庫藏股股數)，每股淨值為新台幣10.93元。 4.預計換股作業計畫:不適用 5.預計減資新股上櫃後之上櫃普通股股數:不適用 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 8.其他應敘明事項: (1)本公司於115/06/17接獲主管機關變更登記核准函。 (2)以上每股淨值係依最近一期(115年第一季)會計師查核財務報告計算。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5381 | 光譜 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260622 | 5381 | 光譜 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

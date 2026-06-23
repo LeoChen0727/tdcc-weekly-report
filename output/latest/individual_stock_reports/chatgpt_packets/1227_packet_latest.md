@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1227 佳格
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:36 Asia/Taipei
+- generated_at: 2026-06-23 22:22:34 Asia/Taipei
 - stock_id: 1227
 - stock_name: 佳格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 28.8
-- high: 29.25
-- low: 28.8
+- date: 20260622
+- open: 29.1
+- high: 29.2
+- low: 28.9
 - close: 29.1
-- volume: 2304172
+- volume: 1033723
 - ma5: 28.97
-- ema23_primary: 28.69
-- distance_to_ema23_pct: 1.43
-- ma20: 28.48
-- ma60: 29.2
-- ma120: 29.47
-- return_5d: 0.87
-- return_20d: 1.75
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 2.19
+- ema23_primary: 28.72
+- distance_to_ema23_pct: 1.31
+- ma20: 28.51
+- ma60: 29.18
+- ma120: 29.45
+- return_5d: 0
+- return_20d: 2.28
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 2.07
 - distance_to_high_60_pct: -6.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,28.5,28.55,28.35,28.45,634178,28.91,-1.6,28.79,29.63,0.69
 20260525,28.4,28.4,28.05,28.1,1416096,28.85,-2.59,28.73,29.6,1.51
 20260526,28.1,28.45,28.05,28.25,927467,28.8,-1.9,28.69,29.57,1
 20260527,28.25,28.25,28,28.1,1730442,28.74,-2.22,28.63,29.53,1.74
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,28.95,28.95,28.7,28.85,925865,28.63,0.75,28.43,29.24,0.37
 20260617,28.75,28.85,28.55,28.85,997128,28.65,0.69,28.45,29.21,0.4
 20260618,28.8,29.25,28.8,29.1,2304172,28.69,1.43,28.48,29.2,0.91
+20260622,29.1,29.2,28.9,29.1,1033723,28.72,1.31,28.51,29.18,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1227 | 佳格 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂: 通過修訂本公司章程案 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 1227 | 佳格 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂: 通過修訂本公司章程案 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1227 | 佳格 | 1 | 1 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 1227 | 佳格 | 2 | 2 | 3 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

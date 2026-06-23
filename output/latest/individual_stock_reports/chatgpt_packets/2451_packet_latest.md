@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2451 創見
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:02 Asia/Taipei
+- generated_at: 2026-06-23 22:23:05 Asia/Taipei
 - stock_id: 2451
 - stock_name: 創見
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 312
-- high: 315
-- low: 308
-- close: 311.5
-- volume: 5828511
-- ma5: 310.1
-- ema23_primary: 313.46
-- distance_to_ema23_pct: -0.63
-- ma20: 320.93
-- ma60: 287.61
-- ma120: 257.45
-- return_5d: 6.68
-- return_20d: -0.64
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -2.94
-- distance_to_high_60_pct: -18.67
+- date: 20260622
+- open: 317
+- high: 320.5
+- low: 309.5
+- close: 309.5
+- volume: 6605633
+- ma5: 310.9
+- ema23_primary: 313.13
+- distance_to_ema23_pct: -1.16
+- ma20: 320.57
+- ma60: 288.55
+- ma120: 258.61
+- return_5d: 1.31
+- return_20d: -2.21
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -3.45
+- distance_to_high_60_pct: -19.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,318,324,314.5,316.5,4258536,300.57,5.3,301.95,262.02,0.37
 20260525,315,316,304,311,6273999,301.43,3.17,304.88,263.42,0.54
 20260526,315.5,318,310,316.5,4868429,302.69,4.56,307.6,265.11,0.44
 20260527,333,344,318.5,321,8864238,304.22,5.52,310.57,266.96,0.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,318,320,310.5,312.5,4016154,313.88,-0.44,320.95,286.8,0.51
 20260617,310,312.5,298.5,311,5528405,313.64,-0.84,321.02,286.95,0.7
 20260618,312,315,308,311.5,5828511,313.46,-0.63,320.93,287.61,0.74
+20260622,317,320.5,309.5,309.5,6605633,313.13,-1.16,320.57,288.55,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2451 | 創見 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:承認一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_3d |
+| 20260622 | 2451 | 創見 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_put_bullish | repeated_but_no_breakout | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:承認一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260622 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:承認一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2451 | 創見 | 17 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2451 | 創見 | 18 | 6 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2451 | 創見 | 118 | 6 | 5308440.0 | 12640.0 | 419.97 | no_signal |
+| 20260622 | 2451 | 創見 | 116 | 6 | 11762220.0 | 419530.0 | 28.04 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

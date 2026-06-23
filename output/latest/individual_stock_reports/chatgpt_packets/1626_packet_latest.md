@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1626 艾美特-KY
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:47 Asia/Taipei
+- generated_at: 2026-06-23 22:22:46 Asia/Taipei
 - stock_id: 1626
 - stock_name: 艾美特-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 10.15
-- high: 10.15
-- low: 9.94
-- close: 9.97
-- volume: 345805
-- ma5: 10.06
-- ema23_primary: 10.12
-- distance_to_ema23_pct: -1.45
-- ma20: 10.03
-- ma60: 10.38
-- ma120: 10.69
-- return_5d: 0
-- return_20d: 0.4
-- volume_ratio: 2.42
-- distance_to_ma20_pct_auxiliary: -0.56
-- distance_to_high_60_pct: -17.6
+- date: 20260622
+- open: 9.98
+- high: 9.98
+- low: 9.5
+- close: 9.74
+- volume: 1410964
+- ma5: 10
+- ema23_primary: 10.09
+- distance_to_ema23_pct: -3.42
+- ma20: 10.02
+- ma60: 10.37
+- ma120: 10.67
+- return_5d: -3.08
+- return_20d: -2.21
+- volume_ratio: 6.67
+- distance_to_ma20_pct_auxiliary: -2.75
+- distance_to_high_60_pct: -19.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,9.98,9.99,9.91,9.96,39521,10.45,-4.7,10.63,10.58,0.35
 20260525,9.96,10,9.93,9.95,83085,10.41,-4.41,10.58,10.56,0.79
 20260526,9.98,10.2,9.98,9.98,38663,10.37,-3.79,10.53,10.55,0.37
 20260527,10.35,10.35,9.92,10.05,281046,10.35,-2.87,10.48,10.53,2.4
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,10.25,10.25,9.98,10,69320,10.13,-1.27,10.01,10.38,0.55
 20260617,10.05,10.15,9.7,10.15,207290,10.13,0.2,10.02,10.38,1.61
 20260618,10.15,10.15,9.94,9.97,345805,10.12,-1.45,10.03,10.38,2.42
+20260622,9.98,9.98,9.5,9.74,1410964,10.09,-3.42,10.02,10.37,6.67
 ```
 
 ## Latest TDCC Snapshot

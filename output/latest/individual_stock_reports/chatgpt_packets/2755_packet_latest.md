@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2755 揚秦
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:11 Asia/Taipei
+- generated_at: 2026-06-23 22:23:15 Asia/Taipei
 - stock_id: 2755
 - stock_name: 揚秦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 136.5
-- high: 138.5
-- low: 136.5
-- close: 138.5
-- volume: 27000
-- ma5: 137.2
-- ema23_primary: 135.39
-- distance_to_ema23_pct: 2.29
-- ma20: 134.88
-- ma60: 136.37
-- ma120: 130.6
-- return_5d: 3.36
-- return_20d: 4.53
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 2.69
-- distance_to_high_60_pct: -4.81
+- date: 20260622
+- open: 139.5
+- high: 146.5
+- low: 139.5
+- close: 145.5
+- volume: 164000
+- ma5: 139.2
+- ema23_primary: 136.24
+- distance_to_ema23_pct: 6.8
+- ma20: 135.53
+- ma60: 136.43
+- ma120: 130.8
+- return_5d: 7.38
+- return_20d: 9.81
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: 7.36
+- distance_to_high_60_pct: -0.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,132,133,131.5,132.5,132000,134.07,-1.17,133.62,137.86,2.58
 20260525,132,132,130,132,131000,133.9,-1.42,133.55,138.04,2.33
 20260526,130,132,130,132,131000,133.74,-1.3,133.53,138.18,2.23
 20260527,132.5,133.5,131,132.5,132000,133.63,-0.85,133.45,138.12,2.05
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,138,138,135.5,136,34000,134.98,0.75,134.38,136.43,0.4
 20260617,136,138.5,135,136.5,48000,135.11,1.03,134.57,136.37,0.55
 20260618,136.5,138.5,136.5,138.5,27000,135.39,2.29,134.88,136.37,0.31
+20260622,139.5,146.5,139.5,145.5,164000,136.24,6.8,135.53,136.43,1.85
 ```
 
 ## Latest TDCC Snapshot

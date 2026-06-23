@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3060 銘異
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:18 Asia/Taipei
+- generated_at: 2026-06-23 22:23:24 Asia/Taipei
 - stock_id: 3060
 - stock_name: 銘異
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 37.75
-- high: 38.95
-- low: 36.7
-- close: 37.9
-- volume: 22559230
-- ma5: 34.78
-- ema23_primary: 31.53
-- distance_to_ema23_pct: 20.2
-- ma20: 31.24
-- ma60: 29.77
-- ma120: 31.14
-- return_5d: 30.02
-- return_20d: 37.57
-- volume_ratio: 3.24
-- distance_to_ma20_pct_auxiliary: 21.33
-- distance_to_high_60_pct: -2.7
+- date: 20260622
+- open: 41.2
+- high: 41.65
+- low: 38.7
+- close: 41.65
+- volume: 21692248
+- ma5: 36.88
+- ema23_primary: 32.37
+- distance_to_ema23_pct: 28.65
+- ma20: 31.88
+- ma60: 29.91
+- ma120: 31.22
+- return_5d: 33.71
+- return_20d: 44.37
+- volume_ratio: 2.74
+- distance_to_ma20_pct_auxiliary: 30.66
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,27.75,28.85,27.75,28.85,2515376,28.17,2.42,27.81,29.65,1.08
 20260525,29.25,29.4,28.4,29,3144615,28.24,2.7,27.91,29.57,1.33
 20260526,29.05,29.3,28.1,28.35,1791412,28.25,0.36,27.96,29.49,0.75
 20260527,28.7,30.5,28.65,29.8,7140557,28.38,5.01,28.07,29.42,2.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,33.75,35.45,33.4,33.9,9955659,30.38,11.59,30.19,29.66,1.87
 20260617,35,37.25,34.2,37.25,12454369,30.95,20.35,30.72,29.7,2.11
 20260618,37.75,38.95,36.7,37.9,22559230,31.53,20.2,31.24,29.77,3.24
+20260622,41.2,41.65,38.7,41.65,21692248,32.37,28.65,31.88,29.91,2.74
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3060 | 銘異 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:謝錦興 4.舊任者簡歷:本公司董事長、執行長 5.新任者姓名:謝錦興 6.新任者簡歷:本公司董事長、執行長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:配合本公司115年6月17日股東常會全面改選董事，故重新推選董事長。 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3060 | 銘異 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/06/22 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間              (月)                   (季)             (最近四季累計) ======== ====================== ====================== ==================           最近一月  與去年同期   最近一季 與去年同期       114第2季至 科目     115年05月    增減％     115年第1季 增減％          115第1季              (合併-自結數)          (合併-核閱數)        (合併-核閱及查核數) ======== ====================== ====================== ================== 營業收入      381        28      1,081          7             3,893  (百萬) 稅前淨利       16       131         66         61               -17  (百萬) 歸屬母公司     10       123         46         48               -39 業主淨利  (百萬) 每股盈餘     0.08       124       0.33         50             -0.28  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3060 | 銘異 | 6 | 2 | 5 | 7 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 3060 | 銘異 | 7 | 3 | 5 | 8 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

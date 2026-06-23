@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:32 Asia/Taipei
+- generated_at: 2026-06-23 22:23:41 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 3990
-- high: 4230
-- low: 3935
-- close: 3965
-- volume: 2001751
-- ma5: 3853
-- ema23_primary: 3819.23
-- distance_to_ema23_pct: 3.82
-- ma20: 3767
-- ma60: 4066.33
-- ma120: 3501.92
-- return_5d: 9.53
-- return_20d: 19.07
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 5.26
-- distance_to_high_60_pct: -30.26
+- date: 20260622
+- open: 4015
+- high: 4030
+- low: 3820
+- close: 3840
+- volume: 1448778
+- ma5: 3883
+- ema23_primary: 3820.97
+- distance_to_ema23_pct: 0.5
+- ma20: 3776
+- ma60: 4064.5
+- ma120: 3510.25
+- return_5d: 4.07
+- return_20d: 4.92
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 1.69
+- distance_to_high_60_pct: -32.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,3505,3660,3475,3660,638947,3889.02,-5.89,4134.5,3942.5,0.45
 20260525,3750,3770,3700,3770,693208,3879.1,-2.81,4054.5,3956.33,0.48
 20260526,3830,3830,3670,3670,692286,3861.68,-4.96,3990,3965.33,0.48
 20260527,3795,4015,3650,3670,3139136,3845.7,-4.57,3926,3974.5,2
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,3940,3950,3765,3785,1083519,3789.25,-0.11,3687.25,4062.08,0.62
 20260617,3730,3990,3720,3990,1554824,3805.98,4.83,3735.25,4064.42,0.88
 20260618,3990,4230,3935,3965,2001751,3819.23,3.82,3767,4066.33,1.09
+20260622,4015,4030,3820,3840,1448778,3820.97,0.5,3776,4064.5,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3653 | 健策 | pattern | 型態觀察 | 51.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3653 | 健策 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3653 | 健策 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3653 | 健策 | 5 | 5 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3653 | 健策 | 6 | 6 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3653 | 健策 | 30 | 5 | 4247560.0 | 836070.0 | 5.08 | call_inflow |
+| 20260622 | 3653 | 健策 | 30 | 5 | 3329510.0 | 896130.0 | 3.72 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

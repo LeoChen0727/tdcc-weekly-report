@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6757 台灣虎航
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:16 Asia/Taipei
+- generated_at: 2026-06-23 22:24:35 Asia/Taipei
 - stock_id: 6757
 - stock_name: 台灣虎航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 59.4
-- high: 59.5
-- low: 57.3
-- close: 58.2
-- volume: 6110394
-- ma5: 57.76
-- ema23_primary: 55.36
-- distance_to_ema23_pct: 5.14
-- ma20: 55.61
-- ma60: 52.55
-- ma120: 57.87
-- return_5d: 4.68
-- return_20d: 7.38
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 4.66
-- distance_to_high_60_pct: -6.13
+- date: 20260622
+- open: 58.2
+- high: 59.3
+- low: 56.9
+- close: 58.9
+- volume: 3828808
+- ma5: 58.22
+- ema23_primary: 55.65
+- distance_to_ema23_pct: 5.84
+- ma20: 55.85
+- ma60: 52.62
+- ma120: 57.81
+- return_5d: 4.06
+- return_20d: 8.87
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 5.46
+- distance_to_high_60_pct: -5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,54,54.4,53.5,54.1,1296273,52.28,3.47,51.92,52.62,0.81
 20260525,54.7,55.4,54.3,54.4,1204213,52.46,3.7,52.26,52.46,0.75
 20260526,54.8,55.4,54.1,55.2,1664649,52.69,4.77,52.6,52.32,1.02
 20260527,55.1,55.5,54.4,54.5,1195151,52.84,3.14,52.91,52.16,0.72
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,58.5,58.8,55.7,56.4,3810109,54.73,3.04,55.08,52.35,1.02
 20260617,56.2,62,56.2,59.1,17890228,55.1,7.26,55.41,52.46,3.9
 20260618,59.4,59.5,57.3,58.2,6110394,55.36,5.14,55.61,52.55,1.26
+20260622,58.2,59.3,56.9,58.9,3828808,55.65,5.84,55.85,52.62,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6757 | 台灣虎航 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台北茹曦酒店2F貴賓軒5（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之法人說明會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6757 | 台灣虎航 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台北茹曦酒店2F貴賓軒5（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之法人說明會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6757 | 台灣虎航 | 17 | 1 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 6757 | 台灣虎航 | 18 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6757 | 台灣虎航 | 6 | 0 | 1418240.0 | 0.0 |  | no_signal |
+| 20260622 | 6757 | 台灣虎航 | 6 | 0 | 1261420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

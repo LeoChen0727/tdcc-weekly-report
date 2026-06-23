@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:59 Asia/Taipei
+- generated_at: 2026-06-23 22:23:01 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 137
-- high: 139
+- date: 20260622
+- open: 140
+- high: 140.5
 - low: 136.5
-- close: 138.5
-- volume: 11528768
-- ma5: 137.7
-- ema23_primary: 130.78
-- distance_to_ema23_pct: 5.9
-- ma20: 135.1
-- ma60: 109.79
-- ma120: 102.75
-- return_5d: 3.75
-- return_20d: 22.57
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 2.52
-- distance_to_high_60_pct: -9.18
+- close: 137
+- volume: 13017671
+- ma5: 137.8
+- ema23_primary: 131.3
+- distance_to_ema23_pct: 4.34
+- ma20: 135.75
+- ma60: 110.56
+- ma120: 103.03
+- return_5d: 0.37
+- return_20d: 10.48
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 0.92
+- distance_to_high_60_pct: -10.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,114.5,124,113.5,124,54500942,105.97,17.01,105.17,96.64,1.71
 20260525,131.5,136,127,127,80479778,107.73,17.89,106.77,97.23,2.31
 20260526,128,128.5,123.5,126,29116711,109.25,15.33,108.39,97.8,0.81
 20260527,127.5,132,125.5,126.5,31363755,110.69,14.29,109.85,98.33,0.86
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,142.5,142.5,135.5,136.5,17720653,129.45,5.44,132.45,108.27,0.48
 20260617,135.5,137,133.5,137,9417891,130.08,5.32,133.82,109,0.26
 20260618,137,139,136.5,138.5,11528768,130.78,5.9,135.1,109.79,0.32
+20260622,140,140.5,136.5,137,13017671,131.3,4.34,135.75,110.56,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2377 | 微星 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2377 | 微星 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2377 | 微星 | 2 | 2 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2377 | 微星 | 3 | 3 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2377 | 微星 | 88 | 4 | 9714090.0 | 21560.0 | 450.56 | no_signal |
+| 20260622 | 2377 | 微星 | 88 | 4 | 9523080.0 | 290750.0 | 32.75 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

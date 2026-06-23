@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6706 惠特
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:15 Asia/Taipei
+- generated_at: 2026-06-23 22:24:33 Asia/Taipei
 - stock_id: 6706
 - stock_name: 惠特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 168
-- high: 177.5
-- low: 167.5
-- close: 172
-- volume: 3437660
-- ma5: 167
-- ema23_primary: 175.18
-- distance_to_ema23_pct: -1.81
-- ma20: 185.43
-- ma60: 158.97
-- ma120: 140.14
-- return_5d: 6.83
-- return_20d: 2.08
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -7.24
-- distance_to_high_60_pct: -23.56
+- date: 20260622
+- open: 175
+- high: 175.5
+- low: 170
+- close: 170
+- volume: 3103212
+- ma5: 167.6
+- ema23_primary: 174.75
+- distance_to_ema23_pct: -2.72
+- ma20: 184.68
+- ma60: 159.79
+- ma120: 140.65
+- return_5d: 1.8
+- return_20d: -8.11
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -7.95
+- distance_to_high_60_pct: -24.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,174,185,173,185,9381150,160.63,15.17,161.43,139.18,1.06
 20260525,189,195.5,178,179.5,13160809,162.2,10.67,164.15,140.08,1.43
 20260526,182,197,179.5,197,14579655,165.1,19.32,167.9,141.34,1.5
 20260527,204.5,216.5,204.5,216.5,12845565,169.38,27.82,172.03,142.72,1.26
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,167.5,178,165.5,165.5,5451483,176.24,-6.09,184.93,157.23,0.67
 20260617,165.5,167,162.5,167,2112776,175.47,-4.82,185.25,158,0.27
 20260618,168,177.5,167.5,172,3437660,175.18,-1.81,185.43,158.97,0.46
+20260622,175,175.5,170,170,3103212,174.75,-2.72,184.68,159.79,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6706 | 惠特 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6706 | 惠特 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6706 | 惠特 | 1 | 1 | 1 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 6706 | 惠特 | 2 | 2 | 2 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6706 | 惠特 | 87 | 4 | 10426730.0 | 21940.0 | 475.24 | no_signal |
+| 20260622 | 6706 | 惠特 | 87 | 4 | 9279550.0 | 9600.0 | 966.62 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

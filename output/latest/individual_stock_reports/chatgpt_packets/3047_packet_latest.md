@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3047 訊舟
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:17 Asia/Taipei
+- generated_at: 2026-06-23 22:23:23 Asia/Taipei
 - stock_id: 3047
 - stock_name: 訊舟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 17
-- high: 17.25
-- low: 16.3
-- close: 16.65
-- volume: 8132538
-- ma5: 16.12
-- ema23_primary: 15.72
-- distance_to_ema23_pct: 5.91
-- ma20: 15.78
-- ma60: 15.42
-- ma120: 16.7
-- return_5d: 5.71
-- return_20d: 13.65
-- volume_ratio: 2.81
-- distance_to_ma20_pct_auxiliary: 5.5
-- distance_to_high_60_pct: -5.4
+- date: 20260622
+- open: 16.65
+- high: 16.65
+- low: 16.2
+- close: 16.2
+- volume: 3029188
+- ma5: 16.2
+- ema23_primary: 15.76
+- distance_to_ema23_pct: 2.78
+- ma20: 15.82
+- ma60: 15.43
+- ma120: 16.67
+- return_5d: 2.53
+- return_20d: 5.19
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 2.39
+- distance_to_high_60_pct: -7.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,14.7,15.75,14.65,15.4,3564665,14.82,3.91,14.59,15.69,2.87
 20260525,15.7,15.8,15.3,15.55,2539286,14.88,4.49,14.63,15.65,2.02
 20260526,15.6,15.65,15,15.1,1540855,14.9,1.34,14.64,15.61,1.22
 20260527,15.2,15.25,14.8,14.9,1602962,14.9,0,14.65,15.56,1.23
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,16,16.1,15.4,15.4,981423,15.52,-0.79,15.55,15.41,0.43
 20260617,15.45,16.9,15.4,16.9,5800135,15.64,8.08,15.68,15.41,2.29
 20260618,17,17.25,16.3,16.65,8132538,15.72,5.91,15.78,15.42,2.81
+20260622,16.65,16.65,16.2,16.2,3029188,15.76,2.78,15.82,15.43,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260622 | 3047 | 訊舟 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: 獨立董事:曹忠明 獨立董事:駱金生 獨立董事:林宇亮 4.舊任者簡歷: 獨立董事:曹忠明   曹忠明會計師事務所負責人 獨立董事:駱金生   鎮江月曆(股)公司監察人 獨立董事:林宇亮   恆美化工(股)公司董事兼副總經理、亞洲光學(股)公司董事 5.新任者姓名: 獨立董事:曹忠明 獨立董事:駱金生 獨立董事:林宇亮 6.新任者簡歷: 獨立董事:曹忠明   曹忠明會計師事務所負責人 獨立董事:駱金生   鎮江月曆(股)公司監察人 獨立董事:林宇亮   恆美化工(股)公司董事兼副總經理、亞洲光學(股)公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/30~115/06/13 10.新任生效日期:115/06/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260622 | 3047 | 訊舟 | 1 | 1 | 2 | 7 | 10 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

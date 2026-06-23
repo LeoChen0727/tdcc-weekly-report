@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:22 Asia/Taipei
+- generated_at: 2026-06-23 22:24:42 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 339.5
-- high: 371
-- low: 338.5
-- close: 371
-- volume: 107000
-- ma5: 349.2
-- ema23_primary: 364.38
-- distance_to_ema23_pct: 1.82
-- ma20: 369.95
-- ma60: 369.95
-- ma120: 369.95
-- return_5d: 6.15
-- return_20d:
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 0.28
-- distance_to_high_60_pct: -28.65
+- date: 20260622
+- open: 385.5
+- high: 398
+- low: 364
+- close: 371.5
+- volume: 148000
+- ma5: 353.8
+- ema23_primary: 364.98
+- distance_to_ema23_pct: 1.79
+- ma20: 369.45
+- ma60: 370.02
+- ma120: 370.02
+- return_5d: 6.6
+- return_20d: -2.62
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.55
+- distance_to_high_60_pct: -28.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20250407,391,400,372,381.5,157161,,,,,
 20260525,349.5,388,326,385,351000,,,,,
 20260526,385.5,520,385.5,472,453000,,,,,
 20260527,497.5,498,428,430,452000,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,349,349,340,340,55000,366.17,-7.15,371.69,371.69,0.24
 20260617,332,338,328,337.5,91000,363.78,-7.22,369.89,369.89,0.41
 20260618,339.5,371,338.5,371,107000,364.38,1.82,369.95,369.95,0.5
+20260622,385.5,398,364,371.5,148000,364.98,1.79,369.45,370.02,0.69
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:12 Asia/Taipei
+- generated_at: 2026-06-23 22:23:17 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 137
+- date: 20260622
+- open: 139.5
 - high: 141
-- low: 135.5
-- close: 138
-- volume: 45796330
-- ma5: 131
-- ema23_primary: 117.17
-- distance_to_ema23_pct: 17.78
-- ma20: 116.97
-- ma60: 99.22
-- ma120: 96.28
-- return_5d: 9.96
-- return_20d: 43.6
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 17.98
-- distance_to_high_60_pct: -2.13
+- low: 136
+- close: 138.5
+- volume: 24444307
+- ma5: 134.3
+- ema23_primary: 118.94
+- distance_to_ema23_pct: 16.44
+- ma20: 119.14
+- ma60: 100.08
+- ma120: 96.63
+- return_5d: 13.52
+- return_20d: 45.64
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 16.25
+- distance_to_high_60_pct: -1.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,95.4,96,94.3,95.1,41801468,93.35,1.88,93.34,90.33,1.22
 20260525,95.4,97.7,94.7,97.7,47023876,93.71,4.26,93.83,90.39,1.31
 20260526,97.8,103.5,97.8,103.5,103318900,94.53,9.49,94.61,90.56,2.59
 20260527,104.5,110,103,110,95547479,95.82,14.8,95.69,90.83,2.19
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,128.5,132.5,127.5,132,40287477,113.43,16.37,112.89,97.59,0.58
 20260617,133,139,131.5,135.5,41041666,115.27,17.55,114.87,98.37,0.59
 20260618,137,141,135.5,138,45796330,117.17,17.78,116.97,99.22,0.65
+20260622,139.5,141,136,138.5,24444307,118.94,16.44,119.14,100.08,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2881 | 富邦金 | 28 | 0 | 12246500.0 | 0.0 |  | no_signal |
+| 20260622 | 2881 | 富邦金 | 29 | 0 | 9068820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

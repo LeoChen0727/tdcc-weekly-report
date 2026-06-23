@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2342 茂矽
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:57 Asia/Taipei
+- generated_at: 2026-06-23 22:22:58 Asia/Taipei
 - stock_id: 2342
 - stock_name: 茂矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 52
-- high: 55.2
-- low: 51.3
-- close: 55.2
-- volume: 29235308
-- ma5: 47.61
-- ema23_primary: 43.21
-- distance_to_ema23_pct: 27.75
-- ma20: 43.27
-- ma60: 37.21
-- ma120: 34.56
-- return_5d: 39.04
-- return_20d: 36.46
-- volume_ratio: 2.31
-- distance_to_ma20_pct_auxiliary: 27.57
-- distance_to_high_60_pct: 0
+- date: 20260622
+- open: 57.1
+- high: 60.7
+- low: 56.7
+- close: 58.6
+- volume: 35417003
+- ma5: 51.15
+- ema23_primary: 44.49
+- distance_to_ema23_pct: 31.71
+- ma20: 44.13
+- ma60: 37.67
+- ma120: 34.81
+- return_5d: 43.28
+- return_20d: 41.55
+- volume_ratio: 2.5
+- distance_to_ma20_pct_auxiliary: 32.79
+- distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,41.3,41.6,40.4,41.4,4583060,38.27,8.17,38.85,33.43,0.46
 20260525,43.35,44.4,42.2,43.15,8930361,38.68,11.56,39.43,33.61,0.87
 20260526,45.85,47.45,43.05,43.35,19274704,39.07,10.96,40.03,33.81,1.73
 20260527,43.6,44.8,42,44.05,13295079,39.48,11.56,40.65,33.98,1.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,44.75,48.05,44.75,48.05,15338141,41.38,16.11,41.94,36.51,1.7
 20260617,48.8,51.5,47.25,50.2,50499689,42.12,19.19,42.53,36.81,4.43
 20260618,52,55.2,51.3,55.2,29235308,43.21,27.75,43.27,37.21,2.31
+20260622,57.1,60.7,56.7,58.6,35417003,44.49,31.71,44.13,37.67,2.5
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2342 | 茂矽 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2342 | 茂矽 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:116/06/22 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 本公司基本資料公告如下： .期間　　　　　　　月　　　　　　　　　　　季　　　　　　   最近四季累計 ＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝  　　　  最近一月　　與去年　　　最近一季　　與去年　　　 114年第2季 科目　　  115年05月　 同期增減%　 115年第1季　同期增減%　  至115年第1季  　      (合併報表　   　        (合併財報　　             (合併財報             自結數)                 核閱數)                   核閱數) ＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝＝＝ 營業收入......174........-3.47........486......-11.73.........1,973 (百萬元) 稅前純益.......-6........84.34........-17.....-161.94..........-121 (百萬元) 稅後純益.......-6........84.34........-17.....-161.94..........-121 (百萬元) 每股盈餘....-0.04........82.61......-0.11.....-161.11.........-0.78 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2342 | 茂矽 | 14 | 3 | 5 | 10 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 2342 | 茂矽 | 15 | 4 | 5 | 10 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

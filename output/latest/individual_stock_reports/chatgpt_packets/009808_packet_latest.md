@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009808 華南永昌優選50
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:35 Asia/Taipei
+- generated_at: 2026-06-23 22:22:32 Asia/Taipei
 - stock_id: 009808
 - stock_name: 華南永昌優選50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 31.65
-- high: 32.03
-- low: 31.65
-- close: 32
-- volume: 773016
-- ma5: 31.31
-- ema23_primary: 30.34
-- distance_to_ema23_pct: 5.47
-- ma20: 30.46
-- ma60: 30.46
-- ma120: 30.46
-- return_5d: 7.74
-- return_20d:
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 5.07
-- distance_to_high_60_pct: -0.09
+- date: 20260622
+- open: 32.1
+- high: 33.02
+- low: 32.1
+- close: 33.02
+- volume: 385983
+- ma5: 31.85
+- ema23_primary: 30.56
+- distance_to_ema23_pct: 8.04
+- ma20: 30.68
+- ma60: 30.58
+- ma120: 30.58
+- return_5d: 8.87
+- return_20d: 15.9
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 7.61
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,28.1,28.49,28.1,28.49,572807,,,,,
 20260525,29.19,29.5,29.17,29.4,1954276,,,,,
 20260526,29.38,29.59,29.2,29.32,566915,,,,,
 20260527,29.37,30.38,29.37,30.06,1581065,,,,,
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,31.44,31.48,31.16,31.48,340167,30.07,4.7,30.31,30.31,0.31
 20260617,31.45,31.53,31.16,31.53,888234,30.19,4.44,30.38,30.38,0.82
 20260618,31.65,32.03,31.65,32,773016,30.34,5.47,30.46,30.46,0.72
+20260622,32.1,33.02,32.1,33.02,385983,30.56,8.04,30.68,30.58,0.36
 ```
 
 ## Latest TDCC Snapshot

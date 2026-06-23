@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3090 日電貿
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:19 Asia/Taipei
+- generated_at: 2026-06-23 22:23:25 Asia/Taipei
 - stock_id: 3090
 - stock_name: 日電貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 286
+- latest_price_date: 20260622
+- price_rows: 287
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 320
-- high: 332.5
-- low: 316
-- close: 332.5
-- volume: 23571289
-- ma5: 289.5
-- ema23_primary: 230.95
-- distance_to_ema23_pct: 43.97
-- ma20: 239.68
-- ma60: 153.79
-- ma120: 125.19
-- return_5d: 42.7
-- return_20d: 69.64
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 38.73
-- distance_to_high_60_pct: 0
+- date: 20260622
+- open: 339
+- high: 365
+- low: 335
+- close: 335.5
+- volume: 27078260
+- ma5: 305.4
+- ema23_primary: 239.67
+- distance_to_ema23_pct: 39.99
+- ma20: 245.7
+- ma60: 157.86
+- ma120: 127.2
+- return_5d: 31.05
+- return_20d: 56.05
+- volume_ratio: 2.17
+- distance_to_ma20_pct_auxiliary: 36.55
+- distance_to_high_60_pct: -8.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,196,215.5,188,215,9230982,136.88,57.07,128.38,107.55,0.53
 20260525,229.5,236.5,229.5,236.5,4254466,145.18,62.9,135.39,109.81,0.24
 20260526,232.5,233,213,232,8243394,152.42,52.21,142.19,111.97,0.47
 20260527,232,241,226,231,2434000,158.97,45.31,148.76,114.16,0.14
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,286.5,309,274,275,36150880,214.38,28.28,226.65,146.34,2.67
 20260617,270,302.5,268.5,302.5,25669966,221.72,36.43,232.85,149.8,1.91
 20260618,320,332.5,316,332.5,23571289,230.95,43.97,239.68,153.79,2.04
+20260622,339,365,335,335.5,27078260,239.67,39.99,245.7,157.86,2.17
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3090 | 日電貿 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | 1.事實發生日:115/06/16 2.發生緣由:依台灣證券交易所通知辦理。 3.財務業務資訊: 本公司合併財務資訊： 期 間        最近一月     與去年同期   最近一季     與去年同期   最近四季累計 　　       (2026年5月)     增 減 %  (2026年第1季)    增 減 %    2025年第2季至 　　　　　　　　　　　　　　　　　　　　　　                      2026年第1季 科 目　    (IFRS合併自結數)　　  　　(IFRS合併核閱數)        (IFRS合併核閱數) =======   =============== ======== =============== ======== ================ 營業收入　        1629　     19.96　　     4492      18.34          16424 (百萬) 稅前淨利           179    17800.00　　      617      38.65           1761 (百萬) 歸屬母公司業主淨利  141　   7150.00　　      480      37.14           1383 (百萬) 每股盈餘          0.49　   5000.00　　     1.70       1.80           5.51 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:每股盈餘除最近一月及去年同期係依普通股期末股數計算外， 餘係依普通股加權平均股數計算，最近一月(2026年5月)及去年同期(2025年5月) 係分別依287,567仟股及212,597仟股計算；最近一季(2026年第1季)及去年同期 (2025年第1季)係分別依282,583仟股及210,278仟股計算； 最近四季累計(2025年第2季至2026年第1季)係依2025年228,734仟股及 2026年第1季282,583仟股計算之數值相加。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3090 | 日電貿 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_breakout |  | no_signal | continued_overheated | 1.事實發生日:115/06/16 2.發生緣由:依台灣證券交易所通知辦理。 3.財務業務資訊: 本公司合併財務資訊： 期 間        最近一月     與去年同期   最近一季     與去年同期   最近四季累計 　　       (2026年5月)     增 減 %  (2026年第1季)    增 減 %    2025年第2季至 　　　　　　　　　　　　　　　　　　　　　　                      2026年第1季 科 目　    (IFRS合併自結數)　　  　　(IFRS合併核閱數)        (IFRS合併核閱數) =======   =============== ======== =============== ======== ================ 營業收入　        1629　     19.96　　     4492      18.34          16424 (百萬) 稅前淨利           179    17800.00　　      617      38.65           1761 (百萬) 歸屬母公司業主淨利  141　   7150.00　　      480      37.14           1383 (百萬) 每股盈餘          0.49　   5000.00　　     1.70       1.80           5.51 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:每股盈餘除最近一月及去年同期係依普通股期末股數計算外， 餘係依普通股加權平均股數計算，最近一月(2026年5月)及去年同期(2025年5月) 係分別依287,567仟股及212,597仟股計算；最近一季(2026年第1季)及去年同期 (2025年第1季)係分別依282,583仟股及210,278仟股計算； 最近四季累計(2025年第2季至2026年第1季)係依2025年228,734仟股及 2026年第1季282,583仟股計算之數值相加。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3090 | 日電貿 | 6 | 1 | 5 | 7 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 3090 | 日電貿 | 7 | 2 | 5 | 8 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3090 | 日電貿 | 67 | 0 | 9794570.0 | 0.0 |  | no_signal |
+| 20260622 | 3090 | 日電貿 | 66 | 0 | 9826040.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

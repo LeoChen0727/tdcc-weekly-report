@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0056 元大高股息
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:31 Asia/Taipei
+- generated_at: 2026-06-23 22:22:27 Asia/Taipei
 - stock_id: 0056
 - stock_name: 元大高股息
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 151
+- latest_price_date: 20260622
+- price_rows: 152
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 52.4
-- high: 52.85
-- low: 52.4
-- close: 52.8
-- volume: 33652479
-- ma5: 51.68
-- ema23_primary: 49.71
-- distance_to_ema23_pct: 6.22
-- ma20: 50.65
-- ma60: 44.47
-- ma120: 41.21
-- return_5d: 6.47
-- return_20d: 16.2
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 4.25
-- distance_to_high_60_pct: -1.86
+- date: 20260622
+- open: 53.5
+- high: 54.15
+- low: 53.5
+- close: 54.05
+- volume: 47649273
+- ma5: 52.37
+- ema23_primary: 50.07
+- distance_to_ema23_pct: 7.95
+- ma20: 51.03
+- ma60: 44.74
+- ma120: 41.36
+- return_5d: 6.82
+- return_20d: 16.61
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 5.91
+- distance_to_high_60_pct: -0.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,45.82,46.41,45.66,46.35,56808210,43.55,6.42,43.66,40.66,0.8
 20260525,47.51,48.41,47.51,48.35,64623589,43.95,10.01,44.03,40.8,0.91
 20260526,48.68,48.79,48.15,48.32,49374408,44.32,9.04,44.4,40.94,0.75
 20260527,49.17,49.87,49.1,49.64,61667753,44.76,10.9,44.83,41.1,0.94
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,51.8,51.9,51.4,51.55,30454587,49.2,4.78,49.88,44,0.52
 20260617,51.15,51.95,50.85,51.95,29771585,49.43,5.11,50.28,44.22,0.5
 20260618,52.4,52.85,52.4,52.8,33652479,49.71,6.22,50.65,44.47,0.58
+20260622,53.5,54.15,53.5,54.05,47649273,50.07,7.95,51.03,44.74,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -180,17 +179,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 0056 | 元大高股息 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 0056 | 元大高股息 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 0056 | 元大高股息 | 2 | 2 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 0056 | 元大高股息 | 3 | 3 | 3 | 5 | 13 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 0056 | 元大高股息 | 3 | 0 | 163020.0 | 0.0 |  | no_signal |
+| 20260622 | 0056 | 元大高股息 | 2 | 0 | 1581540.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

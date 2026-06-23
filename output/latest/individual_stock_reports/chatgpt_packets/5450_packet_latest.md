@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5450 南良
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:52 Asia/Taipei
+- generated_at: 2026-06-23 22:24:05 Asia/Taipei
 - stock_id: 5450
 - stock_name: 南良
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 14.2
-- high: 14.25
-- low: 14.05
-- close: 14.25
-- volume: 91000
-- ma5: 14.61
-- ema23_primary: 13.82
-- distance_to_ema23_pct: 3.14
-- ma20: 13.63
-- ma60: 13.63
-- ma120: 14.02
-- return_5d: -0.7
-- return_20d: 11.33
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 4.53
-- distance_to_high_60_pct: -9.52
+- date: 20260622
+- open: 14.5
+- high: 15.65
+- low: 14.5
+- close: 15.65
+- volume: 653000
+- ma5: 14.68
+- ema23_primary: 13.97
+- distance_to_ema23_pct: 12.04
+- ma20: 13.77
+- ma60: 13.65
+- ma120: 14.04
+- return_5d: 2.29
+- return_20d: 20.38
+- volume_ratio: 3.74
+- distance_to_ma20_pct_auxiliary: 13.69
+- distance_to_high_60_pct: -0.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,13,13.05,12.9,13,13000,13.08,-0.64,12.93,13.93,0.27
 20260525,13.05,13.05,12.8,12.85,13000,13.06,-1.64,12.88,13.9,0.29
 20260526,12.9,12.9,12.5,12.8,13000,13.04,-1.86,12.85,13.87,0.3
 20260527,12.6,12.65,12.5,12.5,13000,13,-3.83,12.81,13.85,0.33
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,15.05,15.1,14.2,14.3,205000,13.74,4.09,13.47,13.64,1.48
 20260617,14.15,14.4,14.05,14.2,111000,13.78,3.08,13.56,13.63,0.78
 20260618,14.2,14.25,14.05,14.25,91000,13.82,3.14,13.63,13.63,0.64
+20260622,14.5,15.65,14.5,15.65,653000,13.97,12.04,13.77,13.65,3.74
 ```
 
 ## Latest TDCC Snapshot

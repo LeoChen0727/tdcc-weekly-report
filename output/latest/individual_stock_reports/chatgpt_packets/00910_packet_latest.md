@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00910 第一金太空衛星
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00910
 - stock_name: 第一金太空衛星
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 67.55
-- high: 67.8
-- low: 67
-- close: 67.25
-- volume: 2861868
-- ma5: 69.7
-- ema23_primary: 74.23
-- distance_to_ema23_pct: -9.4
-- ma20: 76.45
-- ma60: 76.45
-- ma120: 76.45
-- return_5d: -0.37
-- return_20d:
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -12.04
-- distance_to_high_60_pct: -23.62
+- date: 20260622
+- open: 66.55
+- high: 66.55
+- low: 65.3
+- close: 65.4
+- volume: 5072487
+- ma5: 67.73
+- ema23_primary: 73.49
+- distance_to_ema23_pct: -11.01
+- ma20: 75.82
+- ma60: 75.93
+- ma120: 75.93
+- return_5d: -13.09
+- return_20d: -16.26
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -13.74
+- distance_to_high_60_pct: -25.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,77.45,78.2,77.45,78.1,1765852,,,,,
 20260525,82.75,86,82.75,84.8,12334382,,,,,
 20260526,85.15,85.15,84.05,84.25,2943309,,,,,
 20260527,87.1,87.45,86.3,87.15,8665577,,,,,
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,70,70,68.1,68.4,5353500,75.57,-9.48,77.48,77.48,0.79
 20260617,66.3,67.15,66.05,67.15,4373397,74.87,-10.31,76.94,76.94,0.65
 20260618,67.55,67.8,67,67.25,2861868,74.23,-9.4,76.45,76.45,0.44
+20260622,66.55,66.55,65.3,65.4,5072487,73.49,-11.01,75.82,75.93,0.76
 ```
 
 ## Latest TDCC Snapshot

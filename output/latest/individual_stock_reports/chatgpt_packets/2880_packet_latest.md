@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:12 Asia/Taipei
+- generated_at: 2026-06-23 22:23:17 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 38.15
-- high: 39.2
-- low: 38
-- close: 38.35
-- volume: 67936605
-- ma5: 37.32
-- ema23_primary: 35.01
-- distance_to_ema23_pct: 9.55
-- ma20: 34.25
-- ma60: 33.88
-- ma120: 33.63
-- return_5d: 7.57
-- return_20d: 19.66
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 11.96
-- distance_to_high_60_pct: -2.17
+- date: 20260622
+- open: 38.45
+- high: 38.5
+- low: 37.05
+- close: 37.6
+- volume: 43716046
+- ma5: 37.64
+- ema23_primary: 35.22
+- distance_to_ema23_pct: 6.75
+- ma20: 34.53
+- ma60: 33.95
+- ma120: 33.68
+- return_5d: 4.44
+- return_20d: 17.68
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 8.88
+- distance_to_high_60_pct: -4.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,32,32.4,31.6,31.95,32193459,32.92,-2.93,32.8,34.03,1.42
 20260525,32,32,30.55,30.55,66355162,32.72,-6.63,32.57,33.92,2.63
 20260526,30.85,31.45,30.15,30.15,79395720,32.5,-7.24,32.32,33.8,2.81
 20260527,30.35,30.55,29.95,29.95,78460919,32.29,-7.25,32.16,33.66,2.6
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,36.7,37.6,36.55,37.45,27840857,34.39,8.89,33.63,33.71,0.47
 20260617,36.95,38.6,36.95,38.1,32919856,34.7,9.79,33.94,33.79,0.55
 20260618,38.15,39.2,38,38.35,67936605,35.01,9.55,34.25,33.88,1.11
+20260622,38.45,38.5,37.05,37.6,43716046,35.22,6.75,34.53,33.95,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2880 | 華南金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分派承認案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報表 承認案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)通過修正本公司「取得或處分資產處理程序」案。  (2)通過辦理本公司114年度盈餘轉增資發行新股案。  (3)通過解除本公司董事競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分派承認案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報表 承認案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)通過修正本公司「取得或處分資產處理程序」案。  (2)通過辦理本公司114年度盈餘轉增資發行新股案。  (3)通過解除本公司董事競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2880 | 華南金 | 17 | 3 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2880 | 華南金 | 18 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2880 | 華南金 | 2 | 0 | 725490.0 | 0.0 |  | no_signal |
+| 20260622 | 2880 | 華南金 | 2 | 0 | 662760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

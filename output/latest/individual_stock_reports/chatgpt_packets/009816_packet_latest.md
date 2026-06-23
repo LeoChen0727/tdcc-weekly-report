@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009816 凱基台灣TOP50
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:35 Asia/Taipei
+- generated_at: 2026-06-23 22:22:32 Asia/Taipei
 - stock_id: 009816
 - stock_name: 凱基台灣TOP50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 15.69
-- high: 15.74
-- low: 15.61
-- close: 15.68
-- volume: 137362350
-- ma5: 15.4
-- ema23_primary: 15.02
-- distance_to_ema23_pct: 4.43
-- ma20: 15.11
-- ma60: 15.11
-- ma120: 15.11
-- return_5d: 7.91
-- return_20d:
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 3.79
-- distance_to_high_60_pct: -0.63
+- date: 20260622
+- open: 16
+- high: 16.2
+- low: 15.99
+- close: 16.17
+- volume: 162560447
+- ma5: 15.66
+- ema23_primary: 15.11
+- distance_to_ema23_pct: 7
+- ma20: 15.21
+- ma60: 15.16
+- ma120: 15.16
+- return_5d: 8.52
+- return_20d: 13.95
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 6.34
+- distance_to_high_60_pct: -0.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,14.02,14.2,13.98,14.19,115447272,,,,,
 20260525,14.55,14.77,14.54,14.76,176530657,,,,,
 20260526,14.9,14.93,14.71,14.76,161203510,,,,,
 20260527,15.13,15.33,15.02,15.15,206095993,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,15.49,15.53,15.36,15.51,124631479,14.9,4.09,15.05,15.05,0.63
 20260617,15.35,15.55,15.33,15.55,121793794,14.96,3.98,15.08,15.08,0.63
 20260618,15.69,15.74,15.61,15.68,137362350,15.02,4.43,15.11,15.11,0.72
+20260622,16,16.2,15.99,16.17,162560447,15.11,7,15.21,15.16,0.85
 ```
 
 ## Latest TDCC Snapshot

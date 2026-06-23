@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:03 Asia/Taipei
+- generated_at: 2026-06-23 22:23:06 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 585
-- high: 605
-- low: 576
-- close: 599
-- volume: 1650001
-- ma5: 575.2
-- ema23_primary: 582.41
-- distance_to_ema23_pct: 2.85
-- ma20: 598.65
-- ma60: 548.75
-- ma120: 417.59
-- return_5d: 10.52
-- return_20d: 2.39
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 0.06
-- distance_to_high_60_pct: -13.44
+- date: 20260622
+- open: 617
+- high: 644
+- low: 614
+- close: 630
+- volume: 1743491
+- ma5: 590.8
+- ema23_primary: 586.38
+- distance_to_ema23_pct: 7.44
+- ma20: 600
+- ma60: 553.12
+- ma120: 420.83
+- return_5d: 14.13
+- return_20d: 4.48
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 5
+- distance_to_high_60_pct: -8.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,598,625,591,603,2458444,565.73,6.59,576.23,473.39,0.82
 20260525,617,663,614,663,3970310,573.84,15.54,582.48,479.77,1.26
 20260526,670,692,661,668,4304760,581.68,14.84,591.1,486.03,1.29
 20260527,689,692,650,657,3140909,587.96,11.74,596.7,491.63,0.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,590,594,564,564,1204735,580.53,-2.85,596.4,541.07,0.52
 20260617,560,590,560,585,1257474,580.9,0.71,597.95,544.69,0.57
 20260618,585,605,576,599,1650001,582.41,2.85,598.65,548.75,0.75
+20260622,617,644,614,630,1743491,586.38,7.44,600,553.12,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2467 | 志聖 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2467 | 志聖 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2467 | 志聖 | 3 | 3 | 3 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2467 | 志聖 | 4 | 4 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2467 | 志聖 | 60 | 2 | 6812720.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 2467 | 志聖 | 60 | 2 | 14099280.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

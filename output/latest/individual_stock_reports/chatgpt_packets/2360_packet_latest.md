@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:58 Asia/Taipei
+- generated_at: 2026-06-23 22:23:00 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 2315
-- high: 2360
-- low: 2275
+- date: 20260622
+- open: 2425
+- high: 2435
+- low: 2240
 - close: 2310
-- volume: 1983387
-- ma5: 2285
-- ema23_primary: 2330.7
-- distance_to_ema23_pct: -0.89
-- ma20: 2417
-- ma60: 2129.25
-- ma120: 1606.6
-- return_5d: 5.48
+- volume: 2655083
+- ma5: 2288
+- ema23_primary: 2328.97
+- distance_to_ema23_pct: -0.81
+- ma20: 2419
+- ma60: 2143.08
+- ma120: 1619.63
+- return_5d: 0.65
 - return_20d: 1.76
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -4.43
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -4.51
 - distance_to_high_60_pct: -17.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,2380,2380,2245,2270,3643007,2148.97,5.63,2204,1814.67,0.95
 20260525,2345,2460,2310,2460,2662774,2174.89,13.11,2231,1835.25,0.7
 20260526,2550,2590,2450,2500,2805851,2201.98,13.53,2259.75,1856,0.76
 20260527,2550,2680,2495,2625,2643485,2237.23,17.33,2287.75,1876.75,0.73
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,2265,2385,2265,2325,2495049,2341.9,-0.72,2406.75,2105.33,0.86
 20260617,2225,2255,2165,2230,2743677,2332.58,-4.4,2415,2116.08,0.93
 20260618,2315,2360,2275,2310,1983387,2330.7,-0.89,2417,2129.25,0.67
+20260622,2425,2435,2240,2310,2655083,2328.97,-0.81,2419,2143.08,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2360 | 致茂 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事Cheng (Paul) Ying 4.舊任者簡歷:Chroma ATE (USA), Inc.董事 5.新任者職稱及姓名:董事David Y. Huang 6.新任者簡歷:致茂電子(股)公司法人董事代表人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:職務調整 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/01 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2360 | 致茂 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事Cheng (Paul) Ying 4.舊任者簡歷:Chroma ATE (USA), Inc.董事 5.新任者職稱及姓名:董事David Y. Huang 6.新任者簡歷:致茂電子(股)公司法人董事代表人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:職務調整 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/01 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事Cheng (Paul) Ying 4.舊任者簡歷:Chroma ATE (USA), Inc.董事 5.新任者職稱及姓名:董事David Y. Huang 6.新任者簡歷:致茂電子(股)公司法人董事代表人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:職務調整 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/01 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2360 | 致茂 | 17 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2360 | 致茂 | 18 | 6 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2360 | 致茂 | 54 | 5 | 3869120.0 | 0.0 |  | call_inflow |
+| 20260622 | 2360 | 致茂 | 53 | 4 | 1699700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

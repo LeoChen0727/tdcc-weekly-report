@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0064 期元大S&P石油(原名：元大S&P石油)
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:32 Asia/Taipei
+- generated_at: 2026-06-23 22:22:28 Asia/Taipei
 - stock_id: 0064
 - stock_name: 期元大S&P石油(原名：元大S&P石油)
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 0064 | 期元大S&P石油(原名：元大S&P石油) | 95 | 32 | 2209120.0 | 312370.0 | 7.07 | call_inflow |
+| 20260622 | 0064 | 期元大S&P石油(原名：元大S&P石油) | 98 | 32 | 2626330.0 | 304190.0 | 8.63 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

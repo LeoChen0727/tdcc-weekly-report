@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1414 東和
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:39 Asia/Taipei
+- generated_at: 2026-06-23 22:22:37 Asia/Taipei
 - stock_id: 1414
 - stock_name: 東和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 280
+- latest_price_date: 20260622
+- price_rows: 281
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 17.4
-- high: 17.6
-- low: 17.35
-- close: 17.5
-- volume: 99887
-- ma5: 17.23
-- ema23_primary: 16.51
-- distance_to_ema23_pct: 5.97
-- ma20: 16.08
+- date: 20260622
+- open: 17.7
+- high: 17.7
+- low: 17.4
+- close: 17.55
+- volume: 109378
+- ma5: 17.38
+- ema23_primary: 16.6
+- distance_to_ema23_pct: 5.72
+- ma20: 16.18
 - ma60: 16.43
 - ma120: 17.67
-- return_5d: 4.48
-- return_20d: 10.76
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 8.85
-- distance_to_high_60_pct: -3.31
+- return_5d: 4.46
+- return_20d: 13.59
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 8.45
+- distance_to_high_60_pct: -3.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,15.8,15.8,15.4,15.45,245511,16.19,-4.58,16.16,17.61,0.88
 20260525,15.4,15.4,14.7,14.75,486083,16.07,-8.23,16.08,17.52,1.71
 20260526,14.8,14.8,14.25,14.4,204476,15.93,-9.62,15.96,17.43,0.71
 20260527,14.45,14.45,13.85,14.05,257259,15.78,-10.94,15.83,17.34,0.93
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,17.25,17.3,17,17.25,197882,16.34,5.6,15.91,16.45,0.74
 20260617,17.2,17.4,17.15,17.4,150670,16.42,5.94,15.99,16.43,0.57
 20260618,17.4,17.6,17.35,17.5,99887,16.51,5.97,16.08,16.43,0.39
+20260622,17.7,17.7,17.4,17.55,109378,16.6,5.72,16.18,16.43,0.44
 ```
 
 ## Latest TDCC Snapshot

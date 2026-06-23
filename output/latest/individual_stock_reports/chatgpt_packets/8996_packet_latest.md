@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:41 Asia/Taipei
+- generated_at: 2026-06-23 22:25:05 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,9 +87,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -103,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 1555
-- high: 1660
-- low: 1555
-- close: 1590
-- volume: 5947423
-- ma5: 1377
-- ema23_primary: 1227.24
-- distance_to_ema23_pct: 29.56
-- ma20: 1208.5
-- ma60: 1102.68
-- ma120: 920.78
-- return_5d: 39.47
-- return_20d: 49.3
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: 31.57
-- distance_to_high_60_pct: -4.22
+- date: 20260622
+- open: 1680
+- high: 1680
+- low: 1520
+- close: 1555
+- volume: 3842264
+- ma5: 1459
+- ema23_primary: 1254.55
+- distance_to_ema23_pct: 23.95
+- ma20: 1227.75
+- ma60: 1115.73
+- ma120: 929.73
+- return_5d: 35.81
+- return_20d: 32.91
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 26.65
+- distance_to_high_60_pct: -7.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,1110,1170,1110,1170,3643258,1076.42,8.69,1100.2,991.52,1.25
 20260525,1185,1210,1130,1135,4034815,1081.31,4.97,1100.7,994.92,1.32
 20260526,1170,1245,1165,1245,4733421,1094.95,13.7,1109.45,1000.48,1.47
 20260527,1260,1260,1175,1215,4104752,1104.95,9.96,1111.45,1006.08,1.22
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,1310,1380,1265,1380,3490273,1165.1,18.44,1156.2,1079.78,0.95
 20260617,1400,1515,1395,1515,4404786,1194.26,26.86,1182.25,1089.85,1.19
 20260618,1555,1660,1555,1590,5947423,1227.24,29.56,1208.5,1102.68,1.53
+20260622,1680,1680,1520,1555,3842264,1254.55,23.95,1227.75,1115.73,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8996 | 高力 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依證券櫃檯買賣中心通知辦理 3.公司債相關資訊: 高力四(89964)轉債相關資訊 到期日期：117/12/06 實際發行總額：新台幣1,000,000,000元整 本月發行餘額：新台幣29,400,000元整(截至115/06/18) 最新轉(交)換價格：232.2 轉換標的收市價格(8996)：1590.00(115/06/18) 轉債收市價格(89964)：554.00(115/06/18) 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8996 | 高力 | 17 | 3 | 5 | 10 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

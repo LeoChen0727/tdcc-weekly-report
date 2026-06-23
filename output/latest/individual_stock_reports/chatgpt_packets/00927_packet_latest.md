@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00927 群益半導體收益
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00927
 - stock_name: 群益半導體收益
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 40.56
-- high: 41.26
-- low: 40.48
-- close: 41.25
-- volume: 15083070
-- ma5: 39.88
-- ema23_primary: 38.88
-- distance_to_ema23_pct: 6.09
-- ma20: 39.38
-- ma60: 39.38
-- ma120: 39.38
-- return_5d: 11.22
-- return_20d:
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 4.75
-- distance_to_high_60_pct: -1.69
+- date: 20260622
+- open: 42.8
+- high: 43.55
+- low: 42.8
+- close: 43.53
+- volume: 24183929
+- ma5: 40.88
+- ema23_primary: 39.27
+- distance_to_ema23_pct: 10.85
+- ma20: 39.73
+- ma60: 39.58
+- ma120: 39.58
+- return_5d: 13.09
+- return_20d: 19.16
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 9.56
+- distance_to_high_60_pct: -0.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,36.07,36.53,35.93,36.53,19539857,,,,,
 20260525,37.68,39,37.68,39,29264775,,,,,
 20260526,39.78,39.78,39.05,39.46,21568309,,,,,
 20260527,41.15,41.57,40.5,40.86,30670416,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,40.05,40.1,39.6,39.91,9014286,38.53,3.57,39.24,39.24,0.44
 20260617,39.45,40.13,39.4,40.12,8075558,38.67,3.76,39.28,39.28,0.41
 20260618,40.56,41.26,40.48,41.25,15083070,38.88,6.09,39.38,39.38,0.77
+20260622,42.8,43.55,42.8,43.53,24183929,39.27,10.85,39.73,39.58,1.22
 ```
 
 ## Latest TDCC Snapshot

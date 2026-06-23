@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3011 今皓
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:15 Asia/Taipei
+- generated_at: 2026-06-23 22:23:20 Asia/Taipei
 - stock_id: 3011
 - stock_name: 今皓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 15
-- high: 15
-- low: 14.45
-- close: 14.55
-- volume: 1029376
-- ma5: 14.65
-- ema23_primary: 14.19
-- distance_to_ema23_pct: 2.55
-- ma20: 14.2
-- ma60: 13.49
+- date: 20260622
+- open: 14.65
+- high: 14.85
+- low: 14.25
+- close: 14.3
+- volume: 1456187
+- ma5: 14.61
+- ema23_primary: 14.2
+- distance_to_ema23_pct: 0.73
+- ma20: 14.23
+- ma60: 13.52
 - ma120: 13.58
-- return_5d: 3.56
-- return_20d: 8.18
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 2.48
-- distance_to_high_60_pct: -9.35
+- return_5d: -1.38
+- return_20d: 4.38
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 0.51
+- distance_to_high_60_pct: -10.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,13.6,13.75,13.4,13.7,1311571,13.27,3.23,13.42,12.98,1.14
 20260525,13.8,14,12.95,13.1,2224221,13.26,-1.18,13.38,12.98,1.91
 20260526,13.1,13.2,12.8,13.05,1669556,13.24,-1.43,13.37,12.98,1.45
 20260527,13.25,13.25,12.95,13.15,913585,13.23,-0.62,13.32,12.98,0.82
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,15,15.25,14.5,14.55,1111620,14.09,3.25,14.05,13.43,0.52
 20260617,14.45,14.9,14.45,14.85,796497,14.15,4.91,14.14,13.46,0.37
 20260618,15,15,14.45,14.55,1029376,14.19,2.55,14.2,13.49,0.48
+20260622,14.65,14.85,14.25,14.3,1456187,14.2,0.73,14.23,13.52,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3011 | 今皓 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3011 | 今皓 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3011 | 今皓 | 1 | 1 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3011 | 今皓 | 2 | 2 | 2 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

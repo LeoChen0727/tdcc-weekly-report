@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3014 聯陽
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:15 Asia/Taipei
+- generated_at: 2026-06-23 22:23:20 Asia/Taipei
 - stock_id: 3014
 - stock_name: 聯陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 154
-- high: 158
-- low: 153.5
-- close: 157.5
-- volume: 3775602
-- ma5: 152.5
-- ema23_primary: 146.2
-- distance_to_ema23_pct: 7.73
-- ma20: 149.07
-- ma60: 133.52
-- ma120: 125.63
-- return_5d: 12.9
-- return_20d: 8.62
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 5.65
-- distance_to_high_60_pct: -6.25
+- date: 20260622
+- open: 161
+- high: 164.5
+- low: 159.5
+- close: 160.5
+- volume: 2926065
+- ma5: 154
+- ema23_primary: 147.39
+- distance_to_ema23_pct: 8.89
+- ma20: 149.7
+- ma60: 134.24
+- ma120: 126.01
+- return_5d: 4.9
+- return_20d: 8.45
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 7.21
+- distance_to_high_60_pct: -4.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,146,149,143,148,4648958,133.73,10.67,133.55,124.02,1.62
 20260525,151.5,152.5,148,148.5,3426757,134.96,10.03,134.7,124.47,1.15
 20260526,148.5,151.5,147,151,2839111,136.3,10.79,136.03,124.92,0.93
 20260527,152,153.5,149,153,3236990,137.69,11.12,137.5,125.42,1.02
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,152,156,148.5,150,2292908,144.6,3.74,147.78,132.25,0.71
 20260617,148,152,146.5,151.5,2066227,145.17,4.36,148.45,132.82,0.64
 20260618,154,158,153.5,157.5,3775602,146.2,7.73,149.07,133.52,1.22
+20260622,161,164.5,159.5,160.5,2926065,147.39,8.89,149.7,134.24,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3014 | 聯陽 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.主管機關核准減資日期:115/06/15 2.辦理資本變更登記完成日期:115/06/15 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)限制員工權利新股註銷減資前：本公司實收資本額為新台幣1,659,871,240元， 流通在外股數為165,987,124股，每股淨值為新台幣37.3697元(依一一五年第一季 財務報表計算) (2)本次註銷股份：普通股8,000股，每股面額新台幣10元，共計新台幣80,000元。 (3)限制員工權利新股註銷減資後：本公司實收資本額為新台幣1,659,791,240元， 流通在外股數為165,979,124股，每股淨值為新台幣37.3715元(依一一五年第一季 財務報表計算) 4.預計換股作業計畫:不適用 5.預計減資新股上市後之上市普通股股數:不適用 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3014 | 聯陽 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/22 2.原發放股利種類及金額: 現金股利：新台幣1,410,890,554元 (每股配發新台幣8.5元) 3.變更後發放股利種類及金額: 現金股利：新台幣1,410,890,554元 (每股配發新台幣8.50169022元) 4.變更原因: 本公司因收回限制員工權利新股致流通在外之股數變動為165,954,124股， 故調整配息率。 5.其他應敘明事項: 本公司於除息交易日前，如因買回本公司股份、將庫藏股轉讓、轉換或註銷、 或因員工依據員工認股權憑證發行辦法行使員工認股權而發行新股、發行或 收回限制員工權利新股及其他因法令等因素致影響本公司流通在外股份總數， 而需配合變更股東配息率時，將另行公告；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3014 | 聯陽 | 5 | 3 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3014 | 聯陽 | 6 | 4 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3014 | 聯陽 | 9 | 0 | 804770.0 | 0.0 |  | no_signal |
+| 20260622 | 3014 | 聯陽 | 9 | 0 | 908520.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

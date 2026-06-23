@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:58 Asia/Taipei
+- generated_at: 2026-06-23 22:23:00 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 1380
-- high: 1390
-- low: 1340
-- close: 1355
-- volume: 3589052
-- ma5: 1342
-- ema23_primary: 1346.5
-- distance_to_ema23_pct: 0.63
-- ma20: 1359
-- ma60: 1253.68
-- ma120: 995.74
-- return_5d: 0.74
-- return_20d: 5.45
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -0.29
-- distance_to_high_60_pct: -14.24
+- date: 20260622
+- open: 1390
+- high: 1400
+- low: 1335
+- close: 1395
+- volume: 5223186
+- ma5: 1357
+- ema23_primary: 1350.54
+- distance_to_ema23_pct: 3.29
+- ma20: 1362.25
+- ma60: 1262.13
+- ma120: 1002.42
+- return_5d: 5.68
+- return_20d: 4.89
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 2.4
+- distance_to_high_60_pct: -11.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,1325,1365,1305,1330,5646399,1295.85,2.64,1367,1094.75,0.9
 20260525,1400,1455,1360,1425,6665391,1306.61,9.06,1368.75,1104.62,1.08
 20260526,1465,1495,1425,1445,5681233,1318.14,9.62,1370,1114.62,0.95
 20260527,1450,1470,1370,1375,5687897,1322.88,3.94,1369.25,1123.77,0.95
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,1330,1370,1320,1345,4085591,1343.52,0.11,1348.75,1240.77,0.64
 20260617,1345,1375,1340,1370,3261807,1345.73,1.8,1355.5,1247.13,0.52
 20260618,1380,1390,1340,1355,3589052,1346.5,0.63,1359,1253.68,0.59
+20260622,1390,1400,1335,1395,5223186,1350.54,3.29,1362.25,1262.13,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2368 | 金像電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.契約種類:自地委建 2.事實發生日:115/6/16~115/6/16 3.董事會通過日期: 民國115年6月16日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人:通州建總集團有限公司 ; 與公司之關係 : 非關係人 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額:含稅人民幣187,480,000元(約新台幣877,406,400元 ; 以匯率4.68換算) 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期:  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_3d |
+| 20260622 | 2368 | 金像電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1.契約種類:自地委建 2.事實發生日:115/6/16~115/6/16 3.董事會通過日期: 民國115年6月16日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人:通州建總集團有限公司 ; 與公司之關係 : 非關係人 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額:含稅人民幣187,480,000元(約新台幣877,406,400元 ; 以匯率4.68換算) 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期:  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；degraded calendar context only: ex_dividend on 20260623; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260622 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.契約種類:自地委建 2.事實發生日:115/6/16~115/6/16 3.董事會通過日期: 民國115年6月16日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人:通州建總集團有限公司 ; 與公司之關係 : 非關係人 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額:含稅人民幣187,480,000元(約新台幣877,406,400元 ; 以匯率4.68換算) 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期:  14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；degraded calendar context only: ex_dividend on 20260623; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2368 | 金像電 | 17 | 14 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2368 | 金像電 | 18 | 15 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2368 | 金像電 | 237 | 22 | 18013730.0 | 170880.0 | 105.42 | no_signal |
+| 20260622 | 2368 | 金像電 | 234 | 22 | 28133610.0 | 293250.0 | 95.94 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

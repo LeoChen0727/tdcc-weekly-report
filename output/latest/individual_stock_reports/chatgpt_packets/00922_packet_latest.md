@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00922 國泰台灣領袖50
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00922
 - stock_name: 國泰台灣領袖50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 40.99
-- high: 41.31
-- low: 40.99
-- close: 41.22
-- volume: 9031344
-- ma5: 40.29
-- ema23_primary: 39.19
-- distance_to_ema23_pct: 5.18
-- ma20: 39.41
-- ma60: 39.41
-- ma120: 39.41
-- return_5d: 7.99
-- return_20d:
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 4.59
-- distance_to_high_60_pct: -0.22
+- date: 20260622
+- open: 42.05
+- high: 42.65
+- low: 42.05
+- close: 42.64
+- volume: 10792006
+- ma5: 41.02
+- ema23_primary: 39.48
+- distance_to_ema23_pct: 8.01
+- ma20: 39.7
+- ma60: 39.57
+- ma120: 39.57
+- return_5d: 9.42
+- return_20d: 15.68
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 7.4
+- distance_to_high_60_pct: -0.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,36.47,36.89,36.39,36.86,9330872,,,,,
 20260525,37.82,38.52,37.82,38.49,26107165,,,,,
 20260526,38.81,38.84,38.25,38.38,10500297,,,,,
 20260527,39,39.79,39,39.27,11517534,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,40.42,40.55,40.19,40.48,7501204,38.86,4.17,39.25,39.25,0.56
 20260617,40.17,40.63,40.12,40.61,5449773,39,4.12,39.32,39.32,0.42
 20260618,40.99,41.31,40.99,41.22,9031344,39.19,5.18,39.41,39.41,0.71
+20260622,42.05,42.65,42.05,42.64,10792006,39.48,8.01,39.7,39.57,0.84
 ```
 
 ## Latest TDCC Snapshot

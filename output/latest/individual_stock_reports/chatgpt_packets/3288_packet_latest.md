@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3288 點晶
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:23 Asia/Taipei
+- generated_at: 2026-06-23 22:23:30 Asia/Taipei
 - stock_id: 3288
 - stock_name: 點晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 148
+- latest_price_date: 20260622
+- price_rows: 149
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 21.8
-- high: 21.8
-- low: 20.9
-- close: 20.9
-- volume: 93000
-- ma5: 22.09
-- ema23_primary: 20.27
-- distance_to_ema23_pct: 3.11
-- ma20: 20.18
-- ma60: 16.8
-- ma120: 16.54
-- return_5d: -12
-- return_20d: 39.8
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 3.54
-- distance_to_high_60_pct: -21.43
+- date: 20260622
+- open: 20.5
+- high: 22.95
+- low: 19.9
+- close: 22.95
+- volume: 153000
+- ma5: 22.2
+- ema23_primary: 20.49
+- distance_to_ema23_pct: 11.99
+- ma20: 20.59
+- ma60: 16.94
+- ma120: 16.59
+- return_5d: 2.46
+- return_20d: 53.51
+- volume_ratio: 2.38
+- distance_to_ma20_pct_auxiliary: 11.49
+- distance_to_high_60_pct: -13.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,15,15,14.9,14.95,15000,15.13,-1.19,15.12,15.21,1.27
 20260525,14.9,14.95,14.35,14.9,15000,15.11,-1.39,15.07,15.2,1.2
 20260526,14.65,14.9,14.65,14.9,15000,15.09,-1.28,15.09,15.19,1.2
 20260527,15,15,14.95,14.95,15000,15.08,-0.87,15.04,15.17,1.23
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,23.9,23.9,21.5,22.35,65000,20.07,11.37,19.55,16.59,1.26
 20260617,22.15,22.15,21.8,21.8,43000,20.21,7.86,19.89,16.7,0.81
 20260618,21.8,21.8,20.9,20.9,93000,20.27,3.11,20.18,16.8,1.62
+20260622,20.5,22.95,19.9,22.95,153000,20.49,11.99,20.59,16.94,2.38
 ```
 
 ## Latest TDCC Snapshot

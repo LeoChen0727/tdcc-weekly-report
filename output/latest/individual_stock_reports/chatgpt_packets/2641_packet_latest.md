@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2641 正德
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:09 Asia/Taipei
+- generated_at: 2026-06-23 22:23:12 Asia/Taipei
 - stock_id: 2641
 - stock_name: 正德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 18.9
-- high: 19.05
+- date: 20260622
+- open: 18.8
+- high: 18.85
 - low: 18.7
-- close: 18.8
-- volume: 1498000
-- ma5: 18.83
-- ema23_primary: 18.64
-- distance_to_ema23_pct: 0.84
-- ma20: 18.73
-- ma60: 18.1
-- ma120: 19.06
-- return_5d: 1.35
-- return_20d: 6.21
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 0.4
-- distance_to_high_60_pct: -8.29
+- close: 18.7
+- volume: 2437000
+- ma5: 18.81
+- ema23_primary: 18.65
+- distance_to_ema23_pct: 0.28
+- ma20: 18.77
+- ma60: 18.11
+- ma120: 19.04
+- return_5d: -0.53
+- return_20d: 5.35
+- volume_ratio: 1.99
+- distance_to_ma20_pct_auxiliary: -0.39
+- distance_to_high_60_pct: -8.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,17.8,17.85,17.55,17.75,18000,17.71,0.22,17.55,18.27,0.01
 20260525,17.9,17.95,17.6,17.9,18000,17.73,0.98,17.58,18.24,0.01
 20260526,18,18.05,17.8,17.85,18000,17.74,0.64,17.63,18.2,0.01
 20260527,17.9,18.1,17.65,17.7,18000,17.73,-0.19,17.66,18.16,0.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,19.1,19.1,18.8,18.8,1559000,18.61,1.03,18.61,18.08,1.43
 20260617,18.85,19,18.65,18.85,1120000,18.63,1.19,18.67,18.09,1.02
 20260618,18.9,19.05,18.7,18.8,1498000,18.64,0.84,18.73,18.1,1.35
+20260622,18.8,18.85,18.7,18.7,2437000,18.65,0.28,18.77,18.11,1.99
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2641 | 正德 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2641 | 正德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2641 | 正德 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260622 | 2641 | 正德 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

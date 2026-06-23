@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00918 大華優利高填息30
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00918
 - stock_name: 大華優利高填息30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 31.71
-- high: 32.06
-- low: 31.6
-- close: 32
-- volume: 90941020
-- ma5: 31.9
-- ema23_primary: 30.17
-- distance_to_ema23_pct: 6.07
-- ma20: 30.23
-- ma60: 30.23
-- ma120: 30.23
-- return_5d: 5.61
-- return_20d:
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 5.85
-- distance_to_high_60_pct: -2.02
+- date: 20260622
+- open: 32.2
+- high: 32.39
+- low: 32.05
+- close: 32.11
+- volume: 92837027
+- ma5: 32.15
+- ema23_primary: 30.33
+- distance_to_ema23_pct: 5.87
+- ma20: 30.49
+- ma60: 30.32
+- ma120: 30.32
+- return_5d: 4.08
+- return_20d: 18.97
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 5.33
+- distance_to_high_60_pct: -1.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,26.75,27.01,26.62,26.99,22804912,,,,,
 20260525,27.33,27.85,27.33,27.83,25835684,,,,,
 20260526,27.95,28.06,27.7,27.85,20831261,,,,,
 20260527,28.18,28.78,28.18,28.56,33126405,,,,,
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,32.39,32.39,31.97,32.12,101972232,29.76,7.93,30,30,1.33
 20260617,31.9,32.66,31.86,32.66,155345000,30,8.86,30.14,30.14,1.92
 20260618,31.71,32.06,31.6,32,90941020,30.17,6.07,30.23,30.23,1.12
+20260622,32.2,32.39,32.05,32.11,92837027,30.33,5.87,30.49,30.32,1.09
 ```
 
 ## Latest TDCC Snapshot

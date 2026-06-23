@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:56 Asia/Taipei
+- generated_at: 2026-06-23 22:22:57 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 192
-- high: 205.5
-- low: 192
-- close: 205.5
-- volume: 5702420
-- ma5: 178
-- ema23_primary: 162.66
-- distance_to_ema23_pct: 26.33
-- ma20: 167.72
-- ma60: 133.08
-- ma120: 116.16
-- return_5d: 33.88
-- return_20d: 36.09
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 22.52
+- date: 20260622
+- open: 226
+- high: 226
+- low: 226
+- close: 226
+- volume: 2199185
+- ma5: 192
+- ema23_primary: 167.94
+- distance_to_ema23_pct: 34.57
+- ma20: 171.35
+- ma60: 135.18
+- ma120: 117.2
+- return_5d: 44.87
+- return_20d: 47.23
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 31.89
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,160,163.5,153,153.5,17207195,127.89,20.03,126.4,111.19,1.66
 20260525,158,168.5,158,168.5,5942563,131.27,28.36,128.93,112.36,0.64
 20260526,175,177,165,171.5,13759729,134.62,27.39,131.6,113.52,1.48
 20260527,174,188,166,168,11974745,137.41,22.27,134.28,114.44,1.23
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,174,180.5,168.5,170,8813924,156.2,8.83,162.53,130.12,1.07
 20260617,168.5,187,166.5,187,11978644,158.77,17.78,165,131.35,1.55
 20260618,192,205.5,192,205.5,5702420,162.66,26.33,167.72,133.08,0.77
+20260622,226,226,226,226,2199185,167.94,34.57,171.35,135.18,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2316 | 楠梓電 | true_breakout | 嚴格突破 | 61.0 |  |  | base_building |  | no_signal | continued_overheated | 1.事實發生日:115/06/18 2.公司名稱:昆山先創電子有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:因處分土地使用權及廠房，故變更公司營業地址 變更前地址：江蘇省昆山綜合保稅區楠梓路333號 變更後地址：江蘇省昆山市玉山鎮楠梓路255號8幢 6.因應措施:依法向當地主管機關申請辦理營業地址變更登記事宜。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2316 | 楠梓電 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  | no_signal | continued_overheated | 1.事實發生日:115/06/18 2.公司名稱:昆山先創電子有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:因處分土地使用權及廠房，故變更公司營業地址 變更前地址：江蘇省昆山綜合保稅區楠梓路333號 變更後地址：江蘇省昆山市玉山鎮楠梓路255號8幢 6.因應措施:依法向當地主管機關申請辦理營業地址變更登記事宜。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2316 | 楠梓電 | 9 | 1 | 5 | 9 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 2316 | 楠梓電 | 10 | 2 | 5 | 10 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2316 | 楠梓電 | 78 | 1 | 8368990.0 | 0.0 |  | no_signal |
+| 20260622 | 2316 | 楠梓電 | 76 | 1 | 2639060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

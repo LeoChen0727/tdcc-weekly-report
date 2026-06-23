@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8476 台境*
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:39 Asia/Taipei
+- generated_at: 2026-06-23 22:25:02 Asia/Taipei
 - stock_id: 8476
 - stock_name: 台境*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 20.15
-- high: 21.75
-- low: 20.1
-- close: 21.75
-- volume: 3430370
-- ma5: 20.16
-- ema23_primary: 18.04
-- distance_to_ema23_pct: 20.55
-- ma20: 17.29
-- ma60: 17.68
-- ma120: 18.47
-- return_5d: 13.58
-- return_20d: 35.09
-- volume_ratio: 2.91
-- distance_to_ma20_pct_auxiliary: 25.78
-- distance_to_high_60_pct: 0
+- date: 20260622
+- open: 23.15
+- high: 23.9
+- low: 21.8
+- close: 22.85
+- volume: 4572286
+- ma5: 20.8
+- ema23_primary: 18.44
+- distance_to_ema23_pct: 23.89
+- ma20: 17.64
+- ma60: 17.74
+- ma120: 18.5
+- return_5d: 16.29
+- return_20d: 44.16
+- volume_ratio: 3.3
+- distance_to_ma20_pct_auxiliary: 29.52
+- distance_to_high_60_pct: -4.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,16.1,16.1,15.85,15.85,380523,16.91,-6.25,16.89,18.3,0.71
 20260525,15.85,15.85,15.4,15.45,815862,16.79,-7.96,16.76,18.22,1.48
 20260526,15.6,15.6,15.2,15.45,411524,16.67,-7.34,16.64,18.16,0.75
 20260527,15.45,15.45,15.1,15.15,508162,16.55,-8.44,16.5,18.08,0.9
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,19.65,20,19.6,19.9,967867,17.52,13.61,16.82,17.65,0.98
 20260617,19.9,20.15,19.7,19.8,708726,17.71,11.83,17.01,17.65,0.7
 20260618,20.15,21.75,20.1,21.75,3430370,18.04,20.55,17.29,17.68,2.91
+20260622,23.15,23.9,21.8,22.85,4572286,18.44,23.89,17.64,17.74,3.3
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8476 | 台境* | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | first_seen | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣0.2元，計新台幣 32,254,872元。 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:本公司於115/4/21發行國內第二次無擔保轉換公司債， 轉換期間為115/07/22~118/4/21。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 8476 | 台境* | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣0.2元，計新台幣 32,254,872元。 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:本公司於115/4/21發行國內第二次無擔保轉換公司債， 轉換期間為115/07/22~118/4/21。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8476 | 台境* | 1 | 1 | 3 | 4 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260622 | 8476 | 台境* | 2 | 2 | 3 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

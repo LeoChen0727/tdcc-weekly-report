@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:26 Asia/Taipei
+- generated_at: 2026-06-23 22:23:33 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 286
+- latest_price_date: 20260622
+- price_rows: 287
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 322
-- high: 328.5
-- low: 320.5
-- close: 324.5
-- volume: 1944374
-- ma5: 320
-- ema23_primary: 316.26
-- distance_to_ema23_pct: 2.61
-- ma20: 318.07
-- ma60: 314.95
-- ma120: 303.4
-- return_5d: 10.94
-- return_20d: -0.61
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 2.02
-- distance_to_high_60_pct: -9.61
+- date: 20260622
+- open: 327.5
+- high: 331
+- low: 319
+- close: 321
+- volume: 2624518
+- ma5: 322.7
+- ema23_primary: 316.66
+- distance_to_ema23_pct: 1.37
+- ma20: 317.88
+- ma60: 315.3
+- ma120: 303.68
+- return_5d: 4.39
+- return_20d: -1.23
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 0.98
+- distance_to_high_60_pct: -10.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,327.5,328.5,324,325,1110602,316.9,2.55,316.5,310.85,0.44
 20260525,326.5,349.5,326.5,349,4721290,319.58,9.21,317.75,311.49,1.8
 20260526,358.5,359,345,346,3629812,321.78,7.53,319.6,312.02,1.37
 20260527,335,335,311.5,314.5,9327032,321.17,-2.08,319.95,312,3.07
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,323,327,318,326.5,1824218,315.15,3.6,317.9,314.18,0.59
 20260617,323,323,313.5,319.5,1802059,315.51,1.26,318.18,314.49,0.59
 20260618,322,328.5,320.5,324.5,1944374,316.26,2.61,318.07,314.95,0.64
+20260622,327.5,331,319,321,2624518,316.66,1.37,317.88,315.3,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3413 | 京鼎 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會決議日期:115/06/17 2.增資資金來源:現金增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): (1)Foxsemicon Innovations Holding Inc.:發行總金額美金伍佰萬元， 發行股數伍佰萬股 (2)Foxsemicon Technology, LLC :發行總金額美金伍佰萬元 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額: (1)Foxsemicon Innovations Holding Inc.: 0.001美元 (2)Foxsemicon Technology, LLC : 不適用 8.發行價格: (1)Foxsemicon Innovations Holding Inc.:1美元 (2)Foxsemicon Technology, LLC : 不適用 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例:100% 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:與原有股份相同 14.本次增資資金用途:充實營運資金暨支應業務成長 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3413 | 京鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.董事會決議日期:115/06/17 2.增資資金來源:現金增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): (1)Foxsemicon Innovations Holding Inc.:發行總金額美金伍佰萬元， 發行股數伍佰萬股 (2)Foxsemicon Technology, LLC :發行總金額美金伍佰萬元 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額: (1)Foxsemicon Innovations Holding Inc.: 0.001美元 (2)Foxsemicon Technology, LLC : 不適用 8.發行價格: (1)Foxsemicon Innovations Holding Inc.:1美元 (2)Foxsemicon Technology, LLC : 不適用 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例:100% 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:與原有股份相同 14.本次增資資金用途:充實營運資金暨支應業務成長 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3413 | 京鼎 | 1 | 1 | 3 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3413 | 京鼎 | 2 | 2 | 4 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3413 | 京鼎 | 38 | 0 | 7199950.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 3413 | 京鼎 | 38 | 0 | 4804350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

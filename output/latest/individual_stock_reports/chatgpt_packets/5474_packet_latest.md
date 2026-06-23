@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5474 聰泰
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:53 Asia/Taipei
+- generated_at: 2026-06-23 22:24:06 Asia/Taipei
 - stock_id: 5474
 - stock_name: 聰泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 190
-- high: 191
-- low: 186
-- close: 188
-- volume: 1203000
-- ma5: 178.9
-- ema23_primary: 173.97
-- distance_to_ema23_pct: 8.07
-- ma20: 176.1
-- ma60: 157.56
-- ma120: 155.3
-- return_5d: 6.52
-- return_20d: 11.24
-- volume_ratio: 3.26
-- distance_to_ma20_pct_auxiliary: 6.76
-- distance_to_high_60_pct: -6.7
+- date: 20260622
+- open: 185.5
+- high: 188
+- low: 178
+- close: 179.5
+- volume: 705000
+- ma5: 179.8
+- ema23_primary: 174.43
+- distance_to_ema23_pct: 2.91
+- ma20: 176.45
+- ma60: 158.35
+- ma120: 155.47
+- return_5d: 2.57
+- return_20d: 4.06
+- volume_ratio: 1.78
+- distance_to_ma20_pct_auxiliary: 1.73
+- distance_to_high_60_pct: -10.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,175,175,171,172.5,173000,159.99,7.82,160.8,146.84,0.22
 20260525,172.5,173,169.5,169.5,171000,160.78,5.42,162.5,147.12,0.22
 20260526,170,174.5,168.5,169,172000,161.47,4.66,164.05,147.46,0.22
 20260527,171,172,163.5,165,167000,161.76,2,165.4,147.68,0.21
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,177.5,180,173.5,174.5,457000,171.93,1.49,174.38,155.89,1.37
 20260617,174.5,181,174,181,509000,172.69,4.81,175.15,156.63,1.5
 20260618,190,191,186,188,1203000,173.97,8.07,176.1,157.56,3.26
+20260622,185.5,188,178,179.5,705000,174.43,2.91,176.45,158.35,1.78
 ```
 
 ## Latest TDCC Snapshot

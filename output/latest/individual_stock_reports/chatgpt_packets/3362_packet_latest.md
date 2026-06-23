@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:25 Asia/Taipei
+- generated_at: 2026-06-23 22:23:32 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,39 +56,40 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_support
+- thesis_state: high_level_consolidation
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -102,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 206
-- high: 218
-- low: 203.5
-- close: 211
-- volume: 14029000
-- ma5: 189.9
-- ema23_primary: 152.59
-- distance_to_ema23_pct: 38.28
-- ma20: 146.5
-- ma60: 119.49
-- ma120: 110.44
-- return_5d: 28.66
-- return_20d: 74.38
-- volume_ratio: 2.73
-- distance_to_ma20_pct_auxiliary: 44.03
-- distance_to_high_60_pct: -3.21
+- date: 20260622
+- open: 211
+- high: 211
+- low: 201.5
+- close: 205
+- volume: 6644000
+- ma5: 198.8
+- ema23_primary: 156.96
+- distance_to_ema23_pct: 30.61
+- ma20: 150.75
+- ma60: 121.31
+- ma120: 111.39
+- return_5d: 27.73
+- return_20d: 70.83
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 35.99
+- distance_to_high_60_pct: -5.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,120,120.5,118,120,119000,110.75,8.35,109.88,104.44,0.07
 20260525,121,121.5,116,117,118000,111.27,5.15,110.3,104.59,0.07
 20260526,117,117.5,115,115,116000,111.58,3.06,110.58,104.68,0.07
 20260527,116,117.5,111.5,112.5,114000,111.66,0.75,110.8,104.73,0.07
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,184.5,194,178,194,14361000,141.81,36.81,137.3,115.7,3.94
 20260617,197,213,196,207.5,21999000,147.28,40.89,142,117.55,4.81
 20260618,206,218,203.5,211,14029000,152.59,38.28,146.5,119.49,2.73
+20260622,211,211,201.5,205,6644000,156.96,30.61,150.75,121.31,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3362 | 先進光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 單月(註1)                  115年5月        114年5月      與去年同期增減% ----------------------  --------------  --------------  ---------------- 營業收入(百萬元)               315              366       (13.8%) 稅前淨利(百萬元)              (107)            (133)       19.5% 虧損減少 歸屬母公司業主淨利(百萬元)    (88)            (115)       23.5% 虧損減少 每股盈餘(元)                 (0.62)           (0.81)       24.7% 虧損減少 ========================================================================= 最近一季單季(註2)         115年第1季       114年第1季     與去年同期增減% ----------------------  --------------  --------------  ------------------ 營業收入(百萬元)               1,108            1,010              9.7% 稅前淨利(百萬元)                (81)               52           (255.8%) 歸屬母公司業主淨利(百萬元)     (71)               38           (286.8%) 每股盈餘(元)                   (0.5)             0.27           (285.2%) =========================================================================== 最近四季累計(註3)             114年第2季~115年第1季 -----------------------     -------------------------- 營業收入(百萬元)                        4,414 稅前淨利(百萬元)                         (332) 歸屬母公司業主淨利(百萬元)                (71) 每股盈餘(元)                            (1.84) =========================================================================== 公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:有 115/06/11 代重要子公司公告董事會代行股東會重要決議事項 115/06/11 代重要子公司公告經董事會決議不分派盈餘 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS 會計準則編製之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司115年第1季至114年第2季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3362 | 先進光 | 1 | 1 | 1 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00875 國泰網路資安
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:29 Asia/Taipei
 - stock_id: 00875
 - stock_name: 國泰網路資安
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 46.27
-- high: 46.8
-- low: 46.27
-- close: 46.6
-- volume: 52881
-- ma5: 47.18
-- ema23_primary: 47.22
-- distance_to_ema23_pct: -1.32
-- ma20: 47.71
-- ma60: 47.71
-- ma120: 47.71
-- return_5d: -0.13
-- return_20d:
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -2.33
-- distance_to_high_60_pct: -9.95
+- date: 20260622
+- open: 46.5
+- high: 46.5
+- low: 46.29
+- close: 46.39
+- volume: 217675
+- ma5: 47.02
+- ema23_primary: 47.15
+- distance_to_ema23_pct: -1.62
+- ma20: 47.77
+- ma60: 47.65
+- ma120: 47.65
+- return_5d: -1.76
+- return_20d: 2.47
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -2.88
+- distance_to_high_60_pct: -10.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,45.22,45.27,45.16,45.27,259341,,,,,
 20260525,46.5,47.16,46.5,47.08,472412,,,,,
 20260526,47.08,47.08,46.68,46.85,133983,,,,,
 20260527,46.74,46.8,46.64,46.64,130674,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,47.66,47.66,47.2,47.38,29458,47.3,0.17,47.81,47.81,0.1
 20260617,46.97,47.06,46.95,47.06,82540,47.28,-0.46,47.77,47.77,0.29
 20260618,46.27,46.8,46.27,46.6,52881,47.22,-1.32,47.71,47.71,0.19
+20260622,46.5,46.5,46.29,46.39,217675,47.15,-1.62,47.77,47.65,0.81
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6806 森崴能源
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:18 Asia/Taipei
+- generated_at: 2026-06-23 22:24:36 Asia/Taipei
 - stock_id: 6806
 - stock_name: 森崴能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 284
+- latest_price_date: 20260622
+- price_rows: 285
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 3.6
-- high: 3.6
-- low: 3.24
-- close: 3.24
-- volume: 4347126
-- ma5: 3.63
-- ema23_primary: 7.64
-- distance_to_ema23_pct: -57.58
-- ma20: 5.86
-- ma60: 18.68
-- ma120: 31
-- return_5d: -27.68
-- return_20d: -68.54
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: -44.66
-- distance_to_high_60_pct: -92.08
+- date: 20260622
+- open: 3.17
+- high: 3.56
+- low: 3.17
+- close: 3.51
+- volume: 6690040
+- ma5: 3.53
+- ema23_primary: 7.29
+- distance_to_ema23_pct: -51.88
+- ma20: 5.57
+- ma60: 18.08
+- ma120: 30.7
+- return_5d: -13.12
+- return_20d: -62.14
+- volume_ratio: 2.01
+- distance_to_ma20_pct_auxiliary: -36.95
+- distance_to_high_60_pct: -91.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,9.27,9.27,9.27,9.27,700012,18.79,-50.66,18.53,30.25,0.82
 20260525,8.35,8.35,8.35,8.35,327830,17.92,-53.4,17.73,29.66,0.41
 20260526,7.52,7.52,7.52,7.52,301842,17.05,-55.9,16.93,29.05,0.39
 20260527,6.77,6.77,6.77,6.77,497239,16.19,-58.2,16.2,28.39,0.64
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,3.3,3.64,3.3,3.64,5321628,8.44,-56.88,6.6,19.93,1.97
 20260617,3.9,3.9,3.57,3.6,2530970,8.04,-55.21,6.21,19.31,0.9
 20260618,3.6,3.6,3.24,3.24,4347126,7.64,-57.58,5.86,18.68,1.44
+20260622,3.17,3.56,3.17,3.51,6690040,7.29,-51.88,5.57,18.08,2.01
 ```
 
 ## Latest TDCC Snapshot

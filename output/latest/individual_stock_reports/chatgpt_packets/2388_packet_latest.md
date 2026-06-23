@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:59 Asia/Taipei
+- generated_at: 2026-06-23 22:23:01 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 76.3
-- high: 82.7
-- low: 75.2
-- close: 81.4
-- volume: 26511874
-- ma5: 72.32
-- ema23_primary: 72.43
-- distance_to_ema23_pct: 12.39
-- ma20: 73.29
-- ma60: 69.27
-- ma120: 60.53
-- return_5d: 23.9
-- return_20d: -5.35
-- volume_ratio: 2.35
-- distance_to_ma20_pct_auxiliary: 11.07
-- distance_to_high_60_pct: -10.84
+- date: 20260622
+- open: 83.5
+- high: 88.6
+- low: 81.4
+- close: 84.4
+- volume: 23091050
+- ma5: 75.98
+- ema23_primary: 73.43
+- distance_to_ema23_pct: 14.95
+- ma20: 73.11
+- ma60: 69.8
+- ma120: 60.75
+- return_5d: 27.69
+- return_20d: -4.09
+- volume_ratio: 2.17
+- distance_to_ma20_pct_auxiliary: 15.44
+- distance_to_high_60_pct: -7.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,88.5,90.5,84.2,88,35608717,75.4,16.72,77.53,61.86,1.61
 20260525,90.3,91.3,84.1,84.2,23364457,76.13,10.6,77.83,62.41,1.12
 20260526,84.6,84.9,77.1,78,21728417,76.29,2.25,77.99,62.89,1.05
 20260527,78.7,79.5,75.6,75.9,12942255,76.25,-0.46,78.08,63.31,0.63
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,71.8,72,68.4,68.4,3472005,71.29,-4.05,73.84,68.52,0.27
 20260617,68.3,75.2,67.7,75.2,9326444,71.61,5.01,73.52,68.85,0.77
 20260618,76.3,82.7,75.2,81.4,26511874,72.43,12.39,73.29,69.27,2.35
+20260622,83.5,88.6,81.4,84.4,23091050,73.43,14.95,73.11,69.8,2.17
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2388 | 威盛 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度營業報告書及  財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_3d |
+| 20260622 | 2388 | 威盛 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度營業報告書及  財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2388 | 威盛 | 8 | 1 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2388 | 威盛 | 9 | 2 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2388 | 威盛 | 65 | 5 | 21645640.0 | 56120.0 | 385.7 | call_put_bullish |
+| 20260622 | 2388 | 威盛 | 62 | 5 | 27651810.0 | 158730.0 | 174.21 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7782 光速火箭
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:30 Asia/Taipei
+- generated_at: 2026-06-23 22:24:51 Asia/Taipei
 - stock_id: 7782
 - stock_name: 光速火箭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 150
+- latest_price_date: 20260622
+- price_rows: 151
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 28.9
-- high: 28.9
+- date: 20260622
+- open: 28.15
+- high: 28.15
 - low: 27.1
-- close: 28.15
-- volume: 42000
-- ma5: 26.81
-- ema23_primary: 26.3
-- distance_to_ema23_pct: 7.05
-- ma20: 25.86
-- ma60: 26.96
-- ma120: 27.67
-- return_5d: 12.6
-- return_20d: 5.23
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 8.84
-- distance_to_high_60_pct: -10.35
+- close: 27.5
+- volume: 8000
+- ma5: 27.28
+- ema23_primary: 26.4
+- distance_to_ema23_pct: 4.18
+- ma20: 25.92
+- ma60: 26.98
+- ma120: 27.66
+- return_5d: 9.34
+- return_20d: 4.36
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 6.1
+- distance_to_high_60_pct: -12.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,26.6,26.75,26.35,26.35,27000,27.19,-3.1,26.98,27.53,0.99
 20260525,26.2,26.25,25.65,25.95,26000,27.09,-4.21,26.92,27.48,1.01
 20260526,25.65,25.65,25.4,25.6,26000,26.97,-5.07,26.85,27.42,1.15
 20260527,25.6,25.6,25.25,25.5,25000,26.84,-5.01,26.79,27.38,1.12
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,25,27.25,25,27.2,47000,25.92,4.95,25.71,26.92,2.15
 20260617,27.1,28.6,26.5,28.45,80000,26.13,8.89,25.79,26.95,3.18
 20260618,28.9,28.9,27.1,28.15,42000,26.3,7.05,25.86,26.96,1.56
+20260622,28.15,28.15,27.1,27.5,8000,26.4,4.18,25.92,26.98,0.31
 ```
 
 ## Latest TDCC Snapshot

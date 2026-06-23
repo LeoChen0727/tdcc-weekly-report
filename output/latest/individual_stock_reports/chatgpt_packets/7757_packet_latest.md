@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7757 金色三麥
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:29 Asia/Taipei
+- generated_at: 2026-06-23 22:24:50 Asia/Taipei
 - stock_id: 7757
 - stock_name: 金色三麥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 101
-- high: 101.5
-- low: 100
-- close: 100
-- volume: 28000
-- ma5: 101.4
-- ema23_primary: 104.36
-- distance_to_ema23_pct: -4.17
-- ma20: 105
-- ma60: 106.43
-- ma120: 109.4
-- return_5d: -2.44
-- return_20d: -4.31
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -4.76
-- distance_to_high_60_pct: -11.5
+- date: 20260622
+- open: 100.5
+- high: 100.5
+- low: 99.6
+- close: 99.6
+- volume: 56000
+- ma5: 100.92
+- ema23_primary: 103.96
+- distance_to_ema23_pct: -4.19
+- ma20: 104.78
+- ma60: 106.32
+- ma120: 109.22
+- return_5d: -2.35
+- return_20d: -4.23
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -4.94
+- distance_to_high_60_pct: -11.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,105.5,106,103.5,104,104000,105.34,-1.27,104.97,107.22,3.88
 20260525,104,104,103,103.5,104000,105.19,-1.6,104.85,107.16,3.38
 20260526,103,104,103,104,104000,105.09,-1.03,104.78,107.12,2.98
 20260527,104,105,103,103.5,104000,104.95,-1.39,104.62,107.07,2.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,103,103,101.5,101.5,19000,105.09,-3.42,105.35,106.62,0.25
 20260617,101.5,102.5,101,101,48000,104.75,-3.58,105.22,106.53,0.62
 20260618,101,101.5,100,100,28000,104.36,-4.17,105,106.43,0.36
+20260622,100.5,100.5,99.6,99.6,56000,103.96,-4.19,104.78,106.32,0.74
 ```
 
 ## Latest TDCC Snapshot

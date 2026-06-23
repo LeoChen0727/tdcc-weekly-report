@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6541 泰福-KY
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:10 Asia/Taipei
+- generated_at: 2026-06-23 22:24:27 Asia/Taipei
 - stock_id: 6541
 - stock_name: 泰福-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 40.85
-- high: 41.35
-- low: 40.4
-- close: 40.45
-- volume: 337648
-- ma5: 40.2
-- ema23_primary: 40.07
-- distance_to_ema23_pct: 0.95
-- ma20: 39.94
-- ma60: 40.21
-- ma120: 45.45
-- return_5d: 5.34
-- return_20d: 3.85
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 1.29
-- distance_to_high_60_pct: -7.22
+- date: 20260622
+- open: 40.45
+- high: 42.75
+- low: 40.05
+- close: 42.55
+- volume: 655088
+- ma5: 40.82
+- ema23_primary: 40.28
+- distance_to_ema23_pct: 5.64
+- ma20: 40.13
+- ma60: 40.22
+- ma120: 45.3
+- return_5d: 7.86
+- return_20d: 10.23
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 6.02
+- distance_to_high_60_pct: -2.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,38.9,39.1,37.95,38.6,343816,39.55,-2.41,39.38,41.6,0.84
 20260525,38.85,38.85,37.75,38,508712,39.42,-3.61,39.28,41.42,1.26
 20260526,38,38.55,38,38.25,238807,39.33,-2.74,39.19,41.24,0.6
 20260527,38.45,38.6,37.65,37.9,485233,39.21,-3.33,39.07,41.05,1.19
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,40.15,40.75,39.6,40.5,263044,40,1.25,39.73,40.26,0.62
 20260617,40.45,41.2,40.05,40.45,280033,40.04,1.03,39.86,40.23,0.66
 20260618,40.85,41.35,40.4,40.45,337648,40.07,0.95,39.94,40.21,0.79
+20260622,40.45,42.75,40.05,42.55,655088,40.28,5.64,40.13,40.22,1.47
 ```
 
 ## Latest TDCC Snapshot

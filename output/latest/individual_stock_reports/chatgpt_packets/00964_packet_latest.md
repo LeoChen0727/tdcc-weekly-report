@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00964 中信亞太高股息
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:31 Asia/Taipei
 - stock_id: 00964
 - stock_name: 中信亞太高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 14.6
-- high: 14.6
-- low: 14.51
-- close: 14.53
-- volume: 1856052
-- ma5: 14.61
+- date: 20260622
+- open: 14.53
+- high: 14.53
+- low: 14.35
+- close: 14.48
+- volume: 3646363
+- ma5: 14.6
 - ema23_primary: 14.43
-- distance_to_ema23_pct: 0.7
-- ma20: 14.44
+- distance_to_ema23_pct: 0.32
+- ma20: 14.46
 - ma60: 14.44
 - ma120: 14.44
-- return_5d: 2.4
-- return_20d:
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 0.61
-- distance_to_high_60_pct: -2.48
+- return_5d: -0.34
+- return_20d: 1.83
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 0.17
+- distance_to_high_60_pct: -2.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,14.16,14.24,14.16,14.22,1259582,,,,,
 20260525,14.25,14.37,14.25,14.35,1939849,,,,,
 20260526,14.35,14.43,14.23,14.4,5548427,,,,,
 20260527,14.45,14.45,14.31,14.34,6065084,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,14.75,14.8,14.61,14.61,2537505,14.4,1.44,14.43,14.43,0.63
 20260617,14.6,14.65,14.55,14.61,1559802,14.42,1.32,14.44,14.44,0.4
 20260618,14.6,14.6,14.51,14.53,1856052,14.43,0.7,14.44,14.44,0.49
+20260622,14.53,14.53,14.35,14.48,3646363,14.43,0.32,14.46,14.44,0.93
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5236 凌陽創新
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:49 Asia/Taipei
+- generated_at: 2026-06-23 22:24:01 Asia/Taipei
 - stock_id: 5236
 - stock_name: 凌陽創新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 164.5
-- high: 167
-- low: 162.5
-- close: 166
-- volume: 317000
-- ma5: 161.9
-- ema23_primary: 164.9
-- distance_to_ema23_pct: 0.67
-- ma20: 169.7
-- ma60: 157.68
-- ma120: 139.57
-- return_5d: 7.44
-- return_20d: -6.21
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -2.18
-- distance_to_high_60_pct: -14.43
+- date: 20260622
+- open: 168
+- high: 176
+- low: 168
+- close: 176
+- volume: 602000
+- ma5: 165.3
+- ema23_primary: 165.82
+- distance_to_ema23_pct: 6.14
+- ma20: 169.45
+- ma60: 158.49
+- ma120: 140.11
+- return_5d: 10.69
+- return_20d: -2.76
+- volume_ratio: 2.46
+- distance_to_ma20_pct_auxiliary: 3.87
+- distance_to_high_60_pct: -9.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,179,182.5,178,181,180000,163.88,10.45,165.9,144.96,0.28
 20260525,190,190,182,186.5,185000,165.76,12.51,166.95,145.95,0.3
 20260526,187,187,182,185.5,185000,167.41,10.81,168.3,146.93,0.31
 20260527,187.5,188,181,186,185000,168.96,10.09,169.5,147.88,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,166,166,157,159.5,299000,165.05,-3.37,170.75,156.47,0.93
 20260617,159.5,162,157,162,182000,164.8,-1.7,170.25,157.03,0.73
 20260618,164.5,167,162.5,166,317000,164.9,0.67,169.7,157.68,1.42
+20260622,168,176,168,176,602000,165.82,6.14,169.45,158.49,2.46
 ```
 
 ## Latest TDCC Snapshot

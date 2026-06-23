@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2355 敬鵬
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:58 Asia/Taipei
+- generated_at: 2026-06-23 22:22:59 Asia/Taipei
 - stock_id: 2355
 - stock_name: 敬鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 58.2
-- high: 58.8
-- low: 57.2
-- close: 57.9
-- volume: 9455146
-- ma5: 58.98
-- ema23_primary: 57.91
-- distance_to_ema23_pct: -0.01
-- ma20: 59.64
-- ma60: 54.9
-- ma120: 46.25
-- return_5d: -1.36
-- return_20d: -10.92
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -2.92
-- distance_to_high_60_pct: -18.45
+- date: 20260622
+- open: 58.4
+- high: 59.1
+- low: 57.6
+- close: 58.7
+- volume: 9160422
+- ma5: 58.4
+- ema23_primary: 57.97
+- distance_to_ema23_pct: 1.25
+- ma20: 59.31
+- ma60: 55.17
+- ma120: 46.47
+- return_5d: -4.71
+- return_20d: -9.97
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -1.04
+- distance_to_high_60_pct: -17.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,64.8,67.1,63.1,65.2,68692468,55.47,17.54,54.7,49.79,2.53
 20260525,68,71,66.5,67,53636677,56.43,18.73,55.39,50.2,1.89
 20260526,67.5,67.5,64.5,65.1,22789635,57.16,13.9,55.95,50.6,0.81
 20260527,65.8,65.9,61.8,62.6,29431687,57.61,8.66,56.44,50.95,1.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,60.9,62.8,57.1,57.1,23270684,57.9,-1.38,60.05,54.45,0.75
 20260617,57,58.5,56.1,58,10181483,57.91,0.16,59.99,54.66,0.38
 20260618,58.2,58.8,57.2,57.9,9455146,57.91,-0.01,59.64,54.9,0.38
+20260622,58.4,59.1,57.6,58.7,9160422,57.97,1.25,59.31,55.17,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2355 | 敬鵬 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_3d |
+| 20260622 | 2355 | 敬鵬 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2355 | 敬鵬 | 9 | 9 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2355 | 敬鵬 | 10 | 10 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2355 | 敬鵬 | 80 | 0 | 6149580.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 2355 | 敬鵬 | 80 | 0 | 3669800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

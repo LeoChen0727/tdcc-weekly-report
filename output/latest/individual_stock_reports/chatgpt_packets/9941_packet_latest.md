@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9941 裕融
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:43 Asia/Taipei
+- generated_at: 2026-06-23 22:25:07 Asia/Taipei
 - stock_id: 9941
 - stock_name: 裕融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 82
-- high: 82.5
-- low: 81.2
-- close: 81.4
-- volume: 1392321
-- ma5: 82.34
-- ema23_primary: 80.11
-- distance_to_ema23_pct: 1.62
-- ma20: 79.36
-- ma60: 77.43
-- ma120: 78.77
-- return_5d: -7.18
-- return_20d: 10.45
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 2.57
-- distance_to_high_60_pct: -8.54
+- date: 20260622
+- open: 81.6
+- high: 82.4
+- low: 81.4
+- close: 81.8
+- volume: 1302228
+- ma5: 81.84
+- ema23_primary: 80.25
+- distance_to_ema23_pct: 1.94
+- ma20: 79.78
+- ma60: 77.49
+- ma120: 78.69
+- return_5d: -2.97
+- return_20d: 11.29
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 2.54
+- distance_to_high_60_pct: -8.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,74.6,74.6,73,73.5,1691505,75.15,-2.2,75.52,76.08,0.97
 20260525,73.7,74,72.6,72.9,1980189,74.97,-2.76,75.26,76.05,1.12
 20260526,73,73.5,72.6,72.8,1374770,74.78,-2.65,74.97,76.04,0.78
 20260527,72.8,73.1,72,72,2498987,74.55,-3.42,74.58,76.01,1.41
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,83.1,83.2,81.3,81.6,2174784,79.86,2.18,78.59,77.33,0.5
 20260617,81.6,83.5,81.2,81.4,1788959,79.99,1.77,78.97,77.37,0.41
 20260618,82,82.5,81.2,81.4,1392321,80.11,1.62,79.36,77.43,0.31
+20260622,81.6,82.4,81.4,81.8,1302228,80.25,1.94,79.78,77.49,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 9941 | 裕融 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞:新鑫股份有限公司一一五年度第一期 無擔保普通公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:新台幣15億元整 5.每張面額:新台幣壹佰萬元 6.發行價格:依票面金額十足發行 7.發行期間:3年期 8.發行利率:票面利率(固定年利率)2.09% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:償還金融機構借款 11.承銷方式:委託承銷商對外公開承銷 12.公司債受託人:永豐商業銀行股份有限公司 13.承銷或代銷機構:委任凱基證券股份有限公司為主辦承銷商 14.發行保證人:不適用 15.代理還本付息機構:華南商業銀行股份有限公司敦化分行 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:不適用 19.買回條件:不適用 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 9941 | 裕融 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞:新鑫股份有限公司一一五年度第一期 無擔保普通公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:新台幣15億元整 5.每張面額:新台幣壹佰萬元 6.發行價格:依票面金額十足發行 7.發行期間:3年期 8.發行利率:票面利率(固定年利率)2.09% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:償還金融機構借款 11.承銷方式:委託承銷商對外公開承銷 12.公司債受託人:永豐商業銀行股份有限公司 13.承銷或代銷機構:委任凱基證券股份有限公司為主辦承銷商 14.發行保證人:不適用 15.代理還本付息機構:華南商業銀行股份有限公司敦化分行 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:不適用 19.買回條件:不適用 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 9941 | 裕融 | 10 | 5 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 9941 | 裕融 | 11 | 6 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

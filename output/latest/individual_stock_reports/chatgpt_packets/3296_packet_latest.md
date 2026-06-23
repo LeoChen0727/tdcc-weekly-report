@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3296 勝德
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:23 Asia/Taipei
+- generated_at: 2026-06-23 22:23:30 Asia/Taipei
 - stock_id: 3296
 - stock_name: 勝德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 27.8
-- high: 29.8
-- low: 27.8
-- close: 29.8
-- volume: 1092531
-- ma5: 26.39
-- ema23_primary: 23.18
-- distance_to_ema23_pct: 28.53
-- ma20: 22.47
-- ma60: 21.5
-- ma120: 22.64
-- return_5d: 21.88
-- return_20d: 56.43
-- volume_ratio: 3.77
-- distance_to_ma20_pct_auxiliary: 32.62
-- distance_to_high_60_pct: 0
+- date: 20260622
+- open: 30.2
+- high: 31.6
+- low: 29.8
+- close: 30.7
+- volume: 1445952
+- ma5: 27.49
+- ema23_primary: 23.81
+- distance_to_ema23_pct: 28.93
+- ma20: 23.02
+- ma60: 21.66
+- ma120: 22.7
+- return_5d: 21.83
+- return_20d: 56.23
+- volume_ratio: 4.09
+- distance_to_ma20_pct_auxiliary: 33.35
+- distance_to_high_60_pct: -2.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,19.05,19.65,19.05,19.65,166877,20.61,-4.64,20.5,21.45,1.04
 20260525,19.95,20.3,19.95,20.1,141181,20.56,-2.25,20.5,21.39,0.88
 20260526,20.2,20.2,19.6,19.9,179324,20.51,-2.96,20.5,21.32,1.1
 20260527,19.75,19.95,19.4,19.65,129470,20.44,-3.85,20.49,21.25,0.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,25.2,25.25,24.65,24.65,201026,22.17,11.17,21.55,21.27,0.86
 20260617,24.15,27.1,24.15,27.1,555274,22.58,20,21.93,21.36,2.2
 20260618,27.8,29.8,27.8,29.8,1092531,23.18,28.53,22.47,21.5,3.77
+20260622,30.2,31.6,29.8,30.7,1445952,23.81,28.93,23.02,21.66,4.09
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3296 | 勝德 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3296 | 勝德 | true_breakout | 嚴格突破 | 86.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/22 2.發生緣由:依據台灣證券交易所股份有限公司通知辦理 3.財務業務資訊:         最近一月  與去年同期  最近一季 與去年同期增減     最近四季累計         115年5月     增減%     115年1季    增減%        114年2季至115年1季              (個體報表             (合併財報                 (合併財報                (自結數)              (核閱數)               查核數/核閱數)         ====================  =======================  ==================== 營業收入     176      25%          333         -12%               1,551 (百萬) 稅前淨利      11     -45%          -33        -400%                  28 (百萬) 本期淨利      12     -40%          -36        -427%                  13 (百萬) 每股盈餘    0.12     -40%        -0.37        -436%                0.13 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3296 | 勝德 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260622 | 3296 | 勝德 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1905 華紙
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:50 Asia/Taipei
+- generated_at: 2026-06-23 22:22:50 Asia/Taipei
 - stock_id: 1905
 - stock_name: 華紙
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 15.95
-- high: 17.1
-- low: 15.4
-- close: 17.1
-- volume: 44217266
-- ma5: 14.52
-- ema23_primary: 13.36
-- distance_to_ema23_pct: 27.95
-- ma20: 13
-- ma60: 13.41
-- ma120: 12.69
-- return_5d: 34.65
-- return_20d: 41.32
-- volume_ratio: 3.83
-- distance_to_ma20_pct_auxiliary: 31.51
-- distance_to_high_60_pct: -7.82
+- date: 20260622
+- open: 18.8
+- high: 18.8
+- low: 18.2
+- close: 18.45
+- volume: 73132002
+- ma5: 15.63
+- ema23_primary: 13.79
+- distance_to_ema23_pct: 33.81
+- ma20: 13.32
+- ma60: 13.51
+- ma120: 12.74
+- return_5d: 43.02
+- return_20d: 52.48
+- volume_ratio: 4.86
+- distance_to_ma20_pct_auxiliary: 38.51
+- distance_to_high_60_pct: -1.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,12.15,12.15,11.9,12.1,2769456,12.59,-3.88,12.52,13.06,0.69
 20260525,12.15,12.25,11.75,12.25,5981013,12.56,-2.47,12.45,13.06,1.51
 20260526,12.35,12.4,11.9,12,3701519,12.51,-4.11,12.38,13.05,1.07
 20260527,12.05,12.05,11.8,11.85,3142575,12.46,-4.89,12.3,13.04,0.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,13,14.15,12.75,14.15,14957118,12.8,10.59,12.56,13.27,1.93
 20260617,15.55,15.55,15.55,15.55,37075531,13.02,19.39,12.75,13.33,3.91
 20260618,15.95,17.1,15.4,17.1,44217266,13.36,27.95,13,13.41,3.83
+20260622,18.8,18.8,18.2,18.45,73132002,13.79,33.81,13.32,13.51,4.86
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1905 | 華紙 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_inflow | continued_overheated | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補:   承認本公司2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:   承認本公司2025年度決算表冊。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 1905 | 華紙 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | 1.事實發生日:115/06/22 2.發生緣由:本公司接獲台灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  期間           (月)                (季)                (最近四季累計)         ---------------------  ---------------------  --------------------         最近一月      與去年   最近一季      與去年   最近四季累計  科目   115年05月    同期增減  115年1季     同期增減  114年2季至115年1季       (合併自結數)        %    (合併查核數)        %    (合併查核數) 營業收入    1,584       3.07       4,394      (9.02)         18,331 (百萬) 稅前淨利    (124)      32.00       (177)       57.24         (532) (百萬) 歸屬母公司 業主淨利    (122)      33.07       (177)       48.51         (446) (百萬) 每股盈餘    (0.11)                 (0.16)                    (0.4) (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項: 公司近期無重大異常事項；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1905 | 華紙 | 3 | 3 | 3 | 7 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 1905 | 華紙 | 4 | 4 | 4 | 7 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1905 | 華紙 | 3 | 0 | 1571170.0 | 0.0 |  | call_inflow |
+| 20260622 | 1905 | 華紙 | 4 | 0 | 8487160.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

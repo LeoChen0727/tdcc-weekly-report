@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2461 光群雷
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:03 Asia/Taipei
+- generated_at: 2026-06-23 22:23:06 Asia/Taipei
 - stock_id: 2461
 - stock_name: 光群雷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 18.55
-- high: 18.65
-- low: 18.1
-- close: 18.4
-- volume: 1128289
-- ma5: 18.74
-- ema23_primary: 18.04
-- distance_to_ema23_pct: 2.01
-- ma20: 17.91
-- ma60: 17.41
-- ma120: 16.78
-- return_5d: -2.39
-- return_20d: 13.23
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 2.75
-- distance_to_high_60_pct: -12.38
+- date: 20260622
+- open: 18.4
+- high: 18.4
+- low: 17.5
+- close: 18
+- volume: 2178514
+- ma5: 18.53
+- ema23_primary: 18.03
+- distance_to_ema23_pct: -0.19
+- ma20: 17.97
+- ma60: 17.42
+- ma120: 16.81
+- return_5d: -5.51
+- return_20d: 7.46
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 0.17
+- distance_to_high_60_pct: -14.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,16.3,17.05,16.2,16.75,1280918,16.57,1.07,16.55,16.81,1.92
 20260525,16.8,17.15,16.4,16.65,1221344,16.58,0.43,16.51,16.81,1.82
 20260526,16.65,16.65,15.95,16.1,726316,16.54,-2.65,16.46,16.8,1.07
 20260527,16.1,16.1,15.65,15.65,907189,16.46,-4.95,16.39,16.78,1.32
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,19.45,19.6,18.6,18.65,2098006,17.96,3.87,17.67,17.35,0.67
 20260617,18.65,18.85,18.35,18.55,1013065,18,3.03,17.8,17.38,0.32
 20260618,18.55,18.65,18.1,18.4,1128289,18.04,2.01,17.91,17.41,0.36
+20260622,18.4,18.4,17.5,18,2178514,18.03,-0.19,17.97,17.42,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2461 | 光群雷 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2461 | 光群雷 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2461 | 光群雷 | 1 | 1 | 1 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 2461 | 光群雷 | 2 | 2 | 2 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

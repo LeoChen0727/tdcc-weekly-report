@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:56 Asia/Taipei
+- generated_at: 2026-06-23 22:24:10 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 18.2
-- high: 18.4
-- low: 18.05
-- close: 18.35
-- volume: 2761000
-- ma5: 18.46
-- ema23_primary: 18.27
-- distance_to_ema23_pct: 0.42
-- ma20: 18.97
-- ma60: 15.74
-- ma120: 14.26
-- return_5d: 2.8
-- return_20d: 19.16
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -3.28
-- distance_to_high_60_pct: -23.54
+- date: 20260622
+- open: 18.6
+- high: 19.05
+- low: 18.35
+- close: 19
+- volume: 4538000
+- ma5: 18.56
+- ema23_primary: 18.33
+- distance_to_ema23_pct: 3.64
+- ma20: 19.14
+- ma60: 15.84
+- ma120: 14.33
+- return_5d: 2.7
+- return_20d: 21.41
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: -0.73
+- distance_to_high_60_pct: -20.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,15.55,15.65,15.25,15.65,15000,14.82,5.57,15,14.03,0
 20260525,15.95,16.25,15.7,16,16000,14.92,7.22,15.12,14.07,0
 20260526,16.1,16.5,15.75,16.35,16000,15.04,8.7,15.24,14.1,0
 20260527,16.65,17.95,16.65,17.95,18000,15.28,17.44,15.43,14.14,0.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,19.05,19.15,18.4,18.4,3754000,18.27,0.7,18.64,15.59,1.45
 20260617,18.35,18.5,18.05,18.2,2808000,18.27,-0.36,18.82,15.66,1.07
 20260618,18.2,18.4,18.05,18.35,2761000,18.27,0.42,18.97,15.74,1.06
+20260622,18.6,19.05,18.35,19,4538000,18.33,3.64,19.14,15.84,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6015 | 宏遠證 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 承認本公司一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認本公司一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉: 通過本公司第十七屆董事(含獨立董事)改選案。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6015 | 宏遠證 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 承認本公司一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認本公司一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉: 通過本公司第十七屆董事(含獨立董事)改選案。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6015 | 宏遠證 | pullback_rebound | 回檔後短線轉強 | 90.0 |  |  |  |  |  | continued_2_3d | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 承認本公司一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認本公司一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉: 通過本公司第十七屆董事(含獨立董事)改選案。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6015 | 宏遠證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | continued_2_3d | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 承認本公司一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認本公司一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉: 通過本公司第十七屆董事(含獨立董事)改選案。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6015 | 宏遠證 | 1 | 1 | 1 | 3 | 10 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260622 | 6015 | 宏遠證 | 2 | 2 | 2 | 3 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

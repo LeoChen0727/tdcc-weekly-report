@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7822 倍利科
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:30 Asia/Taipei
+- generated_at: 2026-06-23 22:24:52 Asia/Taipei
 - stock_id: 7822
 - stock_name: 倍利科
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 56
+- latest_price_date: 20260622
+- price_rows: 57
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 1170
-- high: 1175
-- low: 1140
-- close: 1165
-- volume: 245118
-- ma5: 1108
-- ema23_primary: 1124.05
-- distance_to_ema23_pct: 3.64
-- ma20: 1095
-- ma60: 1299.38
-- ma120: 1299.38
-- return_5d: 23.15
-- return_20d: 10.43
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 6.39
-- distance_to_high_60_pct: -37.87
+- date: 20260622
+- open: 1185
+- high: 1255
+- low: 1185
+- close: 1220
+- volume: 464953
+- ma5: 1152
+- ema23_primary: 1132.04
+- distance_to_ema23_pct: 7.77
+- ma20: 1102.5
+- ma60: 1297.98
+- ma120: 1297.98
+- return_5d: 22
+- return_20d: 14.02
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 10.66
+- distance_to_high_60_pct: -34.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,1030,1100,1030,1070,250725,1258.28,-14.96,1233.5,1403.65,0.75
 20260525,1100,1175,1100,1175,445123,1251.34,-6.1,1227,1397.63,1.34
 20260526,1165,1200,1110,1180,463758,1245.39,-5.25,1224.25,1392.05,1.4
 20260527,1180,1180,1125,1145,459778,1237.03,-7.44,1213.75,1385.88,1.35
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,1205,1210,1100,1120,659061,1117.17,0.25,1083.75,1304.54,1.88
 20260617,1100,1155,1065,1155,290888,1120.32,3.1,1089.5,1301.82,0.82
 20260618,1170,1175,1140,1165,245118,1124.05,3.64,1095,1299.38,0.68
+20260622,1185,1255,1185,1220,464953,1132.04,7.77,1102.5,1297.98,1.26
 ```
 
 ## Latest TDCC Snapshot

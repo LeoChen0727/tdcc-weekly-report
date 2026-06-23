@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:50 Asia/Taipei
+- generated_at: 2026-06-23 22:24:03 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 51.8
-- high: 56.5
-- low: 51.8
-- close: 56.5
-- volume: 42917000
-- ma5: 49.6
-- ema23_primary: 41.42
-- distance_to_ema23_pct: 36.42
-- ma20: 41.59
-- ma60: 31.32
-- ma120: 28.34
-- return_5d: 30.79
-- return_20d: 66.42
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 35.83
-- distance_to_high_60_pct: 0
+- date: 20260622
+- open: 58.4
+- high: 60
+- low: 57
+- close: 58
+- volume: 44254000
+- ma5: 52.73
+- ema23_primary: 42.8
+- distance_to_ema23_pct: 35.52
+- ma20: 42.72
+- ma60: 31.87
+- ma120: 28.65
+- return_5d: 36.95
+- return_20d: 63.38
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: 35.77
+- distance_to_high_60_pct: -3.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,35.3,36.85,34.15,35.5,35000,28.56,24.32,27.84,26.71,0
 20260525,37.55,39,35.6,36,37000,29.18,23.39,28.45,26.82,0
 20260526,36,36,32.4,35.3,34000,29.69,18.91,29.04,26.93,0
 20260527,35.7,37.2,34.15,35.55,36000,30.18,17.81,29.52,27.03,0
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,49.8,51.2,48.2,51.2,37159000,39.01,31.24,39.44,30.41,2.02
 20260617,53,53.3,48.25,51.4,62017000,40.04,28.36,40.47,30.81,3
 20260618,51.8,56.5,51.8,56.5,42917000,41.42,36.42,41.59,31.32,2.03
+20260622,58.4,60,57,58,44254000,42.8,35.52,42.72,31.87,1.9
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5328 | 華容 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 5328 | 華容 | true_breakout | 嚴格突破 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5328 | 華容 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260622 | 5328 | 華容 | 2 | 2 | 2 | 2 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

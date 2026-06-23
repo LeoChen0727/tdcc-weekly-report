@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3115 富榮綱
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:19 Asia/Taipei
+- generated_at: 2026-06-23 22:23:25 Asia/Taipei
 - stock_id: 3115
 - stock_name: 富榮綱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 144
+- latest_price_date: 20260622
+- price_rows: 145
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
+- date: 20260622
 - open: 9
 - high: 9
-- low: 8.99
+- low: 9
 - close: 9
-- volume: 3000
-- ma5: 9.28
-- ema23_primary: 9.12
-- distance_to_ema23_pct: -1.29
-- ma20: 8.81
-- ma60: 9.44
-- ma120: 9.87
-- return_5d: -1.64
-- return_20d: -3.95
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: 2.13
+- volume: 1000
+- ma5: 9.18
+- ema23_primary: 9.11
+- distance_to_ema23_pct: -1.19
+- ma20: 8.8
+- ma60: 9.42
+- ma120: 9.86
+- return_5d: -5.26
+- return_20d: -2.17
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 2.24
 - distance_to_high_60_pct: -19.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260519,9.2,9.2,8.5,9.2,125000,9.68,-4.94,9.87,9.83,4.34
 20260520,8.59,8.81,8.59,8.68,37000,9.59,-9.53,9.78,9.8,1.36
 20260521,8.84,8.84,8.41,8.63,44000,9.51,-9.29,9.66,9.78,1.83
 20260522,8.7,8.7,8.15,8.15,8000,9.4,-13.3,9.56,9.75,0.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,9.01,9.09,9.01,9.09,5000,9.13,-0.46,8.85,9.46,0.29
 20260615,8.75,9.09,8.75,9.09,2000,9.13,-0.42,8.83,9.45,0.12
 20260618,9,9,8.99,9,3000,9.12,-1.29,8.81,9.44,0.19
+20260622,9,9,9,9,1000,9.11,-1.19,8.8,9.42,0.1
 ```
 
 ## Latest TDCC Snapshot

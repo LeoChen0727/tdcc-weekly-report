@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6578 達邦蛋白
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:11 Asia/Taipei
+- generated_at: 2026-06-23 22:24:28 Asia/Taipei
 - stock_id: 6578
 - stock_name: 達邦蛋白
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 16.95
-- high: 17
-- low: 16.45
+- date: 20260622
+- open: 16.8
+- high: 16.8
+- low: 16.15
 - close: 16.45
-- volume: 64000
-- ma5: 16.6
-- ema23_primary: 16.68
-- distance_to_ema23_pct: -1.36
-- ma20: 16.8
-- ma60: 16.78
-- ma120: 17.93
-- return_5d: -2.95
-- return_20d: -4.36
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: -2.1
+- volume: 116000
+- ma5: 16.56
+- ema23_primary: 16.66
+- distance_to_ema23_pct: -1.25
+- ma20: 16.76
+- ma60: 16.76
+- ma120: 17.91
+- return_5d: -1.2
+- return_20d: -4.91
+- volume_ratio: 2.13
+- distance_to_ma20_pct_auxiliary: -1.85
 - distance_to_high_60_pct: -9.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,17.1,17.8,17.1,17.3,17000,16.37,5.66,15.87,17.23,0.07
 20260525,17.35,17.35,17,17.05,17000,16.43,3.78,15.9,17.19,0.07
 20260526,16.95,17.7,16.95,17.35,17000,16.51,5.11,15.97,17.17,0.08
 20260527,17.15,17.15,16.65,16.65,17000,16.52,0.8,16.02,17.13,0.08
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,16.7,17.1,16.45,16.45,76000,16.71,-1.57,16.86,16.82,1.24
 20260617,16.4,17,16.35,16.55,81000,16.7,-0.89,16.84,16.8,1.56
 20260618,16.95,17,16.45,16.45,64000,16.68,-1.36,16.8,16.78,1.29
+20260622,16.8,16.8,16.15,16.45,116000,16.66,-1.25,16.76,16.76,2.13
 ```
 
 ## Latest TDCC Snapshot

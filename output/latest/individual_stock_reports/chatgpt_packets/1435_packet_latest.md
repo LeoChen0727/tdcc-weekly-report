@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1435 中福
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:40 Asia/Taipei
+- generated_at: 2026-06-23 22:22:38 Asia/Taipei
 - stock_id: 1435
 - stock_name: 中福
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 217
+- latest_price_date: 20260622
+- price_rows: 218
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 14.1
-- high: 14.1
-- low: 14.1
-- close: 14.1
-- volume: 17328
-- ma5: 13.94
-- ema23_primary: 15.68
-- distance_to_ema23_pct: -10.06
-- ma20: 15.48
-- ma60: 19.17
-- ma120: 21.89
-- return_5d: -0.35
-- return_20d: -22.31
-- volume_ratio: 1.74
-- distance_to_ma20_pct_auxiliary: -8.9
-- distance_to_high_60_pct: -43.03
+- date: 20260622
+- open: 15.5
+- high: 15.5
+- low: 15.5
+- close: 15.5
+- volume: 3596
+- ma5: 14.19
+- ema23_primary: 15.66
+- distance_to_ema23_pct: -1.04
+- ma20: 15.35
+- ma60: 19.07
+- ma120: 21.79
+- return_5d: 8.77
+- return_20d: -14.36
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 0.99
+- distance_to_high_60_pct: -37.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260324,18.1,18.1,18.1,18.1,1711,19.92,-9.13,20.36,21.24,0.03
 20260325,18.8,18.9,18.75,18.75,11418,19.82,-5.41,20.14,21.15,0.21
 20260326,19.2,19.2,19.2,19.2,1638,19.77,-2.88,19.91,21.11,0.03
 20260330,18.35,18.35,17.75,18.3,11371,19.65,-6.86,19.64,21.05,0.21
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260424,14.2,14.2,14.2,14.2,2016,16.09,-11.75,15.96,19.44,0.33
 20260428,12.8,13.1,12.8,12.85,70976,15.82,-18.78,15.68,19.3,7.4
 20260618,14.1,14.1,14.1,14.1,17328,15.68,-10.06,15.48,19.17,1.74
+20260622,15.5,15.5,15.5,15.5,3596,15.66,-1.04,15.35,19.07,0.36
 ```
 
 ## Latest TDCC Snapshot

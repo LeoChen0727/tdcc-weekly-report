@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00731 復華富時高息低波
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:32 Asia/Taipei
+- generated_at: 2026-06-23 22:22:29 Asia/Taipei
 - stock_id: 00731
 - stock_name: 復華富時高息低波
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 91
+- date: 20260622
+- open: 91.5
 - high: 92
-- low: 91
-- close: 91.55
-- volume: 573860
-- ma5: 88.76
-- ema23_primary: 83.32
-- distance_to_ema23_pct: 9.88
-- ma20: 82.72
-- ma60: 82.72
-- ma120: 82.72
-- return_5d: 7.08
-- return_20d:
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 10.67
-- distance_to_high_60_pct: -0.49
+- low: 91.35
+- close: 91.6
+- volume: 919926
+- ma5: 89.98
+- ema23_primary: 84.01
+- distance_to_ema23_pct: 9.03
+- ma20: 83.54
+- ma60: 83.15
+- ma120: 83.15
+- return_5d: 7.13
+- return_20d: 21.57
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 9.65
+- distance_to_high_60_pct: -0.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,75.1,75.35,74.85,75.35,990235,,,,,
 20260525,75.6,76.5,75.45,75.75,1071277,,,,,
 20260526,76.25,76.4,76,76.15,828824,,,,,
 20260527,76.25,77.45,76.25,77,808180,,,,,
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,87.75,89.15,87.65,89.1,908953,81.86,8.84,81.81,81.81,0.96
 20260617,89.1,90.65,89.1,90.35,790102,82.57,9.42,82.26,82.26,0.84
 20260618,91,92,91,91.55,573860,83.32,9.88,82.72,82.72,0.62
+20260622,91.5,92,91.35,91.6,919926,84.01,9.03,83.54,83.15,1
 ```
 
 ## Latest TDCC Snapshot

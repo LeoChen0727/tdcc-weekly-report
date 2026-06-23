@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4167 松瑞藥
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:37 Asia/Taipei
+- generated_at: 2026-06-23 22:23:46 Asia/Taipei
 - stock_id: 4167
 - stock_name: 松瑞藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 20
-- high: 20.05
-- low: 19.75
-- close: 19.95
-- volume: 609000
-- ma5: 19.89
-- ema23_primary: 19.8
-- distance_to_ema23_pct: 0.78
-- ma20: 19.82
-- ma60: 19.77
-- ma120: 19.62
-- return_5d: 1.53
-- return_20d: 3.1
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: 0.64
-- distance_to_high_60_pct: -9.32
+- date: 20260622
+- open: 20.15
+- high: 20.15
+- low: 19.65
+- close: 19.7
+- volume: 1049000
+- ma5: 19.86
+- ema23_primary: 19.79
+- distance_to_ema23_pct: -0.44
+- ma20: 19.85
+- ma60: 19.75
+- ma120: 19.64
+- return_5d: -0.76
+- return_20d: 3.14
+- volume_ratio: 2.17
+- distance_to_ma20_pct_auxiliary: -0.77
+- distance_to_high_60_pct: -10.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,19.35,19.4,19.05,19.1,19000,19.2,-0.5,19,19.84,0.03
 20260525,19.2,19.25,18.85,19.15,19000,19.19,-0.22,18.99,19.83,0.03
 20260526,19.15,19.15,18.8,18.85,19000,19.16,-1.64,18.96,19.83,0.03
 20260527,18.85,19,18.75,18.95,19000,19.15,-1.02,18.96,19.83,0.03
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,20.05,20.05,19.8,19.85,417000,19.77,0.38,19.75,19.8,0.99
 20260617,19.85,20.05,19.65,19.85,582000,19.78,0.35,19.79,19.78,1.33
 20260618,20,20.05,19.75,19.95,609000,19.8,0.78,19.82,19.77,1.41
+20260622,20.15,20.15,19.65,19.7,1049000,19.79,-0.44,19.85,19.75,2.17
 ```
 
 ## Latest TDCC Snapshot

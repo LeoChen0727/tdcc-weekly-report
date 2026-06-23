@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2480 敦陽科
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:04 Asia/Taipei
+- generated_at: 2026-06-23 22:23:07 Asia/Taipei
 - stock_id: 2480
 - stock_name: 敦陽科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 149
-- high: 154.5
-- low: 148
-- close: 153.5
-- volume: 696410
-- ma5: 152.1
-- ema23_primary: 152.91
-- distance_to_ema23_pct: 0.38
-- ma20: 154.15
-- ma60: 146.57
-- ma120: 145.45
-- return_5d: -1.92
-- return_20d: 4.42
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -0.42
-- distance_to_high_60_pct: -5.83
+- date: 20260622
+- open: 154
+- high: 155.5
+- low: 152.5
+- close: 154.5
+- volume: 522640
+- ma5: 151.8
+- ema23_primary: 153.04
+- distance_to_ema23_pct: 0.95
+- ma20: 154.4
+- ma60: 146.82
+- ma120: 145.53
+- return_5d: -0.96
+- return_20d: 3.34
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 0.06
+- distance_to_high_60_pct: -5.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,147,149.5,146.5,149.5,292956,146.02,2.38,146.25,143.1,0.69
 20260525,150,150,146.5,146.5,643647,146.06,0.3,146.6,143.09,1.46
 20260526,147,148,146.5,148,398100,146.22,1.22,147.07,143.14,0.92
 20260527,149,149,146.5,146.5,523770,146.25,0.17,147.5,143.13,1.21
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,150,151,146,147,1082458,153.35,-4.14,153.78,146.25,1.61
 20260617,147.5,147.5,144.5,147.5,658699,152.86,-3.51,153.82,146.34,0.95
 20260618,149,154.5,148,153.5,696410,152.91,0.38,154.15,146.57,0.97
+20260622,154,155.5,152.5,154.5,522640,153.04,0.95,154.4,146.82,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2480 | 敦陽科 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260622 | 2480 | 敦陽科 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4109 加捷生醫
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:35 Asia/Taipei
+- generated_at: 2026-06-23 22:23:44 Asia/Taipei
 - stock_id: 4109
 - stock_name: 加捷生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 12.15
-- high: 12.3
-- low: 12.1
-- close: 12.15
-- volume: 165000
-- ma5: 12.17
-- ema23_primary: 11.92
-- distance_to_ema23_pct: 1.93
-- ma20: 11.8
-- ma60: 11.97
-- ma120: 13.12
-- return_5d: 1.25
-- return_20d: 4.74
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 2.94
-- distance_to_high_60_pct: -8.65
+- date: 20260622
+- open: 12.1
+- high: 12.15
+- low: 12.05
+- close: 12.05
+- volume: 155000
+- ma5: 12.14
+- ema23_primary: 11.93
+- distance_to_ema23_pct: 1
+- ma20: 11.83
+- ma60: 11.95
+- ma120: 13.09
+- return_5d: -1.23
+- return_20d: 4.78
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 1.86
+- distance_to_high_60_pct: -9.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,11.6,11.75,11.4,11.5,12000,11.67,-1.49,11.49,12.47,0.06
 20260525,11.5,11.5,11.15,11.25,11000,11.64,-3.34,11.47,12.42,0.06
 20260526,11.25,11.5,11.1,11.25,11000,11.61,-3.07,11.46,12.38,0.07
 20260527,11.35,11.5,11.2,11.2,11000,11.57,-3.22,11.44,12.33,0.07
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,12.35,12.35,12.1,12.1,169000,11.88,1.89,11.76,12.01,0.91
 20260617,12.1,12.3,12.05,12.15,137000,11.9,2.11,11.78,11.99,0.74
 20260618,12.15,12.3,12.1,12.15,165000,11.92,1.93,11.8,11.97,0.88
+20260622,12.1,12.15,12.05,12.05,155000,11.93,1,11.83,11.95,0.79
 ```
 
 ## Latest TDCC Snapshot

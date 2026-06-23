@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00661 元大日經225
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:32 Asia/Taipei
+- generated_at: 2026-06-23 22:22:28 Asia/Taipei
 - stock_id: 00661
 - stock_name: 元大日經225
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 91.65
-- high: 91.95
-- low: 91.35
-- close: 91.95
-- volume: 70989
-- ma5: 89.38
-- ema23_primary: 85.77
-- distance_to_ema23_pct: 7.2
-- ma20: 85.66
-- ma60: 85.66
-- ma120: 85.66
-- return_5d: 10.98
-- return_20d:
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 7.34
-- distance_to_high_60_pct: 0
+- date: 20260622
+- open: 93.2
+- high: 93.9
+- low: 93.2
+- close: 93.55
+- volume: 61398
+- ma5: 90.92
+- ema23_primary: 86.42
+- distance_to_ema23_pct: 8.25
+- ma20: 86.25
+- ma60: 86.04
+- ma120: 86.04
+- return_5d: 8.97
+- return_20d: 14.29
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 8.47
+- distance_to_high_60_pct: -0.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,81.15,81.85,80.95,81.85,78192,,,,,
 20260525,83.8,84.35,83.8,84.2,239666,,,,,
 20260526,83.9,83.95,83.55,83.9,105613,,,,,
 20260527,84.6,85.3,84.1,84.1,136444,,,,,
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,89.4,90.3,89.05,89.8,123416,84.77,5.93,85.07,85.07,0.67
 20260617,89.8,90.25,89.6,90,56316,85.21,5.62,85.33,85.33,0.32
 20260618,91.65,91.95,91.35,91.95,70989,85.77,7.2,85.66,85.66,0.41
+20260622,93.2,93.9,93.2,93.55,61398,86.42,8.25,86.25,86.04,0.36
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009806 台新標普500
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:35 Asia/Taipei
+- generated_at: 2026-06-23 22:22:32 Asia/Taipei
 - stock_id: 009806
 - stock_name: 台新標普500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 13.16
-- high: 13.16
-- low: 13.15
-- close: 13.15
-- volume: 115000
-- ma5: 13.17
+- date: 20260622
+- open: 13.17
+- high: 13.17
+- low: 13.14
+- close: 13.16
+- volume: 163000
+- ma5: 13.19
 - ema23_primary: 13.13
-- distance_to_ema23_pct: 0.14
+- distance_to_ema23_pct: 0.2
 - ma20: 13.14
 - ma60: 13.14
 - ma120: 13.14
-- return_5d: 2.1
-- return_20d:
-- volume_ratio: 2.8
-- distance_to_ma20_pct_auxiliary: 0.09
-- distance_to_high_60_pct: -1.2
+- return_5d: 0.92
+- return_20d: 0.23
+- volume_ratio: 3.36
+- distance_to_ma20_pct_auxiliary: 0.15
+- distance_to_high_60_pct: -1.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,13.09,13.13,13.08,13.13,13000,,,,,
 20260525,13.16,13.19,13.14,13.19,13000,,,,,
 20260526,13.13,13.16,13.12,13.16,13000,,,,,
 20260527,13.16,13.16,13.13,13.13,13000,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,13.23,13.26,13.23,13.26,14000,13.12,1.05,13.13,13.13,0.37
 20260617,13.21,13.21,13.2,13.2,15000,13.13,0.54,13.14,13.14,0.4
 20260618,13.16,13.16,13.15,13.15,115000,13.13,0.14,13.14,13.14,2.8
+20260622,13.17,13.17,13.14,13.16,163000,13.13,0.2,13.14,13.14,3.36
 ```
 
 ## Latest TDCC Snapshot

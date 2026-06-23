@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3663 鑫科
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:32 Asia/Taipei
+- generated_at: 2026-06-23 22:23:41 Asia/Taipei
 - stock_id: 3663
 - stock_name: 鑫科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 85.8
-- high: 85.9
-- low: 82.3
-- close: 85.7
-- volume: 10691000
-- ma5: 74.92
-- ema23_primary: 76.98
-- distance_to_ema23_pct: 11.32
-- ma20: 80.45
-- ma60: 74.56
-- ma120: 67.64
-- return_5d: 23.67
-- return_20d: 2.39
-- volume_ratio: 6.78
-- distance_to_ma20_pct_auxiliary: 6.52
-- distance_to_high_60_pct: -8.64
+- date: 20260622
+- open: 86.4
+- high: 88.4
+- low: 85.7
+- close: 86
+- volume: 6255000
+- ma5: 78.54
+- ema23_primary: 77.74
+- distance_to_ema23_pct: 10.63
+- ma20: 80.41
+- ma60: 74.81
+- ma120: 67.97
+- return_5d: 26.66
+- return_20d: -1.04
+- volume_ratio: 3.32
+- distance_to_ma20_pct_auxiliary: 6.95
+- distance_to_high_60_pct: -8.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,84.5,90.9,83.3,86.9,87000,74.21,17.11,72.45,69.99,0.02
 20260525,87.9,93.6,87.9,91.7,91000,75.66,21.19,73.62,70.44,0.02
 20260526,91.4,91.9,87.8,91.4,90000,76.98,18.74,74.86,70.92,0.02
 20260527,92.1,92.1,87.7,89.9,90000,78.05,15.18,75.98,71.33,0.02
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,73.6,75.5,70.2,71,2954000,76.02,-6.6,80.38,74.29,1.31
 20260617,70.5,78.1,69.4,78.1,3506000,76.19,2.5,80.36,74.4,2.15
 20260618,85.8,85.9,82.3,85.7,10691000,76.98,11.32,80.45,74.56,6.78
+20260622,86.4,88.4,85.7,86,6255000,77.74,10.63,80.41,74.81,3.32
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3663 | 鑫科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東會決議日:115/06/17 2.許可從事競業行為之董事姓名及職稱: (1)董事：中盈投資開發股份有限公司法人代表人：李建輝 (2)董事：中盈投資開發股份有限公司法人代表人：陳世新 (3)董事：景裕國際股份有限公司法人代表人：李政和 (4)董事：聯合再生能源股份有限公司司法人代表人：潘蕾蕾 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之業務 4.許可從事競業行為之期間:任職本公司董事職務之期間 5.決議情形（請依公司法第209條說明表決結果）:經表決後照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 董事：中盈投資開發股份有限公司法人代表人：李建輝 7.所擔任該大陸地區事業之公司名稱及職務: 常州中鋼精密鍛材有限公司法人董事：李建輝 8.所擔任該大陸地區事業地址: 江蘇省常州市武進經濟開發區長揚路18號 9.所擔任該大陸地區事業營業項目: 純鈦鎳、鈦鎳合金與特殊不銹鋼等加工銷售 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3663 | 鑫科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.股東會決議日:115/06/17 2.許可從事競業行為之董事姓名及職稱: (1)董事：中盈投資開發股份有限公司法人代表人：李建輝 (2)董事：中盈投資開發股份有限公司法人代表人：陳世新 (3)董事：景裕國際股份有限公司法人代表人：李政和 (4)董事：聯合再生能源股份有限公司司法人代表人：潘蕾蕾 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之業務 4.許可從事競業行為之期間:任職本公司董事職務之期間 5.決議情形（請依公司法第209條說明表決結果）:經表決後照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 董事：中盈投資開發股份有限公司法人代表人：李建輝 7.所擔任該大陸地區事業之公司名稱及職務: 常州中鋼精密鍛材有限公司法人董事：李建輝 8.所擔任該大陸地區事業地址: 江蘇省常州市武進經濟開發區長揚路18號 9.所擔任該大陸地區事業營業項目: 純鈦鎳、鈦鎳合金與特殊不銹鋼等加工銷售 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3663 | 鑫科 | 1 | 1 | 1 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3663 | 鑫科 | 2 | 2 | 2 | 3 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4552 力達-KY
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:40 Asia/Taipei
+- generated_at: 2026-06-23 22:23:50 Asia/Taipei
 - stock_id: 4552
 - stock_name: 力達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 21.4
-- high: 21.6
-- low: 21.35
-- close: 21.55
-- volume: 130262
-- ma5: 21.33
-- ema23_primary: 20.77
-- distance_to_ema23_pct: 3.74
-- ma20: 20.65
-- ma60: 20.58
-- ma120: 22.03
-- return_5d: 2.86
-- return_20d: 8.02
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 4.37
-- distance_to_high_60_pct: -0.69
+- date: 20260622
+- open: 21.35
+- high: 21.55
+- low: 21.25
+- close: 21.45
+- volume: 159047
+- ma5: 21.36
+- ema23_primary: 20.83
+- distance_to_ema23_pct: 2.98
+- ma20: 20.73
+- ma60: 20.59
+- ma120: 22.01
+- return_5d: 0.7
+- return_20d: 7.79
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 3.5
+- distance_to_high_60_pct: -1.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,19.8,19.95,19.75,19.9,145327,20.16,-1.28,19.97,21.2,1.06
 20260525,19.9,20.1,19.8,20,295609,20.15,-0.72,19.96,21.14,2.06
 20260526,20.2,20.2,19.95,20,177193,20.13,-0.66,19.95,21.08,1.26
 20260527,19.9,19.9,19.6,19.9,180568,20.11,-1.06,19.95,21.01,1.23
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,21.05,21.6,21.05,21.45,201018,20.65,3.89,20.48,20.57,1.45
 20260617,21.45,21.5,21.25,21.3,70552,20.7,2.89,20.57,20.57,0.51
 20260618,21.4,21.6,21.35,21.55,130262,20.77,3.74,20.65,20.58,0.95
+20260622,21.35,21.55,21.25,21.45,159047,20.83,2.98,20.73,20.59,1.15
 ```
 
 ## Latest TDCC Snapshot

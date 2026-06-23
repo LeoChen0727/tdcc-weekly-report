@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00935 野村臺灣新科技50
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:31 Asia/Taipei
 - stock_id: 00935
 - stock_name: 野村臺灣新科技50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 61.9
-- high: 62.4
-- low: 61.75
-- close: 62.25
-- volume: 11754121
-- ma5: 60.93
-- ema23_primary: 59.59
-- distance_to_ema23_pct: 4.46
-- ma20: 60.21
-- ma60: 60.21
-- ma120: 60.21
-- return_5d: 9.4
-- return_20d:
+- date: 20260622
+- open: 63.75
+- high: 64.4
+- low: 63.7
+- close: 64.2
+- volume: 11542193
+- ma5: 62
+- ema23_primary: 59.98
+- distance_to_ema23_pct: 7.04
+- ma20: 60.6
+- ma60: 60.4
+- ma120: 60.4
+- return_5d: 9.09
+- return_20d: 13.93
 - volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 3.39
-- distance_to_high_60_pct: -1.81
+- distance_to_ma20_pct_auxiliary: 5.94
+- distance_to_high_60_pct: -0.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,55.2,56.35,55.2,56.35,13711383,,,,,
 20260525,58.35,59.8,58.35,59.8,44309996,,,,,
 20260526,60.55,60.6,59.15,60,24350341,,,,,
 20260527,62.1,63.3,61.5,62.1,30815939,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,61.45,61.7,61,61.35,11876358,59.17,3.69,60.03,60.03,0.52
 20260617,60.5,61.35,60.35,61.35,13933577,59.35,3.37,60.1,60.1,0.62
 20260618,61.9,62.4,61.75,62.25,11754121,59.59,4.46,60.21,60.21,0.53
+20260622,63.75,64.4,63.7,64.2,11542193,59.98,7.04,60.6,60.4,0.53
 ```
 
 ## Latest TDCC Snapshot

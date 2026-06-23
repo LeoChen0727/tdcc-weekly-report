@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1443 立益物流
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:40 Asia/Taipei
+- generated_at: 2026-06-23 22:22:38 Asia/Taipei
 - stock_id: 1443
 - stock_name: 立益物流
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 280
+- latest_price_date: 20260622
+- price_rows: 281
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 27.3
-- high: 27.95
-- low: 27.25
-- close: 27.9
-- volume: 14912
-- ma5: 27.55
-- ema23_primary: 26.4
-- distance_to_ema23_pct: 5.66
-- ma20: 26.26
-- ma60: 24.78
-- ma120: 25.69
-- return_5d: 5.48
-- return_20d: 5.48
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 6.25
-- distance_to_high_60_pct: -0.18
+- date: 20260622
+- open: 28.1
+- high: 28.1
+- low: 27.3
+- close: 27.45
+- volume: 14566
+- ma5: 27.7
+- ema23_primary: 26.49
+- distance_to_ema23_pct: 3.62
+- ma20: 26.33
+- ma60: 24.84
+- ma120: 25.7
+- return_5d: 2.81
+- return_20d: 5.17
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 4.26
+- distance_to_high_60_pct: -2.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,26.4,26.6,26.1,26.1,11100,25.24,3.39,24.72,24.62,0.26
 20260525,26.5,26.5,25.4,25.9,13982,25.3,2.38,24.92,24.58,0.34
 20260526,25.9,25.9,24.7,25.45,23168,25.31,0.55,25.1,24.55,0.55
 20260527,25.35,25.35,24.5,25.1,31001,25.29,-0.76,25.28,24.5,0.76
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,27.55,27.9,27.15,27.9,23818,26.14,6.74,26.12,24.67,0.73
 20260617,27.3,27.7,27.15,27.7,13426,26.27,5.45,26.19,24.72,0.41
 20260618,27.3,27.95,27.25,27.9,14912,26.4,5.66,26.26,24.78,0.46
+20260622,28.1,28.1,27.3,27.45,14566,26.49,3.62,26.33,24.84,0.45
 ```
 
 ## Latest TDCC Snapshot

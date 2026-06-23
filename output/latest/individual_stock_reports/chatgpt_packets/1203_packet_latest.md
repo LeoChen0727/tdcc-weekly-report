@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1203 味王
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:36 Asia/Taipei
+- generated_at: 2026-06-23 22:22:33 Asia/Taipei
 - stock_id: 1203
 - stock_name: 味王
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 286
+- latest_price_date: 20260622
+- price_rows: 287
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 42.9
+- date: 20260622
+- open: 43
 - high: 43
-- low: 42.85
-- close: 43
-- volume: 4773
+- low: 42.6
+- close: 42.8
+- volume: 12055
 - ma5: 43.15
-- ema23_primary: 42.87
-- distance_to_ema23_pct: 0.31
+- ema23_primary: 42.86
+- distance_to_ema23_pct: -0.14
 - ma20: 42.98
-- ma60: 42.29
-- ma120: 40.96
-- return_5d: 0.58
-- return_20d: 0.82
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: 0.06
-- distance_to_high_60_pct: -3.37
+- ma60: 42.36
+- ma120: 40.98
+- return_5d: 0
+- return_20d: 0.47
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.43
+- distance_to_high_60_pct: -3.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,42.4,42.8,42.3,42.6,42071,42.41,0.44,42.9,41.17,1.55
 20260525,42.6,43.1,42.2,42.6,53776,42.43,0.4,42.83,41.21,1.85
 20260526,41.75,43.15,41.75,42.7,30237,42.45,0.59,42.81,41.23,1.04
 20260527,42.7,42.7,42.05,42.7,17327,42.47,0.54,42.74,41.26,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,44.2,44.3,42.6,43.15,51611,42.83,0.75,42.88,42.13,1.84
 20260617,43.95,44.3,43.15,43.15,26517,42.85,0.69,42.96,42.21,0.96
 20260618,42.9,43,42.85,43,4773,42.87,0.31,42.98,42.29,0.19
+20260622,43,43,42.6,42.8,12055,42.86,-0.14,42.98,42.36,0.52
 ```
 
 ## Latest TDCC Snapshot

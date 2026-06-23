@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1513 中興電
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:43 Asia/Taipei
+- generated_at: 2026-06-23 22:22:41 Asia/Taipei
 - stock_id: 1513
 - stock_name: 中興電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 173
-- high: 176.5
-- low: 171
-- close: 176.5
-- volume: 17875474
-- ma5: 170.8
-- ema23_primary: 167.03
-- distance_to_ema23_pct: 5.67
-- ma20: 169.12
-- ma60: 157.58
-- ma120: 158.74
-- return_5d: 7.62
-- return_20d: 14.24
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 4.36
-- distance_to_high_60_pct: -12.19
+- date: 20260622
+- open: 181
+- high: 181
+- low: 176
+- close: 181
+- volume: 17056003
+- ma5: 173.6
+- ema23_primary: 168.19
+- distance_to_ema23_pct: 7.61
+- ma20: 170.35
+- ma60: 157.99
+- ma120: 159.03
+- return_5d: 8.38
+- return_20d: 15.65
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 6.25
+- distance_to_high_60_pct: -9.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,155,157,153.5,156.5,6295032,153.05,2.26,152.85,154.72,0.97
 20260525,158,160,155.5,160,12479266,153.62,4.15,153.38,154.58,1.83
 20260526,166,172,164,165,33962679,154.57,6.75,154.12,154.49,4.12
 20260527,168.5,175.5,166.5,169,30847651,155.78,8.49,155.12,154.38,3.21
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,171.5,171.5,168,168.5,3931089,165.64,1.73,166.85,156.97,0.2
 20260617,171,172.5,168,172,10715307,166.17,3.51,168.03,157.21,0.55
 20260618,173,176.5,171,176.5,17875474,167.03,5.67,169.12,157.58,0.89
+20260622,181,181,176,181,17056003,168.19,7.61,170.35,157.99,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1513 | 中興電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 1513 | 中興電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1513 | 中興電 | 17 | 7 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 1513 | 中興電 | 18 | 8 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1513 | 中興電 | 95 | 2 | 18265090.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 1513 | 中興電 | 95 | 2 | 16940160.0 | 6210.0 | 2727.88 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3511 矽瑪
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:28 Asia/Taipei
+- generated_at: 2026-06-23 22:23:36 Asia/Taipei
 - stock_id: 3511
 - stock_name: 矽瑪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 24.8
-- high: 25.25
-- low: 24.35
-- close: 24.95
-- volume: 623000
-- ma5: 24.61
-- ema23_primary: 23.42
-- distance_to_ema23_pct: 6.54
-- ma20: 23.41
-- ma60: 21.39
-- ma120: 20.91
-- return_5d: 5.94
-- return_20d: 25.06
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: 6.6
-- distance_to_high_60_pct: -12.46
+- date: 20260622
+- open: 25.05
+- high: 25.3
+- low: 24.3
+- close: 24.35
+- volume: 548000
+- ma5: 24.75
+- ema23_primary: 23.5
+- distance_to_ema23_pct: 3.64
+- ma20: 23.55
+- ma60: 21.48
+- ma120: 20.95
+- return_5d: 2.96
+- return_20d: 13.52
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 3.4
+- distance_to_high_60_pct: -14.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,20.05,21.5,19.95,21.45,21000,20.75,3.37,21.35,20.1,0.03
 20260525,21.75,21.85,21.05,21.1,21000,20.78,1.54,21.34,20.1,0.03
 20260526,21.55,21.55,20.6,20.75,21000,20.78,-0.13,21.31,20.11,0.03
 20260527,20.55,21,20,20.1,20000,20.72,-3,21.26,20.1,0.03
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,25.5,25.7,24.2,24.6,870000,23.15,6.24,22.9,21.2,2.72
 20260617,24.6,26.8,24.6,24.65,1170000,23.28,5.89,23.16,21.29,3.14
 20260618,24.8,25.25,24.35,24.95,623000,23.42,6.54,23.41,21.39,1.58
+20260622,25.05,25.3,24.3,24.35,548000,23.5,3.64,23.55,21.48,1.31
 ```
 
 ## Latest TDCC Snapshot

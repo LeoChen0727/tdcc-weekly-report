@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9950 萬國通
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:43 Asia/Taipei
+- generated_at: 2026-06-23 22:25:08 Asia/Taipei
 - stock_id: 9950
 - stock_name: 萬國通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 10.9
-- high: 10.9
-- low: 10.5
-- close: 10.55
-- volume: 148000
-- ma5: 10.79
-- ema23_primary: 10.86
-- distance_to_ema23_pct: -2.82
-- ma20: 10.85
+- date: 20260622
+- open: 10.55
+- high: 10.6
+- low: 10.45
+- close: 10.6
+- volume: 203000
+- ma5: 10.76
+- ema23_primary: 10.83
+- distance_to_ema23_pct: -2.17
+- ma20: 10.83
 - ma60: 10.97
 - ma120: 10.8
-- return_5d: -0.94
-- return_20d: -7.05
-- volume_ratio: 3.93
-- distance_to_ma20_pct_auxiliary: -2.74
-- distance_to_high_60_pct: -24.91
+- return_5d: -1.4
+- return_20d: -3.64
+- volume_ratio: 4.29
+- distance_to_ma20_pct_auxiliary: -2.1
+- distance_to_high_60_pct: -24.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,11.35,11.35,10.95,11,11000,11.04,-0.37,10.87,10.92,0.09
 20260525,11,11.15,10.8,10.8,11000,11.02,-2,10.85,10.93,0.1
 20260526,10.8,10.9,10.55,10.85,11000,11.01,-1.42,10.86,10.93,0.11
 20260527,11.25,11.25,10.65,10.8,11000,10.99,-1.72,10.86,10.93,0.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,11,11,10.85,10.9,21000,10.89,0.12,10.9,10.97,0.53
 20260617,10.95,10.95,10.85,10.85,13000,10.88,-0.31,10.89,10.97,0.38
 20260618,10.9,10.9,10.5,10.55,148000,10.86,-2.82,10.85,10.97,3.93
+20260622,10.55,10.6,10.45,10.6,203000,10.83,-2.17,10.83,10.97,4.29
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009822 華南永昌未來金融
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:35 Asia/Taipei
+- generated_at: 2026-06-23 22:22:32 Asia/Taipei
 - stock_id: 009822
 - stock_name: 華南永昌未來金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 12
+- latest_price_date: 20260622
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 9.88
-- high: 9.91
+- date: 20260622
+- open: 9.9
+- high: 9.99
 - low: 9.86
-- close: 9.86
-- volume: 2612000
-- ma5: 9.69
-- ema23_primary: 9.68
-- distance_to_ema23_pct: 1.84
-- ma20: 9.55
-- ma60: 9.55
-- ma120: 9.55
-- return_5d: 8
+- close: 9.97
+- volume: 4022000
+- ma5: 9.8
+- ema23_primary: 9.71
+- distance_to_ema23_pct: 2.72
+- ma20: 9.58
+- ma60: 9.58
+- ma120: 9.58
+- return_5d: 6.29
 - return_20d:
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: 3.24
-- distance_to_high_60_pct: -0.7
+- volume_ratio: 2.64
+- distance_to_ma20_pct_auxiliary: 4.04
+- distance_to_high_60_pct: -0.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,9.71,9.77,9.58,9.71,1738000,9.65,0.66,9.49,9.49,1.51
 20260617,9.82,9.89,9.82,9.88,1702000,9.67,2.22,9.52,9.52,1.42
 20260618,9.88,9.91,9.86,9.86,2612000,9.68,1.84,9.55,9.55,1.98
+20260622,9.9,9.99,9.86,9.97,4022000,9.71,2.72,9.58,9.58,2.64
 ```
 
 ## Latest TDCC Snapshot

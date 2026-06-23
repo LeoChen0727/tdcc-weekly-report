@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00737 國泰AI機器人
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:32 Asia/Taipei
+- generated_at: 2026-06-23 22:22:29 Asia/Taipei
 - stock_id: 00737
 - stock_name: 國泰AI機器人
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 38.51
-- high: 38.51
-- low: 38.22
-- close: 38.27
-- volume: 460655
-- ma5: 38.47
-- ema23_primary: 38.69
-- distance_to_ema23_pct: -1.1
-- ma20: 39.03
-- ma60: 39.03
-- ma120: 39.03
-- return_5d: 2.19
-- return_20d:
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: -1.94
-- distance_to_high_60_pct: -7.54
+- date: 20260622
+- open: 38.3
+- high: 38.39
+- low: 38.09
+- close: 38.15
+- volume: 249308
+- ma5: 38.48
+- ema23_primary: 38.65
+- distance_to_ema23_pct: -1.29
+- ma20: 39.04
+- ma60: 38.99
+- ma120: 38.99
+- return_5d: 0.08
+- return_20d: 0.53
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -2.27
+- distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,37.5,37.97,37.5,37.95,363787,,,,,
 20260525,38.6,38.88,38.57,38.88,295840,,,,,
 20260526,38.88,38.94,38.86,38.92,138292,,,,,
 20260527,38.93,39.04,38.89,38.89,156325,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,38.66,38.86,38.66,38.79,91973,38.75,0.1,39.1,39.1,0.37
 20260617,38.68,38.68,38.33,38.53,100507,38.73,-0.53,39.07,39.07,0.42
 20260618,38.51,38.51,38.22,38.27,460655,38.69,-1.1,39.03,39.03,1.82
+20260622,38.3,38.39,38.09,38.15,249308,38.65,-1.29,39.04,38.99,1.01
 ```
 
 ## Latest TDCC Snapshot

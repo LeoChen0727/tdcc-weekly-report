@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00926 凱基全球菁英55
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00926
 - stock_name: 凱基全球菁英55
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 24.97
-- high: 24.97
-- low: 24.8
-- close: 24.81
-- volume: 326925
-- ma5: 24.83
+- date: 20260622
+- open: 24.94
+- high: 25
+- low: 24.92
+- close: 24.98
+- volume: 862288
+- ma5: 24.9
 - ema23_primary: 24.99
-- distance_to_ema23_pct: -0.71
-- ma20: 24.99
+- distance_to_ema23_pct: -0.03
+- ma20: 24.97
 - ma60: 24.99
 - ma120: 24.99
-- return_5d: 1.47
-- return_20d:
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -0.74
-- distance_to_high_60_pct: -2.67
+- return_5d: 1.42
+- return_20d: -1.77
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 0.03
+- distance_to_high_60_pct: -2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,25.35,25.44,25.32,25.43,1982489,,,,,
 20260525,25.49,25.49,25.38,25.45,1028622,,,,,
 20260526,25.44,25.45,25.34,25.44,2121886,,,,,
 20260527,25.21,25.41,25.17,25.21,2946392,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,25.02,25.09,25,25.08,939662,25.01,0.27,25.01,25.01,0.82
 20260617,24.94,24.94,24.8,24.9,759394,25,-0.42,25,25,0.67
 20260618,24.97,24.97,24.8,24.81,326925,24.99,-0.71,24.99,24.99,0.3
+20260622,24.94,25,24.92,24.98,862288,24.99,-0.03,24.97,24.99,0.83
 ```
 
 ## Latest TDCC Snapshot

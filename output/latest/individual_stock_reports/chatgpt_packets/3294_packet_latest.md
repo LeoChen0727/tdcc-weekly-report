@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:23 Asia/Taipei
+- generated_at: 2026-06-23 22:23:30 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 41
-- high: 41.5
-- low: 39.4
-- close: 39.7
-- volume: 1577000
-- ma5: 38.6
-- ema23_primary: 38
-- distance_to_ema23_pct: 4.47
-- ma20: 39.2
-- ma60: 34.94
+- date: 20260622
+- open: 39.8
+- high: 41.35
+- low: 39.8
+- close: 40
+- volume: 2361000
+- ma5: 39.43
+- ema23_primary: 38.17
+- distance_to_ema23_pct: 4.8
+- ma20: 39.15
+- ma60: 35.04
 - ma120: 36.8
-- return_5d: 11.83
-- return_20d: -2.34
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: 1.27
-- distance_to_high_60_pct: -11.68
+- return_5d: 11.58
+- return_20d: -2.68
+- volume_ratio: 2.62
+- distance_to_ma20_pct_auxiliary: 2.18
+- distance_to_high_60_pct: -11.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,40.45,42.15,39.6,41.1,41000,34.86,17.89,33.37,34.41,0.02
 20260525,41.2,44.95,40.45,42.3,43000,35.48,19.21,33.95,34.46,0.02
 20260526,42.5,43,39.75,40.5,41000,35.9,12.81,34.44,34.49,0.02
 20260527,40.9,41.15,39.5,39.8,40000,36.23,9.87,34.89,34.5,0.02
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,41,41.1,38.15,38.15,2381000,37.66,1.3,39.28,34.78,1.58
 20260617,38.15,41.05,38.15,39.9,2819000,37.85,5.42,39.25,34.85,2.54
 20260618,41,41.5,39.4,39.7,1577000,38,4.47,39.2,34.94,2
+20260622,39.8,41.35,39.8,40,2361000,38.17,4.8,39.15,35.04,2.62
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3294 | 英濟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、 自然人董事或自然人監察人）:法人董事、自然人監察人 3.舊任者職稱及姓名: 法人董事：英濟股份有限公司代表人徐文麟 法人董事：英濟股份有限公司代表人姜同會 自然人董事：增田麻言 自然人監察人：張嘉正 4.舊任者簡歷: 徐文麟：英濟股份有限公司董事長 姜同會：英濟股份有限公司總經理 增田麻言：Barintec Co., Ltd.董事長 張嘉正：英濟股份有限公司財務長 5.新任者職稱及姓名: 法人董事：英濟股份有限公司代表人徐文麟 自然人監察人：張嘉正 6.新任者簡歷: 徐文麟：英濟股份有限公司董事長 張嘉正：英濟股份有限公司財務長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.新任者選任時持股數: 法人董事：英濟股份有限公司代表人徐文麟-1,498,699股 自然人監察人：張嘉正-0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/04/25~115/04/24 11.新任生效日期:115/06/18~118/06/17 12.同任期董事變動比率:2/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:0 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3294 | 英濟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、 自然人董事或自然人監察人）:法人董事、自然人監察人 3.舊任者職稱及姓名: 法人董事：英濟股份有限公司代表人徐文麟 法人董事：英濟股份有限公司代表人姜同會 自然人董事：增田麻言 自然人監察人：張嘉正 4.舊任者簡歷: 徐文麟：英濟股份有限公司董事長 姜同會：英濟股份有限公司總經理 增田麻言：Barintec Co., Ltd.董事長 張嘉正：英濟股份有限公司財務長 5.新任者職稱及姓名: 法人董事：英濟股份有限公司代表人徐文麟 自然人監察人：張嘉正 6.新任者簡歷: 徐文麟：英濟股份有限公司董事長 張嘉正：英濟股份有限公司財務長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.新任者選任時持股數: 法人董事：英濟股份有限公司代表人徐文麟-1,498,699股 自然人監察人：張嘉正-0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/04/25~115/04/24 11.新任生效日期:115/06/18~118/06/17 12.同任期董事變動比率:2/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:0 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3294 | 英濟 | 1 | 1 | 1 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3294 | 英濟 | 2 | 2 | 2 | 3 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

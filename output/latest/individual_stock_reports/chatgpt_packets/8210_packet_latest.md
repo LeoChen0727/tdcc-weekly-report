@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:35 Asia/Taipei
+- generated_at: 2026-06-23 22:24:58 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 1385
-- high: 1385
+- date: 20260622
+- open: 1400
+- high: 1405
 - low: 1345
-- close: 1365
-- volume: 1146686
-- ma5: 1393
-- ema23_primary: 1380.73
-- distance_to_ema23_pct: -1.14
-- ma20: 1403
-- ma60: 1213.03
-- ma120: 1072.51
-- return_5d: -5.21
-- return_20d: 2.25
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -2.71
-- distance_to_high_60_pct: -14.15
+- close: 1370
+- volume: 1326115
+- ma5: 1372
+- ema23_primary: 1379.84
+- distance_to_ema23_pct: -0.71
+- ma20: 1404.25
+- ma60: 1221.4
+- ma120: 1076.74
+- return_5d: -7.12
+- return_20d: 1.86
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -2.44
+- distance_to_high_60_pct: -13.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,1350,1380,1330,1345,1307613,1281.9,4.92,1320.25,1052.37,0.4
 20260525,1400,1455,1380,1435,1653950,1294.66,10.84,1331.5,1061.78,0.54
 20260526,1470,1470,1410,1440,1471408,1306.77,10.2,1345.25,1070.63,0.52
 20260527,1470,1470,1385,1395,1433207,1314.12,6.15,1356.5,1078.58,0.52
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,1440,1440,1330,1350,1918902,1385.54,-2.56,1398.5,1197.95,1.09
 20260617,1330,1370,1330,1345,877641,1382.16,-2.69,1401.5,1205.17,0.5
 20260618,1385,1385,1345,1365,1146686,1380.73,-1.14,1403,1213.03,0.66
+20260622,1400,1405,1345,1370,1326115,1379.84,-0.71,1404.25,1221.4,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8210 | 勤誠 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:朱永祥 4.舊任者簡歷:庠逸信息科技(上海)有限公司董事 5.新任者職稱及姓名:張超 6.新任者簡歷:本公司中國區製造總廠長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:退休改派 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/06/18 12.同任期董事變動比率:三分之一 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_3d |
+| 20260622 | 8210 | 勤誠 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:朱永祥 4.舊任者簡歷:庠逸信息科技(上海)有限公司董事 5.新任者職稱及姓名:張超 6.新任者簡歷:本公司中國區製造總廠長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:退休改派 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/06/18 12.同任期董事變動比率:三分之一 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260622 | 8210 | 勤誠 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:朱永祥 4.舊任者簡歷:庠逸信息科技(上海)有限公司董事 5.新任者職稱及姓名:張超 6.新任者簡歷:本公司中國區製造總廠長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:退休改派 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/06/18 12.同任期董事變動比率:三分之一 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8210 | 勤誠 | 1 | 1 | 4 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 8210 | 勤誠 | 2 | 2 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8210 | 勤誠 | 182 | 5 | 6920480.0 | 69800.0 | 99.15 | no_signal |
+| 20260622 | 8210 | 勤誠 | 178 | 5 | 6575490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

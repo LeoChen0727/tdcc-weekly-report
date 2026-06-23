@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6189 豐藝
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:01 Asia/Taipei
+- generated_at: 2026-06-23 22:24:16 Asia/Taipei
 - stock_id: 6189
 - stock_name: 豐藝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 54.5
-- high: 55.1
-- low: 54
-- close: 54.9
-- volume: 2026169
-- ma5: 55.1
-- ema23_primary: 52.78
-- distance_to_ema23_pct: 4.01
-- ma20: 52.99
-- ma60: 49.27
-- ma120: 47.47
-- return_5d: 4.97
-- return_20d: 6.6
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 3.59
-- distance_to_high_60_pct: -9.26
+- date: 20260622
+- open: 55.3
+- high: 55.5
+- low: 54.2
+- close: 54.6
+- volume: 1826148
+- ma5: 55.2
+- ema23_primary: 52.94
+- distance_to_ema23_pct: 3.14
+- ma20: 53.14
+- ma60: 49.4
+- ma120: 47.55
+- return_5d: 0.92
+- return_20d: 5.61
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 2.75
+- distance_to_high_60_pct: -9.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,51.7,52.1,50.8,51.7,1855398,48.65,6.26,48.62,46.78,1.5
 20260525,52.2,52.7,51.4,51.6,1798374,48.9,5.52,48.86,46.86,1.39
 20260526,51.6,51.9,50,51.8,1496124,49.14,5.41,49.11,46.95,1.12
 20260527,51.8,52,49.9,50.1,1585058,49.22,1.78,49.23,47.01,1.15
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,57.9,60.5,56.6,56.6,13177954,52.43,7.96,52.66,49.01,3.83
 20260617,55.5,55.5,53.5,54.4,4325027,52.59,3.44,52.83,49.13,1.25
 20260618,54.5,55.1,54,54.9,2026169,52.78,4.01,52.99,49.27,0.59
+20260622,55.3,55.5,54.2,54.6,1826148,52.94,3.14,53.14,49.4,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6189 | 豐藝 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_3d |
+| 20260622 | 6189 | 豐藝 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6189 | 豐藝 | 17 | 2 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 6189 | 豐藝 | 18 | 3 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6189 | 豐藝 | 1 | 0 | 451300.0 | 0.0 |  | no_signal |
+| 20260622 | 6189 | 豐藝 | 3 | 0 | 452740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

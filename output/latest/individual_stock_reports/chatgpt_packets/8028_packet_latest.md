@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:31 Asia/Taipei
+- generated_at: 2026-06-23 22:24:52 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 311
-- high: 317.5
-- low: 305
-- close: 311.5
-- volume: 7052137
-- ma5: 314.1
-- ema23_primary: 304.95
-- distance_to_ema23_pct: 2.15
-- ma20: 320.15
-- ma60: 252.69
-- ma120: 215.4
-- return_5d: 2.47
-- return_20d: 16.45
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -2.7
-- distance_to_high_60_pct: -14.66
+- date: 20260622
+- open: 313
+- high: 334
+- low: 312
+- close: 322.5
+- volume: 11432116
+- ma5: 315.6
+- ema23_primary: 306.41
+- distance_to_ema23_pct: 5.25
+- ma20: 321.57
+- ma60: 255.04
+- ma120: 216.69
+- return_5d: 2.38
+- return_20d: 9.69
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 0.29
+- distance_to_high_60_pct: -11.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,280.5,294,280.5,294,8520221,246.11,19.46,249.75,208.08,0.49
 20260525,308,321,305.5,311.5,14593592,251.56,23.83,253.22,210.28,0.86
 20260526,319.5,335,309,311,13567730,256.52,21.24,257.3,212.42,0.85
 20260527,318,318,301.5,308,7556258,260.81,18.1,260.93,214.42,0.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,325,337,314,314,9730955,303.71,3.39,315.3,248.43,0.99
 20260617,314.5,314.5,302.5,311.5,6617586,304.36,2.35,317.95,250.53,0.68
 20260618,311,317.5,305,311.5,7052137,304.95,2.15,320.15,252.69,0.74
+20260622,313,334,312,322.5,11432116,306.41,5.25,321.57,255.04,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8028 | 昇陽半導體 | 6 | 5 | 5 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 8028 | 昇陽半導體 | 7 | 6 | 5 | 7 | 9 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8028 | 昇陽半導體 | 157 | 2 | 16325630.0 | 5920.0 | 2757.71 | no_signal |
+| 20260622 | 8028 | 昇陽半導體 | 150 | 2 | 37678790.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

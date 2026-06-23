@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3443 創意
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:26 Asia/Taipei
+- generated_at: 2026-06-23 22:23:34 Asia/Taipei
 - stock_id: 3443
 - stock_name: 創意
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 5160
-- high: 5160
-- low: 4860
-- close: 4860
-- volume: 4719521
-- ma5: 4810
-- ema23_primary: 4616.36
-- distance_to_ema23_pct: 5.28
-- ma20: 4672.25
-- ma60: 4071.42
-- ma120: 3237.62
-- return_5d: 18.39
-- return_20d: -4.05
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 4.02
-- distance_to_high_60_pct: -18.32
+- date: 20260622
+- open: 5000
+- high: 5050
+- low: 4715
+- close: 4755
+- volume: 2992095
+- ma5: 4885
+- ema23_primary: 4627.91
+- distance_to_ema23_pct: 2.75
+- ma20: 4653
+- ma60: 4108.92
+- ma120: 3260.42
+- return_5d: 8.56
+- return_20d: -7.49
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 2.19
+- distance_to_high_60_pct: -20.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,5105,5195,4955,5140,2682444,4573.96,12.38,4813,3371.25,1.08
 20260525,5320,5560,5155,5310,2519157,4635.3,14.56,4876.75,3418.08,1
 20260526,5510,5510,4910,5285,2019188,4689.44,12.7,4943.25,3463.25,0.8
 20260527,5350,5620,5050,5100,2728891,4723.65,7.97,4988.75,3502.08,1.03
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,5055,5055,4845,4920,3257983,4550.5,8.12,4659,3993.08,1.2
 20260617,4900,5135,4830,5075,3268312,4594.21,10.47,4682.5,4033.58,1.21
 20260618,5160,5160,4860,4860,4719521,4616.36,5.28,4672.25,4071.42,1.69
+20260622,5000,5050,4715,4755,2992095,4627.91,2.75,4653,4108.92,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3443 | 創意 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3443 | 創意 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3443 | 創意 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3443 | 創意 | 17 | 1 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3443 | 創意 | 18 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3443 | 創意 | 93 | 14 | 2970330.0 | 29860.0 | 99.48 | no_signal |
+| 20260622 | 3443 | 創意 | 93 | 14 | 4038020.0 | 9530.0 | 423.72 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6865 偉康科技
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:19 Asia/Taipei
+- generated_at: 2026-06-23 22:24:38 Asia/Taipei
 - stock_id: 6865
 - stock_name: 偉康科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 149
+- latest_price_date: 20260622
+- price_rows: 150
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 25.75
-- high: 27.45
-- low: 25.7
-- close: 26.25
-- volume: 39000
-- ma5: 26.05
-- ema23_primary: 28.05
-- distance_to_ema23_pct: -6.41
-- ma20: 27.12
-- ma60: 32.64
-- ma120: 37.94
-- return_5d: -4.02
-- return_20d: -5.58
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -3.2
-- distance_to_high_60_pct: -40.54
+- date: 20260622
+- open: 26.25
+- high: 26.8
+- low: 26
+- close: 26.8
+- volume: 26000
+- ma5: 26.21
+- ema23_primary: 27.94
+- distance_to_ema23_pct: -4.09
+- ma20: 27.07
+- ma60: 32.5
+- ma120: 37.8
+- return_5d: 3.08
+- return_20d: -3.07
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -1.02
+- distance_to_high_60_pct: -39.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260521,27.5,28.3,27,27.65,58000,32.96,-16.12,33.64,35.45,1.87
 20260522,27.65,28.95,27.55,28.45,28000,32.59,-12.69,33.27,35.22,0.89
 20260525,28.45,28.45,27.5,28,28000,32.2,-13.06,32.87,35.01,0.87
 20260526,28,28,25.35,27.8,27000,31.84,-12.68,32.48,34.81,0.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,25.6,28.2,25.6,26.6,275000,28.43,-6.45,27.3,32.95,6.96
 20260617,26.1,26.5,25.75,25.75,31000,28.21,-8.72,27.2,32.79,0.79
 20260618,25.75,27.45,25.7,26.25,39000,28.05,-6.41,27.12,32.64,0.95
+20260622,26.25,26.8,26,26.8,26000,27.94,-4.09,27.07,32.5,0.66
 ```
 
 ## Latest TDCC Snapshot

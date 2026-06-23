@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00783 富邦中証500
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:29 Asia/Taipei
 - stock_id: 00783
 - stock_name: 富邦中証500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 30.34
-- high: 30.7
-- low: 30.34
-- close: 30.69
-- volume: 179708
-- ma5: 29.93
-- ema23_primary: 29.57
-- distance_to_ema23_pct: 3.79
-- ma20: 29.51
-- ma60: 29.51
-- ma120: 29.51
-- return_5d: 7.31
-- return_20d:
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 3.98
-- distance_to_high_60_pct: -0.03
+- date: 20260622
+- open: 30.68
+- high: 30.92
+- low: 30.57
+- close: 30.81
+- volume: 152089
+- ma5: 30.26
+- ema23_primary: 29.67
+- distance_to_ema23_pct: 3.83
+- ma20: 29.56
+- ma60: 29.58
+- ma120: 29.58
+- return_5d: 5.62
+- return_20d: 3.22
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 4.22
+- distance_to_high_60_pct: -0.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,29.7,29.85,29.57,29.85,155833,,,,,
 20260525,30.11,30.2,29.86,30.2,244007,,,,,
 20260526,30.31,30.31,29.92,30.05,496178,,,,,
 20260527,30.29,30.55,30.07,30.18,343466,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,29.8,30.18,29.8,30,118896,29.4,2.03,29.41,29.41,0.54
 20260617,29.92,30.23,29.92,30.2,69254,29.47,2.48,29.45,29.45,0.33
 20260618,30.34,30.7,30.34,30.69,179708,29.57,3.79,29.51,29.51,0.86
+20260622,30.68,30.92,30.57,30.81,152089,29.67,3.83,29.56,29.58,0.73
 ```
 
 ## Latest TDCC Snapshot

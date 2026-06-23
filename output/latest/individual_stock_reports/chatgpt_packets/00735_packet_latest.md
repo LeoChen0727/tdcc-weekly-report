@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:32 Asia/Taipei
+- generated_at: 2026-06-23 22:22:29 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 116.55
-- high: 118.4
-- low: 116.4
-- close: 118.4
-- volume: 3259454
-- ma5: 114.02
-- ema23_primary: 109.8
-- distance_to_ema23_pct: 7.84
-- ma20: 110.83
-- ma60: 110.83
-- ma120: 110.83
-- return_5d: 13.25
-- return_20d:
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 6.83
-- distance_to_high_60_pct: -2.07
+- date: 20260622
+- open: 122.3
+- high: 123.3
+- low: 121.55
+- close: 122.65
+- volume: 4382492
+- ma5: 116.59
+- ema23_primary: 110.87
+- distance_to_ema23_pct: 10.63
+- ma20: 111.9
+- ma60: 111.39
+- ma120: 111.39
+- return_5d: 11.7
+- return_20d: 21.2
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 9.61
+- distance_to_high_60_pct: -0.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,100.25,101.2,99.8,101.2,1844383,,,,,
 20260525,102.6,105,102.55,105,2739048,,,,,
 20260526,106.85,107.9,105.4,106.65,2423334,,,,,
 20260527,111.1,113.7,111.1,111.65,6198600,,,,,
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,114.5,114.5,112.75,113.85,2805475,108.47,4.96,110.17,110.17,0.57
 20260617,112.8,115.05,112.6,115.05,3012631,109.01,5.54,110.43,110.43,0.62
 20260618,116.55,118.4,116.4,118.4,3259454,109.8,7.84,110.83,110.83,0.68
+20260622,122.3,123.3,121.55,122.65,4382492,110.87,10.63,111.9,111.39,0.9
 ```
 
 ## Latest TDCC Snapshot

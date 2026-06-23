@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1213 大飲
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:36 Asia/Taipei
+- generated_at: 2026-06-23 22:22:33 Asia/Taipei
 - stock_id: 1213
 - stock_name: 大飲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 270
+- latest_price_date: 20260622
+- price_rows: 271
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 8.49
-- high: 8.5
-- low: 8.33
-- close: 8.33
-- volume: 12104
-- ma5: 8.45
-- ema23_primary: 8.51
-- distance_to_ema23_pct: -2.11
-- ma20: 8.41
-- ma60: 8.95
-- ma120: 9.54
-- return_5d: -0.83
-- return_20d: 1.59
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -0.92
-- distance_to_high_60_pct: -16.62
+- date: 20260622
+- open: 8.35
+- high: 8.35
+- low: 8
+- close: 8
+- volume: 129125
+- ma5: 8.39
+- ema23_primary: 8.47
+- distance_to_ema23_pct: -5.52
+- ma20: 8.39
+- ma60: 8.93
+- ma120: 9.52
+- return_5d: -3.85
+- return_20d: -5.1
+- volume_ratio: 6.39
+- distance_to_ma20_pct_auxiliary: -4.6
+- distance_to_high_60_pct: -19.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260520,8.45,8.45,8.21,8.43,15303,8.88,-5.07,8.84,9.4,0.62
 20260521,8.7,8.7,8.31,8.49,4002,8.85,-4.05,8.8,9.38,0.16
 20260522,8.75,8.75,8.25,8.47,15002,8.82,-3.93,8.77,9.35,0.6
 20260525,8.47,8.47,8.1,8.27,52193,8.77,-5.71,8.73,9.32,1.98
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,9.44,9.44,8.5,8.5,8000,8.53,-0.34,8.4,9,0.47
 20260617,8.47,8.5,8.47,8.5,2117,8.53,-0.31,8.4,8.98,0.13
 20260618,8.49,8.5,8.33,8.33,12104,8.51,-2.11,8.41,8.95,0.83
+20260622,8.35,8.35,8,8,129125,8.47,-5.52,8.39,8.93,6.39
 ```
 
 ## Latest TDCC Snapshot

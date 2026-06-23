@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2613 中櫃
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:08 Asia/Taipei
+- generated_at: 2026-06-23 22:23:11 Asia/Taipei
 - stock_id: 2613
 - stock_name: 中櫃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 21.85
+- date: 20260622
+- open: 21.9
 - high: 22.1
-- low: 21.85
-- close: 21.9
-- volume: 188908
-- ma5: 21.98
-- ema23_primary: 22.07
-- distance_to_ema23_pct: -0.75
-- ma20: 22.03
-- ma60: 22.45
-- ma120: 23.5
-- return_5d: -0.23
-- return_20d: 0
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -0.59
-- distance_to_high_60_pct: -9.88
+- low: 21.75
+- close: 21.75
+- volume: 264443
+- ma5: 21.9
+- ema23_primary: 22.04
+- distance_to_ema23_pct: -1.31
+- ma20: 22.02
+- ma60: 22.43
+- ma120: 23.48
+- return_5d: -1.81
+- return_20d: -0.91
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -1.23
+- distance_to_high_60_pct: -10.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,22.05,22.45,21.85,21.95,344291,22.21,-1.17,22.11,23.55,1.04
 20260525,22.3,22.55,21.75,21.85,536874,22.18,-1.49,22.08,23.5,1.6
 20260526,22,22,21.7,21.85,336602,22.15,-1.37,22.06,23.46,1.02
 20260527,22,22,21.55,21.65,411091,22.11,-2.09,22.02,23.4,1.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,22.25,22.3,21.75,21.8,250566,22.1,-1.36,22.02,22.51,0.6
 20260617,21.8,22.1,21.75,21.85,207751,22.08,-1.04,22.03,22.48,0.51
 20260618,21.85,22.1,21.85,21.9,188908,22.07,-0.75,22.03,22.45,0.48
+20260622,21.9,22.1,21.75,21.75,264443,22.04,-1.31,22.02,22.43,0.67
 ```
 
 ## Latest TDCC Snapshot

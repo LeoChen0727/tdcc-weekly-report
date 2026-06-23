@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4564 元翎
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:41 Asia/Taipei
+- generated_at: 2026-06-23 22:23:51 Asia/Taipei
 - stock_id: 4564
 - stock_name: 元翎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 16.3
-- high: 16.3
-- low: 15.7
+- date: 20260622
+- open: 15.8
+- high: 16
+- low: 15.6
 - close: 15.8
-- volume: 535243
-- ma5: 15.76
-- ema23_primary: 16.01
-- distance_to_ema23_pct: -1.31
+- volume: 912727
+- ma5: 15.83
+- ema23_primary: 15.99
+- distance_to_ema23_pct: -1.2
 - ma20: 15.65
-- ma60: 17.51
-- ma120: 17.79
-- return_5d: 3.27
-- return_20d: -1.25
-- volume_ratio: 0.6
+- ma60: 17.45
+- ma120: 17.78
+- return_5d: 2.27
+- return_20d: 0
+- volume_ratio: 1.12
 - distance_to_ma20_pct_auxiliary: 0.97
 - distance_to_high_60_pct: -22.74
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,16,16,15.3,15.8,2589031,17.46,-9.48,17.55,18.91,2.59
 20260525,15.9,15.95,15.45,15.5,1892731,17.29,-10.37,17.4,18.85,1.82
 20260526,15.6,15.75,15.5,15.65,600396,17.16,-8.78,17.26,18.8,0.58
 20260527,15.65,15.65,15.2,15.3,1699117,17,-10.01,17.09,18.73,1.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,15.6,16.15,15.45,15.95,795058,16.03,-0.51,15.67,17.65,0.88
 20260617,15.95,16.3,15.8,16,648341,16.03,-0.18,15.66,17.58,0.72
 20260618,16.3,16.3,15.7,15.8,535243,16.01,-1.31,15.65,17.51,0.6
+20260622,15.8,16,15.6,15.8,912727,15.99,-1.2,15.65,17.45,1.12
 ```
 
 ## Latest TDCC Snapshot

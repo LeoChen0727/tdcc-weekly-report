@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0053 元大電子
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:31 Asia/Taipei
+- generated_at: 2026-06-23 22:22:27 Asia/Taipei
 - stock_id: 0053
 - stock_name: 元大電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 151
+- latest_price_date: 20260622
+- price_rows: 152
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 245.45
-- high: 245.45
-- low: 244.5
-- close: 244.95
-- volume: 25594
-- ma5: 240.72
-- ema23_primary: 233.73
-- distance_to_ema23_pct: 4.8
-- ma20: 237.87
-- ma60: 211.13
-- ma120: 184.56
-- return_5d: 7.58
-- return_20d: 10.21
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 2.98
-- distance_to_high_60_pct: -1.76
+- date: 20260622
+- open: 249.45
+- high: 254.15
+- low: 249.45
+- close: 252.15
+- volume: 39885
+- ma5: 244.36
+- ema23_primary: 235.26
+- distance_to_ema23_pct: 7.18
+- ma20: 239.18
+- ma60: 212.55
+- ma120: 185.55
+- return_5d: 7.78
+- return_20d: 11.64
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 5.42
+- distance_to_high_60_pct: -0.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,224.95,226.5,224.4,225.85,26564,212.83,6.12,217.8,189.85,0.82
 20260525,229.7,235.35,229.7,235.35,45590,214.71,9.61,219.24,190.85,1.38
 20260526,236,236,234,234.95,19100,216.39,8.57,220.33,191.77,0.6
 20260527,242.75,242.75,238,238.8,32386,218.26,9.41,221.69,192.76,1.01
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,240.55,242.7,240.5,241.8,39471,231.86,4.29,235.24,208.64,0.85
 20260617,240,242.25,240,242,33297,232.71,3.99,236.73,209.81,0.7
 20260618,245.45,245.45,244.5,244.95,25594,233.73,4.8,237.87,211.13,0.54
+20260622,249.45,254.15,249.45,252.15,39885,235.26,7.18,239.18,212.55,0.83
 ```
 
 ## Latest TDCC Snapshot

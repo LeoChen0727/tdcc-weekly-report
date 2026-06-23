@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5468 凱鈺
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:52 Asia/Taipei
+- generated_at: 2026-06-23 22:24:05 Asia/Taipei
 - stock_id: 5468
 - stock_name: 凱鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 27.9
-- high: 30
-- low: 27.9
-- close: 30
-- volume: 1309000
-- ma5: 25.84
-- ema23_primary: 20.84
-- distance_to_ema23_pct: 43.95
-- ma20: 19.86
-- ma60: 18.68
-- ma120: 18.45
-- return_5d: 51.52
-- return_20d: 69.49
-- volume_ratio: 2.14
-- distance_to_ma20_pct_auxiliary: 51.04
+- date: 20260622
+- open: 33
+- high: 33
+- low: 32.6
+- close: 33
+- volume: 1696000
+- ma5: 28.09
+- ema23_primary: 21.85
+- distance_to_ema23_pct: 51
+- ma20: 20.62
+- ma60: 18.93
+- ma120: 18.56
+- return_5d: 51.72
+- return_20d: 84.36
+- volume_ratio: 2.44
+- distance_to_ma20_pct_auxiliary: 60.06
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,17.7,17.95,17.4,17.9,18000,17.82,0.46,17.87,17.73,0.33
 20260525,17.9,17.9,17.45,17.8,18000,17.82,-0.09,17.85,17.74,0.34
 20260526,17.8,17.8,17.65,17.7,18000,17.81,-0.6,17.83,17.74,0.35
 20260527,17.95,17.95,17.15,17.3,17000,17.76,-2.61,17.8,17.74,0.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,26.25,26.25,25.5,26.25,4568000,19.34,35.7,18.73,18.35,12.52
 20260617,27.05,27.85,26,27.3,3686000,20.01,36.45,19.25,18.48,6.73
 20260618,27.9,30,27.9,30,1309000,20.84,43.95,19.86,18.68,2.14
+20260622,33,33,32.6,33,1696000,21.85,51,20.62,18.93,2.44
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5468 | 凱鈺 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 本公司之基本資料公告如下:(單位：百萬元) (1)單月           最近一單月        去年同月        與去年同期增減(%)                  (115年05月)      (114年05月) 營業收入               12                  9            35 稅前淨利              0.1                 -2            106(由虧轉盈) 歸屬母公司業主淨利     0.1                 -2            106(由虧轉盈) 每股盈餘(元)       0.0025            -0.0644            104(由虧轉盈)  (2)單季          最近一季單季    去年同季單季     與去年同期增減(%)                   (115/Q1)       (114/Q1) 營業收入               48              29               65 稅前淨利               7                1              623 歸屬母公司業主淨利      7                1              623 每股盈餘(元)        0.12             0.03              340  (3)最近四季累計                 114年第2季至115年第1季 營業收入                    181 稅前淨利                     -8 歸屬母公司業主淨利            -8 每股盈餘(元)              -0.13 公司每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註一：115年5月及去年同期比較數之財務資料係本公司採IFRS會計準 則編製之合併自結數，係未經會計師查核(閱)，僅供投資人參考。 註二：最近一季115年第1季係指單季數字，業經會計師核閱，僅供投資 人參考。 註三：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合 併數，業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 5468 | 凱鈺 | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 本公司之基本資料公告如下:(單位：百萬元) (1)單月           最近一單月        去年同月        與去年同期增減(%)                  (115年05月)      (114年05月) 營業收入               12                  9            35 稅前淨利              0.1                 -2            106(由虧轉盈) 歸屬母公司業主淨利     0.1                 -2            106(由虧轉盈) 每股盈餘(元)       0.0025            -0.0644            104(由虧轉盈)  (2)單季          最近一季單季    去年同季單季     與去年同期增減(%)                   (115/Q1)       (114/Q1) 營業收入               48              29               65 稅前淨利               7                1              623 歸屬母公司業主淨利      7                1              623 每股盈餘(元)        0.12             0.03              340  (3)最近四季累計                 114年第2季至115年第1季 營業收入                    181 稅前淨利                     -8 歸屬母公司業主淨利            -8 每股盈餘(元)              -0.13 公司每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註一：115年5月及去年同期比較數之財務資料係本公司採IFRS會計準 則編製之合併自結數，係未經會計師查核(閱)，僅供投資人參考。 註二：最近一季115年第1季係指單季數字，業經會計師核閱，僅供投資 人參考。 註三：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合 併數，業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5468 | 凱鈺 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260622 | 5468 | 凱鈺 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

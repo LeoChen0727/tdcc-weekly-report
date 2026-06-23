@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7823 奧義賽博-KY創
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:30 Asia/Taipei
+- generated_at: 2026-06-23 22:24:52 Asia/Taipei
 - stock_id: 7823
 - stock_name: 奧義賽博-KY創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 85
+- latest_price_date: 20260622
+- price_rows: 86
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 82.4
-- high: 82.5
-- low: 82
-- close: 82.1
-- volume: 12160
-- ma5: 82.52
-- ema23_primary: 89.5
-- distance_to_ema23_pct: -8.27
-- ma20: 92.56
-- ma60: 87.96
-- ma120: 89.41
-- return_5d: -1.68
-- return_20d: -24.68
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -11.31
-- distance_to_high_60_pct: -26.04
+- date: 20260622
+- open: 81.5
+- high: 82
+- low: 81
+- close: 81.5
+- volume: 18204
+- ma5: 82.12
+- ema23_primary: 88.84
+- distance_to_ema23_pct: -8.26
+- ma20: 91.29
+- ma60: 87.97
+- ma120: 89.32
+- return_5d: -2.4
+- return_20d: -23.83
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -10.72
+- distance_to_high_60_pct: -26.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,109,109,100,107,107216,93.89,13.96,92.06,85.86,1.36
 20260525,107,107,102,102,28523,94.57,7.86,93.32,86.06,0.36
 20260526,100,102,98,100.5,74461,95.06,5.72,94.34,86.25,0.91
 20260527,100,100,94,98.9,52703,95.38,3.69,95.28,86.38,0.64
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,83,83,81,82,18068,90.92,-9.81,95.16,87.92,0.38
 20260617,82,82,82,82,2093,90.18,-9.07,93.91,87.94,0.06
 20260618,82.4,82.5,82,82.1,12160,89.5,-8.27,92.56,87.96,0.37
+20260622,81.5,82,81,81.5,18204,88.84,-8.26,91.29,87.97,0.64
 ```
 
 ## Latest TDCC Snapshot

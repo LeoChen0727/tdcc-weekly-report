@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2424 隴華
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:01 Asia/Taipei
+- generated_at: 2026-06-23 22:23:03 Asia/Taipei
 - stock_id: 2424
 - stock_name: 隴華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 285
+- latest_price_date: 20260622
+- price_rows: 286
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 10.6
-- high: 10.95
-- low: 10.5
-- close: 10.6
-- volume: 126878
-- ma5: 10.53
-- ema23_primary: 13.34
-- distance_to_ema23_pct: -20.51
-- ma20: 12.14
-- ma60: 19.31
-- ma120: 27.03
-- return_5d: 2.91
-- return_20d: -34.57
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -12.7
-- distance_to_high_60_pct: -64.07
+- date: 20260622
+- open: 10.8
+- high: 11.65
+- low: 10.8
+- close: 11.65
+- volume: 338144
+- ma5: 10.9
+- ema23_primary: 13.2
+- distance_to_ema23_pct: -11.71
+- ma20: 11.99
+- ma60: 19.08
+- ma120: 26.81
+- return_5d: 19.12
+- return_20d: -20.21
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: -2.87
+- distance_to_high_60_pct: -60.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,14.6,14.6,14.6,14.6,93765,20.92,-30.2,20.59,25.4,0.3
 20260525,13.15,13.15,13.15,13.15,106132,20.27,-35.12,20.1,25.07,0.35
 20260526,12.25,13.75,12.25,12.35,541180,19.61,-37.02,19.62,24.72,1.69
 20260527,12.25,13.55,12.25,13.55,608366,19.1,-29.07,19.18,24.4,1.74
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,11.25,11.6,10.5,10.85,174416,13.85,-21.67,12.79,19.83,1.02
 20260617,10.85,10.85,10.35,10.65,56817,13.58,-21.6,12.42,19.56,0.34
 20260618,10.6,10.95,10.5,10.6,126878,13.34,-20.51,12.14,19.31,0.74
+20260622,10.8,11.65,10.8,11.65,338144,13.2,-11.71,11.99,19.08,1.85
 ```
 
 ## Latest TDCC Snapshot

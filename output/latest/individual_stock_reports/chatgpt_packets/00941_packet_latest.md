@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00941 中信上游半導體
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:31 Asia/Taipei
 - stock_id: 00941
 - stock_name: 中信上游半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 28.4
-- high: 28.7
-- low: 28.4
-- close: 28.6
-- volume: 1694204
-- ma5: 28.26
-- ema23_primary: 26.46
-- distance_to_ema23_pct: 8.07
-- ma20: 26.26
-- ma60: 26.26
-- ma120: 26.26
-- return_5d: 10.47
-- return_20d:
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 8.92
-- distance_to_high_60_pct: -0.35
+- date: 20260622
+- open: 28.78
+- high: 29
+- low: 28.78
+- close: 28.99
+- volume: 2566258
+- ma5: 28.57
+- ema23_primary: 26.67
+- distance_to_ema23_pct: 8.68
+- ma20: 26.46
+- ma60: 26.39
+- ma120: 26.39
+- return_5d: 5.65
+- return_20d: 16.05
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 9.57
+- distance_to_high_60_pct: -0.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,24.75,25.01,24.75,24.98,2049817,,,,,
 20260525,25.43,25.59,25.43,25.54,3447361,,,,,
 20260526,25.57,25.57,25.43,25.44,1208821,,,,,
 20260527,25.8,25.92,25.72,25.73,1776999,,,,,
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,28.54,28.63,28.44,28.55,2266073,26.1,9.39,26.02,26.02,0.95
 20260617,28.14,28.14,27.98,28.13,1805527,26.27,7.08,26.13,26.13,0.76
 20260618,28.4,28.7,28.4,28.6,1694204,26.46,8.07,26.26,26.26,0.73
+20260622,28.78,29,28.78,28.99,2566258,26.67,8.68,26.46,26.39,1.09
 ```
 
 ## Latest TDCC Snapshot

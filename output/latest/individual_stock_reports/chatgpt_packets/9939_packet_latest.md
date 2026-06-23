@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9939 宏全
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:43 Asia/Taipei
+- generated_at: 2026-06-23 22:25:07 Asia/Taipei
 - stock_id: 9939
 - stock_name: 宏全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 134
-- high: 135.5
-- low: 133
-- close: 134
-- volume: 1065930
-- ma5: 133.6
-- ema23_primary: 127.69
-- distance_to_ema23_pct: 4.94
-- ma20: 127.7
-- ma60: 120.22
-- ma120: 120.05
-- return_5d: 1.52
-- return_20d: 6.35
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 4.93
-- distance_to_high_60_pct: -1.47
+- date: 20260622
+- open: 134.5
+- high: 134.5
+- low: 131
+- close: 131.5
+- volume: 1424410
+- ma5: 133.2
+- ema23_primary: 128.01
+- distance_to_ema23_pct: 2.73
+- ma20: 127.92
+- ma60: 120.46
+- ma120: 120.16
+- return_5d: -1.5
+- return_20d: 3.54
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 2.79
+- distance_to_high_60_pct: -3.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,127.5,128.5,125.5,127,1407526,119.55,6.23,117.55,118.1,0.82
 20260525,127,127,124.5,124.5,1284661,119.96,3.78,118.15,118.14,0.75
 20260526,124.5,125,122.5,122.5,840719,120.17,1.94,118.67,118.12,0.49
 20260527,122.5,124,122,122.5,845565,120.37,1.77,119.15,118.13,0.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,133.5,134.5,132,133,1045015,126.5,5.14,126.8,119.62,0.7
 20260617,132,134,131.5,134,1067138,127.12,5.41,127.3,119.91,0.73
 20260618,134,135.5,133,134,1065930,127.69,4.94,127.7,120.22,0.73
+20260622,134.5,134.5,131,131.5,1424410,128.01,2.73,127.92,120.46,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 9939 | 宏全 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:宏全國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司因配發普通股現金股利，依本公司國內第二次無擔保轉換公司債發行　 及轉換辦法第11條規定調整轉換價格。 6.因應措施:自除息基準日(115月7月8日)起，國內第二次無擔保轉換公司債轉換價格由 新台幣161.2元調整為153.7元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 9939 | 宏全 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/16 2.公司名稱:宏全國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司因配發普通股現金股利，依本公司國內第二次無擔保轉換公司債發行　 及轉換辦法第11條規定調整轉換價格。 6.因應措施:自除息基準日(115月7月8日)起，國內第二次無擔保轉換公司債轉換價格由 新台幣161.2元調整為153.7元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 9939 | 宏全 | 3 | 3 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 9939 | 宏全 | 4 | 4 | 4 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 9939 | 宏全 | 7 | 0 | 10640.0 | 0.0 |  | no_signal |
+| 20260622 | 9939 | 宏全 | 7 | 0 | 13460.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

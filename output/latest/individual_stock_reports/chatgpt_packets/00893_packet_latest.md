@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00893 國泰智能電動車
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00893
 - stock_name: 國泰智能電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 46.63
-- high: 47.02
-- low: 46.55
-- close: 46.62
-- volume: 388637
-- ma5: 46.62
-- ema23_primary: 46.14
-- distance_to_ema23_pct: 1.04
-- ma20: 46.44
-- ma60: 46.44
-- ma120: 46.44
-- return_5d: 6.9
-- return_20d:
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 0.39
-- distance_to_high_60_pct: -3.08
+- date: 20260622
+- open: 47.41
+- high: 47.65
+- low: 47.3
+- close: 47.43
+- volume: 1504317
+- ma5: 47.03
+- ema23_primary: 46.25
+- distance_to_ema23_pct: 2.56
+- ma20: 46.55
+- ma60: 46.49
+- ma120: 46.49
+- return_5d: 4.54
+- return_20d: 4.98
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 1.89
+- distance_to_high_60_pct: -1.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,45,45.18,45,45.18,660986,,,,,
 20260525,45.81,46.3,45.81,46.28,3143850,,,,,
 20260526,45.77,46.41,45.77,46.35,1150202,,,,,
 20260527,47.08,47.66,47.08,47.5,1746650,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,47.26,47.6,47.26,47.54,1002925,46.05,3.24,46.42,46.42,0.68
 20260617,46.8,46.8,46.53,46.63,809670,46.09,1.16,46.43,46.43,0.56
 20260618,46.63,47.02,46.55,46.62,388637,46.14,1.04,46.44,46.44,0.28
+20260622,47.41,47.65,47.3,47.43,1504317,46.25,2.56,46.55,46.49,1.05
 ```
 
 ## Latest TDCC Snapshot

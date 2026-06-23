@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:12 Asia/Taipei
+- generated_at: 2026-06-23 22:23:17 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 31
-- high: 31.2
-- low: 30.2
-- close: 30.75
-- volume: 127489583
-- ma5: 29.38
-- ema23_primary: 26.28
-- distance_to_ema23_pct: 17
-- ma20: 25.86
-- ma60: 22.66
-- ma120: 20.68
-- return_5d: 10.81
-- return_20d: 43.69
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 18.9
-- distance_to_high_60_pct: -1.44
+- date: 20260622
+- open: 30.6
+- high: 30.95
+- low: 30.1
+- close: 30.35
+- volume: 85250985
+- ma5: 29.96
+- ema23_primary: 26.62
+- distance_to_ema23_pct: 14.01
+- ma20: 26.3
+- ma60: 22.83
+- ma120: 20.79
+- return_5d: 10.56
+- return_20d: 39.86
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 15.42
+- distance_to_high_60_pct: -2.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,21.45,21.75,21.25,21.7,43900065,21.54,0.77,21.7,20.87,0.73
 20260525,21.8,21.8,21.4,21.65,53325245,21.54,0.49,21.77,20.88,0.88
 20260526,21.6,21.9,21.5,21.55,69290986,21.55,0.02,21.82,20.89,1.12
 20260527,21.7,22.8,21.55,22.3,108756887,21.61,3.2,21.87,20.9,1.72
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,29,30.2,28.75,29.7,127013439,25.48,16.55,24.96,22.3,0.83
 20260617,30.2,31.15,29.4,30.2,145559581,25.88,16.71,25.39,22.47,0.92
 20260618,31,31.2,30.2,30.75,127489583,26.28,17,25.86,22.66,0.79
+20260622,30.6,30.95,30.1,30.35,85250985,26.62,14.01,26.3,22.83,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2883 | 凱基金 | 20 | 0 | 11203060.0 | 0.0 |  | no_signal |
+| 20260622 | 2883 | 凱基金 | 23 | 0 | 9888460.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

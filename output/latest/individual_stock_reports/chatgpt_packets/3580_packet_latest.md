@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3580 友威科
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:30 Asia/Taipei
+- generated_at: 2026-06-23 22:23:38 Asia/Taipei
 - stock_id: 3580
 - stock_name: 友威科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 102.5
+- date: 20260622
+- open: 104
 - high: 105.5
-- low: 99.6
-- close: 101.5
-- volume: 1540000
-- ma5: 98.68
-- ema23_primary: 100.3
-- distance_to_ema23_pct: 1.19
-- ma20: 103.42
-- ma60: 91.34
-- ma120: 79.39
-- return_5d: 6.84
-- return_20d: 1.5
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: -1.86
-- distance_to_high_60_pct: -13.98
+- low: 101
+- close: 102.5
+- volume: 1784000
+- ma5: 100.32
+- ema23_primary: 100.49
+- distance_to_ema23_pct: 2
+- ma20: 103.35
+- ma60: 91.86
+- ma120: 79.76
+- return_5d: 8.7
+- return_20d: -1.44
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: -0.82
+- distance_to_high_60_pct: -13.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,100.5,109,99.2,104,104000,94.5,10.05,94.56,80.49,0.03
 20260525,108,114,107.5,111,112000,95.87,15.78,96.14,81.22,0.03
 20260526,113,113.5,106.5,113,110000,97.3,16.13,97.83,81.94,0.03
 20260527,113.5,114.5,105,107,110000,98.11,9.06,99.11,82.56,0.03
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,99.9,102.5,96.6,98.6,1455000,100.08,-1.48,103.27,90.41,0.82
 20260617,96.8,105,95.7,101.5,1844000,100.2,1.3,103.35,90.91,1.39
 20260618,102.5,105.5,99.6,101.5,1540000,100.3,1.19,103.42,91.34,1.51
+20260622,104,105.5,101,102.5,1784000,100.49,2,103.35,91.86,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3580 | 友威科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3580 | 友威科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3580 | 友威科 | 1 | 1 | 1 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3580 | 友威科 | 2 | 2 | 2 | 3 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

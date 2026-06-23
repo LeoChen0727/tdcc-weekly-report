@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:22 Asia/Taipei
+- generated_at: 2026-06-23 22:23:29 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 162
-- high: 163.5
-- low: 160.5
-- close: 161.5
-- volume: 45633029
-- ma5: 159.9
-- ema23_primary: 158.02
-- distance_to_ema23_pct: 2.21
-- ma20: 161.62
-- ma60: 144.45
-- ma120: 140.9
-- return_5d: 5.9
-- return_20d: 15.36
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -0.08
-- distance_to_high_60_pct: -19.65
+- date: 20260622
+- open: 164.5
+- high: 166
+- low: 161.5
+- close: 162.5
+- volume: 45905638
+- ma5: 161.2
+- ema23_primary: 158.39
+- distance_to_ema23_pct: 2.6
+- ma20: 162.53
+- ma60: 145.01
+- ma120: 141.09
+- return_5d: 4.17
+- return_20d: 12.46
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -0.02
+- distance_to_high_60_pct: -19.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,142.5,146,139.5,144.5,70277790,138.54,4.3,140.15,134.55,1.58
 20260525,148.5,150.5,147,149,70126881,139.41,6.88,140.53,134.85,1.52
 20260526,149.5,149.5,145.5,146,35795574,139.96,4.32,140.7,134.98,0.78
 20260527,147.5,148.5,143.5,145,37563298,140.38,3.29,140.93,135.13,0.81
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,162,162,158,158,31462271,157.26,0.47,159.05,143.31,0.41
 20260617,158.5,164.5,158,162.5,49733205,157.7,3.04,160.55,143.85,0.63
 20260618,162,163.5,160.5,161.5,45633029,158.02,2.21,161.62,144.45,0.58
+20260622,164.5,166,161.5,162.5,45905638,158.39,2.6,162.53,145.01,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3231 | 緯創 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1. 原公告日期： 115/04/27 2. 簡述原公告申報內容： 本公司之子公司翔譽科技及經緯航太經115年4月27日董事會通過擬進行合併案， 擬以每經緯普通股1股暫訂換發翔譽普通股約0.856股，並以翔譽科技為存續公司 ，經緯航太為消滅公司 3. 變動緣由及主要內容： 本次更新公告係為因應經緯航太股東常會將於115年8月3日重新召集，故經緯航太與 翔譽科技115年6月19日董事會決議通過修改合併契約，主要更新內容包括本公司對 經緯航太綜合持股比例提高至62.6%及相關日程異動等，本案將待經緯航太股東常 會過後辦理後續事宜並進行公告 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3231 | 緯創 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1. 原公告日期： 115/04/27 2. 簡述原公告申報內容： 本公司之子公司翔譽科技及經緯航太經115年4月27日董事會通過擬進行合併案， 擬以每經緯普通股1股暫訂換發翔譽普通股約0.856股，並以翔譽科技為存續公司 ，經緯航太為消滅公司 3. 變動緣由及主要內容： 本次更新公告係為因應經緯航太股東常會將於115年8月3日重新召集，故經緯航太與 翔譽科技115年6月19日董事會決議通過修改合併契約，主要更新內容包括本公司對 經緯航太綜合持股比例提高至62.6%及相關日程異動等，本案將待經緯航太股東常 會過後辦理後續事宜並進行公告 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1. 原公告日期： 115/04/27 2. 簡述原公告申報內容： 本公司之子公司翔譽科技及經緯航太經115年4月27日董事會通過擬進行合併案， 擬以每經緯普通股1股暫訂換發翔譽普通股約0.856股，並以翔譽科技為存續公司 ，經緯航太為消滅公司 3. 變動緣由及主要內容： 本次更新公告係為因應經緯航太股東常會將於115年8月3日重新召集，故經緯航太與 翔譽科技115年6月19日董事會決議通過修改合併契約，主要更新內容包括本公司對 經緯航太綜合持股比例提高至62.6%及相關日程異動等，本案將待經緯航太股東常 會過後辦理後續事宜並進行公告 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3231 | 緯創 | 17 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3231 | 緯創 | 18 | 6 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3231 | 緯創 | 218 | 19 | 25872240.0 | 62310.0 | 415.22 | call_inflow |
+| 20260622 | 3231 | 緯創 | 215 | 17 | 15285650.0 | 4350.0 | 3513.94 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

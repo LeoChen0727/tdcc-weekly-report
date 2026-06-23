@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6961 旅天下
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:22 Asia/Taipei
+- generated_at: 2026-06-23 22:24:42 Asia/Taipei
 - stock_id: 6961
 - stock_name: 旅天下
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 96
+- latest_price_date: 20260622
+- price_rows: 97
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 56.6
-- high: 56.6
-- low: 55
-- close: 55.8
-- volume: 70000
-- ma5: 55.64
-- ema23_primary: 58.21
-- distance_to_ema23_pct: -4.14
-- ma20: 58.76
-- ma60: 58.34
-- ma120: 58.37
-- return_5d: 0.9
-- return_20d: -4.62
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -5.04
-- distance_to_high_60_pct: -10.72
+- date: 20260622
+- open: 55.3
+- high: 55.3
+- low: 54.9
+- close: 55
+- volume: 46000
+- ma5: 55.58
+- ema23_primary: 57.94
+- distance_to_ema23_pct: -5.07
+- ma20: 58.59
+- ma60: 58.29
+- ma120: 58.33
+- return_5d: -0.54
+- return_20d: -5.82
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -6.13
+- distance_to_high_60_pct: -12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,58.4,58.5,58.3,58.4,58000,58.63,-0.39,58.82,58.1,1.01
 20260525,58.8,58.8,58.2,58.2,58000,58.59,-0.67,58.83,58.12,1
 20260526,58.5,58.5,58.3,58.5,58000,58.59,-0.15,58.86,58.15,0.98
 20260527,59.9,59.9,58.4,58.4,59000,58.57,-0.29,58.88,58.18,0.99
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,55,55.3,54.9,55,26000,58.59,-6.13,58.99,58.41,0.31
 20260617,55,57,54.9,56.6,73000,58.43,-3.12,58.9,58.37,0.84
 20260618,56.6,56.6,55,55.8,70000,58.21,-4.14,58.76,58.34,0.79
+20260622,55.3,55.3,54.9,55,46000,57.94,-5.07,58.59,58.29,0.52
 ```
 
 ## Latest TDCC Snapshot

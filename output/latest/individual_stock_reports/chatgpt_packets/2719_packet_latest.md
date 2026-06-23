@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2719 燦星旅
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:09 Asia/Taipei
+- generated_at: 2026-06-23 22:23:13 Asia/Taipei
 - stock_id: 2719
 - stock_name: 燦星旅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 150
+- latest_price_date: 20260622
+- price_rows: 151
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 26
-- high: 26
-- low: 25.05
+- date: 20260622
+- open: 25.2
+- high: 25.2
+- low: 24.75
 - close: 25.2
-- volume: 26000
-- ma5: 25.12
-- ema23_primary: 25.45
-- distance_to_ema23_pct: -0.98
-- ma20: 25.28
+- volume: 41000
+- ma5: 25.2
+- ema23_primary: 25.43
+- distance_to_ema23_pct: -0.9
+- ma20: 25.25
 - ma60: 26.54
-- ma120: 27.78
-- return_5d: 1
-- return_20d: -1.95
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -0.32
+- ma120: 27.73
+- return_5d: 1.61
+- return_20d: -2.51
+- volume_ratio: 1.89
+- distance_to_ma20_pct_auxiliary: -0.19
 - distance_to_high_60_pct: -21.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260521,25.7,25.85,25.7,25.85,4000,26.58,-2.75,26.62,27.09,0.28
 20260525,25.8,26,25.6,26,26000,26.53,-2,26.48,27.06,1.86
 20260526,26,26.2,25.8,26.1,26000,26.5,-1.49,26.37,27.02,1.73
 20260527,25.7,25.75,24.95,25.2,25000,26.39,-4.5,26.25,26.98,1.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,24.9,25,24.9,25,5000,25.45,-1.77,25.3,26.57,0.28
 20260617,25.15,25.7,25,25.7,32000,25.47,0.9,25.3,26.55,1.71
 20260618,26,26,25.05,25.2,26000,25.45,-0.98,25.28,26.54,1.31
+20260622,25.2,25.2,24.75,25.2,41000,25.43,-0.9,25.25,26.54,1.89
 ```
 
 ## Latest TDCC Snapshot

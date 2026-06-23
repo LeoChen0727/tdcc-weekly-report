@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6278 台表科
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:05 Asia/Taipei
+- generated_at: 2026-06-23 22:24:21 Asia/Taipei
 - stock_id: 6278
 - stock_name: 台表科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 208
-- high: 208.5
-- low: 203.5
-- close: 204.5
-- volume: 6187795
-- ma5: 209.1
-- ema23_primary: 205.38
-- distance_to_ema23_pct: -0.43
-- ma20: 214.55
-- ma60: 172.7
-- ma120: 134.76
-- return_5d: 6.51
-- return_20d: -8.3
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -4.68
-- distance_to_high_60_pct: -19.65
+- date: 20260622
+- open: 206.5
+- high: 208
+- low: 203
+- close: 206
+- volume: 5265235
+- ma5: 208.1
+- ema23_primary: 205.43
+- distance_to_ema23_pct: 0.28
+- ma20: 212.6
+- ma60: 174.53
+- ma120: 135.67
+- return_5d: -2.37
+- return_20d: -15.92
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -3.1
+- distance_to_high_60_pct: -19.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,229,245,228.5,245,19577157,191.23,28.12,193.7,136.75,1.08
 20260525,253,254.5,238,238,28744488,195.13,21.97,198.35,139.04,1.48
 20260526,240,250,231,246.5,22110178,199.41,23.61,203.32,141.47,1.09
 20260527,246.5,252.5,231.5,235.5,22431342,202.42,16.34,207.18,143.7,1.07
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,218,220,209.5,209.5,10318669,205.55,1.92,215.4,169.16,0.7
 20260617,206,209,203,204.5,6557316,205.46,-0.47,215.47,170.92,0.46
 20260618,208,208.5,203.5,204.5,6187795,205.38,-0.43,214.55,172.7,0.44
+20260622,206.5,208,203,206,5265235,205.43,0.28,212.6,174.53,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6278 | 台表科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$1,608,190,942元(每股NT$5.5元)。 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6278 | 台表科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$1,608,190,942元(每股NT$5.5元)。 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6278 | 台表科 | 5 | 5 | 5 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 6278 | 台表科 | 6 | 6 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6278 | 台表科 | 31 | 0 | 4319730.0 | 0.0 |  | call_inflow |
+| 20260622 | 6278 | 台表科 | 29 | 0 | 2275630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

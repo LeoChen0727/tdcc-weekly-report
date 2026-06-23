@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1608 華榮
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:46 Asia/Taipei
+- generated_at: 2026-06-23 22:22:45 Asia/Taipei
 - stock_id: 1608
 - stock_name: 華榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 34.9
-- high: 35.1
-- low: 34.55
-- close: 34.65
-- volume: 3243881
-- ma5: 34.72
-- ema23_primary: 34.47
-- distance_to_ema23_pct: 0.51
-- ma20: 34.81
-- ma60: 33.42
-- ma120: 34.89
-- return_5d: 3.28
-- return_20d: 5.64
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -12.06
+- date: 20260622
+- open: 34.85
+- high: 35.45
+- low: 34.85
+- close: 35.2
+- volume: 4030648
+- ma5: 34.88
+- ema23_primary: 34.54
+- distance_to_ema23_pct: 1.92
+- ma20: 34.9
+- ma60: 33.48
+- ma120: 34.88
+- return_5d: 2.33
+- return_20d: 5.71
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 0.85
+- distance_to_high_60_pct: -10.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,32.8,33.6,32.45,33.3,3336279,32.86,1.33,32.94,33.19,1.03
 20260525,34.15,34.7,33.9,34.05,4221152,32.96,3.3,32.98,33.15,1.26
 20260526,34.3,34.65,33.3,33.45,3441679,33,1.36,33.03,33.11,1.02
 20260527,33.6,34.25,33.3,33.65,3219851,33.06,1.8,33.08,33.06,0.93
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,35.5,35.6,34.55,34.55,2626805,34.43,0.34,34.55,33.35,0.34
 20260617,34.55,35.1,34.4,34.75,2151141,34.46,0.84,34.72,33.38,0.28
 20260618,34.9,35.1,34.55,34.65,3243881,34.47,0.51,34.81,33.42,0.42
+20260622,34.85,35.45,34.85,35.2,4030648,34.54,1.92,34.9,33.48,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1608 | 華榮 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東會決議日:115/06/17 2.許可從事競業行為之董事姓名及職稱:  董事/第一伸銅科技股份有限公司代表人:王宏仁 3.許可從事競業行為之項目:經營其他與本公司營業範圍相同之公司及擔任  董事或經理人之行為。 4.許可從事競業行為之期間:擔任本公司董事期間。 5.決議情形（請依公司法第209條說明表決結果）:  本議案經已發行股份總數二分之一以上股東出席，出席股東表決權三分之  二以上同意照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 1608 | 華榮 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東會決議日:115/06/17 2.許可從事競業行為之董事姓名及職稱:  董事/第一伸銅科技股份有限公司代表人:王宏仁 3.許可從事競業行為之項目:經營其他與本公司營業範圍相同之公司及擔任  董事或經理人之行為。 4.許可從事競業行為之期間:擔任本公司董事期間。 5.決議情形（請依公司法第209條說明表決結果）:  本議案經已發行股份總數二分之一以上股東出席，出席股東表決權三分之  二以上同意照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1608 | 華榮 | 5 | 5 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 1608 | 華榮 | 6 | 6 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1608 | 華榮 | 12 | 0 | 786150.0 | 0.0 |  | no_signal |
+| 20260622 | 1608 | 華榮 | 12 | 0 | 187710.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

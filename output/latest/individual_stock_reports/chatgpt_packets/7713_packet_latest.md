@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7713 威力德生醫
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:28 Asia/Taipei
+- generated_at: 2026-06-23 22:24:49 Asia/Taipei
 - stock_id: 7713
 - stock_name: 威力德生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 140
+- latest_price_date: 20260622
+- price_rows: 141
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 71
-- high: 71
-- low: 71
-- close: 71
-- volume: 1000
-- ma5: 70.98
-- ema23_primary: 70.18
-- distance_to_ema23_pct: 1.17
-- ma20: 70.16
-- ma60: 68.88
-- ma120: 70.39
-- return_5d: 0.85
-- return_20d: 5.19
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 1.2
-- distance_to_high_60_pct: -3.92
+- date: 20260622
+- open: 70.2
+- high: 71.7
+- low: 69.6
+- close: 71.5
+- volume: 25000
+- ma5: 71.18
+- ema23_primary: 70.29
+- distance_to_ema23_pct: 1.73
+- ma20: 70.34
+- ma60: 68.87
+- ma120: 70.37
+- return_5d: 1.42
+- return_20d: 5.3
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 1.65
+- distance_to_high_60_pct: -3.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,67.3,67.9,67.3,67.9,68000,67.93,-0.04,67.76,69,3.94
 20260525,67.2,67.2,66.5,67,67000,67.85,-1.26,67.77,68.94,3.38
 20260526,66.9,67.5,66.3,66.8,67000,67.76,-1.42,67.72,68.87,2.98
 20260527,66.8,67.8,66.6,67.2,67000,67.72,-0.76,67.72,68.82,2.63
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,70.1,71,70.1,71,15000,69.93,1.53,69.76,68.91,0.37
 20260617,70.1,72,70.1,72,58000,70.1,2.71,69.98,68.9,1.37
 20260618,71,71,71,71,1000,70.18,1.17,70.16,68.88,0.02
+20260622,70.2,71.7,69.6,71.5,25000,70.29,1.73,70.34,68.87,0.63
 ```
 
 ## Latest TDCC Snapshot

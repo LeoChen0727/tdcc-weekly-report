@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7765 中華資安
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:29 Asia/Taipei
+- generated_at: 2026-06-23 22:24:50 Asia/Taipei
 - stock_id: 7765
 - stock_name: 中華資安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 181
+- latest_price_date: 20260622
+- price_rows: 182
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 241
-- high: 242
-- low: 236.5
-- close: 238
-- volume: 199758
-- ma5: 246.3
-- ema23_primary: 247.42
-- distance_to_ema23_pct: -3.81
-- ma20: 250.38
-- ma60: 237.78
-- ma120: 249.12
-- return_5d: -1.86
-- return_20d: -4.8
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: -4.94
-- distance_to_high_60_pct: -12.5
+- date: 20260622
+- open: 240
+- high: 240
+- low: 232
+- close: 233
+- volume: 185639
+- ma5: 243.8
+- ema23_primary: 246.22
+- distance_to_ema23_pct: -5.37
+- ma20: 249.57
+- ma60: 237.95
+- ma120: 248.81
+- return_5d: -5.09
+- return_20d: -6.43
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: -6.64
+- distance_to_high_60_pct: -14.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,249.5,250,248.5,249,50820,239.68,3.89,237.62,235.11,0.47
 20260525,250,250.5,244.5,246,127070,240.21,2.41,238.85,234.84,1.14
 20260526,246.5,246.5,241.5,244.5,69250,240.56,1.64,240.05,234.62,0.62
 20260527,242,244.5,240,244.5,112818,240.89,1.5,241.07,234.32,0.98
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,252,252,247,247,67738,248.12,-0.45,250.65,237.16,0.57
 20260617,247.5,250,247,250,115478,248.28,0.69,250.97,237.53,0.94
 20260618,241,242,236.5,238,199758,247.42,-3.81,250.38,237.78,1.57
+20260622,240,240,232,233,185639,246.22,-5.37,249.57,237.95,1.38
 ```
 
 ## Latest TDCC Snapshot

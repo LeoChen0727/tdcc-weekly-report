@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8289 泰藝
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:36 Asia/Taipei
+- generated_at: 2026-06-23 22:24:59 Asia/Taipei
 - stock_id: 8289
 - stock_name: 泰藝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 68.4
-- high: 70.7
-- low: 67
-- close: 67.1
-- volume: 2686000
-- ma5: 67.68
-- ema23_primary: 65.7
-- distance_to_ema23_pct: 2.13
-- ma20: 69.3
-- ma60: 53.79
-- ma120: 40.5
-- return_5d: -7.58
-- return_20d: 10.36
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -3.17
-- distance_to_high_60_pct: -13.97
+- date: 20260622
+- open: 66.8
+- high: 68
+- low: 65.8
+- close: 67.2
+- volume: 1860000
+- ma5: 67.52
+- ema23_primary: 65.83
+- distance_to_ema23_pct: 2.09
+- ma20: 69.32
+- ma60: 54.3
+- ma120: 40.88
+- return_5d: -1.18
+- return_20d: 0.6
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -3.06
+- distance_to_high_60_pct: -13.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,61.3,66.8,61.1,66.8,65000,52.11,28.18,51.4,42.99,0.02
 20260525,71.2,73.4,66.7,67.9,70000,53.43,27.08,52.55,43.6,0.02
 20260526,67.9,69.9,64,69.5,67000,54.77,26.9,53.91,44.23,0.02
 20260527,70.2,70.9,67.1,68.9,69000,55.95,23.15,55.06,44.79,0.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,69.9,70.4,65,65.2,3652000,65.29,-0.14,68.31,52.66,1.2
 20260617,65,69.5,64.5,68.7,2981000,65.57,4.77,68.98,53.23,1.02
 20260618,68.4,70.7,67,67.1,2686000,65.7,2.13,69.3,53.79,1.05
+20260622,66.8,68,65.8,67.2,1860000,65.83,2.09,69.32,54.3,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8289 | 泰藝 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 8289 | 泰藝 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8289 | 泰藝 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260622 | 8289 | 泰藝 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

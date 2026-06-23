@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3092 鴻碩
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:19 Asia/Taipei
+- generated_at: 2026-06-23 22:23:25 Asia/Taipei
 - stock_id: 3092
 - stock_name: 鴻碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 31.95
-- high: 32.8
-- low: 31.25
-- close: 31.3
-- volume: 2106591
-- ma5: 30.29
-- ema23_primary: 30.07
-- distance_to_ema23_pct: 4.09
-- ma20: 29.96
-- ma60: 30.67
-- ma120: 28.79
-- return_5d: 11.79
-- return_20d: 7.93
-- volume_ratio: 2.59
-- distance_to_ma20_pct_auxiliary: 4.46
-- distance_to_high_60_pct: -19.02
+- date: 20260622
+- open: 31.75
+- high: 34.2
+- low: 31.3
+- close: 32.7
+- volume: 2029479
+- ma5: 31.07
+- ema23_primary: 30.29
+- distance_to_ema23_pct: 7.96
+- ma20: 30.07
+- ma60: 30.7
+- ma120: 28.93
+- return_5d: 13.54
+- return_20d: 6.51
+- volume_ratio: 2.36
+- distance_to_ma20_pct_auxiliary: 8.76
+- distance_to_high_60_pct: -15.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,28.95,31.9,28.95,30.7,1042808,30.52,0.6,30.75,31.65,1.7
 20260525,31,31.4,30.05,30.3,750162,30.5,-0.65,30.68,31.71,1.22
 20260526,30.05,30.4,29.8,30.3,566796,30.48,-0.6,30.6,31.73,0.94
 20260527,30.5,30.85,29.4,29.5,607302,30.4,-2.96,30.4,31.69,1.1
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,30.5,30.55,29,29.3,485182,29.75,-1.53,29.64,30.66,0.8
 20260617,29.7,32.2,29.7,32.2,2568489,29.96,7.48,29.85,30.65,3.54
 20260618,31.95,32.8,31.25,31.3,2106591,30.07,4.09,29.96,30.67,2.59
+20260622,31.75,34.2,31.3,32.7,2029479,30.29,7.96,30.07,30.7,2.36
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3092 | 鴻碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:自民國115/6/16至民國115/6/16 2.本次新增（減少）投資方式: 現金增資 3.董事會通過日期: 民國115年6月16日 4.其他核決日期: 不適用 5.交易單位數量、每單位價格及交易總金額: 交易總金額：人民幣2000萬元(約新台幣92,640,000元) 6.大陸被投資公司之公司名稱: 鴻碩精密電工(湖北)有限公司 7.前開大陸被投資公司之實收資本額: 人民幣2億2000萬元 8.前開大陸被投資公司本次擬新增資本額: 人民幣2000萬元 9.前開大陸被投資公司主要營業項目: 生產經營銅品、3C產品連接線、訊號線、電動汽車用充電槍、高壓線及新能源材料 10.前開大陸被投資公司最近年度財務報表會計師意見型態: 不適用 11.前開大陸被投資公司最近年度財務報表權益總額: 民國114年12月31日財務報表權益總額為人民幣123,447仟元。 12.前開大陸被投資公司最近年度財務報表損益金額: 民國114年度財務報表稅後淨損為人民幣60,805仟元。 13.迄目前為止，對前開大陸被投資公司之實際投資金額: 人民幣2億2000萬元 14.交易相對人及其與公司之關係: 100%持有之母子公司 15.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉 之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額: 不適用 16.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得 及處分日期、價格及交易當時與公司之關係: 不適用 17.處分利益（或損失）: 不適用 18.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項: 依資金需求匯入 19.本次交易之決定方式、價格決定之參考依據及決策單位: 交易之決定方式:現金增資 價格決定之參考依據:不適用 決策單位:董事會 20.經紀人: 不適用 21.取得或處分之具體目的: 為營運擴充及長期業務發展之需要。 22.本次交易表示異議董事之意見: 無 23.本次交易為關係人交易:是 24.監察人承認或審計委員會同意日期: 不適用 25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）: 迄目前為止，經濟部投審會核准投資金額新台幣636,262仟元 26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 實收資本額之比率: 59.66% 27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 總資產之比率: 12.72% 28.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 歸屬於母公司業主之權益之比率: 47.14% 29.迄目前為止，實際赴大陸地區投資總額: 迄目前為止，赴大陸地區投資總額新台幣305,952仟元 30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率: 28.69% 31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率: 6.12% 32.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率: 22.67% 33.最近三年度認列投資大陸損益金額: 112年度：認列投資損失新台幣145,913仟元 113年度：認列投資損失新台幣248,452仟元 114年度：認列投資損失新台幣442,536仟元 34.最近三年度獲利匯回金額: 112年度：新台幣0仟元 113年度：新台幣0仟元 114年度：新台幣0仟元 35.本次交易會計師出具非合理性意見:不適用 36.會計師事務所名稱: 不適用 37.會計師姓名: 不適用 38.會計師開業證書字號: 不適用 39.前已就同一件事件發布重大訊息日期: 不適用 40.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3092 | 鴻碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全主管 2.發生變動日期:115/06/22 3.舊任者姓名、級職及簡歷:張富銘，資訊部處長 4.新任者姓名、級職及簡歷:待董事會委任 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:因身體健康因素辭任，後續轉任公司顧問 7.生效日期:115/06/22 8.其他應敘明事項:新任資訊安全主管待最近期董事會通過任命後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3092 | 鴻碩 | 2 | 2 | 2 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260622 | 3092 | 鴻碩 | 3 | 3 | 3 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

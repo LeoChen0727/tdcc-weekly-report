@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3652 精聯
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:32 Asia/Taipei
+- generated_at: 2026-06-23 22:23:40 Asia/Taipei
 - stock_id: 3652
 - stock_name: 精聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 38.25
-- high: 40.95
-- low: 38.1
-- close: 40.2
-- volume: 2847772
-- ma5: 37.22
-- ema23_primary: 34.22
-- distance_to_ema23_pct: 17.48
-- ma20: 34.48
-- ma60: 30.69
-- ma120: 29.47
-- return_5d: 24.27
-- return_20d: 32.89
-- volume_ratio: 5.1
-- distance_to_ma20_pct_auxiliary: 16.6
-- distance_to_high_60_pct: -1.83
+- date: 20260622
+- open: 39.65
+- high: 43.4
+- low: 38.9
+- close: 42.7
+- volume: 2856038
+- ma5: 38.65
+- ema23_primary: 34.93
+- distance_to_ema23_pct: 22.26
+- ma20: 35.05
+- ma60: 30.96
+- ma120: 29.59
+- return_5d: 20.11
+- return_20d: 36.2
+- volume_ratio: 4.12
+- distance_to_ma20_pct_auxiliary: 21.84
+- distance_to_high_60_pct: -1.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,30,31.8,30,31.35,155752,29.79,5.23,30.37,28.41,0.65
 20260525,31.7,32.7,31.7,31.95,299361,29.97,6.6,30.5,28.47,1.19
 20260526,34.45,34.45,32.5,32.8,444509,30.21,8.58,30.52,28.54,1.92
 20260527,33.15,33.65,32.55,32.8,393246,30.42,7.81,30.57,28.62,2.28
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,36.25,38.5,36.25,36.9,776663,33.35,10.64,33.58,30.3,2.03
 20260617,37.9,39.75,37,37.25,844769,33.68,10.61,33.98,30.47,2
 20260618,38.25,40.95,38.1,40.2,2847772,34.22,17.48,34.48,30.69,5.1
+20260622,39.65,43.4,38.9,42.7,2856038,34.93,22.26,35.05,30.96,4.12
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3652 | 精聯 | true_breakout | 嚴格突破 | 92.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 3652 | 精聯 | true_breakout | 嚴格突破 | 88.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3652 | 精聯 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260622 | 3652 | 精聯 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:58 Asia/Taipei
+- generated_at: 2026-06-23 22:22:59 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 807
-- high: 810
-- low: 789
-- close: 789
-- volume: 7939182
-- ma5: 792
-- ema23_primary: 775
-- distance_to_ema23_pct: 1.81
-- ma20: 797.9
-- ma60: 666.92
-- ma120: 600.67
-- return_5d: 0.64
-- return_20d: 20.27
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -1.12
-- distance_to_high_60_pct: -18.15
+- date: 20260622
+- open: 793
+- high: 806
+- low: 788
+- close: 788
+- volume: 3442620
+- ma5: 792.6
+- ema23_primary: 776.08
+- distance_to_ema23_pct: 1.54
+- ma20: 803.2
+- ma60: 670.63
+- ma120: 602.35
+- return_5d: 0.38
+- return_20d: 15.54
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -1.89
+- distance_to_high_60_pct: -18.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,656,685,655,682,5480314,632.35,7.85,631.3,586.8,1
 20260525,692,717,690,709,6899791,638.74,11,637.5,590.03,1.24
 20260526,711,717,694,699,4568619,643.76,8.58,643.05,592.93,0.81
 20260527,700,709,694,701,4222844,648.53,8.09,648.7,595.75,0.74
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,794,800,786,791,4159548,771.06,2.59,783.1,659.47,0.64
 20260617,790,803,782,803,3336854,773.73,3.78,791.25,663.15,0.52
 20260618,807,810,789,789,7939182,775,1.81,797.9,666.92,1.2
+20260622,793,806,788,788,3442620,776.08,1.54,803.2,670.63,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2357 | 華碩 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_14d |
+| 20260622 | 2357 | 華碩 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=within_14d; model_effect_allowed=False; pdf_effect_allowed=False |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2357 | 華碩 | 1 | 1 | 2 | 4 | 11 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260622 | 2357 | 華碩 | 2 | 2 | 3 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2357 | 華碩 | 84 | 5 | 11413340.0 | 0.0 |  | no_signal |
+| 20260622 | 2357 | 華碩 | 85 | 5 | 6352460.0 | 1660.0 | 3826.78 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

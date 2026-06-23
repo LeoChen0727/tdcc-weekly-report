@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1580 新麥
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:45 Asia/Taipei
+- generated_at: 2026-06-23 22:22:44 Asia/Taipei
 - stock_id: 1580
 - stock_name: 新麥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 124
+- date: 20260622
+- open: 124.5
 - high: 124.5
 - low: 123.5
 - close: 124
-- volume: 82000
-- ma5: 124.1
-- ema23_primary: 124.21
-- distance_to_ema23_pct: -0.17
-- ma20: 124.05
-- ma60: 124.95
-- ma120: 128.43
+- volume: 117000
+- ma5: 124
+- ema23_primary: 124.19
+- distance_to_ema23_pct: -0.15
+- ma20: 124.12
+- ma60: 124.86
+- ma120: 128.34
 - return_5d: -0.4
 - return_20d: 1.22
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -0.04
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -0.1
 - distance_to_high_60_pct: -4.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,123,123,122,122.5,123000,123.53,-0.84,122.67,127.02,1.7
 20260525,122.5,122.5,121.5,122,122000,123.4,-1.14,122.67,126.84,1.7
 20260526,121.5,122,121,122,122000,123.29,-1.04,122.72,126.67,1.77
 20260527,122,122,120.5,122,121000,123.18,-0.96,122.72,126.51,1.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,124,124,123,124,85000,124.25,-0.2,123.9,125.16,0.79
 20260617,124,124,123.5,124,31000,124.23,-0.18,123.97,125.04,0.29
 20260618,124,124.5,123.5,124,82000,124.21,-0.17,124.05,124.95,0.74
+20260622,124.5,124.5,123.5,124,117000,124.19,-0.15,124.12,124.86,1.06
 ```
 
 ## Latest TDCC Snapshot

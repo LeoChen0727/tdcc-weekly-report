@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00771 元大US高息特別股
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:29 Asia/Taipei
 - stock_id: 00771
 - stock_name: 元大US高息特別股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 15.79
-- high: 15.79
+- date: 20260622
+- open: 15.75
+- high: 15.77
 - low: 15.75
-- close: 15.79
-- volume: 78343
+- close: 15.75
+- volume: 77742
 - ma5: 15.77
 - ema23_primary: 15.8
-- distance_to_ema23_pct: -0.06
-- ma20: 15.8
-- ma60: 15.8
-- ma120: 15.8
-- return_5d: 0.38
-- return_20d:
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: -0.04
-- distance_to_high_60_pct: -0.94
+- distance_to_ema23_pct: -0.29
+- ma20: 15.79
+- ma60: 15.79
+- ma120: 15.79
+- return_5d: 0.06
+- return_20d: -0.76
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: -0.26
+- distance_to_high_60_pct: -1.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,15.94,15.94,15.77,15.87,102743,,,,,
 20260525,15.87,15.87,15.82,15.84,66155,,,,,
 20260526,15.84,15.85,15.78,15.85,86485,,,,,
 20260527,15.85,15.85,15.82,15.83,41236,,,,,
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,15.75,15.83,15.73,15.78,40481,15.8,-0.14,15.8,15.8,0.86
 20260617,15.76,15.79,15.74,15.79,48206,15.8,-0.07,15.8,15.8,1.03
 20260618,15.79,15.79,15.75,15.79,78343,15.8,-0.06,15.8,15.8,1.62
+20260622,15.75,15.77,15.75,15.75,77742,15.8,-0.29,15.79,15.79,1.65
 ```
 
 ## Latest TDCC Snapshot

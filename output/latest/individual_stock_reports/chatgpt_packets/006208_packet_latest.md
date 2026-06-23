@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006208 富邦台50
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:31 Asia/Taipei
+- generated_at: 2026-06-23 22:22:28 Asia/Taipei
 - stock_id: 006208
 - stock_name: 富邦台50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 247.95
-- high: 249.1
-- low: 246.95
-- close: 249.1
-- volume: 4099902
-- ma5: 244.19
-- ema23_primary: 237.96
-- distance_to_ema23_pct: 4.68
-- ma20: 239.22
-- ma60: 239.22
-- ma120: 239.22
-- return_5d: 7.84
-- return_20d:
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 4.13
-- distance_to_high_60_pct: -0.3
+- date: 20260622
+- open: 253
+- high: 258.2
+- low: 253
+- close: 257.45
+- volume: 5127921
+- ma5: 248.46
+- ema23_primary: 239.59
+- distance_to_ema23_pct: 7.46
+- ma20: 240.84
+- ma60: 240.09
+- ma120: 240.09
+- return_5d: 9.04
+- return_20d: 14.4
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 6.9
+- distance_to_high_60_pct: -0.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,222.8,225.05,222.05,225.05,3447577,,,,,
 20260525,230.25,234,230.15,233.15,7505248,,,,,
 20260526,235,235.45,232.5,232.55,2549863,,,,,
 20260527,237.75,240.2,236.05,237.6,4846354,,,,,
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,245,245.75,243.45,245.35,3308542,236.1,3.92,238.28,238.28,0.68
 20260617,243.35,246.3,242.15,246.3,4877303,236.95,3.94,238.7,238.7,1
 20260618,247.95,249.1,246.95,249.1,4099902,237.96,4.68,239.22,239.22,0.85
+20260622,253,258.2,253,257.45,5127921,239.59,7.46,240.84,240.09,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6208 | 日揚 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6208 | 日揚 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6208 | 日揚 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260622 | 6208 | 日揚 | 2 | 2 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

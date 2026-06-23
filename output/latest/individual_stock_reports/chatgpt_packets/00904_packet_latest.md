@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00904 新光臺灣半導體30
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:30 Asia/Taipei
 - stock_id: 00904
 - stock_name: 新光臺灣半導體30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 43.01
-- high: 43.46
-- low: 43
-- close: 43.46
-- volume: 1715855
-- ma5: 42.16
-- ema23_primary: 41.15
-- distance_to_ema23_pct: 5.61
-- ma20: 41.44
-- ma60: 41.44
-- ma120: 41.44
-- return_5d: 11.44
-- return_20d:
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 4.88
-- distance_to_high_60_pct: -0.09
+- date: 20260622
+- open: 44.7
+- high: 45.62
+- low: 44.7
+- close: 45.61
+- volume: 2758694
+- ma5: 43.18
+- ema23_primary: 41.52
+- distance_to_ema23_pct: 9.84
+- ma20: 41.74
+- ma60: 41.64
+- ma120: 41.64
+- return_5d: 12.62
+- return_20d: 15.56
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 9.26
+- distance_to_high_60_pct: -0.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,39.01,39.51,38.89,39.47,2143583,,,,,
 20260525,40.1,41.32,40.1,41.07,2552871,,,,,
 20260526,41.74,41.74,40.95,41.22,3082630,,,,,
 20260527,42.54,43.08,41.95,42.35,2912796,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,42.4,42.5,41.99,42.39,2448163,40.8,3.9,41.27,41.27,1.03
 20260617,42.08,42.5,41.74,42.5,2411847,40.94,3.81,41.33,41.33,1.01
 20260618,43.01,43.46,43,43.46,1715855,41.15,5.61,41.44,41.44,0.73
+20260622,44.7,45.62,44.7,45.61,2758694,41.52,9.84,41.74,41.64,1.16
 ```
 
 ## Latest TDCC Snapshot

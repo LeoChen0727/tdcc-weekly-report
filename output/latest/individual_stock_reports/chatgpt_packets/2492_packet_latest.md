@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2492 華新科
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:05 Asia/Taipei
+- generated_at: 2026-06-23 22:23:08 Asia/Taipei
 - stock_id: 2492
 - stock_name: 華新科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 537
-- high: 590
-- low: 501
-- close: 561
-- volume: 68149740
-- ma5: 491.1
-- ema23_primary: 397.24
-- distance_to_ema23_pct: 41.22
-- ma20: 415.55
-- ma60: 240.29
-- ma120: 185.81
-- return_5d: 34.37
-- return_20d: 110.9
-- volume_ratio: 7.73
-- distance_to_ma20_pct_auxiliary: 35
-- distance_to_high_60_pct: -4.92
+- date: 20260622
+- open: 616
+- high: 617
+- low: 575
+- close: 617
+- volume: 20258065
+- ma5: 532.7
+- ema23_primary: 415.56
+- distance_to_ema23_pct: 48.48
+- ma20: 431.77
+- ma60: 248.51
+- ma120: 190.01
+- return_5d: 50.86
+- return_20d: 110.94
+- volume_ratio: 2.18
+- distance_to_ma20_pct_auxiliary: 42.9
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,280.5,292.5,280.5,292.5,11024695,192.77,51.73,182.07,149.74,0.57
 20260525,306,321.5,306,321.5,5847721,203.5,57.98,191.65,152.62,0.3
 20260526,303,330,289.5,328.5,14055050,213.92,53.56,201.6,155.49,0.71
 20260527,345,361,345,361,5324682,226.17,59.61,212.55,158.91,0.27
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,460,494,460,494,6902708,367.84,34.3,385.8,226.16,1.16
 20260617,487.5,542,487.5,542,5978478,382.36,41.75,400.8,233,1.04
 20260618,537,590,501,561,68149740,397.24,41.22,415.55,240.29,7.73
+20260622,616,617,575,617,20258065,415.56,48.48,431.77,248.51,2.18
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2492 | 華新科 | true_breakout | 嚴格突破 | 86.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2492 | 華新科 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | 1.事實發生日:115/06/22 2.發生緣由:依據臺灣證券交易所股份有限公司指示辦理 3.財務業務資訊: 期間　　　　　　　月　　　　　　　　　　　季　　　　　　   最近四季累計 ＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝   　　　   最近一月　　與去年　　　最近一季　　與去年　　　 114年第2季 科目　　  115年05月　 同期增減%　 115年第1季　同期增減%　  至115年第1季  　            (合併自結數)   　       (合併查核數)　　    (合併查核數) ＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝＝＝ 營業收入　　3,700        16.50%      9,538        9.13%        37,261 (百萬) 稅前淨利　　  581　     220.54%      1,437       50.16%         4,204 (百萬) 歸屬母公司 業主淨利　　  427 　    199.30%        820       40.17%         2,533 (百萬) 每股盈餘　　 0.88       198.88%       1.69       39.67%          5.22 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2492 | 華新科 | 3 | 3 | 3 | 3 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 2492 | 華新科 | 4 | 4 | 4 | 4 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2492 | 華新科 | 107 | 0 | 142426880.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 2492 | 華新科 | 105 | 0 | 22244140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

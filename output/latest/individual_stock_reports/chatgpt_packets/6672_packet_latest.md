@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:14 Asia/Taipei
+- generated_at: 2026-06-23 22:24:32 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 231.5
-- high: 249
-- low: 231.5
-- close: 245.5
-- volume: 7230125
-- ma5: 230.1
-- ema23_primary: 216.95
-- distance_to_ema23_pct: 13.16
-- ma20: 219.45
-- ma60: 190.13
-- ma120: 143.39
-- return_5d: 14.99
-- return_20d: 37.53
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 11.87
-- distance_to_high_60_pct: -1.41
+- date: 20260622
+- open: 260
+- high: 263.5
+- low: 244.5
+- close: 255.5
+- volume: 8440456
+- ma5: 237
+- ema23_primary: 220.17
+- distance_to_ema23_pct: 16.05
+- ma20: 222.57
+- ma60: 192.23
+- ma120: 144.78
+- return_5d: 15.61
+- return_20d: 32.38
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 14.79
+- distance_to_high_60_pct: -3.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,180.5,194.5,180.5,193,7301038,188.37,2.46,202.07,152.19,1.08
 20260525,200.5,212,200,210,11890181,190.18,10.42,202.05,153.99,1.78
 20260526,211,214,205.5,214,8369900,192.16,11.37,202.38,155.87,1.3
 20260527,218,218,210,211.5,7443315,193.77,9.15,202.57,157.69,1.18
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,237,237.5,220.5,222,5826183,213.25,4.1,213.6,186.28,1.01
 20260617,221,229,221,226.5,2599479,214.36,5.66,216.1,188.01,0.45
 20260618,231.5,249,231.5,245.5,7230125,216.95,13.16,219.45,190.13,1.19
+20260622,260,263.5,244.5,255.5,8440456,220.17,16.05,222.57,192.23,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6672 | 騰輝電子-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | continued_many_days | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度盈餘分派案。 3.重要決議事項二、章程修訂:通過修訂「組織備忘錄及章程」部分條文案。 4.重要決議事項三、營業報告書及財務報表:  通過承認2025年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1) 通過修訂「取得或處分資產處理程序」部分條文案。  (2) 通過修訂「股東會議事規則」部分條文案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6672 | 騰輝電子-KY | 6 | 3 | 5 | 7 | 13 | continued_many_days | 連續 6 日上榜，需區分醞釀延續或訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6672 | 騰輝電子-KY | 15 | 0 | 14109960.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 6672 | 騰輝電子-KY | 15 | 0 | 17301810.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

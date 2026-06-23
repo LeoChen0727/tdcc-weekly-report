@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00850 元大臺灣ESG永續
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:33 Asia/Taipei
+- generated_at: 2026-06-23 22:22:29 Asia/Taipei
 - stock_id: 00850
 - stock_name: 元大臺灣ESG永續
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 92.05
-- high: 92.5
-- low: 92
-- close: 92.45
-- volume: 949370
-- ma5: 90.61
-- ema23_primary: 88.25
-- distance_to_ema23_pct: 4.75
-- ma20: 88.86
-- ma60: 88.86
-- ma120: 88.86
-- return_5d: 7.63
-- return_20d:
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 4.04
-- distance_to_high_60_pct: -0.38
+- date: 20260622
+- open: 93.55
+- high: 95.05
+- low: 93.55
+- close: 95
+- volume: 1070642
+- ma5: 92.05
+- ema23_primary: 88.82
+- distance_to_ema23_pct: 6.96
+- ma20: 89.47
+- ma60: 89.15
+- ma120: 89.15
+- return_5d: 8.2
+- return_20d: 14.67
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 6.18
+- distance_to_high_60_pct: -0.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,81.75,82.9,81.65,82.85,2860471,,,,,
 20260525,84.25,86.55,84.25,86.5,2905492,,,,,
 20260526,86.9,87.45,86,86.7,903650,,,,,
 20260527,87.75,90,87.75,88.9,945782,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,91,91.15,90.3,91.05,738717,87.55,4,88.52,88.52,0.61
 20260617,90.6,91.4,89.95,91.4,512006,87.87,4.01,88.67,88.67,0.44
 20260618,92.05,92.5,92,92.45,949370,88.25,4.75,88.86,88.86,0.82
+20260622,93.55,95.05,93.55,95,1070642,88.82,6.96,89.47,89.15,1
 ```
 
 ## Latest TDCC Snapshot

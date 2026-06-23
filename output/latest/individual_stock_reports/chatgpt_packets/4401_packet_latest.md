@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4401 東隆興
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:38 Asia/Taipei
+- generated_at: 2026-06-23 22:23:47 Asia/Taipei
 - stock_id: 4401
 - stock_name: 東隆興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
+- date: 20260622
 - open: 14.15
 - high: 14.15
 - low: 14
 - close: 14.1
-- volume: 61000
+- volume: 37000
 - ma5: 14.11
 - ema23_primary: 14.04
-- distance_to_ema23_pct: 0.46
-- ma20: 13.89
-- ma60: 14.38
-- ma120: 15.3
-- return_5d: 0.71
+- distance_to_ema23_pct: 0.42
+- ma20: 13.9
+- ma60: 14.36
+- ma120: 15.28
+- return_5d: 0
 - return_20d: 1.08
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 1.49
-- distance_to_high_60_pct: -7.54
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 1.44
+- distance_to_high_60_pct: -6.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,14,14,13.9,13.95,14000,14.37,-2.94,14.3,14.82,0.13
 20260525,13.8,14.1,13.7,13.85,14000,14.33,-3.34,14.25,14.78,0.13
 20260526,13.85,13.85,13.7,13.75,14000,14.28,-3.72,14.2,14.75,0.13
 20260527,13.8,13.8,13.65,13.7,14000,14.23,-3.74,14.15,14.71,0.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,14.15,14.35,14.05,14.05,88000,14.02,0.22,13.89,14.41,1.3
 20260617,14.15,14.15,13.9,14.15,78000,14.03,0.86,13.88,14.39,1.16
 20260618,14.15,14.15,14,14.1,61000,14.04,0.46,13.89,14.38,1
+20260622,14.15,14.15,14,14.1,37000,14.04,0.42,13.9,14.36,0.6
 ```
 
 ## Latest TDCC Snapshot

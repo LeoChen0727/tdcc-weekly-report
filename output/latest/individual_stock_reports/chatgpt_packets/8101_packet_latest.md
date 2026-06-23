@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8101 華冠
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:34 Asia/Taipei
+- generated_at: 2026-06-23 22:24:56 Asia/Taipei
 - stock_id: 8101
 - stock_name: 華冠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 275
+- latest_price_date: 20260622
+- price_rows: 276
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 14.2
+- date: 20260622
+- open: 13.55
 - high: 14.45
-- low: 14.2
-- close: 14.45
-- volume: 4875
-- ma5: 14.74
-- ema23_primary: 14.63
-- distance_to_ema23_pct: -1.23
-- ma20: 14.78
-- ma60: 13.85
-- ma120: 14.77
-- return_5d: -3.99
-- return_20d: 11.15
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -2.2
-- distance_to_high_60_pct: -12.95
+- low: 13.55
+- close: 13.75
+- volume: 9265
+- ma5: 14.48
+- ema23_primary: 14.56
+- distance_to_ema23_pct: -5.54
+- ma20: 14.81
+- ma60: 13.84
+- ma120: 14.74
+- return_5d: -8.64
+- return_20d: 5.77
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -7.17
+- distance_to_high_60_pct: -17.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,13,13,13,13,2205,13.11,-0.87,12.88,13.93,0.19
 20260525,12.85,14.1,12.75,13.9,15804,13.18,5.46,12.89,13.89,1.38
 20260526,13.3,13.3,13.3,13.3,2559,13.19,0.83,12.91,13.84,0.23
 20260527,12.95,13.7,12.95,13.7,11291,13.23,3.53,12.96,13.8,0.98
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,14.95,15,14.95,15,4452,14.69,2.14,14.65,13.85,0.28
 20260617,14.2,14.2,14.2,14.2,12549,14.65,-3.04,14.7,13.85,0.77
 20260618,14.2,14.45,14.2,14.45,4875,14.63,-1.23,14.78,13.85,0.29
+20260622,13.55,14.45,13.55,13.75,9265,14.56,-5.54,14.81,13.84,0.55
 ```
 
 ## Latest TDCC Snapshot

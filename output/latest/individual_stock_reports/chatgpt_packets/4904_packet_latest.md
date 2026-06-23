@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4904 遠傳
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:44 Asia/Taipei
+- generated_at: 2026-06-23 22:23:55 Asia/Taipei
 - stock_id: 4904
 - stock_name: 遠傳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 110.5
-- high: 110.5
-- low: 108
-- close: 108.5
-- volume: 42315837
-- ma5: 109.9
-- ema23_primary: 103.23
-- distance_to_ema23_pct: 5.1
-- ma20: 101.84
-- ma60: 97.39
-- ma120: 94.04
-- return_5d: -0.46
-- return_20d: 13.38
-- volume_ratio: 3.45
-- distance_to_ma20_pct_auxiliary: 6.53
-- distance_to_high_60_pct: -4.41
+- date: 20260622
+- open: 108
+- high: 109.5
+- low: 104.5
+- close: 108
+- volume: 43158866
+- ma5: 109.7
+- ema23_primary: 103.63
+- distance_to_ema23_pct: 4.22
+- ma20: 102.47
+- ma60: 97.63
+- ma120: 94.2
+- return_5d: -0.92
+- return_20d: 13.09
+- volume_ratio: 3.08
+- distance_to_ma20_pct_auxiliary: 5.4
+- distance_to_high_60_pct: -4.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,95.7,96.7,94.7,95.5,8262621,96.05,-0.57,96.11,94.45,1.44
 20260525,95.5,95.6,94.2,94.2,8257736,95.89,-1.76,95.98,94.42,1.41
 20260526,94.5,95.5,94,94,8953533,95.73,-1.81,95.89,94.42,1.49
 20260527,94.8,94.8,92.9,92.9,9343969,95.5,-2.72,95.81,94.43,1.51
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,111,113,110,112.5,13225838,102.14,10.14,100.58,96.88,1.29
 20260617,112.5,113.5,107.5,109.5,12993875,102.75,6.57,101.2,97.14,1.23
 20260618,110.5,110.5,108,108.5,42315837,103.23,5.1,101.84,97.39,3.45
+20260622,108,109.5,104.5,108,43158866,103.63,4.22,102.47,97.63,3.08
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4904 | 遠傳 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/18 2.股東臨時會召開日期:115/07/17 3.股東臨時會召開地點:台北市內湖區民權東路六段18號6樓 4.召集事由一、報告事項:無 5.召集事由二、承認事項:無 6.召集事由三、討論事項:擬修訂「公司章程」部分條文案 7.召集事由四、選舉事項:無 8.召集事由五、其他議案:無 9.召集事由六、臨時動議:無 10.停止過戶起始日期:115/07/03 11.停止過戶截止日期:115/07/17 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 4904 | 遠傳 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.董事會決議日期:115/06/18 2.股東臨時會召開日期:115/07/17 3.股東臨時會召開地點:台北市內湖區民權東路六段18號6樓 4.召集事由一、報告事項:無 5.召集事由二、承認事項:無 6.召集事由三、討論事項:擬修訂「公司章程」部分條文案 7.召集事由四、選舉事項:無 8.召集事由五、其他議案:無 9.召集事由六、臨時動議:無 10.停止過戶起始日期:115/07/03 11.停止過戶截止日期:115/07/17 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4904 | 遠傳 | 1 | 1 | 3 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260622 | 4904 | 遠傳 | 2 | 2 | 3 | 7 | 8 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

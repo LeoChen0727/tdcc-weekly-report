@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:31 Asia/Taipei
+- generated_at: 2026-06-23 22:24:52 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 250
-- high: 250
-- low: 240
-- close: 241
-- volume: 1442000
-- ma5: 241.3
-- ema23_primary: 245.27
-- distance_to_ema23_pct: -1.74
-- ma20: 256.05
-- ma60: 203.79
-- ma120: 154.76
-- return_5d: 4.1
-- return_20d: -0.21
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -5.88
-- distance_to_high_60_pct: -18.86
+- date: 20260622
+- open: 240
+- high: 248
+- low: 235
+- close: 245
+- volume: 1880000
+- ma5: 243.8
+- ema23_primary: 245.25
+- distance_to_ema23_pct: -0.1
+- ma20: 256.07
+- ma60: 205.97
+- ma120: 155.9
+- return_5d: 5.38
+- return_20d: 0.2
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -4.32
+- distance_to_high_60_pct: -17.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,240,260,237,244.5,249000,215.46,13.48,217.18,154.52,0.02
 20260525,250.5,253,247.5,250.5,251000,218.38,14.71,221.88,157.12,0.02
 20260526,257,257,248,256.5,254000,221.56,15.77,226.75,159.84,0.03
 20260527,264.5,264.5,248,249.5,253000,223.89,11.44,231.07,162.4,0.03
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,242,250,230,247,8661000,245.54,0.59,255.72,199.38,1.83
 20260617,242,257.5,235.5,247,9829000,245.66,0.55,256.07,201.72,2.18
 20260618,250,250,240,241,1442000,245.27,-1.74,256.05,203.79,0.36
+20260622,240,248,235,245,1880000,245.25,-0.1,256.07,205.97,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8027 | 鈦昇 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | 1.發生變動日期:115/06/18 2.功能性委員會名稱:審計委員會 3.舊任者姓名: 呂植富 高坤勇 彭慎翔 4.舊任者簡歷: 呂植富/國巨股份有限公司品質長兼楠梓分公司負責人 高坤勇/有朮股份有限公司董事長 彭慎翔/漢民科技股份有限公司副總經理 5.新任者姓名: 彭慎翔 賴志煌 林子健 6.新任者簡歷: 彭慎翔/漢民科技股份有限公司副總經理 賴志煌/國立清華大學半導體研究學院副院長 林子健/南山人壽證券投資部副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/18 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 8027 | 鈦昇 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | 1.發生變動日期:115/06/18 2.功能性委員會名稱:審計委員會 3.舊任者姓名: 呂植富 高坤勇 彭慎翔 4.舊任者簡歷: 呂植富/國巨股份有限公司品質長兼楠梓分公司負責人 高坤勇/有朮股份有限公司董事長 彭慎翔/漢民科技股份有限公司副總經理 5.新任者姓名: 彭慎翔 賴志煌 林子健 6.新任者簡歷: 彭慎翔/漢民科技股份有限公司副總經理 賴志煌/國立清華大學半導體研究學院副院長 林子健/南山人壽證券投資部副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/18 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | continued_2_3d | 1.發生變動日期:115/06/18 2.功能性委員會名稱:審計委員會 3.舊任者姓名: 呂植富 高坤勇 彭慎翔 4.舊任者簡歷: 呂植富/國巨股份有限公司品質長兼楠梓分公司負責人 高坤勇/有朮股份有限公司董事長 彭慎翔/漢民科技股份有限公司副總經理 5.新任者姓名: 彭慎翔 賴志煌 林子健 6.新任者簡歷: 彭慎翔/漢民科技股份有限公司副總經理 賴志煌/國立清華大學半導體研究學院副院長 林子健/南山人壽證券投資部副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/18 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 8027 | 鈦昇 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260622 | 8027 | 鈦昇 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

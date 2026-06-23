@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:59 Asia/Taipei
+- generated_at: 2026-06-23 22:23:01 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 770
-- high: 819
-- low: 754
-- close: 819
-- volume: 6727481
-- ma5: 698.8
-- ema23_primary: 640.98
-- distance_to_ema23_pct: 27.77
-- ma20: 637.3
-- ma60: 567.36
-- ma120: 529.78
-- return_5d: 25.04
-- return_20d: 42.43
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 28.51
+- date: 20260622
+- open: 840
+- high: 900
+- low: 840
+- close: 900
+- volume: 7335818
+- ma5: 755.2
+- ema23_primary: 662.56
+- distance_to_ema23_pct: 35.84
+- ma20: 653.4
+- ma60: 574.35
+- ma120: 533
+- return_5d: 45.63
+- return_20d: 55.71
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 37.74
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,574,578,566,578,3741508,552.34,4.64,555.75,513.96,0.83
 20260525,584,594,578,583,4143796,554.9,5.06,557.95,515.76,0.92
 20260526,590,594,584,590,2963327,557.82,5.77,559.7,517.68,0.65
 20260527,595,624,595,605,6045678,561.76,7.7,561.9,519.74,1.28
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,640,678,631,678,4272077,613.86,10.45,616.2,557.11,0.72
 20260617,677,745,662,745,5744695,624.79,19.24,625.1,561.53,0.95
 20260618,770,819,754,819,6727481,640.98,27.77,637.3,567.36,1.07
+20260622,840,900,840,900,7335818,662.56,35.84,653.4,574.35,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2379 | 瑞昱 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 2379 | 瑞昱 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2379 | 瑞昱 | 3 | 2 | 4 | 9 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 2379 | 瑞昱 | 4 | 3 | 4 | 9 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 2379 | 瑞昱 | 66 | 0 | 28896700.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 2379 | 瑞昱 | 65 | 0 | 38162020.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

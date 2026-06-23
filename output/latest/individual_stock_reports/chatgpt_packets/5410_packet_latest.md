@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5410 國眾
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:51 Asia/Taipei
+- generated_at: 2026-06-23 22:24:04 Asia/Taipei
 - stock_id: 5410
 - stock_name: 國眾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 44.6
-- high: 45
+- date: 20260622
+- open: 45.2
+- high: 45.45
 - low: 44.05
 - close: 44.75
-- volume: 1288000
-- ma5: 45.88
-- ema23_primary: 41.41
-- distance_to_ema23_pct: 8.07
-- ma20: 41.45
-- ma60: 35.92
-- ma120: 33.2
-- return_5d: 1.36
-- return_20d: 15.78
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 7.95
+- volume: 1468000
+- ma5: 45.7
+- ema23_primary: 41.69
+- distance_to_ema23_pct: 7.35
+- ma20: 41.75
+- ma60: 36.16
+- ma120: 33.32
+- return_5d: -1.97
+- return_20d: 15.34
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 7.19
 - distance_to_high_60_pct: -10.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,38.95,38.95,38.55,38.8,39000,35.73,8.6,35.64,32.43,0.05
 20260525,39.05,39.4,38.05,38.7,39000,35.97,7.58,35.97,32.58,0.05
 20260526,38.2,38.45,37.75,37.75,38000,36.12,4.5,36.26,32.7,0.05
 20260527,38,38.75,37.7,38.35,38000,36.31,5.62,36.57,32.84,0.05
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,48.25,48.25,45.65,46.2,3057000,40.77,13.33,40.8,35.45,2.3
 20260617,45.95,46.6,44.55,44.8,2374000,41.1,9,41.15,35.68,1.68
 20260618,44.6,45,44.05,44.75,1288000,41.41,8.07,41.45,35.92,0.9
+20260622,45.2,45.45,44.05,44.75,1468000,41.69,7.35,41.75,36.16,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5410 | 國眾 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 5410 | 國眾 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 5410 | 國眾 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 5410 | 國眾 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260622 | 5410 | 國眾 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

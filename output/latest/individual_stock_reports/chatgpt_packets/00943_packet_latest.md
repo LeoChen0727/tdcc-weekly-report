@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00943 兆豐電子高息等權
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:34 Asia/Taipei
+- generated_at: 2026-06-23 22:22:31 Asia/Taipei
 - stock_id: 00943
 - stock_name: 兆豐電子高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 22.28
-- high: 22.81
-- low: 22.28
-- close: 22.81
-- volume: 817371
-- ma5: 22.06
-- ema23_primary: 21.72
-- distance_to_ema23_pct: 5.04
-- ma20: 21.84
-- ma60: 21.84
-- ma120: 21.84
-- return_5d: 8.72
-- return_20d:
-- volume_ratio: 3
-- distance_to_ma20_pct_auxiliary: 4.44
-- distance_to_high_60_pct: -0.39
+- date: 20260622
+- open: 23.42
+- high: 23.5
+- low: 23.32
+- close: 23.37
+- volume: 224248
+- ma5: 22.42
+- ema23_primary: 21.85
+- distance_to_ema23_pct: 6.94
+- ma20: 21.96
+- ma60: 21.91
+- ma120: 21.91
+- return_5d: 8.29
+- return_20d: 11.18
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 6.43
+- distance_to_high_60_pct: -0.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,20.65,21.02,20.65,21.02,173731,,,,,
 20260525,21.5,21.72,21.42,21.68,482162,,,,,
 20260526,21.8,21.8,21.51,21.77,232140,,,,,
 20260527,21.82,22.28,21.7,21.86,194507,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,22.2,22.2,21.67,21.68,175008,21.59,0.44,21.78,21.78,0.7
 20260617,21.68,21.95,21.55,21.95,99641,21.62,1.55,21.79,21.79,0.41
 20260618,22.28,22.81,22.28,22.81,817371,21.72,5.04,21.84,21.84,3
+20260622,23.42,23.5,23.32,23.37,224248,21.85,6.94,21.96,21.91,0.82
 ```
 
 ## Latest TDCC Snapshot

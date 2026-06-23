@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6693 廣閎科
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:14 Asia/Taipei
+- generated_at: 2026-06-23 22:24:32 Asia/Taipei
 - stock_id: 6693
 - stock_name: 廣閎科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 210
-- high: 215
-- low: 209
-- close: 215
-- volume: 1062000
-- ma5: 188.6
-- ema23_primary: 166.1
-- distance_to_ema23_pct: 29.44
-- ma20: 163.43
-- ma60: 145.55
-- ma120: 116.24
-- return_5d: 38.71
-- return_20d: 51.41
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 31.56
+- date: 20260622
+- open: 236.5
+- high: 236.5
+- low: 233
+- close: 236.5
+- volume: 1179000
+- ma5: 202.1
+- ema23_primary: 171.97
+- distance_to_ema23_pct: 37.52
+- ma20: 167.95
+- ma60: 147.78
+- ma120: 117.56
+- return_5d: 39.94
+- return_20d: 61.99
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 40.82
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,142.5,147.5,141.5,146,144000,142.41,2.52,145.12,122.89,0.13
 20260525,146.5,152,145,148,148000,142.87,3.59,145.28,123.84,0.14
 20260526,148,157.5,146,157.5,152000,144.09,9.31,146.32,124.97,0.15
 20260527,161.5,161.5,148,151,155000,144.67,4.38,147.03,125.98,0.15
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,189.5,197,175,178,3757000,158.58,12.24,156.85,142.14,3.09
 20260617,184,195.5,183.5,195.5,2864000,161.66,20.93,159.78,143.65,2.15
 20260618,210,215,209,215,1062000,166.1,29.44,163.43,145.55,0.78
+20260622,236.5,236.5,233,236.5,1179000,171.97,37.52,167.95,147.78,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6693 | 廣閎科 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 6693 | 廣閎科 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:現金股利新台幣 27,027,600 元(每股配發新台幣 0.6 元) 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用。 10.債券停止轉換起始日期:不適用。 11.債券停止轉換截止日期:不適用。 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:115/06/15股東常會通過授權董事長訂定除息基準日、   發放日及其他相關事宜，董事長決定除息基準日及現金股利發放日如上。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6693 | 廣閎科 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260622 | 6693 | 廣閎科 | 2 | 2 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

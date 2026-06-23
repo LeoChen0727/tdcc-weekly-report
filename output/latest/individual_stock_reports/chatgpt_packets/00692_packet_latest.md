@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00692 富邦公司治理
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:32 Asia/Taipei
+- generated_at: 2026-06-23 22:22:28 Asia/Taipei
 - stock_id: 00692
 - stock_name: 富邦公司治理
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260618
-- price_rows: 20
+- latest_price_date: 20260622
+- price_rows: 21
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 92.5
-- high: 92.9
-- low: 92.05
-- close: 92.8
-- volume: 1936429
-- ma5: 91.15
-- ema23_primary: 89.12
-- distance_to_ema23_pct: 4.13
-- ma20: 89.6
-- ma60: 89.6
-- ma120: 89.6
-- return_5d: 6.79
-- return_20d:
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 3.57
-- distance_to_high_60_pct: -0.43
+- date: 20260622
+- open: 94.45
+- high: 95.95
+- low: 94.45
+- close: 95.85
+- volume: 2061832
+- ma5: 92.6
+- ema23_primary: 89.68
+- distance_to_ema23_pct: 6.88
+- ma20: 90.16
+- ma60: 89.9
+- ma120: 89.9
+- return_5d: 8.18
+- return_20d: 13.3
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 6.31
+- distance_to_high_60_pct: -0.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,83.95,84.6,83.55,84.6,1543809,,,,,
 20260525,86.1,87.75,86.1,87.6,1713682,,,,,
 20260526,88.05,88.2,87.05,87.25,1021079,,,,,
 20260527,89,90.2,88.5,89.05,1852258,,,,,
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,91.5,91.8,90.8,91.65,1237505,88.53,3.53,89.31,89.31,0.67
 20260617,91,91.7,90.6,91.65,1901426,88.79,3.22,89.43,89.43,1.02
 20260618,92.5,92.9,92.05,92.8,1936429,89.12,4.13,89.6,89.6,1.04
+20260622,94.45,95.95,94.45,95.85,2061832,89.68,6.88,90.16,89.9,1.09
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3563 牧德
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:30 Asia/Taipei
+- generated_at: 2026-06-23 22:23:38 Asia/Taipei
 - stock_id: 3563
 - stock_name: 牧德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 705
-- high: 728
-- low: 705
-- close: 715
-- volume: 598904
-- ma5: 710
-- ema23_primary: 768.95
-- distance_to_ema23_pct: -7.02
-- ma20: 780.35
-- ma60: 831.47
-- ma120: 687.61
-- return_5d: 4.84
-- return_20d: -23.37
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -8.37
-- distance_to_high_60_pct: -28.28
+- date: 20260622
+- open: 729
+- high: 747
+- low: 724
+- close: 728
+- volume: 729884
+- ma5: 714.4
+- ema23_primary: 765.53
+- distance_to_ema23_pct: -4.9
+- ma20: 771.95
+- ma60: 832.32
+- ma120: 689.51
+- return_5d: 3.12
+- return_20d: -18.75
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -5.69
+- distance_to_high_60_pct: -26.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,935,939,891,896,4206360,859.39,4.26,859.9,789.7,1.85
 20260525,910,919,884,892,2665332,862.11,3.47,859.05,796.13,1.15
 20260526,903,905,883,890,1512132,864.44,2.96,859.8,802.32,0.67
 20260527,900,900,838,842,2887318,862.57,-2.38,857.2,806.85,1.23
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,733,738,705,705,881629,780.38,-9.66,798.6,831.62,0.61
 20260617,694,703,687,702,590850,773.85,-9.28,791.25,831.25,0.42
 20260618,705,728,705,715,598904,768.95,-7.02,780.35,831.47,0.49
+20260622,729,747,724,728,729884,765.53,-4.9,771.95,832.32,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 3563 | 牧德 | 128 | 7 | 11885840.0 | 86150.0 | 137.97 | call_put_bullish |
+| 20260622 | 3563 | 牧德 | 127 | 7 | 9204290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

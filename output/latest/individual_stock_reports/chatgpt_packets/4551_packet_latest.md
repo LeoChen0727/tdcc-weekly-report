@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:40 Asia/Taipei
+- generated_at: 2026-06-23 22:23:50 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 221
-- high: 221.5
-- low: 216
-- close: 221.5
-- volume: 4096111
-- ma5: 185.1
-- ema23_primary: 160.71
-- distance_to_ema23_pct: 37.83
-- ma20: 157.97
-- ma60: 144.97
-- ma120: 132.4
-- return_5d: 59.93
-- return_20d: 39.75
-- volume_ratio: 2.59
-- distance_to_ma20_pct_auxiliary: 40.21
-- distance_to_high_60_pct: 0
+- date: 20260622
+- open: 225.5
+- high: 235.5
+- low: 222
+- close: 226
+- volume: 4908424
+- ma5: 199.9
+- ema23_primary: 166.15
+- distance_to_ema23_pct: 36.02
+- ma20: 161.5
+- ma60: 146.61
+- ma120: 133.33
+- return_5d: 48.68
+- return_20d: 45.34
+- volume_ratio: 2.77
+- distance_to_ma20_pct_auxiliary: 39.94
+- distance_to_high_60_pct: -4.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,159.5,159.5,154.5,155.5,1104146,144.66,7.49,143,133.72,1.16
 20260525,157,158,155,157,755993,145.69,7.76,144.3,134.27,0.78
 20260526,158.5,159.5,154,156,654998,146.55,6.45,145.68,134.81,0.68
 20260527,157,157,150.5,151.5,749528,146.96,3.09,146.6,135.25,0.76
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,183,183.5,182,183.5,2379377,150.97,21.54,152.18,142.23,1.71
 20260617,200,201.5,193,201.5,2542965,155.18,29.85,154.82,143.47,1.71
 20260618,221,221.5,216,221.5,4096111,160.71,37.83,157.97,144.97,2.59
+20260622,225.5,235.5,222,226,4908424,166.15,36.02,161.5,146.61,2.77
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4551 | 智伸科 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間           (月)                       (季)               (最近四季累計)        最近一月    與去年同期      最近一季   與去年同期      (114年第2季 科目  (115年5月)     增減%       (115年第1季)   增減%         至115年第1季)       =======================    =======================    =================          (IFRS-合併自結數)          (IFRS-合併核閱數)       (IFRS-合併查核數) ============================================================================= 營業收入    761       26.74%        2,272        13.08%          8,086 (佰萬元) 稅前淨利     73      158.78%          394        12.60%            995 (佰萬元) 本期淨利     57      147.68%          311        30.01%            768 (佰萬元) 每股盈餘    0.49     147.12%	      2.70        30.43%            6.67 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260622 | 4551 | 智伸科 | true_breakout | 嚴格突破 | 81.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | 1.事實發生日:115/06/22 2.公司名稱:智伸科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:2026.06.19 工商時報B01版 6.報導內容:「…法人估前五月 EPS 至少3.5元。智伸科指出…法人估智伸科今年  全年 EPS 最低9.25元，最高12.23元，明年 EPS 估至少13元。」 7.發生緣由:澄清媒體報導 8.因應措施: 關於上述報導，係媒體推測並非本公司發佈之訊息，謹此澄清。 有關財務與業務資訊，應以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4551 | 智伸科 | 5 | 4 | 5 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260622 | 4551 | 智伸科 | 6 | 5 | 5 | 7 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 4551 | 智伸科 | 24 | 0 | 3016520.0 | 0.0 |  | call_strong_inflow |
+| 20260622 | 4551 | 智伸科 | 28 | 0 | 12241070.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

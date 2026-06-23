@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1436 華友聯
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:40 Asia/Taipei
+- generated_at: 2026-06-23 22:22:38 Asia/Taipei
 - stock_id: 1436
 - stock_name: 華友聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 46.8
-- high: 48.5
-- low: 46.8
-- close: 47.5
-- volume: 753794
-- ma5: 46.48
-- ema23_primary: 46.41
-- distance_to_ema23_pct: 2.35
-- ma20: 45.55
-- ma60: 49.11
-- ma120: 54.38
-- return_5d: 3.71
-- return_20d: 4.4
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: 4.28
-- distance_to_high_60_pct: -13.16
+- date: 20260622
+- open: 47.15
+- high: 47.15
+- low: 45.45
+- close: 45.7
+- volume: 852993
+- ma5: 46.34
+- ema23_primary: 46.35
+- distance_to_ema23_pct: -1.41
+- ma20: 45.56
+- ma60: 48.98
+- ma120: 54.24
+- return_5d: -1.51
+- return_20d: 0.55
+- volume_ratio: 1.78
+- distance_to_ma20_pct_auxiliary: 0.3
+- distance_to_high_60_pct: -16.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,45.35,45.45,44.9,45.45,248056,48.49,-6.26,48.34,52.12,0.78
 20260525,45.45,45.6,44.35,44.6,575218,48.16,-7.4,48.03,51.87,1.71
 20260526,44.6,44.8,44.05,44.75,215833,47.88,-6.53,47.77,51.63,0.66
 20260527,44.75,44.9,44.05,44.05,219854,47.56,-7.38,47.45,51.42,0.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,46,47.1,45.6,45.9,491941,46.27,-0.8,45.4,49.37,1.12
 20260617,45.85,46.8,45.5,46.75,516262,46.31,0.95,45.45,49.21,1.16
 20260618,46.8,48.5,46.8,47.5,753794,46.41,2.35,45.55,49.11,1.68
+20260622,47.15,47.15,45.45,45.7,852993,46.35,-1.41,45.56,48.98,1.78
 ```
 
 ## Latest TDCC Snapshot

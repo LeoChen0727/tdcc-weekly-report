@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8085 福華
 
 ## Metadata
-- generated_at: 2026-06-22 22:24:33 Asia/Taipei
+- generated_at: 2026-06-23 22:24:55 Asia/Taipei
 - stock_id: 8085
 - stock_name: 福華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 13.35
-- high: 13.5
-- low: 12.85
-- close: 12.9
-- volume: 375000
-- ma5: 12.8
-- ema23_primary: 12.91
-- distance_to_ema23_pct: -0.05
-- ma20: 12.79
-- ma60: 13.45
-- ma120: 15.24
-- return_5d: 1.57
-- return_20d: 11.69
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: 0.88
-- distance_to_high_60_pct: -26.29
+- date: 20260622
+- open: 12.95
+- high: 12.95
+- low: 12.6
+- close: 12.7
+- volume: 295000
+- ma5: 12.79
+- ema23_primary: 12.89
+- distance_to_ema23_pct: -1.47
+- ma20: 12.84
+- ma60: 13.39
+- ma120: 15.21
+- return_5d: -0.39
+- return_20d: 9.01
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -1.09
+- distance_to_high_60_pct: -27.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,11.5,11.8,11.35,11.65,12000,12.54,-7.1,12.23,14.85,0.03
 20260525,11.65,12.1,11.45,11.75,12000,12.47,-5.81,12.14,14.75,0.03
 20260526,11.75,11.9,11.25,11.4,11000,12.39,-7.95,12.06,14.64,0.03
 20260527,11.3,11.3,11,11.05,11000,12.27,-9.97,11.97,14.52,0.03
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,12.85,12.85,12.45,12.5,303000,12.89,-3.06,12.64,13.57,1.41
 20260617,12.5,13.2,12.5,13.05,498000,12.91,1.11,12.72,13.51,2.22
 20260618,13.35,13.5,12.85,12.9,375000,12.91,-0.05,12.79,13.45,1.64
+20260622,12.95,12.95,12.6,12.7,295000,12.89,-1.47,12.84,13.39,1.22
 ```
 
 ## Latest TDCC Snapshot

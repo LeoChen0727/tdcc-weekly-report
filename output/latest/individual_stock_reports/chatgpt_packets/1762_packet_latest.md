@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1762 中化生
 
 ## Metadata
-- generated_at: 2026-06-22 22:22:49 Asia/Taipei
+- generated_at: 2026-06-23 22:22:48 Asia/Taipei
 - stock_id: 1762
 - stock_name: 中化生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 287
+- latest_price_date: 20260622
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 35.5
-- high: 35.85
-- low: 35.05
-- close: 35.5
-- volume: 309123
-- ma5: 35.11
-- ema23_primary: 36.91
-- distance_to_ema23_pct: -3.83
-- ma20: 38.34
-- ma60: 33.44
-- ma120: 29.94
-- return_5d: -0.14
-- return_20d: -5.96
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -7.41
-- distance_to_high_60_pct: -20.67
+- date: 20260622
+- open: 35.75
+- high: 36
+- low: 35
+- close: 35.8
+- volume: 443314
+- ma5: 35.33
+- ema23_primary: 36.82
+- distance_to_ema23_pct: -2.77
+- ma20: 38.23
+- ma60: 33.55
+- ma120: 30.03
+- return_5d: 3.17
+- return_20d: -5.67
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -6.37
+- distance_to_high_60_pct: -20
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,37.85,38.85,37.55,37.95,443017,34.26,10.77,33.74,30.28,0.65
 20260525,38.25,40.5,37.95,40.2,1073209,34.76,15.66,34.35,30.5,1.46
 20260526,39.8,40,39,39.6,455178,35.16,12.63,34.95,30.7,0.6
 20260527,39.95,40.55,39.15,39.7,544340,35.54,11.71,35.52,30.91,0.7
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,35.65,35.65,34.35,34.7,373927,37.2,-6.72,38.63,33.22,0.44
 20260617,34.7,35.3,34.45,35.3,177298,37.04,-4.7,38.45,33.33,0.21
 20260618,35.5,35.85,35.05,35.5,309123,36.91,-3.83,38.34,33.44,0.39
+20260622,35.75,36,35,35.8,443314,36.82,-2.77,38.23,33.55,0.56
 ```
 
 ## Latest TDCC Snapshot

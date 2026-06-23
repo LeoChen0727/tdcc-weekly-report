@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3171 炎洲流通
 
 ## Metadata
-- generated_at: 2026-06-22 22:23:21 Asia/Taipei
+- generated_at: 2026-06-23 22:23:27 Asia/Taipei
 - stock_id: 3171
 - stock_name: 炎洲流通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260618
-- price_rows: 152
+- latest_price_date: 20260622
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260618
-- open: 71.6
-- high: 71.8
-- low: 71
-- close: 71.6
-- volume: 73000
-- ma5: 71.74
-- ema23_primary: 71.15
-- distance_to_ema23_pct: 0.63
-- ma20: 71.58
-- ma60: 68.86
-- ma120: 59.35
-- return_5d: -1.65
-- return_20d: 7.03
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 0.02
-- distance_to_high_60_pct: -9.82
+- date: 20260622
+- open: 72.8
+- high: 72.8
+- low: 71.4
+- close: 71.9
+- volume: 20000
+- ma5: 71.64
+- ema23_primary: 71.21
+- distance_to_ema23_pct: 0.96
+- ma20: 71.78
+- ma60: 69.03
+- ma120: 59.56
+- return_5d: -0.69
+- return_20d: 5.58
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 0.17
+- distance_to_high_60_pct: -9.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,68.9,68.9,66.8,68.1,68000,67.41,1.02,68.09,63.39,0.9
 20260525,71.6,73.7,70,70.9,72000,67.7,4.73,68.13,63.73,1.02
 20260526,70.8,71,70,70.5,70000,67.93,3.78,68.25,64.08,1.03
 20260527,71.8,72.9,70,70.2,71000,68.12,3.05,68.27,64.41,1.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,71.3,73.6,71.3,71.5,35000,71.07,0.61,71.11,68.52,0.47
 20260617,72.1,72.1,71.6,71.6,13000,71.11,0.69,71.35,68.68,0.18
 20260618,71.6,71.8,71,71.6,73000,71.15,0.63,71.58,68.86,0.96
+20260622,72.8,72.8,71.4,71.9,20000,71.21,0.96,71.78,69.03,0.27
 ```
 
 ## Latest TDCC Snapshot
