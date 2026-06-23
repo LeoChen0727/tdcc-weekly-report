@@ -60,7 +60,8 @@ Business meaning:
 
 ```text
 The stock has closed above an auditable neckline reference with clear volume
-confirmation, and the breakout is not already over-extended.
+confirmation. Signal-day candle quality affects score and risk tags, not
+whether the neckline breakout exists.
 ```
 
 ## Neckline Reference Rule
@@ -108,24 +109,26 @@ Interpretation:
 | `0` | close is at the neckline |
 | `> 0` | close is above the neckline |
 
-The confirmed breakout zone for the first implementation should be:
+The confirmed breakout floor for the first implementation should be:
 
 ```text
-0 <= neckline_distance_pct <= 5
+neckline_distance_pct >= 0
 ```
 
-Suggested over-extension handling:
+Initial distance handling:
 
 | neckline_distance_pct | treatment |
 |---|---|
 | `< 0` | reject; this is still a challenge/watch setup, not confirmed breakout |
-| `0..3` | strongest confirmation zone |
-| `3..5` | acceptable confirmation zone |
-| `5..10` | over-extension warning; do not add confirmation bonus |
-| `> 10` | reject as too extended for initial production entry |
+| `0..3` | strongest confirmation score zone |
+| `3..5` | acceptable confirmation score zone |
+| `> 5` | still eligible if the neckline reference is audited; do not reject or penalize solely because the breakout distance is large |
 
-These thresholds are intentionally conservative. They can be changed only after
-research/backtest evidence is reviewed through an explicit promotion or sync PR.
+Do not add an automatic "too far above neckline" exclusion or penalty in the
+first implementation. Do not reject or penalize solely because
+`neckline_distance_pct > 10` or `return_20d_pct` is high. Breakout quality
+should be handled through candle-quality score components, false-breakout risk
+tags, TDCC/revenue inputs, and later research evidence.
 
 ## Initial Entry Condition Proposal
 
@@ -138,9 +141,8 @@ Recommended condition:
 
 ```text
 has_audited_neckline_reference
-and 0 <= neckline_distance_pct <= 5
+and neckline_distance_pct >= 0
 and has_volume_confirmation
-and not too_extended_after_breakout
 ```
 
 Where:
@@ -156,24 +158,30 @@ has_audited_neckline_reference =
 Recommended first implementation for `has_volume_confirmation`:
 
 ```text
-volume_ratio >= 2.0
-and volume_ma20_lots >= 1000 when volume_ma20_lots is available
+locked_limit_up_neckline_breakout
+or (
+  volume_ratio >= 2.0
+  and volume_ma20_lots >= 1000 when volume_ma20_lots is available
+)
 ```
 
-Locked-limit-up handling may be added only if the implementation can prove the
-day is a true locked or near-locked breakout day using price fields. If this is
-not available, do not silently loosen the volume rule.
-
-Recommended first implementation for `too_extended_after_breakout`:
+Locked-limit-up handling must bypass the normal `volume_ratio` and
+`volume_ma20_lots` gates. This follows the existing `volume_range_breakout`
+rule that locked or near-locked limit-up breakouts do not require volume ratio
+or 20-day average volume confirmation.
 
 ```text
-neckline_distance_pct > 10
-or return_20d_pct >= 35
+locked_limit_up_neckline_breakout =
+  neckline_distance_pct >= 0
+  and daily_return_pct >= 9.0
+  and close >= high * 0.995
+  and open >= close * 0.995
+  and (high == low or intraday_range_pct_vs_prev_close <= 1.0)
 ```
 
-The `return_20d_pct` rule may be implemented as a penalty instead of a hard
-reject if selection counts become too narrow, but that choice must be explicit
-in the production PR.
+If the implementation cannot prove the signal day is a true locked or
+near-locked limit-up day using price fields, it must use the normal volume
+confirmation path.
 
 ## Position-Level Rule
 
@@ -193,12 +201,12 @@ Initial interpretation:
 |---|---|
 | `< 0.35` | low-position; likely belongs to W-bottom or range breakout review |
 | `0.35..0.80` | preferred mid-position confirmation zone |
-| `> 0.80` | high-position; allowed only with over-extension penalty or warning |
+| `> 0.80` | high-position; eligible, but should be labeled for review rather than automatically rejected or penalized |
 
 Do not block the first implementation solely because `price_position_120d` is
 unavailable. If it is unavailable, register the input as pending for research
-validation and keep over-extension controls through neckline distance and
-20-day return.
+validation. Do not use missing or high `price_position_120d` as a hidden
+rejection rule.
 
 ## Initial Scoring Proposal
 
@@ -211,17 +219,36 @@ Recommended score components:
 |---|---|
 | base score | base confirmation score for passing the entry condition |
 | neckline reference quality | bonus for W-bottom or audited structured neckline; smaller bonus for explicit upstream-only neckline |
-| distance quality | strongest bonus for `0..3`, smaller bonus for `3..5`; no bonus above 5 |
-| volume strength | bonus above `2.0`, capped; extra bonus above `3.0` if not overextended |
+| distance quality | strongest bonus for `0..3`, smaller bonus for `3..5`; no automatic penalty above 5 |
+| volume strength | bonus above `2.0`, capped; extra bonus above `3.0` on non-limit-up signals |
+| locked-limit-up breakout | bonus and normal volume-gate bypass when the signal day is locked or near-locked limit-up |
+| candle body quality | bonus for strong red body; penalty if the red body is too short for a confirmed breakout attack |
+| close quality | bonus when close is near the signal-day high |
+| upper-shadow quality | penalty for long upper shadow on the signal day |
+| repeated upper-shadow behavior | penalty or risk tag when recent candles repeatedly show long upper shadows after attack attempts |
 | TDCC positive behavior | score bonus only, not entry hard gate |
 | TDCC distribution or weakening | penalty or risk tag |
 | revenue growth or catalyst evidence | score bonus only, not entry hard gate |
 | revenue deterioration | penalty or risk tag |
 | false-breakout risk | penalty or risk tag |
-| high recent return | penalty or rejection according to the explicit production PR choice |
 
 TDCC and revenue must not become entry hard gates in the first implementation
 unless research evidence explicitly supports that promotion.
+
+Recommended candle-quality scoring should reference the existing
+false-breakout and volume-attack quality rules:
+
+| candle feature | proposed scoring treatment |
+|---|---|
+| strict red candle quality | add score when red candle, real body >= 40% of intraday range, upper shadow <= 25% of intraday range, and close location >= 75% |
+| relaxed red candle quality | smaller add score when red candle, real body >= 25%, upper shadow <= 35%, and close location >= 65% |
+| short red body | subtract score or add risk tag when the candle is red but real body is below 25% of intraday range |
+| failed close / not red | subtract score or add risk tag unless the day is a locked or near-locked limit-up breakout |
+| long upper shadow | subtract score using a capped penalty; production may reuse the existing `upper_shadow_pct_of_close > 3.0` penalty pattern or the research `upper_shadow_pct_of_range > 35` quality rule |
+| repeated upper shadows | subtract score or add risk tag when recent attack candles repeatedly meet the long-upper-shadow definition |
+
+The production PR must choose exact field names for these candle inputs and
+register them in `config/stock_model_contract_registry.csv`.
 
 ## Contract Requirements
 
