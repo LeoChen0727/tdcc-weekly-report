@@ -32,6 +32,11 @@ def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "2026061
                 "main_price_date": report_date,
                 "report_ready": "True",
                 "warrant_ready": "True",
+                "warrant_source_status": "ok",
+                "warrant_daily_publish_allowed": "True",
+                "warrant_pdf_visibility": "visible",
+                "warrant_model_effect_allowed": "True",
+                "warrant_pdf_effect_allowed": "True",
                 "daily_pdf_ready": "True",
             }
         ],
@@ -183,12 +188,17 @@ def test_daily_published_model_snapshot_builder_rejects_not_ready_freshness(
                 "main_price_date": "20260615",
                 "report_ready": "True",
                 "warrant_ready": "False",
+                "warrant_source_status": "failed",
+                "warrant_daily_publish_allowed": "False",
+                "warrant_pdf_visibility": "blocked_unavailable",
+                "warrant_model_effect_allowed": "False",
+                "warrant_pdf_effect_allowed": "False",
                 "daily_pdf_ready": "True",
             }
         ],
     )
 
-    with pytest.raises(RuntimeError, match="warrant_ready must be True"):
+    with pytest.raises(RuntimeError, match="warrant_ready must be True before publishing model snapshots"):
         update_snapshots.build_daily_published_model_snapshots(
             latest_dir=latest_dir,
             snapshot_dir=tmp_path / "history",
@@ -196,6 +206,43 @@ def test_daily_published_model_snapshot_builder_rejects_not_ready_freshness(
             generated_at="2026-06-16 08:00:00 Asia/Taipei",
             commit_sha="test-sha",
         )
+
+
+def test_daily_published_model_snapshot_builder_allows_bounded_warrant_grace(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    write_csv(
+        latest_dir / "data_freshness_latest.csv",
+        [
+            {
+                "main_price_date": "20260615",
+                "report_ready": "True",
+                "warrant_ready": "False",
+                "warrant_source_status": "warning_grace",
+                "warrant_daily_publish_allowed": "True",
+                "warrant_pdf_visibility": "hidden_unavailable",
+                "warrant_model_effect_allowed": "False",
+                "warrant_pdf_effect_allowed": "False",
+                "daily_pdf_ready": "True",
+            }
+        ],
+    )
+
+    manifest_rows = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+
+    freshness_row = manifest_rows[manifest_rows["artifact_id"] == "data_freshness"].iloc[0]
+    assert freshness_row["warrant_ready"] == "False"
+    assert freshness_row["warrant_pdf_visibility"] == "hidden_unavailable"
 
 
 def test_daily_published_model_snapshot_builder_rejects_wrong_model_signal_date(

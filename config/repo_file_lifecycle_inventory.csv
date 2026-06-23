@@ -221,6 +221,7 @@ scripts/validate_repo_file_lifecycle_inventory.py,python,repo_infrastructure,act
 scripts/plan_workspace_cleanup.py,python,repo_infrastructure,active,,,tests/test_workspace_cleanup_policy.py,docs/workspace_cleanup_policy.md,,,dry-run workspace cleanup planner for ignored generated outputs,,high
 scripts/apply_workspace_cleanup.py,python,repo_infrastructure,active,,,tests/test_workspace_cleanup_policy.py,docs/workspace_cleanup_policy.md,,,manifest-bound workspace cleanup apply and quarantine tool,,high
 scripts/validate_workspace_cleanup_policy.py,python,repo_infrastructure,active,,,tests/test_workspace_cleanup_policy.py,docs/workspace_cleanup_policy.md,,,workspace cleanup policy and manifest validator,,high
+scripts/validate_warrant_source_status.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,tests/test_daily_production_boundaries.py;tests/test_warrant_source_status.py,,,,validator: validate_warrant_source_status,,high
 docs/workspace_cleanup_policy.md,guidance_doc,repo_infrastructure,active,,,,,,,workspace cleanup governance policy,,none
 docs/workspace_cleanup_initial_audit_20260619.md,guidance_doc,repo_infrastructure,active,,,,,,,initial workspace cleanup audit summary for Phase 1,,none
 docs/stock_model_contract_governance.md,guidance_doc,repo_infrastructure,active,,,,,,,stock model contract governance for downstream consumers,,none
@@ -307,3 +308,4 @@ tests/test_volume_breakout_tdcc_confluence_backtest.py,test_python,tdcc_weekly,a
 tests/test_volume_breakout_watch.py,test_python,daily_production,active,,,,,,,daily production test: test_volume_breakout_watch,,high
 tests/test_warrant_fetch_fallback.py,test_python,warrant,active,,,,,,,warrant test: test_warrant_fetch_fallback,,high
 tests/test_warrant_market_report_fallback.py,test_python,warrant,active,,,,docs/pdf_production_inventory.md,,,warrant test: test_warrant_market_report_fallback,,high
+tests/test_warrant_source_status.py,test_python,warrant,active,,,,,,,warrant source status validator test,,high

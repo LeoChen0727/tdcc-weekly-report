@@ -110,12 +110,25 @@ jobs:
           python build_all_candidates_latest.py
 
       - name: Fetch official warrant daily data
-        timeout-minutes: 7
+        timeout-minutes: 18
         env:
-          OFFICIAL_WARRANT_FETCH_MAX_SECONDS: "360"
+          OFFICIAL_WARRANT_FETCH_MAX_SECONDS: "180"
           OFFICIAL_WARRANT_REQUEST_TIMEOUT: "8"
+          OFFICIAL_WARRANT_FETCH_ATTEMPTS: "3"
+          OFFICIAL_WARRANT_FETCH_RETRY_SLEEP_SECONDS: "180"
         run: |
-          python scripts/fetch_official_warrant_daily.py --require-current-usable
+          for attempt in $(seq 1 "${OFFICIAL_WARRANT_FETCH_ATTEMPTS}"); do
+            echo "warrant_fetch_attempt=${attempt}/${OFFICIAL_WARRANT_FETCH_ATTEMPTS}"
+            if python scripts/fetch_official_warrant_daily.py --require-current-usable; then
+              exit 0
+            fi
+            if [ "${attempt}" -lt "${OFFICIAL_WARRANT_FETCH_ATTEMPTS}" ]; then
+              echo "::warning title=Current-date warrant fetch unavailable::attempt ${attempt}/${OFFICIAL_WARRANT_FETCH_ATTEMPTS} failed; retrying after ${OFFICIAL_WARRANT_FETCH_RETRY_SLEEP_SECONDS} seconds."
+              sleep "${OFFICIAL_WARRANT_FETCH_RETRY_SLEEP_SECONDS}"
+            fi
+          done
+          echo "::warning title=Current-date warrant fetch unavailable::same-run retries exhausted; checking bounded non-critical source grace."
+          python scripts/validate_warrant_source_status.py --allow-noncritical-grace
 
       - name: Upload warrant fetch evidence
         if: always()
@@ -125,6 +138,8 @@ jobs:
           name: warrant-fetch-evidence
           path: |
             output/latest/warrant_daily_fetch_latest.md
+            output/latest/warrant_source_status_latest.md
+            output/latest/warrant_source_status_latest.json
             output/debug/warrant_fetch_debug_latest.md
             output/debug/warrant_fetch_debug_latest.csv
           if-no-files-found: ignore

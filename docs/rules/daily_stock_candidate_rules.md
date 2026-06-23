@@ -49,7 +49,13 @@ Do not call `scripts/generate_chatgpt_side_daily_reports.py` directly for offici
 The entrypoint must perform these checks before rendering:
 
 - `main_price_date`, `actual_stock_price_history_date`, `stock_monitor_price_date`, `all_candidates_date`, `official_price_fetch_date`, `warrant_flow_date`, and raw source dates must match the target report date.
-- `report_ready`, `warrant_ready`, and `daily_pdf_ready` must all be `True`.
+- `report_ready` and `daily_pdf_ready` must be `True`.
+- `warrant_ready=True` means same-date warrant data is usable. If `warrant_ready=False`,
+  the source gate may pass only when `warrant_daily_publish_allowed=True`,
+  `warrant_pdf_visibility=hidden_unavailable`, and both
+  `warrant_model_effect_allowed` and `warrant_pdf_effect_allowed` are false.
+  In that degraded state, old warrant data must not be used in models,
+  candidate interpretation, or PDF warrant analysis.
 - `origin/main:output/latest/READ_ME_FIRST_DAILY_REPORT.txt` and `origin/main:output/latest/data_freshness_latest.csv` must agree on date and readiness fields.
 - The entrypoint must create and verify a temporary clean source worktree from `origin/main` before rendering.
 - A dirty local code checkout is not an official PDF generator source. Use `--allow-dirty-code` only for diagnostics, never for formal delivery.

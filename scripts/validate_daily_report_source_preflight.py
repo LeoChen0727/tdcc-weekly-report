@@ -14,6 +14,7 @@ from scripts.validate_daily_publish_freshness_gate import (  # noqa: E402
     normalize_date,
     read_one_row,
     require_current_ready,
+    warrant_grace_allows_publish,
 )
 
 
@@ -38,6 +39,11 @@ README_FIELDS_REQUIRED_TO_MATCH_FRESHNESS = (
     "warrant_flow_date",
     "warrant_ready",
     "daily_pdf_ready",
+)
+
+README_FIELDS_OPTIONAL_TO_MATCH_FRESHNESS = (
+    "warrant_daily_publish_allowed",
+    "warrant_pdf_visibility",
 )
 
 
@@ -115,7 +121,9 @@ def validate_freshness_row(row: dict[str, str], expected_date: str | None) -> li
 def validate_readme_matches_freshness(readme_fields: dict[str, str], freshness_row: dict[str, str]) -> list[str]:
     errors: list[str] = []
 
-    for field in README_FIELDS_REQUIRED_TO_MATCH_FRESHNESS:
+    fields = list(README_FIELDS_REQUIRED_TO_MATCH_FRESHNESS)
+    fields.extend(field for field in README_FIELDS_OPTIONAL_TO_MATCH_FRESHNESS if str(freshness_row.get(field, "")).strip())
+    for field in fields:
         readme_value = readme_fields.get(field, "")
         freshness_value = freshness_row.get(field, "")
         if field.endswith("_date"):

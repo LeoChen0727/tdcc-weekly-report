@@ -25,6 +25,14 @@ def write_freshness(path: Path, **overrides: object) -> None:
         "report_ready_note": "core daily data dates match main_price_date",
         "warrant_ready": "True",
         "warrant_ready_note": "warrant_flow_date matches main_price_date",
+        "warrant_source_status": "ok",
+        "warrant_source_status_note": "current-date warrant layer ready",
+        "warrant_source_consecutive_unavailable_days": "0",
+        "warrant_source_max_warning_days": "2",
+        "warrant_daily_publish_allowed": "True",
+        "warrant_pdf_visibility": "visible",
+        "warrant_model_effect_allowed": "True",
+        "warrant_pdf_effect_allowed": "True",
         "daily_pdf_ready": "True",
         "daily_pdf_ready_note": "core daily data and warrant layer are ready for daily PDF source use",
         "stock_monitor_note": "ready",
@@ -42,6 +50,8 @@ def write_readme(path: Path, **overrides: object) -> None:
         "report_ready": "True",
         "warrant_flow_date": "20260611",
         "warrant_ready": "True",
+        "warrant_daily_publish_allowed": "True",
+        "warrant_pdf_visibility": "visible",
         "daily_pdf_ready": "True",
         "daily_pdf_ready_note": "core daily data and warrant layer are ready for daily PDF source use",
         "commit_sha": "0" * 40,
@@ -87,6 +97,38 @@ def test_preflight_passes_clean_ready_repo_when_readme_commit_differs_from_head(
 
     assert errors == []
     assert any("README commit_sha differs from checkout HEAD" in line for line in info)
+
+
+def test_preflight_allows_bounded_warrant_grace_when_warrant_effects_are_hidden(tmp_path: Path):
+    repo = init_repo(tmp_path)
+    write_freshness(
+        repo / "output/latest/data_freshness_latest.csv",
+        warrant_ready="False",
+        warrant_ready_note="warrant_flow_date matches main_price_date but stock-level warrant data is unavailable",
+        warrant_source_status="warning_grace",
+        warrant_source_status_note="current-date warrant source unavailable within bounded grace window",
+        warrant_source_consecutive_unavailable_days="1",
+        warrant_daily_publish_allowed="True",
+        warrant_pdf_visibility="hidden_unavailable",
+        warrant_model_effect_allowed="False",
+        warrant_pdf_effect_allowed="False",
+        daily_pdf_ready="True",
+        daily_pdf_ready_note=(
+            "core daily data is ready; warrant source unavailable within bounded grace, "
+            "warrant_pdf_visibility=hidden_unavailable"
+        ),
+    )
+    write_readme(
+        repo / "output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+        warrant_ready="False",
+        warrant_daily_publish_allowed="True",
+        warrant_pdf_visibility="hidden_unavailable",
+    )
+    commit_repo(repo)
+
+    errors, _info = validate(repo, expected_date="20260611")
+
+    assert errors == []
 
 
 def test_preflight_rejects_dirty_checkout(tmp_path: Path):

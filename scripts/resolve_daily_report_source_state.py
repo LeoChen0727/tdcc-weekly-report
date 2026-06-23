@@ -18,6 +18,7 @@ from scripts.validate_daily_publish_freshness_gate import (  # noqa: E402
     is_true,
     normalize_date,
     require_current_ready,
+    warrant_grace_allows_publish,
 )
 
 
@@ -46,6 +47,11 @@ README_FIELDS_REQUIRED_TO_MATCH_FRESHNESS = (
     "daily_pdf_ready",
 )
 
+README_FIELDS_OPTIONAL_TO_MATCH_FRESHNESS = (
+    "warrant_daily_publish_allowed",
+    "warrant_pdf_visibility",
+)
+
 PACKET_FIELDS_REQUIRED_TO_MATCH_FRESHNESS = {
     "main_price_date": "main_price_date",
     "report_ready": "report_ready",
@@ -55,6 +61,11 @@ PACKET_FIELDS_REQUIRED_TO_MATCH_FRESHNESS = {
     "warrant_flow_date": "warrant_flow_date",
     "warrant_ready": "warrant_ready",
     "daily_pdf_ready": "daily_pdf_ready",
+}
+
+PACKET_FIELDS_OPTIONAL_TO_MATCH_FRESHNESS = {
+    "warrant_daily_publish_allowed": "warrant_daily_publish_allowed",
+    "warrant_pdf_visibility": "warrant_pdf_visibility",
 }
 
 PACKET_REQUIRED_MARKERS = (
@@ -69,6 +80,11 @@ STATE_FIELDS_REQUIRED_TO_MATCH_LOCAL = (
     "warrant_flow_date",
     "warrant_ready",
     "daily_pdf_ready",
+)
+
+STATE_FIELDS_OPTIONAL_TO_MATCH_LOCAL = (
+    "warrant_daily_publish_allowed",
+    "warrant_pdf_visibility",
 )
 
 
@@ -183,9 +199,15 @@ def validate_freshness_row(row: dict[str, str], source_label: str) -> list[str]:
         elif main_date and value != main_date:
             errors.append(f"{source_label}: {field}={value} does not match main_price_date={main_date}")
 
-    for field in ("report_ready", "warrant_ready", "daily_pdf_ready"):
-        if not is_true(row.get(field, "")):
-            errors.append(f"{source_label}: {field} must be True, got {row.get(field, '')!r}")
+    if not is_true(row.get("report_ready", "")):
+        errors.append(f"{source_label}: report_ready must be True, got {row.get('report_ready', '')!r}")
+    if not is_true(row.get("warrant_ready", "")) and not warrant_grace_allows_publish(row):
+        errors.append(
+            f"{source_label}: warrant_ready must be True or bounded warrant_unavailable grace must hide "
+            f"warrant effects, got {row.get('warrant_ready', '')!r}"
+        )
+    if not is_true(row.get("daily_pdf_ready", "")):
+        errors.append(f"{source_label}: daily_pdf_ready must be True, got {row.get('daily_pdf_ready', '')!r}")
 
     return errors
 
@@ -196,7 +218,9 @@ def validate_readme_matches_freshness(
     source_label: str,
 ) -> list[str]:
     errors: list[str] = []
-    for field in README_FIELDS_REQUIRED_TO_MATCH_FRESHNESS:
+    fields = list(README_FIELDS_REQUIRED_TO_MATCH_FRESHNESS)
+    fields.extend(field for field in README_FIELDS_OPTIONAL_TO_MATCH_FRESHNESS if str(freshness_row.get(field, "")).strip())
+    for field in fields:
         readme_value = readme_fields.get(field, "")
         freshness_value = freshness_row.get(field, "")
         if field.endswith("_date"):
@@ -224,7 +248,15 @@ def validate_packet_matches_freshness(
         if marker not in packet_text:
             errors.append(f"{source_label}: packet missing required marker {marker!r}")
 
-    for packet_field, freshness_field in PACKET_FIELDS_REQUIRED_TO_MATCH_FRESHNESS.items():
+    field_map = dict(PACKET_FIELDS_REQUIRED_TO_MATCH_FRESHNESS)
+    field_map.update(
+        {
+            packet_field: freshness_field
+            for packet_field, freshness_field in PACKET_FIELDS_OPTIONAL_TO_MATCH_FRESHNESS.items()
+            if str(freshness_row.get(freshness_field, "")).strip()
+        }
+    )
+    for packet_field, freshness_field in field_map.items():
         packet_value = packet_fields.get(packet_field, "")
         freshness_value = freshness_row.get(freshness_field, "")
         if packet_field.endswith("_date") or freshness_field.endswith("_date"):
@@ -270,7 +302,13 @@ def validate_local_matches_origin(
     local_readme = parse_key_value_text(local_readme_path.read_text(encoding="utf-8", errors="replace"))
     local_packet = parse_key_value_text(local_packet_path.read_text(encoding="utf-8", errors="replace"))
 
-    for field in STATE_FIELDS_REQUIRED_TO_MATCH_LOCAL:
+    fields = list(STATE_FIELDS_REQUIRED_TO_MATCH_LOCAL)
+    fields.extend(
+        field
+        for field in STATE_FIELDS_OPTIONAL_TO_MATCH_LOCAL
+        if str(origin_freshness.get(field, origin_readme.get(field, origin_packet.get(field, "")))).strip()
+    )
+    for field in fields:
         origin_value = origin_freshness.get(field, origin_readme.get(field, origin_packet.get(field, "")))
         local_value = local_freshness.get(field, local_readme.get(field, local_packet.get(field, "")))
         if field.endswith("_date"):
@@ -326,6 +364,14 @@ def resolve_daily_report_source_state(
         raise DailyReportSourceError(errors)
 
     main_price_date = normalize_date(freshness_row.get("main_price_date", ""))
+    warrant_ready = is_true(freshness_row.get("warrant_ready", ""))
+    warrant_daily_publish_allowed = is_true(freshness_row.get("warrant_daily_publish_allowed", "")) or warrant_ready
+    warrant_pdf_visibility = freshness_row.get("warrant_pdf_visibility", "").strip()
+    if not warrant_pdf_visibility and warrant_ready:
+        warrant_pdf_visibility = "visible"
+    warrant_source_status = freshness_row.get("warrant_source_status", "").strip()
+    if not warrant_source_status and warrant_ready:
+        warrant_source_status = "ok"
     return {
         "source": source_ref,
         "source_ref": source_ref,
@@ -335,7 +381,10 @@ def resolve_daily_report_source_state(
         "packet_path": f"{source_ref}:{PACKET_PATH}",
         "main_price_date": main_price_date,
         "report_ready": is_true(freshness_row.get("report_ready", "")),
-        "warrant_ready": is_true(freshness_row.get("warrant_ready", "")),
+        "warrant_ready": warrant_ready,
+        "warrant_daily_publish_allowed": warrant_daily_publish_allowed,
+        "warrant_pdf_visibility": warrant_pdf_visibility,
+        "warrant_source_status": warrant_source_status,
         "daily_pdf_ready": is_true(freshness_row.get("daily_pdf_ready", "")),
         "allow_report_generation": True,
         "freshness_fields": freshness_row,

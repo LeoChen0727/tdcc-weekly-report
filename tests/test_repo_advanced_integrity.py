@@ -54,6 +54,60 @@ def test_daily_pipeline_validates_external_sources_after_catalyst_refresh() -> N
     )
 
 
+def test_warrant_external_source_allows_legacy_ready_freshness(tmp_path: Path, monkeypatch) -> None:
+    output_latest = tmp_path / "output" / "latest"
+    output_latest.mkdir(parents=True)
+    freshness = output_latest / "data_freshness_latest.csv"
+    freshness.write_text(
+        "main_price_date,warrant_flow_date,warrant_ready\n"
+        "20260623,20260623,True\n",
+        encoding="utf-8",
+    )
+    contract = tmp_path / "external_data_source_contract.csv"
+    contract.write_text(
+        "source_id,owner,status_artifact,freshness_date_column,readiness_column,require_matches_main_price_date,json_status_path,allowed_statuses,producer,validator\n"
+        "warrant_flow,warrant,output/latest/data_freshness_latest.csv,warrant_flow_date,warrant_daily_publish_allowed,True,,,,\n",
+        encoding="utf-8",
+    )
+    inventory = tmp_path / "repo_production_inventory.csv"
+    inventory.write_text("path\n", encoding="utf-8")
+
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    monkeypatch.setattr(validator, "EXTERNAL_SOURCE_CONTRACT", contract)
+    monkeypatch.setattr(validator, "FRESHNESS_CSV", freshness)
+    monkeypatch.setattr(validator, "INVENTORY_CSV", inventory)
+
+    assert validator.validate_external_source_contract() == []
+
+
+def test_warrant_external_source_rejects_present_false_publish_allowed(tmp_path: Path, monkeypatch) -> None:
+    output_latest = tmp_path / "output" / "latest"
+    output_latest.mkdir(parents=True)
+    freshness = output_latest / "data_freshness_latest.csv"
+    freshness.write_text(
+        "main_price_date,warrant_flow_date,warrant_ready,warrant_daily_publish_allowed\n"
+        "20260623,20260623,True,False\n",
+        encoding="utf-8",
+    )
+    contract = tmp_path / "external_data_source_contract.csv"
+    contract.write_text(
+        "source_id,owner,status_artifact,freshness_date_column,readiness_column,require_matches_main_price_date,json_status_path,allowed_statuses,producer,validator\n"
+        "warrant_flow,warrant,output/latest/data_freshness_latest.csv,warrant_flow_date,warrant_daily_publish_allowed,True,,,,\n",
+        encoding="utf-8",
+    )
+    inventory = tmp_path / "repo_production_inventory.csv"
+    inventory.write_text("path\n", encoding="utf-8")
+
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    monkeypatch.setattr(validator, "EXTERNAL_SOURCE_CONTRACT", contract)
+    monkeypatch.setattr(validator, "FRESHNESS_CSV", freshness)
+    monkeypatch.setattr(validator, "INVENTORY_CSV", inventory)
+
+    assert validator.validate_external_source_contract() == [
+        "external source warrant_flow readiness warrant_daily_publish_allowed is not True"
+    ]
+
+
 def test_calendar_degraded_external_source_requires_effect_guards() -> None:
     good = {
         "sources": {

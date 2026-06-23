@@ -101,6 +101,7 @@ FONT_PATH = Path(r"C:\Windows\Fonts\kaiu.ttf")
 FONT_BOLD_PATH = Path(r"C:\Windows\Fonts\kaiu.ttf")
 MATPLOTLIB_FONT: FontProperties | None = None
 TDCC_WINDOW_CACHE: dict[str, pd.Series] = {}
+SOURCE_STATE: dict[str, object] = {}
 
 MAIN_REPORT_MAINSTREAM_LIMIT = 8
 MAIN_REPORT_NON_MAINSTREAM_LIMIT = 2
@@ -160,6 +161,23 @@ def read_readme_value(key: str, default: str = "") -> str:
     return default
 
 
+def warrant_pdf_hidden() -> bool:
+    visibility = str(SOURCE_STATE.get("warrant_pdf_visibility") or read_readme_value("warrant_pdf_visibility")).strip()
+    ready = str(SOURCE_STATE.get("warrant_ready") or read_readme_value("warrant_ready")).strip().lower()
+    return visibility in {"hidden_unavailable", "blocked_unavailable"} or ready == "false"
+
+
+def warrant_unavailable_note() -> str:
+    note = read_readme_value("warrant_source_status_note") or read_readme_value("warrant_ready_note")
+    status = read_readme_value("warrant_source_status")
+    visibility = read_readme_value("warrant_pdf_visibility")
+    return (
+        "本日權證資料未更新；正式 PDF 略過權證金流表格與權證輔助判讀，"
+        "不得使用舊權證資料作為候選股加分、降級或買賣依據。"
+        f" status={status or 'unknown'}, visibility={visibility or 'hidden_unavailable'}, note={note or 'unavailable'}"
+    )
+
+
 def fetch_text_no_cache(url: str) -> str:
     cache_buster = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
     sep = "&" if "?" in url else "?"
@@ -176,10 +194,11 @@ def fetch_text_no_cache(url: str) -> str:
 
 
 def enforce_fresh_repo_data() -> None:
-    global DATA_DATE, DATA_DATE_SLASH, REQUEST_DATE, REQUEST_DATE_SLASH, REMOTE_README
+    global DATA_DATE, DATA_DATE_SLASH, REQUEST_DATE, REQUEST_DATE_SLASH, REMOTE_README, SOURCE_STATE
 
     source_ref = os.environ.get("CHATGPT_DAILY_SOURCE_REF", "origin/main")
     source_state = resolve_daily_report_source_state(REPO, source_ref=source_ref)
+    SOURCE_STATE = source_state
     remote = source_state["readme_fields"]
     remote_date = source_state["main_price_date"]
 
@@ -3739,6 +3758,11 @@ def build_non_mainstream_full_candidate_pdf(
 
 def build_warrant_market_auxiliary_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
     warrant = inputs["warrant"]
+    hidden = warrant_pdf_hidden()
+    if hidden:
+        warrant = pd.DataFrame()
+    elif not warrant.empty and "stock_id" in warrant.columns:
+        warrant = warrant[warrant["stock_id"].astype(str).str.strip().str.match(r"^[0-9]{4}$", na=False)].copy()
     model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} 權證市場輔助分析", TITLE),
@@ -3747,6 +3771,8 @@ def build_warrant_market_auxiliary_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
         Spacer(1, 4),
         Paragraph("權證市場概況", H1),
     ]
+    if hidden:
+        story.append(para(warrant_unavailable_note(), BODY))
     if not warrant.empty:
         signal_counts = warrant.get("warrant_flow_signal", pd.Series(dtype=str)).map(zh_warrant).value_counts().head(12)
         rows = [["訊號", "檔數"]]

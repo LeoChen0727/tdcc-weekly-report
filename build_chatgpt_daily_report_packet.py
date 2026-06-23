@@ -484,6 +484,13 @@ def extract_data_freshness() -> dict[str, Any]:
         "report_ready_note": "",
         "warrant_ready": "",
         "warrant_ready_note": "",
+        "warrant_source_status": "",
+        "warrant_source_status_note": "",
+        "warrant_source_consecutive_unavailable_days": "",
+        "warrant_daily_publish_allowed": "",
+        "warrant_pdf_visibility": "",
+        "warrant_model_effect_allowed": "",
+        "warrant_pdf_effect_allowed": "",
         "daily_pdf_ready": "",
         "daily_pdf_ready_note": "",
     }
@@ -502,6 +509,13 @@ def extract_data_freshness() -> dict[str, Any]:
                 result["report_ready_note"] = str(row.get("report_ready_note", "")).strip()
                 result["warrant_ready"] = str(row.get("warrant_ready", "")).strip()
                 result["warrant_ready_note"] = str(row.get("warrant_ready_note", "")).strip()
+                result["warrant_source_status"] = str(row.get("warrant_source_status", "")).strip()
+                result["warrant_source_status_note"] = str(row.get("warrant_source_status_note", "")).strip()
+                result["warrant_source_consecutive_unavailable_days"] = str(row.get("warrant_source_consecutive_unavailable_days", "")).strip()
+                result["warrant_daily_publish_allowed"] = str(row.get("warrant_daily_publish_allowed", "")).strip()
+                result["warrant_pdf_visibility"] = str(row.get("warrant_pdf_visibility", "")).strip()
+                result["warrant_model_effect_allowed"] = str(row.get("warrant_model_effect_allowed", "")).strip()
+                result["warrant_pdf_effect_allowed"] = str(row.get("warrant_pdf_effect_allowed", "")).strip()
                 result["daily_pdf_ready"] = str(row.get("daily_pdf_ready", "")).strip()
                 result["daily_pdf_ready_note"] = str(row.get("daily_pdf_ready_note", "")).strip()
                 return result
@@ -609,6 +623,13 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"warrant_flow_date: {freshness.get('warrant_flow_date', '')}")
     lines.append(f"warrant_ready: {freshness.get('warrant_ready', '')}")
     lines.append(f"warrant_ready_note: {freshness.get('warrant_ready_note', '')}")
+    lines.append(f"warrant_source_status: {freshness.get('warrant_source_status', '')}")
+    lines.append(f"warrant_source_status_note: {freshness.get('warrant_source_status_note', '')}")
+    lines.append(f"warrant_source_consecutive_unavailable_days: {freshness.get('warrant_source_consecutive_unavailable_days', '')}")
+    lines.append(f"warrant_daily_publish_allowed: {freshness.get('warrant_daily_publish_allowed', '')}")
+    lines.append(f"warrant_pdf_visibility: {freshness.get('warrant_pdf_visibility', '')}")
+    lines.append(f"warrant_model_effect_allowed: {freshness.get('warrant_model_effect_allowed', '')}")
+    lines.append(f"warrant_pdf_effect_allowed: {freshness.get('warrant_pdf_effect_allowed', '')}")
     lines.append(f"daily_pdf_ready: {freshness.get('daily_pdf_ready', '')}")
     lines.append(f"daily_pdf_ready_note: {freshness.get('daily_pdf_ready_note', '')}")
     lines.append("")
@@ -888,6 +909,13 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "warrant_flow_date": freshness.get("warrant_flow_date", ""),
         "warrant_ready": freshness.get("warrant_ready", ""),
         "warrant_ready_note": freshness.get("warrant_ready_note", ""),
+        "warrant_source_status": freshness.get("warrant_source_status", ""),
+        "warrant_source_status_note": freshness.get("warrant_source_status_note", ""),
+        "warrant_source_consecutive_unavailable_days": freshness.get("warrant_source_consecutive_unavailable_days", ""),
+        "warrant_daily_publish_allowed": freshness.get("warrant_daily_publish_allowed", ""),
+        "warrant_pdf_visibility": freshness.get("warrant_pdf_visibility", ""),
+        "warrant_model_effect_allowed": freshness.get("warrant_model_effect_allowed", ""),
+        "warrant_pdf_effect_allowed": freshness.get("warrant_pdf_effect_allowed", ""),
         "daily_pdf_ready": freshness.get("daily_pdf_ready", ""),
         "daily_pdf_ready_note": freshness.get("daily_pdf_ready_note", ""),
         "repo_artifacts_are_sources_not_final_chatgpt_deliverables": True,

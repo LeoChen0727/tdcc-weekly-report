@@ -312,10 +312,24 @@ def require_daily_report_ready_main_price_date() -> str:
     if not main_date:
         raise RuntimeError("data_freshness_latest.csv must contain main_price_date for formal daily report generation")
 
-    for col in ["report_ready", "warrant_ready", "daily_pdf_ready"]:
+    for col in ["report_ready", "daily_pdf_ready"]:
         value = safe_str(row.get(col, "")).lower()
         if value not in {"true", "1", "yes", "y"}:
             raise RuntimeError(f"{col} must be True before formal daily report generation; observed={row.get(col, '')!r}")
+
+    warrant_ready = safe_str(row.get("warrant_ready", "")).lower() in {"true", "1", "yes", "y"}
+    warrant_grace = (
+        safe_str(row.get("warrant_source_status", "")) == "warning_grace"
+        and safe_str(row.get("warrant_daily_publish_allowed", "")).lower() in {"true", "1", "yes", "y"}
+        and safe_str(row.get("warrant_pdf_visibility", "")) == "hidden_unavailable"
+        and safe_str(row.get("warrant_model_effect_allowed", "")).lower() not in {"true", "1", "yes", "y"}
+        and safe_str(row.get("warrant_pdf_effect_allowed", "")).lower() not in {"true", "1", "yes", "y"}
+    )
+    if not warrant_ready and not warrant_grace:
+        raise RuntimeError(
+            "warrant_ready must be True before formal daily report generation unless bounded "
+            f"warrant_unavailable grace hides warrant effects; observed={row.get('warrant_ready', '')!r}"
+        )
 
     return main_date
 

@@ -464,7 +464,15 @@ def validate_external_source_contract() -> list[str]:
             observed = freshness.get(date_col, "")
             if row.get("require_matches_main_price_date", "") == "True" and observed != main_date:
                 errors.append(f"external source {source_id} date {date_col}={observed} does not match main_price_date={main_date}")
-        if ready_col and freshness.get(ready_col, "") != "True":
+        readiness = freshness.get(ready_col, "") if ready_col else ""
+        if (
+            source_id == "warrant_flow"
+            and ready_col == "warrant_daily_publish_allowed"
+            and not str(readiness).strip()
+            and freshness.get("warrant_ready", "") == "True"
+        ):
+            readiness = "True"
+        if ready_col and readiness != "True":
             errors.append(f"external source {source_id} readiness {ready_col} is not True")
         json_path = row.get("json_status_path", "").strip()
         if json_path:

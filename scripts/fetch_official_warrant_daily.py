@@ -21,11 +21,14 @@ HISTORY_DIR = Path("output/history/warrant_daily")
 
 RAW_LATEST = OUTPUT_DIR / "warrant_daily_raw_latest.csv"
 FETCH_STATUS_MD = OUTPUT_DIR / "warrant_daily_fetch_latest.md"
+SOURCE_STATUS_JSON = OUTPUT_DIR / "warrant_source_status_latest.json"
+SOURCE_STATUS_MD = OUTPUT_DIR / "warrant_source_status_latest.md"
 DEBUG_MD = DEBUG_DIR / "warrant_fetch_debug_latest.md"
 DEBUG_CSV = DEBUG_DIR / "warrant_fetch_debug_latest.csv"
 
 REQUEST_TIMEOUT_SECONDS = float(os.getenv("OFFICIAL_WARRANT_REQUEST_TIMEOUT", "8"))
 FETCH_MAX_SECONDS = float(os.getenv("OFFICIAL_WARRANT_FETCH_MAX_SECONDS", "360"))
+MAX_CONSECUTIVE_UNAVAILABLE_DAYS = int(os.getenv("OFFICIAL_WARRANT_MAX_CONSECUTIVE_UNAVAILABLE_DAYS", "2"))
 
 PRICE_DIR = Path("data/daily_price")
 
@@ -1189,6 +1192,123 @@ def write_status(
     FETCH_STATUS_MD.write_text("\n".join(lines), encoding="utf-8")
 
 
+def read_source_status() -> dict[str, Any]:
+    if not SOURCE_STATUS_JSON.exists():
+        return {}
+    try:
+        data = json.loads(SOURCE_STATUS_JSON.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def unavailable_count_for_date(requested_date: str) -> int:
+    requested_date = normalize_date_value(requested_date)
+    previous = read_source_status()
+    previous_status = str(previous.get("status", "")).strip()
+    previous_date = normalize_date_value(
+        previous.get("last_unavailable_date")
+        or previous.get("target_date")
+        or previous.get("requested_date")
+        or ""
+    )
+    try:
+        previous_count = int(previous.get("consecutive_unavailable_trading_days", 0))
+    except Exception:
+        previous_count = 0
+
+    if previous_status not in {"warning_grace", "failed"} or previous_count <= 0:
+        return 1
+    if requested_date and previous_date == requested_date:
+        return max(previous_count, 1)
+    if requested_date and previous_date and previous_date < requested_date:
+        return previous_count + 1
+    return 1
+
+
+def build_source_status(
+    *,
+    requested_date: str,
+    data_date: str,
+    usable: bool,
+    final_rows: int,
+    mapping_rows: int,
+    quote_rows: int,
+    note: str,
+) -> dict[str, Any]:
+    requested_date = normalize_date_value(requested_date)
+    data_date = normalize_date_value(data_date)
+    generated_at = f"{now_taipei()} Asia/Taipei"
+
+    if usable:
+        return {
+            "status": "ok",
+            "generated_at": generated_at,
+            "requested_date": requested_date,
+            "target_date": requested_date,
+            "data_date": data_date or requested_date,
+            "last_unavailable_date": "",
+            "consecutive_unavailable_trading_days": 0,
+            "max_warning_days": MAX_CONSECUTIVE_UNAVAILABLE_DAYS,
+            "hard_fail_after_days": MAX_CONSECUTIVE_UNAVAILABLE_DAYS + 1,
+            "daily_publish_allowed": True,
+            "warrant_pdf_visibility": "visible",
+            "model_effect_allowed": True,
+            "pdf_effect_allowed": True,
+            "final_rows": int(final_rows),
+            "mapping_rows": int(mapping_rows),
+            "quote_rows": int(quote_rows),
+            "note": note or "current-date stock-level warrant data is usable",
+        }
+
+    unavailable_count = unavailable_count_for_date(requested_date)
+    in_grace = unavailable_count <= MAX_CONSECUTIVE_UNAVAILABLE_DAYS
+    status = "warning_grace" if in_grace else "failed"
+    return {
+        "status": status,
+        "generated_at": generated_at,
+        "requested_date": requested_date,
+        "target_date": requested_date,
+        "data_date": data_date,
+        "last_unavailable_date": requested_date,
+        "consecutive_unavailable_trading_days": unavailable_count,
+        "max_warning_days": MAX_CONSECUTIVE_UNAVAILABLE_DAYS,
+        "hard_fail_after_days": MAX_CONSECUTIVE_UNAVAILABLE_DAYS + 1,
+        "daily_publish_allowed": bool(in_grace),
+        "warrant_pdf_visibility": "hidden_unavailable" if in_grace else "blocked_unavailable",
+        "model_effect_allowed": False,
+        "pdf_effect_allowed": False,
+        "final_rows": int(final_rows),
+        "mapping_rows": int(mapping_rows),
+        "quote_rows": int(quote_rows),
+        "note": note or "current-date stock-level warrant data is unavailable",
+    }
+
+
+def write_source_status(status: dict[str, Any]) -> None:
+    SOURCE_STATUS_JSON.write_text(json.dumps(status, ensure_ascii=False, indent=2), encoding="utf-8")
+    lines = [
+        "# Warrant Source Status",
+        "",
+        f"- generated_at: `{status.get('generated_at', '')}`",
+        f"- status: `{status.get('status', '')}`",
+        f"- requested_date: `{status.get('requested_date', '')}`",
+        f"- data_date: `{status.get('data_date', '')}`",
+        f"- consecutive_unavailable_trading_days: `{status.get('consecutive_unavailable_trading_days', '')}`",
+        f"- max_warning_days: `{status.get('max_warning_days', '')}`",
+        f"- hard_fail_after_days: `{status.get('hard_fail_after_days', '')}`",
+        f"- daily_publish_allowed: `{status.get('daily_publish_allowed', '')}`",
+        f"- warrant_pdf_visibility: `{status.get('warrant_pdf_visibility', '')}`",
+        f"- model_effect_allowed: `{status.get('model_effect_allowed', '')}`",
+        f"- pdf_effect_allowed: `{status.get('pdf_effect_allowed', '')}`",
+        f"- final_rows: `{status.get('final_rows', '')}`",
+        f"- mapping_rows: `{status.get('mapping_rows', '')}`",
+        f"- quote_rows: `{status.get('quote_rows', '')}`",
+        f"- note: {status.get('note', '')}",
+    ]
+    SOURCE_STATUS_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -1255,6 +1375,17 @@ def main() -> int:
                 ),
                 requested_date=requested_date,
             )
+            write_source_status(
+                build_source_status(
+                    requested_date=requested_date,
+                    data_date=fallback_date,
+                    usable=True,
+                    final_rows=len(fallback_raw),
+                    mapping_rows=len(mapping),
+                    quote_rows=len(quotes),
+                    note=f"preserved existing same-date usable raw snapshot from {fallback_path}",
+                )
+            )
 
             print(
                 "Official warrant fetch produced no usable rows; "
@@ -1285,6 +1416,17 @@ def main() -> int:
                 warning=warning,
                 requested_date=requested_date,
             )
+            write_source_status(
+                build_source_status(
+                    requested_date=requested_date,
+                    data_date=date_str,
+                    usable=False,
+                    final_rows=len(out),
+                    mapping_rows=len(mapping),
+                    quote_rows=len(quotes),
+                    note=warning,
+                )
+            )
             print(f"Saved mapping-only warrant raw data without usable quotes: {RAW_LATEST}, rows={len(out)}")
             if args.require_current_usable:
                 print(
@@ -1308,6 +1450,17 @@ def main() -> int:
                 "若 mapping_rows > 0 但 quote_rows = 0，代表 MI_INDEX 沒抓到權證成交行情；"
                 "若 quote_rows > 0 但 final_rows = 0，代表成交行情與權證對照表無法用權證代號合併。"
             ),
+        )
+        write_source_status(
+            build_source_status(
+                requested_date=requested_date,
+                data_date=date_str,
+                usable=False,
+                final_rows=0,
+                mapping_rows=len(mapping),
+                quote_rows=len(quotes),
+                note="current-date stock-level warrant raw data is unavailable",
+            )
         )
 
         print("No usable stock-level warrant raw data. Empty raw file created.")
@@ -1337,6 +1490,17 @@ def main() -> int:
         quote_rows=len(quotes),
         logs=logs,
         warning=warning,
+    )
+    write_source_status(
+        build_source_status(
+            requested_date=requested_date,
+            data_date=date_str,
+            usable=True,
+            final_rows=len(out),
+            mapping_rows=len(mapping),
+            quote_rows=len(quotes),
+            note=warning or "current-date stock-level warrant data is usable",
+        )
     )
 
     print(f"Saved: {RAW_LATEST}, rows={len(out)}")

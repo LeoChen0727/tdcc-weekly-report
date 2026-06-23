@@ -25,7 +25,14 @@ from tracking_utils import (  # noqa: E402
 
 SNAPSHOT_DIR = HISTORY_DIR / "daily_model_snapshots"
 MANIFEST_PATH = SNAPSHOT_DIR / "daily_published_model_snapshot_manifest.csv"
-REQUIRED_READY_COLUMNS = ["report_ready", "warrant_ready", "daily_pdf_ready"]
+REQUIRED_READY_COLUMNS = ["report_ready", "daily_pdf_ready"]
+WARRANT_GRACE_COLUMNS = (
+    "warrant_source_status",
+    "warrant_daily_publish_allowed",
+    "warrant_pdf_visibility",
+    "warrant_model_effect_allowed",
+    "warrant_pdf_effect_allowed",
+)
 
 
 @dataclass(frozen=True)
@@ -116,6 +123,11 @@ MANIFEST_COLUMNS = [
     "main_price_date",
     "report_ready",
     "warrant_ready",
+    "warrant_source_status",
+    "warrant_daily_publish_allowed",
+    "warrant_pdf_visibility",
+    "warrant_model_effect_allowed",
+    "warrant_pdf_effect_allowed",
     "daily_pdf_ready",
     "artifact_id",
     "source_path",
@@ -153,6 +165,20 @@ def csv_shape(path: Path) -> tuple[int, int]:
     return len(df), len(df.columns)
 
 
+def true_text(value: object) -> bool:
+    return safe_str(value).lower() in {"true", "1", "yes", "y"}
+
+
+def warrant_grace_allows_publish(row: pd.Series) -> bool:
+    return bool(
+        safe_str(row.get("warrant_source_status", "")) == "warning_grace"
+        and true_text(row.get("warrant_daily_publish_allowed", ""))
+        and safe_str(row.get("warrant_pdf_visibility", "")) == "hidden_unavailable"
+        and not true_text(row.get("warrant_model_effect_allowed", ""))
+        and not true_text(row.get("warrant_pdf_effect_allowed", ""))
+    )
+
+
 def freshness_state(latest_dir: Path = LATEST_DIR) -> dict[str, str]:
     path = latest_dir / "data_freshness_latest.csv"
     freshness = read_csv(path, dtype=str)
@@ -170,6 +196,25 @@ def freshness_state(latest_dir: Path = LATEST_DIR) -> dict[str, str]:
         if value != "True":
             raise RuntimeError(f"{col} must be True before publishing model snapshots; observed={value}")
         state[col] = value
+    warrant_ready = safe_str(row.get("warrant_ready", ""))
+    if warrant_ready != "True" and not warrant_grace_allows_publish(row):
+        raise RuntimeError(
+            "warrant_ready must be True before publishing model snapshots unless bounded "
+            f"warrant_unavailable grace hides warrant effects; observed={warrant_ready}"
+        )
+    state["warrant_ready"] = warrant_ready
+    if warrant_ready == "True":
+        defaults = {
+            "warrant_source_status": "ok",
+            "warrant_daily_publish_allowed": "True",
+            "warrant_pdf_visibility": "visible",
+            "warrant_model_effect_allowed": "True",
+            "warrant_pdf_effect_allowed": "True",
+        }
+    else:
+        defaults = {col: "" for col in WARRANT_GRACE_COLUMNS}
+    for col in WARRANT_GRACE_COLUMNS:
+        state[col] = safe_str(row.get(col, "")) or defaults[col]
     return state
 
 
@@ -226,6 +271,11 @@ def build_daily_published_model_snapshots(
                 "main_price_date": state["main_price_date"],
                 "report_ready": state["report_ready"],
                 "warrant_ready": state["warrant_ready"],
+                "warrant_source_status": state["warrant_source_status"],
+                "warrant_daily_publish_allowed": state["warrant_daily_publish_allowed"],
+                "warrant_pdf_visibility": state["warrant_pdf_visibility"],
+                "warrant_model_effect_allowed": state["warrant_model_effect_allowed"],
+                "warrant_pdf_effect_allowed": state["warrant_pdf_effect_allowed"],
                 "daily_pdf_ready": state["daily_pdf_ready"],
                 "artifact_id": artifact.artifact_id,
                 "source_path": source.as_posix(),
