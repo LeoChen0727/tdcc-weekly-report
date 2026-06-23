@@ -318,6 +318,16 @@ def validate_workflow_hooks(errors: list[str]) -> None:
     required = "python scripts/validate_pdf_production_inventory.py"
     if workflow.count(required) < 2:
         errors.append("Daily Full Pipeline must run validate_pdf_production_inventory.py before and after publish")
+    deletion_aware_readme_staging = (
+        'git add -A -- "output/latest/READ_ME_FIRST_DAILY_REPORT*.txt"',
+        'git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt"',
+    )
+    for command in deletion_aware_readme_staging:
+        if command not in workflow:
+            errors.append(
+                "Daily Full Pipeline must stage date-stamped daily README deletions with a quoted pathspec: "
+                f"{command}"
+            )
     for name in FORBIDDEN_DOCS_LATEST_PDF_NAMES:
         if f"cp output/latest/{name} docs/latest/" in workflow:
             errors.append(f"Daily Full Pipeline copies forbidden PDF to docs/latest: {name}")
