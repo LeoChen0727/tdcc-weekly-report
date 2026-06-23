@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23 08:05:54 Asia/Taipei",
+  "generated_at": "2026-06-23 18:05:10 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -21,21 +21,36 @@
   "sources": {
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
-      "status": "ok",
-      "rows": 277,
-      "error": "",
-      "http_status": 200,
-      "live_rows": 277,
-      "consecutive_live_failures": 0,
-      "calendar_effect_allowed": true
+      "status": "stale_ok",
+      "rows": 328,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "http_status": 307,
+      "consecutive_live_failures": 1,
+      "max_consecutive_live_failures": 2,
+      "first_live_failure_at": "2026-06-23 18:05:08 Asia/Taipei",
+      "live_rows": 0,
+      "cached_rows": 328,
+      "stale_max_trading_days": 3,
+      "cache_window_days": {
+        "lookback": 7,
+        "lookahead": 60
+      },
+      "model_effect_allowed": false,
+      "pdf_effect_allowed": false,
+      "calendar_effect_allowed": false,
+      "cached_total_rows": 416,
+      "cached_last_updated_min": "2026-06-18 16:47:24 Asia/Taipei",
+      "cached_last_updated_max": "2026-06-23 08:05:51 Asia/Taipei",
+      "cache_age_trading_days_min": 0,
+      "cache_age_trading_days_max": 3,
+      "note": "TWSE live fetch failed; using recent cached ex-right/ex-dividend rows as stale reminder-only data. Rows are low-confidence and cannot affect model score, rank, event_proximity_score, upgrade/downgrade, or formal PDF recommendation reasons."
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
-      "status": "ok",
-      "rows": 544,
-      "error": "",
-      "http_status": 200,
-      "note": "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
+      "status": "failed",
+      "rows": 0,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "http_status": 200
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
@@ -75,8 +90,8 @@
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
-      "status": "partial_coverage_twse_only",
-      "rows": 544,
+      "status": "blocked_or_unavailable",
+      "rows": 0,
       "note": "TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
     }
   }
