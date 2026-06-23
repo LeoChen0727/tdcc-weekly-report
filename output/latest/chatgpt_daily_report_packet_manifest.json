@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-22 22:48:38 Asia/Taipei",
-  "main_price_date": "20260622",
+  "generated_at": "2026-06-23 23:08:03 Asia/Taipei",
+  "main_price_date": "20260623",
   "report_ready": "True",
-  "warrant_flow_date": "20260622",
+  "warrant_flow_date": "20260623",
   "warrant_ready": "True",
   "warrant_ready_note": "warrant_flow_date matches main_price_date",
   "daily_pdf_ready": "True",
@@ -100,10 +100,10 @@
   "latest_packet_path": "output/latest/chatgpt_daily_report_packet_latest.txt",
   "latest_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
   "legacy_latest_packet_path": "output/latest/CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_path": "output/history/reports/20260622_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260622_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "dated_summary_md_path": "output/history/reports/20260622_daily_market_summary.md",
-  "dated_full_md_path": "output/history/reports/20260622_daily_market_full.md",
-  "dated_summary_pdf_path": "output/history/reports/20260622_daily_market_summary.pdf",
-  "dated_full_pdf_path": "output/history/reports/20260622_daily_market_full.pdf"
+  "history_packet_path": "output/history/reports/20260623_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260623_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "dated_summary_md_path": "output/history/reports/20260623_daily_market_summary.md",
+  "dated_full_md_path": "output/history/reports/20260623_daily_market_full.md",
+  "dated_summary_pdf_path": "output/history/reports/20260623_daily_market_summary.pdf",
+  "dated_full_pdf_path": "output/history/reports/20260623_daily_market_full.pdf"
 }
