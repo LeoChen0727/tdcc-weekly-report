@@ -42,6 +42,14 @@ High-priority manual review:
   `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md`.
   Next implementation step belongs to `daily_model_maintenance` and must be a
   model-change PR, not an in-place rename of the old near/platform models.
+- `descending_resistance_volume_breakout`: keep as a separate future model
+  family for descending swing-high resistance-line breakouts. Do not mix this
+  with bottom-pattern neckline breakouts.
+- `w_bottom_right_side`: keep as a pre-breakout / second-bottom formation
+  surface. Review second-arc average volume versus first-arc average volume
+  before changing its production condition. The same volume-quality audit must
+  apply to `neckline_volume_breakout_confirmation` when
+  `neckline_pattern_subtype=w_bottom`.
 - `revenue_unreacted_range`: research proxy is broad, so proxy stats must not be
   used directly for production tuning.
 - `near_high_neckline_challenge`: condition and scoring use opposite sides of
@@ -97,12 +105,17 @@ Low-priority / monitor:
    formal `neckline_volume_breakout_confirmation` model-change PR. Use
    `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md` as
    the production implementation contract before editing code.
-3. `revenue_unreacted_range`: narrow or validate the research proxy before any
+3. `w_bottom_right_side`: keep as the W-bottom pre-breakout / second-bottom
+   formation model. Audit whether the current `volume_ratio_2_vs_1` logic
+   actually compares second-arc daily average volume against the first-arc
+   monthly average volume before changing the production condition. Apply the
+   same audit to the confirmed W-bottom neckline breakout subtype.
+4. `revenue_unreacted_range`: narrow or validate the research proxy before any
    parameter discussion.
-4. `group_fund_rotation`: create a theme-level contract and backtest plan.
-5. `tdcc_weekly_ranking_formula`: document TDCC weekly ranking boundaries and
+5. `group_fund_rotation`: create a theme-level contract and backtest plan.
+6. `tdcc_weekly_ranking_formula`: document TDCC weekly ranking boundaries and
    keep it separate from stock entry models.
-6. `tdcc_short_term_continuation_d5_d10`: review TDCC weekly consumer impact
+7. `tdcc_short_term_continuation_d5_d10`: review TDCC weekly consumer impact
    before any consumer expansion.
-7. Remaining `warning_research_variant_only` stock models: handle through
+8. Remaining `warning_research_variant_only` stock models: handle through
    research parity or explicit promotion/sync PRs.

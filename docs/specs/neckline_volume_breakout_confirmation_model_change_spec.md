@@ -13,6 +13,17 @@ The intended model is a confirmed neckline breakout with volume expansion. It
 is not a generic previous-high breakout, not a near-pressure watch signal, and
 not a platform-inside strengthening signal.
 
+The broader breakout review should be split into two model families:
+
+| model family | proposed model_id | meaning |
+|---|---|---|
+| descending resistance breakout | `descending_resistance_volume_breakout` | Price breaks above a descending resistance line drawn from audited swing highs. This is not a neckline model. |
+| bottom-pattern neckline breakout | `neckline_volume_breakout_confirmation` | Price breaks above the neckline of an audited bottoming pattern such as W-bottom, inverse head-and-shoulders, triple bottom, or another structured bottom. |
+
+This PR documents the neckline family. The descending-resistance family should
+be specified and implemented separately so swing-high resistance lines are not
+misclassified as necklines.
+
 The model should eventually replace or reduce the need for these currently
 blocked or overlapping production surfaces:
 
@@ -46,6 +57,10 @@ Therefore the next production change should not tune the old model in place.
 It should create an explicit confirmed-breakout model and then decide whether
 the old pre-breakout surfaces should remain, be downgraded, or be deprecated.
 
+`w_bottom_right_side` is different. It should remain a pre-breakout observation
+surface for W-bottom right-side or second-bottom formation. It should not be
+deleted or folded into the confirmed-breakout model as the first step.
+
 ## Proposed Model Identity
 
 ```text
@@ -68,6 +83,16 @@ whether the neckline breakout exists.
 
 Do not call the signal a neckline model if the implementation only uses a
 generic previous-N-day high or 60-day high.
+
+The neckline model should expose a `neckline_pattern_subtype` field. Initial
+subtypes:
+
+| subtype | meaning | first implementation status |
+|---|---|---|
+| `w_bottom` | two qualifying troughs with the neckline at the rebound high between them | first implementation priority because current production code already has W-bottom geometry support |
+| `inverse_head_and_shoulders` | left shoulder, lower head, right shoulder, with neckline through the two rebound highs | backlog until a dedicated detector exists |
+| `triple_bottom` | three bottom attempts under a shared resistance or neckline zone | backlog until a dedicated detector exists |
+| `structured_bottom_other` | bottoming structure with an auditable neckline but not confidently classified into the above subtypes | allowed only with strict audit fields; must not become a generic previous-high breakout bucket |
 
 Allowed neckline references, in priority order:
 
@@ -92,6 +117,69 @@ Rejected references:
 If only a generic previous-high or range-high reference exists, the stock may
 belong to `volume_range_breakout`, but it must not enter
 `neckline_volume_breakout_confirmation`.
+
+## W-Bottom Two-Stage Treatment
+
+W-bottom should be treated as two separate surfaces:
+
+| stage | model_id | meaning |
+|---|---|---|
+| pre-breakout / right-side formation | `w_bottom_right_side` | The second bottom or right side is forming near the lower structure, before confirmed neckline breakout. |
+| confirmed neckline breakout | `neckline_volume_breakout_confirmation` with `neckline_pattern_subtype=w_bottom` | The stock has broken above the W-bottom neckline with volume confirmation or locked-limit-up confirmation, and the second W arc has stronger average participation than the first arc baseline. |
+
+The first stage is important because the user wants W-bottom candidates before
+the neckline has broken. The second stage is the confirmed breakout model.
+Both stages must audit second-arc participation quality.
+
+For `w_bottom_right_side`, shape alone is not enough. The production
+implementation should audit and prioritize second-bottom volume quality:
+
+```text
+second_arc_volume_ratio =
+  second_arc_avg_volume / first_arc_avg_volume
+```
+
+For `neckline_volume_breakout_confirmation` with
+`neckline_pattern_subtype=w_bottom`, this is not only a score bonus. The
+confirmed W-bottom neckline breakout must also pass the W-bottom second-arc
+participation rule:
+
+```text
+w_bottom_second_arc_volume_quality_ok =
+  second_arc_avg_daily_volume > first_arc_month_avg_volume
+```
+
+This W-bottom arc-volume rule is separate from signal-day volume confirmation.
+Locked or near-locked limit-up may bypass the normal signal-day `volume_ratio`
+and `volume_ma20_lots` gates, but it must not bypass the W-bottom arc-volume
+quality audit.
+
+Recommended interpretation:
+
+| second_arc_volume_ratio | treatment |
+|---|---|
+| `< 1.0` | weak second bottom; reject or risk-tag because the second formation has less participation than the first |
+| `1.0..1.2` | only weak confirmation; do not rank as high-confidence W-bottom |
+| `>= 1.2` | minimum expected volume-quality confirmation for second-bottom formation |
+| `>= 1.5` | strong second-bottom participation; add score |
+
+The exact production field names must be audited before code changes. Current
+production code already has a related `volume_ratio_2_vs_1` concept, but the
+implementation PR must verify whether that field compares the intended second
+arc daily average volume against the intended first arc monthly average volume.
+Do not silently treat a single signal-day volume spike, a generic `volume_ratio`,
+or the current field name as proof that this requirement has been met.
+
+Recommended window definition for the implementation PR:
+
+| window | definition |
+|---|---|
+| first arc monthly baseline | month-like average volume around the first trough / first rebound arc, using the audited production window chosen in the implementation PR |
+| second arc daily average | bars from the second trough through the current right-side formation, using average daily volume instead of only the latest day |
+
+If the right-side formation is too new and does not have enough bars for a
+stable second-arc average, it may remain a lower-confidence watch candidate but
+must not be promoted as a high-confidence W-bottom signal.
 
 ## Sign Convention
 
@@ -141,6 +229,7 @@ Recommended condition:
 ```text
 has_audited_neckline_reference
 and neckline_distance_pct >= 0
+and w_bottom_second_arc_volume_quality_ok when neckline_pattern_subtype == w_bottom
 and has_volume_confirmation
 ```
 
@@ -220,6 +309,7 @@ Recommended score components:
 | neckline reference quality | bonus for W-bottom or audited structured neckline; smaller bonus for explicit upstream-only neckline |
 | distance quality | strongest bonus for `0..3`, smaller bonus for `3..5`; no automatic penalty above 5 |
 | volume strength | bonus above `2.0`, capped; extra bonus above `3.0` on non-limit-up signals |
+| W-bottom second-arc volume quality | required for `neckline_pattern_subtype=w_bottom`; add score when the second arc average volume is materially above the first arc monthly baseline |
 | locked-limit-up breakout | bonus and normal volume-gate bypass when the signal day is locked or near-locked limit-up |
 | candle body quality | bonus for strong red body; penalty if the red body is too short for a confirmed breakout attack |
 | close quality | bonus when close is near the signal-day high |
