@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-06-21 07:45:04 Asia/Taipei`
+- generated_at: `2026-06-24 14:47:47 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -16,7 +16,7 @@
 | parity_status | count |
 | --- | --- |
 | hard_fail_contract_drift | 0 |
-| missing_research_baseline | 0 |
+| missing_research_baseline | 1 |
 | ok | 1 |
 | warning_research_variant_only | 9 |
 
@@ -42,7 +42,9 @@
 
 ## Missing Research Baseline
 
-No rows.
+| model_id | parity_blocker | recommended_action |
+| --- | --- | --- |
+| neckline_volume_breakout_confirmation | research production_baseline row is missing or unsupported | add_research_production_baseline_before_parameter_experiments |
 
 ## Hard Fail Contract Drift
 

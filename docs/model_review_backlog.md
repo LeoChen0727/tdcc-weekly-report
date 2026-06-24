@@ -10,7 +10,7 @@ The breakout-related model review is now grouped by shared business meaning in
 `docs/specs/breakout_model_taxonomy_governance_handoff.md`. That handoff keeps
 `volume_range_breakout` as the current production baseline while
 `w_bottom_right_side`, `near_high_neckline_challenge`, `platform_strengthening`,
-and a proposed future `neckline_volume_breakout_confirmation` are reviewed as a
+and the formal `neckline_volume_breakout_confirmation` surface are reviewed as a
 model group instead of isolated model ids.
 
 ## How To Use This Backlog
@@ -35,21 +35,18 @@ High-priority manual review:
 
 - Breakout model group: review `near_high_neckline_challenge`,
   `platform_strengthening`, `w_bottom_right_side`, and `volume_range_breakout`
-  together before any production tuning. Do not add
-  `neckline_volume_breakout_confirmation` to formal registries until production
-  code, contract, tests, and parity handling exist.
-- `neckline_volume_breakout_confirmation`: formal design is now specified in
-  `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md`.
-  Next implementation step belongs to `daily_model_maintenance` and must be a
-  model-change PR, not an in-place rename of the old near/platform models.
+  together before any further production tuning.
+- `neckline_volume_breakout_confirmation`: formal production code, contract,
+  and tests exist. Research/backtest production baseline is not yet
+  synchronized, so this surface must not be treated as research-parity-complete
+  until a `research_backtest` sync/promotion PR lands.
 - `descending_resistance_volume_breakout`: keep as a separate future model
   family for descending swing-high resistance-line breakouts. Do not mix this
   with bottom-pattern neckline breakouts.
 - `w_bottom_right_side`: keep as a pre-breakout / second-bottom formation
-  surface. Review second-arc average volume versus first-arc average volume
-  before changing its production condition. The same volume-quality audit must
-  apply to `neckline_volume_breakout_confirmation` when
-  `neckline_pattern_subtype=w_bottom`.
+  surface. Its production condition now requires second-arc average volume to
+  exceed the first-arc baseline. The same volume-quality rule applies to
+  `neckline_volume_breakout_confirmation` for W-bottom neckline breakouts.
 - `revenue_unreacted_range`: research proxy is broad, so proxy stats must not be
   used directly for production tuning.
 - `near_high_neckline_challenge`: condition and scoring use opposite sides of
@@ -85,6 +82,7 @@ Low-priority / monitor:
 | `hot_theme_pullback` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Confirm whether theme-related research variants are true improvements or only exploratory alternatives. |
 | `revenue_unreacted_range` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first, then `daily_model_maintenance` if promotion is approved | high | Review revenue proxy width and data completeness. Current proxy is too broad for direct production tuning. |
 | `w_bottom_right_side` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review pattern definition and research variant performance before any production change. |
+| `neckline_volume_breakout_confirmation` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `pending_backtest_optimization` | `research_backtest` must add production baseline parity before this can be called parity-complete | high | New W-bottom neckline breakout confirmation surface. Production code/contract exists, but research baseline sync is still required. |
 | `near_high_neckline_challenge` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `daily_model_maintenance` for formal semantics decision; `research_backtest` for evidence after production intent is fixed | high | Blocker confirmed: condition currently accepts pressure distance `0..5`, while scoring rewards `-5..0`. Do not tune until a formal model-change PR decides the intended side of the pressure level. |
 | `platform_strengthening` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review whether platform-strengthening variants are materially different from production baseline. |
 | `pullback_short_reclaim` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review reclaim signal definitions and evidence before any production threshold change. |
@@ -100,16 +98,12 @@ Low-priority / monitor:
    `docs/specs/breakout_model_taxonomy_governance_handoff.md` to define the
    taxonomy layer, breakout event feature layer, and stock-entry model layer
    before changing production code.
-2. `near_high_neckline_challenge` / `platform_strengthening`: decide whether
-   these surfaces are deprecated, downgraded to observation, or replaced by a
-   formal `neckline_volume_breakout_confirmation` model-change PR. Use
-   `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md` as
-   the production implementation contract before editing code.
+2. `neckline_volume_breakout_confirmation`: route the next step to
+   `research_backtest` so the new formal production model gets a matching
+   production-baseline parity row and backtest evidence.
 3. `w_bottom_right_side`: keep as the W-bottom pre-breakout / second-bottom
-   formation model. Audit whether the current `volume_ratio_2_vs_1` logic
-   actually compares second-arc daily average volume against the first-arc
-   monthly average volume before changing the production condition. Apply the
-   same audit to the confirmed W-bottom neckline breakout subtype.
+   formation model. Any further tuning should be reviewed together with the
+   confirmed W-bottom neckline breakout subtype and backed by research parity.
 4. `revenue_unreacted_range`: narrow or validate the research proxy before any
    parameter discussion.
 5. `group_fund_rotation`: create a theme-level contract and backtest plan.

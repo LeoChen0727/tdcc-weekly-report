@@ -23,6 +23,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     build_report_ready_model_signals,
     build_signals,
     build_specs,
+    cond_neckline_volume_breakout_confirmation,
     cond_neckline_challenge,
     cond_platform_strength,
     cond_pullback,
@@ -75,6 +76,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 "price_pullback_23ema",
                 "revenue_unreacted_range",
                 "w_bottom_right_side",
+                "neckline_volume_breakout_confirmation",
                 "near_high_neckline_challenge",
                 "platform_strengthening",
                 "pullback_short_reclaim",
@@ -119,6 +121,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 "hot_theme_pullback",
                 "revenue_unreacted_range",
                 "w_bottom_right_side",
+                "neckline_volume_breakout_confirmation",
                 "near_high_neckline_challenge",
                 "platform_strengthening",
                 "pullback_short_reclaim",
@@ -182,6 +185,10 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         params = build_parameter_table(build_specs()).set_index("model_id")
         self.assertEqual(params.loc["volume_range_breakout", "score_profile_id"], "volume_range_breakout")
         self.assertEqual(params.loc["price_pullback_23ema", "score_profile_id"], "price_pullback_23ema")
+        self.assertEqual(
+            params.loc["neckline_volume_breakout_confirmation", "score_profile_id"],
+            "neckline_volume_breakout_confirmation",
+        )
         self.assertEqual(params.loc["tdcc_stealth_accumulation", "score_profile_id"], "tdcc_stealth_accumulation")
         self.assertNotEqual(
             params.loc["volume_range_breakout", "volume_ratio_bonus_per_1x"],
@@ -541,6 +548,100 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             close_above_range_high="",
         )
         self.assertTrue(cond_w_bottom_right(range_rebound_with_detected_w))
+
+    def test_w_bottom_requires_second_arc_volume_not_red_body_only(self) -> None:
+        red_body_only = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            volume_breakout_type="",
+            close_above_range_high="",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="9.0",
+            second_arc_volume_ratio="0.9",
+            red_body_ratio_2_vs_1="3.0",
+        )
+
+        self.assertFalse(cond_w_bottom_right(red_body_only))
+
+    def test_detected_w_bottom_context_exposes_arc_volume_fields(self) -> None:
+        context = model_layer.detected_w_bottom_context(
+            make_row(stock_id="1618", signal_date="20260529", volume_breakout_type="")
+        )
+
+        self.assertTrue(context["available"])
+        self.assertGreater(float(context["first_arc_month_avg_volume"]), 0)
+        self.assertGreater(float(context["second_arc_avg_daily_volume"]), 0)
+        self.assertGreater(float(context["second_arc_volume_ratio"]), 1.2)
+
+    def test_neckline_volume_breakout_confirmation_requires_arc_volume_quality(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="neckline_breakout",
+            close="105",
+            open="101",
+            high="106",
+            low="100",
+            previous_close="100",
+            neckline_price="100",
+            distance_to_neckline_pct="5.0",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            volume_ratio="2.5",
+            volume_ma20="2000",
+        )
+        weak_arc = row.copy()
+        weak_arc["second_arc_volume_ratio"] = "1.0"
+
+        self.assertTrue(cond_neckline_volume_breakout_confirmation(row))
+        self.assertFalse(cond_neckline_volume_breakout_confirmation(weak_arc))
+
+    def test_neckline_locked_limit_up_bypasses_signal_volume_not_arc_volume(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="neckline_breakout",
+            close="110",
+            open="110",
+            high="110",
+            low="110",
+            previous_close="100",
+            neckline_price="105",
+            distance_to_neckline_pct="4.8",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            volume_ratio="",
+            volume_ma20="",
+        )
+        weak_arc = row.copy()
+        weak_arc["second_arc_volume_ratio"] = "1.0"
+
+        self.assertTrue(cond_neckline_volume_breakout_confirmation(row))
+        self.assertFalse(cond_neckline_volume_breakout_confirmation(weak_arc))
+
+    def test_neckline_breakout_score_keeps_candle_quality_penalty(self) -> None:
+        row = make_row(
+            close="105",
+            open="104",
+            high="112",
+            low="100",
+            previous_close="100",
+            neckline_price="100",
+            distance_to_neckline_pct="5.0",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            volume_ratio="2.5",
+            volume_ma20="2000",
+        )
+
+        _score, _components, risks = model_layer.score_neckline_volume_breakout_confirmation(row)
+
+        self.assertTrue(any(str(risk).startswith("long_upper_shadow_quality_penalty") for risk in risks))
 
     def test_risk_penalty_does_not_cancel_model_entry(self) -> None:
         row = make_row(

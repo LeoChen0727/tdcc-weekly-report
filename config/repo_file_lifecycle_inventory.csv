@@ -63,7 +63,7 @@ docs/pdf_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,a
 docs/repo_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/specs/daily_volume_breakout_operation_section_contract.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/specs/breakout_model_taxonomy_governance_handoff.md,guidance_doc,repo_infrastructure,active,,,,docs/model_review_backlog.md;docs/model_surface_registry_governance.md,,,breakout model taxonomy governance handoff; no production model change,,medium
-docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md,guidance_doc,repo_infrastructure,active,,,,docs/model_review_backlog.md;docs/specs/breakout_model_taxonomy_governance_handoff.md,,,neckline volume breakout confirmation model-change spec; no production model change,,medium
+docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md,guidance_doc,repo_infrastructure,active,,,,docs/specs/breakout_model_taxonomy_governance_handoff.md,,,neckline volume breakout confirmation model-change spec; no production model change,,medium
 docs/specs/volume_breakout_operation_scoring_work_objective_20260618.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/specs/volume_breakout_operation_pdf_table_spec.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/tdcc_pre_move_accumulation.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
