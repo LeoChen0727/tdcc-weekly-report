@@ -576,6 +576,53 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertGreater(float(context["first_arc_month_avg_volume"]), 0)
         self.assertGreater(float(context["second_arc_avg_daily_volume"]), 0)
         self.assertGreater(float(context["second_arc_volume_ratio"]), 1.2)
+        self.assertGreaterEqual(float(context["first_arc_red_candle_ratio"]), 0.0)
+        self.assertLessEqual(float(context["first_arc_red_candle_ratio"]), 1.0)
+        self.assertGreaterEqual(float(context["second_arc_red_candle_ratio"]), 0.0)
+        self.assertLessEqual(float(context["second_arc_red_candle_ratio"]), 1.0)
+
+    def test_w_bottom_red_candle_bonus_uses_ratio_not_count(self) -> None:
+        high_ratio = make_row(
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.58",
+        )
+        mild_ratio = make_row(
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.49",
+        )
+        count_only = make_row(
+            red_body_ratio_2_vs_1="3.0",
+        )
+
+        high_bonus, high_components = model_layer.w_bottom_red_candle_ratio_bonus(high_ratio)
+        mild_bonus, mild_components = model_layer.w_bottom_red_candle_ratio_bonus(mild_ratio)
+        count_bonus, count_components = model_layer.w_bottom_red_candle_ratio_bonus(count_only)
+
+        self.assertEqual(high_bonus, 4.0)
+        self.assertTrue(any("second arc red candle ratio improved" in item for item in high_components))
+        self.assertEqual(mild_bonus, 2.0)
+        self.assertTrue(any("second arc red candle ratio mildly improved" in item for item in mild_components))
+        self.assertEqual(count_bonus, 0.0)
+        self.assertEqual(count_components, [])
+
+    def test_w_bottom_score_adds_red_candle_ratio_bonus(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="9.0",
+            second_arc_volume_ratio="1.35",
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.58",
+        )
+
+        _score, components, _risks = model_layer.score_w_bottom(row)
+
+        self.assertTrue(any("second arc red candle ratio improved +4" in item for item in components))
 
     def test_neckline_volume_breakout_confirmation_requires_arc_volume_quality(self) -> None:
         row = make_row(
@@ -591,6 +638,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             second_low_gap_pct="1.5",
             w_bottom_base_width_pct="18",
             second_arc_volume_ratio="1.35",
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.58",
             volume_ratio="2.5",
             volume_ma20="2000",
         )
@@ -599,6 +648,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
         self.assertTrue(cond_neckline_volume_breakout_confirmation(row))
         self.assertFalse(cond_neckline_volume_breakout_confirmation(weak_arc))
+        _score, components, _risks = model_layer.score_neckline_volume_breakout_confirmation(row)
+        self.assertTrue(any("second arc red candle ratio improved +4" in item for item in components))
 
     def test_neckline_locked_limit_up_bypasses_signal_volume_not_arc_volume(self) -> None:
         row = make_row(

@@ -1376,7 +1376,7 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
     attack1 = num(row, "attack1_gain_pct")
     attack2 = num(row, "attack2_gain_pct")
     vol2_vs_1 = w_bottom_second_arc_volume_ratio(row)
-    red_body2_vs_1 = num(row, "red_body_ratio_2_vs_1")
+    red_candle_bonus, red_candle_components = w_bottom_red_candle_ratio_bonus(row)
     context = detected_w_bottom_context(row)
     if context.get("available"):
         low_pos = context.get("w_bottom_low_position_pct")
@@ -1391,7 +1391,7 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
         attack1 = float(context.get("attack1_gain_pct", math.nan))
         attack2 = float(context.get("attack2_gain_pct", math.nan))
         vol2_vs_1 = w_bottom_second_arc_volume_ratio(row, context)
-        red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
+        red_candle_bonus, red_candle_components = w_bottom_red_candle_ratio_bonus(row, context)
         first_arc_volume = float(context.get("first_arc_month_avg_volume", math.nan))
         second_arc_volume = float(context.get("second_arc_avg_daily_volume", math.nan))
         if not math.isnan(first_arc_volume):
@@ -1441,9 +1441,9 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
             comps.append("second arc volume mildly higher +2")
         elif vol2_vs_1 < 0.8:
             risks.append("second_arc_volume_not_confirmed")
-    if not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.2:
-        score += 3
-        comps.append("second attack red-body improvement +3")
+    if red_candle_bonus:
+        score += red_candle_bonus
+        comps.extend(red_candle_components)
     return score, comps, risks
 
 
@@ -1453,6 +1453,7 @@ def score_neckline_volume_breakout_confirmation(row: pd.Series) -> tuple[float, 
     context_for_use = context if context.get("available") else None
     neckline_distance = w_bottom_neckline_distance_pct(row, context_for_use)
     second_arc_ratio = w_bottom_second_arc_volume_ratio(row, context_for_use)
+    red_candle_bonus, red_candle_components = w_bottom_red_candle_ratio_bonus(row, context_for_use)
 
     if not math.isnan(second_arc_ratio):
         if second_arc_ratio >= 1.5:
@@ -1473,6 +1474,9 @@ def score_neckline_volume_breakout_confirmation(row: pd.Series) -> tuple[float, 
     elif w_bottom_neckline_normal_volume_breakout(row, context_for_use):
         score += 5
         comps.append("neckline_volume_confirmation +5")
+    if red_candle_bonus:
+        score += red_candle_bonus
+        comps.extend(red_candle_components)
 
     if not math.isnan(neckline_distance) and neckline_distance >= 0:
         add = min(8.0, neckline_distance * 1.2)
@@ -1693,6 +1697,42 @@ def w_bottom_second_arc_volume_ok(
 ) -> bool:
     ratio = w_bottom_second_arc_volume_ratio(row, context)
     return not math.isnan(ratio) and ratio >= 1.2
+
+
+def w_bottom_red_candle_ratios(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> tuple[float, float, float]:
+    first_ratio = context_num(context, "first_arc_red_candle_ratio", "w_bottom_first_arc_red_candle_ratio")
+    second_ratio = context_num(context, "second_arc_red_candle_ratio", "w_bottom_second_arc_red_candle_ratio")
+    delta = context_num(context, "second_arc_red_candle_ratio_delta", "w_bottom_second_arc_red_candle_ratio_delta")
+    if math.isnan(first_ratio):
+        first_ratio = num(row, "first_arc_red_candle_ratio", "w_bottom_first_arc_red_candle_ratio")
+    if math.isnan(second_ratio):
+        second_ratio = num(row, "second_arc_red_candle_ratio", "w_bottom_second_arc_red_candle_ratio")
+    if math.isnan(delta):
+        delta = num(row, "second_arc_red_candle_ratio_delta", "w_bottom_second_arc_red_candle_ratio_delta")
+    if math.isnan(delta) and not math.isnan(first_ratio) and not math.isnan(second_ratio):
+        delta = second_ratio - first_ratio
+    return first_ratio, second_ratio, delta
+
+
+def w_bottom_red_candle_ratio_bonus(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> tuple[float, list[str]]:
+    first_ratio, second_ratio, delta = w_bottom_red_candle_ratios(row, context)
+    if any(math.isnan(value) for value in [first_ratio, second_ratio, delta]):
+        return 0.0, []
+    if second_ratio >= 0.55 and delta >= 0.15:
+        return 4.0, [
+            f"second arc red candle ratio improved +4 ({second_ratio:.0%} vs {first_ratio:.0%})"
+        ]
+    if second_ratio >= 0.45 and delta >= 0.08:
+        return 2.0, [
+            f"second arc red candle ratio mildly improved +2 ({second_ratio:.0%} vs {first_ratio:.0%})"
+        ]
+    return 0.0, []
 
 
 def w_bottom_neckline_distance_pct(
@@ -1918,6 +1958,11 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             second_arc_avg_daily_volume = math.nan
             second_arc_volume_ratio = math.nan
             red_body2_vs_1 = math.nan
+            first_arc_red_candle_count = math.nan
+            second_arc_red_candle_count = math.nan
+            first_arc_red_candle_ratio = math.nan
+            second_arc_red_candle_ratio = math.nan
+            second_arc_red_candle_ratio_delta = math.nan
             if "volume" in df.columns and len(attack1_slice) >= 3 and len(attack2_slice) >= 3:
                 vol1 = float(attack1_slice["volume"].mean())
                 vol2 = float(attack2_slice["volume"].mean())
@@ -1928,6 +1973,12 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 second_arc_avg_daily_volume = float(second_arc_slice["volume"].mean())
                 if first_arc_month_avg_volume > 0:
                     second_arc_volume_ratio = second_arc_avg_daily_volume / first_arc_month_avg_volume
+            if len(first_arc_slice) >= 3 and len(second_arc_slice) >= 3:
+                first_arc_red_candle_count = int((first_arc_slice["close"] > first_arc_slice["open"]).sum())
+                second_arc_red_candle_count = int((second_arc_slice["close"] > second_arc_slice["open"]).sum())
+                first_arc_red_candle_ratio = first_arc_red_candle_count / len(first_arc_slice)
+                second_arc_red_candle_ratio = second_arc_red_candle_count / len(second_arc_slice)
+                second_arc_red_candle_ratio_delta = second_arc_red_candle_ratio - first_arc_red_candle_ratio
             if len(attack1_slice) >= 3 and len(attack2_slice) >= 3:
                 red1 = int((attack1_slice["close"] > attack1_slice["open"]).sum())
                 red2 = int((attack2_slice["close"] > attack2_slice["open"]).sum())
@@ -1961,6 +2012,11 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 "second_arc_volume_ratio": second_arc_volume_ratio,
                 "first_arc_volume_days": len(first_arc_slice),
                 "second_arc_volume_days": len(second_arc_slice),
+                "first_arc_red_candle_count": first_arc_red_candle_count,
+                "second_arc_red_candle_count": second_arc_red_candle_count,
+                "first_arc_red_candle_ratio": first_arc_red_candle_ratio,
+                "second_arc_red_candle_ratio": second_arc_red_candle_ratio,
+                "second_arc_red_candle_ratio_delta": second_arc_red_candle_ratio_delta,
                 "red_body_ratio_2_vs_1": red_body2_vs_1,
                 "left_low_date": str(df["date"].iloc[left]),
                 "neckline_date": str(df["date"].iloc[neckline_idx]),
