@@ -633,6 +633,9 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(context["second_arc_end_date"], "20260529")
         self.assertTrue(context["w_shape_quality_passed"])
         self.assertEqual(context["w_shape_quality_failures"], "")
+        self.assertTrue(context["w_bottom_long_position_ok"])
+        self.assertLessEqual(float(context["w_bottom_current_vs_long_median_pct"]), 0.0)
+        self.assertGreaterEqual(int(context["w_bottom_long_position_days"]), 180)
         self.assertGreaterEqual(int(context["left_descent_days"]), 5)
         self.assertGreaterEqual(int(context["first_rebound_days"]), 5)
         self.assertGreaterEqual(int(context["second_decline_days"]), 3)
@@ -682,6 +685,16 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
         self.assertFalse(quality["w_shape_quality_passed"])
         self.assertIn("right_rebound_faded", quality["w_shape_quality_failures"])
+
+    def test_w_bottom_long_price_position_requires_below_year_median(self) -> None:
+        history = pd.DataFrame({"close": list(range(1, 253))})
+
+        low_metrics = model_layer.w_bottom_long_price_position_metrics(history, current_close=100.0)
+        high_metrics = model_layer.w_bottom_long_price_position_metrics(history, current_close=200.0)
+
+        self.assertTrue(low_metrics["w_bottom_long_position_ok"])
+        self.assertFalse(high_metrics["w_bottom_long_position_ok"])
+        self.assertEqual(high_metrics["w_bottom_long_position_fail_reason"], "current_close_above_long_median")
 
     def test_w_bottom_red_candle_bonus_uses_ratio_not_count(self) -> None:
         high_ratio = make_row(

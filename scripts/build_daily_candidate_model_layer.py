@@ -1390,6 +1390,10 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
             neckline_distance = float(neck_dist)
         if isinstance(base_width, (int, float)) and not math.isnan(base_width):
             comps.append(f"pre-W base width:{base_width:.1f}%")
+        current_vs_median = context.get("w_bottom_current_vs_long_median_pct")
+        long_days = context.get("w_bottom_long_position_days")
+        if isinstance(current_vs_median, (int, float)) and not math.isnan(current_vs_median):
+            comps.append(f"W long position vs median:{current_vs_median:.1f}%/{int(long_days)}d")
         attack1 = float(context.get("attack1_gain_pct", math.nan))
         attack2 = float(context.get("attack2_gain_pct", math.nan))
         vol2_vs_1 = w_bottom_second_arc_volume_ratio(row, context)
@@ -1681,6 +1685,8 @@ W_BOTTOM_SECOND_LOW_GAP_MIN = -3.0
 W_BOTTOM_SECOND_LOW_GAP_MAX = 6.0
 W_BOTTOM_RIGHT_SIDE_REBOUND_MIN = 3.0
 W_BOTTOM_RIGHT_SIDE_REBOUND_MAX = 15.0
+W_BOTTOM_LONG_POSITION_LOOKBACK_DAYS = 252
+W_BOTTOM_LONG_POSITION_MIN_DAYS = 180
 
 
 def context_num(context: dict[str, float | str | bool] | None, *names: str) -> float:
@@ -1771,6 +1777,40 @@ def w_bottom_low_position_score(
     if low_pos <= 45:
         return -2.0, [], [f"W_low_position_higher_watch:{low_pos:.1f}%"]
     return -5.0, [], [f"W_low_position_too_high_penalty:{low_pos:.1f}%"]
+
+
+def w_bottom_long_price_position_metrics(
+    history: pd.DataFrame,
+    current_close: float,
+) -> dict[str, float | str | bool]:
+    lookback = history.tail(W_BOTTOM_LONG_POSITION_LOOKBACK_DAYS)
+    valid_close = pd.to_numeric(lookback["close"], errors="coerce").dropna()
+    days = int(len(valid_close))
+    if days < W_BOTTOM_LONG_POSITION_MIN_DAYS or math.isnan(current_close):
+        return {
+            "w_bottom_long_position_ok": False,
+            "w_bottom_long_position_fail_reason": "long_price_position_insufficient_history",
+            "w_bottom_long_position_days": days,
+            "w_bottom_long_close_median": math.nan,
+            "w_bottom_long_close_mean": math.nan,
+            "w_bottom_current_vs_long_median_pct": math.nan,
+            "w_bottom_current_vs_long_mean_pct": math.nan,
+        }
+
+    median_close = float(valid_close.median())
+    mean_close = float(valid_close.mean())
+    current_vs_median = (current_close / median_close - 1) * 100 if median_close > 0 else math.nan
+    current_vs_mean = (current_close / mean_close - 1) * 100 if mean_close > 0 else math.nan
+    ok = not math.isnan(current_vs_median) and current_vs_median <= 0
+    return {
+        "w_bottom_long_position_ok": ok,
+        "w_bottom_long_position_fail_reason": "" if ok else "current_close_above_long_median",
+        "w_bottom_long_position_days": days,
+        "w_bottom_long_close_median": median_close,
+        "w_bottom_long_close_mean": mean_close,
+        "w_bottom_current_vs_long_median_pct": current_vs_median,
+        "w_bottom_current_vs_long_mean_pct": current_vs_mean,
+    }
 
 
 def w_bottom_neckline_distance_pct(
@@ -1989,6 +2029,9 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
         dated = df[df["date"] <= date]
         if len(dated) >= 80:
             df = dated
+    position_history = df.reset_index(drop=True)
+    current_close = float(position_history["close"].iloc[-1])
+    long_position = w_bottom_long_price_position_metrics(position_history, current_close)
     df = df.tail(120).reset_index(drop=True)
     if len(df) < 80:
         return {"available": False}
@@ -1998,7 +2041,6 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
     if high_120 <= low_120:
         return {"available": False}
     range_span = high_120 - low_120
-    current_close = float(df["close"].iloc[-1])
 
     peaks: list[int] = []
     troughs: list[int] = []
@@ -2094,6 +2136,7 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                     "neckline_price": neckline,
                 }
                 rejected_shape.update(segment_quality)
+                rejected_shape.update(long_position)
                 if (
                     best_rejected_shape is None
                     or right_age < float(best_rejected_shape.get("right_low_age_days", math.inf))
@@ -2174,6 +2217,7 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             context_ok = (
                 pre_base_ok
                 and bool(segment_quality["w_shape_quality_passed"])
+                and bool(long_position["w_bottom_long_position_ok"])
                 and right_side_rebound_ok
                 and not_extended
             )
@@ -2216,6 +2260,7 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 "right_low_age_days": right_age,
             }
             candidate.update(segment_quality)
+            candidate.update(long_position)
             if best is None:
                 best = candidate
             else:
