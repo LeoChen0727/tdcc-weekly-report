@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4903 聯光通
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:55 Asia/Taipei
+- generated_at: 2026-06-24 22:23:47 Asia/Taipei
 - stock_id: 4903
 - stock_name: 聯光通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 39.2
-- high: 41.1
-- low: 39
-- close: 40.25
-- volume: 2154000
-- ma5: 39.22
-- ema23_primary: 42
-- distance_to_ema23_pct: -4.17
-- ma20: 42.37
-- ma60: 45.23
-- ma120: 43.63
-- return_5d: 3.87
-- return_20d: -15.35
-- volume_ratio: 3.39
-- distance_to_ma20_pct_auxiliary: -4.99
-- distance_to_high_60_pct: -28.12
+- date: 20260624
+- open: 38.7
+- high: 41.7
+- low: 38.4
+- close: 41
+- volume: 3730000
+- ma5: 39.57
+- ema23_primary: 41.69
+- distance_to_ema23_pct: -1.65
+- ma20: 41.67
+- ma60: 44.94
+- ma120: 43.52
+- return_5d: 4.59
+- return_20d: -12.3
+- volume_ratio: 4
+- distance_to_ma20_pct_auxiliary: -1.62
+- distance_to_high_60_pct: -26.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,48.8,48.8,47,47.05,48000,46.32,1.57,45.73,45.61,0.01
-20260526,47.3,47.6,45.75,46.75,47000,46.36,0.84,45.82,45.7,0.01
 20260527,47.15,47.35,44.7,44.9,46000,46.24,-2.89,45.84,45.71,0.01
 20260528,45.05,45.45,43.6,43.7,45000,46.03,-5.06,45.77,45.71,0.01
 20260529,44.05,45,43.6,44.85,44000,45.93,-2.35,45.75,45.71,0.02
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,39.1,39.1,38.35,38.8,955000,42.47,-8.63,43.05,45.54,1.65
 20260618,39,39.45,38.8,38.8,896000,42.16,-7.97,42.73,45.36,1.69
 20260622,39.2,41.1,39,40.25,2154000,42,-4.17,42.37,45.23,3.39
+20260623,41.4,41.75,39,39,2330000,41.75,-6.59,41.96,45.05,3.11
+20260624,38.7,41.7,38.4,41,3730000,41.69,-1.65,41.67,44.94,4
 ```
 
 ## Latest TDCC Snapshot
@@ -184,15 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4903 | 聯光通 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 4903 | 聯光通 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4903 | 聯光通 | 1 | 1 | 1 | 2 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

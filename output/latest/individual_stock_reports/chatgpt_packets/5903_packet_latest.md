@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5903 全家
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:09 Asia/Taipei
+- generated_at: 2026-06-24 22:23:58 Asia/Taipei
 - stock_id: 5903
 - stock_name: 全家
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
+- date: 20260624
 - open: 188
 - high: 189
-- low: 188
+- low: 187.5
 - close: 189
-- volume: 23000
+- volume: 32000
 - ma5: 188.7
-- ema23_primary: 188.6
-- distance_to_ema23_pct: 0.21
-- ma20: 188.2
-- ma60: 189.18
-- ma120: 190.61
-- return_5d: 0
-- return_20d: 0.53
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: 0.43
-- distance_to_high_60_pct: -1.56
+- ema23_primary: 188.62
+- distance_to_ema23_pct: 0.2
+- ma20: 188.3
+- ma60: 189.14
+- ma120: 190.57
+- return_5d: 0.27
+- return_20d: 0.8
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 0.37
+- distance_to_high_60_pct: -1.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,187.5,188,187.5,188,188000,189.15,-0.61,189.15,190.56,4.21
-20260526,187.5,188,187.5,187.5,188000,189.02,-0.8,189.03,190.42,3.6
 20260527,187,187.5,187,187.5,187000,188.89,-0.74,188.93,190.28,3.07
 20260528,187.5,187.5,186.5,186.5,187000,188.69,-1.16,188.78,190.12,2.69
 20260529,186.5,187,186,187,186000,188.55,-0.82,188.65,189.99,2.38
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,187,189,187,189,18000,188.61,0.21,188.12,189.22,0.17
 20260618,188,188.5,187.5,188,46000,188.56,-0.3,188.15,189.2,0.44
 20260622,188,189,188,189,23000,188.6,0.21,188.2,189.18,0.24
+20260623,189,189,188,188.5,16000,188.59,-0.05,188.22,189.16,0.18
+20260624,188,189,187.5,189,32000,188.62,0.2,188.3,189.14,0.4
 ```
 
 ## Latest TDCC Snapshot

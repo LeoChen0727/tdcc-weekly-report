@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:29 Asia/Taipei
+- generated_at: 2026-06-24 22:22:38 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 122.3
-- high: 123.3
-- low: 121.55
-- close: 122.65
-- volume: 4382492
-- ma5: 116.59
-- ema23_primary: 110.87
-- distance_to_ema23_pct: 10.63
-- ma20: 111.9
-- ma60: 111.39
-- ma120: 111.39
-- return_5d: 11.7
-- return_20d: 21.2
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 9.61
-- distance_to_high_60_pct: -0.53
+- date: 20260624
+- open: 115
+- high: 116.45
+- low: 113
+- close: 115.95
+- volume: 5881208
+- ma5: 117.75
+- ema23_primary: 111.74
+- distance_to_ema23_pct: 3.77
+- ma20: 112.95
+- ma60: 111.82
+- ma120: 111.82
+- return_5d: 1.84
+- return_20d: 8.72
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 2.66
+- distance_to_high_60_pct: -5.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,102.6,105,102.55,105,2739048,,,,,
-20260526,106.85,107.9,105.4,106.65,2423334,,,,,
 20260527,111.1,113.7,111.1,111.65,6198600,,,,,
 20260528,112.1,112.1,106.2,108.3,5159771,103.22,4.93,106.56,106.56,1.4
 20260529,111.65,113.2,111.6,112.85,3520574,104.02,8.49,107.61,107.61,0.97
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,112.8,115.05,112.6,115.05,3012631,109.01,5.54,110.43,110.43,0.62
 20260618,116.55,118.4,116.4,118.4,3259454,109.8,7.84,110.83,110.83,0.68
 20260622,122.3,123.3,121.55,122.65,4382492,110.87,10.63,111.9,111.39,0.9
+20260623,122,122.05,116.7,116.7,8314729,111.35,4.8,112.48,111.63,1.61
+20260624,115,116.45,113,115.95,5881208,111.74,3.77,112.95,111.82,1.1
 ```
 
 ## Latest TDCC Snapshot

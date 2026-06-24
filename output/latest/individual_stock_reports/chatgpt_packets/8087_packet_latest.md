@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:55 Asia/Taipei
+- generated_at: 2026-06-24 22:24:35 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 33.1
-- high: 34.3
-- low: 33.1
+- date: 20260624
+- open: 33.35
+- high: 33.7
+- low: 32.8
 - close: 33.2
-- volume: 71000
-- ma5: 33.63
-- ema23_primary: 34.25
-- distance_to_ema23_pct: -3.06
-- ma20: 34.23
-- ma60: 34.12
-- ma120: 33.1
-- return_5d: -1.92
-- return_20d: -1.92
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -3.02
+- volume: 27000
+- ma5: 33.19
+- ema23_primary: 34.06
+- distance_to_ema23_pct: -2.52
+- ma20: 34.25
+- ma60: 34.09
+- ma120: 33.08
+- return_5d: -1.78
+- return_20d: 0.76
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -3.07
 - distance_to_high_60_pct: -16.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,33.9,33.9,32.6,32.8,33000,33.86,-3.12,33.62,34.26,0.36
-20260526,32.8,32.95,32.3,32.95,33000,33.78,-2.46,33.57,34.19,0.37
 20260527,32.45,32.9,32.25,32.25,32000,33.65,-4.17,33.53,34.16,0.37
 20260528,32.6,32.7,32.25,32.25,32000,33.54,-3.83,33.49,34.11,0.36
 20260529,33.5,33.7,32.45,32.95,33000,33.49,-1.6,33.44,34.01,0.38
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,33.8,33.8,33.3,33.55,29000,34.46,-2.63,34.32,34.17,0.39
 20260618,33.25,33.35,33,33.1,64000,34.34,-3.62,34.27,34.14,0.86
 20260622,33.1,34.3,33.1,33.2,71000,34.25,-3.06,34.23,34.12,0.93
+20260623,33.2,33.2,32.3,32.9,40000,34.14,-3.62,34.24,34.1,0.52
+20260624,33.35,33.7,32.8,33.2,27000,34.06,-2.52,34.25,34.09,0.35
 ```
 
 ## Latest TDCC Snapshot

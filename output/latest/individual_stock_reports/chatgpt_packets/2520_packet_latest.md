@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:09 Asia/Taipei
+- generated_at: 2026-06-24 22:23:10 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 34.65
-- high: 34.65
-- low: 32.8
-- close: 34
-- volume: 7398527
-- ma5: 35.16
-- ema23_primary: 33
-- distance_to_ema23_pct: 3.04
-- ma20: 32.56
-- ma60: 31.39
-- ma120: 32
-- return_5d: -2.86
-- return_20d: 11.66
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 4.41
-- distance_to_high_60_pct: -8.97
+- date: 20260624
+- open: 34.15
+- high: 34.4
+- low: 33.65
+- close: 33.95
+- volume: 1335316
+- ma5: 34.98
+- ema23_primary: 33.18
+- distance_to_ema23_pct: 2.31
+- ma20: 32.97
+- ma60: 31.47
+- ma120: 32.01
+- return_5d: -1.59
+- return_20d: 12.6
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 2.96
+- distance_to_high_60_pct: -9.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,30.45,30.45,29.65,30.05,2106524,30.52,-1.54,30.17,31.17,1.34
-20260526,30.05,30.4,29.9,30.15,1401272,30.49,-1.11,30.17,31.15,0.93
 20260527,30.15,30.3,29.9,30.05,1341939,30.45,-1.32,30.18,31.12,0.88
 20260528,30.15,30.35,29.9,29.95,1942195,30.41,-1.51,30.15,31.09,1.23
 20260529,30.15,30.15,29.8,29.85,1374743,30.36,-1.69,30.17,31.07,0.91
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.35,36.15,34.3,36.15,4822749,32.59,10.92,32.1,31.27,1.51
 20260618,36.25,37.35,35.6,36.4,10674434,32.91,10.61,32.39,31.35,2.9
 20260622,34.65,34.65,32.8,34,7398527,33,3.04,32.56,31.39,1.86
+20260623,34.2,34.6,33.75,34.4,2368282,33.12,3.88,32.78,31.44,0.59
+20260624,34.15,34.4,33.65,33.95,1335316,33.18,2.31,32.97,31.47,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2520 | 冠德 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260622 | 2520 | 冠德 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 26.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260624 | 2520 | 冠德 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2520 | 冠德 | 3 | 1 | 3 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2520 | 冠德 | 5 | 3 | 5 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2520 | 冠德 | 6 | 0 | 882960.0 | 0.0 |  | no_signal |
+| 20260624 | 2520 | 冠德 | 6 | 0 | 171630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

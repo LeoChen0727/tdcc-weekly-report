@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6016 康和證
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:10 Asia/Taipei
+- generated_at: 2026-06-24 22:23:58 Asia/Taipei
 - stock_id: 6016
 - stock_name: 康和證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 29.2
-- high: 29.8
-- low: 28.9
-- close: 29.75
-- volume: 9277000
-- ma5: 29.16
-- ema23_primary: 28.13
-- distance_to_ema23_pct: 5.75
-- ma20: 29.56
-- ma60: 22.66
-- ma120: 19.2
-- return_5d: 4.57
-- return_20d: 29.91
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 0.64
-- distance_to_high_60_pct: -18.49
+- date: 20260624
+- open: 28.75
+- high: 28.85
+- low: 28.15
+- close: 28.45
+- volume: 8554000
+- ma5: 28.98
+- ema23_primary: 28.24
+- distance_to_ema23_pct: 0.75
+- ma20: 30.05
+- ma60: 23.05
+- ma120: 19.46
+- return_5d: -2.23
+- return_20d: 17.08
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -5.32
+- distance_to_high_60_pct: -22.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,23.1,24,23.1,23.5,24000,21.25,10.59,21.57,18.65,0
-20260526,23.8,24.45,23.25,24.3,24000,21.5,13,21.83,18.77,0
 20260527,25.1,26.7,25.1,26.7,26000,21.94,21.71,22.2,18.91,0
 20260528,27.85,27.85,26.25,26.95,27000,22.36,20.55,22.58,19.07,0
 20260529,27.75,29.6,27.5,29.6,29000,22.96,28.93,23.09,19.28,0
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,28.5,29.3,28.45,28.75,7617000,27.91,3,28.9,22.26,1.13
 20260618,28.75,29,28.6,28.8,7847000,27.99,2.91,29.22,22.45,1.13
 20260622,29.2,29.8,28.9,29.75,9277000,28.13,5.75,29.56,22.66,1.26
+20260623,30,30.7,29.1,29.15,10951000,28.22,3.3,29.84,22.86,1.38
+20260624,28.75,28.85,28.15,28.45,8554000,28.24,0.75,30.05,23.05,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6016 | 康和證 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 6016 | 康和證 | pullback_rebound | 回檔後短線轉強 | 90.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 6016 | 康和證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6016 | 康和證 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6016 | 康和證 | 2 | 2 | 2 | 2 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260624 | 6016 | 康和證 | 4 | 1 | 4 | 4 | 6 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

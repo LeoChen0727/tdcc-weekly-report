@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:52 Asia/Taipei
+- generated_at: 2026-06-24 22:23:45 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 22.5
-- high: 23.6
-- low: 22
+- date: 20260624
+- open: 20.75
+- high: 23.2
+- low: 20.6
 - close: 23.2
-- volume: 4558000
-- ma5: 21.95
-- ema23_primary: 19.25
-- distance_to_ema23_pct: 20.53
-- ma20: 19.1
-- ma60: 15.72
-- ma120: 12.96
-- return_5d: 16
-- return_20d: 52.13
-- volume_ratio: 4.06
-- distance_to_ma20_pct_auxiliary: 21.48
+- volume: 4726000
+- ma5: 22.62
+- ema23_primary: 19.72
+- distance_to_ema23_pct: 17.65
+- ma20: 19.86
+- ma60: 16.11
+- ma120: 13.17
+- return_5d: 12.9
+- return_20d: 58.36
+- volume_ratio: 2.92
+- distance_to_ma20_pct_auxiliary: 16.8
 - distance_to_high_60_pct: -3.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,15.3,15.35,14.3,14.35,15000,14.69,-2.28,15.05,12.88,0.01
-20260526,14.55,14.75,14.3,14.65,15000,14.68,-0.22,15.05,12.95,0.01
 20260527,14.8,15.2,14.55,15,15000,14.71,1.98,15.06,13.03,0.01
 20260528,15.05,15.2,14.6,14.85,15000,14.72,0.88,15.05,13.11,0.01
 20260529,14.95,16.3,14.9,16.3,16000,14.85,9.75,15.11,13.21,0.01
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,21,22.6,21,22.6,3972000,18.52,22.06,18.29,15.29,5.25
 20260618,23.7,24.1,22.9,23,3708000,18.89,21.76,18.7,15.5,4.14
 20260622,22.5,23.6,22,23.2,4558000,19.25,20.53,19.1,15.72,4.06
+20260623,22.8,23,20.95,21.1,5270000,19.4,8.75,19.43,15.89,3.8
+20260624,20.75,23.2,20.6,23.2,4726000,19.72,17.65,19.86,16.11,2.92
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4707 | 磐亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 4707 | 磐亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4707 | 磐亞 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260624 | 4707 | 磐亞 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

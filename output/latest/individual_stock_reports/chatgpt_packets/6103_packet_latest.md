@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6103 合邦
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:10 Asia/Taipei
+- generated_at: 2026-06-24 22:23:59 Asia/Taipei
 - stock_id: 6103
 - stock_name: 合邦
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 68
+- latest_price_date: 20260624
+- price_rows: 70
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 33.5
-- high: 33.5
-- low: 33.5
-- close: 33.5
-- volume: 2000
-- ma5: 34.96
-- ema23_primary: 37.37
-- distance_to_ema23_pct: -10.35
-- ma20: 37.37
-- ma60: 40.57
-- ma120: 39.94
-- return_5d: -5.1
-- return_20d: -16.25
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -10.36
-- distance_to_high_60_pct: -38.64
+- date: 20260624
+- open: 32
+- high: 32
+- low: 32
+- close: 32
+- volume: 4000
+- ma5: 33.1
+- ema23_primary: 36.51
+- distance_to_ema23_pct: -12.36
+- ma20: 36.57
+- ma60: 40.42
+- ma120: 39.71
+- return_5d: -12.33
+- return_20d: -20
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -12.5
+- distance_to_high_60_pct: -41.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,40,40,40,40,2000,40.74,-1.82,40.63,40.98,0.3
-20260512,40,40,40,40,3000,40.68,-1.67,40.46,40.97,0.46
 20260513,40,40,38,39.1,10000,40.55,-3.57,40.3,40.93,1.89
 20260514,39.1,39.1,39.1,39.1,1000,40.43,-3.29,40.17,40.89,0.2
 20260515,37.65,37.65,37.65,37.65,1000,40.2,-6.34,40.09,40.83,0.2
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,33.4,36.3,33.4,34,4000,38.06,-10.67,37.98,40.61,0.24
 20260618,34,34,34,34,1000,37.72,-9.86,37.7,40.61,0.06
 20260622,33.5,33.5,33.5,33.5,2000,37.37,-10.35,37.37,40.57,0.12
+20260623,32,32,32,32,3000,36.92,-13.33,36.97,40.49,0.18
+20260624,32,32,32,32,4000,36.51,-12.36,36.57,40.42,0.24
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5522 遠雄
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:07 Asia/Taipei
+- generated_at: 2026-06-24 22:23:56 Asia/Taipei
 - stock_id: 5522
 - stock_name: 遠雄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 74
-- high: 74.5
-- low: 71.5
-- close: 73.8
-- volume: 3469055
-- ma5: 75.42
-- ema23_primary: 74.81
-- distance_to_ema23_pct: -1.35
-- ma20: 75.08
-- ma60: 72.17
-- ma120: 71.06
-- return_5d: -7.75
-- return_20d: 6.19
-- volume_ratio: 1.95
-- distance_to_ma20_pct_auxiliary: -1.71
-- distance_to_high_60_pct: -12.04
+- date: 20260624
+- open: 71.5
+- high: 73
+- low: 71.4
+- close: 71.5
+- volume: 4387027
+- ma5: 73.42
+- ema23_primary: 74.35
+- distance_to_ema23_pct: -3.83
+- ma20: 75.27
+- ma60: 72.13
+- ma120: 71
+- return_5d: -6.17
+- return_20d: 0.56
+- volume_ratio: 2.15
+- distance_to_ma20_pct_auxiliary: -5
+- distance_to_high_60_pct: -14.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,69.9,70.6,68.7,69.2,883165,70.2,-1.43,69.99,69.7,1.02
-20260526,69.3,71.2,69.2,71.1,924632,70.28,1.17,70.09,69.76,1.05
 20260527,71.2,71.3,70.3,71.2,531484,70.35,1.2,70.23,69.81,0.61
 20260528,71.5,72.7,70.8,72,1327165,70.49,2.14,70.37,69.88,1.47
 20260529,72,72.7,71.5,72.7,1807328,70.68,2.86,70.56,69.96,1.93
@@ -160,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,76,76,74.3,75,1983596,74.95,0.07,74.67,72,1.26
 20260618,75.1,76.7,74.2,74.4,2047135,74.9,-0.67,74.87,72.1,1.24
 20260622,74,74.5,71.5,73.8,3469055,74.81,-1.35,75.08,72.17,1.95
+20260623,72.9,73.7,72.1,72.4,2780848,74.61,-2.96,75.25,72.16,1.49
+20260624,71.5,73,71.4,71.5,4387027,74.35,-3.83,75.27,72.13,2.15
 ```
 
 ## Latest TDCC Snapshot
@@ -190,15 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | repeated_but_no_breakout | 1.契約種類:自地委建 2.事實發生日:115/6/22~115/6/22 3.董事會通過日期: 民國115年6月22日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 交易對象：遠雄營造股份有限公司 與公司之關係：子公司 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 本次簽訂建築工程契約為：台南市永康區市政段住宅新建工程承攬契約追減協議書 契約追減後總金額為新台幣1,553,937仟元 限制條款及其他重要約定事項：無 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 擴增公司營業收入 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年6月22日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260622 | 5522 | 遠雄 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 16.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | 1.契約種類:自地委建 2.事實發生日:115/6/22~115/6/22 3.董事會通過日期: 民國115年6月22日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 交易對象：遠雄營造股份有限公司 與公司之關係：子公司 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 本次簽訂建築工程契約為：台南市永康區市政段住宅新建工程承攬契約追減協議書 契約追減後總金額為新台幣1,553,937仟元 限制條款及其他重要約定事項：無 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 擴增公司營業收入 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年6月22日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5522 | 遠雄 | 1 | 1 | 4 | 9 | 12 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

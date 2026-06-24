@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2401 凌陽
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:02 Asia/Taipei
+- generated_at: 2026-06-24 22:23:04 Asia/Taipei
 - stock_id: 2401
 - stock_name: 凌陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 33.2
-- high: 34.9
-- low: 33
-- close: 34
-- volume: 30210673
-- ma5: 31.99
-- ema23_primary: 29.02
-- distance_to_ema23_pct: 17.18
-- ma20: 29.36
-- ma60: 25.47
-- ma120: 23.41
-- return_5d: 18.88
-- return_20d: 10.57
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: 15.78
-- distance_to_high_60_pct: -2.58
+- date: 20260624
+- open: 32.35
+- high: 35.1
+- low: 32.15
+- close: 34.8
+- volume: 21959023
+- ma5: 33.07
+- ema23_primary: 29.79
+- distance_to_ema23_pct: 16.83
+- ma20: 29.77
+- ma60: 25.91
+- ma120: 23.63
+- return_5d: 13.17
+- return_20d: 15.61
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 16.91
+- distance_to_high_60_pct: -0.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,30.75,31,29.35,29.45,27071134,25.77,14.3,25.63,22.91,1.91
-20260526,29.5,30.25,28.45,30.1,22630155,26.13,15.2,25.98,23.04,1.55
 20260527,30.35,33,30.35,31.05,30654029,26.54,17,26.36,23.17,1.93
 20260528,30.9,31.65,29.9,30.05,18548201,26.83,12,26.7,23.29,1.11
 20260529,30.95,30.95,29.85,30,11222420,27.09,10.72,27,23.42,0.66
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,30.6,32.35,30.3,31.5,15974772,28.23,11.6,29.07,25.05,0.85
 20260618,31.9,34.15,31.8,32.25,29277986,28.56,12.91,29.2,25.24,1.65
 20260622,33.2,34.9,33,34,30210673,29.02,17.18,29.36,25.47,1.84
+20260623,33.85,34,32.35,32.8,15447712,29.33,11.83,29.53,25.67,0.98
+20260624,32.35,35.1,32.15,34.8,21959023,29.79,16.83,29.77,25.91,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2401 | 凌陽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.股東會決議日:115/06/15 2.許可從事競業行為之董事姓名及職稱: (1)台灣樂菲(股)公司代表人詹文雄--董事 (2)蔡智杰--董事 (3)陳瑞琦--獨立董事 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第209條說明表決結果）:經代表已發行股份總數過半數股東之 出席，出席股東表決權三分之二以上同意，本案經表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2401 | 凌陽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | 1.股東會決議日:115/06/15 2.許可從事競業行為之董事姓名及職稱: (1)台灣樂菲(股)公司代表人詹文雄--董事 (2)蔡智杰--董事 (3)陳瑞琦--獨立董事 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第209條說明表決結果）:經代表已發行股份總數過半數股東之 出席，出席股東表決權三分之二以上同意，本案經表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2401 | 凌陽 | 10 | 2 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 2401 | 凌陽 | 1 | 1 | 4 | 9 | 15 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2401 | 凌陽 | 18 | 0 | 5711300.0 | 0.0 |  | no_signal |
+| 20260624 | 2401 | 凌陽 | 19 | 0 | 7723750.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

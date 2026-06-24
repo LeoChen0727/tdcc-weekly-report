@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2355 敬鵬
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:59 Asia/Taipei
+- generated_at: 2026-06-24 22:23:02 Asia/Taipei
 - stock_id: 2355
 - stock_name: 敬鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 58.4
-- high: 59.1
-- low: 57.6
-- close: 58.7
-- volume: 9160422
-- ma5: 58.4
-- ema23_primary: 57.97
-- distance_to_ema23_pct: 1.25
-- ma20: 59.31
-- ma60: 55.17
-- ma120: 46.47
-- return_5d: -4.71
-- return_20d: -9.97
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -1.04
-- distance_to_high_60_pct: -17.32
+- date: 20260624
+- open: 55.3
+- high: 57.4
+- low: 55.1
+- close: 55.9
+- volume: 6213714
+- ma5: 57.32
+- ema23_primary: 57.66
+- distance_to_ema23_pct: -3.05
+- ma20: 58.31
+- ma60: 55.47
+- ma120: 46.87
+- return_5d: -2.1
+- return_20d: -14.13
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -4.13
+- distance_to_high_60_pct: -21.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,68,71,66.5,67,53636677,56.43,18.73,55.39,50.2,1.89
-20260526,67.5,67.5,64.5,65.1,22789635,57.16,13.9,55.95,50.6,0.81
 20260527,65.8,65.9,61.8,62.6,29431687,57.61,8.66,56.44,50.95,1.01
 20260528,62.6,66.1,60.3,61.7,23172318,57.95,6.47,56.98,51.26,0.78
 20260529,62.5,65.3,61.4,65.3,23338036,58.56,11.51,57.69,51.63,0.77
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,57,58.5,56.1,58,10181483,57.91,0.16,59.99,54.66,0.38
 20260618,58.2,58.8,57.2,57.9,9455146,57.91,-0.01,59.64,54.9,0.38
 20260622,58.4,59.1,57.6,58.7,9160422,57.97,1.25,59.31,55.17,0.42
+20260623,58.8,58.8,55.8,56.1,9479403,57.82,-2.97,58.77,55.36,0.48
+20260624,55.3,57.4,55.1,55.9,6213714,57.66,-3.05,58.31,55.47,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -185,19 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2355 | 敬鵬 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2355 | 敬鵬 | 10 | 10 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2355 | 敬鵬 | 80 | 0 | 3669800.0 | 0.0 |  | no_signal |
+| 20260624 | 2355 | 敬鵬 | 80 | 0 | 5732450.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8929 富堡
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:04 Asia/Taipei
+- generated_at: 2026-06-24 22:24:42 Asia/Taipei
 - stock_id: 8929
 - stock_name: 富堡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 150
+- latest_price_date: 20260624
+- price_rows: 152
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 14.05
-- high: 14.05
-- low: 13.75
-- close: 13.75
-- volume: 64000
-- ma5: 13.94
-- ema23_primary: 14.26
-- distance_to_ema23_pct: -3.59
-- ma20: 14.17
-- ma60: 14.88
-- ma120: 15.71
-- return_5d: -2.83
-- return_20d: -3.17
-- volume_ratio: 2.86
-- distance_to_ma20_pct_auxiliary: -2.95
-- distance_to_high_60_pct: -18.4
+- date: 20260624
+- open: 13.65
+- high: 13.9
+- low: 13.65
+- close: 13.85
+- volume: 11000
+- ma5: 13.83
+- ema23_primary: 14.18
+- distance_to_ema23_pct: -2.33
+- ma20: 14.14
+- ma60: 14.81
+- ma120: 15.67
+- return_5d: -1.07
+- return_20d: 0
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -2.09
+- distance_to_high_60_pct: -17.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,14.2,14.3,13.85,14.1,14000,14.71,-4.17,14.62,15.5,0.36
-20260526,14,14,13.8,13.85,14000,14.64,-5.4,14.56,15.45,0.39
 20260527,13.8,13.8,13.7,13.75,14000,14.57,-5.61,14.49,15.4,0.39
 20260528,13.75,13.75,13.45,13.55,14000,14.48,-6.44,14.42,15.36,0.4
 20260529,13.5,13.6,13.45,13.6,14000,14.41,-5.61,14.35,15.32,0.42
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,14,14,13.9,13.9,28000,14.34,-3.04,14.21,14.94,1.18
 20260618,14.15,14.15,13.9,14,30000,14.31,-2.15,14.19,14.91,1.51
 20260622,14.05,14.05,13.75,13.75,64000,14.26,-3.59,14.17,14.88,2.86
+20260623,13.75,13.75,13.6,13.65,31000,14.21,-3.94,14.14,14.85,1.33
+20260624,13.65,13.9,13.65,13.85,11000,14.18,-2.33,14.14,14.81,0.48
 ```
 
 ## Latest TDCC Snapshot

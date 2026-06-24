@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:16 Asia/Taipei
+- generated_at: 2026-06-24 22:23:15 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 12.35
+- date: 20260624
+- open: 12.3
 - high: 12.35
-- low: 12.25
-- close: 12.3
-- volume: 1084491
-- ma5: 12.29
-- ema23_primary: 12.11
-- distance_to_ema23_pct: 1.59
-- ma20: 12.06
+- low: 12.2
+- close: 12.25
+- volume: 1175781
+- ma5: 12.3
+- ema23_primary: 12.13
+- distance_to_ema23_pct: 0.96
+- ma20: 12.1
 - ma60: 12.02
-- ma120: 12.14
-- return_5d: 0.41
-- return_20d: 3.8
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 2.01
-- distance_to_high_60_pct: -1.2
+- ma120: 12.13
+- return_5d: 0
+- return_20d: 3.38
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 1.22
+- distance_to_high_60_pct: -1.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,11.8,11.85,11.75,11.8,1479389,11.89,-0.73,11.85,12.1,1.28
-20260526,11.8,11.85,11.75,11.85,761661,11.88,-0.28,11.85,12.09,0.73
 20260527,11.8,11.85,11.75,11.8,1346349,11.88,-0.65,11.85,12.07,1.32
 20260528,11.8,11.8,11.7,11.75,1676345,11.87,-0.98,11.84,12.05,1.61
 20260529,11.75,11.8,11.65,11.65,1846766,11.85,-1.67,11.82,12.03,1.71
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,12.2,12.4,12.2,12.3,4119777,12.07,1.94,12.01,12.01,1.4
 20260618,12.3,12.4,12.25,12.35,3004980,12.09,2.15,12.04,12.01,0.98
 20260622,12.35,12.35,12.25,12.3,1084491,12.11,1.59,12.06,12.02,0.36
+20260623,12.25,12.4,12.2,12.3,1870696,12.12,1.46,12.08,12.02,0.61
+20260624,12.3,12.35,12.2,12.25,1175781,12.13,0.96,12.1,12.02,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2836 | 高雄銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2836 | 高雄銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2836 | 高雄銀 | 6 | 2 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2836 | 高雄銀 | 8 | 4 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

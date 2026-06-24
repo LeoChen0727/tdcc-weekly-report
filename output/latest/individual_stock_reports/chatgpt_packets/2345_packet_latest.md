@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:58 Asia/Taipei
+- generated_at: 2026-06-24 22:23:02 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 2495
-- high: 2605
-- low: 2485
-- close: 2595
-- volume: 3410352
-- ma5: 2495
-- ema23_primary: 2444.85
-- distance_to_ema23_pct: 6.14
-- ma20: 2475.5
-- ma60: 2241.17
-- ma120: 1765.75
-- return_5d: 11.13
-- return_20d: 5.06
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 4.83
-- distance_to_high_60_pct: -3.71
+- date: 20260624
+- open: 2410
+- high: 2445
+- low: 2340
+- close: 2375
+- volume: 3033201
+- ma5: 2467
+- ema23_primary: 2438.27
+- distance_to_ema23_pct: -2.6
+- ma20: 2458
+- ma60: 2265.33
+- ma120: 1786.12
+- return_5d: -5.75
+- return_20d: -9.35
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -3.38
+- distance_to_high_60_pct: -12.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,2535,2600,2505,2540,2633850,2359.87,7.63,2442,1922.42,0.5
-20260526,2610,2695,2560,2620,3688871,2381.55,10.01,2464.25,1941.92,0.71
 20260527,2645,2670,2570,2620,3955442,2401.42,9.1,2480.5,1962.25,0.78
 20260528,2575,2580,2395,2435,5051117,2404.22,1.28,2491.75,1979.25,0.99
 20260529,2505,2530,2390,2430,6396739,2406.37,0.98,2499.25,1996.08,1.23
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,2555,2600,2470,2495,2648670,2430.85,2.64,2471.5,2209,0.74
 20260618,2480,2490,2415,2435,4237239,2431.2,0.16,2469.25,2223.5,1.2
 20260622,2495,2605,2485,2595,3410352,2444.85,6.14,2475.5,2241.17,0.96
+20260623,2675,2720,2435,2435,3948138,2444.03,-0.37,2470.25,2253.67,1.09
+20260624,2410,2445,2340,2375,3033201,2438.27,-2.6,2458,2265.33,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2345 | 智邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 2345 | 智邦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2345 | 智邦 | 1 | 1 | 4 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 2345 | 智邦 | 3 | 1 | 4 | 9 | 19 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2345 | 智邦 | 271 | 31 | 35889870.0 | 910610.0 | 39.41 | call_inflow |
+| 20260624 | 2345 | 智邦 | 271 | 0 | 19289210.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

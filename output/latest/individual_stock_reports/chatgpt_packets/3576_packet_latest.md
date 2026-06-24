@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3576 聯合再生
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:38 Asia/Taipei
+- generated_at: 2026-06-24 22:23:33 Asia/Taipei
 - stock_id: 3576
 - stock_name: 聯合再生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 18.05
-- high: 18.5
-- low: 18
-- close: 18.05
-- volume: 18162526
-- ma5: 19.04
-- ema23_primary: 18.31
-- distance_to_ema23_pct: -1.41
-- ma20: 18.43
-- ma60: 18.2
-- ma120: 16.49
-- return_5d: -8.84
-- return_20d: -1.1
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -2.08
-- distance_to_high_60_pct: -27.8
+- date: 20260624
+- open: 17.25
+- high: 18.2
+- low: 17.15
+- close: 17.8
+- volume: 12164983
+- ma5: 18.09
+- ema23_primary: 18.2
+- distance_to_ema23_pct: -2.2
+- ma20: 18.28
+- ma60: 17.99
+- ma120: 16.65
+- return_5d: -6.32
+- return_20d: -5.82
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -2.64
+- distance_to_high_60_pct: -26.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,18.75,19.65,18.15,19.35,40449019,17.67,9.54,16.95,19.71,1.39
-20260526,20.1,20.75,18.65,18.9,43255955,17.77,6.37,17.13,19.69,1.44
 20260527,19.2,19.5,18.4,19.1,29166482,17.88,6.83,17.35,19.64,0.95
 20260528,19,19.7,18.2,18.25,29399181,17.91,1.9,17.5,19.54,0.94
 20260529,18.65,18.65,18.1,18.35,16566421,17.95,2.25,17.62,19.4,0.54
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,18.6,19.35,18.4,19.15,22115815,18.36,4.29,18.41,18.3,0.65
 20260618,19.05,19.05,18,18,39457299,18.33,-1.81,18.44,18.25,1.14
 20260622,18.05,18.5,18,18.05,18162526,18.31,-1.41,18.43,18.2,0.53
+20260623,18.3,18.3,17.4,17.45,20990383,18.24,-4.31,18.34,18.11,0.63
+20260624,17.25,18.2,17.15,17.8,12164983,18.2,-2.2,18.28,17.99,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3576 | 聯合再生 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.法律事件之當事人: 聲請人：Electronic J.R.C., S.R.L. 相對人：聯合再生能源股份有限公司 2.法律事件之法院名稱或處分機關: 德國仲裁院（Deutsche Institution fur Schiedsgerichtsbarkeit e.V., DIS） 3.法律事件之相關文書案號:DIS-SV-2026-01402 4.事實發生日:115/06/17 5.發生原委(含爭訟標的):本公司收到德國仲裁院通知，Electronic J.R.C., S.R.L. 就其電廠所使用之太陽能模組相關保固爭議，對本公司提起仲裁。 6.處理過程:本公司已委請律師協助處理本案，並依德國仲裁院之通知辦理後續事宜。 7.對公司財務業務影響及預估影響金額:本案目前尚在仲裁程序初期，實際產生之影 響將視仲裁結果而定。 8.因應措施及改善情形:本公司已委請律師研議本案抗辯，以全力捍衛公司及全體股 東之權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 3576 | 聯合再生 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.法律事件之當事人: 聲請人：Electronic J.R.C., S.R.L. 相對人：聯合再生能源股份有限公司 2.法律事件之法院名稱或處分機關: 德國仲裁院（Deutsche Institution fur Schiedsgerichtsbarkeit e.V., DIS） 3.法律事件之相關文書案號:DIS-SV-2026-01402 4.事實發生日:115/06/17 5.發生原委(含爭訟標的):本公司收到德國仲裁院通知，Electronic J.R.C., S.R.L. 就其電廠所使用之太陽能模組相關保固爭議，對本公司提起仲裁。 6.處理過程:本公司已委請律師協助處理本案，並依德國仲裁院之通知辦理後續事宜。 7.對公司財務業務影響及預估影響金額:本案目前尚在仲裁程序初期，實際產生之影 響將視仲裁結果而定。 8.因應措施及改善情形:本公司已委請律師研議本案抗辯，以全力捍衛公司及全體股 東之權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3576 | 聯合再生 | 1 | 1 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 3576 | 聯合再生 | 1 | 1 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

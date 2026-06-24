@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2399 映泰
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:02 Asia/Taipei
+- generated_at: 2026-06-24 22:23:04 Asia/Taipei
 - stock_id: 2399
 - stock_name: 映泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 48.45
-- high: 52.4
-- low: 48.15
-- close: 51.6
-- volume: 16358972
-- ma5: 50.47
-- ema23_primary: 47.83
-- distance_to_ema23_pct: 7.88
-- ma20: 48.68
-- ma60: 42.49
-- ma120: 34.01
-- return_5d: 8.29
-- return_20d: 10.85
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 6
-- distance_to_high_60_pct: -10.26
+- date: 20260624
+- open: 51.6
+- high: 55.2
+- low: 51.1
+- close: 54.3
+- volume: 20792232
+- ma5: 51.35
+- ema23_primary: 48.6
+- distance_to_ema23_pct: 11.72
+- ma20: 49.04
+- ma60: 43.23
+- ma120: 34.49
+- return_5d: 2.84
+- return_20d: 7.52
+- volume_ratio: 1.66
+- distance_to_ma20_pct_auxiliary: 10.72
+- distance_to_high_60_pct: -5.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,47.1,49.5,46.05,47.4,14370354,43.13,9.91,44.29,35.51,0.74
-20260526,48.2,51.2,46.2,50.5,28619049,43.74,15.45,44.74,35.97,1.5
 20260527,50.8,50.8,47.7,48,16424414,44.1,8.85,45.05,36.38,0.87
 20260528,48.45,49.35,46.95,47.7,8994468,44.4,7.44,45.3,36.79,0.49
 20260529,49.8,49.8,47.85,47.9,6976008,44.69,7.18,45.58,37.17,0.39
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,54,57.5,51.3,51.9,46197564,47.44,9.41,48.18,41.92,3.7
 20260618,51.9,52.7,47.75,48.05,18677608,47.49,1.18,48.42,42.15,1.42
 20260622,48.45,52.4,48.15,51.6,16358972,47.83,7.88,48.68,42.49,1.25
+20260623,52.4,52.5,49.4,50.9,10503535,48.09,5.85,48.85,42.82,0.81
+20260624,51.6,55.2,51.1,54.3,20792232,48.6,11.72,49.04,43.23,1.66
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2399 | 映泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 (1)修訂「取得或處分資產處理程序」案：通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2399 | 映泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 (1)修訂「取得或處分資產處理程序」案：通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2399 | 映泰 | 1 | 1 | 4 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2399 | 映泰 | 3 | 1 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

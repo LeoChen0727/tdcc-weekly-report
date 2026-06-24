@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:37 Asia/Taipei
+- generated_at: 2026-06-24 22:23:32 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 38.4
-- high: 39.7
-- low: 35.8
-- close: 35.9
-- volume: 20071272
-- ma5: 33.19
-- ema23_primary: 27
-- distance_to_ema23_pct: 32.96
-- ma20: 25.82
-- ma60: 21.94
-- ma120: 19.29
-- return_5d: 23.58
-- return_20d: 65.06
-- volume_ratio: 2.49
-- distance_to_ma20_pct_auxiliary: 39.01
-- distance_to_high_60_pct: -9.57
+- date: 20260624
+- open: 35.3
+- high: 38.5
+- low: 34.8
+- close: 36
+- volume: 17339769
+- ma5: 35.61
+- ema23_primary: 28.36
+- distance_to_ema23_pct: 26.93
+- ma20: 27.28
+- ma60: 22.54
+- ma120: 19.66
+- return_5d: 16.69
+- return_20d: 76.47
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 31.96
+- distance_to_high_60_pct: -9.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,22.5,22.5,21.15,21.5,2910581,20.68,3.98,20.92,19.37,0.7
-20260526,21.7,21.8,20.35,20.4,2269789,20.65,-1.23,21.02,19.41,0.54
 20260527,20.8,20.8,19.95,20.2,2097288,20.62,-2.02,21.09,19.44,0.49
 20260528,20.2,20.65,19.7,20,1869726,20.57,-2.75,21.05,19.47,0.45
 20260529,20.15,20.95,20,20.65,1500106,20.57,0.38,21.02,19.51,0.42
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,32.95,33.9,32.05,33.9,4661591,25.19,34.59,24.3,21.33,0.65
 20260618,37.2,37.25,36.2,37.25,3088839,26.19,42.22,25.12,21.64,0.43
 20260622,38.4,39.7,35.8,35.9,20071272,27,32.96,25.82,21.94,2.49
+20260623,36.25,36.5,34.4,35,6297942,27.67,26.5,26.5,22.23,0.76
+20260624,35.3,38.5,34.8,36,17339769,28.36,26.93,27.28,22.54,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3550 | 聯穎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.發生變動日期:115/06/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)獨立董事徐永珍先生 (2)獨立董事巫麗卿女士 (3)獨立董事黃詩易先生 4.舊任者簡歷: (1)獨立董事徐永珍先生：國立清華大學電機工程學系暨電子工程研究所教授 (2)獨立董事巫麗卿女士：本公司獨立董事 (3)獨立董事黃詩易先生：本公司獨立董事 5.新任者姓名:待董事會委任。 6.新任者簡歷:待董事會委任。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿。 8.異動原因:配合115年股東常會全面改選董事及獨立董事。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/09-115/06/29 10.新任生效日期:尚未委任。 11.其他應敘明事項:新任薪資報酬委員將於董事會委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 3550 | 聯穎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)獨立董事徐永珍先生 (2)獨立董事巫麗卿女士 (3)獨立董事黃詩易先生 4.舊任者簡歷: (1)獨立董事徐永珍先生：國立清華大學電機工程學系暨電子工程研究所教授 (2)獨立董事巫麗卿女士：本公司獨立董事 (3)獨立董事黃詩易先生：本公司獨立董事 5.新任者姓名:待董事會委任。 6.新任者簡歷:待董事會委任。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿。 8.異動原因:配合115年股東常會全面改選董事及獨立董事。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/09-115/06/29 10.新任生效日期:尚未委任。 11.其他應敘明事項:新任薪資報酬委員將於董事會委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3550 | 聯穎 | 18 | 1 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260624 | 3550 | 聯穎 | 1 | 1 | 4 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

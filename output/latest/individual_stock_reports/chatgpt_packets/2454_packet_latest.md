@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:05 Asia/Taipei
+- generated_at: 2026-06-24 22:23:07 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 4385
-- high: 4565
-- low: 4380
-- close: 4465
-- volume: 11596124
-- ma5: 4469
-- ema23_primary: 4150.25
-- distance_to_ema23_pct: 7.58
-- ma20: 4376.75
-- ma60: 3100.33
-- ma120: 2366.08
-- return_5d: 6.82
-- return_20d: 15.67
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2.02
-- distance_to_high_60_pct: -10.16
+- date: 20260624
+- open: 4480
+- high: 4515
+- low: 4225
+- close: 4285
+- volume: 16421271
+- ma5: 4427
+- ema23_primary: 4190.87
+- distance_to_ema23_pct: 2.25
+- ma20: 4392.25
+- ma60: 3193.83
+- ma120: 2415.88
+- return_5d: -6.03
+- return_20d: 0.47
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -2.44
+- distance_to_high_60_pct: -13.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,4245,4245,4245,4245,4616291,3176.15,33.65,3296,2265.92,0.36
-20260526,4375,4440,4180,4265,19540872,3266.89,30.55,3387.5,2305.83,1.58
 20260527,4475,4690,4450,4640,18260840,3381.32,37.22,3488.75,2350.75,1.51
 20260528,4620,4685,4270,4410,16433052,3467.04,27.2,3580.5,2392.58,1.34
 20260529,4460,4485,4235,4310,23109791,3537.29,21.84,3665.5,2434.17,1.84
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,4495,4535,4380,4460,9197868,4097.24,8.85,4304.5,3006.83,0.64
 20260618,4535,4590,4375,4390,12997743,4121.63,6.51,4346.5,3052.92,0.88
 20260622,4385,4565,4380,4465,11596124,4150.25,7.58,4376.75,3100.33,0.81
+20260623,4720,4785,4515,4535,18449972,4182.31,8.43,4391.25,3148.92,1.24
+20260624,4480,4515,4225,4285,16421271,4190.87,2.25,4392.25,3193.83,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2454 | 聯發科 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公告本公司115年 6月23日受邀參加摩根大通證券舉辦之Asia Pacific All Star Forum，簡報資料請參閱公開資訊觀測&#8206;站。&#8206; 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2454 | 聯發科 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公告本公司115年 6月23日受邀參加摩根大通證券舉辦之Asia Pacific All Star Forum，簡報資料請參閱公開資訊觀測&#8206;站。&#8206; 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2454 | 聯發科 | 2 | 2 | 2 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2454 | 聯發科 | 1 | 1 | 3 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2454 | 聯發科 | 406 | 40 | 35386820.0 | 338850.0 | 104.43 | no_signal |
+| 20260624 | 2454 | 聯發科 | 403 | 0 | 44287580.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

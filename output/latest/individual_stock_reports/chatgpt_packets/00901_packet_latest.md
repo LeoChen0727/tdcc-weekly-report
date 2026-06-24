@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00901 永豐智能車供應鏈
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-24 22:22:39 Asia/Taipei
 - stock_id: 00901
 - stock_name: 永豐智能車供應鏈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 48.9
-- high: 49.23
-- low: 48.85
-- close: 49.1
-- volume: 325869
-- ma5: 47.36
-- ema23_primary: 45.88
-- distance_to_ema23_pct: 7.02
-- ma20: 46.37
-- ma60: 46.2
-- ma120: 46.2
-- return_5d: 8.56
-- return_20d: 14.67
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 5.88
-- distance_to_high_60_pct: -0.26
+- date: 20260624
+- open: 47.68
+- high: 47.68
+- low: 46.56
+- close: 47.12
+- volume: 577199
+- ma5: 47.74
+- ema23_primary: 46.16
+- distance_to_ema23_pct: 2.08
+- ma20: 46.62
+- ma60: 46.33
+- ma120: 46.33
+- return_5d: 0.66
+- return_20d: 4.22
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 1.08
+- distance_to_high_60_pct: -4.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,44.14,45.22,44.14,45.22,2398082,,,,,
-20260526,45.5,45.81,44.8,45.21,469426,,,,,
 20260527,46.56,47.49,46.49,46.87,2521904,,,,,
 20260528,46.9,47.38,45,45.32,2600463,43.66,3.8,45.09,45.09,1.55
 20260529,46.48,46.9,46.18,46.81,720475,43.92,6.58,45.38,45.38,0.47
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,46.44,46.8,46.3,46.8,206622,45.41,3.05,45.98,45.98,0.24
 20260618,47.37,47.56,47.2,47.5,89766,45.59,4.19,46.06,46.06,0.11
 20260622,48.9,49.23,48.85,49.1,325869,45.88,7.02,46.37,46.2,0.4
+20260623,49.23,49.5,48.18,48.18,411307,46.07,4.57,46.52,46.29,0.57
+20260624,47.68,47.68,46.56,47.12,577199,46.16,2.08,46.62,46.33,0.79
 ```
 
 ## Latest TDCC Snapshot

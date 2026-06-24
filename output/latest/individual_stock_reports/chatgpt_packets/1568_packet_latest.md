@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1568 倉佑
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:43 Asia/Taipei
+- generated_at: 2026-06-24 22:22:50 Asia/Taipei
 - stock_id: 1568
 - stock_name: 倉佑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -92,6 +92,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 46.05
-- high: 46.75
-- low: 43
-- close: 43.3
-- volume: 3678405
-- ma5: 43.42
-- ema23_primary: 39.79
-- distance_to_ema23_pct: 8.83
-- ma20: 41.91
-- ma60: 31.66
-- ma120: 27.32
-- return_5d: 9.21
-- return_20d: 49.05
-- volume_ratio: 1.79
-- distance_to_ma20_pct_auxiliary: 3.3
-- distance_to_high_60_pct: -13.4
+- date: 20260624
+- open: 43.9
+- high: 44.15
+- low: 40.8
+- close: 41.4
+- volume: 1491750
+- ma5: 43.5
+- ema23_primary: 40.31
+- distance_to_ema23_pct: 2.71
+- ma20: 42.88
+- ma60: 32.35
+- ma120: 27.68
+- return_5d: -4.28
+- return_20d: 17.95
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -3.44
+- distance_to_high_60_pct: -17.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,29.5,31.95,29.05,31.95,2240761,28.29,12.92,28.88,25.24,4.42
-20260526,35.1,35.1,35.1,35.1,1870870,28.86,21.62,29.24,25.45,3.22
 20260527,37.5,37.5,37.5,37.5,1409682,29.58,26.77,29.66,25.7,2.24
 20260528,41.25,41.25,41.25,41.25,1658522,30.55,35.01,30.3,26.01,2.38
 20260529,45.35,45.35,43.85,45.35,13595230,31.79,42.67,31.15,26.39,9.97
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,42.1,42.1,40.3,41.9,409790,38.87,7.79,40.32,30.93,0.24
 20260618,41.3,46.05,41.3,46.05,4203808,39.47,16.67,41.2,31.32,2.23
 20260622,46.05,46.75,43,43.3,3678405,39.79,8.83,41.91,31.66,1.79
+20260623,42.45,45,41.7,44.85,2144471,40.21,11.54,42.56,32.04,1.05
+20260624,43.9,44.15,40.8,41.4,1491750,40.31,2.71,42.88,32.35,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1568 | 倉佑 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1568 | 倉佑 | 2 | 1 | 2 | 2 | 8 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

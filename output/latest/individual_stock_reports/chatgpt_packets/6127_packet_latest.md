@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6127 九豪
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:12 Asia/Taipei
+- generated_at: 2026-06-24 22:24:00 Asia/Taipei
 - stock_id: 6127
 - stock_name: 九豪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -103,6 +102,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 87
-- high: 87
-- low: 82.6
-- close: 85.3
-- volume: 4482000
-- ma5: 81.16
-- ema23_primary: 72
-- distance_to_ema23_pct: 18.48
-- ma20: 73.66
-- ma60: 55.29
-- ma120: 46.25
-- return_5d: 12.38
-- return_20d: 62.48
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 15.81
-- distance_to_high_60_pct: -6.47
+- date: 20260624
+- open: 81
+- high: 85.1
+- low: 80.4
+- close: 85.1
+- volume: 3577000
+- ma5: 83.28
+- ema23_primary: 73.78
+- distance_to_ema23_pct: 15.35
+- ma20: 76.5
+- ma60: 56.67
+- ma120: 47.09
+- return_5d: 11.24
+- return_20d: 48.78
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 11.24
+- distance_to_high_60_pct: -6.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,53,54.5,51.5,52,53000,48.35,7.56,48.12,43.81,0
-20260526,52.1,57.2,49.2,57.2,53000,49.08,16.54,48.71,44.13,0
 20260527,62.5,62.5,55.8,56.9,58000,49.74,14.41,49.16,44.41,0
 20260528,57.5,62.5,57.5,61.2,61000,50.69,20.73,49.92,44.78,0.01
 20260529,63,67.3,60.4,67.3,64000,52.07,29.24,51.08,45.26,0.01
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,77.7,80.6,77,80.6,5277000,69.55,15.89,70.44,53.84,0.28
 20260618,81.4,85,81,84.4,7092000,70.79,19.23,72.02,54.54,0.45
 20260622,87,87,82.6,85.3,4482000,72,18.48,73.66,55.29,0.28
+20260623,84.4,84.4,80.6,81,3693000,72.75,11.35,75.11,55.93,0.23
+20260624,81,85.1,80.4,85.1,3577000,73.78,15.35,76.5,56.67,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260624 | 6127 | 九豪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260624 | 6127 | 九豪 | 1 | 1 | 1 | 1 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

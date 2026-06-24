@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7349 新應材統一62購01
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:47 Asia/Taipei
+- generated_at: 2026-06-24 22:24:28 Asia/Taipei
 - stock_id: 7349
 - stock_name: 新應材統一62購01
 - packet_status: partial_rawdata_packet

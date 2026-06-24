@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2338 光罩
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:58 Asia/Taipei
+- generated_at: 2026-06-24 22:23:01 Asia/Taipei
 - stock_id: 2338
 - stock_name: 光罩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 53.6
-- high: 55.3
-- low: 53.5
-- close: 54
-- volume: 6366827
-- ma5: 53.24
-- ema23_primary: 51.52
-- distance_to_ema23_pct: 4.81
-- ma20: 52.58
-- ma60: 49.54
-- ma120: 45.58
-- return_5d: 10.2
-- return_20d: -0.74
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 2.71
-- distance_to_high_60_pct: -12.05
+- date: 20260624
+- open: 52
+- high: 52.2
+- low: 50.4
+- close: 51.6
+- volume: 3488385
+- ma5: 52.8
+- ema23_primary: 51.63
+- distance_to_ema23_pct: -0.07
+- ma20: 52.18
+- ma60: 49.7
+- ma120: 45.88
+- return_5d: -2.27
+- return_20d: -6.86
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -1.11
+- distance_to_high_60_pct: -15.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,55.2,58.5,53.5,57.1,16550566,50.25,13.63,50.01,48.81,2.3
-20260526,59.1,60.3,55.1,55.4,15723414,50.68,9.31,50.42,48.98,2.01
 20260527,56.9,57.4,54.8,56.2,8529843,51.14,9.89,50.85,49.1,1.05
 20260528,56.9,61.4,55.1,55.9,15689455,51.54,8.47,51.28,49.13,1.79
 20260529,57.9,59.4,56.9,57.9,10061343,52.07,11.2,51.82,49.2,1.1
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,52.7,53.7,50.6,52.2,4653008,51.12,2.12,52.57,49.29,0.49
 20260618,52.5,54.3,52.2,53.3,6767176,51.3,3.9,52.6,49.41,0.74
 20260622,53.6,55.3,53.5,54,6366827,51.52,4.81,52.58,49.54,0.7
+20260623,54,54.3,51.8,52.9,4516291,51.64,2.45,52.37,49.61,0.53
+20260624,52,52.2,50.4,51.6,3488385,51.63,-0.07,52.18,49.7,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2338 | 光罩 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.股東會決議日:115/06/18 2.許可從事競業行為之董事姓名及職稱: (二余)俊光董事 陳立惇董事 吳昭宜董事 精金科技(股)公司法人董事代表人:林忠翰 王偉臣獨立董事 彭穎慧獨立董事 3.許可從事競業行為之項目: 投資或經營其他與本公司營業範圍相同或類似的公司之行為 4.許可從事競業行為之期間:任職本公司董事職務之期間。 5.決議情形（請依公司法第209條說明表決結果）: 股東常會票決通過 表決時出席股東表決權數：257,146,585權 贊成權數：246,154,832權(含電子方式行使表決權11,667,157權)， 佔總表決權數95.72% 反對權數：236,882權(含電子方式行使表決權236,882權)， 佔總表決權數：0.09% 無效權數：0權，佔總表決權數：0% 棄權及未投票權數：10,754,871 權(含電子方式行使表決權2,854,142權)， 佔總表決權數：4.18% 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:不適用。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2338 | 光罩 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東會決議日:115/06/18 2.許可從事競業行為之董事姓名及職稱: (二余)俊光董事 陳立惇董事 吳昭宜董事 精金科技(股)公司法人董事代表人:林忠翰 王偉臣獨立董事 彭穎慧獨立董事 3.許可從事競業行為之項目: 投資或經營其他與本公司營業範圍相同或類似的公司之行為 4.許可從事競業行為之期間:任職本公司董事職務之期間。 5.決議情形（請依公司法第209條說明表決結果）: 股東常會票決通過 表決時出席股東表決權數：257,146,585權 贊成權數：246,154,832權(含電子方式行使表決權11,667,157權)， 佔總表決權數95.72% 反對權數：236,882權(含電子方式行使表決權236,882權)， 佔總表決權數：0.09% 無效權數：0權，佔總表決權數：0% 棄權及未投票權數：10,754,871 權(含電子方式行使表決權2,854,142權)， 佔總表決權數：4.18% 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:不適用。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2338 | 光罩 | 6 | 6 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2338 | 光罩 | 8 | 8 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2338 | 光罩 | 14 | 1 | 4784840.0 | 88260.0 | 54.21 | call_inflow |
+| 20260624 | 2338 | 光罩 | 14 | 0 | 497070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

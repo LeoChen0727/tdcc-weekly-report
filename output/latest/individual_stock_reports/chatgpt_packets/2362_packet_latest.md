@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2362 藍天
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:00 Asia/Taipei
+- generated_at: 2026-06-24 22:23:03 Asia/Taipei
 - stock_id: 2362
 - stock_name: 藍天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 47.95
-- high: 48.3
-- low: 47.1
-- close: 47.2
-- volume: 1743168
-- ma5: 48.07
-- ema23_primary: 45.84
-- distance_to_ema23_pct: 2.97
-- ma20: 46.55
-- ma60: 41.37
-- ma120: 39.99
-- return_5d: -1.67
-- return_20d: 15.54
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 1.4
-- distance_to_high_60_pct: -9.4
+- date: 20260624
+- open: 46.3
+- high: 46.5
+- low: 45.55
+- close: 46.1
+- volume: 1715805
+- ma5: 46.99
+- ema23_primary: 45.88
+- distance_to_ema23_pct: 0.49
+- ma20: 46.95
+- ma60: 41.62
+- ma120: 40.1
+- return_5d: -5.14
+- return_20d: 10.55
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -1.82
+- distance_to_high_60_pct: -11.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,41.8,42.8,41.45,42.3,4281225,39.42,7.3,39.35,38.73,4.6
-20260526,42.4,42.8,41.3,41.7,1822733,39.61,5.27,39.52,38.76,1.82
 20260527,42,42.2,40.95,41.05,1389962,39.73,3.31,39.63,38.78,1.32
 20260528,40.85,41.9,40.7,41,1118295,39.84,2.91,39.75,38.82,1.02
 20260529,41.5,44.15,41.45,44.05,6210848,40.19,9.61,40.02,38.91,4.49
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,48.4,48.4,47.6,48.05,1518527,45.55,5.5,45.85,41.05,0.37
 20260618,48.3,48.9,47.55,47.55,2071302,45.71,4.02,46.23,41.21,0.5
 20260622,47.95,48.3,47.1,47.2,1743168,45.84,2.97,46.55,41.37,0.42
+20260623,47.45,47.45,45.75,46.05,1784800,45.86,0.42,46.73,41.49,0.44
+20260624,46.3,46.5,45.55,46.1,1715805,45.88,0.49,46.95,41.62,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2362 | 藍天 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260624 | 2362 | 藍天 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2362 | 藍天 | 2 | 2 | 2 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2362 | 藍天 | 4 | 4 | 4 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2362 | 藍天 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260624 | 2362 | 藍天 | 1 | 0 | 600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

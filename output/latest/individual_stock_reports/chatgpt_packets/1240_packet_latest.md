@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1240 茂生農經
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:34 Asia/Taipei
+- generated_at: 2026-06-24 22:22:42 Asia/Taipei
 - stock_id: 1240
 - stock_name: 茂生農經
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
+- date: 20260624
 - open: 58.3
-- high: 58.4
-- low: 58.3
+- high: 58.3
+- low: 58
 - close: 58.3
-- volume: 12000
-- ma5: 58.24
-- ema23_primary: 58.01
-- distance_to_ema23_pct: 0.5
-- ma20: 57.73
-- ma60: 58.54
+- volume: 10000
+- ma5: 58.34
+- ema23_primary: 58.07
+- distance_to_ema23_pct: 0.4
+- ma20: 57.8
+- ma60: 58.52
 - ma120: 59.09
-- return_5d: -0.34
+- return_5d: 0.17
 - return_20d: 1.04
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 0.99
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 0.87
 - distance_to_high_60_pct: -2.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,57.5,57.8,57.5,57.7,58000,58.5,-1.37,58.54,59.03,2.13
-20260526,57.5,57.7,57.5,57.7,58000,58.43,-1.25,58.49,59.01,1.99
 20260527,58.3,58.5,57.8,57.8,58000,58.38,-0.99,58.45,58.98,1.82
 20260528,57.5,57.6,57,57.3,57000,58.29,-1.7,58.35,58.95,1.67
 20260529,57.6,57.6,57.3,57.3,57000,58.21,-1.56,58.23,58.92,1.58
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,58.2,58.4,58.2,58.3,12000,57.95,0.61,57.69,58.57,0.36
 20260618,58.5,58.5,58.3,58.4,10000,57.99,0.71,57.7,58.56,0.29
 20260622,58.3,58.4,58.3,58.3,12000,58.01,0.5,57.73,58.54,0.38
+20260623,58.3,58.4,58.3,58.4,13000,58.04,0.61,57.77,58.53,0.44
+20260624,58.3,58.3,58,58.3,10000,58.07,0.4,57.8,58.52,0.37
 ```
 
 ## Latest TDCC Snapshot

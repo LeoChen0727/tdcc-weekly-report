@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2431 聯昌
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:04 Asia/Taipei
+- generated_at: 2026-06-24 22:23:06 Asia/Taipei
 - stock_id: 2431
 - stock_name: 聯昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 11.75
-- high: 11.95
-- low: 11.5
-- close: 11.75
-- volume: 846821
-- ma5: 11.51
-- ema23_primary: 11.06
-- distance_to_ema23_pct: 6.26
-- ma20: 10.95
-- ma60: 11.07
+- date: 20260624
+- open: 11.25
+- high: 11.55
+- low: 11.05
+- close: 11.55
+- volume: 275995
+- ma5: 11.65
+- ema23_primary: 11.12
+- distance_to_ema23_pct: 3.86
+- ma20: 11.05
+- ma60: 11.05
 - ma120: 12.23
-- return_5d: 8.8
-- return_20d: 10.33
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 7.28
-- distance_to_high_60_pct: -6.37
+- return_5d: 5.96
+- return_20d: 12.14
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 4.5
+- distance_to_high_60_pct: -7.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,10.7,10.75,10.3,10.6,713968,10.74,-1.26,10.59,11.82,1.59
-20260526,10.55,10.65,10.3,10.3,548893,10.7,-3.73,10.56,11.71,1.25
 20260527,10.5,10.5,10.3,10.35,375993,10.67,-3,10.54,11.62,0.85
 20260528,10.35,10.6,10.2,10.2,676655,10.63,-4.05,10.51,11.52,1.48
 20260529,10.2,10.5,10.2,10.45,556567,10.62,-1.56,10.49,11.44,1.2
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,11,11.95,11,11.95,1633571,10.94,9.28,10.83,11.09,2.35
 20260618,11.95,12.5,11.65,11.65,2491224,10.99,5.96,10.9,11.08,3.07
 20260622,11.75,11.95,11.5,11.75,846821,11.06,6.26,10.95,11.07,1.03
+20260623,11.75,11.85,11.35,11.35,464048,11.08,2.42,10.99,11.06,0.57
+20260624,11.25,11.55,11.05,11.55,275995,11.12,3.86,11.05,11.05,0.35
 ```
 
 ## Latest TDCC Snapshot

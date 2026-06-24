@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00918 大華優利高填息30
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-24 22:22:39 Asia/Taipei
 - stock_id: 00918
 - stock_name: 大華優利高填息30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 32.2
-- high: 32.39
-- low: 32.05
-- close: 32.11
-- volume: 92837027
-- ma5: 32.15
-- ema23_primary: 30.33
-- distance_to_ema23_pct: 5.87
-- ma20: 30.49
-- ma60: 30.32
-- ma120: 30.32
-- return_5d: 4.08
-- return_20d: 18.97
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 5.33
-- distance_to_high_60_pct: -1.68
+- date: 20260624
+- open: 31.61
+- high: 32.3
+- low: 31.45
+- close: 32.08
+- volume: 53625315
+- ma5: 32.17
+- ema23_primary: 30.6
+- distance_to_ema23_pct: 4.83
+- ma20: 30.91
+- ma60: 30.47
+- ma120: 30.47
+- return_5d: -0.12
+- return_20d: 15.19
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 3.8
+- distance_to_high_60_pct: -1.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,27.33,27.85,27.33,27.83,25835684,,,,,
-20260526,27.95,28.06,27.7,27.85,20831261,,,,,
 20260527,28.18,28.78,28.18,28.56,33126405,,,,,
 20260528,28.67,29.02,28.17,28.36,44593896,27.34,3.74,27.92,27.92,1.51
 20260529,29.06,29.21,28.77,29.2,27351805,27.49,6.21,28.13,28.13,0.94
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,31.9,32.66,31.86,32.66,155345000,30,8.86,30.14,30.14,1.92
 20260618,31.71,32.06,31.6,32,90941020,30.17,6.07,30.23,30.23,1.12
 20260622,32.2,32.39,32.05,32.11,92837027,30.33,5.87,30.49,30.32,1.09
+20260623,32.38,32.65,31.98,32,71850348,30.47,5.02,30.7,30.4,0.82
+20260624,31.61,32.3,31.45,32.08,53625315,30.6,4.83,30.91,30.47,0.6
 ```
 
 ## Latest TDCC Snapshot

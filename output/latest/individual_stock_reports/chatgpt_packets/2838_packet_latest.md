@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2838 聯邦銀
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:16 Asia/Taipei
+- generated_at: 2026-06-24 22:23:15 Asia/Taipei
 - stock_id: 2838
 - stock_name: 聯邦銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 22.85
-- high: 22.85
-- low: 22.3
-- close: 22.4
-- volume: 2186148
-- ma5: 22.31
-- ema23_primary: 21.42
-- distance_to_ema23_pct: 4.55
-- ma20: 21.29
-- ma60: 20.79
-- ma120: 20.07
-- return_5d: 2.99
-- return_20d: 11.17
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 5.23
-- distance_to_high_60_pct: -1.97
+- date: 20260624
+- open: 22.8
+- high: 22.8
+- low: 22.45
+- close: 22.55
+- volume: 1296325
+- ma5: 22.58
+- ema23_primary: 21.62
+- distance_to_ema23_pct: 4.3
+- ma20: 21.54
+- ma60: 20.85
+- ma120: 20.12
+- return_5d: 2.27
+- return_20d: 11.36
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 4.71
+- distance_to_high_60_pct: -1.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,20.15,20.15,20,20.1,1511842,20.31,-1.04,20.29,20.34,0.94
-20260526,20.05,20.25,20.05,20.25,1151599,20.31,-0.28,20.3,20.35,0.72
 20260527,20.25,20.5,20.1,20.5,1664653,20.32,0.88,20.32,20.35,1.03
 20260528,20.5,20.5,20.15,20.2,1301339,20.31,-0.55,20.32,20.35,0.81
 20260529,20.2,20.45,20.15,20.45,2471423,20.32,0.62,20.34,20.36,1.51
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,22.1,22.55,22,22.45,2893588,21.21,5.86,21.04,20.7,1.33
 20260618,22.6,22.8,22.35,22.75,7573267,21.34,6.63,21.18,20.75,3
 20260622,22.85,22.85,22.3,22.4,2186148,21.42,4.55,21.29,20.79,0.85
+20260623,22.6,22.8,22.3,22.75,1708955,21.54,5.64,21.42,20.82,0.66
+20260624,22.8,22.8,22.45,22.55,1296325,21.62,4.3,21.54,20.85,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -186,13 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2838 | 聯邦銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放特別股股利種類及金額: 本次盈餘分派配發之特別股現金股利526,125,000元，每股配發2.630625元 （係按112年4月24日重設利率5.26125%核算），按配息基準日本行特別股股東 名冊記載之各股東持有股份比例計算分配至元為止，未滿1元之款項，列入公司之其他 收入。 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.特別股最後申請轉換日期:NA 10.特別股停止轉換起始日期:NA 11.特別股停止轉換截止日期:NA 12.特別股現金股利發放日期:115/07/27 13.其他應敘明事項:如因受不可抗力因素，政府公布放假，股利發放日將順延至下一個 營業日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2838 | 聯邦銀 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放特別股股利種類及金額: 本次盈餘分派配發之特別股現金股利526,125,000元，每股配發2.630625元 （係按112年4月24日重設利率5.26125%核算），按配息基準日本行特別股股東 名冊記載之各股東持有股份比例計算分配至元為止，未滿1元之款項，列入公司之其他 收入。 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.特別股最後申請轉換日期:NA 10.特別股停止轉換起始日期:NA 11.特別股停止轉換截止日期:NA 12.特別股現金股利發放日期:115/07/27 13.其他應敘明事項:如因受不可抗力因素，政府公布放假，股利發放日將順延至下一個 營業日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2838 | 聯邦銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放特別股股利種類及金額: 本次盈餘分派配發之特別股現金股利526,125,000元，每股配發2.630625元 （係按112年4月24日重設利率5.26125%核算），按配息基準日本行特別股股東 名冊記載之各股東持有股份比例計算分配至元為止，未滿1元之款項，列入公司之其他 收入。 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.特別股最後申請轉換日期:NA 10.特別股停止轉換起始日期:NA 11.特別股停止轉換截止日期:NA 12.特別股現金股利發放日期:115/07/27 13.其他應敘明事項:如因受不可抗力因素，政府公布放假，股利發放日將順延至下一個 營業日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2838 | 聯邦銀 | 18 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2838 | 聯邦銀 | 20 | 3 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2705 六福
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:13 Asia/Taipei
+- generated_at: 2026-06-24 22:23:13 Asia/Taipei
 - stock_id: 2705
 - stock_name: 六福
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 16.4
-- high: 16.4
-- low: 16.15
-- close: 16.3
-- volume: 184529
-- ma5: 16.27
-- ema23_primary: 15.84
-- distance_to_ema23_pct: 2.9
-- ma20: 15.63
-- ma60: 16.14
-- ma120: 16.26
-- return_5d: 4.15
-- return_20d: 7.59
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 4.3
-- distance_to_high_60_pct: -10.44
+- date: 20260624
+- open: 16.1
+- high: 16.2
+- low: 16.05
+- close: 16.15
+- volume: 62960
+- ma5: 16.29
+- ema23_primary: 15.89
+- distance_to_ema23_pct: 1.63
+- ma20: 15.73
+- ma60: 16.13
+- ma120: 16.25
+- return_5d: -0.62
+- return_20d: 7.31
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: 2.67
+- distance_to_high_60_pct: -11.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,15.25,15.25,15.05,15.2,227833,15.84,-4.05,15.87,16.33,0.67
-20260526,15.25,15.25,15,15.05,270054,15.78,-4.6,15.79,16.31,0.79
 20260527,15.05,15.15,14.95,15,220216,15.71,-4.53,15.71,16.29,0.66
 20260528,15,15.15,14.9,15,3858888,15.65,-4.17,15.64,16.27,7.61
 20260529,15.05,15.2,15.05,15.15,271734,15.61,-2.95,15.57,16.25,0.54
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,16.3,16.5,16.2,16.35,368428,15.74,3.9,15.52,16.13,0.77
 20260618,16.45,16.65,16.4,16.5,258395,15.8,4.43,15.57,16.14,0.54
 20260622,16.4,16.4,16.15,16.3,184529,15.84,2.9,15.63,16.14,0.39
+20260623,16.3,16.3,16.1,16.15,123101,15.87,1.78,15.68,16.14,0.26
+20260624,16.1,16.2,16.05,16.15,62960,15.89,1.63,15.73,16.13,0.14
 ```
 
 ## Latest TDCC Snapshot

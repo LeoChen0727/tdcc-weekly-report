@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:32 Asia/Taipei
+- generated_at: 2026-06-24 22:22:41 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 35.85
-- high: 36.5
-- low: 35.7
-- close: 36.35
-- volume: 19843503
-- ma5: 35.75
-- ema23_primary: 34.83
-- distance_to_ema23_pct: 4.36
-- ma20: 34.37
-- ma60: 34.87
-- ma120: 35.3
-- return_5d: 3.27
-- return_20d: 5.67
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 5.78
-- distance_to_high_60_pct: -0.41
+- date: 20260624
+- open: 35.7
+- high: 36.1
+- low: 35.5
+- close: 36
+- volume: 11946921
+- ma5: 35.88
+- ema23_primary: 35
+- distance_to_ema23_pct: 2.87
+- ma20: 34.61
+- ma60: 34.92
+- ma120: 35.29
+- return_5d: 1.12
+- return_20d: 8.27
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 4.02
+- distance_to_high_60_pct: -1.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,34.45,34.5,33.6,33.6,26457340,34.8,-3.45,34.83,34.96,2.72
-20260526,33.55,33.65,33.25,33.25,15247384,34.67,-4.1,34.73,34.92,1.54
 20260527,33.1,33.25,32.85,33,17414813,34.53,-4.43,34.62,34.87,1.68
 20260528,32.9,33.1,32.4,32.4,23858982,34.35,-5.69,34.47,34.82,2.13
 20260529,32.6,34,32.6,34,205245004,34.32,-0.94,34.41,34.8,9.83
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,35.4,35.9,35.35,35.55,15191719,34.59,2.76,34.23,34.82,0.58
 20260618,35.6,36.05,35.5,35.8,19588297,34.69,3.19,34.27,34.85,0.73
 20260622,35.85,36.5,35.7,36.35,19843503,34.83,4.36,34.37,34.87,0.73
+20260623,36.3,36.5,35.55,35.7,15963220,34.9,2.28,34.47,34.89,0.6
+20260624,35.7,36.1,35.5,36,11946921,35,2.87,34.61,34.92,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1102 | 亞泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_many_days | 1.股東會決議日:115/06/16 2.許可從事競業行為之董事姓名及職稱: 董事:李坤炎 董事:徐旭平 董事:余東霖 董事:陳志賢 董事:金崇仁 3.許可從事競業行為之項目: 熟料、水泥、石灰石、預拌混凝土、水泥製品銷售等與水泥相關之項目。 4.許可從事競業行為之期間:115/06/16起為期3年。 5.決議情形（請依公司法第209條說明表決結果）: 發行股份總數三分之二以上股東出席，投票表決後，照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 不適用 7.所擔任該大陸地區事業之公司名稱及職務: 不適用 8.所擔任該大陸地區事業地址: 不適用 9.所擔任該大陸地區事業營業項目: 不適用 10.對本公司財務業務之影響程度: 不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 1102 | 亞泥 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東會決議日:115/06/16 2.許可從事競業行為之董事姓名及職稱: 董事:李坤炎 董事:徐旭平 董事:余東霖 董事:陳志賢 董事:金崇仁 3.許可從事競業行為之項目: 熟料、水泥、石灰石、預拌混凝土、水泥製品銷售等與水泥相關之項目。 4.許可從事競業行為之期間:115/06/16起為期3年。 5.決議情形（請依公司法第209條說明表決結果）: 發行股份總數三分之二以上股東出席，投票表決後，照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 不適用 7.所擔任該大陸地區事業之公司名稱及職務: 不適用 8.所擔任該大陸地區事業地址: 不適用 9.所擔任該大陸地區事業營業項目: 不適用 10.對本公司財務業務之影響程度: 不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1102 | 亞泥 | 10 | 10 | 5 | 10 | 10 | continued_many_days | 連續 10 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260624 | 1102 | 亞泥 | 12 | 12 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1102 | 亞泥 | 1 | 0 | 3110.0 | 0.0 |  | no_signal |
+| 20260624 | 1102 | 亞泥 | 1 | 0 | 3670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

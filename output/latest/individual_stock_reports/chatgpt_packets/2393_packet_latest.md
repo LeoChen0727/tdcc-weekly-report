@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2393 億光
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:02 Asia/Taipei
+- generated_at: 2026-06-24 22:23:04 Asia/Taipei
 - stock_id: 2393
 - stock_name: 億光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 70.7
-- high: 71.7
-- low: 70.2
-- close: 70.8
-- volume: 2492605
-- ma5: 70.84
-- ema23_primary: 68.31
-- distance_to_ema23_pct: 3.65
-- ma20: 67.05
+- date: 20260624
+- open: 69.5
+- high: 70
+- low: 68.4
+- close: 69.7
+- volume: 1357872
+- ma5: 70.42
+- ema23_primary: 68.51
+- distance_to_ema23_pct: 1.73
+- ma20: 67.5
 - ma60: 68.84
-- ma120: 63.48
-- return_5d: -0.14
-- return_20d: 8.59
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 5.59
-- distance_to_high_60_pct: -5.6
+- ma120: 63.78
+- return_5d: -1.55
+- return_20d: 7.89
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 3.26
+- distance_to_high_60_pct: -7.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,65.5,65.7,64.5,65.6,2722735,67.74,-3.16,68.7,67.41,0.71
-20260526,65.6,65.6,63.7,64.6,3050060,67.48,-4.26,68.47,67.51,0.8
 20260527,64.5,64.5,62.5,62.7,3797700,67.08,-6.53,68.17,67.58,0.97
 20260528,62.9,63.4,61.7,62.3,2711238,66.68,-6.57,67.72,67.64,0.7
 20260529,62.6,63.5,62.1,62.5,2865722,66.33,-5.78,67.29,67.71,0.75
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,71.1,72.4,70.9,71.5,3922250,67.85,5.38,66.47,68.74,1.03
 20260618,71.5,72.8,70,70.6,4085889,68.08,3.7,66.77,68.8,1.06
 20260622,70.7,71.7,70.2,70.8,2492605,68.31,3.65,67.05,68.84,0.65
+20260623,71.1,71.4,69.4,69.5,2757930,68.41,1.6,67.25,68.84,0.72
+20260624,69.5,70,68.4,69.7,1357872,68.51,1.73,67.5,68.84,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2393 | 億光 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2393 | 億光 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2393 | 億光 | 1 | 1 | 2 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2393 | 億光 | 3 | 3 | 4 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2393 | 億光 | 13 | 0 | 616640.0 | 0.0 |  | no_signal |
+| 20260624 | 2393 | 億光 | 12 | 0 | 31380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

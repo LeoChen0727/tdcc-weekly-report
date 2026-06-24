@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:56 Asia/Taipei
+- generated_at: 2026-06-24 22:23:00 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 54.1
-- high: 55
-- low: 51
-- close: 51.6
-- volume: 6556715
-- ma5: 47.22
-- ema23_primary: 40.28
-- distance_to_ema23_pct: 28.12
-- ma20: 39.5
-- ma60: 33.64
-- ma120: 33.21
-- return_5d: 19.72
-- return_20d: 36.33
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 30.62
-- distance_to_high_60_pct: -6.18
+- date: 20260624
+- open: 46.9
+- high: 48.5
+- low: 46.65
+- close: 47.6
+- volume: 2343526
+- ma5: 48.7
+- ema23_primary: 41.45
+- distance_to_ema23_pct: 14.84
+- ma20: 40.52
+- ma60: 34.23
+- ma120: 33.39
+- return_5d: 9.93
+- return_20d: 28.82
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 17.49
+- distance_to_high_60_pct: -13.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,38.55,39.9,37,38.05,3125750,33.09,14.99,32.66,30.52,1.72
-20260526,38.8,38.8,36.1,36.95,2498561,33.41,10.59,32.93,30.65,1.33
 20260527,37.7,38.8,36.2,36.35,1706368,33.66,8.01,33.19,30.77,0.88
 20260528,37.05,39.95,37,38.25,10963553,34.04,12.37,33.6,30.9,4.56
 20260529,39.6,39.8,34.45,34.55,7645254,34.08,1.38,33.84,31,2.77
@@ -153,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,43.55,47.5,43.1,46.05,5044811,38.21,20.51,38.13,32.98,1.02
 20260618,46.05,50.6,46.05,50.6,8362429,39.25,28.93,38.81,33.31,1.62
 20260622,54.1,55,51,51.6,6556715,40.28,28.12,39.5,33.64,1.26
+20260623,51.1,51.1,47.1,47.65,4390351,40.89,16.53,39.98,33.93,0.83
+20260624,46.9,48.5,46.65,47.6,2343526,41.45,14.84,40.52,34.23,0.44
 ```
 
 ## Latest TDCC Snapshot

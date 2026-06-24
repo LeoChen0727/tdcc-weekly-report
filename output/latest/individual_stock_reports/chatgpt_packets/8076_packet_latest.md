@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8076 伍豐
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:55 Asia/Taipei
+- generated_at: 2026-06-24 22:24:34 Asia/Taipei
 - stock_id: 8076
 - stock_name: 伍豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: high
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,8 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 25.45
-- high: 26.1
-- low: 25.45
-- close: 25.9
-- volume: 1582000
-- ma5: 25.89
-- ema23_primary: 25.71
-- distance_to_ema23_pct: 0.75
-- ma20: 25.88
+- date: 20260624
+- open: 25.2
+- high: 25.5
+- low: 25
+- close: 25.3
+- volume: 818000
+- ma5: 25.54
+- ema23_primary: 25.64
+- distance_to_ema23_pct: -1.31
+- ma20: 26.02
 - ma60: 24.32
-- ma120: 24.08
-- return_5d: -3.54
-- return_20d: 7.69
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 0.1
-- distance_to_high_60_pct: -13.38
+- ma120: 24.12
+- return_5d: -0.78
+- return_20d: 6.08
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -2.75
+- distance_to_high_60_pct: -15.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,24.3,24.5,23.85,23.85,24000,23.7,0.64,23.5,23.8,0.02
-20260526,24,24.2,23.6,23.85,24000,23.71,0.59,23.57,23.82,0.02
 20260527,24.15,24.2,23.3,23.5,24000,23.69,-0.82,23.61,23.82,0.02
 20260528,23.8,24.3,23.5,23.6,24000,23.69,-0.36,23.66,23.83,0.02
 20260529,23.85,24.3,23.8,24.1,24000,23.72,1.6,23.75,23.84,0.02
@@ -161,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,25.2,25.85,25.2,25.55,1275000,25.69,-0.53,25.7,24.29,1.15
 20260618,25.8,26.25,25.45,25.75,1630000,25.69,0.23,25.78,24.31,1.43
 20260622,25.45,26.1,25.45,25.9,1582000,25.71,0.75,25.88,24.32,1.3
+20260623,25.9,26,25.2,25.2,1759000,25.67,-1.81,25.94,24.31,1.34
+20260624,25.2,25.5,25,25.3,818000,25.64,-1.31,26.02,24.32,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -191,15 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8076 | 伍豐 | pullback_rebound | 回檔後短線轉強 | 82.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 8076 | 伍豐 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8076 | 伍豐 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

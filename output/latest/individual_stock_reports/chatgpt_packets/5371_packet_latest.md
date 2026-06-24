@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5371 中光電
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:04 Asia/Taipei
+- generated_at: 2026-06-24 22:23:54 Asia/Taipei
 - stock_id: 5371
 - stock_name: 中光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 71.7
-- high: 76.3
-- low: 71.7
-- close: 74.6
-- volume: 9118000
-- ma5: 70.1
-- ema23_primary: 71.05
-- distance_to_ema23_pct: 5
-- ma20: 71.39
-- ma60: 72.68
-- ma120: 79.66
-- return_5d: 9.71
-- return_20d: 3.47
-- volume_ratio: 5.37
-- distance_to_ma20_pct_auxiliary: 4.49
-- distance_to_high_60_pct: -8.58
+- date: 20260624
+- open: 77.1
+- high: 79.3
+- low: 75.1
+- close: 78.6
+- volume: 10935000
+- ma5: 73.72
+- ema23_primary: 72.1
+- distance_to_ema23_pct: 9.02
+- ma20: 71.86
+- ma60: 72.73
+- ma120: 79.53
+- return_5d: 15.93
+- return_20d: 7.97
+- volume_ratio: 3.39
+- distance_to_ma20_pct_auxiliary: 9.38
+- distance_to_high_60_pct: -3.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,73,73.8,71.4,73,73000,72,1.39,70.83,75.77,0.01
-20260526,73.7,74.9,71.8,72.8,73000,72.07,1.02,70.75,75.49,0.02
 20260527,72.5,73.2,71,71.5,72000,72.02,-0.72,70.83,75.19,0.02
 20260528,72,73.4,70,70.1,72000,71.86,-2.45,70.97,74.89,0.02
 20260529,72.5,75.1,71.9,72.6,73000,71.92,0.94,71.29,74.69,0.02
@@ -160,6 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,67.5,69.8,67,68.9,2832000,70.79,-2.67,71.36,72.78,2.05
 20260618,69,70.2,68.4,70,2009000,70.73,-1.03,71.27,72.69,1.61
 20260622,71.7,76.3,71.7,74.6,9118000,71.05,5,71.39,72.68,5.37
+20260623,75.5,80.4,74.4,76.5,19710000,71.5,6.99,71.57,72.67,7.35
+20260624,77.1,79.3,75.1,78.6,10935000,72.1,9.02,71.86,72.73,3.39
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5371 | 中光電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 5371 | 中光電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5371 | 中光電 | 1 | 1 | 1 | 2 | 10 | repeated_but_no_breakout | 近 10 日上榜 2 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 5371 | 中光電 | 3 | 3 | 3 | 3 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

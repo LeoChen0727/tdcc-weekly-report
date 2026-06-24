@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6908 宏碁遊戲-創
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:40 Asia/Taipei
+- generated_at: 2026-06-24 22:24:22 Asia/Taipei
 - stock_id: 6908
 - stock_name: 宏碁遊戲-創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 60
+- latest_price_date: 20260624
+- price_rows: 62
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 38.75
-- high: 39
+- date: 20260624
+- open: 38.9
+- high: 39.1
 - low: 38.2
-- close: 39
-- volume: 14879
-- ma5: 38.82
-- ema23_primary: 39.13
-- distance_to_ema23_pct: -0.34
-- ma20: 39.13
-- ma60: 39.52
-- ma120: 39.52
-- return_5d: 0.26
-- return_20d: 1.83
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -0.33
-- distance_to_high_60_pct: -27.78
+- close: 38.5
+- volume: 17199
+- ma5: 38.83
+- ema23_primary: 39.06
+- distance_to_ema23_pct: -1.44
+- ma20: 39.12
+- ma60: 39.26
+- ma120: 39.49
+- return_5d: -0.9
+- return_20d: -0.77
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -1.6
+- distance_to_high_60_pct: -13.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,38.15,39.3,38.15,38.65,47511,39.31,-1.68,39.24,39.69,2.66
-20260526,38.65,39,38.65,38.8,16250,39.27,-1.19,39.25,39.67,0.94
 20260527,38.8,38.95,38.8,38.9,10267,39.24,-0.86,39.25,39.65,0.6
 20260528,38.9,38.9,36.8,37.35,79315,39.08,-4.43,39.16,39.6,3.88
 20260529,37.35,38.5,37.35,38,19125,38.99,-2.54,39.05,39.56,0.99
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,38.6,39,38.6,39,14187,39.18,-0.47,39.08,39.54,0.61
 20260618,39,39,38.75,38.75,4482,39.15,-1.01,39.09,39.53,0.19
 20260622,38.75,39,38.2,39,14879,39.13,-0.34,39.13,39.52,0.64
+20260623,39,39,37,38.9,36445,39.12,-0.55,39.14,39.37,1.59
+20260624,38.9,39.1,38.2,38.5,17199,39.06,-1.44,39.12,39.26,0.75
 ```
 
 ## Latest TDCC Snapshot

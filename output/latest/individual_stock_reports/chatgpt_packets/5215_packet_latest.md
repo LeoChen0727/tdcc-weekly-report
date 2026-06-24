@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5215 科嘉-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:00 Asia/Taipei
+- generated_at: 2026-06-24 22:23:51 Asia/Taipei
 - stock_id: 5215
 - stock_name: 科嘉-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45
-- high: 46.5
-- low: 44
-- close: 45.35
-- volume: 159409
-- ma5: 44.5
-- ema23_primary: 44.82
-- distance_to_ema23_pct: 1.19
-- ma20: 46.24
-- ma60: 41.6
-- ma120: 39.36
-- return_5d: 5.34
-- return_20d: -0.44
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -1.92
-- distance_to_high_60_pct: -11.43
+- date: 20260624
+- open: 44.3
+- high: 45.05
+- low: 44.1
+- close: 44.5
+- volume: 130065
+- ma5: 44.87
+- ema23_primary: 44.79
+- distance_to_ema23_pct: -0.64
+- ma20: 46.02
+- ma60: 41.82
+- ma120: 39.52
+- return_5d: 1.83
+- return_20d: -5.82
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -3.29
+- distance_to_high_60_pct: -13.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,45.55,46.5,44.75,46.5,416384,42.05,10.59,41.4,39.04,0.89
-20260526,47.7,48.5,45.9,47.25,423599,42.48,11.23,41.86,39.16,0.87
 20260527,48,48.05,46.35,47.1,310582,42.87,9.88,42.35,39.28,0.63
 20260528,47.7,48.35,46.75,47.15,288464,43.22,9.09,42.81,39.4,0.57
 20260529,47.4,49,47.4,49,366429,43.7,12.12,43.39,39.57,0.7
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,43.7,44.55,43.05,44.4,139195,44.72,-0.71,46.22,41.35,0.49
 20260618,44.35,45.55,44.35,45.35,205059,44.77,1.3,46.25,41.47,0.72
 20260622,45,46.5,44,45.35,159409,44.82,1.19,46.24,41.6,0.57
+20260623,45.7,46.1,44.3,44.75,74099,44.81,-0.14,46.15,41.71,0.28
+20260624,44.3,45.05,44.1,44.5,130065,44.79,-0.64,46.02,41.82,0.53
 ```
 
 ## Latest TDCC Snapshot

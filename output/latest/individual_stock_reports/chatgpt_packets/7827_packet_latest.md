@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:52 Asia/Taipei
+- generated_at: 2026-06-24 22:24:32 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 16
+- latest_price_date: 20260624
+- price_rows: 18
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 163
-- high: 164
-- low: 148.5
-- close: 159
-- volume: 1262383
-- ma5: 164.6
-- ema23_primary: 154.73
-- distance_to_ema23_pct: 2.76
-- ma20: 159.16
-- ma60: 159.16
-- ma120: 159.16
-- return_5d: -0.62
+- date: 20260624
+- open: 161
+- high: 162.5
+- low: 158
+- close: 160
+- volume: 297488
+- ma5: 162.2
+- ema23_primary: 155.65
+- distance_to_ema23_pct: 2.8
+- ma20: 159.31
+- ma60: 159.31
+- ma120: 159.31
+- return_5d: -5.6
 - return_20d:
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -0.1
-- distance_to_high_60_pct: -8.88
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -8.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -151,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,170,174.5,166.5,166.5,676166,153.42,8.53,158.79,158.79,0.51
 20260618,165,168,161,164.5,463065,154.34,6.58,159.17,159.17,0.37
 20260622,163,164,148.5,159,1262383,154.73,2.76,159.16,159.16,1
+20260623,163,164,156,161,745582,155.25,3.7,159.26,159.26,0.61
+20260624,161,162.5,158,160,297488,155.65,2.8,159.31,159.31,0.25
 ```
 
 ## Latest TDCC Snapshot

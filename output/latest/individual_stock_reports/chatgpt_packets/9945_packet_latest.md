@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9945 潤泰新
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:08 Asia/Taipei
+- generated_at: 2026-06-24 22:24:45 Asia/Taipei
 - stock_id: 9945
 - stock_name: 潤泰新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 27.55
-- high: 27.55
-- low: 26.6
-- close: 26.8
-- volume: 12340064
-- ma5: 27.03
-- ema23_primary: 25.48
-- distance_to_ema23_pct: 5.18
-- ma20: 25.14
-- ma60: 24.61
-- ma120: 26.77
-- return_5d: 0
-- return_20d: 15.02
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 6.58
-- distance_to_high_60_pct: -3.94
+- date: 20260624
+- open: 26.85
+- high: 27.15
+- low: 26.55
+- close: 26.6
+- volume: 7824061
+- ma5: 27
+- ema23_primary: 25.69
+- distance_to_ema23_pct: 3.55
+- ma20: 25.5
+- ma60: 24.65
+- ma120: 26.72
+- return_5d: -0.37
+- return_20d: 12.47
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 4.33
+- distance_to_high_60_pct: -4.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,23.35,23.45,22.9,22.95,11687705,23.75,-3.35,23.47,25.35,1.52
-20260526,22.95,23.8,22.95,23.65,9583055,23.74,-0.37,23.47,25.25,1.23
 20260527,23.8,23.8,23.1,23.25,7578838,23.7,-1.89,23.43,25.15,0.96
 20260528,23.35,23.6,23.2,23.25,6031214,23.66,-1.73,23.4,25.04,0.76
 20260529,23.45,23.7,23.3,23.3,8322563,23.63,-1.4,23.39,24.94,1.03
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,26.5,27.3,26.35,27.1,10945846,25.16,7.69,24.77,24.53,0.97
 20260618,27.15,27.9,27.05,27.5,17961489,25.36,8.44,24.97,24.57,1.52
 20260622,27.55,27.55,26.6,26.8,12340064,25.48,5.18,25.14,24.61,1.03
+20260623,26.7,27.2,26.6,27,6156509,25.61,5.44,25.35,24.63,0.53
+20260624,26.85,27.15,26.55,26.6,7824061,25.69,3.55,25.5,24.65,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:114/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利新台幣1,404,762,770元(每股配發現金新台幣0.4939元) 法定盈餘公積配發現金新台幣1,211,924,309元(每股配發現金新台幣0.4261元) 資本公積配發現金新台幣511,960,515元(每股配發現金新台幣0.18元) 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 9945 | 潤泰新 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 18.0 | B_可觀察 |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:114/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利新台幣1,404,762,770元(每股配發現金新台幣0.4939元) 法定盈餘公積配發現金新台幣1,211,924,309元(每股配發現金新台幣0.4261元) 資本公積配發現金新台幣511,960,515元(每股配發現金新台幣0.18元) 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 9945 | 潤泰新 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_inflow | stale_signal | 1. 原公告日期： 114/07/17 2. 簡述原公告申報內容： 子公司潤泰建設(股)公司取得不動產使用權資產				 1.交易相對人及其與公司之關係:潤泰創新國際(股)公司；母公司				 2.標的物之名稱及性質:坐落新北市三重區捷運路				 3.租賃期間:2025/8/1-2035/12/31 3. 變動緣由及主要內容： 因公司政策調整，提前於2026/6/30終止租賃租約 4. 變動後對公司財務業務之影響： 無重大影響 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9945 | 潤泰新 | 18 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 9945 | 潤泰新 | 20 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9945 | 潤泰新 | 10 | 0 | 776810.0 | 0.0 |  | no_signal |
+| 20260624 | 9945 | 潤泰新 | 10 | 0 | 1255860.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

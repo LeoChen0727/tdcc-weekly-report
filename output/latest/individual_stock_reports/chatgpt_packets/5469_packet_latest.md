@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:05 Asia/Taipei
+- generated_at: 2026-06-24 22:23:55 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 88.2
-- high: 92.2
-- low: 87.5
-- close: 90.6
-- volume: 13541172
-- ma5: 87.44
-- ema23_primary: 84.96
-- distance_to_ema23_pct: 6.64
-- ma20: 84.83
-- ma60: 85.26
-- ma120: 89.76
-- return_5d: 8.24
-- return_20d: 9.29
-- volume_ratio: 2.97
-- distance_to_ma20_pct_auxiliary: 6.8
-- distance_to_high_60_pct: -9.4
+- date: 20260624
+- open: 85
+- high: 87
+- low: 84.6
+- close: 85.5
+- volume: 2700534
+- ma5: 87.26
+- ema23_primary: 85.14
+- distance_to_ema23_pct: 0.42
+- ma20: 85.11
+- ma60: 85.38
+- ma120: 89.64
+- return_5d: -0.23
+- return_20d: 2.89
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 0.45
+- distance_to_high_60_pct: -14.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,83.8,84.3,83.2,83.5,3048237,83.54,-0.05,83.08,86.23,0.85
-20260526,84,84.4,82.5,83.1,2412688,83.5,-0.48,82.7,86.04,0.68
 20260527,83.8,89.9,83.4,87,12693990,83.8,3.82,82.47,85.93,3.1
 20260528,88,88.5,83.5,84,7004048,83.81,0.22,82.47,85.76,1.81
 20260529,85.8,87.1,84.6,85.2,3367390,83.93,1.51,82.61,85.65,0.89
@@ -159,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,85.7,86.7,84.6,86.6,1953118,84.23,2.81,84.19,85.03,0.49
 20260618,87.5,87.6,86,86.8,2319451,84.45,2.79,84.44,85.11,0.58
 20260622,88.2,92.2,87.5,90.6,13541172,84.96,6.64,84.83,85.26,2.97
+20260623,91.5,91.7,85.8,86.8,6398054,85.11,1.98,85,85.33,1.35
+20260624,85,87,84.6,85.5,2700534,85.14,0.42,85.11,85.38,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5469 | 瀚宇博 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | stale_signal | 1.股東會決議日:115/06/18 2.許可從事競業行為之董事姓名及職稱:  (1)董事 焦佑衡  (2)董事 華新科技(股)公司  (3)董事 華新科技(股)公司代表人賴偉珍  (4)董事 華新科技(股)公司代表人陶正國  (5)董事 金鑫投資(股)公司  (6)董事 行行投資有限公司  (7)獨立董事 盧啟昌  (8)獨立董事 苑竣唐 3.許可從事競業行為之項目:  (1)董事 焦佑衡     華新科技(股)公司董事長     閎暉實業(股)公司董事長     信昌電子陶瓷(股)公司董事長     台灣精星科技(股)公司董事長     精成科技(股)公司董事長兼執行長     華東科技(股)公司董事長兼執行長     佳邦科技(股)公司董事長(法人董事代表人)     嘉聯益科技(股)公司副董事長兼總策略長     華新麗華(股)公司董事     Lincstech Circuit Singapore Pte.Ltd.董事     晟成實業(股)公司法人董事代表人  (2)董事 華新科技(股）公司     佳邦科技(股)公司董事長     信昌電子陶瓷(股)公司董事     華東科技(股)公司董事     閎暉實業(股)公司董事     博德新能(股)公司董事     華成自動化設備(股)公司董事長  (3)董事 華新科技(股)公司代表人賴偉珍     精成科技(股)公司法人董事代表人     嘉聯益科技(股)公司董事長(法人董事代表人)  (4)董事 華新科技(股)公司代表人陶正國     精成科技(股)公司總經理     川億電腦(深圳)有限公司法人董事代表人     怡寬電子(深圳)有限公司法人董事代表人     東莞瑞升電子有限公司法人董事代表人     川億電腦(重慶)有限公司法人董事代表人     Lincstech EPC Co.,Ltd.董事     Lincstech Circuit Malaysia Sdn.Bhd.董事     Lincstech Circuit Singapore Pte.Ltd.董事     Lincstech Co.,Ltd.代表取締役會長     Lincstech YGA Co.,Ltd.取締役  (5)董事 金鑫投資(股)公司     華邦電子(股)公司董事     新唐科技(股)公司董事  (6)董事 行行投資有限公司     精成科技(股)公司董事  (7)獨立董事 盧啟昌     力麗企業(股)公司獨立董事  (8)獨立董事 苑竣唐     太平洋電線電纜(股)公司董事長 4.許可從事競業行為之期間:任職本公司董事期間 5.決議情形（請依公司法第209條說明表決結果）: 經代表已發行股份總數過半數股東之出席，出席股東表決權三分之二以上同意通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:  董事 華新科技(股)公司代表人陶正國 7.所擔任該大陸地區事業之公司名稱及職務:  董事 華新科技(股)公司代表人陶正國  川億電腦(深圳)有限公司法人董事代表人  怡寬電子(深圳)有限公司法人董事代表人  東莞瑞升電子有限公司法人董事代表人  川億電腦(重慶)有限公司法人董事代表人 8.所擔任該大陸地區事業地址:  川億電腦(深圳)有限公司:深圳市龍崗區橫崗鎮銀海工業城5棟  怡寬電子(深圳)有限公司:深圳市龍崗區橫崗街道銀荷社區銀源街2號401  東莞瑞升電子有限公司:中國廣東省東莞市黃江鎮裕元工業區  川億電腦(重慶)有限公司:重慶市永川區塘灣路6號15幢 9.所擔任該大陸地區事業營業項目:  川億電腦(深圳)有限公司:印刷電路板之產銷業務  怡寬電子(深圳)有限公司:印刷電路板之產銷業務  東莞瑞升電子有限公司:印刷電路板之產銷業務  川億電腦(重慶)有限公司:印刷電路板之產銷業務 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 5469 | 瀚宇博 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東會決議日:115/06/18 2.許可從事競業行為之董事姓名及職稱:  (1)董事 焦佑衡  (2)董事 華新科技(股)公司  (3)董事 華新科技(股)公司代表人賴偉珍  (4)董事 華新科技(股)公司代表人陶正國  (5)董事 金鑫投資(股)公司  (6)董事 行行投資有限公司  (7)獨立董事 盧啟昌  (8)獨立董事 苑竣唐 3.許可從事競業行為之項目:  (1)董事 焦佑衡     華新科技(股)公司董事長     閎暉實業(股)公司董事長     信昌電子陶瓷(股)公司董事長     台灣精星科技(股)公司董事長     精成科技(股)公司董事長兼執行長     華東科技(股)公司董事長兼執行長     佳邦科技(股)公司董事長(法人董事代表人)     嘉聯益科技(股)公司副董事長兼總策略長     華新麗華(股)公司董事     Lincstech Circuit Singapore Pte.Ltd.董事     晟成實業(股)公司法人董事代表人  (2)董事 華新科技(股）公司     佳邦科技(股)公司董事長     信昌電子陶瓷(股)公司董事     華東科技(股)公司董事     閎暉實業(股)公司董事     博德新能(股)公司董事     華成自動化設備(股)公司董事長  (3)董事 華新科技(股)公司代表人賴偉珍     精成科技(股)公司法人董事代表人     嘉聯益科技(股)公司董事長(法人董事代表人)  (4)董事 華新科技(股)公司代表人陶正國     精成科技(股)公司總經理     川億電腦(深圳)有限公司法人董事代表人     怡寬電子(深圳)有限公司法人董事代表人     東莞瑞升電子有限公司法人董事代表人     川億電腦(重慶)有限公司法人董事代表人     Lincstech EPC Co.,Ltd.董事     Lincstech Circuit Malaysia Sdn.Bhd.董事     Lincstech Circuit Singapore Pte.Ltd.董事     Lincstech Co.,Ltd.代表取締役會長     Lincstech YGA Co.,Ltd.取締役  (5)董事 金鑫投資(股)公司     華邦電子(股)公司董事     新唐科技(股)公司董事  (6)董事 行行投資有限公司     精成科技(股)公司董事  (7)獨立董事 盧啟昌     力麗企業(股)公司獨立董事  (8)獨立董事 苑竣唐     太平洋電線電纜(股)公司董事長 4.許可從事競業行為之期間:任職本公司董事期間 5.決議情形（請依公司法第209條說明表決結果）: 經代表已發行股份總數過半數股東之出席，出席股東表決權三分之二以上同意通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:  董事 華新科技(股)公司代表人陶正國 7.所擔任該大陸地區事業之公司名稱及職務:  董事 華新科技(股)公司代表人陶正國  川億電腦(深圳)有限公司法人董事代表人  怡寬電子(深圳)有限公司法人董事代表人  東莞瑞升電子有限公司法人董事代表人  川億電腦(重慶)有限公司法人董事代表人 8.所擔任該大陸地區事業地址:  川億電腦(深圳)有限公司:深圳市龍崗區橫崗鎮銀海工業城5棟  怡寬電子(深圳)有限公司:深圳市龍崗區橫崗街道銀荷社區銀源街2號401  東莞瑞升電子有限公司:中國廣東省東莞市黃江鎮裕元工業區  川億電腦(重慶)有限公司:重慶市永川區塘灣路6號15幢 9.所擔任該大陸地區事業營業項目:  川億電腦(深圳)有限公司:印刷電路板之產銷業務  怡寬電子(深圳)有限公司:印刷電路板之產銷業務  東莞瑞升電子有限公司:印刷電路板之產銷業務  川億電腦(重慶)有限公司:印刷電路板之產銷業務 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5469 | 瀚宇博 | 3 | 1 | 4 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 5469 | 瀚宇博 | 5 | 2 | 5 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5469 | 瀚宇博 | 45 | 0 | 5472990.0 | 0.0 |  | call_strong_inflow |
+| 20260624 | 5469 | 瀚宇博 | 43 | 0 | 1665090.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

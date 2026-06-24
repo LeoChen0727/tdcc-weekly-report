@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2855 統一證
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:16 Asia/Taipei
+- generated_at: 2026-06-24 22:23:16 Asia/Taipei
 - stock_id: 2855
 - stock_name: 統一證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 52.9
-- high: 52.9
-- low: 51.8
-- close: 52
-- volume: 17358078
-- ma5: 51.96
-- ema23_primary: 49.12
-- distance_to_ema23_pct: 5.86
-- ma20: 50.39
-- ma60: 40.62
-- ma120: 34.48
-- return_5d: 2.97
-- return_20d: 27.61
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 3.2
-- distance_to_high_60_pct: -13.04
+- date: 20260624
+- open: 50.1
+- high: 50.2
+- low: 48.75
+- close: 49.15
+- volume: 10616194
+- ma5: 51.11
+- ema23_primary: 49.24
+- distance_to_ema23_pct: -0.17
+- ma20: 51.17
+- ma60: 41.21
+- ma120: 34.91
+- return_5d: -6.56
+- return_20d: 17.02
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -3.96
+- distance_to_high_60_pct: -17.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,41.25,42.25,41,42.05,7154644,38.71,8.61,39.34,34.36,0.78
-20260526,42.2,42.65,41.4,42,7453527,38.99,7.72,39.65,34.54,0.82
 20260527,42.55,44.95,42.55,44.9,16294597,39.48,13.72,40.12,34.75,1.69
 20260528,46.4,46.8,44.4,45.1,13693145,39.95,12.89,40.62,34.98,1.35
 20260529,46.1,47.5,45.7,47.5,11633235,40.58,17.06,41.22,35.26,1.13
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,52.2,52.9,51.3,51.6,11556819,48.56,6.27,49.23,39.93,0.65
 20260618,51.6,52.6,51.6,52.2,8962525,48.86,6.84,49.83,40.27,0.5
 20260622,52.9,52.9,51.8,52,17358078,49.12,5.86,50.39,40.62,0.93
+20260623,50.5,51.1,50.1,50.6,12709525,49.24,2.75,50.82,40.93,0.67
+20260624,50.1,50.2,48.75,49.15,10616194,49.24,-0.17,51.17,41.21,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -186,13 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2855 | 統一證 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | degraded calendar context only: ex_dividend on 20260623; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
-| 20260622 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | degraded calendar context only: ex_dividend on 20260623; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260624 | 2855 | 統一證 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2855 | 統一證 | 10 | 2 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2855 | 統一證 | 12 | 4 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

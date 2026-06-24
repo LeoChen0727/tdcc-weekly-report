@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:03 Asia/Taipei
+- generated_at: 2026-06-24 22:23:53 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,8 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 58.4
-- high: 60
-- low: 57
-- close: 58
-- volume: 44254000
-- ma5: 52.73
-- ema23_primary: 42.8
-- distance_to_ema23_pct: 35.52
-- ma20: 42.72
-- ma60: 31.87
-- ma120: 28.65
-- return_5d: 36.95
-- return_20d: 63.38
-- volume_ratio: 1.9
-- distance_to_ma20_pct_auxiliary: 35.77
-- distance_to_high_60_pct: -3.33
+- date: 20260624
+- open: 51.7
+- high: 58.1
+- low: 51.7
+- close: 58.1
+- volume: 28193000
+- ma5: 55.38
+- ema23_primary: 44.84
+- distance_to_ema23_pct: 29.56
+- ma20: 44.7
+- ma60: 32.88
+- ma120: 29.23
+- return_5d: 13.48
+- return_20d: 64.59
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 29.96
+- distance_to_high_60_pct: -3.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,37.55,39,35.6,36,37000,29.18,23.39,28.45,26.82,0
-20260526,36,36,32.4,35.3,34000,29.69,18.91,29.04,26.93,0
 20260527,35.7,37.2,34.15,35.55,36000,30.18,17.81,29.52,27.03,0
 20260528,35.8,39,35.7,36,37000,30.66,17.41,30.07,27.15,0
 20260529,37.5,39.6,35.95,39.6,38000,31.41,26.09,30.82,27.36,0
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,53,53.3,48.25,51.4,62017000,40.04,28.36,40.47,30.81,3
 20260618,51.8,56.5,51.8,56.5,42917000,41.42,36.42,41.59,31.32,2.03
 20260622,58.4,60,57,58,44254000,42.8,35.52,42.72,31.87,1.9
+20260623,57,58.2,52.6,52.9,21110000,43.64,21.22,43.56,32.33,0.87
+20260624,51.7,58.1,51.7,58.1,28193000,44.84,29.56,44.7,32.88,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5328 | 華容 | true_breakout | 嚴格突破 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 5328 | 華容 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5328 | 華容 | 2 | 2 | 2 | 2 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260624 | 5328 | 華容 | 1 | 1 | 3 | 3 | 5 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

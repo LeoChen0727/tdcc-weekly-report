@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6620 漢達
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:30 Asia/Taipei
+- generated_at: 2026-06-24 22:24:14 Asia/Taipei
 - stock_id: 6620
 - stock_name: 漢達
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 117
+- latest_price_date: 20260624
+- price_rows: 119
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,6 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -111,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 89.9
-- high: 89.9
-- low: 89.9
-- close: 89.9
-- volume: 566000
-- ma5: 77.9
-- ema23_primary: 73.93
-- distance_to_ema23_pct: 21.61
-- ma20: 72.73
-- ma60: 72.78
-- ma120: 77.09
-- return_5d: 32.21
-- return_20d: 19.23
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 23.61
+- date: 20260624
+- open: 90.8
+- high: 99.9
+- low: 88.2
+- close: 99.9
+- volume: 2243000
+- ma5: 87.38
+- ema23_primary: 77.39
+- distance_to_ema23_pct: 29.09
+- ma20: 75.02
+- ma60: 73.65
+- ma120: 77.4
+- return_5d: 40.31
+- return_20d: 37.23
+- volume_ratio: 3.51
+- distance_to_ma20_pct_auxiliary: 33.16
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,75.2,75.5,72.1,72.2,73000,73.4,-1.64,73.05,73.92,0.17
-20260526,72.3,73.2,70.7,72.8,72000,73.35,-0.75,72.88,73.79,0.18
 20260527,72.3,73.4,71.5,72.9,72000,73.31,-0.56,72.72,73.67,0.19
 20260528,72.9,73.5,71.7,71.7,72000,73.18,-2.02,72.53,73.56,0.19
 20260529,71.8,72,71,72,72000,73.08,-1.48,72.37,73.43,0.2
@@ -153,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,71,75.3,70.9,74.4,516000,71.63,3.87,71.68,72.24,1.74
 20260618,74.6,81.8,74.6,81.8,1657000,72.47,12.87,72,72.44,4.57
 20260622,89.9,89.9,89.9,89.9,566000,73.93,21.61,72.73,72.78,1.46
+20260623,93.6,95.8,90.2,90.9,2945000,75.34,20.65,73.67,73.14,5.55
+20260624,90.8,99.9,88.2,99.9,2243000,77.39,29.09,75.02,73.65,3.51
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260624 | 6620 | 漢達 | true_breakout | 嚴格突破 | 96.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:現金股利計新台幣337,060,200元，每股配發新台幣 2.07384778元 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260624 | 6620 | 漢達 | 2 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

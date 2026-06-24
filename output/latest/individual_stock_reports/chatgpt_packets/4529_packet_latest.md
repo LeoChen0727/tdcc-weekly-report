@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4529 淳紳
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:49 Asia/Taipei
+- generated_at: 2026-06-24 22:23:42 Asia/Taipei
 - stock_id: 4529
 - stock_name: 淳紳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 5.05
-- high: 5.05
-- low: 4.66
-- close: 4.81
-- volume: 83000
-- ma5: 4.87
-- ema23_primary: 4.96
-- distance_to_ema23_pct: -3.05
-- ma20: 4.97
-- ma60: 4.52
-- ma120: 3.99
-- return_5d: -3.61
-- return_20d: -16.78
-- volume_ratio: 2.68
-- distance_to_ma20_pct_auxiliary: -3.23
-- distance_to_high_60_pct: -26.9
+- date: 20260624
+- open: 4.72
+- high: 4.85
+- low: 4.58
+- close: 4.78
+- volume: 159000
+- ma5: 4.78
+- ema23_primary: 4.93
+- distance_to_ema23_pct: -3
+- ma20: 4.92
+- ma60: 4.57
+- ma120: 4
+- return_5d: -3.04
+- return_20d: -5.91
+- volume_ratio: 3.77
+- distance_to_ma20_pct_auxiliary: -2.87
+- distance_to_high_60_pct: -27.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,5.6,5.87,5.4,5.41,6000,5.07,6.62,5.29,4.02,0.03
-20260526,5.18,5.38,4.96,5.08,5000,5.07,0.1,5.27,4.05,0.03
 20260527,5.13,5.5,5.03,5.13,5000,5.08,1,5.22,4.08,0.03
 20260528,5.15,5.15,4.82,4.84,5000,5.06,-4.34,5.18,4.1,0.03
 20260529,5.18,5.18,4.85,4.85,5000,5.04,-3.81,5.16,4.13,0.04
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,4.92,4.93,4.81,4.83,17000,4.99,-3.26,5.07,4.47,0.58
 20260618,4.83,4.98,4.71,4.78,33000,4.97,-3.92,5.02,4.49,1.22
 20260622,5.05,5.05,4.66,4.81,83000,4.96,-3.05,4.97,4.52,2.68
+20260623,4.81,4.86,4.66,4.72,77000,4.94,-4.47,4.94,4.54,2.23
+20260624,4.72,4.85,4.58,4.78,159000,4.93,-3,4.92,4.57,3.77
 ```
 
 ## Latest TDCC Snapshot

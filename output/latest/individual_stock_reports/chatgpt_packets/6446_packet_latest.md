@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:23 Asia/Taipei
+- generated_at: 2026-06-24 22:24:09 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 1060
-- high: 1120
-- low: 1015
-- close: 1095
-- volume: 2689147
-- ma5: 1021.6
-- ema23_primary: 930.4
-- distance_to_ema23_pct: 17.69
-- ma20: 945.9
-- ma60: 766.92
-- ma120: 693.17
-- return_5d: 15.38
-- return_20d: 35.19
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 15.76
-- distance_to_high_60_pct: -2.23
+- date: 20260624
+- open: 1085
+- high: 1180
+- low: 1085
+- close: 1160
+- volume: 2929068
+- ma5: 1084
+- ema23_primary: 962.11
+- distance_to_ema23_pct: 20.57
+- ma20: 972.75
+- ma60: 783.12
+- ma120: 703.65
+- return_5d: 17.05
+- return_20d: 32.12
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 19.25
+- distance_to_high_60_pct: -1.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,817,853,809,840,3411056,739.35,13.61,725.65,677.85,1.03
-20260526,854,883,852,878,3667145,750.9,16.93,739.25,680.03,1.09
 20260527,891,916,874,877,3144955,761.41,15.18,751.95,682.58,0.91
 20260528,886,896,852,862,3014839,769.79,11.98,762.7,685.47,0.86
 20260529,870,934,868,930,5399400,783.14,18.75,776.15,689.47,1.48
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,989,1020,984,1010,2486382,902.3,11.94,918.55,751.57,0.78
 20260618,1020,1075,1015,1060,2843156,915.44,15.79,931.65,759,0.88
 20260622,1060,1120,1015,1095,2689147,930.4,17.69,945.9,766.92,0.81
+20260623,1090,1150,1090,1095,2382960,944.12,15.98,958.65,774.5,0.73
+20260624,1085,1180,1085,1160,2929068,962.11,20.57,972.75,783.12,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6446 | 藥華藥 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_many_days | 1.事實發生日:115/06/18 2.公司名稱:藥華醫藥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:115年6月18日工商時報報導： 「法人預估全年營收有機會突破 200 億元再創新高， 獲利將大賺逾二股本，有機會登上生技獲利王。」 7.發生緣由:媒體報導說明 8.因應措施:本公司並未發布任何預測性財務及業務資訊， 針對工商時報本次有關本公司之財務預測性報導，純屬媒體及法人推估。 本公司財務及業務相關資訊，請依「公開資訊觀測站」揭露為主。 9.其他應敘明事項:新藥開發時程長、投入經費高且並未保證能一定成功， 此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6446 | 藥華藥 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | first_seen | 1.事實發生日:115/06/18 2.公司名稱:藥華醫藥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:115年6月18日工商時報報導： 「法人預估全年營收有機會突破 200 億元再創新高， 獲利將大賺逾二股本，有機會登上生技獲利王。」 7.發生緣由:媒體報導說明 8.因應措施:本公司並未發布任何預測性財務及業務資訊， 針對工商時報本次有關本公司之財務預測性報導，純屬媒體及法人推估。 本公司財務及業務相關資訊，請依「公開資訊觀測站」揭露為主。 9.其他應敘明事項:新藥開發時程長、投入經費高且並未保證能一定成功， 此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6446 | 藥華藥 | 18 | 4 | 5 | 10 | 18 | continued_many_days | 連續 18 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260624 | 6446 | 藥華藥 | 1 | 1 | 4 | 9 | 19 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

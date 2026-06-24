@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:53 Asia/Taipei
+- generated_at: 2026-06-24 22:24:33 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 146
-- high: 155.5
-- low: 146
-- close: 153
-- volume: 10796789
-- ma5: 146.7
-- ema23_primary: 143.62
-- distance_to_ema23_pct: 6.53
-- ma20: 146.2
-- ma60: 137.92
-- ma120: 116.5
-- return_5d: 2.34
-- return_20d: 1.32
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 4.65
-- distance_to_high_60_pct: -10.26
+- date: 20260624
+- open: 143
+- high: 151
+- low: 142.5
+- close: 148
+- volume: 4224884
+- ma5: 147.6
+- ema23_primary: 144.13
+- distance_to_ema23_pct: 2.68
+- ma20: 145.62
+- ma60: 139.08
+- ma120: 117.43
+- return_5d: 4.59
+- return_20d: -4.82
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 1.63
+- distance_to_high_60_pct: -13.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,156.5,158,147,149.5,17938211,138.44,7.99,138.7,126.64,1.31
-20260526,151,156.5,148.5,155.5,13770558,139.86,11.18,139.62,127.76,1
 20260527,158,166.5,153,160,26875884,141.54,13.05,140.72,128.81,1.82
 20260528,162,162,150,153.5,21144844,142.53,7.69,141.43,129.59,1.38
 20260529,161,168.5,156,162,41757020,144.16,12.38,142.7,130.42,2.45
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,141.5,150,139,146,8123638,142.52,2.44,145.78,136.6,0.52
 20260618,147,149,143.5,145.5,5310715,142.77,1.91,146.1,137.2,0.34
 20260622,146,155.5,146,153,10796789,143.62,6.53,146.2,137.92,0.72
+20260623,154,154,144,145.5,7287400,143.78,1.2,146,138.47,0.5
+20260624,143,151,142.5,148,4224884,144.13,2.68,145.62,139.08,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8039 | 台虹 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | degraded calendar context only: ex_dividend on 20260630; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260624 | 8039 | 台虹 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8039 | 台虹 | 1 | 1 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 8039 | 台虹 | 1 | 1 | 3 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8039 | 台虹 | 124 | 6 | 17836720.0 | 0.0 |  | call_inflow |
+| 20260624 | 8039 | 台虹 | 123 | 0 | 8065820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

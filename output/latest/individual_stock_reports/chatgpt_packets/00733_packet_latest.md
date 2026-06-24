@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00733 富邦臺灣中小
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:29 Asia/Taipei
+- generated_at: 2026-06-24 22:22:38 Asia/Taipei
 - stock_id: 00733
 - stock_name: 富邦臺灣中小
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 79.95
-- high: 80.65
-- low: 79.35
-- close: 80.35
-- volume: 744090
-- ma5: 76.6
-- ema23_primary: 74.09
-- distance_to_ema23_pct: 8.44
-- ma20: 74.33
-- ma60: 74.24
-- ma120: 74.24
-- return_5d: 13.25
-- return_20d: 11.06
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 8.1
-- distance_to_high_60_pct: -0.37
+- date: 20260624
+- open: 75.9
+- high: 76.75
+- low: 74.8
+- close: 76.6
+- volume: 980646
+- ma5: 77.46
+- ema23_primary: 74.46
+- distance_to_ema23_pct: 2.88
+- ma20: 74.36
+- ma60: 74.42
+- ma120: 74.42
+- return_5d: 2.75
+- return_20d: 0.07
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 3.01
+- distance_to_high_60_pct: -5.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,74.7,76.2,74.55,75.6,1021062,,,,,
-20260526,75.75,76.55,74.65,76.55,991208,,,,,
 20260527,78.55,79.65,76.6,77.35,824181,,,,,
 20260528,77.35,77.75,73.4,74.2,1455291,73.39,1.11,75.21,75.21,1.29
 20260529,75.95,75.95,75,75.6,532023,73.57,2.75,75.28,75.28,0.52
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,74.4,75.95,73.85,75.95,998335,73.09,3.91,73.7,73.7,0.93
 20260618,76.85,78.25,76.85,78.25,1330425,73.52,6.43,73.93,73.93,1.23
 20260622,79.95,80.65,79.35,80.35,744090,74.09,8.44,74.33,74.24,0.71
+20260623,80.35,80.45,76.15,76.15,1685704,74.26,2.54,74.36,74.32,1.55
+20260624,75.9,76.75,74.8,76.6,980646,74.46,2.88,74.36,74.42,0.9
 ```
 
 ## Latest TDCC Snapshot

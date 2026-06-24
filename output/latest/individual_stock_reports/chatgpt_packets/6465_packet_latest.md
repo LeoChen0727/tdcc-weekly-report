@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6465 威潤
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:24 Asia/Taipei
+- generated_at: 2026-06-24 22:24:10 Asia/Taipei
 - stock_id: 6465
 - stock_name: 威潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 146
+- latest_price_date: 20260624
+- price_rows: 148
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -102,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 71.2
-- high: 72.3
-- low: 69.1
-- close: 70.5
-- volume: 1008000
-- ma5: 68.6
-- ema23_primary: 57.72
-- distance_to_ema23_pct: 22.14
-- ma20: 56.44
-- ma60: 50.22
-- ma120: 43.25
-- return_5d: 15.76
-- return_20d: 33.52
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 24.91
-- distance_to_high_60_pct: -8.91
+- date: 20260624
+- open: 66.5
+- high: 68.5
+- low: 66.1
+- close: 67
+- volume: 378000
+- ma5: 69.52
+- ema23_primary: 59.32
+- distance_to_ema23_pct: 12.95
+- ma20: 58.12
+- ma60: 50.95
+- ma120: 43.76
+- return_5d: 4.69
+- return_20d: 32.15
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 15.28
+- distance_to_high_60_pct: -13.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,53,53.7,50.8,51.3,52000,47.86,7.19,47.28,43.8,0.14
-20260526,50.9,52.3,50,50.7,51000,48.1,5.41,47.55,44.08,0.15
 20260527,51.4,51.5,48.8,50.9,50000,48.33,5.32,47.82,44.37,0.15
 20260528,51.4,51.5,48.8,48.8,50000,48.37,0.89,47.95,44.62,0.15
 20260529,50,50,47.05,47.9,48000,48.33,-0.89,48.09,44.86,0.15
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,65,70.4,64,70.4,797000,55.23,27.47,54.62,49.26,1.75
 20260618,71.3,77.4,70.4,71.2,2059000,56.56,25.88,55.56,49.73,3.94
 20260622,71.2,72.3,69.1,70.5,1008000,57.72,22.14,56.44,50.22,1.77
+20260623,70.5,70.5,66.4,68.5,709000,58.62,16.85,57.3,50.61,1.18
+20260624,66.5,68.5,66.1,67,378000,59.32,12.95,58.12,50.95,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6465 | 威潤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會決議或公司決定增資基準日期:115/06/10 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/06/08 4.董事會決議(追補)發行日期:115/03/27 5.發行總金額及股數:新台幣120,000,000元;12,000,000股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:10元 9.發行價格:每股發行價格新台幣46.7元。(補充公告) 10.員工認股股數:依公司法第267條規定，保留增資發行新股15%， 計1,800,000股由本公司員工認購。 11.原股東認購比率:本次現金增資發行新股總數之75%，計9,000,000股， 由原股東按增資認股基準日股東名簿記載之股東持股比例認購， 每仟股可認購191.18962112股。 12.公開銷售方式及股數:依證券交易法第28條之1規定，提撥發行新股總數10% ，計1,200,000股採公開申購。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足1股之畸零股， 得由股東自行在停止過戶日起5日內，逕向本公司股務代理機構辦理拼湊， 其併湊後不足1股之畸零數或逾期未申報併湊，以及原股東、員工放棄認購 或認購不足之部分，授權董事長洽特定人按發行價格認購之。 14.本次發行新股之權利義務:與原有發行之普通股相同。 15.本次增資資金用途:充實營運資金 16.現金增資認股基準日:115/07/05 17.最後過戶日:115/06/30 18.停止過戶起始日期:115/07/01 19.停止過戶截止日期:115/07/05 20.股款繳納期間: 原股東及員工股款繳納期間:115/07/07～115/07/13 特定人股款繳納期間:115/07/14～115/07/16 21.與代收及專戶存儲價款行庫訂約日期:115/6/22(補充公告) 22.委託代收存款機構:兆豐國際商業銀行東內湖分行。(補充公告) 23.委託存儲款項機構:兆豐國際商業銀行內湖科學園區分行。(補充公告) 24.其他應敘明事項:本公司辦理現金增資發行普通股12,000,000股乙案， 業經金融監督管理委員會115年6月8日金管證發字第1150343793號函申 報生效在案。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6465 | 威潤 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:41 Asia/Taipei
+- generated_at: 2026-06-24 22:23:35 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 87.6
-- high: 91
-- low: 86.7
-- close: 88.5
-- volume: 30691658
-- ma5: 83.92
-- ema23_primary: 81.12
-- distance_to_ema23_pct: 9.1
-- ma20: 84.99
-- ma60: 68.18
-- ma120: 54.63
-- return_5d: 10.9
-- return_20d: 14.94
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.13
-- distance_to_high_60_pct: -10.52
+- date: 20260624
+- open: 81.5
+- high: 88.5
+- low: 80.8
+- close: 83.6
+- volume: 22043409
+- ma5: 85.42
+- ema23_primary: 81.41
+- distance_to_ema23_pct: 2.69
+- ma20: 84.94
+- ma60: 69.43
+- ma120: 55.33
+- return_5d: 6.09
+- return_20d: -4.35
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -1.57
+- distance_to_high_60_pct: -15.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,78.5,81.3,77.1,79.5,33370466,66.25,20,65.27,54.21,1.51
-20260526,85.2,87.4,85.2,87.4,26030149,68.01,28.51,66.67,54.97,1.13
 20260527,91.3,93,84.1,87.9,65003683,69.67,26.17,68.06,55.72,2.51
 20260528,89.6,90.3,80,81,41573738,70.61,14.71,69.1,56.38,1.52
 20260529,81.7,88.5,78.8,86.3,41007388,71.92,19.99,70.39,57.12,1.41
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,79.5,86.6,78.3,86.6,32111416,79.93,8.35,83.81,66.78,0.97
 20260618,88.5,88.6,85.4,86.2,32118735,80.45,7.15,84.42,67.46,0.99
 20260622,87.6,91,86.7,88.5,30691658,81.12,9.1,84.99,68.18,0.97
+20260623,88.6,90.9,80.8,82.2,24261168,81.21,1.22,85.12,68.81,0.78
+20260624,81.5,88.5,80.8,83.6,22043409,81.41,2.69,84.94,69.43,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3673 | TPK-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d |
+| 20260624 | 3673 | TPK-KY | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3673 | TPK-KY | 6 | 6 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 3673 | TPK-KY | 1 | 1 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3673 | TPK-KY | 58 | 0 | 39910470.0 | 0.0 |  | call_strong_inflow |
+| 20260624 | 3673 | TPK-KY | 61 | 0 | 42668460.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

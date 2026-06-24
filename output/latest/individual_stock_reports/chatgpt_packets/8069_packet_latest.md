@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8069 元太
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:54 Asia/Taipei
+- generated_at: 2026-06-24 22:24:34 Asia/Taipei
 - stock_id: 8069
 - stock_name: 元太
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 212.5
-- high: 213
-- low: 202
-- close: 203
-- volume: 6255000
-- ma5: 200.1
-- ema23_primary: 203.3
-- distance_to_ema23_pct: -0.15
-- ma20: 212.75
-- ma60: 180.03
-- ma120: 177.18
-- return_5d: 3.57
-- return_20d: -9.38
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: -4.58
-- distance_to_high_60_pct: -19.12
+- date: 20260624
+- open: 194.5
+- high: 199.5
+- low: 191.5
+- close: 196.5
+- volume: 3786000
+- ma5: 199.6
+- ema23_primary: 202.18
+- distance_to_ema23_pct: -2.81
+- ma20: 208.88
+- ma60: 181.72
+- ma120: 177.41
+- return_5d: 1.03
+- return_20d: -16.38
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -5.92
+- distance_to_high_60_pct: -21.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,229,235.5,222,235,230000,192.53,22.06,184.15,163.53,0.02
-20260526,237,237,229.5,235,234000,196.07,19.86,188.85,164.28,0.02
 20260527,242,251,240,249,246000,200.48,24.2,194.3,165.32,0.02
 20260528,245,251,228.5,233,240000,203.19,14.67,198.97,166.13,0.02
 20260529,240,243,220,220,225000,204.59,7.53,203.1,166.96,0.02
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,193.5,199,190.5,198.5,5053000,203.27,-2.35,215.12,178,1.46
 20260618,200,211.5,200,204,10882000,203.33,0.33,213.8,179.01,2.9
 20260622,212.5,213,202,203,6255000,203.3,-0.15,212.75,180.03,1.54
+20260623,203,204.5,195,196,4743000,202.7,-3.3,210.8,180.84,1.11
+20260624,194.5,199.5,191.5,196.5,3786000,202.18,-2.81,208.88,181.72,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260624 | 8069 | 元太 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260624 | 8069 | 元太 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

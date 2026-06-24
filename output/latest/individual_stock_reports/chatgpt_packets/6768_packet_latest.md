@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6768 志強-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:35 Asia/Taipei
+- generated_at: 2026-06-24 22:24:19 Asia/Taipei
 - stock_id: 6768
 - stock_name: 志強-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 86
-- high: 88.6
-- low: 85.5
-- close: 88.5
-- volume: 932801
-- ma5: 87.08
-- ema23_primary: 88.99
-- distance_to_ema23_pct: -0.55
-- ma20: 89.72
-- ma60: 85.94
-- ma120: 94.11
-- return_5d: -3.38
-- return_20d: 5.11
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -1.37
-- distance_to_high_60_pct: -9.69
+- date: 20260624
+- open: 86.5
+- high: 87.8
+- low: 85.8
+- close: 85.8
+- volume: 272149
+- ma5: 86.66
+- ema23_primary: 88.58
+- distance_to_ema23_pct: -3.14
+- ma20: 89.97
+- ma60: 85.79
+- ma120: 93.69
+- return_5d: -1.49
+- return_20d: 1.9
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -4.63
+- distance_to_high_60_pct: -12.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,85,85.4,83.2,84,412641,84.47,-0.55,83.21,87.55,0.51
-20260526,84,84.8,82.9,84.2,424613,84.44,-0.29,83.7,87.27,0.56
 20260527,84.5,84.8,83,83,297630,84.32,-1.57,83.97,86.98,0.41
 20260528,83.2,85.1,82,82.3,734120,84.15,-2.2,84.22,86.68,0.99
 20260529,82.9,84.1,82.9,84.1,282693,84.15,-0.06,84.53,86.44,0.39
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,87.1,87.1,85.8,86.1,245202,89.33,-3.62,89.48,86.09,0.3
 20260618,87.5,87.6,85.5,85.7,358131,89.03,-3.74,89.51,85.98,0.44
 20260622,86,88.6,85.5,88.5,932801,88.99,-0.55,89.72,85.94,1.12
+20260623,88.8,88.8,87.1,87.2,387899,88.84,-1.84,89.89,85.87,0.47
+20260624,86.5,87.8,85.8,85.8,272149,88.58,-3.14,89.97,85.79,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6768 | 志強-KY | 3 | 0 | 24000.0 | 0.0 |  | no_signal |
+| 20260624 | 6768 | 志強-KY | 3 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

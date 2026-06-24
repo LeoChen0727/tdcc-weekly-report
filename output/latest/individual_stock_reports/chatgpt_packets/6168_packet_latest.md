@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6168 宏齊
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:14 Asia/Taipei
+- generated_at: 2026-06-24 22:24:02 Asia/Taipei
 - stock_id: 6168
 - stock_name: 宏齊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -92,11 +88,10 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -110,6 +105,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -117,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 29.45
-- high: 31.1
-- low: 29.3
-- close: 31.1
-- volume: 18103075
-- ma5: 28.61
-- ema23_primary: 27.19
-- distance_to_ema23_pct: 14.37
-- ma20: 27.25
-- ma60: 26.74
-- ma120: 23.77
-- return_5d: 19.62
-- return_20d: 0.97
-- volume_ratio: 2.82
-- distance_to_ma20_pct_auxiliary: 14.15
-- distance_to_high_60_pct: -5.04
+- date: 20260624
+- open: 33.5
+- high: 36.65
+- low: 33.2
+- close: 35.5
+- volume: 48206289
+- ma5: 31.4
+- ema23_primary: 28.42
+- distance_to_ema23_pct: 24.92
+- ma20: 27.76
+- ma60: 27.03
+- ma120: 24.02
+- return_5d: 26.11
+- return_20d: 24.56
+- volume_ratio: 5.87
+- distance_to_ma20_pct_auxiliary: 27.88
+- distance_to_high_60_pct: -3.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,31.65,32.75,30.85,30.9,24050838,27.09,14.07,26.79,24.91,3.46
-20260526,31,31.05,28.3,28.5,9090329,27.21,4.76,27.01,25.05,1.25
 20260527,28.75,28.85,27.8,28,4786191,27.27,2.67,27.18,25.16,0.65
 20260528,28,29.15,27.15,27.4,5333302,27.28,0.43,27.2,25.28,0.73
 20260529,27.65,28.35,27.35,27.9,3274803,27.33,2.07,27.34,25.42,0.47
@@ -159,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,28.15,28.65,27.75,27.9,4499131,26.7,4.48,27.21,26.57,0.64
 20260618,28.2,28.95,28,28.3,5413487,26.84,5.45,27.23,26.65,0.8
 20260622,29.45,31.1,29.3,31.1,18103075,27.19,14.37,27.25,26.74,2.82
+20260623,31.4,34.2,30.55,34.2,20858071,27.78,23.13,27.41,26.86,3.34
+20260624,33.5,36.65,33.2,35.5,48206289,28.42,24.92,27.76,27.03,5.87
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6168 | 宏齊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6168 | 宏齊 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6168 | 宏齊 | 3 | 2 | 4 | 6 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260624 | 6168 | 宏齊 | 5 | 2 | 5 | 7 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

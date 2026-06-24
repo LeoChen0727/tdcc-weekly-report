@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2851 中再保
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:16 Asia/Taipei
+- generated_at: 2026-06-24 22:23:16 Asia/Taipei
 - stock_id: 2851
 - stock_name: 中再保
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 39
-- high: 39.5
-- low: 38.7
-- close: 39.3
-- volume: 2413002
-- ma5: 39.32
-- ema23_primary: 36.69
-- distance_to_ema23_pct: 7.12
-- ma20: 36.78
-- ma60: 33.27
-- ma120: 30.32
-- return_5d: 5.79
-- return_20d: 12.93
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 6.84
-- distance_to_high_60_pct: -3.56
+- date: 20260624
+- open: 38.45
+- high: 39
+- low: 38.4
+- close: 38.65
+- volume: 3789464
+- ma5: 39.3
+- ema23_primary: 37.03
+- distance_to_ema23_pct: 4.38
+- ma20: 37.15
+- ma60: 33.52
+- ma120: 30.52
+- return_5d: -2.77
+- return_20d: 9.96
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 4.03
+- distance_to_high_60_pct: -5.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,35.05,35.25,34.45,35.1,2236785,32.89,6.73,32.59,30.65,0.76
-20260526,35,35.2,34.7,35.15,1485020,33.08,6.27,32.84,30.77,0.5
 20260527,35.2,35.35,34.8,35,3293630,33.24,5.3,33.05,30.9,1.09
 20260528,35,35.45,34.75,35.2,2376812,33.4,5.39,33.29,31.02,0.76
 20260529,35.45,35.55,34.9,35.1,1979052,33.54,4.64,33.54,31.15,0.63
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,40,40.75,39.7,40.55,3322405,36.22,11.97,36.38,32.98,1.3
 20260618,40.55,40.6,38.75,39,4677381,36.45,7,36.56,33.12,1.79
 20260622,39,39.5,38.7,39.3,2413002,36.69,7.12,36.78,33.27,0.94
+20260623,39.5,39.5,38.85,39,2275030,36.88,5.75,36.98,33.39,0.89
+20260624,38.45,39,38.4,38.65,3789464,37.03,4.38,37.15,33.52,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -186,13 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2851 | 中再保 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | degraded calendar context only: ex_dividend on 20260629; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False |
-| 20260622 | 2851 | 中再保 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | degraded calendar context only: ex_dividend on 20260629; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260624 | 2851 | 中再保 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2851 | 中再保 | 6 | 1 | 5 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 2851 | 中再保 | 8 | 3 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

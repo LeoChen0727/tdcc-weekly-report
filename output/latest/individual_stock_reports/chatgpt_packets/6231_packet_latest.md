@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6231 系微
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:19 Asia/Taipei
+- generated_at: 2026-06-24 22:24:06 Asia/Taipei
 - stock_id: 6231
 - stock_name: 系微
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 279
-- high: 304.5
-- low: 279
-- close: 304.5
-- volume: 1154000
-- ma5: 280.9
-- ema23_primary: 289.38
-- distance_to_ema23_pct: 5.22
-- ma20: 292.73
-- ma60: 291.45
-- ma120: 251.38
-- return_5d: 13.83
-- return_20d: 3.75
-- volume_ratio: 2.5
-- distance_to_ma20_pct_auxiliary: 4.02
-- distance_to_high_60_pct: -18.36
+- date: 20260624
+- open: 302
+- high: 319.5
+- low: 302
+- close: 311
+- volume: 1141000
+- ma5: 293.9
+- ema23_primary: 292.57
+- distance_to_ema23_pct: 6.3
+- ma20: 293.65
+- ma60: 292.27
+- ma120: 252.95
+- return_5d: 14.76
+- return_20d: 2.81
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 5.91
+- distance_to_high_60_pct: -16.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,297,302.5,294.5,297.5,299000,294.24,1.11,303.57,266.89,0.22
-20260526,302.5,303.5,289.5,302.5,297000,294.93,2.57,302.75,268.73,0.24
 20260527,303.5,304,292,297,298000,295.1,0.64,301.6,270.43,0.26
 20260528,296.5,306,287.5,290,297000,294.67,-1.59,300.52,271.95,0.28
 20260529,288,293,284,284.5,288000,293.83,-3.17,299.27,273.46,0.28
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,270,272,267,269.5,233000,289.01,-6.75,292.55,290.74,0.54
 20260618,271.5,278,271,277,283000,288.01,-3.82,292.18,290.81,0.68
 20260622,279,304.5,279,304.5,1154000,289.38,5.22,292.73,291.45,2.5
+20260623,307.5,318,301.5,307.5,1739000,290.89,5.71,293.23,291.8,3.26
+20260624,302,319.5,302,311,1141000,292.57,6.3,293.65,292.27,1.98
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6231 | 系微 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6231 | 系微 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6231 | 系微 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260624 | 6231 | 系微 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

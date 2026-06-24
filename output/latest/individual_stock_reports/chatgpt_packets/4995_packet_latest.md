@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4995 晶達
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:59 Asia/Taipei
+- generated_at: 2026-06-24 22:23:50 Asia/Taipei
 - stock_id: 4995
 - stock_name: 晶達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45.5
+- date: 20260624
+- open: 45.95
 - high: 45.95
-- low: 45.35
-- close: 45.55
-- volume: 16000
-- ma5: 45.4
-- ema23_primary: 45.34
-- distance_to_ema23_pct: 0.46
-- ma20: 45.78
-- ma60: 43.86
-- ma120: 42.43
-- return_5d: -0.44
-- return_20d: -6.56
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -0.5
-- distance_to_high_60_pct: -10.69
+- low: 45.55
+- close: 45.75
+- volume: 30000
+- ma5: 45.51
+- ema23_primary: 45.41
+- distance_to_ema23_pct: 0.75
+- ma20: 45.46
+- ma60: 44.02
+- ma120: 42.51
+- return_5d: 1.67
+- return_20d: -3.99
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 0.63
+- distance_to_high_60_pct: -10.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,49.15,50.9,49.15,50.2,50000,44.82,12,44.67,42.49,0.81
-20260526,51,51,47.65,47.65,49000,45.06,5.75,44.95,42.58,0.8
 20260527,46.05,46.4,44.9,44.9,46000,45.04,-0.32,45.09,42.61,0.73
 20260528,44.9,44.95,44.3,44.3,45000,44.98,-1.52,45.19,42.65,0.7
 20260529,45,45.3,44.8,45.2,45000,45,0.44,45.33,42.71,0.7
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,45,45.9,45,45,24000,45.31,-0.68,45.97,43.72,0.59
 20260618,45.05,45.5,45.05,45.5,16000,45.32,0.39,45.94,43.79,0.41
 20260622,45.5,45.95,45.35,45.55,16000,45.34,0.46,45.78,43.86,0.42
+20260623,46,46,45.55,45.75,25000,45.38,0.82,45.56,43.94,0.69
+20260624,45.95,45.95,45.55,45.75,30000,45.41,0.75,45.46,44.02,0.84
 ```
 
 ## Latest TDCC Snapshot

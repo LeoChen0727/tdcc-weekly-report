@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3624 光頡
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:40 Asia/Taipei
+- generated_at: 2026-06-24 22:23:34 Asia/Taipei
 - stock_id: 3624
 - stock_name: 光頡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 171.5
-- high: 176.5
-- low: 165.5
-- close: 176.5
-- volume: 16410000
-- ma5: 150.9
-- ema23_primary: 117.73
-- distance_to_ema23_pct: 49.92
-- ma20: 118.2
-- ma60: 78.47
-- ma120: 67.79
-- return_5d: 49.58
-- return_20d: 92.9
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 49.32
-- distance_to_high_60_pct: 0
+- date: 20260624
+- open: 157.5
+- high: 157.5
+- low: 143.5
+- close: 147.5
+- volume: 4084000
+- ma5: 157.9
+- ema23_primary: 123.36
+- distance_to_ema23_pct: 19.57
+- ma20: 124.15
+- ma60: 81.96
+- ma120: 69.46
+- return_5d: 3.87
+- return_20d: 57.75
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 18.81
+- distance_to_high_60_pct: -17.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,95,95,92,94,94000,72.04,30.49,68.63,57.74,0.01
-20260526,94,94,84.6,93.5,88000,73.83,26.65,70.81,58.22,0.01
 20260527,94.5,97.4,89,94,94000,75.51,24.49,72.87,58.73,0.01
 20260528,95,103,95,100,100000,77.55,28.95,75.25,59.37,0.01
 20260529,107,110,99.7,110,106000,80.25,37.07,78.22,60.22,0.01
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,141,146.5,133,146,38415000,108.01,35.17,110.5,74.46,3.27
 20260618,160.5,160.5,160.5,160.5,3604000,112.39,42.81,113.95,76.33,0.31
 20260622,171.5,176.5,165.5,176.5,16410000,117.73,49.92,118.2,78.47,1.32
+20260623,172,178,159,159,19730000,121.17,31.22,121.45,80.31,1.47
+20260624,157.5,157.5,143.5,147.5,4084000,123.36,19.57,124.15,81.96,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3624 | 光頡 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理公告。 3.財務業務資訊: (1)單月                             最近一月單月    去年同月      與去年同期增減% 期間                          (115/5)      (114/5) -------------------------------------------------------------------------- 營業收入(百萬元)                  290          222               30.63% 稅前淨利(百萬元)                   53          -11              581.82% 歸屬母公司業主淨利(百萬元)         37          -13              384.62% 每股盈餘(元)                     0.32        -0.11              390.91%  (2)單季                             最近一季單季     去年同期      與去年同期增減% 期間                          (115第1季)    (114第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                  728           619              17.61% 稅前淨利(百萬元)                  118            81              45.68% 歸屬母公司業主淨利(百萬元)         88            63              39.68% 每股盈餘(元)                     0.75          0.54              38.89%  (3)最近四季累計 期間                    (114年第2季至115年第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                2,784 稅前淨利(百萬元)                  317 歸屬母公司業主淨利(百萬元)        243 每股盈餘(元)                     2.07 -------------------------------------------------------------------------- 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司 依IFRS會計準則編製之合併自結數，未經會計師查核(核閱)， 僅供投資人參考。 (2)最近一季115年第1季及去年同期比較數係指單季數字， 係本公司依IFRS下編製之合併數，業係經會計師核閱，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季由本公司依IFRS編製之 合併數業經會計師查核(核閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3624 | 光頡 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:10 Asia/Taipei
+- generated_at: 2026-06-24 22:23:11 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 11.1
-- high: 11.15
-- low: 10.9
-- close: 10.95
-- volume: 5092862
-- ma5: 11.08
-- ema23_primary: 10.68
-- distance_to_ema23_pct: 2.5
-- ma20: 10.56
+- date: 20260624
+- open: 10.9
+- high: 10.95
+- low: 10.8
+- close: 10.85
+- volume: 1889047
+- ma5: 11.03
+- ema23_primary: 10.72
+- distance_to_ema23_pct: 1.24
+- ma20: 10.66
 - ma60: 10.49
-- ma120: 10.7
-- return_5d: -1.35
-- return_20d: 9.5
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 3.68
-- distance_to_high_60_pct: -4.78
+- ma120: 10.71
+- return_5d: -1.81
+- return_20d: 8.61
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 1.82
+- distance_to_high_60_pct: -5.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,10,10,9.85,9.91,4452459,10.2,-2.84,10.16,10.63,1.9
-20260526,9.95,9.99,9.86,9.99,2151206,10.18,-1.89,10.14,10.62,0.93
 20260527,9.99,9.99,9.86,9.9,2610700,10.16,-2.55,10.11,10.6,1.09
 20260528,9.94,9.95,9.86,9.89,2159594,10.14,-2.43,10.09,10.58,0.91
 20260529,9.94,9.96,9.81,9.86,2198957,10.11,-2.51,10.07,10.56,0.95
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,11.1,11.2,11,11.2,3573031,10.61,5.56,10.46,10.48,0.61
 20260618,11.25,11.35,11.1,11.2,4688438,10.66,5.07,10.51,10.48,0.78
 20260622,11.1,11.15,10.9,10.95,5092862,10.68,2.5,10.56,10.49,0.82
+20260623,10.95,11.05,10.9,10.95,2126249,10.71,2.28,10.61,10.49,0.35
+20260624,10.9,10.95,10.8,10.85,1889047,10.72,1.24,10.66,10.49,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260622 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 21.0 | B_可觀察 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260624 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2547 | 日勝生 | 9 | 3 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2547 | 日勝生 | 11 | 5 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

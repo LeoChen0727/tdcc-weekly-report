@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5530 龍巖
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:07 Asia/Taipei
+- generated_at: 2026-06-24 22:23:56 Asia/Taipei
 - stock_id: 5530
 - stock_name: 龍巖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 49.55
-- high: 49.55
-- low: 48.7
-- close: 49.2
-- volume: 895000
-- ma5: 49.64
-- ema23_primary: 49.12
-- distance_to_ema23_pct: 0.17
-- ma20: 49.45
-- ma60: 47.12
-- ma120: 48.66
-- return_5d: -1.01
-- return_20d: 5.92
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -0.5
-- distance_to_high_60_pct: -15.61
+- date: 20260624
+- open: 48.1
+- high: 48.55
+- low: 47.95
+- close: 48.35
+- volume: 342000
+- ma5: 49.03
+- ema23_primary: 48.99
+- distance_to_ema23_pct: -1.31
+- ma20: 49.51
+- ma60: 47.17
+- ma120: 48.67
+- return_5d: -2.42
+- return_20d: 2.87
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -2.34
+- distance_to_high_60_pct: -17.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,46.9,48.85,46.9,48.45,48000,46.65,3.85,46.31,47.19,0.06
-20260526,48.55,49.5,46.9,47,48000,46.68,0.68,46.37,47.08,0.07
 20260527,47.15,47.4,46.2,46.4,47000,46.66,-0.55,46.44,46.98,0.07
 20260528,46.75,46.85,45.95,46,46000,46.6,-1.29,46.51,46.86,0.07
 20260529,46.1,46.95,46.05,46.4,46000,46.59,-0.4,46.62,46.76,0.07
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,49.75,50.1,49.7,49.85,308000,49.08,1.57,49.17,47.03,0.42
 20260618,49.9,50.1,49.4,49.4,674000,49.11,0.59,49.31,47.08,0.91
 20260622,49.55,49.55,48.7,49.2,895000,49.12,0.17,49.45,47.12,1.14
+20260623,49.2,49.3,48.2,48.35,716000,49.05,-1.43,49.44,47.15,0.88
+20260624,48.1,48.55,47.95,48.35,342000,48.99,-1.31,49.51,47.17,0.41
 ```
 
 ## Latest TDCC Snapshot

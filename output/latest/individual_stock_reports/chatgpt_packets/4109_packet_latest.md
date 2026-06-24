@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4109 加捷生醫
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:44 Asia/Taipei
+- generated_at: 2026-06-24 22:23:38 Asia/Taipei
 - stock_id: 4109
 - stock_name: 加捷生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 12.1
-- high: 12.15
-- low: 12.05
-- close: 12.05
-- volume: 155000
-- ma5: 12.14
-- ema23_primary: 11.93
-- distance_to_ema23_pct: 1
-- ma20: 11.83
-- ma60: 11.95
-- ma120: 13.09
-- return_5d: -1.23
-- return_20d: 4.78
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 1.86
-- distance_to_high_60_pct: -9.06
+- date: 20260624
+- open: 11.8
+- high: 11.9
+- low: 11.75
+- close: 11.9
+- volume: 163000
+- ma5: 12.01
+- ema23_primary: 11.92
+- distance_to_ema23_pct: -0.15
+- ma20: 11.89
+- ma60: 11.91
+- ma120: 13.04
+- return_5d: -1.65
+- return_20d: 5.78
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 0.08
+- distance_to_high_60_pct: -9.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,11.5,11.5,11.15,11.25,11000,11.64,-3.34,11.47,12.42,0.06
-20260526,11.25,11.5,11.1,11.25,11000,11.61,-3.07,11.46,12.38,0.07
 20260527,11.35,11.5,11.2,11.2,11000,11.57,-3.22,11.44,12.33,0.07
 20260528,11.2,11.3,11.1,11.15,11000,11.54,-3.35,11.42,12.29,0.07
 20260529,11.2,11.3,11,11.2,11000,11.51,-2.68,11.39,12.24,0.07
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,12.1,12.3,12.05,12.15,137000,11.9,2.11,11.78,11.99,0.74
 20260618,12.15,12.3,12.1,12.15,165000,11.92,1.93,11.8,11.97,0.88
 20260622,12.1,12.15,12.05,12.05,155000,11.93,1,11.83,11.95,0.79
+20260623,12.05,12.05,11.75,11.8,358000,11.92,-1,11.86,11.93,1.68
+20260624,11.8,11.9,11.75,11.9,163000,11.92,-0.15,11.89,11.91,0.74
 ```
 
 ## Latest TDCC Snapshot

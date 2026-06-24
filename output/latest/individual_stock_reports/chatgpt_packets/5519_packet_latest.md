@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5519 隆大
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:07 Asia/Taipei
+- generated_at: 2026-06-24 22:23:56 Asia/Taipei
 - stock_id: 5519
 - stock_name: 隆大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 33.85
-- high: 33.85
-- low: 33.05
-- close: 33.55
-- volume: 1055939
-- ma5: 34.37
-- ema23_primary: 33.31
-- distance_to_ema23_pct: 0.72
-- ma20: 33.01
+- date: 20260624
+- open: 33.7
+- high: 34.5
+- low: 33.55
+- close: 33.8
+- volume: 813372
+- ma5: 34.05
+- ema23_primary: 33.38
+- distance_to_ema23_pct: 1.25
+- ma20: 33.16
 - ma60: 32.93
-- ma120: 32.67
-- return_5d: -2.75
-- return_20d: 2.76
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 1.63
-- distance_to_high_60_pct: -5.23
+- ma120: 32.69
+- return_5d: -1.74
+- return_20d: 4.81
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 1.93
+- distance_to_high_60_pct: -4.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,32.65,32.65,32.1,32.3,529988,32.61,-0.94,32.52,32.98,1.31
-20260526,32.3,32.5,32.1,32.25,317430,32.58,-1,32.52,32.99,0.85
 20260527,32.25,32.4,32.1,32.1,454864,32.54,-1.34,32.51,32.98,1.21
 20260528,32.1,32.25,32,32,544654,32.49,-1.51,32.47,32.98,1.42
 20260529,32,32.15,32,32.1,356302,32.46,-1.11,32.45,32.98,0.92
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.45,34.8,33.8,34.75,604641,33.18,4.72,32.88,32.92,0.86
 20260618,34.95,35.25,34.2,34.45,826497,33.29,3.49,32.97,32.93,1.13
 20260622,33.85,33.85,33.05,33.55,1055939,33.31,0.72,33.01,32.93,1.37
+20260623,33.75,34.05,33.4,33.7,459158,33.34,1.07,33.08,32.93,0.6
+20260624,33.7,34.5,33.55,33.8,813372,33.38,1.25,33.16,32.93,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -184,15 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5519 | 隆大 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權息 3.普通股發放股利種類及金額: 1.現金股利：總金額新台幣723,350,694元， 每股配發新台幣3.3元。 2.股票股利：總金額新台幣109,598,590元， 每股配發新台幣0.5元。 4.除權（息）交易日:115/07/10 5.最後過戶日:115/07/13 6.停止過戶起始日期:115/07/14 7.停止過戶截止日期:115/07/18 8.除權（息）基準日:115/07/18 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項: (1)本次盈餘轉增資發行新股案，業經金融監督管理委員會中華民國115年06月10日 金管會核准申報生效在案。 (2)增資股票發放日：俟呈奉主管機關核准變更登記後三十日內採無實體發行以帳簿 劃撥方式交付或以新股權利證書先行交付，授權董事長訂定發放日並另行公告之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 5519 | 隆大 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 20.0 | B_可觀察 |  |  |  | first_seen | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權息 3.普通股發放股利種類及金額: 1.現金股利：總金額新台幣723,350,694元， 每股配發新台幣3.3元。 2.股票股利：總金額新台幣109,598,590元， 每股配發新台幣0.5元。 4.除權（息）交易日:115/07/10 5.最後過戶日:115/07/13 6.停止過戶起始日期:115/07/14 7.停止過戶截止日期:115/07/18 8.除權（息）基準日:115/07/18 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項: (1)本次盈餘轉增資發行新股案，業經金融監督管理委員會中華民國115年06月10日 金管會核准申報生效在案。 (2)增資股票發放日：俟呈奉主管機關核准變更登記後三十日內採無實體發行以帳簿 劃撥方式交付或以新股權利證書先行交付，授權董事長訂定發放日並另行公告之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5519 | 隆大 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

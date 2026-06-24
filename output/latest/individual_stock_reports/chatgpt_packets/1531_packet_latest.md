@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1531 高林股
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:42 Asia/Taipei
+- generated_at: 2026-06-24 22:22:49 Asia/Taipei
 - stock_id: 1531
 - stock_name: 高林股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 12.9
+- date: 20260624
+- open: 12.8
 - high: 12.9
 - low: 12.8
 - close: 12.9
-- volume: 81874
-- ma5: 12.93
-- ema23_primary: 12.79
-- distance_to_ema23_pct: 0.88
-- ma20: 12.68
+- volume: 94439
+- ma5: 12.91
+- ema23_primary: 12.8
+- distance_to_ema23_pct: 0.74
+- ma20: 12.75
 - ma60: 12.84
-- ma120: 12.52
-- return_5d: -0.77
-- return_20d: 4.45
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 1.72
+- ma120: 12.54
+- return_5d: -0.39
+- return_20d: 5.74
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 1.16
 - distance_to_high_60_pct: -4.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,12.3,12.35,12.05,12.2,447617,12.66,-3.6,12.71,12.69,2.3
-20260526,12.2,12.4,12.1,12.2,310908,12.62,-3.31,12.67,12.69,1.58
 20260527,12.25,12.3,12,12.05,395138,12.57,-4.14,12.62,12.68,1.93
 20260528,12.15,12.3,12.1,12.3,87825,12.55,-1.98,12.59,12.68,0.45
 20260529,12.2,12.3,12.1,12.1,215992,12.51,-3.28,12.54,12.68,1.08
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,12.9,13,12.75,12.95,191678,12.77,1.45,12.64,12.82,0.75
 20260618,12.95,12.95,12.8,12.9,85304,12.78,0.97,12.65,12.83,0.33
 20260622,12.9,12.9,12.8,12.9,81874,12.79,0.88,12.68,12.84,0.32
+20260623,12.9,12.9,12.7,12.9,236713,12.8,0.81,12.72,12.84,0.98
+20260624,12.8,12.9,12.8,12.9,94439,12.8,0.74,12.75,12.84,0.41
 ```
 
 ## Latest TDCC Snapshot

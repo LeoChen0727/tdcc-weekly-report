@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6288 聯嘉
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:22 Asia/Taipei
+- generated_at: 2026-06-24 22:24:08 Asia/Taipei
 - stock_id: 6288
 - stock_name: 聯嘉
 - packet_status: standard_rawdata_packet

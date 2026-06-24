@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:24 Asia/Taipei
+- generated_at: 2026-06-24 22:24:10 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 77.4
-- high: 77.6
-- low: 75
-- close: 76.1
-- volume: 6252638
-- ma5: 74.88
-- ema23_primary: 75.28
-- distance_to_ema23_pct: 1.08
-- ma20: 77.54
-- ma60: 71.12
-- ma120: 59.3
-- return_5d: 7.03
-- return_20d: 0
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -1.86
-- distance_to_high_60_pct: -19.98
+- date: 20260624
+- open: 70.6
+- high: 75.2
+- low: 70.3
+- close: 73.7
+- volume: 6096264
+- ma5: 75.04
+- ema23_primary: 74.88
+- distance_to_ema23_pct: -1.57
+- ma20: 76.98
+- ma60: 71.53
+- ma120: 59.79
+- return_5d: 3.66
+- return_20d: -10.12
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -4.26
+- distance_to_high_60_pct: -22.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,78,78.5,74.5,74.6,17672817,70.12,6.39,71.66,64.98,2.07
-20260526,76,82,73.2,82,23937751,71.11,15.31,72.12,65.63,2.51
 20260527,80.7,85.9,77.4,79,32121753,71.77,10.07,72.14,66.15,2.93
 20260528,84,84,71.2,71.6,36774170,71.76,-0.22,71.77,66.47,2.91
 20260529,72,77.4,72,76.5,18360080,72.15,6.03,71.78,66.78,1.37
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,70.8,77.4,69.7,77.3,9041894,75.1,2.93,77.22,70.56,0.52
 20260618,78.1,78.3,76,76.4,6567679,75.21,1.58,77.54,70.83,0.38
 20260622,77.4,77.6,75,76.1,6252638,75.28,1.08,77.54,71.12,0.38
+20260623,77,77,71.4,71.7,5973399,74.98,-4.38,77.39,71.31,0.38
+20260624,70.6,75.2,70.3,73.7,6096264,74.88,-1.57,76.98,71.53,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6456 | GIS-KY | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.投資計畫內容: 本公司董事會核准子公司業桓科技(成都)有限公司追減專案預算新台幣6.82億元， 並將該專案及預算金額移轉至業成科技(成都)有限公司繼續執行。 3.預計投資金額:新台幣6.82億元。 4.預計投資日期:於董事會通過後進行二家子公司資本支出專案預算調整。 5.資金來源:子公司營運資金支應。 6.具體目的:為子公司間營運效益最大化考量，故進行本次專案預算調整。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6456 | GIS-KY | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.投資計畫內容: 本公司董事會核准子公司業桓科技(成都)有限公司追減專案預算新台幣6.82億元， 並將該專案及預算金額移轉至業成科技(成都)有限公司繼續執行。 3.預計投資金額:新台幣6.82億元。 4.預計投資日期:於董事會通過後進行二家子公司資本支出專案預算調整。 5.資金來源:子公司營運資金支應。 6.具體目的:為子公司間營運效益最大化考量，故進行本次專案預算調整。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6456 | GIS-KY | 6 | 6 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 6456 | GIS-KY | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6456 | GIS-KY | 52 | 0 | 3105010.0 | 0.0 |  | no_signal |
+| 20260624 | 6456 | GIS-KY | 52 | 0 | 4171400.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00762 元大全球AI
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:29 Asia/Taipei
+- generated_at: 2026-06-24 22:22:38 Asia/Taipei
 - stock_id: 00762
 - stock_name: 元大全球AI
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 123
-- high: 123.4
-- low: 122.95
-- close: 123.15
-- volume: 288115
-- ma5: 121.08
-- ema23_primary: 116.51
-- distance_to_ema23_pct: 5.7
-- ma20: 116.7
-- ma60: 116.46
-- ma120: 116.46
-- return_5d: 8.5
-- return_20d: 10.45
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 5.52
-- distance_to_high_60_pct: -0.2
+- date: 20260624
+- open: 117.75
+- high: 117.8
+- low: 116.4
+- close: 117.75
+- volume: 429829
+- ma5: 120.68
+- ema23_primary: 116.88
+- distance_to_ema23_pct: 0.74
+- ma20: 117.24
+- ma60: 116.67
+- ma120: 116.67
+- return_5d: -3.13
+- return_20d: 3.97
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: 0.43
+- distance_to_high_60_pct: -4.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,112.45,113.8,112.45,113.8,185437,,,,,
-20260526,114,114,112.85,113.25,175430,,,,,
 20260527,114.25,114.75,114.25,114.25,155241,,,,,
 20260528,114.25,114.8,113,113.55,186024,112.15,1.25,113.27,113.27,1.11
 20260529,115.35,116.9,115.35,116.9,874149,112.55,3.87,113.88,113.88,3.06
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,120.7,120.75,120.35,120.75,133492,115.38,4.66,115.83,115.83,0.5
 20260618,120.65,122.3,120.65,121.7,275357,115.9,5,116.12,116.12,1.02
 20260622,123,123.4,122.95,123.15,288115,116.51,5.7,116.7,116.46,1.04
+20260623,123.15,123.15,120.05,120.05,294185,116.8,2.78,117.02,116.62,1.04
+20260624,117.75,117.8,116.4,117.75,429829,116.88,0.74,117.24,116.67,1.46
 ```
 
 ## Latest TDCC Snapshot

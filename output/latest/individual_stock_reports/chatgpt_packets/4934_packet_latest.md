@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4934 太極
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:56 Asia/Taipei
+- generated_at: 2026-06-24 22:23:48 Asia/Taipei
 - stock_id: 4934
 - stock_name: 太極
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 17.35
-- high: 17.55
-- low: 17.1
-- close: 17.4
-- volume: 1361968
-- ma5: 17.43
-- ema23_primary: 17.11
-- distance_to_ema23_pct: 1.69
+- date: 20260624
+- open: 17.75
+- high: 17.9
+- low: 17.25
+- close: 17.55
+- volume: 1992785
+- ma5: 17.48
+- ema23_primary: 17.21
+- distance_to_ema23_pct: 1.96
 - ma20: 17.1
-- ma60: 16.95
-- ma120: 16.72
-- return_5d: -1.69
-- return_20d: 0
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 1.77
-- distance_to_high_60_pct: -12.12
+- ma60: 16.94
+- ma120: 16.79
+- return_5d: 1.45
+- return_20d: -0.57
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 2.65
+- distance_to_high_60_pct: -11.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,17.6,18,17,17.85,2063940,17.2,3.77,17.17,17.59,1.16
-20260526,18.2,18.7,17.6,17.65,2331708,17.24,2.39,17.26,17.57,1.26
 20260527,17.9,17.9,17.3,17.4,1183141,17.25,0.86,17.35,17.54,0.63
 20260528,17.4,17.95,16.7,16.9,1460782,17.22,-1.87,17.41,17.48,0.76
 20260529,16.95,17.25,16.8,17.25,1334504,17.23,0.14,17.48,17.43,0.68
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,17.25,17.6,17.1,17.4,1006915,17.08,1.85,17.09,16.98,0.55
 20260618,17.4,17.6,17.1,17.1,1135336,17.09,0.09,17.1,16.95,0.62
 20260622,17.35,17.55,17.1,17.4,1361968,17.11,1.69,17.1,16.95,0.74
+20260623,17.45,18.95,17.35,17.95,3326193,17.18,4.47,17.1,16.95,1.74
+20260624,17.75,17.9,17.25,17.55,1992785,17.21,1.96,17.1,16.94,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4934 | 太極 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 4934 | 太極 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 4934 | 太極 | revenue_breakout_low_response | 營收爆發低反應股 | 24.0 | 1.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 4934 | 太極 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4934 | 太極 | 1 | 1 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 4934 | 太極 | 3 | 1 | 4 | 9 | 19 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

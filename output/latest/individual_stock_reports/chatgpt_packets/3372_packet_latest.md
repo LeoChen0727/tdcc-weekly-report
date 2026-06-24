@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3372 典範
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:32 Asia/Taipei
+- generated_at: 2026-06-24 22:23:28 Asia/Taipei
 - stock_id: 3372
 - stock_name: 典範
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 20.6
-- high: 21.75
-- low: 19.75
-- close: 21.5
-- volume: 2101000
-- ma5: 20.41
-- ema23_primary: 20.49
-- distance_to_ema23_pct: 4.92
-- ma20: 21.02
-- ma60: 19.99
-- ma120: 20.92
-- return_5d: 9.14
-- return_20d: 6.17
-- volume_ratio: 4.23
-- distance_to_ma20_pct_auxiliary: 2.28
-- distance_to_high_60_pct: -9.28
+- date: 20260624
+- open: 22.4
+- high: 23.7
+- low: 22
+- close: 23
+- volume: 3655000
+- ma5: 21.66
+- ema23_primary: 20.93
+- distance_to_ema23_pct: 9.89
+- ma20: 21.14
+- ma60: 20.08
+- ma120: 20.98
+- return_5d: 15.58
+- return_20d: 4.31
+- volume_ratio: 3.28
+- distance_to_ma20_pct_auxiliary: 8.77
+- distance_to_high_60_pct: -2.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,20.6,22.2,20.4,21.95,21000,19.69,11.47,19.35,20.33,0.03
-20260526,21.9,22.5,21.1,22.05,22000,19.89,10.87,19.54,20.3,0.03
 20260527,22.4,22.95,21.45,22.05,22000,20.07,9.88,19.72,20.24,0.04
 20260528,22.05,22.3,21,21.5,22000,20.19,6.5,19.89,20.19,0.04
 20260529,21.7,22.1,21.5,21.75,22000,20.32,7.05,20.05,20.17,0.04
@@ -160,6 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,19.9,20.35,19.75,19.9,1002000,20.4,-2.45,20.93,19.99,2.59
 20260618,20.15,20.45,20.1,20.4,994000,20.4,-0,20.96,19.98,2.53
 20260622,20.6,21.75,19.75,21.5,2101000,20.49,4.92,21.02,19.99,4.23
+20260623,21.9,23.65,21.5,23.5,8758000,20.74,13.29,21.1,20.03,9.38
+20260624,22.4,23.7,22,23,3655000,20.93,9.89,21.14,20.08,3.28
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3372 | 典範 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 3372 | 典範 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.董事會決議或公司決定增資基準日期:115/06/12 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/06/10 4.董事會決議(追補)發行日期:115/03/03 5.發行總金額及股數:總金額600,000,000元；60,000,000股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元 9.發行價格:每股新台幣16.8元 10.員工認股股數:依公司法第267條規定，保留增資發行股數之10%， 計6,000,000股由本公司員工承購。 11.原股東認購比率:80%計48,000,000股 12.公開銷售方式及股數:依證券交易法第28條之1規定，提撥發行新股總額10% 計6,000,000股對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股得由股東在 停止過戶日起五日內，逕向本公司股務代理機構辦理拼湊，其拼湊不足一股之 畸零股及原股東及員工放棄認購或認購不足及逾期未申報拼湊之部分， 擬授權董事長洽特定人按發行價格認購之。對外公開承銷認購不足部分， 擬依「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」 規定辦理。 14.本次發行新股之權利義務:與已發行之原有股份相同。 15.本次增資資金用途:支應資本支出、充實營運資金。 16.現金增資認股基準日:115/07/06 17.最後過戶日:115/07/01 18.停止過戶起始日期:115/07/02 19.停止過戶截止日期:115/07/06 20.股款繳納期間: (1)原股東及員工繳款期間:115/07/09~115/07/15 (2)特定人繳款期間:115/07/16~115/07/20 21.與代收及專戶存儲價款行庫訂約日期:民國115年06月23日 22.委託代收存款機構:臺灣銀行股份有限公司高雄加工出口區分行及全台分行 23.委託存儲款項機構:元大銀行高雄分行 24.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3372 | 典範 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260624 | 3372 | 典範 | 3 | 3 | 3 | 3 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3003 健和興
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:19 Asia/Taipei
+- generated_at: 2026-06-24 22:23:18 Asia/Taipei
 - stock_id: 3003
 - stock_name: 健和興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 70.3
-- high: 70.3
-- low: 67.6
-- close: 68.5
-- volume: 2419321
-- ma5: 67.26
-- ema23_primary: 63.7
-- distance_to_ema23_pct: 7.54
-- ma20: 63.99
-- ma60: 57.74
-- ma120: 53.26
-- return_5d: 7.2
-- return_20d: 10.66
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 7.04
-- distance_to_high_60_pct: -3.93
+- date: 20260624
+- open: 67.7
+- high: 70.4
+- low: 67.4
+- close: 70.2
+- volume: 2109435
+- ma5: 68.82
+- ema23_primary: 64.61
+- distance_to_ema23_pct: 8.66
+- ma20: 64.75
+- ma60: 58.36
+- ma120: 53.63
+- return_5d: 4.15
+- return_20d: 11.96
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 8.43
+- distance_to_high_60_pct: -1.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,62.9,63.5,60.8,61,1738481,57.61,5.89,57.62,53.31,1.51
-20260526,61.6,62.8,59.2,62.7,1591485,58.03,8.04,58.06,53.51,1.32
 20260527,65.5,66.7,61.8,62.9,3753256,58.44,7.63,58.52,53.72,2.74
 20260528,62.9,64.7,61.8,62.2,1965070,58.75,5.87,58.85,53.9,1.37
 20260529,63.2,63.7,62,62.7,1079103,59.08,6.12,59.26,54.1,0.74
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,67.4,67.8,66.4,67,3580906,62.66,6.93,63.2,57.09,1.79
 20260618,67.4,71.3,67.2,69.9,4157767,63.26,10.49,63.66,57.44,1.93
 20260622,70.3,70.3,67.6,68.5,2419321,63.7,7.54,63.99,57.74,1.1
+20260623,69,69.3,67.4,68.5,1593596,64.1,6.87,64.37,58.04,0.73
+20260624,67.7,70.4,67.4,70.2,2109435,64.61,8.66,64.75,58.36,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 3003 | 健和興 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 10.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 3003 | 健和興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3003 | 健和興 | 8 | 1 | 5 | 8 | 13 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 3003 | 健和興 | 10 | 1 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |
