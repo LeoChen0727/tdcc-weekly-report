@@ -1894,6 +1894,81 @@ def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | s
     return price_leg_ok and volume_ok
 
 
+def w_bottom_segment_quality(
+    df: pd.DataFrame,
+    left_peak_idx: int,
+    left_low_idx: int,
+    neckline_idx: int,
+    right_low_idx: int,
+    current_close: float,
+) -> dict[str, float | str | bool]:
+    """Validate W-bottom as connected segments, not only swing points."""
+    left_descent = df.iloc[left_peak_idx : left_low_idx + 1]
+    first_rebound = df.iloc[left_low_idx : neckline_idx + 1]
+    second_decline = df.iloc[neckline_idx : right_low_idx + 1]
+    right_rebound = df.iloc[right_low_idx:]
+
+    failures: list[str] = []
+    if len(left_descent) < 5:
+        failures.append("left_descent_too_short")
+    if len(first_rebound) < 5:
+        failures.append("first_rebound_too_short")
+    if len(second_decline) < 3:
+        failures.append("second_decline_too_short")
+    if len(right_rebound) < 4:
+        failures.append("right_rebound_too_short")
+
+    left_low = float(df["low"].iloc[left_low_idx])
+    right_low = float(df["low"].iloc[right_low_idx])
+    neckline = float(df["high"].iloc[neckline_idx])
+    left_low_close = float(df["close"].iloc[left_low_idx])
+    right_low_close = float(df["close"].iloc[right_low_idx])
+
+    if float(first_rebound["low"].min()) < left_low * 0.98:
+        failures.append("first_low_undercut_before_neckline")
+    first_after_low = df.iloc[left_low_idx + 1 : neckline_idx + 1]
+    first_close_undercuts = 0
+    if not first_after_low.empty:
+        first_close_undercuts = int((first_after_low["close"] < left_low_close * 0.98).sum())
+        if first_close_undercuts > 1:
+            failures.append("first_low_close_repeatedly_undercut")
+
+    after_neckline = df.iloc[neckline_idx + 1 : right_low_idx + 1]
+    if not after_neckline.empty and float(after_neckline["high"].max()) > neckline * 1.02:
+        failures.append("higher_high_after_neckline_before_second_low")
+    if float(second_decline["low"].min()) < right_low * 0.98:
+        failures.append("second_low_undercut_inside_decline")
+
+    if float(right_rebound["low"].min()) < right_low * 0.98:
+        failures.append("second_low_undercut_after_right_side")
+    right_after_low = df.iloc[right_low_idx + 1 :]
+    second_close_undercuts = 0
+    if not right_after_low.empty:
+        second_close_undercuts = int((right_after_low["close"] < right_low_close * 0.98).sum())
+        if second_close_undercuts > 1:
+            failures.append("second_low_close_repeatedly_undercut")
+
+    right_rebound_high = float(right_rebound["high"].max())
+    right_span = right_rebound_high - right_low
+    right_rebound_retention_pct = 100.0
+    if right_span > 0:
+        right_rebound_retention_pct = (current_close - right_low) / right_span * 100.0
+        if right_rebound_retention_pct < 45.0:
+            failures.append("right_rebound_faded")
+
+    return {
+        "w_shape_quality_passed": not failures,
+        "w_shape_quality_failures": ";".join(failures),
+        "left_descent_days": len(left_descent),
+        "first_rebound_days": len(first_rebound),
+        "second_decline_days": len(second_decline),
+        "right_rebound_days": len(right_rebound),
+        "first_low_close_undercut_count": first_close_undercuts,
+        "second_low_close_undercut_count": second_close_undercuts,
+        "right_rebound_retention_pct": right_rebound_retention_pct,
+    }
+
+
 def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
     """Infer current W-bottom context from price history.
 
@@ -1937,6 +2012,7 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             troughs.append(idx)
 
     best: dict[str, float | str | bool] | None = None
+    best_rejected_shape: dict[str, float | str | bool] | None = None
     for left in troughs:
         pre_peak_start = max(0, left - 45)
         pre_peak_end = left - 2
@@ -1997,9 +2073,32 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             # clean W-bottom for this model.
             first_rebound_slice = df.iloc[left : neckline_idx + 1]
             right_rebound_slice = df.iloc[right:]
-            if float(first_rebound_slice["low"].min()) < low_left * 0.98:
-                continue
-            if float(right_rebound_slice["low"].min()) < low_right * 0.98:
+            segment_quality = w_bottom_segment_quality(
+                df,
+                left_peak_idx,
+                left,
+                neckline_idx,
+                right,
+                current_close,
+            )
+            if not segment_quality["w_shape_quality_passed"]:
+                rejected_shape: dict[str, float | str | bool] = {
+                    "available": True,
+                    "context_ok": False,
+                    "left_peak_date": str(df["date"].iloc[left_peak_idx]),
+                    "left_low_date": str(df["date"].iloc[left]),
+                    "neckline_date": str(df["date"].iloc[neckline_idx]),
+                    "right_low_date": str(df["date"].iloc[right]),
+                    "right_low_age_days": right_age,
+                    "second_low_gap_pct": second_low_gap,
+                    "neckline_price": neckline,
+                }
+                rejected_shape.update(segment_quality)
+                if (
+                    best_rejected_shape is None
+                    or right_age < float(best_rejected_shape.get("right_low_age_days", math.inf))
+                ):
+                    best_rejected_shape = rejected_shape
                 continue
 
             low_left_position = (low_left - low_120) / range_span * 100
@@ -2072,7 +2171,12 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             # The W label itself is controlled by geometry, base quality, and
             # early right-side rebound. Neckline proximity is a scoring/risk
             # feature, not the entry gate for this pre-breakout model.
-            context_ok = pre_base_ok and right_side_rebound_ok and not_extended
+            context_ok = (
+                pre_base_ok
+                and bool(segment_quality["w_shape_quality_passed"])
+                and right_side_rebound_ok
+                and not_extended
+            )
             candidate: dict[str, float | str | bool] = {
                 "available": True,
                 "context_ok": context_ok,
@@ -2111,6 +2215,7 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 "second_arc_end_date": str(second_arc_slice["date"].iloc[-1]),
                 "right_low_age_days": right_age,
             }
+            candidate.update(segment_quality)
             if best is None:
                 best = candidate
             else:
@@ -2137,6 +2242,8 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 ):
                     best = candidate
 
+    if best is None and best_rejected_shape is not None:
+        return best_rejected_shape
     if best is None:
         return {"available": True, "context_ok": False}
     return best

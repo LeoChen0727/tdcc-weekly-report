@@ -631,6 +631,12 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(context["first_arc_end_date"], context["neckline_date"])
         self.assertEqual(context["second_arc_start_date"], context["neckline_date"])
         self.assertEqual(context["second_arc_end_date"], "20260529")
+        self.assertTrue(context["w_shape_quality_passed"])
+        self.assertEqual(context["w_shape_quality_failures"], "")
+        self.assertGreaterEqual(int(context["left_descent_days"]), 5)
+        self.assertGreaterEqual(int(context["first_rebound_days"]), 5)
+        self.assertGreaterEqual(int(context["second_decline_days"]), 3)
+        self.assertGreaterEqual(int(context["right_rebound_days"]), 4)
         self.assertGreater(float(context["first_arc_month_avg_volume"]), 0)
         self.assertGreater(float(context["second_arc_avg_daily_volume"]), 0)
         self.assertGreater(float(context["second_arc_volume_ratio"]), 0)
@@ -651,7 +657,31 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
         self.assertTrue(context["available"])
         self.assertFalse(context["context_ok"])
+        self.assertFalse(context["w_shape_quality_passed"])
+        self.assertIn("left_descent_too_short", context["w_shape_quality_failures"])
+        self.assertIn("right_rebound_faded", context["w_shape_quality_failures"])
         self.assertFalse(cond_w_bottom_right(row))
+
+    def test_w_bottom_segment_quality_rejects_faded_right_side(self) -> None:
+        df = pd.DataFrame(
+            {
+                "high": [15, 14, 13, 12, 11, 10, 11, 12, 13, 14, 15, 14, 13, 12, 10, 14, 13, 12],
+                "low": [14, 13, 12, 11, 10, 9.5, 10, 11, 12, 13, 14, 13, 12, 11, 9.6, 10, 9.8, 9.7],
+                "close": [14.5, 13.5, 12.5, 11.5, 10.5, 9.8, 10.5, 11.5, 12.5, 13.5, 14.5, 13.5, 12.5, 11.5, 9.8, 13.5, 12.5, 10.0],
+            }
+        )
+
+        quality = model_layer.w_bottom_segment_quality(
+            df,
+            left_peak_idx=0,
+            left_low_idx=5,
+            neckline_idx=10,
+            right_low_idx=14,
+            current_close=10.0,
+        )
+
+        self.assertFalse(quality["w_shape_quality_passed"])
+        self.assertIn("right_rebound_faded", quality["w_shape_quality_failures"])
 
     def test_w_bottom_red_candle_bonus_uses_ratio_not_count(self) -> None:
         high_ratio = make_row(
