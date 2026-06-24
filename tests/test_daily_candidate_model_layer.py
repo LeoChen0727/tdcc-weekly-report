@@ -465,7 +465,20 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             attack2_gain_pct="9.0",
             volume_ratio_2_vs_1="1.6",
         )
-        self.assertFalse(cond_w_bottom_right(slight_undercut))
+        self.assertTrue(cond_w_bottom_right(slight_undercut))
+
+        deep_undercut = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="-4.0",
+            distance_to_neckline_pct="-12.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertFalse(cond_w_bottom_right(deep_undercut))
 
         right_low_too_high = make_row(
             category="pattern",
@@ -479,6 +492,47 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(right_low_too_high))
+
+        far_from_neckline_but_turning_up = make_row(
+            category="pattern",
+            pattern_stage="right_side_rebound",
+            volume_breakout_type="",
+            close_above_range_high="",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-12.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="5.0",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertTrue(cond_w_bottom_right(far_from_neckline_but_turning_up))
+
+        right_side_too_early = make_row(
+            category="pattern",
+            pattern_stage="right_side_rebound",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-12.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="2.5",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertFalse(cond_w_bottom_right(right_side_too_early))
+
+        right_side_too_extended = make_row(
+            category="pattern",
+            pattern_stage="right_side_rebound",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="18.0",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertFalse(cond_w_bottom_right(right_side_too_extended))
 
         weak_second_attack = make_row(
             category="pattern",
@@ -547,7 +601,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             volume_breakout_type="",
             close_above_range_high="",
         )
-        self.assertTrue(cond_w_bottom_right(range_rebound_with_detected_w))
+        self.assertFalse(cond_w_bottom_right(range_rebound_with_detected_w))
 
     def test_w_bottom_requires_second_arc_volume_not_red_body_only(self) -> None:
         red_body_only = make_row(
@@ -573,13 +627,31 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         )
 
         self.assertTrue(context["available"])
+        self.assertEqual(context["first_arc_start_date"], context["left_peak_date"])
+        self.assertEqual(context["first_arc_end_date"], context["neckline_date"])
+        self.assertEqual(context["second_arc_start_date"], context["neckline_date"])
+        self.assertEqual(context["second_arc_end_date"], "20260529")
         self.assertGreater(float(context["first_arc_month_avg_volume"]), 0)
         self.assertGreater(float(context["second_arc_avg_daily_volume"]), 0)
-        self.assertGreater(float(context["second_arc_volume_ratio"]), 1.2)
+        self.assertGreater(float(context["second_arc_volume_ratio"]), 0)
         self.assertGreaterEqual(float(context["first_arc_red_candle_ratio"]), 0.0)
         self.assertLessEqual(float(context["first_arc_red_candle_ratio"]), 1.0)
         self.assertGreaterEqual(float(context["second_arc_red_candle_ratio"]), 0.0)
         self.assertLessEqual(float(context["second_arc_red_candle_ratio"]), 1.0)
+
+    def test_detected_w_bottom_rejects_disconnected_shape(self) -> None:
+        row = make_row(
+            stock_id="6462",
+            signal_date="20260623",
+            volume_breakout_type="",
+            close_above_range_high="",
+        )
+
+        context = model_layer.detected_w_bottom_context(row)
+
+        self.assertTrue(context["available"])
+        self.assertFalse(context["context_ok"])
+        self.assertFalse(cond_w_bottom_right(row))
 
     def test_w_bottom_red_candle_bonus_uses_ratio_not_count(self) -> None:
         high_ratio = make_row(
@@ -623,6 +695,20 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         _score, components, _risks = model_layer.score_w_bottom(row)
 
         self.assertTrue(any("second arc red candle ratio improved +4" in item for item in components))
+
+    def test_w_bottom_low_position_is_score_not_gate(self) -> None:
+        low_position = make_row(w_bottom_low_position_pct="8")
+        high_position = make_row(w_bottom_low_position_pct="48")
+
+        low_score, low_components, low_risks = model_layer.w_bottom_low_position_score(low_position)
+        high_score, high_components, high_risks = model_layer.w_bottom_low_position_score(high_position)
+
+        self.assertEqual(low_score, 8.0)
+        self.assertTrue(any("W low position very low +8" in item for item in low_components))
+        self.assertEqual(low_risks, [])
+        self.assertEqual(high_score, -5.0)
+        self.assertEqual(high_components, [])
+        self.assertTrue(any("W_low_position_too_high_penalty" in item for item in high_risks))
 
     def test_neckline_volume_breakout_confirmation_requires_arc_volume_quality(self) -> None:
         row = make_row(
