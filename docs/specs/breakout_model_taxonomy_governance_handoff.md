@@ -244,7 +244,8 @@ It is not enough for:
 3. Keep `volume_range_breakout` unchanged as the current production baseline
    during the first neckline model design.
 4. Produce a formal `neckline_volume_breakout_confirmation` model-change spec
-   before editing production code.
+   before editing production code. The current spec is
+   `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md`.
 5. Implement production model changes only in `daily_model_maintenance`.
 6. Update `config/stock_model_contract_registry.csv` and
    `config/model_surface_registry.csv` only when the formal production surface
