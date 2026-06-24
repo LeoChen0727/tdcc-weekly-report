@@ -1,33 +1,33 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-06-24 00:41:33 Asia/Taipei
-- main_price_date: 20260623
+- generated_at: 2026-06-24 19:50:02 Asia/Taipei
+- main_price_date: 20260624
 - packet_source: daily_market_regime_dashboard
-- packet_status: ready
-- packet_status_note: all source rows aligned with main_price_date
+- packet_status: partial_market_context
+- packet_status_note: TWSE_date=20260623
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260623
-- futures_options_indicators_latest.csv: 20260623
-- TWSE market index: 20260623
-- TPEx market index: 20260623
+- market_regime_latest.csv: 20260624
+- futures_options_indicators_latest.csv: 20260624
+- TWSE market index: 20260623 (latest available at or before main_price_date=20260624)
+- TPEx market index: 20260624
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
 | TWSE | 20260623 | 47,101 | 3.75% | 7.92% | True | True | mild_bull | high_risk |
-| TPEx | 20260623 | 440.81 | 2.66% | 1.34% | True | True | mild_bull | high_risk |
+| TPEx | 20260624 | 442.09 | 2.75% | 0.64% | True | True | mild_bull | high_risk |
 
 ## Futures Options Context
 | item | value | note |
 | --- | ---: | --- |
-| foreign_tx_futures_net_oi | -76,502 | TX futures direction anchor |
-| foreign_futures_net_oi | -588,854 | broad futures exposure only, not TX direction |
-| put_call_oi_ratio_pct | 98.99% | hedging background only |
-| taiwan_vix | 39.32 | volatility / hedging context only |
-| retail_mtx_net_oi_proxy | 11,535 | contrarian sentiment proxy only |
+| foreign_tx_futures_net_oi | -83,605 | TX futures direction anchor |
+| foreign_futures_net_oi | -597,094 | broad futures exposure only, not TX direction |
+| put_call_oi_ratio_pct | 134.59% | hedging background only |
+| taiwan_vix | 40.92 | volatility / hedging context only |
+| retail_mtx_net_oi_proxy | 8,469 | contrarian sentiment proxy only |
 | retail_mtx_proxy_method | negative_sum_of_three_institution_mtx_net_oi | source method |
 
 ## Usage Boundary
@@ -41,14 +41,14 @@
 
 market_sentiment_context:
   taiwan_vix:
-    latest: 39.32
-    percentile_252d: 91.1111
+    latest: 40.92
+    percentile_252d: 94.5055
     percentile_504d: 
     rank_label: top_decile
     context_label: extreme_fear_or_hedging
     index_interpretation: index_strong_but_hedging_elevated
   retail_mtx:
-    latest_proxy: 11535.0
+    latest_proxy: 8469.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
     percentile_252d: 
     percentile_504d: 
