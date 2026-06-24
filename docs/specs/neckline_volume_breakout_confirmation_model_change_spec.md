@@ -154,6 +154,12 @@ Locked or near-locked limit-up may bypass the normal signal-day `volume_ratio`
 and `volume_ma20_lots` gates, but it must not bypass the W-bottom arc-volume
 quality audit.
 
+For W-bottom arc-volume calculation, include all trading days in the selected
+first-arc and second-arc windows. Do not exclude limit-up days from the arc
+average and do not add a separate limit-up distortion flag for this model. The
+limit-up exception applies only to the signal-day volume gate, not to the
+first-arc / second-arc average-volume comparison.
+
 Recommended interpretation:
 
 | second_arc_volume_ratio | treatment |
@@ -174,8 +180,8 @@ Recommended window definition for the implementation PR:
 
 | window | definition |
 |---|---|
-| first arc monthly baseline | month-like average volume around the first trough / first rebound arc, using the audited production window chosen in the implementation PR |
-| second arc daily average | bars from the second trough through the current right-side formation, using average daily volume instead of only the latest day |
+| first arc monthly baseline | month-like average volume around the first trough / first rebound arc, using all trading days in the audited production window chosen in the implementation PR |
+| second arc daily average | bars from the second trough through the current right-side formation, using average daily volume across all trading days in the window instead of only the latest day |
 
 If the right-side formation is too new and does not have enough bars for a
 stable second-arc average, it may remain a lower-confidence watch candidate but
