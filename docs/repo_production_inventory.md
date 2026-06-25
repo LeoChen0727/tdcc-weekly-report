@@ -119,6 +119,7 @@ write research variants into production baselines:
 - `scripts/build_w_bottom_left_anchor_rule_grid.py`
 - `scripts/build_w_bottom_left_anchor_rule_replay.py`
 - `scripts/build_w_bottom_nearest_micro_anchor_event_replay.py`
+- `scripts/build_w_bottom_nearest_micro_anchor_chart_review_packet.py`
 - `scripts/build_w_bottom_observation_confirmation_audit.py`
 - `scripts/build_w_bottom_path_quality_filter_audit.py`
 - `scripts/build_w_bottom_price_level_audit.py`

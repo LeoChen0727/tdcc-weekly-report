@@ -157,6 +157,7 @@ scripts/build_w_bottom_left_anchor_rule_grid.py,python,research_backtest,active,
 scripts/build_w_bottom_left_anchor_rule_replay.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom left-anchor rule replay builder,,medium
 scripts/build_w_bottom_manual_positive_missed_case_audit.py,python,research_backtest,active,,scripts/build_w_bottom_left_anchor_pattern_family_audit.py,,,,,research/backtest W-bottom manual positive missed-case audit builder,,medium
 scripts/build_w_bottom_nearest_micro_anchor_event_replay.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom nearest micro anchor event replay builder,,medium
+scripts/build_w_bottom_nearest_micro_anchor_chart_review_packet.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom nearest micro anchor chart review packet builder,,medium
 scripts/build_w_bottom_observation_confirmation_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom observation confirmation audit builder,,medium
 scripts/build_w_bottom_path_quality_filter_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom path quality filter audit builder,,medium
 scripts/build_w_bottom_price_level_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom price level audit builder,,medium
@@ -271,6 +272,7 @@ scripts/validate_w_bottom_left_anchor_rule_grid.py,python,research_backtest,acti
 scripts/validate_w_bottom_left_anchor_rule_replay.py,python,research_backtest,active,,,,,,,research/backtest W-bottom left-anchor rule replay validator,,medium
 scripts/validate_w_bottom_manual_positive_missed_case_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom manual positive missed-case audit validator,,medium
 scripts/validate_w_bottom_nearest_micro_anchor_event_replay.py,python,research_backtest,active,,,,,,,research/backtest W-bottom nearest micro anchor event replay validator,,medium
+scripts/validate_w_bottom_nearest_micro_anchor_chart_review_packet.py,python,research_backtest,active,,,,,,,research/backtest W-bottom nearest micro anchor chart review packet validator,,medium
 scripts/validate_w_bottom_observation_confirmation_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom observation confirmation audit validator,,medium
 scripts/validate_w_bottom_path_quality_filter_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom path quality filter audit validator,,medium
 scripts/validate_w_bottom_price_level_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom price level audit validator,,medium
