@@ -96,6 +96,52 @@ def test_stock_history_must_cover_daily_price_file_for_target_stocks(tmp_path: P
     assert "20260610: stock history missing row for 2243" in result.errors
 
 
+def test_warrant_like_daily_price_id_does_not_alias_target_stock_history(tmp_path: Path) -> None:
+    _write_freshness(tmp_path, "20260604")
+    _write_daily_price(
+        tmp_path,
+        "20260604",
+        [
+            {
+                "date": "20260604",
+                "stock_id": "707631",
+                "stock_name": "Warrant",
+                "market": "TPEx",
+                "open": 0.61,
+                "high": 0.65,
+                "low": 0.61,
+                "close": 0.64,
+                "volume": 1,
+                "trading_value": 47000,
+                "source": "TPEX_OLD_DAILY_JSON",
+            },
+            {
+                "date": "20260604",
+                "stock_id": "00713",
+                "stock_name": "ETF",
+                "market": "TWSE",
+                "open": 59.6,
+                "high": 60.35,
+                "low": 59.45,
+                "close": 60.2,
+                "volume": 12948905,
+                "trading_value": 776313074,
+                "source": "TWSE_RWD_JSON_MI_INDEX",
+            },
+        ],
+    )
+
+    signal_path = tmp_path / "output" / "latest" / "daily_volume_breakout_operation_section_latest.csv"
+    signal_path.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame([{"stock_id": "7631"}]).to_csv(signal_path, index=False)
+
+    result = validator.validate(tmp_path, lookback_days=0, min_full_rows=1)
+
+    assert result.status == "pass"
+    assert result.report["stock_history_missing_row_count"] == 0
+    assert not any("7631" in error for error in result.errors)
+
+
 def test_daily_workflow_runs_price_history_continuity_gate() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
