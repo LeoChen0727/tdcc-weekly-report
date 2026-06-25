@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-06-24 22:24:38 Asia/Taipei
+- generated_at: 2026-06-25 22:24:59 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 8358 | 金居 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 8358 | 金居 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                  最近一月單月     去年同月       與去年同期增減%                   (115年5月)    (114年5月) ----------------------------------------------------------------- 營業收入(百萬元)      942              666           41.4% 稅前淨利(百萬元)      226               56          303.6% 歸屬母公司業主 淨利(百萬元)          181               44          311.4% 每股盈餘 (元)        0.72             0.18          300.0% ================================================================= (2)單季                   最近一季單季    去年同期        與去年同期增減%                   (115第1季)      (114第1季) ----------------------------------------------------------------- 營業收入(百萬元)     2,532            1,728          46.5% 稅前淨利(百萬元)       649              330          96.7% 歸屬母公司業主 淨利(百萬元)           520              265          96.2% 每股盈餘 (元)         2.06             1.05          96.2% ================================================================= (3)最近四季累計                 (114年第2季至115年第1季) ----------------------------------------------------------------- 營業收入(百萬元)            8,684 稅前淨利(百萬元)            1,660 歸屬母公司業主 淨利(百萬元)                1,318 每股盈餘 (元)                5.22 公司每股面額:10元 ================================================================= 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製 之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

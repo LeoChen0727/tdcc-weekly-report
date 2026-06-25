@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6180 橘子
 
 ## Metadata
-- generated_at: 2026-06-24 22:24:03 Asia/Taipei
+- generated_at: 2026-06-25 22:24:15 Asia/Taipei
 - stock_id: 6180
 - stock_name: 橘子
 - packet_status: standard_180d_window_packet
@@ -190,7 +190,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6180 | 橘子 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 6180 | 橘子 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/24 2.功能性委員會名稱:提名委員會 3.舊任者姓名: (1)劉柏園 (2)盛保熙 (3)林瑞益 (4)陳冠百 (5)侯嘉騏 4.舊任者簡歷: (1)劉柏園/遊戲橘子數位科技(股)公司董事長暨執行長 (2)盛保熙/保瑞藥業(股)公司董事長暨總經理 (3)林瑞益/星瑞林(股)公司董事長 (4)陳冠百/百川國際投資(股)公司董事長 (5)侯嘉騏/雋揚國際(股)公司董事長 5.新任者姓名: (1)劉柏園 (2)盛保熙 (3)林瑞益 (4)陳冠百 (5)侯嘉騏 6.新任者簡歷: (1)劉柏園/遊戲橘子數位科技(股)公司董事長暨執行長 (2)盛保熙/保瑞藥業(股)公司董事長暨總經理 (3)林瑞益/星瑞林(股)公司董事長 (4)陳冠百/百川國際投資(股)公司董事長 (5)侯嘉騏/雋揚國際(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/20~115/06/19 10.新任生效日期:115/06/24 11.其他應敘明事項:新任委員任期與本屆董事會任期相同；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

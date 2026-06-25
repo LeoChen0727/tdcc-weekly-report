@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-06-24 22:24:05 Asia/Taipei
+- generated_at: 2026-06-25 22:24:17 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6223 | 旺矽 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: (1)普通股現金股利:新台幣2,155,588,798元(每股22元) 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/12 6.停止過戶起始日期:115/07/13 7.停止過戶截止日期:115/07/17 8.除權（息）基準日:115/07/17 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 6223 | 旺矽 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  |  | continued_2_3d | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 旺矽六(62236)轉債相關資訊 到期日期：120/06/15 實際發行總額：新台幣5,000,000,000元整 本月發行餘額：新台幣5,000,000,000元整(截至115/06/24) 最新轉(交)換價格：6223 轉換標的收市價格(6223)：7175.00(115/06/24) 轉債收市價格(62236)：158.00(115/06/24) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

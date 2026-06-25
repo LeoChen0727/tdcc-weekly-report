@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-06-24 22:23:05 Asia/Taipei
+- generated_at: 2026-06-25 22:23:05 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
@@ -185,7 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2409 | 友達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/26 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：倫敦、蘇黎士、巴黎 4.法人說明會擇要訊息：本公司將參加J.P Morgan舉辦之「Asia Pacific All Star Forum – London」以及 「Non-Deal Roadshow」，就115年第一季法說會之內容說明公司營運與財務概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 2409 | 友達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.董事會決議日期:115/06/24 2.股東會召開日期:115/06/24 3.股東會召開地點:友達光電(股)公司（新竹市科學園區力行二路一號） 4.召集事由一、報告事項:無 5.召集事由二、承認事項: (1)承認2025年財務報表案 6.召集事由三、討論事項: (1)聘任會計師案 7.召集事由四、選舉事項: (1)選任董事案 8.召集事由五、其他議案:無 9.召集事由六、臨時動議:無 10.停止過戶起始日期:NA 11.停止過戶截止日期:NA 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2323 中環
 
 ## Metadata
-- generated_at: 2026-06-24 22:23:01 Asia/Taipei
+- generated_at: 2026-06-25 22:23:00 Asia/Taipei
 - stock_id: 2323
 - stock_name: 中環
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2323 | 中環 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.證券名稱: 南亞科 普通股 2.交易日期:115/6/23~115/6/23 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年06月23日 5.交易數量、每單位價格及交易總金額: 交易數量(仟股):1,540 每單位價格(元):471.42 交易總金額(元):725,993,051 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:1,734,000股、金額:783,411,899元     持股比例:0.05%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:82.92%   占歸屬於母公司業主之權益比例:119.09%  營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/03/31授權有權交易人在115年第二季期間，得於集中交易市場進行有價證券交易；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 2323 | 中環 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.證券名稱: 南亞科 普通股 2.交易日期:115/6/22~115/6/24 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年06月24日 5.交易數量、每單位價格及交易總金額: 交易數量(仟股):1,100 每單位價格(元):462.74 交易總金額(元):509,014,511 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益32,608,032元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:1,854,000股、金額:837,106,320元  持股比例:0.05%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:82.16%    占歸屬於母公司業主之權益比例:117.99%    營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/03/31授權有權交易人在115年第二季期間，得於集中交易市場進行有價證券交易；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

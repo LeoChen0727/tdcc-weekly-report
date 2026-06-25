@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-06-24 22:24:01 Asia/Taipei
+- generated_at: 2026-06-25 22:24:12 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6141 | 柏承 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/06/23 2.公司名稱:柏承科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:NA 5.發生緣由:更正(1)應募人是否含有公司內部人或關係人(2)辦理私募之資金用途及預計  達成效益相關資訊 6.更正資訊項目/報表名稱:更正(1)應募人是否含有公司內部人或關係人(2)辦理私募之 資金用途及預計達成效益相關資訊 7.更正前金額/內容/頁次: (1)應募人是否含有公司內部人或關係人:是 (2)辦理私募之資金用途及預計達成效益:本次募集之資金將用以充實營運資金、償還銀 行借款所需，預計將達成降低公司利息支出、改善財務結構及提升未來營運績效之效益 ，對股東權益有正面且實質之助益。 8.更正後金額/內容/頁次: (1)應募人是否含有公司內部人或關係人:否 (2)辦理私募之資金用途及預計達成效益:本次募集之資金將用以充實營運資金、償還銀 行借款所需，「各分次」預計將達成降低公司利息支出、改善財務結構及提升未來營運 績效之效益，對股東權益有正面且實質之助益。 9.因應措施:NA 10.其他應敘明事項:無；calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_3d |
+| 20260624 | 6141 | 柏承 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認一一四年度虧損撥補案 3.重要決議事項二、章程修訂:NA 4.重要決議事項三、營業報告書及財務報表:通過承認一一四年度決算表冊案 5.重要決議事項四、董監事選舉:NA 6.重要決議事項五、其他事項: (1)通過討論修訂本公司【董事選舉辦法】案 (2)通過討論修訂本公司【背書保證作業辦法】案 (3)通過討論本公司辦理減資彌補虧損案 (4)通過討論本公司擬以私募方式辦理現金增資發行普通股案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

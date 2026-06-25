@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6411 晶焱
 
 ## Metadata
-- generated_at: 2026-06-24 22:24:08 Asia/Taipei
+- generated_at: 2026-06-25 22:24:21 Asia/Taipei
 - stock_id: 6411
 - stock_name: 晶焱
 - packet_status: standard_180d_window_packet
@@ -192,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6411 | 晶焱 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 6411 | 晶焱 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | 1.主管機關核准減資日期:NA 2.辦理資本變更登記完成日期:115/06/23 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)本次註銷限制員工權利新股3,300股，    每股面額新台幣10元，共計減少資本33,000元。 (2)註銷減資前：本公司實收資本額為新台幣995,006,310元，    流通在外股數為99,500,631股，每股淨值新台幣48.91元。 (3)註銷減資後：實收資本額為新台幣994,973,310元，    流通在外股數為99,497,331股，每股淨值新台幣48.91元。 (註：每股淨值以115年第1季之財務報表歸屬於母公司業主之權益為計算依據) 4.預計換股作業計畫:不適用。 5.預計減資新股上櫃後之上櫃普通股股數:不適用。 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 8.其他應敘明事項: (1)本公司於115/06/24接獲經濟部變更登記核准函。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

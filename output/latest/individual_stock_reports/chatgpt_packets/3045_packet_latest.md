@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-06-24 22:23:21 Asia/Taipei
+- generated_at: 2026-06-25 22:23:25 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發4.8元(現金股利3.9834元、資本公積現金返還0.8166元)。 3.變更後發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發約4.74428元(現金股利3.93716元、資本公積現金返還0.80712元)。 4.變更原因:依115年股東常會決議，每股現金股利及資本公積現金返還金額依除息 基準日實際流通在外股數計算。 5.其他應敘明事項: 本公司股東台信電訊(股)公司、台固新創投資(股)公司及台灣固網(股)公司拋棄領取 所持股份之現金股利及資本公積資本公積現金返還，本公司並將其比例分派與其餘股 東。本公司流通在外股數3,723,431,015股，扣除上述三家公司拋棄領取現金股利及 資本公積現金返還之股數663,403,601股，以實際領取股數3,060,027,414股計算每股 配發金額。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

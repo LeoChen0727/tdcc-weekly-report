@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-06-24 22:23:32 Asia/Taipei
+- generated_at: 2026-06-25 22:23:38 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3537 | 堡達 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補: 決議通過承認114年度盈餘分派案。 配發股東現金股利112,485,958元，每股配發2元。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 決議通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260624 | 3537 | 堡達 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 股東股利之現金股利總額112,485,958元，依公司實際發行股份總數 56,242,979股核算，每股配發新台幣2元，發放至元為止，不足一 元之畸零款合計數，由小數點數字自大至小及戶號由前至後順序調 整，至符合現金股利分配總額。 4.除權（息）交易日:115/07/29 5.最後過戶日:115/07/30 6.停止過戶起始日期:115/07/31 7.停止過戶截止日期:115/08/04 8.除權（息）基準日:115/08/04 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 凡持有本公司股票而尚未辦理過戶之股東，務請於115/07/30(星期四) 下午四時三十分前親洽或以掛號郵寄(以郵戳為憑)本公司股務代理機 構華南永昌綜合證券股務代理部(地址：台北市民生東路四段54號4樓) 辦理過戶手續。參加集保戶者，本公司將依台灣集中保管結算所股份 有限公司資料逕行辦理過戶手續。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
