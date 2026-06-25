@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-06-24 19:50:02 Asia/Taipei
+- generated_at: 2026-06-26 00:13:17 Asia/Taipei
 - main_price_date: 20260624
 - packet_source: daily_market_regime_dashboard
 - packet_status: partial_market_context
@@ -23,11 +23,11 @@
 ## Futures Options Context
 | item | value | note |
 | --- | ---: | --- |
-| foreign_tx_futures_net_oi | -83,605 | TX futures direction anchor |
-| foreign_futures_net_oi | -597,094 | broad futures exposure only, not TX direction |
-| put_call_oi_ratio_pct | 134.59% | hedging background only |
+| foreign_tx_futures_net_oi | -81,051 | TX futures direction anchor |
+| foreign_futures_net_oi | -594,327 | broad futures exposure only, not TX direction |
+| put_call_oi_ratio_pct | 114.57% | hedging background only |
 | taiwan_vix | 40.92 | volatility / hedging context only |
-| retail_mtx_net_oi_proxy | 8,469 | contrarian sentiment proxy only |
+| retail_mtx_net_oi_proxy | 6,464 | contrarian sentiment proxy only |
 | retail_mtx_proxy_method | negative_sum_of_three_institution_mtx_net_oi | source method |
 
 ## Usage Boundary
@@ -42,13 +42,13 @@
 market_sentiment_context:
   taiwan_vix:
     latest: 40.92
-    percentile_252d: 94.5055
+    percentile_252d: 94.5652
     percentile_504d: 
     rank_label: top_decile
     context_label: extreme_fear_or_hedging
     index_interpretation: index_strong_but_hedging_elevated
   retail_mtx:
-    latest_proxy: 8469.0
+    latest_proxy: 6464.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
     percentile_252d: 
     percentile_504d: 

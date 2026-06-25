@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-24 19:50:01 Asia/Taipei`
+- generated_at: `2026-06-26 00:13:15 Asia/Taipei`
 - data_date: `20260624`
 - market_regime: `mild_bull`
 - risk_level: `high_risk`
@@ -13,11 +13,11 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260624 |
-| futures_contracts | ok | 66 | 20260624 |
-| options_call_put | ok | 30 | 20260624 |
-| put_call_ratio | ok | 22 | 20260624 |
-| taiwan_vix | ok | 79 | 20260624 |
+| institutional_fo | ok | 3 | 20260625 |
+| futures_contracts | ok | 66 | 20260625 |
+| options_call_put | ok | 30 | 20260625 |
+| put_call_ratio | ok | 22 | 20260625 |
+| taiwan_vix | ok | 80 | 20260625 |
 
 ## 大盤指數結構
 
@@ -30,25 +30,25 @@
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -83,605 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +3,277 |  |
-| Trust TX futures net OI | +60,757 |  |
-| Retail MTX net OI proxy | +8,469 | neutral |
-| Foreign TXO call net OI | -765 |  |
-| Foreign TXO put net OI | +3,981 |  |
-| TXO put/call OI ratio | 134.59% | neutral |
+| Foreign TX futures net OI | -81,051 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +3,003 |  |
+| Trust TX futures net OI | +60,921 |  |
+| Retail MTX net OI proxy | +6,464 | neutral |
+| Foreign TXO call net OI | -974 |  |
+| Foreign TXO put net OI | +3,916 |  |
+| TXO put/call OI ratio | 114.57% | neutral |
 | Taiwan VIX | 40.92 | panic_high |
 
 ## 近期總經事件日曆
 
-- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=-7, importance=high)
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=1, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=1, importance=high)
-- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=8, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=13, importance=medium)
-- 20260714 US_CPI: CPI release schedule: June 2026 (days=20, importance=high)
-- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=35, importance=high)
-- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=36, importance=medium)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=-1, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=-1, importance=high)
+- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=6, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=11, importance=medium)
+- 20260714 US_CPI: CPI release schedule: June 2026 (days=18, importance=high)
+- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=33, importance=high)
+- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=34, importance=medium)
+- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=34, importance=high)
 
 ## 半年技術圖表
 
@@ -69,7 +69,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+8,469`
+- latest_proxy_value: `+6,464`
 - state: `neutral`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
@@ -90,16 +90,16 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `40.92`
-- 252D high / low / percentile: `43.92` / `25.68` / `94.51%`
+- 252D high / low / percentile: `43.92` / `25.68` / `94.57%`
 - 504D percentile: `-`
-- z-score: `1.43`
+- z-score: `1.42`
 - vix_return_5d / 10d / 20d: `4.33%` / `5.87%` / `24.34%`
 - TWSE / TPEx position: TWSE dist 60D high `-1.34%`, TPEx dist 60D high `-2.52%`
 - vix_index_interpretation: `index_strong_but_hedging_elevated`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `8,469`
+- retail_mtx_net_oi_proxy latest: `6,464`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low / percentile: `-` / `-` / `-`
 - 504D percentile: `-`

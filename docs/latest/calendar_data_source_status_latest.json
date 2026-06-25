@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25 18:06:13 Asia/Taipei",
+  "generated_at": "2026-06-26 00:08:28 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -11,7 +11,7 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 1316
+      "rows": 1285
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
@@ -40,7 +40,7 @@
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 385,
+      "rows": 468,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
@@ -53,7 +53,7 @@
     "bea_release_schedule": {
       "url": "https://www.bea.gov/news/schedule",
       "status": "ok",
-      "rows": 22,
+      "rows": 20,
       "error": "",
       "http_status": 200
     },

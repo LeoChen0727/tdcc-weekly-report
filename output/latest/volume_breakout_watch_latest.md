@@ -1,6 +1,6 @@
 # Volume Attack Watch
 
-- generated_at: `2026-06-24 19:47:30 Asia/Taipei`
+- generated_at: `2026-06-26 00:10:29 Asia/Taipei`
 - main_price_date: `20260624`
 - total_watch_rows: `17`
 - priority_distribution: `{'A_bottom_volume_attack': 17}`

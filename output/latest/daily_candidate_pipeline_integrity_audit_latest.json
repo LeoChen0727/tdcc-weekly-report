@@ -8,9 +8,9 @@
     "selection_audit": {
       "main_price_date": "20260624",
       "effective_candidate_signal_date": "20260624",
-      "all_candidates_rows": 372,
-      "raw_model_signal_rows": 398,
-      "report_model_signal_rows": 398,
+      "all_candidates_rows": 611,
+      "raw_model_signal_rows": 615,
+      "report_model_signal_rows": 615,
       "volume_watch_rows": 17,
       "tdcc_short_edge_rows": 46,
       "volume_watch_fresh": true,
@@ -54,7 +54,7 @@
     ],
     "same_report_line_model_stock_duplicates": 0,
     "pdf_facing_text_leak_counts": {},
-    "taxonomy_rows": 2372,
+    "taxonomy_rows": 2371,
     "taxonomy_blank_basic_theme_rows": 0,
     "taxonomy_blank_report_line_memberships": 0
   }

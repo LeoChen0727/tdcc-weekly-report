@@ -1,6 +1,6 @@
 # Daily Volume Breakout Operation Section
 
-- generated_at: `2026-06-24 19:47:57 Asia/Taipei`
+- generated_at: `2026-06-26 00:10:59 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - source: `daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history`
 - approval_source: `approved_operation_patterns_latest.csv`
@@ -80,7 +80,7 @@
 |               8 | data       | 6525 捷敏-KY      |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | D+1 待確認          |          2965 |         44.23 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |               9 | data       | 6226 光鼎         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          2965 |         44.23 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |              10 | data       | 6719 力智         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          2965 |         44.23 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
-|              13 | data       | 3374 精材         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          2965 |         44.23 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
+|              11 | data       | 3374 精材         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          2965 |         44.23 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |              14 | data       | 3093 港建*        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          2965 |         44.23 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |              14 | data       | 3257 虹冠電        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | D+1 待確認          |          2965 |         44.23 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 
