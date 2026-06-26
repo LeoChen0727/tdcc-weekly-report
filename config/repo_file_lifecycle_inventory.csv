@@ -160,6 +160,7 @@ scripts/build_w_bottom_nearest_micro_anchor_event_replay.py,python,research_back
 scripts/build_w_bottom_nearest_micro_anchor_chart_review_packet.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom nearest micro anchor chart review packet builder,,medium
 scripts/build_w_bottom_combined_condition_backtest.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom combined condition backtest builder,,medium
 scripts/build_w_bottom_split_entry_outcome_backtest.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom split entry outcome backtest builder,,medium
+scripts/build_w_bottom_early_entry_parameter_grid.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry parameter grid builder,,medium
 scripts/build_w_bottom_observation_confirmation_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom observation confirmation audit builder,,medium
 scripts/build_w_bottom_path_quality_filter_audit.py,python,research_backtest,active,,scripts/build_w_bottom_combined_condition_backtest.py,,docs/repo_production_inventory.md,,,research/backtest W-bottom path quality filter audit builder,,medium
 scripts/build_w_bottom_price_level_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom price level audit builder,,medium
@@ -277,6 +278,7 @@ scripts/validate_w_bottom_nearest_micro_anchor_event_replay.py,python,research_b
 scripts/validate_w_bottom_nearest_micro_anchor_chart_review_packet.py,python,research_backtest,active,,,,,,,research/backtest W-bottom nearest micro anchor chart review packet validator,,medium
 scripts/validate_w_bottom_combined_condition_backtest.py,python,research_backtest,active,,,,,,,research/backtest W-bottom combined condition backtest validator,,medium
 scripts/validate_w_bottom_split_entry_outcome_backtest.py,python,research_backtest,active,,,,,,,research/backtest W-bottom split entry outcome backtest validator,,medium
+scripts/validate_w_bottom_early_entry_parameter_grid.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry parameter grid validator,,medium
 scripts/validate_w_bottom_observation_confirmation_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom observation confirmation audit validator,,medium
 scripts/validate_w_bottom_path_quality_filter_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom path quality filter audit validator,,medium
 scripts/validate_w_bottom_price_level_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom price level audit validator,,medium
