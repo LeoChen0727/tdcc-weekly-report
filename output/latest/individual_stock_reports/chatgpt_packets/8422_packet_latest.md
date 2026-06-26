@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:00 Asia/Taipei
+- generated_at: 2026-06-25 22:25:00 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 281
+- latest_price_date: 20260624
+- price_rows: 283
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 28.4
-- high: 29.4
-- low: 28.35
-- close: 28.95
-- volume: 13420080
-- ma5: 28.46
-- ema23_primary: 28.21
-- distance_to_ema23_pct: 2.61
-- ma20: 28.12
-- ma60: 28.29
-- ma120: 31.19
-- return_5d: -0.17
-- return_20d: 8.02
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 2.94
-- distance_to_high_60_pct: -8.53
+- date: 20260624
+- open: 28.8
+- high: 29.15
+- low: 28.55
+- close: 28.65
+- volume: 8111930
+- ma5: 28.63
+- ema23_primary: 28.31
+- distance_to_ema23_pct: 1.2
+- ma20: 28.27
+- ma60: 28.25
+- ma120: 31.26
+- return_5d: 2.14
+- return_20d: 5.52
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 1.34
+- distance_to_high_60_pct: -9.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,27,27.95,27,27.55,12513338,27.44,0.39,27.26,29.24,1.44
-20260526,28,28.45,27.15,27.15,11842845,27.42,-0.98,27.21,29.12,1.38
 20260527,27.5,27.6,27.1,27.3,6946127,27.41,-0.4,27.17,29,0.8
 20260528,27.3,27.45,26.6,26.7,8073445,27.35,-2.38,27.11,28.88,0.92
 20260529,27,27.3,26.7,26.9,7161633,27.31,-1.51,27.07,28.79,0.81
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,28.1,28.85,28.05,28.45,8570406,28.15,1.07,27.93,28.3,0.5
 20260618,28.6,28.6,28.1,28.1,9757045,28.15,-0.16,28.02,28.28,0.56
 20260622,28.4,29.4,28.35,28.95,13420080,28.21,2.61,28.12,28.29,0.76
+20260623,29.3,29.35,28.75,29,9736454,28.28,2.55,28.2,28.27,0.56
+20260624,28.8,29.15,28.55,28.65,8111930,28.31,1.2,28.27,28.25,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8422 | 可寧衛* | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260629; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False |
-| 20260622 | 8422 | 可寧衛* | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260629; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 8422 | 可寧衛* | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 31.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260629; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 8422 | 可寧衛* | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8422 | 可寧衛* | 1 | 1 | 4 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 8422 | 可寧衛* | 3 | 3 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8422 | 可寧衛* | 85 | 12 | 765500.0 | 0.0 |  | no_signal |
+| 20260624 | 8422 | 可寧衛* | 85 | 0 | 199740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

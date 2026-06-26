@@ -511,6 +511,14 @@ def write_markdown(audit: pd.DataFrame, generated_at: str) -> None:
         & audit["period_type"].eq("month")
         & audit["segment_id"].eq("smooth_right_rebound_5_20")
     ].copy()
+    populated_periods = sorted(
+        period for period in neutral_month["period_id"].astype(str).unique() if period
+    )
+    signal_window = (
+        f"{populated_periods[0]} to {populated_periods[-1]}"
+        if populated_periods
+        else "pending_review"
+    )
 
     lines = [
         "# W-Bottom Early-Entry Stability Audit",
@@ -520,7 +528,7 @@ def write_markdown(audit: pd.DataFrame, generated_at: str) -> None:
         "- production impact: `none`",
         "- surface: `w_bottom_right_low_early_entry` only.",
         "- scope: variant nearest-micro event replay, split by signal month and quarter.",
-        "- limitation: current available signal window is 2026-01 to 2026-06, so this is a short-window stability check, not long-term evidence.",
+        f"- limitation: current backfilled signal window is `{signal_window}`; this remains a short-window stability check, not long-term evidence.",
         "",
         "## Strict Segment Monthly Rollup",
         "",

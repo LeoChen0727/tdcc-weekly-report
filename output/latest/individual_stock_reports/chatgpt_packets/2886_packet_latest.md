@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:17 Asia/Taipei
+- generated_at: 2026-06-25 22:23:19 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45.5
-- high: 45.5
-- low: 44.45
-- close: 44.75
-- volume: 53658490
-- ma5: 44.77
-- ema23_primary: 42.58
-- distance_to_ema23_pct: 5.09
-- ma20: 42.29
-- ma60: 40.45
-- ma120: 40.16
-- return_5d: 3.11
-- return_20d: 12.16
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 5.82
-- distance_to_high_60_pct: -2.72
+- date: 20260624
+- open: 45
+- high: 45.15
+- low: 44.4
+- close: 44.55
+- volume: 55119085
+- ma5: 45.02
+- ema23_primary: 42.95
+- distance_to_ema23_pct: 3.74
+- ma20: 42.83
+- ma60: 40.65
+- ma120: 40.23
+- return_5d: 0.11
+- return_20d: 13.07
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 4.01
+- distance_to_high_60_pct: -3.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,39.9,39.9,39.5,39.5,34301485,39.72,-0.54,39.72,39.46,1.32
-20260526,39.5,40.05,39.4,39.4,31557374,39.69,-0.73,39.7,39.44,1.23
 20260527,39.6,39.95,39.4,39.45,29286253,39.67,-0.55,39.66,39.43,1.15
 20260528,39.8,40.25,39.5,39.8,36810439,39.68,0.3,39.65,39.42,1.4
 20260529,40.45,40.85,40,40,121250792,39.71,0.74,39.69,39.41,3.93
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,44.2,45.45,44.2,45.1,33119965,42.1,7.12,41.78,40.24,0.79
 20260618,45.1,46,44.85,45.5,72606918,42.38,7.35,42.05,40.36,1.64
 20260622,45.5,45.5,44.45,44.75,53658490,42.58,5.09,42.29,40.45,1.18
+20260623,44.5,45.7,44.3,45.2,47309566,42.8,5.61,42.58,40.55,1.03
+20260624,45,45.15,44.4,44.55,55119085,42.95,3.74,42.83,40.65,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 兆豐國際商業銀行股份有限公司  臺北市中山區吉林路100號7樓 2.事實發生日:115/6/22~115/6/22 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年6月22日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 租賃面積:1坪 每單位價格:每坪租金每個月為新台幣1,625元(含稅) 租金總金額:每個月新台幣1,625元(含稅) 使用權資產金額:新台幣58,500元(含稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人:兆豐國際商業銀行股份有限公司 與公司之關係:母公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因:業務需求，原址續租 前次移轉之所有人:不適用 前次移轉之所有人與公司及交易相對人間相互之關係:不適用 前次移轉日期:不適用 前次移轉金額:不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款條件:每年付一次，每次支付新台幣19,500元(含稅)。 契約期間:115.7.1~118.6.30 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 本次交易之決定方式：租賃雙方議價。 價格決定之參考依據:參考鄰近地區之租金 決策單位：董事會授權由董事長核定。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 承租作為辦公室使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用，董事會授權由董事長核定。 27.本次交易係向關係人取得不動產或其使用權資產: 是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.事實發生日:115/06/24 2.公司名稱:兆豐證券股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:兆豐證券115/06/24召開董事會，決議事項如下：為取 得中長期營運週轉資金，擬由國泰世華商業銀行股份有限公司 於新台幣60億元加減30%之額度內統籌主辦3年期銀行聯合授信 案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 董事會授權董事長辦理銀行團之籌組暨簽約等相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2886 | 兆豐金 | 1 | 1 | 4 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 2886 | 兆豐金 | 3 | 3 | 4 | 9 | 19 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2886 | 兆豐金 | 4 | 0 | 1796960.0 | 0.0 |  | call_inflow |
+| 20260624 | 2886 | 兆豐金 | 4 | 0 | 811000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -32,6 +32,11 @@ EXPECTED_SEGMENTS = {
     "smooth_right_rebound_5_20_red_ratio_gt_first",
     "smooth_right_rebound_5_20_near_neckline",
 }
+BLOCKING_STABILITY_STATUSES = {
+    "insufficient_period_coverage_for_promotion",
+    "insufficient_monthly_repetition",
+    "unstable_period_win_rate",
+}
 
 REQUIRED_COLUMNS = {
     "model_id",
@@ -198,8 +203,8 @@ def main() -> int:
     if len(strict_summary) != 1:
         fail("missing smooth_right_rebound_5_20 neutral-rule summary")
     status = strict_summary.iloc[0]["stability_status"]
-    if status != "insufficient_period_coverage_for_promotion":
-        fail(f"smooth_right_rebound_5_20 must remain blocked by insufficient period coverage; got {status}")
+    if status not in BLOCKING_STABILITY_STATUSES:
+        fail(f"smooth_right_rebound_5_20 must remain blocked from promotion; got {status}")
 
     months = latest[
         latest["row_type"].eq("period")

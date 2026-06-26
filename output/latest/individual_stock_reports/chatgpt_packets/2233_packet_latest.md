@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:55 Asia/Taipei
+- generated_at: 2026-06-25 22:22:58 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 306
-- high: 320.5
-- low: 305.5
-- close: 315.5
-- volume: 1207023
-- ma5: 304.3
-- ema23_primary: 309.76
-- distance_to_ema23_pct: 1.85
-- ma20: 322.55
-- ma60: 283.95
-- ma120: 255.59
-- return_5d: 8.61
-- return_20d: -9.08
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -2.19
-- distance_to_high_60_pct: -19.92
+- date: 20260624
+- open: 256
+- high: 261.5
+- low: 256
+- close: 256
+- volume: 1422227
+- ma5: 292.8
+- ema23_primary: 303.31
+- distance_to_ema23_pct: -15.6
+- ma20: 311.62
+- ma60: 285.21
+- ma120: 257.03
+- return_5d: -15.93
+- return_20d: -32.1
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -17.85
+- distance_to_high_60_pct: -35.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,357,381.5,345,381.5,3823922,304.57,25.26,307.07,254.97,1.65
-20260526,375,394,367,377,3745234,310.61,21.37,313.57,257.44,1.53
 20260527,380,381.5,362,365,2143533,315.14,15.82,319.32,259.63,0.85
 20260528,365.5,377,345,351.5,2379139,318.17,10.47,323.25,261.57,0.96
 20260529,356.5,372,351,353,1723074,321.07,9.94,325.9,263.53,0.76
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,303,311.5,297.5,303,838001,309.57,-2.12,326.1,281.14,0.42
 20260618,309,309,301,305.5,651842,309.23,-1.21,324.12,282.47,0.36
 20260622,306,320.5,305.5,315.5,1207023,309.76,1.85,322.55,283.95,0.73
+20260623,304,304,284,284,2050552,307.61,-7.68,317.68,284.81,1.31
+20260624,256,261.5,256,256,1422227,303.31,-15.6,311.62,285.21,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -185,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2233 | 宇隆 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/22 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:伸興工業股份有限公司 代表人：劉俊昌 4.舊任者簡歷:宇隆科技股份有限公司董事長 5.新任者姓名:伸興工業股份有限公司 代表人：林志誠 6.新任者簡歷:伸興工業股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:辭職 8.異動原因:辭職 9.新任生效日期:115/06/22 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年06月22日接獲董事長請辭董事長職務，生效日為115年06月22日 本公司於同日115年06月22日召開董事會，推舉林志誠董事為新任董事長。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2233 | 宇隆 | 1 | 1 | 2 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2233 | 宇隆 | 47 | 0 | 4472550.0 | 0.0 |  | call_inflow |
+| 20260624 | 2233 | 宇隆 | 46 | 0 | 438490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

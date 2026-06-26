@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8112 至上
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:56 Asia/Taipei
+- generated_at: 2026-06-25 22:24:56 Asia/Taipei
 - stock_id: 8112
 - stock_name: 至上
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 99.8
-- high: 103.5
-- low: 98.3
-- close: 100.5
-- volume: 38207426
-- ma5: 97.72
-- ema23_primary: 92.64
-- distance_to_ema23_pct: 8.49
-- ma20: 92.36
-- ma60: 86.25
-- ma120: 81.67
-- return_5d: 1.72
-- return_20d: 16.59
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 8.81
-- distance_to_high_60_pct: -3.37
+- date: 20260624
+- open: 94.4
+- high: 96.5
+- low: 93.8
+- close: 95.8
+- volume: 12052857
+- ma5: 97.42
+- ema23_primary: 93.14
+- distance_to_ema23_pct: 2.86
+- ma20: 93.61
+- ma60: 86.73
+- ma120: 82.08
+- return_5d: 0
+- return_20d: 15.01
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 2.35
+- distance_to_high_60_pct: -7.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,86.8,86.8,82.7,83.4,31907659,84.23,-0.99,84.78,82.14,1.36
-20260526,83.8,84.7,83.1,83.3,12085666,84.15,-1.02,84.49,82.3,0.54
 20260527,85.4,86.7,84.3,86,37232718,84.31,2.01,84.48,82.51,1.65
 20260528,86,89.3,85.1,86,47052789,84.45,1.84,84.55,82.73,1.94
 20260529,87.7,89.3,86.4,88.6,29849104,84.8,4.49,84.89,83.06,1.19
@@ -153,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,95.4,98,94.3,96.8,17417421,91.35,5.97,91.01,85.62,0.44
 20260618,97.5,99,97.2,98.2,16490673,91.92,6.83,91.64,85.89,0.42
 20260622,99.8,103.5,98.3,100.5,38207426,92.64,8.49,92.36,86.25,0.96
+20260623,101,101.5,94.7,95.8,32163046,92.9,3.12,92.98,86.46,0.8
+20260624,94.4,96.5,93.8,95.8,12052857,93.14,2.86,93.61,86.73,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -185,19 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8112 | 至上 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 24.0 | 2.0 | A_優先追蹤 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 8112 | 至上 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8112 | 至上 | 18 | 3 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 8112 | 至上 | 20 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8112 | 至上 | 153 | 3 | 40421930.0 | 22870.0 | 1767.47 | call_inflow |
+| 20260624 | 8112 | 至上 | 153 | 0 | 16654660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

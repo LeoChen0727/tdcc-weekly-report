@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:28 Asia/Taipei
+- generated_at: 2026-06-25 22:23:30 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 61.5
-- high: 61.7
-- low: 58.5
-- close: 59.1
-- volume: 6083000
-- ma5: 60.48
-- ema23_primary: 57.03
-- distance_to_ema23_pct: 3.64
-- ma20: 59.24
-- ma60: 48.02
-- ma120: 37.5
-- return_5d: -2.15
-- return_20d: 4.79
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -0.24
-- distance_to_high_60_pct: -12.96
+- date: 20260624
+- open: 55.2
+- high: 57.5
+- low: 55.1
+- close: 56.6
+- volume: 4318000
+- ma5: 58.22
+- ema23_primary: 56.88
+- distance_to_ema23_pct: -0.5
+- ma20: 58.88
+- ma60: 48.76
+- ma120: 38.09
+- return_5d: -5.35
+- return_20d: -4.55
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -3.87
+- distance_to_high_60_pct: -16.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,61.8,62,59.2,60.2,61000,46.29,30.04,45.68,39.11,0.01
-20260526,59.1,59.4,55.1,59.3,57000,47.38,25.16,46.62,39.6,0.01
 20260527,61.7,61.8,56,56.4,57000,48.13,17.18,47.27,40.01,0.01
 20260528,56.9,62,56.9,60.2,61000,49.14,22.52,48.09,40.45,0.01
 20260529,62.3,63.6,59.5,60,61000,50.04,19.9,48.95,40.91,0.01
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,59,61,58.1,59.3,7079000,56.51,4.95,58.65,47.21,0.7
 20260618,59.1,61.5,58.8,60.5,6167000,56.84,6.44,59.11,47.66,0.66
 20260622,61.5,61.7,58.5,59.1,6083000,57.03,3.64,59.24,48.02,0.63
+20260623,59.2,59.2,55.2,55.6,5704000,56.91,-2.3,59.02,48.37,0.57
+20260624,55.2,57.5,55.1,56.6,4318000,56.88,-0.5,58.88,48.76,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3221 | 台嘉碩 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 3221 | 台嘉碩 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3221 | 台嘉碩 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260624 | 3221 | 台嘉碩 | 4 | 4 | 4 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

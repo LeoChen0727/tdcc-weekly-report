@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6292 迅德
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:22 Asia/Taipei
+- generated_at: 2026-06-25 22:24:21 Asia/Taipei
 - stock_id: 6292
 - stock_name: 迅德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 69
-- high: 70
-- low: 67.8
-- close: 68
-- volume: 894000
-- ma5: 67.18
-- ema23_primary: 61.41
-- distance_to_ema23_pct: 10.74
-- ma20: 62.95
-- ma60: 53.37
-- ma120: 47.46
-- return_5d: 12.4
-- return_20d: 25.46
-- volume_ratio: 2.22
-- distance_to_ma20_pct_auxiliary: 8.02
-- distance_to_high_60_pct: -8.11
+- date: 20260624
+- open: 60.7
+- high: 61.9
+- low: 60
+- close: 61.7
+- volume: 335000
+- ma5: 65.14
+- ema23_primary: 61.49
+- distance_to_ema23_pct: 0.34
+- ma20: 63.41
+- ma60: 53.98
+- ma120: 47.81
+- return_5d: -8.73
+- return_20d: 8.44
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -2.69
+- distance_to_high_60_pct: -16.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,55,58.5,53.8,57.9,57000,51.57,12.28,51.05,46.96,0.16
-20260526,57.8,57.8,54.8,56.9,56000,52.01,9.4,51.67,47.23,0.16
 20260527,57,62.5,57,62.5,62000,52.88,18.18,52.53,47.59,0.18
 20260528,68.7,68.7,67.1,68.7,69000,54.2,26.75,53.67,48.04,0.2
 20260529,68.5,74,67,69.9,70000,55.51,25.92,54.91,48.51,0.2
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,66.6,66.7,64.8,66,613000,60.17,9.69,61.55,52.57,1.85
 20260618,67.7,69.7,66.1,67.8,832000,60.81,11.5,62.26,52.96,2.31
 20260622,69,70,67.8,68,894000,61.41,10.74,62.95,53.37,2.22
+20260623,67,67,61.9,62.2,459000,61.47,1.18,63.16,53.68,1.09
+20260624,60.7,61.9,60,61.7,335000,61.49,0.34,63.41,53.98,0.77
 ```
 
 ## Latest TDCC Snapshot

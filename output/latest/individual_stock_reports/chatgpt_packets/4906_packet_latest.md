@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:55 Asia/Taipei
+- generated_at: 2026-06-25 22:23:56 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 44.5
-- high: 47.65
+- date: 20260624
+- open: 44
+- high: 46.3
 - low: 43.9
-- close: 47.65
-- volume: 23143645
-- ma5: 44.49
-- ema23_primary: 44.17
-- distance_to_ema23_pct: 7.88
-- ma20: 46.14
-- ma60: 40.55
-- ma120: 34.23
-- return_5d: 7.81
-- return_20d: 18.24
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 3.27
-- distance_to_high_60_pct: -14.61
+- close: 44.85
+- volume: 12804615
+- ma5: 44.89
+- ema23_primary: 44.25
+- distance_to_ema23_pct: 1.35
+- ma20: 46.25
+- ma60: 40.87
+- ma120: 34.51
+- return_5d: 4.55
+- return_20d: 4.67
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -3.03
+- distance_to_high_60_pct: -19.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,41.9,44.3,41.8,44.3,47391433,38.42,15.3,37.89,34.95,1.89
-20260526,44.45,44.45,42,42.85,43668998,38.79,10.47,38.22,35.22,1.68
 20260527,43.15,45.35,42.25,44.75,37094886,39.29,13.91,38.69,35.51,1.35
 20260528,46.5,49.2,46.2,47.3,53893233,39.95,18.38,39.34,35.84,1.81
 20260529,49.9,51.5,47.45,49.7,64823151,40.77,21.91,40.11,36.22,1.99
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,42.2,44.45,42.2,43.65,6105269,43.86,-0.48,45.53,40.05,0.22
 20260618,44.25,44.45,43.2,43.8,7362948,43.85,-0.13,45.77,40.26,0.27
 20260622,44.5,47.65,43.9,47.65,23143645,44.17,7.88,46.14,40.55,0.83
+20260623,48.4,48.75,44.45,44.5,21770653,44.2,0.68,46.15,40.73,0.82
+20260624,44,46.3,43.9,44.85,12804615,44.25,1.35,46.25,40.87,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4906 | 正文 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 4906 | 正文 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4906 | 正文 | 6 | 6 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 4906 | 正文 | 1 | 1 | 4 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4906 | 正文 | 47 | 0 | 8782770.0 | 0.0 |  | call_strong_inflow |
+| 20260624 | 4906 | 正文 | 47 | 0 | 7846220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

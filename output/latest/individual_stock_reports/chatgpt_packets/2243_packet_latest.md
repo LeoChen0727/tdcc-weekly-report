@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:56 Asia/Taipei
+- generated_at: 2026-06-25 22:22:59 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 50
-- high: 50
-- low: 46.55
-- close: 46.55
-- volume: 2310038
-- ma5: 46.22
-- ema23_primary: 34.28
-- distance_to_ema23_pct: 35.77
-- ma20: 32.74
-- ma60: 26.25
-- ma120: 19.46
-- return_5d: 25.13
-- return_20d: 104.17
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 42.19
-- distance_to_high_60_pct: -9.96
+- date: 20260624
+- open: 46.4
+- high: 51.2
+- low: 46.4
+- close: 51
+- volume: 716951
+- ma5: 48.56
+- ema23_primary: 36.61
+- distance_to_ema23_pct: 39.29
+- ma20: 35.27
+- ma60: 27.19
+- ma120: 20.08
+- return_5d: 13.46
+- return_20d: 117.02
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 44.62
+- distance_to_high_60_pct: -1.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,22.8,23.5,22.15,23.5,954090,22.75,3.32,23.77,20.52,0.6
-20260526,23.55,24,23,23.5,610555,22.81,3.03,23.7,20.71,0.4
 20260527,23.9,24.2,23.5,23.75,493649,22.89,3.77,23.52,20.9,0.35
 20260528,24.05,25.95,24.05,24.85,1550575,23.05,7.81,23.35,21.11,1.21
 20260529,24.85,27.3,24.85,27.3,2447888,23.4,16.64,23.35,21.37,1.89
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,43.5,48.2,42.65,47,2219163,31.49,49.28,30.07,25.25,1.03
 20260618,49,51.7,49,51.7,1614835,33.17,55.87,31.55,25.8,0.74
 20260622,50,50,46.55,46.55,2310038,34.28,35.77,32.74,26.25,1.02
+20260623,45.6,46.55,42.85,46.55,1084327,35.31,31.84,33.89,26.68,0.48
+20260624,46.4,51.2,46.4,51,716951,36.61,39.29,35.27,27.19,0.31
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4160 訊聯基因
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:46 Asia/Taipei
+- generated_at: 2026-06-25 22:23:46 Asia/Taipei
 - stock_id: 4160
 - stock_name: 訊聯基因
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 40.15
-- high: 40.45
-- low: 39.2
-- close: 39.4
-- volume: 129000
-- ma5: 40.21
-- ema23_primary: 40.7
-- distance_to_ema23_pct: -3.19
-- ma20: 40.28
-- ma60: 42.64
-- ma120: 46.51
-- return_5d: -1.75
-- return_20d: -4.6
-- volume_ratio: 3.14
-- distance_to_ma20_pct_auxiliary: -2.19
-- distance_to_high_60_pct: -15.81
+- date: 20260624
+- open: 39.35
+- high: 40.25
+- low: 39.35
+- close: 40.05
+- volume: 53000
+- ma5: 40.05
+- ema23_primary: 40.54
+- distance_to_ema23_pct: -1.2
+- ma20: 40.18
+- ma60: 42.44
+- ma120: 46.35
+- return_5d: 0
+- return_20d: -1.6
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -0.32
+- distance_to_high_60_pct: -12.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,41.3,41.4,40.65,40.75,41000,42.7,-4.57,42.62,44.93,0.67
-20260526,40.75,40.75,40.5,40.7,41000,42.53,-4.31,42.48,44.78,0.67
 20260527,40.7,42.3,40.15,41.05,41000,42.41,-3.21,42.38,44.64,0.66
 20260528,41.05,41.05,39.95,40,40000,42.21,-5.24,42.2,44.5,0.64
 20260529,40,40,39.6,39.9,40000,42.02,-5.04,42.01,44.37,0.64
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,40.05,41.3,40,41.1,65000,40.85,0.6,40.42,42.83,1.66
 20260618,41.1,41.1,40.35,40.4,41000,40.82,-1.02,40.38,42.76,1.12
 20260622,40.15,40.45,39.2,39.4,129000,40.7,-3.19,40.28,42.64,3.14
+20260623,40.05,40.05,39.2,39.3,61000,40.58,-3.16,40.21,42.53,1.45
+20260624,39.35,40.25,39.35,40.05,53000,40.54,-1.2,40.18,42.44,1.24
 ```
 
 ## Latest TDCC Snapshot

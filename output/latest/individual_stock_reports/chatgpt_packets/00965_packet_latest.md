@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00965 元大航太防衛科技
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:31 Asia/Taipei
+- generated_at: 2026-06-25 22:22:36 Asia/Taipei
 - stock_id: 00965
 - stock_name: 元大航太防衛科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 25.51
-- high: 25.51
-- low: 25.33
-- close: 25.4
-- volume: 4702651
-- ma5: 25.52
-- ema23_primary: 25.13
-- distance_to_ema23_pct: 1.06
-- ma20: 25.12
-- ma60: 25.13
-- ma120: 25.13
-- return_5d: 3.42
-- return_20d: 0.24
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: 1.13
-- distance_to_high_60_pct: -2.31
+- date: 20260624
+- open: 24.8
+- high: 24.8
+- low: 24.58
+- close: 24.78
+- volume: 3017294
+- ma5: 25.31
+- ema23_primary: 25.09
+- distance_to_ema23_pct: -1.22
+- ma20: 25.02
+- ma60: 25.1
+- ma120: 25.1
+- return_5d: -3.09
+- return_20d: -4.58
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -0.97
+- distance_to_high_60_pct: -4.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,25.5,25.58,25.49,25.57,5964607,,,,,
-20260526,25.78,26,25.78,25.97,4616405,,,,,
 20260527,25.95,25.95,25.77,25.8,3024357,,,,,
 20260528,25.71,25.71,25.22,25.35,2601796,25.43,-0.33,25.61,25.61,0.65
 20260529,25.6,25.71,25.58,25.71,4116211,25.46,0.99,25.62,25.62,1.02
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,25.65,25.92,25.65,25.76,5852168,25.05,2.82,25.08,25.08,1.72
 20260618,25.72,25.91,25.71,25.74,2801243,25.11,2.51,25.11,25.11,0.83
 20260622,25.51,25.51,25.33,25.4,4702651,25.13,1.06,25.12,25.13,1.38
+20260623,25.33,25.33,24.88,24.88,3411203,25.11,-0.93,25.08,25.12,1.04
+20260624,24.8,24.8,24.58,24.78,3017294,25.09,-1.22,25.02,25.1,0.94
 ```
 
 ## Latest TDCC Snapshot

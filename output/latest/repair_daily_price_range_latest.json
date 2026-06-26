@@ -1,222 +1,28 @@
 {
   "rows": [
     {
-      "date": "20260608",
+      "date": "20260625",
       "status": "repaired",
       "twse_rows": 1236,
-      "tpex_rows": 891,
-      "total_rows": 2127,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260608.csv;data/daily_price/daily_price_20260608.csv"
-    },
-    {
-      "date": "20260609",
-      "status": "repaired",
-      "twse_rows": 1239,
-      "tpex_rows": 890,
-      "total_rows": 2129,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260609.csv;data/daily_price/daily_price_20260609.csv"
-    },
-    {
-      "date": "20260610",
-      "status": "repaired",
-      "twse_rows": 1236,
-      "tpex_rows": 892,
-      "total_rows": 2128,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260610.csv;data/daily_price/daily_price_20260610.csv"
-    },
-    {
-      "date": "20260611",
-      "status": "repaired",
-      "twse_rows": 1237,
-      "tpex_rows": 895,
+      "tpex_rows": 896,
       "total_rows": 2132,
       "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260611.csv;data/daily_price/daily_price_20260611.csv"
-    },
-    {
-      "date": "20260612",
-      "status": "repaired",
-      "twse_rows": 1235,
-      "tpex_rows": 891,
-      "total_rows": 2126,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260612.csv;data/daily_price/daily_price_20260612.csv"
-    },
-    {
-      "date": "20260613",
-      "status": "skipped_weekend",
-      "twse_rows": 0,
-      "tpex_rows": 0,
-      "total_rows": 0,
-      "reason": "weekend",
-      "saved_files": ""
-    },
-    {
-      "date": "20260614",
-      "status": "skipped_weekend",
-      "twse_rows": 0,
-      "tpex_rows": 0,
-      "total_rows": 0,
-      "reason": "weekend",
-      "saved_files": ""
-    },
-    {
-      "date": "20260615",
-      "status": "repaired",
-      "twse_rows": 1236,
-      "tpex_rows": 897,
-      "total_rows": 2133,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260615.csv;data/daily_price/daily_price_20260615.csv"
-    },
-    {
-      "date": "20260616",
-      "status": "repaired",
-      "twse_rows": 1238,
-      "tpex_rows": 895,
-      "total_rows": 2133,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260616.csv;data/daily_price/daily_price_20260616.csv"
-    },
-    {
-      "date": "20260617",
-      "status": "repaired",
-      "twse_rows": 1234,
-      "tpex_rows": 892,
-      "total_rows": 2126,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260617.csv;data/daily_price/daily_price_20260617.csv"
-    },
-    {
-      "date": "20260618",
-      "status": "repaired",
-      "twse_rows": 1237,
-      "tpex_rows": 895,
-      "total_rows": 2132,
-      "reason": "full_market_ok",
-      "saved_files": "data/daily_price/20260618.csv;data/daily_price/daily_price_20260618.csv"
+      "saved_files": "data/daily_price/20260625.csv;data/daily_price/daily_price_20260625.csv"
     }
   ],
   "check_rows": [
     {
-      "date": "20260608",
-      "stock_id": "2243",
+      "date": "20260625",
+      "stock_id": "2330",
       "found": true,
-      "stock_name": "宏旭-KY",
+      "stock_name": "台積電",
       "market": "TWSE",
-      "open": "25.25",
-      "high": "27.95",
-      "low": "25.25",
-      "close": "27.75",
-      "volume": "1974871",
-      "trading_value": "51228530"
-    },
-    {
-      "date": "20260609",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "27.85",
-      "high": "28.5",
-      "low": "27.5",
-      "close": "28.5",
-      "volume": "992978",
-      "trading_value": "27837518"
-    },
-    {
-      "date": "20260610",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "28.0",
-      "high": "31.2",
-      "low": "28.0",
-      "close": "30.8",
-      "volume": "2128874",
-      "trading_value": "64777690"
-    },
-    {
-      "date": "20260611",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "30.8",
-      "high": "33.85",
-      "low": "30.3",
-      "close": "33.85",
-      "volume": "4387150",
-      "trading_value": "143902503"
-    },
-    {
-      "date": "20260612",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "34.45",
-      "high": "37.2",
-      "low": "34.1",
-      "close": "37.2",
-      "volume": "3763311",
-      "trading_value": "135306352"
-    },
-    {
-      "date": "20260615",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "39.3",
-      "high": "40.9",
-      "low": "39.0",
-      "close": "40.9",
-      "volume": "3098658",
-      "trading_value": "125276015"
-    },
-    {
-      "date": "20260616",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "44.8",
-      "high": "44.95",
-      "low": "44.05",
-      "close": "44.95",
-      "volume": "3124210",
-      "trading_value": "140187788"
-    },
-    {
-      "date": "20260617",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "43.5",
-      "high": "48.2",
-      "low": "42.65",
-      "close": "47.0",
-      "volume": "2219163",
-      "trading_value": "100361820"
-    },
-    {
-      "date": "20260618",
-      "stock_id": "2243",
-      "found": true,
-      "stock_name": "宏旭-KY",
-      "market": "TWSE",
-      "open": "49.0",
-      "high": "51.7",
-      "low": "49.0",
-      "close": "51.7",
-      "volume": "1614835",
-      "trading_value": "82464620"
+      "open": "2410.0",
+      "high": "2420.0",
+      "low": "2390.0",
+      "close": "2390.0",
+      "volume": "41099957",
+      "trading_value": "98673938497"
     }
   ]
 }

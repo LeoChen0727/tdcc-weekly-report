@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00878 國泰永續高股息
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:29 Asia/Taipei
+- generated_at: 2026-06-25 22:22:34 Asia/Taipei
 - stock_id: 00878
 - stock_name: 國泰永續高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 33.98
-- high: 34.3
-- low: 33.98
-- close: 34.12
-- volume: 48412504
-- ma5: 33.32
-- ema23_primary: 31.68
-- distance_to_ema23_pct: 7.69
-- ma20: 31.92
-- ma60: 31.75
-- ma120: 31.75
-- return_5d: 6.46
-- return_20d: 20.69
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 6.89
-- distance_to_high_60_pct: -0.52
+- date: 20260624
+- open: 33.6
+- high: 33.87
+- low: 33.37
+- close: 33.66
+- volume: 45814735
+- ma5: 33.74
+- ema23_primary: 32.02
+- distance_to_ema23_pct: 5.11
+- ma20: 32.35
+- ma60: 31.93
+- ma120: 31.93
+- return_5d: 2.28
+- return_20d: 13.64
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 4.05
+- distance_to_high_60_pct: -2.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,28.86,29.5,28.83,29.48,142122086,,,,,
-20260526,29.69,29.83,29.48,29.62,84260566,,,,,
 20260527,30.28,30.8,30.28,30.55,110473016,,,,,
 20260528,30.55,30.79,29.84,30,90876706,28.76,4.31,29.58,29.58,0.87
 20260529,30.58,30.8,30.35,30.76,71631385,28.93,6.34,29.78,29.78,0.72
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,32.67,33.27,32.64,33.27,44252730,31.26,6.43,31.52,31.52,0.5
 20260618,33.45,33.71,33.45,33.67,37481091,31.46,7.02,31.63,31.63,0.43
 20260622,33.98,34.3,33.98,34.12,48412504,31.68,7.69,31.92,31.75,0.57
+20260623,34.4,34.62,33.98,33.98,48726737,31.87,6.61,32.15,31.85,0.61
+20260624,33.6,33.87,33.37,33.66,45814735,32.02,5.11,32.35,31.93,0.59
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4413 飛寶企業
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:47 Asia/Taipei
+- generated_at: 2026-06-25 22:23:48 Asia/Taipei
 - stock_id: 4413
 - stock_name: 飛寶企業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 134
+- latest_price_date: 20260624
+- price_rows: 136
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 16.15
-- high: 16.25
-- low: 16
-- close: 16.25
-- volume: 13000
-- ma5: 16.58
-- ema23_primary: 17.01
-- distance_to_ema23_pct: -4.46
-- ma20: 16.91
-- ma60: 17.8
-- ma120: 17.87
-- return_5d: 0.62
-- return_20d: -10.22
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -3.93
-- distance_to_high_60_pct: -19.35
+- date: 20260624
+- open: 15.55
+- high: 15.8
+- low: 15.55
+- close: 15.6
+- volume: 7000
+- ma5: 16.21
+- ema23_primary: 16.81
+- distance_to_ema23_pct: -7.22
+- ma20: 16.67
+- ma60: 17.72
+- ma120: 17.82
+- return_5d: -6.31
+- return_20d: -13.81
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -6.42
+- distance_to_high_60_pct: -22.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,18.15,18.4,18.1,18.4,4000,18.5,-0.53,18.64,18.17,0.2
-20260518,18.4,18.4,18.1,18.1,9000,18.46,-1.97,18.66,18.17,0.47
 20260520,17.85,18,17.4,18,11000,18.43,-2.31,18.66,18.16,0.57
 20260522,17.5,17.7,17.35,17.7,18000,18.37,-3.62,18.64,18.16,0.9
 20260525,17.2,17.2,16.3,17.2,17000,18.27,-5.85,18.58,18.15,0.87
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,16.6,16.65,16.6,16.6,12000,17.12,-3.04,17.11,17.86,0.85
 20260617,16.6,16.6,16.6,16.6,1000,17.08,-2.79,17.01,17.83,0.07
 20260622,16.15,16.25,16,16.25,13000,17.01,-4.46,16.91,17.8,0.94
+20260623,16,16,16,16,3000,16.92,-5.46,16.8,17.77,0.22
+20260624,15.55,15.8,15.55,15.6,7000,16.81,-7.22,16.67,17.72,0.51
 ```
 
 ## Latest TDCC Snapshot

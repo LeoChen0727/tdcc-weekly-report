@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:21 Asia/Taipei
+- generated_at: 2026-06-25 22:23:23 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 283
+- latest_price_date: 20260624
+- price_rows: 285
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 11.75
-- high: 12
-- low: 11.75
-- close: 12
-- volume: 82498
-- ma5: 11.69
-- ema23_primary: 11.11
-- distance_to_ema23_pct: 8
-- ma20: 10.86
-- ma60: 10.82
-- ma120: 11.47
-- return_5d: 0.84
-- return_20d: 21.46
-- volume_ratio: 2.08
-- distance_to_ma20_pct_auxiliary: 10.5
-- distance_to_high_60_pct: -4
+- date: 20260624
+- open: 12
+- high: 12.35
+- low: 12
+- close: 12.35
+- volume: 39178
+- ma5: 11.94
+- ema23_primary: 11.28
+- distance_to_ema23_pct: 9.47
+- ma20: 11.13
+- ma60: 10.83
+- ma120: 11.48
+- return_5d: 6.93
+- return_20d: 29.59
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 11
+- distance_to_high_60_pct: -1.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,9.28,9.49,9.27,9.49,39240,10.21,-7.09,10.2,11.39,1.23
-20260526,9.49,9.53,9.49,9.53,25990,10.16,-6.18,10.14,11.33,0.86
 20260527,9.51,9.6,9.5,9.6,19511,10.11,-5.05,10.09,11.27,0.66
 20260528,9.6,9.6,9.35,9.35,25016,10.05,-6.94,10.02,11.21,0.86
 20260529,9.42,9.81,9.42,9.42,21337,10,-5.76,9.96,11.15,0.73
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,11.5,11.5,11.4,11.45,65991,10.95,4.56,10.63,10.83,1.97
 20260618,11.75,11.9,11.7,11.9,70348,11.03,7.89,10.75,10.82,1.96
 20260622,11.75,12,11.75,12,82498,11.11,8,10.86,10.82,2.08
+20260623,12,12,12,12,14510,11.18,7.29,10.98,10.82,0.38
+20260624,12,12.35,12,12.35,39178,11.28,9.47,11.13,10.83,1
 ```
 
 ## Latest TDCC Snapshot

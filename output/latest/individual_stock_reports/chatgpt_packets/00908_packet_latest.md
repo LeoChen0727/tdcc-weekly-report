@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-25 22:22:34 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 14.82
-- high: 14.84
-- low: 14.78
-- close: 14.8
-- volume: 242769
-- ma5: 14.96
-- ema23_primary: 14.7
-- distance_to_ema23_pct: 0.66
-- ma20: 14.67
-- ma60: 14.65
-- ma120: 14.65
-- return_5d: -1.4
-- return_20d: 2.92
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 0.9
-- distance_to_high_60_pct: -2.37
+- date: 20260624
+- open: 14.74
+- high: 14.86
+- low: 14.74
+- close: 14.86
+- volume: 38891
+- ma5: 14.85
+- ema23_primary: 14.72
+- distance_to_ema23_pct: 0.96
+- ma20: 14.71
+- ma60: 14.67
+- ma120: 14.67
+- return_5d: -1.07
+- return_20d: 3.34
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 1.01
+- distance_to_high_60_pct: -1.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,14.34,14.39,14.34,14.37,283371,,,,,
-20260526,14.38,14.39,14.37,14.38,122536,,,,,
 20260527,14.42,14.49,14.42,14.45,125438,,,,,
 20260528,14.46,14.46,14.43,14.43,332090,14.39,0.29,14.4,14.4,1.79
 20260529,14.43,14.48,14.43,14.47,276296,14.4,0.52,14.41,14.41,1.38
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,15.03,15.03,15.01,15.03,14509,14.68,2.37,14.64,14.64,0.08
 20260618,14.94,14.94,14.82,14.82,320432,14.69,0.86,14.65,14.65,1.75
 20260622,14.82,14.84,14.78,14.8,242769,14.7,0.66,14.67,14.65,1.26
+20260623,14.78,14.78,14.74,14.74,73815,14.71,0.23,14.69,14.66,0.41
+20260624,14.74,14.86,14.74,14.86,38891,14.72,0.96,14.71,14.67,0.22
 ```
 
 ## Latest TDCC Snapshot

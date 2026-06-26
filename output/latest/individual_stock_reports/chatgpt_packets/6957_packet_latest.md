@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6957 裕慶-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:41 Asia/Taipei
+- generated_at: 2026-06-25 22:24:40 Asia/Taipei
 - stock_id: 6957
 - stock_name: 裕慶-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 191.5
-- high: 191.5
-- low: 188
-- close: 190
-- volume: 143191
-- ma5: 191.2
-- ema23_primary: 181.94
-- distance_to_ema23_pct: 4.43
-- ma20: 182.43
-- ma60: 167.21
-- ma120: 175.5
-- return_5d: 0.26
-- return_20d: 18.38
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 4.15
-- distance_to_high_60_pct: -4.52
+- date: 20260624
+- open: 187
+- high: 190
+- low: 184.5
+- close: 189
+- volume: 47785
+- ma5: 189.3
+- ema23_primary: 182.92
+- distance_to_ema23_pct: 3.33
+- ma20: 185.25
+- ma60: 168.11
+- ma120: 175.32
+- return_5d: -2.07
+- return_20d: 18.5
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 2.02
+- distance_to_high_60_pct: -5.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,160,160,157.5,160,118833,160.22,-0.14,159.9,162.15,1.31
-20260526,160,160,157,159.5,83816,160.16,-0.41,160,161.88,0.91
 20260527,160,169,159.5,169,186788,160.9,5.04,160.57,161.68,1.91
 20260528,166.5,169.5,163.5,163.5,171001,161.12,1.48,160.85,161.4,1.66
 20260529,166.5,168,163.5,167,115911,161.61,3.34,161.18,161.28,1.09
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,192.5,193.5,190.5,191,103322,180.46,5.84,179.47,166.29,0.54
 20260618,190.5,190.5,186.5,189.5,76783,181.21,4.58,180.95,166.72,0.4
 20260622,191.5,191.5,188,190,143191,181.94,4.43,182.43,167.21,0.73
+20260623,190.5,190.5,186,187,52174,182.36,2.54,183.78,167.61,0.27
+20260624,187,190,184.5,189,47785,182.92,3.33,185.25,168.11,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6957 | 裕慶-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260624 | 6957 | 裕慶-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

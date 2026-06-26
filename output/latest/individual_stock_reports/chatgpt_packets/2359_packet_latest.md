@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2359 所羅門
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:59 Asia/Taipei
+- generated_at: 2026-06-25 22:23:02 Asia/Taipei
 - stock_id: 2359
 - stock_name: 所羅門
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 136
-- high: 139
-- low: 135
-- close: 136.5
-- volume: 2582242
-- ma5: 134.6
-- ema23_primary: 135.37
-- distance_to_ema23_pct: 0.83
-- ma20: 139.12
-- ma60: 125.4
-- ma120: 125.95
-- return_5d: 1.49
-- return_20d: -3.19
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -1.89
-- distance_to_high_60_pct: -11.65
+- date: 20260624
+- open: 138
+- high: 140
+- low: 135.5
+- close: 137
+- volume: 2615379
+- ma5: 136
+- ema23_primary: 135.9
+- distance_to_ema23_pct: 0.81
+- ma20: 138.72
+- ma60: 126.2
+- ma120: 126.17
+- return_5d: 3.01
+- return_20d: -4.86
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -1.24
+- distance_to_high_60_pct: -11.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,145,145,140,141.5,8656381,127.1,11.33,126.17,119.26,1.54
-20260526,141.5,148,139,144,6651885,128.5,12.06,127.85,119.48,1.13
 20260527,147.5,150,142,144.5,10233217,129.84,11.29,129.22,119.68,1.65
 20260528,145.5,146,135.5,137,5177944,130.43,5.03,130.35,119.78,0.82
 20260529,139.5,145.5,138,143,4973237,131.48,8.76,131.55,120.08,0.8
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,132,132.5,129,132,1469348,135.39,-2.5,139.35,124.62,0.24
 20260618,135,137.5,132.5,134,2458260,135.27,-0.94,139.35,124.99,0.41
 20260622,136,139,135,136.5,2582242,135.37,0.83,139.12,125.4,0.45
+20260623,139,141.5,135.5,140.5,4001908,135.8,3.46,139.07,125.82,0.72
+20260624,138,140,135.5,137,2615379,135.9,0.81,138.72,126.2,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2359 | 所羅門 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:陳健三 4.舊任者簡歷:富相科技股份有限公司董事長 5.新任者姓名:陳健三 6.新任者簡歷:富相科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2359 | 所羅門 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:陳健三 4.舊任者簡歷:富相科技股份有限公司董事長 5.新任者姓名:陳健三 6.新任者簡歷:富相科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2359 | 所羅門 | 1 | 1 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2359 | 所羅門 | 3 | 3 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2359 | 所羅門 | 44 | 0 | 4060840.0 | 0.0 |  | call_strong_inflow |
+| 20260624 | 2359 | 所羅門 | 45 | 0 | 3033900.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

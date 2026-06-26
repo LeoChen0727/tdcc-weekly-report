@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6224 聚鼎
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:18 Asia/Taipei
+- generated_at: 2026-06-25 22:24:17 Asia/Taipei
 - stock_id: 6224
 - stock_name: 聚鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 85.5
-- high: 85.9
-- low: 81.4
-- close: 83.1
-- volume: 2610256
-- ma5: 80.3
-- ema23_primary: 79.67
-- distance_to_ema23_pct: 4.31
-- ma20: 82.23
-- ma60: 68.4
-- ma120: 55.26
-- return_5d: 8.91
-- return_20d: -3.48
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 1.05
-- distance_to_high_60_pct: -14.77
+- date: 20260624
+- open: 77.3
+- high: 80.5
+- low: 76.7
+- close: 80.1
+- volume: 1076018
+- ma5: 81.1
+- ema23_primary: 79.63
+- distance_to_ema23_pct: 0.59
+- ma20: 81.84
+- ma60: 69.69
+- ma120: 55.88
+- return_5d: 6.37
+- return_20d: -2.44
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -2.13
+- distance_to_high_60_pct: -17.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,88.1,90,84.5,84.6,3848248,73.22,15.54,76.03,55.52,1.6
-20260526,83.4,83.4,80.2,82.1,1867668,73.96,11.01,77.17,56.17,0.75
 20260527,82.7,82.7,80.1,80.7,1052009,74.52,8.29,78.17,56.78,0.42
 20260528,85.1,88.7,85.1,88.7,4860812,75.7,17.17,79.27,57.54,1.79
 20260529,97.5,97.5,93.3,95,8094865,77.31,22.88,80.35,58.41,2.66
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,75.3,79,74.8,78.6,906127,78.84,-0.31,82.31,66.91,0.32
 20260618,79,86.4,78.6,85,4119224,79.35,7.11,82.39,67.67,1.52
 20260622,85.5,85.9,81.4,83.1,2610256,79.67,4.31,82.23,68.4,1
+20260623,83.1,83.1,78.7,78.7,1067823,79.59,-1.11,81.94,69.02,0.43
+20260624,77.3,80.5,76.7,80.1,1076018,79.63,0.59,81.84,69.69,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6224 | 聚鼎 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | continued_2_3d | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補: 承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂: 通過修正本公司「公司章程」案。 4.重要決議事項三、營業報告書及財務報表: 承認本公司民國114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉: 通過第三屆董事及監察人選舉案。 6.重要決議事項五、其他事項: 通過解除第三屆董事及其代表人競業禁止之限制案。 7.其他應敘明事項:聚燁科技股份有限公司累積虧損為 新台幣1,470,767仟元已達實收資本額二分之一。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6224 | 聚鼎 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補: 承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂: 通過修正本公司「公司章程」案。 4.重要決議事項三、營業報告書及財務報表: 承認本公司民國114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉: 通過第三屆董事及監察人選舉案。 6.重要決議事項五、其他事項: 通過解除第三屆董事及其代表人競業禁止之限制案。 7.其他應敘明事項:聚燁科技股份有限公司累積虧損為 新台幣1,470,767仟元已達實收資本額二分之一。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6224 | 聚鼎 | 2 | 1 | 3 | 6 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260624 | 6224 | 聚鼎 | 4 | 3 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

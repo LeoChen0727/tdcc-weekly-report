@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1541 錩泰
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:43 Asia/Taipei
+- generated_at: 2026-06-25 22:22:47 Asia/Taipei
 - stock_id: 1541
 - stock_name: 錩泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 285
+- latest_price_date: 20260624
+- price_rows: 287
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 22.05
-- high: 22.4
+- date: 20260624
+- open: 22.3
+- high: 22.3
 - low: 21.65
 - close: 22.1
-- volume: 27267
-- ma5: 21.71
-- ema23_primary: 21.64
-- distance_to_ema23_pct: 2.12
-- ma20: 21.37
-- ma60: 23.14
-- ma120: 23.9
-- return_5d: 6.25
-- return_20d: 6.76
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 3.42
+- volume: 20186
+- ma5: 22.11
+- ema23_primary: 21.7
+- distance_to_ema23_pct: 1.86
+- ma20: 21.54
+- ma60: 23.03
+- ma120: 23.88
+- return_5d: 4.74
+- return_20d: 8.33
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 2.61
 - distance_to_high_60_pct: -18.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,21.45,21.45,20.1,20.2,68409,22.25,-9.23,22.32,24.23,0.89
-20260526,20.3,20.55,20.3,20.4,31855,22.1,-7.69,22.13,24.15,0.43
 20260527,20.5,21.15,20.2,20.55,37641,21.97,-6.46,21.94,24.07,0.51
 20260528,20.9,20.9,20.4,20.65,56468,21.86,-5.54,21.76,24,0.75
 20260529,21,22.45,20.8,21.85,132517,21.86,-0.04,21.66,23.96,1.69
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,21.25,22.8,21.2,22.5,49993,21.56,4.34,21.24,23.24,0.97
 20260618,22.15,22.65,21.5,22,19292,21.6,1.85,21.3,23.19,0.38
 20260622,22.05,22.4,21.65,22.1,27267,21.64,2.12,21.37,23.14,0.53
+20260623,22.45,22.45,21.25,21.85,15116,21.66,0.88,21.45,23.08,0.31
+20260624,22.3,22.3,21.65,22.1,20186,21.7,1.86,21.54,23.03,0.42
 ```
 
 ## Latest TDCC Snapshot

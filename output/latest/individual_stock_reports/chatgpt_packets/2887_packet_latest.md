@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:17 Asia/Taipei
+- generated_at: 2026-06-25 22:23:19 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 32.6
-- high: 32.6
-- low: 31.95
-- close: 32.05
-- volume: 62139229
-- ma5: 32.2
-- ema23_primary: 28.46
-- distance_to_ema23_pct: 12.62
-- ma20: 27.94
-- ma60: 25.29
-- ma120: 24.07
-- return_5d: 6.13
-- return_20d: 34.66
+- date: 20260624
+- open: 32.05
+- high: 32.15
+- low: 31.6
+- close: 31.6
+- volume: 59301672
+- ma5: 32.17
+- ema23_primary: 29
+- distance_to_ema23_pct: 8.96
+- ma20: 28.79
+- ma60: 25.54
+- ma120: 24.25
+- return_5d: -2.17
+- return_20d: 33.9
 - volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 14.7
-- distance_to_high_60_pct: -4.47
+- distance_to_ma20_pct_auxiliary: 9.78
+- distance_to_high_60_pct: -5.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,23.9,23.9,23.3,23.3,149281651,23.72,-1.78,23.67,24.15,1.5
-20260526,23.4,24.1,23.4,23.6,157314234,23.71,-0.47,23.66,24.13,1.51
 20260527,23.7,23.8,23.3,23.3,170451126,23.68,-1.6,23.61,24.09,1.57
 20260528,23.4,23.55,23,23,171562778,23.62,-2.63,23.55,24.06,1.5
 20260529,23.25,23.45,23,23.35,225036097,23.6,-1.05,23.53,24.03,1.84
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,31.95,33.55,31.8,32.6,102012360,27.74,17.52,27.1,25.02,0.65
 20260618,32.95,33.55,32.1,32.45,109574168,28.13,15.35,27.53,25.16,0.7
 20260622,32.6,32.6,31.95,32.05,62139229,28.46,12.62,27.94,25.29,0.4
+20260623,32,32.95,32,32.15,74148243,28.77,11.77,28.39,25.42,0.49
+20260624,32.05,32.15,31.6,31.6,59301672,29,8.96,28.79,25.54,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2887 | 台新新光金 | 24 | 0 | 2622290.0 | 0.0 |  | no_signal |
+| 20260624 | 2887 | 台新新光金 | 23 | 0 | 2515920.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

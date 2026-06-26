@@ -1,18 +1,18 @@
 # 官方權證每日資料抓取狀態
 
-- 產生時間：`2026-06-24 19:45:26 Asia/Taipei`
-- 資料日期：`20260624`
+- 產生時間：`2026-06-26 19:43:05 Asia/Taipei`
+- 資料日期：`20260626`
 - 輸出檔：`output/latest/warrant_daily_raw_latest.csv`
-- 權證對照表筆數：`29049`
-- 權證成交行情筆數：`26636`
-- 最終可彙總筆數：`26636`
+- 權證對照表筆數：`28971`
+- 權證成交行情筆數：`28910`
+- 最終可彙總筆數：`28910`
 - debug：`output/debug/warrant_fetch_debug_latest.md`
 
 ## Fetch logs
 
-- ok source=TWSE_MI_INDEX_0999_JSON, status=200, tables=2, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260624&type=0999&response=json
-- empty_or_unparsed source=TWSE_MI_INDEX_0999_CSV, status=307, chars=686, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260624&type=0999&response=csv
-- empty_or_unparsed source=TWSE_MI_INDEX_0999P_JSON, status=307, chars=686, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260624&type=0999P&response=json
-- empty_or_unparsed source=TWSE_MI_INDEX_0999P_CSV, status=307, chars=686, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260624&type=0999P&response=csv
-- ok source=TWSE_WARRANT_STOCK_JSON, status=200, tables=2, url=https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260624&response=json
-- empty_or_unparsed source=TWSE_WARRANT_STOCK_CSV, status=307, chars=686, url=https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260624&response=csv
+- ok source=TWSE_MI_INDEX_0999_JSON, status=200, tables=2, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260626&type=0999&response=json
+- ok source=TWSE_MI_INDEX_0999_CSV, status=200, tables=2, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260626&type=0999&response=csv
+- ok source=TWSE_MI_INDEX_0999P_JSON, status=200, tables=2, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260626&type=0999P&response=json
+- empty_or_unparsed source=TWSE_MI_INDEX_0999P_CSV, status=200, chars=0, url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260626&type=0999P&response=csv
+- ok source=TWSE_WARRANT_STOCK_JSON, status=200, tables=2, url=https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260626&response=json
+- ok source=TWSE_WARRANT_STOCK_CSV, status=200, tables=2, url=https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260626&response=csv

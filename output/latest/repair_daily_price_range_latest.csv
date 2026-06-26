@@ -1,12 +1,2 @@
 ﻿date,status,twse_rows,tpex_rows,total_rows,reason,saved_files
-20260608,repaired,1236,891,2127,full_market_ok,data/daily_price/20260608.csv;data/daily_price/daily_price_20260608.csv
-20260609,repaired,1239,890,2129,full_market_ok,data/daily_price/20260609.csv;data/daily_price/daily_price_20260609.csv
-20260610,repaired,1236,892,2128,full_market_ok,data/daily_price/20260610.csv;data/daily_price/daily_price_20260610.csv
-20260611,repaired,1237,895,2132,full_market_ok,data/daily_price/20260611.csv;data/daily_price/daily_price_20260611.csv
-20260612,repaired,1235,891,2126,full_market_ok,data/daily_price/20260612.csv;data/daily_price/daily_price_20260612.csv
-20260613,skipped_weekend,0,0,0,weekend,
-20260614,skipped_weekend,0,0,0,weekend,
-20260615,repaired,1236,897,2133,full_market_ok,data/daily_price/20260615.csv;data/daily_price/daily_price_20260615.csv
-20260616,repaired,1238,895,2133,full_market_ok,data/daily_price/20260616.csv;data/daily_price/daily_price_20260616.csv
-20260617,repaired,1234,892,2126,full_market_ok,data/daily_price/20260617.csv;data/daily_price/daily_price_20260617.csv
-20260618,repaired,1237,895,2132,full_market_ok,data/daily_price/20260618.csv;data/daily_price/daily_price_20260618.csv
+20260625,repaired,1236,896,2132,full_market_ok,data/daily_price/20260625.csv;data/daily_price/daily_price_20260625.csv

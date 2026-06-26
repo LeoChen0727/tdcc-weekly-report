@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Outcome Diagnostics
 
-- generated_at: `2026-06-26 21:31:47 Asia/Taipei`
+- generated_at: `2026-06-26 23:51:16 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_parameter_grid`
 - production impact: `none`
 - surface: `w_bottom_right_low_early_entry` only.
@@ -11,52 +11,52 @@
 
 | segment_id | sample_size | evaluated_sample_size | mature_sample_size | win_count | neutral_count | loss_count | win_rate_excl_neutral_pct | neutral_rate_evaluated_pct | delta_win_rate_pct_vs_all | delta_neutral_rate_pct_vs_all | research_interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| smooth_core_mainstream_right_rebound_5_20 | 95 | 80 | 52 | 28 | 28 | 24 | 53.8462 | 35.0000 | 17.5002 | 5.9655 | improves_win_but_neutral_watch |
-| smooth_core_mainstream_price_le40_right_rebound_5_20 | 85 | 70 | 44 | 23 | 26 | 21 | 52.2727 | 37.1429 | 15.9268 | 8.1084 | improves_win_but_neutral_watch |
-| core_mainstream_price_le40_smooth | 136 | 115 | 77 | 38 | 38 | 39 | 49.3506 | 33.0435 | 13.0047 | 4.0090 | improves_win_but_neutral_watch |
-| core_mainstream_price_le40_exclude_wv | 357 | 310 | 220 | 107 | 90 | 113 | 48.6364 | 29.0323 | 12.2904 | -0.0022 | candidate_improves_win_without_more_neutral |
-| smooth_right_rebound_5_20_near_neckline | 102 | 86 | 61 | 28 | 25 | 33 | 45.9016 | 29.0698 | 9.5557 | 0.0353 | improves_win_but_neutral_watch |
-| core_mainstream_price_le40_red_ratio_gt_first | 379 | 327 | 227 | 104 | 100 | 123 | 45.8150 | 30.5810 | 9.4690 | 1.5466 | improves_win_but_neutral_watch |
-| smooth_right_rebound_5_20_red_ratio_gt_first | 100 | 83 | 57 | 26 | 26 | 31 | 45.6140 | 31.3253 | 9.2681 | 2.2908 | improves_win_but_neutral_watch |
-| smooth_right_rebound_5_20 | 172 | 141 | 95 | 43 | 46 | 52 | 45.2632 | 32.6241 | 8.9172 | 3.5896 | improves_win_but_neutral_watch |
-| smooth_price_le40_right_rebound_5_20 | 158 | 127 | 86 | 38 | 41 | 48 | 44.1860 | 32.2835 | 7.8401 | 3.2490 | improves_win_but_neutral_watch |
-| core_mainstream_price_le40 | 795 | 681 | 476 | 206 | 205 | 270 | 43.2773 | 30.1028 | 6.9313 | 1.0683 | improves_win_but_neutral_watch |
-| core_mainstream_price_le40_volume_gte1_5 | 392 | 336 | 228 | 98 | 108 | 130 | 42.9825 | 32.1429 | 6.6365 | 3.1084 | improves_win_but_neutral_watch |
-| core_mainstream | 910 | 788 | 552 | 231 | 236 | 321 | 41.8478 | 29.9492 | 5.5019 | 0.9148 | improves_win_but_neutral_watch |
-| core_mainstream_price_le40_red_delta_gte10 | 173 | 147 | 98 | 41 | 49 | 57 | 41.8367 | 33.3333 | 5.4908 | 4.2989 | improves_win_but_neutral_watch |
-| near_neckline_m5_to_0 | 521 | 450 | 324 | 132 | 126 | 192 | 40.7407 | 28.0000 | 4.3948 | -1.0345 | reduces_neutral_only |
-| smooth_rounded_w_like | 285 | 236 | 166 | 66 | 70 | 100 | 39.7590 | 29.6610 | 3.4131 | 0.6265 | mixed_small_win_improvement |
-| slope_break_discontinuous | 332 | 285 | 195 | 77 | 90 | 118 | 39.4872 | 31.5789 | 3.1412 | 2.5445 | mixed_small_win_improvement |
-| second_red_ratio_gt_first | 794 | 681 | 476 | 186 | 205 | 290 | 39.0756 | 30.1028 | 2.7297 | 1.0683 | mixed_small_win_improvement |
-| right_rebound_5_20 | 1084 | 934 | 663 | 256 | 271 | 407 | 38.6124 | 29.0150 | 2.2664 | -0.0195 | reduces_neutral_only |
-| bottom_quartile_level | 1092 | 918 | 633 | 244 | 285 | 389 | 38.5466 | 31.0458 | 2.2006 | 2.0113 | mixed_small_win_improvement |
-| price_position_le_25 | 1094 | 920 | 634 | 244 | 286 | 390 | 38.4858 | 31.0870 | 2.1398 | 2.0525 | mixed_small_win_improvement |
-| second_red_delta_gte10 | 375 | 317 | 216 | 83 | 101 | 133 | 38.4259 | 31.8612 | 2.0800 | 2.8267 | mixed_small_win_improvement |
-| exclude_wv_multiple_turn | 795 | 689 | 492 | 187 | 197 | 305 | 38.0081 | 28.5922 | 1.6622 | -0.4423 | reduces_neutral_only |
-| price_position_le_40 | 1510 | 1287 | 909 | 337 | 378 | 572 | 37.0737 | 29.3706 | 0.7277 | 0.3361 | mixed_small_win_improvement |
-| second_arc_volume_gte1_5 | 783 | 688 | 483 | 179 | 205 | 304 | 37.0600 | 29.7965 | 0.7141 | 0.7620 | mixed_small_win_improvement |
-| bottom_or_low_level | 1626 | 1398 | 992 | 365 | 406 | 627 | 36.7944 | 29.0415 | 0.4484 | 0.0070 | mixed_small_win_improvement |
-| all_rows | 1684 | 1450 | 1029 | 374 | 421 | 655 | 36.3460 | 29.0345 | 0.0000 | 0.0000 | baseline_reference |
-| sharp_v_bottom_risk | 178 | 168 | 131 | 44 | 37 | 87 | 33.5878 | 22.0238 | -2.7582 | -7.0107 | reduces_neutral_only |
-| below_neckline_5_to_30 | 1012 | 866 | 609 | 190 | 257 | 419 | 31.1987 | 29.6767 | -5.1473 | 0.6422 | not_better_than_all_same_event |
-| non_mainstream | 774 | 662 | 477 | 143 | 185 | 334 | 29.9790 | 27.9456 | -6.3669 | -1.0889 | reduces_neutral_only |
+| smooth_core_mainstream_right_rebound_5_20 | 95 | 81 | 53 | 29 | 28 | 24 | 54.7170 | 34.5679 | 18.0632 | 5.5844 | improves_win_but_neutral_watch |
+| smooth_core_mainstream_price_le40_right_rebound_5_20 | 85 | 71 | 45 | 24 | 26 | 21 | 53.3333 | 36.6197 | 16.6796 | 7.6362 | improves_win_but_neutral_watch |
+| core_mainstream_price_le40_smooth | 136 | 116 | 78 | 39 | 38 | 39 | 50.0000 | 32.7586 | 13.3462 | 3.7751 | improves_win_but_neutral_watch |
+| core_mainstream_price_le40_exclude_wv | 358 | 311 | 221 | 108 | 90 | 113 | 48.8688 | 28.9389 | 12.2150 | -0.0446 | candidate_improves_win_without_more_neutral |
+| smooth_right_rebound_5_20_near_neckline | 102 | 86 | 61 | 28 | 25 | 33 | 45.9016 | 29.0698 | 9.2479 | 0.0863 | improves_win_but_neutral_watch |
+| smooth_right_rebound_5_20 | 172 | 142 | 96 | 44 | 46 | 52 | 45.8333 | 32.3944 | 9.1796 | 3.4108 | improves_win_but_neutral_watch |
+| core_mainstream_price_le40_red_ratio_gt_first | 382 | 327 | 227 | 104 | 100 | 123 | 45.8150 | 30.5810 | 9.1612 | 1.5975 | improves_win_but_neutral_watch |
+| smooth_right_rebound_5_20_red_ratio_gt_first | 100 | 83 | 57 | 26 | 26 | 31 | 45.6140 | 31.3253 | 8.9603 | 2.3418 | improves_win_but_neutral_watch |
+| smooth_price_le40_right_rebound_5_20 | 158 | 128 | 87 | 39 | 41 | 48 | 44.8276 | 32.0312 | 8.1738 | 3.0477 | improves_win_but_neutral_watch |
+| core_mainstream_price_le40 | 799 | 683 | 478 | 208 | 205 | 270 | 43.5146 | 30.0146 | 6.8609 | 1.0311 | improves_win_but_neutral_watch |
+| core_mainstream_price_le40_volume_gte1_5 | 395 | 337 | 229 | 99 | 108 | 130 | 43.2314 | 32.0475 | 6.5777 | 3.0640 | improves_win_but_neutral_watch |
+| core_mainstream | 914 | 791 | 555 | 234 | 236 | 321 | 42.1622 | 29.8357 | 5.5084 | 0.8521 | improves_win_but_neutral_watch |
+| core_mainstream_price_le40_red_delta_gte10 | 174 | 147 | 98 | 41 | 49 | 57 | 41.8367 | 33.3333 | 5.1830 | 4.3498 | improves_win_but_neutral_watch |
+| near_neckline_m5_to_0 | 523 | 453 | 326 | 134 | 127 | 192 | 41.1043 | 28.0353 | 4.4505 | -0.9482 | reduces_neutral_only |
+| smooth_rounded_w_like | 286 | 237 | 167 | 67 | 70 | 100 | 40.1198 | 29.5359 | 3.4660 | 0.5523 | mixed_small_win_improvement |
+| slope_break_discontinuous | 334 | 286 | 196 | 78 | 90 | 118 | 39.7959 | 31.4685 | 3.1421 | 2.4850 | mixed_small_win_improvement |
+| second_red_ratio_gt_first | 799 | 685 | 479 | 189 | 206 | 290 | 39.4572 | 30.0730 | 2.8034 | 1.0895 | mixed_small_win_improvement |
+| second_red_delta_gte10 | 378 | 320 | 218 | 85 | 102 | 133 | 38.9908 | 31.8750 | 2.3371 | 2.8915 | mixed_small_win_improvement |
+| right_rebound_5_20 | 1088 | 939 | 667 | 260 | 272 | 407 | 38.9805 | 28.9670 | 2.3267 | -0.0165 | reduces_neutral_only |
+| bottom_quartile_level | 1098 | 923 | 637 | 248 | 286 | 389 | 38.9325 | 30.9859 | 2.2787 | 2.0024 | mixed_small_win_improvement |
+| price_position_le_25 | 1100 | 925 | 638 | 248 | 287 | 390 | 38.8715 | 31.0270 | 2.2177 | 2.0435 | mixed_small_win_improvement |
+| exclude_wv_multiple_turn | 798 | 691 | 494 | 189 | 197 | 305 | 38.2591 | 28.5094 | 1.6053 | -0.4741 | reduces_neutral_only |
+| second_arc_volume_gte1_5 | 786 | 692 | 487 | 183 | 205 | 304 | 37.5770 | 29.6243 | 0.9232 | 0.6408 | mixed_small_win_improvement |
+| price_position_le_40 | 1517 | 1292 | 913 | 341 | 379 | 572 | 37.3494 | 29.3344 | 0.6956 | 0.3508 | mixed_small_win_improvement |
+| bottom_or_low_level | 1633 | 1404 | 997 | 370 | 407 | 627 | 37.1113 | 28.9886 | 0.4576 | 0.0051 | mixed_small_win_improvement |
+| all_rows | 1691 | 1456 | 1034 | 379 | 422 | 655 | 36.6538 | 28.9835 | 0.0000 | 0.0000 | baseline_reference |
+| sharp_v_bottom_risk | 178 | 168 | 131 | 44 | 37 | 87 | 33.5878 | 22.0238 | -3.0660 | -6.9597 | reduces_neutral_only |
+| below_neckline_5_to_30 | 1016 | 868 | 611 | 192 | 257 | 419 | 31.4239 | 29.6083 | -5.2299 | 0.6248 | not_better_than_all_same_event |
+| non_mainstream | 777 | 665 | 479 | 145 | 186 | 334 | 30.2714 | 27.9699 | -6.3824 | -1.0136 | reduces_neutral_only |
 
 ## Variant Outcome Feature Profiles
 
 | segment_id | sample_size | avg_price_position_252_pct | median_price_position_252_pct | avg_second_arc_volume_ratio | avg_red_ratio_delta_pct | avg_neckline_distance_pct | avg_signal_rebound_from_right_low_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| outcome_win | 374 | 21.5179 | 19.3792 | 1.7339 | 0.7463 | -10.3179 | 7.4523 |
-| outcome_neutral | 421 | 21.1020 | 18.3857 | 1.7239 | 0.3819 | -9.5024 | 7.1544 |
+| outcome_win | 379 | 21.4879 | 19.3277 | 1.7356 | 0.7706 | -10.2856 | 7.4746 |
+| outcome_neutral | 422 | 21.0874 | 18.3096 | 1.7227 | 0.4076 | -9.4812 | 7.1668 |
 | outcome_loss | 655 | 24.0109 | 21.5827 | 1.6535 | -0.5520 | -8.7871 | 7.1878 |
 
 ## Strict Smooth-Rebound Segments
 
 | segment_id | sample_size | evaluated_sample_size | mature_sample_size | win_count | neutral_count | loss_count | win_rate_excl_neutral_pct | neutral_rate_evaluated_pct | sample_warning | research_interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| smooth_right_rebound_5_20 | 172 | 141 | 95 | 43 | 46 | 52 | 45.2632 | 32.6241 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
-| smooth_price_le40_right_rebound_5_20 | 158 | 127 | 86 | 38 | 41 | 48 | 44.1860 | 32.2835 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
-| smooth_core_mainstream_right_rebound_5_20 | 95 | 80 | 52 | 28 | 28 | 24 | 53.8462 | 35.0000 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
-| smooth_core_mainstream_price_le40_right_rebound_5_20 | 85 | 70 | 44 | 23 | 26 | 21 | 52.2727 | 37.1429 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
+| smooth_right_rebound_5_20 | 172 | 142 | 96 | 44 | 46 | 52 | 45.8333 | 32.3944 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
+| smooth_price_le40_right_rebound_5_20 | 158 | 128 | 87 | 39 | 41 | 48 | 44.8276 | 32.0312 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
+| smooth_core_mainstream_right_rebound_5_20 | 95 | 81 | 53 | 29 | 28 | 24 | 54.7170 | 34.5679 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
+| smooth_core_mainstream_price_le40_right_rebound_5_20 | 85 | 71 | 45 | 24 | 26 | 21 | 53.3333 | 36.6197 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
 | smooth_right_rebound_5_20_red_ratio_gt_first | 100 | 83 | 57 | 26 | 26 | 31 | 45.6140 | 31.3253 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
 | smooth_right_rebound_5_20_near_neckline | 102 | 86 | 61 | 28 | 25 | 33 | 45.9016 | 29.0698 | medium_mature_sample_research_only | improves_win_but_neutral_watch |
 

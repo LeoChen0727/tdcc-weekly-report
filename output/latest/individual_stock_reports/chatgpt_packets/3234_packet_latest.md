@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3234 光環
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:29 Asia/Taipei
+- generated_at: 2026-06-25 22:23:30 Asia/Taipei
 - stock_id: 3234
 - stock_name: 光環
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 146
-- high: 151
-- low: 130.5
-- close: 139
-- volume: 10770000
-- ma5: 132.2
-- ema23_primary: 120.58
-- distance_to_ema23_pct: 15.28
-- ma20: 121.18
-- ma60: 109.08
-- ma120: 86.75
-- return_5d: 24.66
-- return_20d: 33.65
-- volume_ratio: 4.82
-- distance_to_ma20_pct_auxiliary: 14.71
-- distance_to_high_60_pct: -7.95
+- date: 20260624
+- open: 133.5
+- high: 147.5
+- low: 131
+- close: 145.5
+- volume: 4437000
+- ma5: 140.1
+- ema23_primary: 124.06
+- distance_to_ema23_pct: 17.28
+- ma20: 124.53
+- ma60: 110.65
+- ma120: 88.4
+- return_5d: 18.78
+- return_20d: 31.67
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 16.84
+- distance_to_high_60_pct: -3.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,108,111,106,107,108000,101.73,5.18,102.33,98.18,0.05
-20260526,106,110.5,100.5,110.5,105000,102.46,7.85,102.78,98.46,0.05
 20260527,111.5,111.5,102.5,103.5,106000,102.54,0.93,102.41,98.59,0.06
 20260528,103.5,104.5,98,98.6,101000,102.22,-3.54,102.02,98.48,0.05
 20260529,100,108,99.6,108,107000,102.7,5.16,101.74,98.69,0.07
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,116.5,134.5,116.5,132,4721000,116.53,13.27,117.11,107.31,3.5
 20260618,133,145,129.5,145,8411000,118.9,21.95,119.43,108.22,4.95
 20260622,146,151,130.5,139,10770000,120.58,15.28,121.18,109.08,4.82
+20260623,138,146.5,133,139,6006000,122.11,13.83,122.78,109.81,2.37
+20260624,133.5,147.5,131,145.5,4437000,124.06,17.28,124.53,110.65,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3234 | 光環 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 3234 | 光環 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                        最近一月單月       去年同月         與去年同期增減%                         (115年05月)      (114年05月) --------------------------------------------------------------------------- 營業收入(百萬元)              57             50                  14.00% 稅前淨利(百萬元)             -12            -24                  50.00% 歸屬母公司業主淨利(百萬元)   -11            -23                  52.17% 每股盈餘(元)               -0.10          -0.20                  50.00%  (2)單季                        最近一季單季       去年同期         與去年同期增減%                        (115年第1季)     (114年第1季) --------------------------------------------------------------------------- 營業收入(百萬元)             183            206                -11.17% 稅前淨利(百萬元)             -36              6               -700.00% 歸屬母公司業主淨利(百萬元)   -36              8               -550.00% 每股盈餘(元)               -0.32           0.07               -557.14%  (3)最近四季累計                         (114年第2季至115年第1季) --------------------------------------------------------------------------- 營業收入(百萬元)                 660 稅前淨利(百萬元)                -203 歸屬母公司業主淨利(百萬元)      -200 每股盈餘(元)                   -1.79  --------------------------------------------------------------------------- 公司每股面額:10元  註:以上115年05月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合併數    ，未經會計師查核(閱)，僅供投資人參考。 註:最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係本公司    採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註:最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會計師    查核(閱)，僅供投資人參考。 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3234 | 光環 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260624 | 3234 | 光環 | 4 | 3 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3628 盈正
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:40 Asia/Taipei
+- generated_at: 2026-06-25 22:23:41 Asia/Taipei
 - stock_id: 3628
 - stock_name: 盈正
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 72.8
-- high: 75.7
-- low: 72.8
-- close: 75.7
-- volume: 317000
-- ma5: 72.62
-- ema23_primary: 70.66
-- distance_to_ema23_pct: 7.13
-- ma20: 70.83
-- ma60: 68.43
-- ma120: 67.98
-- return_5d: 6.17
-- return_20d: 17.55
-- volume_ratio: 2.2
-- distance_to_ma20_pct_auxiliary: 6.88
-- distance_to_high_60_pct: -6.43
+- date: 20260624
+- open: 71.5
+- high: 71.6
+- low: 69.4
+- close: 70.8
+- volume: 220000
+- ma5: 72.48
+- ema23_primary: 70.78
+- distance_to_ema23_pct: 0.03
+- ma20: 71.36
+- ma60: 68.56
+- ma120: 68.02
+- return_5d: 0.71
+- return_20d: 7.11
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: -0.78
+- distance_to_high_60_pct: -12.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,65.1,66.5,64.4,66,65000,65.84,0.24,66.06,66.8,0.42
-20260526,66.4,66.8,65.5,66.1,66000,65.86,0.36,65.99,66.78,0.46
 20260527,67.7,67.7,66,66,66000,65.87,0.19,65.92,66.7,0.47
 20260528,66.8,69,66.7,66.8,68000,65.95,1.29,65.89,66.66,0.48
 20260529,67.1,67.5,66,67.3,67000,66.06,1.87,65.86,66.66,0.48
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,71.2,72.6,70.9,71.5,156000,70.01,2.13,69.82,68.17,1.23
 20260618,72.2,72.8,70.9,72.4,152000,70.2,3.13,70.26,68.28,1.16
 20260622,72.8,75.7,72.8,75.7,317000,70.66,7.13,70.83,68.43,2.2
+20260623,76.5,76.9,72,72,261000,70.77,1.73,71.12,68.51,1.7
+20260624,71.5,71.6,69.4,70.8,220000,70.78,0.03,71.36,68.56,1.36
 ```
 
 ## Latest TDCC Snapshot

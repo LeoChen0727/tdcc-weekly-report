@@ -1,8 +1,8 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-24 11:50:05 UTC`
-- main_price_date: `20260624`
+- generated_at: `2026-06-26 11:47:49 UTC`
+- main_price_date: `20260626`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 

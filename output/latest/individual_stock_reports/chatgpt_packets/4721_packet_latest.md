@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4721 美琪瑪
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:53 Asia/Taipei
+- generated_at: 2026-06-25 22:23:53 Asia/Taipei
 - stock_id: 4721
 - stock_name: 美琪瑪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 101.5
-- high: 102
-- low: 99.1
-- close: 100.5
-- volume: 2447000
-- ma5: 99.72
-- ema23_primary: 93.46
-- distance_to_ema23_pct: 7.53
-- ma20: 92.86
-- ma60: 87.3
-- ma120: 77.52
-- return_5d: 9.24
-- return_20d: 11.17
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: 8.22
-- distance_to_high_60_pct: -9.46
+- date: 20260624
+- open: 96.2
+- high: 98.2
+- low: 94.9
+- close: 97.5
+- volume: 1011000
+- ma5: 98.62
+- ema23_primary: 94.03
+- distance_to_ema23_pct: 3.69
+- ma20: 93.42
+- ma60: 88.08
+- ma120: 78.04
+- return_5d: -1.02
+- return_20d: 5.86
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 4.37
+- distance_to_high_60_pct: -12.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,92,92.7,89.6,90.9,91000,88.22,3.03,89.41,79.38,0.03
-20260526,91.4,93.2,90.4,92.1,92000,88.55,4.01,89.91,79.79,0.04
 20260527,93.5,93.5,90.1,90.4,91000,88.7,1.91,90.28,80.17,0.04
 20260528,90.4,91.7,87,87,89000,88.56,-1.76,90.36,80.51,0.04
 20260529,89,93.3,88.2,92.7,92000,88.91,4.27,90.83,80.94,0.04
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,101,103.5,97.7,98.1,3296000,92.12,6.49,91.65,86.39,1.98
 20260618,98.9,101.5,97.8,100.5,2372000,92.82,8.27,92.36,86.84,1.36
 20260622,101.5,102,99.1,100.5,2447000,93.46,7.53,92.86,87.3,1.31
+20260623,99.6,99.8,96,96.5,1986000,93.71,2.97,93.14,87.68,1.01
+20260624,96.2,98.2,94.9,97.5,1011000,94.03,3.69,93.42,88.08,0.5
 ```
 
 ## Latest TDCC Snapshot

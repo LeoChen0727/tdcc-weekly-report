@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1268 漢來美食
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:34 Asia/Taipei
+- generated_at: 2026-06-25 22:22:39 Asia/Taipei
 - stock_id: 1268
 - stock_name: 漢來美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 170
-- high: 170
-- low: 169
-- close: 170
-- volume: 28000
-- ma5: 169.5
-- ema23_primary: 167.58
-- distance_to_ema23_pct: 1.44
-- ma20: 169.07
-- ma60: 161.69
-- ma120: 160.8
-- return_5d: 1.19
-- return_20d: -0.87
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 0.55
-- distance_to_high_60_pct: -2.58
+- date: 20260624
+- open: 168.5
+- high: 171
+- low: 168
+- close: 171
+- volume: 99000
+- ma5: 169.8
+- ema23_primary: 168.01
+- distance_to_ema23_pct: 1.78
+- ma20: 169.2
+- ma60: 162.12
+- ma120: 160.97
+- return_5d: 0.89
+- return_20d: 1.48
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 1.06
+- distance_to_high_60_pct: -2.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,172,172,167,169.5,170000,161,5.28,159.35,158.5,1.64
-20260526,170.5,171,167.5,168.5,169000,161.62,4.26,160.03,158.64,1.52
 20260527,168.5,168.5,166,168.5,167000,162.19,3.89,160.72,158.78,1.41
 20260528,167.5,168.5,166.5,168,168000,162.68,3.27,161.4,158.9,1.34
 20260529,168,168.5,167.5,168.5,168000,163.16,3.27,162.07,159.03,1.26
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,168.5,170.5,168.5,169,36000,167.16,1.1,169.05,161.23,0.31
 20260618,170,170.5,169.5,169.5,18000,167.36,1.28,169.15,161.47,0.19
 20260622,170,170,169,170,28000,167.58,1.44,169.07,161.69,0.32
+20260623,170,170,168.5,169.5,32000,167.74,1.05,169.07,161.89,0.4
+20260624,168.5,171,168,171,99000,168.01,1.78,169.2,162.12,1.29
 ```
 
 ## Latest TDCC Snapshot

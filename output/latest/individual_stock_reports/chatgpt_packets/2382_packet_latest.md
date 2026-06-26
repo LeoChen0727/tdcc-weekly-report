@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:01 Asia/Taipei
+- generated_at: 2026-06-25 22:23:04 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 378.5
-- high: 385
-- low: 376.5
-- close: 380
-- volume: 20023542
-- ma5: 372.5
-- ema23_primary: 361.99
-- distance_to_ema23_pct: 4.98
-- ma20: 365.68
-- ma60: 331.68
-- ma120: 306.18
-- return_5d: 2.15
-- return_20d: 20.25
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 3.92
-- distance_to_high_60_pct: -13.24
+- date: 20260624
+- open: 367
+- high: 372
+- low: 364.5
+- close: 372
+- volume: 11120601
+- ma5: 374.9
+- ema23_primary: 363.62
+- distance_to_ema23_pct: 2.3
+- ma20: 371.25
+- ma60: 334.55
+- ma120: 308.01
+- return_5d: 2.62
+- return_20d: 17.54
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 0.2
+- distance_to_high_60_pct: -15.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,322,325,316.5,316.5,46775832,316.71,-0.07,321.8,306.35,1.73
-20260526,322,327,316.5,316.5,46085483,316.69,-0.06,321.35,306.67,1.62
 20260527,322,323.5,312,312,43591575,316.3,-1.36,320.9,307.01,1.46
 20260528,312.5,319,308.5,308.5,43210473,315.65,-2.27,320.23,307.13,1.38
 20260529,315.5,339,315.5,339,87792646,317.6,6.74,321.55,307.88,2.52
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,361,374,358,374,21858689,358.92,4.2,359.07,328.43,0.39
 20260618,374.5,379.5,372.5,376,22566584,360.35,4.34,362.48,330.03,0.41
 20260622,378.5,385,376.5,380,20023542,361.99,4.98,365.68,331.68,0.37
+20260623,381,381,368,372.5,16362886,362.86,2.66,368.48,333.13,0.31
+20260624,367,372,364.5,372,11120601,363.62,2.3,371.25,334.55,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2382 | 廣達 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/16 2.捐贈原由: 115年度營運資金 3.捐贈金額: NT$5,000,000 4.受贈對象: 財團法人廣達醫療科技基金會 5.與公司關係:本公司捐助成立 6.表示反對或保留意見之獨立董事姓名及簡歷:不適用 7.前揭獨立董事表示反對或保留之意見: 不適用 8.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2382 | 廣達 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/16 2.捐贈原由: 115年度營運資金 3.捐贈金額: NT$5,000,000 4.受贈對象: 財團法人廣達醫療科技基金會 5.與公司關係:本公司捐助成立 6.表示反對或保留意見之獨立董事姓名及簡歷:不適用 7.前揭獨立董事表示反對或保留之意見: 不適用 8.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 2382 | 廣達 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 7.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/16 2.捐贈原由: 115年度營運資金 3.捐贈金額: NT$5,000,000 4.受贈對象: 財團法人廣達醫療科技基金會 5.與公司關係:本公司捐助成立 6.表示反對或保留意見之獨立董事姓名及簡歷:不適用 7.前揭獨立董事表示反對或保留之意見: 不適用 8.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 2382 | 廣達 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/16 2.捐贈原由: 115年度營運資金 3.捐贈金額: NT$5,000,000 4.受贈對象: 財團法人廣達醫療科技基金會 5.與公司關係:本公司捐助成立 6.表示反對或保留意見之獨立董事姓名及簡歷:不適用 7.前揭獨立董事表示反對或保留之意見: 不適用 8.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2382 | 廣達 | 7 | 2 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2382 | 廣達 | 9 | 4 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

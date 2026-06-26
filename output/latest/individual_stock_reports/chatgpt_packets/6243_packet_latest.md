@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:19 Asia/Taipei
+- generated_at: 2026-06-25 22:24:19 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 停利
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 36.1
-- high: 38.35
-- low: 35.7
-- close: 38.35
-- volume: 2144454
-- ma5: 33.56
-- ema23_primary: 33.05
-- distance_to_ema23_pct: 16.03
-- ma20: 33
-- ma60: 32.57
-- ma120: 33.59
-- return_5d: 23.91
-- return_20d: 5.65
-- volume_ratio: 4.74
-- distance_to_ma20_pct_auxiliary: 16.22
-- distance_to_high_60_pct: -0.52
+- date: 20260624
+- open: 42.6
+- high: 45.65
+- low: 42.6
+- close: 45.65
+- volume: 8694604
+- ma5: 38.43
+- ema23_primary: 34.75
+- distance_to_ema23_pct: 31.38
+- ma20: 33.81
+- ma60: 33.02
+- ma120: 33.73
+- return_5d: 46.31
+- return_20d: 30.24
+- volume_ratio: 7.58
+- distance_to_ma20_pct_auxiliary: 35.03
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,36.35,36.8,35.35,35.9,753166,33.99,5.61,34.3,32.5,1.6
-20260526,36.25,36.35,34.6,35.05,367574,34.08,2.85,34.36,32.51,0.81
 20260527,35.5,35.65,34.4,34.55,349921,34.12,1.26,34.39,32.51,0.76
 20260528,34.65,35.05,33.25,33.7,286910,34.08,-1.13,34.41,32.49,0.63
 20260529,34.2,34.2,33.55,33.7,350319,34.05,-1.03,34.42,32.47,0.77
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,31.7,32,31.1,31.75,263106,32.36,-1.88,32.87,32.36,0.7
 20260618,31.8,34.9,31.55,34.9,990524,32.57,7.15,32.9,32.43,2.43
 20260622,36.1,38.35,35.7,38.35,2144454,33.05,16.03,33,32.57,4.74
+20260623,40.5,42.15,37.45,41.5,6327185,33.76,22.94,33.28,32.76,8.66
+20260624,42.6,45.65,42.6,45.65,8694604,34.75,31.38,33.81,33.02,7.58
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6243 | 迅杰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6243 | 迅杰 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.發生變動日期:115/06/24 2.功能性委員會名稱:審計委員會、薪酬委員會及永續發展委員會 3.舊任者姓名:石國揚 4.舊任者簡歷:迅杰科技(股)公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:個人規劃。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/04/15~117/04/14 10.新任生效日期:不適用 11.其他應敘明事項: (1)審計委員會之原任期為:114/04/15~117/04/14。 (2)薪酬委員會及永續發展委員會之原任期為:114/04/28~117/04/14。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6243 | 迅杰 | 1 | 1 | 1 | 1 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260624 | 6243 | 迅杰 | 3 | 2 | 3 | 3 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

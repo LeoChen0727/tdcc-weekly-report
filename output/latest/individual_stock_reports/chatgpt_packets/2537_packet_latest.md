@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:10 Asia/Taipei
+- generated_at: 2026-06-25 22:23:12 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 11.65
-- high: 11.65
-- low: 11.05
+- date: 20260624
+- open: 10.65
+- high: 11.25
+- low: 10.65
 - close: 11.1
-- volume: 5217297
-- ma5: 11.72
-- ema23_primary: 10.76
-- distance_to_ema23_pct: 3.15
-- ma20: 10.51
-- ma60: 10.34
-- ma120: 10.61
+- volume: 1724441
+- ma5: 11.4
+- ema23_primary: 10.79
+- distance_to_ema23_pct: 2.85
+- ma20: 10.65
+- ma60: 10.36
+- ma120: 10.6
 - return_5d: -2.63
-- return_20d: 15.99
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 5.58
+- return_20d: 15.87
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 4.21
 - distance_to_high_60_pct: -10.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,9.57,9.6,9.38,9.55,1412427,10,-4.52,10.05,10.23,1.36
-20260526,9.57,9.63,9.52,9.58,1313073,9.97,-3.88,10.01,10.21,1.24
 20260527,9.58,9.58,9.39,9.39,1581260,9.92,-5.33,9.96,10.2,1.43
 20260528,9.39,9.61,9.39,9.47,878090,9.88,-4.16,9.91,10.18,0.78
 20260529,9.48,9.52,9.42,9.45,618812,9.85,-4.01,9.87,10.17,0.57
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,11.35,12.1,11.2,12,7197818,10.61,13.05,10.33,10.29,2.09
 20260618,11.95,12.4,11.85,12,6935018,10.73,11.84,10.44,10.33,1.84
 20260622,11.65,11.65,11.05,11.1,5217297,10.76,3.15,10.51,10.34,1.33
+20260623,11.1,11.1,10.75,10.8,1866173,10.76,0.34,10.58,10.34,0.47
+20260624,10.65,11.25,10.65,11.1,1724441,10.79,2.85,10.65,10.36,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2537 | 聯上發 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2537 | 聯上發 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260622 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 37.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260624 | 2537 | 聯上發 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蘇永義。 4.舊任者簡歷:聯上投資(股)公司代表人。 5.新任者姓名:蘇永義。 6.新任者簡歷:聯上投資(股)公司代表人。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，續任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2537 | 聯上發 | 11 | 1 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2537 | 聯上發 | 13 | 3 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

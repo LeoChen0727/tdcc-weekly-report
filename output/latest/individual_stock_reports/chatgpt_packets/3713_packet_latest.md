@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3713 新晶投控
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:43 Asia/Taipei
+- generated_at: 2026-06-25 22:23:44 Asia/Taipei
 - stock_id: 3713
 - stock_name: 新晶投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 15.5
-- high: 15.5
-- low: 14.6
-- close: 15.05
-- volume: 177000
-- ma5: 15.6
-- ema23_primary: 15.58
-- distance_to_ema23_pct: -3.4
-- ma20: 15.86
-- ma60: 15.2
-- ma120: 17.81
+- date: 20260624
+- open: 14.5
+- high: 14.7
+- low: 14.15
+- close: 14.4
+- volume: 62000
+- ma5: 15.09
+- ema23_primary: 15.4
+- distance_to_ema23_pct: -6.49
+- ma20: 15.95
+- ma60: 15.09
+- ma120: 17.67
 - return_5d: -7.1
-- return_20d: 16.22
-- volume_ratio: 2.99
-- distance_to_ma20_pct_auxiliary: -5.09
-- distance_to_high_60_pct: -18.87
+- return_20d: 1.41
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -9.69
+- distance_to_high_60_pct: -22.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,12.95,13,12.75,12.95,13000,14.03,-7.71,13.93,15.86,0.13
-20260526,12.95,14.2,12.95,14.2,14000,14.05,1.1,13.9,15.76,0.14
 20260527,14.6,15.6,14.6,15.6,15000,14.18,10.05,13.94,15.7,0.15
 20260528,14.05,16.7,14.05,15.7,15000,14.3,9.77,13.98,15.64,0.15
 20260529,17,17,15.3,15.75,16000,14.42,9.2,14.03,15.58,0.17
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,15.5,16,14.95,15.85,114000,15.63,1.44,15.62,15.25,2.17
 20260618,15.85,15.85,15.15,15.65,70000,15.63,0.14,15.75,15.23,1.38
 20260622,15.5,15.5,14.6,15.05,177000,15.58,-3.4,15.86,15.2,2.99
+20260623,15,15,14.3,14.5,105000,15.49,-6.39,15.94,15.14,1.65
+20260624,14.5,14.7,14.15,14.4,62000,15.4,-6.49,15.95,15.09,0.94
 ```
 
 ## Latest TDCC Snapshot

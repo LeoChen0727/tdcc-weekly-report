@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1455 集盛
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:39 Asia/Taipei
+- generated_at: 2026-06-25 22:22:43 Asia/Taipei
 - stock_id: 1455
 - stock_name: 集盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 10.2
-- high: 10.25
-- low: 9.75
-- close: 9.76
-- volume: 2705798
-- ma5: 9.95
-- ema23_primary: 9.38
-- distance_to_ema23_pct: 4.03
-- ma20: 9.34
-- ma60: 8.77
-- ma120: 8.58
-- return_5d: -2.3
-- return_20d: 19.46
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 4.46
-- distance_to_high_60_pct: -5.7
+- date: 20260624
+- open: 9.32
+- high: 9.57
+- low: 9.31
+- close: 9.55
+- volume: 653147
+- ma5: 9.75
+- ema23_primary: 9.4
+- distance_to_ema23_pct: 1.63
+- ma20: 9.49
+- ma60: 8.79
+- ma120: 8.61
+- return_5d: -4.12
+- return_20d: 19.08
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 0.67
+- distance_to_high_60_pct: -7.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,8.15,8.21,7.95,8.07,1091052,8.25,-2.17,8.15,8.57,1.72
-20260526,8.07,8.14,7.98,8.02,753383,8.23,-2.55,8.13,8.56,1.18
 20260527,8,8.13,7.99,8.12,795118,8.22,-1.22,8.12,8.56,1.2
 20260528,8.15,8.88,8.15,8.61,2101503,8.25,4.32,8.13,8.57,2.84
 20260529,8.69,8.69,8.45,8.61,1054624,8.28,3.95,8.15,8.57,1.41
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,10,10,9.76,9.82,1760429,9.27,5.93,9.16,8.74,0.92
 20260618,9.82,10.35,9.7,10.2,4663539,9.35,9.12,9.26,8.75,2.2
 20260622,10.2,10.25,9.75,9.76,2705798,9.38,4.03,9.34,8.77,1.21
+20260623,9.76,9.83,9.4,9.4,2002663,9.38,0.18,9.41,8.78,0.88
+20260624,9.32,9.57,9.31,9.55,653147,9.4,1.63,9.49,8.79,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -189,14 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1455 | 集盛 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  ..........資本公積發放現金，新台幣85,070,140元 (每股配發0.16元) 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項:   (1) 本次資本公積發放現金基準日前，如因法令變更、主管機關要求或流通在外       股份數量異動，致使股東配發現金比率發生變動而需修正時，本公司董事會       授權董事長全權處理之。   (2) 每位股東發放計算至元為止，元以下無條件捨去，並將捨去金額計入本公司       之其他收入，匯費或掛號費（支票寄發）由股東負擔，自發放金額中扣除，       若配發金額不足匯費或郵資時，將以平信郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1455 | 集盛 | 1 | 1 | 2 | 5 | 7 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

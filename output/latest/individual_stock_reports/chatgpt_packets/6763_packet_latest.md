@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6763 綠界科技*
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:35 Asia/Taipei
+- generated_at: 2026-06-25 22:24:34 Asia/Taipei
 - stock_id: 6763
 - stock_name: 綠界科技*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 47.55
-- high: 47.75
-- low: 47.05
-- close: 47.2
-- volume: 820000
-- ma5: 47.41
-- ema23_primary: 46.96
-- distance_to_ema23_pct: 0.51
-- ma20: 46.4
-- ma60: 47.01
-- ma120: 50.35
-- return_5d: -2.07
-- return_20d: 4.19
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 1.73
-- distance_to_high_60_pct: -8.35
+- date: 20260624
+- open: 46.25
+- high: 47.2
+- low: 45.8
+- close: 46.7
+- volume: 241000
+- ma5: 47
+- ema23_primary: 46.88
+- distance_to_ema23_pct: -0.39
+- ma20: 46.63
+- ma60: 46.95
+- ma120: 50.17
+- return_5d: -1.27
+- return_20d: 6.5
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 0.14
+- distance_to_high_60_pct: -9.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,45.6,45.7,44.2,44.4,44000,46.35,-4.22,46.47,48.12,0.15
-20260526,44.55,44.9,43.75,43.85,44000,46.15,-4.98,46.33,47.98,0.15
 20260527,43.95,44.1,42.85,43.3,43000,45.91,-5.68,46.12,47.82,0.16
 20260528,43.3,43.4,42.6,42.75,43000,45.65,-6.34,45.91,47.66,0.16
 20260529,42.85,43.5,42.75,43.25,43000,45.45,-4.83,45.67,47.53,0.17
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,47.15,47.9,47.15,47.45,320000,46.89,1.19,46.21,47.01,0.41
 20260618,47.45,47.7,46.95,47.4,536000,46.94,0.99,46.3,47.01,0.68
 20260622,47.55,47.75,47.05,47.2,820000,46.96,0.51,46.4,47.01,1
+20260623,47.4,47.4,46,46.25,637000,46.9,-1.38,46.49,46.97,0.75
+20260624,46.25,47.2,45.8,46.7,241000,46.88,-0.39,46.63,46.95,0.28
 ```
 
 ## Latest TDCC Snapshot

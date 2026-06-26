@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4739 康普
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:53 Asia/Taipei
+- generated_at: 2026-06-25 22:23:54 Asia/Taipei
 - stock_id: 4739
 - stock_name: 康普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 124
-- high: 128
-- low: 122
-- close: 128
-- volume: 4508545
-- ma5: 122.6
-- ema23_primary: 114.72
-- distance_to_ema23_pct: 11.57
-- ma20: 116.01
-- ma60: 98.05
-- ma120: 85.12
-- return_5d: 5.35
-- return_20d: 26.73
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 10.34
-- distance_to_high_60_pct: -4.83
+- date: 20260624
+- open: 122
+- high: 122
+- low: 118.5
+- close: 121
+- volume: 1843929
+- ma5: 123.5
+- ema23_primary: 115.8
+- distance_to_ema23_pct: 4.49
+- ma20: 117.61
+- ma60: 99.29
+- ma120: 86.02
+- return_5d: 4.31
+- return_20d: 15.24
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 2.88
+- distance_to_high_60_pct: -10.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,104,107.5,99.2,106,6680418,94,12.77,93.19,85.51,1.33
-20260526,105,108,103.5,105,3756578,94.91,10.63,94.23,85.98,0.77
 20260527,106,107.5,100,104,5413060,95.67,8.71,95.28,86.42,1.08
 20260528,104.5,105.5,97.6,98.2,4862452,95.88,2.42,95.93,86.74,0.95
 20260529,101,108,100,108,6774903,96.89,11.47,97.09,87.3,1.27
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,116,124,115.5,123,5431182,112.61,9.23,113.22,96.73,0.75
 20260618,127,127,122,123.5,3725300,113.51,8.8,114.66,97.36,0.51
 20260622,124,128,122,128,4508545,114.72,11.57,116.01,98.05,0.62
+20260623,127.5,127.5,120,122,4142215,115.33,5.79,116.81,98.66,0.58
+20260624,122,122,118.5,121,1843929,115.8,4.49,117.61,99.29,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4739 | 康普 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 4739 | 康普 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4739 | 康普 | 1 | 1 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 4739 | 康普 | 3 | 1 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4739 | 康普 | 31 | 0 | 5065380.0 | 0.0 |  | no_signal |
+| 20260624 | 4739 | 康普 | 31 | 0 | 1524380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:22 Asia/Taipei
+- generated_at: 2026-06-25 22:24:21 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 937
-- high: 969
-- low: 930
-- close: 943
-- volume: 668836
-- ma5: 927.8
-- ema23_primary: 846.44
-- distance_to_ema23_pct: 11.41
-- ma20: 830.3
-- ma60: 776.67
-- ma120: 844.42
-- return_5d: 1.4
-- return_20d: 39.29
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 13.57
-- distance_to_high_60_pct: -3.97
+- date: 20260624
+- open: 910
+- high: 924
+- low: 907
+- close: 913
+- volume: 340858
+- ma5: 924.8
+- ema23_primary: 857
+- distance_to_ema23_pct: 6.53
+- ma20: 851
+- ma60: 782.12
+- ma120: 843.47
+- return_5d: 1.11
+- return_20d: 31.18
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 7.29
+- distance_to_high_60_pct: -7.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,689,722,683,715,992414,733.4,-2.51,743.85,770.07,0.96
-20260526,721,724,695,696,1084996,730.28,-4.69,739.9,766.33,1.03
 20260527,703,732,699,707,1335763,728.34,-2.93,737.65,762.68,1.23
 20260528,718,731,692,699,1345694,725.9,-3.71,734.25,759.5,1.19
 20260529,711,715,696,709,991985,724.49,-2.14,731.1,756.93,0.87
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,900,935,900,930,551715,829.63,12.1,803.85,770.47,0.33
 20260618,927,939,914,926,577945,837.66,10.55,817,773.28,0.35
 20260622,937,969,930,943,668836,846.44,11.41,830.3,776.67,0.41
+20260623,946,951,912,912,618968,851.9,7.05,840.15,779.23,0.38
+20260624,910,924,907,913,340858,857,6.53,851,782.12,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6409 | 旭隼 | 75 | 2 | 6452880.0 | 0.0 |  | call_inflow |
+| 20260624 | 6409 | 旭隼 | 78 | 0 | 1598230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Backfill Feasibility Audit
 
-- generated_at: `2026-06-26 21:35:25 Asia/Taipei`
+- generated_at: `2026-06-26 23:51:16 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_data_coverage_audit`
 - production impact: `none`
 - scope: research/backtest data governance only.
@@ -20,7 +20,7 @@
 
 | daily_price_min_date | daily_price_max_date | daily_price_unique_dates | price_history_file_count | price_history_files_ge_180 | earliest_180th_observed_date | status |
 | --- | --- | --- | --- | --- | --- | --- |
-| 20240102 | 20260624 | 593 | 2386 | 2019 | 20240930 | extended_after_approved_official_price_backfill |
+| 20240102 | 20260626 | 595 | 2389 | 2020 | 20240930 | extended_after_approved_official_price_backfill |
 
 ## Supporting Artifacts
 

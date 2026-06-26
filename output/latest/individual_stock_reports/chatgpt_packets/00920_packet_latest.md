@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00920 富邦ESG綠色電力
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-25 22:22:35 Asia/Taipei
 - stock_id: 00920
 - stock_name: 富邦ESG綠色電力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 27
-- high: 27.03
-- low: 26.82
-- close: 26.88
-- volume: 797250
-- ma5: 26.45
-- ema23_primary: 26.49
-- distance_to_ema23_pct: 1.46
-- ma20: 26.68
+- date: 20260624
+- open: 26.27
+- high: 26.33
+- low: 26.11
+- close: 26.33
+- volume: 523110
+- ma5: 26.53
+- ema23_primary: 26.51
+- distance_to_ema23_pct: -0.68
+- ma20: 26.61
 - ma60: 26.67
 - ma120: 26.67
-- return_5d: 4.35
-- return_20d: 1.09
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 0.76
-- distance_to_high_60_pct: -3.69
+- return_5d: -0.15
+- return_20d: -3.59
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -1.05
+- distance_to_high_60_pct: -5.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,26.64,27.24,26.64,27.23,962535,,,,,
-20260526,27.4,27.4,27.15,27.31,465741,,,,,
 20260527,27.36,27.91,27.36,27.68,449234,,,,,
 20260528,27.71,27.71,26.96,27.09,759756,26.81,1.06,27.18,27.18,1.22
 20260529,27.42,27.74,27.42,27.67,701901,26.88,2.95,27.26,27.26,1.1
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,26.3,26.32,26.24,26.26,127334,26.47,-0.8,26.68,26.68,0.28
 20260618,26.35,26.41,26.28,26.32,388383,26.46,-0.53,26.66,26.66,0.85
 20260622,27,27.03,26.82,26.88,797250,26.49,1.46,26.68,26.67,1.69
+20260623,27.15,27.28,26.88,26.88,491549,26.53,1.33,26.66,26.68,1.1
+20260624,26.27,26.33,26.11,26.33,523110,26.51,-0.68,26.61,26.67,1.16
 ```
 
 ## Latest TDCC Snapshot

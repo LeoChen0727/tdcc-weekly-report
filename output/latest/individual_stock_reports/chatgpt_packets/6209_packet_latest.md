@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:17 Asia/Taipei
+- generated_at: 2026-06-25 22:24:16 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 100
-- high: 101
-- low: 95.7
-- close: 97.2
-- volume: 21879361
-- ma5: 94.4
-- ema23_primary: 84.56
-- distance_to_ema23_pct: 14.95
-- ma20: 85.56
-- ma60: 70.38
-- ma120: 65.64
-- return_5d: 17.96
-- return_20d: 13.29
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 13.61
-- distance_to_high_60_pct: -6.99
+- date: 20260624
+- open: 89.3
+- high: 90.8
+- low: 87.1
+- close: 89
+- volume: 9781139
+- ma5: 93.86
+- ema23_primary: 85.37
+- distance_to_ema23_pct: 4.25
+- ma20: 86.16
+- ma60: 71.61
+- ma120: 66.12
+- return_5d: -6.61
+- return_20d: 9.88
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 3.3
+- distance_to_high_60_pct: -14.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,87.9,90.9,86,86.2,24327776,70.77,21.81,69.98,61.05,1.5
-20260526,86.2,86.2,80.3,81,17326289,71.62,13.1,70.73,61.32,1.07
 20260527,81.5,82.6,78,81.9,14859096,72.48,13,71.61,61.62,0.9
 20260528,82.5,84.4,79.4,80.7,13577210,73.16,10.3,72.5,61.94,0.8
 20260529,81.3,81.9,80.3,81.7,6317834,73.87,10.59,73.47,62.33,0.37
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,95.5,104.5,93.8,95.7,95741959,82.17,16.47,84.47,68.94,3.46
 20260618,95.8,98.3,93.1,97.1,30951785,83.41,16.41,84.98,69.66,1.16
 20260622,100,101,95.7,97.2,21879361,84.56,14.95,85.56,70.38,0.85
+20260623,97.5,97.6,89.4,90.3,15467228,85.04,6.19,85.76,70.99,0.61
+20260624,89.3,90.8,87.1,89,9781139,85.37,4.25,86.16,71.61,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6209 | 今國光 | 53 | 0 | 19711690.0 | 0.0 |  | no_signal |
+| 20260624 | 6209 | 今國光 | 56 | 0 | 7638660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

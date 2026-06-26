@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4510 高鋒
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:49 Asia/Taipei
+- generated_at: 2026-06-25 22:23:49 Asia/Taipei
 - stock_id: 4510
 - stock_name: 高鋒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45.9
-- high: 47.25
-- low: 45
-- close: 46.7
-- volume: 2124000
-- ma5: 45.66
-- ema23_primary: 47.01
-- distance_to_ema23_pct: -0.65
-- ma20: 48.02
+- date: 20260624
+- open: 44.5
+- high: 44.95
+- low: 43.95
+- close: 44
+- volume: 853000
+- ma5: 45.07
+- ema23_primary: 46.57
+- distance_to_ema23_pct: -5.52
+- ma20: 47.35
 - ma60: 46.58
-- ma120: 45.46
-- return_5d: 6.38
-- return_20d: -5.85
-- volume_ratio: 2.7
-- distance_to_ma20_pct_auxiliary: -2.75
-- distance_to_high_60_pct: -17.35
+- ma120: 45.52
+- return_5d: -3.3
+- return_20d: -15.22
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -7.08
+- distance_to_high_60_pct: -22.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,50.7,50.8,49.25,50,50000,47.4,5.48,47.81,45.02,0.01
-20260526,50.3,52.9,48.6,51.9,52000,47.78,8.63,48.11,45.13,0.01
 20260527,52.2,52.2,47.85,48.45,50000,47.83,1.29,48.16,45.18,0.01
 20260528,48.9,51.6,47.5,47.8,49000,47.83,-0.06,48.19,45.21,0.02
 20260529,48.3,51,48.05,50.4,50000,48.04,4.9,48.36,45.32,0.02
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,44.9,45.3,44.5,44.8,729000,47.19,-5.07,48.28,46.46,1.04
 20260618,45,45.5,44.6,45.3,1095000,47.04,-3.69,48.16,46.51,1.6
 20260622,45.9,47.25,45,46.7,2124000,47.01,-0.65,48.02,46.58,2.7
+20260623,46.7,46.7,44.55,44.55,1309000,46.8,-4.81,47.75,46.57,1.54
+20260624,44.5,44.95,43.95,44,853000,46.57,-5.52,47.35,46.58,0.96
 ```
 
 ## Latest TDCC Snapshot

@@ -1,6 +1,6 @@
 # W-Bottom Split Entry Outcome Backtest
 
-- generated_at: `2026-06-26 21:12:48 Asia/Taipei`
+- generated_at: `2026-06-26 23:32:11 Asia/Taipei`
 - source_research_id: `w_bottom_combined_condition_backtest`
 - production impact: `none`
 - price convention: entry uses next trading day's open; exit uses exit day's close.
@@ -12,46 +12,46 @@
 
 | surface_id | entry_rule_id | outcome_rule_id | condition_set_id | sample_size | mature_sample_size | success_rate_pct | positive_return_rate_pct | avg_return_pct | median_return_pct | sample_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | core_mainstream_price_le40 | 89 | 77 | 55.8442 | 55.8442 | 5.1809 | 1.0638 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | core_mainstream | 100 | 88 | 55.6818 | 55.6818 | 4.6852 | 1.0950 | medium_mature_sample_research_only |
 | w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | core_mainstream_price_le40 | 119 | 115 | 55.6522 | 55.6522 | 3.0916 | 2.0979 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | core_mainstream_price_le40 | 89 | 78 | 55.1282 | 55.1282 | 5.0420 | 1.0638 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | core_mainstream | 100 | 89 | 55.0562 | 55.0562 | 4.5691 | 1.0638 | medium_mature_sample_research_only |
 | w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | core_mainstream | 135 | 131 | 54.9618 | 54.9618 | 3.0741 | 1.9108 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | core_mainstream_price_le40 | 119 | 102 | 54.9020 | 54.9020 | 7.9173 | 2.7142 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | price_le40_exclude_wv | 89 | 73 | 54.7945 | 54.7945 | 5.9388 | 2.1739 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | core_mainstream | 135 | 117 | 54.7009 | 54.7009 | 8.2070 | 3.0220 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | core_mainstream | 135 | 125 | 54.4000 | 54.4000 | 5.7712 | 2.3707 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | exclude_wv_multiple_turn | 101 | 85 | 54.1176 | 54.1176 | 5.9812 | 1.9672 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | core_mainstream_price_le40 | 119 | 116 | 53.4483 | 53.4483 | 3.1098 | 0.7424 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | core_mainstream | 135 | 132 | 53.0303 | 53.0303 | 2.9462 | 0.6826 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | core_mainstream_price_le40 | 119 | 110 | 52.7273 | 52.7273 | 5.3804 | 1.5009 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | exclude_wv_multiple_turn | 101 | 93 | 52.6882 | 52.6882 | 6.1400 | 1.6835 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | price_le40_exclude_wv | 89 | 81 | 51.8519 | 51.8519 | 6.4258 | 1.4673 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | exclude_wv_multiple_turn | 75 | 63 | 49.2063 | 49.2063 | 2.3442 | -0.2740 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | price_le40_exclude_wv | 67 | 55 | 49.0909 | 49.0909 | 2.5380 | -0.2740 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | core_mainstream_price_le40 | 119 | 103 | 54.3689 | 54.3689 | 7.7558 | 2.4064 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | core_mainstream | 135 | 118 | 54.2373 | 54.2373 | 8.0635 | 2.7142 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | core_mainstream | 135 | 126 | 53.9683 | 53.9683 | 5.7218 | 2.0703 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | core_mainstream_price_le40 | 119 | 117 | 53.8462 | 53.8462 | 3.1190 | 0.8021 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | core_mainstream | 135 | 133 | 53.3835 | 53.3835 | 2.9555 | 0.6826 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | price_le40_exclude_wv | 89 | 75 | 53.3333 | 53.3333 | 5.4715 | 0.9913 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | exclude_wv_multiple_turn | 101 | 87 | 52.8736 | 52.8736 | 5.5774 | 0.9913 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | core_mainstream_price_le40 | 119 | 111 | 52.2523 | 52.2523 | 5.3278 | 1.4673 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | exclude_wv_multiple_turn | 101 | 95 | 51.5789 | 51.5789 | 5.8440 | 1.4673 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | price_le40_exclude_wv | 89 | 83 | 50.6024 | 50.6024 | 6.0801 | 1.4118 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | exclude_wv_multiple_turn | 75 | 64 | 48.4375 | 48.4375 | 2.2193 | -0.5756 | medium_mature_sample_research_only |
 | w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_10d_close_positive_return | core_mainstream_price_le40 | 89 | 87 | 48.2759 | 48.2759 | 2.5846 | -0.5302 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | bottom_or_low_level | 143 | 125 | 48.0000 | 48.0000 | 2.6993 | -0.3731 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | price_position_252_le_40 | 133 | 115 | 47.8261 | 47.8261 | 2.6448 | -0.3731 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | all | 150 | 132 | 47.7273 | 47.7273 | 2.3864 | -0.4385 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | price_le40_exclude_wv | 67 | 65 | 47.6923 | 47.6923 | 1.2581 | 0.0000 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | price_le40_exclude_wv | 89 | 86 | 47.6744 | 47.6744 | 3.6240 | -0.1976 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | bottom_or_low_level | 143 | 139 | 47.4820 | 47.4820 | 1.4972 | -0.4167 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | all | 209 | 205 | 47.3171 | 47.3171 | 2.0975 | -0.5249 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | all | 150 | 146 | 47.2603 | 47.2603 | 1.3436 | -0.4362 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | price_position_252_le_40 | 184 | 180 | 47.2222 | 47.2222 | 2.1132 | -0.6079 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | bottom_or_low_level | 199 | 195 | 47.1795 | 47.1795 | 2.1238 | -0.6908 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | bottom_or_low_level | 199 | 193 | 47.1503 | 47.1503 | 1.6941 | -0.4926 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | price_le40_exclude_wv | 89 | 87 | 47.1264 | 47.1264 | 2.3438 | -0.3497 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | core_mainstream_price_le40 | 89 | 87 | 47.1264 | 47.1264 | 1.5483 | -0.3413 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | bottom_or_low_level | 199 | 170 | 47.0588 | 47.0588 | 4.2327 | -0.6606 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | price_le40_exclude_wv | 67 | 56 | 48.2143 | 48.2143 | 2.3918 | -0.5756 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | bottom_or_low_level | 143 | 126 | 47.6190 | 47.6190 | 2.6331 | -0.4385 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | price_position_252_le_40 | 133 | 116 | 47.4138 | 47.4138 | 2.5733 | -0.4385 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_30d_close_positive_return | all | 150 | 133 | 47.3684 | 47.3684 | 2.3260 | -0.5038 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | all | 209 | 207 | 47.3430 | 47.3430 | 2.0930 | -0.5249 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | price_position_252_le_40 | 184 | 182 | 47.2527 | 47.2527 | 2.1079 | -0.6079 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | bottom_or_low_level | 199 | 197 | 47.2081 | 47.2081 | 2.1189 | -0.6908 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | core_mainstream_price_le40 | 89 | 89 | 47.1910 | 47.1910 | 1.4484 | -0.3413 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | bottom_or_low_level | 143 | 142 | 47.1831 | 47.1831 | 1.4248 | -0.3790 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | price_le40_exclude_wv | 89 | 87 | 47.1264 | 47.1264 | 3.5731 | -0.3953 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | all | 150 | 149 | 46.9799 | 46.9799 | 1.2777 | -0.4167 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | price_le40_exclude_wv | 67 | 66 | 46.9697 | 46.9697 | 1.2390 | 0.0000 | medium_mature_sample_research_only |
 | w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_10d_close_positive_return | core_mainstream | 100 | 98 | 46.9388 | 46.9388 | 2.3844 | -0.8732 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | all | 209 | 203 | 46.7980 | 46.7980 | 1.6592 | -0.4926 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | price_position_252_le_40 | 184 | 156 | 46.7949 | 46.7949 | 4.2982 | -0.6606 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | all | 209 | 180 | 46.6667 | 46.6667 | 4.5498 | -0.9324 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | all | 209 | 191 | 46.5969 | 46.5969 | 3.4780 | -1.4124 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | price_position_252_le_40 | 133 | 129 | 46.5116 | 46.5116 | 1.3796 | -0.4556 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | price_position_252_le_40 | 184 | 178 | 46.0674 | 46.0674 | 1.4103 | -0.5128 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | exclude_wv_multiple_turn | 101 | 98 | 45.9184 | 45.9184 | 3.2281 | -0.4973 | medium_mature_sample_research_only |
-| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | core_mainstream | 100 | 98 | 45.9184 | 45.9184 | 1.1692 | -0.4362 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | bottom_or_low_level | 199 | 194 | 46.9072 | 46.9072 | 1.6812 | -0.5027 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_5d_close_positive_return | price_le40_exclude_wv | 89 | 88 | 46.5909 | 46.5909 | 2.3067 | -0.4373 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | all | 209 | 204 | 46.5686 | 46.5686 | 1.6471 | -0.5027 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | bottom_or_low_level | 199 | 172 | 46.5116 | 46.5116 | 4.0488 | -0.9324 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | price_position_252_le_40 | 133 | 132 | 46.2121 | 46.2121 | 1.3044 | -0.4362 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | price_position_252_le_40 | 184 | 158 | 46.2025 | 46.2025 | 4.0972 | -0.9324 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_30d_close_positive_return | all | 209 | 182 | 46.1538 | 46.1538 | 4.3725 | -1.0475 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_20d_close_positive_return | all | 209 | 193 | 46.1140 | 46.1140 | 3.3598 | -1.4124 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | post_confirmation_next_open | fixed_5d_close_positive_return | core_mainstream | 100 | 100 | 46.0000 | 46.0000 | 1.0879 | -0.4362 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | price_position_252_le_40 | 184 | 179 | 45.8101 | 45.8101 | 1.3979 | -0.5128 | medium_mature_sample_research_only |
+| w_bottom_neckline_volume_breakout_confirmation | neckline_volume_breakout_next_open | fixed_10d_close_positive_return | exclude_wv_multiple_turn | 101 | 99 | 45.4545 | 45.4545 | 3.1873 | -0.5780 | medium_mature_sample_research_only |
 
 ## Guardrails
 

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00946 群益科技高息成長
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:31 Asia/Taipei
+- generated_at: 2026-06-25 22:22:35 Asia/Taipei
 - stock_id: 00946
 - stock_name: 群益科技高息成長
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 15.64
-- high: 15.9
-- low: 15.63
-- close: 15.85
-- volume: 8434685
-- ma5: 15.2
-- ema23_primary: 14.77
-- distance_to_ema23_pct: 7.28
-- ma20: 14.95
-- ma60: 14.88
-- ma120: 14.88
-- return_5d: 6.88
-- return_20d: 17.41
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: 6.01
-- distance_to_high_60_pct: -0.31
+- date: 20260624
+- open: 15.21
+- high: 15.41
+- low: 15.16
+- close: 15.33
+- volume: 5289415
+- ma5: 15.43
+- ema23_primary: 14.87
+- distance_to_ema23_pct: 3.07
+- ma20: 15.07
+- ma60: 14.93
+- ma120: 14.93
+- return_5d: 3.58
+- return_20d: 7.05
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 1.72
+- distance_to_high_60_pct: -4.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,13.73,14.19,13.7,14.1,10120331,,,,,
-20260526,14.31,14.4,14.2,14.32,6816682,,,,,
 20260527,14.59,14.73,14.57,14.7,10424963,,,,,
 20260528,14.72,14.91,14.3,14.39,13099307,13.76,4.57,14.2,14.2,1.42
 20260529,14.76,14.91,14.68,14.9,5611644,13.86,7.53,14.32,14.32,0.65
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,14.71,15.14,14.67,15.12,4997095,14.61,3.48,14.8,14.8,0.78
 20260618,15.21,15.43,15.2,15.4,4623710,14.68,4.93,14.83,14.83,0.73
 20260622,15.64,15.9,15.63,15.85,8434685,14.77,7.28,14.95,14.88,1.31
+20260623,15.97,16.1,15.42,15.46,8804861,14.83,4.23,15.02,14.91,1.38
+20260624,15.21,15.41,15.16,15.33,5289415,14.87,3.07,15.07,14.93,0.84
 ```
 
 ## Latest TDCC Snapshot

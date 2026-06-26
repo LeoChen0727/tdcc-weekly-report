@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2511 太子
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:09 Asia/Taipei
+- generated_at: 2026-06-25 22:23:11 Asia/Taipei
 - stock_id: 2511
 - stock_name: 太子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 8.22
-- high: 8.22
+- date: 20260624
+- open: 8.07
+- high: 8.19
 - low: 8.07
-- close: 8.11
-- volume: 1626121
+- close: 8.14
+- volume: 1363784
 - ma5: 8.15
-- ema23_primary: 8
-- distance_to_ema23_pct: 1.37
-- ma20: 7.96
+- ema23_primary: 8.02
+- distance_to_ema23_pct: 1.52
+- ma20: 8
 - ma60: 7.96
 - ma120: 8.12
-- return_5d: -0.98
-- return_20d: 4.78
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 1.92
-- distance_to_high_60_pct: -2.29
+- return_5d: 0.25
+- return_20d: 6.82
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 1.72
+- distance_to_high_60_pct: -1.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,7.75,7.75,7.62,7.69,1433189,7.8,-1.4,7.78,8.02,1.04
-20260526,7.6,7.67,7.6,7.62,1085949,7.78,-2.11,7.77,8.01,0.84
 20260527,7.62,7.64,7.58,7.62,1487093,7.77,-1.94,7.75,8,1.14
 20260528,7.65,7.68,7.6,7.66,937970,7.76,-1.3,7.73,7.99,0.71
 20260529,7.69,7.73,7.65,7.69,1201379,7.76,-0.84,7.71,7.98,0.9
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,8.2,8.2,8.11,8.19,1370985,7.97,2.77,7.91,7.96,0.81
 20260618,8.18,8.29,8.18,8.22,2280474,7.99,2.87,7.94,7.96,1.29
 20260622,8.22,8.22,8.07,8.11,1626121,8,1.37,7.96,7.96,0.9
+20260623,8.11,8.13,8.07,8.08,955966,8.01,0.91,7.98,7.96,0.54
+20260624,8.07,8.19,8.07,8.14,1363784,8.02,1.52,8,7.96,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2511 | 太子 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:發放現金股利每股新台幣0.3元 4.除權（息）交易日:115/07/30 5.最後過戶日:115/08/02 6.停止過戶起始日期:115/08/03 7.停止過戶截止日期:115/08/07 8.除權（息）基準日:115/08/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/24 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2511 | 太子 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:發放現金股利每股新台幣0.3元 4.除權（息）交易日:115/07/30 5.最後過戶日:115/08/02 6.停止過戶起始日期:115/08/03 7.停止過戶截止日期:115/08/07 8.除權（息）基準日:115/08/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/24 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2511 | 太子 | 4 | 1 | 4 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2511 | 太子 | 1 | 1 | 4 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

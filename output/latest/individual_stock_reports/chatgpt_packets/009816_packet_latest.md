@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009816 凱基台灣TOP50
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:32 Asia/Taipei
+- generated_at: 2026-06-25 22:22:36 Asia/Taipei
 - stock_id: 009816
 - stock_name: 凱基台灣TOP50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 16
-- high: 16.2
-- low: 15.99
-- close: 16.17
-- volume: 162560447
-- ma5: 15.66
-- ema23_primary: 15.11
-- distance_to_ema23_pct: 7
-- ma20: 15.21
-- ma60: 15.16
-- ma120: 15.16
-- return_5d: 8.52
-- return_20d: 13.95
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 6.34
-- distance_to_high_60_pct: -0.19
+- date: 20260624
+- open: 15.72
+- high: 15.73
+- low: 15.43
+- close: 15.56
+- volume: 338031402
+- ma5: 15.79
+- ema23_primary: 15.21
+- distance_to_ema23_pct: 2.27
+- ma20: 15.31
+- ma60: 15.21
+- ma120: 15.21
+- return_5d: 0.32
+- return_20d: 5.42
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 1.65
+- distance_to_high_60_pct: -4.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,14.55,14.77,14.54,14.76,176530657,,,,,
-20260526,14.9,14.93,14.71,14.76,161203510,,,,,
 20260527,15.13,15.33,15.02,15.15,206095993,,,,,
 20260528,15.26,15.31,14.67,14.8,294376691,14.39,2.84,14.73,14.73,1.54
 20260529,15.14,15.27,15.05,15.2,155246577,14.46,5.13,14.81,14.81,0.84
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,15.35,15.55,15.33,15.55,121793794,14.96,3.98,15.08,15.08,0.63
 20260618,15.69,15.74,15.61,15.68,137362350,15.02,4.43,15.11,15.11,0.72
 20260622,16,16.2,15.99,16.17,162560447,15.11,7,15.21,15.16,0.85
+20260623,16.27,16.32,15.97,15.97,196020423,15.18,5.18,15.27,15.2,1.01
+20260624,15.72,15.73,15.43,15.56,338031402,15.21,2.27,15.31,15.21,1.67
 ```
 
 ## Latest TDCC Snapshot

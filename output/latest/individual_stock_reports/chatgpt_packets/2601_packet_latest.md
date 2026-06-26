@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:11 Asia/Taipei
+- generated_at: 2026-06-25 22:23:13 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 287
+- latest_price_date: 20260624
+- price_rows: 289
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 6
-- high: 6
-- low: 5.6
-- close: 5.68
-- volume: 2764903
-- ma5: 5.79
-- ema23_primary: 5.66
-- distance_to_ema23_pct: 0.39
-- ma20: 5.71
-- ma60: 5.49
+- date: 20260624
+- open: 5.55
+- high: 5.61
+- low: 5.46
+- close: 5.54
+- volume: 1255085
+- ma5: 5.7
+- ema23_primary: 5.64
+- distance_to_ema23_pct: -1.8
+- ma20: 5.76
+- ma60: 5.48
 - ma120: 5.61
-- return_5d: -1.22
-- return_20d: 12.92
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -0.52
-- distance_to_high_60_pct: -17.56
+- return_5d: -3.15
+- return_20d: 9.7
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -3.79
+- distance_to_high_60_pct: -19.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,5.16,5.18,4.99,5.08,3205752,5.09,-0.27,4.98,5.65,1.27
-20260526,5.11,5.11,5,5.05,2094493,5.09,-0.78,4.97,5.64,0.83
 20260527,5,5.05,4.98,5,2246857,5.08,-1.62,4.95,5.63,0.87
 20260528,5,5.06,4.96,5.06,2112817,5.08,-0.41,4.94,5.63,0.85
 20260529,5.1,5.25,5.05,5.24,4603765,5.09,2.87,4.95,5.62,1.86
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,5.81,6.05,5.55,5.9,2768978,5.64,4.58,5.64,5.5,0.72
 20260618,5.97,5.98,5.8,5.81,1743215,5.66,2.73,5.68,5.5,0.46
 20260622,6,6,5.6,5.68,2764903,5.66,0.39,5.71,5.49,0.72
+20260623,5.68,5.68,5.5,5.57,2281554,5.65,-1.42,5.73,5.49,0.6
+20260624,5.55,5.61,5.46,5.54,1255085,5.64,-1.8,5.76,5.48,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2601 | 益航 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/18 2.公司名稱:益航股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年6月18日股東常會決議通過辦理減資，依公司法第281條準 用同法第73及74條規定，辦理致債權人公告。 6.因應措施: (1)本公司業經115年6月18日股東常會決議通過辦理減資彌補虧損。 (2)本公司實收資本額為新台幣8,247,760,670元，分為824,776,067股，每股面額 新台幣10元，為健全公司財務結構與未來營運發展需求，擬辦理減少資本額新台幣 1,343,970,560元，以彌補累積虧損，銷除已發行股份134,397,056股，減資比率 16.2949753%，減資後實收資本額為新台幣6,903,790,110元。 (3)經股東常會決議通過及主管機關核准後，由董事長另訂減資基準日與減資換發 股票基準日。 (4)本公司債權人如對前述減少資本之決議有異議者，請於公告日起三十一日內以 書面檢附債權證明文件親交或郵寄(以郵戳日為憑)向本公司提出聲明，逾期未表示異議 視為無異議。債權人提出異議後，若轉讓債權，則喪失異議權，已向本公司提出之異議 視為撤回，特此公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次減資為彌補虧損，無實質現金流出，對公司營運資金無重大影響。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 2601 | 益航 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/18 2.公司名稱:益航股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年6月18日股東常會決議通過辦理減資，依公司法第281條準 用同法第73及74條規定，辦理致債權人公告。 6.因應措施: (1)本公司業經115年6月18日股東常會決議通過辦理減資彌補虧損。 (2)本公司實收資本額為新台幣8,247,760,670元，分為824,776,067股，每股面額 新台幣10元，為健全公司財務結構與未來營運發展需求，擬辦理減少資本額新台幣 1,343,970,560元，以彌補累積虧損，銷除已發行股份134,397,056股，減資比率 16.2949753%，減資後實收資本額為新台幣6,903,790,110元。 (3)經股東常會決議通過及主管機關核准後，由董事長另訂減資基準日與減資換發 股票基準日。 (4)本公司債權人如對前述減少資本之決議有異議者，請於公告日起三十一日內以 書面檢附債權證明文件親交或郵寄(以郵戳日為憑)向本公司提出聲明，逾期未表示異議 視為無異議。債權人提出異議後，若轉讓債權，則喪失異議權，已向本公司提出之異議 視為撤回，特此公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次減資為彌補虧損，無實質現金流出，對公司營運資金無重大影響。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2601 | 益航 | 2 | 2 | 3 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2601 | 益航 | 4 | 4 | 4 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

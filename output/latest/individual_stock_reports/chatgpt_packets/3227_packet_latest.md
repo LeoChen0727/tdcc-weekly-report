@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3227 原相
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:28 Asia/Taipei
+- generated_at: 2026-06-25 22:23:30 Asia/Taipei
 - stock_id: 3227
 - stock_name: 原相
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 228
-- high: 235.5
-- low: 228
-- close: 230
-- volume: 3801000
-- ma5: 220.8
-- ema23_primary: 221.22
-- distance_to_ema23_pct: 3.97
-- ma20: 223.88
-- ma60: 211.64
-- ma120: 206.43
-- return_5d: 6.48
-- return_20d: -1.29
-- volume_ratio: 4.7
-- distance_to_ma20_pct_auxiliary: 2.74
-- distance_to_high_60_pct: -4.37
+- date: 20260624
+- open: 226.5
+- high: 228.5
+- low: 223.5
+- close: 228.5
+- volume: 1074000
+- ma5: 225.8
+- ema23_primary: 222.34
+- distance_to_ema23_pct: 2.77
+- ma20: 223.28
+- ma60: 212.88
+- ma120: 206.9
+- return_5d: 6.03
+- return_20d: -3.18
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 2.34
+- distance_to_high_60_pct: -4.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,235.5,236,231.5,232.5,234000,218.79,6.26,219.93,202.89,0.11
-20260526,235.5,237,230.5,236,234000,220.23,7.16,221.45,203.39,0.12
 20260527,238,238.5,224,226.5,231000,220.75,2.6,222.32,203.73,0.12
 20260528,230,240.5,223,225.5,232000,221.15,1.97,223.28,204.11,0.12
 20260529,230,230.5,225,227.5,227000,221.68,2.63,224.28,204.6,0.12
@@ -160,6 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,215,218,214,217.5,615000,220,-1.14,224.22,210.38,0.95
 20260618,218.5,225,218,225,2001000,220.42,2.08,224.03,210.96,3.17
 20260622,228,235.5,228,230,3801000,221.22,3.97,223.88,211.64,4.7
+20260623,232.5,234.5,227.5,228,2144000,221.78,2.8,223.65,212.22,2.37
+20260624,226.5,228.5,223.5,228.5,1074000,222.34,2.77,223.28,212.88,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -196,12 +196,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3227 | 原相 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 3227 | 原相 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃森煌 4.舊任者簡歷:原相科技股份有限公司董事長 5.新任者姓名:黃森煌 6.新任者簡歷:原相科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3227 | 原相 | 2 | 2 | 2 | 3 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260624 | 3227 | 原相 | 1 | 1 | 3 | 3 | 12 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

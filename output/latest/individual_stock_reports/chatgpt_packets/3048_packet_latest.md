@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3048 益登
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:23 Asia/Taipei
+- generated_at: 2026-06-25 22:23:25 Asia/Taipei
 - stock_id: 3048
 - stock_name: 益登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 74
-- high: 74.4
-- low: 72.3
-- close: 72.4
-- volume: 8478065
-- ma5: 72.62
-- ema23_primary: 68.06
-- distance_to_ema23_pct: 6.37
-- ma20: 71.5
-- ma60: 52.3
-- ma120: 46.04
-- return_5d: -0.82
-- return_20d: -2.82
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 1.26
-- distance_to_high_60_pct: -11.6
+- date: 20260624
+- open: 68.3
+- high: 69.7
+- low: 67.3
+- close: 69
+- volume: 4671911
+- ma5: 71.36
+- ema23_primary: 68.24
+- distance_to_ema23_pct: 1.12
+- ma20: 71.1
+- ma60: 53.35
+- ma120: 46.55
+- return_5d: -2.95
+- return_20d: -5.48
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -2.95
+- distance_to_high_60_pct: -15.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,79.1,81.9,73,73.3,36332297,52.36,40.01,49.78,41.81,2.34
-20260526,73,74.6,69.6,73,15214715,54.08,35,51.48,42.37,0.95
 20260527,75,75,69.5,70,14262463,55.4,26.35,53,42.86,0.85
 20260528,70.5,77,69.5,72.2,29697572,56.8,27.11,54.68,43.41,1.64
 20260529,73,74.9,70.5,72,17963876,58.07,23.99,56.37,44,0.95
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,70.5,73.2,69,72.6,6509417,67.14,8.13,71.32,51.15,0.32
 20260618,72,75.5,71.8,73.5,11027285,67.67,8.62,71.61,51.73,0.53
 20260622,74,74.4,72.3,72.4,8478065,68.06,6.37,71.5,52.3,0.42
+20260623,72.6,72.8,69.1,69.3,7447514,68.17,1.66,71.3,52.82,0.4
+20260624,68.3,69.7,67.3,69,4671911,68.24,1.12,71.1,53.35,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3048 | 益登 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 配發股東現金股利269,829,794元(每股配發1元) 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項: 若因本公司於配息基準日前若因庫藏股買回、轉讓，或可轉換公司債債權人 執行轉換權利，造成流通在外股數發生變動，股東會授權董事長調整股東配 息率及另訂除息基準日、發放日暨其他相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 配發股東現金股利269,829,794元(每股配發1元) 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項: 若因本公司於配息基準日前若因庫藏股買回、轉讓，或可轉換公司債債權人 執行轉換權利，造成流通在外股數發生變動，股東會授權董事長調整股東配 息率及另訂除息基準日、發放日暨其他相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260624 | 3048 | 益登 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 配發股東現金股利269,829,794元(每股配發1元) 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項: 若因本公司於配息基準日前若因庫藏股買回、轉讓，或可轉換公司債債權人 執行轉換權利，造成流通在外股數發生變動，股東會授權董事長調整股東配 息率及另訂除息基準日、發放日暨其他相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3048 | 益登 | 9 | 4 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 3048 | 益登 | 11 | 6 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3048 | 益登 | 27 | 1 | 2882170.0 | 700.0 | 4117.39 | no_signal |
+| 20260624 | 3048 | 益登 | 27 | 0 | 893640.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

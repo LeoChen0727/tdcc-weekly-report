@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6578 達邦蛋白
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:28 Asia/Taipei
+- generated_at: 2026-06-25 22:24:27 Asia/Taipei
 - stock_id: 6578
 - stock_name: 達邦蛋白
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 16.8
-- high: 16.8
-- low: 16.15
-- close: 16.45
-- volume: 116000
-- ma5: 16.56
-- ema23_primary: 16.66
-- distance_to_ema23_pct: -1.25
-- ma20: 16.76
-- ma60: 16.76
-- ma120: 17.91
-- return_5d: -1.2
-- return_20d: -4.91
-- volume_ratio: 2.13
-- distance_to_ma20_pct_auxiliary: -1.85
-- distance_to_high_60_pct: -9.62
+- date: 20260624
+- open: 16
+- high: 16.3
+- low: 16
+- close: 16.3
+- volume: 58000
+- ma5: 16.41
+- ema23_primary: 16.6
+- distance_to_ema23_pct: -1.81
+- ma20: 16.67
+- ma60: 16.71
+- ma120: 17.86
+- return_5d: -0.91
+- return_20d: -6.05
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -2.22
+- distance_to_high_60_pct: -10.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,17.35,17.35,17,17.05,17000,16.43,3.78,15.9,17.19,0.07
-20260526,16.95,17.7,16.95,17.35,17000,16.51,5.11,15.97,17.17,0.08
 20260527,17.15,17.15,16.65,16.65,17000,16.52,0.8,16.02,17.13,0.08
 20260528,16.65,16.7,16,16.4,16000,16.51,-0.66,16.05,17.09,0.08
 20260529,16.35,16.7,16.35,16.6,17000,16.52,0.51,16.11,17.07,0.09
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,16.4,17,16.35,16.55,81000,16.7,-0.89,16.84,16.8,1.56
 20260618,16.95,17,16.45,16.45,64000,16.68,-1.36,16.8,16.78,1.29
 20260622,16.8,16.8,16.15,16.45,116000,16.66,-1.25,16.76,16.76,2.13
+20260623,16.25,16.35,16.1,16.3,44000,16.63,-1.98,16.72,16.73,0.79
+20260624,16,16.3,16,16.3,58000,16.6,-1.81,16.67,16.71,1
 ```
 
 ## Latest TDCC Snapshot

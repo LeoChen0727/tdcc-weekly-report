@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6282 康舒
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:21 Asia/Taipei
+- generated_at: 2026-06-25 22:24:20 Asia/Taipei
 - stock_id: 6282
 - stock_name: 康舒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 58.9
-- high: 63.9
-- low: 58
-- close: 63.9
-- volume: 56918124
-- ma5: 59.08
-- ema23_primary: 58.82
-- distance_to_ema23_pct: 8.64
-- ma20: 61.08
-- ma60: 53.18
-- ma120: 50.85
-- return_5d: 9.98
-- return_20d: 11.32
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 4.63
-- distance_to_high_60_pct: -9.75
+- date: 20260624
+- open: 61.2
+- high: 64
+- low: 60.7
+- close: 62
+- volume: 48228358
+- ma5: 60.58
+- ema23_primary: 59.29
+- distance_to_ema23_pct: 4.57
+- ma20: 60.98
+- ma60: 53.62
+- ma120: 51.2
+- return_5d: 7.45
+- return_20d: -0.64
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 1.68
+- distance_to_high_60_pct: -12.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,60.2,63.1,58.6,63.1,83984619,52.06,21.21,51.46,49.01,2.19
-20260526,63.6,63.7,60,62.4,95828980,52.92,17.91,52.25,49.2,2.26
 20260527,64.8,65.1,58.5,59.4,83823820,53.46,11.11,52.84,49.32,1.81
 20260528,59.8,61.4,56.8,57.7,52796324,53.81,7.22,53.32,49.42,1.1
 20260529,59.4,60.5,57,59.9,46988603,54.32,10.27,53.95,49.6,0.96
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,57.7,57.9,56.2,57.4,18755849,58.38,-1.68,60.52,52.67,0.28
 20260618,57.7,58.6,57.2,58.1,17178239,58.36,-0.44,60.75,52.87,0.26
 20260622,58.9,63.9,58,63.9,56918124,58.82,8.64,61.08,53.18,0.88
+20260623,64,64.6,60.7,61.5,60744658,59.04,4.16,60.99,53.41,0.96
+20260624,61.2,64,60.7,62,48228358,59.29,4.57,60.98,53.62,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6282 | 康舒 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6282 | 康舒 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:通過修正「公司章程」案 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書 及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過解除董事競業禁止之限制 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6282 | 康舒 | 18 | 6 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 6282 | 康舒 | 20 | 8 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6282 | 康舒 | 167 | 5 | 31948770.0 | 51970.0 | 614.75 | call_put_bullish |
+| 20260624 | 6282 | 康舒 | 167 | 0 | 27794140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

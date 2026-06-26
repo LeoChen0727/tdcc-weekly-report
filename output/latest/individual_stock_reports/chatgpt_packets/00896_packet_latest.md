@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00896 中信綠能及電動車
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-25 22:22:34 Asia/Taipei
 - stock_id: 00896
 - stock_name: 中信綠能及電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 28.15
-- high: 28.7
-- low: 28.15
-- close: 28.55
-- volume: 11305958
-- ma5: 28.14
-- ema23_primary: 28.07
-- distance_to_ema23_pct: 1.7
-- ma20: 28.46
-- ma60: 28.38
-- ma120: 28.38
-- return_5d: 0.78
-- return_20d: 6.53
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 0.33
-- distance_to_high_60_pct: -7.46
+- date: 20260624
+- open: 27.67
+- high: 28.14
+- low: 27.49
+- close: 28.08
+- volume: 5418072
+- ma5: 28.06
+- ema23_primary: 28.08
+- distance_to_ema23_pct: 0.01
+- ma20: 28.48
+- ma60: 28.35
+- ma120: 28.35
+- return_5d: 1.74
+- return_20d: 0.39
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -1.39
+- distance_to_high_60_pct: -8.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,27.12,27.85,27,27.84,3321998,,,,,
-20260526,27.95,28.17,27.72,27.97,2249071,,,,,
 20260527,28.28,28.91,28.28,28.56,3218631,,,,,
 20260528,28.56,28.66,27.63,27.9,6398681,27.17,2.67,27.81,27.81,1.9
 20260529,28.39,28.94,28.39,28.8,4489166,27.31,5.46,27.98,27.98,1.26
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,27.47,27.59,27.27,27.59,7139917,28.04,-1.59,28.39,28.39,0.56
 20260618,27.65,28.03,27.65,27.97,4871481,28.03,-0.21,28.37,28.37,0.4
 20260622,28.15,28.7,28.15,28.55,11305958,28.07,1.7,28.46,28.38,0.89
+20260623,28.68,28.85,28.09,28.11,7098611,28.08,0.12,28.47,28.37,0.55
+20260624,27.67,28.14,27.49,28.08,5418072,28.08,0.01,28.48,28.35,0.41
 ```
 
 ## Latest TDCC Snapshot

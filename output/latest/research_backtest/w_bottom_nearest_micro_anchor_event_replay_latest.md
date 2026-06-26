@@ -1,6 +1,6 @@
 # W-Bottom Nearest Micro Anchor Event Replay
 
-- generated_at: `2026-06-26 20:39:17 Asia/Taipei`
+- generated_at: `2026-06-26 23:02:54 Asia/Taipei`
 - model_id: `w_bottom_right_side`
 - confirmation_model_id: `neckline_volume_breakout_confirmation`
 - overlay_model_id: `tdcc_weekly_ranking_formula`
@@ -14,17 +14,17 @@
 
 | event_set_id | sample_size | unique_stocks | breakout_signal_count | mature_sample_size | win_rate_pct | avg_a_return_pct | delta_sample_size_vs_baseline | delta_win_rate_pct_vs_baseline | delta_avg_a_return_pct_vs_baseline | sample_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| baseline_current_detector | 1924 | 993 | 205 | 201 | 29.3532 | 0.1555 |  |  |  | research_only |
-| variant_nearest_micro_45d_event_replay | 1684 | 878 | 209 | 203 | 38.9163 | 1.6483 | -240 | 9.5631 | 1.4928 | research_only |
+| baseline_current_detector | 1929 | 994 | 205 | 202 | 29.2079 | 0.1508 |  |  |  | research_only |
+| variant_nearest_micro_45d_event_replay | 1691 | 879 | 209 | 204 | 38.7255 | 1.6363 | -238 | 9.5176 | 1.4855 | research_only |
 
 ## Candidate Set Comparison
 
 | comparison_status | sample_size | unique_stocks | sample_warning |
 | --- | --- | --- | --- |
-| all_union | 2529 | 1109 | low_mature_sample_size;research_only |
-| common | 1079 | 661 | low_mature_sample_size;research_only |
-| variant_only | 605 | 427 | low_mature_sample_size;research_only |
-| baseline_only | 845 | 567 | low_mature_sample_size;research_only |
+| all_union | 2537 | 1110 | low_mature_sample_size;research_only |
+| common | 1083 | 663 | low_mature_sample_size;research_only |
+| variant_only | 608 | 428 | low_mature_sample_size;research_only |
+| baseline_only | 846 | 567 | low_mature_sample_size;research_only |
 
 ## Variant-Only Sample
 

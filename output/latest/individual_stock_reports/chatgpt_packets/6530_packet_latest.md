@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6530 創威
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:26 Asia/Taipei
+- generated_at: 2026-06-25 22:24:25 Asia/Taipei
 - stock_id: 6530
 - stock_name: 創威
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 99.4
-- high: 100.5
-- low: 98.3
-- close: 99.7
-- volume: 800000
-- ma5: 97.06
-- ema23_primary: 103.15
-- distance_to_ema23_pct: -3.35
-- ma20: 104.8
-- ma60: 106.48
-- ma120: 86.87
-- return_5d: 2.47
-- return_20d: -10.58
-- volume_ratio: 1.73
-- distance_to_ma20_pct_auxiliary: -4.86
-- distance_to_high_60_pct: -28.27
+- date: 20260624
+- open: 93
+- high: 96.1
+- low: 90.9
+- close: 91.6
+- volume: 623000
+- ma5: 95.8
+- ema23_primary: 101.52
+- distance_to_ema23_pct: -9.77
+- ma20: 102.52
+- ma60: 106.39
+- ma120: 87.36
+- return_5d: -3.68
+- return_20d: -22.04
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -10.65
+- distance_to_high_60_pct: -34.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,114.5,115.5,112.5,114,114000,109.49,4.12,111.38,98.57,0.04
-20260526,115,119,109.5,117.5,115000,110.16,6.67,112.1,99.31,0.05
 20260527,118.5,118.5,109.5,113,114000,110.39,2.36,112.33,99.97,0.05
 20260528,112.5,113.5,105,105,109000,109.94,-4.5,112.17,100.46,0.05
 20260529,106,109,106,107.5,108000,109.74,-2.04,111.62,100.86,0.05
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,95.2,96.6,93.9,95.4,503000,103.97,-8.25,105.74,106.32,1.12
 20260618,97,99.3,94.9,97.9,738000,103.47,-5.38,105.39,106.33,1.73
 20260622,99.4,100.5,98.3,99.7,800000,103.15,-3.35,104.8,106.48,1.73
+20260623,100,100,94.4,94.4,730000,102.42,-7.83,103.81,106.46,1.48
+20260624,93,96.1,90.9,91.6,623000,101.52,-9.77,102.52,106.39,1.2
 ```
 
 ## Latest TDCC Snapshot

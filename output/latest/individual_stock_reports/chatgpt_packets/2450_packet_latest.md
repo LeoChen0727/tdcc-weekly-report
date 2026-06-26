@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2450 神腦
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:05 Asia/Taipei
+- generated_at: 2026-06-25 22:23:08 Asia/Taipei
 - stock_id: 2450
 - stock_name: 神腦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 29.25
-- high: 29.25
-- low: 28.9
-- close: 28.9
-- volume: 364916
-- ma5: 29.82
-- ema23_primary: 30.07
-- distance_to_ema23_pct: -3.88
-- ma20: 30.23
-- ma60: 29.82
+- date: 20260624
+- open: 29
+- high: 29.2
+- low: 28.85
+- close: 29.05
+- volume: 133882
+- ma5: 29.04
+- ema23_primary: 29.9
+- distance_to_ema23_pct: -2.86
+- ma20: 30.21
+- ma60: 29.81
 - ma120: 29.48
-- return_5d: -5.86
-- return_20d: -1.03
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -4.38
-- distance_to_high_60_pct: -9.69
+- return_5d: -6.29
+- return_20d: -0.34
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -3.85
+- distance_to_high_60_pct: -9.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,29.2,29.45,29,29.2,514622,29.48,-0.94,29.53,29.61,2.75
-20260526,29.1,29.3,29,29.15,249714,29.45,-1.02,29.5,29.59,1.28
 20260527,29.25,29.45,29.1,29.35,232555,29.44,-0.31,29.48,29.57,1.17
 20260528,29.35,29.4,29.15,29.25,164778,29.43,-0.6,29.44,29.56,0.83
 20260529,29.35,30.15,29.35,29.85,595206,29.46,1.32,29.45,29.55,2.72
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,29.5,29.6,28.95,29.05,1067617,30.27,-4.02,30.24,29.82,2.3
 20260618,29.05,29.35,29.05,29.15,305732,30.17,-3.39,30.24,29.82,0.64
 20260622,29.25,29.25,28.9,28.9,364916,30.07,-3.88,30.23,29.82,0.75
+20260623,28.9,29.05,28.75,29.05,206016,29.98,-3.11,30.22,29.81,0.44
+20260624,29,29.2,28.85,29.05,133882,29.9,-2.86,30.21,29.81,0.29
 ```
 
 ## Latest TDCC Snapshot

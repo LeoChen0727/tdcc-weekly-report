@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00912 中信臺灣智慧50
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-25 22:22:34 Asia/Taipei
 - stock_id: 00912
 - stock_name: 中信臺灣智慧50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260624
+- price_rows: 23
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 35.34
-- high: 35.86
-- low: 35.26
-- close: 35.82
-- volume: 603103
-- ma5: 34.54
-- ema23_primary: 33.02
-- distance_to_ema23_pct: 8.48
-- ma20: 33.06
-- ma60: 32.95
-- ma120: 32.95
-- return_5d: 8.55
-- return_20d: 16.04
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 8.36
-- distance_to_high_60_pct: -0.11
+- date: 20260624
+- open: 34.83
+- high: 34.83
+- low: 34.22
+- close: 34.64
+- volume: 1593811
+- ma5: 34.93
+- ema23_primary: 33.33
+- distance_to_ema23_pct: 3.92
+- ma20: 33.38
+- ma60: 33.13
+- ma120: 33.13
+- return_5d: 1.49
+- return_20d: 9.24
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: 3.77
+- distance_to_high_60_pct: -4.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,31.1,31.9,31.09,31.74,936361,,,,,
-20260526,31.8,32,31.63,31.71,415623,,,,,
 20260527,32.1,32.67,32.09,32.23,927505,,,,,
 20260528,32.77,32.79,31.4,31.59,2052650,31.15,1.42,31.63,31.63,2
 20260529,32.15,32.65,32.15,32.6,1103288,31.27,4.25,31.79,31.79,1.06
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.13,34.13,33.7,34.13,526313,32.59,4.74,32.71,32.71,0.49
 20260618,34.2,34.75,34.2,34.74,371621,32.77,6.02,32.81,32.81,0.36
 20260622,35.34,35.86,35.26,35.82,603103,33.02,8.48,33.06,32.95,0.59
+20260623,36.2,36.2,35.34,35.34,1173089,33.21,6.4,33.24,33.06,1.13
+20260624,34.83,34.83,34.22,34.64,1593811,33.33,3.92,33.38,33.13,1.46
 ```
 
 ## Latest TDCC Snapshot

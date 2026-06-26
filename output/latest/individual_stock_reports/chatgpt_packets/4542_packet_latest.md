@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4542 科嶠
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:50 Asia/Taipei
+- generated_at: 2026-06-25 22:23:51 Asia/Taipei
 - stock_id: 4542
 - stock_name: 科嶠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 410
-- high: 410
-- low: 395
-- close: 400
-- volume: 222000
-- ma5: 379.8
-- ema23_primary: 310.36
-- distance_to_ema23_pct: 28.88
-- ma20: 307.57
-- ma60: 230.63
-- ma120: 177.21
-- return_5d: 19.23
-- return_20d: 44.14
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 30.05
-- distance_to_high_60_pct: -2.91
+- date: 20260624
+- open: 378
+- high: 390
+- low: 366
+- close: 390
+- volume: 239000
+- ma5: 392
+- ema23_primary: 322.7
+- distance_to_ema23_pct: 20.86
+- ma20: 319.27
+- ma60: 237.78
+- ma120: 182.32
+- return_5d: 10.17
+- return_20d: 41.3
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 22.15
+- distance_to_high_60_pct: -5.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,277.5,298,262,265,280000,217.84,21.65,218.07,185.57,0.34
-20260526,260,278,251,276,266000,222.69,23.94,223.03,187.55,0.33
 20260527,298,298,265,271.5,277000,226.76,19.73,227.68,189.39,0.37
 20260528,268.5,271,255,261.5,263000,229.65,13.87,230.95,191.07,0.42
 20260529,265,280,264,270,273000,233.01,15.87,234.5,193.03,0.48
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,360,378,357,378,401000,292.68,29.15,294.07,223.17,0.37
 20260618,389,412,389,407,342000,302.21,34.68,301.45,226.91,0.35
 20260622,410,410,395,400,222000,310.36,28.88,307.57,230.63,0.23
+20260623,405,405,385,385,195000,316.58,21.61,313.57,234.15,0.2
+20260624,378,390,366,390,239000,322.7,20.86,319.27,237.78,0.25
 ```
 
 ## Latest TDCC Snapshot

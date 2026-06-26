@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6186 新潤
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:15 Asia/Taipei
+- generated_at: 2026-06-25 22:24:15 Asia/Taipei
 - stock_id: 6186
 - stock_name: 新潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
+- latest_price_date: 20260624
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 41.9
-- high: 41.9
-- low: 40.6
-- close: 40.8
-- volume: 1806000
-- ma5: 41.38
-- ema23_primary: 40.66
-- distance_to_ema23_pct: 0.34
-- ma20: 40.44
+- date: 20260624
+- open: 41.5
+- high: 41.75
+- low: 40.85
+- close: 41
+- volume: 1118000
+- ma5: 41.32
+- ema23_primary: 40.69
+- distance_to_ema23_pct: 0.77
+- ma20: 40.55
 - ma60: 40.23
-- ma120: 44.05
-- return_5d: -0.61
-- return_20d: 2
-- volume_ratio: 2.49
-- distance_to_ma20_pct_auxiliary: 0.9
-- distance_to_high_60_pct: -6.53
+- ma120: 43.83
+- return_5d: 0.61
+- return_20d: 2.37
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 1.12
+- distance_to_high_60_pct: -6.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,40,40,39,39.3,39000,39.95,-1.62,39.76,40.77,0.04
-20260526,39.35,40.1,39.3,40.05,40000,39.96,0.23,39.76,40.68,0.05
 20260527,40.05,40.05,39.3,39.35,39000,39.91,-1.39,39.72,40.6,0.05
 20260528,39.7,39.7,39.1,39.15,39000,39.84,-1.74,39.67,40.53,0.05
 20260529,39.6,39.75,39.2,39.6,40000,39.82,-0.56,39.65,40.47,0.05
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,40.75,41.85,40.6,41.85,856000,40.5,3.34,40.28,40.21,1.47
 20260618,42,43.65,41.9,42.35,2033000,40.65,4.18,40.4,40.23,3.19
 20260622,41.9,41.9,40.6,40.8,1806000,40.66,0.34,40.44,40.23,2.49
+20260623,40.7,40.95,40.5,40.6,624000,40.66,-0.14,40.5,40.22,0.83
+20260624,41.5,41.75,40.85,41,1118000,40.69,0.77,40.55,40.23,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6186 | 新潤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6186 | 新潤 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.股東會決議日:115/06/23 2.許可從事競業行為之董事姓名及職稱: 董事:展欣投資有限公司法人代表人郭長庚　 董事:辰睿開發投資股份有限公司法人代表人黃文辰　 董事:長奇投資股份有限公司 董事:萬(金旦寸)開發投資(股)公司 獨立董事:李嘉惠 獨立董事:張定華 獨立董事:林俊儀 獨立董事:李達人 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司職務 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 經股東常會已發行股份總數三分之二以上股東出席，出席股東表決權過半數同意通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6186 | 新潤 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260624 | 6186 | 新潤 | 1 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

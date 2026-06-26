@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:59 Asia/Taipei
+- generated_at: 2026-06-25 22:23:02 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 793
-- high: 806
-- low: 788
-- close: 788
-- volume: 3442620
-- ma5: 792.6
-- ema23_primary: 776.08
-- distance_to_ema23_pct: 1.54
-- ma20: 803.2
-- ma60: 670.63
-- ma120: 602.35
-- return_5d: 0.38
-- return_20d: 15.54
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.89
-- distance_to_high_60_pct: -18.26
+- date: 20260624
+- open: 775
+- high: 783
+- low: 764
+- close: 771
+- volume: 5156891
+- ma5: 787.2
+- ema23_primary: 776.34
+- distance_to_ema23_pct: -0.69
+- ma20: 810.6
+- ma60: 677.58
+- ma120: 605.9
+- return_5d: -2.53
+- return_20d: 10.3
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -4.89
+- distance_to_high_60_pct: -20.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,692,717,690,709,6899791,638.74,11,637.5,590.03,1.24
-20260526,711,717,694,699,4568619,643.76,8.58,643.05,592.93,0.81
 20260527,700,709,694,701,4222844,648.53,8.09,648.7,595.75,0.74
 20260528,703,711,690,692,4308608,652.15,6.11,653.9,598.45,0.74
 20260529,708,761,708,761,13953540,661.22,15.09,662.9,602.45,2.19
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,790,803,782,803,3336854,773.73,3.78,791.25,663.15,0.52
 20260618,807,810,789,789,7939182,775,1.81,797.9,666.92,1.2
 20260622,793,806,788,788,3442620,776.08,1.54,803.2,670.63,0.53
+20260623,799,819,783,785,6495537,776.83,1.05,807,674.3,1
+20260624,775,783,764,771,5156891,776.34,-0.69,810.6,677.58,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2357 | 華碩 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=within_14d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260624 | 2357 | 華碩 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2357 | 華碩 | 2 | 2 | 3 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 2357 | 華碩 | 4 | 4 | 4 | 5 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2357 | 華碩 | 85 | 5 | 6352460.0 | 1660.0 | 3826.78 | no_signal |
+| 20260624 | 2357 | 華碩 | 86 | 0 | 3013190.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

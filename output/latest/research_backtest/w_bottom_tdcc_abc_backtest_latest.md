@@ -1,6 +1,6 @@
 # W-Bottom TDCC A/B/C Backtest
 
-- generated_at: `2026-06-26 20:10:29 Asia/Taipei`
+- generated_at: `2026-06-26 22:35:21 Asia/Taipei`
 - model_id: `w_bottom_right_side`
 - confirmation_model_id: `neckline_volume_breakout_confirmation`
 - overlay_model_id: `tdcc_weekly_ranking_formula`
@@ -11,14 +11,14 @@
 
 ## Event Counts
 
-- raw_event_rows: `22066`
-- dedup_event_rows: `3848`
+- raw_event_rows: `22254`
+- dedup_event_rows: `3858`
 
 ## Primary Rows
 
 | abc_stage | tdcc_filter_id | sample_size | mature_sample_size | win_rate | avg_return | median_return | confidence_status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A_w_neckline_breakout_next_open | all_any_rank_age0 | 205 | 201 | 29.35 | 0.1555 | -2.7607 | high |
+| A_w_neckline_breakout_next_open | all_any_rank_age0 | 205 | 202 | 29.21 | 0.1508 | -2.7355 | high |
 | B_tdcc_filter_next_open | all_any_rank_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
 | B_tdcc_filter_next_open | all_any_rank_age7 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
 | B_tdcc_filter_next_open | all_top50_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
@@ -44,7 +44,7 @@
 
 | abc_stage | tdcc_filter_id | sample_size | mature_sample_size | win_rate | avg_return | median_return | confidence_status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A_w_neckline_breakout_next_open | all_any_rank_age0 | 205 | 201 | 29.35 | 0.1555 | -2.7607 | high |
+| A_w_neckline_breakout_next_open | all_any_rank_age0 | 205 | 202 | 29.21 | 0.1508 | -2.7355 | high |
 | B_tdcc_filter_next_open | all_any_rank_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
 | B_tdcc_filter_next_open | all_any_rank_age7 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
 | B_tdcc_filter_next_open | all_top50_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |

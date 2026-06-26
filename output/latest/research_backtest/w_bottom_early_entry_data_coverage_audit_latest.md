@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Data Coverage Audit
 
-- generated_at: `2026-06-26 21:35:25 Asia/Taipei`
+- generated_at: `2026-06-26 23:51:16 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_parameter_grid`
 - production impact: `none`
 - scope: right-low early-entry W-bottom research data coverage only.
@@ -9,20 +9,20 @@
 
 ## Price History Coverage
 
-- price history files with dates: `2386`
-- price rows: `1028647`
-- global date range: `20240102` to `20260624`
-- files with at least 180 observed trading dates: `2019`
+- price history files with dates: `2389`
+- price rows: `1032866`
+- global date range: `20240102` to `20260626`
+- files with at least 180 observed trading dates: `2020`
 - earliest 180th observed date across files: `20240930`
 
 ## W-Bottom Signal Windows
 
 | artifact | rows | unique signals | min date | max date | months |
 | --- | --- | --- | --- | --- | --- |
-| `nearest_micro_detail_signal_window` | 2529 | 2529 | 20240930 | 20260623 | 22 |
-| `combined_variant_signal_window` | 1684 | 1684 | 20240930 | 20260623 | 22 |
-| `split_variant_early_entry_signal_window` | 10104 | 1684 | 20240930 | 20260623 | 22 |
-| `parameter_grid_variant_signal_window` | 13472 | 1684 | 20240930 | 20260623 | 22 |
+| `nearest_micro_detail_signal_window` | 2537 | 2537 | 20240930 | 20260625 | 22 |
+| `combined_variant_signal_window` | 1691 | 1691 | 20240930 | 20260625 | 22 |
+| `split_variant_early_entry_signal_window` | 10146 | 1691 | 20240930 | 20260625 | 22 |
+| `parameter_grid_variant_signal_window` | 13528 | 1691 | 20240930 | 20260625 | 22 |
 
 ## `smooth_right_rebound_5_20` Monthly Maturity
 
@@ -45,16 +45,16 @@
 | 2026-01 | 18 | 18 | 12 | 6 | 6 | 6 | 0 | `partially_mature` |
 | 2026-02 | 7 | 7 | 6 | 1 | 1 | 5 | 0 | `partially_mature` |
 | 2026-03 | 12 | 12 | 8 | 3 | 4 | 5 | 0 | `partially_mature` |
-| 2026-04 | 14 | 11 | 9 | 7 | 2 | 2 | 3 | `partially_mature` |
+| 2026-04 | 14 | 12 | 10 | 8 | 2 | 2 | 2 | `partially_mature` |
 | 2026-05 | 14 | 0 | 0 | 0 | 0 | 0 | 14 | `future_window_incomplete` |
 | 2026-06 | 14 | 0 | 0 | 0 | 0 | 0 | 14 | `future_window_incomplete` |
 
 ## Conclusion
 
 - promotion_readiness: `blocked_research_stability_sample_too_thin`
-- blocker_reason: `input_coverage_extended_but_strict_segment_has_only_2_months_with_mature_ge10`
+- blocker_reason: `input_coverage_extended_but_strict_segment_has_only_3_months_with_mature_ge10`
 - mature signal months for `smooth_right_rebound_5_20`: `18`
 - months with mature sample >= 5: `8`
-- months with mature sample >= 10: `2`
+- months with mature sample >= 10: `3`
 - Interpretation: the approved official price backfill extends the W-bottom input and signal window, but the strict smooth/rebound segment remains research-only until stability and mature-sample thresholds are reviewed.
 - Required follow-up owner: `research_backtest_data_governance` for continued coverage, stability, and mature-month validation.

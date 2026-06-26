@@ -1,20 +1,20 @@
 # W-Bottom Early-Entry Stability Audit
 
-- generated_at: `2026-06-26 21:31:47 Asia/Taipei`
+- generated_at: `2026-06-26 23:53:08 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_parameter_grid`
 - production impact: `none`
 - surface: `w_bottom_right_low_early_entry` only.
 - scope: variant nearest-micro event replay, split by signal month and quarter.
-- limitation: current available signal window is 2026-01 to 2026-06, so this is a short-window stability check, not long-term evidence.
+- limitation: current backfilled signal window is `2024-10 to 2026-06`; this remains a short-window stability check, not long-term evidence.
 
 ## Strict Segment Monthly Rollup
 
 | segment_id | period_count | periods_with_mature_ge5 | periods_with_mature_ge10 | sample_size | mature_sample_size | win_count | neutral_count | loss_count | win_rate_excl_neutral_pct | neutral_rate_evaluated_pct | min_period_win_rate_pct | max_period_win_rate_pct | stability_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| smooth_right_rebound_5_20 | 20 | 8 | 2 | 172 | 95 | 43 | 46 | 52 | 45.2632 | 32.6241 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
-| smooth_price_le40_right_rebound_5_20 | 20 | 8 | 1 | 158 | 86 | 38 | 41 | 48 | 44.1860 | 32.2835 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
-| smooth_core_mainstream_right_rebound_5_20 | 17 | 4 | 1 | 95 | 52 | 28 | 28 | 24 | 53.8462 | 35.0000 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
-| smooth_core_mainstream_price_le40_right_rebound_5_20 | 17 | 3 | 0 | 85 | 44 | 23 | 26 | 21 | 52.2727 | 37.1429 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
+| smooth_right_rebound_5_20 | 20 | 8 | 3 | 172 | 96 | 44 | 46 | 52 | 45.8333 | 32.3944 | 0.0000 | 100.0000 | unstable_period_win_rate |
+| smooth_price_le40_right_rebound_5_20 | 20 | 8 | 1 | 158 | 87 | 39 | 41 | 48 | 44.8276 | 32.0312 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
+| smooth_core_mainstream_right_rebound_5_20 | 17 | 4 | 1 | 95 | 53 | 29 | 28 | 24 | 54.7170 | 34.5679 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
+| smooth_core_mainstream_price_le40_right_rebound_5_20 | 17 | 4 | 0 | 85 | 45 | 24 | 26 | 21 | 53.3333 | 36.6197 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
 | smooth_right_rebound_5_20_red_ratio_gt_first | 19 | 5 | 0 | 100 | 57 | 26 | 26 | 31 | 45.6140 | 31.3253 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
 | smooth_right_rebound_5_20_near_neckline | 18 | 6 | 0 | 102 | 61 | 28 | 25 | 33 | 45.9016 | 29.0698 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
 
@@ -39,7 +39,7 @@
 | 2026-01 | 18 | 18 | 12 | 6 | 6 | 6 | 0 | 50.0000 | 33.3333 | not_directionally_positive_period |
 | 2026-02 | 7 | 7 | 6 | 1 | 1 | 5 | 0 | 16.6667 | 14.2857 | not_directionally_positive_period |
 | 2026-03 | 12 | 12 | 8 | 3 | 4 | 5 | 0 | 37.5000 | 33.3333 | not_directionally_positive_period |
-| 2026-04 | 14 | 11 | 9 | 7 | 2 | 2 | 3 | 77.7778 | 18.1818 | directionally_positive_period |
+| 2026-04 | 14 | 12 | 10 | 8 | 2 | 2 | 2 | 80.0000 | 16.6667 | directionally_positive_period |
 | 2026-05 | 14 | 0 | 0 | 0 | 0 | 0 | 14 |  |  | future_window_incomplete |
 | 2026-06 | 14 | 0 | 0 | 0 | 0 | 0 | 14 |  |  | future_window_incomplete |
 

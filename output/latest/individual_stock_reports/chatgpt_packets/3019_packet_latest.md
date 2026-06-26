@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:21 Asia/Taipei
+- generated_at: 2026-06-25 22:23:23 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 164.5
-- high: 169
-- low: 162.5
-- close: 163
-- volume: 10008263
-- ma5: 160.8
-- ema23_primary: 152.49
-- distance_to_ema23_pct: 6.89
-- ma20: 153.07
-- ma60: 141.53
-- ma120: 141.84
-- return_5d: 12.03
-- return_20d: 6.19
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 6.48
-- distance_to_high_60_pct: -3.55
+- date: 20260624
+- open: 151
+- high: 155.5
+- low: 149.5
+- close: 155.5
+- volume: 5037781
+- ma5: 158.9
+- ema23_primary: 153.09
+- distance_to_ema23_pct: 1.58
+- ma20: 153.2
+- ma60: 142.46
+- ma120: 142.14
+- return_5d: -5.18
+- return_20d: 1.3
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 1.5
+- distance_to_high_60_pct: -7.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,157.5,159,153.5,156.5,10965077,144.72,8.14,145.85,135.82,1.09
-20260526,158,159.5,150.5,153.5,8234437,145.45,5.53,146.35,135.87,0.91
 20260527,155,155,148,149.5,7889881,145.79,2.55,146.68,135.82,0.88
 20260528,152,156.5,149,149.5,11103904,146.1,2.33,147.05,135.78,1.25
 20260529,152,158.5,151.5,154,9863655,146.76,4.94,147.82,135.95,1.09
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,162,168.5,157.5,158.5,22784887,150.72,5.16,152.15,140.3,1.81
 20260618,159,161.5,158,160.5,8119793,151.53,5.92,152.6,140.88,0.66
 20260622,164.5,169,162.5,163,10008263,152.49,6.89,153.07,141.53,0.82
+20260623,164.5,164.5,155,157,8759876,152.87,2.7,153.1,142.01,0.72
+20260624,151,155.5,149.5,155.5,5037781,153.09,1.58,153.2,142.46,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3019 | 亞光 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | degraded calendar context only: ex_dividend on 20260624; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260624 | 3019 | 亞光 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3019 | 亞光 | 5 | 3 | 5 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260624 | 3019 | 亞光 | 7 | 5 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3019 | 亞光 | 102 | 0 | 11708410.0 | 0.0 |  | no_signal |
+| 20260624 | 3019 | 亞光 | 105 | 0 | 7360520.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

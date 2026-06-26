@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:10 Asia/Taipei
+- generated_at: 2026-06-25 22:24:09 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
+- latest_price_date: 20260624
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 40.2
-- high: 40.35
-- low: 39.65
-- close: 39.8
-- volume: 16939884
-- ma5: 39.74
-- ema23_primary: 38
-- distance_to_ema23_pct: 4.73
-- ma20: 39.19
-- ma60: 32.52
-- ma120: 30.1
-- return_5d: 2.05
-- return_20d: 24.76
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 1.56
-- distance_to_high_60_pct: -12.62
+- date: 20260624
+- open: 39.4
+- high: 39.4
+- low: 38
+- close: 38.55
+- volume: 21762523
+- ma5: 39.44
+- ema23_primary: 38.18
+- distance_to_ema23_pct: 0.97
+- ma20: 39.81
+- ma60: 32.88
+- ma120: 30.35
+- return_5d: -3.02
+- return_20d: 16.64
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -3.18
+- distance_to_high_60_pct: -15.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,32.25,32.75,32.1,32.7,11900696,30.51,7.18,30.46,29.17,0.71
-20260526,32.85,33.4,32.5,33.05,11583644,30.72,7.58,30.72,29.2,0.7
 20260527,33.35,35.25,33.25,35,21539861,31.08,12.62,31.07,29.25,1.26
 20260528,35.85,37.2,35.05,36,25048885,31.49,14.33,31.46,29.34,1.41
 20260529,36.8,38.5,36.5,38.5,17154226,32.07,20.04,31.99,29.46,0.95
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,39.25,40.35,39.15,39.45,15937295,37.67,4.71,38.39,32.11,0.68
 20260618,39.45,40.2,39.35,39.65,20145609,37.84,4.79,38.79,32.31,0.84
 20260622,40.2,40.35,39.65,39.8,16939884,38,4.73,39.19,32.52,0.7
+20260623,39.9,40.3,39.55,39.75,15260426,38.15,4.2,39.54,32.71,0.62
+20260624,39.4,39.4,38,38.55,21762523,38.18,0.97,39.81,32.88,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6005 | 群益證 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260624 | 6005 | 群益證 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6005 | 群益證 | 18 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260624 | 6005 | 群益證 | 20 | 4 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

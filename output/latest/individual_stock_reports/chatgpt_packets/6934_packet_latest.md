@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6934 心誠鎂
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:41 Asia/Taipei
+- generated_at: 2026-06-25 22:24:40 Asia/Taipei
 - stock_id: 6934
 - stock_name: 心誠鎂
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 89
+- latest_price_date: 20260624
+- price_rows: 91
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 71.3
-- high: 71.3
-- low: 67.9
-- close: 68.7
-- volume: 90019
-- ma5: 68.92
-- ema23_primary: 72.12
-- distance_to_ema23_pct: -4.74
-- ma20: 71.73
-- ma60: 77.58
-- ma120: 86.74
-- return_5d: -1.86
-- return_20d: -10.55
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -4.23
-- distance_to_high_60_pct: -31.3
+- date: 20260624
+- open: 67.2
+- high: 67.2
+- low: 66.3
+- close: 67
+- volume: 41912
+- ma5: 68.5
+- ema23_primary: 71.32
+- distance_to_ema23_pct: -6.05
+- ma20: 70.89
+- ma60: 77.37
+- ma120: 86.31
+- return_5d: -0.89
+- return_20d: -11.14
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -5.48
+- distance_to_high_60_pct: -33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,76.8,76.8,75.2,75.8,99430,78.33,-3.23,77.91,83.49,1.26
-20260526,75.8,75.8,71.7,75.4,101096,78.08,-3.44,77.53,82.7,1.32
 20260527,73.2,75,73,73.5,44611,77.7,-5.41,77.06,81.76,0.59
 20260528,73.6,75.5,72.5,74.5,63853,77.43,-3.79,76.58,81.05,0.86
 20260529,73.3,75.5,72.8,73.9,67342,77.14,-4.2,76.08,80.53,0.93
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,67.8,68.8,67.6,68.3,27485,72.53,-5.83,72.38,77.8,0.4
 20260618,68.3,74.8,68,71.3,208403,72.43,-1.56,72.14,77.69,2.73
 20260622,71.3,71.3,67.9,68.7,90019,72.12,-4.74,71.73,77.58,1.13
+20260623,68.3,69.7,67.1,67.2,31280,71.71,-6.29,71.31,77.45,0.41
+20260624,67.2,67.2,66.3,67,41912,71.32,-6.05,70.89,77.37,0.57
 ```
 
 ## Latest TDCC Snapshot

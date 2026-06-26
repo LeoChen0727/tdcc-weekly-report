@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4590 富田-創
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:52 Asia/Taipei
+- generated_at: 2026-06-25 22:23:53 Asia/Taipei
 - stock_id: 4590
 - stock_name: 富田-創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 91
+- latest_price_date: 20260624
+- price_rows: 93
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 79.5
-- high: 81.8
-- low: 79.5
-- close: 80.4
-- volume: 385176
-- ma5: 77.98
-- ema23_primary: 75.61
-- distance_to_ema23_pct: 6.34
-- ma20: 74.62
-- ma60: 74.91
-- ma120: 75.87
-- return_5d: 5.65
-- return_20d: 8.65
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 7.75
-- distance_to_high_60_pct: -1.71
+- date: 20260624
+- open: 77.8
+- high: 77.8
+- low: 76.8
+- close: 76.9
+- volume: 199610
+- ma5: 78.52
+- ema23_primary: 76
+- distance_to_ema23_pct: 1.19
+- ma20: 75.15
+- ma60: 75.04
+- ma120: 75.92
+- return_5d: 0.13
+- return_20d: 6.22
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 2.33
+- distance_to_high_60_pct: -5.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,74.3,74.4,72.9,73.2,288037,74.87,-2.22,75.06,75.21,1.32
-20260526,73.2,73.2,72.2,72.4,261943,74.66,-3.03,75.08,75.11,1.18
 20260527,72.4,72.8,71.6,71.7,319991,74.41,-3.65,74.97,74.95,1.37
 20260528,72,72.8,71.5,71.6,197735,74.18,-3.48,74.83,74.8,0.83
 20260529,72.5,72.5,71.5,72,208905,74,-2.7,74.72,74.68,0.87
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,77,78.4,77,78,163334,74.92,4.12,74.14,74.7,0.8
 20260618,78,79,77.5,78,169255,75.17,3.76,74.3,74.78,0.81
 20260622,79.5,81.8,79.5,80.4,385176,75.61,6.34,74.62,74.91,1.77
+20260623,80.4,80.4,78.6,79.3,171864,75.92,4.46,74.92,75,0.81
+20260624,77.8,77.8,76.8,76.9,199610,76,1.19,75.15,75.04,0.95
 ```
 
 ## Latest TDCC Snapshot
