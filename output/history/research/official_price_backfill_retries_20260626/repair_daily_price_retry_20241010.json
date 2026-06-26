@@ -1,0 +1,14 @@
+{
+  "rows": [
+    {
+      "date": "20241010",
+      "status": "failed",
+      "twse_rows": 1236,
+      "tpex_rows": 0,
+      "total_rows": 1236,
+      "reason": "GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/10/10&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20241010; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20241010; TPEx batch best rows=0; date=20241010 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",
+      "saved_files": ""
+    }
+  ],
+  "check_rows": []
+}

@@ -688,8 +688,10 @@ def main() -> int:
     generated_at = now_text()
     detail = build_detail(generated_at)
     grid = build_grid(detail, generated_at)
-    if len(detail) != 842:
-        raise SystemExit(f"ERROR: expected 842 combined detail rows, got {len(detail)}")
+    if detail.empty:
+        raise SystemExit("ERROR: combined detail rows must not be empty")
+    if set(detail["event_set_id"].astype(str)) != {BASELINE_EVENT_SET_ID, VARIANT_EVENT_SET_ID}:
+        raise SystemExit("ERROR: combined detail must include both baseline and variant event sets")
     if len(grid) != len(condition_specs()) * 2 * 2:
         raise SystemExit(f"ERROR: unexpected grid row count: {len(grid)}")
     write_csv(detail, LATEST_DETAIL_CSV)

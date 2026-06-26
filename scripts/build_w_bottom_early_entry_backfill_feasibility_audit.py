@@ -144,6 +144,9 @@ def price_history_coverage() -> dict[str, Any]:
 
 
 def base_row(generated_at: str, daily: dict[str, Any], history: dict[str, Any]) -> dict[str, Any]:
+    daily_min = safe_str(daily.get("daily_price_min_date"))
+    earliest_180th = safe_str(history.get("earliest_180th_observed_date"))
+    extension_available = bool(daily_min and daily_min < "20250407" and earliest_180th and earliest_180th < "20260105")
     row = {column: "" for column in OUTPUT_COLUMNS}
     row.update(
         {
@@ -152,10 +155,18 @@ def base_row(generated_at: str, daily: dict[str, Any], history: dict[str, Any]) 
             "research_variant_id": RESEARCH_VARIANT_ID,
             "advisory_status": RESEARCH_VARIANT_ID,
             "surface_id": SURFACE_ID,
-            "repo_existing_data_can_extend_to_earlier_2025": "false",
+            "repo_existing_data_can_extend_to_earlier_2025": "true" if extension_available else "false",
             "max_signal_start_with_existing_data": safe_str(history.get("earliest_180th_observed_date")),
-            "required_external_source": "TWSE MI_INDEX daily OHLCV; TPEx DAILY_CLOSE_quotes daily OHLCV",
-            "required_action": "formal historical price backfill decision before rebuilding W-bottom research outputs",
+            "required_external_source": (
+                "completed official TWSE MI_INDEX and TPEx DAILY_CLOSE_quotes backfill"
+                if extension_available
+                else "TWSE MI_INDEX daily OHLCV; TPEx DAILY_CLOSE_quotes daily OHLCV"
+            ),
+            "required_action": (
+                "completed_official_price_backfill_rebuild_stock_price_history_and_w_bottom_outputs"
+                if extension_available
+                else "formal historical price backfill decision before rebuilding W-bottom research outputs"
+            ),
             "required_followup_owner": OWNER,
             "forbidden_actions": "do_not_modify_production_model_scoring_ranking_daily_full_pipeline_or_pdfs",
             "production_impact": "none",
@@ -173,6 +184,12 @@ def build_rows() -> pd.DataFrame:
     generated_at = now_text()
     daily = daily_price_coverage()
     history = price_history_coverage()
+    extension_available = bool(
+        safe_str(daily.get("daily_price_min_date"))
+        and safe_str(daily.get("daily_price_min_date")) < "20250407"
+        and safe_str(history.get("earliest_180th_observed_date"))
+        and safe_str(history.get("earliest_180th_observed_date")) < "20260105"
+    )
     rows: list[dict[str, Any]] = []
 
     current = base_row(generated_at, daily, history)
@@ -181,9 +198,12 @@ def build_rows() -> pd.DataFrame:
             "audit_section": "current_repo_data_window",
             "audit_item_id": "daily_price_and_stock_price_history",
             "source_artifact": "data/daily_price; data/stock_price_history",
-            "status": "blocked_existing_data_window",
+            "status": "extended_after_approved_official_price_backfill" if extension_available else "blocked_existing_data_window",
             "finding": (
-                "Existing repo price data starts at 20250407; with the W-bottom 180 observed trading-day "
+                "Repo price data now starts before 20250407 after approved official TWSE/TPEx backfill; "
+                f"the W-bottom 180 observed trading-day gate can start at {history.get('earliest_180th_observed_date')}."
+                if extension_available
+                else "Existing repo price data starts at 20250407; with the W-bottom 180 observed trading-day "
                 "history gate, the earliest available signal start remains 20260105."
             ),
         }
@@ -199,17 +219,25 @@ def build_rows() -> pd.DataFrame:
         (
             "w_bottom_data_coverage_audit",
             "output/latest/research_backtest/w_bottom_early_entry_data_coverage_audit_latest.md",
-            "Existing W-bottom coverage audit records 20250407 to 20260624 price coverage and 20260105 signal start.",
+            (
+                "W-bottom coverage audit records the extended price coverage and signal window after approved backfill."
+                if extension_available
+                else "Existing W-bottom coverage audit records 20250407 to 20260624 price coverage and 20260105 signal start."
+            ),
         ),
         (
             "stock_price_history_builder",
             "scripts/build_stock_price_history.py",
-            "Can rebuild per-stock history after daily price files exist; it does not create pre-20250407 source data by itself.",
+            "Rebuilds per-stock history after daily price files exist; this run rebuilt history after approved pre-20250407 backfill.",
         ),
         (
             "range_repair_backfill_script",
             "scripts/repair_daily_price_range.py",
-            "Can fetch selected date ranges through the official price fetcher, but earlier 2025 requires an approved external-source backfill run.",
+            (
+                "Fetched approved historical date ranges through the official TWSE/TPEx price fetcher; non-trading/no-target-source dates were not written."
+                if extension_available
+                else "Can fetch selected date ranges through the official price fetcher, but earlier 2025 requires an approved external-source backfill run."
+            ),
         ),
         (
             "official_price_backfill_script",
@@ -247,9 +275,16 @@ def build_rows() -> pd.DataFrame:
             "audit_section": "backfill_feasibility_conclusion",
             "audit_item_id": "w_bottom_early_entry_2025_extension",
             "source_artifact": "data/daily_price; data/stock_price_history; scripts/repair_daily_price_range.py",
-            "status": "blocked_requires_external_price_backfill",
+            "status": (
+                "completed_approved_official_price_backfill"
+                if extension_available
+                else "blocked_requires_external_price_backfill"
+            ),
             "finding": (
-                "Cannot extend W-bottom research input coverage into earlier 2025 months using only data already stored in the repo. "
+                "W-bottom research input coverage can now extend into earlier 2025 using the repo data produced by the approved official "
+                "TWSE/TPEx backfill, stock_price_history rebuild, and W-bottom output rebuild."
+                if extension_available
+                else "Cannot extend W-bottom research input coverage into earlier 2025 months using only data already stored in the repo. "
                 "The required gap is official full-market daily OHLCV before 20250407, followed by a rebuild of stock_price_history and W-bottom research outputs."
             ),
         }
@@ -319,7 +354,8 @@ def write_markdown(df: pd.DataFrame) -> None:
         "",
         "- Do not promote W-bottom early-entry variants from this evidence window.",
         "- Do not write research variants or recommendations into the production baseline.",
-        "- A real extension requires approved historical official price backfill before `20250407`, then `scripts/build_stock_price_history.py`, W-bottom research rebuilds, and coverage validation.",
+        "- Approved historical official price backfill, `scripts/build_stock_price_history.py`, W-bottom research rebuilds, and coverage validation have completed for available official trading dates.",
+        "- Remaining promotion blockers belong to research stability/mature-sample review, not to the original 20250407 price-history start.",
         "- Keep PR #194 draft until a separate promotion or production sync is explicitly requested.",
     ]
     LATEST_MD.parent.mkdir(parents=True, exist_ok=True)

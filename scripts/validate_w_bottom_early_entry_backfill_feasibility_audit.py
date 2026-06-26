@@ -87,7 +87,7 @@ def validate_frame(df: pd.DataFrame, name: str) -> None:
         "source_research_id": SOURCE_RESEARCH_ID,
         "research_variant_id": RESEARCH_VARIANT_ID,
         "advisory_status": RESEARCH_VARIANT_ID,
-        "repo_existing_data_can_extend_to_earlier_2025": "false",
+        "repo_existing_data_can_extend_to_earlier_2025": "true",
         "required_followup_owner": OWNER,
         "production_impact": "none",
         "approved_for_daily": "false",
@@ -119,10 +119,10 @@ def validate_markdown() -> None:
     required = [
         "production impact: `none`",
         "does not modify production conditions, scoring, ranking, PDFs, baselines, daily_full_pipeline, or GitHub Actions triggers",
-        "can extend with repo-existing data: `false`",
-        "blocked_requires_external_price_backfill",
+        "can extend with repo-existing data: `true`",
+        "completed_approved_official_price_backfill",
         "TWSE MI_INDEX",
-        "TPEx DAILY_CLOSE_quotes",
+        "TPEx",
         OWNER,
     ]
     for item in required:
@@ -150,13 +150,13 @@ def main() -> int:
         if len(conclusion) != 1:
             fail(f"{name} expected exactly one conclusion row")
         row = conclusion.iloc[0]
-        if row["status"] != "blocked_requires_external_price_backfill":
+        if row["status"] != "completed_approved_official_price_backfill":
             fail(f"{name} unexpected conclusion status: {row['status']}")
-        if row["daily_price_min_date"] != "20250407":
-            fail(f"{name} expected current daily price min date 20250407, got {row['daily_price_min_date']}")
-        if row["earliest_180th_observed_date"] != "20260105":
+        if row["daily_price_min_date"] >= "20250407":
+            fail(f"{name} expected daily price min date before 20250407, got {row['daily_price_min_date']}")
+        if row["earliest_180th_observed_date"] >= "20260105":
             fail(
-                f"{name} expected earliest 180th observed date 20260105, "
+                f"{name} expected earliest 180th observed date before 20260105, "
                 f"got {row['earliest_180th_observed_date']}"
             )
         source = row["required_external_source"]

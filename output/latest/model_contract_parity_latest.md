@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-06-21 07:45:04 Asia/Taipei`
+- generated_at: `2026-06-26 21:41:22 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`

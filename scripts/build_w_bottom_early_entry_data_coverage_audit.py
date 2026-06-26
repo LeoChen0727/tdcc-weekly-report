@@ -233,6 +233,10 @@ def price_coverage(generated_at: str) -> dict[str, Any]:
         if len(dates) >= 180:
             observed_180th_dates.append(str(dates.iloc[179]))
 
+    price_min = min(mins) if mins else ""
+    price_max = max(maxs) if maxs else ""
+    earliest_180th = min(observed_180th_dates) if observed_180th_dates else ""
+    extended_180_gate = bool(earliest_180th and earliest_180th < "20260105")
     row = base_row(generated_at)
     row.update(
         {
@@ -243,16 +247,24 @@ def price_coverage(generated_at: str) -> dict[str, Any]:
             "stock_count": price_files_with_dates,
             "price_files_with_dates": price_files_with_dates,
             "price_rows": price_rows,
-            "price_global_min_date": min(mins) if mins else "",
-            "price_global_max_date": max(maxs) if maxs else "",
-            "min_date": min(mins) if mins else "",
-            "max_date": max(maxs) if maxs else "",
+            "price_global_min_date": price_min,
+            "price_global_max_date": price_max,
+            "min_date": price_min,
+            "max_date": price_max,
             "files_with_180_days": len(observed_180th_dates),
-            "earliest_180th_observed_date": min(observed_180th_dates) if observed_180th_dates else "",
-            "signal_window_status": "price_history_available_but_w_signals_start_later",
+            "earliest_180th_observed_date": earliest_180th,
+            "signal_window_status": (
+                "price_history_backfill_extended_180_day_gate"
+                if extended_180_gate
+                else "price_history_available_but_w_signals_start_later"
+            ),
             "maturity_status": "not_an_outcome_row",
             "promotion_readiness": "research_data_coverage_reference",
-            "blocker_reason": "price_history_begins_2025_04_for_most_files_so_180_day_gate_limits_early_w_signal_window",
+            "blocker_reason": (
+                "approved_official_price_backfill_extends_180_day_gate_before_20260105"
+                if extended_180_gate
+                else "price_history_begins_2025_04_for_most_files_so_180_day_gate_limits_early_w_signal_window"
+            ),
             "required_followup_owner": "research_backtest_data_governance",
         }
     )
@@ -269,6 +281,9 @@ def source_window_row(
 ) -> dict[str, Any]:
     dates = date_series(df, date_column)
     months = {month_id(value) for value in dates if month_id(value)}
+    min_date = dates.min() if not dates.empty else ""
+    max_date = dates.max() if not dates.empty else ""
+    extended_signal_window = bool(min_date and min_date < "20260101")
     row = base_row(generated_at)
     row.update(
         {
@@ -279,13 +294,25 @@ def source_window_row(
             "row_count": int(len(df)),
             "stock_count": int(df["stock_id"].nunique()) if "stock_id" in df.columns else "",
             "unique_signal_count": unique_signal_count(df, date_column),
-            "min_date": dates.min() if not dates.empty else "",
-            "max_date": dates.max() if not dates.empty else "",
+            "min_date": min_date,
+            "max_date": max_date,
             "month_count": len(months),
-            "signal_window_status": "short_signal_window_current_inputs",
+            "signal_window_status": (
+                "extended_signal_window_after_official_price_backfill"
+                if extended_signal_window
+                else "short_signal_window_current_inputs"
+            ),
             "maturity_status": "not_an_outcome_row",
-            "promotion_readiness": "blocked_data_window_too_short",
-            "blocker_reason": "current_w_bottom_research_outputs_have_signal_dates_only_from_2026_01_to_2026_06",
+            "promotion_readiness": (
+                "research_signal_window_extended_not_production_ready"
+                if extended_signal_window
+                else "blocked_data_window_too_short"
+            ),
+            "blocker_reason": (
+                "signal_window_extended_after_official_price_backfill_but_research_remains_advisory"
+                if extended_signal_window
+                else "current_w_bottom_research_outputs_have_signal_dates_only_from_2026_01_to_2026_06"
+            ),
             "required_followup_owner": "research_backtest_data_governance",
         }
     )
@@ -342,8 +369,8 @@ def maturity_summary_rows(generated_at: str, source: pd.DataFrame) -> list[dict[
                     "months_with_mature_ge10": 1 if counts["mature_sample_size"] >= 10 else 0,
                     "signal_window_status": "current_signal_month",
                     "maturity_status": "future_window_incomplete" if counts["evaluated_sample_size"] == 0 else "partially_mature",
-                    "promotion_readiness": "blocked_data_window_too_short",
-                    "blocker_reason": "40_trading_day_outcome_needs_more_mature_signal_months",
+                    "promotion_readiness": "blocked_research_stability_sample_too_thin",
+                    "blocker_reason": "40_trading_day_outcome_and_mature_sample_thresholds_still_need_stability_review",
                     "required_followup_owner": "research_backtest_data_governance",
                 }
             )
@@ -373,10 +400,10 @@ def maturity_summary_rows(generated_at: str, source: pd.DataFrame) -> list[dict[
                 "mature_signal_month_count": mature_month_count,
                 "months_with_mature_ge5": months_with_mature_ge5,
                 "months_with_mature_ge10": months_with_mature_ge10,
-                "signal_window_status": "short_signal_window_current_inputs",
+                "signal_window_status": "extended_signal_window_after_official_price_backfill",
                 "maturity_status": "insufficient_mature_months_for_promotion",
-                "promotion_readiness": "blocked_data_window_too_short",
-                "blocker_reason": "current_inputs_do_not_have_enough_mature_months_to_prove_stability",
+                "promotion_readiness": "blocked_research_stability_sample_too_thin",
+                "blocker_reason": "strict_segment_mature_sample_months_remain_too_thin_for_production_promotion",
                 "required_followup_owner": "research_backtest_data_governance",
             }
         )
@@ -388,6 +415,12 @@ def conclusion_row(generated_at: str, price_row: dict[str, Any], source_rows: li
     summary = next(row for row in maturity_rows if row["audit_section"] == "outcome_maturity_summary" and row["segment_id"] == STRICT_SEGMENT_ID)
     source_min_dates = [safe_str(row["min_date"]) for row in source_rows if safe_str(row["min_date"])]
     source_max_dates = [safe_str(row["max_date"]) for row in source_rows if safe_str(row["max_date"])]
+    input_extended = bool(
+        safe_str(price_row["earliest_180th_observed_date"])
+        and safe_str(price_row["earliest_180th_observed_date"]) < "20260105"
+        and source_min_dates
+        and min(source_min_dates) < "20260101"
+    )
     row = base_row(generated_at)
     row.update(
         {
@@ -416,10 +449,23 @@ def conclusion_row(generated_at: str, price_row: dict[str, Any], source_rows: li
             "price_global_max_date": price_row["price_global_max_date"],
             "files_with_180_days": price_row["files_with_180_days"],
             "earliest_180th_observed_date": price_row["earliest_180th_observed_date"],
-            "signal_window_status": "cannot_extend_stability_from_current_w_bottom_outputs",
+            "signal_window_status": (
+                "extended_signal_window_after_official_price_backfill"
+                if input_extended
+                else "cannot_extend_stability_from_current_w_bottom_outputs"
+            ),
             "maturity_status": "insufficient_mature_months_for_promotion",
-            "promotion_readiness": "blocked_data_window_too_short",
-            "blocker_reason": "need_longer_historical_price_backfill_or_more_future_mature_months_before_promotion_review",
+            "promotion_readiness": (
+                "blocked_research_stability_sample_too_thin"
+                if input_extended
+                else "blocked_data_window_too_short"
+            ),
+            "blocker_reason": (
+                "input_coverage_extended_but_strict_segment_has_only_"
+                f"{summary['months_with_mature_ge10']}_months_with_mature_ge10"
+                if input_extended
+                else "need_longer_historical_price_backfill_or_more_future_mature_months_before_promotion_review"
+            ),
             "required_followup_owner": "research_backtest_data_governance",
         }
     )
@@ -487,8 +533,8 @@ def build_markdown(rows: pd.DataFrame) -> str:
             f"- mature signal months for `{STRICT_SEGMENT_ID}`: `{conclusion['mature_signal_month_count']}`",
             f"- months with mature sample >= 5: `{conclusion['months_with_mature_ge5']}`",
             f"- months with mature sample >= 10: `{conclusion['months_with_mature_ge10']}`",
-            "- Interpretation: the current W-bottom strict smooth/rebound result is a useful research lead, but the available data window is too short for production promotion.",
-            "- Required follow-up owner: `research_backtest_data_governance` for longer historical input coverage or future mature-month accumulation.",
+            "- Interpretation: the approved official price backfill extends the W-bottom input and signal window, but the strict smooth/rebound segment remains research-only until stability and mature-sample thresholds are reviewed.",
+            "- Required follow-up owner: `research_backtest_data_governance` for continued coverage, stability, and mature-month validation.",
         ]
     )
     return "\n".join(lines) + "\n"

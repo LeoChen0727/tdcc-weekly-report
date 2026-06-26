@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Data Coverage Audit
 
-- generated_at: `2026-06-26 18:50:50 Asia/Taipei`
+- generated_at: `2026-06-26 21:35:25 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_parameter_grid`
 - production impact: `none`
 - scope: right-low early-entry W-bottom research data coverage only.
@@ -9,38 +9,52 @@
 
 ## Price History Coverage
 
-- price history files with dates: `2373`
-- price rows: `444844`
-- global date range: `20250407` to `20260624`
-- files with at least 180 observed trading dates: `1054`
-- earliest 180th observed date across files: `20260105`
+- price history files with dates: `2386`
+- price rows: `1028647`
+- global date range: `20240102` to `20260624`
+- files with at least 180 observed trading dates: `2019`
+- earliest 180th observed date across files: `20240930`
 
 ## W-Bottom Signal Windows
 
 | artifact | rows | unique signals | min date | max date | months |
 | --- | --- | --- | --- | --- | --- |
-| `nearest_micro_detail_signal_window` | 588 | 588 | 20260105 | 20260623 | 6 |
-| `combined_variant_signal_window` | 372 | 372 | 20260105 | 20260623 | 6 |
-| `split_variant_early_entry_signal_window` | 2232 | 372 | 20260105 | 20260623 | 6 |
-| `parameter_grid_variant_signal_window` | 2976 | 372 | 20260105 | 20260623 | 6 |
+| `nearest_micro_detail_signal_window` | 2529 | 2529 | 20240930 | 20260623 | 22 |
+| `combined_variant_signal_window` | 1684 | 1684 | 20240930 | 20260623 | 22 |
+| `split_variant_early_entry_signal_window` | 10104 | 1684 | 20240930 | 20260623 | 22 |
+| `parameter_grid_variant_signal_window` | 13472 | 1684 | 20240930 | 20260623 | 22 |
 
 ## `smooth_right_rebound_5_20` Monthly Maturity
 
 | month | sample | evaluated | mature | win | neutral | loss | incomplete | maturity status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-01 | 13 | 13 | 9 | 5 | 4 | 4 | 0 | `partially_mature` |
-| 2026-02 | 4 | 4 | 3 | 1 | 1 | 2 | 0 | `partially_mature` |
-| 2026-03 | 3 | 3 | 1 | 1 | 2 | 0 | 0 | `partially_mature` |
-| 2026-04 | 7 | 5 | 4 | 4 | 1 | 0 | 2 | `partially_mature` |
-| 2026-05 | 5 | 0 | 0 | 0 | 0 | 0 | 5 | `future_window_incomplete` |
-| 2026-06 | 8 | 0 | 0 | 0 | 0 | 0 | 8 | `future_window_incomplete` |
+| 2024-10 | 3 | 3 | 2 | 1 | 1 | 1 | 0 | `partially_mature` |
+| 2024-11 | 4 | 4 | 4 | 2 | 0 | 2 | 0 | `partially_mature` |
+| 2024-12 | 18 | 18 | 10 | 3 | 8 | 7 | 0 | `partially_mature` |
+| 2025-01 | 8 | 8 | 4 | 1 | 4 | 3 | 0 | `partially_mature` |
+| 2025-02 | 10 | 10 | 4 | 3 | 6 | 1 | 0 | `partially_mature` |
+| 2025-03 | 8 | 8 | 8 | 2 | 0 | 6 | 0 | `partially_mature` |
+| 2025-04 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | `partially_mature` |
+| 2025-06 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | `partially_mature` |
+| 2025-07 | 10 | 10 | 8 | 5 | 2 | 3 | 0 | `partially_mature` |
+| 2025-08 | 9 | 9 | 7 | 5 | 2 | 2 | 0 | `partially_mature` |
+| 2025-09 | 4 | 4 | 2 | 0 | 2 | 2 | 0 | `partially_mature` |
+| 2025-10 | 2 | 2 | 1 | 0 | 1 | 1 | 0 | `partially_mature` |
+| 2025-11 | 6 | 6 | 4 | 1 | 2 | 3 | 0 | `partially_mature` |
+| 2025-12 | 9 | 9 | 4 | 2 | 5 | 2 | 0 | `partially_mature` |
+| 2026-01 | 18 | 18 | 12 | 6 | 6 | 6 | 0 | `partially_mature` |
+| 2026-02 | 7 | 7 | 6 | 1 | 1 | 5 | 0 | `partially_mature` |
+| 2026-03 | 12 | 12 | 8 | 3 | 4 | 5 | 0 | `partially_mature` |
+| 2026-04 | 14 | 11 | 9 | 7 | 2 | 2 | 3 | `partially_mature` |
+| 2026-05 | 14 | 0 | 0 | 0 | 0 | 0 | 14 | `future_window_incomplete` |
+| 2026-06 | 14 | 0 | 0 | 0 | 0 | 0 | 14 | `future_window_incomplete` |
 
 ## Conclusion
 
-- promotion_readiness: `blocked_data_window_too_short`
-- blocker_reason: `need_longer_historical_price_backfill_or_more_future_mature_months_before_promotion_review`
-- mature signal months for `smooth_right_rebound_5_20`: `4`
-- months with mature sample >= 5: `1`
-- months with mature sample >= 10: `0`
-- Interpretation: the current W-bottom strict smooth/rebound result is a useful research lead, but the available data window is too short for production promotion.
-- Required follow-up owner: `research_backtest_data_governance` for longer historical input coverage or future mature-month accumulation.
+- promotion_readiness: `blocked_research_stability_sample_too_thin`
+- blocker_reason: `input_coverage_extended_but_strict_segment_has_only_2_months_with_mature_ge10`
+- mature signal months for `smooth_right_rebound_5_20`: `18`
+- months with mature sample >= 5: `8`
+- months with mature sample >= 10: `2`
+- Interpretation: the approved official price backfill extends the W-bottom input and signal window, but the strict smooth/rebound segment remains research-only until stability and mature-sample thresholds are reviewed.
+- Required follow-up owner: `research_backtest_data_governance` for continued coverage, stability, and mature-month validation.

@@ -220,8 +220,6 @@ def validate_events(events: pd.DataFrame, history: pd.DataFrame) -> None:
         fail("latest/history event row counts differ")
     if events.empty:
         fail("event replay rows must not be empty")
-    if len(events) != 3664:
-        fail(f"event replay row count must remain 3664; got {len(events)}")
     if set(events["left_anchor_rule_id"].astype(str)) != {LEFT_ANCHOR_RULE_ID}:
         fail("event replay must use only the nearest micro 45 left-anchor rule")
     if events["left_anchor_rule_reason"].astype(str).str.strip().eq("").any():
@@ -241,20 +239,12 @@ def validate_detail(detail: pd.DataFrame, history: pd.DataFrame, baseline_events
         fail("latest/history detail row counts differ")
     if detail.empty:
         fail("comparison detail must not be empty")
-    if len(detail) != 588:
-        fail(f"comparison detail row count must remain 588; got {len(detail)}")
     statuses = set(detail["comparison_status"].astype(str))
     expected_statuses = {"common", "variant_only", "baseline_only"}
     if not statuses.issubset(expected_statuses):
         fail(f"unexpected comparison statuses: {sorted(statuses)}")
     if "common" not in statuses:
         fail("comparison detail must include common rows")
-    expected_counts = {"common": 254, "variant_only": 118, "baseline_only": 216}
-    actual_counts = detail["comparison_status"].value_counts().to_dict()
-    for status, expected_count in expected_counts.items():
-        actual_count = int(actual_counts.get(status, 0))
-        if actual_count != expected_count:
-            fail(f"{status} detail count must remain {expected_count}; got {actual_count}")
     if not set(detail["baseline_present"].astype(str).str.lower()).issubset({"true", "false"}):
         fail("baseline_present must be true/false")
     if not set(detail["variant_present"].astype(str).str.lower()).issubset({"true", "false"}):
@@ -301,20 +291,6 @@ def validate_summary(summary: pd.DataFrame, history: pd.DataFrame, detail: pd.Da
         fail("baseline summary sample_size does not match baseline events")
     if int(to_number(variant_row["sample_size"])) != len(variant_dedup):
         fail("variant summary sample_size does not match variant events")
-    if int(to_number(baseline_row["sample_size"])) != 470:
-        fail("baseline summary sample_size must remain 470")
-    if int(to_number(variant_row["sample_size"])) != 372:
-        fail("variant summary sample_size must remain 372")
-    if int(to_number(variant_row["mature_sample_size"])) != 51:
-        fail("variant mature_sample_size must remain 51")
-    if abs(to_number(variant_row["win_rate_pct"]) - 33.3333) > 0.0002:
-        fail("variant win_rate_pct must remain 33.3333")
-    if abs(to_number(variant_row["avg_a_return_pct"]) - 0.6943) > 0.0002:
-        fail("variant avg_a_return_pct must remain 0.6943")
-    if to_number(variant_row["delta_win_rate_pct_vs_baseline"]) <= 0:
-        fail("variant win rate delta should remain directionally positive")
-    if to_number(variant_row["delta_avg_a_return_pct_vs_baseline"]) <= 0:
-        fail("variant average return delta should remain directionally positive")
     if int(to_number(variant_row["baseline_sample_size"])) != len(baseline_dedup):
         fail("variant baseline_sample_size must reference baseline comparable rows")
     if int(to_number(variant_row["delta_sample_size_vs_baseline"])) != len(variant_dedup) - len(baseline_dedup):

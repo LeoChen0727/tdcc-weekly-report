@@ -120,7 +120,8 @@ def validate_markdown() -> None:
         "production impact: `none`",
         "does not modify production conditions, scoring, ranking, PDFs, baselines, or daily_full_pipeline",
         "approved_for_daily=false",
-        "blocked_data_window_too_short",
+        "blocked_research_stability_sample_too_thin",
+        "approved official price backfill extends the W-bottom input and signal window",
         "research_backtest_data_governance",
     ]
     for item in required:
@@ -185,25 +186,25 @@ def main() -> int:
     if len(conclusion) != 1:
         fail("expected exactly one promotion readiness conclusion row")
     conclusion_row = conclusion.iloc[0]
-    if conclusion_row["promotion_readiness"] != "blocked_data_window_too_short":
+    if conclusion_row["promotion_readiness"] != "blocked_research_stability_sample_too_thin":
         fail(f"unexpected promotion readiness: {conclusion_row['promotion_readiness']}")
     if conclusion_row["required_followup_owner"] != "research_backtest_data_governance":
         fail(f"unexpected follow-up owner: {conclusion_row['required_followup_owner']}")
-    if int(conclusion_row["mature_signal_month_count"]) >= 6:
-        fail("current audit expected fewer than six mature signal months; review promotion gate before passing")
+    if int(conclusion_row["months_with_mature_ge10"]) >= 6:
+        fail("strict segment now has at least six mature>=10 months; review promotion gate before passing")
 
     source_windows = latest[latest["audit_section"].eq("w_bottom_signal_source_window")]
-    if source_windows["min_date"].min() < "20260101":
-        fail("this audit currently documents the short 2026-only W signal window; rerun and update conclusions after backfill")
-    if source_windows["month_count"].astype(int).max() < 6:
-        fail("expected current source windows to cover at least six signal months")
+    if source_windows["min_date"].min() >= "20260101":
+        fail("expected backfilled W signal window to begin before 20260101")
+    if source_windows["month_count"].astype(int).max() < 12:
+        fail("expected backfilled source windows to cover at least twelve signal months")
 
     strict_months = latest[
         latest["audit_section"].eq("outcome_month_maturity")
         & latest["segment_id"].eq(STRICT_SEGMENT_ID)
     ]
-    if strict_months["period_id"].nunique() < 6:
-        fail("strict segment monthly maturity should cover the current six signal months")
+    if strict_months["period_id"].nunique() < 12:
+        fail("strict segment monthly maturity should cover the extended signal months")
     if not strict_months["maturity_status"].isin(["partially_mature", "future_window_incomplete"]).all():
         fail("unexpected strict monthly maturity status")
 

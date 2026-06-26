@@ -1,6 +1,6 @@
 # W-Bottom TDCC A/B/C Backtest
 
-- generated_at: `2026-06-24 21:57:31 Asia/Taipei`
+- generated_at: `2026-06-26 20:10:29 Asia/Taipei`
 - model_id: `w_bottom_right_side`
 - confirmation_model_id: `neckline_volume_breakout_confirmation`
 - overlay_model_id: `tdcc_weekly_ranking_formula`
@@ -11,84 +11,60 @@
 
 ## Event Counts
 
-- raw_event_rows: `5128`
-- dedup_event_rows: `940`
+- raw_event_rows: `22066`
+- dedup_event_rows: `3848`
 
 ## Primary Rows
 
 | abc_stage | tdcc_filter_id | sample_size | mature_sample_size | win_rate | avg_return | median_return | confidence_status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A_w_neckline_breakout_next_open | all_any_rank_age0 | 56 | 52 | 30.77 | 0.1621 | -1.7857 | medium |
-| B_tdcc_filter_next_open | all_any_rank_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | all_any_rank_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | all_top10_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | all_top10_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | all_top20_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | all_top20_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | all_top50_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | all_top50_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_any_rank_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_any_rank_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_top10_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top10_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top20_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top20_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top50_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_top50_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top10_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top10_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top20_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top20_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top50_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top50_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top10_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top10_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top20_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top20_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
+| A_w_neckline_breakout_next_open | all_any_rank_age0 | 205 | 201 | 29.35 | 0.1555 | -2.7607 | high |
+| B_tdcc_filter_next_open | all_any_rank_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | all_any_rank_age7 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | all_top50_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | all_top50_age7 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_any_rank_age14 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_any_rank_age7 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_top50_age14 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_top50_age7 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | weekly_increase_any_rank_age14 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| B_tdcc_filter_next_open | weekly_increase_any_rank_age7 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| B_tdcc_filter_next_open | weekly_increase_top50_age14 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| B_tdcc_filter_next_open | weekly_increase_top50_age7 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_top50_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_top50_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
 
 ## Largest Mature Samples
 
 | abc_stage | tdcc_filter_id | sample_size | mature_sample_size | win_rate | avg_return | median_return | confidence_status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A_w_neckline_breakout_next_open | all_any_rank_age0 | 56 | 52 | 30.77 | 0.1621 | -1.7857 | medium |
-| B_tdcc_filter_next_open | all_any_rank_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | all_any_rank_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | all_top50_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | all_top50_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_any_rank_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_any_rank_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_top50_age14 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| B_tdcc_filter_next_open | weekly_increase_top50_age7 | 2 | 2 | 100.0 | 32.8436 | 32.8436 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top50_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top50_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age14 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age7 | 2 | 2 | 100.0 | 19.9435 | 19.9435 | low |
-| B_tdcc_filter_next_open | all_top10_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | all_top10_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | all_top20_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | all_top20_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top10_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top10_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top20_age14 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| B_tdcc_filter_next_open | weekly_increase_top20_age7 | 1 | 1 | 100.0 | 11.3744 | 11.3744 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top10_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top10_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top20_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | all_top20_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top10_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top10_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top20_age14 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
-| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top20_age7 | 1 | 1 | 100.0 | 13.0488 | 13.0488 | low |
+| A_w_neckline_breakout_next_open | all_any_rank_age0 | 205 | 201 | 29.35 | 0.1555 | -2.7607 | high |
+| B_tdcc_filter_next_open | all_any_rank_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | all_any_rank_age7 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | all_top50_age14 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | all_top50_age7 | 3 | 3 | 33.33 | 15.825 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_any_rank_age14 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_any_rank_age7 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_top50_age14 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | consecutive_accumulation_top50_age7 | 2 | 2 | 0.0 | -3.4188 | -3.4188 | low |
+| B_tdcc_filter_next_open | weekly_increase_any_rank_age14 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| B_tdcc_filter_next_open | weekly_increase_any_rank_age7 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| B_tdcc_filter_next_open | weekly_increase_top50_age14 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| B_tdcc_filter_next_open | weekly_increase_top50_age7 | 1 | 1 | 100.0 | 54.3127 | 54.3127 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_any_rank_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_top50_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | all_top50_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_any_rank_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age14 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
+| C_tdcc_filter_post_confirmation_next_open | weekly_increase_top50_age7 | 1 | 1 | 100.0 | 26.8382 | 26.8382 | low |
 
 ## Interpretation Guardrails
 

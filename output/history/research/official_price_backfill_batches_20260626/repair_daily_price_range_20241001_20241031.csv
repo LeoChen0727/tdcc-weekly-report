@@ -1,0 +1,32 @@
+﻿date,status,twse_rows,tpex_rows,total_rows,reason,saved_files
+20241001,repaired,1153,829,1982,full_market_ok,data/daily_price/20241001.csv;data/daily_price/daily_price_20241001.csv
+20241002,failed,1236,0,1236,"GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/10/02&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20241002; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20241002; TPEx batch best rows=0; date=20241002 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",
+20241003,failed,1236,0,1236,"GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/10/03&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20241003; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20241003; TPEx batch best rows=0; date=20241003 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",
+20241004,repaired,1155,829,1984,full_market_ok,data/daily_price/20241004.csv;data/daily_price/daily_price_20241004.csv
+20241005,skipped_weekend,0,0,0,weekend,
+20241006,skipped_weekend,0,0,0,weekend,
+20241007,repaired,1159,831,1990,full_market_ok,data/daily_price/20241007.csv;data/daily_price/daily_price_20241007.csv
+20241008,repaired,1154,834,1988,full_market_ok,data/daily_price/20241008.csv;data/daily_price/daily_price_20241008.csv
+20241009,repaired,1150,834,1984,full_market_ok,data/daily_price/20241009.csv;data/daily_price/daily_price_20241009.csv
+20241010,failed,1236,0,1236,"GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/10/10&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20241010; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20241010; TPEx batch best rows=0; date=20241010 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",
+20241011,repaired,1154,830,1984,full_market_ok,data/daily_price/20241011.csv;data/daily_price/daily_price_20241011.csv
+20241012,skipped_weekend,0,0,0,weekend,
+20241013,skipped_weekend,0,0,0,weekend,
+20241014,repaired,1153,825,1978,full_market_ok,data/daily_price/20241014.csv;data/daily_price/daily_price_20241014.csv
+20241015,repaired,1153,836,1989,full_market_ok,data/daily_price/20241015.csv;data/daily_price/daily_price_20241015.csv
+20241016,repaired,1156,826,1982,full_market_ok,data/daily_price/20241016.csv;data/daily_price/daily_price_20241016.csv
+20241017,repaired,1151,825,1976,full_market_ok,data/daily_price/20241017.csv;data/daily_price/daily_price_20241017.csv
+20241018,repaired,1155,836,1991,full_market_ok,data/daily_price/20241018.csv;data/daily_price/daily_price_20241018.csv
+20241019,skipped_weekend,0,0,0,weekend,
+20241020,skipped_weekend,0,0,0,weekend,
+20241021,repaired,1159,832,1991,full_market_ok,data/daily_price/20241021.csv;data/daily_price/daily_price_20241021.csv
+20241022,repaired,1156,831,1987,full_market_ok,data/daily_price/20241022.csv;data/daily_price/daily_price_20241022.csv
+20241023,repaired,1155,833,1988,full_market_ok,data/daily_price/20241023.csv;data/daily_price/daily_price_20241023.csv
+20241024,repaired,1158,834,1992,full_market_ok,data/daily_price/20241024.csv;data/daily_price/daily_price_20241024.csv
+20241025,repaired,1157,834,1991,full_market_ok,data/daily_price/20241025.csv;data/daily_price/daily_price_20241025.csv
+20241026,skipped_weekend,0,0,0,weekend,
+20241027,skipped_weekend,0,0,0,weekend,
+20241028,repaired,1158,832,1990,full_market_ok,data/daily_price/20241028.csv;data/daily_price/daily_price_20241028.csv
+20241029,repaired,1159,824,1983,full_market_ok,data/daily_price/20241029.csv;data/daily_price/daily_price_20241029.csv
+20241030,repaired,1157,828,1985,full_market_ok,data/daily_price/20241030.csv;data/daily_price/daily_price_20241030.csv
+20241031,failed,1236,0,1236,"GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/10/31&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20241031; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20241031; TPEx batch best rows=0; date=20241031 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",

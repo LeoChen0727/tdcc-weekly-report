@@ -47,7 +47,7 @@ def normalize_stock_id(value: object) -> str:
     text = re.sub(r"[^0-9]", "", safe_str(value))
     if not text:
         return ""
-    return text.zfill(4)[-4:]
+    return text.zfill(4) if len(text) < 4 else text
 
 
 def parse_yyyymmdd(value: str) -> datetime:
