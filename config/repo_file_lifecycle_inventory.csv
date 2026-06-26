@@ -164,6 +164,7 @@ scripts/build_w_bottom_early_entry_parameter_grid.py,python,research_backtest,ac
 scripts/build_w_bottom_early_entry_outcome_diagnostics.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry outcome diagnostics builder,,medium
 scripts/build_w_bottom_early_entry_stability_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry period stability audit builder,,medium
 scripts/build_w_bottom_early_entry_data_coverage_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry data coverage audit builder,,medium
+scripts/build_w_bottom_early_entry_backfill_feasibility_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry backfill feasibility audit builder,,medium
 scripts/build_w_bottom_observation_confirmation_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom observation confirmation audit builder,,medium
 scripts/build_w_bottom_path_quality_filter_audit.py,python,research_backtest,active,,scripts/build_w_bottom_combined_condition_backtest.py,,docs/repo_production_inventory.md,,,research/backtest W-bottom path quality filter audit builder,,medium
 scripts/build_w_bottom_price_level_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom price level audit builder,,medium
@@ -285,6 +286,7 @@ scripts/validate_w_bottom_early_entry_parameter_grid.py,python,research_backtest
 scripts/validate_w_bottom_early_entry_outcome_diagnostics.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry outcome diagnostics validator,,medium
 scripts/validate_w_bottom_early_entry_stability_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry period stability audit validator,,medium
 scripts/validate_w_bottom_early_entry_data_coverage_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry data coverage audit validator,,medium
+scripts/validate_w_bottom_early_entry_backfill_feasibility_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry backfill feasibility audit validator,,medium
 scripts/validate_w_bottom_observation_confirmation_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom observation confirmation audit validator,,medium
 scripts/validate_w_bottom_path_quality_filter_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom path quality filter audit validator,,medium
 scripts/validate_w_bottom_price_level_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom price level audit validator,,medium

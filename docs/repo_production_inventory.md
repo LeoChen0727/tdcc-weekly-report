@@ -126,6 +126,7 @@ write research variants into production baselines:
 - `scripts/build_w_bottom_early_entry_outcome_diagnostics.py`
 - `scripts/build_w_bottom_early_entry_stability_audit.py`
 - `scripts/build_w_bottom_early_entry_data_coverage_audit.py`
+- `scripts/build_w_bottom_early_entry_backfill_feasibility_audit.py`
 - `scripts/build_w_bottom_observation_confirmation_audit.py`
 - `scripts/build_w_bottom_path_quality_filter_audit.py`
 - `scripts/build_w_bottom_price_level_audit.py`
