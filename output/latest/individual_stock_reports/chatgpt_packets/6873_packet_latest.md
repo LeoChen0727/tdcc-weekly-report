@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:37 Asia/Taipei
+- generated_at: 2026-06-26 22:24:32 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 80
-- high: 81.8
-- low: 79.7
-- close: 81.8
-- volume: 345747
-- ma5: 80.08
-- ema23_primary: 84.57
-- distance_to_ema23_pct: -3.27
-- ma20: 86.04
-- ma60: 87.09
-- ma120: 96.5
-- return_5d: 3.94
-- return_20d: -8.81
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -4.93
-- distance_to_high_60_pct: -20.97
+- date: 20260626
+- open: 82.5
+- high: 82.5
+- low: 79.2
+- close: 79.4
+- volume: 331048
+- ma5: 80.44
+- ema23_primary: 84.14
+- distance_to_ema23_pct: -5.63
+- ma20: 85.42
+- ma60: 86.96
+- ma120: 96.34
+- return_5d: 2.32
+- return_20d: -13.51
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -7.05
+- distance_to_high_60_pct: -23.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,91.5,95.2,90.6,91.8,897533,88.51,3.72,88.72,91.25,1.41
 20260528,93,94.2,88.3,89.8,594400,88.62,1.34,88.81,90.97,0.91
 20260529,91.1,91.1,88.6,89.1,2147894,88.66,0.5,88.81,90.65,2.9
 20260601,89.9,90.9,88.1,90.2,685382,88.79,1.59,88.77,90.42,0.92
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,78.8,81.9,78.8,81.8,558763,85.22,-4.01,86.8,87.4,0.61
 20260623,82.2,82.6,80.4,80.4,445788,84.82,-5.21,86.44,87.21,0.49
 20260624,80,81.8,79.7,81.8,345747,84.57,-3.27,86.04,87.09,0.39
+20260626,82.5,82.5,79.2,79.4,331048,84.14,-5.63,85.42,86.96,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6873 | 泓德能源 | 22 | 0 | 73210.0 | 0.0 |  | no_signal |
+| 20260626 | 6873 | 泓德能源 | 22 | 0 | 274440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

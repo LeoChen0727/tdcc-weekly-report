@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4529 淳紳
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:50 Asia/Taipei
+- generated_at: 2026-06-26 22:23:44 Asia/Taipei
 - stock_id: 4529
 - stock_name: 淳紳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 4.72
-- high: 4.85
-- low: 4.58
-- close: 4.78
-- volume: 159000
-- ma5: 4.78
-- ema23_primary: 4.93
-- distance_to_ema23_pct: -3
-- ma20: 4.92
-- ma60: 4.57
-- ma120: 4
-- return_5d: -3.04
-- return_20d: -5.91
-- volume_ratio: 3.77
-- distance_to_ma20_pct_auxiliary: -2.87
-- distance_to_high_60_pct: -27.36
+- date: 20260626
+- open: 4.53
+- high: 4.54
+- low: 4.28
+- close: 4.35
+- volume: 38000
+- ma5: 4.69
+- ema23_primary: 4.88
+- distance_to_ema23_pct: -10.85
+- ma20: 4.88
+- ma60: 4.58
+- ma120: 4.01
+- return_5d: -9.94
+- return_20d: -15.2
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -10.9
+- distance_to_high_60_pct: -33.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,5.13,5.5,5.03,5.13,5000,5.08,1,5.22,4.08,0.03
 20260528,5.15,5.15,4.82,4.84,5000,5.06,-4.34,5.18,4.1,0.03
 20260529,5.18,5.18,4.85,4.85,5000,5.04,-3.81,5.16,4.13,0.04
 20260601,4.93,4.93,4.68,4.71,5000,5.01,-6.07,5.16,4.16,0.04
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,5.05,5.05,4.66,4.81,83000,4.96,-3.05,4.97,4.52,2.68
 20260623,4.81,4.86,4.66,4.72,77000,4.94,-4.47,4.94,4.54,2.23
 20260624,4.72,4.85,4.58,4.78,159000,4.93,-3,4.92,4.57,3.77
+20260626,4.53,4.54,4.28,4.35,38000,4.88,-10.85,4.88,4.58,0.87
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4960 誠美材
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:58 Asia/Taipei
+- generated_at: 2026-06-26 22:23:52 Asia/Taipei
 - stock_id: 4960
 - stock_name: 誠美材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 28.2
-- high: 29.2
-- low: 28
-- close: 28.35
-- volume: 3586776
-- ma5: 28.85
-- ema23_primary: 30.92
-- distance_to_ema23_pct: -8.3
-- ma20: 30.73
-- ma60: 32.49
-- ma120: 24.33
-- return_5d: -5.97
-- return_20d: -17.23
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -7.74
-- distance_to_high_60_pct: -40.94
+- date: 20260626
+- open: 27.05
+- high: 27.4
+- low: 25.6
+- close: 25.65
+- volume: 7189146
+- ma5: 28.11
+- ema23_primary: 30.48
+- distance_to_ema23_pct: -15.84
+- ma20: 30.36
+- ma60: 32.48
+- ma120: 24.43
+- return_5d: -12.61
+- return_20d: -22.62
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -15.5
+- distance_to_high_60_pct: -46.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,35,35,32.8,33.15,9945718,35.16,-5.7,37.01,29.57,0.69
 20260528,33.6,34.25,31.7,31.95,9341790,34.89,-8.42,36.69,29.86,0.63
 20260529,32.25,32.6,31.7,31.95,7490299,34.64,-7.77,36.33,30.15,0.5
 20260601,32.1,34.8,32.1,33.75,12317380,34.57,-2.37,36.06,30.46,0.8
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29.3,29.95,28.8,29.2,4330191,31.41,-7.04,31.41,32.4,0.54
 20260623,29.75,29.75,27.9,28.25,5777713,31.15,-9.31,31.02,32.43,0.77
 20260624,28.2,29.2,28,28.35,3586776,30.92,-8.3,30.73,32.49,0.51
+20260626,27.05,27.4,25.6,25.65,7189146,30.48,-15.84,30.36,32.48,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 4960 | 誠美材 | 4 | 0 | 352550.0 | 0.0 |  | no_signal |
+| 20260626 | 4960 | 誠美材 | 4 | 0 | 237720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

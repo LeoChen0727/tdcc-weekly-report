@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8466 美吉吉-KY
 
 ## Metadata
-- generated_at: 2026-06-25 22:25:01 Asia/Taipei
+- generated_at: 2026-06-26 22:24:55 Asia/Taipei
 - stock_id: 8466
 - stock_name: 美吉吉-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 15.8
-- high: 16
-- low: 15.8
+- date: 20260626
+- open: 15.9
+- high: 16.05
+- low: 15.9
 - close: 16
-- volume: 29908
-- ma5: 15.73
-- ema23_primary: 15.81
-- distance_to_ema23_pct: 1.2
-- ma20: 16
-- ma60: 16.25
-- ma120: 18.82
-- return_5d: 0
-- return_20d: 0.31
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: 0.02
+- volume: 37500
+- ma5: 15.75
+- ema23_primary: 15.83
+- distance_to_ema23_pct: 1.1
+- ma20: 15.97
+- ma60: 16.22
+- ma120: 18.77
+- return_5d: 0.63
+- return_20d: -3.03
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 0.17
 - distance_to_high_60_pct: -13.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,16.85,17.3,16.15,16.5,952009,15.44,6.89,15.04,17.36,4.59
 20260528,16.75,16.8,15.6,16,292285,15.48,3.34,15.04,17.26,1.34
 20260529,16,16.85,16,16.5,196794,15.57,5.99,15.07,17.18,0.87
 20260601,16.5,16.6,16,16.2,88700,15.62,3.71,15.1,17.11,0.39
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.8,15.8,15.6,15.6,25250,15.81,-1.33,15.94,16.32,0.18
 20260623,15.6,15.75,15.5,15.6,27017,15.79,-1.22,15.99,16.28,0.2
 20260624,15.8,16,15.8,16,29908,15.81,1.2,16,16.25,0.24
+20260626,15.9,16.05,15.9,16,37500,15.83,1.1,15.97,16.22,0.49
 ```
 
 ## Latest TDCC Snapshot

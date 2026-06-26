@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:43 Asia/Taipei
+- generated_at: 2026-06-26 22:22:36 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 6.07
-- high: 6.24
-- low: 5.96
-- close: 6.19
-- volume: 1289358
-- ma5: 6.08
-- ema23_primary: 6.08
-- distance_to_ema23_pct: 1.79
-- ma20: 6.25
-- ma60: 5.58
-- ma120: 5.49
-- return_5d: 1.31
-- return_20d: 12.34
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.96
-- distance_to_high_60_pct: -14.74
+- date: 20260626
+- open: 6.11
+- high: 6.33
+- low: 6.04
+- close: 6.22
+- volume: 2473062
+- ma5: 6.11
+- ema23_primary: 6.09
+- distance_to_ema23_pct: 2.09
+- ma20: 6.29
+- ma60: 5.59
+- ma120: 5.5
+- return_5d: 1.97
+- return_20d: 13.09
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -1.05
+- distance_to_high_60_pct: -14.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,5.39,5.54,5.36,5.5,2262795,5.43,1.36,5.32,5.3,0.96
 20260528,5.53,5.8,5.53,5.73,2018226,5.45,5.11,5.36,5.3,0.84
 20260529,5.8,6.3,5.75,6.21,4778674,5.51,12.61,5.42,5.31,1.84
 20260601,6.21,6.46,6.12,6.33,3419255,5.58,13.39,5.49,5.33,1.26
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,6.07,6.08,5.97,6.02,1604966,6.07,-0.84,6.21,5.54,0.54
 20260623,6.02,6.14,5.95,6.07,1767452,6.07,-0.02,6.22,5.56,0.6
 20260624,6.07,6.24,5.96,6.19,1289358,6.08,1.79,6.25,5.58,0.45
+20260626,6.11,6.33,6.04,6.22,2473062,6.09,2.09,6.29,5.59,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 1447 | 力鵬 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1447 | 力鵬 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 1447 | 力鵬 | 9 | 9 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 1447 | 力鵬 | 10 | 10 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

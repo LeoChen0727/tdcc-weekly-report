@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3689 湧德
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:43 Asia/Taipei
+- generated_at: 2026-06-26 22:23:36 Asia/Taipei
 - stock_id: 3689
 - stock_name: 湧德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 116
+- date: 20260626
+- open: 118
 - high: 118
-- low: 115.5
-- close: 118
-- volume: 1113000
-- ma5: 119.2
-- ema23_primary: 123.22
-- distance_to_ema23_pct: -4.24
-- ma20: 126.28
-- ma60: 126.82
-- ma120: 120.56
-- return_5d: 0.43
-- return_20d: -5.22
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -6.55
-- distance_to_high_60_pct: -19.18
+- low: 112
+- close: 112.5
+- volume: 1769000
+- ma5: 118
+- ema23_primary: 122.33
+- distance_to_ema23_pct: -8.03
+- ma20: 125.38
+- ma60: 126.73
+- ma120: 120.66
+- return_5d: -5.06
+- return_20d: -13.79
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -10.27
+- distance_to_high_60_pct: -22.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,126.5,132.5,123.5,130.5,129000,125.27,4.17,126.35,121.61,0.04
 20260528,134,139.5,130.5,132,135000,125.83,4.9,126.38,121.89,0.04
 20260529,136.5,138.5,133.5,138,136000,126.85,8.79,126.58,122.32,0.04
 20260601,139,144,136,137.5,140000,127.74,7.64,126.62,122.88,0.05
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,122,122,120,120.5,1441000,124.21,-2.99,126.95,126.69,1.14
 20260623,121,121,117,118,1616000,123.7,-4.61,126.6,126.72,1.21
 20260624,116,118,115.5,118,1113000,123.22,-4.24,126.28,126.82,0.8
+20260626,118,118,112,112.5,1769000,122.33,-8.03,125.38,126.73,1.21
 ```
 
 ## Latest TDCC Snapshot

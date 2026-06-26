@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:15 Asia/Taipei
+- generated_at: 2026-06-26 22:24:09 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 112
-- high: 116.5
-- low: 106.5
-- close: 116
-- volume: 44794000
-- ma5: 116.2
-- ema23_primary: 93.84
-- distance_to_ema23_pct: 23.61
-- ma20: 97.1
-- ma60: 63.22
-- ma120: 49.04
-- return_5d: 8.41
-- return_20d: 37.44
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 19.46
-- distance_to_high_60_pct: -5.69
+- date: 20260626
+- open: 126
+- high: 134.5
+- low: 119
+- close: 119.5
+- volume: 139085000
+- ma5: 117.3
+- ema23_primary: 95.98
+- distance_to_ema23_pct: 24.5
+- ma20: 98.56
+- ma60: 64.63
+- ma120: 49.78
+- return_5d: 4.82
+- return_20d: 32.48
+- volume_ratio: 4.01
+- distance_to_ma20_pct_auxiliary: 21.24
+- distance_to_high_60_pct: -11.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,85.4,92.8,79.3,90.2,88000,59.69,51.12,58.55,43.15,0
 20260528,90.2,99.2,89.5,90.7,94000,62.27,45.65,61.13,44.07,0
 20260529,99,99.7,96,99.5,99000,65.37,52.2,64.1,45.16,0
 20260601,100,101.5,96.6,97,98000,68.01,42.63,66.75,46.24,0
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,121,123,115,116.5,81366000,89.77,29.78,93.64,60.55,3.67
 20260623,114,118,109,114.5,65891000,91.83,24.69,95.52,61.88,2.59
 20260624,112,116.5,106.5,116,44794000,93.84,23.61,97.1,63.22,1.62
+20260626,126,134.5,119,119.5,139085000,95.98,24.5,98.56,64.63,4.01
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:   通過2025年度利潤分配方案的議案 3.重要決議事項二、章程修訂:   通過變更經營範圍、註冊資本、修訂《公司章程》並辦理工商變更登記的議案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:   通過補選公司第三屆董事會非獨立董事的議案 6.重要決議事項五、其他事項:   (1)通過2025年度董事會工作報告的議案   (2)通過確認2025年度日常關聯交易及2026年度日常關聯交易預計的議案   (3)通過續聘公司2026年度審計機構的議案   (4)通過修訂《上海合晶硅材料股份有限公司對外擔保管理制度》的議案   (5)通過2026年度董事長薪酬方案的議案   (6)通過符合向特定對象發行A股股票條件的議案   (7)通過2026年度向特定對象發行A股股票方案的議案   (8)通過2026年度向特定對象發行A股股票預案的議案   (9)通過2026年度向特定對象發行A股股票方案論證分析報告的議案   (10)通過2026年度向特定對象發行A股股票募集資金使用可行性分析報告的議案   (11)通過向特定對象發行A股股票攤薄即期回報和採取填補措施及相關主體承諾的       議案   (12)通過未來三年(2026年-2028年)股東回報規劃的議案   (13)通過前次募集資金使用情況報告的議案   (14)通過設立本次向特定對象發行A股股票募集資金專項帳戶並簽署監管協議的議案   (15)通過提請公司股東會授權董事會及其授權人士全權辦理2026年度向特定對象       發行A股股票相關事宜的議案   (16)通過本次向特定對象發行A股股票募集資金投向屬於科技創新領域說明的議案   (17)通過對外投資設立合資公司暨關聯交易的議案   (18)通過制定《董事和高級管理人員薪酬管理制度》的議案 7.其他應敘明事項:   報告事項:《2025年度獨立董事述職報告》和《2026年度高級管理人員薪酬方案》；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:   通過2025年度利潤分配方案的議案 3.重要決議事項二、章程修訂:   通過變更經營範圍、註冊資本、修訂《公司章程》並辦理工商變更登記的議案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:   通過補選公司第三屆董事會非獨立董事的議案 6.重要決議事項五、其他事項:   (1)通過2025年度董事會工作報告的議案   (2)通過確認2025年度日常關聯交易及2026年度日常關聯交易預計的議案   (3)通過續聘公司2026年度審計機構的議案   (4)通過修訂《上海合晶硅材料股份有限公司對外擔保管理制度》的議案   (5)通過2026年度董事長薪酬方案的議案   (6)通過符合向特定對象發行A股股票條件的議案   (7)通過2026年度向特定對象發行A股股票方案的議案   (8)通過2026年度向特定對象發行A股股票預案的議案   (9)通過2026年度向特定對象發行A股股票方案論證分析報告的議案   (10)通過2026年度向特定對象發行A股股票募集資金使用可行性分析報告的議案   (11)通過向特定對象發行A股股票攤薄即期回報和採取填補措施及相關主體承諾的       議案   (12)通過未來三年(2026年-2028年)股東回報規劃的議案   (13)通過前次募集資金使用情況報告的議案   (14)通過設立本次向特定對象發行A股股票募集資金專項帳戶並簽署監管協議的議案   (15)通過提請公司股東會授權董事會及其授權人士全權辦理2026年度向特定對象       發行A股股票相關事宜的議案   (16)通過本次向特定對象發行A股股票募集資金投向屬於科技創新領域說明的議案   (17)通過對外投資設立合資公司暨關聯交易的議案   (18)通過制定《董事和高級管理人員薪酬管理制度》的議案 7.其他應敘明事項:   報告事項:《2025年度獨立董事述職報告》和《2026年度高級管理人員薪酬方案》；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6182 | 合晶 | 4 | 3 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 6182 | 合晶 | 5 | 4 | 5 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

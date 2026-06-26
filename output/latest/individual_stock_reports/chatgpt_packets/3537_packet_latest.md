@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:38 Asia/Taipei
+- generated_at: 2026-06-26 22:23:32 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 80
-- high: 82.3
-- low: 78.3
-- close: 80.4
-- volume: 2837000
-- ma5: 83.74
-- ema23_primary: 75.79
-- distance_to_ema23_pct: 6.09
-- ma20: 79
-- ma60: 58.5
-- ma120: 53.24
-- return_5d: 6.07
-- return_20d: 16.35
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 1.77
-- distance_to_high_60_pct: -13.08
+- date: 20260626
+- open: 79.5
+- high: 82
+- low: 74.5
+- close: 74.8
+- volume: 2449000
+- ma5: 82.4
+- ema23_primary: 75.7
+- distance_to_ema23_pct: -1.19
+- ma20: 79.39
+- ma60: 59.03
+- ma120: 53.45
+- return_5d: -8.22
+- return_20d: 11.31
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -5.78
+- distance_to_high_60_pct: -19.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,69.5,72.9,65.4,67.2,69000,55.8,20.43,53.47,47.22,0.05
 20260528,69.3,73.9,69.1,73.9,72000,57.31,28.95,55.01,47.67,0.06
 20260529,77.5,77.8,71.1,77,75000,58.95,30.62,56.71,48.19,0.06
 20260601,80.8,84.7,79.1,79.1,83000,60.63,30.47,58.53,48.78,0.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,90.3,92.5,85.7,86,11467000,74.84,14.92,78.22,57.26,2.6
 20260623,86.1,86.1,79.4,81.2,4555000,75.37,7.74,78.44,57.88,0.98
 20260624,80,82.3,78.3,80.4,2837000,75.79,6.09,79,58.5,0.59
+20260626,79.5,82,74.5,74.8,2449000,75.7,-1.19,79.39,59.03,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3537 | 堡達 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 股東股利之現金股利總額112,485,958元，依公司實際發行股份總數 56,242,979股核算，每股配發新台幣2元，發放至元為止，不足一 元之畸零款合計數，由小數點數字自大至小及戶號由前至後順序調 整，至符合現金股利分配總額。 4.除權（息）交易日:115/07/29 5.最後過戶日:115/07/30 6.停止過戶起始日期:115/07/31 7.停止過戶截止日期:115/08/04 8.除權（息）基準日:115/08/04 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 凡持有本公司股票而尚未辦理過戶之股東，務請於115/07/30(星期四) 下午四時三十分前親洽或以掛號郵寄(以郵戳為憑)本公司股務代理機 構華南永昌綜合證券股務代理部(地址：台北市民生東路四段54號4樓) 辦理過戶手續。參加集保戶者，本公司將依台灣集中保管結算所股份 有限公司資料逕行辦理過戶手續。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3537 | 堡達 | 4 | 2 | 4 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

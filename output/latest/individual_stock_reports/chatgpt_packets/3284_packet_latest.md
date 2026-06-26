@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3284 太普高
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:31 Asia/Taipei
+- generated_at: 2026-06-26 22:23:25 Asia/Taipei
 - stock_id: 3284
 - stock_name: 太普高
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 24.9
-- high: 26.55
-- low: 24.75
-- close: 26.5
-- volume: 1611000
-- ma5: 24.18
-- ema23_primary: 20.42
-- distance_to_ema23_pct: 29.78
-- ma20: 19.74
-- ma60: 18.26
-- ma120: 19.27
-- return_5d: 31.19
-- return_20d: 63.58
-- volume_ratio: 2.43
-- distance_to_ma20_pct_auxiliary: 34.23
-- distance_to_high_60_pct: -0.19
+- date: 20260626
+- open: 30.4
+- high: 31.5
+- low: 28.9
+- close: 29.35
+- volume: 4167000
+- ma5: 25.61
+- ema23_primary: 21.16
+- distance_to_ema23_pct: 38.68
+- ma20: 20.41
+- ma60: 18.42
+- ma120: 19.34
+- return_5d: 32.21
+- return_20d: 84.59
+- volume_ratio: 4.78
+- distance_to_ma20_pct_auxiliary: 43.77
+- distance_to_high_60_pct: -6.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,16.3,16.4,15.85,15.9,16000,16.67,-4.62,16.3,18.12,0.07
 20260528,15.9,16,15.7,15.9,16000,16.61,-4.25,16.29,18.05,0.07
 20260529,15.95,16.15,15.8,16,16000,16.56,-3.35,16.3,17.98,0.08
 20260601,16,16.3,15.8,15.85,16000,16.5,-3.92,16.29,17.93,0.08
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.2,24.6,23,24.1,1751000,19.36,24.46,18.79,18.06,3.36
 20260623,24.1,25.75,23.7,25.4,1293000,19.87,27.85,19.23,18.15,2.21
 20260624,24.9,26.55,24.75,26.5,1611000,20.42,29.78,19.74,18.26,2.43
+20260626,30.4,31.5,28.9,29.35,4167000,21.16,38.68,20.41,18.42,4.78
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3284 | 太普高 | true_breakout | 嚴格突破 | 83.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3284 | 太普高 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | 1. 原公告日期： 115/04/15 2. 簡述原公告申報內容： 本公司董事會通過處分「科工164」在建工案 3. 變動緣由及主要內容： 因買方公司基於自身營運策略考量，決定不予本公司簽訂土地買賣合約， 致原處分交易無法依原計畫進行，故撤銷原處分案。 4. 變動後對公司財務業務之影響： 無。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3284 | 太普高 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 3284 | 太普高 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

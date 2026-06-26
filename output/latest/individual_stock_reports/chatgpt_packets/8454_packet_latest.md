@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8454 富邦媒
 
 ## Metadata
-- generated_at: 2026-06-25 22:25:01 Asia/Taipei
+- generated_at: 2026-06-26 22:24:54 Asia/Taipei
 - stock_id: 8454
 - stock_name: 富邦媒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 330
-- high: 348
-- low: 330
-- close: 348
-- volume: 872345
-- ma5: 333.8
-- ema23_primary: 309.41
-- distance_to_ema23_pct: 12.47
-- ma20: 321.62
-- ma60: 228.78
-- ma120: 210.61
-- return_5d: 8.41
-- return_20d: 85.11
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 8.2
-- distance_to_high_60_pct: -25.48
+- date: 20260626
+- open: 340
+- high: 346
+- low: 314.5
+- close: 325.5
+- volume: 3069658
+- ma5: 335.9
+- ema23_primary: 310.75
+- distance_to_ema23_pct: 4.75
+- ma20: 328.35
+- ma60: 231.22
+- ma120: 211.56
+- return_5d: 3.33
+- return_20d: 70.42
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -0.87
+- distance_to_high_60_pct: -30.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,190,191,186.5,191,603006,187.44,1.9,187.8,181.52,0.74
 20260528,193.5,210,193.5,210,2765166,189.32,10.92,189.68,181.83,2.99
 20260529,219,231,216,231,3691482,192.79,19.82,192.7,182.59,3.39
 20260601,240,254,236.5,241.5,6217906,196.85,22.68,195.97,183.64,4.58
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,350,354,327.5,335,971943,303.71,10.3,306.52,223.49,0.32
 20260623,341,361.5,330,330,1215452,305.9,7.88,313.62,226,0.4
 20260624,330,348,330,348,872345,309.41,12.47,321.62,228.78,0.28
+20260626,340,346,314.5,325.5,3069658,310.75,4.75,328.35,231.22,0.96
 ```
 
 ## Latest TDCC Snapshot

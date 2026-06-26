@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:28 Asia/Taipei
+- generated_at: 2026-06-26 22:23:21 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 3475
-- high: 3595
-- low: 3410
-- close: 3595
-- volume: 223000
-- ma5: 3488
-- ema23_primary: 3264.58
-- distance_to_ema23_pct: 10.12
-- ma20: 3308.75
-- ma60: 3125.92
-- ma120: 2465.25
-- return_5d: 8.45
-- return_20d: 15.41
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 8.65
-- distance_to_high_60_pct: -6.99
+- date: 20260626
+- open: 3510
+- high: 3565
+- low: 3300
+- close: 3310
+- volume: 302000
+- ma5: 3501
+- ema23_primary: 3268.36
+- distance_to_ema23_pct: 1.27
+- ma20: 3303
+- ma60: 3133.67
+- ma120: 2481.17
+- return_5d: 2
+- return_20d: -3.36
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 0.21
+- distance_to_high_60_pct: -14.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,3425,3425,3425,3425,3425000,2954.34,15.93,2951.5,2743.67,2.99
 20260528,3650,3765,3510,3635,3690000,3011.06,20.72,2989.75,2775.42,2.83
 20260529,3820,3865,3450,3450,3682000,3047.64,13.2,3014.75,2804.75,2.55
 20260601,3420,3420,3235,3265,3300000,3065.75,6.5,3024.75,2830.33,2.1
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,3640,3815,3480,3585,780000,3210.86,11.65,3256,3098,0.46
 20260623,3585,3595,3410,3495,480000,3234.54,8.05,3284.75,3111.92,0.3
 20260624,3475,3595,3410,3595,223000,3264.58,10.12,3308.75,3125.92,0.15
+20260626,3510,3565,3300,3310,302000,3268.36,1.27,3303,3133.67,0.23
 ```
 
 ## Latest TDCC Snapshot

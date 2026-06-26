@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:11 Asia/Taipei
+- generated_at: 2026-06-26 22:23:04 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 23.95
-- high: 24.6
-- low: 23.8
-- close: 24.3
-- volume: 4425602
-- ma5: 25.44
-- ema23_primary: 24.59
-- distance_to_ema23_pct: -1.17
-- ma20: 24.5
-- ma60: 23.73
+- date: 20260626
+- open: 24.5
+- high: 24.55
+- low: 23.95
+- close: 24.15
+- volume: 2827573
+- ma5: 24.87
+- ema23_primary: 24.55
+- distance_to_ema23_pct: -1.64
+- ma20: 24.62
+- ma60: 23.74
 - ma120: 23.37
-- return_5d: -5.63
-- return_20d: 11.98
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.84
-- distance_to_high_60_pct: -14.44
+- return_5d: -10.56
+- return_20d: 10.53
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -1.91
+- distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,21.7,21.85,21.6,21.85,2375569,22.62,-3.39,22.43,23.24,0.69
 20260528,21.95,22.4,21.95,22.25,4399149,22.59,-1.49,22.38,23.22,1.34
 20260529,22.25,22.65,22.2,22.65,5382351,22.59,0.26,22.36,23.21,1.59
 20260601,22.65,23,22.35,22.95,5070997,22.62,1.45,22.38,23.22,1.53
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.4,26.45,24.65,24.85,9637556,24.65,0.8,24.25,23.72,1.25
 20260623,24.85,24.9,24.1,24.2,5465810,24.62,-1.69,24.38,23.73,0.7
 20260624,23.95,24.6,23.8,24.3,4425602,24.59,-1.17,24.5,23.73,0.56
+20260626,24.5,24.55,23.95,24.15,2827573,24.55,-1.64,24.62,23.74,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2501 | 國建 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日:115/06/24 2.許可從事競業行為之經理人姓名及職稱:郭文鎧總經理 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職經理人職務期間 5.決議情形（請依公司法第32條說明表決結果）:除郭文鎧董事 迴避，其餘出席董事全體同意照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2501 | 國建 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日:115/06/24 2.許可從事競業行為之經理人姓名及職稱:郭文鎧總經理 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職經理人職務期間 5.決議情形（請依公司法第32條說明表決結果）:除郭文鎧董事 迴避，其餘出席董事全體同意照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2501 | 國建 | 5 | 3 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2501 | 國建 | 6 | 4 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

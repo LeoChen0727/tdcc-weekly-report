@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6585 鼎基
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:27 Asia/Taipei
+- generated_at: 2026-06-26 22:24:22 Asia/Taipei
 - stock_id: 6585
 - stock_name: 鼎基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 141
-- high: 145.5
-- low: 139.5
-- close: 142
-- volume: 1209809
-- ma5: 142.3
-- ema23_primary: 123.17
-- distance_to_ema23_pct: 15.29
-- ma20: 121.58
-- ma60: 101.45
-- ma120: 95.27
-- return_5d: 2.53
-- return_20d: 48.38
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 16.79
-- distance_to_high_60_pct: -6.27
+- date: 20260626
+- open: 132.5
+- high: 133.5
+- low: 127
+- close: 129
+- volume: 618442
+- ma5: 140.8
+- ema23_primary: 123.65
+- distance_to_ema23_pct: 4.32
+- ma20: 123.31
+- ma60: 101.94
+- ma120: 95.59
+- return_5d: -5.49
+- return_20d: 36.65
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 4.61
+- distance_to_high_60_pct: -14.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,95.2,95.6,93.8,94.4,101523,92.12,2.48,91.02,90.14,0.56
 20260528,95.5,97.2,94.2,97.2,243863,92.54,5.03,91.62,90.21,1.27
 20260529,99.3,99.3,96.2,97.4,184600,92.95,4.79,92.28,90.32,0.93
 20260601,97.9,99.9,96.8,98,187882,93.37,4.96,92.97,90.5,0.91
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,151.5,151.5,145,150.5,1663809,119.36,26.09,116.84,99.93,1.54
 20260623,147.5,149.5,140,144.5,1173724,121.46,18.97,119.27,100.79,1.04
 20260624,141,145.5,139.5,142,1209809,123.17,15.29,121.58,101.45,1.02
+20260626,132.5,133.5,127,129,618442,123.65,4.32,123.31,101.94,0.51
 ```
 
 ## Latest TDCC Snapshot

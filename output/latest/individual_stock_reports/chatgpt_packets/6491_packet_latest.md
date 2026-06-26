@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6491 晶碩
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:24 Asia/Taipei
+- generated_at: 2026-06-26 22:24:18 Asia/Taipei
 - stock_id: 6491
 - stock_name: 晶碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 322
-- high: 327
-- low: 322
-- close: 326
-- volume: 413436
-- ma5: 323.5
-- ema23_primary: 317.53
-- distance_to_ema23_pct: 2.67
-- ma20: 322.27
-- ma60: 300.43
-- ma120: 292.19
-- return_5d: 4.82
-- return_20d: 0.31
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 1.16
-- distance_to_high_60_pct: -1.95
+- date: 20260626
+- open: 325
+- high: 325
+- low: 319
+- close: 322
+- volume: 211025
+- ma5: 325.6
+- ema23_primary: 317.9
+- distance_to_ema23_pct: 1.29
+- ma20: 322.12
+- ma60: 301.14
+- ma120: 292.53
+- return_5d: 3.37
+- return_20d: -0.92
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -0.04
+- distance_to_high_60_pct: -3.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,325,327,318,325,775508,298.37,8.92,294.15,287.43,1.3
 20260528,325,325,315,319,495817,300.09,6.3,296.02,287.86,0.82
 20260529,320.5,326,320,321.5,388140,301.88,6.5,298.12,288.45,0.64
 20260601,323.5,323.5,315.5,322.5,365993,303.59,6.23,300.3,289.2,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,332,332.5,323.5,327,292323,315.97,3.49,321.32,298.86,0.53
 20260623,328,329,325,325.5,223884,316.76,2.76,322.23,299.64,0.42
 20260624,322,327,322,326,413436,317.53,2.67,322.27,300.43,0.87
+20260626,325,325,319,322,211025,317.9,1.29,322.12,301.14,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6491 | 晶碩 | 3 | 0 | 164250.0 | 0.0 |  | no_signal |
+| 20260626 | 6491 | 晶碩 | 3 | 0 | 449500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

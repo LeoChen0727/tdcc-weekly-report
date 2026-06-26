@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:41 Asia/Taipei
+- generated_at: 2026-06-26 22:23:35 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 3790
-- high: 3815
-- low: 3555
-- close: 3640
-- volume: 2301864
-- ma5: 3855
-- ema23_primary: 3807.34
-- distance_to_ema23_pct: -4.4
-- ma20: 3778
-- ma60: 4057.75
-- ma120: 3527.92
-- return_5d: -3.83
-- return_20d: -0.82
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: -3.65
-- distance_to_high_60_pct: -35.97
+- date: 20260626
+- open: 3385
+- high: 3525
+- low: 3380
+- close: 3405
+- volume: 1905135
+- ma5: 3738
+- ema23_primary: 3773.81
+- distance_to_ema23_pct: -9.77
+- ma20: 3764.75
+- ma60: 4047.17
+- ma120: 3534.38
+- return_5d: -14.66
+- return_20d: -7.22
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -9.56
+- distance_to_high_60_pct: -40.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,3795,4015,3650,3670,3139136,3845.7,-4.57,3926,3974.5,2
 20260528,3700,3830,3460,3500,2199582,3816.9,-8.3,3828.75,3982.08,1.33
 20260529,3580,3600,3415,3545,2343319,3794.24,-6.57,3737,3990.5,1.34
 20260601,3550,3895,3550,3840,2419419,3798.05,1.1,3664,4006.5,1.3
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,4015,4030,3820,3840,1448778,3820.97,0.5,3776,4064.5,0.77
 20260623,3925,3965,3800,3840,1032686,3822.55,0.46,3779.5,4062.75,0.55
 20260624,3790,3815,3555,3640,2301864,3807.34,-4.4,3778,4057.75,1.17
+20260626,3385,3525,3380,3405,1905135,3773.81,-9.77,3764.75,4047.17,1
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3653 | 健策 | 30 | 0 | 2045070.0 | 0.0 |  | no_signal |
+| 20260626 | 3653 | 健策 | 30 | 5 | 2779240.0 | 1128700.0 | 2.46 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

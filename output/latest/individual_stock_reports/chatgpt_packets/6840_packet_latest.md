@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6840 東研信超
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:36 Asia/Taipei
+- generated_at: 2026-06-26 22:24:31 Asia/Taipei
 - stock_id: 6840
 - stock_name: 東研信超
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 64.4
-- high: 65.3
-- low: 64.4
-- close: 65.1
-- volume: 56000
-- ma5: 65.9
-- ema23_primary: 66.12
-- distance_to_ema23_pct: -1.55
-- ma20: 66.58
+- date: 20260626
+- open: 63.3
+- high: 64.1
+- low: 61
+- close: 61
+- volume: 114000
+- ma5: 65.04
+- ema23_primary: 65.7
+- distance_to_ema23_pct: -7.15
+- ma20: 66.48
 - ma60: 66.08
-- ma120: 65.25
-- return_5d: -1.21
-- return_20d: 3.17
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -2.22
-- distance_to_high_60_pct: -16.43
+- ma120: 65.26
+- return_5d: -6.58
+- return_20d: -3.02
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: -8.25
+- distance_to_high_60_pct: -21.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,63.5,63.8,62.2,62.9,63000,64.56,-2.58,64.78,64.39,0.54
 20260528,62.5,65.8,62,63.4,63000,64.47,-1.66,64.44,64.37,0.54
 20260529,63.4,64.2,62.5,63.4,63000,64.38,-1.52,64.21,64.36,0.56
 20260601,63.5,66,63.4,65.4,65000,64.46,1.45,63.95,64.44,0.62
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,66.6,68.5,66.4,67.4,93000,66.3,1.66,66.36,66.01,1.37
 20260623,67.5,67.5,65.1,65.3,88000,66.22,-1.38,66.48,66.03,1.28
 20260624,64.4,65.3,64.4,65.1,56000,66.12,-1.55,66.58,66.08,0.82
+20260626,63.3,64.1,61,61,114000,65.7,-7.15,66.48,66.08,1.6
 ```
 
 ## Latest TDCC Snapshot

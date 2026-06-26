@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2258 鴻華先進-創
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:59 Asia/Taipei
+- generated_at: 2026-06-26 22:22:53 Asia/Taipei
 - stock_id: 2258
 - stock_name: 鴻華先進-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 33.7
-- high: 35
-- low: 33.6
-- close: 34.7
-- volume: 946286
-- ma5: 33.55
+- date: 20260626
+- open: 32.95
+- high: 32.95
+- low: 31.55
+- close: 31.55
+- volume: 1024413
+- ma5: 33.49
 - ema23_primary: 31.56
-- distance_to_ema23_pct: 9.95
-- ma20: 31.66
-- ma60: 29.33
-- ma120: 33.47
-- return_5d: 9.46
-- return_20d: 19.45
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 9.59
-- distance_to_high_60_pct: -0.86
+- distance_to_ema23_pct: -0.03
+- ma20: 31.81
+- ma60: 29.37
+- ma120: 33.41
+- return_5d: -0.94
+- return_20d: 10.12
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -0.81
+- distance_to_high_60_pct: -9.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,29.05,29.2,28.4,28.65,863820,28.52,0.44,28.29,29.73,0.93
 20260528,29.15,29.9,28.8,29.2,984712,28.58,2.17,28.33,29.57,1.03
 20260529,29.55,30.3,29.35,30.15,1151321,28.71,5.01,28.41,29.45,1.16
 20260601,30.4,33.05,30.3,32.95,2239783,29.07,13.37,28.64,29.41,2.07
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.3,34.45,33.3,34.2,1271488,31.03,10.22,31.18,29.19,1.12
 20260623,34.2,34.35,33.3,34,733900,31.28,8.71,31.38,29.25,0.67
 20260624,33.7,35,33.6,34.7,946286,31.56,9.95,31.66,29.33,0.86
+20260626,32.95,32.95,31.55,31.55,1024413,31.56,-0.03,31.81,29.37,0.93
 ```
 
 ## Latest TDCC Snapshot

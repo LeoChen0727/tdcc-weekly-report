@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6512 啟發電
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:25 Asia/Taipei
+- generated_at: 2026-06-26 22:24:19 Asia/Taipei
 - stock_id: 6512
 - stock_name: 啟發電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 143
+- latest_price_date: 20260626
+- price_rows: 144
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 19.9
+- date: 20260626
+- open: 19.95
 - high: 20
-- low: 19.9
+- low: 19.95
 - close: 19.95
-- volume: 16000
-- ma5: 19.75
-- ema23_primary: 19.59
-- distance_to_ema23_pct: 1.85
-- ma20: 19.57
+- volume: 14000
+- ma5: 19.84
+- ema23_primary: 19.62
+- distance_to_ema23_pct: 1.69
+- ma20: 19.59
 - ma60: 19.48
-- ma120: 19.93
-- return_5d: 1.79
-- return_20d: 1.01
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 1.93
+- ma120: 19.92
+- return_5d: 2.31
+- return_20d: 1.53
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 1.85
 - distance_to_high_60_pct: -2.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260526,19.75,19.75,19.65,19.65,20000,19.3,1.81,19.17,19.61,2.05
 20260527,19.55,19.7,19.3,19.3,20000,19.3,-0,19.18,19.59,1.97
 20260528,19.2,19.2,19.2,19.2,19000,19.29,-0.48,19.18,19.57,1.74
 20260529,19.2,19.2,19.2,19.2,19000,19.28,-0.44,19.19,19.55,1.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19.6,20,19.5,19.9,25000,19.52,1.93,19.52,19.47,1.79
 20260623,19.9,19.95,19.9,19.9,8000,19.55,1.77,19.56,19.48,0.59
 20260624,19.9,20,19.9,19.95,16000,19.59,1.85,19.57,19.48,1.21
+20260626,19.95,20,19.95,19.95,14000,19.62,1.69,19.59,19.48,1.08
 ```
 
 ## Latest TDCC Snapshot

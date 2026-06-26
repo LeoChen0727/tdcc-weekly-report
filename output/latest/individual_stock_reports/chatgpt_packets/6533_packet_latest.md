@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:25 Asia/Taipei
+- generated_at: 2026-06-26 22:24:20 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 204
-- high: 205.5
-- low: 201.5
-- close: 204.5
-- volume: 344295
-- ma5: 204.2
-- ema23_primary: 212.24
-- distance_to_ema23_pct: -3.65
-- ma20: 212.47
-- ma60: 216.82
-- ma120: 220.05
-- return_5d: 1.49
-- return_20d: -12.79
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -3.75
-- distance_to_high_60_pct: -26.31
+- date: 20260626
+- open: 201.5
+- high: 201.5
+- low: 192
+- close: 192
+- volume: 588371
+- ma5: 202.3
+- ema23_primary: 210.55
+- distance_to_ema23_pct: -8.81
+- ma20: 210.68
+- ma60: 217.04
+- ma120: 219.62
+- return_5d: -4.71
+- return_20d: -15.79
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -8.86
+- distance_to_high_60_pct: -30.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,238.5,240,226.5,228,840485,229.95,-0.85,234.53,210.43,0.77
 20260528,229,232,217,219.5,921331,229.08,-4.18,233.97,210.55,0.83
 20260529,221.5,223.5,217,219,508665,228.24,-4.05,233.5,210.87,0.46
 20260601,220,222.5,217.5,221,505431,227.63,-2.91,232.68,211.39,0.47
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,203,209.5,203,207,539728,213.53,-3.06,215.88,216.18,0.71
 20260623,210,212,205,206.5,498444,212.94,-3.02,213.97,216.47,0.69
 20260624,204,205.5,201.5,204.5,344295,212.24,-3.65,212.47,216.82,0.5
+20260626,201.5,201.5,192,192,588371,210.55,-8.81,210.68,217.04,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6533 | 晶心科 | 7 | 0 | 9340.0 | 0.0 |  | no_signal |
+| 20260626 | 6533 | 晶心科 | 7 | 0 | 82230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:09 Asia/Taipei
+- generated_at: 2026-06-26 22:23:02 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 57.1
-- high: 59.5
-- low: 55.3
-- close: 59
-- volume: 1053673
-- ma5: 53.96
-- ema23_primary: 49.93
-- distance_to_ema23_pct: 18.17
-- ma20: 48.09
-- ma60: 52.08
-- ma120: 54.95
-- return_5d: 23.3
-- return_20d: 21.27
-- volume_ratio: 2.05
-- distance_to_ma20_pct_auxiliary: 22.68
-- distance_to_high_60_pct: -11.68
+- date: 20260626
+- open: 57.9
+- high: 62.1
+- low: 57
+- close: 58
+- volume: 1436132
+- ma5: 55.7
+- ema23_primary: 50.6
+- distance_to_ema23_pct: 14.63
+- ma20: 48.61
+- ma60: 52.24
+- ma120: 54.88
+- return_5d: 17.65
+- return_20d: 21.59
+- volume_ratio: 2.51
+- distance_to_ma20_pct_auxiliary: 19.32
+- distance_to_high_60_pct: -13.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,49.35,50.5,47.5,47.7,266971,50.82,-6.14,50.85,52.31,0.66
 20260528,47.8,48,46.7,46.8,262217,50.48,-7.3,50.23,52.25,0.71
 20260529,48,48,46.5,47.6,374917,50.24,-5.26,49.73,52.18,1.02
 20260601,47.85,48.35,46.65,47,280238,49.97,-5.95,49.24,52.16,0.78
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51,55.1,51,55.1,1402215,48.45,13.73,47.25,51.85,3.27
 20260623,59.8,59.8,54.9,56.3,1283548,49.1,14.66,47.58,51.92,2.72
 20260624,57.1,59.5,55.3,59,1053673,49.93,18.17,48.09,52.08,2.05
+20260626,57.9,62.1,57,58,1436132,50.6,14.63,48.61,52.24,2.51
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2466 | 冠西電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.法律事件之當事人: (1)聲請人:COSMO ELECTRONICS (HK) COMPANY LIMITED (2)相對人:Kiwi-Smart Cooperation, LTD(英屬維京群島商凱威智能有限公司) 2.法律事件之法院名稱或處分機關:臺灣新北地方法院板橋簡易庭 3.法律事件之相關文書案號:115年度板司簡調字第1357號 4.事實發生日:115/06/23 5.發生原委(含爭訟標的):調解返還預付貨款。 6.處理過程:經雙方於法院調解成立，相對人願給付聲請人美金888萬3仟元整， 並同意以其差額給付自115年6月26日起至清償日止，依周年利率百分之五計 算之利息。 7.對公司財務業務影響及預估影響金額: 對於本公司之財務或業務暫無重大影響。 8.因應措施及改善情形:依雙方達成之調解事項配合執行。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d |
+| 20260626 | 2466 | 冠西電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.法律事件之當事人: (1)聲請人:COSMO ELECTRONICS (HK) COMPANY LIMITED (2)相對人:Kiwi-Smart Cooperation, LTD(英屬維京群島商凱威智能有限公司) 2.法律事件之法院名稱或處分機關:臺灣新北地方法院板橋簡易庭 3.法律事件之相關文書案號:115年度板司簡調字第1357號 4.事實發生日:115/06/23 5.發生原委(含爭訟標的):調解返還預付貨款。 6.處理過程:經雙方於法院調解成立，相對人願給付聲請人美金888萬3仟元整， 並同意以其差額給付自115年6月26日起至清償日止，依周年利率百分之五計 算之利息。 7.對公司財務業務影響及預估影響金額: 對於本公司之財務或業務暫無重大影響。 8.因應措施及改善情形:依雙方達成之調解事項配合執行。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2466 | 冠西電 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 2466 | 冠西電 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8476 台境*
 
 ## Metadata
-- generated_at: 2026-06-25 22:25:01 Asia/Taipei
+- generated_at: 2026-06-26 22:24:55 Asia/Taipei
 - stock_id: 8476
 - stock_name: 台境*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 22.8
-- high: 23.95
-- low: 22.75
-- close: 23.5
-- volume: 2989181
-- ma5: 22.18
-- ema23_primary: 19.21
-- distance_to_ema23_pct: 22.31
-- ma20: 18.42
-- ma60: 17.85
-- ma120: 18.58
-- return_5d: 18.09
-- return_20d: 52.1
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: 27.56
-- distance_to_high_60_pct: -1.88
+- date: 20260626
+- open: 23.95
+- high: 25
+- low: 23.3
+- close: 23.8
+- volume: 2735654
+- ma5: 22.98
+- ema23_primary: 19.6
+- distance_to_ema23_pct: 21.46
+- ma20: 18.86
+- ma60: 17.92
+- ma120: 18.63
+- return_5d: 20.2
+- return_20d: 57.1
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: 26.23
+- distance_to_high_60_pct: -4.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,15.45,15.45,15.1,15.15,508162,16.55,-8.44,16.5,18.08,0.9
 20260528,15.2,15.55,15.2,15.35,367515,16.45,-6.67,16.38,18.01,0.89
 20260529,15.35,15.6,15.3,15.35,456167,16.36,-6.15,16.27,17.94,1.08
 20260601,15.4,15.85,15.3,15.6,445164,16.29,-4.25,16.19,17.89,1.03
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.15,23.9,21.8,22.85,4572286,18.44,23.89,17.64,17.74,3.3
 20260623,22.8,23.5,22.05,23,2218792,18.82,22.19,18.02,17.79,1.52
 20260624,22.8,23.95,22.75,23.5,2989181,19.21,22.31,18.42,17.85,1.88
+20260626,23.95,25,23.3,23.8,2735654,19.6,21.46,18.86,17.92,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 8476 | 台境* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣0.2元，計新台幣 32,254,872元。 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:本公司於115/4/21發行國內第二次無擔保轉換公司債， 轉換期間為115/07/22~118/4/21。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8476 | 台境* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣0.2元，計新台幣 32,254,872元。 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:本公司於115/4/21發行國內第二次無擔保轉換公司債， 轉換期間為115/07/22~118/4/21。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 8476 | 台境* | 4 | 2 | 4 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 8476 | 台境* | 5 | 3 | 5 | 8 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

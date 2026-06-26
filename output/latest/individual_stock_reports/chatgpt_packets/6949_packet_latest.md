@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6949 沛爾生醫-創
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:40 Asia/Taipei
+- generated_at: 2026-06-26 22:24:35 Asia/Taipei
 - stock_id: 6949
 - stock_name: 沛爾生醫-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 834
-- high: 860
-- low: 809
-- close: 860
-- volume: 172420
-- ma5: 877
-- ema23_primary: 761.47
-- distance_to_ema23_pct: 12.94
-- ma20: 735.3
-- ma60: 713.72
-- ma120: 609.27
-- return_5d: 5.65
-- return_20d: 28.74
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 16.96
-- distance_to_high_60_pct: -11.16
+- date: 20260626
+- open: 870
+- high: 875
+- low: 840
+- close: 862
+- volume: 146455
+- ma5: 870.4
+- ema23_primary: 769.85
+- distance_to_ema23_pct: 11.97
+- ma20: 742.7
+- ma60: 718.63
+- ma120: 613.45
+- return_5d: -3.69
+- return_20d: 20.73
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 16.06
+- distance_to_high_60_pct: -10.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,704,717,680,714,248961,695.55,2.65,701.4,664.85,1.13
 20260528,704,757,668,668,320980,693.25,-3.64,695.45,664.48,1.39
 20260529,675,675,643,645,235781,689.23,-6.42,689.15,664.6,0.98
 20260601,667,667,607,644,291654,685.46,-6.05,683.45,665.12,1.24
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,911,915,857,886,295335,745.19,18.9,716.85,704.62,1.17
 20260623,887,889,819,833,228301,752.51,10.7,725.7,709.03,0.9
 20260624,834,860,809,860,172420,761.47,12.94,735.3,713.72,0.66
+20260626,870,875,840,862,146455,769.85,11.97,742.7,718.63,0.57
 ```
 
 ## Latest TDCC Snapshot

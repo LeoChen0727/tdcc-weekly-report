@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2483 百容
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:10 Asia/Taipei
+- generated_at: 2026-06-26 22:23:03 Asia/Taipei
 - stock_id: 2483
 - stock_name: 百容
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 41.5
-- high: 46.1
-- low: 41.3
-- close: 46.1
-- volume: 11990254
-- ma5: 41.47
-- ema23_primary: 34.1
-- distance_to_ema23_pct: 35.19
-- ma20: 33.2
-- ma60: 26.34
-- ma120: 23.3
-- return_5d: 28.59
-- return_20d: 78.68
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: 38.88
+- date: 20260626
+- open: 50.7
+- high: 55.7
+- low: 48.8
+- close: 55.7
+- volume: 23668367
+- ma5: 45.4
+- ema23_primary: 35.9
+- distance_to_ema23_pct: 55.16
+- ma20: 34.71
+- ma60: 26.92
+- ma120: 23.61
+- return_5d: 54.51
+- return_20d: 119.29
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 60.47
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,26.2,27.25,25.2,25.4,1136095,24.04,5.64,24.04,22.55,1.83
 20260528,25.5,26.05,25.3,25.5,464998,24.16,5.52,24.18,22.58,0.73
 20260529,26,26,25.5,25.7,376443,24.29,5.79,24.34,22.62,0.58
 20260601,26,26.5,25.3,25.5,684756,24.39,4.54,24.47,22.68,1.03
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,42.5,43.6,42,43.6,7548022,32.2,35.42,31.35,25.58,1.31
 20260623,42,44.5,40,41.95,11206406,33.01,27.09,32.18,25.92,1.78
 20260624,41.5,46.1,41.3,46.1,11990254,34.1,35.19,33.2,26.34,1.75
+20260626,50.7,55.7,48.8,55.7,23668367,35.9,55.16,34.71,26.92,2.97
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2483 | 百容 | true_breakout | 嚴格突破 | 84.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2483 | 百容 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2483 | 百容 | 11 | 1 | 5 | 10 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 2483 | 百容 | 12 | 2 | 5 | 10 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

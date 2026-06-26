@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:20 Asia/Taipei
+- generated_at: 2026-06-26 22:24:14 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 83
-- high: 84.3
-- low: 78.9
-- close: 79
-- volume: 14911761
-- ma5: 81.96
-- ema23_primary: 72.61
-- distance_to_ema23_pct: 8.8
-- ma20: 72.23
-- ma60: 65.82
-- ma120: 62.45
-- return_5d: 7.78
-- return_20d: 23.05
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 9.37
-- distance_to_high_60_pct: -13.94
+- date: 20260626
+- open: 74.9
+- high: 78.7
+- low: 71.6
+- close: 71.6
+- volume: 11263748
+- ma5: 80.3
+- ema23_primary: 72.53
+- distance_to_ema23_pct: -1.28
+- ma20: 72.67
+- ma60: 65.96
+- ma120: 62.58
+- return_5d: -10.39
+- return_20d: 14.01
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -1.47
+- distance_to_high_60_pct: -22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,64.3,65,62.2,62.8,3455027,61.61,1.94,61.72,61.16,0.82
 20260528,63,64,60.5,60.8,3752094,61.54,-1.2,61.58,61.13,0.88
 20260529,62.3,63,61.7,62.9,2807130,61.65,2.02,61.43,61.16,0.66
 20260601,69.1,69.1,69.1,69.1,3699567,62.27,10.96,61.49,61.38,0.91
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,81,87.5,79,87.5,16775499,70.96,23.31,70.53,65.16,1.39
 20260623,91.8,91.8,81.5,83.8,29303648,72.03,16.34,71.49,65.53,2.21
 20260624,83,84.3,78.9,79,14911761,72.61,8.8,72.23,65.82,1.07
+20260626,74.9,78.7,71.6,71.6,11263748,72.53,-1.28,72.67,65.96,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6269 | 台郡 | 42 | 0 | 6887350.0 | 0.0 |  | no_signal |
+| 20260626 | 6269 | 台郡 | 46 | 0 | 9241790.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

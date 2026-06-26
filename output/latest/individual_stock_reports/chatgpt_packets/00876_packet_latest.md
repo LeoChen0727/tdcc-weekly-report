@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00876 元大全球5G
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:34 Asia/Taipei
+- generated_at: 2026-06-26 22:22:27 Asia/Taipei
 - stock_id: 00876
 - stock_name: 元大全球5G
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 99.85
-- high: 100.25
-- low: 99.5
-- close: 100.2
-- volume: 597460
-- ma5: 101.62
-- ema23_primary: 95.43
-- distance_to_ema23_pct: 4.99
-- ma20: 95.43
-- ma60: 94.6
-- ma120: 94.6
-- return_5d: 0
-- return_20d: 10.6
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 5
-- distance_to_high_60_pct: -5.29
+- date: 20260626
+- open: 102.95
+- high: 103.25
+- low: 100.85
+- close: 101
+- volume: 464675
+- ma5: 101.95
+- ema23_primary: 95.9
+- distance_to_ema23_pct: 5.32
+- ma20: 95.83
+- ma60: 94.86
+- ma120: 94.86
+- return_5d: 1.66
+- return_20d: 8.54
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 5.4
+- distance_to_high_60_pct: -4.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,92.9,93.75,92.65,93.05,616962,,,,,
 20260528,92,92.05,90.25,90.7,1064279,87.77,3.34,90.19,90.19,2.01
 20260529,91,92.95,91,92.65,121774,88.18,5.07,90.6,90.6,0.26
 20260601,93,93.85,92.6,92.7,171227,88.56,4.68,90.9,90.9,0.41
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,102.5,104,102.5,103.8,676228,94.26,10.12,94.31,93.93,1.7
 20260623,105.65,105.8,103.1,103.1,253133,95,8.53,94.95,94.34,0.64
 20260624,99.85,100.25,99.5,100.2,597460,95.43,4.99,95.43,94.6,1.46
+20260626,102.95,103.25,100.85,101,464675,95.9,5.32,95.83,94.86,1.16
 ```
 
 ## Latest TDCC Snapshot

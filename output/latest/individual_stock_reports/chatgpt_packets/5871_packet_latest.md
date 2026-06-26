@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:09 Asia/Taipei
+- generated_at: 2026-06-26 22:24:03 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 115
-- high: 116
-- low: 113.5
+- date: 20260626
+- open: 114.5
+- high: 114.5
+- low: 113
 - close: 113.5
-- volume: 7681667
-- ma5: 115.1
-- ema23_primary: 115.29
-- distance_to_ema23_pct: -1.55
-- ma20: 115.42
-- ma60: 113.68
-- ma120: 109.45
-- return_5d: -2.58
+- volume: 9918811
+- ma5: 114.8
+- ema23_primary: 115.14
+- distance_to_ema23_pct: -1.42
+- ma20: 115.75
+- ma60: 113.69
+- ma120: 109.48
+- return_5d: -1.3
 - return_20d: 6.07
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -1.67
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -1.94
 - distance_to_high_60_pct: -7.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,108,109.5,107,107,10109750,110.87,-3.49,111.35,109.87,1.23
 20260528,108.5,110.5,107,107,13675932,110.55,-3.21,110.78,109.94,1.6
 20260529,108,109.5,107,107.5,15423401,110.3,-2.54,110.38,110.03,1.7
 20260601,108.5,110,107.5,108.5,10456575,110.15,-1.49,110.05,110.17,1.13
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,116,119,116,118,13013815,115.49,2.17,114.8,113.47,0.83
 20260623,117.5,118,115,115,5555111,115.45,-0.39,115.1,113.61,0.36
 20260624,115,116,113.5,113.5,7681667,115.29,-1.55,115.42,113.68,0.5
+20260626,114.5,114.5,113,113.5,9918811,115.14,-1.42,115.75,113.69,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 5871 | 中租-KY | 8 | 0 | 1446900.0 | 0.0 |  | call_inflow |
+| 20260626 | 5871 | 中租-KY | 7 | 0 | 688420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

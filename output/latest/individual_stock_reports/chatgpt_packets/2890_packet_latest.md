@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:20 Asia/Taipei
+- generated_at: 2026-06-26 22:23:13 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 39.6
-- high: 40.9
-- low: 38.9
-- close: 39.55
-- volume: 65823679
-- ma5: 39.06
-- ema23_primary: 34.75
-- distance_to_ema23_pct: 13.8
-- ma20: 34.09
-- ma60: 32.23
-- ma120: 31.21
-- return_5d: 12.04
-- return_20d: 33.84
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 16.02
-- distance_to_high_60_pct: -3.3
+- date: 20260626
+- open: 39.55
+- high: 39.85
+- low: 39
+- close: 39.15
+- volume: 43325431
+- ma5: 39.62
+- ema23_primary: 35.12
+- distance_to_ema23_pct: 11.48
+- ma20: 34.56
+- ma60: 32.35
+- ma120: 31.3
+- return_5d: 7.7
+- return_20d: 32.04
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 13.26
+- distance_to_high_60_pct: -4.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,29.8,29.95,29.3,29.65,28925478,30.36,-2.34,30.31,31.41,0.82
 20260528,29.65,29.85,29.5,29.5,28864438,30.29,-2.61,30.19,31.36,0.81
 20260529,29.6,30,29.55,30,64350996,30.27,-0.88,30.14,31.31,1.74
 20260601,30,30.65,29.85,30.45,40613955,30.28,0.56,30.14,31.29,1.09
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.75,40.75,39.6,39.8,93780276,33.82,17.69,33.05,31.96,1.57
 20260623,40,40.3,39.1,39.8,61232581,34.32,15.98,33.59,32.09,1.01
 20260624,39.6,40.9,38.9,39.55,65823679,34.75,13.8,34.09,32.23,1.06
+20260626,39.55,39.85,39,39.15,43325431,35.12,11.48,34.56,32.35,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2890 | 永豐金 | 16 | 0 | 2484800.0 | 0.0 |  | no_signal |
+| 20260626 | 2890 | 永豐金 | 17 | 0 | 1060070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

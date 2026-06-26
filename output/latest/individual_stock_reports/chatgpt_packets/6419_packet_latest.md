@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6419 京晨科
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:22 Asia/Taipei
+- generated_at: 2026-06-26 22:24:16 Asia/Taipei
 - stock_id: 6419
 - stock_name: 京晨科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 152
-- high: 156.5
-- low: 149.5
-- close: 154
-- volume: 495000
-- ma5: 149.9
-- ema23_primary: 145.22
-- distance_to_ema23_pct: 6.04
-- ma20: 142.95
-- ma60: 137.02
-- ma120: 107.46
-- return_5d: 11.59
-- return_20d: 0
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: 7.73
-- distance_to_high_60_pct: -20.82
+- date: 20260626
+- open: 147.5
+- high: 148.5
+- low: 139
+- close: 139
+- volume: 299000
+- ma5: 150
+- ema23_primary: 144.71
+- distance_to_ema23_pct: -3.94
+- ma20: 142.6
+- ma60: 137.83
+- ma120: 107.99
+- return_5d: 0.36
+- return_20d: -4.79
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -2.52
+- distance_to_high_60_pct: -28.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,155,155,143,146,148000,148.33,-1.57,153.7,117.03,0.19
 20260528,146,147.5,140,140,144000,147.64,-5.17,153.35,118.13,0.19
 20260529,143,144,139,140.5,141000,147.04,-4.45,152.93,119.29,0.18
 20260601,139,144.5,138.5,142,142000,146.62,-3.15,152.07,120.53,0.19
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,151,158.5,151,152.5,994000,143.47,6.3,142.8,134.65,3.18
 20260623,153.5,156,146.5,155,578000,144.43,7.32,142.95,135.83,1.73
 20260624,152,156.5,149.5,154,495000,145.22,6.04,142.95,137.02,1.41
+20260626,147.5,148.5,139,139,299000,144.71,-3.94,142.6,137.83,0.83
 ```
 
 ## Latest TDCC Snapshot

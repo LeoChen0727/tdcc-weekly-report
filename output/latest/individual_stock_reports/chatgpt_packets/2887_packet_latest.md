@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:19 Asia/Taipei
+- generated_at: 2026-06-26 22:23:12 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -103,6 +102,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 32.05
+- date: 20260626
+- open: 31.75
 - high: 32.15
-- low: 31.6
-- close: 31.6
-- volume: 59301672
-- ma5: 32.17
-- ema23_primary: 29
-- distance_to_ema23_pct: 8.96
-- ma20: 28.79
-- ma60: 25.54
-- ma120: 24.25
-- return_5d: -2.17
-- return_20d: 33.9
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 9.78
-- distance_to_high_60_pct: -5.81
+- low: 31.3
+- close: 31.9
+- volume: 52875362
+- ma5: 32.03
+- ema23_primary: 29.24
+- distance_to_ema23_pct: 9.08
+- ma20: 29.21
+- ma60: 25.67
+- ma120: 24.33
+- return_5d: -2.15
+- return_20d: 36.91
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 9.19
+- distance_to_high_60_pct: -4.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,23.7,23.8,23.3,23.3,170451126,23.68,-1.6,23.61,24.09,1.57
 20260528,23.4,23.55,23,23,171562778,23.62,-2.63,23.55,24.06,1.5
 20260529,23.25,23.45,23,23.35,225036097,23.6,-1.05,23.53,24.03,1.84
 20260601,23.35,24.7,23.25,24.6,184994112,23.68,3.88,23.59,24.04,1.45
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.6,32.6,31.95,32.05,62139229,28.46,12.62,27.94,25.29,0.4
 20260623,32,32.95,32,32.15,74148243,28.77,11.77,28.39,25.42,0.49
 20260624,32.05,32.15,31.6,31.6,59301672,29,8.96,28.79,25.54,0.4
+20260626,31.75,32.15,31.3,31.9,52875362,29.24,9.08,29.21,25.67,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2887 | 台新新光金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | continued_overheated | 1.發生變動日期:115/06/25 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、法人監察人 3.舊任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:溫英宗 董事:陳國揚 董事:楊智能 監察人:施貽昶 4.舊任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 溫英宗董事:新光金保代董事 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 5.新任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:林適慧 董事:陳國揚 董事:楊智能 監察人:施貽昶 監察人:蔡泓翰 6.新任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 林適慧董事:新光人壽協理 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 蔡泓翰監察人:台新新光金控資深副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:台新新光金控指派新光金保代第十一屆董事、監察人 9.新任者選任時持股數:1,000,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/10~115/07/09 11.新任生效日期:115/07/10 12.同任期董事變動比率:不適用(全面改選) 13.同任期獨立董事變動比率:不適用(全面改選) 14.同任期監察人變動比率:不適用(全面改選) 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
+| 20260626 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | 1.發生變動日期:115/06/25 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、法人監察人 3.舊任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:溫英宗 董事:陳國揚 董事:楊智能 監察人:施貽昶 4.舊任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 溫英宗董事:新光金保代董事 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 5.新任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:林適慧 董事:陳國揚 董事:楊智能 監察人:施貽昶 監察人:蔡泓翰 6.新任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 林適慧董事:新光人壽協理 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 蔡泓翰監察人:台新新光金控資深副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:台新新光金控指派新光金保代第十一屆董事、監察人 9.新任者選任時持股數:1,000,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/10~115/07/09 11.新任生效日期:115/07/10 12.同任期董事變動比率:不適用(全面改選) 13.同任期獨立董事變動比率:不適用(全面改選) 14.同任期監察人變動比率:不適用(全面改選) 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2887 | 台新新光金 | 3 | 2 | 3 | 5 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2887 | 台新新光金 | 23 | 0 | 2515920.0 | 0.0 |  | no_signal |
+| 20260626 | 2887 | 台新新光金 | 24 | 0 | 2227430.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

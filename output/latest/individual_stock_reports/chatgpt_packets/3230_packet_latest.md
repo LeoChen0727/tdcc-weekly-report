@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3230 錦明
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:30 Asia/Taipei
+- generated_at: 2026-06-26 22:23:24 Asia/Taipei
 - stock_id: 3230
 - stock_name: 錦明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 33.9
-- high: 37.3
-- low: 33.2
-- close: 37.3
-- volume: 5182000
-- ma5: 32.48
-- ema23_primary: 31.54
-- distance_to_ema23_pct: 18.25
-- ma20: 30.56
-- ma60: 34.52
-- ma120: 35.98
-- return_5d: 29.74
-- return_20d: 18.6
-- volume_ratio: 6.03
-- distance_to_ma20_pct_auxiliary: 22.05
-- distance_to_high_60_pct: -21.06
+- date: 20260626
+- open: 36.6
+- high: 39.85
+- low: 36.5
+- close: 39.85
+- volume: 4478000
+- ma5: 34.57
+- ema23_primary: 32.24
+- distance_to_ema23_pct: 23.62
+- ma20: 31.03
+- ma60: 34.48
+- ma120: 35.99
+- return_5d: 35.54
+- return_20d: 30.87
+- volume_ratio: 4.14
+- distance_to_ma20_pct_auxiliary: 28.41
+- distance_to_high_60_pct: -15.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,31.35,31.55,29.95,30.45,30000,33.68,-9.6,33.14,37.88,0.07
 20260528,30.9,31.85,30.2,30.4,31000,33.41,-9.01,32.9,37.63,0.07
 20260529,30.6,31.4,29.85,30.2,30000,33.14,-8.88,32.63,37.39,0.08
 20260601,30.45,31.25,30.25,30.7,31000,32.94,-6.79,32.35,37.22,0.08
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.55,32.85,30.95,31.35,3031000,30.71,2.09,30.17,34.68,10.09
 20260623,34.45,34.45,31.5,34.45,6068000,31.02,11.05,30.27,34.58,10.08
 20260624,33.9,37.3,33.2,37.3,5182000,31.54,18.25,30.56,34.52,6.03
+20260626,36.6,39.85,36.5,39.85,4478000,32.24,23.62,31.03,34.48,4.14
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3230 | 錦明 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3230 | 錦明 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3230 | 錦明 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 3230 | 錦明 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

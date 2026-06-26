@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4584 君帆
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:52 Asia/Taipei
+- generated_at: 2026-06-26 22:23:47 Asia/Taipei
 - stock_id: 4584
 - stock_name: 君帆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 130
+- latest_price_date: 20260626
+- price_rows: 131
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 40.1
-- high: 40.45
-- low: 39.85
-- close: 40.45
-- volume: 18000
-- ma5: 40.47
-- ema23_primary: 41.5
-- distance_to_ema23_pct: -2.52
-- ma20: 41.77
-- ma60: 41.95
-- ma120: 44.37
-- return_5d: -0.12
-- return_20d: -12.07
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -3.17
-- distance_to_high_60_pct: -13.94
+- date: 20260626
+- open: 40.05
+- high: 40.05
+- low: 40.05
+- close: 40.05
+- volume: 1000
+- ma5: 40.33
+- ema23_primary: 41.38
+- distance_to_ema23_pct: -3.21
+- ma20: 41.57
+- ma60: 41.91
+- ma120: 44.31
+- return_5d: -1.72
+- return_20d: -9.39
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -14.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,44.5,44.5,44.2,44.2,44000,42.84,3.16,42.23,43.04,2.61
 20260526,44.3,44.3,42.6,43.1,43000,42.87,0.55,42.3,42.99,2.38
 20260528,43.1,43.2,43.1,43.2,43000,42.89,0.71,42.38,42.94,2.15
 20260529,42.8,44.9,42.8,43.85,44000,42.97,2.04,42.49,42.91,2
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.25,40.5,40.2,40.5,3000,41.7,-2.87,42.37,42.07,0.12
 20260623,40.15,40.45,40.05,40.45,4000,41.59,-2.75,42.05,42.01,0.17
 20260624,40.1,40.45,39.85,40.45,18000,41.5,-2.52,41.77,41.95,0.83
+20260626,40.05,40.05,40.05,40.05,1000,41.38,-3.21,41.57,41.91,0.05
 ```
 
 ## Latest TDCC Snapshot

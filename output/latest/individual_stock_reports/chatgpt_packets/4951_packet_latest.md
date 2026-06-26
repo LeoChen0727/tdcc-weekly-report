@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4951 精拓科
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:57 Asia/Taipei
+- generated_at: 2026-06-26 22:23:52 Asia/Taipei
 - stock_id: 4951
 - stock_name: 精拓科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 99.9
-- high: 101
-- low: 97.4
-- close: 99.4
-- volume: 731000
-- ma5: 99.38
-- ema23_primary: 106.96
-- distance_to_ema23_pct: -7.07
-- ma20: 108.78
-- ma60: 102.28
-- ma120: 85.03
-- return_5d: 1.64
-- return_20d: -26.1
-- volume_ratio: 1.65
-- distance_to_ma20_pct_auxiliary: -8.62
-- distance_to_high_60_pct: -30.73
+- date: 20260626
+- open: 99.7
+- high: 100.5
+- low: 93.3
+- close: 94.5
+- volume: 665000
+- ma5: 98.88
+- ema23_primary: 105.92
+- distance_to_ema23_pct: -10.78
+- ma20: 107.28
+- ma60: 102.73
+- ma120: 85.26
+- return_5d: -2.58
+- return_20d: -24.1
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: -11.91
+- distance_to_high_60_pct: -34.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,137,137,121.5,124.5,128000,118.75,4.84,126.97,90.16,0.1
 20260528,124.5,126,120,123,123000,119.11,3.27,127.7,91.01,0.1
 20260529,125,126.5,121,122,123000,119.35,2.22,127.85,91.88,0.12
 20260601,127,128,123,123.5,125000,119.69,3.18,127.5,92.81,0.18
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,100,103,99.5,102,774000,108.34,-5.85,112.14,101.23,1.97
 20260623,102,102,98.6,100,528000,107.65,-7.1,110.53,101.76,1.28
 20260624,99.9,101,97.4,99.4,731000,106.96,-7.07,108.78,102.28,1.65
+20260626,99.7,100.5,93.3,94.5,665000,105.92,-10.78,107.28,102.73,1.42
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8477 創業家
 
 ## Metadata
-- generated_at: 2026-06-25 22:25:02 Asia/Taipei
+- generated_at: 2026-06-26 22:24:55 Asia/Taipei
 - stock_id: 8477
 - stock_name: 創業家
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 153
+- latest_price_date: 20260626
+- price_rows: 154
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 17.15
-- high: 17.9
-- low: 17.15
-- close: 17.5
-- volume: 17000
-- ma5: 17.46
-- ema23_primary: 17.52
-- distance_to_ema23_pct: -0.14
-- ma20: 18.41
-- ma60: 15.8
-- ma120: 14.36
-- return_5d: 4.79
-- return_20d: -7.41
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -4.97
-- distance_to_high_60_pct: -23.08
+- date: 20260626
+- open: 16.5
+- high: 16.8
+- low: 15.9
+- close: 16
+- volume: 88000
+- ma5: 17.3
+- ema23_primary: 17.4
+- distance_to_ema23_pct: -8.03
+- ma20: 18.18
+- ma60: 15.83
+- ma120: 14.39
+- return_5d: -4.76
+- return_20d: -22.89
+- volume_ratio: 2.02
+- distance_to_ma20_pct_auxiliary: -11.98
+- distance_to_high_60_pct: -29.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,20.75,20.75,20.75,20.75,21000,16,29.69,15.75,14.27,0.17
 20260528,22.75,22.75,19.7,20,21000,16.33,22.45,16.07,14.38,0.17
 20260529,21,21,18.85,19.8,20000,16.62,19.12,16.38,14.48,0.17
 20260601,19.8,19.95,19.05,19.35,19000,16.85,14.84,16.65,14.59,0.17
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.4,17.8,17.3,17.8,61000,17.48,1.81,18.45,15.67,1.56
 20260623,17.8,19,17.6,18,40000,17.53,2.71,18.48,15.74,0.99
 20260624,17.15,17.9,17.15,17.5,17000,17.52,-0.14,18.41,15.8,0.42
+20260626,16.5,16.8,15.9,16,88000,17.4,-8.03,18.18,15.83,2.02
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00700 富邦恒生國企
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:33 Asia/Taipei
+- generated_at: 2026-06-26 22:22:26 Asia/Taipei
 - stock_id: 00700
 - stock_name: 富邦恒生國企
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 15.72
-- high: 15.72
-- low: 15.58
-- close: 15.68
-- volume: 217186
-- ma5: 15.98
-- ema23_primary: 16.57
-- distance_to_ema23_pct: -5.36
-- ma20: 16.62
-- ma60: 16.68
-- ma120: 16.68
-- return_5d: -5.77
-- return_20d: -8.36
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -5.68
-- distance_to_high_60_pct: -10.4
+- date: 20260626
+- open: 15.32
+- high: 15.32
+- low: 14.96
+- close: 15.08
+- volume: 460267
+- ma5: 15.7
+- ema23_primary: 16.44
+- distance_to_ema23_pct: -8.29
+- ma20: 16.54
+- ma60: 16.62
+- ma120: 16.62
+- return_5d: -8.44
+- return_20d: -10.34
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -8.81
+- distance_to_high_60_pct: -13.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,17.1,17.1,16.82,16.82,349974,,,,,
 20260528,16.82,16.82,16.37,16.43,439174,17.05,-3.65,16.9,16.9,1.25
 20260529,16.62,16.85,16.53,16.84,591621,17.04,-1.15,16.89,16.89,1.51
 20260601,16.8,16.96,16.74,16.88,757351,17.02,-0.84,16.89,16.89,1.71
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.07,16.08,15.73,15.96,1782107,16.74,-4.63,16.76,16.78,4.42
 20260623,15.96,15.96,15.69,15.69,691577,16.65,-5.76,16.7,16.73,1.67
 20260624,15.72,15.72,15.58,15.68,217186,16.57,-5.36,16.62,16.68,0.53
+20260626,15.32,15.32,14.96,15.08,460267,16.44,-8.29,16.54,16.62,1.12
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6147 頎邦
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:13 Asia/Taipei
+- generated_at: 2026-06-26 22:24:07 Asia/Taipei
 - stock_id: 6147
 - stock_name: 頎邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 256
-- high: 258.5
-- low: 243
-- close: 249
-- volume: 29716000
-- ma5: 253.1
-- ema23_primary: 240.51
-- distance_to_ema23_pct: 3.53
-- ma20: 256.25
-- ma60: 186.68
-- ma120: 121.8
-- return_5d: 9.45
-- return_20d: -4.41
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -2.83
-- distance_to_high_60_pct: -20.57
+- date: 20260626
+- open: 234
+- high: 236.5
+- low: 216.5
+- close: 216.5
+- volume: 36646000
+- ma5: 250.5
+- ema23_primary: 238.51
+- distance_to_ema23_pct: -9.23
+- ma20: 253.82
+- ma60: 189.01
+- ma120: 123.17
+- return_5d: -5.66
+- return_20d: -18.3
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: -14.71
+- distance_to_high_60_pct: -30.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,272,281,258,265,270000,196.86,34.62,202.22,124.93,0.01
 20260528,267.5,291.5,261.5,278,282000,203.62,36.53,208.22,128.65,0.01
 20260529,300.5,305.5,290,305.5,302000,212.11,44.03,215.35,132.86,0.01
 20260601,313,313.5,284,285.5,292000,218.22,30.83,220.68,136.77,0.01
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,275,277,273.5,277,10155000,238.07,16.35,255.78,180.71,0.6
 20260623,277.5,278,256.5,258,50034000,239.74,7.62,256.82,183.83,2.58
 20260624,256,258.5,243,249,29716000,240.51,3.53,256.25,186.68,1.42
+20260626,234,236.5,216.5,216.5,36646000,238.51,-9.23,253.82,189.01,1.62
 ```
 
 ## Latest TDCC Snapshot

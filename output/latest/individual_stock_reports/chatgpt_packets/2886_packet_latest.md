@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:19 Asia/Taipei
+- generated_at: 2026-06-26 22:23:12 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 45
-- high: 45.15
-- low: 44.4
-- close: 44.55
-- volume: 55119085
-- ma5: 45.02
-- ema23_primary: 42.95
-- distance_to_ema23_pct: 3.74
-- ma20: 42.83
-- ma60: 40.65
-- ma120: 40.23
-- return_5d: 0.11
-- return_20d: 13.07
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: 4.01
-- distance_to_high_60_pct: -3.15
+- date: 20260626
+- open: 45.55
+- high: 46.4
+- low: 45.55
+- close: 46.15
+- volume: 34026939
+- ma5: 45.23
+- ema23_primary: 43.21
+- distance_to_ema23_pct: 6.8
+- ma20: 43.17
+- ma60: 40.76
+- ma120: 40.28
+- return_5d: 2.33
+- return_20d: 16.98
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 6.91
+- distance_to_high_60_pct: -0.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,39.6,39.95,39.4,39.45,29286253,39.67,-0.55,39.66,39.43,1.15
 20260528,39.8,40.25,39.5,39.8,36810439,39.68,0.3,39.65,39.42,1.4
 20260529,40.45,40.85,40,40,121250792,39.71,0.74,39.69,39.41,3.93
 20260601,40.2,41.45,40.1,41.45,49587396,39.85,4.01,39.81,39.45,1.54
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,45.5,45.5,44.45,44.75,53658490,42.58,5.09,42.29,40.45,1.18
 20260623,44.5,45.7,44.3,45.2,47309566,42.8,5.61,42.58,40.55,1.03
 20260624,45,45.15,44.4,44.55,55119085,42.95,3.74,42.83,40.65,1.17
+20260626,45.55,46.4,45.55,46.15,34026939,43.21,6.8,43.17,40.76,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.事實發生日:115/06/24 2.公司名稱:兆豐證券股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:兆豐證券115/06/24召開董事會，決議事項如下：為取 得中長期營運週轉資金，擬由國泰世華商業銀行股份有限公司 於新台幣60億元加減30%之額度內統籌主辦3年期銀行聯合授信 案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 董事會授權董事長辦理銀行團之籌組暨簽約等相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_many_days | 1.發生變動日期:115/06/25 2.法人名稱:兆豐金融控股股份有限公司 3.舊任者姓名:陳佩君 4.舊任者簡歷:兆豐國際證券投資信託(股)公司董事長 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動原因:辭職 8.原任期（例xx/xx/xx至xx/xx/xx）:114/04/08至117/04/07 9.新任生效日期:無 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2886 | 兆豐金 | 3 | 3 | 4 | 9 | 19 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 2886 | 兆豐金 | 4 | 4 | 4 | 9 | 19 | continued_many_days | 連續 4 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2886 | 兆豐金 | 4 | 0 | 811000.0 | 0.0 |  | no_signal |
+| 20260626 | 2886 | 兆豐金 | 4 | 0 | 429330.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:22 Asia/Taipei
+- generated_at: 2026-06-26 22:24:17 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 150
-- high: 153
-- low: 150
-- close: 152.5
-- volume: 537712
-- ma5: 155.1
-- ema23_primary: 157.76
-- distance_to_ema23_pct: -3.33
-- ma20: 157.62
-- ma60: 168.31
-- ma120: 158.77
-- return_5d: 2.35
-- return_20d: -12.36
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -3.25
-- distance_to_high_60_pct: -20.98
+- date: 20260626
+- open: 151
+- high: 151
+- low: 145.5
+- close: 145.5
+- volume: 589246
+- ma5: 154
+- ema23_primary: 156.74
+- distance_to_ema23_pct: -7.17
+- ma20: 156.32
+- ma60: 167.78
+- ma120: 158.82
+- return_5d: -3.64
+- return_20d: -15.16
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -6.92
+- distance_to_high_60_pct: -24.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,176,176.5,170.5,171.5,998540,170.43,0.63,170.75,168.27,0.69
 20260528,174.5,180.5,168,174.5,2546675,170.77,2.19,170.78,168.66,1.7
 20260529,176.5,179,174,175,1754175,171.12,2.27,170.72,169.02,1.18
 20260601,176,176.5,171,172.5,1376674,171.23,0.74,170.5,169.42,0.94
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,163,163.5,159,159.5,852455,158.66,0.53,159.72,169.07,0.79
 20260623,161,161,153,153.5,879749,158.23,-2.99,158.7,168.64,0.85
 20260624,150,153,150,152.5,537712,157.76,-3.33,157.62,168.31,0.54
+20260626,151,151,145.5,145.5,589246,156.74,-7.17,156.32,167.78,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6438 | 迅得 | 37 | 0 | 2837670.0 | 0.0 |  | no_signal |
+| 20260626 | 6438 | 迅得 | 36 | 0 | 752420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

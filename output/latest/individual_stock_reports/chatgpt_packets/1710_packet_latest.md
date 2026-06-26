@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:50 Asia/Taipei
+- generated_at: 2026-06-26 22:22:43 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 13.5
-- high: 13.85
-- low: 13.35
-- close: 13.8
-- volume: 3404754
-- ma5: 13.75
-- ema23_primary: 13.77
-- distance_to_ema23_pct: 0.2
-- ma20: 14.11
-- ma60: 13.53
-- ma120: 13.32
-- return_5d: 2.22
-- return_20d: 8.66
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -2.16
-- distance_to_high_60_pct: -16.87
+- date: 20260626
+- open: 14.1
+- high: 14.55
+- low: 13.7
+- close: 14.1
+- volume: 7888729
+- ma5: 13.84
+- ema23_primary: 13.8
+- distance_to_ema23_pct: 2.18
+- ma20: 14.16
+- ma60: 13.52
+- ma120: 13.34
+- return_5d: 3.3
+- return_20d: 8.88
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -0.44
+- distance_to_high_60_pct: -15.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,12.7,13.05,12.7,12.95,3206392,12.75,1.58,12.48,13.45,0.8
 20260528,13,13.5,12.85,13.5,7280790,12.81,5.37,12.5,13.46,1.71
 20260529,13.45,14.55,13.4,13.8,12493834,12.89,7.03,12.54,13.47,2.68
 20260601,13.95,14.05,13.5,13.65,11797943,12.96,5.35,12.58,13.49,2.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.9,14.3,13.75,14.15,6461350,13.79,2.58,14.03,13.56,0.63
 20260623,14.1,14.1,13.35,13.5,5582441,13.77,-1.96,14.05,13.54,0.55
 20260624,13.5,13.85,13.35,13.8,3404754,13.77,0.2,14.11,13.53,0.33
+20260626,14.1,14.55,13.7,14.1,7888729,13.8,2.18,14.16,13.52,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 1710 | 東聯 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：視訊會議 4.法人說明會擇要訊息：說明公司營運情形，相關訊息請參閱本公司網站。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1710 | 東聯 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：視訊會議 4.法人說明會擇要訊息：說明公司營運情形，相關訊息請參閱本公司網站。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 1710 | 東聯 | 5 | 5 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 1710 | 東聯 | 6 | 6 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 1710 | 東聯 | 8 | 0 | 151810.0 | 0.0 |  | no_signal |
+| 20260626 | 1710 | 東聯 | 8 | 0 | 1565650.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

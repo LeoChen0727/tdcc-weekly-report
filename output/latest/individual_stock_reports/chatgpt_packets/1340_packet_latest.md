@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1340 勝悅-KY
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:41 Asia/Taipei
+- generated_at: 2026-06-26 22:22:34 Asia/Taipei
 - stock_id: 1340
 - stock_name: 勝悅-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 5.5
-- high: 5.57
-- low: 5.46
-- close: 5.48
-- volume: 124131
-- ma5: 5.62
-- ema23_primary: 5.65
-- distance_to_ema23_pct: -2.95
-- ma20: 5.64
-- ma60: 5.88
-- ma120: 6.46
-- return_5d: -4.7
-- return_20d: 3.4
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -2.89
-- distance_to_high_60_pct: -21.38
+- date: 20260626
+- open: 5.37
+- high: 5.37
+- low: 5.24
+- close: 5.29
+- volume: 259253
+- ma5: 5.52
+- ema23_primary: 5.62
+- distance_to_ema23_pct: -5.82
+- ma20: 5.63
+- ma60: 5.85
+- ma120: 6.44
+- return_5d: -8.48
+- return_20d: -4.17
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -6.06
+- distance_to_high_60_pct: -24.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,5.3,5.58,5.16,5.52,1429103,5.65,-2.28,5.54,6.32,5.11
 20260528,5.57,5.62,5.38,5.42,637017,5.63,-3.73,5.53,6.29,2.1
 20260529,5.57,5.57,5.42,5.48,185301,5.62,-2.45,5.51,6.27,0.62
 20260601,5.42,5.51,5.35,5.47,378812,5.61,-2.41,5.5,6.25,1.26
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,5.72,5.72,5.55,5.66,307783,5.68,-0.33,5.63,5.92,0.78
 20260623,5.66,5.66,5.45,5.47,135644,5.66,-3.38,5.63,5.9,0.34
 20260624,5.5,5.57,5.46,5.48,124131,5.65,-2.95,5.64,5.88,0.32
+20260626,5.37,5.37,5.24,5.29,259253,5.62,-5.82,5.63,5.85,0.78
 ```
 
 ## Latest TDCC Snapshot

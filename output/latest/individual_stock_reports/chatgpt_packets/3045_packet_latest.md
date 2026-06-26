@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:25 Asia/Taipei
+- generated_at: 2026-06-26 22:23:18 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 118.5
+- date: 20260626
+- open: 119.5
 - high: 120.5
-- low: 118
-- close: 119.5
-- volume: 7767643
-- ma5: 119
-- ema23_primary: 116.84
-- distance_to_ema23_pct: 2.28
-- ma20: 116.67
-- ma60: 113.14
-- ma120: 110.3
-- return_5d: -0.83
-- return_20d: 8.14
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 2.42
-- distance_to_high_60_pct: -1.65
+- low: 118.5
+- close: 118.5
+- volume: 9856214
+- ma5: 118.9
+- ema23_primary: 116.98
+- distance_to_ema23_pct: 1.3
+- ma20: 117.1
+- ma60: 113.29
+- ma120: 110.41
+- return_5d: -0.42
+- return_20d: 7.73
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 1.2
+- distance_to_high_60_pct: -2.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,111,111.5,110,110,15384142,111.92,-1.72,111.95,110.34,1.18
 20260528,110,112.5,110,111,20078822,111.85,-0.76,111.9,110.38,1.49
 20260529,111.5,112.5,111.5,111.5,21139103,111.82,-0.28,111.9,110.43,1.5
 20260601,112.5,115,112,114,15419123,112,1.79,112.08,110.53,1.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,119,119.5,117,118.5,11199373,116.38,1.82,115.85,112.8,0.8
 20260623,118.5,119.5,118,119,7657172,116.6,2.06,116.22,112.97,0.56
 20260624,118.5,120.5,118,119.5,7767643,116.84,2.28,116.67,113.14,0.6
+20260626,119.5,120.5,118.5,118.5,9856214,116.98,1.3,117.1,113.29,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發4.8元(現金股利3.9834元、資本公積現金返還0.8166元)。 3.變更後發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發約4.74428元(現金股利3.93716元、資本公積現金返還0.80712元)。 4.變更原因:依115年股東常會決議，每股現金股利及資本公積現金返還金額依除息 基準日實際流通在外股數計算。 5.其他應敘明事項: 本公司股東台信電訊(股)公司、台固新創投資(股)公司及台灣固網(股)公司拋棄領取 所持股份之現金股利及資本公積資本公積現金返還，本公司並將其比例分派與其餘股 東。本公司流通在外股數3,723,431,015股，扣除上述三家公司拋棄領取現金股利及 資本公積現金返還之股數663,403,601股，以實際領取股數3,060,027,414股計算每股 配發金額。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發4.8元(現金股利3.9834元、資本公積現金返還0.8166元)。 3.變更後發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發約4.74428元(現金股利3.93716元、資本公積現金返還0.80712元)。 4.變更原因:依115年股東常會決議，每股現金股利及資本公積現金返還金額依除息 基準日實際流通在外股數計算。 5.其他應敘明事項: 本公司股東台信電訊(股)公司、台固新創投資(股)公司及台灣固網(股)公司拋棄領取 所持股份之現金股利及資本公積資本公積現金返還，本公司並將其比例分派與其餘股 東。本公司流通在外股數3,723,431,015股，扣除上述三家公司拋棄領取現金股利及 資本公積現金返還之股數663,403,601股，以實際領取股數3,060,027,414股計算每股 配發金額。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3045 | 台灣大 | 8 | 8 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 3045 | 台灣大 | 9 | 9 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 3045 | 台灣大 | 1 | 0 | 74400.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5464 霖宏
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:05 Asia/Taipei
+- generated_at: 2026-06-26 22:24:00 Asia/Taipei
 - stock_id: 5464
 - stock_name: 霖宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 98
-- high: 98
-- low: 94.9
-- close: 98
-- volume: 2766000
-- ma5: 83.04
-- ema23_primary: 72.81
-- distance_to_ema23_pct: 34.6
-- ma20: 74.47
-- ma60: 52.89
-- ma120: 39.6
-- return_5d: 40
-- return_20d: 35.73
-- volume_ratio: 2.86
-- distance_to_ma20_pct_auxiliary: 31.59
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 107.5
+- high: 109
+- low: 98
+- close: 100
+- volume: 5840000
+- ma5: 88.36
+- ema23_primary: 75.07
+- distance_to_ema23_pct: 33.2
+- ma20: 75.92
+- ma60: 54.09
+- ma120: 40.22
+- return_5d: 36.24
+- return_20d: 40.65
+- volume_ratio: 4.65
+- distance_to_ma20_pct_auxiliary: 31.72
+- distance_to_high_60_pct: -8.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,73.1,73.1,71.1,71.1,72000,56.57,25.68,56.46,37.98,0.04
 20260528,70,78.2,69,75.5,77000,58.15,29.84,58.64,38.78,0.05
 20260529,77,83,75.6,83,82000,60.22,37.83,61.14,39.7,0.05
 20260601,88,91,74.9,80.5,82000,61.91,30.03,63.37,40.58,0.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,73,81,73,81,2723000,68.83,17.69,72.38,50.7,3.65
 20260623,84.5,89.1,81.6,89.1,1803000,70.52,26.35,73.19,51.72,2.17
 20260624,98,98,94.9,98,2766000,72.81,34.6,74.47,52.89,2.86
+20260626,107.5,109,98,100,5840000,75.07,33.2,75.92,54.09,4.65
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 5464 | 霖宏 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.發生變動日期:115/06/16 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、 自然人董事或自然人監察人）:自然人董事、獨立董事 3.舊任者職稱及姓名: 董事-張枋霖 董事-張鵬展 董事-張哲明 獨立董事-林惠芬 獨立董事-申元洪 獨立董事-侯翰 獨立董事-陳麗玲 4.舊任者簡歷: 董事-張枋霖 霖宏科技股份有限公司董事長 董事-張鵬展 霖宏科技股份有限公司副董事長 董事-張哲明 霖宏科技股份有限公司副總經理 獨立董事-林惠芬 維揚聯合會計師事務所執業會計師 獨立董事-申元洪 世新大學專任助理教授 獨立董事-侯  翰 實踐大學金融學系專任教授兼系主任 獨立董事-陳麗玲 大同技術學院餐飲管理系專任助理教授 5.新任者職稱及姓名: 董事-張枋霖 董事-張鵬展 董事-張哲明 獨立董事-侯翰 獨立董事-陳麗玲 獨立董事-林怡君 獨立董事-陳怡旭 6.新任者簡歷: 董事-張枋霖 霖宏科技股份有限公司董事長 董事-張鵬展 霖宏科技股份有限公司副董事長 董事-張哲明 霖宏科技股份有限公司副總經理 獨立董事-侯  翰 實踐大學金融學系專任教授兼系主任 獨立董事-陳麗玲 全達會計師事務所執業會計師 獨立董事-林怡君 立隆電子工業(股)公司財務部經理 獨立董事-陳怡旭 帝頡顧問管理股份有限公司 法務 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.新任者選任時持股數: 董事-張枋霖：9,178,112 董事-張鵬展：4,745,065 董事-張哲明：  951,237 獨立董事-侯翰：0 獨立董事-陳麗玲：0 獨立董事-林怡君：0 獨立董事-陳怡旭：0 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 11.新任生效日期:115/06/16 12.同任期董事變動比率:不適用(全面改選) 13.同任期獨立董事變動比率:不適用(全面改選) 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5464 | 霖宏 | true_breakout | 嚴格突破 | 89.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/25 2.發生緣由:依中華民國財團法人櫃買中心通知辦理。 3.財務業務資訊:霖宏二(54642)可轉債相關資訊 到期日期：118/05/25 實際發行總額：2.9億元 本月底發行餘額：290,000,000元(截至115/06/24) 最新轉(交)換價格：33.4 轉換標的收市價格(54642)：107.5(截至115/06/25) 轉換債收市價格(5464)：280(截至115/06/25) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 5464 | 霖宏 | 3 | 1 | 3 | 3 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 5464 | 霖宏 | 4 | 2 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

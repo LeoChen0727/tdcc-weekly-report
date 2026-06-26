@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3530 晶相光
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:38 Asia/Taipei
+- generated_at: 2026-06-26 22:23:31 Asia/Taipei
 - stock_id: 3530
 - stock_name: 晶相光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 72
-- high: 73.8
-- low: 70.2
-- close: 73.2
-- volume: 564804
-- ma5: 72.56
-- ema23_primary: 67.82
-- distance_to_ema23_pct: 7.93
-- ma20: 66.99
-- ma60: 65.2
-- ma120: 66.15
-- return_5d: 12.62
-- return_20d: 3.54
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 9.27
-- distance_to_high_60_pct: -4.19
+- date: 20260626
+- open: 72.3
+- high: 72.3
+- low: 67.6
+- close: 67.6
+- volume: 667025
+- ma5: 71.78
+- ema23_primary: 67.81
+- distance_to_ema23_pct: -0.3
+- ma20: 66.94
+- ma60: 65.35
+- ma120: 66.12
+- return_5d: -5.45
+- return_20d: -1.31
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 0.98
+- distance_to_high_60_pct: -11.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,71.5,71.7,67.9,68.5,383833,67.13,2.05,67.79,62.77,0.84
 20260528,68.9,70.3,66.5,66.8,352053,67.1,-0.45,67.85,62.84,0.78
 20260529,68.3,68.7,67,67.1,255945,67.1,0,67.97,62.94,0.56
 20260601,67.8,69.3,67.3,68,345467,67.17,1.23,68.05,63.13,0.75
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.1,74.2,71.1,73.4,932860,66.77,9.94,66.73,64.71,1.98
 20260623,73.5,75.5,72,73.6,720016,67.34,9.3,66.86,64.97,1.5
 20260624,72,73.8,70.2,73.2,564804,67.82,7.93,66.99,65.2,1.16
+20260626,72.3,72.3,67.6,67.6,667025,67.81,-0.3,66.94,65.35,1.33
 ```
 
 ## Latest TDCC Snapshot

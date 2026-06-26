@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00770 國泰北美科技
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:33 Asia/Taipei
+- generated_at: 2026-06-26 22:22:27 Asia/Taipei
 - stock_id: 00770
 - stock_name: 國泰北美科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 67.05
-- high: 67.1
-- low: 66.45
-- close: 67.05
-- volume: 581887
-- ma5: 67.97
-- ema23_primary: 67.38
-- distance_to_ema23_pct: -0.5
-- ma20: 67.92
-- ma60: 67.65
-- ma120: 67.65
-- return_5d: -2.9
-- return_20d: 1.59
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -1.28
-- distance_to_high_60_pct: -6.35
+- date: 20260626
+- open: 67.35
+- high: 67.35
+- low: 66.1
+- close: 66.4
+- volume: 612442
+- ma5: 67.65
+- ema23_primary: 67.3
+- distance_to_ema23_pct: -1.34
+- ma20: 67.89
+- ma60: 67.6
+- ma120: 67.6
+- return_5d: -2.35
+- return_20d: -0.9
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -2.2
+- distance_to_high_60_pct: -7.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,67,67.3,66.95,67,289864,,,,,
 20260528,67.5,67.5,66.05,66.2,314318,65.54,1,66.13,66.13,0.82
 20260529,67.3,68.05,67.3,68,647607,65.75,3.42,66.44,66.44,1.52
 20260601,68.8,69.75,68.8,69.55,423263,66.07,5.27,66.89,66.89,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68.6,69,68.6,68.9,319039,67.37,2.27,67.79,67.66,0.79
 20260623,68.9,68.95,67.9,67.9,247188,67.42,0.72,67.87,67.67,0.63
 20260624,67.05,67.1,66.45,67.05,581887,67.38,-0.5,67.92,67.65,1.42
+20260626,67.35,67.35,66.1,66.4,612442,67.3,-1.34,67.89,67.6,1.43
 ```
 
 ## Latest TDCC Snapshot

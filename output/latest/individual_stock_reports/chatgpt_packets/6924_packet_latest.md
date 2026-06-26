@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6924 榮惠-KY創
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:39 Asia/Taipei
+- generated_at: 2026-06-26 22:24:34 Asia/Taipei
 - stock_id: 6924
 - stock_name: 榮惠-KY創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 271
+- latest_price_date: 20260626
+- price_rows: 272
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 126.5
-- high: 128
-- low: 123
-- close: 123
-- volume: 17913
-- ma5: 121.6
-- ema23_primary: 132.88
-- distance_to_ema23_pct: -7.43
-- ma20: 144.9
-- ma60: 117.1
-- ma120: 92.72
-- return_5d: 8.85
-- return_20d: -23.6
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -15.11
-- distance_to_high_60_pct: -36.43
+- date: 20260626
+- open: 125
+- high: 125
+- low: 125
+- close: 125
+- volume: 2417
+- ma5: 123.8
+- ema23_primary: 132.22
+- distance_to_ema23_pct: -5.46
+- ma20: 142.95
+- ma60: 117.83
+- ma120: 93.22
+- return_5d: 9.65
+- return_20d: -23.78
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: -12.56
+- distance_to_high_60_pct: -35.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,163.5,164.5,158.5,164,64857,130.31,25.86,126,93.6,0.42
 20260528,164.5,175,160.5,175,107894,134.03,30.57,130.25,95.47,0.68
 20260529,180.5,189,170,182,121369,138.03,31.86,134.91,97.48,0.74
 20260601,181.5,181.5,169,176,157565,141.19,24.65,139.26,99.42,0.92
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,133.5,133.5,126,126.5,38554,135.07,-6.35,148.93,115.63,0.33
 20260623,125.5,125.5,119,119.5,13121,133.78,-10.67,146.8,116.39,0.12
 20260624,126.5,128,123,123,17913,132.88,-7.43,144.9,117.1,0.17
+20260626,125,125,125,125,2417,132.22,-5.46,142.95,117.83,0.02
 ```
 
 ## Latest TDCC Snapshot

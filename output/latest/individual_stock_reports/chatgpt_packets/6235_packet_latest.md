@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6235 華孚
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:18 Asia/Taipei
+- generated_at: 2026-06-26 22:24:13 Asia/Taipei
 - stock_id: 6235
 - stock_name: 華孚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 40.1
-- high: 40.6
-- low: 39.8
-- close: 40.5
-- volume: 510601
-- ma5: 40.7
-- ema23_primary: 41.83
-- distance_to_ema23_pct: -3.18
-- ma20: 42.4
-- ma60: 43.41
-- ma120: 50.44
-- return_5d: -0.61
-- return_20d: -0.86
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -4.48
-- distance_to_high_60_pct: -20.59
+- date: 20260626
+- open: 40.2
+- high: 40.2
+- low: 39.5
+- close: 39.5
+- volume: 894618
+- ma5: 40.45
+- ema23_primary: 41.64
+- distance_to_ema23_pct: -5.13
+- ma20: 42.38
+- ma60: 43.28
+- ma120: 50.27
+- return_5d: -3.07
+- return_20d: -1
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -6.79
+- distance_to_high_60_pct: -22.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,41,41,39.8,39.9,1193515,42.17,-5.39,41.76,45.66,1.35
 20260528,40,43.85,40,43.85,2461544,42.31,3.63,41.76,45.45,2.49
 20260529,44.1,46,42.85,45,8756834,42.54,5.79,41.84,45.3,6.25
 20260601,44.5,47.65,43.3,47.2,4245205,42.93,9.95,42.08,45.26,2.71
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.85,41.6,40.55,41.3,769191,42.09,-1.88,42.46,43.63,0.46
 20260623,41.4,41.95,40.2,40.4,904069,41.95,-3.7,42.41,43.51,0.54
 20260624,40.1,40.6,39.8,40.5,510601,41.83,-3.18,42.4,43.41,0.31
+20260626,40.2,40.2,39.5,39.5,894618,41.64,-5.13,42.38,43.28,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6235 | 華孚 | 9 | 0 | 7600.0 | 0.0 |  | no_signal |
+| 20260626 | 6235 | 華孚 | 9 | 0 | 2600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

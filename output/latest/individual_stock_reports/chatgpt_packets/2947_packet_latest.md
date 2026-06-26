@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:21 Asia/Taipei
+- generated_at: 2026-06-26 22:23:14 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 146
+- latest_price_date: 20260626
+- price_rows: 147
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 78.9
-- high: 79
-- low: 78
-- close: 78
-- volume: 10000
-- ma5: 78.42
-- ema23_primary: 77.67
-- distance_to_ema23_pct: 0.43
-- ma20: 77.38
-- ma60: 77.87
-- ma120: 79.48
-- return_5d: 1.43
-- return_20d: 0.39
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 0.8
-- distance_to_high_60_pct: -3.11
+- date: 20260626
+- open: 78.8
+- high: 78.8
+- low: 77.2
+- close: 77.2
+- volume: 11000
+- ma5: 78.46
+- ema23_primary: 77.63
+- distance_to_ema23_pct: -0.55
+- ma20: 77.36
+- ma60: 77.86
+- ma120: 79.42
+- return_5d: 0.26
+- return_20d: -0.64
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -0.2
+- distance_to_high_60_pct: -4.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,77.7,77.7,77.7,77.7,78000,78.11,-0.52,78.17,78.37,2.93
 20260528,77.7,77.7,77.7,77.7,78000,78.07,-0.48,78.2,78.32,2.58
 20260529,77.7,77.7,77.4,77.4,78000,78.02,-0.79,78.17,78.27,2.38
 20260601,77.2,77.5,77.2,77.5,77000,77.97,-0.61,78.14,78.21,2.18
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,79.3,80.5,79.3,79.3,12000,77.54,2.27,77.32,77.86,0.27
 20260623,79.3,79.3,78.7,78.7,10000,77.64,1.37,77.36,77.86,0.25
 20260624,78.9,79,78,78,10000,77.67,0.43,77.38,77.87,0.27
+20260626,78.8,78.8,77.2,77.2,11000,77.63,-0.55,77.36,77.86,0.32
 ```
 
 ## Latest TDCC Snapshot

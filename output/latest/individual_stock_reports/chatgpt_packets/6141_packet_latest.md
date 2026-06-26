@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:12 Asia/Taipei
+- generated_at: 2026-06-26 22:24:07 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 35
-- high: 38.75
-- low: 35
-- close: 38.75
-- volume: 2709558
-- ma5: 35.91
-- ema23_primary: 35.58
-- distance_to_ema23_pct: 8.91
-- ma20: 37.41
-- ma60: 32.12
-- ma120: 23.14
-- return_5d: 8.85
-- return_20d: 8.39
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 3.57
-- distance_to_high_60_pct: -18.34
+- date: 20260626
+- open: 42.95
+- high: 42.95
+- low: 39
+- close: 39
+- volume: 1849591
+- ma5: 36.69
+- ema23_primary: 35.87
+- distance_to_ema23_pct: 8.74
+- ma20: 37.4
+- ma60: 32.4
+- ma120: 23.37
+- return_5d: 11.11
+- return_20d: -0.76
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 4.28
+- distance_to_high_60_pct: -17.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,39.25,39.3,37.55,39.3,6924233,32.42,21.23,33.21,26.75,2.41
 20260528,41.95,43.2,41.9,43.2,4189116,33.32,29.67,33.77,27.25,1.37
 20260529,44.2,47.45,42.2,46,10248368,34.37,33.83,34.45,27.77,2.89
 20260601,46.05,46.05,41.4,44.4,7282455,35.21,26.11,34.91,28.23,1.89
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,36.2,37.15,35.35,35.6,1365880,35.3,0.86,37.13,31.62,0.44
 20260623,37.3,37.3,34.7,35.25,1221239,35.29,-0.12,37.27,31.83,0.41
 20260624,35,38.75,35,38.75,2709558,35.58,8.91,37.41,32.12,0.94
+20260626,42.95,42.95,39,39,1849591,35.87,8.74,37.4,32.4,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6141 | 柏承 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認一一四年度虧損撥補案 3.重要決議事項二、章程修訂:NA 4.重要決議事項三、營業報告書及財務報表:通過承認一一四年度決算表冊案 5.重要決議事項四、董監事選舉:NA 6.重要決議事項五、其他事項: (1)通過討論修訂本公司【董事選舉辦法】案 (2)通過討論修訂本公司【背書保證作業辦法】案 (3)通過討論本公司辦理減資彌補虧損案 (4)通過討論本公司擬以私募方式辦理現金增資發行普通股案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:柏承科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:NA 5.發生緣由:本公司業經115年股東常會決議通過，辦理減資彌補虧損案 6.因應措施: (1)依公司法第二八一條準用同法第七十三條、第七十四條規定辦理。 (2)本公司為改善財務結構，辦理減資彌補虧損，本次減資金額為新台幣233,540,050元 整，銷除已發行股份23,354,005股，減資比率為20.6027%，每仟股減少206.02717股， 減資後流通在外股數為90,000,000股，每股面額新台幣10元，實收資本額新台幣 900,000,000元整。惟若本公司因其他情形影響流通在外股份數量，造成減資比例變動 者，則實際減資比例以變動後之實際比率為準。 (3)本公司債權人對於此次減資案如有異議，請於公告日起至民國115年07月31日之期間 內以書面檢附債權證明文件，向本公司提出，逾期未表示異議即視為同意減資案，特此 公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6141 | 柏承 | 6 | 6 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 6141 | 柏承 | 7 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3551 世禾
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:39 Asia/Taipei
+- generated_at: 2026-06-26 22:23:32 Asia/Taipei
 - stock_id: 3551
 - stock_name: 世禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 199
-- high: 202.5
-- low: 199
-- close: 202
-- volume: 384000
-- ma5: 205.3
-- ema23_primary: 201.99
-- distance_to_ema23_pct: 0.01
-- ma20: 203.35
-- ma60: 198.72
-- ma120: 193.64
-- return_5d: 1
-- return_20d: -0.25
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -0.66
-- distance_to_high_60_pct: -13.86
+- date: 20260626
+- open: 197
+- high: 198
+- low: 190
+- close: 190
+- volume: 534000
+- ma5: 203.4
+- ema23_primary: 200.99
+- distance_to_ema23_pct: -5.47
+- ma20: 202.47
+- ma60: 198.93
+- ma120: 193.63
+- return_5d: -4.76
+- return_20d: -8.43
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -6.16
+- distance_to_high_60_pct: -18.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,207,213,206,207.5,209000,202.59,2.43,205.15,191.31,0.12
 20260528,210,227,210,217.5,220000,203.83,6.71,206.25,191.83,0.13
 20260529,228.5,234.5,220.5,225,227000,205.59,9.44,207.75,192.49,0.13
 20260601,226,226,216.5,218.5,221000,206.67,5.72,208.9,193.22,0.13
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,211,217,211,212.5,961000,201.76,5.32,203.28,197.9,2.15
 20260623,212,215.5,202,204.5,645000,201.99,1.24,203.38,198.26,1.38
 20260624,199,202.5,199,202,384000,201.99,0.01,203.35,198.72,0.8
+20260626,197,198,190,190,534000,200.99,-5.47,202.47,198.93,1.08
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1531 高林股
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:46 Asia/Taipei
+- generated_at: 2026-06-26 22:22:40 Asia/Taipei
 - stock_id: 1531
 - stock_name: 高林股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
+- date: 20260626
 - open: 12.8
-- high: 12.9
-- low: 12.8
-- close: 12.9
-- volume: 94439
-- ma5: 12.91
+- high: 12.85
+- low: 12.7
+- close: 12.75
+- volume: 244280
+- ma5: 12.87
 - ema23_primary: 12.8
-- distance_to_ema23_pct: 0.74
-- ma20: 12.75
+- distance_to_ema23_pct: -0.39
+- ma20: 12.79
 - ma60: 12.84
-- ma120: 12.54
-- return_5d: -0.39
-- return_20d: 5.74
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 1.16
-- distance_to_high_60_pct: -4.8
+- ma120: 12.55
+- return_5d: -1.54
+- return_20d: 5.81
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -0.29
+- distance_to_high_60_pct: -5.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,12.25,12.3,12,12.05,395138,12.57,-4.14,12.62,12.68,1.93
 20260528,12.15,12.3,12.1,12.3,87825,12.55,-1.98,12.59,12.68,0.45
 20260529,12.2,12.3,12.1,12.1,215992,12.51,-3.28,12.54,12.68,1.08
 20260601,12.15,12.45,12.15,12.4,212500,12.5,-0.81,12.52,12.69,1.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.9,12.9,12.8,12.9,81874,12.79,0.88,12.68,12.84,0.32
 20260623,12.9,12.9,12.7,12.9,236713,12.8,0.81,12.72,12.84,0.98
 20260624,12.8,12.9,12.8,12.9,94439,12.8,0.74,12.75,12.84,0.41
+20260626,12.8,12.85,12.7,12.75,244280,12.8,-0.39,12.79,12.84,1.09
 ```
 
 ## Latest TDCC Snapshot

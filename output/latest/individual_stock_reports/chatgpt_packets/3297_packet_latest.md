@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3297 杭特
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:32 Asia/Taipei
+- generated_at: 2026-06-26 22:23:25 Asia/Taipei
 - stock_id: 3297
 - stock_name: 杭特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 30.1
-- high: 33.55
-- low: 30.1
-- close: 33.55
-- volume: 265000
-- ma5: 31.7
-- ema23_primary: 31.68
-- distance_to_ema23_pct: 5.89
-- ma20: 31.65
-- ma60: 32.55
-- ma120: 35.82
-- return_5d: 8.23
-- return_20d: 11.46
-- volume_ratio: 3.47
-- distance_to_ma20_pct_auxiliary: 6
-- distance_to_high_60_pct: -12.97
+- date: 20260626
+- open: 32.5
+- high: 33.65
+- low: 30.9
+- close: 31
+- volume: 270000
+- ma5: 31.58
+- ema23_primary: 31.63
+- distance_to_ema23_pct: -1.98
+- ma20: 31.71
+- ma60: 32.49
+- ma120: 35.74
+- return_5d: -1.9
+- return_20d: 4.03
+- volume_ratio: 3.05
+- distance_to_ma20_pct_auxiliary: -2.24
+- distance_to_high_60_pct: -19.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,30.05,30.05,29.55,29.8,30000,31.57,-5.61,31.23,34.13,0.44
 20260528,29.95,30.1,29.55,29.7,30000,31.41,-5.46,31.13,34,0.44
 20260529,29.7,29.7,29.3,29.4,29000,31.25,-5.91,31,33.87,0.44
 20260601,29.6,31.6,29.5,31.1,31000,31.23,-0.43,30.96,33.79,0.48
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.5,31.75,31.05,31.25,95000,31.6,-1.12,31.46,32.63,1.55
 20260623,31.25,31.25,30.35,30.5,101000,31.51,-3.21,31.48,32.57,1.56
 20260624,30.1,33.55,30.1,33.55,265000,31.68,5.89,31.65,32.55,3.47
+20260626,32.5,33.65,30.9,31,270000,31.63,-1.98,31.71,32.49,3.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:14 Asia/Taipei
+- generated_at: 2026-06-26 22:23:07 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 25.7
-- high: 26.05
-- low: 25.65
-- close: 25.95
-- volume: 18106714
-- ma5: 25.99
-- ema23_primary: 25.75
-- distance_to_ema23_pct: 0.76
-- ma20: 25.54
+- date: 20260626
+- open: 26.2
+- high: 26.4
+- low: 26.05
+- close: 26.05
+- volume: 16660749
+- ma5: 25.97
+- ema23_primary: 25.78
+- distance_to_ema23_pct: 1.05
+- ma20: 25.58
 - ma60: 26.11
-- ma120: 26.6
-- return_5d: -0.76
-- return_20d: 3.59
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 1.6
-- distance_to_high_60_pct: -3.89
+- ma120: 26.59
+- return_5d: -0.38
+- return_20d: 3.17
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_high_60_pct: -3.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,25.1,25.55,24.8,25.25,16971023,25.98,-2.81,26.06,26.35,2.05
 20260528,25.25,25.25,24.8,24.8,19395430,25.88,-4.18,25.97,26.31,2.17
 20260529,25.05,25.3,24.8,24.85,222475014,25.8,-3.67,25.89,26.27,11.25
 20260601,25.2,25.4,25,25.1,14497392,25.74,-2.48,25.82,26.25,0.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.2,26.3,25.9,25.95,18555998,25.74,0.83,25.48,26.13,0.78
 20260623,25.95,26.1,25.7,25.75,16449056,25.74,0.05,25.5,26.11,0.7
 20260624,25.7,26.05,25.65,25.95,18106714,25.75,0.76,25.54,26.11,0.77
+20260626,26.2,26.4,26.05,26.05,16660749,25.78,1.05,25.58,26.11,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2633 | 台灣高鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：115年第一季公司營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2633 | 台灣高鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：115年第一季公司營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2633 | 台灣高鐵 | 8 | 8 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2633 | 台灣高鐵 | 9 | 9 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2633 | 台灣高鐵 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 2633 | 台灣高鐵 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

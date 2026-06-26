@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:56 Asia/Taipei
+- generated_at: 2026-06-26 22:24:50 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 207.5
-- high: 209.5
-- low: 202
-- close: 208.5
-- volume: 1113643
-- ma5: 209.6
-- ema23_primary: 217.04
-- distance_to_ema23_pct: -3.94
-- ma20: 224.4
-- ma60: 204.54
-- ma120: 192.45
-- return_5d: 0.24
-- return_20d: -19.96
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -7.09
-- distance_to_high_60_pct: -24.59
+- date: 20260626
+- open: 190
+- high: 192
+- low: 184
+- close: 185
+- volume: 705931
+- ma5: 204.8
+- ema23_primary: 214.37
+- distance_to_ema23_pct: -13.7
+- ma20: 220.3
+- ma60: 204.71
+- ma120: 192.52
+- return_5d: -11.48
+- return_20d: -30.71
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -16.02
+- distance_to_high_60_pct: -33.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,255,275,246,267,1396319,222.13,20.2,218.93,190.05,0.81
 20260528,270,276.5,241,246,1306763,224.12,9.76,222.03,191.16,0.74
 20260529,251,259.5,239,246,1504598,225.94,8.88,225.12,192.35,0.83
 20260601,247,264,238.5,259.5,2148303,228.74,13.45,229,193.92,1.14
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,215,215,206.5,211.5,1275421,218.8,-3.34,229.65,203.48,0.97
 20260623,213.5,213.5,207,207,985263,217.82,-4.97,227,203.99,0.76
 20260624,207.5,209.5,202,208.5,1113643,217.04,-3.94,224.4,204.54,0.85
+20260626,190,192,184,185,705931,214.37,-13.7,220.3,204.71,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 8114 | 振樺電 | 14 | 0 | 334990.0 | 0.0 |  | no_signal |
+| 20260626 | 8114 | 振樺電 | 14 | 0 | 72800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

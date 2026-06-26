@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00678 群益那斯達克生技
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:33 Asia/Taipei
+- generated_at: 2026-06-26 22:22:26 Asia/Taipei
 - stock_id: 00678
 - stock_name: 群益那斯達克生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 37.77
-- high: 37.77
-- low: 37.55
-- close: 37.73
-- volume: 698860
-- ma5: 36.77
-- ema23_primary: 36.13
-- distance_to_ema23_pct: 4.43
-- ma20: 35.93
-- ma60: 35.92
-- ma120: 35.92
-- return_5d: 4.2
-- return_20d: 5.48
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: 5
-- distance_to_high_60_pct: -0.11
+- date: 20260626
+- open: 38.85
+- high: 38.9
+- low: 38.53
+- close: 38.7
+- volume: 463050
+- ma5: 37.27
+- ema23_primary: 36.34
+- distance_to_ema23_pct: 6.48
+- ma20: 36.09
+- ma60: 36.04
+- ma120: 36.04
+- return_5d: 6.91
+- return_20d: 8.56
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 7.24
+- distance_to_high_60_pct: -0.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,35.62,35.7,35.55,35.65,391383,,,,,
 20260528,35.82,35.82,35.5,35.58,126424,35.78,-0.57,35.75,35.75,0.48
 20260529,35.88,36,35.87,35.99,354030,35.8,0.53,35.79,35.79,1.27
 20260601,36.09,36.16,36.08,36.13,317671,35.83,0.84,35.84,35.84,1.12
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,36.37,36.51,36.37,36.49,343776,35.9,1.64,35.79,35.79,0.97
 20260623,37.13,37.25,36.87,36.87,325947,35.98,2.46,35.84,35.84,0.92
 20260624,37.77,37.77,37.55,37.73,698860,36.13,4.43,35.93,35.92,1.85
+20260626,38.85,38.9,38.53,38.7,463050,36.34,6.48,36.09,36.04,1.21
 ```
 
 ## Latest TDCC Snapshot

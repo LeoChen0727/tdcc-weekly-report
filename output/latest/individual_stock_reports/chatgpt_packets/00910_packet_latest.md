@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00910 第一金太空衛星
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:34 Asia/Taipei
+- generated_at: 2026-06-26 22:22:28 Asia/Taipei
 - stock_id: 00910
 - stock_name: 第一金太空衛星
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 62
-- high: 62.75
-- low: 61.9
-- close: 62.7
-- volume: 3232223
-- ma5: 64.96
-- ema23_primary: 71.74
-- distance_to_ema23_pct: -12.6
-- ma20: 73.61
-- ma60: 74.76
-- ma120: 74.76
-- return_5d: -8.33
-- return_20d: -25.58
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -14.83
-- distance_to_high_60_pct: -28.79
+- date: 20260626
+- open: 58.4
+- high: 58.6
+- low: 57.3
+- close: 57.35
+- volume: 4711435
+- ma5: 63
+- ema23_primary: 70.54
+- distance_to_ema23_pct: -18.7
+- ma20: 72.12
+- ma60: 74.03
+- ma120: 74.03
+- return_5d: -14.59
+- return_20d: -34.19
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -20.49
+- distance_to_high_60_pct: -34.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,87.1,87.45,86.3,87.15,8665577,,,,,
 20260528,88,88.05,85.25,85.95,4727847,80.31,7.03,84.05,84.05,0.78
 20260529,87.15,88,87,87.95,2290630,80.94,8.66,84.7,84.7,0.42
 20260601,84.95,85.6,84.65,84.95,5892886,81.28,4.52,84.74,84.74,1.07
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,66.55,66.55,65.3,65.4,5072487,73.49,-11.01,75.82,75.93,0.76
 20260623,64,64,62.3,62.3,7810542,72.56,-14.14,74.69,75.31,1.21
 20260624,62,62.75,61.9,62.7,3232223,71.74,-12.6,73.61,74.76,0.5
+20260626,58.4,58.6,57.3,57.35,4711435,70.54,-18.7,72.12,74.03,0.75
 ```
 
 ## Latest TDCC Snapshot

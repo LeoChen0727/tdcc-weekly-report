@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00971 野村美國研發龍頭
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:36 Asia/Taipei
+- generated_at: 2026-06-26 22:22:29 Asia/Taipei
 - stock_id: 00971
 - stock_name: 野村美國研發龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 16.39
-- high: 16.47
-- low: 16.35
-- close: 16.47
-- volume: 439924
-- ma5: 16.6
-- ema23_primary: 16.7
-- distance_to_ema23_pct: -1.36
-- ma20: 16.76
-- ma60: 16.77
-- ma120: 16.77
-- return_5d: -2.2
-- return_20d: -2.2
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -1.71
-- distance_to_high_60_pct: -4.19
+- date: 20260626
+- open: 16.43
+- high: 16.43
+- low: 16.13
+- close: 16.19
+- volume: 373296
+- ma5: 16.49
+- ema23_primary: 16.65
+- distance_to_ema23_pct: -2.79
+- ma20: 16.73
+- ma60: 16.74
+- ma120: 16.74
+- return_5d: -3.46
+- return_20d: -3.46
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -3.21
+- distance_to_high_60_pct: -5.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,16.84,16.84,16.77,16.77,731692,,,,,
 20260528,16.64,16.83,16.64,16.74,1166018,16.75,-0.08,16.8,16.8,1.92
 20260529,16.95,17.03,16.95,17.03,1330712,16.78,1.51,16.84,16.84,1.83
 20260601,17.07,17.16,17.07,17.14,829384,16.81,1.98,16.88,16.88,1.12
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.75,16.75,16.68,16.73,456757,16.75,-0.11,16.8,16.8,0.82
 20260623,16.56,16.62,16.38,16.38,400762,16.72,-2.02,16.77,16.78,0.74
 20260624,16.39,16.47,16.35,16.47,439924,16.7,-1.36,16.76,16.77,0.79
+20260626,16.43,16.43,16.13,16.19,373296,16.65,-2.79,16.73,16.74,0.7
 ```
 
 ## Latest TDCC Snapshot

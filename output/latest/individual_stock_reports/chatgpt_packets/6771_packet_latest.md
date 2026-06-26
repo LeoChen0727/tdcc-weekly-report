@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6771 平和環保-創
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:34 Asia/Taipei
+- generated_at: 2026-06-26 22:24:29 Asia/Taipei
 - stock_id: 6771
 - stock_name: 平和環保-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 42
-- high: 42
-- low: 41.6
-- close: 41.95
-- volume: 82639
-- ma5: 41.95
-- ema23_primary: 42.12
-- distance_to_ema23_pct: -0.4
-- ma20: 41.94
-- ma60: 43.24
-- ma120: 43.86
-- return_5d: 0
-- return_20d: 1.21
-- volume_ratio: 2.51
-- distance_to_ma20_pct_auxiliary: 0.04
-- distance_to_high_60_pct: -10.93
+- date: 20260626
+- open: 38.9
+- high: 38.9
+- low: 38.05
+- close: 38.1
+- volume: 35228
+- ma5: 41.22
+- ema23_primary: 41.78
+- distance_to_ema23_pct: -8.82
+- ma20: 41.74
+- ma60: 43.14
+- ma120: 43.81
+- return_5d: -8.74
+- return_20d: -9.29
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -8.72
+- distance_to_high_60_pct: -19.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,41.45,42.15,41.45,42,12111,42.87,-2.04,42.93,43.86,0.32
 20260528,42,42,41.7,41.7,4140,42.78,-2.52,42.79,43.81,0.12
 20260529,42.75,42.75,41.8,42,13314,42.71,-1.67,42.67,43.77,0.37
 20260601,42,42.3,41.85,42.2,29220,42.67,-1.1,42.57,43.77,0.84
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.9,42,41.8,42,19567,42.14,-0.34,41.89,43.31,0.6
 20260623,42,42.05,41.85,42.05,21000,42.13,-0.2,41.91,43.27,0.66
 20260624,42,42,41.6,41.95,82639,42.12,-0.4,41.94,43.24,2.51
+20260626,38.9,38.9,38.05,38.1,35228,41.78,-8.82,41.74,43.14,1.03
 ```
 
 ## Latest TDCC Snapshot

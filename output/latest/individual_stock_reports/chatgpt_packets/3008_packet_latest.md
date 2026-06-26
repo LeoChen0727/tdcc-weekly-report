@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:22 Asia/Taipei
+- generated_at: 2026-06-26 22:23:15 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 4870
-- high: 4985
-- low: 4825
-- close: 4900
-- volume: 2104082
-- ma5: 5085
-- ema23_primary: 4226.61
-- distance_to_ema23_pct: 15.93
-- ma20: 4203
-- ma60: 3208.33
-- ma120: 2797
-- return_5d: 0.82
-- return_20d: 33.7
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 16.58
-- distance_to_high_60_pct: -8.58
+- date: 20260626
+- open: 5020
+- high: 5050
+- low: 4710
+- close: 4720
+- volume: 3385805
+- ma5: 5000
+- ema23_primary: 4267.72
+- distance_to_ema23_pct: 10.6
+- ma20: 4263.75
+- ma60: 3250
+- ma120: 2819.17
+- return_5d: -8.26
+- return_20d: 34.66
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 10.7
+- distance_to_high_60_pct: -11.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,3690,3720,3500,3505,1354119,3099.84,13.07,3026.75,2604.92,0.63
 20260528,3505,3630,3420,3425,1352548,3126.94,9.53,3068.25,2621.08,0.63
 20260529,3515,3600,3450,3515,1477877,3159.28,11.26,3118.25,2638.83,0.68
 20260601,3630,3835,3630,3835,1342805,3215.59,19.26,3181.25,2664.33,0.62
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,5275,5360,5125,5185,1874016,4089.51,26.79,4083.5,3117.17,0.69
 20260623,5165,5185,4965,5000,1931679,4165.39,20.04,4141.25,3163.5,0.7
 20260624,4870,4985,4825,4900,2104082,4226.61,15.93,4203,3208.33,0.75
+20260626,5020,5050,4710,4720,3385805,4267.72,10.6,4263.75,3250,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3008 | 大立光 | 225 | 0 | 23090230.0 | 0.0 |  | no_signal |
+| 20260626 | 3008 | 大立光 | 221 | 10 | 42904820.0 | 1170120.0 | 36.67 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

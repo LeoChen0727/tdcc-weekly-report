@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:46 Asia/Taipei
+- generated_at: 2026-06-26 22:22:39 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 30.4
-- high: 30.75
-- low: 30
-- close: 30.5
-- volume: 725961
-- ma5: 31.17
-- ema23_primary: 31.23
-- distance_to_ema23_pct: -2.35
-- ma20: 31.56
-- ma60: 31.41
-- ma120: 37.9
-- return_5d: -2.4
-- return_20d: 4.81
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -3.36
-- distance_to_high_60_pct: -11.72
+- date: 20260626
+- open: 30.2
+- high: 30.45
+- low: 29.85
+- close: 29.85
+- volume: 860019
+- ma5: 30.85
+- ema23_primary: 31.12
+- distance_to_ema23_pct: -4.08
+- ma20: 31.62
+- ma60: 31.37
+- ma120: 37.76
+- return_5d: -5.09
+- return_20d: 4.37
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -5.61
+- distance_to_high_60_pct: -13.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,29.1,29.1,28.55,28.6,1649272,30.48,-6.18,30.48,33.24,1.17
 20260528,31.35,31.45,31.35,31.45,3536658,30.56,2.9,30.48,33.04,2.28
 20260529,34.5,34.55,33.2,34.55,13169308,30.9,11.83,30.66,32.91,6.1
 20260601,33.95,33.95,32.65,32.85,5206287,31.06,5.77,30.76,32.77,2.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.15,32.3,31.25,31.35,1232144,31.38,-0.09,31.43,31.49,0.59
 20260623,31.35,31.35,30.4,30.45,1102829,31.3,-2.72,31.49,31.45,0.53
 20260624,30.4,30.75,30,30.5,725961,31.23,-2.35,31.56,31.41,0.35
+20260626,30.2,30.45,29.85,29.85,860019,31.12,-4.08,31.62,31.37,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 1522 | 堤維西 | 3 | 0 | 12600.0 | 0.0 |  | no_signal |
+| 20260626 | 1522 | 堤維西 | 3 | 0 | 21900.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

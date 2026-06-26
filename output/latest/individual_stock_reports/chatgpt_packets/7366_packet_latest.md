@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7366 元債20凱基67購01
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:46 Asia/Taipei
+- generated_at: 2026-06-26 22:24:40 Asia/Taipei
 - stock_id: 7366
 - stock_name: 元債20凱基67購01
 - packet_status: partial_rawdata_packet

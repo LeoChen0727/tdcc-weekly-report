@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3713 新晶投控
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:44 Asia/Taipei
+- generated_at: 2026-06-26 22:23:38 Asia/Taipei
 - stock_id: 3713
 - stock_name: 新晶投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 14.5
-- high: 14.7
-- low: 14.15
-- close: 14.4
-- volume: 62000
-- ma5: 15.09
-- ema23_primary: 15.4
-- distance_to_ema23_pct: -6.49
-- ma20: 15.95
-- ma60: 15.09
-- ma120: 17.67
-- return_5d: -7.1
-- return_20d: 1.41
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -9.69
-- distance_to_high_60_pct: -22.37
+- date: 20260626
+- open: 14.7
+- high: 14.8
+- low: 14.3
+- close: 14.6
+- volume: 61000
+- ma5: 14.84
+- ema23_primary: 15.33
+- distance_to_ema23_pct: -4.78
+- ma20: 15.89
+- ma60: 15.05
+- ma120: 17.6
+- return_5d: -7.89
+- return_20d: -6.41
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -8.15
+- distance_to_high_60_pct: -21.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,14.6,15.6,14.6,15.6,15000,14.18,10.05,13.94,15.7,0.15
 20260528,14.05,16.7,14.05,15.7,15000,14.3,9.77,13.98,15.64,0.15
 20260529,17,17,15.3,15.75,16000,14.42,9.2,14.03,15.58,0.17
 20260601,15.05,16.5,15.05,16.05,16000,14.56,10.25,14.09,15.55,0.17
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.5,15.5,14.6,15.05,177000,15.58,-3.4,15.86,15.2,2.99
 20260623,15,15,14.3,14.5,105000,15.49,-6.39,15.94,15.14,1.65
 20260624,14.5,14.7,14.15,14.4,62000,15.4,-6.49,15.95,15.09,0.94
+20260626,14.7,14.8,14.3,14.6,61000,15.33,-4.78,15.89,15.05,0.89
 ```
 
 ## Latest TDCC Snapshot

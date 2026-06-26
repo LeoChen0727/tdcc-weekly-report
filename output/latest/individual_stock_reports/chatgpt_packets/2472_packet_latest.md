@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:09 Asia/Taipei
+- generated_at: 2026-06-26 22:23:02 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 361.5
-- high: 371.5
-- low: 350
-- close: 361
-- volume: 8798499
-- ma5: 377
-- ema23_primary: 342.73
-- distance_to_ema23_pct: 5.33
-- ma20: 365.55
-- ma60: 249.25
-- ma120: 181.59
-- return_5d: 3.88
-- return_20d: 17.59
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -1.24
-- distance_to_high_60_pct: -16.53
+- date: 20260626
+- open: 386
+- high: 396.5
+- low: 372
+- close: 376
+- volume: 13004483
+- ma5: 379.1
+- ema23_primary: 345.51
+- distance_to_ema23_pct: 8.83
+- ma20: 367.48
+- ma60: 253.36
+- ma120: 183.85
+- return_5d: 2.87
+- return_20d: 11.41
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 2.32
+- distance_to_high_60_pct: -13.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,337,337.5,328.5,337.5,12343744,235.58,43.26,231.9,170.12,0.99
 20260528,352,371,352,371,9320465,246.87,50.28,241.57,174.32,0.73
 20260529,404,404,362,371,21372445,257.21,44.24,251.3,178.57,1.56
 20260601,383,408,383,392,3708970,268.45,46.03,261.7,183.32,0.27
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,429.5,432.5,382.5,393.5,15931682,339.08,16.05,358.68,241.41,1.63
 20260623,394,395,360.5,363,10070939,341.07,6.43,362.85,245.34,1.11
 20260624,361.5,371.5,350,361,8798499,342.73,5.33,365.55,249.25,1
+20260626,386,396.5,372,376,13004483,345.51,8.83,367.48,253.36,1.47
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2472 | 立隆電 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_strong_inflow | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:  通過承認一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)通過本公司擬辦理私募現金增資案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2472 | 立隆電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:  通過承認一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)通過本公司擬辦理私募現金增資案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2472 | 立隆電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:  通過承認一一四年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)通過本公司擬辦理私募現金增資案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2472 | 立隆電 | 4 | 1 | 4 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2472 | 立隆電 | 5 | 3 | 5 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2472 | 立隆電 | 95 | 0 | 24022780.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 2472 | 立隆電 | 94 | 2 | 28929130.0 | 212630.0 | 136.05 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

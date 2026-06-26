@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6509 聚和
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:24 Asia/Taipei
+- generated_at: 2026-06-26 22:24:19 Asia/Taipei
 - stock_id: 6509
 - stock_name: 聚和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 48.35
-- high: 48.75
-- low: 48
-- close: 48.65
-- volume: 1454000
+- date: 20260626
+- open: 48.05
+- high: 48.5
+- low: 47.3
+- close: 47.3
+- volume: 1541000
 - ma5: 48.14
-- ema23_primary: 48.14
-- distance_to_ema23_pct: 1.06
-- ma20: 48.99
-- ma60: 46.24
-- ma120: 41.63
-- return_5d: 2.42
-- return_20d: -6.08
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -0.69
-- distance_to_high_60_pct: -8.38
+- ema23_primary: 48.07
+- distance_to_ema23_pct: -1.6
+- ma20: 48.79
+- ma60: 46.27
+- ma120: 41.74
+- return_5d: 0
+- return_20d: -7.62
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -3.06
+- distance_to_high_60_pct: -10.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,52.8,52.8,50.9,51.2,52000,46.81,9.38,45.7,44.15,0.02
 20260528,51.3,51.3,49.55,50,50000,47.08,6.21,46.11,44.3,0.01
 20260529,50.5,50.8,49.7,49.9,50000,47.31,5.47,46.61,44.46,0.02
 20260601,50.8,52.7,50.2,51.5,52000,47.66,8.06,47.19,44.65,0.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.6,49.5,47.4,48.35,2828000,48.06,0.6,49.31,46.13,1.91
 20260623,48.4,49.1,47.45,48.45,2137000,48.09,0.74,49.15,46.19,1.34
 20260624,48.35,48.75,48,48.65,1454000,48.14,1.06,48.99,46.24,0.88
+20260626,48.05,48.5,47.3,47.3,1541000,48.07,-1.6,48.79,46.27,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6509 | 聚和 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6509 | 聚和 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6509 | 聚和 | 3 | 3 | 3 | 3 | 5 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 6509 | 聚和 | 4 | 4 | 4 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

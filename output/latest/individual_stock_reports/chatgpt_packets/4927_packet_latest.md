@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4927 泰鼎-KY
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:56 Asia/Taipei
+- generated_at: 2026-06-26 22:23:51 Asia/Taipei
 - stock_id: 4927
 - stock_name: 泰鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 48.2
-- high: 49.6
-- low: 48.15
-- close: 48.55
-- volume: 4213294
-- ma5: 50.13
-- ema23_primary: 51.48
-- distance_to_ema23_pct: -5.69
-- ma20: 52.13
-- ma60: 51.24
-- ma120: 44.77
-- return_5d: -2.12
-- return_20d: -20.67
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -6.86
-- distance_to_high_60_pct: -26.33
+- date: 20260626
+- open: 48.85
+- high: 49.1
+- low: 45.35
+- close: 45.65
+- volume: 8060400
+- ma5: 49.26
+- ema23_primary: 50.99
+- distance_to_ema23_pct: -10.48
+- ma20: 51.48
+- ma60: 51.28
+- ma120: 44.86
+- return_5d: -8.7
+- return_20d: -22.1
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -11.32
+- distance_to_high_60_pct: -30.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,61.8,63.4,57.2,58.6,18786787,53.65,9.22,54.14,48.95,1.01
 20260528,58.7,62,56.3,57.3,16223526,53.96,6.2,54.17,49.13,0.89
 20260529,58.8,59.4,55.6,56.2,10967839,54.14,3.8,54.37,49.28,0.65
 20260601,56.2,59.9,55.4,55.8,12635305,54.28,2.8,54.49,49.49,0.77
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,53,54.8,51.5,52.1,10371130,52,0.19,53.41,51.03,0.88
 20260623,52.3,52.3,48.7,48.9,9316883,51.74,-5.5,52.76,51.13,0.85
 20260624,48.2,49.6,48.15,48.55,4213294,51.48,-5.69,52.13,51.24,0.45
+20260626,48.85,49.1,45.35,45.65,8060400,50.99,-10.48,51.48,51.28,0.91
 ```
 
 ## Latest TDCC Snapshot

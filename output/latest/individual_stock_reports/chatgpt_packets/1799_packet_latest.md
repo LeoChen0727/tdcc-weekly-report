@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1799 易威
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:53 Asia/Taipei
+- generated_at: 2026-06-26 22:22:46 Asia/Taipei
 - stock_id: 1799
 - stock_name: 易威
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 154
+- latest_price_date: 20260626
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 30.6
-- high: 31.7
-- low: 30.35
-- close: 30.6
-- volume: 108000
-- ma5: 30.8
-- ema23_primary: 32.37
-- distance_to_ema23_pct: -5.47
-- ma20: 32.09
-- ma60: 36.24
-- ma120: 35.04
-- return_5d: -0.33
-- return_20d: -9.47
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: -4.64
-- distance_to_high_60_pct: -31.85
+- date: 20260626
+- open: 31.55
+- high: 31.75
+- low: 30.2
+- close: 30.2
+- volume: 144000
+- ma5: 30.6
+- ema23_primary: 32.19
+- distance_to_ema23_pct: -6.18
+- ma20: 31.91
+- ma60: 36.1
+- ma120: 35.01
+- return_5d: -3.21
+- return_20d: -10.65
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: -5.36
+- distance_to_high_60_pct: -32.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,33.55,33.8,33.35,33.8,33000,36.05,-6.24,35.89,36.9,0.28
 20260528,33.8,34,33,33.2,33000,35.81,-7.29,35.65,36.92,0.28
 20260529,33.2,33.65,33.1,33.25,33000,35.6,-6.59,35.43,36.95,0.29
 20260601,33.25,33.3,32,33.05,33000,35.38,-6.6,35.24,37.01,0.31
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.7,30.9,30,30.9,128000,32.71,-5.53,32.41,36.5,1.84
 20260623,31,32.3,30.5,30.6,167000,32.53,-5.94,32.25,36.38,2.19
 20260624,30.6,31.7,30.35,30.6,108000,32.37,-5.47,32.09,36.24,1.35
+20260626,31.55,31.75,30.2,30.2,144000,32.19,-6.18,31.91,36.1,1.69
 ```
 
 ## Latest TDCC Snapshot

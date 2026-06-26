@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5536 聖暉*
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:08 Asia/Taipei
+- generated_at: 2026-06-26 22:24:02 Asia/Taipei
 - stock_id: 5536
 - stock_name: 聖暉*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,7 +91,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 1220
-- high: 1320
-- low: 1215
-- close: 1300
-- volume: 818000
-- ma5: 1259
-- ema23_primary: 1130.52
-- distance_to_ema23_pct: 14.99
-- ma20: 1133.55
-- ma60: 948.02
-- ma120: 830.44
-- return_5d: 10.64
-- return_20d: 25.6
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 14.68
-- distance_to_high_60_pct: -1.52
+- date: 20260626
+- open: 1360
+- high: 1390
+- low: 1275
+- close: 1305
+- volume: 1333000
+- ma5: 1282
+- ema23_primary: 1145.06
+- distance_to_ema23_pct: 13.97
+- ma20: 1143.3
+- ma60: 957.23
+- ma120: 834.73
+- return_5d: 9.66
+- return_20d: 17.57
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 14.14
+- distance_to_high_60_pct: -6.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,1050,1130,1005,1110,1089000,931.66,19.14,927.95,809.62,0.63
 20260528,1110,1110,1030,1035,1060000,940.27,10.07,936.65,815.2,0.61
 20260529,1050,1060,993,993,1016000,944.67,5.12,945.05,820.28,0.6
 20260601,998,1025,988,1005,1003000,949.7,5.82,952.6,826.4,0.59
@@ -154,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1260,1305,1255,1280,737000,1101.94,16.16,1104.75,931.22,0.76
 20260623,1300,1310,1225,1260,863000,1115.11,12.99,1120.3,938.88,0.89
 20260624,1220,1320,1215,1300,818000,1130.52,14.99,1133.55,948.02,0.85
+20260626,1360,1390,1275,1305,1333000,1145.06,13.97,1143.3,957.23,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +190,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 5536 | 聖暉* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.董事會決議日期:115/06/17 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 聖暉工程科技股份有限公司國內第二次無擔保轉換公司債 聖暉工程科技股份有限公司國內第三次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額: 第二次：發行總面額新臺幣15億元為上限 第三次：發行總面額新臺幣15億元為上限 5.每張面額: 第二次：新臺幣10萬元整 第三次：新臺幣10萬元整 6.發行價格: 第二次：依票面金額之101~103%發行　 第三次：採競價拍賣方式發行，底標以票面金額之102~103%發行，實際發行價格依競價 拍賣結果而定 7.發行期間: 第二次：3年 第三次：3年 8.發行利率: 第二次：票面利率0% 第三次：票面利率0% 9.擔保品之總類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:充實營運資金 11.承銷方式: 第二次：採詢價圈購方式辦理公開銷售 第三次：採競價拍賣方式辦理公開銷售 12.公司債受託人:未定 13.承銷或代銷機構:國票綜合證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:本公司股務代理機構 16.簽證機構:不適用 17.能轉換股份者，其轉換價格及轉換辦法: 相關轉換辦法將依有關法令規定辦理，並報奉相關主管機關核准後另行公告 18.賣回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 19.買回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 20.附有轉換、交換或認股者，其換股基準日: 將依有關法令辦理，俟報奉主管機關核准後另行公告 21.附有轉換、交換或認股者，對股權可能稀釋情形: 將依有關法令辦理，俟報奉主管機關核准後另行公告 22.其他應敘明事項: (1)本次可轉換公司債俟奉呈主管機關申報生效後，擬授權董事長另訂發行日，並將向 中華民國證券櫃檯買賣中心申請櫃檯買賣。 (2)本次公司債發行計畫之重要內容及發行相關事宜，如遇法令變更、經主管機關修正 或券商公會指示或要求，或因應客觀環境需要而須修正或調整時，擬授權董事長全權 處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 5536 | 聖暉* | 1 | 1 | 2 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

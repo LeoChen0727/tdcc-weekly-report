@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7717 萊德光電-KY
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:48 Asia/Taipei
+- generated_at: 2026-06-26 22:24:42 Asia/Taipei
 - stock_id: 7717
 - stock_name: 萊德光電-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 145
+- latest_price_date: 20260626
+- price_rows: 146
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 501
-- high: 536
-- low: 501
-- close: 505
-- volume: 457000
-- ma5: 527.7
-- ema23_primary: 594.91
-- distance_to_ema23_pct: -15.11
-- ma20: 596.17
-- ma60: 698.91
-- ma120: 627.53
-- return_5d: -8.35
-- return_20d: -26.38
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -15.29
-- distance_to_high_60_pct: -47.34
+- date: 20260626
+- open: 470
+- high: 470
+- low: 432.5
+- close: 433.5
+- volume: 383000
+- ma5: 505.2
+- ema23_primary: 581.46
+- distance_to_ema23_pct: -25.45
+- ma20: 585.4
+- ma60: 693.28
+- ma120: 628.53
+- return_5d: -20.6
+- return_20d: -33.2
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -25.95
+- distance_to_high_60_pct: -54.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,702,702,645,649,666000,695.45,-6.68,678.4,721.75,1.22
 20260528,654,673,628,628,651000,689.83,-8.96,675.4,717.47,1.16
 20260529,638,690,628,690,664000,689.85,0.02,675.15,715.68,1.17
 20260601,710,710,643,669,674000,688.11,-2.78,670.8,714.87,1.19
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,555,555,540,544,234000,612.68,-11.21,616.65,704.52,0.42
 20260623,546,547,497.5,497.5,438000,603.08,-17.51,605.23,702.17,0.81
 20260624,501,536,501,505,457000,594.91,-15.11,596.17,698.91,0.86
+20260626,470,470,432.5,433.5,383000,581.46,-25.45,585.4,693.28,0.74
 ```
 
 ## Latest TDCC Snapshot

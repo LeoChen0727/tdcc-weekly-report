@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2364 倫飛
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:03 Asia/Taipei
+- generated_at: 2026-06-26 22:22:56 Asia/Taipei
 - stock_id: 2364
 - stock_name: 倫飛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 66.5
-- high: 67.6
-- low: 66.5
-- close: 67.3
-- volume: 118830
-- ma5: 67.68
-- ema23_primary: 68.86
-- distance_to_ema23_pct: -2.27
-- ma20: 70.1
-- ma60: 66.67
-- ma120: 65.48
-- return_5d: -0.44
-- return_20d: -1.9
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -3.99
-- distance_to_high_60_pct: -19.5
+- date: 20260626
+- open: 67.7
+- high: 67.7
+- low: 64.6
+- close: 64.6
+- volume: 397783
+- ma5: 67.08
+- ema23_primary: 68.51
+- distance_to_ema23_pct: -5.7
+- ma20: 69.97
+- ma60: 66.73
+- ma120: 65.45
+- return_5d: -4.44
+- return_20d: -4.01
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -7.67
+- distance_to_high_60_pct: -22.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,68.6,68.6,67.3,67.3,226155,66.75,0.82,66.85,64.23,0.64
 20260528,67.4,68.8,66.9,67.3,207288,66.8,0.75,67.01,64.3,0.57
 20260529,69,69,67.8,68.4,224631,66.93,2.2,67.28,64.39,0.61
 20260601,69.8,71.8,69.1,71.6,550867,67.32,6.36,67.67,64.57,1.4
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68.1,69.7,68.1,68.4,235345,69.17,-1.11,70.26,66.47,0.36
 20260623,69.3,69.3,67,67.2,247686,69,-2.62,70.17,66.56,0.39
 20260624,66.5,67.6,66.5,67.3,118830,68.86,-2.27,70.1,66.67,0.19
+20260626,67.7,67.7,64.6,64.6,397783,68.51,-5.7,69.97,66.73,0.62
 ```
 
 ## Latest TDCC Snapshot

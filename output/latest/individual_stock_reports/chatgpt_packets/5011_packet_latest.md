@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5011 久陽
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:59 Asia/Taipei
+- generated_at: 2026-06-26 22:23:54 Asia/Taipei
 - stock_id: 5011
 - stock_name: 久陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 22.6
-- high: 24.85
-- low: 22.6
-- close: 24.85
-- volume: 6595000
-- ma5: 22.54
-- ema23_primary: 19.43
-- distance_to_ema23_pct: 27.87
-- ma20: 19.5
-- ma60: 16.2
-- ma120: 14.39
-- return_5d: 25.51
-- return_20d: 27.76
-- volume_ratio: 5.35
-- distance_to_ma20_pct_auxiliary: 27.42
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 25.95
+- high: 27.3
+- low: 25.05
+- close: 25.7
+- volume: 2354000
+- ma5: 23.56
+- ema23_primary: 19.96
+- distance_to_ema23_pct: 28.78
+- ma20: 19.85
+- ma60: 16.41
+- ma120: 14.52
+- return_5d: 24.76
+- return_20d: 37.43
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 29.45
+- distance_to_high_60_pct: -5.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,19.65,20,18.6,18.7,19000,15.79,18.42,15.65,14.62,0.05
 20260528,18.7,18.9,18,18.1,18000,15.98,13.24,15.85,14.7,0.05
 20260529,18.1,19.9,18.1,18.7,19000,16.21,15.36,16.05,14.77,0.06
 20260601,18.7,20,18.55,19.35,19000,16.47,17.48,16.27,14.82,0.06
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.3,23.3,22,23.05,2733000,18.61,23.86,18.99,15.88,3.31
 20260623,23.05,23.25,22.2,22.6,1571000,18.94,19.31,19.23,16.02,1.74
 20260624,22.6,24.85,22.6,24.85,6595000,19.43,27.87,19.5,16.2,5.35
+20260626,25.95,27.3,25.05,25.7,2354000,19.96,28.78,19.85,16.41,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 5011 | 久陽 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:馬堅勇 4.舊任者簡歷:合一特用材料股份有限公司董事長 5.新任者姓名:馬堅勇 6.新任者簡歷:合一特用材料股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:董監事改選 8.異動原因:董監事改選 9.新任生效日期:115/6/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5011 | 久陽 | true_breakout | 嚴格突破 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:馬堅勇 4.舊任者簡歷:合一特用材料股份有限公司董事長 5.新任者姓名:馬堅勇 6.新任者簡歷:合一特用材料股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:董監事改選 8.異動原因:董監事改選 9.新任生效日期:115/6/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 5011 | 久陽 | 3 | 1 | 3 | 3 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 5011 | 久陽 | 4 | 2 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

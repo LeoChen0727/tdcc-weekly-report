@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:34 Asia/Taipei
+- generated_at: 2026-06-26 22:22:28 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 53.9
-- high: 55.65
-- low: 53.85
-- close: 54.95
-- volume: 4120167
-- ma5: 54.56
-- ema23_primary: 50.78
-- distance_to_ema23_pct: 8.22
-- ma20: 51.09
-- ma60: 50.6
-- ma120: 50.6
-- return_5d: 5.67
-- return_20d: 12.4
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: 7.55
-- distance_to_high_60_pct: -4.85
+- date: 20260626
+- open: 54.65
+- high: 55.15
+- low: 51.9
+- close: 52
+- volume: 4692189
+- ma5: 54.55
+- ema23_primary: 50.88
+- distance_to_ema23_pct: 2.2
+- ma20: 51.12
+- ma60: 50.66
+- ma120: 50.66
+- return_5d: -0.1
+- return_20d: 1.07
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: 1.72
+- distance_to_high_60_pct: -9.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,51.1,52.1,50.75,51.45,4567854,,,,,
 20260528,52.2,52.45,49.33,50.4,3307080,46.55,8.28,48.78,48.78,1.43
 20260529,52.55,53,50.4,51.2,1486756,46.93,9.09,49.19,49.19,0.68
 20260601,51.85,53.2,51.5,52.1,4261981,47.37,10,49.6,49.6,1.73
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,56.8,56.85,56.15,56.55,5036572,49.95,13.22,50.42,50.17,1.93
 20260623,57.75,57.75,55.35,55.35,5488084,50.4,9.83,50.79,50.41,1.94
 20260624,53.9,55.65,53.85,54.95,4120167,50.78,8.22,51.09,50.6,1.38
+20260626,54.65,55.15,51.9,52,4692189,50.88,2.2,51.12,50.66,1.57
 ```
 
 ## Latest TDCC Snapshot

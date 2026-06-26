@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3346 麗清
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:33 Asia/Taipei
+- generated_at: 2026-06-26 22:23:27 Asia/Taipei
 - stock_id: 3346
 - stock_name: 麗清
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 24.3
-- high: 25.45
-- low: 24.1
-- close: 25.05
-- volume: 1369856
-- ma5: 24.57
-- ema23_primary: 22.87
-- distance_to_ema23_pct: 9.51
-- ma20: 23.7
-- ma60: 19.47
-- ma120: 19.88
-- return_5d: 1.21
-- return_20d: 55.11
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 5.67
-- distance_to_high_60_pct: -7.22
+- date: 20260626
+- open: 24.6
+- high: 24.6
+- low: 23.7
+- close: 23.9
+- volume: 1297848
+- ma5: 24.45
+- ema23_primary: 22.96
+- distance_to_ema23_pct: 4.1
+- ma20: 24.01
+- ma60: 19.55
+- ma120: 19.92
+- return_5d: -2.45
+- return_20d: 34.65
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -0.47
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,16.25,17.75,16.1,17.75,1317035,16.75,5.97,16.53,18.09,2.37
 20260528,19.5,19.5,19.5,19.5,708827,16.98,14.85,16.64,18.07,1.23
 20260529,21.45,21.45,21.45,21.45,924121,17.35,23.62,16.85,18.08,1.51
 20260601,23.55,23.55,23.55,23.55,1474697,17.87,31.8,17.18,18.15,2.2
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.75,25.5,23.7,25,1851032,22.5,11.11,22.83,19.27,1.03
 20260623,25.15,25.15,23.9,24.6,1383165,22.68,8.49,23.26,19.37,0.75
 20260624,24.3,25.45,24.1,25.05,1369856,22.87,9.51,23.7,19.47,0.72
+20260626,24.6,24.6,23.7,23.9,1297848,22.96,4.1,24.01,19.55,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3346 | 麗清 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3346 | 麗清 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 3346 | 麗清 | 1 | 1 | 1 | 2 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 3346 | 麗清 | 2 | 2 | 2 | 2 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

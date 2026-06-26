@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:19 Asia/Taipei
+- generated_at: 2026-06-26 22:23:12 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 67.9
-- high: 67.9
-- low: 65.6
-- close: 66.1
-- volume: 50652242
-- ma5: 67.58
-- ema23_primary: 63.02
-- distance_to_ema23_pct: 4.88
-- ma20: 63.64
-- ma60: 55.66
-- ma120: 49.32
-- return_5d: 1.07
-- return_20d: 15.36
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 3.87
-- distance_to_high_60_pct: -5.17
+- date: 20260626
+- open: 65.7
+- high: 66.5
+- low: 65.5
+- close: 66.3
+- volume: 29837856
+- ma5: 67.5
+- ema23_primary: 63.3
+- distance_to_ema23_pct: 4.75
+- ma20: 63.98
+- ma60: 56.01
+- ma120: 49.53
+- return_5d: -0.6
+- return_20d: 11.43
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 3.63
+- distance_to_high_60_pct: -4.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,59.6,59.8,57.5,59.5,40035150,54.53,9.1,55.29,49.67,1.44
 20260528,59.5,60.2,58.4,59.1,37726655,54.92,7.62,55.63,49.87,1.32
 20260529,59.4,60.2,58.9,59.6,91346270,55.31,7.76,56,50.08,2.91
 20260601,59.3,59.6,58.3,59.2,31159437,55.63,6.42,56.3,50.31,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68.6,69,67.2,68.8,37678724,62.24,10.54,62.59,54.95,1.03
 20260623,68.2,69.7,67.6,68.3,40537193,62.74,8.86,63.2,55.33,1.09
 20260624,67.9,67.9,65.6,66.1,50652242,63.02,4.88,63.64,55.66,1.34
+20260626,65.7,66.5,65.5,66.3,29837856,63.3,4.75,63.98,56.01,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:行政長 2.發生變動日期:115/06/24 3.舊任者姓名、級職及簡歷:楊荊蓀 (1)元大金融控股股份有限公司資深副總經理 (2)元大國際資產管理股份有限公司副董事長 (3)元大商業銀行股份有限公司資深副總經理 4.新任者姓名、級職及簡歷:林瑞源 (1)元大金融控股股份有限公司副總經理 (2)元大期貨股份有限公司執行副總經理 (3)元大證券投資信託股份有限公司執行副總經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2885 | 元大金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東臨時會日期:115/06/25 2.重要決議事項:通過子公司元大投資(韓國)投資 「Yuanta Next Unicorn Scale up Fund」（名稱暫定）暨擔任該基金普通合夥人 3.其他應敘明事項:依公司法及金融控股公司法規定由元大證券董事會代行股東臨時會 職權；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.股東臨時會日期:115/06/25 2.重要決議事項:通過子公司元大投資(韓國)投資 「Yuanta Next Unicorn Scale up Fund」（名稱暫定）暨擔任該基金普通合夥人 3.其他應敘明事項:依公司法及金融控股公司法規定由元大證券董事會代行股東臨時會 職權；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2885 | 元大金 | 3 | 3 | 4 | 7 | 17 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 2885 | 元大金 | 4 | 4 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2885 | 元大金 | 17 | 0 | 1908430.0 | 0.0 |  | no_signal |
+| 20260626 | 2885 | 元大金 | 16 | 0 | 1955760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

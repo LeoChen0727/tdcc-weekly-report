@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:08 Asia/Taipei
+- generated_at: 2026-06-26 22:23:01 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 329.5
-- high: 336.5
-- low: 318
-- close: 333.5
-- volume: 42402486
-- ma5: 318.2
-- ema23_primary: 304.71
-- distance_to_ema23_pct: 9.45
-- ma20: 304.9
-- ma60: 296.93
-- ma120: 289.4
-- return_5d: 19.96
-- return_20d: -1.48
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 9.38
-- distance_to_high_60_pct: -8.5
+- date: 20260626
+- open: 330
+- high: 349.5
+- low: 306.5
+- close: 308
+- volume: 52126159
+- ma5: 323.7
+- ema23_primary: 304.98
+- distance_to_ema23_pct: 0.99
+- ma20: 304.52
+- ma60: 297.43
+- ma120: 290.17
+- return_5d: 9.8
+- return_20d: -2.38
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 1.14
+- distance_to_high_60_pct: -15.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,344.5,345,308.5,315.5,95192733,302.89,4.16,308.32,294.14,2.06
 20260528,315.5,334,312,320,72840078,304.32,5.15,310.15,294.21,1.51
 20260529,329,329.5,311.5,328.5,68983487,306.33,7.24,311.45,294.6,1.43
 20260601,328.5,329.5,317,318,51661349,307.31,3.48,310.73,295.27,1.05
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,314,339,314,339,81551317,299.6,13.15,304.52,295.49,1.78
 20260623,338.5,353.5,325,329.5,76716982,302.09,9.07,305.15,296.18,1.63
 20260624,329.5,336.5,318,333.5,42402486,304.71,9.45,304.9,296.93,0.96
+20260626,330,349.5,306.5,308,52126159,304.98,0.99,304.52,297.43,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2449 | 京元電子 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2449 | 京元電子 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2449 | 京元電子 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2449 | 京元電子 | 20 | 1 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2449 | 京元電子 | 21 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2449 | 京元電子 | 263 | 0 | 38408490.0 | 0.0 |  | no_signal |
+| 20260626 | 2449 | 京元電子 | 262 | 8 | 49543070.0 | 320400.0 | 154.63 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

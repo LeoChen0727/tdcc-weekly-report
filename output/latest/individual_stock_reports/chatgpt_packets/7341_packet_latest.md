@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7341 新應材元富56購01
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:46 Asia/Taipei
+- generated_at: 2026-06-26 22:24:40 Asia/Taipei
 - stock_id: 7341
 - stock_name: 新應材元富56購01
 - packet_status: partial_rawdata_packet

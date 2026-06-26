@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00850 元大臺灣ESG永續
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:33 Asia/Taipei
+- generated_at: 2026-06-26 22:22:27 Asia/Taipei
 - stock_id: 00850
 - stock_name: 元大臺灣ESG永續
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 91.5
-- high: 92.15
-- low: 90.8
-- close: 91.85
-- volume: 1093410
-- ma5: 92.9
-- ema23_primary: 89.45
-- distance_to_ema23_pct: 2.68
-- ma20: 90.09
-- ma60: 89.47
-- ma120: 89.47
-- return_5d: 0.88
-- return_20d: 5.94
+- date: 20260626
+- open: 91.1
+- high: 91.1
+- low: 88
+- close: 88.05
+- volume: 1100727
+- ma5: 92.23
+- ema23_primary: 89.33
+- distance_to_ema23_pct: -1.44
+- ma20: 90.05
+- ma60: 89.41
+- ma120: 89.41
+- return_5d: -3.67
+- return_20d: -0.96
 - volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 1.95
-- distance_to_high_60_pct: -3.97
+- distance_to_ma20_pct_auxiliary: -2.22
+- distance_to_high_60_pct: -7.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,87.75,90,87.75,88.9,945782,,,,,
 20260528,89.1,89.7,86.15,86.7,1073179,84.14,3.05,86.33,86.33,0.62
 20260529,88.15,89.4,88.1,89.15,685514,84.55,5.43,86.8,86.8,0.44
 20260601,89.85,91.45,89.85,90.75,1022806,85.07,6.68,87.36,87.36,0.69
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,93.55,95.05,93.55,95,1070642,88.82,6.96,89.47,89.15,1
 20260623,95.25,95.65,93.6,93.8,654861,89.23,5.12,89.83,89.37,0.68
 20260624,91.5,92.15,90.8,91.85,1093410,89.45,2.68,90.09,89.47,1.13
+20260626,91.1,91.1,88,88.05,1100727,89.33,-1.44,90.05,89.41,1.13
 ```
 
 ## Latest TDCC Snapshot

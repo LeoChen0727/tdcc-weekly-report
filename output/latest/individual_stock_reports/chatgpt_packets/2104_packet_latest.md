@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2104 國際中橡
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:57 Asia/Taipei
+- generated_at: 2026-06-26 22:22:50 Asia/Taipei
 - stock_id: 2104
 - stock_name: 國際中橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 9.99
-- high: 10.2
-- low: 9.92
-- close: 10.2
-- volume: 3321952
-- ma5: 10.23
-- ema23_primary: 10.4
-- distance_to_ema23_pct: -1.95
-- ma20: 10.46
-- ma60: 10.78
-- ma120: 11.36
-- return_5d: -1.92
-- return_20d: 2.82
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -2.52
-- distance_to_high_60_pct: -23.6
+- date: 20260626
+- open: 10.25
+- high: 10.25
+- low: 9.97
+- close: 9.99
+- volume: 3936926
+- ma5: 10.19
+- ema23_primary: 10.37
+- distance_to_ema23_pct: -3.65
+- ma20: 10.47
+- ma60: 10.74
+- ma120: 11.35
+- return_5d: -2.06
+- return_20d: 1.32
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -4.59
+- distance_to_high_60_pct: -25.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,10.05,10.1,9.85,9.86,2361497,10.31,-4.35,10.15,11.38,0.76
 20260528,9.97,9.97,9.77,9.87,2425860,10.27,-3.91,10.11,11.34,0.77
 20260529,9.93,10.2,9.93,10.2,4310819,10.27,-0.64,10.08,11.3,1.31
 20260601,10.25,10.5,10.1,10.5,4265320,10.29,2.09,10.08,11.27,1.27
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10.3,10.4,10.25,10.4,2175233,10.46,-0.57,10.45,10.85,0.62
 20260623,10.4,10.4,9.99,10,5461515,10.42,-4.04,10.45,10.81,1.5
 20260624,9.99,10.2,9.92,10.2,3321952,10.4,-1.95,10.46,10.78,0.9
+20260626,10.25,10.25,9.97,9.99,3936926,10.37,-3.65,10.47,10.74,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2104 | 國際中橡 | 2 | 0 | 17100.0 | 0.0 |  | no_signal |
+| 20260626 | 2104 | 國際中橡 | 2 | 0 | 950.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1809 中釉
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:53 Asia/Taipei
+- generated_at: 2026-06-26 22:22:47 Asia/Taipei
 - stock_id: 1809
 - stock_name: 中釉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 53.5
-- high: 56.9
-- low: 53
-- close: 54.3
-- volume: 9866343
-- ma5: 53.56
-- ema23_primary: 49.57
-- distance_to_ema23_pct: 9.53
-- ma20: 51.51
-- ma60: 38.18
-- ma120: 30.95
-- return_5d: 9.7
-- return_20d: 10.14
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 5.42
-- distance_to_high_60_pct: -12.14
+- date: 20260626
+- open: 51
+- high: 51.4
+- low: 47.2
+- close: 47.85
+- volume: 6022710
+- ma5: 52.79
+- ema23_primary: 49.43
+- distance_to_ema23_pct: -3.2
+- ma20: 51.68
+- ma60: 38.5
+- ma120: 31.2
+- return_5d: -7.45
+- return_20d: 7.77
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -7.42
+- distance_to_high_60_pct: -22.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,47.05,48.5,44.4,44.4,13175875,37.54,18.28,37.37,30.3,1.31
 20260528,44.45,44.9,40.55,41.75,12395902,37.89,10.19,38.13,30.54,1.17
 20260529,43.3,44.2,41.2,43.55,8472822,38.36,13.53,39.02,30.81,0.77
 20260601,43.55,47.9,42.65,47.9,13633772,39.15,22.34,40.01,31.19,1.19
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51.7,56.5,51.5,56.5,16413912,48.71,15.99,50.85,37.3,1.12
 20260623,57.5,57.8,53,53.9,15073889,49.14,9.68,51.26,37.73,1
 20260624,53.5,56.9,53,54.3,9866343,49.57,9.53,51.51,38.18,0.65
+20260626,51,51.4,47.2,47.85,6022710,49.43,-3.2,51.68,38.5,0.4
 ```
 
 ## Latest TDCC Snapshot

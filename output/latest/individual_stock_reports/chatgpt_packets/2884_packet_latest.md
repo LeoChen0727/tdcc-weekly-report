@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:19 Asia/Taipei
+- generated_at: 2026-06-26 22:23:12 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 289
+- latest_price_date: 20260626
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 35.3
-- high: 35.5
-- low: 35
-- close: 35
-- volume: 66780179
-- ma5: 35.5
-- ema23_primary: 33.9
-- distance_to_ema23_pct: 3.25
-- ma20: 33.63
-- ma60: 32.64
-- ma120: 33
-- return_5d: -0.57
-- return_20d: 12.36
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.08
-- distance_to_high_60_pct: -4.37
+- date: 20260626
+- open: 35
+- high: 35.35
+- low: 34.55
+- close: 34.55
+- volume: 41921203
+- ma5: 35.31
+- ema23_primary: 33.95
+- distance_to_ema23_pct: 1.76
+- ma20: 33.8
+- ma60: 32.68
+- ma120: 33.01
+- return_5d: -2.68
+- return_20d: 10.91
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 2.23
+- distance_to_high_60_pct: -5.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,31.15,31.25,30.95,31.15,52347427,31.78,-1.98,31.74,32.37,1.33
 20260528,31.15,31.15,30.65,30.7,68131486,31.69,-3.12,31.66,32.3,1.66
 20260529,30.9,31,30.75,30.95,119510199,31.63,-2.14,31.61,32.23,2.67
 20260601,30.95,31.5,30.8,31.45,59743502,31.61,-0.51,31.62,32.2,1.33
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,36,36.6,35.7,35.8,106058238,33.61,6.5,33.19,32.54,1.58
 20260623,35.8,36.35,35.55,35.8,56291939,33.8,5.93,33.44,32.6,0.83
 20260624,35.3,35.5,35,35,66780179,33.9,3.25,33.63,32.64,0.97
+20260626,35,35.35,34.55,34.55,41921203,33.95,1.76,33.8,32.68,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:照案通過114年度年報。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
+| 20260626 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:照案通過114年度年報。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
+| 20260626 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:照案通過114年度年報。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2884 | 玉山金 | 2 | 2 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2884 | 玉山金 | 3 | 3 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2884 | 玉山金 | 10 | 0 | 545700.0 | 0.0 |  | no_signal |
+| 20260626 | 2884 | 玉山金 | 11 | 0 | 287100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6830 汎銓
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:36 Asia/Taipei
+- generated_at: 2026-06-26 22:24:30 Asia/Taipei
 - stock_id: 6830
 - stock_name: 汎銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 542
-- high: 572
-- low: 538
-- close: 554
-- volume: 402009
-- ma5: 559.8
-- ema23_primary: 600.95
-- distance_to_ema23_pct: -7.81
-- ma20: 593.88
-- ma60: 690.19
-- ma120: 472
-- return_5d: 10.8
-- return_20d: -28.79
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -6.71
-- distance_to_high_60_pct: -44.6
+- date: 20260626
+- open: 512
+- high: 523
+- low: 489
+- close: 496
+- volume: 550563
+- ma5: 556.4
+- ema23_primary: 592.21
+- distance_to_ema23_pct: -16.25
+- ma20: 582.67
+- ma60: 691.22
+- ma120: 474.74
+- return_5d: -3.31
+- return_20d: -31.11
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -14.88
+- distance_to_high_60_pct: -50.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,788,800,710,720,2806394,744.94,-3.35,781.55,626.86,1.04
 20260528,715,727,679,686,2186193,740.03,-7.3,777.2,633.07,0.86
 20260529,715,716,675,678,1539894,734.86,-7.74,768.6,639.19,0.6
 20260601,678,685,650,683,1593903,730.54,-6.51,756.5,645.09,0.64
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,580,619,580,608,1057582,609.33,-0.22,616.42,686.71,0.54
 20260623,595,598,560,560,783516,605.22,-7.47,605.08,688.86,0.41
 20260624,542,572,538,554,402009,600.95,-7.81,593.88,690.19,0.23
+20260626,512,523,489,496,550563,592.21,-16.25,582.67,691.22,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6830 | 汎銓 | 25 | 0 | 830540.0 | 0.0 |  | no_signal |
+| 20260626 | 6830 | 汎銓 | 24 | 2 | 202710.0 | 53920.0 | 3.76 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

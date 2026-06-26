@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6914 阜爾運通
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:39 Asia/Taipei
+- generated_at: 2026-06-26 22:24:33 Asia/Taipei
 - stock_id: 6914
 - stock_name: 阜爾運通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 142.5
+- date: 20260626
+- open: 142
 - high: 143
 - low: 141.5
-- close: 141.5
-- volume: 43331
-- ma5: 142.5
+- close: 142.5
+- volume: 47780
+- ma5: 142.6
 - ema23_primary: 142.48
-- distance_to_ema23_pct: -0.69
-- ma20: 141.8
-- ma60: 145.46
-- ma120: 145.02
-- return_5d: -0.35
-- return_20d: 0.35
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -0.21
-- distance_to_high_60_pct: -8.71
+- distance_to_ema23_pct: 0.01
+- ma20: 141.93
+- ma60: 145.3
+- ma120: 145
+- return_5d: 0.35
+- return_20d: 1.79
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.41
+- distance_to_high_60_pct: -8.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,143,143,139.5,140,198056,144.2,-2.91,144,147,2.1
 20260528,140,141.5,140,141,74889,143.94,-2.04,143.72,146.98,0.78
 20260529,140.5,141.5,140.5,141,69739,143.69,-1.87,143.53,146.99,0.74
 20260601,141.5,141.5,138.5,141,229878,143.47,-1.72,143.28,147.02,2.29
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,142.5,144.5,142.5,143.5,54928,142.53,0.68,141.7,145.75,0.6
 20260623,143,144,142.5,143,26677,142.57,0.3,141.78,145.65,0.32
 20260624,142.5,143,141.5,141.5,43331,142.48,-0.69,141.8,145.46,0.53
+20260626,142,143,141.5,142.5,47780,142.48,0.01,141.93,145.3,0.65
 ```
 
 ## Latest TDCC Snapshot

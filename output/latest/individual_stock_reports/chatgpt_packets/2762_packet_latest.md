@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2762 世界健身-KY
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:17 Asia/Taipei
+- generated_at: 2026-06-26 22:23:10 Asia/Taipei
 - stock_id: 2762
 - stock_name: 世界健身-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 84.5
-- high: 85
-- low: 83.5
-- close: 83.9
-- volume: 145884
-- ma5: 84.84
-- ema23_primary: 84.64
-- distance_to_ema23_pct: -0.87
-- ma20: 85.61
-- ma60: 78.87
-- ma120: 77.14
-- return_5d: -3.67
-- return_20d: 2.57
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -2
-- distance_to_high_60_pct: -7.6
+- date: 20260626
+- open: 83.2
+- high: 83.2
+- low: 80.7
+- close: 80.8
+- volume: 216323
+- ma5: 83.96
+- ema23_primary: 84.32
+- distance_to_ema23_pct: -4.17
+- ma20: 85.59
+- ma60: 79.01
+- ma120: 77.16
+- return_5d: -5.16
+- return_20d: -0.37
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: -5.6
+- distance_to_high_60_pct: -11.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,80.8,81.8,80.5,81.1,52324,79.1,2.53,78.61,75.61,0.32
 20260528,81.9,83.8,81.3,81.3,154321,79.28,2.54,79.03,75.66,0.93
 20260529,82.6,84.3,82.2,82.4,189023,79.54,3.59,79.5,75.72,1.09
 20260601,83.4,85.8,83.3,85.5,257182,80.04,6.82,80.15,75.85,1.41
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,85.5,85.5,83.9,84.5,92053,84.65,-0.18,85.34,78.47,0.64
 20260623,84.5,85.8,84.5,85.3,108692,84.7,0.7,85.5,78.68,0.76
 20260624,84.5,85,83.5,83.9,145884,84.64,-0.87,85.61,78.87,0.98
+20260626,83.2,83.2,80.7,80.8,216323,84.32,-4.17,85.59,79.01,1.38
 ```
 
 ## Latest TDCC Snapshot

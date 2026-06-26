@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6127 九豪
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:11 Asia/Taipei
+- generated_at: 2026-06-26 22:24:06 Asia/Taipei
 - stock_id: 6127
 - stock_name: 九豪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 81
-- high: 85.1
-- low: 80.4
-- close: 85.1
-- volume: 3577000
-- ma5: 83.28
-- ema23_primary: 73.78
-- distance_to_ema23_pct: 15.35
-- ma20: 76.5
-- ma60: 56.67
-- ma120: 47.09
-- return_5d: 11.24
-- return_20d: 48.78
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 11.24
-- distance_to_high_60_pct: -6.69
+- date: 20260626
+- open: 91
+- high: 100
+- low: 91
+- close: 91.4
+- volume: 8715000
+- ma5: 85.44
+- ema23_primary: 75.24
+- distance_to_ema23_pct: 21.47
+- ma20: 78.22
+- ma60: 57.5
+- ma120: 47.58
+- return_5d: 13.4
+- return_20d: 60.63
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 16.84
+- distance_to_high_60_pct: -8.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,62.5,62.5,55.8,56.9,58000,49.74,14.41,49.16,44.41,0
 20260528,57.5,62.5,57.5,61.2,61000,50.69,20.73,49.92,44.78,0.01
 20260529,63,67.3,60.4,67.3,64000,52.07,29.24,51.08,45.26,0.01
 20260601,74,74,73.2,74,74000,53.9,37.29,52.52,45.9,0.01
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,87,87,82.6,85.3,4482000,72,18.48,73.66,55.29,0.28
 20260623,84.4,84.4,80.6,81,3693000,72.75,11.35,75.11,55.93,0.23
 20260624,81,85.1,80.4,85.1,3577000,73.78,15.35,76.5,56.67,0.22
+20260626,91,100,91,91.4,8715000,75.24,21.47,78.22,57.5,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6127 | 九豪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6127 | 九豪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_overheated | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 6127 | 九豪 | 1 | 1 | 1 | 1 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 6127 | 九豪 | 2 | 2 | 2 | 2 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

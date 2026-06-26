@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1730 花仙子
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:51 Asia/Taipei
+- generated_at: 2026-06-26 22:22:44 Asia/Taipei
 - stock_id: 1730
 - stock_name: 花仙子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
+- date: 20260626
 - open: 53.5
-- high: 53.8
+- high: 54
 - low: 53.5
 - close: 53.6
-- volume: 74899
-- ma5: 53.28
-- ema23_primary: 52.95
-- distance_to_ema23_pct: 1.23
-- ma20: 52.85
-- ma60: 52.78
+- volume: 152230
+- ma5: 53.4
+- ema23_primary: 53
+- distance_to_ema23_pct: 1.13
+- ma20: 52.91
+- ma60: 52.8
 - ma120: 52.86
 - return_5d: 1.13
-- return_20d: 2.1
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 1.42
+- return_20d: 2.29
+- volume_ratio: 2.12
+- distance_to_ma20_pct_auxiliary: 1.3
 - distance_to_high_60_pct: -0.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,52.5,52.7,52.4,52.4,50581,52.69,-0.56,52.69,52.84,1.09
 20260528,52.4,52.6,52.4,52.4,42883,52.67,-0.51,52.69,52.82,0.92
 20260529,52.4,52.7,52.4,52.5,31232,52.65,-0.29,52.69,52.8,0.67
 20260601,52.4,52.5,52.3,52.5,66755,52.64,-0.27,52.69,52.79,1.38
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,53.7,53.7,53,53.3,85805,52.83,0.88,52.76,52.75,1.44
 20260623,53.3,54,53.2,53.5,174627,52.89,1.15,52.8,52.77,2.69
 20260624,53.5,53.8,53.5,53.6,74899,52.95,1.23,52.85,52.78,1.12
+20260626,53.5,54,53.5,53.6,152230,53,1.13,52.91,52.8,2.12
 ```
 
 ## Latest TDCC Snapshot

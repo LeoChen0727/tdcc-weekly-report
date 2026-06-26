@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-06-25 22:23:57 Asia/Taipei
+- generated_at: 2026-06-26 22:23:51 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 80.3
-- high: 84.5
-- low: 80.1
-- close: 84
-- volume: 24050446
-- ma5: 82.46
-- ema23_primary: 86.25
-- distance_to_ema23_pct: -2.61
-- ma20: 89.23
+- date: 20260626
+- open: 86
+- high: 86
+- low: 80.7
+- close: 81
+- volume: 23506778
+- ma5: 82.06
+- ema23_primary: 85.81
+- distance_to_ema23_pct: -5.61
+- ma20: 89.18
 - ma60: 83.52
-- ma120: 77.47
-- return_5d: 1.2
-- return_20d: 3.19
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -5.87
-- distance_to_high_60_pct: -18.05
+- ma120: 77.56
+- return_5d: -2.41
+- return_20d: -1.34
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -9.17
+- distance_to_high_60_pct: -20.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,81.8,83.3,81.4,82.1,13465420,80.37,2.15,80.72,78.68,1.08
 20260528,82.5,84.4,82.5,83.4,16399172,80.62,3.44,80.78,78.87,1.27
 20260529,85.5,89.4,85.3,88.5,38620432,81.28,8.88,81.09,79.16,2.67
 20260601,92,92.1,89.5,91.2,39426487,82.11,11.07,81.59,79.54,2.49
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,83.8,84.6,82,82,22605594,87,-5.75,89.14,83.41,0.68
 20260623,82.6,82.6,80.1,80.4,17179673,86.45,-7,89.11,83.46,0.52
 20260624,80.3,84.5,80.1,84,24050446,86.25,-2.61,89.23,83.52,0.71
+20260626,86,86,80.7,81,23506778,85.81,-5.61,89.18,83.52,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 4938 | 和碩 | 25 | 0 | 5361370.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 4938 | 和碩 | 25 | 0 | 5559660.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

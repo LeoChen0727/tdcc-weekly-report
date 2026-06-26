@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:33 Asia/Taipei
+- generated_at: 2026-06-26 22:22:27 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260624
-- price_rows: 23
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 35.61
-- high: 35.77
-- low: 35.58
-- close: 35.77
-- volume: 525000
-- ma5: 35.99
-- ema23_primary: 35.86
-- distance_to_ema23_pct: -0.25
-- ma20: 35.86
-- ma60: 35.86
-- ma120: 35.86
-- return_5d: -1.46
-- return_20d: -0.42
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -0.24
-- distance_to_high_60_pct: -1.6
+- date: 20260626
+- open: 35.75
+- high: 35.75
+- low: 35.43
+- close: 35.51
+- volume: 667000
+- ma5: 35.86
+- ema23_primary: 35.83
+- distance_to_ema23_pct: -0.89
+- ma20: 35.84
+- ma60: 35.85
+- ma120: 35.85
+- return_5d: -1.77
+- return_20d: -1.11
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: -0.91
+- distance_to_high_60_pct: -2.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,35.92,35.95,35.89,35.91,36000,,,,,
 20260528,35.92,35.93,35.7,35.7,36000,35.82,-0.33,35.85,35.85,1
 20260529,35.73,36.06,35.73,36.05,36000,35.84,0.59,35.89,35.89,1
 20260601,36.05,36.1,36.01,36.1,36000,35.86,0.67,35.92,35.92,1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,36.09,36.19,36.09,36.18,722000,35.87,0.87,35.87,35.87,2.05
 20260623,36.18,36.18,35.84,35.84,589000,35.87,-0.08,35.87,35.87,1.55
 20260624,35.61,35.77,35.58,35.77,525000,35.86,-0.25,35.86,35.86,1.3
+20260626,35.75,35.75,35.43,35.51,667000,35.83,-0.89,35.84,35.85,1.53
 ```
 
 ## Latest TDCC Snapshot

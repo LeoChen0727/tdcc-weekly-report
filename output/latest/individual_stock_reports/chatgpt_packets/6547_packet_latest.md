@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6547 高端疫苗
 
 ## Metadata
-- generated_at: 2026-06-25 22:24:26 Asia/Taipei
+- generated_at: 2026-06-26 22:24:21 Asia/Taipei
 - stock_id: 6547
 - stock_name: 高端疫苗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 155
+- latest_price_date: 20260626
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 45.65
-- high: 46.35
-- low: 45.3
-- close: 46.1
-- volume: 1084000
-- ma5: 45.46
-- ema23_primary: 46.44
-- distance_to_ema23_pct: -0.74
-- ma20: 46.14
-- ma60: 49.3
-- ma120: 43.97
-- return_5d: 1.54
-- return_20d: 0.22
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -0.09
-- distance_to_high_60_pct: -24.67
+- date: 20260626
+- open: 45.75
+- high: 46.4
+- low: 45
+- close: 45.45
+- volume: 1699000
+- ma5: 45.45
+- ema23_primary: 46.36
+- distance_to_ema23_pct: -1.97
+- ma20: 46.15
+- ma60: 49.14
+- ma120: 44.04
+- return_5d: -0.11
+- return_20d: 0.11
+- volume_ratio: 1.59
+- distance_to_ma20_pct_auxiliary: -1.51
+- distance_to_high_60_pct: -25.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,46.2,46.4,45.4,45.4,46000,48.17,-5.75,48.24,47.91,0.03
 20260528,45.5,46.25,44.2,44.2,45000,47.84,-7.6,48.05,48.05,0.03
 20260529,44.4,45.6,44.3,45.2,45000,47.62,-5.08,47.84,48.21,0.04
 20260601,45.5,46.3,44.8,46,46000,47.48,-3.12,47.65,48.37,0.04
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,45.8,45.8,45.05,45.1,1438000,46.57,-3.16,46.2,49.58,1.72
 20260623,45.5,47.3,45.35,45.4,1984000,46.48,-2.32,46.14,49.4,2.12
 20260624,45.65,46.35,45.3,46.1,1084000,46.44,-0.74,46.14,49.3,1.1
+20260626,45.75,46.4,45,45.45,1699000,46.36,-1.97,46.15,49.14,1.59
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1722 台肥
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:50 Asia/Taipei
+- generated_at: 2026-06-26 22:22:44 Asia/Taipei
 - stock_id: 1722
 - stock_name: 台肥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 47.4
-- high: 47.9
-- low: 47.25
-- close: 47.7
-- volume: 1583271
-- ma5: 48.06
-- ema23_primary: 47.59
-- distance_to_ema23_pct: 0.23
-- ma20: 47.66
-- ma60: 46.66
-- ma120: 46.73
-- return_5d: -1.95
-- return_20d: 4.15
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 0.09
-- distance_to_high_60_pct: -8.27
+- date: 20260626
+- open: 47.5
+- high: 47.6
+- low: 46.95
+- close: 47.2
+- volume: 2020969
+- ma5: 47.73
+- ema23_primary: 47.56
+- distance_to_ema23_pct: -0.75
+- ma20: 47.73
+- ma60: 46.68
+- ma120: 46.72
+- return_5d: -3.38
+- return_20d: 3.4
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -1.12
+- distance_to_high_60_pct: -9.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,45.85,45.95,45.35,45.65,3501779,46.17,-1.13,46.74,46.33,0.52
 20260528,46.5,46.8,46,46.1,4019190,46.17,-0.14,46.61,46.31,0.68
 20260529,46.4,46.6,46.05,46.6,2427793,46.2,0.86,46.41,46.3,0.61
 20260601,46.6,47.2,46.1,47.05,4239047,46.27,1.68,46.34,46.32,1.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.15,48.45,47.7,48,2684343,47.58,0.88,47.48,46.58,0.76
 20260623,48.05,48.1,47.5,47.6,2025755,47.58,0.04,47.56,46.62,0.58
 20260624,47.4,47.9,47.25,47.7,1583271,47.59,0.23,47.66,46.66,0.46
+20260626,47.5,47.6,46.95,47.2,2020969,47.56,-0.75,47.73,46.68,0.6
 ```
 
 ## Latest TDCC Snapshot

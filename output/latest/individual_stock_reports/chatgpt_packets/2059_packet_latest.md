@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2059 川湖
 
 ## Metadata
-- generated_at: 2026-06-25 22:22:56 Asia/Taipei
+- generated_at: 2026-06-26 22:22:49 Asia/Taipei
 - stock_id: 2059
 - stock_name: 川湖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 290
+- latest_price_date: 20260626
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 7620
-- high: 7620
-- low: 7275
-- close: 7505
-- volume: 532094
-- ma5: 7203
-- ema23_primary: 6244.03
-- distance_to_ema23_pct: 20.19
-- ma20: 6178.75
-- ma60: 4808.58
-- ma120: 4081.04
-- return_5d: 12.86
-- return_20d: 49.06
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 21.46
-- distance_to_high_60_pct: -2.47
+- date: 20260626
+- open: 7205
+- high: 7480
+- low: 6895
+- close: 6990
+- volume: 536216
+- ma5: 7277
+- ema23_primary: 6306.19
+- distance_to_ema23_pct: 10.84
+- ma20: 6282.25
+- ma60: 4865.08
+- ma120: 4108.79
+- return_5d: 5.59
+- return_20d: 42.07
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 11.27
+- distance_to_high_60_pct: -9.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,5065,5195,4875,4920,562767,4639.7,6.04,4777.25,3892.25,0.87
 20260528,4930,5120,4615,4700,593987,4644.72,1.19,4804.25,3913.58,0.94
 20260529,4920,5145,4825,5065,839930,4679.75,8.23,4862,3943.33,1.38
 20260601,5285,5345,5110,5215,720624,4724.35,10.39,4920,3977.42,1.18
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,7050,7550,7045,7550,967008,6007.07,25.69,5930.5,4679.42,1.31
 20260623,7600,7695,7220,7475,519704,6129.39,21.95,6055.25,4743.75,0.69
 20260624,7620,7620,7275,7505,532094,6244.03,20.19,6178.75,4808.58,0.7
+20260626,7205,7480,6895,6990,536216,6306.19,10.84,6282.25,4865.08,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260624 | 2059 | 川湖 | 172 | 0 | 17014160.0 | 0.0 |  | no_signal |
+| 20260626 | 2059 | 川湖 | 165 | 17 | 36513700.0 | 211830.0 | 172.37 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
