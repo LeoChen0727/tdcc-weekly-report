@@ -32,6 +32,11 @@ PARAMETER_SET_ID = "w_bottom_early_entry_parameter_grid_20260626"
 SURFACE_ID = "w_bottom_right_low_early_entry"
 PRODUCTION_READINESS = "not_production_ready_research_only"
 BASELINE_CONDITION_ID = "all_early_entry_rows"
+TARGET_HORIZON_DAYS = 40
+PROFIT_TARGET_PCT = 10.0
+NEUTRAL_PROFIT_FLOOR_PCT = 5.0
+TAKE_PROFIT_OUTCOME_ID = "take_profit_10pct_close_40d"
+NEUTRAL_AFTER_GAIN_OUTCOME_ID = "tp10_or_neutral_after_5pct_close_40d"
 
 FORBIDDEN_PRODUCTION_FIELDS = {
     "trade_decision",
@@ -98,6 +103,8 @@ DETAIL_COLUMNS = [
     "mature",
     "success",
     "positive_return",
+    "neutral_outcome",
+    "outcome_result",
     "approved_for_daily",
     "production_readiness",
     "generated_at",
@@ -126,6 +133,8 @@ GRID_COLUMNS = [
     "success_rate_pct",
     "positive_return_count",
     "positive_return_rate_pct",
+    "neutral_count",
+    "neutral_rate_pct",
     "avg_return_pct",
     "median_return_pct",
     "baseline_condition_set_id",
@@ -362,6 +371,257 @@ def compute_features(row: pd.Series, cache: dict[tuple[str, str, str, str, str, 
     return features
 
 
+def event_key(row: pd.Series) -> tuple[str, str, str, str, str, str, str]:
+    return (
+        safe_str(row.get("event_set_id")),
+        normalize_code(row.get("stock_id")),
+        normalize_date(row.get("source_signal_date")),
+        normalize_date(row.get("entry_signal_date")),
+        normalize_date(row.get("left_peak_date")),
+        normalize_date(row.get("neckline_date")),
+        normalize_date(row.get("right_low_date")),
+    )
+
+
+def result_label(*, mature: bool, success: bool, neutral: bool) -> str:
+    if neutral:
+        return "neutral"
+    if not mature:
+        return "incomplete"
+    return "win" if success else "loss"
+
+
+def base_detail_row(row: pd.Series, features: dict[str, str], generated_at: str) -> dict[str, Any]:
+    out = {
+        "model_id": MODEL_ID,
+        "confirmation_model_id": CONFIRMATION_MODEL_ID,
+        "overlay_model_id": OVERLAY_MODEL_ID,
+        "research_id": RESEARCH_ID,
+        "source_research_id": SOURCE_RESEARCH_ID,
+        "research_variant_id": RESEARCH_VARIANT_ID,
+        "parameter_set_id": PARAMETER_SET_ID,
+        "advisory_status": RESEARCH_VARIANT_ID,
+        "surface_id": SURFACE_ID,
+        "event_set_id": safe_str(row.get("event_set_id")),
+        "comparison_status": safe_str(row.get("comparison_status")),
+        "entry_rule_id": "right_low_signal_next_open",
+        "stock_id": normalize_code(row.get("stock_id")),
+        "stock_name": safe_str(row.get("stock_name")),
+        "source_signal_date": normalize_date(row.get("source_signal_date")),
+        "entry_signal_date": normalize_date(row.get("entry_signal_date")),
+        "left_peak_date": normalize_date(row.get("left_peak_date")),
+        "left_low_date": normalize_date(row.get("left_low_date")),
+        "neckline_date": normalize_date(row.get("neckline_date")),
+        "right_low_date": normalize_date(row.get("right_low_date")),
+        "neckline_price": safe_str(row.get("neckline_price")),
+        "price_position_252_pct": safe_str(row.get("price_position_252_pct")),
+        "price_level_bucket": safe_str(row.get("price_level_bucket")),
+        "slope_curvature_category": safe_str(row.get("slope_curvature_category")),
+        "effective_mainstream_label": safe_str(row.get("effective_mainstream_label")),
+        "has_hot_theme": bool_text(bool_value(row.get("has_hot_theme"))),
+        "tdcc_any_age7": bool_text(bool_value(row.get("tdcc_any_age7"))),
+        "tdcc_any_age14": bool_text(bool_value(row.get("tdcc_any_age14"))),
+        "approved_for_daily": "false",
+        "production_readiness": PRODUCTION_READINESS,
+        "generated_at": generated_at,
+    }
+    out.update(features)
+    return out
+
+
+def copy_source_outcome_row(row: pd.Series, features: dict[str, str], generated_at: str) -> dict[str, Any]:
+    mature = bool_value(row.get("mature"))
+    success = bool_value(row.get("success"))
+    out = base_detail_row(row, features, generated_at)
+    out.update(
+        {
+            "entry_rule_id": safe_str(row.get("entry_rule_id")),
+            "outcome_rule_id": safe_str(row.get("outcome_rule_id")),
+            "outcome_rule_description": safe_str(row.get("outcome_rule_description")),
+            "horizon_trading_days": safe_str(row.get("horizon_trading_days")),
+            "entry_date": normalize_date(row.get("entry_date")),
+            "entry_open_price": safe_str(row.get("entry_open_price")),
+            "exit_date": normalize_date(row.get("exit_date")),
+            "exit_close_price": safe_str(row.get("exit_close_price")),
+            "exit_reason": safe_str(row.get("exit_reason")),
+            "return_pct": safe_str(row.get("return_pct")),
+            "mature": bool_text(mature),
+            "success": bool_text(success),
+            "positive_return": bool_text(bool_value(row.get("positive_return"))),
+            "neutral_outcome": "false",
+            "outcome_result": result_label(mature=mature, success=success, neutral=False),
+        }
+    )
+    return out
+
+
+def incomplete_target_row(
+    row: pd.Series,
+    features: dict[str, str],
+    generated_at: str,
+    *,
+    outcome_rule_id: str,
+    description: str,
+    exit_reason: str,
+) -> dict[str, Any]:
+    out = base_detail_row(row, features, generated_at)
+    out.update(
+        {
+            "outcome_rule_id": outcome_rule_id,
+            "outcome_rule_description": description,
+            "horizon_trading_days": str(TARGET_HORIZON_DAYS),
+            "entry_date": "",
+            "entry_open_price": "",
+            "exit_date": "",
+            "exit_close_price": "",
+            "exit_reason": exit_reason,
+            "return_pct": "",
+            "mature": "false",
+            "success": "false",
+            "positive_return": "false",
+            "neutral_outcome": "false",
+            "outcome_result": "incomplete",
+        }
+    )
+    return out
+
+
+def close_return_pct(close: float, entry_open: float) -> float:
+    return (close / entry_open - 1.0) * 100.0 if close > 0 and entry_open > 0 else math.nan
+
+
+def target_profit_row(
+    row: pd.Series,
+    features: dict[str, str],
+    generated_at: str,
+    *,
+    outcome_rule_id: str,
+    description: str,
+    neutral_after_gain: bool,
+) -> dict[str, Any]:
+    stock_id = normalize_code(row.get("stock_id"))
+    signal_date = normalize_date(row.get("entry_signal_date") or row.get("source_signal_date"))
+    price = load_price(stock_id)
+    signal_idx = date_index(price, signal_date)
+    if signal_idx is None:
+        return incomplete_target_row(
+            row,
+            features,
+            generated_at,
+            outcome_rule_id=outcome_rule_id,
+            description=description,
+            exit_reason="missing_entry_signal_date",
+        )
+    entry_idx = signal_idx + 1
+    exit_limit = entry_idx + TARGET_HORIZON_DAYS - 1
+    if exit_limit >= len(price):
+        return incomplete_target_row(
+            row,
+            features,
+            generated_at,
+            outcome_rule_id=outcome_rule_id,
+            description=description,
+            exit_reason="insufficient_future_price",
+        )
+
+    entry_open = safe_float(price.iloc[entry_idx].get("open"))
+    if math.isnan(entry_open) or entry_open <= 0:
+        return incomplete_target_row(
+            row,
+            features,
+            generated_at,
+            outcome_rule_id=outcome_rule_id,
+            description=description,
+            exit_reason="missing_entry_price",
+        )
+
+    exit_idx = exit_limit
+    exit_reason = f"fixed_{TARGET_HORIZON_DAYS}d_close_no_10pct_target"
+    success = False
+    neutral = False
+    exceeded_neutral_floor = False
+    for idx in range(entry_idx, exit_limit + 1):
+        close = safe_float(price.iloc[idx].get("close"))
+        ret = close_return_pct(close, entry_open)
+        if math.isnan(ret):
+            continue
+        if ret >= PROFIT_TARGET_PCT:
+            exit_idx = idx
+            exit_reason = "target_10pct_close"
+            success = True
+            neutral = False
+            break
+        if neutral_after_gain:
+            if exceeded_neutral_floor and ret <= NEUTRAL_PROFIT_FLOOR_PCT:
+                exit_idx = idx
+                exit_reason = "neutral_returned_to_5pct_after_above_5pct"
+                success = False
+                neutral = True
+                break
+            if ret > NEUTRAL_PROFIT_FLOOR_PCT:
+                exceeded_neutral_floor = True
+
+    exit_close = safe_float(price.iloc[exit_idx].get("close"))
+    if math.isnan(exit_close):
+        return incomplete_target_row(
+            row,
+            features,
+            generated_at,
+            outcome_rule_id=outcome_rule_id,
+            description=description,
+            exit_reason="missing_exit_price",
+        )
+    return_pct = close_return_pct(exit_close, entry_open)
+    mature = not neutral
+    out = base_detail_row(row, features, generated_at)
+    out.update(
+        {
+            "outcome_rule_id": outcome_rule_id,
+            "outcome_rule_description": description,
+            "horizon_trading_days": str(TARGET_HORIZON_DAYS),
+            "entry_date": normalize_date(price.iloc[entry_idx].get("date")),
+            "entry_open_price": metric_text(entry_open),
+            "exit_date": normalize_date(price.iloc[exit_idx].get("date")),
+            "exit_close_price": metric_text(exit_close),
+            "exit_reason": exit_reason,
+            "return_pct": metric_text(return_pct),
+            "mature": bool_text(mature),
+            "success": bool_text(success),
+            "positive_return": bool_text(return_pct > 0),
+            "neutral_outcome": bool_text(neutral),
+            "outcome_result": result_label(mature=mature, success=success, neutral=neutral),
+        }
+    )
+    return out
+
+
+def derived_target_rows(row: pd.Series, features: dict[str, str], generated_at: str) -> list[dict[str, Any]]:
+    return [
+        target_profit_row(
+            row,
+            features,
+            generated_at,
+            outcome_rule_id=TAKE_PROFIT_OUTCOME_ID,
+            description=(
+                "Buy next open after right-low observation signal; first close at +10% or better "
+                "within 40 trading days is a win, otherwise sell day-40 close."
+            ),
+            neutral_after_gain=False,
+        ),
+        target_profit_row(
+            row,
+            features,
+            generated_at,
+            outcome_rule_id=NEUTRAL_AFTER_GAIN_OUTCOME_ID,
+            description=(
+                "Buy next open; first close at +10% or better is a win. If close return first exceeds "
+                "+5% but returns to +5% before +10%, record a neutral sample excluded from win/loss."
+            ),
+            neutral_after_gain=True,
+        ),
+    ]
+
+
 def build_detail(generated_at: str) -> pd.DataFrame:
     source = read_csv(SOURCE_DETAIL_CSV)
     required = {
@@ -389,55 +649,14 @@ def build_detail(generated_at: str) -> pd.DataFrame:
     early = source[source["surface_id"].eq(SURFACE_ID)].copy()
     cache: dict[tuple[str, str, str, str, str, str], dict[str, str]] = {}
     rows: list[dict[str, Any]] = []
+    target_seen: set[tuple[str, str, str, str, str, str, str]] = set()
     for _, row in early.iterrows():
         features = compute_features(row, cache)
-        out = {
-            "model_id": MODEL_ID,
-            "confirmation_model_id": CONFIRMATION_MODEL_ID,
-            "overlay_model_id": OVERLAY_MODEL_ID,
-            "research_id": RESEARCH_ID,
-            "source_research_id": SOURCE_RESEARCH_ID,
-            "research_variant_id": RESEARCH_VARIANT_ID,
-            "parameter_set_id": PARAMETER_SET_ID,
-            "advisory_status": RESEARCH_VARIANT_ID,
-            "surface_id": SURFACE_ID,
-            "event_set_id": safe_str(row.get("event_set_id")),
-            "comparison_status": safe_str(row.get("comparison_status")),
-            "entry_rule_id": safe_str(row.get("entry_rule_id")),
-            "outcome_rule_id": safe_str(row.get("outcome_rule_id")),
-            "outcome_rule_description": safe_str(row.get("outcome_rule_description")),
-            "horizon_trading_days": safe_str(row.get("horizon_trading_days")),
-            "stock_id": normalize_code(row.get("stock_id")),
-            "stock_name": safe_str(row.get("stock_name")),
-            "source_signal_date": normalize_date(row.get("source_signal_date")),
-            "entry_signal_date": normalize_date(row.get("entry_signal_date")),
-            "left_peak_date": normalize_date(row.get("left_peak_date")),
-            "left_low_date": normalize_date(row.get("left_low_date")),
-            "neckline_date": normalize_date(row.get("neckline_date")),
-            "right_low_date": normalize_date(row.get("right_low_date")),
-            "neckline_price": safe_str(row.get("neckline_price")),
-            "price_position_252_pct": safe_str(row.get("price_position_252_pct")),
-            "price_level_bucket": safe_str(row.get("price_level_bucket")),
-            "slope_curvature_category": safe_str(row.get("slope_curvature_category")),
-            "effective_mainstream_label": safe_str(row.get("effective_mainstream_label")),
-            "has_hot_theme": bool_text(bool_value(row.get("has_hot_theme"))),
-            "tdcc_any_age7": bool_text(bool_value(row.get("tdcc_any_age7"))),
-            "tdcc_any_age14": bool_text(bool_value(row.get("tdcc_any_age14"))),
-            "entry_date": normalize_date(row.get("entry_date")),
-            "entry_open_price": safe_str(row.get("entry_open_price")),
-            "exit_date": normalize_date(row.get("exit_date")),
-            "exit_close_price": safe_str(row.get("exit_close_price")),
-            "exit_reason": safe_str(row.get("exit_reason")),
-            "return_pct": safe_str(row.get("return_pct")),
-            "mature": bool_text(bool_value(row.get("mature"))),
-            "success": bool_text(bool_value(row.get("success"))),
-            "positive_return": bool_text(bool_value(row.get("positive_return"))),
-            "approved_for_daily": "false",
-            "production_readiness": PRODUCTION_READINESS,
-            "generated_at": generated_at,
-        }
-        out.update(features)
-        rows.append(out)
+        rows.append(copy_source_outcome_row(row, features, generated_at))
+        key = event_key(row)
+        if key not in target_seen:
+            rows.extend(derived_target_rows(row, features, generated_at))
+            target_seen.add(key)
 
     detail = pd.DataFrame(rows)
     for column in DETAIL_COLUMNS:
@@ -506,6 +725,7 @@ def metrics(sample: pd.DataFrame) -> dict[str, Any]:
     mature_size = int(len(returns))
     success_count = int(mature["success"].map(bool_value).sum()) if mature_size else 0
     positive_count = int(mature["positive_return"].map(bool_value).sum()) if mature_size else 0
+    neutral_count = int(sample["neutral_outcome"].map(bool_value).sum()) if sample_size else 0
     level_counts = sample["price_level_bucket"].value_counts().to_dict() if sample_size else {}
     path_counts = sample["slope_curvature_category"].value_counts().to_dict() if sample_size else {}
     return {
@@ -515,6 +735,8 @@ def metrics(sample: pd.DataFrame) -> dict[str, Any]:
         "success_rate_pct_num": success_count / mature_size * 100.0 if mature_size else math.nan,
         "positive_return_count": positive_count,
         "positive_return_rate_pct_num": positive_count / mature_size * 100.0 if mature_size else math.nan,
+        "neutral_count": neutral_count,
+        "neutral_rate_pct_num": neutral_count / sample_size * 100.0 if sample_size else math.nan,
         "avg_return_pct_num": float(returns.mean()) if mature_size else math.nan,
         "median_return_pct_num": float(returns.median()) if mature_size else math.nan,
         "core_mainstream_count": int(sample["effective_mainstream_label"].eq("core_mainstream").sum()) if sample_size else 0,
@@ -613,6 +835,8 @@ def grid_row(
         "success_rate_pct": metric_text(row_metrics["success_rate_pct_num"]),
         "positive_return_count": row_metrics["positive_return_count"],
         "positive_return_rate_pct": metric_text(row_metrics["positive_return_rate_pct_num"]),
+        "neutral_count": row_metrics["neutral_count"],
+        "neutral_rate_pct": metric_text(row_metrics["neutral_rate_pct_num"]),
         "avg_return_pct": metric_text(row_metrics["avg_return_pct_num"]),
         "median_return_pct": metric_text(row_metrics["median_return_pct_num"]),
         "baseline_condition_set_id": BASELINE_CONDITION_ID,
@@ -723,6 +947,8 @@ def write_markdown(grid: pd.DataFrame, generated_at: str) -> None:
         "- price convention: entry uses next trading day's open; exit uses exit day's close.",
         "- surface: `w_bottom_right_low_early_entry` only.",
         "- purpose: compare second-low early-entry conditions before any production model promotion.",
+        "- added outcome rules: `take_profit_10pct_close_40d` and `tp10_or_neutral_after_5pct_close_40d`.",
+        "- neutral rule: after a close return first exceeds +5%, a later close back to +5% before +10% remains in `sample_size` but is excluded from win/loss denominator.",
         "",
         "## Top Variant Rows",
         "",
@@ -734,6 +960,8 @@ def write_markdown(grid: pd.DataFrame, generated_at: str) -> None:
                 "sample_size",
                 "mature_sample_size",
                 "success_rate_pct",
+                "neutral_count",
+                "neutral_rate_pct",
                 "avg_return_pct",
                 "median_return_pct",
                 "delta_success_rate_pct_vs_all",
@@ -753,6 +981,8 @@ def write_markdown(grid: pd.DataFrame, generated_at: str) -> None:
                 "sample_size",
                 "mature_sample_size",
                 "success_rate_pct",
+                "neutral_count",
+                "neutral_rate_pct",
                 "avg_return_pct",
                 "median_return_pct",
                 "research_interpretation",
@@ -765,6 +995,7 @@ def write_markdown(grid: pd.DataFrame, generated_at: str) -> None:
         "- This is research/backtest advisory-only work.",
         "- Rows remain `approved_for_daily=false` and `warning_research_variant_only`.",
         "- This grid does not modify production conditions, scoring, ranking, PDFs, or baselines.",
+        "- Neutral outcomes remain research-only and must not be treated as production approval.",
         "- Strong-looking rows are promotion-review candidates only; they are not production rules.",
     ]
     LATEST_MD.parent.mkdir(parents=True, exist_ok=True)

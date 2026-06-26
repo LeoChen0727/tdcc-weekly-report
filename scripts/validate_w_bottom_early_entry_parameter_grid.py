@@ -31,6 +31,8 @@ EXPECTED_OUTCOME_RULES = {
     "fixed_40d_close_positive_return",
     "reach_neckline_close_before_right_low_stop_40d",
     "volume_breakout_close_before_right_low_stop_40d",
+    "take_profit_10pct_close_40d",
+    "tp10_or_neutral_after_5pct_close_40d",
 }
 EXPECTED_CONDITION_IDS = {
     BASELINE_CONDITION_ID,
@@ -80,6 +82,8 @@ REQUIRED_DETAIL_COLUMNS = [
     "mature",
     "success",
     "positive_return",
+    "neutral_outcome",
+    "outcome_result",
     "approved_for_daily",
     "production_readiness",
 ]
@@ -105,6 +109,8 @@ REQUIRED_GRID_COLUMNS = [
     "success_rate_pct",
     "positive_return_count",
     "positive_return_rate_pct",
+    "neutral_count",
+    "neutral_rate_pct",
     "avg_return_pct",
     "median_return_pct",
     "baseline_condition_set_id",
@@ -189,6 +195,9 @@ def validate_markdown(path: Path) -> None:
         "production impact: `none`",
         "entry uses next trading day's open; exit uses exit day's close",
         "surface: `w_bottom_right_low_early_entry` only",
+        "take_profit_10pct_close_40d",
+        "tp10_or_neutral_after_5pct_close_40d",
+        "excluded from win/loss denominator",
         "approved_for_daily=false",
         "Strong-looking rows are promotion-review candidates only",
     ]
@@ -217,9 +226,9 @@ def main() -> int:
         fail("latest/history detail row counts differ")
     if len(latest_grid) != len(history_grid):
         fail("latest/history grid row counts differ")
-    if len(latest_detail) < 5000:
+    if len(latest_detail) < 6500:
         fail(f"detail row count unexpectedly small: {len(latest_detail)}")
-    if len(latest_grid) < 300:
+    if len(latest_grid) < 500:
         fail(f"grid row count unexpectedly small: {len(latest_grid)}")
 
     if set(latest_detail["event_set_id"].astype(str)) != EXPECTED_EVENT_SETS:
@@ -235,10 +244,13 @@ def main() -> int:
     if missing_conditions:
         fail(f"grid missing expected condition ids: {missing_conditions}")
 
-    for column in ["mature", "success", "positive_return"]:
+    for column in ["mature", "success", "positive_return", "neutral_outcome"]:
         values = set(latest_detail[column].astype(str).str.lower())
         if not values.issubset({"true", "false"}):
             fail(f"detail {column} must be true/false")
+    result_values = set(latest_detail["outcome_result"].astype(str))
+    if not result_values.issubset({"win", "loss", "neutral", "incomplete"}):
+        fail(f"detail outcome_result has unexpected values: {sorted(result_values)}")
 
     mature = latest_detail[latest_detail["mature"].astype(str).str.lower().eq("true")].copy()
     if mature.empty:
@@ -266,11 +278,13 @@ def main() -> int:
             "mature_sample_size",
             "success_count",
             "positive_return_count",
+            "neutral_count",
             "baseline_sample_size",
             "baseline_mature_sample_size",
         ],
         "latest grid",
     )
+    validate_numeric(latest_grid, ["neutral_rate_pct"], "latest grid")
 
     fixed = latest_detail[latest_detail["outcome_rule_id"].str.startswith("fixed_")]
     fixed_mature = fixed[fixed["mature"].astype(str).str.lower().eq("true")]
@@ -281,6 +295,29 @@ def main() -> int:
     ]
     if not mismatch.empty:
         fail("fixed-horizon success must equal positive_return")
+
+    neutral_rule = latest_detail[latest_detail["outcome_rule_id"].eq("tp10_or_neutral_after_5pct_close_40d")]
+    if neutral_rule.empty:
+        fail("missing neutral-after-gain outcome rows")
+    neutral_rows = neutral_rule[neutral_rule["neutral_outcome"].astype(str).str.lower().eq("true")]
+    if neutral_rows.empty:
+        fail("neutral-after-gain outcome produced no neutral rows")
+    bad_neutral = neutral_rows[
+        neutral_rows["mature"].astype(str).str.lower().ne("false")
+        | neutral_rows["success"].astype(str).str.lower().ne("false")
+        | neutral_rows["outcome_result"].astype(str).ne("neutral")
+    ]
+    if not bad_neutral.empty:
+        fail("neutral rows must be mature=false, success=false, outcome_result=neutral")
+
+    take_profit = latest_detail[latest_detail["outcome_rule_id"].eq("take_profit_10pct_close_40d")]
+    if take_profit.empty:
+        fail("missing take-profit outcome rows")
+    take_profit_wins = take_profit[take_profit["success"].astype(str).str.lower().eq("true")]
+    if take_profit_wins.empty:
+        fail("take-profit outcome produced no wins")
+    if not take_profit_wins["exit_reason"].astype(str).eq("target_10pct_close").all():
+        fail("take-profit wins must exit on target_10pct_close")
 
     print(
         "W-bottom early-entry parameter grid validation passed "
