@@ -156,6 +156,7 @@ def validate_markdown() -> None:
         "short-window stability check",
         "Strict Segment Monthly Rollup",
         "smooth_right_rebound_5_20 Monthly Detail",
+        "Market Regime Rollup",
         "mature_period_stability_status",
         "next_review_status",
         "does not modify production conditions, scoring, ranking, PDFs, baselines, or daily_full_pipeline",
@@ -191,8 +192,8 @@ def main() -> int:
         fail(f"missing expected segment ids: {missing_segments}")
     if not {"period", "summary"}.issubset(set(latest["row_type"].astype(str))):
         fail("row_type must include period and summary")
-    if not {"all", "quarter", "month"}.issubset(set(latest["period_type"].astype(str))):
-        fail("period_type must include all, quarter, and month")
+    if not {"all", "quarter", "month", "market_regime"}.issubset(set(latest["period_type"].astype(str))):
+        fail("period_type must include all, quarter, month, and market_regime")
 
     validate_numeric(
         latest,
@@ -238,6 +239,14 @@ def main() -> int:
     ]
     if months["period_id"].nunique() < 4:
         fail("smooth_right_rebound_5_20 must cover at least four signal months for this audit")
+    regimes = latest[
+        latest["row_type"].eq("period")
+        & latest["period_type"].eq("market_regime")
+        & latest["outcome_rule_id"].eq("tp10_or_neutral_after_5pct_close_40d")
+        & latest["segment_id"].eq("smooth_right_rebound_5_20")
+    ]
+    if regimes["period_id"].nunique() < 2:
+        fail("smooth_right_rebound_5_20 must cover at least two market regimes for this audit")
 
     print(f"W-bottom early-entry stability audit validation passed rows={len(latest)}")
     return 0

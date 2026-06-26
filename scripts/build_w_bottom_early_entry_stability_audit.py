@@ -14,6 +14,7 @@ RESEARCH_LATEST_DIR = ROOT / "output" / "latest" / "research_backtest"
 RESEARCH_HISTORY_DIR = ROOT / "output" / "history" / "research"
 
 SOURCE_DETAIL_CSV = RESEARCH_LATEST_DIR / "w_bottom_early_entry_parameter_grid_detail_latest.csv"
+MARKET_INDEX_HISTORY_CSV = ROOT / "data" / "market_index_history.csv"
 LATEST_CSV = RESEARCH_LATEST_DIR / "w_bottom_early_entry_stability_audit_latest.csv"
 LATEST_MD = RESEARCH_LATEST_DIR / "w_bottom_early_entry_stability_audit_latest.md"
 HISTORY_CSV = RESEARCH_HISTORY_DIR / "w_bottom_early_entry_stability_audit.csv"
@@ -158,6 +159,58 @@ def normalize_date(value: Any) -> str:
 
 def num(series: pd.Series) -> pd.Series:
     return pd.to_numeric(series, errors="coerce")
+
+
+def bool_value(value: Any) -> bool:
+    return safe_str(value).lower() in {"true", "1", "yes", "y"}
+
+
+def classify_index_regime(row: pd.Series) -> str:
+    if row.empty:
+        return "unknown"
+    above_ma20 = bool_value(row.get("above_ma20"))
+    above_ma60 = bool_value(row.get("above_ma60"))
+    ret20 = pd.to_numeric(pd.Series([row.get("return_20d")]), errors="coerce").iloc[0]
+    if above_ma20 and above_ma60 and not math.isnan(ret20) and ret20 >= 3.0:
+        return "strong_bull"
+    if above_ma20 and above_ma60:
+        return "mild_bull"
+    if not above_ma20 and not math.isnan(ret20) and ret20 <= -3.0:
+        return "correction"
+    return "range_or_mixed"
+
+
+def combine_index_regimes(twse_regime: str, tpex_regime: str) -> str:
+    regimes = {twse_regime, tpex_regime}
+    if "correction" in regimes:
+        return "correction"
+    if regimes == {"strong_bull"}:
+        return "strong_bull"
+    if regimes <= {"strong_bull", "mild_bull"}:
+        return "mild_bull"
+    if regimes == {"unknown"}:
+        return "unknown"
+    return "range_or_mixed"
+
+
+def load_market_regime_map() -> dict[str, str]:
+    if not MARKET_INDEX_HISTORY_CSV.exists():
+        return {}
+    df = read_csv(MARKET_INDEX_HISTORY_CSV)
+    required = {"date", "index_code", "above_ma20", "above_ma60", "return_20d"}
+    if df.empty or not required.issubset(df.columns):
+        return {}
+    df = df.copy()
+    df["date"] = df["date"].map(normalize_date)
+    df["index_code"] = df["index_code"].map(safe_str)
+    regimes: dict[str, str] = {}
+    for date, group in df[df["date"].ne("")].groupby("date", dropna=False):
+        twse_part = group[group["index_code"].eq("TWSE")]
+        tpex_part = group[group["index_code"].eq("TPEX")]
+        twse_regime = classify_index_regime(twse_part.iloc[-1]) if not twse_part.empty else "unknown"
+        tpex_regime = classify_index_regime(tpex_part.iloc[-1]) if not tpex_part.empty else "unknown"
+        regimes[safe_str(date)] = combine_index_regimes(twse_regime, tpex_regime)
+    return regimes
 
 
 def metric_series(sample: pd.DataFrame, column: str) -> pd.Series:
@@ -527,6 +580,8 @@ def build_audit(generated_at: str) -> pd.DataFrame:
     detail["source_signal_date"] = detail["source_signal_date"].map(normalize_date)
     detail["signal_month"] = detail["source_signal_date"].map(month_id)
     detail["signal_quarter"] = detail["source_signal_date"].map(quarter_id)
+    market_regimes = load_market_regime_map()
+    detail["signal_market_regime"] = detail["source_signal_date"].map(lambda date: market_regimes.get(date, "unknown"))
 
     rows: list[dict[str, Any]] = []
     for outcome_rule_id, outcome_group in detail.groupby("outcome_rule_id", dropna=False):
@@ -569,6 +624,17 @@ def build_audit(generated_at: str) -> pd.DataFrame:
                         segment_description=description,
                         period_type="month",
                         period_column="signal_month",
+                        generated_at=generated_at,
+                    )
+                )
+                segment_rows.extend(
+                    period_rows_for_group(
+                        group=segment,
+                        outcome_rule_id=outcome_rule_id,
+                        segment_id=segment_id,
+                        segment_description=description,
+                        period_type="market_regime",
+                        period_column="signal_market_regime",
                         generated_at=generated_at,
                     )
                 )
@@ -622,6 +688,16 @@ def write_markdown(audit: pd.DataFrame, generated_at: str) -> None:
         & audit["period_type"].eq("month")
         & audit["segment_id"].eq("smooth_right_rebound_5_20")
     ].copy()
+    neutral_regime = audit[
+        audit["outcome_rule_id"].eq("tp10_or_neutral_after_5pct_close_40d")
+        & audit["row_type"].eq("period")
+        & audit["period_type"].eq("market_regime")
+        & audit["segment_id"].isin(STRICT_SEGMENTS)
+    ].copy()
+    neutral_regime["segment_order"] = neutral_regime["segment_id"].map(
+        {segment_id: idx for idx, segment_id in enumerate(STRICT_SEGMENTS)}
+    )
+    neutral_regime = neutral_regime.sort_values(["segment_order", "period_id"])
     populated_periods = sorted(
         period for period in neutral_month["period_id"].astype(str).unique() if period
     )
@@ -686,6 +762,26 @@ def write_markdown(audit: pd.DataFrame, generated_at: str) -> None:
                 "research_interpretation",
             ],
             20,
+        ),
+        "",
+        "## Market Regime Rollup",
+        "",
+        *markdown_table(
+            neutral_regime,
+            [
+                "segment_id",
+                "period_id",
+                "sample_size",
+                "evaluated_sample_size",
+                "mature_sample_size",
+                "win_count",
+                "neutral_count",
+                "loss_count",
+                "win_rate_excl_neutral_pct",
+                "neutral_rate_evaluated_pct",
+                "research_interpretation",
+            ],
+            80,
         ),
         "",
         "## Guardrails",
