@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Stability Audit
 
-- generated_at: `2026-06-26 23:53:08 Asia/Taipei`
+- generated_at: `2026-06-27 00:20:19 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_parameter_grid`
 - production impact: `none`
 - surface: `w_bottom_right_low_early_entry` only.
@@ -9,14 +9,22 @@
 
 ## Strict Segment Monthly Rollup
 
-| segment_id | period_count | periods_with_mature_ge5 | periods_with_mature_ge10 | sample_size | mature_sample_size | win_count | neutral_count | loss_count | win_rate_excl_neutral_pct | neutral_rate_evaluated_pct | min_period_win_rate_pct | max_period_win_rate_pct | stability_status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| smooth_right_rebound_5_20 | 20 | 8 | 3 | 172 | 96 | 44 | 46 | 52 | 45.8333 | 32.3944 | 0.0000 | 100.0000 | unstable_period_win_rate |
-| smooth_price_le40_right_rebound_5_20 | 20 | 8 | 1 | 158 | 87 | 39 | 41 | 48 | 44.8276 | 32.0312 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
-| smooth_core_mainstream_right_rebound_5_20 | 17 | 4 | 1 | 95 | 53 | 29 | 28 | 24 | 54.7170 | 34.5679 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
-| smooth_core_mainstream_price_le40_right_rebound_5_20 | 17 | 4 | 0 | 85 | 45 | 24 | 26 | 21 | 53.3333 | 36.6197 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
-| smooth_right_rebound_5_20_red_ratio_gt_first | 19 | 5 | 0 | 100 | 57 | 26 | 26 | 31 | 45.6140 | 31.3253 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
-| smooth_right_rebound_5_20_near_neckline | 18 | 6 | 0 | 102 | 61 | 28 | 25 | 33 | 45.9016 | 29.0698 | 0.0000 | 100.0000 | insufficient_period_coverage_for_promotion |
+| segment_id | period_count | periods_with_mature_ge5 | periods_with_mature_ge10 | sample_size | mature_sample_size | win_count | neutral_count | loss_count | win_rate_excl_neutral_pct | neutral_rate_evaluated_pct | min_period_win_rate_pct | max_period_win_rate_pct | win_rate_range_mature_ge5_pct | win_rate_range_mature_ge10_pct | stability_status | mature_period_stability_status | next_review_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| smooth_right_rebound_5_20 | 20 | 8 | 3 | 172 | 96 | 44 | 46 | 52 | 45.8333 | 32.3944 | 0.0000 | 100.0000 | 63.3333 | 50.0000 | unstable_period_win_rate | mature_ge5_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| smooth_price_le40_right_rebound_5_20 | 20 | 8 | 1 | 158 | 87 | 39 | 41 | 48 | 44.8276 | 32.0312 | 0.0000 | 100.0000 | 61.1111 | 0.0000 | insufficient_period_coverage_for_promotion | mature_ge5_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| smooth_core_mainstream_right_rebound_5_20 | 17 | 4 | 1 | 95 | 53 | 29 | 28 | 24 | 54.7170 | 34.5679 | 0.0000 | 100.0000 | 71.4286 | 0.0000 | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_core_mainstream_price_le40_right_rebound_5_20 | 17 | 4 | 0 | 85 | 45 | 24 | 26 | 21 | 53.3333 | 36.6197 | 0.0000 | 100.0000 | 71.4286 |  | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_right_rebound_5_20_red_ratio_gt_first | 19 | 5 | 0 | 100 | 57 | 26 | 26 | 31 | 45.6140 | 31.3253 | 0.0000 | 100.0000 | 63.3333 |  | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_right_rebound_5_20_near_neckline | 18 | 6 | 0 | 102 | 61 | 28 | 25 | 33 | 45.9016 | 29.0698 | 0.0000 | 100.0000 | 63.3333 |  | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| price_le30_rebound_3_20_volume_red | 21 | 19 | 16 | 606 | 351 | 143 | 156 | 208 | 40.7407 | 30.7692 | 19.2308 | 60.0000 | 40.7692 | 40.7692 | unstable_period_win_rate | mature_ge10_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| price_le30_rebound_5_20_volume_red | 21 | 18 | 10 | 401 | 233 | 100 | 106 | 133 | 42.9185 | 31.2684 | 16.6667 | 70.5882 | 53.9215 | 53.9215 | unstable_period_win_rate | mature_ge10_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| price_le30_rebound_3_20_volume_red_below_neckline5 | 21 | 15 | 9 | 344 | 192 | 75 | 93 | 117 | 39.0625 | 32.6316 | 0.0000 | 100.0000 | 58.9286 | 42.5000 | unstable_period_win_rate | mature_ge10_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| bottom_or_low_rebound_3_20_volume_red_exclude_wv | 21 | 16 | 12 | 388 | 231 | 100 | 102 | 131 | 43.2900 | 30.6306 | 0.0000 | 70.5882 | 50.5882 | 44.2724 | unstable_period_win_rate | mature_ge10_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| core_mainstream_price_le30_rebound_3_20_volume_red | 21 | 16 | 8 | 322 | 192 | 87 | 82 | 105 | 45.3125 | 29.9270 | 11.1111 | 100.0000 | 73.5043 | 64.6154 | unstable_period_win_rate | mature_ge10_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| core_or_hot_price_le30_rebound_3_20_volume_red | 21 | 16 | 8 | 322 | 192 | 87 | 82 | 105 | 45.3125 | 29.9270 | 11.1111 | 100.0000 | 73.5043 | 64.6154 | unstable_period_win_rate | mature_ge10_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| smooth_price_le30_rebound_3_20_volume_red | 19 | 8 | 0 | 124 | 70 | 32 | 30 | 38 | 45.7143 | 30.0000 | 0.0000 | 100.0000 | 57.1429 |  | insufficient_period_coverage_for_promotion | mature_ge5_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
+| smooth_price_le30_rebound_5_20_volume_red | 18 | 4 | 0 | 79 | 44 | 22 | 20 | 22 | 50.0000 | 31.2500 | 0.0000 | 100.0000 | 43.3333 |  | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
 
 ## smooth_right_rebound_5_20 Monthly Detail
 

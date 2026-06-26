@@ -39,6 +39,14 @@ STRICT_SEGMENTS = [
     "smooth_core_mainstream_price_le40_right_rebound_5_20",
     "smooth_right_rebound_5_20_red_ratio_gt_first",
     "smooth_right_rebound_5_20_near_neckline",
+    "price_le30_rebound_3_20_volume_red",
+    "price_le30_rebound_5_20_volume_red",
+    "price_le30_rebound_3_20_volume_red_below_neckline5",
+    "bottom_or_low_rebound_3_20_volume_red_exclude_wv",
+    "core_mainstream_price_le30_rebound_3_20_volume_red",
+    "core_or_hot_price_le30_rebound_3_20_volume_red",
+    "smooth_price_le30_rebound_3_20_volume_red",
+    "smooth_price_le30_rebound_5_20_volume_red",
 ]
 
 FORBIDDEN_PRODUCTION_FIELDS = {
@@ -88,7 +96,15 @@ OUTPUT_COLUMNS = [
     "min_period_win_rate_pct",
     "max_period_win_rate_pct",
     "win_rate_range_pct",
+    "min_period_win_rate_mature_ge5_pct",
+    "max_period_win_rate_mature_ge5_pct",
+    "win_rate_range_mature_ge5_pct",
+    "min_period_win_rate_mature_ge10_pct",
+    "max_period_win_rate_mature_ge10_pct",
+    "win_rate_range_mature_ge10_pct",
     "stability_status",
+    "mature_period_stability_status",
+    "next_review_status",
     "sample_warning",
     "research_interpretation",
     "approved_for_daily",
@@ -165,6 +181,16 @@ def quarter_id(date_text: str) -> str:
 
 
 def segment_specs() -> list[tuple[str, str, Callable[[pd.DataFrame], pd.Series]]]:
+    price_le30 = lambda df: num(df["price_position_252_pct"]).le(30.0)
+    rebound_3_20 = lambda df: num(df["signal_rebound_from_right_low_pct"]).between(3.0, 20.0, inclusive="both")
+    rebound_5_20 = lambda df: num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")
+    volume_red = lambda df: num(df["second_arc_volume_ratio"]).ge(1.2) & num(df["red_ratio_delta_pct"]).gt(0.0)
+    smooth = lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like")
+    exclude_wv = lambda df: ~df["slope_curvature_category"].eq("wv_multiple_turn_risk")
+    bottom_or_low = lambda df: df["price_level_bucket"].isin(["bottom_quartile_level", "low_level"])
+    core_mainstream = lambda df: df["effective_mainstream_label"].eq("core_mainstream")
+    core_or_hot = lambda df: df["effective_mainstream_label"].eq("core_mainstream") | df["has_hot_theme"].astype(str).str.lower().eq("true")
+    below_neckline5 = lambda df: num(df["neckline_distance_pct"]).le(-5.0)
     return [
         (BASELINE_SEGMENT_ID, "All variant right-low early-entry rows.", lambda df: pd.Series(True, index=df.index)),
         ("smooth_right_rebound_5_20", "Smooth rounded W-like path and signal rebound 5% to 20%.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
@@ -173,6 +199,14 @@ def segment_specs() -> list[tuple[str, str, Callable[[pd.DataFrame], pd.Series]]
         ("smooth_core_mainstream_price_le40_right_rebound_5_20", "Smooth rounded W-like path, core_mainstream, price_position_252_pct <= 40, and signal rebound 5% to 20%.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & df["effective_mainstream_label"].eq("core_mainstream") & num(df["price_position_252_pct"]).le(40.0) & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
         ("smooth_right_rebound_5_20_red_ratio_gt_first", "Smooth rounded W-like path, signal rebound 5% to 20%, and second arc red ratio > first arc.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both") & num(df["red_ratio_delta_pct"]).gt(0.0)),
         ("smooth_right_rebound_5_20_near_neckline", "Smooth rounded W-like path, signal rebound 5% to 20%, and signal is within 5% below neckline.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both") & num(df["neckline_distance_pct"]).between(-5.0, 0.0, inclusive="both")),
+        ("price_le30_rebound_3_20_volume_red", "price_position_252_pct <= 30, signal rebound 3% to 20%, second arc volume >= 1.2x first arc, and second arc red ratio > first arc.", lambda df: price_le30(df) & rebound_3_20(df) & volume_red(df)),
+        ("price_le30_rebound_5_20_volume_red", "price_position_252_pct <= 30, signal rebound 5% to 20%, second arc volume >= 1.2x first arc, and second arc red ratio > first arc.", lambda df: price_le30(df) & rebound_5_20(df) & volume_red(df)),
+        ("price_le30_rebound_3_20_volume_red_below_neckline5", "price_position_252_pct <= 30, signal rebound 3% to 20%, second arc volume/red improvement, and signal remains at least 5% below neckline.", lambda df: price_le30(df) & rebound_3_20(df) & volume_red(df) & below_neckline5(df)),
+        ("bottom_or_low_rebound_3_20_volume_red_exclude_wv", "Bottom/low price level, signal rebound 3% to 20%, second arc volume/red improvement, and excludes WV/WVV multiple-turn paths.", lambda df: bottom_or_low(df) & rebound_3_20(df) & volume_red(df) & exclude_wv(df)),
+        ("core_mainstream_price_le30_rebound_3_20_volume_red", "core_mainstream, price_position_252_pct <= 30, signal rebound 3% to 20%, and second arc volume/red improvement.", lambda df: core_mainstream(df) & price_le30(df) & rebound_3_20(df) & volume_red(df)),
+        ("core_or_hot_price_le30_rebound_3_20_volume_red", "core_mainstream or hot theme, price_position_252_pct <= 30, signal rebound 3% to 20%, and second arc volume/red improvement.", lambda df: core_or_hot(df) & price_le30(df) & rebound_3_20(df) & volume_red(df)),
+        ("smooth_price_le30_rebound_3_20_volume_red", "Smooth rounded W-like path, price_position_252_pct <= 30, signal rebound 3% to 20%, and second arc volume/red improvement.", lambda df: smooth(df) & price_le30(df) & rebound_3_20(df) & volume_red(df)),
+        ("smooth_price_le30_rebound_5_20_volume_red", "Smooth rounded W-like path, price_position_252_pct <= 30, signal rebound 5% to 20%, and second arc volume/red improvement.", lambda df: smooth(df) & price_le30(df) & rebound_5_20(df) & volume_red(df)),
     ]
 
 
@@ -241,6 +275,53 @@ def summary_interpretation(period_rows: pd.DataFrame) -> str:
     return "directionally_stable_research_only"
 
 
+def row_float(row: dict[str, Any], column: str) -> float:
+    try:
+        value = float(safe_str(row.get(column)))
+    except ValueError:
+        return math.nan
+    return value if not math.isnan(value) else math.nan
+
+
+def row_int(row: dict[str, Any], column: str) -> int:
+    try:
+        return int(float(safe_str(row.get(column))))
+    except ValueError:
+        return 0
+
+
+def mature_period_stability_status(row: dict[str, Any]) -> str:
+    periods_ge10 = row_int(row, "periods_with_mature_ge10")
+    periods_ge5 = row_int(row, "periods_with_mature_ge5")
+    if periods_ge10 >= 6:
+        win_range = row_float(row, "win_rate_range_mature_ge10_pct")
+        min_win = row_float(row, "min_period_win_rate_mature_ge10_pct")
+        if not math.isnan(win_range) and win_range <= 25.0 and not math.isnan(min_win) and min_win >= 40.0:
+            return "mature_ge10_stability_candidate_research_only"
+        return "mature_ge10_unstable_or_weak_research_only"
+    if periods_ge5 >= 8:
+        win_range = row_float(row, "win_rate_range_mature_ge5_pct")
+        min_win = row_float(row, "min_period_win_rate_mature_ge5_pct")
+        if not math.isnan(win_range) and win_range <= 25.0 and not math.isnan(min_win) and min_win >= 40.0:
+            return "mature_ge5_stability_candidate_research_only"
+        return "mature_ge5_unstable_or_weak_research_only"
+    return "insufficient_mature_periods_research_only"
+
+
+def next_review_status(row: dict[str, Any]) -> str:
+    mature_sample = row_int(row, "mature_sample_size")
+    win_rate = row_float(row, "win_rate_excl_neutral_pct")
+    avg_return = row_float(row, "avg_return_pct")
+    stability = safe_str(row.get("mature_period_stability_status"))
+    if "stability_candidate" in stability and mature_sample >= 60 and win_rate >= 50.0 and avg_return > 0:
+        return "candidate_for_next_research_filter_review"
+    if mature_sample >= 60 and win_rate >= 50.0 and avg_return > 0:
+        return "promising_but_period_stability_blocked"
+    if "insufficient_mature_periods" in stability:
+        return "blocked_by_insufficient_monthly_repetition"
+    return "blocked_by_unstable_or_weak_monthly_result"
+
+
 def base_row(
     *,
     outcome_rule_id: str,
@@ -291,7 +372,15 @@ def base_row(
         "min_period_win_rate_pct": "",
         "max_period_win_rate_pct": "",
         "win_rate_range_pct": "",
+        "min_period_win_rate_mature_ge5_pct": "",
+        "max_period_win_rate_mature_ge5_pct": "",
+        "win_rate_range_mature_ge5_pct": "",
+        "min_period_win_rate_mature_ge10_pct": "",
+        "max_period_win_rate_mature_ge10_pct": "",
+        "win_rate_range_mature_ge10_pct": "",
         "stability_status": "",
+        "mature_period_stability_status": "",
+        "next_review_status": "",
         "sample_warning": sample_warning(metrics_row),
         "research_interpretation": period_interpretation(metrics_row),
         "approved_for_daily": "false",
@@ -343,7 +432,11 @@ def summary_row(
     generated_at: str,
 ) -> dict[str, Any]:
     period_df = pd.DataFrame([row for row in all_rows if row["row_type"] == "period" and row["period_type"] == "month"])
-    win_rates = pd.to_numeric(period_df["win_rate_excl_neutral_pct"], errors="coerce").dropna() if not period_df.empty else pd.Series(dtype=float)
+    win_rate_values = pd.to_numeric(period_df["win_rate_excl_neutral_pct"], errors="coerce") if not period_df.empty else pd.Series(dtype=float)
+    mature_values = pd.to_numeric(period_df["mature_sample_size"], errors="coerce") if not period_df.empty else pd.Series(dtype=float)
+    win_rates = win_rate_values.dropna()
+    win_rates_ge5 = win_rate_values[mature_values.ge(5)].dropna() if not period_df.empty else pd.Series(dtype=float)
+    win_rates_ge10 = win_rate_values[mature_values.ge(10)].dropna() if not period_df.empty else pd.Series(dtype=float)
     aggregate_metrics = {
         "sample_size": int(pd.to_numeric(period_df["sample_size"], errors="coerce").sum()) if not period_df.empty else 0,
         "evaluated_sample_size": int(pd.to_numeric(period_df["evaluated_sample_size"], errors="coerce").sum()) if not period_df.empty else 0,
@@ -364,6 +457,12 @@ def summary_row(
     aggregate_metrics["win_rate_num"] = aggregate_metrics["win_count"] / mature * 100.0 if mature else math.nan
     aggregate_metrics["neutral_rate_num"] = aggregate_metrics["neutral_count"] / evaluated * 100.0 if evaluated else math.nan
     aggregate_metrics["incomplete_rate_num"] = aggregate_metrics["incomplete_count"] / sample_size * 100.0 if sample_size else math.nan
+    if not period_df.empty:
+        avg_returns = pd.to_numeric(period_df["avg_return_pct"], errors="coerce")
+        avg_weights = pd.to_numeric(period_df["evaluated_sample_size"], errors="coerce")
+        weighted = avg_returns.notna() & avg_weights.gt(0)
+        if weighted.any():
+            aggregate_metrics["avg_return_num"] = float((avg_returns[weighted] * avg_weights[weighted]).sum() / avg_weights[weighted].sum())
     row = base_row(
         outcome_rule_id=outcome_rule_id,
         segment_id=segment_id,
@@ -383,7 +482,15 @@ def summary_row(
     row["min_period_win_rate_pct"] = metric_text(float(win_rates.min())) if not win_rates.empty else ""
     row["max_period_win_rate_pct"] = metric_text(float(win_rates.max())) if not win_rates.empty else ""
     row["win_rate_range_pct"] = metric_text(float(win_rates.max() - win_rates.min())) if not win_rates.empty else ""
+    row["min_period_win_rate_mature_ge5_pct"] = metric_text(float(win_rates_ge5.min())) if not win_rates_ge5.empty else ""
+    row["max_period_win_rate_mature_ge5_pct"] = metric_text(float(win_rates_ge5.max())) if not win_rates_ge5.empty else ""
+    row["win_rate_range_mature_ge5_pct"] = metric_text(float(win_rates_ge5.max() - win_rates_ge5.min())) if not win_rates_ge5.empty else ""
+    row["min_period_win_rate_mature_ge10_pct"] = metric_text(float(win_rates_ge10.min())) if not win_rates_ge10.empty else ""
+    row["max_period_win_rate_mature_ge10_pct"] = metric_text(float(win_rates_ge10.max())) if not win_rates_ge10.empty else ""
+    row["win_rate_range_mature_ge10_pct"] = metric_text(float(win_rates_ge10.max() - win_rates_ge10.min())) if not win_rates_ge10.empty else ""
     row["stability_status"] = summary_interpretation(period_df)
+    row["mature_period_stability_status"] = mature_period_stability_status(row)
+    row["next_review_status"] = next_review_status(row)
     row["research_interpretation"] = row["stability_status"]
     return row
 
@@ -399,7 +506,11 @@ def build_audit(generated_at: str) -> pd.DataFrame:
         "signal_rebound_from_right_low_pct",
         "slope_curvature_category",
         "effective_mainstream_label",
+        "has_hot_theme",
+        "price_level_bucket",
+        "second_arc_volume_ratio",
         "price_position_252_pct",
+        "second_low_gap_pct",
         "red_ratio_delta_pct",
         "neckline_distance_pct",
         "approved_for_daily",
@@ -548,7 +659,11 @@ def write_markdown(audit: pd.DataFrame, generated_at: str) -> None:
                 "neutral_rate_evaluated_pct",
                 "min_period_win_rate_pct",
                 "max_period_win_rate_pct",
+                "win_rate_range_mature_ge5_pct",
+                "win_rate_range_mature_ge10_pct",
                 "stability_status",
+                "mature_period_stability_status",
+                "next_review_status",
             ],
             20,
         ),
