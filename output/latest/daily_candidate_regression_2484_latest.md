@@ -4,7 +4,7 @@
 - stock_name: `希華`
 - status: `pass`
 - raw_universe: `True`
-- raw_history_rows: `294`
+- raw_history_rows: `295`
 - first_entry_zone_date: `20260511`
 - first_early_entry_date: `20260518`
 - first_attack_date: `20260520`

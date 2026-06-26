@@ -30419,6 +30419,45 @@ B棟2樓12單元
 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
 本則重大訊息同時符合證券交易法施行細則第7條第6款所定
 對股東權益或證券價格有重大影響之事項):無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 08:06:02 Asia/Taipei
+20260624,6541,泰福-KY,new_order,,"代重要子公司Tanvex BioPharma USA, Inc.公告生物相似藥
+TX05 (Herceptin Biosimilar)產品因下游充填包裝廠查廠問題
+接獲美國FDA完整回覆信函(CRL)","1.事實發生日:115/06/24
+2.公司名稱:Tanvex BioPharma USA, Inc.
+3.與公司關係(請輸入本公司或子公司):子公司
+4.相互持股比例:本公司持股100%子公司。
+5.發生緣由:Tanvex BioPharma USA, Inc.(本公司之子公司，以下簡稱「Tanvex US」)
+於美國時間2026年6月23日接獲美國食品藥物管理局(FDA)針對其生物製劑查驗登記申請
+(BLA) TX05 (Herceptin之生物相似藥)所發出之完整回覆信函(Complete Response
+Letter, CRL)。
+6.因應措施:無。
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+(1) 研發新藥名稱或代號：重組蛋白生物相似藥TX05 (Herceptin Biosimilar)。
+(2) 用途：與參考藥Herceptin相同，目前除了主要適應症為乳癌外，還包括胃癌。
+(3) 預計進行之所有研發階段：不適用。
+(4) 目前進行中之研發階段：
+    A. 提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他影
+       響新藥研發之重大事件：
+       除需由下游製造商改善之事項外，FDA於本次CRL中未就Tanvex US所製造之原料
+       藥(drug substance)提出任何問題。
+    B. 未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計
+       上顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應
+       措施：Tanvex US目前正與下游製造廠商積極討論相關改善措施、預計將於7月
+             底前向FDA提交回覆。
+    C. 通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上顯
+       著意義或發生其他影響新藥研發之重大事件者，未來經營方向：不適用。
+    D. 已投入之累積研發費用：基於TX05產品未來國際合作可能性或因涉及營業機密
+                             考量，為保障公司及投資人權益，故不予公開揭露。
+(5) 將再進行之下一研發階段：Tanvex US將持續與下游製造商合作，以完成BLA審查
+                            程序。
+    A. 預計完成時間：視主管機關審查時間而定。
+    B. 預計應負擔之義務：不適用。
+(6) 巿場現況：根據國際醫藥專業統計機構IQVIA之資料，截至2026年3月，Herceptin及
+              其他生物相似藥產品，過去一年之美國市場銷售額約為10億美元，目前
+              有多種乳癌治療方式，其中以生物藥品治療者，有Perjeta、Enhertu及
+              Kadcyla等品牌。
+(7) 藥物開發具有開發時程長、投入經費高、需經目的事業主管機關審核、且並未保證
+    一定能成功，此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260624,6683,雍智科技,material_information,,"本公司有價證券近期達公佈注意交易資訊標準，
 故公告相關訊息，以利投資人區別暸解","1.事實發生日:115/06/24
 2.發生緣由:依據財團法人中華民國證券櫃檯買賣中心通知處理及辦理公告
@@ -30825,7 +30864,22 @@ B棟2樓12單元
 定評估之價格:不適用
 30.前已就同一件事件發布重大訊息日期: 不適用
 31.其他敘明事項:
-待近期董事會通過後進行簽約",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+待近期董事會通過後進行簽約",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,1563,巧新,shareholder_meeting,,公告本公司訂定除息基準日,"1.董事會、股東會決議或公司決定日期:115/06/25
+2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
+3.普通股發放股利種類及金額:
+盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。
+共計現金股利434,176,280元，每股現金股利2元。
+4.除權（息）交易日:115/07/15
+5.最後過戶日:115/07/16
+6.停止過戶起始日期:115/07/17
+7.停止過戶截止日期:115/07/21
+8.除權（息）基準日:115/07/21
+9.債券最後申請轉換日期:不適用
+10.債券停止轉換起始日期:不適用
+11.債券停止轉換截止日期:不適用
+12.普通股現金股利發放日期:115/08/06
+13.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2317,鴻海,material_information,,"代子公司Foxconn Singapore Pte Ltd.公告取得Foxconn Hon Hai Technology 
 India Mega Development股權","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）:
 Foxconn Hon Hai Technology India Mega Development Private Limited；
@@ -30905,7 +30959,7 @@ Yuzhan Technology (India) Private Limited-India
 自有資金
 29.前已就同一件事件發布重大訊息日期: 不適用
 30.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2323,中環,material_information,,公告本公司取得有價證券,"1.證券名稱:
 群聯  普通股
 2.交易日期:115/6/23~115/6/25
@@ -31244,7 +31298,7 @@ Yuzhan Technology (India) Private Limited-India
 不適用
 29.前已就同一件事件發布重大訊息日期: 不適用
 30.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2352,佳世達,material_information,,"代重要子公司明基醫院集團股份有限公司
 BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、
 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、
@@ -31369,7 +31423,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 6.重要決議事項五、其他事項:
 (1)通過擬發行限制員工權利新股案。
 (2)通過解除本公司董事競業禁止之限制案。
-7.其他應敘明事項:各項議案表決情形請參考公司治理「股東會議案決議情形」。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:各項議案表決情形請參考公司治理「股東會議案決議情形」。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2374,佳能,shareholder_meeting,,本公司115年股東常會通過解除董事競業禁止之限制,"1.股東會決議日:115/06/25
 2.許可從事競業行為之董事姓名及職稱:
 董事：董俊仁(佳美投資股份有限公司代表人)
@@ -31385,7 +31439,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 9.所擔任該大陸地區事業營業項目:不適用。
 10.對本公司財務業務之影響程度:無。
 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。
-12.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+12.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2383,台光電,new_order,,代子公司台光電子材料(昆山)股份有限公司公告取得供營業用之機器設備,"1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
 供營業用之機器設備
 2.事實發生日:115/6/25~115/6/25
@@ -31448,7 +31502,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 定評估之價格:不適用
 30.前已就同一件事件發布重大訊息日期: 不適用
 31.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2409,友達,shareholder_meeting,,代重要子公司友達光電(昆山)有限公司公告股東決議事項,"1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:無
 3.重要決議事項二、章程修訂:核准修訂公司章程案
@@ -31460,14 +31514,14 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 2.發放股利種類及金額:東莞華科電子有限公司董事會決議
 盈餘分配人民幣55,800,000。
 3.其他應敘明事項:東莞華科電子有限公司盈餘分配予其投資方華科香港控股有限公司，
-再由華科香港控股有限公司依投資架構分配回母公司。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+再由華科香港控股有限公司依投資架構分配回母公司。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2492,華新科,material_information,passive_component_theme;MLCC,"代子公司華科香港控股有限公司及開曼華新科技有限公司
 公告董事會決議盈餘分配。","1.董事會決議日期:115/06/25
 2.發放股利種類及金額:
 華科香港控股有限公司董事會決議盈餘分配人民幣67,261,661.34
 開曼華新科技有限公司董事會決議盈餘分配人民幣67,264,500.26
 3.其他應敘明事項:華科香港控股有限公司盈餘分配予其投資方開曼華新科技有限公司，
-再由開曼華新科技有限公司依投資架構分配回母公司。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+再由開曼華新科技有限公司依投資架構分配回母公司。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2548,華固,investor_conference,neutral,本公司受邀參加富邦證券舉辦之法說會,"符合條款第四條第XX款：12
 事實發生日：115/06/25
 1.召開法人說明會之日期：115/06/25
@@ -31488,7 +31542,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 相關日期。
 8.因應措施:無
 9.其他應敘明事項:前述增資發行新股基準日、現金股利及新股發放日與其他相關日期
-於董事長訂定後另行公告。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+於董事長訂定後另行公告。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2836,高雄銀,shareholder_meeting,,公告本公司115年分派114年度特別股股息配發基準日,"1.董事會、股東會決議或公司決定日期:115/06/25
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
 3.發放特別股股利種類及金額:甲種特別股股息總額新台幣31,000,000元，
@@ -31502,7 +31556,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 10.特別股停止轉換起始日期:NA
 11.特別股停止轉換截止日期:NA
 12.特別股現金股利發放日期:115/08/07
-13.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+13.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2836,高雄銀,material_information,,公告本公司取得高雄市政府經濟發展局使用權資產,"1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
 高雄市岡山區本工路17號1至3樓部分面積之使用權資產
 2.事實發生日:115/6/25~115/6/25
@@ -31576,7 +31630,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 定評估之價格:不適用
 30.前已就同一件事件發布重大訊息日期: 不適用
 31.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2880,華南金,material_information,,代子公司華南商業銀行公告受金管會核處新臺幣800萬元罰鍰一案,"1.事實發生日：115/06/25
 2.事實發生主體：代子公司申報：華南商業銀行
 3.發生緣由(事件說明)：依據金管會115年6月25日新聞稿，華南商業銀行未完善建立及未確實執行內部
@@ -31590,7 +31644,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 9.可能獲得保險理賠之金額(元)：不適用
 10.改善情形及未來因應措施：本公司將依主管機關指示辦理改善事宜。
 11.是否前已就同一事件發布重大訊息：否
-12.其他應述明事項：無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+12.其他應述明事項：無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2881,富邦金,new_order,,"富邦金控代子公司富邦綜合證券公告董事會決議通過新台幣
 200億元聯合授信作業案","1.事實發生日:115/06/25
 2.契約或承諾相對人:第一商業銀行、彰化商業銀行、永豐商業銀
@@ -31605,7 +31659,7 @@ BenQ BM Holding Cayman Corp.公告執行長異動","1.人員變動別（請輸�
 10.具體目的:充實中期營運週轉資金
 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2881,富邦金,new_order,,富邦金控代富邦人壽保險(香港)公告取得EQT XI (NO.1) USD SCSP,"1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，
 如股息率等）:
 EQT XI (NO.1) USD SCSP私募基金
@@ -31666,7 +31720,7 @@ EQT FUND MANAGEMENT S.A R.L.，無
 24.會計師開業證書字號:
 台財證登(六)字第4408號
 25.其他敘明事項:
-持股比例會因基金規模有所調整",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+持股比例會因基金規模有所調整",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2881,富邦金,shareholder_meeting,,"富邦金控代富邦保險經紀人(泰國)股份有限公司
 公告115年度股東會重要決議事項","1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司2025年盈餘分配案
@@ -31674,21 +31728,21 @@ EQT FUND MANAGEMENT S.A R.L.，無
 4.重要決議事項三、營業報告書及財務報表:承認本公司2025年度簽證財報報告案
 5.重要決議事項四、董監事選舉:無
 6.重要決議事項五、其他事項:無
-7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2881,富邦金,shareholder_meeting,,富邦金控代富邦投顧公告股東會重要決議事項,"1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:無
 3.重要決議事項二、章程修訂:無
 4.重要決議事項三、營業報告書及財務報表:無
 5.重要決議事項四、董監事選舉:無
 6.重要決議事項五、其他事項:通過修正「取得或處分資產處理程序」案
-7.其他應敘明事項:董事會代行股東會職權",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:董事會代行股東會職權",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2881,富邦金,shareholder_meeting,,富邦金控代富邦納閩再保公告股東會重要決議事項,"1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:通過2025年度盈餘分配案
 3.重要決議事項二、章程修訂:無
 4.重要決議事項三、營業報告書及財務報表:承認2025年度簽證財務報表報告案
 5.重要決議事項四、董監事選舉:無
 6.重要決議事項五、其他事項:承認會計師提名及任命承認案
-7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2881,富邦金,new_order,,富邦金控代富邦華一銀行有限公司公告授信資產處分（補充115/05/28公告）,"1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）:
 不良類授信資產
 2.事實發生日:115/6/25~115/6/25
@@ -31754,7 +31808,7 @@ EQT FUND MANAGEMENT S.A R.L.，無
 29.前已就同一件事件發布重大訊息日期:
 115年5月28日
 30.其他敘明事項:
-填寫幣別為人民幣",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+填寫幣別為人民幣",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,new_order,,"(更新公告)代子公司開發資本所屬之GM公告董事會
 決議投資M37 Offshore Fund Ltd.","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，
 如股息率等）:
@@ -31822,7 +31876,7 @@ M37 Offshore Fund Ltd.之Series A股份
 25.其他敘明事項:
 1)以115/06/05美金:新臺幣 匯率1: 31.475計算。
 2)GM為CDIB Global Markets Limited之簡稱。
-3)本交易擬分階段為之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+3)本交易擬分階段為之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,material_information,,"代子公司中華開發資本所屬之中華開發創業投資股份有限公司公告
 處分中美矽晶製品股份有限公司股票","1.證券名稱:
 中美矽晶製品股份有限公司普通股
@@ -31859,7 +31913,7 @@ M37 Offshore Fund Ltd.之Series A股份
 不適用
 15.前已就同一件事件發布重大訊息日期: 不適用
 16.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,material_information,,"代子公司開發資本所屬中華開發資本管理顧問(股)公司公告
 向凱基人壽保險(股)公司取得不動產使用權資產","1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
 臺北市松山區敦化北路135號地下平面式停車位。
@@ -31939,7 +31993,7 @@ NA
 定評估之價格:不適用
 30.前已就同一件事件發布重大訊息日期: 不適用
 31.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,new_order,,"代子公司開發資本所屬之CI I公告董事會決議認購
 Ocean View Limited發行之次順位債券","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）:
 Ocean View Limited發行之次順位債券
@@ -32014,7 +32068,7 @@ Ocean View Limited發行之次順位債券
 30.其他敘明事項:
 1)以115/06/05港幣:新臺幣 匯率1: 4.018計算。
 2)CI I為CDIB Capital Investment I Limited之簡稱。
-3)投資金額將以港幣等值之美金匯款",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+3)投資金額將以港幣等值之美金匯款",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,new_order,,"代子公司開發資本所屬之CI I更新公告董事會決議投資
 Tensor Edge Capital Offshore Fund, LP權益","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，
 如股息率等）:
@@ -32087,7 +32141,7 @@ Tensor Edge Capital Offshore Fund, LP之有限合夥權益
 3)本交易擬分階段為之。
 4) CI I前於115年5月29日經董事會通過決議投資Tensor Edge Capital Offshore Fund, 
    LP，並於同日辦理重訊公告，現因於115年6月25日經董事會決議前揭交易承諾出資總額
-   從不超過美金17佰萬元提高為不超過美金20佰萬元，故辦理更新公告。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+   從不超過美金17佰萬元提高為不超過美金20佰萬元，故辦理更新公告。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,new_order,,"代子公司開發資本所屬之GM公告董事會決議投資
 Greywolf Fund III權益","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，
 如股息率等）:
@@ -32162,7 +32216,7 @@ Greywolf Maritime Opportunities Offshore Fund III LP之有限合夥權益
 1)以115/6/5美金:新臺幣 匯率1: 31.475計算。
 2)GM為CDIB Global Markets Limited之簡稱。
 3)Greywolf Fund III為Greywolf Maritime Opportunities Offshore Fund 
-III LP之簡稱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+III LP之簡稱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,new_order,,"代子公司開發資本所屬之GM公告董事會決議投資
 M37 Offshore Fund Ltd.","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，
 如股息率等）:
@@ -32230,7 +32284,7 @@ M37 Offshore Fund Ltd.之Series A股份
 25.其他敘明事項:
 1)以115/06/05美金:新臺幣 匯率1: 31.475計算。
 2)GM為CDIB Global Markets Limited之簡稱。
-3)本交易擬分階段為之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+3)本交易擬分階段為之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,new_order,,"代子公司開發資本所屬之GM公告董事會決議投資
 SIF XII-Scale Cayman, L.P.權益","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，
 如股息率等）:
@@ -32299,7 +32353,7 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 中市會證字第0191號
 25.其他敘明事項:
 1)以115/6/5美金:新臺幣 匯率1: 31.475計算。
-2)GM為CDIB Global Markets Limited之簡稱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+2)GM為CDIB Global Markets Limited之簡稱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2883,凱基金,material_information,,"代子公司開發資本所屬之中華開發創業投資(股)公司公告
 董事會決議參與投資TSMG基金","1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，
 如股息率等）:
@@ -32367,7 +32421,7 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 不適用。
 25.其他敘明事項:
 開發資本集團擬與他方合作對外籌集及設立台灣全球智慧製造基金(TSMG基金)，基金規模
-暫定為不低於新臺幣30億元。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+暫定為不低於新臺幣30億元。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2885,元大金,shareholder_meeting,,"元大金控代子公司元大證券公告114年度盈餘分配案之現金
 股利除息基準日","1.董事會、股東會決議或公司決定日期:115/06/25
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
@@ -32378,7 +32432,7 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 6.停止過戶起始日期:NA
 7.停止過戶截止日期:NA
 8.除權（息）基準日:115/06/26
-9.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+9.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2885,元大金,shareholder_meeting,,"元大金控代子公司元大證券公告董事會代行股東會重要決
 議事項","1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度盈餘分派案
@@ -32386,13 +32440,13 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表
 5.重要決議事項四、董監事選舉:無
 6.重要決議事項五、其他事項:通過盈餘轉增資發行新股案
-7.其他應敘明事項:依公司法及金融控股公司法規定由董事會代行股東會職權。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:依公司法及金融控股公司法規定由董事會代行股東會職權。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2885,元大金,shareholder_meeting,,"元大金控代子公司元大證券公告董事會代行股東臨時會
 重要決議事項","1.股東臨時會日期:115/06/25
 2.重要決議事項:通過子公司元大投資(韓國)投資
 「Yuanta Next Unicorn Scale up Fund」（名稱暫定）暨擔任該基金普通合夥人
 3.其他應敘明事項:依公司法及金融控股公司法規定由元大證券董事會代行股東臨時會
-職權",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+職權",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2886,兆豐金,material_information,,"代本公司之子公司兆豐國際證券投資信託股份有限公司公告
 董事長異動","1.董事會決議日期或發生變動日期:115/06/25
 2.人員別（請輸入董事長或總經理）:董事長
@@ -32406,7 +32460,7 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 9.新任生效日期:不適用
 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):
-本案生效日為115/07/01",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+本案生效日為115/07/01",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2886,兆豐金,material_information,,"公告本公司之子公司兆豐國際證券投資信託(股)公司
 董事異動案","1.發生變動日期:115/06/25
 2.法人名稱:兆豐金融控股股份有限公司
@@ -32417,19 +32471,19 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 7.異動原因:辭職
 8.原任期（例xx/xx/xx至xx/xx/xx）:114/04/08至117/04/07
 9.新任生效日期:無
-10.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+10.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2887,台新新光金,shareholder_meeting,,"本公司代子公司元富投顧公告董事會代行股東臨時會
 重要決議事項","1.股東臨時會日期:115/06/25
 2.重要決議事項:
 (1)公司章程修訂案
 (2)與台新投顧合併案
-3.其他應敘明事項:以上議案為董事會代行股東臨時會職權之決議",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+3.其他應敘明事項:以上議案為董事會代行股東臨時會職權之決議",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2887,台新新光金,shareholder_meeting,,"本公司代子公司台新投顧公告115年度股東臨時會重要決議
 事項","1.股東臨時會日期:115/06/25
 2.重要決議事項:
 (1)通過修定『公司章程』案
 (2)通過台新投顧與「元富證券投資顧問股份有限公司」合併案
-3.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+3.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2887,台新新光金,material_information,,本公司代子公司台新資產公告董事及監察人異動,"1.發生變動日期:115/06/25
 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事
   或自然人監察人）:法人董事及法人監察人
@@ -32469,7 +32523,7 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 15.屬三分之一以上董事發生變動（請輸入是或否）:否
 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2887,台新新光金,material_information,,本公司代子公司新光金保代公告董事、監察人任期屆滿改派名單,"1.發生變動日期:115/06/25
 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事
   或自然人監察人）:法人董事、法人監察人
@@ -32514,7 +32568,7 @@ SIF XII-Scale Cayman, L.P.之有限合夥權益
 14.同任期監察人變動比率:不適用(全面改選)
 15.屬三分之一以上董事發生變動（請輸入是或否）:否
 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
-   符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+   符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2891,中信金,new_order,,代子公司中國信託商業銀行更正於民國115年6月22日公告之授信資產轉讓,"1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）:
 金融機構債權(放款)
 2.事實發生日:115/6/25~115/6/25
@@ -32585,7 +32639,7 @@ Hua Nan Commercial Bank, Ltd., Offshore Banking Branch (本次更新)
 29.前已就同一件事件發布重大訊息日期:
 民國115年6月22日
 30.其他敘明事項:
-本交易係依115/06/21之匯率計算(USD 1=NTD 31.6020)。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+本交易係依115/06/21之匯率計算(USD 1=NTD 31.6020)。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2892,第一金,material_information,,代子公司第一金證券公告董事會重要決議事項,"1.事實發生日:115/06/25
 2.公司名稱:第一金證券股份有限公司
 3.與公司關係(請輸入本公司或子公司):子公司
@@ -32595,7 +32649,7 @@ Hua Nan Commercial Bank, Ltd., Offshore Banking Branch (本次更新)
 6.因應措施:無
 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
-授權董事長代表本公司簽署並洽商本聯貸案相關契約及文件，並得辦理一切必要事宜。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+授權董事長代表本公司簽署並洽商本聯貸案相關契約及文件，並得辦理一切必要事宜。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,2892,第一金,material_information,,代孫公司第一金投顧公告法人董事代表人異動,"1.發生變動日期:115/06/25
 2.法人名稱:第一金證券股份有限公司
 3.舊任者姓名:無
@@ -32605,7 +32659,8 @@ Hua Nan Commercial Bank, Ltd., Offshore Banking Branch (本次更新)
 7.異動原因:新任
 8.原任期（例xx/xx/xx至xx/xx/xx）: 114/05/05至117/05/04
 9.新任生效日期:115/06/25
-10.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+10.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,2906,高林,material_information,,公告高林實業股份有限公司國內第一次無擔保(例：第一次有擔保)轉(交)換公司債(簡稱：高林一，代碼：29061)停止受理轉交換等相關事項。,內容：本公司國內第&#12032;次無擔保轉換公司債發&#12175;及轉換辦法規定。<br>(一)停止受理轉交換之事由：辦理配股配息作業事宜。<br>(其他事項敘明：)<br>(二)停止受理轉交換登記起訖日期：115年07月03日至115年07月28日止。<br>(三)債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日（115年07月03日）之前一營業日前（115年07月01日），向往來證券商辦理轉換手續。<br>無,TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,3022,威強電,investor_conference,,公告本公司受邀參加元大證券舉辦之法人說明會,"符合條款第四條第XX款：12
 事實發生日：115/06/25
 1.召開法人說明會之日期：115/06/25
@@ -32626,7 +32681,7 @@ Hua Nan Commercial Bank, Ltd., Offshore Banking Branch (本次更新)
   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
 (1)訂約日期:民國115年6月25日
 (2)委託代收價款行庫名稱：台北富邦商業銀行敦南分行
-(3)委託存儲價款行庫名稱：第一商業銀行城東分行",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+(3)委託存儲價款行庫名稱：第一商業銀行城東分行",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,3037,欣興,new_order,,本公司取得機器設備之相關資料,"1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
 機器設備
 2.事實發生日:114/7/3~115/6/25
@@ -32691,7 +32746,86 @@ WINTAKE INTERNATIONAL LIMITED；非關係人
 定評估之價格:不適用
 30.前已就同一件事件發布重大訊息日期: 不適用
 31.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3041,揚智,shareholder_meeting,mainstream_growth,"公告本公司114年第一次私募普通股收足股款
+暨增資基準日","1.事實發生日:115/06/25
+2.公司名稱:揚智科技股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:
+(1)依本公司114年06月30日股東常會決議通過在不超過新台幣10億元額度內辦理。
+(2)本次私募普通股1,873,000股，實際私募價格為每股新台幣24.03元，總金額
+   為新台幣45,008,190元，已於115年06月25日收足股款。
+(3)本次私募增資基準日:115年06月25日。
+6.因應措施:無
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+本次私募普通股相關事宜，請至公開資訊觀測站私募專區查詢。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3041,揚智,shareholder_meeting,mainstream_growth,公告本公司董事會決議114年第一次私募普通股定價及應募人資訊,"1.董事會決議日期:115/06/25
+2.私募有價證券種類:普通股
+3.私募對象及其與公司間關係:
+(1)本次私募對象以符合證券交易法第43條之6及金管證
+發字第1120383220號令之規定擇定特定人，並以策略性
+投資人為限。
+
+(2)已洽定之應募人:
+應募人名稱             與本公司之關係     預計本次私募增資
+                                            認購股數
+--------------------- ----------------  ------------------
+宇全智聯股份有限公司     本公司持股10%        1,873,000
+                        以上大股東
+(3)法人應募人之股東持股比例佔前十名之股東與本公司之關係:
+
+    主要股東名稱              持股比例      與本公司之關係
+------------------------- ---------------- ----------------
+ 光聚晶電聯合股份有限公司      83.78%       本公司持股10%以
+                                           上大股東之股東
+  光譜電工股份有限公司         16.22%       本公司之關係企業
+4.私募股數或張數:1,873,000股之普通股
+5.得私募額度:於不超過新台幣10億元額度內辦理。
+6.私募價格訂定之依據及合理性:
+(1)本次私募普通股之參考價格依定價日前1、3或5個營業日擇一
+計算普通股收盤價簡單算術平均數扣除無償配股除權及配息，並
+加回減資反除權後之股價，或定價日前30個營業日普通股收盤價
+簡單算數平均數扣除無償配股除權及配息，並加回減資反除權後
+之股價，二基準計算價格較高者定之。實際私募價格不得低於參
+考價格之八成。
+(2)定價日前一、三或五個營業日擇一計算普通股收盤價簡單算數
+平均數扣除無償配股除權及配息，並加回減資反除權後分別為
+『30.85』元、『31.00』元、『30.03』元。
+(3)定價日前三十個營業日普通股收盤價簡單算數平均數扣除無償
+配股除權及配息，並加回減資反除權後為『25.81』元。
+(4)擇前五個營業日計算價格『30.03』元及前三十個營業日計算價
+格『25.81』元，兩者取高者『30.03』元為本次私募之參考價格。
+(5)本次擬以每股發行價格『24.03』元辦理私募現金增資發行普通
+股1,873,000股，募得資金共計『45,008,190』元，發行價格為
+上述參考價格之80%，未低於參考價格之八成，尚在股東會決議之
+授權範圍內。
+7.本次私募資金用途:全數用以充實營運資金。
+8.不採用公開募集之理由:
+考量資本市場狀況、籌募資本之時效性、可行性、發行成本及引進
+策略性投資人之實際需求；而私募有價證券於一定期間內受轉讓限
+制之規定，可確保公司與策略性投資夥伴間之長期合作關係，故不
+採用公開募集而擬以私募方式發行有價證券。
+9.獨立董事反對或保留意見:無
+10.實際定價日:115/06/25
+11.參考價格:每股新台幣30.03元
+12.實際私募價格、轉換或認購價格:每股新台幣24.03元
+13.本次私募新股之權利義務:
+與本公司已發行之普通股相同，惟本次私募之普通股於本次交付日起三
+年內，除依證券交易法第43條之8規定外，不得自由轉讓。並於私募普
+通股交付日起滿三年後，擬授權董事會依相關法令規定向主管機關申報
+補辦公開發行並採帳簿劃撥交付，不印製實體方式申請上市交易。
+14.附有轉換、交換或認股者，其換股基準日:不適用。
+15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用。
+16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對
+上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用。
+17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施:
+不適用。
+18.其他應敘明事項:
+(1)董事會授權本次私募股款收足後，由董事長訂定增資基準日。
+(2)本次私募現金增資發行普通股與股份認購合約文字修訂等相關未盡事宜、如因客觀
+環境需要或主管機關要求而須修正或調整時，擬授權董事長全權處理之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,3207,耀勝,shareholder_meeting,,公告本公司115年股東常會全面改選九席董事當選名單,"1.發生變動日期:115/06/25
 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、
 自然人董事或自然人監察人）:法人董事、獨立董事、自然人董事
@@ -32910,7 +33044,7 @@ WINTAKE INTERNATIONAL LIMITED；非關係人
 10.債券停止轉換起始日期:不適用
 11.債券停止轉換截止日期:不適用
 12.普通股現金股利發放日期:115/07/30
-13.其他應敘明事項:無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:45 Asia/Taipei
+13.其他應敘明事項:無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
 20260625,3284,太普高,new_order,,公告本公司董事會通過撤銷處分「科工164」在建工案,"1. 原公告日期：
 115/04/15
 2. 簡述原公告申報內容：
@@ -32921,7 +33055,7 @@ WINTAKE INTERNATIONAL LIMITED；非關係人
 4. 變動後對公司財務業務之影響：
 無。
 5. 其他應敘明事項：
-無。",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,high,high,True,False,True,False,True,False,False,2026-06-26 18:05:45 Asia/Taipei
+無。",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:28 Asia/Taipei
 20260625,3321,同泰,shareholder_meeting,,公告本公司115年股東常會重要決議事項,"1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:
 通過承認114年度虧損撥補表案
@@ -33096,7 +33230,247 @@ MTSL分別承受MSL部分資產、負債及營業對應的權利義務。
 註四：倘涉營運模式變更，請於欄位敘明包括營業範圍變更、產品線擴充/縮減、製程調整、產業
 　　　水平/垂直整合，或其他涉及營運架構調整事項。
 註五：非屬私募資金用以併購案件者，得填寫不適用。
-註六：若本案成就前，尚需經國內、外主管機關(如:投審會、公平交易委員會、反壟斷局或其他單位)核准或許可者，應予敘明相關事項。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+註六：若本案成就前，尚需經國內、外主管機關(如:投審會、公平交易委員會、反壟斷局或其他單位)核准或許可者，應予敘明相關事項。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3711,日月光投控,shareholder_meeting,,"代子公司Universal Scientific Industrial (France)公告
+董事會決議召開2026年股東常會","1.董事會決議日期:115/06/25
+2.股東會召開日期:115/06/30
+3.股東會召開地點:95, rue La Boetie 75008 Paris
+4.召集事由一、報告事項:《2025年度董事長管理報告及會計師審計報告》
+5.召集事由二、承認事項:《2025年度公司財務報告》
+6.召集事由三、討論事項:
+(1)本公司2025年度盈餘分配案
+(2)本公司無簽署關於《法國商業法第227-10條》規範之合約
+(3)更換會計師事務所及簽證會計師案
+(4)授權完成上述議案之相關法律程序
+7.召集事由四、選舉事項:無
+8.召集事由五、其他議案:無
+9.召集事由六、臨時動議:無
+10.停止過戶起始日期:NA
+11.停止過戶截止日期:NA
+12.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3711,日月光投控,new_order,,"代子公司Universal Scientific Industrial (France)公告
+董事會決議更換會計師事務所及簽證會計師","1.董事會通過日期(事實發生日):115/06/25
+2.舊會計師事務所名稱:ERNST & YOUNG et Autres
+3.舊任簽證會計師姓名1:
+Sebastien Vouaux
+4.舊任簽證會計師姓名2:
+無
+5.新會計師事務所名稱:DBA Expertise Comptable, Audit et Conseil
+6.新任簽證會計師姓名1:
+Laurent Echauzier
+7.新任簽證會計師姓名2:
+無
+8.變更會計師之原因:
+為考量公司調整營運發展及內部管理需要
+9.說明係由公司主動終止委任或不再繼續委任或前任會計師主動終止委任
+或不再繼續接受委任:
+公司主動終止委任
+10.公司通知或接獲通知終止之日期:115/06/25
+11.最近二年度已申報或即將編製之財務報告是否曾經會計師調整或提出內
+部控制重大改進事項之建議:
+無
+12.公司對上開調整或建議事項有無不同意見(若有不同意見，請詳細說明每
+一事項之性質、公司原處理方法與最後處理結果暨繼任會計師對各該事
+項之書面意見):
+不適用
+13.公司正式委任繼任會計師前，是否曾就上開前任會計師所做調整及建議
+事項之處理及其對財務報表可能簽發之意見，諮詢該會計師(若有，請輸
+入詢問事項及結果):
+不適用
+14.說明是否授權前任會計師對繼任會計師所提合理之詢問(包括上開所述不
+同意見之情事)充分回答:
+是
+15.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則
+重大訊息同時符合證券交易法施行細則第7條第7款所定對股東權益或
+證券價格有重大影響之事項):
+自2026年起財務報告由新任簽證會計師事務所簽證",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3711,日月光投控,shareholder_meeting,,"代子公司矽品精密工業(股)公司公告其董事會
+(代行股東會職權)通過重要決議事項","1.股東常會日期:115/06/25
+2.重要決議事項一、盈餘分配或盈虧撥補:
+通過承認本公司114年度盈餘分派：
+1.分派股東現金股利新台幣14,700,000,000元。
+2.分派股東股票股利新台幣3,951,300,000元。
+3.重要決議事項二、章程修訂:無
+4.重要決議事項三、營業報告書及財務報表:
+通過承認本公司114年度營業報告書及財務報表。
+5.重要決議事項四、董監事選舉:不適用
+6.重要決議事項五、其他事項:
+通過本公司114年度盈餘轉增資發行新股，每千股無償配發58.1078股。
+7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3711,日月光投控,material_information,,代子公司矽品精密工業(股)公司公告其董事會決議取得土地使用權資產,"1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
+南科台南園區專12、專28區用地
+2.事實發生日:115/6/25~115/6/25
+3.董事會通過日期: 民國115年6月25日
+4.其他核決日期: 不適用
+5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:
+租賃土地面積：139,369 平方公尺，
+每單位價格(未稅):每月新台幣37.59元/平方公尺，
+交易總金額：土地使用權資產金額約新台幣1,490,495,384元
+6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關
+係人者，得免揭露其姓名）:
+交易相對人：國家科學及技術委員會南部科學園區管理局； 
+與公司之關係：無
+7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之
+所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期
+及移轉金額:
+不適用
+8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係
+人之取得及處分日期、價格及交易當時與公司之關係:
+不適用
+9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明
+認列情形）:
+不適用
+10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定
+事項:
+付款條件: 按月支付租金，
+租期：20年，
+契約限制條款：無，
+其他重要約定事項：無。
+11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及
+決策單位:
+交易決定方式：依國家科學及技術委員會南部科學園區管理局土地租金規定， 
+決策單位：董事會
+12.專業估價者事務所或公司名稱及其估價金額:
+不適用
+13.專業估價師姓名:
+不適用
+14.專業估價師開業證書字號:
+不適用
+15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用
+16.是否尚未取得估價報告:否或不適用
+17.尚未取得估價報告之原因:
+不適用
+18.估價結果有重大差異時，其差異原因及會計師意見:
+不適用
+19.會計師事務所名稱:
+不適用
+20.會計師姓名:
+不適用
+21.會計師開業證書字號:
+不適用
+22.經紀人及經紀費用:
+無
+23.取得或處分之具體目的或用途:
+因應營運需求
+24.本次交易表示異議之董事之意見:
+無
+25.本次交易為關係人交易:否
+26.監察人承認或審計委員會同意日期:
+不適用
+27.本次交易係向關係人取得不動產或其使用權資產:否
+28.依「公開發行公司取得或處分資產處理準則」第十六條規定
+評估之價格:不適用
+29.依前項評估之價格較交易價格為低者，依同準則第十七條規
+定評估之價格:不適用
+30.前已就同一件事件發布重大訊息日期: 不適用
+31.其他敘明事項:
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3711,日月光投控,shareholder_meeting,,"代子公司矽品精密工業(股)公司公告其董事會決議訂定
+除權除息基準日","1.董事會、股東會決議或公司決定日期:115/06/25
+2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權息
+3.發放股利種類及金額:
+普通股現金股利新台幣 14,700,000,000元，每普通股配發現金股利新台幣
+2.161781元。
+普通股股票股利新台幣3,951,300,000元，每普通股配發股票股利新台幣
+0.581078元。
+4.除權（息）交易日:NA
+5.最後過戶日:NA
+6.停止過戶起始日期:NA
+7.停止過戶截止日期:NA
+8.除權（息）基準日:115/06/26
+9.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3711,日月光投控,material_information,,代子公司矽品精密工業(股)公司公告取得廠務工程,"1.契約種類:廠務工程
+2.事實發生日:115/5/27~115/6/25
+3.董事會通過日期: 不適用
+4.其他核決日期:
+核決層級:總經理核決
+民國115年6月25日
+5.契約相對人及其與公司之關係:
+朋億股份有限公司，
+與公司關係：無
+6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期）
+、限制條款及其他重要約定事項:
+總金額：NTD 508,007,360；
+契約起迄日期：115年5月27日至116年6月30日；
+限制條款及其他重要約定事項：無
+7.專業估價者事務所或公司名稱及其估價結果:
+不適用
+8.不動產估價師姓名:
+不適用
+9.不動產估價師開業證書字號:
+不適用
+10.取得之具體目的:
+供生產及營運用
+11.本次交易表示異議之董事意見:
+無
+12.本次交易為關係人交易:否
+13.監察人承認或審計委員會同意日期:
+不適用
+14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用
+15.是否尚未取得估價報告:否或不適用
+16.尚未取得估價報告之原因:
+不適用
+17.估價結果有重大差異時，其差異原因及會計師意見:
+不適用
+18.會計師事務所名稱:
+不適用
+19.會計師姓名:
+不適用
+20.會計師開業證書字號:
+不適用
+21.前已就同一件事件發布重大訊息日期: 不適用
+22.其他敘明事項:
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,3711,日月光投控,shareholder_meeting,,本公司董事會決議通過發行海外第一次無擔保轉換公司債,"1.董事會決議日期:115/06/25
+2.名稱﹝XX公司第X次（有、無）擔保公司債﹞:
+日月光投資控股股份有限公司民國115年度海外第一次無擔保轉換公司債
+3.是否採總括申報發行公司債(是/否):否
+4.發行總額:暫定以美金10億元為上限
+5.每張面額:美金20萬元，或如超過美金20萬元，
+為美金10萬元之整數倍數。
+6.發行價格:依面額之100%發行
+7.發行期間:暫定發行期間為5年
+8.發行利率:暫定為年利率0%
+9.擔保品之種類、名稱、金額及約定事項:不適用
+10.募得價款之用途及運用計畫:認購子公司日月光半導體製造股份
+有限公司及矽品精密工業股份有限公司以現金增資方式發行之新股
+11.承銷方式:本公司債將於中華民國境外地區發行，並將依照
+銷售國家的法律與規範及國際市場慣例辦理。
+所有本公司債將全數對外公開銷售。
+12.公司債受託人:Citicorp International Limited
+13.承銷或代銷機構:
+國外主辦承銷商：DBS Bank Ltd., Goldman Sachs International,
+and The Hongkong and Shanghai Banking Corporation Limited
+國內主辦承銷商：凱基證券股份有限公司
+14.發行保證人:不適用
+15.代理還本付息機構:Citibank, N.A., London Branch
+16.簽證機構:不適用
+17.能轉換股份者，其轉換辦法:
+授權董事長或集團財務長視市場實際狀況決定
+18.賣回條件:
+授權董事長或集團財務長視市場實際狀況決定
+19.買回條件:
+授權董事長或集團財務長視市場實際狀況決定
+20.附有轉換、交換或認股者，其換股基準日:
+授權董事長或集團財務長視市場實際狀況決定
+21.附有轉換、交換或認股者，對股權可能稀釋情形:
+視實際發行時轉換溢價率而定
+22.現金減資後再行募資之合理性及必要性
+(募資當年度及前一年度有辦理現金減資者適用):不適用
+23.其他應敘明事項:
+一、本次發行之海外無擔保轉換公司債重要內容，包括發行辦法、
+計畫項目、實際發行與募集金額、票面利率、預定進度及預計可
+能產生效益等相關事項之議定及其他一切有關發行作業，授權董
+事長或集團財務長視市場實際狀況決定；
+並得依主管機關指示或基於營運評估或因客觀環境需要進行必要
+之修正或調整。實際發行條件，將於海外無擔保轉換公司債完成
+發行後向股東會報告。
+二、為配合本次海外無擔保轉換公司債之發行，授權董事長或
+集團財務長及/或其指定之人核可並代表本公司簽
+署一切有關發行海外無擔保轉換公司債之契約、文件及辦理一
+切相關事宜。
+三、本次發行海外無擔保轉換公司債若有未盡事宜，授權董事長
+或集團財務長依法全權處理之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,3717,聯嘉投控,material_information,,本公司國內第一次有擔保轉換公司債轉換價格調整,"1.事實發生日:115/06/25
 2.公司名稱:聯嘉投控股份有限公司
 3.與公司關係(請輸入本公司或子公司):本公司
@@ -33108,7 +33482,209 @@ MTSL分別承受MSL部分資產、負債及營業對應的權利義務。
 (2)該價格調整擬自115/07/20(除息基準日)生效
 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
-無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,4416,三圓,new_order,,公告本公司之關係人退票事宜,"1.關係人或主要債務人或其連帶保證人名稱:山圓建設股份有限公司
+2.事實發生日:115/06/25
+3.發生緣由:本公司於115/06/25接獲通知，山圓建設(股)公司於115/06/25因存款不足
+發生退票資訊如下:合作金庫銀行之支票1張，金額合計:新台幣200,000元。
+4.債權種類或背書保證金額及其所占資產比例:不適用
+5.債權有無保全措施:不適用
+6.對公司財務、業務之影響及預計可能損失:不適用
+7.因應措施:與持票人協商清償註記。
+8.其他應敘明事項:截至本日共有33張支票尚未清償註記，金額共計新台幣528,600,000。",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,high,high,True,False,True,False,True,False,False,2026-06-26 19:43:28 Asia/Taipei
+20260625,4416,三圓,material_information,,本公司董事長王雅麟先生退票事由說明,"1.櫃買中心公告處置之日期:NA
+2.公司名稱(或負責人姓名):王雅麟
+3.與公司關係﹝請輸入本公司、本公司負責人、母公司或子公司﹞:本公司董事長
+4.若為母公司或子公司，其相互持股比例:不適用
+5.櫃買中心公告處置引用之業務規則條款及發生緣由:
+第4條之1上櫃公司或其負責人發生存款不足之退票事由；董事長王雅麟先生
+退票事由
+6.處理結果(請輸入〝變更交易方法〞、〝停止買賣〞或〝終止上櫃〞):不適用
+7.股票開始(併案)變更交易方法/停止買賣/終止上櫃之日期:NA
+8.退票、拒絕往來之日期:115/06/25
+9.退票張數及金額:1張，$1,500,000
+10.退票之往來銀行:合作金庫
+11.退票後之清償註記日期:NA
+12.退票之清償方式(請輸入〝已實際償付票款〞或〝以換票方式遞延票據債務〞):
+與持票人協商清償註記。
+13.公告拒絕往來之票據交換所（拒絕往來時適用，否則請輸[不適用]）:不適用
+14.因應及保全措施:無
+15.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
+本則重大訊息同時符合證券交易法施行細則第7條第1款所定對
+股東權益或證券價格有重大影響之事項):
+(1)本公司於115/06/25日獲悉，董事長發生退票情事。
+(2)截至本日共有7張支票尚未清償註記，金額共計新台幣87,145,000元，已與
+持票人協商清償註記。
+(3)該事件係法人董事之個別事務，與本公司營運及財務業務無涉，亦對本公司無
+重大影響。
+16.(風險警示)發生存款不足退票而致上櫃有價證券列為變更交易方法，
+三個月內無法達成補正程序而致停止買賣，
+有金融機構拒絕往來紀錄或前開停止買賣情事
+六個月內無法達成補正程序並檢附相關書件證明者，
+有價證券將有終止上櫃之虞，
+提醒投資人審慎注意投資風險:不適用",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
+20260625,4764,雙鍵,shareholder_meeting,,公告本公司115年股東常會全面改選董事當選名單,"1.發生變動日期:115/06/25
+2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事
+  或自然人監察人）:法人董事、獨立董事、自然人董事
+3.舊任者職稱及姓名:
+董事:蔡茂德
+董事:李昆昌
+董事:林良
+董事:杰迪思投資國際股份有限公司 代表人:劉建良
+獨立董事:李水生
+獨立董事:蔡高忠
+4.舊任者簡歷:
+董事:
+蔡茂德:本公司董事長
+李昆昌:禾聚實業股份有限公司總經理
+林良:杰迪思投資國際股份有限公司董事長
+杰迪思投資國際股份有限公司 代表人:劉建良:杰迪思投資國際股份有限公司董事
+獨立董事:
+李水生:臺灣銀行稽核室稽核
+蔡高忠:本公司獨立董事
+5.新任者職稱及姓名:
+董事:蔡茂德
+董事:李昆昌
+董事:林良
+董事:杰迪思投資國際股份有限公司 代表人:劉建良
+獨立董事:李水生
+獨立董事:王慶震
+獨立董事:王人謙
+6.新任者簡歷:
+董事:
+蔡茂德:本公司董事長
+李昆昌:禾聚實業股份有限公司總經理
+林良:杰迪思投資國際股份有限公司董事長
+杰迪思投資國際股份有限公司 代表人:劉建良:杰迪思投資國際股份有限公司董事
+獨立董事:
+李水生:臺灣銀行稽核室稽核
+王慶震:太陽股份有限公司董事長
+王人謙:工研院綠能所所長
+7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:
+任期屆滿
+8.異動原因:任期屆滿全面改選
+9.新任者選任時持股數:
+董事:
+蔡茂德:2,959,372股
+李昆昌:6,757,320股
+林良:1,184,683股
+杰迪思投資國際股份有限公司 代表人:劉建良:8,493,770股
+獨立董事:
+李水生:132,220股
+王慶震:0股
+王人謙:0股
+10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/28~115/06/27
+11.新任生效日期:115/06/25
+12.同任期董事變動比率:2/7
+13.同任期獨立董事變動比率:2/3
+14.同任期監察人變動比率:不適用
+15.屬三分之一以上董事發生變動（請輸入是或否）:否
+16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+   符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,4764,雙鍵,shareholder_meeting,,公告本公司115年股東常會通過解除新任董事競業禁止之限制,"1.股東會決議日:115/06/25
+2.許可從事競業行為之董事姓名及職稱:
+蔡茂德/董事
+李昆昌/董事
+林良/董事
+杰迪思投資國際股份有限公司 代表人:劉建良/董事
+王人謙/獨立董事
+3.許可從事競業行為之項目:投資或經營與本公司營業範圍相同或類似之業務
+4.許可從事競業行為之期間:任職本公司董事職務期間
+5.決議情形（請依公司法第209條說明表決結果）:經本公司115年股東常會出席股東
+票決後照案通過。
+6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱
+（非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用
+7.所擔任該大陸地區事業之公司名稱及職務:不適用
+8.所擔任該大陸地區事業地址:不適用
+9.所擔任該大陸地區事業營業項目:不適用
+10.對本公司財務業務之影響程度:不適用
+11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用
+12.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,4764,雙鍵,shareholder_meeting,,公告本公司115年股東常會重要決議事項,"1.股東常會日期:115/06/25
+2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分配案。
+3.重要決議事項二、章程修訂:無。
+4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案。
+5.重要決議事項四、董監事選舉:通過董事(含獨立董事)全面改選案。
+當選名單如下：
+董事：
+李昆昌
+林良
+杰迪思投資國際股份有限公司 代表人:劉建良
+蔡茂德
+獨立董事：
+李水生
+王慶震
+王人謙
+6.重要決議事項五、其他事項:
+通過解除新任董事(含獨立董事)及其代表人競業禁止之限制案。
+7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,4764,雙鍵,material_information,,公告本公司第五屆審計委員會委員名單,"1.發生變動日期:115/06/25
+2.功能性委員會名稱:審計委員會
+3.舊任者姓名:
+李水生
+蔡高忠
+4.舊任者簡歷:
+李水生:臺灣銀行稽核室稽核
+蔡高忠:本公司獨立董事
+5.新任者姓名:
+李水生
+王慶震
+王人謙
+6.新任者簡歷:
+李水生:臺灣銀行稽核室稽核
+王慶震:太陽股份有限公司董事長
+王人謙:工研院綠能所所長
+7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:任期
+屆滿
+8.異動原因:任期屆滿全面改選
+9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/28~115/06/27
+10.新任生效日期:115/06/25
+11.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,4764,雙鍵,material_information,,公告本公司第五屆薪資報酬委員會委員名單,"1.發生變動日期:115/06/25
+2.功能性委員會名稱:薪資報酬委員會
+3.舊任者姓名:
+李水生
+蔡高忠
+4.舊任者簡歷:
+李水生:臺灣銀行稽核室稽核
+蔡高忠:本公司獨立董事
+5.新任者姓名:
+李水生
+王慶震
+王人謙
+6.新任者簡歷:
+李水生:臺灣銀行稽核室稽核
+王慶震:太陽股份有限公司董事長
+王人謙:工研院綠能所所長
+7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:任期
+屆滿
+8.異動原因:任期屆滿，由董事會重新委任。
+9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/28~115/06/27
+10.新任生效日期:115/06/25
+11.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,4764,雙鍵,material_information,,公告本公司董事會選任董事長,"1.董事會決議日期或發生變動日期:115/06/25
+2.人員別（請輸入董事長或總經理）:董事長
+3.舊任者姓名:蔡茂德
+4.舊任者簡歷:本公司董事長
+5.新任者姓名:蔡茂德
+6.新任者簡歷:本公司董事長
+7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、
+「退休」、「逝世」或「新任」）:任期屆滿
+8.異動原因:任期屆滿改選
+9.新任生效日期:115/06/25
+10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+   符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,5285,界霖,material_information,,澄清115年06月25日經濟日報C03報導之新聞內容,"1.事實發生日:115/06/25
+2.公司名稱:界霖科技股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.傳播媒體名稱:經濟日報C03報導
+6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看
+ 好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」
+7.發生緣由:澄清媒體報導
+8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務
+ 與業務資訊，請以本公司於公開資訊觀測站公告為主。
+9.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,5371,中光電,new_order,,"本公司之子公司依公開發行公司資金貸與及背書保證
 處理準則第二十二條第一項第二款公告。","1.事實發生日:115/06/25
 2.接受資金貸與之:
@@ -33431,7 +34007,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會
 之情事:無
-6.其他應敘明事項:無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:45 Asia/Taipei
+6.其他應敘明事項:無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
 20260625,5522,遠雄,investor_conference,neutral,本公司受邀參加統一證券舉辦之法說會,"符合條款第四條第XX款：12
 事實發生日：115/06/25
 1.召開法人說明會之日期：115/06/25
@@ -33447,7 +34023,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 4.重要決議事項三、營業報告書及財務報表:無
 5.重要決議事項四、董監事選舉:無
 6.重要決議事項五、其他事項:通過「取得或處分資產處理程序」修正案
-7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,5880,合庫金,shareholder_meeting,,"代孫公司合作金庫證券投資顧問股份有限公司公告
 115年董事會代行股東會重要決議事項","1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:無。
@@ -33455,7 +34031,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 4.重要決議事項三、營業報告書及財務報表:無。
 5.重要決議事項四、董監事選舉:無。
 6.重要決議事項五、其他事項:無。
-7.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,6109,亞元,material_information,,公告本公司發言人、永續長及資安主管異動,"1.人員變動別（請輸入發言人、代理發言人、重要營運主管
 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計
 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非
@@ -33500,12 +34076,12 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 公告。
 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
- 無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
-20260625,6179,亞通,material_information,,公告亞通利大能源股份有限公司國內第三次無擔保(例：第一次有擔保)轉(交)換公司債(簡稱：亞通三，代碼：61793)停止受理轉交換及到期日落於停止轉(交)換期間等相關事項。,"內容：本公司國內第三次無擔保轉換公司債發&#12175;及轉換辦法之規定。<br>(一)停止受理轉交換之事由：辦理配股配息作業事宜。<br>(其他事項敘明：)<br>(二)停止受理轉交換登記起訖日期：115年07月03日至115年07月28日止。<br>(三)債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日（115年07月03日）之前一營業日前（115年07月01日），向往來證券商辦理轉換手續。<br>請投資人注意，本轉換公司債將於115年7月25日到期，債券持有人如擬請求轉換，最遲應於停止受理轉換登記之始日(115年7月3日)之前一個營業日前(115年7月1日)，向往來券商辦理轉換手續。
+ 無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,6179,亞通,material_information,neutral,公告亞通利大能源股份有限公司國內第三次無擔保(例：第一次有擔保)轉(交)換公司債(簡稱：亞通三，代碼：61793)停止受理轉交換及到期日落於停止轉(交)換期間等相關事項。,"內容：本公司國內第三次無擔保轉換公司債發&#12175;及轉換辦法之規定。<br>(一)停止受理轉交換之事由：辦理配股配息作業事宜。<br>(其他事項敘明：)<br>(二)停止受理轉交換登記起訖日期：115年07月03日至115年07月28日止。<br>(三)債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日（115年07月03日）之前一營業日前（115年07月01日），向往來證券商辦理轉換手續。<br>請投資人注意，本轉換公司債將於115年7月25日到期，債券持有人如擬請求轉換，最遲應於停止受理轉換登記之始日(115年7月3日)之前一個營業日前(115年7月1日)，向往來券商辦理轉換手續。
 本轉換公司債之股務代理機構為中國信託商業銀行代理部。
 地址：臺北市重慶南路一段83號5樓
-電話：(02)6636-5566",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:45 Asia/Taipei
-20260625,6179,亞通,product_certification,,公告本公司內部稽核主管新任,"1.人員變動別（請輸入發言人、代理發言人、重要營運主管
+電話：(02)6636-5566",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
+20260625,6179,亞通,product_certification,neutral,公告本公司內部稽核主管新任,"1.人員變動別（請輸入發言人、代理發言人、重要營運主管
 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計
 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非
 訟代理人）:內部稽核主管
@@ -33516,8 +34092,8 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 「退休」、「死亡」、「新任」或「解任」）:新任
 6.異動原因:新任
 7.生效日期:115/06/25
-8.其他應敘明事項: 經115年6月25日審計委員會及董事會決議通過內部稽核主管任用案",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,medium,high,True,False,False,False,False,False,False,2026-06-26 18:05:45 Asia/Taipei
-20260625,6179,亞通,shareholder_meeting,,公告本公司配發現金股利除息基準日訂定,"1.董事會、股東會決議或公司決定日期:115/06/25
+8.其他應敘明事項: 經115年6月25日審計委員會及董事會決議通過內部稽核主管任用案",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,medium,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
+20260625,6179,亞通,shareholder_meeting,neutral,公告本公司配發現金股利除息基準日訂定,"1.董事會、股東會決議或公司決定日期:115/06/25
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
 3.發放普通股股利種類及金額:
   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為
@@ -33531,7 +34107,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 10.債券停止轉換起始日期:115/07/03
 11.債券停止轉換截止日期:115/07/28
 12.普通股現金股利發放日期:115/08/20
-13.其他應敘明事項:無。",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:45 Asia/Taipei
+13.其他應敘明事項:無。",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
 20260625,6187,萬潤,material_information,,代子公司聯潤科技股份有限公司公告向關係人取得不動產使用權資產,"1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
 苗栗縣竹南鎮群義路69號(廣源科技園區)部分區域
 2.事實發生日:115/6/25~115/6/25
@@ -33602,10 +34178,10 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 定評估之價格:不適用
 30.前已就同一件事件發布重大訊息日期: 不適用
 31.其他敘明事項:
-無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:45 Asia/Taipei
+無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
 20260625,6209,今國光,material_information,,代重要子公司正國光學香港有限公司公告股利發放事宜,"1.董事會決議日期:115/06/25
 2.發放股利種類及金額:現金股利美金4,174仟元
-3.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+3.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,6257,矽格,shareholder_meeting,,代子公司格星股份有限公司公告決議發放股利基準日,"1.董事會、股東會決議或公司決定日期:115/06/25
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
 3.發放股利種類及金額:現金股利新臺幣380,948,098元
@@ -33614,7 +34190,21 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 6.停止過戶起始日期:115/07/16
 7.停止過戶截止日期:115/07/20
 8.除權（息）基準日:115/07/20
-9.其他應敘明事項:預計現金紅利發放日115/07/30",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+9.其他應敘明事項:預計現金紅利發放日115/07/30",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,6672,騰輝電子-KY,material_information,,"本公司可轉換公司債騰輝電子二KY (代號:66722)
+近期達公布注意交易資訊標準， 故公告相關訊息，
+以利投資人區別瞭解","1.事實發生日:115/06/25
+2.發生緣由:依櫃買中心通知辦理
+3.公司債相關資訊:
+到期日期:120/02/03
+實際發行總額: 500,000,000
+本月發行餘額: 63,700,000 (截至115/06/24未轉換金額)
+最新轉(交)換價格:90.50
+轉換標的收市價格(6672):289.50 (115/06/25收盤價)
+轉債收市價格(66722):284.00 (115/06/25開市參考價)
+4.其他應敘明事項:
+「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」
+ 第四條所列重大訊息之情事:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,6834,天二科技,new_order,,公告本公司副董事長異動,"1.董事會決議日期或發生變動日期:115/06/25
 2.人員別（請輸入董事長或總經理）:副董事長
 3.舊任者姓名:詹清輝
@@ -33695,6 +34285,30 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):
 無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+20260625,8103,瀚荃,material_information,,公告本公司庫藏股轉讓員工認股基準日,"1.事實發生日:115/06/25
+2.公司名稱:瀚荃股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:本公司庫藏股轉讓予員工
+6.因應措施:
+ (1)本公司第5次庫藏股，依本公司「買回股份轉讓員工辦法」
+　　之規定辦理，本次預計轉讓總股數為 425,000股
+ (2)員工認股基準日訂為 115年7月20日
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
+20260625,8103,瀚荃,shareholder_meeting,,公告本公司訂定除息基準日之相關事宜,"1.董事會、股東會決議或公司決定日期:115/06/25
+2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
+3.普通股發放股利種類及金額:新台幣218,432,679元(每股2.8元)
+4.除權（息）交易日:115/07/13
+5.最後過戶日:115/07/14
+6.停止過戶起始日期:115/07/15
+7.停止過戶截止日期:115/07/19
+8.除權（息）基準日:115/07/19
+9.債券最後申請轉換日期:不適用
+10.債券停止轉換起始日期:不適用
+11.債券停止轉換截止日期:不適用
+12.普通股現金股利發放日期:115/07/31
+13.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,8104,錸寶,shareholder_meeting,,公告本公司民國115年股東常會重要決議事項,"1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司一一四年度虧損撥補案。
 3.重要決議事項二、章程修訂:無。
@@ -33773,14 +34387,14 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 9.所擔任該大陸地區事業營業項目:不適用
 10.對本公司財務業務之影響程度:不適用
 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無
-12.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+12.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,8131,福懋科,shareholder_meeting,,公告本公司115年股東常會重要決議事項,"1.股東常會日期:115/06/25
 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。
 3.重要決議事項二、章程修訂:無。
 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度決算表冊案。
 5.重要決議事項四、董監事選舉:無。
 6.重要決議事項五、其他事項:通過解除本公司董事競業禁止之限制案。
-7.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+7.其他應敘明事項:無。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,8131,福懋科,shareholder_meeting,,公告本公司董事會決議分派現金股利基準日,"1.董事會、股東會決議或公司決定日期: 115/06/25
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息
 3.普通股發放股利種類及金額:每股分派新台幣1元
@@ -33793,7 +34407,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 10.債券停止轉換起始日期:不適用
 11.債券停止轉換截止日期:不適用
 12.普通股現金股利發放日期:115/08/19
-13.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+13.其他應敘明事項:無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,8438,昶昕,material_information,,"代重要子公司友緣實業股份有限公司公告
 董事會決議分配現金股利","1.董事會決議日期:115/06/25
 2.發放股利種類及金額:董事會決議分配現金股利新台幣47,000,000元。
@@ -33898,7 +34512,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 不適用
 29.前已就同一件事件發布重大訊息日期: 不適用
 30.其他敘明事項:
-無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+無",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260625,9958,世紀鋼,shareholder_meeting,,公告本公司除息基準日暨轉換公司債停止轉換期間,"1.董事會、股東會決議或公司決定日期:115/06/25
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
 3.普通股發放股利種類及金額:
@@ -33914,7 +34528,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 12.普通股現金股利發放日期:115/08/21
 13.其他應敘明事項:
 　 如因本公司可轉換公司債轉換等因素，致影響流通在外普通股數量，
-　 股東配息率因此發生變動而需調整時，授權董事長全權處理之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+　 股東配息率因此發生變動而需調整時，授權董事長全權處理之。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260626,1301,台塑,investor_conference,,公告本公司受邀參加玉山證券法人說明會,"符合條款第四條第XX款：12
 事實發生日：115/06/26
 1.召開法人說明會之日期：115/06/26
@@ -33931,6 +34545,14 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 4.法人說明會擇要訊息：公司營運概況說明
 5.其他應敘明事項：無
 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+20260626,6220,岳豐,investor_conference,,公告本公司召開法人說明會相關資訊,"符合條款第四條第XX款：12
+事實發生日：115/06/26
+1.召開法人說明會之日期：115/06/26
+2.召開法人說明會之時間：14 時 30 分 
+3.召開法人說明會之地點：桃園市新屋區中山東路二段130巷12-9號
+4.法人說明會擇要訊息：說明本公司營運概況及展望
+5.其他應敘明事項：無
+完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:28 Asia/Taipei
 20260626,6901,鑽石投資,investor_conference,,公告本公司舉辦115年第二季線上法說會事宜,"符合條款第四條第XX款：12
 事實發生日：115/06/26
 1.召開法人說明會之日期：115/06/26
@@ -33963,7 +34585,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 3.召開法人說明會之地點：台北市信義區信義路五段7號台灣證券交易所1樓資訊展示中心(101辦公大樓)
 4.法人說明會擇要訊息：2026年第一季營運概況
 5.其他應敘明事項：無
-完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260630,8422,可寧衛*,investor_conference,neutral,本公司受邀參加元大證券法&#12040;說明會,"符合條款第四條第XX款：12
 事實發生日：115/06/30
 1.召開法人說明會之日期：115/06/30
@@ -33971,7 +34593,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 3.召開法人說明會之地點：元大金融廣場（台北市大安區仁愛路三段157號3樓D廳）
 4.法人說明會擇要訊息：本公司營運及財務業務狀況說明
 5.其他應敘明事項：本公司受邀參加元大證券法&#12040;說明會
-完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260701,3526,凡甲,investor_conference,,本公司受邀參加凱基證券舉辦之線上法人說明會,"符合條款第四條第XX款：12
 事實發生日：115/07/01
 1.召開法人說明會之日期：115/07/01
@@ -33987,7 +34609,7 @@ Young Optics(BD) Ltd.及Best Alpha Investments Ltd.均為
 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心(台北市信義路五段7號)
 4.法人說明會擇要訊息：說明本公司近期之營運成果與未來展望
 5.其他應敘明事項：無
-完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 18:05:41 Asia/Taipei
+完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-06-26 19:43:26 Asia/Taipei
 20260703,3663,鑫科,investor_conference,,參加康和證券舉辦之法人說明會,"符合條款第四條第XX款：12
 事實發生日：115/07/03
 1.召開法人說明會之日期：115/07/03
