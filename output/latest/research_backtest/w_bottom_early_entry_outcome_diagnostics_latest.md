@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Outcome Diagnostics
 
-- generated_at: `2026-06-26 16:15:03 Asia/Taipei`
+- generated_at: `2026-06-26 16:58:37 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_parameter_grid`
 - production impact: `none`
 - surface: `w_bottom_right_low_early_entry` only.
@@ -37,6 +37,17 @@
 | outcome_win | 70 | 30.8642 | 32.2404 | 1.5362 | 0.6258 | -5.7308 | 7.1670 |
 | outcome_neutral | 68 | 26.0336 | 21.5838 | 1.5911 | 2.6019 | -6.9946 | 6.7151 |
 | outcome_loss | 106 | 29.7486 | 29.3295 | 1.6220 | -1.6725 | -8.0696 | 6.6052 |
+
+## Strict Smooth-Rebound Segments
+
+| segment_id | sample_size | evaluated_sample_size | mature_sample_size | win_count | neutral_count | loss_count | win_rate_excl_neutral_pct | neutral_rate_evaluated_pct | sample_warning | research_interpretation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| smooth_right_rebound_5_20 | 40 | 25 | 17 | 11 | 8 | 6 | 64.7059 | 32.0000 | directional_only_below_promotion_review_size | too_small_for_parameter_decision |
+| smooth_price_le40_right_rebound_5_20 | 33 | 18 | 13 | 8 | 5 | 5 | 61.5385 | 27.7778 | low_mature_sample_research_only | too_small_for_parameter_decision |
+| smooth_core_mainstream_right_rebound_5_20 | 22 | 16 | 10 | 7 | 6 | 3 | 70.0000 | 37.5000 | low_mature_sample_research_only | too_small_for_parameter_decision |
+| smooth_core_mainstream_price_le40_right_rebound_5_20 | 17 | 11 | 7 | 4 | 4 | 3 | 57.1429 | 36.3636 | low_mature_sample_research_only | too_small_for_parameter_decision |
+| smooth_right_rebound_5_20_red_ratio_gt_first | 25 | 15 | 9 | 5 | 6 | 4 | 55.5556 | 40.0000 | low_mature_sample_research_only | too_small_for_parameter_decision |
+| smooth_right_rebound_5_20_near_neckline | 22 | 17 | 12 | 7 | 5 | 5 | 58.3333 | 29.4118 | low_mature_sample_research_only | too_small_for_parameter_decision |
 
 ## Guardrails
 

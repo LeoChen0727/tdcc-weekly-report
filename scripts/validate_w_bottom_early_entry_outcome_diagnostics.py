@@ -32,6 +32,12 @@ EXPECTED_SEGMENTS = {
     "core_mainstream_price_le40_red_delta_gte10",
     "core_mainstream_price_le40_volume_gte1_5",
     "near_neckline_m5_to_0",
+    "smooth_right_rebound_5_20",
+    "smooth_price_le40_right_rebound_5_20",
+    "smooth_core_mainstream_right_rebound_5_20",
+    "smooth_core_mainstream_price_le40_right_rebound_5_20",
+    "smooth_right_rebound_5_20_red_ratio_gt_first",
+    "smooth_right_rebound_5_20_near_neckline",
 }
 
 REQUIRED_COLUMNS = {
@@ -128,6 +134,7 @@ def validate_markdown() -> None:
         "production impact: `none`",
         "win_rate_excl_neutral_pct",
         "neutral_rate_evaluated_pct",
+        "Strict Smooth-Rebound Segments",
         "does not modify production conditions, scoring, ranking, PDFs, baselines, or daily_full_pipeline",
         "approved_for_daily=false",
     ]

@@ -31,6 +31,14 @@ TARGET_OUTCOME_RULES = {
     "take_profit_10pct_close_40d",
     "tp10_or_neutral_after_5pct_close_40d",
 }
+STRICT_SMOOTH_REBOUND_SEGMENTS = [
+    "smooth_right_rebound_5_20",
+    "smooth_price_le40_right_rebound_5_20",
+    "smooth_core_mainstream_right_rebound_5_20",
+    "smooth_core_mainstream_price_le40_right_rebound_5_20",
+    "smooth_right_rebound_5_20_red_ratio_gt_first",
+    "smooth_right_rebound_5_20_near_neckline",
+]
 
 FORBIDDEN_PRODUCTION_FIELDS = {
     "trade_decision",
@@ -157,6 +165,7 @@ def segment_specs() -> list[tuple[str, str, str, Callable[[pd.DataFrame], pd.Ser
         ("second_red_ratio_gt_first", "segment_rate", "Second arc red-candle ratio is greater than first arc.", lambda df: num(df["red_ratio_delta_pct"]).gt(0.0)),
         ("second_red_delta_gte10", "segment_rate", "Second arc red-candle ratio is at least 10 pct points above first arc.", lambda df: num(df["red_ratio_delta_pct"]).ge(10.0)),
         ("right_rebound_5_20", "segment_rate", "Signal close is 5% to 20% above right low.", lambda df: num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
+        ("smooth_right_rebound_5_20", "segment_rate", "Smooth rounded W-like path and signal close is 5% to 20% above right low.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
         ("below_neckline_5_to_30", "segment_rate", "Signal close is 5% to 30% below neckline.", lambda df: num(df["neckline_distance_pct"]).between(-30.0, -5.0, inclusive="both")),
         ("near_neckline_m5_to_0", "segment_rate", "Signal close is within 5% below neckline.", lambda df: num(df["neckline_distance_pct"]).between(-5.0, 0.0, inclusive="both")),
         ("core_mainstream_price_le40", "segment_rate", "core_mainstream and price_position_252_pct <= 40.", lambda df: df["effective_mainstream_label"].eq("core_mainstream") & num(df["price_position_252_pct"]).le(40.0)),
@@ -165,6 +174,11 @@ def segment_specs() -> list[tuple[str, str, str, Callable[[pd.DataFrame], pd.Ser
         ("core_mainstream_price_le40_volume_gte1_5", "segment_rate", "core_mainstream, price <= 40, and second arc volume >= 1.5x first arc.", lambda df: df["effective_mainstream_label"].eq("core_mainstream") & num(df["price_position_252_pct"]).le(40.0) & num(df["second_arc_volume_ratio"]).ge(1.5)),
         ("core_mainstream_price_le40_smooth", "segment_rate", "core_mainstream, price <= 40, and smooth rounded W-like path.", lambda df: df["effective_mainstream_label"].eq("core_mainstream") & num(df["price_position_252_pct"]).le(40.0) & df["slope_curvature_category"].eq("smooth_rounded_w_like")),
         ("core_mainstream_price_le40_exclude_wv", "segment_rate", "core_mainstream, price <= 40, and exclude WV/WVV.", lambda df: df["effective_mainstream_label"].eq("core_mainstream") & num(df["price_position_252_pct"]).le(40.0) & ~df["slope_curvature_category"].eq("wv_multiple_turn_risk")),
+        ("smooth_price_le40_right_rebound_5_20", "segment_rate", "Smooth rounded W-like path, price <= 40, and signal rebound 5% to 20%.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["price_position_252_pct"]).le(40.0) & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
+        ("smooth_core_mainstream_right_rebound_5_20", "segment_rate", "Smooth rounded W-like path, core_mainstream, and signal rebound 5% to 20%.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & df["effective_mainstream_label"].eq("core_mainstream") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
+        ("smooth_core_mainstream_price_le40_right_rebound_5_20", "segment_rate", "Smooth rounded W-like path, core_mainstream, price <= 40, and signal rebound 5% to 20%.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & df["effective_mainstream_label"].eq("core_mainstream") & num(df["price_position_252_pct"]).le(40.0) & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
+        ("smooth_right_rebound_5_20_red_ratio_gt_first", "segment_rate", "Smooth rounded W-like path, signal rebound 5% to 20%, and second arc red ratio > first arc.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both") & num(df["red_ratio_delta_pct"]).gt(0.0)),
+        ("smooth_right_rebound_5_20_near_neckline", "segment_rate", "Smooth rounded W-like path, signal rebound 5% to 20%, and signal is within 5% below neckline.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both") & num(df["neckline_distance_pct"]).between(-5.0, 0.0, inclusive="both")),
     ]
 
 
@@ -394,6 +408,15 @@ def write_markdown(diagnostics: pd.DataFrame, generated_at: str) -> None:
         & diagnostics["outcome_rule_id"].eq("tp10_or_neutral_after_5pct_close_40d")
         & diagnostics["diagnostic_type"].eq("outcome_profile")
     ].copy()
+    strict = diagnostics[
+        diagnostics["event_set_id"].eq("variant_nearest_micro_45d_event_replay")
+        & diagnostics["outcome_rule_id"].eq("tp10_or_neutral_after_5pct_close_40d")
+        & diagnostics["segment_id"].isin(STRICT_SMOOTH_REBOUND_SEGMENTS)
+    ].copy()
+    strict["segment_order"] = strict["segment_id"].map(
+        {segment_id: idx for idx, segment_id in enumerate(STRICT_SMOOTH_REBOUND_SEGMENTS)}
+    )
+    strict = strict.sort_values("segment_order")
 
     lines = [
         "# W-Bottom Early-Entry Outcome Diagnostics",
@@ -441,6 +464,26 @@ def write_markdown(diagnostics: pd.DataFrame, generated_at: str) -> None:
                 "avg_signal_rebound_from_right_low_pct",
             ],
             10,
+        ),
+        "",
+        "## Strict Smooth-Rebound Segments",
+        "",
+        *markdown_table(
+            strict,
+            [
+                "segment_id",
+                "sample_size",
+                "evaluated_sample_size",
+                "mature_sample_size",
+                "win_count",
+                "neutral_count",
+                "loss_count",
+                "win_rate_excl_neutral_pct",
+                "neutral_rate_evaluated_pct",
+                "sample_warning",
+                "research_interpretation",
+            ],
+            20,
         ),
         "",
         "## Guardrails",

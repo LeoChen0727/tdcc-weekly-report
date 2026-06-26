@@ -42,9 +42,15 @@ EXPECTED_CONDITION_IDS = {
     "core_mainstream_price_le40",
     "second_arc_volume_gte1_2",
     "second_red_ratio_gt_first",
+    "smooth_right_rebound_5_20",
     "core_mainstream_price_le40_volume_red",
     "core_mainstream_price_le40_gap_m5_p8_rebound_3_20",
     "core_mainstream_price_le40_below_neckline5",
+    "smooth_price_le40_right_rebound_5_20",
+    "smooth_core_mainstream_right_rebound_5_20",
+    "smooth_core_mainstream_price_le40_right_rebound_5_20",
+    "smooth_right_rebound_5_20_red_ratio_gt_first",
+    "smooth_right_rebound_5_20_near_neckline",
 }
 
 REQUIRED_DETAIL_COLUMNS = [

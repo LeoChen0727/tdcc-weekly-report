@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Parameter Grid
 
-- generated_at: `2026-06-26 16:05:03 Asia/Taipei`
+- generated_at: `2026-06-26 16:56:29 Asia/Taipei`
 - source_research_id: `w_bottom_split_entry_outcome_backtest`
 - production impact: `none`
 - price convention: entry uses next trading day's open; exit uses exit day's close.
@@ -15,9 +15,11 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_red_ratio_gt_first | 83 | 53 | 62.2642 | 0 | 0.0000 | 0.9897 | 0.5000 | 19.6412 | 1.2610 | medium_mature_sample_research_only |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_volume_red | 83 | 53 | 62.2642 | 0 | 0.0000 | 0.9897 | 0.5000 | 19.6412 | 1.2610 | medium_mature_sample_research_only |
+| fixed_10d_close_positive_return | smooth_price_le40_right_rebound_5_20 | 33 | 30 | 60.0000 | 0 | 0.0000 | 1.0110 | 0.3128 | 17.2271 | 0.2418 | medium_mature_sample_research_only |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_exclude_wv | 63 | 40 | 57.5000 | 0 | 0.0000 | 0.8013 | 0.4133 | 14.8770 | 1.0726 | medium_mature_sample_research_only |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_volume_exclude_wv | 63 | 40 | 57.5000 | 0 | 0.0000 | 0.8013 | 0.4133 | 14.8770 | 1.0726 | medium_mature_sample_research_only |
 | reach_neckline_close_before_right_low_stop_40d | right_rebound_5_20 | 236 | 154 | 57.1429 | 0 | 0.0000 | 0.0736 | 0.5146 | 14.5199 | 0.3449 | medium_mature_sample_research_only |
+| fixed_10d_close_positive_return | smooth_right_rebound_5_20 | 40 | 37 | 56.7568 | 0 | 0.0000 | 1.2305 | 0.2809 | 13.9839 | 0.4613 | medium_mature_sample_research_only |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40 | 157 | 99 | 56.5657 | 0 | 0.0000 | 0.9062 | 0.4630 | 13.9427 | 1.1775 | medium_mature_sample_research_only |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_volume_gte1_2 | 157 | 99 | 56.5657 | 0 | 0.0000 | 0.9062 | 0.4630 | 13.9427 | 1.1775 | medium_mature_sample_research_only |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_gap_m5_p8_rebound_3_20 | 157 | 99 | 56.5657 | 0 | 0.0000 | 0.9062 | 0.4630 | 13.9427 | 1.1775 | medium_mature_sample_research_only |
@@ -41,8 +43,6 @@
 | fixed_10d_close_positive_return | core_mainstream_price_le40 | 157 | 140 | 51.4286 | 0 | 0.0000 | 1.6458 | 0.2069 | 8.6557 | 0.8766 | medium_mature_sample_research_only |
 | fixed_10d_close_positive_return | core_mainstream_price_le40_volume_gte1_2 | 157 | 140 | 51.4286 | 0 | 0.0000 | 1.6458 | 0.2069 | 8.6557 | 0.8766 | medium_mature_sample_research_only |
 | fixed_10d_close_positive_return | core_mainstream_price_le40_gap_m5_p8_rebound_3_20 | 157 | 140 | 51.4286 | 0 | 0.0000 | 1.6458 | 0.2069 | 8.6557 | 0.8766 | medium_mature_sample_research_only |
-| reach_neckline_close_before_right_low_stop_40d | core_mainstream | 211 | 146 | 51.3699 | 0 | 0.0000 | 0.5655 | 0.1422 | 8.7469 | 0.8368 | medium_mature_sample_research_only |
-| reach_neckline_close_before_right_low_stop_40d | second_red_delta_gte10 | 84 | 47 | 51.0638 | 0 | 0.0000 | 0.4100 | -0.2793 | 8.4409 | 0.6813 | medium_mature_sample_research_only |
 
 ## Candidate Review Rows
 
@@ -50,9 +50,11 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_red_ratio_gt_first | 83 | 53 | 62.2642 | 0 | 0.0000 | 0.9897 | 0.5000 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_volume_red | 83 | 53 | 62.2642 | 0 | 0.0000 | 0.9897 | 0.5000 | candidate_for_manual_promotion_review |
+| fixed_10d_close_positive_return | smooth_price_le40_right_rebound_5_20 | 33 | 30 | 60.0000 | 0 | 0.0000 | 1.0110 | 0.3128 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_exclude_wv | 63 | 40 | 57.5000 | 0 | 0.0000 | 0.8013 | 0.4133 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_volume_exclude_wv | 63 | 40 | 57.5000 | 0 | 0.0000 | 0.8013 | 0.4133 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | right_rebound_5_20 | 236 | 154 | 57.1429 | 0 | 0.0000 | 0.0736 | 0.5146 | candidate_for_manual_promotion_review |
+| fixed_10d_close_positive_return | smooth_right_rebound_5_20 | 40 | 37 | 56.7568 | 0 | 0.0000 | 1.2305 | 0.2809 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40 | 157 | 99 | 56.5657 | 0 | 0.0000 | 0.9062 | 0.4630 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_volume_gte1_2 | 157 | 99 | 56.5657 | 0 | 0.0000 | 0.9062 | 0.4630 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_gap_m5_p8_rebound_3_20 | 157 | 99 | 56.5657 | 0 | 0.0000 | 0.9062 | 0.4630 | candidate_for_manual_promotion_review |
@@ -72,12 +74,10 @@
 | reach_neckline_close_before_right_low_stop_40d | bottom_or_low_volume_red | 170 | 107 | 52.3364 | 0 | 0.0000 | 0.1602 | 0.0000 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | second_red_ratio_gt_first | 185 | 121 | 52.0661 | 0 | 0.0000 | 0.2518 | 0.0000 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream_price_le40_gap_m3_p6_rebound_3_12 | 137 | 87 | 51.7241 | 0 | 0.0000 | 0.5011 | 0.2845 | candidate_for_manual_promotion_review |
+| fixed_20d_close_positive_return | smooth_right_rebound_5_20 | 40 | 32 | 50.0000 | 0 | 0.0000 | 2.3546 | -0.0919 | candidate_for_manual_promotion_review |
 | reach_neckline_close_before_right_low_stop_40d | core_mainstream | 211 | 146 | 51.3699 | 0 | 0.0000 | 0.5655 | 0.1422 | candidate_for_manual_promotion_review |
 | fixed_30d_close_positive_return | second_red_delta_gte10 | 84 | 54 | 50.0000 | 0 | 0.0000 | 2.0803 | -0.0257 | candidate_for_manual_promotion_review |
 | fixed_10d_close_positive_return | core_mainstream_price_le40 | 157 | 140 | 51.4286 | 0 | 0.0000 | 1.6458 | 0.2069 | candidate_for_manual_promotion_review |
-| fixed_10d_close_positive_return | core_mainstream_price_le40_volume_gte1_2 | 157 | 140 | 51.4286 | 0 | 0.0000 | 1.6458 | 0.2069 | candidate_for_manual_promotion_review |
-| fixed_10d_close_positive_return | core_mainstream_price_le40_gap_m5_p8_rebound_3_20 | 157 | 140 | 51.4286 | 0 | 0.0000 | 1.6458 | 0.2069 | candidate_for_manual_promotion_review |
-| reach_neckline_close_before_right_low_stop_40d | second_red_delta_gte10 | 84 | 47 | 51.0638 | 0 | 0.0000 | 0.4100 | -0.2793 | candidate_for_manual_promotion_review |
 
 ## Guardrails
 
