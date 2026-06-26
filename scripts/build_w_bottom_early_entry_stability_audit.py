@@ -48,6 +48,14 @@ STRICT_SEGMENTS = [
     "core_or_hot_price_le30_rebound_3_20_volume_red",
     "smooth_price_le30_rebound_3_20_volume_red",
     "smooth_price_le30_rebound_5_20_volume_red",
+    "smooth_right_rebound_5_20_strong_bull",
+    "smooth_right_rebound_5_20_bull",
+    "smooth_right_rebound_5_20_not_correction",
+    "smooth_core_mainstream_right_rebound_5_20_strong_bull",
+    "smooth_core_mainstream_right_rebound_5_20_bull",
+    "core_mainstream_price_le30_rebound_3_20_volume_red_bull",
+    "core_mainstream_price_le30_rebound_3_20_volume_red_not_correction",
+    "bottom_or_low_rebound_3_20_volume_red_exclude_wv_strong_bull",
 ]
 
 FORBIDDEN_PRODUCTION_FIELDS = {
@@ -244,6 +252,9 @@ def segment_specs() -> list[tuple[str, str, Callable[[pd.DataFrame], pd.Series]]
     core_mainstream = lambda df: df["effective_mainstream_label"].eq("core_mainstream")
     core_or_hot = lambda df: df["effective_mainstream_label"].eq("core_mainstream") | df["has_hot_theme"].astype(str).str.lower().eq("true")
     below_neckline5 = lambda df: num(df["neckline_distance_pct"]).le(-5.0)
+    strong_bull = lambda df: df["signal_market_regime"].eq("strong_bull")
+    bull = lambda df: df["signal_market_regime"].isin(["strong_bull", "mild_bull"])
+    not_correction = lambda df: df["signal_market_regime"].isin(["strong_bull", "mild_bull", "range_or_mixed"])
     return [
         (BASELINE_SEGMENT_ID, "All variant right-low early-entry rows.", lambda df: pd.Series(True, index=df.index)),
         ("smooth_right_rebound_5_20", "Smooth rounded W-like path and signal rebound 5% to 20%.", lambda df: df["slope_curvature_category"].eq("smooth_rounded_w_like") & num(df["signal_rebound_from_right_low_pct"]).between(5.0, 20.0, inclusive="both")),
@@ -260,6 +271,14 @@ def segment_specs() -> list[tuple[str, str, Callable[[pd.DataFrame], pd.Series]]
         ("core_or_hot_price_le30_rebound_3_20_volume_red", "core_mainstream or hot theme, price_position_252_pct <= 30, signal rebound 3% to 20%, and second arc volume/red improvement.", lambda df: core_or_hot(df) & price_le30(df) & rebound_3_20(df) & volume_red(df)),
         ("smooth_price_le30_rebound_3_20_volume_red", "Smooth rounded W-like path, price_position_252_pct <= 30, signal rebound 3% to 20%, and second arc volume/red improvement.", lambda df: smooth(df) & price_le30(df) & rebound_3_20(df) & volume_red(df)),
         ("smooth_price_le30_rebound_5_20_volume_red", "Smooth rounded W-like path, price_position_252_pct <= 30, signal rebound 5% to 20%, and second arc volume/red improvement.", lambda df: smooth(df) & price_le30(df) & rebound_5_20(df) & volume_red(df)),
+        ("smooth_right_rebound_5_20_strong_bull", "Smooth rounded W-like path, signal rebound 5% to 20%, and signal date market regime is strong_bull.", lambda df: smooth(df) & rebound_5_20(df) & strong_bull(df)),
+        ("smooth_right_rebound_5_20_bull", "Smooth rounded W-like path, signal rebound 5% to 20%, and signal date market regime is strong_bull or mild_bull.", lambda df: smooth(df) & rebound_5_20(df) & bull(df)),
+        ("smooth_right_rebound_5_20_not_correction", "Smooth rounded W-like path, signal rebound 5% to 20%, and signal date market regime is known non-correction.", lambda df: smooth(df) & rebound_5_20(df) & not_correction(df)),
+        ("smooth_core_mainstream_right_rebound_5_20_strong_bull", "Smooth rounded W-like path, core_mainstream, signal rebound 5% to 20%, and signal date market regime is strong_bull.", lambda df: smooth(df) & core_mainstream(df) & rebound_5_20(df) & strong_bull(df)),
+        ("smooth_core_mainstream_right_rebound_5_20_bull", "Smooth rounded W-like path, core_mainstream, signal rebound 5% to 20%, and signal date market regime is strong_bull or mild_bull.", lambda df: smooth(df) & core_mainstream(df) & rebound_5_20(df) & bull(df)),
+        ("core_mainstream_price_le30_rebound_3_20_volume_red_bull", "core_mainstream, price_position_252_pct <= 30, signal rebound 3% to 20%, second arc volume/red improvement, and signal date market regime is strong_bull or mild_bull.", lambda df: core_mainstream(df) & price_le30(df) & rebound_3_20(df) & volume_red(df) & bull(df)),
+        ("core_mainstream_price_le30_rebound_3_20_volume_red_not_correction", "core_mainstream, price_position_252_pct <= 30, signal rebound 3% to 20%, second arc volume/red improvement, and signal date market regime is known non-correction.", lambda df: core_mainstream(df) & price_le30(df) & rebound_3_20(df) & volume_red(df) & not_correction(df)),
+        ("bottom_or_low_rebound_3_20_volume_red_exclude_wv_strong_bull", "Bottom/low price level, signal rebound 3% to 20%, second arc volume/red improvement, excludes WV/WVV, and signal date market regime is strong_bull.", lambda df: bottom_or_low(df) & rebound_3_20(df) & volume_red(df) & exclude_wv(df) & strong_bull(df)),
     ]
 
 

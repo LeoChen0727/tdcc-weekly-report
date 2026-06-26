@@ -39,6 +39,14 @@ EXPECTED_SEGMENTS = {
     "core_or_hot_price_le30_rebound_3_20_volume_red",
     "smooth_price_le30_rebound_3_20_volume_red",
     "smooth_price_le30_rebound_5_20_volume_red",
+    "smooth_right_rebound_5_20_strong_bull",
+    "smooth_right_rebound_5_20_bull",
+    "smooth_right_rebound_5_20_not_correction",
+    "smooth_core_mainstream_right_rebound_5_20_strong_bull",
+    "smooth_core_mainstream_right_rebound_5_20_bull",
+    "core_mainstream_price_le30_rebound_3_20_volume_red_bull",
+    "core_mainstream_price_le30_rebound_3_20_volume_red_not_correction",
+    "bottom_or_low_rebound_3_20_volume_red_exclude_wv_strong_bull",
 }
 BLOCKING_STABILITY_STATUSES = {
     "insufficient_period_coverage_for_promotion",

@@ -1,6 +1,6 @@
 # W-Bottom Early-Entry Stability Audit
 
-- generated_at: `2026-06-27 00:34:13 Asia/Taipei`
+- generated_at: `2026-06-27 00:42:06 Asia/Taipei`
 - source_research_id: `w_bottom_early_entry_parameter_grid`
 - production impact: `none`
 - surface: `w_bottom_right_low_early_entry` only.
@@ -25,6 +25,12 @@
 | core_or_hot_price_le30_rebound_3_20_volume_red | 21 | 16 | 8 | 322 | 192 | 87 | 82 | 105 | 45.3125 | 29.9270 | 11.1111 | 100.0000 | 73.5043 | 64.6154 | unstable_period_win_rate | mature_ge10_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
 | smooth_price_le30_rebound_3_20_volume_red | 19 | 8 | 0 | 124 | 70 | 32 | 30 | 38 | 45.7143 | 30.0000 | 0.0000 | 100.0000 | 57.1429 |  | insufficient_period_coverage_for_promotion | mature_ge5_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
 | smooth_price_le30_rebound_5_20_volume_red | 18 | 4 | 0 | 79 | 44 | 22 | 20 | 22 | 50.0000 | 31.2500 | 0.0000 | 100.0000 | 43.3333 |  | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_right_rebound_5_20_strong_bull | 12 | 2 | 1 | 66 | 33 | 19 | 12 | 14 | 57.5758 | 26.6667 | 0.0000 | 100.0000 | 27.7778 | 0.0000 | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_right_rebound_5_20_bull | 13 | 4 | 1 | 85 | 45 | 24 | 18 | 21 | 53.3333 | 28.5714 | 0.0000 | 100.0000 | 27.7778 | 0.0000 | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_right_rebound_5_20_not_correction | 16 | 7 | 3 | 144 | 75 | 35 | 41 | 40 | 46.6667 | 35.3448 | 0.0000 | 100.0000 | 63.3333 | 50.0000 | unstable_period_win_rate | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_core_mainstream_right_rebound_5_20_strong_bull | 7 | 2 | 1 | 38 | 18 | 12 | 8 | 6 | 66.6667 | 30.7692 | 0.0000 | 100.0000 | 40.0000 | 0.0000 | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| smooth_core_mainstream_right_rebound_5_20_bull | 9 | 2 | 1 | 44 | 20 | 13 | 11 | 7 | 65.0000 | 35.4839 | 0.0000 | 100.0000 | 40.0000 | 0.0000 | insufficient_period_coverage_for_promotion | insufficient_mature_periods_research_only | blocked_by_insufficient_monthly_repetition |
+| core_mainstream_price_le30_rebound_3_20_volume_red_bull | 12 | 9 | 2 | 144 | 78 | 37 | 28 | 41 | 47.4359 | 26.4151 | 20.0000 | 100.0000 | 64.6154 | 44.6154 | insufficient_period_coverage_for_promotion | mature_ge5_unstable_or_weak_research_only | blocked_by_unstable_or_weak_monthly_result |
 
 ## smooth_right_rebound_5_20 Monthly Detail
 
@@ -125,6 +131,16 @@
 | smooth_price_le30_rebound_5_20_volume_red | range_or_mixed | 30 | 27 | 16 | 6 | 11 | 10 | 37.5000 | 40.7407 | not_directionally_positive_period |
 | smooth_price_le30_rebound_5_20_volume_red | strong_bull | 31 | 20 | 14 | 9 | 6 | 5 | 64.2857 | 30.0000 | directionally_positive_period |
 | smooth_price_le30_rebound_5_20_volume_red | unknown | 2 | 2 | 2 | 2 | 0 | 0 | 100.0000 | 0.0000 | too_small_for_period_decision |
+| smooth_right_rebound_5_20_strong_bull | strong_bull | 66 | 45 | 33 | 19 | 12 | 14 | 57.5758 | 26.6667 | directionally_positive_period |
+| smooth_right_rebound_5_20_bull | mild_bull | 19 | 18 | 12 | 5 | 6 | 7 | 41.6667 | 33.3333 | not_directionally_positive_period |
+| smooth_right_rebound_5_20_bull | strong_bull | 66 | 45 | 33 | 19 | 12 | 14 | 57.5758 | 26.6667 | directionally_positive_period |
+| smooth_right_rebound_5_20_not_correction | mild_bull | 19 | 18 | 12 | 5 | 6 | 7 | 41.6667 | 33.3333 | not_directionally_positive_period |
+| smooth_right_rebound_5_20_not_correction | range_or_mixed | 59 | 53 | 30 | 11 | 23 | 19 | 36.6667 | 43.3962 | not_directionally_positive_period |
+| smooth_right_rebound_5_20_not_correction | strong_bull | 66 | 45 | 33 | 19 | 12 | 14 | 57.5758 | 26.6667 | directionally_positive_period |
+| smooth_core_mainstream_right_rebound_5_20_strong_bull | strong_bull | 38 | 26 | 18 | 12 | 8 | 6 | 66.6667 | 30.7692 | directionally_positive_period |
+| smooth_core_mainstream_right_rebound_5_20_bull | mild_bull | 6 | 5 | 2 | 1 | 3 | 1 | 50.0000 | 60.0000 | too_small_for_period_decision |
+| smooth_core_mainstream_right_rebound_5_20_bull | strong_bull | 38 | 26 | 18 | 12 | 8 | 6 | 66.6667 | 30.7692 | directionally_positive_period |
+| core_mainstream_price_le30_rebound_3_20_volume_red_bull | mild_bull | 27 | 24 | 18 | 10 | 6 | 8 | 55.5556 | 25.0000 | directionally_positive_period |
 
 ## Guardrails
 
