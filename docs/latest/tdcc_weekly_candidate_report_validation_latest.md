@@ -46,10 +46,10 @@
 
 ## Font Contract
 
-- `output/latest/tdcc_weekly_candidate_highlight_latest.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
-- `output/latest/tdcc_weekly_candidate_full_latest.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
-- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
-- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
+- `output/latest/tdcc_weekly_candidate_highlight_latest.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
+- `output/latest/tdcc_weekly_candidate_full_latest.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
 
 ## Errors
 

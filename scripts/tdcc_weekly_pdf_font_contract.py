@@ -1,15 +1,26 @@
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
 from typing import Iterable
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-TDCC_WEEKLY_PDF_FONT_PATH = REPO_ROOT / "assets" / "fonts" / "TDCCSansTC-Regular.ttf"
-TDCC_WEEKLY_PDF_FONT_NAME = "TDCCSansTC-Regular"
-TDCC_WEEKLY_PDF_FONT_TOKEN = "TDCCSansTC-Regular"
+TDCC_WEEKLY_PDF_FONT_PATH = REPO_ROOT / "assets" / "fonts" / "TW-Kai-98_1.ttf"
+TDCC_WEEKLY_PDF_FONT_PATH_ENV = "TDCC_WEEKLY_KAI_FONT_PATH"
+TDCC_WEEKLY_PDF_FONT_NAME = "TW-Kai"
+TDCC_WEEKLY_PDF_REQUIRED_FONT_TOKENS = {
+    "TW-Kai",
+    "TWKai",
+    "DFKai",
+    "DFKaiShu",
+    "Kai",
+}
 TDCC_WEEKLY_PDF_FORBIDDEN_FONT_TOKENS = {
+    "Noto",
+    "NotoSansTC",
+    "TDCCSansTC",
     "STSong-Light",
     "STSong",
 }
@@ -22,16 +33,25 @@ def repo_relative(path: Path) -> str:
         return path.as_posix()
 
 
+def tdcc_weekly_kai_font_path() -> Path:
+    configured = os.environ.get(TDCC_WEEKLY_PDF_FONT_PATH_ENV, "").strip()
+    if configured:
+        return Path(configured)
+    return TDCC_WEEKLY_PDF_FONT_PATH
+
+
 def register_tdcc_weekly_pdf_font() -> str:
-    if not TDCC_WEEKLY_PDF_FONT_PATH.exists():
+    font_path = tdcc_weekly_kai_font_path()
+    if not font_path.exists():
         raise RuntimeError(
-            "TDCC weekly PDF font asset is missing; refusing to render with a fallback font: "
-            f"{repo_relative(TDCC_WEEKLY_PDF_FONT_PATH)}"
+            "TDCC weekly PDF requires the repo-controlled Traditional Chinese Kai font "
+            f"{TDCC_WEEKLY_PDF_FONT_NAME}; refusing to render with a fallback font. "
+            f"Missing font path: {font_path}"
         )
-    if TDCC_WEEKLY_PDF_FONT_PATH.stat().st_size < 1_000_000:
+    if font_path.stat().st_size < 1_000_000:
         raise RuntimeError(
-            "TDCC weekly PDF font asset is unexpectedly small; refusing to render with a fallback font: "
-            f"{repo_relative(TDCC_WEEKLY_PDF_FONT_PATH)}"
+            "TDCC weekly PDF Kai font is unexpectedly small; refusing to render with a fallback font: "
+            f"{font_path}"
         )
 
     try:
@@ -41,11 +61,11 @@ def register_tdcc_weekly_pdf_font() -> str:
         raise RuntimeError(f"reportlab font registration unavailable for TDCC weekly PDF: {exc}") from exc
 
     try:
-        pdfmetrics.registerFont(TTFont(TDCC_WEEKLY_PDF_FONT_NAME, str(TDCC_WEEKLY_PDF_FONT_PATH)))
+        pdfmetrics.registerFont(TTFont(TDCC_WEEKLY_PDF_FONT_NAME, str(font_path)))
     except Exception as exc:
         raise RuntimeError(
-            "TDCC weekly PDF font registration failed; refusing to render with a fallback font: "
-            f"{repo_relative(TDCC_WEEKLY_PDF_FONT_PATH)}: {exc}"
+            "TDCC weekly PDF Kai font registration failed; refusing to render with a fallback font: "
+            f"{font_path}: {exc}"
         ) from exc
     return TDCC_WEEKLY_PDF_FONT_NAME
 
@@ -100,10 +120,14 @@ def validate_tdcc_weekly_pdf_font_contract(paths: Iterable[Path]) -> dict[str, l
         fonts = sorted(pdf_base_fonts(path))
         result[repo_relative(path)] = fonts
         normalized = [normalized_font_name(font) for font in fonts]
-        if not any(TDCC_WEEKLY_PDF_FONT_TOKEN in font for font in normalized):
+        if not any(
+            required in font
+            for font in normalized
+            for required in TDCC_WEEKLY_PDF_REQUIRED_FONT_TOKENS
+        ):
             failures.append(
-                f"{repo_relative(path)} missing required TDCC weekly PDF font token "
-                f"{TDCC_WEEKLY_PDF_FONT_TOKEN}; fonts={fonts}"
+                f"{repo_relative(path)} missing required TDCC weekly PDF Kai font token "
+                f"{sorted(TDCC_WEEKLY_PDF_REQUIRED_FONT_TOKENS)}; fonts={fonts}"
             )
         forbidden_hits = [
             font

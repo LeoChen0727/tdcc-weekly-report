@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-06-28 02:51:21 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28298377401
-- commit: `54a5832e05e691425534389f32d808ceb03bfa01`
+- generated_at: `2026-06-28 04:08:57 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28300259128
+- commit: `9aa8ee775804d8a7e04a9139476ca683f50245d6`
 
 ## Outputs
 
@@ -41,12 +41,12 @@
 | `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 87 |
 | `output/latest/tdcc_weekly_candidate_highlight_latest.md` | yes | 52 |
 | `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 110 |
-| `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 501 |
-| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 795 |
+| `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 890 |
+| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 1186 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260618.pdf` | yes | 780 |
-| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf` | yes | 795 |
+| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf` | yes | 1186 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260618.pdf` | yes | 590 |
-| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf` | yes | 501 |
+| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf` | yes | 890 |
 | `output/latest/tdcc_weekly_candidate_report_validation_latest.md` | yes | 61 |
 | `output/latest/tdcc_weekly_candidate_report_validation_latest.json` | yes | 110 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |
