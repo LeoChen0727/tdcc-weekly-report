@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from scripts import repair_recent_daily_price_gaps as recent_repair
 from scripts import repair_missing_daily_price_files as recovery
 from scripts import validate_daily_price_history_continuity as validator
 
@@ -184,6 +185,73 @@ def test_missing_intermediate_daily_price_is_repaired_before_history_build(tmp_p
     assert result.report["missing_after"] == []
     assert repaired_dates == ["20260625"]
     assert (tmp_path / "data" / "daily_price" / "daily_price_20260625.csv").exists()
+
+
+def test_recent_gap_repair_excludes_as_of_date_and_configured_holidays(tmp_path: Path) -> None:
+    holidays = tmp_path / "config" / "twse_non_trading_days.csv"
+    holidays.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame([{"date": "20260619", "market": "TWSE_TPEx", "reason": "holiday"}]).to_csv(
+        holidays, index=False
+    )
+    for date_text in ["20260618", "20260622"]:
+        _write_daily_price(tmp_path, date_text, _market_rows(date_text))
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date="20260623",
+        lookback_days=4,
+        min_full_rows=1,
+        non_trading_days_path=Path("config/twse_non_trading_days.csv"),
+        max_repair_dates=2,
+    )
+
+    assert result.status == "pass"
+    assert result.report["target_end_date"] == "20260622"
+    assert result.report["expected_trading_dates"] == ["20260618", "20260622"]
+    assert "20260623" not in result.report["expected_trading_dates"]
+    assert "20260619" in result.report["non_trading_days_in_window"]
+
+
+def test_recent_gap_repair_uses_as_of_date_when_freshness_is_stale(tmp_path: Path) -> None:
+    _write_freshness(tmp_path, "20260624")
+    holidays = tmp_path / "config" / "twse_non_trading_days.csv"
+    holidays.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame([{"date": "20260619", "market": "TWSE_TPEx", "reason": "holiday"}]).to_csv(
+        holidays, index=False
+    )
+    for date_text in ["20260622", "20260623", "20260624"]:
+        _write_daily_price(tmp_path, date_text, _market_rows(date_text))
+    repaired_dates: list[str] = []
+    rebuilt: list[str] = []
+
+    def fake_repair(root: Path, date_text: str, args: object) -> int:
+        repaired_dates.append(date_text)
+        _write_daily_price(root, date_text, _market_rows(date_text))
+        return 0
+
+    def fake_rebuild(root: Path, args: object) -> int:
+        rebuilt.append(root.as_posix())
+        return 0
+
+    result = recent_repair.repair_recent_gaps(
+        tmp_path,
+        as_of_date="20260627",
+        lookback_days=7,
+        min_full_rows=1,
+        non_trading_days_path=Path("config/twse_non_trading_days.csv"),
+        max_repair_dates=5,
+        rebuild_history_if_repaired=True,
+        repair_func=fake_repair,
+        build_history_func=fake_rebuild,
+    )
+
+    assert result.status == "repaired"
+    assert result.report["target_end_date"] == "20260626"
+    assert result.report["missing_before"] == ["20260625", "20260626"]
+    assert result.report["missing_after"] == []
+    assert repaired_dates == ["20260625", "20260626"]
+    assert result.report["rebuild_history_status"] == "completed"
+    assert len(rebuilt) == 1
 
 
 def test_daily_workflow_runs_price_history_continuity_gate() -> None:

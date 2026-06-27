@@ -97,7 +97,10 @@ daily PDF artifact paths.
 - `market_risk`: market regime, sentiment, timing, and index-context surfaces.
 - `warrant`: warrant daily fetch, warrant flow, and warrant auxiliary outputs.
 - `official_price_data`: official TWSE/TPEx daily price fetch and price-history
-  maintenance.
+  maintenance. `scripts/repair_recent_daily_price_gaps.py` is the source
+  integrity entrypoint for proactive recent daily price gap repair before
+  report generation; workflow/Apps Script scheduling is handled separately by
+  the workflow automation lane.
 - `current_holdings`: current-holdings observation workflow.
 - `diagnostics`: manual diagnostic scripts and workflows.
 - `repo_infrastructure`: validators, source freshness gates, publish checks,
