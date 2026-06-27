@@ -7,15 +7,18 @@ from typing import Iterable
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_WINDOWS_DFKAI_PATH = Path(r"C:\Windows\Fonts\kaiu.ttf")
-TDCC_WEEKLY_PDF_FONT_PATH_ENV = "TDCC_WEEKLY_DFKAI_FONT_PATH"
-TDCC_WEEKLY_PDF_FONT_NAME = "DFKai-SB"
+TDCC_WEEKLY_PDF_FONT_PATH = REPO_ROOT / "assets" / "fonts" / "TW-Kai-98_1.ttf"
+TDCC_WEEKLY_PDF_FONT_PATH_ENV = "TDCC_WEEKLY_KAI_FONT_PATH"
+TDCC_WEEKLY_PDF_FONT_NAME = "TW-Kai"
 TDCC_WEEKLY_PDF_REQUIRED_FONT_TOKENS = {
+    "TW-Kai",
+    "TWKai",
     "DFKai",
     "DFKaiShu",
     "Kai",
 }
 TDCC_WEEKLY_PDF_FORBIDDEN_FONT_TOKENS = {
+    "Noto",
     "NotoSansTC",
     "TDCCSansTC",
     "STSong-Light",
@@ -30,18 +33,18 @@ def repo_relative(path: Path) -> str:
         return path.as_posix()
 
 
-def tdcc_weekly_dfkai_font_path() -> Path:
+def tdcc_weekly_kai_font_path() -> Path:
     configured = os.environ.get(TDCC_WEEKLY_PDF_FONT_PATH_ENV, "").strip()
     if configured:
         return Path(configured)
-    return DEFAULT_WINDOWS_DFKAI_PATH
+    return TDCC_WEEKLY_PDF_FONT_PATH
 
 
 def register_tdcc_weekly_pdf_font() -> str:
-    font_path = tdcc_weekly_dfkai_font_path()
+    font_path = tdcc_weekly_kai_font_path()
     if not font_path.exists():
         raise RuntimeError(
-            "TDCC weekly PDF requires Windows Traditional Chinese Kai font "
+            "TDCC weekly PDF requires the repo-controlled Traditional Chinese Kai font "
             f"{TDCC_WEEKLY_PDF_FONT_NAME}; refusing to render with a fallback font. "
             f"Missing font path: {font_path}"
         )
