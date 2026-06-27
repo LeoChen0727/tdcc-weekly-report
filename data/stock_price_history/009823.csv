@@ -1,2 +1,3 @@
 date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,source_file,ma5,ma20,ma60,ma120,ema23,return_1d,return_5d,return_20d,return_60d,return_120d,volume_ma20,volume_ratio,high_20,high_60,high_120,low_20,low_60,low_120,distance_to_ma20_pct,distance_to_ma60_pct,distance_to_ma120_pct,distance_to_ema23_pct,distance_to_high_20_pct,distance_to_high_60_pct,distance_to_high_120_pct,distance_to_low_60_pct,distance_to_low_120_pct
-20260626,009823,群益S&P500,TPEx,10.04,10.05,9.97,9.99,59908000.0,599501390.0,TPEX_OTC_QUOTES_NO1430_JSON,data/daily_price/daily_price_20260626.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
+20260625,009823,群益S&P500,TPEx,10.08,10.18,10.07,10.12,82830000.0,836428070.0,TPEX_OTC_QUOTES_NO1430_JSON,data/daily_price/daily_price_20260625.csv,,,,,,,,,,,,,,,,,,,,,,,,,,,
+20260626,009823,群益S&P500,TPEx,10.04,10.05,9.97,9.99,59908000.0,599501390.0,TPEX_OTC_QUOTES_NO1430_JSON,data/daily_price/daily_price_20260626.csv,,,,,,-1.2846,,,,,,,,,,,,,,,,,,,,,

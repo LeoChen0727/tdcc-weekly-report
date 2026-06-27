@@ -1,0 +1,32 @@
+﻿date,status,twse_rows,tpex_rows,total_rows,reason,saved_files
+20240701,repaired,1147,831,1978,full_market_ok,data/daily_price/20240701.csv;data/daily_price/daily_price_20240701.csv
+20240702,repaired,1148,834,1982,full_market_ok,data/daily_price/20240702.csv;data/daily_price/daily_price_20240702.csv
+20240703,repaired,1147,829,1976,full_market_ok,data/daily_price/20240703.csv;data/daily_price/daily_price_20240703.csv
+20240704,repaired,1149,832,1981,full_market_ok,data/daily_price/20240704.csv;data/daily_price/daily_price_20240704.csv
+20240705,repaired,1147,831,1978,full_market_ok,data/daily_price/20240705.csv;data/daily_price/daily_price_20240705.csv
+20240706,skipped_weekend,0,0,0,weekend,
+20240707,skipped_weekend,0,0,0,weekend,
+20240708,repaired,1149,833,1982,full_market_ok,data/daily_price/20240708.csv;data/daily_price/daily_price_20240708.csv
+20240709,repaired,1151,831,1982,full_market_ok,data/daily_price/20240709.csv;data/daily_price/daily_price_20240709.csv
+20240710,repaired,1148,829,1977,full_market_ok,data/daily_price/20240710.csv;data/daily_price/daily_price_20240710.csv
+20240711,repaired,1148,829,1977,full_market_ok,data/daily_price/20240711.csv;data/daily_price/daily_price_20240711.csv
+20240712,repaired,1152,831,1983,full_market_ok,data/daily_price/20240712.csv;data/daily_price/daily_price_20240712.csv
+20240713,skipped_weekend,0,0,0,weekend,
+20240714,skipped_weekend,0,0,0,weekend,
+20240715,repaired,1144,829,1973,full_market_ok,data/daily_price/20240715.csv;data/daily_price/daily_price_20240715.csv
+20240716,repaired,1146,831,1977,full_market_ok,data/daily_price/20240716.csv;data/daily_price/daily_price_20240716.csv
+20240717,repaired,1148,830,1978,full_market_ok,data/daily_price/20240717.csv;data/daily_price/daily_price_20240717.csv
+20240718,repaired,1149,832,1981,full_market_ok,data/daily_price/20240718.csv;data/daily_price/daily_price_20240718.csv
+20240719,repaired,1147,830,1977,full_market_ok,data/daily_price/20240719.csv;data/daily_price/daily_price_20240719.csv
+20240720,skipped_weekend,0,0,0,weekend,
+20240721,skipped_weekend,0,0,0,weekend,
+20240722,repaired,1148,827,1975,full_market_ok,data/daily_price/20240722.csv;data/daily_price/daily_price_20240722.csv
+20240723,repaired,1148,832,1980,full_market_ok,data/daily_price/20240723.csv;data/daily_price/daily_price_20240723.csv
+20240724,failed,1236,0,1236,"GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/07/24&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20240724; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20240724; TPEx batch best rows=0; date=20240724 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",
+20240725,failed,1236,0,1236,"GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/07/25&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20240725; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20240725; TPEx batch best rows=0; date=20240725 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",
+20240726,repaired,1145,829,1974,full_market_ok,data/daily_price/20240726.csv;data/daily_price/daily_price_20240726.csv
+20240727,skipped_weekend,0,0,0,weekend,
+20240728,skipped_weekend,0,0,0,weekend,
+20240729,repaired,1151,832,1983,full_market_ok,data/daily_price/20240729.csv;data/daily_price/daily_price_20240729.csv
+20240730,repaired,1151,828,1979,full_market_ok,data/daily_price/20240730.csv;data/daily_price/daily_price_20240730.csv
+20240731,repaired,1149,830,1979,full_market_ok,data/daily_price/20240731.csv;data/daily_price/daily_price_20240731.csv

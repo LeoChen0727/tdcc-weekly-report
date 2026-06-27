@@ -1,10 +1,8 @@
 {
   "status": "pass",
-  "main_price_date": "20260624",
+  "main_price_date": "20260626",
   "lookback_days": 20,
   "expected_trading_dates": [
-    "20260604",
-    "20260605",
     "20260608",
     "20260609",
     "20260610",
@@ -16,38 +14,16 @@
     "20260618",
     "20260622",
     "20260623",
-    "20260624"
+    "20260624",
+    "20260625",
+    "20260626"
   ],
   "non_trading_days_in_window": [
     "20260619"
   ],
   "daily_price_files": {
-    "20260604": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260604.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 6706,
-      "date_rows": 6706,
-      "stock_rows": 2107,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20260605": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260605.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 6431,
-      "date_rows": 6431,
-      "stock_rows": 2109,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
     "20260608": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260608.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260608.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2127,
@@ -59,7 +35,7 @@
       ]
     },
     "20260609": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260609.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260609.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2129,
@@ -71,7 +47,7 @@
       ]
     },
     "20260610": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260610.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260610.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2128,
@@ -83,7 +59,7 @@
       ]
     },
     "20260611": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260611.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260611.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2132,
@@ -95,7 +71,7 @@
       ]
     },
     "20260612": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260612.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260612.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2126,
@@ -107,7 +83,7 @@
       ]
     },
     "20260615": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260615.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260615.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2133,
@@ -119,7 +95,7 @@
       ]
     },
     "20260616": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260616.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260616.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2133,
@@ -131,7 +107,7 @@
       ]
     },
     "20260617": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260617.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260617.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2126,
@@ -143,7 +119,7 @@
       ]
     },
     "20260618": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260618.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260618.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2132,
@@ -155,7 +131,7 @@
       ]
     },
     "20260622": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260622.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260622.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2140,
@@ -167,7 +143,7 @@
       ]
     },
     "20260623": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260623.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260623.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2128,
@@ -179,7 +155,7 @@
       ]
     },
     "20260624": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260624.csv",
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260624.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2127,
@@ -189,9 +165,33 @@
         "TPEx",
         "TWSE"
       ]
+    },
+    "20260625": {
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260625.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2132,
+      "date_rows": 2132,
+      "stock_rows": 2109,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
+    },
+    "20260626": {
+      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/research/tdcc-research-backtest/data/daily_price/daily_price_20260626.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2130,
+      "date_rows": 2130,
+      "stock_rows": 2110,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
     }
   },
-  "target_stock_count": 364,
+  "target_stock_count": 332,
   "stock_history_missing_rows": [],
   "stock_history_missing_row_count": 0,
   "errors": []

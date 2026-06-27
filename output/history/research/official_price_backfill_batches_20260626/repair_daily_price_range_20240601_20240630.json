@@ -1,0 +1,523 @@
+{
+  "rows": [
+    {
+      "date": "20240601",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240602",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240603",
+      "status": "repaired",
+      "twse_rows": 1142,
+      "tpex_rows": 828,
+      "total_rows": 1970,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240603.csv;data/daily_price/daily_price_20240603.csv"
+    },
+    {
+      "date": "20240604",
+      "status": "repaired",
+      "twse_rows": 1138,
+      "tpex_rows": 823,
+      "total_rows": 1961,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240604.csv;data/daily_price/daily_price_20240604.csv"
+    },
+    {
+      "date": "20240605",
+      "status": "repaired",
+      "twse_rows": 1141,
+      "tpex_rows": 827,
+      "total_rows": 1968,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240605.csv;data/daily_price/daily_price_20240605.csv"
+    },
+    {
+      "date": "20240606",
+      "status": "repaired",
+      "twse_rows": 1138,
+      "tpex_rows": 828,
+      "total_rows": 1966,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240606.csv;data/daily_price/daily_price_20240606.csv"
+    },
+    {
+      "date": "20240607",
+      "status": "repaired",
+      "twse_rows": 1136,
+      "tpex_rows": 824,
+      "total_rows": 1960,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240607.csv;data/daily_price/daily_price_20240607.csv"
+    },
+    {
+      "date": "20240608",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240609",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240610",
+      "status": "failed",
+      "twse_rows": 1236,
+      "tpex_rows": 0,
+      "total_rows": 1236,
+      "reason": "GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=113/06/10&s=0,asc,0 -> status=200, chars=1391211; TPEX_OLD_DAILY_CSV: rejected response date 20260626; target date is 20240610; Skip TPEx latest-only source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES for historical target date 20240610; TPEx batch best rows=0; date=20240610 twse_rows=1236 tpex_rows=0 total_rows=1236 full_market_ok=False",
+      "saved_files": ""
+    },
+    {
+      "date": "20240611",
+      "status": "repaired",
+      "twse_rows": 1141,
+      "tpex_rows": 829,
+      "total_rows": 1970,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240611.csv;data/daily_price/daily_price_20240611.csv"
+    },
+    {
+      "date": "20240612",
+      "status": "repaired",
+      "twse_rows": 1145,
+      "tpex_rows": 828,
+      "total_rows": 1973,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240612.csv;data/daily_price/daily_price_20240612.csv"
+    },
+    {
+      "date": "20240613",
+      "status": "repaired",
+      "twse_rows": 1146,
+      "tpex_rows": 830,
+      "total_rows": 1976,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240613.csv;data/daily_price/daily_price_20240613.csv"
+    },
+    {
+      "date": "20240614",
+      "status": "repaired",
+      "twse_rows": 1144,
+      "tpex_rows": 828,
+      "total_rows": 1972,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240614.csv;data/daily_price/daily_price_20240614.csv"
+    },
+    {
+      "date": "20240615",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240616",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240617",
+      "status": "repaired",
+      "twse_rows": 1144,
+      "tpex_rows": 829,
+      "total_rows": 1973,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240617.csv;data/daily_price/daily_price_20240617.csv"
+    },
+    {
+      "date": "20240618",
+      "status": "repaired",
+      "twse_rows": 1147,
+      "tpex_rows": 829,
+      "total_rows": 1976,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240618.csv;data/daily_price/daily_price_20240618.csv"
+    },
+    {
+      "date": "20240619",
+      "status": "repaired",
+      "twse_rows": 1146,
+      "tpex_rows": 829,
+      "total_rows": 1975,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240619.csv;data/daily_price/daily_price_20240619.csv"
+    },
+    {
+      "date": "20240620",
+      "status": "repaired",
+      "twse_rows": 1142,
+      "tpex_rows": 830,
+      "total_rows": 1972,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240620.csv;data/daily_price/daily_price_20240620.csv"
+    },
+    {
+      "date": "20240621",
+      "status": "repaired",
+      "twse_rows": 1144,
+      "tpex_rows": 828,
+      "total_rows": 1972,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240621.csv;data/daily_price/daily_price_20240621.csv"
+    },
+    {
+      "date": "20240622",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240623",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240624",
+      "status": "repaired",
+      "twse_rows": 1146,
+      "tpex_rows": 827,
+      "total_rows": 1973,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240624.csv;data/daily_price/daily_price_20240624.csv"
+    },
+    {
+      "date": "20240625",
+      "status": "repaired",
+      "twse_rows": 1143,
+      "tpex_rows": 824,
+      "total_rows": 1967,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240625.csv;data/daily_price/daily_price_20240625.csv"
+    },
+    {
+      "date": "20240626",
+      "status": "repaired",
+      "twse_rows": 1147,
+      "tpex_rows": 831,
+      "total_rows": 1978,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240626.csv;data/daily_price/daily_price_20240626.csv"
+    },
+    {
+      "date": "20240627",
+      "status": "repaired",
+      "twse_rows": 1146,
+      "tpex_rows": 824,
+      "total_rows": 1970,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240627.csv;data/daily_price/daily_price_20240627.csv"
+    },
+    {
+      "date": "20240628",
+      "status": "repaired",
+      "twse_rows": 1149,
+      "tpex_rows": 831,
+      "total_rows": 1980,
+      "reason": "full_market_ok",
+      "saved_files": "data/daily_price/20240628.csv;data/daily_price/daily_price_20240628.csv"
+    },
+    {
+      "date": "20240629",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    },
+    {
+      "date": "20240630",
+      "status": "skipped_weekend",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "reason": "weekend",
+      "saved_files": ""
+    }
+  ],
+  "check_rows": [
+    {
+      "date": "20240603",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "839.0",
+      "high": "853.0",
+      "low": "837.0",
+      "close": "846.0",
+      "volume": "29629706",
+      "trading_value": "25053781742"
+    },
+    {
+      "date": "20240604",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "844.0",
+      "high": "851.0",
+      "low": "837.0",
+      "close": "839.0",
+      "volume": "31031104",
+      "trading_value": "26107162214"
+    },
+    {
+      "date": "20240605",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "841.0",
+      "high": "857.0",
+      "low": "835.0",
+      "close": "854.0",
+      "volume": "37531781",
+      "trading_value": "31774150536"
+    },
+    {
+      "date": "20240606",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "893.0",
+      "high": "899.0",
+      "low": "885.0",
+      "close": "894.0",
+      "volume": "67300344",
+      "trading_value": "60138015941"
+    },
+    {
+      "date": "20240607",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "885.0",
+      "high": "888.0",
+      "low": "879.0",
+      "close": "879.0",
+      "volume": "44489018",
+      "trading_value": "39240336617"
+    },
+    {
+      "date": "20240611",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "892.0",
+      "high": "895.0",
+      "low": "883.0",
+      "close": "883.0",
+      "volume": "57435637",
+      "trading_value": "51091497348"
+    },
+    {
+      "date": "20240612",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "888.0",
+      "high": "914.0",
+      "low": "888.0",
+      "close": "909.0",
+      "volume": "51874967",
+      "trading_value": "46791431521"
+    },
+    {
+      "date": "20240613",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "923.0",
+      "high": "935.0",
+      "low": "911.0",
+      "close": "919.0",
+      "volume": "59656092",
+      "trading_value": "54980784829"
+    },
+    {
+      "date": "20240614",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "916.0",
+      "high": "922.0",
+      "low": "905.0",
+      "close": "922.0",
+      "volume": "43289572",
+      "trading_value": "39603293460"
+    },
+    {
+      "date": "20240617",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "913.0",
+      "high": "925.0",
+      "low": "913.0",
+      "close": "921.0",
+      "volume": "28796529",
+      "trading_value": "26475733502"
+    },
+    {
+      "date": "20240618",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "944.0",
+      "high": "950.0",
+      "low": "940.0",
+      "close": "943.0",
+      "volume": "40870419",
+      "trading_value": "38583515635"
+    },
+    {
+      "date": "20240619",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "953.0",
+      "high": "984.0",
+      "low": "953.0",
+      "close": "981.0",
+      "volume": "76684138",
+      "trading_value": "74395758883"
+    },
+    {
+      "date": "20240620",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "971.0",
+      "high": "981.0",
+      "low": "971.0",
+      "close": "981.0",
+      "volume": "52144900",
+      "trading_value": "50859632569"
+    },
+    {
+      "date": "20240621",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "961.0",
+      "high": "978.0",
+      "low": "960.0",
+      "close": "970.0",
+      "volume": "97995843",
+      "trading_value": "94882220706"
+    },
+    {
+      "date": "20240624",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "958.0",
+      "high": "960.0",
+      "low": "940.0",
+      "close": "940.0",
+      "volume": "74081708",
+      "trading_value": "70162177693"
+    },
+    {
+      "date": "20240625",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "925.0",
+      "high": "945.0",
+      "low": "923.0",
+      "close": "945.0",
+      "volume": "62079701",
+      "trading_value": "57978440842"
+    },
+    {
+      "date": "20240626",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "951.0",
+      "high": "960.0",
+      "low": "951.0",
+      "close": "960.0",
+      "volume": "48821135",
+      "trading_value": "46668874056"
+    },
+    {
+      "date": "20240627",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "951.0",
+      "high": "961.0",
+      "low": "949.0",
+      "close": "960.0",
+      "volume": "41276086",
+      "trading_value": "39447006518"
+    },
+    {
+      "date": "20240628",
+      "stock_id": "2330",
+      "found": true,
+      "stock_name": "台積電",
+      "market": "TWSE",
+      "open": "956.0",
+      "high": "971.0",
+      "low": "955.0",
+      "close": "966.0",
+      "volume": "42998776",
+      "trading_value": "41476565443"
+    }
+  ]
+}

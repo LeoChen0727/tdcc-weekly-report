@@ -103,6 +103,36 @@ daily PDF artifact paths.
 - `repo_infrastructure`: validators, source freshness gates, publish checks,
   and low-level repository plumbing.
 
+## Manual Research Surfaces
+
+The W-bottom research builders below are manual research/backtest surfaces.
+They are retained to reproduce review packets, filter grids, left-anchor
+audits, and event replays for `w_bottom_right_side` and
+`neckline_volume_breakout_confirmation`. They are not production model
+entrypoints, must not be called by daily production workflows, and must not
+write research variants into production baselines:
+
+- `scripts/build_w_bottom_candidate_definition_audit.py`
+- `scripts/build_w_bottom_candidate_filter_grid.py`
+- `scripts/build_w_bottom_candidate_quality_audit.py`
+- `scripts/build_w_bottom_core_mainstream_exclude_wv_review_packet.py`
+- `scripts/build_w_bottom_left_anchor_rule_grid.py`
+- `scripts/build_w_bottom_left_anchor_rule_replay.py`
+- `scripts/build_w_bottom_nearest_micro_anchor_event_replay.py`
+- `scripts/build_w_bottom_nearest_micro_anchor_chart_review_packet.py`
+- `scripts/build_w_bottom_combined_condition_backtest.py`
+- `scripts/build_w_bottom_split_entry_outcome_backtest.py`
+- `scripts/build_w_bottom_early_entry_parameter_grid.py`
+- `scripts/build_w_bottom_early_entry_outcome_diagnostics.py`
+- `scripts/build_w_bottom_early_entry_stability_audit.py`
+- `scripts/build_w_bottom_early_entry_data_coverage_audit.py`
+- `scripts/build_w_bottom_early_entry_backfill_feasibility_audit.py`
+- `scripts/build_w_bottom_observation_confirmation_audit.py`
+- `scripts/build_w_bottom_path_quality_filter_audit.py`
+- `scripts/build_w_bottom_price_level_audit.py`
+- `scripts/build_w_bottom_price_level_filter_grid.py`
+- `scripts/build_w_bottom_wv_filter_stability_grid.py`
+
 ## Boundary Rules
 
 The validator enforces these repository-wide rules:
