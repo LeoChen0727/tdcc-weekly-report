@@ -1,6 +1,6 @@
 # TDCC Weekly Report Rules
 
-Last updated: 2026-06-12
+Last updated: 2026-06-28
 
 This task is the TDCC weekly large-holder flow report. It is not the daily full-market stock recommendation report, holdings management, a single-stock report, market-opening analysis, or backtest tuning report.
 
@@ -91,6 +91,28 @@ Ranking fields must render as integers when they are whole numbers. Do not displ
 Score fields may use at most two decimals and must strip redundant trailing zeroes, for example `81.30` -> `81.3` and `74.00` -> `74`.
 
 PDF text must not print raw slug or snake_case fields. If a display value has no approved Chinese label, render `資料不足 / 暫用現有資料` instead of the raw token.
+
+## TDCC Data Quality Quarantine
+
+A single-stock TDCC holder distribution anomaly must not make the whole weekly
+report fail when the core source date and report-ready section contracts remain
+valid. Examples include placeholder-like distributions where one non-total TDCC
+level carries essentially 100% of holders and the total holder count is one.
+
+The program-side pipeline must quarantine these stocks before weekly ranking,
+report-ready CSV/MD generation, and PDF table rendering. Quarantined stocks must
+not appear in `weekly_increase`, `consecutive_accumulation`, model-cross
+sections, or full-report PDF tables.
+
+When quarantined TDCC holder distribution rows exist for the report
+`signal_date`, the highlight PDF must add a final-page data anomaly note listing
+the affected stock codes and the data-quality reason. This note is a data
+quality disclosure only; it must not create a buy/sell judgment, recommendation
+reason, ranking rule, scoring adjustment, or model judgment.
+
+The validator must check both sides of this contract: quarantined codes are not
+present in report-ready tables or the full PDF, and the highlight PDF final page
+contains the anomaly note and affected codes.
 
 ## Section Manifest Contract
 

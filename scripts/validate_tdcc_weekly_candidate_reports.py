@@ -21,6 +21,8 @@ VALIDATION_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.j
 WEEKLY_INCREASE_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
 CONSECUTIVE_CSV = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.csv"
 MODEL_CROSS_CSV = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.csv"
+HOLDER_RATIO_LATEST_CSV = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
+INVALID_HOLDER_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_invalid_holder_distribution_latest.csv"
 SECTION_MANIFEST_CSV = LATEST_DIR / "tdcc_weekly_report_section_manifest_latest.csv"
 HIGHLIGHT_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.csv"
 FULL_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.csv"
@@ -45,6 +47,14 @@ DELTA_COLS = [
     "tdcc_1w_change_800",
     "tdcc_1w_change_1000",
 ]
+HOLDER_RATIO_COLS = [
+    "over_400_pct",
+    "over_600_pct",
+    "over_800_pct",
+    "over_1000_pct",
+]
+INVALID_LATEST_RATIO_PCT = 99.9
+INVALID_WEEKLY_CHANGE_PCT = 50.0
 MANIFEST_COLUMNS = [
     "section_order",
     "section_id",
@@ -224,6 +234,43 @@ def validate_score_formulas(df: pd.DataFrame, label: str, errors: list[str]) -> 
     consecutive = (weighted + sync_bonus + high_pair_bonus + theme_bonus - low_volume_penalty).round(2)
     check_close(df, weekly, "tdcc_weekly_increase_score", f"{label} weekly score", errors)
     check_close(df, consecutive, "tdcc_consecutive_accumulation_score", f"{label} consecutive score", errors)
+
+
+def validate_no_invalid_single_holder_spikes(
+    df: pd.DataFrame,
+    holder_ratio: pd.DataFrame,
+    label: str,
+    warnings: list[str],
+) -> None:
+    if df.empty or holder_ratio.empty:
+        return
+    required = {"stock_id", *DELTA_COLS}
+    if any(col not in df.columns for col in required):
+        return
+    if "code" not in holder_ratio.columns or any(col not in holder_ratio.columns for col in HOLDER_RATIO_COLS):
+        return
+
+    latest = holder_ratio.copy()
+    latest["code"] = latest["code"].map(safe_str)
+    latest = latest.drop_duplicates("code", keep="last").set_index("code", drop=False)
+    bad_examples: list[str] = []
+    for _, row in df.iterrows():
+        stock_id = safe_str(row.get("stock_id"))
+        if not stock_id or stock_id not in latest.index:
+            continue
+        ratios = [pd.to_numeric(pd.Series([latest.at[stock_id, col]]), errors="coerce").iloc[0] for col in HOLDER_RATIO_COLS]
+        deltas = [pd.to_numeric(pd.Series([row.get(col)]), errors="coerce").iloc[0] for col in DELTA_COLS]
+        if (
+            all(not pd.isna(value) and float(value) >= INVALID_LATEST_RATIO_PCT for value in ratios)
+            and all(not pd.isna(value) and float(value) >= INVALID_WEEKLY_CHANGE_PCT for value in deltas)
+        ):
+            bad_examples.append(f"{stock_id}:latest_ratios={ratios},weekly_changes={deltas}")
+
+    if bad_examples:
+        warnings.append(
+            f"{label} contains invalid TDCC single-holder/placeholder spike rows: "
+            + "; ".join(bad_examples[:8])
+        )
 
 
 def sorted_signal_dates(df: pd.DataFrame) -> list[str]:
@@ -465,6 +512,70 @@ def read_pdf_page_count_and_text(path: Path, errors: list[str]) -> tuple[int, st
         return 0, ""
 
 
+def read_pdf_page_texts(path: Path, errors: list[str]) -> list[str]:
+    if not path.exists() or path.stat().st_size < 10_000:
+        errors.append(f"missing or too-small TDCC PDF: {path.as_posix()}")
+        return []
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:
+        errors.append(f"pypdf unavailable for PDF validation: {exc}")
+        return []
+    try:
+        reader = PdfReader(str(path))
+        pages = [page.extract_text() or "" for page in reader.pages]
+        if not any(text.strip() for text in pages):
+            errors.append(f"TDCC PDF has no extractable text: {path.as_posix()}")
+        return pages
+    except Exception as exc:
+        errors.append(f"failed to open or extract PDF text from {path.as_posix()}: {exc}")
+        return []
+
+
+def load_invalid_holder_distributions(signal_date: str) -> pd.DataFrame:
+    if not INVALID_HOLDER_DISTRIBUTION_CSV.exists():
+        return pd.DataFrame()
+    df = pd.read_csv(INVALID_HOLDER_DISTRIBUTION_CSV, dtype=str).fillna("")
+    if "date" not in df.columns or "code" not in df.columns:
+        return pd.DataFrame()
+    return df[df["date"].map(safe_str) == safe_str(signal_date)].copy()
+
+
+def validate_invalid_holder_distribution_quarantine(
+    signal_date: str,
+    highlight: pd.DataFrame,
+    full: pd.DataFrame,
+    errors: list[str],
+) -> None:
+    invalid = load_invalid_holder_distributions(signal_date)
+    if invalid.empty:
+        return
+    invalid_codes = {safe_str(value) for value in invalid["code"].dropna() if safe_str(value)}
+    if not invalid_codes:
+        return
+    for label, report in [("highlight report-ready CSV", highlight), ("full report-ready CSV", full)]:
+        if "stock_id" not in report.columns:
+            continue
+        leaked = sorted(set(report["stock_id"].map(safe_str)) & invalid_codes)
+        if leaked:
+            errors.append(f"{label} contains invalid TDCC holder distribution codes that must be quarantined: {leaked}")
+
+    highlight_pages = read_pdf_page_texts(HIGHLIGHT_PDF, errors)
+    full_pages = read_pdf_page_texts(FULL_PDF, errors)
+    if highlight_pages:
+        last_page = highlight_pages[-1]
+        if "DATA_ANOMALY_NOTE" not in last_page:
+            errors.append("highlight PDF final page must contain DATA_ANOMALY_NOTE when invalid TDCC holder distributions exist")
+        missing_codes = sorted(code for code in invalid_codes if code not in last_page)
+        if missing_codes:
+            errors.append(f"highlight PDF final anomaly note is missing invalid TDCC codes: {missing_codes}")
+    if full_pages:
+        full_text = "\n".join(full_pages)
+        leaked = sorted(code for code in invalid_codes if code in full_text)
+        if leaked:
+            errors.append(f"full PDF must not contain invalid TDCC holder distribution codes: {leaked}")
+
+
 def tdcc_data_dates_from_text(text: str) -> list[str]:
     return sorted(set(re.findall(r"TDCC data date:\s*([0-9]{8})", text)))
 
@@ -661,6 +772,7 @@ def main() -> None:
     weekly = read_csv(WEEKLY_INCREASE_CSV, errors)
     consecutive = read_csv(CONSECUTIVE_CSV, errors)
     model_cross = read_csv(MODEL_CROSS_CSV, errors)
+    holder_ratio = read_csv(HOLDER_RATIO_LATEST_CSV, errors)
     manifest = ensure_manifest_columns(read_csv(SECTION_MANIFEST_CSV, errors), errors)
     manifest = ordered_manifest(manifest) if not manifest.empty else manifest
     highlight = read_csv(HIGHLIGHT_FOR_REPORT_CSV, errors)
@@ -669,6 +781,10 @@ def main() -> None:
     validate_manifest(manifest, errors)
     validate_score_formulas(weekly, "weekly increase ranking", errors)
     validate_score_formulas(consecutive, "consecutive accumulation ranking", errors)
+    validate_no_invalid_single_holder_spikes(weekly, holder_ratio, "weekly increase ranking", warnings)
+    validate_no_invalid_single_holder_spikes(consecutive, holder_ratio, "consecutive accumulation ranking", warnings)
+    validate_no_invalid_single_holder_spikes(highlight, holder_ratio, "highlight report-ready CSV", warnings)
+    validate_no_invalid_single_holder_spikes(full, holder_ratio, "full report-ready CSV", warnings)
 
     consecutive_streak = to_number(consecutive.get("tdcc_high_pair_effective_streak_weeks", pd.Series(dtype=str))).fillna(0)
     if not consecutive.empty and (consecutive_streak < 2).any():
@@ -717,6 +833,7 @@ def main() -> None:
             manifest,
             errors,
         )
+        validate_invalid_holder_distribution_quarantine(signal_date, highlight, full, errors)
         try:
             font_contract = validate_tdcc_weekly_pdf_font_contract(
                 [
