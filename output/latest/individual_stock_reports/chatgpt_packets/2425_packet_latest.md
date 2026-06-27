@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2425 承啟
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:59 Asia/Taipei
+- generated_at: 2026-06-27 22:23:03 Asia/Taipei
 - stock_id: 2425
 - stock_name: 承啟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 39.05
 - close: 39.45
 - volume: 7498184
-- ma5: 39.21
-- ema23_primary: 36.92
-- distance_to_ema23_pct: 6.84
-- ma20: 36.94
-- ma60: 32.94
-- ma120: 31.25
-- return_5d: -4.36
-- return_20d: 8.08
-- volume_ratio: 2.57
-- distance_to_ma20_pct_auxiliary: 6.79
+- ma5: 39.8
+- ema23_primary: 37.36
+- distance_to_ema23_pct: 5.61
+- ma20: 37.33
+- ma60: 33.19
+- ma120: 31.35
+- return_5d: 0.13
+- return_20d: 14.02
+- volume_ratio: 2.37
+- distance_to_ma20_pct_auxiliary: 5.69
 - distance_to_high_60_pct: -9.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.15,37,34.5,34.6,1599389,33.16,4.33,33.32,30.33,1.54
 20260529,35.1,36.1,35.1,35.6,642051,33.37,6.69,33.58,30.46,0.62
 20260601,35.85,37,35.85,36.7,1321581,33.65,9.08,33.88,30.64,1.23
 20260602,37,37.55,35.55,36.05,1206355,33.85,6.51,34.06,30.79,1.1
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.1,40.55,39.35,39.35,2601268,36.27,8.48,36.4,32.41,1.02
 20260623,39.3,39.7,37.8,39.35,2018359,36.53,7.72,36.61,32.58,0.78
 20260624,39.05,40.25,38.35,38.5,1480798,36.69,4.92,36.79,32.75,0.56
-20260626,42.75,43.25,39.05,39.45,7498184,36.92,6.84,36.94,32.94,2.57
+20260625,38.95,42.35,38.75,42.35,6492729,37.17,13.95,37.09,32.99,2.26
+20260626,42.75,43.25,39.05,39.45,7498184,37.36,5.61,37.33,33.19,2.37
 ```
 
 ## Latest TDCC Snapshot
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2425 | 承啟 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額::股東現金股利新台幣9,649,883元(每股配發0.1元) 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 本次現金股利依除息基準日股東名簿記載之股東持有股份計算，並按分配比例 計算至元為止，元以下捨去，不足一元之畸零款合計數，列入公司之其他收入。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2425 | 承啟 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額::股東現金股利新台幣9,649,883元(每股配發0.1元) 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 本次現金股利依除息基準日股東名簿記載之股東持有股份計算，並按分配比例 計算至元為止，元以下捨去，不足一元之畸零款合計數，列入公司之其他收入。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 | 20260626 | 2425 | 承啟 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額::股東現金股利新台幣9,649,883元(每股配發0.1元) 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 本次現金股利依除息基準日股東名簿記載之股東持有股份計算，並按分配比例 計算至元為止，元以下捨去，不足一元之畸零款合計數，列入公司之其他收入。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

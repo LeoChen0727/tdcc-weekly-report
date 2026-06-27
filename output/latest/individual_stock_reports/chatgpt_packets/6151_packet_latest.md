@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6151 晉倫
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:07 Asia/Taipei
+- generated_at: 2026-06-27 22:24:09 Asia/Taipei
 - stock_id: 6151
 - stock_name: 晉倫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 38.6
 - close: 38.6
 - volume: 395000
-- ma5: 40.42
-- ema23_primary: 41.54
-- distance_to_ema23_pct: -7.08
-- ma20: 42.24
-- ma60: 39.31
-- ma120: 34.81
-- return_5d: -5.04
-- return_20d: -13.65
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -8.63
+- ma5: 40.53
+- ema23_primary: 41.44
+- distance_to_ema23_pct: -6.86
+- ma20: 42.12
+- ma60: 39.48
+- ma120: 34.91
+- return_5d: -3.5
+- return_20d: -10.44
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -8.35
 - distance_to_high_60_pct: -24.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.7,46.5,43,43.1,45000,41.71,3.33,41.45,35.47,0.05
 20260529,44.65,44.65,42.75,43.05,43000,41.82,2.93,41.82,35.67,0.05
 20260601,44.2,45.7,43.55,45.6,45000,42.14,8.22,42.32,35.94,0.05
 20260602,45.7,45.7,43,44,44,42.29,4.04,42.74,36.18,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.15,41.9,39.85,41.9,612000,42,-0.23,43.23,38.85,1.8
 20260623,42.05,42.05,40.05,40.6,337000,41.88,-3.06,42.82,39.01,0.95
 20260624,40.6,41,39.8,41,205000,41.81,-1.93,42.55,39.19,0.57
-20260626,40.1,40.2,38.6,38.6,395000,41.54,-7.08,42.24,39.31,1.04
+20260625,41.1,41.1,40.05,40.55,251000,41.7,-2.76,42.34,39.35,0.67
+20260626,40.1,40.2,38.6,38.6,395000,41.44,-6.86,42.12,39.48,1.01
 ```
 
 ## Latest TDCC Snapshot

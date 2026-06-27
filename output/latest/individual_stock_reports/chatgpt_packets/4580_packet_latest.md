@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4580 捷流閥業
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:46 Asia/Taipei
+- generated_at: 2026-06-27 22:23:49 Asia/Taipei
 - stock_id: 4580
 - stock_name: 捷流閥業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 80.3
 - close: 80.3
 - volume: 51000
-- ma5: 82.14
-- ema23_primary: 81.9
-- distance_to_ema23_pct: -1.96
-- ma20: 82.09
-- ma60: 81.27
+- ma5: 82
+- ema23_primary: 81.88
+- distance_to_ema23_pct: -1.93
+- ma20: 82.1
+- ma60: 81.3
 - ma120: 81.27
-- return_5d: -2.07
-- return_20d: -2.55
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -2.18
+- return_5d: -2.67
+- return_20d: -1.59
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -2.19
 - distance_to_high_60_pct: -5.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,82.5,82.7,81.6,81.6,82000,81.66,-0.08,81.88,80.69,1.07
 20260529,81.6,82.7,81.6,82.5,82000,81.73,0.94,82.03,80.72,1.07
 20260601,82.5,83.9,82.3,83.7,83000,81.9,2.2,82.1,80.78,1.18
 20260602,84.5,84.5,82.5,82.8,83,81.97,1.01,82.13,80.81,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,82,84.7,82,83.1,211000,81.98,1.36,82.25,81.18,3.11
 20260623,83.1,83.1,82,82.4,42000,82.02,0.47,82.22,81.21,0.64
 20260624,82.4,82.4,81.5,82.4,25000,82.05,0.43,82.19,81.25,0.4
-20260626,81.8,82,80.3,80.3,51000,81.9,-1.96,82.09,81.27,0.83
+20260625,83,83,81.8,81.8,19000,82.03,-0.28,82.17,81.29,0.32
+20260626,81.8,82,80.3,80.3,51000,81.88,-1.93,82.1,81.3,0.88
 ```
 
 ## Latest TDCC Snapshot

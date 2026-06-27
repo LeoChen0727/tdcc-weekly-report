@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2451 創見
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:01 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2451
 - stock_name: 創見
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 278.5
 - close: 278.5
 - volume: 5510868
-- ma5: 298.8
-- ema23_primary: 307.9
-- distance_to_ema23_pct: -9.55
-- ma20: 316.8
-- ma60: 290.88
-- ma120: 261.39
-- return_5d: -10.45
-- return_20d: -13.24
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -12.09
+- ma5: 294.1
+- ema23_primary: 306.17
+- distance_to_ema23_pct: -9.04
+- ma20: 315.1
+- ma60: 291.88
+- ma120: 262.29
+- return_5d: -10.59
+- return_20d: -13.51
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -11.62
 - distance_to_high_60_pct: -27.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,325,337,319,322,8839531,305.7,5.33,313.27,268.68,0.85
 20260529,332,343,329,338,7479786,308.39,9.6,317.55,270.94,0.74
 20260601,351,360,343,357.5,8658486,312.48,14.41,322.15,273.58,0.87
 20260602,364,379,350.5,363.5,14115945,316.73,14.77,326.18,276.08,1.4
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,317,320.5,309.5,309.5,6605633,313.13,-1.16,320.57,288.55,0.83
 20260623,310.5,311.5,300,300.5,6099134,312.08,-3.71,320.05,289.31,0.77
 20260624,294.5,301.5,291,294,5640723,310.57,-5.34,318.93,290.18,0.71
-20260626,290,298.5,278.5,278.5,5510868,307.9,-9.55,316.8,290.88,0.71
+20260625,290,300,287.5,288,6572944,308.69,-6.7,317.27,291.04,0.84
+20260626,290,298.5,278.5,278.5,5510868,306.17,-9.04,315.1,291.88,0.72
 ```
 
 ## Latest TDCC Snapshot

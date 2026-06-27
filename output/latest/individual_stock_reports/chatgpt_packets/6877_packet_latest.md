@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6877 鏵友益
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:32 Asia/Taipei
+- generated_at: 2026-06-27 22:24:33 Asia/Taipei
 - stock_id: 6877
 - stock_name: 鏵友益
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 126
 - close: 126
 - volume: 382000
-- ma5: 131
-- ema23_primary: 140.43
-- distance_to_ema23_pct: -10.28
-- ma20: 141.68
-- ma60: 149.75
-- ma120: 122.22
-- return_5d: 0
-- return_20d: -26.96
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -11.06
+- ma5: 132.7
+- ema23_primary: 140.15
+- distance_to_ema23_pct: -10.09
+- ma20: 140.32
+- ma60: 150.05
+- ma120: 122.66
+- return_5d: -2.7
+- return_20d: -23.64
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -10.21
 - distance_to_high_60_pct: -36.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,172,173,162.5,165,168000,160.24,2.97,163.78,140.62,0.32
 20260529,164.5,167,162,164,164000,160.55,2.15,163.53,141.43,0.33
 20260601,164.5,169,161.5,162,164000,160.67,0.83,162.68,142.22,0.38
 20260602,162,162,152.5,158,156,160.45,-1.53,161.72,142.98,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,131.5,133,129,133,151000,143.31,-7.19,147.53,149.04,0.74
 20260623,132,132,127,127,112000,141.95,-10.53,145.85,149.24,0.55
 20260624,130.5,139.5,128.5,139.5,1502000,141.74,-1.58,144,149.63,5.59
-20260626,137,137,126,126,382000,140.43,-10.28,141.68,149.75,1.37
+20260625,137,146,135.5,138,1185000,141.43,-2.43,142.28,149.95,3.71
+20260626,137,137,126,126,382000,140.15,-10.09,140.32,150.05,1.16
 ```
 
 ## Latest TDCC Snapshot

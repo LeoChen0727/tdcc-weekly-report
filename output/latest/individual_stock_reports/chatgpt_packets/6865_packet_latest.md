@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6865 偉康科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6865
 - stock_name: 偉康科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 153
+- price_rows: 154
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 26.75
 - close: 27.8
 - volume: 19000
-- ma5: 26.93
-- ema23_primary: 27.78
-- distance_to_ema23_pct: 0.07
-- ma20: 26.94
-- ma60: 32.16
-- ma120: 37.38
-- return_5d: 7.96
-- return_20d: 0
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.18
+- ma5: 27.28
+- ema23_primary: 27.8
+- distance_to_ema23_pct: 0.01
+- ma20: 27
+- ma60: 32.02
+- ma120: 37.24
+- return_5d: 5.9
+- return_20d: 3.73
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 2.95
 - distance_to_high_60_pct: -37.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,27.8,27.95,26.8,26.8,27000,31.42,-14.7,32.02,34.65,0.82
 20260528,26.2,27.35,26,26.5,27000,31.01,-14.54,31.55,34.5,0.8
 20260529,26.5,26.5,25.9,25.9,26000,30.58,-15.31,31.02,34.32,0.75
 20260601,27.55,27.55,26,26,26000,30.2,-13.91,30.52,34.17,0.73
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.25,26.8,26,26.8,26000,27.94,-4.09,27.07,32.5,0.66
 20260623,26.5,27,26.2,26.8,38000,27.85,-3.76,26.99,32.37,0.96
 20260624,27,27,26.35,27,13000,27.78,-2.8,26.94,32.25,0.33
-20260626,26.9,27.9,26.75,27.8,19000,27.78,0.07,26.94,32.16,0.49
+20260625,27.05,28,26.35,28,39000,27.8,0.73,26.95,32.16,0.98
+20260626,26.9,27.9,26.75,27.8,19000,27.8,0.01,27,32.02,0.48
 ```
 
 ## Latest TDCC Snapshot

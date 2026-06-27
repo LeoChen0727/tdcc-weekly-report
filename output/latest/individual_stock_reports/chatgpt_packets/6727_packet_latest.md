@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6727 亞泰金屬
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:27 Asia/Taipei
+- generated_at: 2026-06-27 22:24:28 Asia/Taipei
 - stock_id: 6727
 - stock_name: 亞泰金屬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 393.5
 - close: 397.5
 - volume: 985000
-- ma5: 443.1
-- ema23_primary: 457.12
-- distance_to_ema23_pct: -13.04
-- ma20: 463.7
-- ma60: 452.05
-- ma120: 327.9
-- return_5d: -2.69
-- return_20d: -36.8
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -14.28
+- ma5: 438.8
+- ema23_primary: 454.44
+- distance_to_ema23_pct: -12.53
+- ma20: 456.18
+- ma60: 453.71
+- ma120: 329.93
+- return_5d: -11.47
+- return_20d: -31.23
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -12.86
 - distance_to_high_60_pct: -42.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,630,645,570,578,606000,520.41,11.07,517.8,386.62,0.23
 20260529,604,605,550,586,578000,525.87,11.43,528,392.82,0.22
 20260601,586,596,554,556,571000,528.38,5.23,537.3,398.71,0.22
 20260602,550,581,520,536,544,529.02,1.32,543.75,404.28,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,466,493,450,485.5,2881000,466.56,4.06,496.65,445.02,2.25
 20260623,485.5,490,450,450,2002000,465.18,-3.26,486.15,447.88,1.49
 20260624,446.5,448.5,422,433.5,1039000,462.54,-6.28,475.27,450.43,0.76
-20260626,420,425.5,393.5,397.5,985000,457.12,-13.04,463.7,452.05,0.71
+20260625,437.5,442,415.5,427.5,1138000,459.62,-6.99,465.2,452.55,0.82
+20260626,420,425.5,393.5,397.5,985000,454.44,-12.53,456.18,453.71,0.7
 ```
 
 ## Latest TDCC Snapshot

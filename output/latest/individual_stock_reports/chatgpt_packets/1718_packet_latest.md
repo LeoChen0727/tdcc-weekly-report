@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1718 中纖
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:44 Asia/Taipei
+- generated_at: 2026-06-27 22:22:48 Asia/Taipei
 - stock_id: 1718
 - stock_name: 中纖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 9.93
 - close: 11.15
 - volume: 153432821
-- ma5: 9.85
-- ema23_primary: 8.9
-- distance_to_ema23_pct: 25.28
-- ma20: 9.04
-- ma60: 7.53
-- ma120: 7.35
-- return_5d: 13.89
-- return_20d: 76.7
-- volume_ratio: 4.44
-- distance_to_ma20_pct_auxiliary: 23.38
+- ma5: 9.91
+- ema23_primary: 9.01
+- distance_to_ema23_pct: 23.74
+- ma20: 9.22
+- ma60: 7.57
+- ma120: 7.38
+- return_5d: 13.08
+- return_20d: 74.22
+- volume_ratio: 4.14
+- distance_to_ma20_pct_auxiliary: 20.87
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,6.32,6.44,6.31,6.4,3945042,6.54,-2.2,6.47,6.99,0.94
 20260529,6.46,6.63,6.42,6.62,7095882,6.55,1.07,6.47,6.98,1.63
 20260601,6.81,7.28,6.68,7.28,17991254,6.61,10.12,6.51,6.98,3.63
 20260602,8,8,7.7,8,48985486,6.73,18.93,6.58,7,6.71
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10,10,9.74,9.78,13806893,8.59,13.83,8.51,7.41,0.54
 20260623,9.78,9.79,9.03,9.25,26146079,8.65,6.98,8.65,7.44,0.99
 20260624,9.04,9.41,8.96,9.23,16068258,8.7,6.15,8.79,7.47,0.59
-20260626,10.35,11.15,9.93,11.15,153432821,8.9,25.28,9.04,7.53,4.44
+20260625,9.29,10.15,9.29,10.15,54273393,8.82,15.12,8.99,7.52,1.84
+20260626,10.35,11.15,9.93,11.15,153432821,9.01,23.74,9.22,7.57,4.14
 ```
 
 ## Latest TDCC Snapshot

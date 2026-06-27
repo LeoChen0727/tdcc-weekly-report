@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4538 大詠城
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:44 Asia/Taipei
+- generated_at: 2026-06-27 22:23:47 Asia/Taipei
 - stock_id: 4538
 - stock_name: 大詠城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.75
 - close: 18.9
 - volume: 26000
-- ma5: 18.9
-- ema23_primary: 18.57
-- distance_to_ema23_pct: 1.77
-- ma20: 18.39
-- ma60: 18.54
-- ma120: 18.28
-- return_5d: 0.8
-- return_20d: 1.07
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 2.77
+- ma5: 18.91
+- ema23_primary: 18.6
+- distance_to_ema23_pct: 1.62
+- ma20: 18.46
+- ma60: 18.53
+- ma120: 18.3
+- return_5d: 0.27
+- return_20d: 8.31
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 2.37
 - distance_to_high_60_pct: -5.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.9,17.9,17.1,17.45,17000,18.41,-5.21,18.38,18.67,0.65
 20260529,17.45,17.9,17.35,17.5,17000,18.33,-4.54,18.34,18.64,0.67
 20260601,17.9,17.9,17.6,17.6,18000,18.27,-3.68,18.3,18.62,0.77
 20260602,17.85,17.85,17.6,17.7,18,18.22,-2.88,18.25,18.6,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.85,19,18.8,18.95,59000,18.47,2.58,18.35,18.53,1.38
 20260623,19,19.95,18.7,18.9,111000,18.51,2.11,18.37,18.53,2.35
 20260624,19.05,19.05,18.8,18.9,33000,18.54,1.93,18.38,18.53,0.69
-20260626,19.15,19.15,18.75,18.9,26000,18.57,1.77,18.39,18.54,0.54
+20260625,19.15,19.15,18.7,18.9,41000,18.57,1.77,18.39,18.54,0.83
+20260626,19.15,19.15,18.75,18.9,26000,18.6,1.62,18.46,18.53,0.52
 ```
 
 ## Latest TDCC Snapshot

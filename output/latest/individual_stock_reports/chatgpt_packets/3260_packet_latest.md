@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 396
 - close: 397.5
 - volume: 10709000
-- ma5: 415
-- ema23_primary: 416.86
-- distance_to_ema23_pct: -4.64
-- ma20: 420.12
-- ma60: 411.58
-- ma120: 364.57
-- return_5d: -4.45
-- return_20d: -3.64
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -5.39
+- ma5: 412.3
+- ema23_primary: 416.16
+- distance_to_ema23_pct: -4.48
+- ma20: 420.38
+- ma60: 412.24
+- ma120: 366.32
+- return_5d: -6.03
+- return_20d: -1.73
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -5.44
 - distance_to_high_60_pct: -19.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,414.5,421,403,404.5,413000,416.95,-2.99,429.18,395.64,0.02
 20260529,413.5,420,411,415,416000,416.79,-0.43,428.12,398.04,0.03
 20260601,422,432.5,420.5,427,427000,417.64,2.24,427.43,400.79,0.03
 20260602,434,469.5,430,469.5,457,421.96,11.27,428.5,403.87,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,434,443,427.5,434,15594000,420.22,3.28,420.73,410.73,2.36
 20260623,436,436,410,412,13449000,419.54,-1.8,420.95,410.84,1.86
 20260624,402,410,399,408.5,8268000,418.62,-2.42,420.88,411.47,1.08
-20260626,409.5,421,396,397.5,10709000,416.86,-4.64,420.12,411.58,1.31
+20260625,421,423,407.5,409.5,9000000,417.86,-2,420.73,411.78,1.11
+20260626,409.5,421,396,397.5,10709000,416.16,-4.48,420.38,412.24,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -192,6 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 26.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

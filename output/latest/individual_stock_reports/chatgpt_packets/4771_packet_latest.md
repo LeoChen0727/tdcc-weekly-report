@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4771 望隼
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:49 Asia/Taipei
+- generated_at: 2026-06-27 22:23:51 Asia/Taipei
 - stock_id: 4771
 - stock_name: 望隼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 187
 - close: 187.5
 - volume: 128014
-- ma5: 190.7
-- ema23_primary: 191.47
-- distance_to_ema23_pct: -2.07
-- ma20: 193.07
-- ma60: 190.88
-- ma120: 184.89
-- return_5d: 0.54
-- return_20d: -6.48
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -2.89
+- ma5: 190.3
+- ema23_primary: 191.29
+- distance_to_ema23_pct: -1.98
+- ma20: 192.62
+- ma60: 190.91
+- ma120: 185.01
+- return_5d: -2.09
+- return_20d: -5.54
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -2.66
 - distance_to_high_60_pct: -9.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,199.5,201,195.5,198.5,415323,192.13,3.32,190.72,187.95,1.29
 20260529,200,201,196,197.5,161387,192.58,2.56,191.18,188.28,0.5
 20260601,199.5,200,196,199.5,206380,193.15,3.29,191.82,188.72,0.63
 20260602,200,200,195,196.5,149446,193.43,1.59,192.38,189.02,0.45
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,192,194.5,191.5,192.5,138753,191.99,0.27,194.28,191.01,0.55
 20260623,194,194,189,191.5,114333,191.95,-0.23,194.18,190.97,0.46
 20260624,191.5,192,189,190.5,118204,191.83,-0.69,193.72,190.96,0.53
-20260626,188.5,191.5,187,187.5,128014,191.47,-2.07,193.07,190.88,0.61
+20260625,192.5,192.5,189.5,189.5,84210,191.63,-1.11,193.18,190.92,0.41
+20260626,188.5,191.5,187,187.5,128014,191.29,-1.98,192.62,190.91,0.67
 ```
 
 ## Latest TDCC Snapshot

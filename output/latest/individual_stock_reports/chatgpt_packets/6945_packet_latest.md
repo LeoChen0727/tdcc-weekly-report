@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6945 圓祥生技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:35 Asia/Taipei
 - stock_id: 6945
 - stock_name: 圓祥生技
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 14
+- price_rows: 15
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,16 +118,16 @@
 - low: 92.5
 - close: 94.8
 - volume: 416000
-- ma5: 99.04
-- ema23_primary: 101.51
-- distance_to_ema23_pct: -6.61
-- ma20: 100.69
-- ma60: 100.69
-- ma120: 100.69
-- return_5d: -3.76
+- ma5: 98.8
+- ema23_primary: 101.17
+- distance_to_ema23_pct: -6.3
+- ma20: 100.49
+- ma60: 100.49
+- ma120: 100.49
+- return_5d: -4.15
 - return_20d:
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -5.85
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -5.66
 - distance_to_high_60_pct: -11.4
 
 ## Recent Price Preview
@@ -147,7 +147,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,99,105,98.5,102,516000,102.57,-0.56,101.39,101.39,1.51
 20260623,102,102,99.2,100,259000,102.36,-2.3,101.28,101.28,0.77
 20260624,100,100,98,99.5,190000,102.12,-2.57,101.14,101.14,0.59
-20260626,97.7,98.6,92.5,94.8,416000,101.51,-6.61,100.69,100.69,1.26
+20260625,100,100,97.5,97.7,198000,101.75,-3.98,100.89,100.89,0.63
+20260626,97.7,98.6,92.5,94.8,416000,101.17,-6.3,100.49,100.49,1.29
 ```
 
 ## Latest TDCC Snapshot

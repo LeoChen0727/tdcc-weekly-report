@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:17 Asia/Taipei
+- generated_at: 2026-06-27 22:23:20 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 964
 - close: 975
 - volume: 77949761
-- ma5: 970.6
-- ema23_primary: 945.68
-- distance_to_ema23_pct: 3.1
-- ma20: 965.55
-- ma60: 833.46
-- ma120: 600.47
-- return_5d: -1.32
-- return_20d: -9.72
-- volume_ratio: 3.07
-- distance_to_ma20_pct_auxiliary: 0.98
+- ma5: 981
+- ema23_primary: 951.56
+- distance_to_ema23_pct: 2.46
+- ma20: 965.3
+- ma60: 842.23
+- ma120: 607.13
+- return_5d: 0.72
+- return_20d: -4.88
+- volume_ratio: 3.02
+- distance_to_ma20_pct_auxiliary: 1
 - distance_to_high_60_pct: -13.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1125,1130,1000,1025,25166670,886.28,15.65,905.55,683.83,0.82
 20260529,1090,1095,1035,1055,21107426,900.34,17.18,914.15,693.69,0.7
 20260601,1070,1100,1025,1050,19127603,912.81,15.03,921.1,704.24,0.67
 20260602,1050,1050,950,975,29360754,917.99,6.21,924.7,712.99,1.02
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,999,1055,992,1005,27784024,941.39,6.76,979.3,810.67,1.2
 20260623,1000,1075,974,974,26622491,944.11,3.17,978.5,818.48,1.15
 20260624,938,952,916,931,27122991,943.02,-1.27,970.8,825.62,1.19
-20260626,1000,1090,964,975,77949761,945.68,3.1,965.55,833.46,3.07
+20260625,949,1020,944,1020,34425108,949.43,7.43,967.8,834.21,1.48
+20260626,1000,1090,964,975,77949761,951.56,2.46,965.3,842.23,3.02
 ```
 
 ## Latest TDCC Snapshot

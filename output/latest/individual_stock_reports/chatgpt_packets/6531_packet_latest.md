@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:21 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 990
 - close: 990
 - volume: 4499042
-- ma5: 1050
-- ema23_primary: 994.17
-- distance_to_ema23_pct: -0.42
-- ma20: 1013.8
-- ma60: 867.02
-- ma120: 662.74
-- return_5d: 6.11
-- return_20d: -8.33
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -2.35
+- ma5: 1065
+- ema23_primary: 1002.22
+- distance_to_ema23_pct: -1.22
+- ma20: 1014.05
+- ma60: 877.27
+- ma120: 668.58
+- return_5d: -3.41
+- return_20d: -9.59
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -2.37
 - distance_to_high_60_pct: -24.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1085,1185,1070,1095,14735180,954.29,14.74,996.65,702.74,2.05
 20260529,1160,1200,1140,1190,13570160,973.94,22.18,1014.15,715.54,1.77
 20260601,1240,1305,1115,1125,11967569,986.52,14.04,1024.2,727.56,1.47
 20260602,1140,1155,1045,1075,6639528,993.9,8.16,1031.2,738.13,0.79
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1115,1115,1070,1115,5550124,982.02,13.54,1019.05,840.63,0.88
 20260623,1135,1210,1040,1050,7925578,987.69,6.31,1018.8,849.62,1.22
 20260624,1080,1095,1015,1070,4954383,994.55,7.59,1018.3,858.97,0.8
-20260626,1070,1080,990,990,4499042,994.17,-0.42,1013.8,867.02,0.74
+20260625,1105,1175,1080,1100,6587069,1003.34,9.63,1019.3,868.85,1.06
+20260626,1070,1080,990,990,4499042,1002.22,-1.22,1014.05,877.27,0.79
 ```
 
 ## Latest TDCC Snapshot

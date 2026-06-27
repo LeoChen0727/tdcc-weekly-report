@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:37 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 630
 - close: 632
 - volume: 45022342
-- ma5: 646.8
-- ema23_primary: 595.58
-- distance_to_ema23_pct: 6.12
-- ma20: 600.5
-- ma60: 519.83
-- ma120: 415.82
-- return_5d: 6.22
-- return_20d: -1.56
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: 5.25
+- ma5: 652.4
+- ema23_primary: 599.3
+- distance_to_ema23_pct: 5.46
+- ma20: 601.2
+- ma60: 524.62
+- ma120: 419.23
+- return_5d: 3.1
+- return_20d: 0.8
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 5.12
 - distance_to_high_60_pct: -9.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,626,668,617,627,35071941,536.97,16.77,543.2,438.69,1.24
 20260529,642,644,608,611,43968378,543.14,12.49,549.85,442.88,1.53
 20260601,603,615,599,601,25834856,547.96,9.68,553.65,447.44,0.9
 20260602,600,608,577,590,27769330,551.46,6.99,557.15,451.38,0.99
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,660,674,652,674,37123135,579.9,16.23,596.65,505.12,1.4
 20260623,679,700,662,662,44546851,586.74,12.83,598.9,510.29,1.62
 20260624,636,659,618,653,35911480,592.26,10.25,601,515.19,1.32
-20260626,650,695,630,632,45022342,595.58,6.12,600.5,519.83,1.61
+20260625,679,679,625,641,31615796,596.33,7.49,600.95,519.98,1.16
+20260626,650,695,630,632,45022342,599.3,5.46,601.2,524.62,1.62
 ```
 
 ## Latest TDCC Snapshot

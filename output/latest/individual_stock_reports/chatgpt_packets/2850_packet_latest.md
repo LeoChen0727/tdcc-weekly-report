@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2850 新產
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:11 Asia/Taipei
+- generated_at: 2026-06-27 22:23:15 Asia/Taipei
 - stock_id: 2850
 - stock_name: 新產
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -121,21 +121,20 @@
 - volume: 493403
 - ma5: 142.1
 - ema23_primary: 141.91
-- distance_to_ema23_pct: -1.35
-- ma20: 144.07
-- ma60: 133.53
-- ma120: 124.76
-- return_5d: -1.06
-- return_20d: -1.06
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -2.83
+- distance_to_ema23_pct: -1.34
+- ma20: 144.32
+- ma60: 133.95
+- ma120: 124.96
+- return_5d: -1.41
+- return_20d: 2.19
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -3
 - distance_to_high_60_pct: -8.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,141.5,141.5,137,137,455853,133.77,2.42,134.82,124.83,1.1
 20260529,137.5,145.5,137,145.5,1534479,134.74,7.98,135.45,125.26,3.54
 20260601,142,143.5,139,142.5,1079371,135.39,5.25,136.07,125.7,2.42
 20260602,140.5,142,139.5,142,584478,135.94,4.46,136.62,126.11,1.26
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,143,145,141,143,482839,141.98,0.72,143.72,132.26,0.56
 20260623,143,147,142.5,144.5,547215,142.19,1.63,144.05,132.73,0.64
 20260624,145,145.5,141,141,338221,142.09,-0.77,144.15,133.14,0.4
-20260626,140.5,142,139.5,140,493403,141.91,-1.35,144.07,133.53,0.58
+20260625,143,143.5,141.5,142,286308,142.08,-0.06,144.18,133.56,0.34
+20260626,140.5,142,139.5,140,493403,141.91,-1.34,144.32,133.95,0.59
 ```
 
 ## Latest TDCC Snapshot

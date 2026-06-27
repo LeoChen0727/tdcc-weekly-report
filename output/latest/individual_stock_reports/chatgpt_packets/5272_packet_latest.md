@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5272 笙科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:58 Asia/Taipei
 - stock_id: 5272
 - stock_name: 笙科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 20.6
 - close: 20.6
 - volume: 237000
-- ma5: 21.69
-- ema23_primary: 21.84
-- distance_to_ema23_pct: -5.69
-- ma20: 21.7
-- ma60: 22.81
-- ma120: 22.06
-- return_5d: -2.37
-- return_20d: -9.65
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -5.08
+- ma5: 21.72
+- ema23_primary: 21.83
+- distance_to_ema23_pct: -5.64
+- ma20: 21.69
+- ma60: 22.79
+- ma120: 22.07
+- return_5d: -4.85
+- return_20d: -6.36
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: -5.04
 - distance_to_high_60_pct: -26.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.85,23.1,22,22,22000,23.08,-4.69,23.27,23.05,0.08
 20260529,22.15,22.4,21.95,22.1,22000,23,-3.92,23.15,23.02,0.08
 20260601,22.15,22.75,22,22.5,22000,22.96,-2,23.04,23.03,0.09
 20260602,22.5,23.55,22.1,23.15,23,22.98,0.76,22.95,23.03,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.8,22.2,21.65,21.95,229000,21.92,0.13,21.89,22.89,1.73
 20260623,22.6,22.6,21.75,21.75,187000,21.91,-0.72,21.82,22.89,1.33
 20260624,21.5,22.7,21.4,22.5,257000,21.96,2.48,21.81,22.86,1.69
-20260626,21.5,21.7,20.6,20.6,237000,21.84,-5.69,21.7,22.81,1.46
+20260625,22.7,22.85,21.8,21.8,232000,21.94,-0.65,21.76,22.83,1.43
+20260626,21.5,21.7,20.6,20.6,237000,21.83,-5.64,21.69,22.79,1.37
 ```
 
 ## Latest TDCC Snapshot

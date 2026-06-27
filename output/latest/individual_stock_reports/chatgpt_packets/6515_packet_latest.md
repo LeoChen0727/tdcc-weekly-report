@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6515 穎崴
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:19 Asia/Taipei
+- generated_at: 2026-06-27 22:24:21 Asia/Taipei
 - stock_id: 6515
 - stock_name: 穎崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 8190
 - close: 8190
 - volume: 522881
-- ma5: 9210
-- ema23_primary: 9138.57
-- distance_to_ema23_pct: -10.38
-- ma20: 8933
-- ma60: 9215.5
-- ma120: 6936.5
+- ma5: 9140
+- ema23_primary: 9129.04
+- distance_to_ema23_pct: -10.29
+- ma20: 8932
+- ma60: 9239.25
+- ma120: 6990.75
 - return_5d: -13.33
-- return_20d: -16.39
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -8.32
+- return_20d: -10.2
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: -8.31
 - distance_to_high_60_pct: -28.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10000,10100,8935,9120,1108573,9454.52,-3.54,9734.25,8456.08,2.8
 20260529,9205,9390,8665,8665,685628,9388.73,-7.71,9648.25,8521.67,1.63
 20260601,8820,8895,8575,8705,322592,9331.75,-6.72,9548.5,8591.33,0.76
 20260602,8655,8700,7895,8080,752319,9227.44,-12.44,9449.75,8646.42,1.69
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9795,9885,9235,9460,352535,9177.05,3.08,8953.5,9171.67,0.78
 20260623,9500,9720,9250,9450,318091,9199.79,2.72,8983.5,9188.33,0.72
 20260624,9405,9615,9005,9500,319450,9224.81,2.98,9013.25,9210.92,0.72
-20260626,8900,9065,8190,8190,522881,9138.57,-10.38,8933,9215.5,1.15
+20260625,9640,9780,9090,9100,295598,9214.41,-1.24,8978.5,9230.67,0.66
+20260626,8900,9065,8190,8190,522881,9129.04,-10.29,8932,9239.25,1.26
 ```
 
 ## Latest TDCC Snapshot

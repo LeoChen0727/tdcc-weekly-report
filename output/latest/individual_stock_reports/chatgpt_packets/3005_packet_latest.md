@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3005 神基
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:15 Asia/Taipei
+- generated_at: 2026-06-27 22:23:18 Asia/Taipei
 - stock_id: 3005
 - stock_name: 神基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 95.8
 - close: 96
 - volume: 7252143
-- ma5: 99.5
-- ema23_primary: 102.36
-- distance_to_ema23_pct: -6.21
-- ma20: 104.08
-- ma60: 100.99
-- ma120: 109.84
-- return_5d: -6.34
+- ma5: 98.84
+- ema23_primary: 101.99
+- distance_to_ema23_pct: -5.88
+- ma20: 103.83
+- ma60: 100.96
+- ma120: 109.67
+- return_5d: -5.42
 - return_20d: -6.8
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: -7.76
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: -7.55
 - distance_to_high_60_pct: -14.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,103,104.5,102.5,103,4068586,101.38,1.6,100.22,108.05,0.77
 20260529,104,106.5,104,104,6037437,101.6,2.36,100.53,107.74,1.11
 20260601,104.5,108,104.5,107,6783063,102.05,4.85,100.97,107.5,1.21
 20260602,108,109.5,106.5,108.5,10565260,102.59,5.76,101.48,107.25,1.76
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,102.5,102.5,100.5,100.5,6110961,103.54,-2.94,104.83,101.55,1.09
 20260623,101.5,101.5,99.5,100,4411671,103.24,-3.14,104.65,101.34,0.79
 20260624,99.5,100.5,98.7,99.5,2755756,102.93,-3.33,104.42,101.17,0.5
-20260626,98.5,98.5,95.8,96,7252143,102.36,-6.21,104.08,100.99,1.29
+20260625,100,101,98.2,98.2,5246966,102.54,-4.23,104.19,101.02,0.95
+20260626,98.5,98.5,95.8,96,7252143,101.99,-5.88,103.83,100.96,1.28
 ```
 
 ## Latest TDCC Snapshot

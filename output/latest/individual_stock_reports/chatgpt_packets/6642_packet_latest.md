@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6642 富致
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:24 Asia/Taipei
+- generated_at: 2026-06-27 22:24:25 Asia/Taipei
 - stock_id: 6642
 - stock_name: 富致
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 79.8
 - close: 79.8
 - volume: 411000
-- ma5: 87.04
-- ema23_primary: 83.35
+- ma5: 85.64
+- ema23_primary: 83.34
 - distance_to_ema23_pct: -4.25
-- ma20: 85.5
-- ma60: 71.02
-- ma120: 62.86
-- return_5d: -7.1
-- return_20d: -4.55
+- ma20: 85.08
+- ma60: 71.51
+- ma120: 63.12
+- return_5d: -11.92
+- return_20d: -13.17
 - volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -6.66
+- distance_to_ma20_pct_auxiliary: -6.21
 - distance_to_high_60_pct: -20.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,82.9,91.9,82.7,91.9,91000,74.81,22.84,73.36,61.65,0.1
 20260529,101,101,87.5,90.8,94000,76.14,19.25,75.03,62.21,0.11
 20260601,90.6,90.7,84.8,85,88000,76.88,10.56,76.42,62.7,0.1
 20260602,85.2,85.7,82,84.2,83,77.49,8.66,77.49,63.15,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,91.9,94,90.2,90.6,1100000,83.02,9.13,85.78,69.52,1.53
 20260623,90.7,90.8,87.1,87.6,816000,83.4,5.03,85.65,70.06,1.08
 20260624,84.5,86.6,83.1,86.6,640000,83.67,3.5,85.69,70.59,0.82
-20260626,83.9,84.1,79.8,79.8,411000,83.35,-4.25,85.5,71.02,0.51
+20260625,86.6,86.8,83.1,83.6,388000,83.66,-0.07,85.69,71.08,0.49
+20260626,83.9,84.1,79.8,79.8,411000,83.34,-4.25,85.08,71.51,0.51
 ```
 
 ## Latest TDCC Snapshot

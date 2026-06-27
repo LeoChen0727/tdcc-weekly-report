@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4951 精拓科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4951
 - stock_name: 精拓科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 93.3
 - close: 94.5
 - volume: 665000
-- ma5: 98.88
-- ema23_primary: 105.92
-- distance_to_ema23_pct: -10.78
-- ma20: 107.28
-- ma60: 102.73
-- ma120: 85.26
-- return_5d: -2.58
-- return_20d: -24.1
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -11.91
+- ma5: 99.12
+- ema23_primary: 105.37
+- distance_to_ema23_pct: -10.31
+- ma20: 106.11
+- ma60: 103.27
+- ma120: 85.53
+- return_5d: -4.06
+- return_20d: -23.17
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -10.95
 - distance_to_high_60_pct: -34.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,124.5,126,120,123,123000,119.11,3.27,127.7,91.01,0.1
 20260529,125,126.5,121,122,123000,119.35,2.22,127.85,91.88,0.12
 20260601,127,128,123,123.5,125000,119.69,3.18,127.5,92.81,0.18
 20260602,123.5,123.5,117,121,120,119.8,1,126.55,93.68,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,100,103,99.5,102,774000,108.34,-5.85,112.14,101.23,1.97
 20260623,102,102,98.6,100,528000,107.65,-7.1,110.53,101.76,1.28
 20260624,99.9,101,97.4,99.4,731000,106.96,-7.07,108.78,102.28,1.65
-20260626,99.7,100.5,93.3,94.5,665000,105.92,-10.78,107.28,102.73,1.42
+20260625,101,105,99,99.7,1396000,106.36,-6.26,107.54,102.81,2.76
+20260626,99.7,100.5,93.3,94.5,665000,105.37,-10.31,106.11,103.27,1.25
 ```
 
 ## Latest TDCC Snapshot

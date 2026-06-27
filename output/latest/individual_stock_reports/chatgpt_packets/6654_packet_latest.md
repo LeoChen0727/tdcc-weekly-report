@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6654 天正國際
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:24 Asia/Taipei
+- generated_at: 2026-06-27 22:24:25 Asia/Taipei
 - stock_id: 6654
 - stock_name: 天正國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 180.5
 - close: 185
 - volume: 157000
-- ma5: 200.9
-- ema23_primary: 172.55
-- distance_to_ema23_pct: 7.21
-- ma20: 180.47
-- ma60: 122.11
-- ma120: 106.64
-- return_5d: -18.68
-- return_20d: 45.1
+- ma5: 195.5
+- ema23_primary: 173.97
+- distance_to_ema23_pct: 6.34
+- ma20: 182.97
+- ma60: 123.77
+- ma120: 107.5
+- return_5d: -14.75
+- return_20d: 32.14
 - volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 2.51
+- distance_to_ma20_pct_auxiliary: 1.11
 - distance_to_high_60_pct: -23.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,129.5,140,128,140,136000,102.15,37.05,99.25,93.33,1.94
 20260529,154,154,153.5,154,154000,106.47,44.64,102.45,94.34,2.01
 20260601,169,169,169,169,169000,111.68,51.32,106.33,95.56,2.01
 20260602,185.5,185.5,170,170,180,116.54,45.87,110.33,96.88,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,216,225,211,211,443000,166.82,26.48,169.1,117.02,2.13
 20260623,216.5,216.5,193,199,329000,169.51,17.4,173.78,118.82,1.5
 20260624,195.5,197.5,189.5,192.5,150000,171.42,12.3,177.6,120.52,0.68
-20260626,192,192,180.5,185,157000,172.55,7.21,180.47,122.11,0.7
+20260625,203,204.5,190,190,173000,172.97,9.85,180.72,122.19,0.77
+20260626,192,192,180.5,185,157000,173.97,6.34,182.97,123.77,0.7
 ```
 
 ## Latest TDCC Snapshot

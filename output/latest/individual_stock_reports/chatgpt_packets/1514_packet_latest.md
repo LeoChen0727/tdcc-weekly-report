@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1514 亞力
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:39 Asia/Taipei
+- generated_at: 2026-06-27 22:22:42 Asia/Taipei
 - stock_id: 1514
 - stock_name: 亞力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 118
 - close: 118.5
 - volume: 3017018
-- ma5: 124.4
-- ema23_primary: 123.34
-- distance_to_ema23_pct: -3.93
-- ma20: 125.62
-- ma60: 117.52
-- ma120: 116.6
-- return_5d: -1.66
-- return_20d: -5.2
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -5.67
+- ma5: 124.8
+- ema23_primary: 123.32
+- distance_to_ema23_pct: -3.91
+- ma20: 125.53
+- ma60: 117.83
+- ma120: 116.78
+- return_5d: -2.47
+- return_20d: -5.58
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -5.6
 - distance_to_high_60_pct: -20.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,127.5,136.5,124.5,125.5,22023682,118.81,5.63,119.78,114.08,2.9
 20260529,128.5,129,125,125.5,6371134,119.37,5.14,120.55,114.13,0.81
 20260601,126,129,124,126.5,5070369,119.96,5.45,120.83,114.36,0.65
 20260602,126,126,121,124,4659228,120.3,3.08,121.03,114.47,0.63
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,123.5,127,121.5,127,13514257,123.07,3.19,125.53,116.86,1.47
 20260623,128.5,129.5,125,127,11701326,123.4,2.92,125.75,117.07,1.22
 20260624,129,129.5,125.5,128,10112113,123.78,3.41,125.95,117.36,1.07
-20260626,122,122,118,118.5,3017018,123.34,-3.93,125.62,117.52,0.34
+20260625,128,128,123,123.5,5361134,123.76,-0.21,125.88,117.6,0.6
+20260626,122,122,118,118.5,3017018,123.32,-3.91,125.53,117.83,0.38
 ```
 
 ## Latest TDCC Snapshot

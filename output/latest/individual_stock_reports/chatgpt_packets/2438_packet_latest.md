@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2438 翔耀
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:00 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2438
 - stock_name: 翔耀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 21.3
 - close: 21.3
 - volume: 207935
-- ma5: 22.38
-- ema23_primary: 22.87
-- distance_to_ema23_pct: -6.87
-- ma20: 23.77
-- ma60: 22.77
-- ma120: 22.31
-- return_5d: -2.29
-- return_20d: -15.81
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -10.41
+- ma5: 22.24
+- ema23_primary: 22.78
+- distance_to_ema23_pct: -6.49
+- ma20: 23.48
+- ma60: 22.75
+- ma120: 22.32
+- return_5d: -5.33
+- return_20d: -23.38
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -9.27
 - distance_to_high_60_pct: -26.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.7,27.8,26.8,27.8,1892226,22.83,21.74,22.59,22.16,4.94
 20260529,29,29.15,25.5,28.2,1800048,23.28,21.12,22.88,22.27,3.87
 20260601,28.2,28.9,26.4,26.95,929074,23.59,14.26,23.09,22.38,1.88
 20260602,27.35,27.35,25.9,26.3,543381,23.81,10.44,23.23,22.46,1.07
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.55,23.4,22.5,23.4,334200,23.14,1.12,24.02,22.8,0.59
 20260623,23.5,23.5,22.35,22.45,260909,23.08,-2.75,24.01,22.8,0.46
 20260624,22.1,23.4,22.1,22.25,235909,23.01,-3.32,23.98,22.8,0.42
-20260626,21.5,21.8,21.3,21.3,207935,22.87,-6.87,23.77,22.77,0.44
+20260625,22.5,22.7,21.8,21.8,318009,22.91,-4.86,23.8,22.78,0.66
+20260626,21.5,21.8,21.3,21.3,207935,22.78,-6.49,23.48,22.75,0.53
 ```
 
 ## Latest TDCC Snapshot

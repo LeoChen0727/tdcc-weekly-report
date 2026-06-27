@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9949 琉園
 
 ## Metadata
-- generated_at: 2026-06-26 22:25:00 Asia/Taipei
+- generated_at: 2026-06-27 22:25:00 Asia/Taipei
 - stock_id: 9949
 - stock_name: 琉園
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 24.9
 - close: 24.95
 - volume: 37000
-- ma5: 25.78
-- ema23_primary: 24.62
-- distance_to_ema23_pct: 1.35
-- ma20: 23.99
-- ma60: 27.07
-- ma120: 27.03
-- return_5d: 3.96
-- return_20d: 9.67
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 3.99
+- ma5: 26.06
+- ema23_primary: 24.72
+- distance_to_ema23_pct: 0.94
+- ma20: 24.16
+- ma60: 27
+- ma120: 27.02
+- return_5d: 1.84
+- return_20d: 10.4
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 3.28
 - distance_to_high_60_pct: -33.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.75,22.85,22.55,22.6,23000,24.94,-9.38,23.86,28.27,0.66
 20260529,22.5,23.7,22.3,23,23000,24.78,-7.17,23.77,28.19,0.79
 20260601,23,23.25,22.6,23.25,23000,24.65,-5.68,23.68,28.14,0.84
 20260602,23,23,22.85,22.9,23,24.5,-6.54,23.59,28.06,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.5,26.9,24.35,26.9,65000,24.27,10.83,23.54,27.15,2.86
 20260623,26.85,29,26.65,27,202000,24.5,10.21,23.75,27.14,6.38
 20260624,26.3,27,25.55,25.55,77000,24.59,3.92,23.88,27.11,2.24
-20260626,25.7,25.8,24.9,24.95,37000,24.62,1.35,23.99,27.07,1.06
+20260625,26.4,26.4,25.5,25.9,51000,24.7,4.88,24.04,27.09,1.43
+20260626,25.7,25.8,24.9,24.95,37000,24.72,0.94,24.16,27,1.02
 ```
 
 ## Latest TDCC Snapshot

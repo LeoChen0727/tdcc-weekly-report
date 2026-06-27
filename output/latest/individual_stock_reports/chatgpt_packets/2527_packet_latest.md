@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:05 Asia/Taipei
+- generated_at: 2026-06-27 22:23:08 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 39.55
 - close: 40.35
 - volume: 2370977
-- ma5: 39.76
-- ema23_primary: 37.46
-- distance_to_ema23_pct: 7.7
-- ma20: 37.48
-- ma60: 35.16
-- ma120: 32.42
-- return_5d: 3.73
-- return_20d: 11.31
-- volume_ratio: 1.99
-- distance_to_ma20_pct_auxiliary: 7.66
+- ma5: 39.83
+- ema23_primary: 37.69
+- distance_to_ema23_pct: 7.06
+- ma20: 37.65
+- ma60: 35.34
+- ma120: 32.52
+- return_5d: 1.38
+- return_20d: 9.8
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: 7.18
 - distance_to_high_60_pct: -2.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.3,37.25,36.1,36.75,737586,34.36,6.97,34.23,32.71,1.48
 20260529,37.4,37.7,36.3,36.75,677341,34.55,6.35,34.37,32.8,1.34
 20260601,36.75,37.25,36.2,36.75,437332,34.74,5.79,34.46,32.92,0.88
 20260602,37,37,36.05,36.6,395300,34.89,4.89,34.6,33.02,0.8
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40,40,38.85,39.25,1189522,36.73,6.87,36.81,34.64,1.16
 20260623,39.85,41.05,39.45,39.7,1951844,36.97,7.37,37.05,34.81,1.79
 20260624,39.25,39.95,39.1,39.7,952209,37.2,6.72,37.27,34.98,0.85
-20260626,39.8,41.5,39.55,40.35,2370977,37.46,7.7,37.48,35.16,1.99
+20260625,40.1,41,39.75,40.15,1110462,37.45,7.22,37.47,35.16,0.98
+20260626,39.8,41.5,39.55,40.35,2370977,37.69,7.06,37.65,35.34,1.96
 ```
 
 ## Latest TDCC Snapshot
@@ -192,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、自然人董事、自然人監察人 3.舊任者職稱及姓名: (1)董事    A.宏璟建設(股)公司代表人：周家佩    B.宏璟建設(股)公司代表人：陳芳瑩    C.宏璟建設(股)公司代表人：蘇經洲    D.雷淑燕    E.龔?蓮 (2)監察人    A.姚筱薇    B.黃朝樑 4.舊任者簡歷: (1)董事    A.宏璟建設(股)公司代表人：周家佩-宏璟建設(股)公司總經理    B.宏璟建設(股)公司代表人：陳芳瑩-宏璟建設(股)公司財務處副總經理    C.宏璟建設(股)公司代表人：蘇經洲-宏璟建設(股)公司中壢工區副總經理    D.雷淑燕-宏璟建設(股)公司業務處經理    E.龔?蓮-宏璟建設(股)公司財務處經理 (2)監察人    A.姚筱薇-宏璟建設(股)公司業務處副總經理    B.黃朝樑-宏璟建設(股)公司竹北工區協理 5.新任者職稱及姓名: (1)董事    A.宏璟建設(股)公司代表人：周家佩    B.宏璟建設(股)公司代表人：陳芳瑩    C.宏璟建設(股)公司代表人：潘順完    D.雷淑燕    E.龔?蓮 (2)監察人    A.姚筱薇    B.黃朝樑 6.新任者簡歷: (1)董事    A.宏璟建設(股)公司代表人：周家佩-宏璟建設(股)公司總經理    B.宏璟建設(股)公司代表人：陳芳瑩-宏璟建設(股)公司財務處副總經理    C.宏璟建設(股)公司代表人：潘順完-宏璟建設(股)公司開發處副總經理    D.雷淑燕-宏璟建設(股)公司業務處經理    E.龔?蓮-宏璟建設(股)公司財務處經理 (2)監察人    A.姚筱薇-宏璟建設(股)公司業務處副總經理    B.黃朝樑-宏璟建設(股)公司竹北工區協理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:配合股東會召開時間，提前全面改選 9.新任者選任時持股數: (1)董事   A.宏璟建設(股)公司-208,853,490股     代表人：周家佩-0股   B.宏璟建設(股)公司-208,853,490股     代表人：陳芳瑩-0股   C.宏璟建設(股)公司-208,853,490股     代表人：潘順完-0股   D.雷淑燕-0股   E.龔?蓮-0股 (2)監察人   A.姚筱薇-0股   B.黃朝樑-0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/22-115/12/21 11.新任生效日期:115/06/26 12.同任期董事變動比率:不適用 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

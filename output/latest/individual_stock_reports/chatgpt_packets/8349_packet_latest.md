@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8349 恒耀國際
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8349
 - stock_name: 恒耀國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 38.6
 - close: 39.15
 - volume: 231000
-- ma5: 40.59
-- ema23_primary: 41.44
-- distance_to_ema23_pct: -5.52
-- ma20: 41.52
-- ma60: 42.56
-- ma120: 42.66
-- return_5d: -5.66
+- ma5: 40.52
+- ema23_primary: 41.36
+- distance_to_ema23_pct: -5.34
+- ma20: 41.51
+- ma60: 42.55
+- ma120: 42.63
+- return_5d: -4.4
 - return_20d: -4.04
-- volume_ratio: 1.52
-- distance_to_ma20_pct_auxiliary: -5.7
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: -5.67
 - distance_to_high_60_pct: -17.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,41,41.55,40.35,40.8,41000,42.16,-3.23,42.39,42.51,0.24
 20260529,41,41.85,41,41.5,42000,42.11,-1.45,42.21,42.53,0.28
 20260601,41.7,41.8,41.4,41.7,42000,42.07,-0.89,42.04,42.58,0.3
 20260602,41.7,42,41.45,41.85,42,42.06,-0.49,41.91,42.62,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.95,41.8,40.65,40.75,206000,41.76,-2.42,41.58,42.62,1.59
 20260623,40.95,40.95,40.5,40.95,196000,41.69,-1.78,41.58,42.6,1.43
 20260624,41.7,41.7,40.6,41.15,149000,41.65,-1.19,41.6,42.59,1.04
-20260626,39.5,40.9,38.6,39.15,231000,41.44,-5.52,41.52,42.56,1.52
+20260625,41.15,41.3,39.95,40.6,276000,41.56,-2.31,41.59,42.59,1.79
+20260626,39.5,40.9,38.6,39.15,231000,41.36,-5.34,41.51,42.55,1.41
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1504 東元
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:38 Asia/Taipei
+- generated_at: 2026-06-27 22:22:42 Asia/Taipei
 - stock_id: 1504
 - stock_name: 東元
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 67.7
 - close: 67.9
 - volume: 20055662
-- ma5: 70.84
-- ema23_primary: 71.73
-- distance_to_ema23_pct: -5.34
-- ma20: 73.5
-- ma60: 68.28
-- ma120: 73.87
-- return_5d: -1.16
-- return_20d: -4.1
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -7.62
+- ma5: 71.06
+- ema23_primary: 71.66
+- distance_to_ema23_pct: -5.25
+- ma20: 73.51
+- ma60: 68.42
+- ma120: 73.73
+- return_5d: -3
+- return_20d: -4.23
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -7.63
 - distance_to_high_60_pct: -24.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,71.8,73.9,70.8,70.9,21294048,69.43,2.12,70.42,66.88,1.02
 20260529,73,77.5,73,75,176360584,69.89,7.31,71.05,66.86,6.19
 20260601,76,80,74.4,78.7,59156262,70.63,11.43,71.55,66.99,1.95
 20260602,76.6,77.9,74.4,75.5,43492748,71.03,6.29,71.9,67.03,1.46
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.2,73.2,71,72.2,17785287,72.09,0.15,73.67,68.01,0.37
 20260623,72.8,73.2,71.5,72.2,16390452,72.1,0.14,73.67,68.11,0.34
 20260624,72.2,72.7,70.6,71.9,14452130,72.08,-0.25,73.64,68.22,0.3
-20260626,69.9,70,67.7,67.9,20055662,71.73,-5.34,73.5,68.28,0.42
+20260625,72.3,73.1,71.1,71.1,13042656,72,-1.25,73.66,68.34,0.28
+20260626,69.9,70,67.7,67.9,20055662,71.66,-5.25,73.51,68.42,0.43
 ```
 
 ## Latest TDCC Snapshot

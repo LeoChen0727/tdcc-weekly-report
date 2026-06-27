@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4510 高鋒
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:43 Asia/Taipei
+- generated_at: 2026-06-27 22:23:46 Asia/Taipei
 - stock_id: 4510
 - stock_name: 高鋒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 41.4
 - close: 41.4
 - volume: 1235000
-- ma5: 44.39
-- ema23_primary: 46.14
-- distance_to_ema23_pct: -10.27
-- ma20: 47
-- ma60: 46.54
-- ma120: 45.53
-- return_5d: -7.59
-- return_20d: -14.55
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -11.91
+- ma5: 43.99
+- ema23_primary: 45.89
+- distance_to_ema23_pct: -9.78
+- ma20: 46.77
+- ma60: 46.55
+- ma120: 45.55
+- return_5d: -8.61
+- return_20d: -13.39
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -11.49
 - distance_to_high_60_pct: -26.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,48.9,51.6,47.5,47.8,49000,47.83,-0.06,48.19,45.21,0.02
 20260529,48.3,51,48.05,50.4,50000,48.04,4.9,48.36,45.32,0.02
 20260601,51,54.9,50.2,54.3,54000,48.57,11.81,48.49,45.53,0.02
 20260602,55.9,56.5,51.7,53.6,54,48.98,9.42,48.75,45.73,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,45.9,47.25,45,46.7,2124000,47.01,-0.65,48.02,46.58,2.7
 20260623,46.7,46.7,44.55,44.55,1309000,46.8,-4.81,47.75,46.57,1.54
 20260624,44.5,44.95,43.95,44,853000,46.57,-5.52,47.35,46.58,0.96
-20260626,43.25,43.25,41.4,41.4,1235000,46.14,-10.27,47,46.54,1.3
+20260625,44.25,44.65,43.05,43.3,1280000,46.3,-6.47,47.09,46.57,1.35
+20260626,43.25,43.25,41.4,41.4,1235000,45.89,-9.78,46.77,46.55,1.22
 ```
 
 ## Latest TDCC Snapshot

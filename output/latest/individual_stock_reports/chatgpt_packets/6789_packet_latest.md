@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6789 采鈺
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:29 Asia/Taipei
+- generated_at: 2026-06-27 22:24:30 Asia/Taipei
 - stock_id: 6789
 - stock_name: 采鈺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 491
 - close: 492
 - volume: 3025184
-- ma5: 537.6
-- ema23_primary: 517.51
-- distance_to_ema23_pct: -4.93
-- ma20: 511.73
-- ma60: 498.58
-- ma120: 400.35
-- return_5d: -0.4
-- return_20d: -9.39
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -3.85
+- ma5: 536.4
+- ema23_primary: 518.82
+- distance_to_ema23_pct: -5.17
+- ma20: 512.38
+- ma60: 502.06
+- ma120: 402.56
+- return_5d: -9.39
+- return_20d: -6.11
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -3.98
 - distance_to_high_60_pct: -23.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,550,562,516,524,4549098,537.23,-2.46,566.6,443.91,0.57
 20260529,533,535,522,526,2765329,536.29,-1.92,564.1,446.57,0.37
 20260601,532,550,522,547,2859328,537.18,1.83,560.9,449.91,0.43
 20260602,547,547,515,522,3463634,535.92,-2.6,556.8,452.72,0.53
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,579,593,554,555,5522819,514.31,7.91,515.62,488.34,1.74
 20260623,558,584,549,552,4233777,517.45,6.68,514.77,492.07,1.35
 20260624,545,570,537,546,3933031,519.83,5.03,514.27,495.76,1.24
-20260626,529,529,491,492,3025184,517.51,-4.93,511.73,498.58,0.96
+20260625,555,559,537,537,2001670,521.26,3.02,513.98,499.33,0.65
+20260626,529,529,491,492,3025184,518.82,-5.17,512.38,502.06,1
 ```
 
 ## Latest TDCC Snapshot

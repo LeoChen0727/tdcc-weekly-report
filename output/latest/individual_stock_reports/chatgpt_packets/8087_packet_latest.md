@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:48 Asia/Taipei
+- generated_at: 2026-06-27 22:24:48 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 31.3
 - close: 32.3
 - volume: 81000
-- ma5: 32.94
-- ema23_primary: 33.91
-- distance_to_ema23_pct: -4.75
-- ma20: 34.25
-- ma60: 34.06
-- ma120: 33.06
-- return_5d: -3.73
+- ma5: 32.92
+- ema23_primary: 33.83
+- distance_to_ema23_pct: -4.52
+- ma20: 34.29
+- ma60: 34.04
+- ma120: 33.05
+- return_5d: -2.42
 - return_20d: 0.15
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -5.7
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -5.8
 - distance_to_high_60_pct: -18.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,32.6,32.7,32.25,32.25,32000,33.54,-3.83,33.49,34.11,0.36
 20260529,33.5,33.7,32.45,32.95,33000,33.49,-1.6,33.44,34.01,0.38
 20260601,33.3,34.8,32.9,33.85,34000,33.52,0.99,33.49,33.96,0.39
 20260602,34.1,34.15,33.6,33.8,34,33.54,0.77,33.52,33.9,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.1,34.3,33.1,33.2,71000,34.25,-3.06,34.23,34.12,0.93
 20260623,33.2,33.2,32.3,32.9,40000,34.14,-3.62,34.24,34.1,0.52
 20260624,33.35,33.7,32.8,33.2,27000,34.06,-2.52,34.25,34.09,0.35
-20260626,33.4,33.4,31.3,32.3,81000,33.91,-4.75,34.25,34.06,1.02
+20260625,32.65,33,32.65,33,11000,33.97,-2.85,34.29,34.07,0.15
+20260626,33.4,33.4,31.3,32.3,81000,33.83,-4.52,34.29,34.04,1.04
 ```
 
 ## Latest TDCC Snapshot

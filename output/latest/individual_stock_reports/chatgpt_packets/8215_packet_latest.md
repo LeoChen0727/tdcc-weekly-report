@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8215 明基材
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:51 Asia/Taipei
+- generated_at: 2026-06-27 22:24:51 Asia/Taipei
 - stock_id: 8215
 - stock_name: 明基材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 28.1
 - close: 28.15
 - volume: 2189634
-- ma5: 30.17
-- ema23_primary: 29.54
-- distance_to_ema23_pct: -4.71
-- ma20: 30
-- ma60: 27.73
-- ma120: 24.3
-- return_5d: -12.17
-- return_20d: -3.6
+- ma5: 29.85
+- ema23_primary: 29.53
+- distance_to_ema23_pct: -4.68
+- ma20: 30.04
+- ma60: 27.84
+- ma120: 24.38
+- return_5d: -9.63
+- return_20d: -1.92
 - volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -6.17
+- distance_to_ma20_pct_auxiliary: -6.3
 - distance_to_high_60_pct: -15.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.2,29.65,28.1,28.7,3499417,27.69,3.66,27.96,25.24,0.76
 20260529,28.75,30.05,28.7,29.45,4652454,27.83,5.8,28.14,25.39,0.99
 20260601,29.2,32.35,29.2,32.35,18534621,28.21,14.67,28.46,25.6,3.33
 20260602,32.5,32.55,30.15,31.45,9361391,28.48,10.42,28.61,25.8,1.7
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.3,32.25,31.1,31.3,4604223,29.58,5.82,30,27.43,0.78
 20260623,31.8,31.8,29.95,30,2820109,29.61,1.3,30.01,27.53,0.49
 20260624,29.65,31.65,29.45,30.25,3472413,29.67,1.96,30.05,27.65,0.6
-20260626,29.55,29.6,28.1,28.15,2189634,29.54,-4.71,30,27.73,0.39
+20260625,30.9,30.9,29.5,29.55,2151034,29.66,-0.36,30.07,27.75,0.38
+20260626,29.55,29.6,28.1,28.15,2189634,29.53,-4.68,30.04,27.84,0.39
 ```
 
 ## Latest TDCC Snapshot

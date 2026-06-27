@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2752 豆府
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:10 Asia/Taipei
+- generated_at: 2026-06-27 22:23:13 Asia/Taipei
 - stock_id: 2752
 - stock_name: 豆府
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 176
 - close: 177
 - volume: 29000
-- ma5: 178.5
-- ema23_primary: 178.48
+- ma5: 178.2
+- ema23_primary: 178.47
 - distance_to_ema23_pct: -0.83
-- ma20: 176.97
-- ma60: 184.62
-- ma120: 196.62
+- ma20: 177.28
+- ma60: 184.11
+- ma120: 196.38
 - return_5d: -1.67
-- return_20d: 2.31
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 0.01
+- return_20d: 2.61
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.16
 - distance_to_high_60_pct: -16.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,173,173,172,172.5,173000,180.5,-4.43,179.35,195.31,2.45
 20260529,172.5,173,172,172.5,173000,179.84,-4.08,178.7,194.69,2.2
 20260601,172.5,172.5,170.5,171,171000,179.1,-4.52,177.97,194.09,1.99
 20260602,171,172,171,172,172,178.51,-3.65,177.35,193.49,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,180,180,178,178.5,18000,178.64,-0.08,176.2,186.2,0.21
 20260623,178,179,177.5,178.5,20000,178.63,-0.07,176.5,185.67,0.26
 20260624,180,180,177,178.5,18000,178.62,-0.07,176.78,185.15,0.26
-20260626,178,178,176,177,29000,178.48,-0.83,176.97,184.62,0.46
+20260625,179,179,178,178.5,28000,178.61,-0.06,177.05,184.64,0.45
+20260626,178,178,176,177,29000,178.47,-0.83,177.28,184.11,0.52
 ```
 
 ## Latest TDCC Snapshot

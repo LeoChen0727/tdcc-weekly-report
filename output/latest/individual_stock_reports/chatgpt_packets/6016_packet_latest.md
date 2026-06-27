@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6016 康和證
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:04 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6016
 - stock_name: 康和證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 27.3
 - close: 27.4
 - volume: 8599000
-- ma5: 28.71
-- ema23_primary: 28.17
-- distance_to_ema23_pct: -2.72
-- ma20: 30.09
-- ma60: 23.22
-- ma120: 19.58
-- return_5d: -4.7
-- return_20d: 2.62
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -8.92
+- ma5: 28.62
+- ema23_primary: 28.18
+- distance_to_ema23_pct: -2.75
+- ma20: 30.16
+- ma60: 23.41
+- ma120: 19.71
+- return_5d: -4.86
+- return_20d: 1.67
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -9.14
 - distance_to_high_60_pct: -24.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.85,27.85,26.25,26.95,27000,22.36,20.55,22.58,19.07,0
 20260529,27.75,29.6,27.5,29.6,29000,22.96,28.93,23.09,19.28,0
 20260601,29.8,30.9,28.9,30.2,30000,23.56,28.17,23.59,19.52,0
 20260602,30,32.9,29.75,32.5,31,24.31,33.71,24.22,19.78,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29.2,29.8,28.9,29.75,9277000,28.13,5.75,29.56,22.66,1.26
 20260623,30,30.7,29.1,29.15,10951000,28.22,3.3,29.84,22.86,1.38
 20260624,28.75,28.85,28.15,28.45,8554000,28.24,0.75,30.05,23.05,1.02
-20260626,28.25,28.3,27.3,27.4,8599000,28.17,-2.72,30.09,23.22,0.98
+20260625,28.75,28.9,28.25,28.35,7570000,28.25,0.37,30.13,23.23,0.87
+20260626,28.25,28.3,27.3,27.4,8599000,28.18,-2.75,30.16,23.41,0.94
 ```
 
 ## Latest TDCC Snapshot

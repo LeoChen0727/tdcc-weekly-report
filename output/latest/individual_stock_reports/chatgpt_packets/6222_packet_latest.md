@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6222 立軒
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:12 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6222
 - stock_name: 立軒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 20.65
 - close: 20.7
 - volume: 33000
-- ma5: 20.75
-- ema23_primary: 20.74
-- distance_to_ema23_pct: -0.19
-- ma20: 20.59
-- ma60: 21.04
-- ma120: 20.14
+- ma5: 20.83
+- ema23_primary: 20.75
+- distance_to_ema23_pct: -0.26
+- ma20: 20.61
+- ma60: 21.05
+- ma120: 20.15
 - return_5d: 0.73
 - return_20d: 0
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 0.51
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 0.45
 - distance_to_high_60_pct: -12.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.7,20.7,20.6,20.7,21000,21.22,-2.45,21.66,20.82,0.95
 20260529,20.6,21,20.2,21,20000,21.2,-0.95,21.62,20.85,1.05
 20260601,21,21,20.6,20.65,21000,21.16,-2.39,21.5,20.88,1.17
 20260602,20.35,20.6,20.3,20.6,20,21.11,-2.41,21.4,20.9,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.2,21.8,20.55,20.55,46000,20.7,-0.71,20.61,21.03,2.22
 20260623,20.6,21,20.35,20.75,29000,20.7,0.24,20.57,21.03,1.37
 20260624,20.45,21.2,20.45,21.2,33000,20.74,2.21,20.59,21.04,1.52
-20260626,21.45,21.45,20.65,20.7,33000,20.74,-0.19,20.59,21.04,1.48
+20260625,20.75,21.65,20.75,20.95,52000,20.76,0.92,20.61,21.05,2.24
+20260626,21.45,21.45,20.65,20.7,33000,20.75,-0.26,20.61,21.05,1.38
 ```
 
 ## Latest TDCC Snapshot

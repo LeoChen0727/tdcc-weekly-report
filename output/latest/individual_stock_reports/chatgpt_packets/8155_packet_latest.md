@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8155 博智
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:50 Asia/Taipei
+- generated_at: 2026-06-27 22:24:50 Asia/Taipei
 - stock_id: 8155
 - stock_name: 博智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 367
 - close: 367
 - volume: 933000
-- ma5: 390.8
-- ema23_primary: 386.65
-- distance_to_ema23_pct: -5.08
-- ma20: 382.77
-- ma60: 378.88
-- ma120: 290.78
-- return_5d: -10.92
-- return_20d: -8.36
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -4.12
+- ma5: 388.2
+- ema23_primary: 386.89
+- distance_to_ema23_pct: -5.14
+- ma20: 382.68
+- ma60: 381.01
+- ma120: 292.65
+- return_5d: -9.27
+- return_20d: -6.73
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -4.1
 - distance_to_high_60_pct: -23.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,406.5,414,387,393.5,399000,400.98,-1.87,418.4,329.27,0.16
 20260529,406,414.5,395.5,399,405000,400.82,-0.45,417.55,332.72,0.19
 20260601,397,409.5,394.5,398.5,401000,400.63,-0.53,416.73,336.35,0.2
 20260602,403.5,403.5,381,393,390,399.99,-1.75,413.55,339.77,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,405,409.5,401,407.5,958000,388.63,4.86,387.65,373.3,1.1
 20260623,405,405,385,388.5,1143000,388.62,-0.03,386.02,375.31,1.26
 20260624,379.5,394,379.5,386.5,663000,388.44,-0.5,384.45,377.33,0.72
-20260626,390.5,399.5,367,367,933000,386.65,-5.08,382.77,378.88,0.99
+20260625,389.5,397,383,391.5,579000,388.69,0.72,384,379.29,0.63
+20260626,390.5,399.5,367,367,933000,386.89,-5.14,382.68,381.01,0.98
 ```
 
 ## Latest TDCC Snapshot

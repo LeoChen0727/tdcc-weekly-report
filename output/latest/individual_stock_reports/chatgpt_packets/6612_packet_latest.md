@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6612 奈米醫材
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:23 Asia/Taipei
+- generated_at: 2026-06-27 22:24:24 Asia/Taipei
 - stock_id: 6612
 - stock_name: 奈米醫材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 70.7
 - close: 70.8
 - volume: 45000
-- ma5: 72.22
-- ema23_primary: 72.06
+- ma5: 72
+- ema23_primary: 72.07
 - distance_to_ema23_pct: -1.76
 - ma20: 72.47
-- ma60: 70.38
-- ma120: 72.28
-- return_5d: -2.61
-- return_20d: -2.34
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -2.31
+- ma60: 70.43
+- ma120: 72.26
+- return_5d: -3.41
+- return_20d: -2.21
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -2.3
 - distance_to_high_60_pct: -9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76.6,76.6,72,72.4,73000,70.5,2.7,69.69,69.5,1.22
 20260529,72.4,72.5,72.2,72.4,72000,70.66,2.47,69.92,69.54,1.14
 20260601,71.9,72.5,70.7,72.5,72000,70.81,2.39,70.13,69.61,1.1
 20260602,73,73,72.3,72.3,73,70.93,1.93,70.33,69.66,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,73.4,73.4,72.9,72.9,36000,72.2,0.97,72.62,70.3,0.7
 20260623,72.9,73,70.5,71.8,101000,72.17,-0.51,72.64,70.32,1.92
 20260624,71.5,72.3,71.4,72.3,15000,72.18,0.17,72.56,70.37,0.3
-20260626,72,72,70.7,70.8,45000,72.06,-1.76,72.47,70.38,0.93
+20260625,72.3,73.5,71.8,72.2,45000,72.18,0.03,72.55,70.41,0.93
+20260626,72,72,70.7,70.8,45000,72.07,-1.76,72.47,70.43,0.96
 ```
 
 ## Latest TDCC Snapshot

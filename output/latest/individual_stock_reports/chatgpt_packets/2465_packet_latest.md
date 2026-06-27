@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2465 麗臺
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:02 Asia/Taipei
+- generated_at: 2026-06-27 22:23:05 Asia/Taipei
 - stock_id: 2465
 - stock_name: 麗臺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 71.7
 - close: 71.8
 - volume: 1231698
-- ma5: 77.52
-- ema23_primary: 79.34
-- distance_to_ema23_pct: -9.5
-- ma20: 80.73
-- ma60: 74.58
-- ma120: 65.39
-- return_5d: -12.22
-- return_20d: -16.51
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -11.06
+- ma5: 76.86
+- ema23_primary: 79.15
+- distance_to_ema23_pct: -9.29
+- ma20: 80.52
+- ma60: 74.99
+- ma120: 65.51
+- return_5d: -11.25
+- return_20d: -12.33
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -10.82
 - distance_to_high_60_pct: -23.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,86,86.5,81.5,81.9,1623246,79.29,3.3,82.48,66.56,0.48
 20260529,83.2,86.2,81.6,82.8,1913237,79.58,4.05,82.92,67.08,0.59
 20260601,83.8,90.8,83.8,88.5,4090608,80.32,10.18,83.28,67.73,1.32
 20260602,90.3,92,86.1,89.1,3519465,81.05,9.93,83.25,68.37,1.24
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,81.1,81.8,79.1,79.4,1523191,80.45,-1.3,82.33,73.54,0.73
 20260623,80.2,80.8,76.5,77,1131022,80.16,-3.94,81.88,73.89,0.56
 20260624,76.2,81,75.8,78.5,1255623,80.02,-1.9,81.44,74.3,0.63
-20260626,77.1,77.1,71.7,71.8,1231698,79.34,-9.5,80.73,74.58,0.65
+20260625,79,79.5,77,77.6,632687,79.82,-2.78,81.02,74.68,0.34
+20260626,77.1,77.1,71.7,71.8,1231698,79.15,-9.29,80.52,74.99,0.67
 ```
 
 ## Latest TDCC Snapshot

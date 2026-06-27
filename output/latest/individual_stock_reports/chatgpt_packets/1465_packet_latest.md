@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1465 偉全
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:37 Asia/Taipei
+- generated_at: 2026-06-27 22:22:41 Asia/Taipei
 - stock_id: 1465
 - stock_name: 偉全
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12.5
 - close: 12.6
 - volume: 70706
-- ma5: 12.54
-- ema23_primary: 12.41
-- distance_to_ema23_pct: 1.54
-- ma20: 12.43
-- ma60: 12.33
+- ma5: 12.58
+- ema23_primary: 12.43
+- distance_to_ema23_pct: 1.35
+- ma20: 12.46
+- ma60: 12.34
 - ma120: 12.37
-- return_5d: 1.2
-- return_20d: 2.44
+- return_5d: 0.8
+- return_20d: 3.7
 - volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 1.35
+- distance_to_ma20_pct_auxiliary: 1.12
 - distance_to_high_60_pct: -4.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.3,12.4,12.15,12.15,105915,12.16,-0.09,12.12,12.27,1.54
 20260529,12.2,12.65,12.15,12.45,175229,12.19,2.17,12.13,12.27,2.33
 20260601,12.25,12.5,12.25,12.5,103647,12.21,2.36,12.15,12.27,1.33
 20260602,12.5,12.75,12.3,12.5,226520,12.24,2.16,12.17,12.27,2.62
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.45,12.55,12.4,12.4,136965,12.35,0.4,12.37,12.3,0.95
 20260623,12.4,12.55,12.35,12.45,95499,12.36,0.74,12.39,12.31,0.67
 20260624,12.45,12.75,12.4,12.75,155958,12.39,2.9,12.42,12.32,1.1
-20260626,12.55,12.75,12.5,12.6,70706,12.41,1.54,12.43,12.33,0.5
+20260625,12.7,12.8,12.5,12.7,103152,12.42,2.28,12.44,12.33,0.72
+20260626,12.55,12.75,12.5,12.6,70706,12.43,1.35,12.46,12.34,0.5
 ```
 
 ## Latest TDCC Snapshot

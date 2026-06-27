@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1904 正隆
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:47 Asia/Taipei
+- generated_at: 2026-06-27 22:22:51 Asia/Taipei
 - stock_id: 1904
 - stock_name: 正隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.15
 - close: 21.25
 - volume: 2065656
-- ma5: 22.15
-- ema23_primary: 21.48
-- distance_to_ema23_pct: -1.08
-- ma20: 21.73
-- ma60: 19.65
-- ma120: 18.77
-- return_5d: -7.61
-- return_20d: 12.43
+- ma5: 21.88
+- ema23_primary: 21.5
+- distance_to_ema23_pct: -1.17
+- ma20: 21.88
+- ma60: 19.68
+- ma120: 18.81
+- return_5d: -8.01
+- return_20d: 13.03
 - volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -2.23
+- distance_to_ma20_pct_auxiliary: -2.89
 - distance_to_high_60_pct: -11.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.9,19,18.75,18.8,1085755,18.69,0.59,18.5,18.45,0.4
 20260529,18.9,19.2,18.9,19,1512565,18.72,1.52,18.57,18.46,0.56
 20260601,19.2,19.85,19.05,19.65,3031073,18.79,4.56,18.66,18.49,1.08
 20260602,20,20.35,19.7,20.05,4823411,18.9,6.1,18.79,18.53,1.62
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23,23.2,22.5,22.55,3642000,21.42,5.27,21.34,19.55,0.6
 20260623,22.6,22.6,21.5,21.7,4488168,21.44,1.19,21.45,19.6,0.73
 20260624,21.7,22.5,21.4,22.15,2041823,21.5,3.01,21.62,19.63,0.33
-20260626,21.55,21.75,21.15,21.25,2065656,21.48,-1.08,21.73,19.65,0.33
+20260625,22.2,22.4,21.7,21.75,2200128,21.52,1.05,21.76,19.66,0.35
+20260626,21.55,21.75,21.15,21.25,2065656,21.5,-1.17,21.88,19.68,0.33
 ```
 
 ## Latest TDCC Snapshot

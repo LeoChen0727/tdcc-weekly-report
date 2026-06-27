@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6698 旭暉應材
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:26 Asia/Taipei
+- generated_at: 2026-06-27 22:24:27 Asia/Taipei
 - stock_id: 6698
 - stock_name: 旭暉應材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42.2
 - close: 42.2
 - volume: 1051549
-- ma5: 44.11
-- ema23_primary: 40
-- distance_to_ema23_pct: 5.51
-- ma20: 41.05
-- ma60: 34.56
-- ma120: 33.72
-- return_5d: 10.04
-- return_20d: 15.46
+- ma5: 44.76
+- ema23_primary: 40.41
+- distance_to_ema23_pct: 4.43
+- ma20: 41.5
+- ma60: 34.8
+- ma120: 33.86
+- return_5d: 0.6
+- return_20d: 16.57
 - volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 2.8
+- distance_to_ma20_pct_auxiliary: 1.69
 - distance_to_high_60_pct: -12.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.45,37.3,34.75,36.2,2447157,32.63,10.93,32.18,31.43,3.41
 20260529,37,38.2,36.1,37.65,3943761,33.05,13.92,32.52,31.5,4.35
 20260601,38.5,41,38.5,39.5,3294169,33.59,17.6,32.96,31.64,3.1
 20260602,41.2,43.45,37.75,43.45,7099064,34.41,26.27,33.57,31.83,5.04
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,42.05,46.05,42,44.55,2896599,38.62,15.37,39.64,33.88,1.25
 20260623,44.65,45.1,43,44.1,1592840,39.07,12.87,40.1,34.1,0.68
 20260624,43.3,48.45,42.9,47.75,2932946,39.8,19.99,40.77,34.38,1.18
-20260626,45.05,45.05,42.2,42.2,1051549,40,5.51,41.05,34.56,0.44
+20260625,48,48.1,45.2,45.2,1879905,40.25,12.31,41.2,34.61,0.77
+20260626,45.05,45.05,42.2,42.2,1051549,40.41,4.43,41.5,34.8,0.44
 ```
 
 ## Latest TDCC Snapshot

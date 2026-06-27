@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8450 霹靂
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:54 Asia/Taipei
+- generated_at: 2026-06-27 22:24:54 Asia/Taipei
 - stock_id: 8450
 - stock_name: 霹靂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.9
 - close: 15.2
 - volume: 180000
-- ma5: 15.68
-- ema23_primary: 15.82
-- distance_to_ema23_pct: -3.89
+- ma5: 15.58
+- ema23_primary: 15.78
+- distance_to_ema23_pct: -3.68
 - ma20: 15.74
-- ma60: 16.33
-- ma120: 16.73
+- ma60: 16.3
+- ma120: 16.72
 - return_5d: -4.4
-- return_20d: -3.49
-- volume_ratio: 5.87
-- distance_to_ma20_pct_auxiliary: -3.46
+- return_20d: -1.94
+- volume_ratio: 4.86
+- distance_to_ma20_pct_auxiliary: -3.43
 - distance_to_high_60_pct: -18.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,15.6,15.6,15.3,15.5,15000,16.1,-3.73,15.98,16.81,0.27
 20260529,15.5,15.85,15.2,15.5,15000,16.05,-3.43,15.94,16.79,0.29
 20260601,15.25,15.6,15.1,15.6,15000,16.01,-2.58,15.9,16.77,0.3
 20260602,15.6,15.8,15.5,15.75,16,15.99,-1.51,15.86,16.75,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.9,16.1,15.6,15.85,25000,15.9,-0.31,15.78,16.45,1.21
 20260623,15.55,15.65,15.45,15.65,20000,15.88,-1.44,15.77,16.41,0.96
 20260624,15.6,15.8,15.5,15.8,48000,15.87,-0.45,15.77,16.37,2.14
-20260626,15.4,15.4,14.9,15.2,180000,15.82,-3.89,15.74,16.33,5.87
+20260625,16.3,16.3,15,15.4,142000,15.83,-2.73,15.76,16.33,4.94
+20260626,15.4,15.4,14.9,15.2,180000,15.78,-3.68,15.74,16.3,4.86
 ```
 
 ## Latest TDCC Snapshot

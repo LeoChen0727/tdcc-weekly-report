@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00941 中信上游半導體
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:29 Asia/Taipei
+- generated_at: 2026-06-27 22:22:32 Asia/Taipei
 - stock_id: 00941
 - stock_name: 中信上游半導體
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -118,23 +118,22 @@
 - low: 28.62
 - close: 28.82
 - volume: 2601584
-- ma5: 28.71
-- ema23_primary: 27.13
-- distance_to_ema23_pct: 6.23
-- ma20: 26.92
-- ma60: 26.67
-- ma120: 26.67
-- return_5d: 2.45
-- return_20d: 12.01
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 7.05
+- ma5: 28.8
+- ema23_primary: 27.29
+- distance_to_ema23_pct: 5.62
+- ma20: 27.11
+- ma60: 26.77
+- ma120: 26.77
+- return_5d: 0.77
+- return_20d: 14.23
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 6.3
 - distance_to_high_60_pct: -2.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.58,25.58,25.14,25.23,1813080,25.13,0.41,25.38,25.38,0.88
 20260529,25.45,25.54,25.34,25.54,1699148,25.16,1.51,25.41,25.41,0.85
 20260601,25.54,25.54,25.33,25.35,1959530,25.18,0.69,25.4,25.4,0.98
 20260602,25.26,25.26,24.96,25.13,2240493,25.17,-0.17,25.37,25.37,1.11
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.78,29,28.78,28.99,2566258,26.67,8.68,26.46,26.39,1.09
 20260623,29.25,29.49,28.95,28.95,3634303,26.86,7.77,26.63,26.5,1.53
 20260624,28,28.25,27.93,28.21,3884725,26.98,4.58,26.77,26.58,1.55
-20260626,29.02,29.18,28.62,28.82,2601584,27.13,6.23,26.92,26.67,1.02
+20260625,28.53,29.03,28.45,29.02,4229790,27.15,6.9,26.93,26.68,1.61
+20260626,29.02,29.18,28.62,28.82,2601584,27.29,5.62,27.11,26.77,0.98
 ```
 
 ## Latest TDCC Snapshot

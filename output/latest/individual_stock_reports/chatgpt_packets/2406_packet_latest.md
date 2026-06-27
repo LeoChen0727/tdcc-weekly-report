@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2406 國碩
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2406
 - stock_name: 國碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 33.7
 - close: 34.55
 - volume: 13261669
-- ma5: 34.62
-- ema23_primary: 35.08
-- distance_to_ema23_pct: -1.5
-- ma20: 35.73
-- ma60: 33.43
-- ma120: 32.01
-- return_5d: -4.56
-- return_20d: -1
+- ma5: 34.75
+- ema23_primary: 35.1
+- distance_to_ema23_pct: -1.58
+- ma20: 35.84
+- ma60: 33.45
+- ma120: 32.09
+- return_5d: -0.86
+- return_20d: 3.75
 - volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -3.32
+- distance_to_ma20_pct_auxiliary: -3.61
 - distance_to_high_60_pct: -20.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,34.5,35.55,33.1,33.3,14377914,32.67,1.94,32.73,33.09,1.17
 20260529,33.75,34.8,33.05,34.55,9814389,32.82,5.26,32.93,33.09,0.78
 20260601,34.55,36.65,34.2,35.9,22815658,33.08,8.53,33.09,33.16,1.76
 20260602,36.2,37.65,34.2,35.8,19889674,33.31,7.49,33.25,33.22,1.48
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,35,36.3,35,35.6,13191495,35.33,0.78,35.77,33.53,0.41
 20260623,35.85,35.95,33.7,33.8,13785185,35.2,-3.97,35.76,33.48,0.43
 20260624,33.5,35,33.25,34.3,8910818,35.12,-2.34,35.75,33.45,0.28
-20260626,35,35.6,33.7,34.55,13261669,35.08,-1.5,35.73,33.43,0.43
+20260625,34.6,36.1,33.7,35.5,18884949,35.15,0.98,35.78,33.44,0.61
+20260626,35,35.6,33.7,34.55,13261669,35.1,-1.58,35.84,33.45,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -187,9 +187,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2406 | 國碩 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d |
-| 20260626 | 2406 | 國碩 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 2406 | 國碩 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 6.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2406 | 國碩 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)配合子公司禾迅綠電(股)公司未來申請股票上市（櫃）計畫，本公司得辦理對禾迅     綠電(股)公司釋股作業暨放棄參與其現金增資計畫案。  (2)本公司辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2406 | 國碩 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)配合子公司禾迅綠電(股)公司未來申請股票上市（櫃）計畫，本公司得辦理對禾迅     綠電(股)公司釋股作業暨放棄參與其現金增資計畫案。  (2)本公司辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2406 | 國碩 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 6.0 | A_優先追蹤 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)配合子公司禾迅綠電(股)公司未來申請股票上市（櫃）計畫，本公司得辦理對禾迅     綠電(股)公司釋股作業暨放棄參與其現金增資計畫案。  (2)本公司辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

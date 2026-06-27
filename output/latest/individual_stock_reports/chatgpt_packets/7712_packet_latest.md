@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7712 博盛半導體
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7712
 - stock_name: 博盛半導體
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -117,23 +118,22 @@
 - low: 192
 - close: 194.5
 - volume: 820000
-- ma5: 197.1
-- ema23_primary: 167.53
-- distance_to_ema23_pct: 16.1
-- ma20: 163.85
-- ma60: 141.72
-- ma120: 118.67
-- return_5d: 15.77
-- return_20d: 14.75
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 18.71
+- ma5: 201.4
+- ema23_primary: 170.66
+- distance_to_ema23_pct: 13.97
+- ma20: 166.03
+- ma60: 143.33
+- ma120: 119.64
+- return_5d: 5.42
+- return_20d: 19.69
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 17.15
 - distance_to_high_60_pct: -10.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,173,176.5,160,162.5,168000,150.55,7.94,149.85,126.14,0.16
 20260529,165,172.5,164,167,169000,151.92,9.92,152.55,127.19,0.16
 20260601,168,172.5,161,161.5,166000,152.72,5.75,154.9,128.32,0.16
 20260602,162,166,155,158,158,153.16,3.16,156.75,129.36,0
@@ -152,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,202,202.5,200.5,202.5,1209000,158.05,28.13,159.97,137.72,2.25
 20260623,200,211,192,200,3535000,161.54,23.81,161.6,138.95,5.01
 20260624,193,218,187.5,204,2720000,165.08,23.57,162.6,140.42,3.26
-20260626,208.5,215,192,194.5,820000,167.53,16.1,163.85,141.72,0.95
+20260625,201.5,206.5,192,206,789000,168.49,22.26,164.43,141.92,0.91
+20260626,208.5,215,192,194.5,820000,170.66,13.97,166.03,143.33,0.91
 ```
 
 ## Latest TDCC Snapshot

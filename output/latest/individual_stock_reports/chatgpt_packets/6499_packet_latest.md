@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6499 益安
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:19 Asia/Taipei
+- generated_at: 2026-06-27 22:24:20 Asia/Taipei
 - stock_id: 6499
 - stock_name: 益安
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 67.8
 - close: 68
 - volume: 633000
-- ma5: 71.94
-- ema23_primary: 77.28
-- distance_to_ema23_pct: -12.01
-- ma20: 77.33
-- ma60: 83.21
-- ma120: 88.92
-- return_5d: -7.1
-- return_20d: -22.37
-- volume_ratio: 2.26
-- distance_to_ma20_pct_auxiliary: -12.07
+- ma5: 71.68
+- ema23_primary: 76.85
+- distance_to_ema23_pct: -11.51
+- ma20: 76.64
+- ma60: 82.89
+- ma120: 88.75
+- return_5d: -7.73
+- return_20d: -21.21
+- volume_ratio: 2.18
+- distance_to_ma20_pct_auxiliary: -11.27
 - distance_to_high_60_pct: -29.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,88.4,89.2,85.9,86.3,87000,87.53,-1.4,86.33,89.21,0.15
 20260529,86.4,86.9,85,85,85000,87.32,-2.65,86.39,89.2,0.16
 20260601,85,85.6,83.3,83.3,84000,86.98,-4.23,86.41,89.28,0.16
 20260602,82.5,85.4,81.9,83.5,83,86.69,-3.68,86.43,89.27,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,73.8,74.3,72.4,72.6,364000,79.16,-8.29,79.98,84.44,1.54
 20260623,73.1,73.8,72.5,73,269000,78.65,-7.18,79.08,84.05,1.1
 20260624,72,73.7,72,72.4,237000,78.13,-7.33,78.31,83.63,0.94
-20260626,72.8,73.2,67.8,68,633000,77.28,-12.01,77.33,83.21,2.26
+20260625,72.9,74.4,72.1,72.4,306000,77.65,-6.76,77.56,83.28,1.16
+20260626,72.8,73.2,67.8,68,633000,76.85,-11.51,76.64,82.89,2.18
 ```
 
 ## Latest TDCC Snapshot

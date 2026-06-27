@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:44 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 165
+- price_rows: 166
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 242.5
 - close: 250
 - volume: 1760860
-- ma5: 273.4
-- ema23_primary: 242.35
-- distance_to_ema23_pct: 3.16
-- ma20: 240.93
-- ma60: 192.78
-- ma120: 174.65
-- return_5d: -9.09
-- return_20d: 32.63
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 3.77
+- ma5: 266
+- ema23_primary: 243.37
+- distance_to_ema23_pct: 2.73
+- ma20: 244.62
+- ma60: 194.72
+- ma120: 175.6
+- return_5d: -14.38
+- return_20d: 38.12
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 2.2
 - distance_to_high_60_pct: -18.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,190,194.5,180.5,181,4004800,183.77,-1.51,186.05,164.49,2.95
 20260529,187,191.5,185,191,890467,184.37,3.6,187.28,164.81,0.64
 20260601,195,195,187.5,189.5,621817,184.8,2.54,188.4,165.27,0.45
 20260602,190,190,178,182,742398,184.56,-1.39,189.1,165.49,0.52
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,305,305.5,279.5,281.5,3240548,235.98,19.29,229.88,186.97,1
 20260623,283.5,285,270,278.5,2261439,239.53,16.27,234.12,189.04,0.69
 20260624,275.5,278.5,263,265,1901734,241.65,9.66,237.85,190.99,0.57
-20260626,252,258,242.5,250,1760860,242.35,3.16,240.93,192.78,0.52
+20260625,267.5,267.5,252.5,255,1601681,242.76,5.04,241.18,192.86,0.47
+20260626,252,258,242.5,250,1760860,243.37,2.73,244.62,194.72,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 7788 | 松川精密 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過修訂本公司「股東會議事規則」部分條文案。  (2)通過修訂本公司「取得或處分資產處理程序」部分條文案。  (3)通過解除董事競業禁止限制案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 7788 | 松川精密 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過修訂本公司「股東會議事規則」部分條文案。  (2)通過修訂本公司「取得或處分資產處理程序」部分條文案。  (3)通過解除董事競業禁止限制案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 7788 | 松川精密 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過修訂本公司「股東會議事規則」部分條文案。  (2)通過修訂本公司「取得或處分資產處理程序」部分條文案。  (3)通過解除董事競業禁止限制案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

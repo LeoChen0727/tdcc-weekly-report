@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3149 正達
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:21 Asia/Taipei
+- generated_at: 2026-06-27 22:23:24 Asia/Taipei
 - stock_id: 3149
 - stock_name: 正達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 97.5
 - close: 97.8
 - volume: 29433525
-- ma5: 98.68
-- ema23_primary: 84.94
-- distance_to_ema23_pct: 15.14
-- ma20: 87.88
-- ma60: 62.05
-- ma120: 54.58
-- return_5d: 4.38
-- return_20d: 49.54
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 11.29
+- ma5: 99.68
+- ema23_primary: 86.18
+- distance_to_ema23_pct: 13.48
+- ma20: 89.52
+- ma60: 62.96
+- ma120: 55.13
+- return_5d: 2.95
+- return_20d: 45.75
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: 9.25
 - distance_to_high_60_pct: -10.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,65.9,71.8,65.7,67.1,34145285,56.33,19.13,55.92,48.86,1.36
 20260529,69.5,72.2,66.3,71.2,29633211,57.57,23.68,57.11,49.12,1.15
 20260601,76,78.3,75.8,78.3,7001430,59.29,32.05,58.48,49.59,0.28
 20260602,86.1,86.1,83.5,86.1,37607811,61.53,39.94,60.36,50.17,1.42
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,99,104.5,99,104.5,7386968,81.03,28.97,83.1,59.43,0.37
 20260623,103,106.5,94.1,94.1,29907719,82.11,14.6,84.56,60.26,1.54
 20260624,91.9,103.5,91.3,102,35986755,83.77,21.76,86.25,61.18,1.87
-20260626,100,109,97.5,97.8,29433525,84.94,15.14,87.88,62.05,1.51
+20260625,106,106,97.5,100,19115583,85.12,17.48,87.98,62.08,1.01
+20260626,100,109,97.5,97.8,29433525,86.18,13.48,89.52,62.96,1.57
 ```
 
 ## Latest TDCC Snapshot

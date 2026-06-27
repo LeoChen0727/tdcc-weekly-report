@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:07 Asia/Taipei
+- generated_at: 2026-06-27 22:23:10 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 50.1
 - close: 50.1
 - volume: 24041295
-- ma5: 51.32
-- ema23_primary: 51.58
-- distance_to_ema23_pct: -2.87
-- ma20: 52.13
-- ma60: 51.14
-- ma120: 53.54
-- return_5d: -2.91
-- return_20d: -4.75
+- ma5: 51.34
+- ema23_primary: 51.56
+- distance_to_ema23_pct: -2.82
+- ma20: 52.09
+- ma60: 51.11
+- ma120: 53.53
+- return_5d: -2.34
+- return_20d: -4.21
 - volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -3.9
+- distance_to_ma20_pct_auxiliary: -3.82
 - distance_to_high_60_pct: -10.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,52.9,53.5,52,52.3,16197736,50.95,2.65,50.42,53.08,0.81
 20260529,53,53.3,52.4,52.7,29776823,51.09,3.14,50.59,52.86,1.43
 20260601,53.6,55.7,53.6,54.9,51690436,51.41,6.79,50.84,52.71,2.29
 20260602,55,55,52.9,53.6,71874958,51.59,3.89,51.02,52.61,2.83
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,52,52.7,51.4,52.3,38001527,51.76,1.04,52.3,51.24,0.85
 20260623,52.7,52.8,51.2,51.3,19953550,51.72,-0.82,52.28,51.2,0.45
 20260624,51.4,52.1,51.2,51.6,15479059,51.71,-0.22,52.26,51.18,0.35
-20260626,51.4,51.4,50.1,50.1,24041295,51.58,-2.87,52.13,51.14,0.55
+20260625,51.6,52,51.2,51.4,11437515,51.69,-0.56,52.2,51.16,0.27
+20260626,51.4,51.4,50.1,50.1,24041295,51.56,-2.82,52.09,51.11,0.55
 ```
 
 ## Latest TDCC Snapshot

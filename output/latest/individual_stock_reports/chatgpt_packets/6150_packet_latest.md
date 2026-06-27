@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6150 撼訊
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:07 Asia/Taipei
+- generated_at: 2026-06-27 22:24:09 Asia/Taipei
 - stock_id: 6150
 - stock_name: 撼訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 60.3
 - close: 60.6
 - volume: 338000
-- ma5: 63.26
-- ema23_primary: 64.78
-- distance_to_ema23_pct: -6.45
-- ma20: 65.9
-- ma60: 62.63
-- ma120: 62.06
-- return_5d: -4.57
-- return_20d: -9.28
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -8.04
+- ma5: 63.02
+- ema23_primary: 64.62
+- distance_to_ema23_pct: -6.22
+- ma20: 65.66
+- ma60: 62.73
+- ma120: 62.04
+- return_5d: -5.75
+- return_20d: -10.88
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -7.7
 - distance_to_high_60_pct: -27.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,67,69.1,67,68,68000,65.74,3.43,66.89,60.05,0.06
 20260529,68.7,69.3,67.4,68.5,68000,65.97,3.83,67.56,60.23,0.06
 20260601,70.5,71.9,68.6,69.1,70000,66.23,4.33,68.16,60.49,0.07
 20260602,69.2,76,69.2,76,74,67.05,13.35,68.96,60.83,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,64.6,65.9,64.6,65,425000,65.53,-0.81,66.83,62.38,1.79
 20260623,65.3,65.3,63.2,63.2,362000,65.34,-3.27,66.55,62.46,1.44
 20260624,63.2,64.4,62.4,63.2,181000,65.16,-3,66.21,62.58,0.7
-20260626,63.1,63.1,60.3,60.6,338000,64.78,-6.45,65.9,62.63,1.25
+20260625,64.4,64.5,63.1,63.1,197000,64.99,-2.9,66.03,62.68,0.75
+20260626,63.1,63.1,60.3,60.6,338000,64.62,-6.22,65.66,62.73,1.22
 ```
 
 ## Latest TDCC Snapshot

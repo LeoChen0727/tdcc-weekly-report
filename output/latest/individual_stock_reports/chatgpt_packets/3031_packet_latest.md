@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3031 佰鴻
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:17 Asia/Taipei
+- generated_at: 2026-06-27 22:23:20 Asia/Taipei
 - stock_id: 3031
 - stock_name: 佰鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 29.25
 - close: 29.4
 - volume: 1436213
-- ma5: 30.17
-- ema23_primary: 29.9
-- distance_to_ema23_pct: -1.66
-- ma20: 30.02
-- ma60: 29.86
-- ma120: 25.16
-- return_5d: 3.89
-- return_20d: -5.01
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -2.06
+- ma5: 30.53
+- ema23_primary: 29.88
+- distance_to_ema23_pct: -1.62
+- ma20: 29.94
+- ma60: 29.98
+- ma120: 25.24
+- return_5d: 5
+- return_20d: -6.07
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -1.81
 - distance_to_high_60_pct: -16.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,31.65,33.15,31,31.3,4864784,30.69,1.98,30.76,27.16,1.23
 20260529,32.05,33.15,31.7,32.4,3306478,30.83,5.08,30.8,27.37,0.86
 20260601,32.5,33.7,32,32.4,3465430,30.96,4.64,30.84,27.59,0.9
 20260602,32.5,32.65,31.3,31.95,2076223,31.05,2.91,30.87,27.8,0.54
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.2,30.8,28.15,30.5,4029869,29.65,2.85,30.18,29.52,1.7
 20260623,30.7,32.7,30.55,32.05,7318971,29.85,7.36,30.14,29.65,3.03
 20260624,31.5,31.85,30.45,30.9,2780756,29.94,3.2,30.09,29.76,1.16
-20260626,29.65,30.3,29.25,29.4,1436213,29.9,-1.66,30.02,29.86,0.61
+20260625,31.3,31.35,29.7,29.8,1517501,29.93,-0.43,30.04,29.87,0.65
+20260626,29.65,30.3,29.25,29.4,1436213,29.88,-1.62,29.94,29.98,0.66
 ```
 
 ## Latest TDCC Snapshot

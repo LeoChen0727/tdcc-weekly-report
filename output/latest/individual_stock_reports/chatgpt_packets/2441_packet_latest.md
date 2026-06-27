@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:00 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 134.5
 - close: 134.5
 - volume: 15150689
-- ma5: 137.6
-- ema23_primary: 127.7
-- distance_to_ema23_pct: 5.32
-- ma20: 132
-- ma60: 108.49
-- ma120: 99.81
-- return_5d: 6.32
-- return_20d: -1.1
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: 1.89
+- ma5: 138.9
+- ema23_primary: 128.8
+- distance_to_ema23_pct: 4.42
+- ma20: 132.03
+- ma60: 109.29
+- ma120: 100.26
+- return_5d: -0.37
+- return_20d: -4.61
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 1.87
 - distance_to_high_60_pct: -9.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,135.5,148,135.5,141,20880267,109.39,28.9,105.71,94.91,1.14
 20260529,143.5,146.5,139.5,141.5,15708457,112.06,26.27,108.58,95.77,0.85
 20260601,143,143,135,137.5,14977794,114.18,20.42,110.84,96.65,0.81
 20260602,136,137.5,129.5,134,11087947,115.83,15.68,112.84,97.42,0.61
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,139,144.5,137.5,140,22168250,124.74,12.23,131.38,106.34,1.72
 20260623,141,141.5,133,136,11851321,125.68,8.21,131.75,107.06,0.97
 20260624,135,143,134.5,142.5,13061869,127.08,12.13,132.07,107.84,1.16
-20260626,140.5,146.5,134.5,134.5,15150689,127.7,5.32,132,108.49,1.38
+20260625,144.5,146.5,139.5,141.5,12693485,128.28,10.3,132.35,108.61,1.17
+20260626,140.5,146.5,134.5,134.5,15150689,128.8,4.42,132.03,109.29,1.43
 ```
 
 ## Latest TDCC Snapshot

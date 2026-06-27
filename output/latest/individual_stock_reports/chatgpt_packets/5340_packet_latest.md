@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5340 建榮
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:59 Asia/Taipei
 - stock_id: 5340
 - stock_name: 建榮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 86.9
 - close: 86.9
 - volume: 1776000
-- ma5: 94.02
-- ema23_primary: 95.57
-- distance_to_ema23_pct: -9.07
-- ma20: 94.19
-- ma60: 105.62
-- ma120: 100.11
-- return_5d: -1.03
-- return_20d: -15.63
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -7.74
+- ma5: 95.12
+- ema23_primary: 95.5
+- distance_to_ema23_pct: -9.01
+- ma20: 93.97
+- ma60: 105.42
+- ma120: 100.37
+- return_5d: -3.44
+- return_20d: -13.1
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: -7.52
 - distance_to_high_60_pct: -36.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,103,105,99.9,100,102000,107.36,-6.85,108.71,110.7,0.04
 20260529,102,105,100.5,101.5,102000,106.87,-5.02,108.03,110.56,0.04
 20260601,102.5,107,101.5,105,105000,106.71,-1.6,107.19,110.64,0.05
 20260602,105,107,100.5,102,103,106.32,-4.06,105.96,110.52,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,92.1,99,92.1,99,2529000,96.2,2.91,96.06,106.22,2.45
 20260623,102,102,94.5,96,5380000,96.19,-0.19,95.48,106.07,4.15
 20260624,94.1,99.5,94.1,98.2,2001000,96.35,1.92,95,105.96,1.44
-20260626,95.5,95.5,86.9,86.9,1776000,95.57,-9.07,94.19,105.62,1.2
+20260625,99.2,100.5,95,95.5,1504000,96.28,-0.81,94.62,105.77,1.03
+20260626,95.5,95.5,86.9,86.9,1776000,95.5,-9.01,93.97,105.42,1.15
 ```
 
 ## Latest TDCC Snapshot

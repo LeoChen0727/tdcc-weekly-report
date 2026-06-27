@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 5.35
 - close: 5.35
 - volume: 2115168
-- ma5: 5.59
-- ema23_primary: 5.62
-- distance_to_ema23_pct: -4.75
-- ma20: 5.78
-- ma60: 5.47
+- ma5: 5.53
+- ema23_primary: 5.61
+- distance_to_ema23_pct: -4.56
+- ma20: 5.8
+- ma60: 5.45
 - ma120: 5.61
-- return_5d: -9.32
-- return_20d: 7
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -7.38
+- return_5d: -7.92
+- return_20d: 5.73
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -7.72
 - distance_to_high_60_pct: -22.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,5,5.06,4.96,5.06,2112817,5.08,-0.41,4.94,5.63,0.85
 20260529,5.1,5.25,5.05,5.24,4603765,5.09,2.87,4.95,5.62,1.86
 20260601,5.24,5.76,5.15,5.76,5897093,5.15,11.86,4.99,5.6,2.26
 20260602,6.33,6.33,6.27,6.33,6290340,5.25,20.62,5.06,5.59,2.25
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,6,6,5.6,5.68,2764903,5.66,0.39,5.71,5.49,0.72
 20260623,5.68,5.68,5.5,5.57,2281554,5.65,-1.42,5.73,5.49,0.6
 20260624,5.55,5.61,5.46,5.54,1255085,5.64,-1.8,5.76,5.48,0.33
-20260626,5.38,5.56,5.35,5.35,2115168,5.62,-4.75,5.78,5.47,0.56
+20260625,5.54,5.6,5.49,5.49,1722052,5.63,-2.46,5.78,5.47,0.46
+20260626,5.38,5.56,5.35,5.35,2115168,5.61,-4.56,5.8,5.45,0.57
 ```
 
 ## Latest TDCC Snapshot

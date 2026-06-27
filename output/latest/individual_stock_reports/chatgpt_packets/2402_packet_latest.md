@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2402 毅嘉
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2402
 - stock_name: 毅嘉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 63.9
 - close: 64.1
 - volume: 3797458
-- ma5: 68.26
-- ema23_primary: 67.25
-- distance_to_ema23_pct: -4.68
-- ma20: 67.22
-- ma60: 66.74
-- ma120: 61
-- return_5d: -9.59
-- return_20d: -6.7
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -4.63
+- ma5: 67.64
+- ema23_primary: 67.2
+- distance_to_ema23_pct: -4.61
+- ma20: 67.25
+- ma60: 66.99
+- ma120: 61.04
+- return_5d: -8.43
+- return_20d: -3.03
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -4.69
 - distance_to_high_60_pct: -24.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,68.7,69.6,65.9,66.1,8452412,66.81,-1.07,67.68,61.58,0.83
 20260529,68,70,66.8,69.4,12426985,67.03,3.54,67.64,61.82,1.21
 20260601,69.3,71.5,69.3,69.9,10897347,67.27,3.91,67.52,62.15,1.11
 20260602,70,70.1,68,68.7,6690172,67.39,1.95,67.33,62.44,0.69
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,70.8,72.3,70,71.3,11933100,67.46,5.69,67.55,66,1.09
 20260623,71.6,71.7,67.9,68.3,7909655,67.53,1.14,67.57,66.28,0.74
 20260624,67.4,68.9,67.2,67.6,3443227,67.54,0.1,67.44,66.56,0.36
-20260626,66.7,67.4,63.9,64.1,3797458,67.25,-4.68,67.22,66.74,0.42
+20260625,68.4,68.4,66.8,66.9,2873245,67.48,-0.86,67.36,66.79,0.32
+20260626,66.7,67.4,63.9,64.1,3797458,67.2,-4.61,67.25,66.99,0.43
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5205 中茂
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:54 Asia/Taipei
+- generated_at: 2026-06-27 22:23:56 Asia/Taipei
 - stock_id: 5205
 - stock_name: 中茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 129
+- price_rows: 130
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 23.95
 - close: 23.95
 - volume: 3000
-- ma5: 23.75
-- ema23_primary: 23.8
-- distance_to_ema23_pct: 0.61
-- ma20: 23.67
-- ma60: 24.54
-- ma120: 26.89
-- return_5d: -5.71
-- return_20d: 0.42
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 1.19
+- ma5: 23.45
+- ema23_primary: 23.77
+- distance_to_ema23_pct: 0.74
+- ma20: 23.66
+- ma60: 24.46
+- ma120: 26.83
+- return_5d: -3.82
+- return_20d: 2.13
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 1.2
 - distance_to_high_60_pct: -22.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.8,23.8,21.6,23.45,23000,23.48,-0.12,22.58,26.05,2.17
 20260529,23.65,23.65,21.85,23.5,23000,23.48,0.09,22.65,25.98,2.03
 20260601,23.3,23.3,23.3,23.3,23000,23.46,-0.7,22.72,25.91,1.85
 20260602,23.7,23.7,21.35,21.65,22,23.31,-7.14,22.7,25.79,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.8,24.8,23.1,23.2,5000,23.87,-2.82,23.7,24.84,0.37
 20260623,24.85,24.85,23,23.25,17000,23.82,-2.4,23.68,24.74,1.3
 20260624,23.75,23.75,21.75,23.45,5000,23.79,-1.43,23.66,24.62,0.41
-20260626,24.1,24.1,23.95,23.95,3000,23.8,0.61,23.67,24.54,0.27
+20260625,22.65,23.4,22.65,23.4,2000,23.76,-1.51,23.64,24.53,0.18
+20260626,24.1,24.1,23.95,23.95,3000,23.77,0.74,23.66,24.46,0.3
 ```
 
 ## Latest TDCC Snapshot

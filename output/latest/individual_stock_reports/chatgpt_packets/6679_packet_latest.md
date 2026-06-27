@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6679 鈺太
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:25 Asia/Taipei
+- generated_at: 2026-06-27 22:24:26 Asia/Taipei
 - stock_id: 6679
 - stock_name: 鈺太
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 266
 - close: 266
 - volume: 333000
-- ma5: 282.1
-- ema23_primary: 284.96
-- distance_to_ema23_pct: -6.65
-- ma20: 282.82
-- ma60: 286.98
-- ma120: 245.1
-- return_5d: -2.03
-- return_20d: -19.39
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -5.95
+- ma5: 282.2
+- ema23_primary: 284.9
+- distance_to_ema23_pct: -6.64
+- ma20: 281.3
+- ma60: 287.7
+- ma120: 245.98
+- return_5d: -6.83
+- return_20d: -15.96
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -5.44
 - distance_to_high_60_pct: -24.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,331,338,310,316.5,321000,312.29,1.35,316.9,274.65,0.48
 20260529,320.5,325,314,314.5,318000,312.47,0.65,318.32,276.19,0.48
 20260601,314,316.5,303,305,309000,311.85,-2.2,319.07,277.67,0.48
 20260602,310,312.5,293.5,298.5,299,310.74,-3.94,319.65,278.93,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,286.5,297,283,291,479000,287.19,1.33,292.05,285.43,1.49
 20260623,292,292,282.5,284.5,227000,286.97,-0.86,289,286.01,0.72
 20260624,284.5,288.5,279.5,283.5,232000,286.68,-1.11,286.02,286.68,0.75
-20260626,285.5,285.5,266,266,333000,284.96,-6.65,282.82,286.98,1.07
+20260625,285,290,282.5,286,216000,286.62,-0.22,283.82,287.32,0.71
+20260626,285.5,285.5,266,266,333000,284.9,-6.64,281.3,287.7,1.09
 ```
 
 ## Latest TDCC Snapshot

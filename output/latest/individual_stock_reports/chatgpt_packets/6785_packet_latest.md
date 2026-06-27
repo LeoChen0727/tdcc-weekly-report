@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6785 昱展新藥
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:29 Asia/Taipei
+- generated_at: 2026-06-27 22:24:30 Asia/Taipei
 - stock_id: 6785
 - stock_name: 昱展新藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 113.5
 - close: 113.5
 - volume: 121000
-- ma5: 118.8
-- ema23_primary: 121.32
-- distance_to_ema23_pct: -6.44
-- ma20: 118.35
-- ma60: 139.1
-- ma120: 190.95
-- return_5d: -5.02
-- return_20d: -8.84
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -4.1
+- ma5: 117.8
+- ema23_primary: 120.86
+- distance_to_ema23_pct: -6.09
+- ma20: 118.03
+- ma60: 138.27
+- ma120: 189.52
+- return_5d: -6.2
+- return_20d: -7.35
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -3.83
 - distance_to_high_60_pct: -43.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,124.5,124.5,122,122.5,123000,135.54,-9.62,131.6,159.31,0.91
 20260529,123.5,125,123,123,124000,134.49,-8.55,130.43,158.27,0.94
 20260601,123,124,121,122,122000,133.45,-8.58,129.6,157.52,1.09
 20260602,122.5,122.5,119,119.5,120,132.29,-9.67,128.62,156.45,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,119.5,122.5,119,119.5,95000,122.41,-2.38,119.58,141.84,0.94
 20260623,119,125,119,120,127000,122.21,-1.81,119.2,140.91,1.25
 20260624,119,121,118,120,38000,122.03,-1.66,118.9,140.04,0.39
-20260626,115,116,113.5,113.5,121000,121.32,-6.44,118.35,139.1,1.25
+20260625,120,120,116,116,65000,121.53,-4.55,118.47,139.14,0.69
+20260626,115,116,113.5,113.5,121000,120.86,-6.09,118.03,138.27,1.29
 ```
 
 ## Latest TDCC Snapshot

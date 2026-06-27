@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:18 Asia/Taipei
+- generated_at: 2026-06-27 22:23:21 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 185.5
 - close: 193
 - volume: 33105189
-- ma5: 197.6
-- ema23_primary: 202.39
-- distance_to_ema23_pct: -4.64
-- ma20: 214
-- ma60: 167.77
-- ma120: 127.6
-- return_5d: -13.84
-- return_20d: -2.53
+- ma5: 191.8
+- ema23_primary: 201.15
+- distance_to_ema23_pct: -4.05
+- ma20: 212.47
+- ma60: 169.38
+- ma120: 128.46
+- return_5d: -10.65
+- return_20d: -11.26
 - volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -9.81
+- distance_to_ma20_pct_auxiliary: -9.17
 - distance_to_high_60_pct: -21.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,205,217.5,205,217.5,20696164,165.27,31.6,164.4,129.11,1.2
 20260529,222,228,212,215.5,46795998,169.46,27.17,167.53,131.19,2.4
 20260601,217,227.5,198,202.5,34913998,172.21,17.59,169.35,133.1,1.66
 20260602,198.5,212.5,196.5,210,23254077,175.36,19.75,171.57,135.1,1.05
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,212.5,212.5,195.5,198,46094673,205.67,-3.73,215.03,162.75,1.18
 20260623,198.5,202,190,190.5,23484664,204.4,-6.8,214.88,164.4,0.59
 20260624,188,193,184.5,190.5,18294461,203.24,-6.27,214.25,166.07,0.48
-20260626,187.5,203.5,185.5,193,33105189,202.39,-4.64,214,167.77,0.86
+20260625,192,194.5,185,187,12694079,201.89,-7.38,213.7,167.67,0.34
+20260626,187.5,203.5,185.5,193,33105189,201.15,-4.05,212.47,169.38,0.86
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:36 Asia/Taipei
+- generated_at: 2026-06-27 22:22:40 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 6.04
 - close: 6.22
 - volume: 2473062
-- ma5: 6.11
+- ma5: 6.12
 - ema23_primary: 6.09
-- distance_to_ema23_pct: 2.09
-- ma20: 6.29
-- ma60: 5.59
+- distance_to_ema23_pct: 2.05
+- ma20: 6.3
+- ma60: 5.61
 - ma120: 5.5
-- return_5d: 1.97
-- return_20d: 13.09
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -1.05
+- return_5d: 3.15
+- return_20d: 8.55
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.35
 - distance_to_high_60_pct: -14.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,5.53,5.8,5.53,5.73,2018226,5.45,5.11,5.36,5.3,0.84
 20260529,5.8,6.3,5.75,6.21,4778674,5.51,12.61,5.42,5.31,1.84
 20260601,6.21,6.46,6.12,6.33,3419255,5.58,13.39,5.49,5.33,1.26
 20260602,6.35,6.58,6.2,6.34,2525084,5.65,12.3,5.55,5.34,0.9
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,6.07,6.08,5.97,6.02,1604966,6.07,-0.84,6.21,5.54,0.54
 20260623,6.02,6.14,5.95,6.07,1767452,6.07,-0.02,6.22,5.56,0.6
 20260624,6.07,6.24,5.96,6.19,1289358,6.08,1.79,6.25,5.58,0.45
-20260626,6.11,6.33,6.04,6.22,2473062,6.09,2.09,6.29,5.59,0.87
+20260625,6.18,6.2,6.07,6.11,992157,6.08,0.44,6.28,5.59,0.36
+20260626,6.11,6.33,6.04,6.22,2473062,6.09,2.05,6.3,5.61,0.88
 ```
 
 ## Latest TDCC Snapshot

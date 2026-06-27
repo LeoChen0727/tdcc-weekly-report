@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:14 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 221.5
 - close: 224
 - volume: 13707381
-- ma5: 236.2
-- ema23_primary: 221.7
-- distance_to_ema23_pct: 1.04
-- ma20: 222.15
-- ma60: 201.78
-- ma120: 164.53
-- return_5d: 4.67
-- return_20d: -4.07
+- ma5: 236.8
+- ema23_primary: 222.96
+- distance_to_ema23_pct: 0.47
+- ma20: 222.6
+- ma60: 203.28
+- ma120: 165.68
+- return_5d: -4.68
+- return_20d: -2.18
 - volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 0.83
-- distance_to_high_60_pct: -11.29
+- distance_to_ma20_pct_auxiliary: 0.63
+- distance_to_high_60_pct: -11.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,233.5,240.5,228,229,12607598,210.24,8.92,213.12,173.36,0.82
 20260529,234,236.5,224.5,227.5,13335409,211.68,7.47,215.5,174.88,0.86
 20260601,230,230,218,219.5,13427032,212.33,3.38,216.95,176.43,0.87
 20260602,220.5,227,213.5,215,13068896,212.56,1.15,217.85,177.8,0.88
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,244,249.5,238.5,242.5,25036209,218,11.24,222.07,197.2,2.18
 20260623,245,252.5,229,237,14552180,219.58,7.93,222.35,198.87,1.25
 20260624,234.5,243,233,242.5,12118467,221.49,9.48,222.62,200.47,1.05
-20260626,239,247,221.5,224,13707381,221.7,1.04,222.15,201.78,1.18
+20260625,245.5,253,237,238,12657368,222.87,6.79,222.85,202.01,1.09
+20260626,239,247,221.5,224,13707381,222.96,0.47,222.6,203.28,1.18
 ```
 
 ## Latest TDCC Snapshot

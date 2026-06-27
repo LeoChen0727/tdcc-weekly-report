@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6762 達亞
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:28 Asia/Taipei
+- generated_at: 2026-06-27 22:24:29 Asia/Taipei
 - stock_id: 6762
 - stock_name: 達亞
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 117
+- price_rows: 118
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 170
 - close: 170
 - volume: 1000
-- ma5: 166.8
-- ema23_primary: 169.85
-- distance_to_ema23_pct: 0.09
-- ma20: 176
-- ma60: 165.92
-- ma120: 174.47
-- return_5d: -6.34
-- return_20d: 8.63
+- ma5: 167
+- ema23_primary: 169.86
+- distance_to_ema23_pct: 0.08
+- ma20: 176.1
+- ma60: 165.96
+- ma120: 174.44
+- return_5d: 0.59
+- return_20d: 1.19
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: -3.41
+- distance_to_ma20_pct_auxiliary: -3.46
 - distance_to_high_60_pct: -14.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,161,172,161,168,12000,156,7.69,155.55,163.82,1.37
 20260515,173,184.5,173,184.5,29000,158.38,16.49,156.62,163.89,2.87
 20260518,184.5,198,178,186,22000,160.68,15.76,157.78,164.05,2.01
 20260520,195,195,190,190,3000,163.12,16.48,158.75,164.35,0.29
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,169,169,165,165,2000,170.75,-3.37,173.85,165.95,0.03
 20260623,165,165,165,165,2000,170.28,-3.1,174.9,165.9,0.03
 20260624,164,165,164,165,4000,169.84,-2.85,175.32,165.82,0.06
-20260626,170,170,170,170,1000,169.85,0.09,176,165.92,0.01
+20260625,168,180,168,170,13000,169.85,0.09,176,165.92,0.19
+20260626,170,170,170,170,1000,169.86,0.08,176.1,165.96,0.01
 ```
 
 ## Latest TDCC Snapshot

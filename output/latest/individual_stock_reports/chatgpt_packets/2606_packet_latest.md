@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:10 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 59.1
 - close: 59.6
 - volume: 5618757
-- ma5: 61.24
-- ema23_primary: 64.85
-- distance_to_ema23_pct: -8.09
-- ma20: 66.71
-- ma60: 64.14
+- ma5: 61.28
+- ema23_primary: 64.57
+- distance_to_ema23_pct: -7.7
+- ma20: 66.25
+- ma60: 64.21
 - ma120: 62.98
-- return_5d: -4.18
-- return_20d: -17.79
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -10.66
+- return_5d: -3.09
+- return_20d: -15.94
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -10.04
 - distance_to_high_60_pct: -18.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,72,72.7,70.9,70.9,7539007,65.49,8.26,65.2,62.47,1.05
 20260529,72.1,72.1,68.6,69,5406350,65.78,4.89,65.62,62.47,0.74
 20260601,68.8,72.1,68.5,71.9,6679569,66.29,8.46,66.1,62.56,0.89
 20260602,72,72,69.7,72,5864555,66.77,7.83,66.56,62.66,0.77
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.8,62.2,61.1,62,7590752,66.04,-6.12,68.09,64.03,0.91
 20260623,62.2,62.4,61,61.7,3894014,65.68,-6.06,67.78,64.06,0.48
 20260624,61.4,61.8,60.9,61.4,3523694,65.32,-6.01,67.36,64.11,0.46
-20260626,61.6,61.8,59.1,59.6,5618757,64.85,-8.09,66.71,64.14,0.77
+20260625,61.5,62.2,61.4,61.7,3298568,65.02,-5.11,66.81,64.17,0.46
+20260626,61.6,61.8,59.1,59.6,5618757,64.57,-7.7,66.25,64.21,0.8
 ```
 
 ## Latest TDCC Snapshot

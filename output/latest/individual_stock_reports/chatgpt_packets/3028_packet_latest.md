@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3028 增你強
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:16 Asia/Taipei
+- generated_at: 2026-06-27 22:23:20 Asia/Taipei
 - stock_id: 3028
 - stock_name: 增你強
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 77.5
 - close: 80.9
 - volume: 7339302
-- ma5: 79.34
-- ema23_primary: 77.83
-- distance_to_ema23_pct: 3.94
-- ma20: 78.62
-- ma60: 71.83
-- ma120: 59.05
-- return_5d: 8.88
-- return_20d: -0.61
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 2.89
+- ma5: 79.9
+- ema23_primary: 77.85
+- distance_to_ema23_pct: 3.91
+- ma20: 78.45
+- ma60: 72.28
+- ma120: 59.37
+- return_5d: 7.87
+- return_20d: -0.37
+- volume_ratio: 2.01
+- distance_to_ma20_pct_auxiliary: 3.12
 - distance_to_high_60_pct: -8.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,82.1,84.1,80.8,81.2,4307286,76.43,6.24,77.96,63.8,0.64
 20260529,83.5,83.5,80.6,81.5,2980755,76.86,6.04,78.62,64.29,0.45
 20260601,81.5,82.2,80.5,81.1,2550572,77.21,5.04,79.2,64.78,0.39
 20260602,81.8,84,80.6,84,4333886,77.77,8,79.92,65.28,0.66
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,76.2,82.5,75.5,82.5,7139869,77.25,6.8,78.88,70.54,1.94
 20260623,85,85,78.5,78.9,4981270,77.39,1.95,78.76,70.94,1.36
 20260624,78.2,81.5,77.5,79.4,2429132,77.56,2.38,78.65,71.37,0.67
-20260626,77.8,84.7,77.5,80.9,7339302,77.83,3.94,78.62,71.83,1.96
+20260625,80.6,80.9,77.2,77.8,2267551,77.58,0.29,78.47,71.78,0.65
+20260626,77.8,84.7,77.5,80.9,7339302,77.85,3.91,78.45,72.28,2.01
 ```
 
 ## Latest TDCC Snapshot

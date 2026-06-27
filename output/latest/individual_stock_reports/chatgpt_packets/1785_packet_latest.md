@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1785 光洋科
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:46 Asia/Taipei
+- generated_at: 2026-06-27 22:22:49 Asia/Taipei
 - stock_id: 1785
 - stock_name: 光洋科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 137
 - close: 137
 - volume: 17627000
-- ma5: 145.9
-- ema23_primary: 143.98
-- distance_to_ema23_pct: -4.85
-- ma20: 143.38
-- ma60: 142.05
-- ma120: 105.75
-- return_5d: -4.53
-- return_20d: -4.2
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: -4.45
+- ma5: 144.6
+- ema23_primary: 143.82
+- distance_to_ema23_pct: -4.74
+- ma20: 143.2
+- ma60: 142.91
+- ma120: 106.42
+- return_5d: -8.05
+- return_20d: -6.16
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: -4.33
 - distance_to_high_60_pct: -25.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,145,157,144,146,152000,147.09,-0.74,154.43,122.7,0.01
 20260529,156.5,160.5,151.5,158.5,157000,148.04,7.07,154.07,124.32,0.01
 20260601,160,168,156,157,161000,148.79,5.52,153.43,125.99,0.01
 20260602,155.5,155.5,141.5,144,147,148.39,-2.96,152.62,127.34,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,151.5,160.5,147,150,30704000,144.24,4,143.95,139.47,3.29
 20260623,156,158,149,149.5,24061000,144.68,3.33,143.88,140.44,2.29
 20260624,148.5,154.5,142.5,144,21890000,144.62,-0.43,143.68,141.38,1.89
-20260626,143,146,137,137,17627000,143.98,-4.85,143.38,142.05,1.41
+20260625,145,146,139.5,142.5,12981000,144.44,-1.34,143.65,142.14,1.06
+20260626,143,146,137,137,17627000,143.82,-4.74,143.2,142.91,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -192,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

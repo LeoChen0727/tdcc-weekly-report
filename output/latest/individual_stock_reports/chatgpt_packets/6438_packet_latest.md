@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:17 Asia/Taipei
+- generated_at: 2026-06-27 22:24:18 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 145.5
 - close: 145.5
 - volume: 589246
-- ma5: 154
-- ema23_primary: 156.74
-- distance_to_ema23_pct: -7.17
-- ma20: 156.32
-- ma60: 167.78
-- ma120: 158.82
-- return_5d: -3.64
-- return_20d: -15.16
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -6.92
+- ma5: 152.6
+- ema23_primary: 156.3
+- distance_to_ema23_pct: -6.91
+- ma20: 155.2
+- ma60: 167.45
+- ma120: 158.92
+- return_5d: -8.49
+- return_20d: -16.62
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -6.25
 - distance_to_high_60_pct: -24.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,174.5,180.5,168,174.5,2546675,170.77,2.19,170.78,168.66,1.7
 20260529,176.5,179,174,175,1754175,171.12,2.27,170.72,169.02,1.18
 20260601,176,176.5,171,172.5,1376674,171.23,0.74,170.5,169.42,0.94
 20260602,170,170.5,162.5,164,1945680,170.63,-3.89,169.65,169.56,1.37
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,163,163.5,159,159.5,852455,158.66,0.53,159.72,169.07,0.79
 20260623,161,161,153,153.5,879749,158.23,-2.99,158.7,168.64,0.85
 20260624,150,153,150,152.5,537712,157.76,-3.33,157.62,168.31,0.54
-20260626,151,151,145.5,145.5,589246,156.74,-7.17,156.32,167.78,0.6
+20260625,154.5,155,151,152,373833,157.28,-3.36,156.65,167.88,0.39
+20260626,151,151,145.5,145.5,589246,156.3,-6.91,155.2,167.45,0.68
 ```
 
 ## Latest TDCC Snapshot

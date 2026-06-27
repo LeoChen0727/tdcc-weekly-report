@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4585 達明
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:47 Asia/Taipei
+- generated_at: 2026-06-27 22:23:49 Asia/Taipei
 - stock_id: 4585
 - stock_name: 達明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 175
+- price_rows: 176
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 295
 - close: 295.5
 - volume: 318967
-- ma5: 307.8
-- ema23_primary: 320.17
-- distance_to_ema23_pct: -7.7
-- ma20: 324.48
-- ma60: 322.57
-- ma120: 328.94
-- return_5d: -3.43
-- return_20d: -15.45
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -8.93
+- ma5: 305.5
+- ema23_primary: 318.61
+- distance_to_ema23_pct: -7.25
+- ma20: 323.05
+- ma60: 322.72
+- ma120: 328.83
+- return_5d: -5.74
+- return_20d: -10.59
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -8.53
 - distance_to_high_60_pct: -21.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,351,355,328,330.5,691347,336.77,-1.86,340.4,318.12,0.77
 20260529,338.5,356,333.5,350.5,713779,337.91,3.73,342.3,318.29,0.79
 20260601,365,376,357,371.5,1444750,340.71,9.04,343.7,319.2,1.56
 20260602,378,378,345,351,1169305,341.57,2.76,344.15,319.72,1.3
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,316,317.5,313,314,248837,325.17,-3.44,332.27,322.45,0.45
 20260623,314,316.5,309,310.5,218634,323.95,-4.15,329.93,322.54,0.42
 20260624,306,308,303,305.5,212940,322.41,-5.25,327.18,322.67,0.44
-20260626,301.5,302.5,295,295.5,318967,320.17,-7.7,324.48,322.57,0.69
+20260625,308,309.5,301,302,236703,320.71,-5.83,324.8,322.68,0.52
+20260626,301.5,302.5,295,295.5,318967,318.61,-7.25,323.05,322.72,0.72
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:56 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 2020
 - close: 2035
 - volume: 2094914
-- ma5: 2216
-- ema23_primary: 2287.09
-- distance_to_ema23_pct: -11.02
-- ma20: 2362.75
-- ma60: 2169.42
-- ma120: 1655.06
-- return_5d: -8.74
-- return_20d: -22.48
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -13.87
+- ma5: 2191
+- ema23_primary: 2277.54
+- distance_to_ema23_pct: -10.65
+- ma20: 2343.5
+- ma60: 2178.75
+- ma120: 1666.97
+- return_5d: -11.9
+- return_20d: -20.82
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -13.16
 - distance_to_high_60_pct: -27.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,2560,2795,2530,2570,4838102,2264.96,13.47,2313.5,1894.33,1.3
 20260529,2570,2610,2450,2520,5371739,2286.21,10.23,2333.5,1913.08,1.42
 20260601,2520,2710,2500,2580,3918391,2310.7,11.65,2347,1933.75,1.07
 20260602,2570,2605,2390,2420,3018185,2319.8,4.32,2356.25,1950.67,0.84
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,2425,2435,2240,2310,2655083,2328.97,-0.81,2419,2143.08,0.91
 20260623,2370,2370,2265,2265,1397319,2323.64,-2.52,2409.25,2153.75,0.49
 20260624,2270,2270,2130,2160,3052773,2310,-6.49,2392.25,2162.42,1.06
-20260626,2115,2155,2020,2035,2094914,2287.09,-11.02,2362.75,2169.42,0.74
+20260625,2205,2225,2145,2185,1695278,2299.59,-4.98,2370.25,2171.92,0.6
+20260626,2115,2155,2020,2035,2094914,2277.54,-10.65,2343.5,2178.75,0.78
 ```
 
 ## Latest TDCC Snapshot

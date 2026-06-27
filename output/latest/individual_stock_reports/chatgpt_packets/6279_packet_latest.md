@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6279 胡連
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:15 Asia/Taipei
+- generated_at: 2026-06-27 22:24:16 Asia/Taipei
 - stock_id: 6279
 - stock_name: 胡連
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 116.5
 - close: 116.5
 - volume: 451000
-- ma5: 119.8
-- ema23_primary: 119.05
-- distance_to_ema23_pct: -2.15
-- ma20: 120.12
-- ma60: 114.25
-- ma120: 116.4
-- return_5d: -1.27
-- return_20d: 0
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -3.02
+- ma5: 119.5
+- ema23_primary: 119.03
+- distance_to_ema23_pct: -2.13
+- ma20: 119.95
+- ma60: 114.4
+- ma120: 116.33
+- return_5d: -3.32
+- return_20d: -4.9
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -2.88
 - distance_to_high_60_pct: -8.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,119,127.5,119,122.5,124000,115.93,5.67,116.83,112.17,0.13
 20260529,125,126,122,122.5,123000,116.48,5.17,117.58,112.32,0.13
 20260601,122.5,122.5,119,119,120000,116.69,1.98,118.22,112.48,0.13
 20260602,119,119.5,116.5,119,118,116.88,1.81,118.72,112.57,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,123,124,121,122,927000,119.15,2.39,119.92,113.95,2.08
 20260623,122,122,119,120,468000,119.22,0.65,119.97,114.06,1.01
 20260624,119.5,120,118,120,360000,119.29,0.6,120.12,114.18,0.76
-20260626,119,119,116.5,116.5,451000,119.05,-2.15,120.12,114.25,0.92
+20260625,120,121,118.5,119,303000,119.26,-0.22,120.25,114.29,0.63
+20260626,119,119,116.5,116.5,451000,119.03,-2.13,119.95,114.4,0.9
 ```
 
 ## Latest TDCC Snapshot

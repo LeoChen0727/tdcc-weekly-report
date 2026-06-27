@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6757 台灣虎航
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:28 Asia/Taipei
+- generated_at: 2026-06-27 22:24:29 Asia/Taipei
 - stock_id: 6757
 - stock_name: 台灣虎航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 62.5
 - close: 62.6
 - volume: 5276244
-- ma5: 60.76
-- ema23_primary: 57.17
-- distance_to_ema23_pct: 9.49
-- ma20: 56.98
-- ma60: 53.06
-- ma120: 57.7
-- return_5d: 5.92
-- return_20d: 14.86
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 9.86
-- distance_to_high_60_pct: -4.28
+- ma5: 62.24
+- ema23_primary: 57.85
+- distance_to_ema23_pct: 8.2
+- ma20: 57.52
+- ma60: 53.31
+- ma120: 57.69
+- return_5d: 7.56
+- return_20d: 14.23
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 8.83
+- distance_to_high_60_pct: -6.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,54.5,55.9,54.5,54.8,2170904,53,3.39,53.17,52.02,1.26
 20260529,55.2,56.7,55.2,56.7,2395030,53.31,6.36,53.52,51.95,1.33
 20260601,56.7,58.9,56,58.9,2382590,53.78,9.53,53.92,51.93,1.29
 20260602,59.1,59.1,55.5,56.4,5951466,54,4.45,54.23,51.95,2.85
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.2,59.3,56.9,58.9,3828808,55.65,5.84,55.85,52.62,0.77
 20260623,59.7,61.8,59.1,61.3,5908138,56.12,9.22,56.2,52.73,1.14
 20260624,61.3,64.3,60.7,62.8,8544433,56.68,10.8,56.58,52.88,1.54
-20260626,64.9,65.4,62.5,62.6,5276244,57.17,9.49,56.98,53.06,0.92
+20260625,63.4,67.3,63.1,65.6,10891598,57.42,14.24,57.13,53.11,1.81
+20260626,64.9,65.4,62.5,62.6,5276244,57.85,8.2,57.52,53.31,0.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6248 沛波
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:14 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6248
 - stock_name: 沛波
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.15
 - close: 18.15
 - volume: 159000
-- ma5: 18.27
-- ema23_primary: 18.47
-- distance_to_ema23_pct: -1.71
+- ma5: 18.25
+- ema23_primary: 18.45
+- distance_to_ema23_pct: -1.61
 - ma20: 18.43
-- ma60: 19.12
+- ma60: 19.09
 - ma120: 20.01
-- return_5d: -0.82
-- return_20d: -1.36
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: -1.53
-- distance_to_high_60_pct: -11.46
+- return_5d: -1.09
+- return_20d: -1.09
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: -1.51
+- distance_to_high_60_pct: -10.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.4,18.5,18.3,18.35,18000,18.92,-3.03,18.87,19.7,0.24
 20260529,18.4,18.5,18.35,18.45,18000,18.88,-2.3,18.82,19.66,0.25
 20260601,18.45,18.65,18.4,18.55,19000,18.86,-1.62,18.77,19.64,0.28
 20260602,18.65,18.65,18.45,18.5,18,18.83,-1.73,18.73,19.62,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.5,18.6,18.25,18.35,129000,18.54,-1.03,18.52,19.23,1.66
 20260623,18.25,18.35,18.1,18.25,151000,18.52,-1.44,18.47,19.19,1.79
 20260624,18.3,18.35,18.2,18.25,63000,18.5,-1.33,18.45,19.16,0.73
-20260626,18.35,18.35,18.15,18.15,159000,18.47,-1.71,18.43,19.12,1.7
+20260625,18.25,18.3,18.2,18.25,78000,18.47,-1.22,18.44,19.12,0.87
+20260626,18.35,18.35,18.15,18.15,159000,18.45,-1.61,18.43,19.09,1.65
 ```
 
 ## Latest TDCC Snapshot

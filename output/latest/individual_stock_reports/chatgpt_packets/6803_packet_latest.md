@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6803 崑鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6803
 - stock_name: 崑鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 285
 - close: 288
 - volume: 133000
-- ma5: 287
-- ema23_primary: 287.28
-- distance_to_ema23_pct: 0.25
-- ma20: 287.1
-- ma60: 288.25
-- ma120: 293.34
-- return_5d: 0.7
-- return_20d: 0.52
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 0.31
+- ma5: 287.3
+- ema23_primary: 287.34
+- distance_to_ema23_pct: 0.23
+- ma20: 287.23
+- ma60: 288.21
+- ma120: 293.3
+- return_5d: 0.52
+- return_20d: 0.88
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 0.27
 - distance_to_high_60_pct: -1.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,286.5,287,285.5,285.5,286000,287.87,-0.82,287.82,290.49,2.29
 20260529,286.5,287,285,287,286000,287.79,-0.28,287.75,290.29,2.07
 20260601,286,286.5,285,286.5,285000,287.69,-0.41,287.55,290.15,1.9
 20260602,286,286.5,285,286.5,286,287.59,-0.38,287.43,289.99,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,286.5,288.5,285.5,288,145000,287.4,0.21,287.05,288.53,0.84
 20260623,288,288,286,286.5,105000,287.33,-0.29,287.02,288.42,0.64
 20260624,286,287,285.5,286,55000,287.22,-0.42,287.02,288.32,0.36
-20260626,288,288,285,288,133000,287.28,0.25,287.1,288.25,0.92
+20260625,287.5,289,287,288,98000,287.28,0.25,287.1,288.25,0.68
+20260626,288,288,285,288,133000,287.34,0.23,287.23,288.21,0.98
 ```
 
 ## Latest TDCC Snapshot

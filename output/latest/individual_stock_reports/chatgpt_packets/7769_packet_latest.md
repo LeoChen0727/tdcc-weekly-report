@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7769 鴻勁
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:44 Asia/Taipei
+- generated_at: 2026-06-27 22:24:44 Asia/Taipei
 - stock_id: 7769
 - stock_name: 鴻勁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 137
+- price_rows: 138
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 6440
 - close: 6500
 - volume: 597424
-- ma5: 6791
-- ema23_primary: 6969.16
-- distance_to_ema23_pct: -6.73
-- ma20: 7188.5
-- ma60: 6043.5
-- ma120: 4929.5
-- return_5d: -11.32
-- return_20d: -16.67
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -9.58
+- ma5: 6780
+- ema23_primary: 6962.14
+- distance_to_ema23_pct: -6.64
+- ma20: 7149.5
+- ma60: 6097
+- ma120: 4959.67
+- return_5d: -6.81
+- return_20d: -15.58
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -9.08
 - distance_to_high_60_pct: -23.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,7945,8435,7605,7700,1512972,6667.28,15.49,6754.75,5064.83,1.48
 20260529,8000,8465,7815,8260,1880557,6800.01,21.47,6920.5,5133.33,1.8
 20260601,8090,8165,7515,7515,1264343,6859.59,9.55,7027.25,5192.25,1.23
 20260602,7120,7480,7110,7175,1247463,6885.87,4.2,7106,5241.08,1.23
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,7010,7150,6760,6915,1204698,7055.62,-1.99,7352.5,5900.83,1.41
 20260623,6990,7000,6810,6810,615816,7035.15,-3.2,7310.75,5949.92,0.71
 20260624,6635,6765,6605,6755,623931,7011.81,-3.66,7253.5,5998.33,0.71
-20260626,6830,6960,6440,6500,597424,6969.16,-6.73,7188.5,6043.5,0.67
+20260625,6960,7030,6695,6920,545384,7004.16,-1.2,7209.5,6050.5,0.61
+20260626,6830,6960,6440,6500,597424,6962.14,-6.64,7149.5,6097,0.7
 ```
 
 ## Latest TDCC Snapshot

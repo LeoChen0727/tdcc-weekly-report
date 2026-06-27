@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5398 慕康生醫
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:00 Asia/Taipei
 - stock_id: 5398
 - stock_name: 慕康生醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 16.45
 - close: 16.45
 - volume: 105000
-- ma5: 17.37
-- ema23_primary: 17.86
-- distance_to_ema23_pct: -7.88
-- ma20: 17.58
-- ma60: 19.4
-- ma120: 20.92
-- return_5d: -9.62
+- ma5: 17.23
+- ema23_primary: 17.79
+- distance_to_ema23_pct: -7.55
+- ma20: 17.59
+- ma60: 19.3
+- ma120: 20.85
+- return_5d: -7.84
 - return_20d: -3.52
-- volume_ratio: 2.21
-- distance_to_ma20_pct_auxiliary: -6.44
+- volume_ratio: 2.2
+- distance_to_ma20_pct_auxiliary: -6.47
 - distance_to_high_60_pct: -33.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.1,17.1,16.8,17.05,17000,19,-10.27,19.13,20.59,0.29
 20260529,16.85,16.95,16.55,16.75,17000,18.81,-10.97,18.96,20.47,0.29
 20260601,16.85,17,16.75,17,17000,18.66,-8.91,18.82,20.37,0.32
 20260602,17.05,17.25,16.85,17.25,17,18.55,-6.99,18.68,20.29,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.7,17.7,17.4,17.6,32000,18.08,-2.65,17.59,19.65,0.85
 20260623,17.85,17.85,17.15,17.3,64000,18.01,-3.97,17.58,19.59,1.6
 20260624,17.3,17.65,17.05,17.65,80000,17.98,-1.86,17.61,19.52,1.85
-20260626,17.15,17.15,16.45,16.45,105000,17.86,-7.88,17.58,19.4,2.21
+20260625,17.4,17.4,17.1,17.15,20000,17.91,-4.27,17.62,19.42,0.46
+20260626,17.15,17.15,16.45,16.45,105000,17.79,-7.55,17.59,19.3,2.2
 ```
 
 ## Latest TDCC Snapshot

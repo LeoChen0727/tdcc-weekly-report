@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:57 Asia/Taipei
+- generated_at: 2026-06-27 22:24:57 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 5.12
 - close: 5.14
 - volume: 885591
-- ma5: 5.26
-- ema23_primary: 5.36
-- distance_to_ema23_pct: -4.18
+- ma5: 5.23
+- ema23_primary: 5.35
+- distance_to_ema23_pct: -3.9
 - ma20: 5.49
 - ma60: 5.12
 - ma120: 5.09
 - return_5d: -3.56
-- return_20d: -5.34
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: -6.43
+- return_20d: -3.02
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -6.32
 - distance_to_high_60_pct: -21.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,5.5,5.55,5.27,5.3,2198425,5.04,5.21,4.95,5.01,1.14
 20260529,5.42,5.42,5.2,5.23,1289130,5.05,3.49,4.98,5.01,0.66
 20260601,5.27,5.27,5.12,5.16,1936736,5.06,1.93,5,5.01,0.96
 20260602,5.27,5.27,5.14,5.25,1216116,5.08,3.39,5.03,5.01,0.59
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,5.37,5.39,5.22,5.25,1364602,5.4,-2.86,5.52,5.11,0.36
 20260623,5.25,5.39,5.2,5.34,1036347,5.4,-1.09,5.51,5.12,0.29
 20260624,5.33,5.33,5.2,5.23,1231146,5.38,-2.88,5.51,5.12,0.36
-20260626,5.17,5.22,5.12,5.14,885591,5.36,-4.18,5.49,5.12,0.26
+20260625,5.23,5.25,5.17,5.18,877242,5.37,-3.5,5.5,5.12,0.26
+20260626,5.17,5.22,5.12,5.14,885591,5.35,-3.9,5.49,5.12,0.27
 ```
 
 ## Latest TDCC Snapshot

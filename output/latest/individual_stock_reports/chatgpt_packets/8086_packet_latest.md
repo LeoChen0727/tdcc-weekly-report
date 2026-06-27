@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8086 宏捷科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:48 Asia/Taipei
+- generated_at: 2026-06-27 22:24:48 Asia/Taipei
 - stock_id: 8086
 - stock_name: 宏捷科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 141
 - close: 141
 - volume: 4587000
-- ma5: 157.3
-- ema23_primary: 156.02
-- distance_to_ema23_pct: -9.63
-- ma20: 157.72
-- ma60: 150.18
-- ma120: 134.83
-- return_5d: -13.23
-- return_20d: -18.73
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -10.6
+- ma5: 154.2
+- ema23_primary: 155.49
+- distance_to_ema23_pct: -9.32
+- ma20: 156.97
+- ma60: 150.6
+- ma120: 135.14
+- return_5d: -15.06
+- return_20d: -14.8
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: -10.18
 - distance_to_high_60_pct: -22.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,174.5,175.5,161,165.5,168000,154.95,6.81,156.15,141.46,0.03
 20260529,168.5,170,164,169,167000,156.12,8.25,157.4,141.99,0.03
 20260601,171,171,165.5,166,167000,156.95,5.77,158.18,142.65,0.03
 20260602,168,173.5,163.5,168,168,157.87,6.42,158.88,143.37,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,169,171.5,164,165.5,5160000,157.48,5.09,160.75,148.95,2.04
 20260623,166,167.5,159,159.5,4515000,157.65,1.18,160.57,149.5,1.65
 20260624,155,156.5,152.5,154.5,3672000,157.38,-1.83,159.35,149.99,1.26
-20260626,151,152,141,141,4587000,156.02,-9.63,157.72,150.18,1.46
+20260625,156.5,157,150,150.5,3138000,156.81,-4.02,158.2,150.34,1.02
+20260626,151,152,141,141,4587000,155.49,-9.32,156.97,150.6,1.4
 ```
 
 ## Latest TDCC Snapshot

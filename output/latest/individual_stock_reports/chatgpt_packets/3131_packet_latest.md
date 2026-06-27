@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:21 Asia/Taipei
+- generated_at: 2026-06-27 22:23:24 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 3300
 - close: 3310
 - volume: 302000
-- ma5: 3501
-- ema23_primary: 3268.36
-- distance_to_ema23_pct: 1.27
-- ma20: 3303
-- ma60: 3133.67
-- ma120: 2481.17
-- return_5d: 2
-- return_20d: -3.36
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 0.21
+- ma5: 3511
+- ema23_primary: 3291.69
+- distance_to_ema23_pct: 0.56
+- ma20: 3299.75
+- ma60: 3146.25
+- ma120: 2499
+- return_5d: -5.97
+- return_20d: -8.94
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 0.31
 - distance_to_high_60_pct: -14.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,3650,3765,3510,3635,3690000,3011.06,20.72,2989.75,2775.42,2.83
 20260529,3820,3865,3450,3450,3682000,3047.64,13.2,3014.75,2804.75,2.55
 20260601,3420,3420,3235,3265,3300000,3065.75,6.5,3024.75,2830.33,2.1
 20260602,3200,3315,3125,3305,3235,3085.69,7.11,3044.5,2854.75,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,3640,3815,3480,3585,780000,3210.86,11.65,3256,3098,0.46
 20260623,3585,3595,3410,3495,480000,3234.54,8.05,3284.75,3111.92,0.3
 20260624,3475,3595,3410,3595,223000,3264.58,10.12,3308.75,3125.92,0.15
-20260626,3510,3565,3300,3310,302000,3268.36,1.27,3303,3133.67,0.23
+20260625,3670,3680,3565,3570,276000,3290.03,8.51,3316,3138,0.21
+20260626,3510,3565,3300,3310,302000,3291.69,0.56,3299.75,3146.25,0.27
 ```
 
 ## Latest TDCC Snapshot

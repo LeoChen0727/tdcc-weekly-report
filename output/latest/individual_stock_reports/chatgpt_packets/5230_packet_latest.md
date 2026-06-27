@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5230 雷笛克光學
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:55 Asia/Taipei
+- generated_at: 2026-06-27 22:23:57 Asia/Taipei
 - stock_id: 5230
 - stock_name: 雷笛克光學
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.9
 - close: 24
 - volume: 7620000
-- ma5: 21.23
-- ema23_primary: 19.24
-- distance_to_ema23_pct: 24.74
-- ma20: 18.95
-- ma60: 17.65
-- ma120: 17.61
-- return_5d: 12.41
-- return_20d: 45.45
-- volume_ratio: 7.1
-- distance_to_ma20_pct_auxiliary: 26.68
+- ma5: 21.55
+- ema23_primary: 19.47
+- distance_to_ema23_pct: 23.25
+- ma20: 19.2
+- ma60: 17.74
+- ma120: 17.63
+- return_5d: 18.52
+- return_20d: 42.43
+- volume_ratio: 6.63
+- distance_to_ma20_pct_auxiliary: 25.03
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17,17.15,16.65,16.85,17000,16.97,-0.72,16.92,16.87,0.13
 20260529,17.2,18.25,17.15,17.25,18000,17,1.49,16.92,16.88,0.15
 20260601,17.4,17.6,17.25,17.45,17000,17.03,2.44,16.93,16.9,0.14
 20260602,17.25,17.75,17.15,17.7,17,17.09,3.57,16.96,16.92,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.05,21.95,20.3,21.5,1489000,18.55,15.93,18.24,17.42,2.35
 20260623,21.55,21.55,20.4,20.5,800000,18.71,9.57,18.42,17.48,1.19
 20260624,19.6,20.6,19.55,19.9,423000,18.81,5.81,18.57,17.53,0.61
-20260626,22,24,21.9,24,7620000,19.24,24.74,18.95,17.65,7.1
+20260625,20,21.85,20,21.85,1552000,19.06,14.63,18.84,17.61,2.02
+20260626,22,24,21.9,24,7620000,19.47,23.25,19.2,17.74,6.63
 ```
 
 ## Latest TDCC Snapshot

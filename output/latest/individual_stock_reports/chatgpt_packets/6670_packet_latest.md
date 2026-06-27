@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6670 復盛應用
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:25 Asia/Taipei
+- generated_at: 2026-06-27 22:24:26 Asia/Taipei
 - stock_id: 6670
 - stock_name: 復盛應用
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 242.5
 - close: 251
 - volume: 1015659
-- ma5: 272.1
-- ema23_primary: 273.86
-- distance_to_ema23_pct: -8.35
-- ma20: 277.02
-- ma60: 265.48
-- ma120: 267.51
-- return_5d: -16.47
-- return_20d: -4.2
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -9.39
+- ma5: 263.7
+- ema23_primary: 271.54
+- distance_to_ema23_pct: -7.56
+- ma20: 276.4
+- ma60: 265.23
+- ma120: 267.41
+- return_5d: -12.7
+- return_20d: -2.71
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -9.19
 - distance_to_high_60_pct: -17.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,262,262,257,258,788977,260.05,-0.79,259.93,263.94,1.9
 20260529,257.5,266,257.5,261.5,693883,260.17,0.51,260.45,263.77,1.59
 20260601,262.5,274,261.5,272,592434,261.15,4.15,261.25,263.94,1.32
 20260602,273.5,278.5,269.5,278.5,689847,262.6,6.06,262.32,264.12,1.5
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,288,298,287,291,1381070,278.1,4.64,276.55,266.05,1.81
 20260623,291.5,291.5,284.5,287,1039490,278.85,2.92,278.1,266.21,1.31
 20260624,259,262.5,244,244,3689024,275.94,-11.58,277.57,265.76,3.82
-20260626,243.5,251,242.5,251,1015659,273.86,-8.35,277.02,265.48,1.03
+20260625,246,246,241.5,245.5,1292934,273.41,-10.21,276.75,265.38,1.3
+20260626,243.5,251,242.5,251,1015659,271.54,-7.56,276.4,265.23,1.01
 ```
 
 ## Latest TDCC Snapshot

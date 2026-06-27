@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6767 台微醫
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:28 Asia/Taipei
+- generated_at: 2026-06-27 22:24:29 Asia/Taipei
 - stock_id: 6767
 - stock_name: 台微醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 153
+- price_rows: 154
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 24.15
 - volume: 6000
 - ma5: 24.61
-- ema23_primary: 25.47
-- distance_to_ema23_pct: -5.19
-- ma20: 25.42
-- ma60: 26.83
-- ma120: 27.66
-- return_5d: -2.62
+- ema23_primary: 25.43
+- distance_to_ema23_pct: -5.02
+- ma20: 25.36
+- ma60: 26.78
+- ma120: 27.64
+- return_5d: -3.4
 - return_20d: -8.17
 - volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -5
+- distance_to_ma20_pct_auxiliary: -4.75
 - distance_to_high_60_pct: -15.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.3,26.3,26.25,26.3,26000,27.04,-2.72,27.04,27.91,1.51
 20260529,26.8,26.8,26.4,26.5,27000,26.99,-1.82,26.96,27.85,1.46
 20260601,26.5,26.5,24.25,25.9,25000,26.9,-3.72,26.86,27.79,1.28
 20260602,25,25.9,25,25.75,25,26.8,-3.94,26.76,27.73,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25,25,24.65,24.7,31000,25.78,-4.19,25.75,26.99,1.29
 20260623,24.7,24.9,24.7,24.7,12000,25.69,-3.86,25.64,26.94,0.51
 20260624,24.25,24.5,24.25,24.5,9000,25.59,-4.27,25.53,26.89,0.4
-20260626,25,25,24,24.15,6000,25.47,-5.19,25.42,26.83,0.28
+20260625,24.7,25,24.1,25,18000,25.54,-2.12,25.46,26.84,0.82
+20260626,25,25,24,24.15,6000,25.43,-5.02,25.36,26.78,0.28
 ```
 
 ## Latest TDCC Snapshot

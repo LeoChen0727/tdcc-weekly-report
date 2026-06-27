@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00700 富邦恒生國企
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:26 Asia/Taipei
+- generated_at: 2026-06-27 22:22:30 Asia/Taipei
 - stock_id: 00700
 - stock_name: 富邦恒生國企
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -118,23 +118,22 @@
 - low: 14.96
 - close: 15.08
 - volume: 460267
-- ma5: 15.7
-- ema23_primary: 16.44
-- distance_to_ema23_pct: -8.29
-- ma20: 16.54
-- ma60: 16.62
-- ma120: 16.62
-- return_5d: -8.44
-- return_20d: -10.34
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -8.81
+- ma5: 15.55
+- ema23_primary: 16.35
+- distance_to_ema23_pct: -7.76
+- ma20: 16.48
+- ma60: 16.57
+- ma120: 16.57
+- return_5d: -6.34
+- return_20d: -8.22
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -8.5
 - distance_to_high_60_pct: -13.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.82,16.82,16.37,16.43,439174,17.05,-3.65,16.9,16.9,1.25
 20260529,16.62,16.85,16.53,16.84,591621,17.04,-1.15,16.89,16.89,1.51
 20260601,16.8,16.96,16.74,16.88,757351,17.02,-0.84,16.89,16.89,1.71
 20260602,16.9,17.39,16.9,17.39,305447,17.05,1.98,16.95,16.95,0.72
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.07,16.08,15.73,15.96,1782107,16.74,-4.63,16.76,16.78,4.42
 20260623,15.96,15.96,15.69,15.69,691577,16.65,-5.76,16.7,16.73,1.67
 20260624,15.72,15.72,15.58,15.68,217186,16.57,-5.36,16.62,16.68,0.53
-20260626,15.32,15.32,14.96,15.08,460267,16.44,-8.29,16.54,16.62,1.12
+20260625,15.66,15.66,15.31,15.32,466673,16.46,-6.95,16.55,16.63,1.13
+20260626,15.32,15.32,14.96,15.08,460267,16.35,-7.76,16.48,16.57,1.11
 ```
 
 ## Latest TDCC Snapshot

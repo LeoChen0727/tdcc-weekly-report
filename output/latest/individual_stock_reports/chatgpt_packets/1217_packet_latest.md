@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1217 愛之味
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:31 Asia/Taipei
+- generated_at: 2026-06-27 22:22:35 Asia/Taipei
 - stock_id: 1217
 - stock_name: 愛之味
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -121,21 +121,20 @@
 - volume: 1053608
 - ma5: 9.84
 - ema23_primary: 9.82
-- distance_to_ema23_pct: -0.61
-- ma20: 9.85
-- ma60: 9.91
-- ma120: 10.18
-- return_5d: -1.31
-- return_20d: 0.62
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: -0.92
+- distance_to_ema23_pct: -0.65
+- ma20: 9.86
+- ma60: 9.9
+- ma120: 10.17
+- return_5d: -1.21
+- return_20d: 1.24
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: -1.04
 - distance_to_high_60_pct: -6.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,9.76,9.76,9.6,9.64,700565,9.67,-0.32,9.59,10.03,0.91
 20260529,9.72,9.74,9.62,9.72,502027,9.68,0.46,9.58,10.02,0.66
 20260601,9.74,9.86,9.73,9.82,929486,9.69,1.37,9.58,10.01,1.21
 20260602,9.86,9.86,9.75,9.84,878636,9.7,1.44,9.59,10.01,1.19
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9.88,9.92,9.83,9.89,548184,9.82,0.68,9.81,9.93,0.66
 20260623,9.93,9.93,9.82,9.85,480486,9.83,0.25,9.83,9.93,0.59
 20260624,9.85,9.89,9.8,9.83,416437,9.83,0.04,9.85,9.92,0.53
-20260626,9.9,9.9,9.72,9.76,1053608,9.82,-0.61,9.85,9.91,1.34
+20260625,9.83,9.89,9.83,9.87,382102,9.83,0.41,9.86,9.91,0.51
+20260626,9.9,9.9,9.72,9.76,1053608,9.82,-0.65,9.86,9.9,1.37
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1110 東泥
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:30 Asia/Taipei
+- generated_at: 2026-06-27 22:22:34 Asia/Taipei
 - stock_id: 1110
 - stock_name: 東泥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.8
 - close: 14.9
 - volume: 326697
-- ma5: 15.4
+- ma5: 15.35
 - ema23_primary: 15.27
-- distance_to_ema23_pct: -2.44
-- ma20: 15.35
+- distance_to_ema23_pct: -2.43
+- ma20: 15.41
 - ma60: 15.06
-- ma120: 15.59
-- return_5d: -5.4
-- return_20d: 5.67
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -2.93
+- ma120: 15.58
+- return_5d: -4.18
+- return_20d: 6.43
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -3.34
 - distance_to_high_60_pct: -13.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14,14.05,13.9,14,118671,14.5,-3.47,14.54,15.11,0.58
 20260529,14.1,14.6,14.1,14.6,267904,14.51,0.61,14.5,15.08,1.3
 20260601,14.6,14.7,14.3,14.6,576459,14.52,0.56,14.48,15.07,2.54
 20260602,14.6,14.6,14.25,14.5,165347,14.52,-0.12,14.45,15.05,0.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.55,15.6,15.4,15.5,172665,15.26,1.54,15.16,15.06,0.44
 20260623,15.55,15.75,15.35,15.55,184387,15.29,1.71,15.23,15.06,0.49
 20260624,15.35,15.6,15.35,15.5,66166,15.31,1.27,15.31,15.06,0.18
-20260626,15.25,15.45,14.8,14.9,326697,15.27,-2.44,15.35,15.06,0.87
+20260625,15.5,15.6,15.3,15.3,237324,15.31,-0.04,15.37,15.06,0.64
+20260626,15.25,15.45,14.8,14.9,326697,15.27,-2.43,15.41,15.06,0.85
 ```
 
 ## Latest TDCC Snapshot

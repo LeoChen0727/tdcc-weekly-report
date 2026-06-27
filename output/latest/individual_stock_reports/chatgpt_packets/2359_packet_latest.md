@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2359 所羅門
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:56 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2359
 - stock_name: 所羅門
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 126.5
 - close: 126.5
 - volume: 1976435
-- ma5: 134.9
-- ema23_primary: 135.12
-- distance_to_ema23_pct: -6.38
-- ma20: 137.82
-- ma60: 126.42
-- ma120: 126.17
-- return_5d: -4.17
-- return_20d: -12.46
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -8.22
+- ma5: 134.8
+- ema23_primary: 134.93
+- distance_to_ema23_pct: -6.25
+- ma20: 137.65
+- ma60: 126.8
+- ma120: 126.22
+- return_5d: -5.6
+- return_20d: -7.66
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -8.1
 - distance_to_high_60_pct: -18.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,145.5,146,135.5,137,5177944,130.43,5.03,130.35,119.78,0.82
 20260529,139.5,145.5,138,143,4973237,131.48,8.76,131.55,120.08,0.8
 20260601,147,154.5,145.5,150.5,15640596,133.07,13.1,132.8,120.6,2.32
 20260602,151,151,139,143.5,6936658,133.94,7.14,133.75,120.97,1.01
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,136,139,135,136.5,2582242,135.37,0.83,139.12,125.4,0.45
 20260623,139,141.5,135.5,140.5,4001908,135.8,3.46,139.07,125.82,0.72
 20260624,138,140,135.5,137,2615379,135.9,0.81,138.72,126.2,0.49
-20260626,132.5,133,126.5,126.5,1976435,135.12,-6.38,137.82,126.42,0.4
+20260625,138,138.5,133,133.5,1801164,135.7,-1.62,138.18,126.53,0.37
+20260626,132.5,133,126.5,126.5,1976435,134.93,-6.25,137.65,126.8,0.42
 ```
 
 ## Latest TDCC Snapshot

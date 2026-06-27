@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:31 Asia/Taipei
+- generated_at: 2026-06-27 22:23:34 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 2075
 - close: 2105
 - volume: 783358
-- ma5: 2236
-- ema23_primary: 2334.57
-- distance_to_ema23_pct: -9.83
-- ma20: 2351
-- ma60: 2433.83
-- ma120: 2004.96
-- return_5d: -8.48
-- return_20d: -19.81
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -10.46
+- ma5: 2223
+- ema23_primary: 2324.6
+- distance_to_ema23_pct: -9.45
+- ma20: 2338
+- ma60: 2433.92
+- ma120: 2012.54
+- return_5d: -8.08
+- return_20d: -15.29
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -9.97
 - distance_to_high_60_pct: -28.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,2630,2685,2455,2485,1190319,2519.87,-1.38,2572.25,2271.08,0.64
 20260529,2570,2650,2525,2650,1613542,2530.71,4.71,2574,2287.58,0.85
 20260601,2675,2735,2605,2675,795297,2542.74,5.2,2577.25,2307.25,0.43
 20260602,2655,2655,2505,2615,957544,2548.76,2.6,2583.5,2324.42,0.53
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,2320,2350,2265,2315,785073,2378.33,-2.66,2414.75,2435.58,0.62
 20260623,2320,2335,2235,2235,721729,2366.38,-5.55,2397.25,2437,0.58
 20260624,2200,2255,2150,2235,714097,2355.44,-5.11,2377,2436.42,0.57
-20260626,2220,2220,2075,2105,783358,2334.57,-9.83,2351,2433.83,0.64
+20260625,2260,2270,2190,2225,562550,2344.57,-5.1,2357,2435.83,0.47
+20260626,2220,2220,2075,2105,783358,2324.6,-9.45,2338,2433.92,0.66
 ```
 
 ## Latest TDCC Snapshot

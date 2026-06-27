@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:47 Asia/Taipei
+- generated_at: 2026-06-27 22:23:49 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 25.65
 - close: 27.55
 - volume: 17440000
-- ma5: 23.61
-- ema23_primary: 20.37
-- distance_to_ema23_pct: 35.24
-- ma20: 20.49
-- ma60: 16.39
-- ma120: 13.31
-- return_5d: 21.9
-- return_20d: 83.67
-- volume_ratio: 7
-- distance_to_ma20_pct_auxiliary: 34.46
+- ma5: 24.11
+- ema23_primary: 20.81
+- distance_to_ema23_pct: 32.37
+- ma20: 21.02
+- ma60: 16.62
+- ma120: 13.44
+- return_5d: 19.78
+- return_20d: 85.52
+- volume_ratio: 5.8
+- distance_to_ma20_pct_auxiliary: 31.05
 - distance_to_high_60_pct: -1.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,15.05,15.2,14.6,14.85,15000,14.72,0.88,15.05,13.11,0.01
 20260529,14.95,16.3,14.9,16.3,16000,14.85,9.75,15.11,13.21,0.01
 20260601,17.8,17.9,17.3,17.9,18000,15.11,18.5,15.25,13.34,0.01
 20260602,19.65,19.65,19.65,19.65,20,15.48,26.9,15.49,13.5,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.5,23.6,22,23.2,4558000,19.25,20.53,19.1,15.72,4.06
 20260623,22.8,23,20.95,21.1,5270000,19.4,8.75,19.43,15.89,3.8
 20260624,20.75,23.2,20.6,23.2,4726000,19.72,17.65,19.86,16.11,2.92
-20260626,26,28,25.65,27.55,17440000,20.37,35.24,20.49,16.39,7
+20260625,23.7,25.5,23.6,25.5,10294000,20.2,26.23,20.39,16.35,4.82
+20260626,26,28,25.65,27.55,17440000,20.81,32.37,21.02,16.62,5.8
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4707 | 磐亞 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 4707 | 磐亞 | true_breakout | 嚴格突破 | 101.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

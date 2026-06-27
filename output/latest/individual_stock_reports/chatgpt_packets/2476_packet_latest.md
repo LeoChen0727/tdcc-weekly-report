@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:02 Asia/Taipei
+- generated_at: 2026-06-27 22:23:06 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 125.5
 - close: 126
 - volume: 4449741
-- ma5: 126.5
-- ema23_primary: 122.72
-- distance_to_ema23_pct: 2.67
-- ma20: 122.78
-- ma60: 115.34
-- ma120: 100.53
-- return_5d: 2.86
-- return_20d: -2.33
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 2.63
+- ma5: 127.6
+- ema23_primary: 123.34
+- distance_to_ema23_pct: 2.16
+- ma20: 123.2
+- ma60: 116.11
+- ma120: 100.87
+- return_5d: 0.8
+- return_20d: 3.28
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 2.27
 - distance_to_high_60_pct: -6.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,130,132,119.5,122,9137196,118.1,3.3,118.65,102.12,1.5
 20260529,127,127,120.5,122,5305669,118.43,3.02,118.9,102.82,0.86
 20260601,124.5,127,121,122,3308580,118.72,2.76,119.3,103.58,0.55
 20260602,122.5,123,114.5,119,5706515,118.75,0.21,119.45,104.26,0.94
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,126,127,122.5,125.5,4346629,121.37,3.41,122.9,113.22,0.78
 20260623,126.5,130,123,128.5,5646835,121.96,5.36,123.1,113.96,1.03
 20260624,126.5,130,124,127.5,4318803,122.42,4.15,122.92,114.67,0.85
-20260626,129,132,125.5,126,4449741,122.72,2.67,122.78,115.34,0.91
+20260625,127.5,133,126,130.5,5951791,123.1,6.01,123,115.42,1.2
+20260626,129,132,125.5,126,4449741,123.34,2.16,123.2,116.11,0.94
 ```
 
 ## Latest TDCC Snapshot

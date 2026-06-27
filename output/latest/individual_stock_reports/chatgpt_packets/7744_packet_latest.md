@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7744 崴寶
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:43 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7744
 - stock_name: 崴寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 138
+- price_rows: 139
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 435
 - close: 441
 - volume: 89000
-- ma5: 461.4
-- ema23_primary: 481.4
-- distance_to_ema23_pct: -8.39
-- ma20: 476.85
-- ma60: 500.22
-- ma120: 440.27
-- return_5d: -9.45
-- return_20d: -11.27
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -7.52
+- ma5: 454.8
+- ema23_primary: 478.72
+- distance_to_ema23_pct: -7.88
+- ma20: 475.45
+- ma60: 500.43
+- ma120: 441.61
+- return_5d: -8.7
+- return_20d: -7.74
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -7.25
 - distance_to_high_60_pct: -28.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,498.5,505,478,478,493000,518.53,-7.82,535.1,495.76,1.82
 20260529,489,498,486.5,492,492000,516.32,-4.71,534.1,496.02,1.69
 20260601,493,520,493,504,507000,515.29,-2.19,533.3,497.27,1.62
 20260602,515,540,490,500,515,514.02,-2.73,529.7,497.95,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,484.5,484.5,474,476,76000,491.07,-3.07,485.55,500.14,0.26
 20260623,478,478,445,454,131000,487.98,-6.96,482.25,500.2,0.47
 20260624,451,455.5,444,453,61000,485.07,-6.61,479.65,500.5,0.24
-20260626,448.5,456,435,441,89000,481.4,-8.39,476.85,500.22,0.38
+20260625,453.5,454,441,450,29000,482.15,-6.67,477.3,500.37,0.13
+20260626,448.5,456,435,441,89000,478.72,-7.88,475.45,500.43,0.42
 ```
 
 ## Latest TDCC Snapshot

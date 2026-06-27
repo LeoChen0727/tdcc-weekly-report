@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2367 燿華
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:00 Asia/Taipei
 - stock_id: 2367
 - stock_name: 燿華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 52.7
 - close: 52.8
 - volume: 20010320
-- ma5: 58.24
-- ema23_primary: 61.71
-- distance_to_ema23_pct: -14.43
-- ma20: 62.48
-- ma60: 65.07
-- ma120: 58.39
-- return_5d: -15.52
-- return_20d: -21.31
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -15.49
+- ma5: 57.34
+- ema23_primary: 61.27
+- distance_to_ema23_pct: -13.82
+- ma20: 62.03
+- ma60: 64.74
+- ma120: 58.63
+- return_5d: -13.87
+- return_20d: -19.76
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -14.88
 - distance_to_high_60_pct: -34.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,68,70,64.2,65.8,61519432,65,1.24,63.48,68.05,1.17
 20260529,66.9,69.4,65.3,68.1,63669611,65.25,4.36,64,67.97,1.19
 20260601,68.6,69.2,66.2,67.4,45237298,65.43,3.01,64.42,67.91,0.85
 20260602,67.6,68.7,65,65.8,26666869,65.46,0.51,64.64,67.84,0.51
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.3,62.2,60.2,60.6,20655295,63.33,-4.3,64.21,66.06,0.51
 20260623,60.8,60.8,58.1,58.1,21129914,62.89,-7.62,63.61,65.77,0.57
 20260624,57.6,60,57.5,58.4,14871752,62.52,-6.58,63.2,65.49,0.42
-20260626,56.5,57.1,52.7,52.8,20010320,61.71,-14.43,62.48,65.07,0.59
+20260625,58.9,59.1,56.8,56.8,11795992,62.04,-8.45,62.68,65.14,0.35
+20260626,56.5,57.1,52.7,52.8,20010320,61.27,-13.82,62.03,64.74,0.63
 ```
 
 ## Latest TDCC Snapshot

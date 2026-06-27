@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:10 Asia/Taipei
+- generated_at: 2026-06-27 22:24:11 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 98.1
 - close: 100.5
 - volume: 25593645
-- ma5: 100.4
-- ema23_primary: 98.45
-- distance_to_ema23_pct: 2.09
-- ma20: 98.14
-- ma60: 98.39
-- ma120: 102.67
-- return_5d: 0.5
-- return_20d: 2.55
-- volume_ratio: 2.56
-- distance_to_ma20_pct_auxiliary: 2.4
+- ma5: 100.16
+- ema23_primary: 98.53
+- distance_to_ema23_pct: 2
+- ma20: 98.25
+- ma60: 98.51
+- ma120: 102.5
+- return_5d: 0
+- return_20d: 3.5
+- volume_ratio: 2.73
+- distance_to_ma20_pct_auxiliary: 2.28
 - distance_to_high_60_pct: -13.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,100,102.5,96.2,97.1,17921649,97.01,0.09,95.77,97.94,2.29
 20260529,98.3,98.8,96.4,97,6146258,97.01,-0.01,95.69,97.81,0.82
 20260601,97.6,98,96.2,96.2,5561748,96.94,-0.77,95.58,97.8,0.75
 20260602,97,97.9,95.8,97,4531630,96.95,0.05,95.43,97.76,0.62
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,102,106.5,100.5,103.5,13733547,98.17,5.43,97.86,98.13,1.49
 20260623,105,105,98.7,99.1,9496822,98.25,0.87,97.91,98.22,1.01
 20260624,98.1,99.5,97.5,98.4,4779833,98.26,0.14,98.02,98.31,0.51
-20260626,98.6,106.5,98.1,100.5,25593645,98.45,2.09,98.14,98.39,2.56
+20260625,99.1,99.4,97.1,99.3,5572419,98.35,0.97,98.08,98.37,0.62
+20260626,98.6,106.5,98.1,100.5,25593645,98.53,2,98.25,98.51,2.73
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3466 德晉
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:29 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3466
 - stock_name: 德晉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 29.5
 - close: 29.5
 - volume: 684000
-- ma5: 31.77
-- ema23_primary: 32.91
-- distance_to_ema23_pct: -10.35
-- ma20: 32.36
-- ma60: 35.81
-- ma120: 37.02
-- return_5d: -12.85
-- return_20d: -12.59
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: -8.85
+- ma5: 31.24
+- ema23_primary: 32.7
+- distance_to_ema23_pct: -9.79
+- ma20: 32.25
+- ma60: 35.75
+- ma120: 36.92
+- return_5d: -11.14
+- return_20d: -9.92
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: -8.53
 - distance_to_high_60_pct: -35.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.75,34.55,32.65,32.75,34000,36.25,-9.66,36.97,36.91,0.06
 20260529,33.8,33.8,32.6,32.95,33000,35.98,-8.41,36.67,36.89,0.06
 20260601,32.9,33.1,32.55,32.6,33000,35.7,-8.67,36.4,36.83,0.06
 20260602,32.65,32.95,32.45,32.65,33,35.44,-7.88,36.06,36.77,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.25,34.4,33,33.05,281000,33.54,-1.45,32.75,36.02,0.84
 20260623,33.7,33.7,32,32.1,241000,33.42,-3.94,32.71,35.96,0.7
 20260624,32.35,32.35,31,31,264000,33.22,-6.67,32.58,35.9,0.74
-20260626,30.55,30.55,29.5,29.5,684000,32.91,-10.35,32.36,35.81,1.77
+20260625,31.45,31.5,30.4,30.55,355000,32.99,-7.41,32.41,35.83,0.96
+20260626,30.55,30.55,29.5,29.5,684000,32.7,-9.79,32.25,35.75,1.7
 ```
 
 ## Latest TDCC Snapshot

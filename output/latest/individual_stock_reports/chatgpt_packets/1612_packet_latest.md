@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1612 宏泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:42 Asia/Taipei
+- generated_at: 2026-06-27 22:22:46 Asia/Taipei
 - stock_id: 1612
 - stock_name: 宏泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 37
 - close: 37.05
 - volume: 1288536
-- ma5: 37.76
+- ma5: 37.63
 - ema23_primary: 37.61
 - distance_to_ema23_pct: -1.48
-- ma20: 37.99
-- ma60: 36.51
-- ma120: 35.99
-- return_5d: -2.63
-- return_20d: 0.41
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -2.47
+- ma20: 38.03
+- ma60: 36.55
+- ma120: 36.02
+- return_5d: -3.26
+- return_20d: 0.82
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -2.58
 - distance_to_high_60_pct: -12.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.9,37.45,36.5,36.75,1123135,36.29,1.27,36.48,35.52,1.11
 20260529,37,37.85,36.95,37.25,1966246,36.37,2.42,36.56,35.55,1.84
 20260601,37.25,38.1,37.15,37.65,1940700,36.48,3.22,36.62,35.62,1.81
 20260602,38,38,37.15,37.6,1342117,36.57,2.82,36.67,35.66,1.25
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.5,39,38.15,38.25,1707601,37.67,1.54,37.9,36.41,0.71
 20260623,38.3,38.3,37.55,37.6,1330541,37.66,-0.17,37.95,36.44,0.55
 20260624,37.4,37.75,37.15,37.6,781417,37.66,-0.16,37.98,36.48,0.32
-20260626,37.4,37.6,37,37.05,1288536,37.61,-1.48,37.99,36.51,0.53
+20260625,37.75,37.9,37.5,37.65,793096,37.66,-0.02,38.02,36.52,0.33
+20260626,37.4,37.6,37,37.05,1288536,37.61,-1.48,38.03,36.55,0.54
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8091 翔名
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:48 Asia/Taipei
+- generated_at: 2026-06-27 22:24:49 Asia/Taipei
 - stock_id: 8091
 - stock_name: 翔名
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 252
 - close: 255
 - volume: 1504000
-- ma5: 275
-- ema23_primary: 253.69
-- distance_to_ema23_pct: 0.52
-- ma20: 255.6
-- ma60: 218.03
-- ma120: 175.05
-- return_5d: -2.11
-- return_20d: -5.2
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -0.23
+- ma5: 271.6
+- ema23_primary: 254.49
+- distance_to_ema23_pct: 0.2
+- ma20: 255.9
+- ma60: 219.97
+- ma120: 176.29
+- return_5d: -9.25
+- return_20d: -1.16
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -0.35
 - distance_to_high_60_pct: -12.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,266,269,255,258,262000,229.87,12.24,227.47,181.05,0.18
 20260529,259.5,262,257.5,260.5,260000,232.42,12.08,230.9,183.12,0.18
 20260601,263,269,262.5,265.5,266000,235.18,12.89,234.32,185.42,0.2
 20260602,264,264,248,252,254,236.58,6.52,237.38,187.34,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,290.5,291,272,272.5,2349000,247.91,9.92,255.12,211.93,2.76
 20260623,275,286,266,280.5,2137000,250.62,11.92,255.47,214.07,2.26
 20260624,277,288,275,286,1886000,253.57,12.79,256.3,216.3,1.84
-20260626,260,271.5,252,255,1504000,253.69,0.52,255.6,218.03,1.38
+20260625,287.5,288,263.5,264,3008000,254.44,3.76,256.05,218.18,2.59
+20260626,260,271.5,252,255,1504000,254.49,0.2,255.9,219.97,1.23
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4971 IET-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4971
 - stock_name: IET-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 476.5
 - close: 476.5
 - volume: 1263000
-- ma5: 538.3
-- ema23_primary: 600.04
-- distance_to_ema23_pct: -20.59
-- ma20: 607.58
-- ma60: 684.99
-- ma120: 536.73
-- return_5d: -9.41
-- return_20d: -35.95
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -21.57
+- ma5: 526.3
+- ema23_primary: 592.92
+- distance_to_ema23_pct: -19.63
+- ma20: 597.92
+- ma60: 683.04
+- ma120: 538.62
+- return_5d: -17.56
+- return_20d: -32.98
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -20.31
 - distance_to_high_60_pct: -50.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,740,740,695,711,713000,728.2,-2.36,744.75,641,0.64
 20260529,738,750,715,750,734000,730.01,2.74,742.7,645.17,0.64
 20260601,749,789,749,789,777000,734.93,7.36,741.4,650.82,0.66
 20260602,815,833,711,711,779,732.93,-2.99,736.25,655.58,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,605,610,565,571,1588000,626.21,-8.82,643.15,685.67,1.57
 20260623,581,595,539,540,1263000,619.03,-12.77,632.9,686.68,1.22
 20260624,531,541,516,526,763000,611.28,-13.95,620.95,686.68,0.73
-20260626,514,524,476.5,476.5,1263000,600.04,-20.59,607.58,684.99,1.18
+20260625,542,545,512,518,675000,603.5,-14.17,609.65,685.68,0.65
+20260626,514,524,476.5,476.5,1263000,592.92,-19.63,597.92,683.04,1.19
 ```
 
 ## Latest TDCC Snapshot

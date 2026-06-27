@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4160 訊聯基因
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:40 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4160
 - stock_name: 訊聯基因
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 39.05
 - close: 39.25
 - volume: 45000
-- ma5: 39.68
-- ema23_primary: 40.43
-- distance_to_ema23_pct: -2.92
-- ma20: 40.09
-- ma60: 42.34
-- ma120: 46.26
-- return_5d: -4.5
-- return_20d: -4.38
+- ma5: 39.5
+- ema23_primary: 40.35
+- distance_to_ema23_pct: -2.73
+- ma20: 40.06
+- ma60: 42.26
+- ma120: 46.18
+- return_5d: -2.85
+- return_20d: -1.88
 - volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -2.09
+- distance_to_ma20_pct_auxiliary: -2.03
 - distance_to_high_60_pct: -14.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,41.05,41.05,39.95,40,40000,42.21,-5.24,42.2,44.5,0.64
 20260529,40,40,39.6,39.9,40000,42.02,-5.04,42.01,44.37,0.64
 20260601,39.9,39.9,39.4,39.7,40000,41.82,-5.08,41.8,44.24,0.63
 20260602,39.7,40.65,39.25,40,40,41.67,-4.01,41.62,44.08,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.15,40.45,39.2,39.4,129000,40.7,-3.19,40.28,42.64,3.14
 20260623,40.05,40.05,39.2,39.3,61000,40.58,-3.16,40.21,42.53,1.45
 20260624,39.35,40.25,39.35,40.05,53000,40.54,-1.2,40.18,42.44,1.24
-20260626,39.5,39.5,39.05,39.25,45000,40.43,-2.92,40.09,42.34,1.05
+20260625,39.9,40.2,39.5,39.5,44000,40.45,-2.35,40.1,42.35,1.03
+20260626,39.5,39.5,39.05,39.25,45000,40.35,-2.73,40.06,42.26,1.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5864 致和證
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:03 Asia/Taipei
+- generated_at: 2026-06-27 22:24:05 Asia/Taipei
 - stock_id: 5864
 - stock_name: 致和證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 44.25
 - close: 44.4
 - volume: 7478000
-- ma5: 48.3
-- ema23_primary: 44.86
-- distance_to_ema23_pct: -1.02
-- ma20: 47.22
-- ma60: 34.77
-- ma120: 28.16
-- return_5d: -8.45
-- return_20d: 15.03
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -5.97
+- ma5: 47.98
+- ema23_primary: 45.05
+- distance_to_ema23_pct: -1.45
+- ma20: 47.6
+- ma60: 35.16
+- ma120: 28.44
+- return_5d: -9.48
+- return_20d: 11.42
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -6.72
 - distance_to_high_60_pct: -17.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,38.95,40.7,37.7,39.85,39000,32.34,23.22,32.95,27.5,0.01
 20260529,41.2,43.05,40.5,43.05,42000,33.23,29.54,33.67,27.79,0.01
 20260601,43.6,44.5,42.55,43.4,43000,34.08,27.35,34.34,28.13,0.01
 20260602,43.35,46.3,42.3,45.4,44,35.02,29.63,35.09,28.47,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49.85,51.4,49.2,50.5,7225000,44.17,14.33,45.49,33.65,1.53
 20260623,50.8,52.7,49.75,49.85,8473000,44.64,11.66,46.3,34.06,1.64
 20260624,49,49.2,47.65,47.7,8206000,44.9,6.24,46.93,34.44,1.48
-20260626,47,47.15,44.25,44.4,7478000,44.86,-1.02,47.22,34.77,1.26
+20260625,48,48.7,47.4,47.45,4653000,45.11,5.19,47.37,34.82,0.8
+20260626,47,47.15,44.25,44.4,7478000,45.05,-1.45,47.6,35.16,1.21
 ```
 
 ## Latest TDCC Snapshot

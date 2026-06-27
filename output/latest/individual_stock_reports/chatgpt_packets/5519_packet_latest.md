@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5519 隆大
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:01 Asia/Taipei
+- generated_at: 2026-06-27 22:24:03 Asia/Taipei
 - stock_id: 5519
 - stock_name: 隆大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 33.9
 - close: 34
 - volume: 689439
-- ma5: 33.9
-- ema23_primary: 33.43
-- distance_to_ema23_pct: 1.7
-- ma20: 33.26
-- ma60: 32.94
-- ma120: 32.7
-- return_5d: -2.16
-- return_20d: 5.92
+- ma5: 33.87
+- ema23_primary: 33.5
+- distance_to_ema23_pct: 1.48
+- ma20: 33.37
+- ma60: 32.96
+- ma120: 32.71
+- return_5d: -1.31
+- return_20d: 6.25
 - volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 2.24
+- distance_to_ma20_pct_auxiliary: 1.89
 - distance_to_high_60_pct: -3.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,32.1,32.25,32,32,544654,32.49,-1.51,32.47,32.98,1.42
 20260529,32,32.15,32,32.1,356302,32.46,-1.11,32.45,32.98,0.92
 20260601,32.1,32.1,31.85,31.95,1080078,32.42,-1.44,32.43,32.99,2.52
 20260602,31.95,32,31.8,31.8,740492,32.37,-1.75,32.39,32.96,1.63
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.85,33.85,33.05,33.55,1055939,33.31,0.72,33.01,32.93,1.37
 20260623,33.75,34.05,33.4,33.7,459158,33.34,1.07,33.08,32.93,0.6
 20260624,33.7,34.5,33.55,33.8,813372,33.38,1.25,33.16,32.93,1.03
-20260626,34.3,34.45,33.9,34,689439,33.43,1.7,33.26,32.94,0.86
+20260625,33.95,34.55,33.95,34.3,594411,33.46,2.52,33.27,32.94,0.75
+20260626,34.3,34.45,33.9,34,689439,33.5,1.48,33.37,32.96,0.86
 ```
 
 ## Latest TDCC Snapshot

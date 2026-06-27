@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:47 Asia/Taipei
+- generated_at: 2026-06-27 22:24:47 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 123.5
 - close: 124
 - volume: 7555000
-- ma5: 120.4
-- ema23_primary: 109.16
-- distance_to_ema23_pct: 13.59
-- ma20: 105.92
-- ma60: 104.88
-- ma120: 112
-- return_5d: 24.5
-- return_20d: 15.35
-- volume_ratio: 2.49
-- distance_to_ma20_pct_auxiliary: 17.07
-- distance_to_high_60_pct: -9.16
+- ma5: 125.7
+- ema23_primary: 110.86
+- distance_to_ema23_pct: 11.85
+- ma20: 107.24
+- ma60: 105.44
+- ma120: 111.86
+- return_5d: 19.81
+- return_20d: 19.81
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 15.63
+- distance_to_high_60_pct: -10.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,107.5,109.5,102,103.5,105000,106.77,-3.06,106.62,103.48,0.05
 20260529,105,105.5,101,102.5,103000,106.41,-3.68,106.45,103.22,0.05
 20260601,103,103.5,101.5,102,102000,106.04,-3.81,106.25,103.13,0.05
 20260602,102.5,105,101,101.5,102,105.67,-3.94,105.72,103.05,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,106,113.5,105.5,113.5,5390000,103.45,9.71,103.44,103.45,5.08
 20260623,119.5,124.5,118,124.5,12742000,105.21,18.34,103.86,103.88,7.53
 20260624,119,136.5,119,136.5,19535000,107.81,26.61,105.09,104.48,7.34
-20260626,127,131.5,123.5,124,7555000,109.16,13.59,105.92,104.88,2.49
+20260625,138,138.5,124.5,130,15746000,109.66,18.54,106.22,104.98,4.57
+20260626,127,131.5,123.5,124,7555000,110.86,11.85,107.24,105.44,1.98
 ```
 
 ## Latest TDCC Snapshot

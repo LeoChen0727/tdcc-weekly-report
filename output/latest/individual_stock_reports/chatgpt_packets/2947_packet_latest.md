@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:14 Asia/Taipei
+- generated_at: 2026-06-27 22:23:18 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 147
+- price_rows: 148
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 77.2
 - close: 77.2
 - volume: 11000
-- ma5: 78.46
-- ema23_primary: 77.63
-- distance_to_ema23_pct: -0.55
-- ma20: 77.36
-- ma60: 77.86
-- ma120: 79.42
-- return_5d: 0.26
+- ma5: 78.34
+- ema23_primary: 77.69
+- distance_to_ema23_pct: -0.63
+- ma20: 77.39
+- ma60: 77.88
+- ma120: 79.37
+- return_5d: -2.4
 - return_20d: -0.64
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -0.2
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -0.25
 - distance_to_high_60_pct: -4.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,77.7,77.7,77.7,77.7,78000,78.07,-0.48,78.2,78.32,2.58
 20260529,77.7,77.7,77.4,77.4,78000,78.02,-0.79,78.17,78.27,2.38
 20260601,77.2,77.5,77.2,77.5,77000,77.97,-0.61,78.14,78.21,2.18
 20260602,77.5,77.5,77.3,77.3,77,77.92,-0.79,78.09,78.14,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,79.3,80.5,79.3,79.3,12000,77.54,2.27,77.32,77.86,0.27
 20260623,79.3,79.3,78.7,78.7,10000,77.64,1.37,77.36,77.86,0.25
 20260624,78.9,79,78,78,10000,77.67,0.43,77.38,77.87,0.27
-20260626,78.8,78.8,77.2,77.2,11000,77.63,-0.55,77.36,77.86,0.32
+20260625,79.6,79.6,78.2,78.5,3000,77.74,0.98,77.42,77.89,0.09
+20260626,78.8,78.8,77.2,77.2,11000,77.69,-0.63,77.39,77.88,0.36
 ```
 
 ## Latest TDCC Snapshot

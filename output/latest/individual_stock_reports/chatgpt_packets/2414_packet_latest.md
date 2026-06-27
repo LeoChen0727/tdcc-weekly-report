@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2414 精技
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:59 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2414
 - stock_name: 精技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 58.7
 - close: 58.7
 - volume: 580270
-- ma5: 61.3
-- ema23_primary: 56.98
-- distance_to_ema23_pct: 3.02
-- ma20: 57.07
-- ma60: 50.01
-- ma120: 45.87
-- return_5d: -3.29
-- return_20d: 14.65
+- ma5: 60.76
+- ema23_primary: 57.23
+- distance_to_ema23_pct: 2.56
+- ma20: 57.55
+- ma60: 50.29
+- ma120: 46.02
+- return_5d: -6.53
+- return_20d: 16.47
 - volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 2.86
+- distance_to_ma20_pct_auxiliary: 1.99
 - distance_to_high_60_pct: -9.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,51.2,51.3,50.2,50.4,319430,48.49,3.94,48.64,45.44,0.82
 20260529,50.5,51.5,50.5,50.8,229988,48.68,4.35,48.9,45.59,0.58
 20260601,50.8,51.9,50.8,51.5,360862,48.92,5.28,49.16,45.76,0.9
 20260602,52.4,52.4,51.4,51.8,268849,49.16,5.37,49.44,45.93,0.66
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,63.5,64.4,61.8,63.3,475526,56.06,12.91,55.63,49.17,0.57
 20260623,63.8,64.4,61,61.2,457631,56.49,8.33,56.2,49.47,0.55
 20260624,60.3,61.8,60.1,60.5,417777,56.83,6.47,56.7,49.76,0.5
-20260626,59.6,60,58.7,58.7,580270,56.98,3.02,57.07,50.01,0.68
+20260625,60.3,61.6,60.1,60.1,372295,57.1,5.26,57.14,50.03,0.44
+20260626,59.6,60,58.7,58.7,580270,57.23,2.56,57.55,50.29,0.68
 ```
 
 ## Latest TDCC Snapshot

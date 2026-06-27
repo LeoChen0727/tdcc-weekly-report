@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1526 日馳
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:39 Asia/Taipei
+- generated_at: 2026-06-27 22:22:43 Asia/Taipei
 - stock_id: 1526
 - stock_name: 日馳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,15 +119,15 @@
 - low: 13.9
 - close: 13.9
 - volume: 221858
-- ma5: 14.37
-- ema23_primary: 14.65
-- distance_to_ema23_pct: -5.12
+- ma5: 14.33
+- ema23_primary: 14.62
+- distance_to_ema23_pct: -4.94
 - ma20: 14.62
-- ma60: 15.47
-- ma120: 17.12
-- return_5d: -4.14
-- return_20d: -2.8
-- volume_ratio: 1.56
+- ma60: 15.43
+- ma120: 17.1
+- return_5d: -4.47
+- return_20d: -3.14
+- volume_ratio: 1.59
 - distance_to_ma20_pct_auxiliary: -4.94
 - distance_to_high_60_pct: -19.42
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14.15,14.4,14.05,14.35,114736,15.16,-5.33,15.1,16.52,0.82
 20260529,14.55,14.55,14.3,14.3,95805,15.09,-5.22,15,16.43,0.69
 20260601,14.45,14.65,14.3,14.65,169110,15.05,-2.66,14.93,16.36,1.19
 20260602,14.8,15.6,14.8,15.1,442316,15.05,0.3,14.87,16.29,2.76
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.4,14.65,14.4,14.6,127244,14.78,-1.21,14.65,15.62,0.9
 20260623,14.5,14.5,14.35,14.4,97262,14.75,-2.35,14.65,15.57,0.7
 20260624,14.2,14.4,14.15,14.4,67374,14.72,-2.16,14.64,15.53,0.49
-20260626,14.45,14.45,13.9,13.9,221858,14.65,-5.12,14.62,15.47,1.56
+20260625,14.4,14.5,14.25,14.35,60464,14.69,-2.3,14.64,15.48,0.45
+20260626,14.45,14.45,13.9,13.9,221858,14.62,-4.94,14.62,15.43,1.59
 ```
 
 ## Latest TDCC Snapshot

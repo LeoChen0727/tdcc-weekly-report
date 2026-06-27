@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7842 天能綠電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7842
 - stock_name: 天能綠電
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 34
+- price_rows: 35
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 95.7
 - close: 95.8
 - volume: 35000
-- ma5: 98.88
-- ema23_primary: 104.23
-- distance_to_ema23_pct: -8.09
-- ma20: 105.42
-- ma60: 107.45
-- ma120: 107.45
-- return_5d: -4.68
-- return_20d: -16.7
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -9.13
+- ma5: 98.5
+- ema23_primary: 103.78
+- distance_to_ema23_pct: -7.69
+- ma20: 104.85
+- ma60: 107.21
+- ma120: 107.21
+- return_5d: -5.15
+- return_20d: -13.3
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -8.63
 - distance_to_high_60_pct: -24.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,115,115.5,110,110.5,112000,110.01,0.45,110.37,110.37,0.75
 20260529,114,114,110,110,111000,110.01,-0.01,110.34,110.34,0.76
 20260601,110,114.5,110,113,112000,110.26,2.49,110.5,110.5,0.77
 20260602,119,119,111.5,111.5,113,110.36,1.03,110.56,110.56,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,106.5,106.5,100,100,25000,106.18,-5.82,108.1,108.39,0.35
 20260623,101,101.5,99.2,99.4,32000,105.61,-5.88,107.52,108.11,0.48
 20260624,99.4,100,97.5,98.2,39000,105,-6.47,106.38,107.81,0.61
-20260626,98,98,95.7,95.8,35000,104.23,-8.09,105.42,107.45,0.59
+20260625,98.2,99.1,97.5,99.1,13000,104.5,-5.17,105.58,107.55,0.22
+20260626,98,98,95.7,95.8,35000,103.78,-7.69,104.85,107.21,0.64
 ```
 
 ## Latest TDCC Snapshot

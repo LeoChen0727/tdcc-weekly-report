@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6922 宸曜
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:34 Asia/Taipei
 - stock_id: 6922
 - stock_name: 宸曜
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 168
 - close: 169
 - volume: 265000
-- ma5: 180.4
-- ema23_primary: 185.46
-- distance_to_ema23_pct: -8.87
-- ma20: 189.65
-- ma60: 178.59
-- ma120: 170.49
-- return_5d: -9.63
-- return_20d: -9.63
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -10.89
+- ma5: 178.9
+- ema23_primary: 184.81
+- distance_to_ema23_pct: -8.56
+- ma20: 189.03
+- ma60: 178.94
+- ma120: 170.56
+- return_5d: -9.14
+- return_20d: -11.52
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -10.59
 - distance_to_high_60_pct: -22.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,187.5,203,187,191,195000,182.43,4.7,185.05,168.97,0.72
 20260529,195,201,194,199,198000,183.81,8.27,186.18,169.62,0.86
 20260601,211,218,208,212,212000,186.16,13.88,187.45,170.61,1
 20260602,208,208,195,197.5,200,187.1,5.56,188.05,171.25,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,189.5,191,185.5,185.5,169000,188.13,-1.4,191.7,177.89,0.56
 20260623,186.5,186.5,180,180,140000,187.45,-3.97,191.15,178.14,0.47
 20260624,180,182,177,181.5,86000,186.95,-2.92,190.55,178.47,0.29
-20260626,176.5,176.5,168,169,265000,185.46,-8.87,189.65,178.59,0.9
+20260625,183.5,184.5,178,178.5,89000,186.25,-4.16,190.12,178.75,0.31
+20260626,176.5,176.5,168,169,265000,184.81,-8.56,189.03,178.94,0.91
 ```
 
 ## Latest TDCC Snapshot

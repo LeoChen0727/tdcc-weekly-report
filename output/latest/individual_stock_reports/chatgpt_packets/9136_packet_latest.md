@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:57 Asia/Taipei
+- generated_at: 2026-06-27 22:24:58 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 274
+- price_rows: 275
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -92,7 +92,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -119,23 +118,22 @@
 - low: 14.5
 - close: 14.65
 - volume: 1153517
-- ma5: 15.89
-- ema23_primary: 14.79
-- distance_to_ema23_pct: -0.92
-- ma20: 15.28
-- ma60: 11.67
-- ma120: 9.67
-- return_5d: -12.01
-- return_20d: 27.95
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -4.14
+- ma5: 15.73
+- ema23_primary: 14.87
+- distance_to_ema23_pct: -1.48
+- ma20: 15.52
+- ma60: 11.8
+- ma120: 9.74
+- return_5d: -12.28
+- return_20d: 31.39
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -5.61
 - distance_to_high_60_pct: -22.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.55,11.6,10.9,11.15,1047546,10.45,6.68,10.3,9.19,0.43
 20260529,11.2,11.25,11.05,11.1,728201,10.51,5.66,10.41,9.24,0.3
 20260601,11.1,12.2,10.85,12.15,2084412,10.64,14.16,10.54,9.31,0.84
 20260602,12.85,13.35,12.4,13.3,4943337,10.86,22.42,10.77,9.39,1.87
@@ -154,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.7,16.7,15.6,15.95,1150013,14.56,9.57,14.62,11.28,0.33
 20260623,16.6,16.95,16.05,16.25,1280918,14.7,10.56,14.87,11.43,0.36
 20260624,15.8,16.3,15.75,15.9,601363,14.8,7.45,15.12,11.56,0.17
-20260626,15.5,15.7,14.5,14.65,1153517,14.79,-0.92,15.28,11.67,0.33
+20260625,16.1,16.1,15.45,15.9,635615,14.89,6.79,15.35,11.69,0.19
+20260626,15.5,15.7,14.5,14.65,1153517,14.87,-1.48,15.52,11.8,0.34
 ```
 
 ## Latest TDCC Snapshot

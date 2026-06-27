@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8289 泰藝
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8289
 - stock_name: 泰藝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 57.9
 - close: 58.5
 - volume: 6384000
-- ma5: 62.94
-- ema23_primary: 64.5
-- distance_to_ema23_pct: -9.3
-- ma20: 68.03
-- ma60: 55.38
-- ma120: 41.87
-- return_5d: -14.85
-- return_20d: -15.09
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: -14
+- ma5: 61.12
+- ema23_primary: 63.96
+- distance_to_ema23_pct: -8.54
+- ma20: 67.14
+- ma60: 55.7
+- ma120: 42.18
+- return_5d: -12.82
+- return_20d: -22.72
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: -12.87
 - distance_to_high_60_pct: -25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,69.1,75.7,69.1,75.7,75000,57.59,31.44,56.58,45.4,0.02
 20260529,76,78,70.6,74.2,74000,58.98,25.81,58.02,45.97,0.02
 20260601,74.6,75.5,70,70.1,73000,59.9,17.02,59.19,46.53,0.02
 20260602,70.1,70.4,65.9,69.8,68,60.73,14.94,60.21,47.08,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,66.8,68,65.8,67.2,1860000,65.83,2.09,69.32,54.3,0.71
 20260623,67.2,67.2,60.5,61.2,3138000,65.44,-6.48,68.98,54.67,1.12
 20260624,60,62.6,58.5,60.7,2290000,65.05,-6.68,68.55,55.07,0.79
-20260626,58.1,62.1,57.9,58.5,6384000,64.5,-9.3,68.03,55.38,1.98
+20260625,60.7,61.1,57.8,58,1901000,64.46,-10.02,68,55.38,0.64
+20260626,58.1,62.1,57.9,58.5,6384000,63.96,-8.54,67.14,55.7,1.93
 ```
 
 ## Latest TDCC Snapshot

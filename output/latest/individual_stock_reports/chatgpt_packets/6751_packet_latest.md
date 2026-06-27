@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6751 智聯服務
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:28 Asia/Taipei
+- generated_at: 2026-06-27 22:24:29 Asia/Taipei
 - stock_id: 6751
 - stock_name: 智聯服務
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 44.85
 - close: 44.9
 - volume: 34000
-- ma5: 48.02
-- ema23_primary: 48.52
-- distance_to_ema23_pct: -7.46
-- ma20: 48.75
-- ma60: 49.66
-- ma120: 53.09
-- return_5d: -7.14
-- return_20d: -5.77
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -7.9
+- ma5: 47.4
+- ema23_primary: 48.25
+- distance_to_ema23_pct: -6.95
+- ma20: 48.66
+- ma60: 49.56
+- ma120: 53.04
+- return_5d: -7.33
+- return_20d: -4.57
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -7.74
 - distance_to_high_60_pct: -18.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,47.75,48.05,47,47.05,48000,48.67,-3.33,48.68,51.06,1.25
 20260529,47.05,48.15,46.9,46.95,47000,48.53,-3.25,48.44,50.92,1.17
 20260601,47.9,51.6,46.95,50.5,50000,48.69,3.71,48.37,50.86,1.21
 20260602,51.4,51.4,49.05,50.9,50,48.88,4.14,48.27,50.76,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49,49,48.05,48.85,19000,48.83,0.04,48.74,49.89,0.52
 20260623,48.1,48.6,48,48.4,11000,48.79,-0.8,48.79,49.83,0.32
 20260624,48.9,49.5,48.85,49.5,30000,48.85,1.33,48.89,49.78,0.89
-20260626,45.1,45.7,44.85,44.9,34000,48.52,-7.46,48.75,49.66,1.03
+20260625,45.1,45.8,45.1,45.35,38000,48.56,-6.61,48.77,49.67,1.15
+20260626,45.1,45.7,44.85,44.9,34000,48.25,-6.95,48.66,49.56,1.05
 ```
 
 ## Latest TDCC Snapshot

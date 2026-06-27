@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9910 豐泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:58 Asia/Taipei
 - stock_id: 9910
 - stock_name: 豐泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 68.1
 - close: 69.5
 - volume: 3115578
-- ma5: 71.2
-- ema23_primary: 76.01
-- distance_to_ema23_pct: -8.56
-- ma20: 78.13
-- ma60: 75.25
-- ma120: 85.87
-- return_5d: -4.53
-- return_20d: 3.42
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -11.05
+- ma5: 70.64
+- ema23_primary: 75.49
+- distance_to_ema23_pct: -7.94
+- ma20: 78.22
+- ma60: 75.07
+- ma120: 85.46
+- return_5d: -4.27
+- return_20d: 2.21
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -11.15
 - distance_to_high_60_pct: -29.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,67.3,68.4,66.8,68,2558891,70.84,-4,70.07,77.37,1.04
 20260529,69,70.2,68,70.2,4100850,70.78,-0.82,70.08,77,1.58
 20260601,70,72,69.3,71.9,3159545,70.88,1.44,70.14,76.66,1.2
 20260602,71.8,79,71.6,79,12399534,71.55,10.41,70.62,76.38,3.99
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,72.6,72.9,70.2,70.7,5319463,77.55,-8.83,77.62,75.76,0.64
 20260623,70.4,72.4,69.4,71.4,2618762,77.04,-7.32,77.8,75.59,0.32
 20260624,71.3,72.6,70.5,71.8,2610529,76.6,-6.27,78.02,75.44,0.31
-20260626,69.4,69.5,68.1,69.5,3115578,76.01,-8.56,78.13,75.25,0.38
+20260625,72,72,69.8,69.8,3225746,76.04,-8.2,78.14,75.25,0.39
+20260626,69.4,69.5,68.1,69.5,3115578,75.49,-7.94,78.22,75.07,0.37
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6186 新潤
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:10 Asia/Taipei
+- generated_at: 2026-06-27 22:24:11 Asia/Taipei
 - stock_id: 6186
 - stock_name: 新潤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 41.3
 - close: 41.3
 - volume: 769000
-- ma5: 41.21
-- ema23_primary: 40.74
-- distance_to_ema23_pct: 1.38
-- ma20: 40.65
-- ma60: 40.24
-- ma120: 43.71
-- return_5d: -1.31
-- return_20d: 4.96
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 1.61
+- ma5: 41.13
+- ema23_primary: 40.83
+- distance_to_ema23_pct: 1.14
+- ma20: 40.78
+- ma60: 40.28
+- ma120: 43.6
+- return_5d: -2.48
+- return_20d: 5.49
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 1.26
 - distance_to_high_60_pct: -5.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.7,39.7,39.1,39.15,39000,39.84,-1.74,39.67,40.53,0.05
 20260529,39.6,39.75,39.2,39.6,40000,39.82,-0.56,39.65,40.47,0.05
 20260601,39.6,39.6,38.9,39.4,39000,39.79,-0.97,39.62,40.45,0.05
 20260602,39.5,39.7,38.95,39.2,39,39.74,-1.36,39.58,40.4,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.9,41.9,40.6,40.8,1806000,40.66,0.34,40.44,40.23,2.49
 20260623,40.7,40.95,40.5,40.6,624000,40.66,-0.14,40.5,40.22,0.83
 20260624,41.5,41.75,40.85,41,1118000,40.69,0.77,40.55,40.23,1.38
-20260626,42,42.3,41.3,41.3,769000,40.74,1.38,40.65,40.24,0.91
+20260625,41.1,42.15,41,41.95,1137000,40.79,2.84,40.68,40.25,1.32
+20260626,42,42.3,41.3,41.3,769000,40.83,1.14,40.78,40.28,0.85
 ```
 
 ## Latest TDCC Snapshot

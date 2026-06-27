@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3388 崇越電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:28 Asia/Taipei
+- generated_at: 2026-06-27 22:23:30 Asia/Taipei
 - stock_id: 3388
 - stock_name: 崇越電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 84
 - close: 84
 - volume: 1070000
-- ma5: 89.18
-- ema23_primary: 94.13
-- distance_to_ema23_pct: -10.76
-- ma20: 95.5
-- ma60: 96.48
-- ma120: 79.58
-- return_5d: -5.94
-- return_20d: -16.83
-- volume_ratio: 2.6
-- distance_to_ma20_pct_auxiliary: -12.05
+- ma5: 88.2
+- ema23_primary: 93.56
+- distance_to_ema23_pct: -10.21
+- ma20: 94.33
+- ma60: 96.87
+- ma120: 79.79
+- return_5d: -9.09
+- return_20d: -24.32
+- volume_ratio: 2.42
+- distance_to_ma20_pct_auxiliary: -10.95
 - distance_to_high_60_pct: -36.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,102.5,111,102,111,109000,102.45,8.35,106.86,86.74,0.06
 20260529,113,116,107,110,111000,103.08,6.72,106.64,87.53,0.06
 20260601,109.5,109.5,105.5,106,107000,103.32,2.59,106.19,88.26,0.06
 20260602,105,105,99.8,102,101,103.21,-1.17,105.31,88.92,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,92.8,93.8,92.1,92.2,518000,96.27,-4.22,97.77,95.4,1.59
 20260623,89.5,90,88.2,88.2,422000,95.59,-7.74,96.92,95.78,1.23
 20260624,88.2,89.4,85.4,89.1,541000,95.05,-6.26,96.36,96.17,1.49
-20260626,89.6,90.7,84,84,1070000,94.13,-10.76,95.5,96.48,2.6
+20260625,89.7,92.4,85.7,87.5,711000,94.42,-7.33,95.68,96.54,1.8
+20260626,89.6,90.7,84,84,1070000,93.56,-10.21,94.33,96.87,2.42
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9955 佳龍
 
 ## Metadata
-- generated_at: 2026-06-26 22:25:00 Asia/Taipei
+- generated_at: 2026-06-27 22:25:01 Asia/Taipei
 - stock_id: 9955
 - stock_name: 佳龍
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 26.15
 - close: 26.15
 - volume: 341404
-- ma5: 26.78
-- ema23_primary: 27.52
-- distance_to_ema23_pct: -4.99
-- ma20: 27.52
-- ma60: 29.07
-- ma120: 31.46
-- return_5d: -4.21
-- return_20d: -5.77
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -4.98
+- ma5: 26.74
+- ema23_primary: 27.46
+- distance_to_ema23_pct: -4.75
+- ma20: 27.45
+- ma60: 29
+- ma120: 31.43
+- return_5d: -2.97
+- return_20d: -6.77
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -4.75
 - distance_to_high_60_pct: -20.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.75,28.4,27.75,28.05,507129,28.93,-3.03,28.82,31.02,1.27
 20260529,28.2,28.35,27.85,27.95,398630,28.85,-3.1,28.78,30.88,0.97
 20260601,28,29.1,27.85,28.85,613170,28.85,0.01,28.76,30.8,1.43
 20260602,28.9,28.9,28.25,28.45,306551,28.81,-1.26,28.7,30.71,0.72
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.85,27.15,26.7,27.1,400837,27.8,-2.52,27.72,29.3,1.01
 20260623,27.1,27.1,26.8,26.85,234088,27.72,-3.14,27.65,29.22,0.61
 20260624,27,27.15,26.7,26.85,229325,27.65,-2.89,27.6,29.15,0.61
-20260626,27,27,26.15,26.15,341404,27.52,-4.99,27.52,29.07,0.92
+20260625,26.9,27.1,26.7,26.75,257652,27.57,-2.99,27.55,29.08,0.7
+20260626,27,27,26.15,26.15,341404,27.46,-4.75,27.45,29,0.95
 ```
 
 ## Latest TDCC Snapshot

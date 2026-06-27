@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6451 訊芯-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:17 Asia/Taipei
+- generated_at: 2026-06-27 22:24:19 Asia/Taipei
 - stock_id: 6451
 - stock_name: 訊芯-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 553
 - close: 598
 - volume: 11870339
-- ma5: 600.6
-- ema23_primary: 572.83
-- distance_to_ema23_pct: 4.39
-- ma20: 594.33
-- ma60: 503.02
-- ma120: 347.13
-- return_5d: 10.13
-- return_20d: -0.66
-- volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: 0.62
+- ma5: 611.2
+- ema23_primary: 576.15
+- distance_to_ema23_pct: 3.79
+- ma20: 596.58
+- ma60: 507.78
+- ma120: 350.89
+- return_5d: 6.6
+- return_20d: 5.1
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 0.24
 - distance_to_high_60_pct: -20.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,602,617,563,569,5290847,507.82,12.05,510.9,391.62,0.86
 20260529,587,591,561,570,4136973,513,11.11,517.85,397.67,0.65
 20260601,573,627,573,627,5780775,522.5,20,525.5,405,0.88
 20260602,656,689,645,659,10771261,533.87,23.44,532.4,412.73,1.64
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,570,617,561,617,7203684,562.24,9.74,593.58,489.54,1.16
 20260623,636,648,595,596,8726274,565.05,5.48,594.58,494.16,1.35
 20260624,589,643,589,631,7621375,570.55,10.6,594.52,499.14,1.19
-20260626,609,646,553,598,11870339,572.83,4.39,594.33,503.02,1.8
+20260625,645,678,605,614,8931238,574.17,6.94,595.12,503.29,1.39
+20260626,609,646,553,598,11870339,576.15,3.79,596.58,507.78,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6451 | 訊芯-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6451 | 訊芯-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.功能性委員會名稱:永續委員會 3.舊任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)莊章星 (5)戴淑惠 4.舊任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)莊章星，訊芯科技控股股份有限公司獨立董事 (5)戴淑惠，訊芯科技控股股份有限公司獨立董事 5.新任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)左大川 (5)張美玲 6.新任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)左大川，訊芯科技控股股份有限公司獨立董事 (5)張美玲，訊芯科技控股股份有限公司獨立董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/19-115/06/27 10.新任生效日期:115/06/26-118/06/25 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

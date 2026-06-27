@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6217 中探針
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:12 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6217
 - stock_name: 中探針
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,15 +124,15 @@
 - low: 250
 - close: 251
 - volume: 15270000
-- ma5: 259.9
-- ema23_primary: 258.02
-- distance_to_ema23_pct: -2.72
+- ma5: 265.5
+- ema23_primary: 259.27
+- distance_to_ema23_pct: -3.19
 - ma20: 259.32
-- ma60: 258.91
-- ma120: 172.25
-- return_5d: 7.49
-- return_20d: -9.06
-- volume_ratio: 3.28
+- ma60: 260.47
+- ma120: 174.1
+- return_5d: 1.62
+- return_20d: -8.73
+- volume_ratio: 3.05
 - distance_to_ma20_pct_auxiliary: -3.21
 - distance_to_high_60_pct: -32.34
 
@@ -140,7 +140,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,271,285,271,275,278000,272.38,0.96,283.68,221.43,0.07
 20260529,286,290,280.5,289.5,286000,273.81,5.73,284.25,224.61,0.08
 20260601,300,305,295.5,305,299000,276.41,10.34,285.52,228.16,0.08
 20260602,305,305,295,305,301,278.79,9.4,285.9,231.56,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,248.5,271.5,245.5,271.5,9268000,257.52,5.43,262.2,254.69,3.38
 20260623,274.5,289.5,272,273,15504000,258.81,5.48,261.57,256.43,4.43
 20260624,269,278,252.5,257,8272000,258.66,-0.64,260.57,257.79,2.12
-20260626,274,286,250,251,15270000,258.02,-2.72,259.32,258.91,3.28
+20260625,268,275,251.5,275,7416000,260.02,5.76,260.52,259.31,1.74
+20260626,274,286,250,251,15270000,259.27,-3.19,259.32,260.47,3.05
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6217 | 中探針 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/22 2.重要決議事項一、盈餘分配或盈虧撥補:票決通過承認114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:票決通過承認114年度營業報告書及 財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:票決通過擬修訂本公司背書保證辦法案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6217 | 中探針 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | continued_overheated | 1.股東常會日期:115/06/22 2.重要決議事項一、盈餘分配或盈虧撥補:票決通過承認114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:票決通過承認114年度營業報告書及 財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:票決通過擬修訂本公司背書保證辦法案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6217 | 中探針 | 4 | 4 | 4 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 6217 | 中探針 | 4 | 4 | 4 | 4 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

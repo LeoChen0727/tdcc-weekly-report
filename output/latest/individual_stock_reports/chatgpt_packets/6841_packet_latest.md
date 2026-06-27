@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6841 長佳智能
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6841
 - stock_name: 長佳智能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 58.2
 - close: 58.2
 - volume: 542000
-- ma5: 60.14
-- ema23_primary: 59.83
-- distance_to_ema23_pct: -2.72
-- ma20: 59.47
-- ma60: 59.48
-- ma120: 62.33
-- return_5d: -3.96
-- return_20d: 2.46
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -2.14
+- ma5: 60.18
+- ema23_primary: 59.9
+- distance_to_ema23_pct: -2.84
+- ma20: 59.73
+- ma60: 59.46
+- ma120: 62.27
+- return_5d: -4.12
+- return_20d: 4.68
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -2.57
 - distance_to_high_60_pct: -12.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,56.5,57.8,55.3,55.6,56000,58.93,-5.64,59.44,59.68,0.31
 20260529,55.9,56,54.8,55.7,56000,58.66,-5.04,59.28,59.56,0.32
 20260601,56,56.9,55.7,56.4,56000,58.47,-3.54,59.07,59.5,0.35
 20260602,57.5,57.5,55.9,56.3,56,58.29,-3.41,58.83,59.42,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61,61,59.8,60,317000,59.79,0.34,59.08,59.6,0.76
 20260623,60.2,61,59.4,60,245000,59.81,0.32,59.19,59.54,0.57
 20260624,61,63.4,60,61.8,730000,59.98,3.04,59.4,59.54,1.58
-20260626,61.6,61.6,58.2,58.2,542000,59.83,-2.72,59.47,59.48,1.12
+20260625,62.4,62.4,60.7,60.9,332000,60.05,1.41,59.6,59.52,0.7
+20260626,61.6,61.6,58.2,58.2,542000,59.9,-2.84,59.73,59.46,1.09
 ```
 
 ## Latest TDCC Snapshot

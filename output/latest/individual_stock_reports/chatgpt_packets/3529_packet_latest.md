@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3529 力旺
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:31 Asia/Taipei
+- generated_at: 2026-06-27 22:23:34 Asia/Taipei
 - stock_id: 3529
 - stock_name: 力旺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 2925
 - close: 2925
 - volume: 795000
-- ma5: 3146
-- ema23_primary: 3280.16
-- distance_to_ema23_pct: -10.83
-- ma20: 3248.25
-- ma60: 3524.92
-- ma120: 2785.21
-- return_5d: -7.29
-- return_20d: -11.23
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -9.95
+- ma5: 3141
+- ema23_primary: 3275.01
+- distance_to_ema23_pct: -10.69
+- ma20: 3237
+- ma60: 3534.25
+- ma120: 2797.92
+- return_5d: -10.55
+- return_20d: -15.71
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -9.64
 - distance_to_high_60_pct: -38.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,3420,3520,3370,3470,3440000,3678.25,-5.66,3874.5,3308.75,2.08
 20260529,3540,3545,3385,3410,3440000,3655.9,-6.73,3850.25,3326.67,1.92
 20260601,3480,3505,3215,3280,3291000,3624.57,-9.51,3805.25,3343.75,1.7
 20260602,3345,3530,3345,3530,3465,3616.69,-2.4,3759.5,3362.17,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,3400,3450,3150,3180,452000,3338.16,-4.74,3308.75,3512.5,0.25
 20260623,3190,3320,3180,3185,599000,3325.39,-4.22,3282.5,3519.17,0.37
 20260624,3190,3220,2980,3170,484000,3312.44,-4.3,3266.75,3523.25,0.33
-20260626,3265,3265,2925,2925,795000,3280.16,-10.83,3248.25,3524.92,0.59
+20260625,3265,3425,3185,3245,819000,3306.82,-1.87,3264.25,3530.25,0.6
+20260626,3265,3265,2925,2925,795000,3275.01,-10.69,3237,3534.25,0.65
 ```
 
 ## Latest TDCC Snapshot

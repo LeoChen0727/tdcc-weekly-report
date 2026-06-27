@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 195.5
 - close: 196.5
 - volume: 10113182
-- ma5: 204.3
-- ema23_primary: 192.48
-- distance_to_ema23_pct: 2.09
-- ma20: 196.18
-- ma60: 167.53
-- ma120: 126.14
-- return_5d: 9.17
-- return_20d: -14.19
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 0.17
+- ma5: 207.1
+- ema23_primary: 193.77
+- distance_to_ema23_pct: 1.41
+- ma20: 195.62
+- ma60: 169.4
+- ma120: 127.24
+- return_5d: 0.77
+- return_20d: -10.68
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 0.45
 - distance_to_high_60_pct: -15.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,227,232,214.5,220,8251746,181.13,21.46,183.4,134.4,0.89
 20260529,230.5,233,204,207.5,12661395,183.33,13.18,186.07,136.49,1.35
 20260601,211,211,198.5,202,6988644,184.89,9.26,188.28,138.54,0.76
 20260602,202,206,192,200,5245204,186.15,7.44,190.3,140.53,0.58
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,212,214.5,207,214.5,8471649,189.07,13.45,197.65,162.41,1.19
 20260623,214.5,220.5,195,198,19493338,189.81,4.31,197.72,164.03,2.55
 20260624,198.5,217.5,197,217.5,11732545,192.12,13.21,197.8,166,1.5
-20260626,211,213,195.5,196.5,10113182,192.48,2.09,196.18,167.53,1.32
+20260625,225.5,226,207.5,209,24331767,193.52,8,196.8,167.74,2.9
+20260626,211,213,195.5,196.5,10113182,193.77,1.41,195.62,169.4,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -187,8 +187,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2351 | 順德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2351 | 順德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

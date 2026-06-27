@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:08 Asia/Taipei
+- generated_at: 2026-06-27 22:23:11 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.15
 - close: 21.2
 - volume: 8409139
-- ma5: 21.29
-- ema23_primary: 20.84
-- distance_to_ema23_pct: 1.72
-- ma20: 20.78
-- ma60: 20.65
-- ma120: 21.7
-- return_5d: 0
+- ma5: 21.43
+- ema23_primary: 20.93
+- distance_to_ema23_pct: 1.29
+- ma20: 20.87
+- ma60: 20.66
+- ma120: 21.69
+- return_5d: -0.24
 - return_20d: 5.74
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 2.03
-- distance_to_high_60_pct: -3.64
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 1.57
+- distance_to_high_60_pct: -5.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.05,20.35,20.05,20.05,6605776,20.36,-1.51,20.3,20.92,1.29
 20260529,20.15,20.45,20.1,20.45,7943719,20.37,0.42,20.3,20.89,1.48
 20260601,20.5,20.8,20.25,20.7,11694180,20.39,1.51,20.33,20.87,2.04
 20260602,20.7,21,20.45,20.9,9998727,20.44,2.27,20.34,20.85,1.67
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.35,21.35,20.85,20.9,7773240,20.67,1.13,20.59,20.65,0.99
 20260623,20.95,21.5,20.95,21.4,10844456,20.73,3.24,20.64,20.64,1.36
 20260624,21.5,22,21.3,21.7,12524249,20.81,4.28,20.72,20.65,1.51
-20260626,21.95,21.95,21.15,21.2,8409139,20.84,1.72,20.78,20.65,1.01
+20260625,21.95,22.45,21.8,21.95,15459590,20.9,5,20.82,20.66,1.77
+20260626,21.95,21.95,21.15,21.2,8409139,20.93,1.29,20.87,20.66,0.95
 ```
 
 ## Latest TDCC Snapshot

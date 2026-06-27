@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1315 達新
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:33 Asia/Taipei
+- generated_at: 2026-06-27 22:22:37 Asia/Taipei
 - stock_id: 1315
 - stock_name: 達新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 283
+- price_rows: 284
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 62
 - volume: 20726
 - ma5: 62.24
-- ema23_primary: 61.83
-- distance_to_ema23_pct: 0.28
-- ma20: 61.78
-- ma60: 62.44
-- ma120: 63.31
-- return_5d: 0.49
-- return_20d: 0
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 0.35
+- ema23_primary: 61.87
+- distance_to_ema23_pct: 0.22
+- ma20: 61.82
+- ma60: 62.43
+- ma120: 63.3
+- return_5d: -0.48
+- return_20d: 0.65
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 0.29
 - distance_to_high_60_pct: -8.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,62,63,61.5,61.6,51199,61.72,-0.19,61.39,63.05,1.53
 20260529,61.8,62,61.6,61.6,34247,61.71,-0.18,61.35,62.99,1.11
 20260601,62.1,62.3,62,62.3,58997,61.76,0.88,61.36,62.97,1.8
 20260602,62.4,62.7,62,62.6,31257,61.83,1.25,61.38,62.95,0.93
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,62.5,63,62.2,62.2,35854,61.71,0.79,61.63,62.5,0.84
 20260623,62.9,63.5,62.2,62.4,51477,61.77,1.02,61.7,62.47,1.16
 20260624,61.3,62.3,61.3,62.3,7905,61.81,0.79,61.78,62.46,0.18
-20260626,61.7,62.2,61.7,62,20726,61.83,0.28,61.78,62.44,0.54
+20260625,62,62.3,62,62.3,13294,61.85,0.72,61.8,62.45,0.35
+20260626,61.7,62.2,61.7,62,20726,61.87,0.22,61.82,62.43,0.57
 ```
 
 ## Latest TDCC Snapshot

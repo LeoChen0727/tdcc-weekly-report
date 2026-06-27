@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7821 神數
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7821
 - stock_name: 神數
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 47
+- price_rows: 48
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,15 +118,15 @@
 - low: 41
 - close: 41.15
 - volume: 323165
-- ma5: 43.08
-- ema23_primary: 44.19
-- distance_to_ema23_pct: -6.88
+- ma5: 42.9
+- ema23_primary: 44.08
+- distance_to_ema23_pct: -6.65
 - ma20: 44.32
-- ma60: 45.04
-- ma120: 45.04
-- return_5d: -6.79
-- return_20d: -5.08
-- volume_ratio: 1.28
+- ma60: 45
+- ma120: 45
+- return_5d: -6.26
+- return_20d: -4.19
+- volume_ratio: 1.29
 - distance_to_ma20_pct_auxiliary: -7.15
 - distance_to_high_60_pct: -21.92
 
@@ -134,7 +134,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,43.05,43.8,42.7,42.95,276352,45.14,-4.86,44.73,45.48,0.98
 20260529,43.85,44.4,43.25,44.15,411736,45.06,-2.02,44.56,45.43,1.5
 20260601,44.7,46.65,44.15,46.2,699273,45.15,2.32,44.5,45.46,2.43
 20260602,46.8,46.8,45.6,46.05,452920,45.23,1.81,44.44,45.48,1.56
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,44,44.15,43.7,43.95,200187,44.71,-1.7,44.56,45.21,0.78
 20260623,44.45,44.45,43.2,43.25,150099,44.59,-3,44.49,45.17,0.59
 20260624,42.5,43.35,42.5,43.15,158515,44.47,-2.96,44.43,45.12,0.63
-20260626,42.6,42.6,41,41.15,323165,44.19,-6.88,44.32,45.04,1.28
+20260625,43.1,43.15,42.35,43,211228,44.35,-3.03,44.41,45.08,0.85
+20260626,42.6,42.6,41,41.15,323165,44.08,-6.65,44.32,45,1.29
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6173 信昌電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:09 Asia/Taipei
+- generated_at: 2026-06-27 22:24:10 Asia/Taipei
 - stock_id: 6173
 - stock_name: 信昌電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 276
 - close: 276
 - volume: 1595000
-- ma5: 297.5
-- ema23_primary: 251.43
-- distance_to_ema23_pct: 9.77
-- ma20: 258.5
-- ma60: 160.13
-- ma120: 113.83
-- return_5d: -8.15
-- return_20d: 22.12
+- ma5: 295.6
+- ema23_primary: 255.81
+- distance_to_ema23_pct: 7.89
+- ma20: 262.85
+- ma60: 164.22
+- ma120: 115.83
+- return_5d: -12.66
+- return_20d: 25.74
 - volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 6.77
+- distance_to_ma20_pct_auxiliary: 5
 - distance_to_high_60_pct: -13.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,218.5,240,214.5,219.5,225000,158.19,38.75,155.17,97.65,0.04
 20260529,227,237,213.5,237,227000,164.76,43.84,162.74,100.47,0.04
 20260601,237,256.5,237,237,245000,170.78,38.77,170.09,103.39,0.04
 20260602,225,231.5,214.5,231.5,220,175.84,31.65,177.05,106.17,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,303,310,295,305.5,1514000,240.4,27.08,248.28,148.77,0.27
 20260623,298,298,285,285,1629000,244.12,16.75,251.95,152.5,0.29
 20260624,284,305,278,305,914000,249.19,22.39,256,156.56,0.16
-20260626,297.5,297.5,276,276,1595000,251.43,9.77,258.5,160.13,0.27
+20260625,306.5,313,295,306.5,773000,253.97,20.68,260.02,160.64,0.13
+20260626,297.5,297.5,276,276,1595000,255.81,7.89,262.85,164.22,0.27
 ```
 
 ## Latest TDCC Snapshot

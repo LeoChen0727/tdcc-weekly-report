@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3576 聯合再生
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:33 Asia/Taipei
+- generated_at: 2026-06-27 22:23:36 Asia/Taipei
 - stock_id: 3576
 - stock_name: 聯合再生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 16.5
 - close: 16.5
 - volume: 19603341
-- ma5: 17.56
-- ema23_primary: 18.06
-- distance_to_ema23_pct: -8.63
-- ma20: 18.15
-- ma60: 17.88
-- ma120: 16.73
-- return_5d: -13.84
-- return_20d: -13.61
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -9.1
+- ma5: 17.41
+- ema23_primary: 17.99
+- distance_to_ema23_pct: -8.26
+- ma20: 18.1
+- ma60: 17.8
+- ma120: 16.8
+- return_5d: -8.33
+- return_20d: -9.59
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -8.85
 - distance_to_high_60_pct: -29.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19,19.7,18.2,18.25,29399181,17.91,1.9,17.5,19.54,0.94
 20260529,18.65,18.65,18.1,18.35,16566421,17.95,2.25,17.62,19.4,0.54
 20260601,18.4,18.9,18,18.5,20929809,17.99,2.82,17.77,19.31,0.68
 20260602,18.5,18.5,17.5,18.2,25933263,18.01,1.05,17.91,19.23,0.83
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.05,18.5,18,18.05,18162526,18.31,-1.41,18.43,18.2,0.53
 20260623,18.3,18.3,17.4,17.45,20990383,18.24,-4.31,18.34,18.11,0.63
 20260624,17.25,18.2,17.15,17.8,12164983,18.2,-2.2,18.28,17.99,0.39
-20260626,17.2,17.45,16.5,16.5,19603341,18.06,-8.63,18.15,17.88,0.63
+20260625,17.8,17.85,17.2,17.25,15638449,18.12,-4.81,18.19,17.89,0.51
+20260626,17.2,17.45,16.5,16.5,19603341,17.99,-8.26,18.1,17.8,0.64
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1319 東陽
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:33 Asia/Taipei
+- generated_at: 2026-06-27 22:22:37 Asia/Taipei
 - stock_id: 1319
 - stock_name: 東陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 77.3
 - close: 77.3
 - volume: 6873989
-- ma5: 84.04
-- ema23_primary: 90.27
-- distance_to_ema23_pct: -14.37
-- ma20: 94.44
-- ma60: 84.01
-- ma120: 90.83
-- return_5d: -24.59
-- return_20d: -1.78
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -18.15
+- ma5: 80.12
+- ema23_primary: 89.36
+- distance_to_ema23_pct: -13.5
+- ma20: 94.1
+- ma60: 83.97
+- ma120: 90.7
+- return_5d: -22.08
+- return_20d: -10.64
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -17.85
 - distance_to_high_60_pct: -28.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,86.5,86.5,86.5,86.5,4171274,80.11,7.97,79.44,81.42,1.32
 20260529,95.1,95.1,91.8,95.1,11135579,81.36,16.89,80.45,81.42,3.14
 20260601,91.1,92.6,86.9,87.5,18936391,81.87,6.87,81.08,81.35,4.34
 20260602,87.8,93.9,87.8,92.1,14762947,82.72,11.33,81.86,81.32,3.02
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,88.5,88.6,84.8,84.8,20044867,93.73,-9.53,94.61,84.28,2.26
 20260623,84.9,85,79.4,79.4,16393161,92.53,-14.19,94.55,84.19,1.72
 20260624,80,80,77.5,79.5,13388431,91.45,-13.07,94.52,84.11,1.32
-20260626,79.4,79.4,77.3,77.3,6873989,90.27,-14.37,94.44,84.01,0.67
+20260625,80,80.3,78.1,79.6,9710339,90.46,-12.01,94.56,84.05,0.93
+20260626,79.4,79.4,77.3,77.3,6873989,89.36,-13.5,94.1,83.97,0.65
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00920 富邦ESG綠色電力
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:28 Asia/Taipei
+- generated_at: 2026-06-27 22:22:32 Asia/Taipei
 - stock_id: 00920
 - stock_name: 富邦ESG綠色電力
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 25.51
 - close: 25.58
 - volume: 539861
-- ma5: 26.4
-- ema23_primary: 26.43
-- distance_to_ema23_pct: -3.23
-- ma20: 26.51
+- ma5: 26.45
+- ema23_primary: 26.44
+- distance_to_ema23_pct: -3.24
+- ma20: 26.48
 - ma60: 26.62
 - ma120: 26.62
-- return_5d: -2.59
-- return_20d: -7.59
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -3.49
+- return_5d: -2.81
+- return_20d: -5.57
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -3.4
 - distance_to_high_60_pct: -8.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.71,27.71,26.96,27.09,759756,26.81,1.06,27.18,27.18,1.22
 20260529,27.42,27.74,27.42,27.67,701901,26.88,2.95,27.26,27.26,1.1
 20260601,27.7,27.8,27.5,27.55,600341,26.93,2.29,27.3,27.3,0.95
 20260602,27.15,27.15,26.78,26.89,621917,26.93,-0.15,27.25,27.25,0.99
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27,27.03,26.82,26.88,797250,26.49,1.46,26.68,26.67,1.69
 20260623,27.15,27.28,26.88,26.88,491549,26.53,1.33,26.66,26.68,1.1
 20260624,26.27,26.33,26.11,26.33,523110,26.51,-0.68,26.61,26.67,1.16
-20260626,26.44,26.44,25.51,25.58,539861,26.43,-3.23,26.51,26.62,1.18
+20260625,26.4,26.63,26.4,26.57,414713,26.52,0.21,26.55,26.66,0.92
+20260626,26.44,26.44,25.51,25.58,539861,26.44,-3.24,26.48,26.62,1.23
 ```
 
 ## Latest TDCC Snapshot

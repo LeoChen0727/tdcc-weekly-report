@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:52 Asia/Taipei
+- generated_at: 2026-06-27 22:22:56 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 135.5
 - close: 141.5
 - volume: 988133
-- ma5: 137.1
-- ema23_primary: 136.06
+- ma5: 136.9
+- ema23_primary: 136.05
 - distance_to_ema23_pct: 4
-- ma20: 136.2
-- ma60: 132.24
-- ma120: 122.64
-- return_5d: 5.6
-- return_20d: 0
-- volume_ratio: 2.66
-- distance_to_ma20_pct_auxiliary: 3.89
+- ma20: 136.1
+- ma60: 132.64
+- ma120: 122.8
+- return_5d: 3.66
+- return_20d: 2.91
+- volume_ratio: 2.87
+- distance_to_ma20_pct_auxiliary: 3.97
 - distance_to_high_60_pct: -5.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,141,142.5,134.5,137.5,654902,136.1,1.03,137.7,124.2,1.17
 20260529,138,138.5,135,136.5,383121,136.14,0.27,137.93,124.58,0.67
 20260601,140,141.5,136,140.5,378352,136.5,2.93,137.97,125.1,0.69
 20260602,140,144.5,137.5,139,359157,136.71,1.68,137.95,125.55,0.67
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,138,139,134,137,249992,135.62,1.02,137.03,131.01,0.64
 20260623,137,138,132.5,135,221677,135.57,-0.42,136.55,131.41,0.61
 20260624,134,135.5,133,135.5,124553,135.56,-0.05,136.2,131.78,0.36
-20260626,135.5,144.5,135.5,141.5,988133,136.06,4,136.2,132.24,2.66
+20260625,136.5,136.5,134,135.5,118977,135.56,-0.04,135.9,132.14,0.36
+20260626,135.5,144.5,135.5,141.5,988133,136.05,4,136.1,132.64,2.87
 ```
 
 ## Latest TDCC Snapshot

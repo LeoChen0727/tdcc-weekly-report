@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:35 Asia/Taipei
+- generated_at: 2026-06-27 22:23:37 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 87
 - close: 87.1
 - volume: 1884760
-- ma5: 92.78
-- ema23_primary: 96.28
-- distance_to_ema23_pct: -9.53
-- ma20: 96.39
-- ma60: 97.73
-- ma120: 81.04
-- return_5d: -5.84
-- return_20d: -20.82
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -9.64
+- ma5: 92.24
+- ema23_primary: 95.85
+- distance_to_ema23_pct: -9.13
+- ma20: 95.78
+- ma60: 98.01
+- ma120: 81.34
+- return_5d: -7.64
+- return_20d: -16.25
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -9.06
 - distance_to_high_60_pct: -28.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,110,112,103,104,8231349,105.21,-1.15,105.66,91.35,0.65
 20260529,106.5,107.5,103.5,106.5,3804754,105.32,1.12,105.78,92,0.31
 20260601,107,108,104.5,107,4135290,105.46,1.46,106.25,92.74,0.34
 20260602,108,108,99.3,101.5,5421162,105.13,-3.45,106.27,93.39,0.45
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,95.5,96.8,94.7,96.1,2278150,97.84,-1.78,99.97,96.98,0.41
 20260623,97,97,92,92.1,1976151,97.37,-5.41,98.7,97.23,0.42
 20260624,90.6,94.4,90.6,94.3,1692762,97.11,-2.89,97.54,97.54,0.44
-20260626,91.6,92,87,87.1,1884760,96.28,-9.53,96.39,97.73,0.57
+20260625,94.6,95.3,91.5,91.6,1613740,96.65,-5.23,96.62,97.81,0.49
+20260626,91.6,92,87,87.1,1884760,95.85,-9.13,95.78,98.01,0.63
 ```
 
 ## Latest TDCC Snapshot

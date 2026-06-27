@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6220 岳豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:12 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6220
 - stock_name: 岳豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 36.9
 - close: 36.9
 - volume: 1358000
-- ma5: 38.63
-- ema23_primary: 35.37
-- distance_to_ema23_pct: 4.32
-- ma20: 35.31
-- ma60: 32.84
-- ma120: 31.78
-- return_5d: 3.07
-- return_20d: 5.73
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 4.51
+- ma5: 38.82
+- ema23_primary: 35.68
+- distance_to_ema23_pct: 3.41
+- ma20: 35.62
+- ma60: 32.95
+- ma120: 31.89
+- return_5d: -3.78
+- return_20d: 11.65
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 3.59
 - distance_to_high_60_pct: -10.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35,35,32.6,33.05,33000,31.35,5.42,30.67,33.37,0.16
 20260529,33.15,33.5,32.7,33.5,33000,31.53,6.25,30.87,33.26,0.16
 20260601,33.9,33.9,32.9,33.65,33000,31.71,6.13,31.04,33.16,0.18
 20260602,33.95,34.2,32.95,33.3,33,31.84,4.59,31.2,33.02,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.6,41.2,37.35,39.85,3935000,34.51,15.46,34.44,32.51,4.65
 20260623,39.85,40.2,38.7,39.35,1599000,34.92,12.69,34.86,32.64,1.73
 20260624,38.5,39.3,38.1,38.7,1359000,35.23,9.84,35.21,32.76,1.37
-20260626,39.3,39.3,36.9,36.9,1358000,35.37,4.32,35.31,32.84,1.28
+20260625,39.35,39.75,38.9,39.3,745000,35.57,10.48,35.43,32.88,0.73
+20260626,39.3,39.3,36.9,36.9,1358000,35.68,3.41,35.62,32.95,1.24
 ```
 
 ## Latest TDCC Snapshot

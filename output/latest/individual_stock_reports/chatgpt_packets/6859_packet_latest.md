@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6859 伯特光
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6859
 - stock_name: 伯特光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 122
 - close: 125
 - volume: 190000
-- ma5: 132.1
-- ema23_primary: 128.12
-- distance_to_ema23_pct: -2.43
-- ma20: 129.4
-- ma60: 122.35
-- ma120: 118.92
+- ma5: 130.2
+- ema23_primary: 128.2
+- distance_to_ema23_pct: -2.5
+- ma20: 129.62
+- ma60: 122.57
+- ma120: 119.02
 - return_5d: -10.07
-- return_20d: 2.88
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -3.4
+- return_20d: 0
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -3.57
 - distance_to_high_60_pct: -11.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,122.5,129.5,122.5,125,126000,120.18,4.01,120.47,120.06,1.13
 20260529,126,128,124.5,127,126000,120.74,5.18,120.58,120.22,1.14
 20260601,127,133.5,124,132,130000,121.68,8.48,120.95,120.5,1.15
 20260602,131,134.5,126,128.5,129,122.25,5.11,121.17,120.74,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,139,140.5,135,135.5,307000,128,5.86,128.3,121.95,1.54
 20260623,136.5,136.5,130,130,214000,128.17,1.43,128.85,122.12,1.05
 20260624,131.5,132.5,129.5,131,89000,128.4,2.02,129.22,122.27,0.44
-20260626,130,130,122,125,190000,128.12,-2.43,129.4,122.35,0.92
+20260625,131,133,129.5,129.5,40000,128.49,0.78,129.62,122.42,0.2
+20260626,130,130,122,125,190000,128.2,-2.5,129.62,122.57,0.94
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4908 前鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4908
 - stock_name: 前鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 185
 - close: 185
 - volume: 1565000
-- ma5: 202.5
-- ema23_primary: 211.25
-- distance_to_ema23_pct: -12.43
-- ma20: 213.03
-- ma60: 200.23
-- ma120: 142.71
-- return_5d: -4.15
-- return_20d: -28.71
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -13.16
+- ma5: 199.2
+- ema23_primary: 209.86
+- distance_to_ema23_pct: -11.85
+- ma20: 210.85
+- ma60: 201.74
+- ma120: 143.67
+- return_5d: -12.74
+- return_20d: -22.59
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -12.26
 - distance_to_high_60_pct: -40.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,260.5,260.5,234.5,239,246000,233.34,2.42,244.85,165.9,0.2
 20260529,242.5,242.5,231.5,233,236000,233.31,-0.13,245.8,168.03,0.2
 20260601,234.5,237.5,227,227.5,230000,232.83,-2.29,245.43,170.16,0.19
 20260602,239,249.5,230.5,232,240,232.76,-0.33,244.53,172.33,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,212.5,213.5,199,201,2965000,214.88,-6.46,225.03,195.79,2.88
 20260623,204,221,200.5,211.5,5587000,214.6,-1.45,220.93,197.42,4.31
 20260624,205,212.5,197.5,203,2215000,213.63,-4.98,216.75,199.03,1.59
-20260626,193,198.5,185,185,1565000,211.25,-12.43,213.03,200.23,1.07
+20260625,205.5,212,193,195.5,2128000,212.12,-7.84,213.55,200.41,1.43
+20260626,193,198.5,185,185,1565000,209.86,-11.85,210.85,201.74,1.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6649 台生材
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:24 Asia/Taipei
+- generated_at: 2026-06-27 22:24:25 Asia/Taipei
 - stock_id: 6649
 - stock_name: 台生材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 35.8
 - close: 38.95
 - volume: 161000
-- ma5: 37.45
-- ema23_primary: 38.33
-- distance_to_ema23_pct: 1.62
-- ma20: 38.31
-- ma60: 39.74
-- ma120: 42.55
-- return_5d: 4.01
-- return_20d: 1.43
-- volume_ratio: 4.04
-- distance_to_ma20_pct_auxiliary: 1.66
+- ma5: 37.37
+- ema23_primary: 38.24
+- distance_to_ema23_pct: 1.85
+- ma20: 38.26
+- ma60: 39.62
+- ma120: 42.46
+- return_5d: 3.87
+- return_20d: 1.7
+- volume_ratio: 4.1
+- distance_to_ma20_pct_auxiliary: 1.82
 - distance_to_high_60_pct: -17.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,38,38.45,38,38.3,38000,39.37,-2.71,39.28,40.77,0.89
 20260529,38.45,38.7,37.95,38.4,38000,39.29,-2.26,39.17,40.72,0.93
 20260601,38.3,38.4,37.35,38.05,38000,39.18,-2.9,39.09,40.65,0.93
 20260602,38.05,38.4,38,38.4,38,39.12,-1.84,39.03,40.6,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,37.5,37.5,36.95,37.4,64000,38.57,-3.04,38.48,40.1,2
 20260623,37.4,37.4,36.45,36.45,91000,38.39,-5.07,38.38,39.98,2.62
 20260624,36.45,36.95,36.35,36.95,17000,38.27,-3.46,38.29,39.85,0.51
-20260626,36.2,39.65,35.8,38.95,161000,38.33,1.62,38.31,39.74,4.04
+20260625,36.45,37.45,36,37.1,27000,38.18,-2.82,38.22,39.71,0.82
+20260626,36.2,39.65,35.8,38.95,161000,38.24,1.85,38.26,39.62,4.1
 ```
 
 ## Latest TDCC Snapshot

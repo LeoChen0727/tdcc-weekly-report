@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5234 達興材料
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:55 Asia/Taipei
+- generated_at: 2026-06-27 22:23:57 Asia/Taipei
 - stock_id: 5234
 - stock_name: 達興材料
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 376
 - close: 377.5
 - volume: 550424
-- ma5: 389.6
-- ema23_primary: 395.89
-- distance_to_ema23_pct: -4.64
-- ma20: 393.68
-- ma60: 407.29
-- ma120: 386.97
-- return_5d: -1.31
-- return_20d: -11.38
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -4.11
+- ma5: 387.2
+- ema23_primary: 394.85
+- distance_to_ema23_pct: -4.39
+- ma20: 392.3
+- ma60: 408
+- ma120: 387.32
+- return_5d: -4.67
+- return_20d: -8.26
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -3.77
 - distance_to_high_60_pct: -24.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,426,434.5,406.5,411.5,846915,420,-2.02,419.73,403.42,0.94
 20260529,415,418,406,409,670462,419.08,-2.41,417.95,403.77,0.76
 20260601,411,415,406,412.5,522893,418.53,-1.44,416.9,404.27,0.6
 20260602,412.5,412.5,396.5,403,811209,417.24,-3.41,415.62,404.32,0.92
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,400,405.5,396,400,365063,399.5,0.12,401.8,406.12,0.59
 20260623,403,403,385,385,403044,398.29,-3.34,398.57,406.42,0.69
 20260624,384,391.5,379,389.5,428042,397.56,-2.03,396.1,406.94,0.77
-20260626,383,398.5,376,377.5,550424,395.89,-4.64,393.68,407.29,1.01
+20260625,385.5,392.5,383.5,384,301347,396.43,-3.14,394,407.4,0.57
+20260626,383,398.5,376,377.5,550424,394.85,-4.39,392.3,408,1.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6929 佑全
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:35 Asia/Taipei
 - stock_id: 6929
 - stock_name: 佑全
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 151
+- price_rows: 152
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.85
 - close: 22.6
 - volume: 11000
-- ma5: 23.71
-- ema23_primary: 23.72
-- distance_to_ema23_pct: -4.72
-- ma20: 23.36
-- ma60: 25.7
-- ma120: 29.1
-- return_5d: -7.76
-- return_20d: 5.61
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -3.23
+- ma5: 23.4
+- ema23_primary: 23.66
+- distance_to_ema23_pct: -4.49
+- ma20: 23.43
+- ma60: 25.57
+- ma120: 29.02
+- return_5d: -8.13
+- return_20d: 4.87
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -3.54
 - distance_to_high_60_pct: -30.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,21.4,22,21.4,21.55,22000,24.27,-11.2,23.79,28.39,1.15
 20260529,22.1,22.15,21.65,21.65,22000,24.05,-9.98,23.56,28.22,1.1
 20260601,21.9,22.05,21.9,22.05,22000,23.88,-7.68,23.35,28.05,1.08
 20260602,21.8,22,21.05,22,22,23.73,-7.28,23.14,27.9,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.35,24.35,23.2,24.1,11000,23.86,1.01,23.17,26.14,0.63
 20260623,24.05,24.05,22.9,23.7,8000,23.85,-0.62,23.22,26,0.48
 20260624,24.4,24.4,22.8,23.55,5000,23.82,-1.14,23.3,25.86,0.32
-20260626,22.05,22.75,21.85,22.6,11000,23.72,-4.72,23.36,25.7,0.72
+20260625,23.9,23.9,22.3,23.05,5000,23.76,-2.98,23.38,25.71,0.33
+20260626,22.05,22.75,21.85,22.6,11000,23.66,-4.49,23.43,25.57,0.76
 ```
 
 ## Latest TDCC Snapshot

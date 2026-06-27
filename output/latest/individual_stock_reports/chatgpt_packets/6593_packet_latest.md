@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6593 台灣銘板
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:24 Asia/Taipei
 - stock_id: 6593
 - stock_name: 台灣銘板
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 33.2
 - close: 33.2
 - volume: 100000
-- ma5: 34.36
-- ema23_primary: 34.8
-- distance_to_ema23_pct: -4.6
-- ma20: 34.77
-- ma60: 35.83
-- ma120: 36.93
-- return_5d: -5.14
+- ma5: 34.19
+- ema23_primary: 34.75
+- distance_to_ema23_pct: -4.46
+- ma20: 34.73
+- ma60: 35.78
+- ma120: 36.89
+- return_5d: -5.41
 - return_20d: -5.14
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: -4.5
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: -4.4
 - distance_to_high_60_pct: -14.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,34.65,35.15,34.65,35,35000,35.6,-1.68,35.29,37.08,0.46
 20260529,35,35.2,34.75,34.9,35000,35.54,-1.8,35.24,37,0.46
 20260601,35.2,35.2,34.7,35.15,35000,35.51,-1.01,35.21,36.93,0.47
 20260602,35.15,35.15,34.65,35.05,35,35.47,-1.18,35.17,36.84,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.85,35,34.65,34.65,34000,35.05,-1.13,34.95,36.04,0.55
 20260623,34.55,34.65,33.65,34.4,101000,34.99,-1.7,34.89,35.98,1.56
 20260624,34.6,35,34.35,34.45,21000,34.95,-1.43,34.85,35.92,0.33
-20260626,34,34.2,33.2,33.2,100000,34.8,-4.6,34.77,35.83,1.49
+20260625,34.45,34.45,33.1,34.25,111000,34.89,-1.83,34.82,35.84,1.64
+20260626,34,34.2,33.2,33.2,100000,34.75,-4.46,34.73,35.78,1.41
 ```
 
 ## Latest TDCC Snapshot

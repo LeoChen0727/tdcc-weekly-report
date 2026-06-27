@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8093 保銳
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:49 Asia/Taipei
+- generated_at: 2026-06-27 22:24:49 Asia/Taipei
 - stock_id: 8093
 - stock_name: 保銳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 146
+- price_rows: 147
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.9
 - close: 18.9
 - volume: 11000
-- ma5: 19.13
-- ema23_primary: 18.77
-- distance_to_ema23_pct: 0.71
-- ma20: 18.55
-- ma60: 19.14
-- ma120: 18.65
-- return_5d: -0.79
-- return_20d: 3.85
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 1.91
+- ma5: 19.17
+- ema23_primary: 18.82
+- distance_to_ema23_pct: 0.41
+- ma20: 18.62
+- ma60: 19.15
+- ma120: 18.7
+- return_5d: -2.07
+- return_20d: 5
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 1.5
 - distance_to_high_60_pct: -10.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,18.2,18.2,17.8,18,18000,18.83,-4.43,18.93,19.38,0.74
 20260528,17.3,18,17.3,17.5,18000,18.72,-6.53,18.84,19.36,0.73
 20260529,18,18.1,17.5,18.1,18000,18.67,-3.06,18.78,19.36,0.71
 20260601,18.4,18.6,17.75,18.6,18000,18.67,-0.35,18.71,19.35,0.72
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19.3,19.6,18.6,19.6,22000,18.72,4.69,18.44,19.17,1.23
 20260623,18.85,18.85,18.85,18.85,1000,18.73,0.63,18.46,19.16,0.06
 20260624,18.9,19.05,18.9,19,11000,18.75,1.31,18.51,19.15,0.66
-20260626,19,19,18.9,18.9,11000,18.77,0.71,18.55,19.14,0.67
+20260625,19.05,19.5,19.05,19.5,8000,18.82,3.63,18.57,19.15,0.49
+20260626,19,19,18.9,18.9,11000,18.82,0.41,18.62,19.15,0.69
 ```
 
 ## Latest TDCC Snapshot

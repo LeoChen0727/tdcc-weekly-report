@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6918 愛派司
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:33 Asia/Taipei
+- generated_at: 2026-06-27 22:24:34 Asia/Taipei
 - stock_id: 6918
 - stock_name: 愛派司
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 248
+- price_rows: 249
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 72.1
 - close: 73.2
 - volume: 31232
-- ma5: 73.56
-- ema23_primary: 73.79
-- distance_to_ema23_pct: -0.81
-- ma20: 73.56
-- ma60: 74.67
-- ma120: 79.27
-- return_5d: -0.68
-- return_20d: 0.14
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -0.48
-- distance_to_high_60_pct: -10.73
+- ma5: 73.46
+- ema23_primary: 73.76
+- distance_to_ema23_pct: -0.76
+- ma20: 73.58
+- ma60: 74.55
+- ma120: 79.16
+- return_5d: -0.95
+- return_20d: 0.27
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -0.51
+- distance_to_high_60_pct: -10.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,73,74.8,72.9,73,28474,74.79,-2.4,74.67,77.85,0.5
 20260529,74.5,74.7,73.3,73.3,25819,74.67,-1.83,74.65,77.68,0.46
 20260601,73.9,73.9,72.2,73.5,77440,74.57,-1.44,74.63,77.54,1.35
 20260602,73.6,74.1,73.3,73.7,32000,74.5,-1.07,74.64,77.45,0.58
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,74.2,74.2,73.3,74,32860,73.94,0.08,73.59,75.23,0.8
 20260623,73.4,73.7,73.2,73.2,16000,73.88,-0.92,73.55,75.04,0.41
 20260624,74.8,74.8,72.6,73.5,30201,73.85,-0.47,73.55,74.86,0.78
-20260626,74.1,74.1,72.1,73.2,31232,73.79,-0.81,73.56,74.67,0.84
+20260625,74.1,76,73.4,73.4,50560,73.81,-0.56,73.56,74.67,1.32
+20260626,74.1,74.1,72.1,73.2,31232,73.76,-0.76,73.58,74.55,0.82
 ```
 
 ## Latest TDCC Snapshot

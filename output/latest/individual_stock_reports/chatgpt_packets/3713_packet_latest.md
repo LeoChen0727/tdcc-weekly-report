@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3713 新晶投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:38 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3713
 - stock_name: 新晶投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.3
 - close: 14.6
 - volume: 61000
-- ma5: 14.84
-- ema23_primary: 15.33
-- distance_to_ema23_pct: -4.78
-- ma20: 15.89
-- ma60: 15.05
-- ma120: 17.6
-- return_5d: -7.89
-- return_20d: -6.41
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -8.15
+- ma5: 14.63
+- ema23_primary: 15.27
+- distance_to_ema23_pct: -4.4
+- ma20: 15.84
+- ma60: 15.01
+- ma120: 17.52
+- return_5d: -6.71
+- return_20d: -7.01
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -7.83
 - distance_to_high_60_pct: -21.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14.05,16.7,14.05,15.7,15000,14.3,9.77,13.98,15.64,0.15
 20260529,17,17,15.3,15.75,16000,14.42,9.2,14.03,15.58,0.17
 20260601,15.05,16.5,15.05,16.05,16000,14.56,10.25,14.09,15.55,0.17
 20260602,16.05,17.65,15.8,17.1,17,14.77,15.77,14.22,15.52,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.5,15.5,14.6,15.05,177000,15.58,-3.4,15.86,15.2,2.99
 20260623,15,15,14.3,14.5,105000,15.49,-6.39,15.94,15.14,1.65
 20260624,14.5,14.7,14.15,14.4,62000,15.4,-6.49,15.95,15.09,0.94
-20260626,14.7,14.8,14.3,14.6,61000,15.33,-4.78,15.89,15.05,0.89
+20260625,14.4,14.7,14.4,14.6,32000,15.33,-4.78,15.89,15.05,0.48
+20260626,14.7,14.8,14.3,14.6,61000,15.27,-4.4,15.84,15.01,0.88
 ```
 
 ## Latest TDCC Snapshot

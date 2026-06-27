@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4571 鈞興-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:46 Asia/Taipei
+- generated_at: 2026-06-27 22:23:48 Asia/Taipei
 - stock_id: 4571
 - stock_name: 鈞興-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 162
 - close: 162.5
 - volume: 501956
-- ma5: 175.1
-- ema23_primary: 186.06
-- distance_to_ema23_pct: -12.66
-- ma20: 188.38
-- ma60: 184.05
-- ma120: 177.26
-- return_5d: -9.22
-- return_20d: -25.46
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: -13.74
+- ma5: 172.9
+- ema23_primary: 184.7
+- distance_to_ema23_pct: -12.02
+- ma20: 186.3
+- ma60: 184.32
+- ma120: 177.33
+- return_5d: -10.47
+- return_20d: -23.35
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -12.78
 - distance_to_high_60_pct: -32.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,218.5,226,206,212,1353039,204.19,3.83,207.25,176.98,0.75
 20260529,213.5,229.5,211,222,1302155,205.67,7.94,209.43,177.68,0.71
 20260601,223.5,225,216,217.5,747432,206.66,5.25,210.6,178.44,0.44
 20260602,218,218.5,196,198,2198919,205.93,-3.85,210.53,178.84,1.33
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,183.5,185,181.5,181.5,349168,190.74,-4.84,196.2,183.54,0.45
 20260623,183,183,175,179,458117,189.76,-5.67,193.8,183.82,0.63
 20260624,171.5,174,168.5,171,379739,188.2,-9.14,191.15,183.99,0.54
-20260626,170,170,162,162.5,501956,186.06,-12.66,188.38,184.05,0.78
+20260625,172.5,174,170,170.5,242338,186.72,-8.69,188.78,184.18,0.39
+20260626,170,170,162,162.5,501956,184.7,-12.02,186.3,184.32,0.86
 ```
 
 ## Latest TDCC Snapshot

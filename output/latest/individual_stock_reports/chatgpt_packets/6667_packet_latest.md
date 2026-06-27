@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6667 信紘科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:25 Asia/Taipei
+- generated_at: 2026-06-27 22:24:26 Asia/Taipei
 - stock_id: 6667
 - stock_name: 信紘科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 260
 - close: 260
 - volume: 414000
-- ma5: 276.5
-- ema23_primary: 271.38
-- distance_to_ema23_pct: -4.19
-- ma20: 273.8
-- ma60: 264.82
-- ma120: 260.48
-- return_5d: -6.14
-- return_20d: -1.7
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -5.04
+- ma5: 273.8
+- ema23_primary: 271
+- distance_to_ema23_pct: -4.06
+- ma20: 273.77
+- ma60: 265.27
+- ma120: 260.43
+- return_5d: -7.47
+- return_20d: -2.99
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -5.03
 - distance_to_high_60_pct: -14.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,266.5,282,260.5,268,272000,260.04,3.06,259.38,257.98,0.6
 20260529,283,288.5,281,287,285000,262.28,9.42,260.43,258.33,0.65
 20260601,284,284.5,277,278.5,279000,263.63,5.64,261.02,258.77,0.67
 20260602,276,277.5,265,269.5,269,264.12,2.04,261.05,258.8,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,286.5,294,284,292,2301000,271.98,7.36,272.82,263.77,3.92
 20260623,283,285,275,276,1117000,272.31,1.35,273.7,264.15,1.77
 20260624,275,275,269,273.5,514000,272.41,0.4,274.02,264.59,0.8
-20260626,267,270,260,260,414000,271.38,-4.19,273.8,264.82,0.64
+20260625,274.5,275.5,266.5,267.5,514000,272,-1.65,274.18,264.95,0.79
+20260626,267,270,260,260,414000,271,-4.06,273.77,265.27,0.63
 ```
 
 ## Latest TDCC Snapshot

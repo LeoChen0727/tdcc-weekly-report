@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3062 建漢
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:19 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3062
 - stock_name: 建漢
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 24
 - close: 24
 - volume: 4205932
-- ma5: 25.21
-- ema23_primary: 26.59
-- distance_to_ema23_pct: -9.74
-- ma20: 27.15
-- ma60: 28.2
-- ma120: 26.55
-- return_5d: -6.43
-- return_20d: -17.81
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -11.59
+- ma5: 25.01
+- ema23_primary: 26.45
+- distance_to_ema23_pct: -9.25
+- ma20: 26.93
+- ma60: 28.11
+- ma120: 26.56
+- return_5d: -7.51
+- return_20d: -18.37
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -10.86
 - distance_to_high_60_pct: -29.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.6,30.85,29,29.4,13029290,28.42,3.46,27.87,27.41,1.31
 20260529,30.2,31,29.6,30.7,10542243,28.61,7.32,28.16,27.48,1.02
 20260601,31.5,31.95,30.8,31.1,16737596,28.81,7.93,28.43,27.59,1.54
 20260602,31.3,31.7,30.1,31.4,14200637,29.03,8.17,28.67,27.69,1.25
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.1,26.3,25.7,25.8,5671908,27.14,-4.95,27.96,28.28,0.62
 20260623,26.05,26.05,24.85,25.2,4995003,26.98,-6.61,27.66,28.27,0.62
 20260624,25.3,25.45,24.75,25.1,3320655,26.83,-6.43,27.41,28.27,0.44
-20260626,24.9,25,24,24,4205932,26.59,-9.74,27.15,28.2,0.58
+20260625,25.35,25.35,24.7,24.95,2651295,26.67,-6.45,27.2,28.22,0.37
+20260626,24.9,25,24,24,4205932,26.45,-9.25,26.93,28.11,0.62
 ```
 
 ## Latest TDCC Snapshot

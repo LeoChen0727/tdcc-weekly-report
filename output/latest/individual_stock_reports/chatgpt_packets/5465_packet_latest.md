@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5465 富驊
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:00 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5465
 - stock_name: 富驊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 24.5
 - close: 24.75
 - volume: 162000
-- ma5: 25.41
-- ema23_primary: 25.89
-- distance_to_ema23_pct: -4.39
-- ma20: 26.33
-- ma60: 25.66
-- ma120: 27.3
-- return_5d: -5.17
-- return_20d: -7.65
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -6.01
+- ma5: 25.26
+- ema23_primary: 25.82
+- distance_to_ema23_pct: -4.13
+- ma20: 26.29
+- ma60: 25.65
+- ma120: 27.27
+- return_5d: -4.26
+- return_20d: -4.81
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: -5.85
 - distance_to_high_60_pct: -13.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.1,27.75,25.85,26,27000,25.31,2.72,25.03,25.86,0.27
 20260529,26.25,26.5,26,26.1,26000,25.38,2.85,25.09,25.82,0.27
 20260601,26.3,27.6,26.3,27.1,27000,25.52,6.19,25.2,25.82,0.3
 20260602,27.4,28.2,27.15,27.9,28,25.72,8.48,25.35,25.82,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.85,25.85,25.55,25.7,139000,26.11,-1.56,26.43,25.7,1.49
 20260623,25.7,25.7,25.3,25.5,151000,26.06,-2.13,26.45,25.7,1.51
 20260624,25.2,25.5,25.15,25.25,111000,25.99,-2.84,26.43,25.68,1.07
-20260626,25.1,25.1,24.5,24.75,162000,25.89,-4.39,26.33,25.66,1.46
+20260625,25.25,25.4,24.85,25.1,152000,25.91,-3.14,26.35,25.67,1.38
+20260626,25.1,25.1,24.5,24.75,162000,25.82,-4.13,26.29,25.65,1.38
 ```
 
 ## Latest TDCC Snapshot

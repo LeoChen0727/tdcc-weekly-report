@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1515 力山
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:39 Asia/Taipei
+- generated_at: 2026-06-27 22:22:42 Asia/Taipei
 - stock_id: 1515
 - stock_name: 力山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 29.9
 - close: 30.5
 - volume: 8162379
-- ma5: 27.52
-- ema23_primary: 24.91
-- distance_to_ema23_pct: 22.46
-- ma20: 24.5
-- ma60: 23.34
-- ma120: 24.91
-- return_5d: 18.68
+- ma5: 28.28
+- ema23_primary: 25.31
+- distance_to_ema23_pct: 20.5
+- ma20: 24.89
+- ma60: 23.43
+- ma120: 24.93
+- return_5d: 17.76
 - return_20d: 38.95
-- volume_ratio: 3.75
-- distance_to_ma20_pct_auxiliary: 24.48
+- volume_ratio: 3.44
+- distance_to_ma20_pct_auxiliary: 22.54
 - distance_to_high_60_pct: -4.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.25,22.45,21.6,21.95,590876,22.49,-2.4,22.32,23.42,1.13
 20260529,21.85,22.15,21.15,21.8,2330650,22.43,-2.82,22.31,23.35,3.7
 20260601,21.8,22.2,21.5,22.1,1313444,22.4,-1.36,22.33,23.3,1.93
 20260602,22.25,22.25,21.7,22,623563,22.37,-1.66,22.33,23.25,0.89
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.25,27.75,26,27.4,2537843,23.92,14.54,23.67,23.15,1.46
 20260623,27.4,27.4,26.3,26.8,1328951,24.16,10.92,23.86,23.19,0.75
 20260624,26.8,27.5,26.4,27,1279394,24.4,10.67,24.07,23.23,0.7
-20260626,30,32,29.9,30.5,8162379,24.91,22.46,24.5,23.34,3.75
+20260625,27.35,29.7,27.15,29.7,4499535,24.84,19.57,24.46,23.32,2.26
+20260626,30,32,29.9,30.5,8162379,25.31,20.5,24.89,23.43,3.44
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1515 | 力山 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1515 | 力山 | true_breakout | 嚴格突破 | 96.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

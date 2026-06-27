@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:55 Asia/Taipei
+- generated_at: 2026-06-27 22:24:55 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48.1
 - close: 48.1
 - volume: 1373336
-- ma5: 50.02
-- ema23_primary: 48.8
-- distance_to_ema23_pct: -1.44
-- ma20: 51.66
-- ma60: 41.91
-- ma120: 39.94
-- return_5d: -4.37
-- return_20d: 12.25
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -6.89
+- ma5: 49.94
+- ema23_primary: 48.86
+- distance_to_ema23_pct: -1.55
+- ma20: 51.84
+- ma60: 42.09
+- ma120: 40.05
+- return_5d: -3.8
+- return_20d: 4.68
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -7.21
 - distance_to_high_60_pct: -15.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,43.8,46.95,43.8,45.95,4176058,38.66,18.87,37.38,37.6,2.96
 20260529,46.7,50.5,46.1,50.4,6820723,39.63,27.16,38.1,37.81,3.98
 20260601,52.4,55.4,50.8,55.4,6381007,40.95,35.29,39.1,38.14,3.2
 20260602,55.7,57,53.9,56,12715329,42.2,32.7,40.15,38.45,4.92
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,50,51,49.15,50.8,2389618,48.54,4.66,50.53,41.43,0.56
 20260623,50.9,51.5,49.65,50.8,1276106,48.72,4.26,50.98,41.59,0.3
 20260624,50.8,52.3,50,50.4,1713271,48.86,3.14,51.4,41.76,0.4
-20260626,49.6,49.95,48.1,48.1,1373336,48.8,-1.44,51.66,41.91,0.33
+20260625,51,51,49.35,49.6,1250049,48.93,1.38,51.73,41.93,0.3
+20260626,49.6,49.95,48.1,48.1,1373336,48.86,-1.55,51.84,42.09,0.34
 ```
 
 ## Latest TDCC Snapshot

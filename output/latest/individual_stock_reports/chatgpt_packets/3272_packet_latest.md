@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3272 東碩
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:25 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3272
 - stock_name: 東碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 15.6
 - close: 15.9
 - volume: 125000
-- ma5: 16.31
-- ema23_primary: 16.82
-- distance_to_ema23_pct: -5.44
-- ma20: 16.89
+- ma5: 16.17
+- ema23_primary: 16.75
+- distance_to_ema23_pct: -5.06
+- ma20: 16.88
 - ma60: 17.14
-- ma120: 18.07
-- return_5d: -5.36
-- return_20d: -3.93
+- ma120: 18.04
+- return_5d: -4.79
+- return_20d: -2.45
 - volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: -5.89
+- distance_to_ma20_pct_auxiliary: -5.81
 - distance_to_high_60_pct: -30.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.3,16.55,16.1,16.3,16000,17.38,-6.24,17.69,17.21,0.14
 20260529,16.5,17.9,16.5,17.9,18000,17.43,2.71,17.69,17.2,0.16
 20260601,17.1,18.6,16.85,18.2,18000,17.49,4.05,17.73,17.22,0.17
 20260602,18.3,18.3,17.7,17.9,18,17.53,2.14,17.66,17.22,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.8,16.8,16.45,16.65,135000,17.04,-2.3,16.99,17.17,2.4
 20260623,16.5,16.5,16.05,16.3,122000,16.98,-4.01,16.96,17.16,1.99
 20260624,16.3,16.3,15.95,16,68000,16.9,-5.32,16.93,17.16,1.06
-20260626,15.9,15.95,15.6,15.9,125000,16.82,-5.44,16.89,17.14,1.8
+20260625,16.05,16.1,15.95,16,20000,16.82,-4.9,16.9,17.15,0.31
+20260626,15.9,15.95,15.6,15.9,125000,16.75,-5.06,16.88,17.14,1.8
 ```
 
 ## Latest TDCC Snapshot

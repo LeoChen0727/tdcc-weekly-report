@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6180 橘子
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:09 Asia/Taipei
+- generated_at: 2026-06-27 22:24:11 Asia/Taipei
 - stock_id: 6180
 - stock_name: 橘子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 47.5
 - close: 49
 - volume: 3793000
-- ma5: 49.97
-- ema23_primary: 45.82
-- distance_to_ema23_pct: 6.95
-- ma20: 45.61
-- ma60: 42.23
-- ma120: 46.2
-- return_5d: -2.78
-- return_20d: 22.65
-- volume_ratio: 1.99
-- distance_to_ma20_pct_auxiliary: 7.43
+- ma5: 49.43
+- ema23_primary: 45.97
+- distance_to_ema23_pct: 6.58
+- ma20: 46.02
+- ma60: 42.31
+- ma120: 46.16
+- return_5d: -2.58
+- return_20d: 24.52
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: 6.46
 - distance_to_high_60_pct: -5.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.9,39.9,39.1,39.35,39000,39.78,-1.08,39.16,42.21,0.11
 20260529,39.5,41.4,39.45,40.8,41000,39.86,2.35,39.23,42.04,0.12
 20260601,41.8,42.1,40.9,42,42000,40.04,4.89,39.4,41.91,0.14
 20260602,42.3,44.25,41.95,44,43,40.37,8.99,39.66,41.8,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,50.3,51.9,49,51.4,4738000,44.76,14.82,44.19,41.94,3.19
 20260623,51.4,51.7,49.5,50.3,2054000,45.23,11.22,44.75,42.05,1.29
 20260624,49.05,52.1,48.6,48.85,2695000,45.53,7.3,45.16,42.14,1.57
-20260626,47.5,51,47.5,49,3793000,45.82,6.95,45.61,42.23,1.99
+20260625,49.5,49.55,47.25,47.6,1538000,45.7,4.16,45.54,42.21,0.86
+20260626,47.5,51,47.5,49,3793000,45.97,6.58,46.02,42.31,1.91
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6180 | 橘子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_2_3d | 1.發生變動日期:115/06/24 2.功能性委員會名稱:提名委員會 3.舊任者姓名: (1)劉柏園 (2)盛保熙 (3)林瑞益 (4)陳冠百 (5)侯嘉騏 4.舊任者簡歷: (1)劉柏園/遊戲橘子數位科技(股)公司董事長暨執行長 (2)盛保熙/保瑞藥業(股)公司董事長暨總經理 (3)林瑞益/星瑞林(股)公司董事長 (4)陳冠百/百川國際投資(股)公司董事長 (5)侯嘉騏/雋揚國際(股)公司董事長 5.新任者姓名: (1)劉柏園 (2)盛保熙 (3)林瑞益 (4)陳冠百 (5)侯嘉騏 6.新任者簡歷: (1)劉柏園/遊戲橘子數位科技(股)公司董事長暨執行長 (2)盛保熙/保瑞藥業(股)公司董事長暨總經理 (3)林瑞益/星瑞林(股)公司董事長 (4)陳冠百/百川國際投資(股)公司董事長 (5)侯嘉騏/雋揚國際(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/20~115/06/19 10.新任生效日期:115/06/24 11.其他應敘明事項:新任委員任期與本屆董事會任期相同；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6180 | 橘子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過修訂本公司「取得或處分資產處理程序」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

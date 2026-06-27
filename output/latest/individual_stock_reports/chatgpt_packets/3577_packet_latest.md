@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3577 泓格
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:33 Asia/Taipei
+- generated_at: 2026-06-27 22:23:36 Asia/Taipei
 - stock_id: 3577
 - stock_name: 泓格
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,22 +119,21 @@
 - close: 118
 - volume: 251000
 - ma5: 121.6
-- ema23_primary: 125.05
-- distance_to_ema23_pct: -5.64
-- ma20: 132.55
-- ma60: 107.32
-- ma120: 85.14
-- return_5d: -0.84
-- return_20d: -19.45
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -10.98
+- ema23_primary: 124.73
+- distance_to_ema23_pct: -5.4
+- ma20: 130.57
+- ma60: 108.14
+- ma120: 85.63
+- return_5d: -2.88
+- return_20d: -26.71
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -9.63
 - distance_to_high_60_pct: -31.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,146.5,161,145,161,158000,119.11,35.17,115.46,85.73,0.15
 20260529,162,173.5,156,157.5,160000,122.31,28.77,118.97,87.36,0.16
 20260601,158,168.5,151.5,153,158000,124.87,22.53,122.17,88.94,0.16
 20260602,152.5,152.5,142,145,146,126.54,14.59,125,90.35,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,125,125.5,121.5,123,469000,126.24,-2.57,137.38,104.71,1.43
 20260623,124.5,125.5,121,121,330000,125.8,-3.82,135.43,105.62,0.98
 20260624,119.5,128,119.5,124.5,426000,125.69,-0.95,133.97,106.58,1.22
-20260626,121.5,122.5,117.5,118,251000,125.05,-5.64,132.55,107.32,0.71
+20260625,124,126,120.5,121.5,298000,125.34,-3.07,132.72,107.38,0.83
+20260626,121.5,122.5,117.5,118,251000,124.73,-5.4,130.57,108.14,0.69
 ```
 
 ## Latest TDCC Snapshot

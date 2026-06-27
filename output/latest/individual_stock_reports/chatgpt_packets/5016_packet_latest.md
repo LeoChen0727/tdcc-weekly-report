@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5016 松和
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:54 Asia/Taipei
+- generated_at: 2026-06-27 22:23:56 Asia/Taipei
 - stock_id: 5016
 - stock_name: 松和
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 150
+- price_rows: 151
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 25.15
 - close: 25.25
 - volume: 19000
-- ma5: 25.08
-- ema23_primary: 25.33
-- distance_to_ema23_pct: -0.33
-- ma20: 25.24
-- ma60: 26.75
+- ma5: 25.13
+- ema23_primary: 25.34
+- distance_to_ema23_pct: -0.34
+- ma20: 25.23
+- ma60: 26.66
 - ma120: 25.9
-- return_5d: 0.4
-- return_20d: -3.26
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 0.03
+- return_5d: 0.6
+- return_20d: -1.56
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 0.09
 - distance_to_high_60_pct: -26.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.85,26.1,25.4,25.65,26000,26.02,-1.42,25.55,26.65,0.51
 20260529,25.65,26.05,25.45,25.55,26000,25.98,-1.66,25.53,26.65,0.54
 20260601,25.6,25.6,25.15,25.2,25000,25.92,-2.76,25.5,26.67,0.54
 20260602,25.4,25.4,24.8,25.05,25,25.84,-3.07,25.47,26.67,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.1,25.1,24.75,24.85,85000,25.39,-2.12,25.48,26.8,2.46
 20260623,24.85,25.05,24.85,25.05,21000,25.36,-1.22,25.37,26.8,0.61
 20260624,25.2,25.25,25.1,25.15,12000,25.34,-0.76,25.29,26.79,0.36
-20260626,25.15,25.45,25.15,25.25,19000,25.33,-0.33,25.24,26.75,0.57
+20260625,25.05,25.35,25.05,25.35,14000,25.34,0.03,25.25,26.75,0.43
+20260626,25.15,25.45,25.15,25.25,19000,25.34,-0.34,25.23,26.66,0.58
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:00 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 318.5
 - close: 319.5
 - volume: 9847137
-- ma5: 334.5
-- ema23_primary: 339.89
-- distance_to_ema23_pct: -6
-- ma20: 353.75
-- ma60: 308.87
-- ma120: 272.29
-- return_5d: -8.06
-- return_20d: -3.91
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -9.68
+- ma5: 332.5
+- ema23_primary: 339.3
+- distance_to_ema23_pct: -5.84
+- ma20: 353.57
+- ma60: 310.63
+- ma120: 273.1
+- return_5d: -7.12
+- return_20d: -5.33
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -9.64
 - distance_to_high_60_pct: -20.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,336,350,331,337.5,17174957,311.28,8.42,314.5,270.06,1.01
 20260529,350.5,371,350,370,33434927,316.17,17.03,319.35,272.41,1.82
 20260601,385,396,376.5,387,38916483,322.07,20.16,324.75,275.29,1.94
 20260602,387.5,395,379.5,390.5,25610532,327.78,19.14,330.3,278.17,1.21
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,350,351,337.5,339.5,13004047,343.04,-1.03,354.55,304.09,0.82
 20260623,340,340,328.5,330.5,8905417,341.99,-3.36,354.25,305.7,0.57
 20260624,330,339,325,339,7343440,341.75,-0.8,354.4,307.46,0.48
-20260626,330,330.5,318.5,319.5,9847137,339.89,-6,353.75,308.87,0.64
+20260625,341,344,332,334,5870093,341.1,-2.08,354.48,309.11,0.39
+20260626,330,330.5,318.5,319.5,9847137,339.3,-5.84,353.57,310.63,0.66
 ```
 
 ## Latest TDCC Snapshot

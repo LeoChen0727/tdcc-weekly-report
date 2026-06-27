@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8044 網家
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:46 Asia/Taipei
+- generated_at: 2026-06-27 22:24:47 Asia/Taipei
 - stock_id: 8044
 - stock_name: 網家
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -119,23 +119,22 @@
 - low: 28.5
 - close: 28.55
 - volume: 1613000
-- ma5: 30.05
-- ema23_primary: 29.12
-- distance_to_ema23_pct: -1.95
-- ma20: 29.94
-- ma60: 26.09
+- ma5: 29.92
+- ema23_primary: 29.22
+- distance_to_ema23_pct: -2.29
+- ma20: 30.02
+- ma60: 26.21
 - ma120: 26.84
-- return_5d: 0.71
-- return_20d: 0.88
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -4.64
+- return_5d: -8.35
+- return_20d: -1.04
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -4.9
 - distance_to_high_60_pct: -15.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.05,29.1,27.85,28.85,29000,25.93,11.25,25.3,24.23,0.03
 20260529,28.9,29.8,28.65,29,29000,26.19,10.73,25.62,24.26,0.03
 20260601,29,31.2,28.9,29,30000,26.42,9.75,25.95,24.31,0.03
 20260602,29.15,30.8,29.15,30.4,30,26.75,13.62,26.34,24.38,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.95,33,30.85,31.3,3012000,29.08,7.63,29.72,25.79,2.36
 20260623,31.25,31.25,29.55,29.65,985000,29.13,1.79,29.8,25.89,0.74
 20260624,29.5,30.05,29.05,29.6,732000,29.17,1.48,29.93,25.99,0.54
-20260626,30,30,28.5,28.55,1613000,29.12,-1.95,29.94,26.09,1.12
+20260625,29.65,31.45,29.4,30.5,1997000,29.28,4.17,30.04,26.12,1.37
+20260626,30,30,28.5,28.55,1613000,29.22,-2.29,30.02,26.21,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8044 | 網家 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過本公司114年度虧損撥補表案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 通過本公司子公司二十一世紀金融科技株式會社 擬赴日本東京證券交易所申請股票上市案。 7.其他應敘明事項: 議案內容請參酌股東會相關公告之議事手冊。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8044 | 網家 | 1 | 1 | 3 | 3 | 5 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

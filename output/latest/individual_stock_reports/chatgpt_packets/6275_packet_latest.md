@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6275 元山
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:15 Asia/Taipei
+- generated_at: 2026-06-27 22:24:16 Asia/Taipei
 - stock_id: 6275
 - stock_name: 元山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 47.5
 - close: 47.55
 - volume: 1067000
-- ma5: 50.31
-- ema23_primary: 49.28
-- distance_to_ema23_pct: -3.52
-- ma20: 49.38
-- ma60: 49.78
-- ma120: 50.83
-- return_5d: 0.85
-- return_20d: -0.52
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: -3.7
+- ma5: 50.85
+- ema23_primary: 49.33
+- distance_to_ema23_pct: -3.6
+- ma20: 49.48
+- ma60: 49.83
+- ma120: 50.79
+- return_5d: 0.53
+- return_20d: -0.83
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: -3.9
 - distance_to_high_60_pct: -21.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,47.85,48.5,47.65,47.95,48000,49.12,-2.37,49.43,49.8,0.09
 20260529,48.4,49.55,47.75,49.2,49000,49.12,0.16,49.27,49.77,0.1
 20260601,50,54.1,49.75,53.3,53000,49.47,7.74,49.31,49.84,0.11
 20260602,52.6,52.6,51,51.8,52,49.66,4.3,49.27,49.86,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,47.7,52,47.25,51.4,2325000,48.83,5.25,48.92,49.67,7.78
 20260623,53,54.9,51.8,53,5928000,49.18,7.76,49.17,49.74,10
 20260624,53.1,53.7,52.2,52.3,1913000,49.44,5.78,49.39,49.8,2.79
-20260626,50.6,50.6,47.5,47.55,1067000,49.28,-3.52,49.38,49.78,1.45
+20260625,52.4,52.6,50,50,949000,49.49,1.03,49.5,49.82,1.3
+20260626,50.6,50.6,47.5,47.55,1067000,49.33,-3.6,49.48,49.83,1.36
 ```
 
 ## Latest TDCC Snapshot

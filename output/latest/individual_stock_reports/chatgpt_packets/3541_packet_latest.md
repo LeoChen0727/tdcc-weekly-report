@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3541 西柏
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:32 Asia/Taipei
+- generated_at: 2026-06-27 22:23:34 Asia/Taipei
 - stock_id: 3541
 - stock_name: 西柏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.5
 - close: 21.6
 - volume: 71000
-- ma5: 21.79
-- ema23_primary: 22.11
-- distance_to_ema23_pct: -2.3
-- ma20: 22.01
-- ma60: 22.98
-- ma120: 23.9
-- return_5d: -0.69
+- ma5: 21.76
+- ema23_primary: 22.08
+- distance_to_ema23_pct: -2.18
+- ma20: 21.98
+- ma60: 22.95
+- ma120: 23.88
+- return_5d: -1.59
 - return_20d: -3.57
-- volume_ratio: 2.26
-- distance_to_ma20_pct_auxiliary: -1.85
+- volume_ratio: 2.08
+- distance_to_ma20_pct_auxiliary: -1.72
 - distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.3,22.4,22.3,22.4,22000,22.97,-2.5,22.93,23.56,0.37
 20260529,22.4,22.5,22.2,22.3,22000,22.92,-2.7,22.88,23.52,0.38
 20260601,22.3,22.3,21.8,21.9,22000,22.83,-4.09,22.8,23.49,0.4
 20260602,21.6,21.65,21.05,21.3,21,22.71,-6.19,22.7,23.45,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.95,22,21.7,21.85,45000,22.23,-1.7,22.1,23.1,1.52
 20260623,21.85,21.85,21.7,21.8,19000,22.19,-1.77,22.08,23.06,0.65
 20260624,21.7,21.75,21.7,21.75,12000,22.16,-1.83,22.05,23.02,0.42
-20260626,21.8,21.8,21.5,21.6,71000,22.11,-2.3,22.01,22.98,2.26
+20260625,21.75,22,21.75,21.8,78000,22.13,-1.47,22.02,22.99,2.46
+20260626,21.8,21.8,21.5,21.6,71000,22.08,-2.18,21.98,22.95,2.08
 ```
 
 ## Latest TDCC Snapshot

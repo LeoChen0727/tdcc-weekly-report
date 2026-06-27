@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5443 均豪
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5443
 - stock_name: 均豪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 99.2
 - close: 99.2
 - volume: 1568000
-- ma5: 105.94
-- ema23_primary: 110.29
-- distance_to_ema23_pct: -10.05
-- ma20: 110.56
-- ma60: 116.04
-- ma120: 104.83
-- return_5d: -5.07
-- return_20d: -21.58
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -10.28
+- ma5: 105.34
+- ema23_primary: 109.73
+- distance_to_ema23_pct: -9.59
+- ma20: 109.66
+- ma60: 116.09
+- ma120: 104.98
+- return_5d: -7.29
+- return_20d: -18.69
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -9.54
 - distance_to_high_60_pct: -30.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,127,130.5,121,122,126000,122.87,-0.71,126.3,112.47,0.02
 20260529,124,128.5,123,126.5,127000,123.17,2.7,126.15,113.04,0.02
 20260601,126.5,131.5,124.5,127,128000,123.49,2.84,125.62,113.71,0.03
 20260602,128,128,119,121.5,123,123.33,-1.48,124.95,114.17,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,109.5,112.5,108.5,111,1969000,112.26,-1.12,114.38,116.09,1.65
 20260623,112,112,106.5,107,1904000,111.82,-4.31,113.12,116.11,1.48
 20260624,105,108.5,104,105.5,1413000,111.29,-5.21,111.92,116.12,1.05
-20260626,104,105,99.2,99.2,1568000,110.29,-10.05,110.56,116.04,1.1
+20260625,109,109.5,104,104,1221000,110.69,-6.04,110.8,116.12,0.87
+20260626,104,105,99.2,99.2,1568000,109.73,-9.59,109.66,116.09,1.06
 ```
 
 ## Latest TDCC Snapshot

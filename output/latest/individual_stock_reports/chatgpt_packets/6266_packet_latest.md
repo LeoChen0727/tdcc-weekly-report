@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6266 泰詠
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:14 Asia/Taipei
+- generated_at: 2026-06-27 22:24:16 Asia/Taipei
 - stock_id: 6266
 - stock_name: 泰詠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 25
 - close: 25
 - volume: 372000
-- ma5: 25.64
-- ema23_primary: 26.46
-- distance_to_ema23_pct: -5.5
-- ma20: 26.78
-- ma60: 27.39
-- ma120: 28.22
-- return_5d: -2.15
-- return_20d: -7.92
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: -6.66
+- ma5: 25.55
+- ema23_primary: 26.37
+- distance_to_ema23_pct: -5.19
+- ma20: 26.65
+- ma60: 27.34
+- ma120: 28.19
+- return_5d: -3.47
+- return_20d: -11.19
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: -6.18
 - distance_to_high_60_pct: -14.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.45,28.8,27.35,28.15,28000,27.42,2.65,27.31,28.01,0.12
 20260529,28.3,28.3,27.85,28.1,28000,27.48,2.25,27.32,28,0.13
 20260601,28,28.2,27.8,28.1,28000,27.53,2.06,27.34,28,0.14
 20260602,28.45,28.5,28.05,28.25,28,27.59,2.38,27.36,27.98,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.25,26.25,25.9,26.05,280000,26.77,-2.7,27.08,27.56,1.2
 20260623,26,26,25.65,25.7,168000,26.68,-3.68,27,27.51,0.7
 20260624,25.55,25.65,25.4,25.55,165000,26.59,-3.91,26.89,27.46,0.67
-20260626,25.4,25.4,25,25,372000,26.46,-5.5,26.78,27.39,1.41
+20260625,25.65,25.75,25.45,25.45,193000,26.49,-3.94,26.8,27.4,0.76
+20260626,25.4,25.4,25,25,372000,26.37,-5.19,26.65,27.34,1.36
 ```
 
 ## Latest TDCC Snapshot

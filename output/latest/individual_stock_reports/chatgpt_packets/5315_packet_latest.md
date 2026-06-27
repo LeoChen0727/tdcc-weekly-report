@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5315 光聯
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:59 Asia/Taipei
 - stock_id: 5315
 - stock_name: 光聯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 22.8
 - close: 23
 - volume: 778000
-- ma5: 23.15
-- ema23_primary: 22.69
-- distance_to_ema23_pct: 1.37
-- ma20: 22.64
-- ma60: 22.5
-- ma120: 23.25
-- return_5d: -0.22
+- ma5: 23.22
+- ema23_primary: 22.74
+- distance_to_ema23_pct: 1.13
+- ma20: 22.72
+- ma60: 22.51
+- ma120: 23.24
+- return_5d: 0
 - return_20d: 5.02
-- volume_ratio: 1.99
-- distance_to_ma20_pct_auxiliary: 1.57
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: 1.24
 - distance_to_high_60_pct: -4.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,21.95,22.15,21.9,21.9,22000,22.15,-1.11,22.07,22.61,0.07
 20260529,22,22.35,21.95,22.25,22000,22.15,0.43,22.06,22.58,0.08
 20260601,22.4,22.65,22.35,22.55,23000,22.19,1.64,22.07,22.58,0.08
 20260602,22.4,22.4,22.15,22.35,22,22.2,0.67,22.05,22.57,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.35,24.2,23.35,23.55,1134000,22.58,4.31,22.5,22.5,3.75
 20260623,23.65,23.65,22.95,23.05,612000,22.62,1.92,22.54,22.5,1.84
 20260624,23,23.35,23,23.15,453000,22.66,2.16,22.59,22.5,1.28
-20260626,23.5,23.5,22.8,23,778000,22.69,1.37,22.64,22.5,1.99
+20260625,23.4,23.7,23.2,23.35,557000,22.72,2.78,22.66,22.51,1.46
+20260626,23.5,23.5,22.8,23,778000,22.74,1.13,22.72,22.51,1.86
 ```
 
 ## Latest TDCC Snapshot

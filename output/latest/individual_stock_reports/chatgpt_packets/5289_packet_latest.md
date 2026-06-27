@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5289 宜鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:58 Asia/Taipei
 - stock_id: 5289
 - stock_name: 宜鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 1595
 - close: 1605
 - volume: 3153000
-- ma5: 1837
-- ema23_primary: 1793.51
-- distance_to_ema23_pct: -10.51
-- ma20: 1843.25
-- ma60: 1517.32
-- ma120: 1152.22
-- return_5d: -13.48
+- ma5: 1799
+- ema23_primary: 1788.12
+- distance_to_ema23_pct: -10.24
+- ma20: 1845.25
+- ma60: 1530.63
+- ma120: 1162.53
+- return_5d: -16.84
 - return_20d: -5.59
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -12.93
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -13.02
 - distance_to_high_60_pct: -20.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1685,1760,1655,1700,1718000,1588.19,7.04,1651.75,1246.43,0.4
 20260529,1760,1840,1735,1810,1796000,1606.68,12.65,1680,1262.97,0.43
 20260601,1855,1950,1830,1905,1903000,1631.54,16.76,1710.5,1282.32,0.47
 20260602,1930,1935,1820,1875,1883,1651.83,13.51,1733.25,1300.6,0
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1990,2010,1940,1970,2716000,1805.44,9.11,1832.75,1477.42,0.96
 20260623,1975,1985,1875,1885,2387000,1812.07,4.02,1842.75,1491.92,0.84
 20260624,1840,1865,1740,1795,3441000,1810.65,-0.86,1848,1506.57,1.17
-20260626,1715,1755,1595,1605,3153000,1793.51,-10.51,1843.25,1517.32,1.05
+20260625,1860,1870,1735,1740,2627000,1804.76,-3.59,1850,1519.57,0.88
+20260626,1715,1755,1595,1605,3153000,1788.12,-10.24,1845.25,1530.63,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

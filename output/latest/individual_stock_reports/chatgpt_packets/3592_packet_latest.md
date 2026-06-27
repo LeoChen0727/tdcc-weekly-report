@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3592 瑞鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:34 Asia/Taipei
+- generated_at: 2026-06-27 22:23:36 Asia/Taipei
 - stock_id: 3592
 - stock_name: 瑞鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 263
 - close: 263.5
 - volume: 1172855
-- ma5: 277.6
-- ema23_primary: 270.9
-- distance_to_ema23_pct: -2.73
-- ma20: 273.62
-- ma60: 253.68
-- ma120: 239.29
-- return_5d: -4.53
-- return_20d: -6.23
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: -3.7
+- ma5: 278.3
+- ema23_primary: 271.42
+- distance_to_ema23_pct: -2.92
+- ma20: 273.85
+- ma60: 254.62
+- ma120: 239.68
+- return_5d: -4.18
+- return_20d: -3.83
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: -3.78
 - distance_to_high_60_pct: -9.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,281,284,270.5,274,1171334,258.52,5.99,257.93,235.9,0.86
 20260529,277,279.5,273,279.5,789595,260.27,7.39,260.15,236.79,0.57
 20260601,272,285,272,285,1533025,262.33,8.64,262.45,237.91,1.08
 20260602,283,283,278,281.5,708448,263.93,6.66,264.48,238.9,0.5
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,276,288.5,276,285,1886905,269.56,5.73,274.73,250.85,1.89
 20260623,286,292,280,284.5,1577988,270.8,5.06,274.73,252.02,1.69
 20260624,280,284.5,276,280,686636,271.57,3.11,274.5,252.97,0.78
-20260626,277,277,263,263.5,1172855,270.9,-2.73,273.62,253.68,1.34
+20260625,281,286,278,278.5,597955,272.15,2.33,274.38,253.93,0.71
+20260626,277,277,263,263.5,1172855,271.42,-2.92,273.85,254.62,1.38
 ```
 
 ## Latest TDCC Snapshot

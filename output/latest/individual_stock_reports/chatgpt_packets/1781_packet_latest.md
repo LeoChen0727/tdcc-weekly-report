@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1781 合世
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:45 Asia/Taipei
+- generated_at: 2026-06-27 22:22:49 Asia/Taipei
 - stock_id: 1781
 - stock_name: 合世
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11.65
 - close: 11.85
 - volume: 66000
-- ma5: 11.85
-- ema23_primary: 11.65
-- distance_to_ema23_pct: 1.76
-- ma20: 11.73
+- ma5: 11.81
+- ema23_primary: 11.66
+- distance_to_ema23_pct: 1.64
+- ma20: 11.8
 - ma60: 11.35
-- ma120: 11.75
-- return_5d: -0.84
-- return_20d: 11.79
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 1
+- ma120: 11.76
+- return_5d: -1.25
+- return_20d: 13.94
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 0.4
 - distance_to_high_60_pct: -5.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10.5,10.6,10.4,10.4,10000,10.79,-3.64,10.66,11.51,0.29
 20260529,10.4,10.9,10.4,10.9,11000,10.8,0.91,10.66,11.48,0.32
 20260601,10.55,10.95,10.55,10.95,11000,10.81,1.26,10.67,11.45,0.32
 20260602,10.95,12,10.95,12,12,10.91,9.96,10.72,11.45,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,11.95,11.95,11.8,11.95,73000,11.61,2.95,11.59,11.38,1.79
 20260623,11.6,11.75,11.55,11.6,87000,11.61,-0.06,11.62,11.37,1.95
 20260624,11.6,11.85,11.6,11.85,54000,11.63,1.92,11.67,11.36,1.16
-20260626,11.8,11.85,11.65,11.85,66000,11.65,1.76,11.73,11.35,1.33
+20260625,11.85,11.85,11.75,11.8,21000,11.64,1.36,11.73,11.35,0.44
+20260626,11.8,11.85,11.65,11.85,66000,11.66,1.64,11.8,11.35,1.32
 ```
 
 ## Latest TDCC Snapshot

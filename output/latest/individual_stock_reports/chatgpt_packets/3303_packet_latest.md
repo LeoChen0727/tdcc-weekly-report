@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3303 岱稜
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:25 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3303
 - stock_name: 岱稜
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 56.2
 - close: 56.5
 - volume: 836000
-- ma5: 59.46
-- ema23_primary: 55.38
-- distance_to_ema23_pct: 2.03
-- ma20: 54.79
-- ma60: 50.33
-- ma120: 48.29
-- return_5d: -6.3
-- return_20d: 16.86
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 3.13
+- ma5: 59.02
+- ema23_primary: 55.65
+- distance_to_ema23_pct: 1.54
+- ma20: 55.28
+- ma60: 50.55
+- ma120: 48.4
+- return_5d: -7.38
+- return_20d: 15.31
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 2.21
 - distance_to_high_60_pct: -12.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,48.35,49.6,48.35,49,49000,49.05,-0.11,49.91,47.77,0.1
 20260529,49.25,49.5,48.85,49.35,49000,49.08,0.56,49.93,47.79,0.1
 20260601,49.35,49.5,48.75,49.2,49000,49.09,0.23,49.9,47.84,0.11
 20260602,49.2,49.4,48.7,48.9,49,49.07,-0.35,49.66,47.87,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,62.6,62.6,59.7,60.2,1718000,54.41,10.65,53.35,49.72,1.24
 20260623,60.2,60.3,58.1,59,1555000,54.79,7.68,53.81,49.93,1.07
 20260624,58.2,60.6,58.2,60.6,861000,55.27,9.64,54.38,50.17,0.58
-20260626,58.2,59.3,56.2,56.5,836000,55.38,2.03,54.79,50.33,0.54
+20260625,61.3,61.6,58.6,58.8,980000,55.57,5.82,54.9,50.37,0.64
+20260626,58.2,59.3,56.2,56.5,836000,55.65,1.54,55.28,50.55,0.53
 ```
 
 ## Latest TDCC Snapshot

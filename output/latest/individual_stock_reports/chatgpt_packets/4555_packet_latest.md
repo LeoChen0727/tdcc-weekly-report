@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4555 氣立
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:45 Asia/Taipei
+- generated_at: 2026-06-27 22:23:47 Asia/Taipei
 - stock_id: 4555
 - stock_name: 氣立
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 45.2
 - close: 45.75
 - volume: 478737
-- ma5: 47.3
-- ema23_primary: 47.92
-- distance_to_ema23_pct: -4.53
-- ma20: 50.2
-- ma60: 44.14
-- ma120: 41.1
-- return_5d: -2.45
-- return_20d: -14.8
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -8.86
+- ma5: 47.31
+- ema23_primary: 47.9
+- distance_to_ema23_pct: -4.49
+- ma20: 49.7
+- ma60: 44.35
+- ma120: 41.17
+- return_5d: -4.39
+- return_20d: -20.85
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -7.95
 - distance_to_high_60_pct: -25.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,53.9,59,53.9,57.8,3868795,45.97,25.75,45.17,39.65,2.61
 20260529,61.5,61.5,57.6,58.1,1553169,46.98,23.68,46.06,40.01,1.02
 20260601,58.5,60.2,57,57.1,1526791,47.82,19.4,46.82,40.37,0.97
 20260602,56.5,56.7,52,53.9,1683155,48.33,11.53,47.4,40.67,1.02
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49.1,50.7,48.1,48.65,499035,48.31,0.7,51.35,43.61,0.38
 20260623,49,49.05,47.8,48.05,224004,48.29,-0.5,51.09,43.8,0.19
 20260624,47.55,47.75,45.8,46.2,296073,48.12,-3.98,50.59,43.98,0.33
-20260626,47,47.3,45.2,45.75,478737,47.92,-4.53,50.2,44.14,0.58
+20260625,47.1,49.85,46.5,47.9,763468,48.1,-0.41,50.3,44.18,0.9
+20260626,47,47.3,45.2,45.75,478737,47.9,-4.49,49.7,44.35,0.71
 ```
 
 ## Latest TDCC Snapshot

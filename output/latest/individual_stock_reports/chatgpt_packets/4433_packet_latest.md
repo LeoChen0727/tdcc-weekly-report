@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4433 興采
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:43 Asia/Taipei
+- generated_at: 2026-06-27 22:23:45 Asia/Taipei
 - stock_id: 4433
 - stock_name: 興采
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 20.5
 - close: 20.6
 - volume: 26000
-- ma5: 20.5
-- ema23_primary: 20.57
-- distance_to_ema23_pct: 0.13
-- ma20: 20.66
+- ma5: 20.55
+- ema23_primary: 20.58
+- distance_to_ema23_pct: 0.1
+- ma20: 20.61
 - ma60: 20.54
-- ma120: 21.05
-- return_5d: 1.23
-- return_20d: -4.19
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -0.27
+- ma120: 21.04
+- return_5d: 0.98
+- return_20d: -4.41
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -0.05
 - distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,21.9,21.9,21.45,21.55,22000,20.68,4.22,20.5,20.66,0.56
 20260529,21.55,21.55,21.25,21.25,21000,20.72,2.53,20.56,20.67,0.53
 20260601,21.2,21.2,20.75,21.1,21000,20.76,1.66,20.62,20.68,0.54
 20260602,20.75,20.8,20.65,20.75,21,20.76,-0.03,20.66,20.69,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.4,20.6,20.3,20.3,21000,20.57,-1.3,20.72,20.56,0.86
 20260623,20.7,20.8,20.4,20.7,39000,20.58,0.59,20.71,20.57,1.54
 20260624,20.7,20.7,20.25,20.5,40000,20.57,-0.35,20.7,20.55,1.53
-20260626,20.6,20.6,20.5,20.6,26000,20.57,0.13,20.66,20.54,0.98
+20260625,20.5,20.65,20.35,20.65,20000,20.58,0.35,20.66,20.55,0.77
+20260626,20.6,20.6,20.5,20.6,26000,20.58,0.1,20.61,20.54,0.99
 ```
 
 ## Latest TDCC Snapshot

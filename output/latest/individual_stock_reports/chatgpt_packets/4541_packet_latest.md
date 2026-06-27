@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4541 晟田
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:44 Asia/Taipei
+- generated_at: 2026-06-27 22:23:47 Asia/Taipei
 - stock_id: 4541
 - stock_name: 晟田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 46.75
 - close: 47.5
 - volume: 862000
-- ma5: 49.35
-- ema23_primary: 47.71
-- distance_to_ema23_pct: -0.43
-- ma20: 47.69
-- ma60: 46.27
-- ma120: 45.02
-- return_5d: -6.86
-- return_20d: 7.47
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -0.4
+- ma5: 48.78
+- ema23_primary: 47.73
+- distance_to_ema23_pct: -0.49
+- ma20: 47.85
+- ma60: 46.37
+- ma120: 45.08
+- return_5d: -6.68
+- return_20d: 6.03
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -0.74
 - distance_to_high_60_pct: -9.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45.1,45.25,43.5,44.8,45000,45.02,-0.5,45.58,44.39,0.05
 20260529,45.7,46.5,44.9,45.25,46000,45.04,0.46,45.52,44.39,0.05
 20260601,45.85,48,45.45,46.7,47000,45.18,3.36,45.46,44.45,0.05
 20260602,46.7,46.7,44.85,45.85,46,45.24,1.36,45.17,44.48,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51.8,52.7,50.3,51,2159000,47.54,7.27,47.05,45.97,2.55
 20260623,51,51,48.5,48.5,1346000,47.62,1.84,47.27,46.06,1.47
 20260624,48.15,49.05,47.65,48.85,767000,47.73,2.35,47.53,46.18,0.81
-20260626,48,48.6,46.75,47.5,862000,47.71,-0.43,47.69,46.27,0.87
+20260625,49.45,49.45,48.05,48.05,633000,47.75,0.62,47.72,46.27,0.65
+20260626,48,48.6,46.75,47.5,862000,47.73,-0.49,47.85,46.37,0.85
 ```
 
 ## Latest TDCC Snapshot

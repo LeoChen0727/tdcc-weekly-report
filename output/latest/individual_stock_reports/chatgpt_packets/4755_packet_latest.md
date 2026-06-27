@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4755 三福化
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:49 Asia/Taipei
+- generated_at: 2026-06-27 22:23:51 Asia/Taipei
 - stock_id: 4755
 - stock_name: 三福化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 131.5
 - close: 133
 - volume: 590099
-- ma5: 142.2
-- ema23_primary: 143.15
-- distance_to_ema23_pct: -7.09
-- ma20: 143.7
-- ma60: 145.71
-- ma120: 138.05
-- return_5d: -9.52
-- return_20d: -18.15
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -7.45
+- ma5: 140.8
+- ema23_primary: 142.73
+- distance_to_ema23_pct: -6.82
+- ma20: 143.1
+- ma60: 145.69
+- ma120: 138.3
+- return_5d: -8.59
+- return_20d: -11.63
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -7.06
 - distance_to_high_60_pct: -26.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,160.5,160.5,148.5,150.5,1771974,146.72,2.58,143.95,147.22,2.16
 20260529,153.5,155,147,149,503301,146.91,1.42,143.95,147.3,0.63
 20260601,151.5,155.5,148.5,152,517585,147.33,3.17,144.1,147.53,0.65
 20260602,152.5,152.5,147,148.5,661806,147.43,0.73,144.12,147.68,0.83
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,146.5,147,141.5,147,325622,144.34,1.84,146.32,146.12,0.46
 20260623,148,148,143,144,418869,144.31,-0.22,145.88,145.97,0.63
 20260624,143,143,140,141.5,244974,144.08,-1.79,145.18,145.93,0.4
-20260626,137,138,131.5,133,590099,143.15,-7.09,143.7,145.71,1.11
+20260625,142,142,138.5,138.5,186029,143.61,-3.56,143.97,145.8,0.36
+20260626,137,138,131.5,133,590099,142.73,-6.82,143.1,145.69,1.3
 ```
 
 ## Latest TDCC Snapshot

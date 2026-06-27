@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3685 元創精密
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:39 Asia/Taipei
 - stock_id: 3685
 - stock_name: 元創精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 28.9
 - close: 29
 - volume: 654000
-- ma5: 30.1
-- ema23_primary: 29.61
-- distance_to_ema23_pct: -2.07
-- ma20: 29.24
-- ma60: 29.68
-- ma120: 33.01
-- return_5d: -6.15
-- return_20d: 0.35
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: -0.83
+- ma5: 30.01
+- ema23_primary: 29.62
+- distance_to_ema23_pct: -2.1
+- ma20: 29.31
+- ma60: 29.71
+- ma120: 32.88
+- return_5d: -4.13
+- return_20d: 1.93
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: -1.06
 - distance_to_high_60_pct: -19.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.9,29.75,28.05,28.45,29000,29.23,-2.67,29.02,30.5,0.14
 20260529,28.8,28.8,27.4,27.95,28000,29.12,-4.03,28.83,30.41,0.15
 20260601,28,28,27,27.8,27000,29.01,-4.18,28.71,30.33,0.15
 20260602,27.8,27.8,26.55,26.7,27,28.82,-7.36,28.52,30.22,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.45,30.6,29.3,30.3,512000,29.52,2.64,29.1,29.61,1.87
 20260623,30.1,31.6,30,31.2,616000,29.66,5.19,29.18,29.66,2.03
 20260624,30.9,31.2,29.75,29.75,306000,29.67,0.28,29.24,29.68,0.97
-20260626,29.75,30,28.9,29,654000,29.61,-2.07,29.24,29.68,1.88
+20260625,29.95,30.3,29.5,29.8,240000,29.68,0.41,29.28,29.69,0.73
+20260626,29.75,30,28.9,29,654000,29.62,-2.1,29.31,29.71,1.82
 ```
 
 ## Latest TDCC Snapshot

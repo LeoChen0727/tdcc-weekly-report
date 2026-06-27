@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6129 普誠
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:06 Asia/Taipei
+- generated_at: 2026-06-27 22:24:08 Asia/Taipei
 - stock_id: 6129
 - stock_name: 普誠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 18.5
 - close: 18.6
 - volume: 3099000
-- ma5: 17.52
-- ema23_primary: 16.5
-- distance_to_ema23_pct: 12.73
-- ma20: 16.37
-- ma60: 16.17
-- ma120: 15.72
-- return_5d: 15.53
-- return_20d: 21.97
-- volume_ratio: 3.58
-- distance_to_ma20_pct_auxiliary: 13.61
-- distance_to_high_60_pct: -7.23
+- ma5: 18.27
+- ema23_primary: 16.76
+- distance_to_ema23_pct: 11.01
+- ma20: 16.6
+- ma60: 16.24
+- ma120: 15.76
+- return_5d: 16.98
+- return_20d: 23.18
+- volume_ratio: 2.38
+- distance_to_ma20_pct_auxiliary: 12.05
+- distance_to_high_60_pct: -9.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,15.35,15.9,15,15.1,15000,15.8,-4.42,15.98,15.82,0.02
 20260529,15.15,16.6,15.1,16.6,16000,15.86,4.63,15.97,15.85,0.02
 20260601,17.3,17.45,16.75,16.9,17000,15.95,5.95,15.96,15.89,0.03
 20260602,16.6,16.65,16.15,16.4,16,15.99,2.57,15.87,15.92,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.95,17.3,15.95,17,2034000,15.97,6.44,15.97,16.03,4.75
 20260623,17,17.3,16.4,17.2,1749000,16.07,7.01,16.04,16.06,3.4
 20260624,16.9,18.9,16.85,18.9,3953000,16.31,15.88,16.2,16.11,5.56
-20260626,20,20.05,18.5,18.6,3099000,16.5,12.73,16.37,16.17,3.58
+20260625,20.05,20.5,19,19.65,8707000,16.59,18.46,16.43,16.18,7.6
+20260626,20,20.05,18.5,18.6,3099000,16.76,11.01,16.6,16.24,2.38
 ```
 
 ## Latest TDCC Snapshot
@@ -192,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6129 | 普誠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6129 | 普誠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

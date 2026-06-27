@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4304 勝昱
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:42 Asia/Taipei
+- generated_at: 2026-06-27 22:23:44 Asia/Taipei
 - stock_id: 4304
 - stock_name: 勝昱
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 20.45
 - close: 21
 - volume: 78000
-- ma5: 22.8
-- ema23_primary: 24.95
-- distance_to_ema23_pct: -15.82
-- ma20: 24.88
-- ma60: 27.54
-- ma120: 28.85
-- return_5d: -11.76
+- ma5: 22.72
+- ema23_primary: 24.75
+- distance_to_ema23_pct: -15.14
+- ma20: 24.66
+- ma60: 27.48
+- ma120: 28.79
+- return_5d: -9.09
 - return_20d: -22.65
-- volume_ratio: 2.46
-- distance_to_ma20_pct_auxiliary: -15.6
+- volume_ratio: 2.09
+- distance_to_ma20_pct_auxiliary: -14.84
 - distance_to_high_60_pct: -35.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.15,27.15,27,27.15,27000,28.7,-5.4,29.18,28.71,0.74
 20260529,27.2,28.7,27.2,28,28000,28.64,-2.24,29.09,28.66,0.75
 20260601,28,28,26.6,27,27000,28.5,-5.28,28.89,28.6,0.91
 20260602,26.6,26.95,26.5,26.95,27,28.38,-5.02,28.71,28.53,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.1,24.9,22.75,23.95,85000,25.75,-6.98,25.68,27.72,2.79
 20260623,23.95,23.95,22.5,22.7,16000,25.49,-10.96,25.39,27.67,0.54
 20260624,23.45,23.45,23.25,23.25,15000,25.31,-8.12,25.19,27.62,0.51
-20260626,22.4,22.4,20.45,21,78000,24.95,-15.82,24.88,27.54,2.46
+20260625,23,24.1,20.95,22.7,139000,25.09,-9.52,24.97,27.57,4
+20260626,22.4,22.4,20.45,21,78000,24.75,-15.14,24.66,27.48,2.09
 ```
 
 ## Latest TDCC Snapshot

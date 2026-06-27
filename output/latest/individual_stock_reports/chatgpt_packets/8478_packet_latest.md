@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8478 東哥遊艇
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:55 Asia/Taipei
+- generated_at: 2026-06-27 22:24:55 Asia/Taipei
 - stock_id: 8478
 - stock_name: 東哥遊艇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 146.5
 - close: 146.5
 - volume: 523396
-- ma5: 150.6
-- ema23_primary: 154.24
-- distance_to_ema23_pct: -5.02
-- ma20: 154.55
-- ma60: 160.27
-- ma120: 170.05
-- return_5d: -3.62
+- ma5: 150.9
+- ema23_primary: 154.05
+- distance_to_ema23_pct: -4.9
+- ma20: 154.68
+- ma60: 160.14
+- ma120: 169.6
+- return_5d: -2.98
 - return_20d: -2.33
-- volume_ratio: 1.66
-- distance_to_ma20_pct_auxiliary: -5.21
+- volume_ratio: 1.68
+- distance_to_ma20_pct_auxiliary: -5.29
 - distance_to_high_60_pct: -20.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,151.5,151.5,149.5,150,197549,157.84,-4.97,158.88,163.15,0.82
 20260529,152.5,153.5,151.5,153,157922,157.44,-2.82,158.1,162.91,0.65
 20260601,154,159,151.5,155.5,295617,157.28,-1.13,157.55,162.85,1.21
 20260602,155.5,155.5,152.5,154.5,219856,157.04,-1.62,156.88,162.7,0.88
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,151,152,150.5,151.5,135347,155.5,-2.57,154.57,160.9,0.43
 20260623,151.5,152.5,151,152,105548,155.21,-2.07,154.65,160.68,0.34
 20260624,151,152,151,152,142675,154.94,-1.9,154.72,160.52,0.46
-20260626,152,152,146.5,146.5,523396,154.24,-5.02,154.55,160.27,1.66
+20260625,153,153.5,152,152.5,114368,154.74,-1.44,154.85,160.37,0.39
+20260626,152,152,146.5,146.5,523396,154.05,-4.9,154.68,160.14,1.68
 ```
 
 ## Latest TDCC Snapshot

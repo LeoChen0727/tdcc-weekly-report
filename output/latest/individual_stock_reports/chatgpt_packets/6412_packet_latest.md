@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:16 Asia/Taipei
+- generated_at: 2026-06-27 22:24:17 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 88.5
 - close: 88.5
 - volume: 2468530
-- ma5: 92.44
-- ema23_primary: 93.46
-- distance_to_ema23_pct: -5.31
-- ma20: 95.48
-- ma60: 88.29
-- ma120: 87.01
-- return_5d: -4.32
-- return_20d: -11.5
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -7.32
+- ma5: 92.7
+- ema23_primary: 93.38
+- distance_to_ema23_pct: -5.23
+- ma20: 95.19
+- ma60: 88.6
+- ma120: 87
+- return_5d: -3.38
+- return_20d: -10.43
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -7.03
 - distance_to_high_60_pct: -20.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,100.5,103,98.2,98.8,2605511,92.53,6.78,93.19,84.19,0.61
 20260529,102,103.5,100,102,2272632,93.32,9.3,94.23,84.28,0.55
 20260601,104.5,112,103.5,106,7794032,94.37,12.32,95.08,84.43,1.92
 20260602,106.5,108.5,101.5,104,6512002,95.18,9.27,95.76,84.61,1.65
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,92.5,95.4,92.3,95,4910099,93.98,1.08,97,87.55,1.07
 20260623,95.5,95.5,93.3,94,2671367,93.98,0.02,96.5,87.83,0.59
 20260624,93.5,93.9,92.1,93.1,2428835,93.91,-0.86,96.06,88.1,0.54
-20260626,92.7,93,88.5,88.5,2468530,93.46,-5.31,95.48,88.29,0.55
+20260625,93.4,94.5,92.5,92.9,1419713,93.83,-0.99,95.7,88.36,0.32
+20260626,92.7,93,88.5,88.5,2468530,93.38,-5.23,95.19,88.6,0.56
 ```
 
 ## Latest TDCC Snapshot

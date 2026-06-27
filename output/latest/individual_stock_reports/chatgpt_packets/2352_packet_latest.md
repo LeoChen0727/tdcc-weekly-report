@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 285
+- price_rows: 286
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 29.25
 - close: 29.3
 - volume: 10841160
-- ma5: 30.66
-- ema23_primary: 29.94
-- distance_to_ema23_pct: -2.15
-- ma20: 30.81
-- ma60: 27.03
-- ma120: 25.86
-- return_5d: -4.87
-- return_20d: 6.35
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -4.9
+- ma5: 30.59
+- ema23_primary: 29.98
+- distance_to_ema23_pct: -2.27
+- ma20: 30.95
+- ma60: 27.15
+- ma120: 25.9
+- return_5d: -5.02
+- return_20d: 5.97
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -5.34
 - distance_to_high_60_pct: -17.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.55,29.2,27.35,27.65,11045059,26.29,5.19,26.1,24.79,1.2
 20260529,28.05,28.9,28,28.9,14114479,26.5,9.04,26.35,24.86,1.45
 20260601,29.4,31.5,29.2,30.65,27389242,26.85,14.16,26.66,24.98,2.51
 20260602,30.65,31.5,30.15,31.5,21947683,27.24,15.65,26.99,25.11,1.86
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.2,31.8,30.75,31.45,8875914,29.84,5.39,30.48,26.7,0.6
 20260623,31.45,31.75,30.6,31.1,15118825,29.95,3.85,30.6,26.82,1.03
 20260624,30.75,31.35,30.25,30.6,7637017,30,2,30.72,26.93,0.53
-20260626,30.25,30.8,29.25,29.3,10841160,29.94,-2.15,30.81,27.03,0.74
+20260625,30.8,31,30.4,30.5,5341204,30.04,1.52,30.87,27.05,0.37
+20260626,30.25,30.8,29.25,29.3,10841160,29.98,-2.27,30.95,27.15,0.75
 ```
 
 ## Latest TDCC Snapshot

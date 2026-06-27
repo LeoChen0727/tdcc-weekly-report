@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5202 力新
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:54 Asia/Taipei
+- generated_at: 2026-06-27 22:23:56 Asia/Taipei
 - stock_id: 5202
 - stock_name: 力新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.45
 - close: 14.5
 - volume: 435000
-- ma5: 15.17
-- ema23_primary: 14.55
-- distance_to_ema23_pct: -0.34
-- ma20: 14.76
-- ma60: 13.49
-- ma120: 14.38
-- return_5d: -9.09
-- return_20d: 27.75
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -1.76
+- ma5: 14.99
+- ema23_primary: 14.58
+- distance_to_ema23_pct: -0.52
+- ma20: 14.88
+- ma60: 13.52
+- ma120: 14.37
+- return_5d: -8.23
+- return_20d: 16.47
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -2.57
 - distance_to_high_60_pct: -19.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.45,12.45,11.45,12.45,12000,12.41,0.31,12.41,13.27,0.08
 20260529,12.45,12.7,12.1,12.2,12000,12.39,-1.57,12.37,13.23,0.09
 20260601,12.3,13.1,12.3,12.8,13000,12.43,2.99,12.36,13.22,0.1
 20260602,13,13.8,12.95,13.65,13,12.53,8.94,12.38,13.21,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16,16,15.25,15.45,573000,14.46,6.86,14.27,13.43,0.65
 20260623,15.5,15.5,14.7,14.85,351000,14.49,2.48,14.42,13.45,0.39
 20260624,15,15.45,14.9,15.25,398000,14.55,4.78,14.6,13.47,0.44
-20260626,14.95,15.1,14.45,14.5,435000,14.55,-0.34,14.76,13.49,0.47
+20260625,15.5,15.5,14.85,14.9,309000,14.58,2.17,14.78,13.49,0.33
+20260626,14.95,15.1,14.45,14.5,435000,14.58,-0.52,14.88,13.52,0.46
 ```
 
 ## Latest TDCC Snapshot

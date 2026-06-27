@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8409 商之器
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:53 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8409
 - stock_name: 商之器
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 153
+- price_rows: 154
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 19.05
 - close: 19.15
 - volume: 19000
-- ma5: 19.01
-- ema23_primary: 19.15
-- distance_to_ema23_pct: -0.02
-- ma20: 19.09
-- ma60: 19.7
-- ma120: 20.36
+- ma5: 18.96
+- ema23_primary: 19.13
+- distance_to_ema23_pct: 0.1
+- ma20: 19.07
+- ma60: 19.67
+- ma120: 20.34
 - return_5d: 0.26
-- return_20d: 0.26
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 0.34
+- return_20d: 0.52
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 0.39
 - distance_to_high_60_pct: -9.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.1,19.1,19.05,19.05,19000,19.54,-2.49,19.45,20.17,0.98
 20260529,19.1,19.3,19.05,19.05,19000,19.5,-2.28,19.39,20.14,0.96
 20260601,19.05,19.3,18.95,18.95,19000,19.45,-2.57,19.34,20.11,0.94
 20260602,19,19.35,18.95,19.1,19,19.42,-1.65,19.3,20.09,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19,19.1,18.85,19.1,28000,19.21,-0.59,19.14,19.8,1.96
 20260623,19.1,19.1,18.9,18.9,6000,19.19,-1.5,19.1,19.77,0.44
 20260624,18.6,18.8,18.6,18.8,7000,19.16,-1.85,19.08,19.73,0.54
-20260626,19.1,19.2,19.05,19.15,19000,19.15,-0.02,19.09,19.7,1.46
+20260625,18.85,19.1,18.8,18.85,11000,19.13,-1.46,19.07,19.7,0.87
+20260626,19.1,19.2,19.05,19.15,19000,19.13,0.1,19.07,19.67,1.5
 ```
 
 ## Latest TDCC Snapshot

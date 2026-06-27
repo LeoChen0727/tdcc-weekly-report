@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7722 LINEPAY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7722
 - stock_name: LINEPAY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 319
 - close: 320
 - volume: 854046
-- ma5: 315.2
-- ema23_primary: 307.22
-- distance_to_ema23_pct: 4.16
-- ma20: 307.5
-- ma60: 293.02
-- ma120: 371.46
-- return_5d: 0.31
-- return_20d: 22.84
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 4.07
+- ma5: 315.8
+- ema23_primary: 309.12
+- distance_to_ema23_pct: 3.52
+- ma20: 311.12
+- ma60: 293.4
+- ma120: 369.52
+- return_5d: -2.44
+- return_20d: 23.79
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 2.85
 - distance_to_high_60_pct: -17.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,260.5,260.5,256,258.5,95222,271.86,-4.91,268.15,305.45,0.65
 20260529,258.5,265.5,258.5,262.5,130557,271.08,-3.16,267.2,303.06,0.89
 20260601,263.5,280.5,263,280,256231,271.82,3.01,266.95,301.29,1.69
 20260602,280,280,268,270.5,205857,271.71,-0.45,266.55,299.14,1.34
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,330,332,320.5,321,178419,306.56,4.71,300.3,293.72,0.41
 20260623,322,322,306,306,223787,306.51,-0.17,302.52,293.41,0.51
 20260624,303,306.5,300,301,209578,306.06,-1.65,304.52,293.09,0.47
-20260626,343,357.5,319,320,854046,307.22,4.16,307.5,293.02,1.77
+20260625,301.5,331,301.5,331,459753,308.13,7.42,308.05,293.2,1
+20260626,343,357.5,319,320,854046,309.12,3.52,311.12,293.4,1.71
 ```
 
 ## Latest TDCC Snapshot

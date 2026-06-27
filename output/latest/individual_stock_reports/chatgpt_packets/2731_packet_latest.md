@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2731 雄獅
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:09 Asia/Taipei
+- generated_at: 2026-06-27 22:23:13 Asia/Taipei
 - stock_id: 2731
 - stock_name: 雄獅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 148
 - close: 148
 - volume: 1209438
-- ma5: 150.8
-- ema23_primary: 156.83
-- distance_to_ema23_pct: -5.63
-- ma20: 159.5
-- ma60: 160.17
-- ma120: 165.07
-- return_5d: -2.95
-- return_20d: -10.84
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -7.21
+- ma5: 150.7
+- ema23_primary: 156.36
+- distance_to_ema23_pct: -5.35
+- ma20: 158.8
+- ma60: 160.03
+- ma120: 164.95
+- return_5d: -2.63
+- return_20d: -10.57
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -6.8
 - distance_to_high_60_pct: -16.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,167,168.5,164.5,165.5,1456383,161.75,2.32,161.1,163.1,1.37
 20260529,167,168.5,165.5,167.5,1510505,162.23,3.25,161.53,163.05,1.36
 20260601,168,170,167.5,169.5,1230464,162.84,4.09,161.93,163.21,1.08
 20260602,170,171.5,168.5,169.5,1444290,163.39,3.74,162.4,163.32,1.24
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,153,153.5,151.5,151.5,1045539,158.85,-4.63,161.68,160.92,0.62
 20260623,152.5,152.5,150.5,151.5,926703,158.24,-4.26,161.25,160.66,0.55
 20260624,151,152,150.5,151,829338,157.63,-4.21,160.4,160.43,0.53
-20260626,151,152,148,148,1209438,156.83,-5.63,159.5,160.17,0.77
+20260625,152.5,154,151,151.5,1067023,157.12,-3.58,159.68,160.22,0.68
+20260626,151,152,148,148,1209438,156.36,-5.35,158.8,160.03,0.78
 ```
 
 ## Latest TDCC Snapshot

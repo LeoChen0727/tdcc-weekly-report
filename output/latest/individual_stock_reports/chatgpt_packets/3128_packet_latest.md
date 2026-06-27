@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3128 昇銳
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:21 Asia/Taipei
+- generated_at: 2026-06-27 22:23:24 Asia/Taipei
 - stock_id: 3128
 - stock_name: 昇銳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 23.85
 - close: 23.9
 - volume: 406000
-- ma5: 24.67
-- ema23_primary: 24.23
-- distance_to_ema23_pct: -1.36
-- ma20: 24.27
-- ma60: 24.04
-- ma120: 25.64
-- return_5d: -1.04
-- return_20d: 2.8
-- volume_ratio: 1.81
-- distance_to_ma20_pct_auxiliary: -1.5
+- ma5: 24.77
+- ema23_primary: 24.29
+- distance_to_ema23_pct: -1.6
+- ma20: 24.38
+- ma60: 24.05
+- ma120: 25.62
+- return_5d: -2.65
+- return_20d: 4.82
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: -1.96
 - distance_to_high_60_pct: -13.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.25,23.5,22.75,22.8,23000,23.59,-3.34,23.42,24.38,0.19
 20260529,22.8,23.2,22.8,22.95,23000,23.53,-2.48,23.38,24.33,0.2
 20260601,23,23.6,22.85,23.5,23000,23.53,-0.13,23.34,24.31,0.2
 20260602,23.95,25.85,23.8,25.6,25,23.7,8,23.41,24.32,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.05,25.05,24.6,24.8,186000,24.1,2.9,24.14,24.06,1.66
 20260623,25,25,24.2,24.3,168000,24.12,0.75,24.14,24.04,1.41
 20260624,24.3,26.4,24.2,25.8,1733000,24.26,6.35,24.23,24.05,8.46
-20260626,24.75,25.6,23.85,23.9,406000,24.23,-1.36,24.27,24.04,1.81
+20260625,25.85,26.5,25,25.05,810000,24.32,2.98,24.32,24.05,3.32
+20260626,24.75,25.6,23.85,23.9,406000,24.29,-1.6,24.38,24.05,1.54
 ```
 
 ## Latest TDCC Snapshot

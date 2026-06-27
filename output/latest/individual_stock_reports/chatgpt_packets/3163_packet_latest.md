@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3163 波若威
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:22 Asia/Taipei
+- generated_at: 2026-06-27 22:23:25 Asia/Taipei
 - stock_id: 3163
 - stock_name: 波若威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 720
 - close: 720
 - volume: 1675000
-- ma5: 838.2
-- ema23_primary: 922.63
-- distance_to_ema23_pct: -21.96
-- ma20: 928.85
-- ma60: 1038.92
-- ma120: 804.62
-- return_5d: -20.27
-- return_20d: -34.55
+- ma5: 819.6
+- ema23_primary: 911.86
+- distance_to_ema23_pct: -21.04
+- ma20: 916.35
+- ma60: 1037.67
+- ma120: 808.15
+- return_5d: -19.37
+- return_20d: -31.43
 - volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -22.48
+- distance_to_ma20_pct_auxiliary: -21.43
 - distance_to_high_60_pct: -45.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1080,1085,1025,1050,1058000,1072.58,-2.11,1074.1,1006.65,0.57
 20260529,1050,1080,1015,1030,1036000,1069.03,-3.65,1068.35,1010.5,0.59
 20260601,1035,1100,1015,1060,1064000,1068.28,-0.77,1058.6,1016.15,0.69
 20260602,1100,1120,982,988,1024,1061.59,-6.93,1047,1020.65,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,895,895,870,870,1342000,957.72,-9.16,983.95,1041.13,0.56
 20260623,870,885,868,868,942000,950.24,-8.65,966.85,1040.63,0.4
 20260624,839,860,838,840,561000,941.05,-10.74,947.85,1041.15,0.24
-20260626,795,795,720,720,1675000,922.63,-21.96,928.85,1038.92,0.71
+20260625,845,846,789,800,998000,929.3,-13.91,932.85,1040.25,0.43
+20260626,795,795,720,720,1675000,911.86,-21.04,916.35,1037.67,0.71
 ```
 
 ## Latest TDCC Snapshot

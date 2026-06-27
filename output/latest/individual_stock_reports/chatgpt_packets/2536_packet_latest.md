@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2536 宏普
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:05 Asia/Taipei
+- generated_at: 2026-06-27 22:23:08 Asia/Taipei
 - stock_id: 2536
 - stock_name: 宏普
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 20.9
 - close: 21
 - volume: 796751
-- ma5: 21.44
-- ema23_primary: 21.03
-- distance_to_ema23_pct: -0.14
-- ma20: 20.88
-- ma60: 21.14
-- ma120: 22.41
-- return_5d: -1.87
-- return_20d: 9.38
+- ma5: 21.22
+- ema23_primary: 21.05
+- distance_to_ema23_pct: -0.22
+- ma20: 20.96
+- ma60: 21.13
+- ma120: 22.37
+- return_5d: -6.04
+- return_20d: 7.97
 - volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 0.6
+- distance_to_ma20_pct_auxiliary: 0.17
 - distance_to_high_60_pct: -7.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.35,19.6,19.15,19.45,457510,20.38,-4.56,20.25,21.7,0.99
 20260529,19.8,19.8,19.3,19.5,376736,20.31,-3.97,20.14,21.62,0.8
 20260601,19.5,19.8,19.4,19.75,308374,20.26,-2.51,20.07,21.56,0.68
 20260602,19.75,19.85,19.6,19.65,541278,20.21,-2.76,20.01,21.5,1.15
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.35,22.35,21.25,21.3,2579265,20.99,1.49,20.62,21.2,2.72
 20260623,21.65,21.65,21.2,21.25,941857,21.01,1.15,20.7,21.18,1
 20260624,21.25,21.55,21.1,21.3,533945,21.03,1.27,20.79,21.16,0.56
-20260626,21.25,21.25,20.9,21,796751,21.03,-0.14,20.88,21.14,0.83
+20260625,21.45,21.5,21.2,21.25,638445,21.05,0.95,20.89,21.15,0.67
+20260626,21.25,21.25,20.9,21,796751,21.05,-0.22,20.96,21.13,0.83
 ```
 
 ## Latest TDCC Snapshot

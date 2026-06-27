@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6190 萬泰科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:10 Asia/Taipei
+- generated_at: 2026-06-27 22:24:11 Asia/Taipei
 - stock_id: 6190
 - stock_name: 萬泰科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 81.2
 - close: 81.6
 - volume: 4232000
-- ma5: 82.6
-- ema23_primary: 80.46
-- distance_to_ema23_pct: 1.42
-- ma20: 82.15
-- ma60: 74.06
-- ma120: 61.72
-- return_5d: 4.21
-- return_20d: 1.49
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -0.67
+- ma5: 82.7
+- ema23_primary: 80.69
+- distance_to_ema23_pct: 1.13
+- ma20: 82.03
+- ma60: 74.56
+- ma120: 62.03
+- return_5d: -1.57
+- return_20d: -5.01
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: -0.52
 - distance_to_high_60_pct: -18.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,82,88,81.5,85.9,85000,76.38,12.46,77.9,64.28,0.01
 20260529,87.6,92.1,85,92,88000,77.69,18.43,79.01,64.97,0.01
 20260601,92,99.6,90,91.6,93000,78.85,16.18,79.99,65.7,0.02
 20260602,91.5,93,82.5,83.3,86,79.22,5.16,80.47,66.27,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,83.5,85.5,82.3,83.7,8767000,79.96,4.68,81.74,72.65,3.75
 20260623,84,84.3,81,81.7,4427000,80.1,1.99,81.83,73.1,1.73
 20260624,80,83.2,80,83.1,2979000,80.35,3.42,82.09,73.61,1.1
-20260626,83,84.1,81.2,81.6,4232000,80.46,1.42,82.15,74.06,1.46
+20260625,83.4,84,82.5,83.4,3393000,80.61,3.47,82.24,74.09,1.18
+20260626,83,84.1,81.2,81.6,4232000,80.69,1.13,82.03,74.56,1.38
 ```
 
 ## Latest TDCC Snapshot

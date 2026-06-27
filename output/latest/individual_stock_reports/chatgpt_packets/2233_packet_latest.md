@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:52 Asia/Taipei
+- generated_at: 2026-06-27 22:22:56 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 214
 - close: 214
 - volume: 3240019
-- ma5: 275
-- ema23_primary: 295.87
-- distance_to_ema23_pct: -27.67
-- ma20: 304.07
-- ma60: 284.89
-- ma120: 257.27
-- return_5d: -29.37
-- return_20d: -41.37
-- volume_ratio: 2.16
-- distance_to_ma20_pct_auxiliary: -29.62
+- ma5: 260
+- ema23_primary: 290.3
+- distance_to_ema23_pct: -26.28
+- ma20: 298.02
+- ma60: 284.98
+- ma120: 257.62
+- return_5d: -29.95
+- return_20d: -39.12
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: -28.19
 - distance_to_high_60_pct: -45.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,365.5,377,345,351.5,2379139,318.17,10.47,323.25,261.57,0.96
 20260529,356.5,372,351,353,1723074,321.07,9.94,325.9,263.53,0.76
 20260601,353,361.5,344,355,1186787,323.9,9.6,327.73,265.73,0.59
 20260602,351.5,351.5,319.5,329,3319034,324.33,1.44,328.45,267.39,1.63
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,306,320.5,305.5,315.5,1207023,309.76,1.85,322.55,283.95,0.73
 20260623,304,304,284,284,2050552,307.61,-7.68,317.68,284.81,1.31
 20260624,256,261.5,256,256,1422227,303.31,-15.6,311.62,285.21,0.98
-20260626,232,232,214,214,3240019,295.87,-27.67,304.07,284.89,2.16
+20260625,241.5,246.5,230.5,230.5,6909297,297.24,-22.45,304.9,285.17,4.11
+20260626,232,232,214,214,3240019,290.3,-26.28,298.02,284.98,1.88
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3324 雙鴻
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:29 Asia/Taipei
 - stock_id: 3324
 - stock_name: 雙鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 968
 - close: 970
 - volume: 2442000
-- ma5: 1039
-- ema23_primary: 1056.43
-- distance_to_ema23_pct: -8.18
-- ma20: 1078.65
-- ma60: 1051.23
-- ma120: 1026.45
-- return_5d: -7.62
-- return_20d: -6.28
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: -10.07
+- ma5: 1027
+- ema23_primary: 1052.28
+- distance_to_ema23_pct: -7.82
+- ma20: 1078.9
+- ma60: 1052.13
+- ma120: 1026.61
+- return_5d: -9.35
+- return_20d: -3.48
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: -10.09
 - distance_to_high_60_pct: -25.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1050,1070,1000,1005,1035000,1033.28,-2.74,1046.6,1029.42,0.38
 20260529,1035,1080,1020,1065,1048000,1035.92,2.81,1042.85,1029.17,0.4
 20260601,1085,1165,1080,1145,1136000,1045.01,9.57,1040.6,1032.05,0.46
 20260602,1155,1220,1135,1165,1178,1055.01,10.43,1040.35,1035.17,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1095,1105,1070,1075,2124000,1068.78,0.58,1080.4,1050.62,1.26
 20260623,1075,1080,1025,1025,2171000,1065.13,-3.77,1081.15,1050.45,1.25
 20260624,1000,1065,995,1055,1971000,1064.28,-0.87,1081.9,1051.62,1.1
-20260626,1005,1005,968,970,2442000,1056.43,-8.18,1078.65,1051.23,1.32
+20260625,1070,1075,1010,1010,2018000,1059.76,-4.7,1080.65,1051.9,1.1
+20260626,1005,1005,968,970,2442000,1052.28,-7.82,1078.9,1052.13,1.28
 ```
 
 ## Latest TDCC Snapshot
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 3324 | 雙鴻 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3324 | 雙鴻 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 12.0 | A_優先追蹤 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

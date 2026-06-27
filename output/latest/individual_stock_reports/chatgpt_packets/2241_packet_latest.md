@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:52 Asia/Taipei
+- generated_at: 2026-06-27 22:22:56 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 45.1
 - close: 45.9
 - volume: 2437915
-- ma5: 48.67
-- ema23_primary: 41.82
-- distance_to_ema23_pct: 9.76
-- ma20: 40.99
-- ma60: 34.5
-- ma120: 33.46
-- return_5d: -0.33
-- return_20d: 26.27
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 11.97
+- ma5: 47.71
+- ema23_primary: 42.15
+- distance_to_ema23_pct: 8.89
+- ma20: 41.37
+- ma60: 34.76
+- ma120: 33.53
+- return_5d: -9.29
+- return_20d: 20
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 10.95
 - distance_to_high_60_pct: -16.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.05,39.95,37,38.25,10963553,34.04,12.37,33.6,30.9,4.56
 20260529,39.6,39.8,34.45,34.55,7645254,34.08,1.38,33.84,31,2.77
 20260601,34.6,35.7,33.45,34.65,2545175,34.13,1.53,34.08,31.11,0.9
 20260602,34.55,34.6,31.55,32.35,2296180,33.98,-4.8,34.13,31.14,0.79
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,54.1,55,51,51.6,6556715,40.28,28.12,39.5,33.64,1.26
 20260623,51.1,51.1,47.1,47.65,4390351,40.89,16.53,39.98,33.93,0.83
 20260624,46.9,48.5,46.65,47.6,2343526,41.45,14.84,40.52,34.23,0.44
-20260626,45.8,47.5,45.1,45.9,2437915,41.82,9.76,40.99,34.5,0.46
+20260625,48.5,48.5,45.4,45.8,2403394,41.81,9.54,40.99,34.5,0.45
+20260626,45.8,47.5,45.1,45.9,2437915,42.15,8.89,41.37,34.76,0.5
 ```
 
 ## Latest TDCC Snapshot

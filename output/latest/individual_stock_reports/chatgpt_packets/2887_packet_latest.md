@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:12 Asia/Taipei
+- generated_at: 2026-06-27 22:23:16 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 31.3
 - close: 31.9
 - volume: 52875362
-- ma5: 32.03
-- ema23_primary: 29.24
-- distance_to_ema23_pct: 9.08
-- ma20: 29.21
-- ma60: 25.67
-- ma120: 24.33
-- return_5d: -2.15
-- return_20d: 36.91
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 9.19
+- ma5: 31.91
+- ema23_primary: 29.46
+- distance_to_ema23_pct: 8.28
+- ma20: 29.66
+- ma60: 25.81
+- ma120: 24.42
+- return_5d: -1.69
+- return_20d: 38.7
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 7.56
 - distance_to_high_60_pct: -4.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.4,23.55,23,23,171562778,23.62,-2.63,23.55,24.06,1.5
 20260529,23.25,23.45,23,23.35,225036097,23.6,-1.05,23.53,24.03,1.84
 20260601,23.35,24.7,23.25,24.6,184994112,23.68,3.88,23.59,24.04,1.45
 20260602,24.45,26.1,24.3,26.1,254723925,23.88,9.28,23.7,24.06,1.87
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.6,32.6,31.95,32.05,62139229,28.46,12.62,27.94,25.29,0.4
 20260623,32,32.95,32,32.15,74148243,28.77,11.77,28.39,25.42,0.49
 20260624,32.05,32.15,31.6,31.6,59301672,29,8.96,28.79,25.54,0.4
-20260626,31.75,32.15,31.3,31.9,52875362,29.24,9.08,29.21,25.67,0.38
+20260625,31.6,32.3,31.6,31.85,49495606,29.24,8.93,29.21,25.67,0.35
+20260626,31.75,32.15,31.3,31.9,52875362,29.46,8.28,29.66,25.81,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -185,8 +185,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2887 | 台新新光金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | continued_overheated | 1.發生變動日期:115/06/25 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、法人監察人 3.舊任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:溫英宗 董事:陳國揚 董事:楊智能 監察人:施貽昶 4.舊任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 溫英宗董事:新光金保代董事 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 5.新任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:林適慧 董事:陳國揚 董事:楊智能 監察人:施貽昶 監察人:蔡泓翰 6.新任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 林適慧董事:新光人壽協理 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 蔡泓翰監察人:台新新光金控資深副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:台新新光金控指派新光金保代第十一屆董事、監察人 9.新任者選任時持股數:1,000,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/10~115/07/09 11.新任生效日期:115/07/10 12.同任期董事變動比率:不適用(全面改選) 13.同任期獨立董事變動比率:不適用(全面改選) 14.同任期監察人變動比率:不適用(全面改選) 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
-| 20260626 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | 1.發生變動日期:115/06/25 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、法人監察人 3.舊任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:溫英宗 董事:陳國揚 董事:楊智能 監察人:施貽昶 4.舊任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 溫英宗董事:新光金保代董事 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 5.新任者職稱及姓名: 董事:楊秀娟 董事:鐘俊豪 董事:林適慧 董事:陳國揚 董事:楊智能 監察人:施貽昶 監察人:蔡泓翰 6.新任者簡歷: 楊秀娟董事:新光金保代董事長 鐘俊豪董事:新光金保代董事 林適慧董事:新光人壽協理 陳國揚董事:新光人壽資深副總經理 楊智能董事:新光銀行副總經理 施貽昶監察人:新光金保代監察人 蔡泓翰監察人:台新新光金控資深副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:台新新光金控指派新光金保代第十一屆董事、監察人 9.新任者選任時持股數:1,000,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/10~115/07/09 11.新任生效日期:115/07/10 12.同任期董事變動比率:不適用(全面改選) 13.同任期獨立董事變動比率:不適用(全面改選) 14.同任期監察人變動比率:不適用(全面改選) 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
+| 20260626 | 2887 | 台新新光金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：香港 4.法人說明會擇要訊息：公告本公司受邀赴香港於115年6月29日會晤當地投資機構，說明營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
+| 20260626 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：香港 4.法人說明會擇要訊息：公告本公司受邀赴香港於115年6月29日會晤當地投資機構，說明營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

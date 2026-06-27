@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8034 榮群
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:46 Asia/Taipei
+- generated_at: 2026-06-27 22:24:46 Asia/Taipei
 - stock_id: 8034
 - stock_name: 榮群
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 22.8
 - close: 22.8
 - volume: 524000
-- ma5: 23.16
-- ema23_primary: 23.62
-- distance_to_ema23_pct: -3.47
-- ma20: 23.7
+- ma5: 23.1
+- ema23_primary: 23.57
+- distance_to_ema23_pct: -3.29
+- ma20: 23.67
 - ma60: 24.17
-- ma120: 24.79
+- ma120: 24.75
 - return_5d: -2.56
-- return_20d: -4.6
-- volume_ratio: 2.55
-- distance_to_ma20_pct_auxiliary: -3.82
+- return_20d: -4
+- volume_ratio: 2.42
+- distance_to_ma20_pct_auxiliary: -3.69
 - distance_to_high_60_pct: -15.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.7,24.15,23.6,23.75,24000,24.23,-1.96,24.17,24.61,0.05
 20260529,23.95,23.95,23.65,23.9,24000,24.2,-1.23,24.17,24.54,0.05
 20260601,23.95,24.45,23.95,24.25,24000,24.2,0.19,24.2,24.5,0.05
 20260602,24.35,25.05,24.1,25.05,25,24.27,3.2,24.24,24.46,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.45,23.55,23.25,23.35,200000,23.8,-1.9,23.88,24.23,1.31
 20260623,23.35,23.4,23,23,344000,23.74,-3.1,23.81,24.21,2.03
 20260624,23,23.25,22.85,23.25,243000,23.69,-1.88,23.76,24.19,1.35
-20260626,23.3,23.3,22.8,22.8,524000,23.62,-3.47,23.7,24.17,2.55
+20260625,23.25,23.3,22.9,23.1,259000,23.65,-2.31,23.72,24.18,1.35
+20260626,23.3,23.3,22.8,22.8,524000,23.57,-3.29,23.67,24.17,2.42
 ```
 
 ## Latest TDCC Snapshot

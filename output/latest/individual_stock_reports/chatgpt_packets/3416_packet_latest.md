@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:28 Asia/Taipei
+- generated_at: 2026-06-27 22:23:31 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 163.5
 - close: 163.5
 - volume: 463562
-- ma5: 171.9
-- ema23_primary: 173.72
-- distance_to_ema23_pct: -5.88
-- ma20: 176.4
-- ma60: 166.4
-- ma120: 157.53
-- return_5d: -6.3
-- return_20d: -11.62
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -7.31
+- ma5: 170.7
+- ema23_primary: 173.37
+- distance_to_ema23_pct: -5.69
+- ma20: 175.95
+- ma60: 166.8
+- ma120: 157.66
+- return_5d: -7.1
+- return_20d: -8.66
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: -7.08
 - distance_to_high_60_pct: -16.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,187,187,178,179,842353,171.08,4.63,171.07,157.45,0.95
 20260529,183,184,181,183.5,567218,172.11,6.62,172.38,158.06,0.63
 20260601,184.5,188,181.5,184,533119,173.1,6.3,173.55,158.75,0.6
 20260602,186,186.5,180.5,182.5,511021,173.89,4.95,174.8,159.4,0.57
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,178,179,176,177.5,267209,175.3,1.26,179.28,165.48,0.49
 20260623,179,179,171,171.5,337720,174.98,-1.99,178.32,165.81,0.78
 20260624,169,172,168.5,171,294543,174.65,-2.09,177.47,166.19,0.73
-20260626,169,172,163.5,163.5,463562,173.72,-5.88,176.4,166.4,1.22
+20260625,173.5,173.5,169,170,306921,174.26,-2.45,176.72,166.51,0.82
+20260626,169,172,163.5,163.5,463562,173.37,-5.69,175.95,166.8,1.31
 ```
 
 ## Latest TDCC Snapshot

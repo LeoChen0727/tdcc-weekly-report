@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3071 協禧
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:19 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3071
 - stock_name: 協禧
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.9
 - close: 31.15
 - volume: 524000
-- ma5: 33.15
-- ema23_primary: 32.58
-- distance_to_ema23_pct: -4.39
-- ma20: 33.01
-- ma60: 31
-- ma120: 27.76
-- return_5d: -6.88
-- return_20d: -5.89
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -5.63
+- ma5: 32.89
+- ema23_primary: 32.52
+- distance_to_ema23_pct: -4.21
+- ma20: 33.02
+- ma60: 31.05
+- ma120: 27.84
+- return_5d: -6.17
+- return_20d: -1.58
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -5.66
 - distance_to_high_60_pct: -13.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.1,33.8,31.25,31.65,33000,30.61,3.4,30.5,28.83,0.07
 20260529,32.5,32.5,31.55,32.2,32000,30.74,4.74,30.59,28.96,0.07
 20260601,32.2,33.8,32.2,33.45,33000,30.97,8.01,30.75,29.13,0.08
 20260602,33.65,34.45,33.15,33.5,34,31.18,7.44,30.86,29.28,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.55,34.25,33.5,33.6,1102000,32.48,3.44,32.97,30.82,1.72
 20260623,33.95,34,32.85,34,736000,32.61,4.26,33.09,30.9,1.09
 20260624,33.6,34.1,33.35,33.8,650000,32.71,3.33,33.1,30.98,0.92
-20260626,31.5,32,30.9,31.15,524000,32.58,-4.39,33.01,31,0.72
+20260625,34,34.15,31.8,31.9,993000,32.64,-2.27,33.05,31.01,1.32
+20260626,31.5,32,30.9,31.15,524000,32.52,-4.21,33.02,31.05,0.67
 ```
 
 ## Latest TDCC Snapshot

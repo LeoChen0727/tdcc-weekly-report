@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6432 今展科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:17 Asia/Taipei
+- generated_at: 2026-06-27 22:24:18 Asia/Taipei
 - stock_id: 6432
 - stock_name: 今展科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 74.7
 - close: 75
 - volume: 4825000
-- ma5: 78.42
-- ema23_primary: 69.75
-- distance_to_ema23_pct: 7.53
-- ma20: 72.02
-- ma60: 52.86
-- ma120: 43.67
-- return_5d: -5.06
-- return_20d: 15.03
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 4.14
+- ma5: 77.5
+- ema23_primary: 70.75
+- distance_to_ema23_pct: 6.01
+- ma20: 72.64
+- ma60: 53.67
+- ma120: 44.07
+- return_5d: -13.69
+- return_20d: 7.14
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 3.26
 - distance_to_high_60_pct: -13.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,67.3,71.7,66.6,70,69000,51.65,35.53,50.7,41.2,0.03
 20260529,70.5,72.4,67.6,70.6,70000,53.23,32.63,52.28,41.74,0.03
 20260601,71.1,73,68.1,68.1,70000,54.47,25.03,53.75,42.27,0.03
 20260602,67,67.4,63,66,65,55.43,19.07,54.92,42.75,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,85.5,86.8,81.3,81.3,6261000,68.29,19.06,69.91,50.85,2.21
 20260623,80.1,80.1,73.6,74,2916000,68.76,7.62,70.75,51.5,0.98
 20260624,73.5,76.2,72,74.9,2332000,69.27,8.12,71.53,52.18,0.75
-20260626,80.3,83.1,74.7,75,4825000,69.75,7.53,72.02,52.86,1.45
+20260625,75.1,82.3,73.8,82.3,4885000,70.36,16.97,72.39,52.98,1.46
+20260626,80.3,83.1,74.7,75,4825000,70.75,6.01,72.64,53.67,1.35
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6432 | 今展科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6432 | 今展科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/26 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                  最近一月單月     去年同月       與去年同期增減%                   (115年5月)     (114年5月) -------------------------------------------------------------------- 營業收入(百萬元)      108               84        28.54% 稅前淨利(百萬元)        9              -22       140.91% (由虧轉盈) 歸屬母公司業主 淨利(百萬元)            8              -18       144.44% (由虧轉盈) 每股盈餘 (元)        0.23            -0.56       141.57% (由虧轉盈)  (2)單季                  最近一季單季     去年同期       與去年同期增減%                  (115年第1季)    (114年第1季) -------------------------------------------------------------------- 營業收入(百萬元)       294             287            2.27% 稅前淨利(百萬元)        27              17           61.51% 歸屬母公司業主 淨利(百萬元)            24              15           65.04% 每股盈餘 (元)         0.72            0.45           60.00%  (3)最近四季累計                  (114年第2季至115年第1季) -------------------------------------------------------------------- 營業收入(百萬元)            1,132 稅前淨利(百萬元)               25 歸屬母公司業主 淨利(百萬元)                   25 每股盈餘 (元)                0.75 公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製 之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。 註4：本公司114年5月合併自結為稅前淨損主要是認列外幣兌換損失所致。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

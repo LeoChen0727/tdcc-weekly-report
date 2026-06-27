@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:17 Asia/Taipei
+- generated_at: 2026-06-27 22:23:20 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 507
 - close: 509
 - volume: 9764882
-- ma5: 535.8
-- ema23_primary: 502.23
-- distance_to_ema23_pct: 1.35
-- ma20: 502.02
-- ma60: 456.99
-- ma120: 418.63
-- return_5d: -1.17
-- return_20d: 4.95
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: 1.39
+- ma5: 544.8
+- ema23_primary: 506.77
+- distance_to_ema23_pct: 0.44
+- ma20: 506.15
+- ma60: 459.82
+- ma120: 420.17
+- return_5d: -1.36
+- return_20d: 6.37
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 0.56
 - distance_to_high_60_pct: -16.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,487.5,496,477.5,478.5,6060204,464.12,3.1,469.73,418.3,0.84
 20260529,480.5,485.5,475,477,7952543,465.19,2.54,473.12,419.93,1.06
 20260601,484,497,480,496.5,7656543,467.8,6.13,477.18,422.02,1
 20260602,498,510,493,507,10893317,471.07,7.63,481.52,424.23,1.35
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,529,567,526,567,11170070,493.66,14.86,495.5,449.87,1.82
 20260623,600,606,543,544,14393705,497.85,9.27,498.25,452.64,2.17
 20260624,540,546,525,543,5270948,501.61,8.25,500.82,455.16,0.79
-20260626,542,547,507,509,9764882,502.23,1.35,502.02,456.99,1.43
+20260625,545,572,543,561,7057181,506.56,10.75,504.62,457.86,1.06
+20260626,542,547,507,509,9764882,506.77,0.44,506.15,459.82,1.42
 ```
 
 ## Latest TDCC Snapshot

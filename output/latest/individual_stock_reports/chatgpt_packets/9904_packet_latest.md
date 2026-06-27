@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:58 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 25.3
 - close: 25.3
 - volume: 42079122
-- ma5: 25.9
-- ema23_primary: 26.11
-- distance_to_ema23_pct: -3.12
-- ma20: 26.13
-- ma60: 26.56
-- ma120: 28.46
-- return_5d: -4.35
-- return_20d: -0.2
-- volume_ratio: 1.83
-- distance_to_ma20_pct_auxiliary: -3.17
+- ma5: 25.86
+- ema23_primary: 26.1
+- distance_to_ema23_pct: -3.05
+- ma20: 26.16
+- ma60: 26.52
+- ma120: 28.42
+- return_5d: -3.25
+- return_20d: 0.4
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: -3.31
 - distance_to_high_60_pct: -12.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.35,25.5,25.1,25.2,16106218,26.04,-3.21,25.77,27.53,1.12
 20260529,25.25,25.55,25.2,25.45,12333549,25.99,-2.06,25.75,27.45,0.86
 20260601,25.5,25.8,25.4,25.8,22820802,25.97,-0.66,25.77,27.4,1.54
 20260602,25.75,26.35,25.65,26.1,23730546,25.98,0.46,25.79,27.33,1.53
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.35,26.55,26.1,26.1,22724237,26.23,-0.49,26.09,26.71,1.08
 20260623,26.2,26.25,26,26,21016732,26.21,-0.8,26.11,26.67,0.98
 20260624,26,26.05,25.85,25.95,18187408,26.19,-0.91,26.13,26.62,0.84
-20260626,25.95,25.95,25.3,25.3,42079122,26.11,-3.12,26.13,26.56,1.83
+20260625,25.9,26.2,25.9,25.95,28110376,26.17,-0.83,26.16,26.57,1.26
+20260626,25.95,25.95,25.3,25.3,42079122,26.1,-3.05,26.16,26.52,1.79
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:58 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 2335
 - close: 2380
 - volume: 4874059
-- ma5: 2444
-- ema23_primary: 2433.42
-- distance_to_ema23_pct: -2.2
-- ma20: 2446
-- ma60: 2277.42
-- ma120: 1796.17
-- return_5d: -4.61
-- return_20d: -9.16
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: -2.7
+- ma5: 2433
+- ema23_primary: 2428.97
+- distance_to_ema23_pct: -2.02
+- ma20: 2443.25
+- ma60: 2289.83
+- ma120: 1806.25
+- return_5d: -2.26
+- return_20d: -2.26
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: -2.59
 - distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,2575,2580,2395,2435,5051117,2404.22,1.28,2491.75,1979.25,0.99
 20260529,2505,2530,2390,2430,6396739,2406.37,0.98,2499.25,1996.08,1.23
 20260601,2460,2540,2430,2510,3363120,2415,3.93,2499.5,2016.17,0.65
 20260602,2505,2520,2390,2425,3795060,2415.84,0.38,2496,2032.92,0.73
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,2495,2605,2485,2595,3410352,2444.85,6.14,2475.5,2241.17,0.96
 20260623,2675,2720,2435,2435,3948138,2444.03,-0.37,2470.25,2253.67,1.09
 20260624,2410,2445,2340,2375,3033201,2438.27,-2.6,2458,2265.33,0.84
-20260626,2395,2520,2335,2380,4874059,2433.42,-2.2,2446,2277.42,1.34
+20260625,2485,2545,2375,2380,4634360,2433.42,-2.2,2446,2277.42,1.28
+20260626,2395,2520,2335,2380,4874059,2428.97,-2.02,2443.25,2289.83,1.35
 ```
 
 ## Latest TDCC Snapshot

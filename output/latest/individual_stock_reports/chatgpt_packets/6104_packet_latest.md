@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6104 創惟
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:05 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6104
 - stock_name: 創惟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 96.3
 - close: 96.5
 - volume: 3159000
-- ma5: 103.8
-- ema23_primary: 101.27
-- distance_to_ema23_pct: -4.71
-- ma20: 101.39
-- ma60: 97.98
-- ma120: 97.66
-- return_5d: -3.98
-- return_20d: -2.53
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: -4.83
+- ma5: 103.6
+- ema23_primary: 101.33
+- distance_to_ema23_pct: -4.77
+- ma20: 101.64
+- ma60: 98.17
+- ma120: 97.7
+- return_5d: -6.76
+- return_20d: -1.23
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: -5.05
 - distance_to_high_60_pct: -13.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,99,102,96.8,97.7,99000,98.71,-1.02,99.44,95.74,0.06
 20260529,98.9,100.5,98.2,99,99000,98.73,0.27,99.45,95.73,0.06
 20260601,99.1,103,98.8,101.5,102000,98.96,2.57,99.67,95.88,0.07
 20260602,102.5,104,99.1,101,102,99.13,1.89,99.8,95.99,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,105,110.5,105,108.5,5713000,101.03,7.39,101.22,97.6,3.63
 20260623,110,111,104,105.5,3610000,101.41,4.04,101.34,97.75,2.06
 20260624,103.5,105,102.5,105,1449000,101.71,3.24,101.52,97.93,0.8
-20260626,101.5,101.5,96.3,96.5,3159000,101.27,-4.71,101.39,97.98,1.6
+20260625,106,106.5,102,102.5,1928000,101.77,0.71,101.69,98.08,1.01
+20260626,101.5,101.5,96.3,96.5,3159000,101.33,-4.77,101.64,98.17,1.53
 ```
 
 ## Latest TDCC Snapshot

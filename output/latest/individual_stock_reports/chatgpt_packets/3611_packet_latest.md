@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3611 鼎翰
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:34 Asia/Taipei
+- generated_at: 2026-06-27 22:23:37 Asia/Taipei
 - stock_id: 3611
 - stock_name: 鼎翰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 193
 - close: 193.5
 - volume: 48000
-- ma5: 194.1
-- ema23_primary: 192.23
-- distance_to_ema23_pct: 0.66
-- ma20: 192.4
-- ma60: 189.61
-- ma120: 192.65
+- ma5: 194.7
+- ema23_primary: 192.52
+- distance_to_ema23_pct: 0.51
+- ma20: 192.75
+- ma60: 189.78
+- ma120: 192.55
 - return_5d: 0.26
-- return_20d: 3.2
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 0.57
+- return_20d: 2.38
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 0.39
 - distance_to_high_60_pct: -2.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,188.5,189.5,187.5,189,189000,188.43,0.3,188.62,188.62,2.15
 20260529,189.5,191.5,189.5,190,190000,188.56,0.76,188.7,188.57,1.98
 20260601,190,192.5,189.5,192,191000,188.85,1.67,188.9,188.6,1.85
 20260602,192,193,190,191.5,192,189.07,1.28,189.03,188.62,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,195.5,197.5,195.5,195.5,91000,191.7,1.98,191.43,189.29,0.82
 20260623,195,195,193.5,194.5,29000,191.94,1.33,191.8,189.39,0.28
 20260624,194,195,194,194,22000,192.11,0.98,192.1,189.5,0.23
-20260626,195.5,195.5,193,193.5,48000,192.23,0.66,192.4,189.61,0.54
+20260625,196,196,194.5,196,32000,192.43,1.85,192.53,189.65,0.37
+20260626,195.5,195.5,193,193.5,48000,192.52,0.51,192.75,189.78,0.6
 ```
 
 ## Latest TDCC Snapshot

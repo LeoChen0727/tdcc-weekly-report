@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2838 聯邦銀
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:11 Asia/Taipei
+- generated_at: 2026-06-27 22:23:14 Asia/Taipei
 - stock_id: 2838
 - stock_name: 聯邦銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 22.3
 - close: 22.45
 - volume: 1901302
-- ma5: 22.58
-- ema23_primary: 21.69
-- distance_to_ema23_pct: 3.51
-- ma20: 21.63
-- ma60: 20.88
-- ma120: 20.14
-- return_5d: 0
-- return_20d: 9.51
+- ma5: 22.59
+- ema23_primary: 21.78
+- distance_to_ema23_pct: 3.08
+- ma20: 21.76
+- ma60: 20.91
+- ma120: 20.17
+- return_5d: -1.32
+- return_20d: 11.14
 - volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 3.78
-- distance_to_high_60_pct: -1.75
+- distance_to_ma20_pct_auxiliary: 3.16
+- distance_to_high_60_pct: -2.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.5,20.5,20.15,20.2,1301339,20.31,-0.55,20.32,20.35,0.81
 20260529,20.2,20.45,20.15,20.45,2471423,20.32,0.62,20.34,20.36,1.51
 20260601,20.4,20.5,20.05,20.5,2440712,20.34,0.8,20.36,20.38,1.49
 20260602,20.45,20.75,20.3,20.6,1881136,20.36,1.18,20.36,20.39,1.13
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.85,22.85,22.3,22.4,2186148,21.42,4.55,21.29,20.79,0.85
 20260623,22.6,22.8,22.3,22.75,1708955,21.54,5.64,21.42,20.82,0.66
 20260624,22.8,22.8,22.45,22.55,1296325,21.62,4.3,21.54,20.85,0.5
-20260626,22.55,22.7,22.3,22.45,1901302,21.69,3.51,21.63,20.88,0.73
+20260625,22.7,23,22.5,22.8,1188429,21.72,4.98,21.65,20.88,0.46
+20260626,22.55,22.7,22.3,22.45,1901302,21.78,3.08,21.76,20.91,0.73
 ```
 
 ## Latest TDCC Snapshot

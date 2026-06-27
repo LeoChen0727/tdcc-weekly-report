@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8109 博大
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:49 Asia/Taipei
+- generated_at: 2026-06-27 22:24:49 Asia/Taipei
 - stock_id: 8109
 - stock_name: 博大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 115.5
 - close: 117
 - volume: 380000
-- ma5: 122.3
-- ema23_primary: 120.5
-- distance_to_ema23_pct: -2.9
-- ma20: 121.17
-- ma60: 117.22
-- ma120: 111.08
-- return_5d: -1.27
-- return_20d: -3.7
+- ma5: 121.6
+- ema23_primary: 120.4
+- distance_to_ema23_pct: -2.82
+- ma20: 120.85
+- ma60: 117.47
+- ma120: 111.24
+- return_5d: -4.88
+- return_20d: -7.14
 - volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: -3.45
+- distance_to_ma20_pct_auxiliary: -3.19
 - distance_to_high_60_pct: -13.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,122.5,129,121.5,126,126000,119.54,5.4,120.25,111.21,0.4
 20260529,126.5,127,124,125.5,126000,120.04,4.55,120.62,111.51,0.41
 20260601,125.5,127.5,123.5,126.5,125000,120.58,4.91,120.78,111.89,0.42
 20260602,127,127.5,122,123,124,120.78,1.84,120.85,112.19,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,123.5,130,123.5,128.5,618000,120.7,6.46,121.6,116.26,3.17
 20260623,128.5,128.5,122.5,122.5,241000,120.85,1.37,121.53,116.62,1.2
 20260624,121,122.5,120,120.5,133000,120.82,-0.26,121.4,116.97,0.66
-20260626,119,119,115.5,117,380000,120.5,-2.9,121.17,117.22,1.77
+20260625,122.5,122.5,119,119.5,125000,120.71,-1,121.3,117.27,0.62
+20260626,119,119,115.5,117,380000,120.4,-2.82,120.85,117.47,1.77
 ```
 
 ## Latest TDCC Snapshot

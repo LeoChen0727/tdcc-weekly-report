@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:11 Asia/Taipei
+- generated_at: 2026-06-27 22:23:14 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12.15
 - close: 12.25
 - volume: 1967602
-- ma5: 12.29
-- ema23_primary: 12.14
-- distance_to_ema23_pct: 0.88
-- ma20: 12.12
-- ma60: 12.02
+- ma5: 12.28
+- ema23_primary: 12.16
+- distance_to_ema23_pct: 0.77
+- ma20: 12.15
+- ma60: 12.03
 - ma120: 12.13
-- return_5d: -0.41
-- return_20d: 3.81
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 1.03
+- return_5d: -0.81
+- return_20d: 4.26
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.8
 - distance_to_high_60_pct: -1.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.8,11.8,11.7,11.75,1676345,11.87,-0.98,11.84,12.05,1.61
 20260529,11.75,11.8,11.65,11.65,1846766,11.85,-1.67,11.82,12.03,1.71
 20260601,11.7,11.75,11.55,11.7,2996445,11.84,-1.15,11.82,12.02,2.57
 20260602,11.7,11.9,11.7,11.9,2578975,11.84,0.5,11.82,12.01,2.03
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.35,12.35,12.25,12.3,1084491,12.11,1.59,12.06,12.02,0.36
 20260623,12.25,12.4,12.2,12.3,1870696,12.12,1.46,12.08,12.02,0.61
 20260624,12.3,12.35,12.2,12.25,1175781,12.13,0.96,12.1,12.02,0.38
-20260626,12.3,12.3,12.15,12.25,1967602,12.14,0.88,12.12,12.02,0.63
+20260625,12.25,12.4,12.2,12.3,2382886,12.15,1.25,12.13,12.02,0.76
+20260626,12.3,12.3,12.15,12.25,1967602,12.16,0.77,12.15,12.03,0.62
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2718 全心投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:09 Asia/Taipei
+- generated_at: 2026-06-27 22:23:12 Asia/Taipei
 - stock_id: 2718
 - stock_name: 全心投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 49.3
 - close: 49.55
 - volume: 22000
-- ma5: 50.09
-- ema23_primary: 48.16
-- distance_to_ema23_pct: 2.89
-- ma20: 48.11
-- ma60: 46.38
-- ma120: 48.16
-- return_5d: -2.08
-- return_20d: 10.6
+- ma5: 49.91
+- ema23_primary: 48.32
+- distance_to_ema23_pct: 2.55
+- ma20: 48.35
+- ma60: 46.41
+- ma120: 48.13
+- return_5d: -2.84
+- return_20d: 9.14
 - volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 2.99
+- distance_to_ma20_pct_auxiliary: 2.49
 - distance_to_high_60_pct: -4.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.75,45.6,44.75,45.4,45000,45.24,0.34,44.52,46.42,0.58
 20260529,45.6,46.75,45.4,46.45,46000,45.35,2.44,44.66,46.37,0.59
 20260601,46.6,46.6,45.5,46.55,46000,45.45,2.43,44.83,46.34,0.6
 20260602,46.55,46.75,46.55,46.75,47,45.55,2.62,45.03,46.3,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51,52,49.65,49.9,112000,47.66,4.71,47.39,46.27,1.79
 20260623,49.9,50.5,49.55,50,70000,47.85,4.49,47.63,46.31,1.1
 20260624,50,50.2,49.3,50,62000,48.03,4.1,47.88,46.34,0.96
-20260626,50,50,49.3,49.55,22000,48.16,2.89,48.11,46.38,0.35
+20260625,50.2,50.2,49.45,50.1,50000,48.2,3.93,48.14,46.38,0.77
+20260626,50,50,49.3,49.55,22000,48.32,2.55,48.35,46.41,0.35
 ```
 
 ## Latest TDCC Snapshot

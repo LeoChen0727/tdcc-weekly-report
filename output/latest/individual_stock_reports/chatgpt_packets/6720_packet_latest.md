@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6720 久昌
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:27 Asia/Taipei
+- generated_at: 2026-06-27 22:24:28 Asia/Taipei
 - stock_id: 6720
 - stock_name: 久昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 137
 - close: 137
 - volume: 31000
-- ma5: 140.5
-- ema23_primary: 146.96
-- distance_to_ema23_pct: -6.78
-- ma20: 146.22
-- ma60: 156.87
-- ma120: 153.57
-- return_5d: -3.86
-- return_20d: -7.43
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -6.31
+- ma5: 140.2
+- ema23_primary: 146.4
+- distance_to_ema23_pct: -6.42
+- ma20: 145.9
+- ma60: 156.36
+- ma120: 153.72
+- return_5d: -3.52
+- return_20d: -6.8
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -6.1
 - distance_to_high_60_pct: -22.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,148.5,150,135.5,147,144000,157.63,-6.75,158.35,163.45,1.17
 20260529,151.5,151.5,142,146.5,145000,156.71,-6.51,157.68,163.06,1.14
 20260601,150.5,150.5,141.5,146.5,145000,155.86,-6,156.75,162.68,1.14
 20260602,150.5,154.5,147,150.5,150,155.41,-3.16,156.07,162.25,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,145,149,141,142,57000,149.22,-4.84,147.97,158.36,0.52
 20260623,141.5,141.5,140,140.5,41000,148.49,-5.38,147.28,157.95,0.4
 20260624,140,141,138,141,44000,147.87,-4.64,146.78,157.43,0.45
-20260626,139,139,137,137,31000,146.96,-6.78,146.22,156.87,0.34
+20260625,141,141,138.5,140.5,66000,147.25,-4.58,146.4,156.93,0.7
+20260626,139,139,137,137,31000,146.4,-6.42,145.9,156.36,0.35
 ```
 
 ## Latest TDCC Snapshot

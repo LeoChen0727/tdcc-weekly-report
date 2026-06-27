@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3158 嘉實
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:22 Asia/Taipei
+- generated_at: 2026-06-27 22:23:24 Asia/Taipei
 - stock_id: 3158
 - stock_name: 嘉實
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 145
+- price_rows: 146
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 83.3
 - close: 83.9
 - volume: 3000
-- ma5: 83.66
-- ema23_primary: 84.69
-- distance_to_ema23_pct: -0.93
-- ma20: 84.27
-- ma60: 87.53
-- ma120: 89.3
-- return_5d: 0
-- return_20d: -2.44
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -0.44
+- ma5: 83.76
+- ema23_primary: 84.6
+- distance_to_ema23_pct: -0.83
+- ma20: 84.17
+- ma60: 87.36
+- ma120: 89.24
+- return_5d: 0.96
+- return_20d: -1.87
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -0.33
 - distance_to_high_60_pct: -10.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,86.5,86.5,85.5,85.5,86000,87.44,-2.21,87.46,89.95,2.5
 20260529,85.3,85.5,85.2,85.5,85000,87.27,-2.03,87.27,89.89,2.23
 20260601,85.5,85.8,85.3,85.3,86000,87.11,-2.08,87.02,89.82,2.07
 20260602,85.3,85.3,82.5,85.3,84,86.96,-1.91,86.78,89.76,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,84.7,84.7,83.3,83.3,3000,84.9,-1.89,84.53,88.16,0.07
 20260623,83.3,83.6,83.2,83.6,35000,84.79,-1.41,84.42,87.97,0.87
 20260624,83.1,84.5,83.1,84.4,8000,84.76,-0.43,84.38,87.78,0.22
-20260626,83.3,83.9,83.3,83.9,3000,84.69,-0.93,84.27,87.53,0.09
+20260625,84.4,84.4,83.4,83.6,13000,84.66,-1.26,84.25,87.52,0.4
+20260626,83.3,83.9,83.3,83.9,3000,84.6,-0.83,84.17,87.36,0.11
 ```
 
 ## Latest TDCC Snapshot

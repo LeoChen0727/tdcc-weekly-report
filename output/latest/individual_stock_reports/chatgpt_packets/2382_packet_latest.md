@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:01 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 357
 - close: 362
 - volume: 20757530
-- ma5: 372.5
-- ema23_primary: 363.49
-- distance_to_ema23_pct: -0.41
-- ma20: 373.75
-- ma60: 335.77
-- ma120: 308.82
-- return_5d: -3.21
-- return_20d: 16.03
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -3.14
+- ma5: 370.6
+- ema23_primary: 363.71
+- distance_to_ema23_pct: -0.47
+- ma20: 376.65
+- ma60: 337.19
+- ma120: 309.65
+- return_5d: -3.72
+- return_20d: 17.34
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -3.89
 - distance_to_high_60_pct: -17.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,312.5,319,308.5,308.5,43210473,315.65,-2.27,320.23,307.13,1.38
 20260529,315.5,339,315.5,339,87792646,317.6,6.74,321.55,307.88,2.52
 20260601,366,372.5,361,372.5,76692327,322.17,15.62,324.27,309.4,2.03
 20260602,375,409.5,369.5,400.5,151608396,328.7,21.84,328.25,311.25,3.39
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,378.5,385,376.5,380,20023542,361.99,4.98,365.68,331.68,0.37
 20260623,381,381,368,372.5,16362886,362.86,2.66,368.48,333.13,0.31
 20260624,367,372,364.5,372,11120601,363.62,2.3,371.25,334.55,0.22
-20260626,362,372,357,362,20757530,363.49,-0.41,373.75,335.77,0.41
+20260625,375,375,365,366.5,13596942,363.86,0.72,373.98,335.84,0.27
+20260626,362,372,357,362,20757530,363.71,-0.47,376.65,337.19,0.43
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3339 泰谷
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:27 Asia/Taipei
+- generated_at: 2026-06-27 22:23:29 Asia/Taipei
 - stock_id: 3339
 - stock_name: 泰谷
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 42.8
 - close: 43.15
 - volume: 1380000
-- ma5: 46.84
-- ema23_primary: 47.22
-- distance_to_ema23_pct: -8.61
-- ma20: 46.52
-- ma60: 50.55
-- ma120: 39.76
-- return_5d: -10.85
-- return_20d: -10.85
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -7.24
+- ma5: 45.86
+- ema23_primary: 47
+- distance_to_ema23_pct: -8.2
+- ma20: 46.47
+- ma60: 50.65
+- ma120: 39.93
+- return_5d: -13.18
+- return_20d: -5.79
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -7.14
 - distance_to_high_60_pct: -40.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,48.15,49.4,44.4,45.8,47000,50.46,-9.23,51.94,45.91,0.02
 20260529,46.3,47.1,44.5,44.65,45000,49.97,-10.65,51.44,46.18,0.02
 20260601,45.55,45.55,43.8,44.1,45000,49.48,-10.88,50.64,46.48,0.02
 20260602,44.8,48.5,43.2,48.5,46,49.4,-1.82,50.08,46.83,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49.7,51,48,48.2,2935000,47.78,0.89,47.13,50.24,1.76
 20260623,48.3,50.5,46.4,46.4,2854000,47.66,-2.65,46.98,50.33,1.58
 20260624,46.05,50.7,46.05,46.75,2432000,47.58,-1.75,46.78,50.49,1.26
-20260626,44.6,44.6,42.8,43.15,1380000,47.22,-8.61,46.52,50.55,0.69
+20260625,47.2,47.6,44.6,44.8,2173000,47.35,-5.39,46.6,50.58,1.07
+20260626,44.6,44.6,42.8,43.15,1380000,47,-8.2,46.47,50.65,0.66
 ```
 
 ## Latest TDCC Snapshot

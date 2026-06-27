@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2014 中鴻
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:48 Asia/Taipei
+- generated_at: 2026-06-27 22:22:52 Asia/Taipei
 - stock_id: 2014
 - stock_name: 中鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.35
 - close: 17.5
 - volume: 4108375
-- ma5: 17.7
-- ema23_primary: 17.85
-- distance_to_ema23_pct: -1.95
+- ma5: 17.72
+- ema23_primary: 17.84
+- distance_to_ema23_pct: -1.92
 - ma20: 17.98
-- ma60: 17.98
-- ma120: 17.69
-- return_5d: -0.85
-- return_20d: -2.78
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -2.67
+- ma60: 17.97
+- ma120: 17.71
+- return_5d: -1.13
+- return_20d: -1.96
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -2.66
 - distance_to_high_60_pct: -10.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18,18.45,17.85,17.85,7121433,17.79,0.36,17.71,17.95,0.94
 20260529,18.05,18.5,18.05,18.35,8569463,17.83,2.9,17.75,17.97,1.09
 20260601,18.45,18.75,18.15,18.5,9125101,17.89,3.42,17.8,18,1.12
 20260602,18.5,18.5,17.9,18.2,8707217,17.91,1.6,17.84,18.01,1.04
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.75,18.45,17.7,17.8,8719369,17.9,-0.58,18.08,18.03,0.85
 20260623,18.1,18.2,17.65,17.7,3470821,17.89,-1.04,18.02,18.01,0.38
 20260624,17.65,17.9,17.45,17.8,3165563,17.88,-0.45,18,17.99,0.42
-20260626,17.7,17.8,17.35,17.5,4108375,17.85,-1.95,17.98,17.98,0.56
+20260625,17.9,18,17.75,17.8,2852353,17.87,-0.41,18,17.98,0.39
+20260626,17.7,17.8,17.35,17.5,4108375,17.84,-1.92,17.98,17.97,0.58
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1817 凱撒衛
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:47 Asia/Taipei
+- generated_at: 2026-06-27 22:22:51 Asia/Taipei
 - stock_id: 1817
 - stock_name: 凱撒衛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 39.8
 - close: 39.8
 - volume: 92050
-- ma5: 40.33
-- ema23_primary: 39.82
-- distance_to_ema23_pct: -0.04
-- ma20: 39.77
-- ma60: 39.22
-- ma120: 38.92
-- return_5d: -1.61
-- return_20d: 1.53
+- ma5: 40.27
+- ema23_primary: 39.85
+- distance_to_ema23_pct: -0.13
+- ma20: 39.84
+- ma60: 39.24
+- ma120: 38.94
+- return_5d: -1.97
+- return_20d: 1.92
 - volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: 0.07
+- distance_to_ma20_pct_auxiliary: -0.09
 - distance_to_high_60_pct: -6.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.1,39.4,39.05,39.05,28823,39.17,-0.29,39.15,38.88,0.33
 20260529,39,39.3,39,39.25,38581,39.17,0.2,39.18,38.88,0.44
 20260601,39.25,39.95,39.25,39.55,57186,39.2,0.88,39.23,38.89,0.64
 20260602,39.5,39.55,39.4,39.45,23397,39.22,0.58,39.27,38.91,0.27
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.8,40.8,40.3,40.45,44641,39.71,1.87,39.63,39.15,0.93
 20260623,40.45,40.7,40.35,40.45,41034,39.77,1.71,39.69,39.17,0.87
 20260624,40.5,40.5,40.35,40.35,34785,39.82,1.34,39.74,39.2,0.74
-20260626,40.3,40.3,39.8,39.8,92050,39.82,-0.04,39.77,39.22,1.85
+20260625,40.3,40.4,40.3,40.3,29613,39.86,1.11,39.8,39.23,0.63
+20260626,40.3,40.3,39.8,39.8,92050,39.85,-0.13,39.84,39.24,1.85
 ```
 
 ## Latest TDCC Snapshot

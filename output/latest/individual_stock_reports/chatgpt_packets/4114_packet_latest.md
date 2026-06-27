@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:41 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.3
 - close: 30.3
 - volume: 1321000
-- ma5: 30.84
-- ema23_primary: 30.66
-- distance_to_ema23_pct: -1.16
-- ma20: 30.52
-- ma60: 30.87
-- ma120: 31.49
-- return_5d: -1.62
-- return_20d: 0.17
-- volume_ratio: 2.19
-- distance_to_ma20_pct_auxiliary: -0.71
+- ma5: 30.83
+- ema23_primary: 30.67
+- distance_to_ema23_pct: -1.21
+- ma20: 30.56
+- ma60: 30.86
+- ma120: 31.48
+- return_5d: -2.1
+- return_20d: 0.83
+- volume_ratio: 2.05
+- distance_to_ma20_pct_auxiliary: -0.85
 - distance_to_high_60_pct: -5.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,30.3,30.3,30.05,30.05,30000,30.75,-2.26,30.73,31.07,0.05
 20260529,30.05,30.15,29.95,30.15,30000,30.7,-1.78,30.7,31.05,0.05
 20260601,30.05,30.15,29.9,30.1,30000,30.65,-1.78,30.66,31.03,0.05
 20260602,30.1,30.4,30.05,30.2,30,30.61,-1.34,30.64,31.01,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31,31.15,30.85,30.95,890000,30.63,1.05,30.46,30.89,2
 20260623,31.05,31.1,30.9,30.9,1014000,30.65,0.81,30.48,30.89,2.05
 20260624,30.9,31.25,30.8,31.1,927000,30.69,1.34,30.52,30.89,1.72
-20260626,30.9,30.9,30.3,30.3,1321000,30.66,-1.16,30.52,30.87,2.19
+20260625,31.1,31.25,30.9,30.9,877000,30.71,0.63,30.55,30.88,1.51
+20260626,30.9,30.9,30.3,30.3,1321000,30.67,-1.21,30.56,30.86,2.05
 ```
 
 ## Latest TDCC Snapshot

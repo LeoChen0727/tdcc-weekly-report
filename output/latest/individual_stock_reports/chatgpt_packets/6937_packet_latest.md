@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:35 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 248.5
 - close: 250
 - volume: 931763
-- ma5: 273.4
-- ema23_primary: 282.6
-- distance_to_ema23_pct: -11.54
-- ma20: 282.75
-- ma60: 293.77
-- ma120: 265.54
-- return_5d: -7.75
-- return_20d: -21.63
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: -11.58
+- ma5: 271.6
+- ema23_primary: 281.45
+- distance_to_ema23_pct: -11.17
+- ma20: 280.88
+- ma60: 294.25
+- ma120: 265.96
+- return_5d: -10.55
+- return_20d: -18.83
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: -10.99
 - distance_to_high_60_pct: -30.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,321,326.5,302,308,858592,307.61,0.13,311,286.92,0.69
 20260529,316,316,301.5,303,660900,307.22,-1.37,309.6,287.77,0.59
 20260601,303,312,295,311,1017386,307.54,1.13,308.4,288.98,1.01
 20260602,311.5,311.5,295.5,300.5,719593,306.95,-2.1,306.57,289.83,0.76
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,282,288,281.5,287,354894,287.54,-0.19,293.12,293.68,0.44
 20260623,287,287,276.5,277,364949,286.66,-3.37,289.4,293.86,0.52
 20260624,270.5,278,270.5,273.5,207658,285.56,-4.22,286.2,293.92,0.33
-20260626,270,270,248.5,250,931763,282.6,-11.54,282.75,293.77,1.48
+20260625,279.5,279.5,269.5,270.5,188649,284.31,-4.86,283.77,294.12,0.32
+20260626,270,270,248.5,250,931763,281.45,-11.17,280.88,294.25,1.56
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1467 南緯
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:37 Asia/Taipei
+- generated_at: 2026-06-27 22:22:41 Asia/Taipei
 - stock_id: 1467
 - stock_name: 南緯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 6.97
 - close: 7
 - volume: 327967
-- ma5: 7.13
-- ema23_primary: 7.29
-- distance_to_ema23_pct: -3.94
-- ma20: 7.39
+- ma5: 7.09
+- ema23_primary: 7.27
+- distance_to_ema23_pct: -3.69
+- ma20: 7.4
 - ma60: 7.22
 - ma120: 7.32
-- return_5d: -4.11
-- return_20d: 0.86
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -5.34
+- return_5d: -3.85
+- return_20d: 1.74
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -5.46
 - distance_to_high_60_pct: -16.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,6.94,6.95,6.88,6.88,334956,7.05,-2.4,7.05,7.13,1.17
 20260529,6.96,6.98,6.88,6.9,213459,7.04,-1.95,7.04,7.12,0.8
 20260601,6.92,7.38,6.9,7.37,798618,7.06,4.32,7.05,7.12,2.72
 20260602,7.42,7.42,7.26,7.42,484864,7.09,4.59,7.06,7.12,1.57
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,7.3,7.3,7.01,7.15,559940,7.35,-2.76,7.38,7.22,1.39
 20260623,7.17,7.17,7.08,7.11,134536,7.33,-3.04,7.38,7.22,0.34
 20260624,7.03,7.13,7.03,7.1,90635,7.31,-2.92,7.39,7.22,0.23
-20260626,7.05,7.12,6.97,7,327967,7.29,-3.94,7.39,7.22,0.86
+20260625,7.09,7.13,7.06,7.07,88508,7.29,-3.06,7.4,7.22,0.24
+20260626,7.05,7.12,6.97,7,327967,7.27,-3.69,7.4,7.22,0.89
 ```
 
 ## Latest TDCC Snapshot

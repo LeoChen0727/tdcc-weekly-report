@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3712 永崴投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:37 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3712
 - stock_name: 永崴投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 289
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.3
 - close: 17.35
 - volume: 834850
-- ma5: 17.79
-- ema23_primary: 17.95
-- distance_to_ema23_pct: -3.34
-- ma20: 18.12
-- ma60: 18.71
-- ma120: 21.83
-- return_5d: -3.07
-- return_20d: 8.1
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -4.26
+- ma5: 17.97
+- ema23_primary: 17.99
+- distance_to_ema23_pct: -3.56
+- ma20: 18.22
+- ma60: 18.63
+- ma120: 21.77
+- return_5d: -1.7
+- return_20d: 4.52
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -4.78
 - distance_to_high_60_pct: -26.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.3,17.15,16.3,16.6,1453812,17.74,-6.41,17.96,20.32,0.97
 20260529,16.6,18.25,16.5,18.25,2025386,17.78,2.64,17.84,20.21,1.29
 20260601,19.5,20.05,18.55,19.9,3244829,17.96,10.82,17.84,20.13,1.91
 20260602,19.85,19.85,18.6,19.1,1510711,18.05,5.8,17.81,20.05,0.92
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.6,18.3,17.6,18.05,697487,18.01,0.2,17.87,18.98,0.62
 20260623,18.15,18.3,17.75,17.95,540937,18.01,-0.33,17.97,18.9,0.5
 20260624,17.9,18.35,17.7,17.95,538889,18,-0.3,18.06,18.81,0.5
-20260626,18.3,18.3,17.3,17.35,834850,17.95,-3.34,18.12,18.71,0.79
+20260625,18.2,18.9,18.2,18.55,676337,18.05,2.77,18.18,18.73,0.64
+20260626,18.3,18.3,17.3,17.35,834850,17.99,-3.56,18.22,18.63,0.82
 ```
 
 ## Latest TDCC Snapshot

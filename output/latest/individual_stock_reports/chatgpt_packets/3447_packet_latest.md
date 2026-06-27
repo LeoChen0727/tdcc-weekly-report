@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3447 展達
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:29 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3447
 - stock_name: 展達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 36.2
 - close: 36.6
 - volume: 271374
-- ma5: 38.72
-- ema23_primary: 38.94
-- distance_to_ema23_pct: -6
-- ma20: 39.38
-- ma60: 38.49
-- ma120: 41.54
-- return_5d: -8.84
-- return_20d: 1.53
+- ma5: 38.35
+- ema23_primary: 38.87
+- distance_to_ema23_pct: -5.85
+- ma20: 39.46
+- ma60: 38.47
+- ma120: 41.46
+- return_5d: -8.96
+- return_20d: -0.14
 - volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -7.05
+- distance_to_ma20_pct_auxiliary: -7.25
 - distance_to_high_60_pct: -16.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.25,37.25,35.85,36.65,286425,37.53,-2.34,37.58,38.88,1.17
 20260529,36.45,37.1,36.35,36.9,180864,37.48,-1.54,37.56,38.79,0.73
 20260601,36.9,39,36.9,38.6,460069,37.57,2.74,37.53,38.78,1.83
 20260602,39.35,40.8,39.15,40.4,1095348,37.81,6.86,37.6,38.78,3.67
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,39.2,39.7,39.15,39.4,185301,39.23,0.44,39.24,38.57,0.39
 20260623,39.55,39.55,37.6,38,258654,39.13,-2.88,39.24,38.55,0.55
 20260624,37.9,40.1,37.7,39.4,318395,39.15,0.64,39.35,38.55,0.68
-20260626,38,38.05,36.2,36.6,271374,38.94,-6,39.38,38.49,0.58
+20260625,39.4,39.55,38.1,38.35,256085,39.08,-1.87,39.47,38.52,0.55
+20260626,38,38.05,36.2,36.6,271374,38.87,-5.85,39.46,38.47,0.58
 ```
 
 ## Latest TDCC Snapshot

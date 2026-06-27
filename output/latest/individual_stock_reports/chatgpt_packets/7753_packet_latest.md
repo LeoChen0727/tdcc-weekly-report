@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7753 星亞
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:43 Asia/Taipei
+- generated_at: 2026-06-27 22:24:44 Asia/Taipei
 - stock_id: 7753
 - stock_name: 星亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42.25
 - close: 42.25
 - volume: 58000
-- ma5: 42.9
-- ema23_primary: 42.57
-- distance_to_ema23_pct: -0.74
-- ma20: 42.58
-- ma60: 42.12
-- ma120: 42.07
-- return_5d: 1.56
-- return_20d: -4.95
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -0.76
+- ma5: 43.42
+- ema23_primary: 42.68
+- distance_to_ema23_pct: -1
+- ma20: 42.66
+- ma60: 42.2
+- ma120: 42.08
+- return_5d: 1.93
+- return_20d: -0.35
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -0.96
 - distance_to_high_60_pct: -19.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45.2,45.2,42.15,42.4,44000,42.4,0.01,42.4,41.43,1.06
 20260529,42.55,44,42.55,43.4,43000,42.48,2.17,42.38,41.45,1.11
 20260601,44.55,44.55,43.4,43.55,44000,42.57,2.3,42.4,41.49,1.14
 20260602,43.65,43.7,42.65,43.15,43,42.62,1.25,42.41,41.52,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.15,41.45,40.95,41.45,35000,42.19,-1.76,42.52,41.89,1.02
 20260623,41.3,45.55,41,43.75,367000,42.32,3.38,42.56,41.97,7.25
 20260624,44.4,46,43.3,45.6,338000,42.59,7.06,42.69,42.07,5.17
-20260626,44.05,44.05,42.25,42.25,58000,42.57,-0.74,42.58,42.12,0.88
+20260625,46.2,47.75,44,44.05,125000,42.72,3.12,42.66,42.15,1.8
+20260626,44.05,44.05,42.25,42.25,58000,42.68,-1,42.66,42.2,0.83
 ```
 
 ## Latest TDCC Snapshot

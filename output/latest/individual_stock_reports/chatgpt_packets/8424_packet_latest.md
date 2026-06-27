@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8424 惠普
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:53 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8424
 - stock_name: 惠普
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 150
+- price_rows: 151
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 68.8
 - close: 69
 - volume: 21000
-- ma5: 69.02
-- ema23_primary: 70.8
-- distance_to_ema23_pct: -2.54
-- ma20: 71.03
-- ma60: 73
-- ma120: 73.45
-- return_5d: 0.15
+- ma5: 68.98
+- ema23_primary: 70.63
+- distance_to_ema23_pct: -2.31
+- ma20: 70.82
+- ma60: 72.91
+- ma120: 73.41
+- return_5d: 0
 - return_20d: -5.48
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -2.86
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -2.57
 - distance_to_high_60_pct: -8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,73,73,72.6,73,73000,73.47,-0.64,73.51,74.32,2.11
 20260529,73,73,72.8,72.9,73000,73.42,-0.71,73.44,74.3,1.94
 20260601,72.6,73.1,72.6,73,73000,73.39,-0.53,73.36,74.27,1.78
 20260602,73.3,73.4,72.8,72.9,73,73.35,-0.61,73.3,74.21,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,69,69.3,68.6,69.3,20000,71.36,-2.88,71.62,73.28,0.33
 20260623,68.7,69.3,68.7,69.3,4000,71.19,-2.65,71.44,73.19,0.07
 20260624,69.3,69.5,68.5,68.5,11000,70.96,-3.47,71.23,73.09,0.2
-20260626,68.8,69,68.8,69,21000,70.8,-2.54,71.03,73,0.4
+20260625,68.5,68.8,68.5,68.8,11000,70.78,-2.8,71.02,73,0.21
+20260626,68.8,69,68.8,69,21000,70.63,-2.31,70.82,72.91,0.43
 ```
 
 ## Latest TDCC Snapshot

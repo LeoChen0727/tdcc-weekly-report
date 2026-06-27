@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6244 茂迪
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:13 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6244
 - stock_name: 茂迪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 25.95
 - close: 26
 - volume: 6641000
-- ma5: 27.71
-- ema23_primary: 28.91
-- distance_to_ema23_pct: -10.06
-- ma20: 29.36
+- ma5: 27.53
+- ema23_primary: 28.78
+- distance_to_ema23_pct: -9.67
+- ma20: 29.23
 - ma60: 28.44
-- ma120: 27.47
-- return_5d: -10.81
-- return_20d: -11.41
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -11.43
+- ma120: 27.52
+- return_5d: -8.61
+- return_20d: -13.62
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -11.04
 - distance_to_high_60_pct: -23.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.4,31.2,29.35,30.1,30000,28.9,4.16,28.89,29.12,0
 20260529,30.65,30.8,29.8,30.05,30000,28.99,3.64,29.02,29.03,0
 20260601,30.6,31.7,30,30.6,31000,29.13,5.05,29.16,29.02,0.01
 20260602,30.7,30.8,28.6,29.7,30,29.18,1.8,29.25,28.97,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.45,29.15,28.45,28.6,3918000,29.44,-2.86,29.77,28.54,0.48
 20260623,28.85,28.85,27.5,27.6,5242000,29.29,-5.77,29.61,28.5,0.62
 20260624,27.6,29,27.4,27.9,5342000,29.17,-4.36,29.52,28.48,0.62
-20260626,27.4,27.45,25.95,26,6641000,28.91,-10.06,29.36,28.44,0.74
+20260625,28.2,28.25,27.45,27.55,4428000,29.04,-5.12,29.43,28.47,0.5
+20260626,27.4,27.45,25.95,26,6641000,28.78,-9.67,29.23,28.44,0.72
 ```
 
 ## Latest TDCC Snapshot

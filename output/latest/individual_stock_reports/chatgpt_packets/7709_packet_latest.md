@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7709 榮田
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7709
 - stock_name: 榮田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 149
+- price_rows: 150
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 86.3
 - close: 86.6
 - volume: 233000
-- ma5: 96.26
-- ema23_primary: 103.3
-- distance_to_ema23_pct: -16.17
-- ma20: 111.59
-- ma60: 89.62
-- ma120: 70.29
-- return_5d: -23.7
-- return_20d: -5.66
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -22.39
+- ma5: 94.14
+- ema23_primary: 102.47
+- distance_to_ema23_pct: -15.49
+- ma20: 111.26
+- ma60: 89.98
+- ma120: 70.76
+- return_5d: -17.13
+- return_20d: -13.83
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -22.16
 - distance_to_high_60_pct: -40.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,94.5,100.5,94.5,100.5,99000,84.96,18.29,85.13,71.77,0.15
 20260529,110.5,110.5,110.5,110.5,110000,87.09,26.88,87.19,72.64,0.16
 20260601,121.5,121.5,121.5,121.5,122000,89.96,35.06,89.47,73.77,0.18
 20260602,133.5,133.5,133.5,133.5,134,93.59,42.65,91.95,75.09,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,104,104,99.2,100,563000,106.67,-6.26,111.48,88.08,3.04
 20260623,100.5,101,95.2,95.4,311000,105.73,-9.77,111.69,88.73,1.59
 20260624,93,95.4,92.9,94.8,163000,104.82,-9.56,111.85,89.28,0.82
-20260626,93.1,93.6,86.3,86.6,233000,103.3,-16.17,111.59,89.62,1.13
+20260625,97,97,93.1,93.9,193000,103.91,-9.64,111.95,89.75,0.94
+20260626,93.1,93.6,86.3,86.6,233000,102.47,-15.49,111.26,89.98,1.1
 ```
 
 ## Latest TDCC Snapshot

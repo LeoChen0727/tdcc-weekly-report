@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1565 精華
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:41 Asia/Taipei
+- generated_at: 2026-06-27 22:22:44 Asia/Taipei
 - stock_id: 1565
 - stock_name: 精華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 93.6
 - close: 94.4
 - volume: 200000
-- ma5: 93.64
-- ema23_primary: 94.69
-- distance_to_ema23_pct: -0.3
-- ma20: 94.21
-- ma60: 98.94
-- ma120: 105.62
-- return_5d: 0.21
-- return_20d: 1.94
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 0.2
+- ma5: 93.9
+- ema23_primary: 94.73
+- distance_to_ema23_pct: -0.34
+- ma20: 94.36
+- ma60: 98.8
+- ma120: 105.44
+- return_5d: 0.53
+- return_20d: 2.28
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 0.05
 - distance_to_high_60_pct: -13.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,93,93.3,92.1,92.3,93000,97.31,-5.15,97.31,102.8,0.49
 20260529,92.3,94.6,92.3,94,94000,97.04,-3.13,96.83,102.54,0.49
 20260601,93.5,94.4,93,94.3,94000,96.81,-2.59,96.42,102.35,0.49
 20260602,93.7,94.4,93.4,94.4,94,96.61,-2.29,96.02,102.09,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,94.6,94.6,93.5,93.6,170000,95.01,-1.49,94.15,99.47,1.42
 20260623,93.2,94.6,93.1,93.3,135000,94.87,-1.66,94.15,99.29,1.11
 20260624,93,93.3,92.1,93,117000,94.72,-1.81,94.12,99.12,0.95
-20260626,95,95.7,93.6,94.4,200000,94.69,-0.3,94.21,98.94,1.56
+20260625,94,98,94,95.2,377000,94.76,0.47,94.25,98.95,2.74
+20260626,95,95.7,93.6,94.4,200000,94.73,-0.34,94.36,98.8,1.4
 ```
 
 ## Latest TDCC Snapshot

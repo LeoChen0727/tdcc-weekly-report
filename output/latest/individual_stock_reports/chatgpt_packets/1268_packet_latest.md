@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1268 漢來美食
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:32 Asia/Taipei
+- generated_at: 2026-06-27 22:22:36 Asia/Taipei
 - stock_id: 1268
 - stock_name: 漢來美食
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 167
 - close: 167.5
 - volume: 40000
-- ma5: 169.5
-- ema23_primary: 167.97
-- distance_to_ema23_pct: -0.28
-- ma20: 169.15
-- ma60: 162.3
-- ma120: 161.05
-- return_5d: -0.89
-- return_20d: -0.59
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -0.98
+- ma5: 169.6
+- ema23_primary: 168.12
+- distance_to_ema23_pct: -0.37
+- ma20: 169.25
+- ma60: 162.53
+- ma120: 161.14
+- return_5d: -1.18
+- return_20d: -0.3
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -1.03
 - distance_to_high_60_pct: -4.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,167.5,168.5,166.5,168,168000,162.68,3.27,161.4,158.9,1.34
 20260529,168,168.5,167.5,168.5,168000,163.16,3.27,162.07,159.03,1.26
 20260601,168.5,171,168.5,169,170000,163.65,3.27,162.75,159.19,1.21
 20260602,169,169.5,168.5,169,169,164.1,2.99,163.47,159.35,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,170,170,169,170,28000,167.58,1.44,169.07,161.69,0.32
 20260623,170,170,168.5,169.5,32000,167.74,1.05,169.07,161.89,0.4
 20260624,168.5,171,168,171,99000,168.01,1.78,169.2,162.12,1.29
-20260626,170,170,167,167.5,40000,167.97,-0.28,169.15,162.3,0.57
+20260625,171,171,169,170,67000,168.18,1.08,169.28,162.34,0.94
+20260626,170,170,167,167.5,40000,168.12,-0.37,169.25,162.53,0.61
 ```
 
 ## Latest TDCC Snapshot

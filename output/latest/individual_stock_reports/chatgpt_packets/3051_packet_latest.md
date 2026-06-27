@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3051 力特
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:18 Asia/Taipei
+- generated_at: 2026-06-27 22:23:21 Asia/Taipei
 - stock_id: 3051
 - stock_name: 力特
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 26.5
 - volume: 2413615
 - ma5: 27.78
-- ema23_primary: 27.4
-- distance_to_ema23_pct: -3.27
-- ma20: 27.82
-- ma60: 25.5
-- ma120: 23.72
-- return_5d: -2.39
-- return_20d: -2.75
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -4.76
+- ema23_primary: 27.43
+- distance_to_ema23_pct: -3.37
+- ma20: 27.86
+- ma60: 25.63
+- ma120: 23.8
+- return_5d: -4.85
+- return_20d: -2.21
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -4.89
 - distance_to_high_60_pct: -15.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.25,28.3,26.65,27.1,3540629,26.26,3.2,26.99,23.33,0.57
 20260529,27.35,28.35,27.15,27.9,3460420,26.4,5.69,26.97,23.43,0.59
 20260601,27.85,28.95,27.4,28.8,5035004,26.6,8.28,26.94,23.56,1.02
 20260602,30.1,30.4,29.2,29.8,11735230,26.86,10.93,26.94,23.71,2.62
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.5,28.6,27.9,27.9,1910698,27.31,2.17,27.98,25.14,0.44
 20260623,28.15,28.15,27.05,27.2,1396095,27.3,-0.36,27.8,25.25,0.39
 20260624,27.15,29.9,27,29.45,12590179,27.48,7.17,27.86,25.4,3.32
-20260626,27.3,28.35,26.5,26.5,2413615,27.4,-3.27,27.82,25.5,0.65
+20260625,29.35,29.35,27.85,27.85,3820509,27.51,1.24,27.89,25.52,1
+20260626,27.3,28.35,26.5,26.5,2413615,27.43,-3.37,27.86,25.63,0.64
 ```
 
 ## Latest TDCC Snapshot

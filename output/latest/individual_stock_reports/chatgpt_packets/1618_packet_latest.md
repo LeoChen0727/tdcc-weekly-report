@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1618 合機
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:43 Asia/Taipei
+- generated_at: 2026-06-27 22:22:47 Asia/Taipei
 - stock_id: 1618
 - stock_name: 合機
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 39.05
 - close: 39.6
 - volume: 1264033
-- ma5: 41.53
-- ema23_primary: 41.62
-- distance_to_ema23_pct: -4.86
-- ma20: 42.36
-- ma60: 40.16
-- ma120: 41.84
-- return_5d: -5.49
-- return_20d: -5.26
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -6.52
+- ma5: 41.37
+- ema23_primary: 41.56
+- distance_to_ema23_pct: -4.72
+- ma20: 42.35
+- ma60: 40.2
+- ma120: 41.83
+- return_5d: -5.26
+- return_20d: -3.88
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -6.5
 - distance_to_high_60_pct: -14.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,42.1,43.25,40.85,41.2,2023690,39.59,4.07,39.13,39.91,1.91
 20260529,41.8,43,41.8,42.2,1754053,39.81,6.01,39.32,39.86,1.57
 20260601,42.5,42.95,41.8,42.6,1211294,40.04,6.4,39.51,39.85,1.06
 20260602,42.7,42.7,41.95,42.5,1033859,40.24,5.61,39.71,39.84,0.89
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,42.2,42.7,41.9,42.35,1067418,41.78,1.36,42.38,40.11,0.41
 20260623,42.8,42.9,41.65,41.85,931990,41.79,0.15,42.48,40.13,0.36
 20260624,42,42.2,41.55,42.05,538363,41.81,0.58,42.47,40.17,0.23
-20260626,40.7,40.95,39.05,39.6,1264033,41.62,-4.86,42.36,40.16,0.55
+20260625,42.4,42.45,39.65,41,919643,41.74,-1.78,42.43,40.19,0.41
+20260626,40.7,40.95,39.05,39.6,1264033,41.56,-4.72,42.35,40.2,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1618 | 合機 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 18.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 1618 | 合機 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 17.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

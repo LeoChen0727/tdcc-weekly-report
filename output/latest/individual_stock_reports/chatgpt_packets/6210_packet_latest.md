@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6210 慶生
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6210
 - stock_name: 慶生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 154
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.8
 - close: 20.05
 - volume: 23000
-- ma5: 20.56
-- ema23_primary: 20.79
-- distance_to_ema23_pct: -3.54
-- ma20: 20.86
-- ma60: 20.65
+- ma5: 20.5
+- ema23_primary: 20.75
+- distance_to_ema23_pct: -3.38
+- ma20: 20.83
+- ma60: 20.66
 - ma120: 20.54
-- return_5d: -2.91
-- return_20d: -5.42
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -3.91
+- return_5d: -3.14
+- return_20d: -4.75
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -3.76
 - distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.65,21.3,20.55,21.05,21000,20.93,0.59,20.93,20.43,0.28
 20260529,20.9,21.4,20.55,20.9,21000,20.92,-0.12,20.95,20.43,0.28
 20260601,20.4,21,20.35,20.75,21000,20.91,-0.77,20.97,20.43,0.29
 20260602,22.65,22.65,21,21.15,22,20.93,1.05,21,20.44,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.5,21.2,20.4,20.95,12000,20.91,0.19,21.01,20.62,0.47
 20260623,20.7,20.7,20.6,20.6,3000,20.88,-1.36,20.97,20.63,0.12
 20260624,20.4,20.5,20.4,20.5,11000,20.85,-1.69,20.92,20.65,0.45
-20260626,20.05,20.05,18.8,20.05,23000,20.79,-3.54,20.86,20.65,0.94
+20260625,20,20.5,20,20.4,38000,20.81,-1.99,20.88,20.66,1.51
+20260626,20.05,20.05,18.8,20.05,23000,20.75,-3.38,20.83,20.66,0.91
 ```
 
 ## Latest TDCC Snapshot

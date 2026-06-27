@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2546 根基
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2546
 - stock_name: 根基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 91.6
 - close: 92.4
 - volume: 110466
-- ma5: 93.56
-- ema23_primary: 91.19
-- distance_to_ema23_pct: 1.33
-- ma20: 91.3
-- ma60: 86.71
-- ma120: 86.61
-- return_5d: -2.22
-- return_20d: 5.84
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 1.21
+- ma5: 92.78
+- ema23_primary: 91.3
+- distance_to_ema23_pct: 1.21
+- ma20: 91.58
+- ma60: 86.91
+- ma120: 86.65
+- return_5d: -4.15
+- return_20d: 6.33
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 0.9
 - distance_to_high_60_pct: -6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,87.9,88.2,86.8,86.9,153397,85.16,2.04,85.06,84.41,0.99
 20260529,87,87.7,87,87.6,78636,85.37,2.61,85.21,84.4,0.51
 20260601,87.6,87.6,86.3,87.3,214499,85.53,2.07,85.33,84.42,1.32
 20260602,87.3,87.6,85.6,86.8,154237,85.63,1.36,85.42,84.42,0.92
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,96.9,96.9,92.8,93.4,303257,90.75,2.92,90.31,86.24,1.26
 20260623,93.3,93.9,92.4,93,143249,90.94,2.27,90.75,86.4,0.59
 20260624,92,93.1,92,92.6,153147,91.08,1.67,91.04,86.55,0.64
-20260626,92.3,93.2,91.6,92.4,110466,91.19,1.33,91.3,86.71,0.47
+20260625,92.5,94,92.2,92.5,82514,91.19,1.43,91.3,86.72,0.35
+20260626,92.3,93.2,91.6,92.4,110466,91.3,1.21,91.58,86.91,0.48
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 63.1
 - close: 63.3
 - volume: 34382022
-- ma5: 66.26
-- ema23_primary: 65.76
-- distance_to_ema23_pct: -3.74
-- ma20: 70.1
-- ma60: 55.68
-- ma120: 49.79
-- return_5d: -6.22
-- return_20d: 2.1
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -9.7
+- ma5: 66.06
+- ema23_primary: 65.81
+- distance_to_ema23_pct: -3.82
+- ma20: 70.24
+- ma60: 56.1
+- ma120: 49.98
+- return_5d: -6.5
+- return_20d: -0.94
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -9.88
 - distance_to_high_60_pct: -28.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,62,67.3,61.3,63.9,136331209,54.14,18.02,53.38,46.83,2.08
 20260529,68.1,70.2,67.7,70.2,220828986,55.48,26.53,54.6,47.28,2.91
 20260601,71.5,77.2,69.2,77.2,241053678,57.29,34.75,56.13,47.9,2.76
 20260602,77,83.5,75.3,80.6,295984374,59.23,36.07,57.81,48.54,2.92
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68.3,71.5,67.5,67.8,63430817,65.93,2.83,69.81,54.56,0.58
 20260623,68.4,69.2,65.8,66.1,32690688,65.95,0.23,69.84,54.95,0.31
 20260624,65.6,67.4,64.3,66.4,25540512,65.98,0.63,70.03,55.34,0.26
-20260626,66,66.3,63.1,63.3,34382022,65.76,-3.74,70.1,55.68,0.36
+20260625,66.9,67.3,66.1,66.7,21539478,66.04,0.99,70.27,55.73,0.23
+20260626,66,66.3,63.1,63.3,34382022,65.81,-3.82,70.24,56.1,0.39
 ```
 
 ## Latest TDCC Snapshot

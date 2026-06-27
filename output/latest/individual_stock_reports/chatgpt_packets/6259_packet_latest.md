@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6259 百徽
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:14 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6259
 - stock_name: 百徽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -117,23 +117,22 @@
 - low: 41.95
 - close: 41.95
 - volume: 1177000
-- ma5: 37.6
-- ema23_primary: 30.95
-- distance_to_ema23_pct: 35.56
-- ma20: 30.38
-- ma60: 24.64
-- ma120: 21.14
-- return_5d: 28.68
-- return_20d: 55.08
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 38.07
+- ma5: 38.06
+- ema23_primary: 31.57
+- distance_to_ema23_pct: 32.86
+- ma20: 30.94
+- ma60: 24.98
+- ma120: 21.31
+- return_5d: 17.02
+- return_20d: 55.37
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 35.59
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.65,28.8,26.65,27,28000,23.87,13.12,23.77,20.5,0.04
 20260529,27.55,28,26.6,27,27000,24.13,11.9,24.07,20.66,0.04
 20260601,27,27.95,26.35,26.55,27000,24.33,9.12,24.34,20.81,0.04
 20260602,26.6,26.6,25.65,26.6,26,24.52,8.48,24.61,20.96,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,37.15,39.4,37.1,39.35,4197000,28.91,36.11,28.74,23.64,2.8
 20260623,39.35,40,36,36.15,3014000,29.51,22.48,29.2,23.95,1.83
 20260624,35.4,36.35,33,34.7,2604000,29.95,15.87,29.64,24.24,1.47
-20260626,41.95,41.95,41.95,41.95,1177000,30.95,35.56,30.38,24.64,0.64
+20260625,38.15,38.15,38.1,38.15,849000,30.63,24.55,30.19,24.58,0.47
+20260626,41.95,41.95,41.95,41.95,1177000,31.57,32.86,30.94,24.98,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 6259 | 百徽 | true_breakout | 嚴格突破 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 6259 | 百徽 | 1 | 1 | 4 | 4 | 5 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

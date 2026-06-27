@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8131 福懋科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:50 Asia/Taipei
+- generated_at: 2026-06-27 22:24:50 Asia/Taipei
 - stock_id: 8131
 - stock_name: 福懋科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 69.5
 - close: 69.5
 - volume: 7168653
-- ma5: 74.78
-- ema23_primary: 71.58
-- distance_to_ema23_pct: -2.91
-- ma20: 72.45
-- ma60: 66.33
-- ma120: 66.73
-- return_5d: -7.58
-- return_20d: 0.87
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -4.07
+- ma5: 74.62
+- ema23_primary: 71.84
+- distance_to_ema23_pct: -3.25
+- ma20: 72.75
+- ma60: 66.55
+- ma120: 66.89
+- return_5d: -8.43
+- return_20d: 0.43
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -4.46
 - distance_to_high_60_pct: -13.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,70,72.8,68.2,69.2,13249965,65.12,6.27,65.94,63.64,1.53
 20260529,71.8,74.5,70.5,73.5,14266624,65.82,11.68,66.57,63.76,1.58
 20260601,74.6,79.2,73.5,75.5,17463455,66.62,13.32,67,64.01,1.9
 20260602,75.8,76.7,71,73.5,9831414,67.2,9.38,67.23,64.12,1.12
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,77,80.4,76.4,78.8,14698073,71.18,10.7,71.53,65.86,1.61
 20260623,79.2,79.2,73.5,74.8,9846082,71.49,4.64,72,66.06,1.05
 20260624,73.2,74.9,71.8,74.9,4101215,71.77,4.36,72.42,66.22,0.44
-20260626,75,76.5,69.5,69.5,7168653,71.58,-2.91,72.45,66.33,0.8
+20260625,76.5,77.3,73.5,75.1,7269883,72.05,4.24,72.73,66.42,0.81
+20260626,75,76.5,69.5,69.5,7168653,71.84,-3.25,72.75,66.55,0.83
 ```
 
 ## Latest TDCC Snapshot

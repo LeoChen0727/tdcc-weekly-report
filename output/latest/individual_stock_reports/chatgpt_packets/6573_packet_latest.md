@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6573 虹揚-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:21 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6573
 - stock_name: 虹揚-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 19.5
 - close: 19.85
 - volume: 1478562
-- ma5: 18.98
-- ema23_primary: 16.36
-- distance_to_ema23_pct: 21.35
-- ma20: 16.48
-- ma60: 14.1
-- ma120: 14.46
-- return_5d: 34.58
-- return_20d: 47.04
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 20.49
-- distance_to_high_60_pct: -7.67
+- ma5: 19.94
+- ema23_primary: 16.74
+- distance_to_ema23_pct: 18.6
+- ma20: 16.78
+- ma60: 14.23
+- ma120: 14.5
+- return_5d: 22.53
+- return_20d: 33.67
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 18.28
+- distance_to_high_60_pct: -15.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.55,14.85,13.55,14.85,1341609,13.37,11.03,13.27,13.21,5.21
 20260529,16.3,16.3,16.3,16.3,1776618,13.62,19.69,13.45,13.24,5.2
 20260601,15.7,16.55,14.7,15.75,2262385,13.8,14.16,13.59,13.27,5.02
 20260602,15.75,17.3,15.75,17.3,1493678,14.09,22.8,13.8,13.33,2.87
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.8,17.8,17.8,17.8,881547,15.18,17.26,15.47,13.75,1.15
 20260623,18.25,19.55,18.1,19.55,3799466,15.54,25.77,15.78,13.85,4.04
 20260624,18.45,21.5,17.85,21.5,3347587,16.04,34.03,16.16,13.99,3.07
-20260626,21,21.1,19.5,19.85,1478562,16.36,21.35,16.48,14.1,1.28
+20260625,23.45,23.5,20.5,21,3244686,16.45,27.63,16.53,14.12,2.62
+20260626,21,21.1,19.5,19.85,1478562,16.74,18.6,16.78,14.23,1.19
 ```
 
 ## Latest TDCC Snapshot

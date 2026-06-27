@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2030 彰源
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:49 Asia/Taipei
+- generated_at: 2026-06-27 22:22:53 Asia/Taipei
 - stock_id: 2030
 - stock_name: 彰源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.7
 - close: 18.75
 - volume: 995619
-- ma5: 19.27
-- ema23_primary: 18.54
-- distance_to_ema23_pct: 1.13
-- ma20: 18.68
-- ma60: 17.3
-- ma120: 16.56
-- return_5d: 1.63
-- return_20d: 4.17
+- ma5: 19.35
+- ema23_primary: 18.57
+- distance_to_ema23_pct: 0.95
+- ma20: 18.73
+- ma60: 17.34
+- ma120: 16.6
+- return_5d: 1.08
+- return_20d: 5.63
 - volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 0.4
+- distance_to_ma20_pct_auxiliary: 0.08
 - distance_to_high_60_pct: -7.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18,18.2,17.7,17.75,1248218,17.19,3.28,17.16,16.37,0.55
 20260529,18.1,18.15,17.8,17.95,804106,17.25,4.06,17.25,16.4,0.35
 20260601,18.2,18.45,17.8,18.3,1654683,17.34,5.55,17.38,16.45,0.71
 20260602,18.45,18.45,18,18.25,1364600,17.41,4.8,17.51,16.49,0.58
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.7,19.85,18.65,19.6,5105305,18.3,7.13,18.49,17.14,2.36
 20260623,19.85,20.2,19.55,20.15,4150317,18.45,9.21,18.57,17.2,1.96
 20260624,19.85,19.85,19.2,19.3,2295159,18.52,4.21,18.64,17.25,1.09
-20260626,18.85,19.1,18.7,18.75,995619,18.54,1.13,18.68,17.3,0.48
+20260625,19.35,19.5,18.9,18.95,1299153,18.56,2.12,18.68,17.3,0.62
+20260626,18.85,19.1,18.7,18.75,995619,18.57,0.95,18.73,17.34,0.48
 ```
 
 ## Latest TDCC Snapshot

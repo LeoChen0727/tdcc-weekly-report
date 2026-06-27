@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6643 M31
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:24 Asia/Taipei
+- generated_at: 2026-06-27 22:24:25 Asia/Taipei
 - stock_id: 6643
 - stock_name: M31
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 460
 - close: 460
 - volume: 468000
-- ma5: 489.1
-- ema23_primary: 516.19
-- distance_to_ema23_pct: -10.89
-- ma20: 514.2
-- ma60: 545.95
-- ma120: 493.52
-- return_5d: -4.66
-- return_20d: -23.08
+- ma5: 489.5
+- ema23_primary: 514.26
+- distance_to_ema23_pct: -10.55
+- ma20: 510.85
+- ma60: 546.01
+- ma120: 494.43
+- return_5d: -6.88
+- return_20d: -18.29
 - volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -10.54
+- distance_to_ma20_pct_auxiliary: -9.95
 - distance_to_high_60_pct: -36.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,598,611,557,563,581000,591.65,-4.84,615.5,531.17,0.57
 20260529,575,585,567,580,577000,590.68,-1.81,617.1,533.5,0.56
 20260601,580,595,572,576,582000,589.46,-2.28,615.8,535.6,0.58
 20260602,588,590,561,577,578,588.42,-1.94,612.65,537.58,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,508,524,490,500,743000,526.11,-4.96,532.62,545.17,1.42
 20260623,500,509,490,490.5,375000,523.14,-6.24,526.85,545.53,0.73
 20260624,482,503,480.5,501,356000,521.3,-3.89,521.1,546.28,0.71
-20260626,491,492,460,460,468000,516.19,-10.89,514.2,545.95,0.95
+20260625,506,519,495.5,496,552000,519.19,-4.47,516,546.55,1.11
+20260626,491,492,460,460,468000,514.26,-10.55,510.85,546.01,0.95
 ```
 
 ## Latest TDCC Snapshot

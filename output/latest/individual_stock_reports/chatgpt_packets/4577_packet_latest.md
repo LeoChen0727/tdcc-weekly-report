@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4577 達航科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:46 Asia/Taipei
+- generated_at: 2026-06-27 22:23:48 Asia/Taipei
 - stock_id: 4577
 - stock_name: 達航科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 93.6
 - close: 93.7
 - volume: 1048000
-- ma5: 98.24
-- ema23_primary: 103.24
-- distance_to_ema23_pct: -9.24
-- ma20: 97.55
-- ma60: 125.76
-- ma120: 97.74
-- return_5d: 7.95
-- return_20d: -27.08
-- volume_ratio: 1.63
-- distance_to_ma20_pct_auxiliary: -3.95
+- ma5: 101.56
+- ema23_primary: 103.23
+- distance_to_ema23_pct: -9.23
+- ma20: 96.92
+- ma60: 125.63
+- ma120: 98.14
+- return_5d: 7.21
+- return_20d: -19.57
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: -3.33
 - distance_to_high_60_pct: -50.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,128.5,129,116,116.5,121000,135.15,-13.8,139.22,124.57,0.12
 20260529,119,121,109.5,111.5,113000,133.17,-16.28,136.55,124.93,0.13
 20260601,113.5,113.5,109,110,111000,131.24,-16.19,133.95,125.41,0.14
 20260602,110.5,110.5,102,104,105,128.97,-19.36,130.85,125.73,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,89.2,96.1,87.6,96.1,944000,103.54,-7.19,102.39,125.87,2.47
 20260623,105.5,105.5,105.5,105.5,1416000,103.7,1.73,100.69,126.04,3.18
 20260624,105,111,101.5,108.5,3197000,104.1,4.22,99.29,126.11,5.34
-20260626,104,105,93.6,93.7,1048000,103.24,-9.24,97.55,125.76,1.63
+20260625,110,111.5,103,104,1109000,104.1,-0.09,98.06,125.93,1.71
+20260626,104,105,93.6,93.7,1048000,103.23,-9.23,96.92,125.63,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4577 | 達航科技 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 4577 | 達航科技 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4577 | 達航科技 | 3 | 1 | 3 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 4577 | 達航科技 | 3 | 1 | 3 | 3 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

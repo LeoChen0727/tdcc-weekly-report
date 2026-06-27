@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7810 捷創科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7810
 - stock_name: 捷創科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 120
+- price_rows: 121
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 193.5
 - close: 193.5
 - volume: 51000
-- ma5: 203.9
-- ema23_primary: 213.26
-- distance_to_ema23_pct: -9.27
-- ma20: 214.45
-- ma60: 228.57
-- ma120: 233.55
-- return_5d: -5.84
-- return_20d: -14.76
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -9.77
-- distance_to_high_60_pct: -31.87
+- ma5: 202
+- ema23_primary: 212
+- distance_to_ema23_pct: -8.73
+- ma20: 213.07
+- ma60: 227.32
+- ma120: 233.27
+- return_5d: -6.97
+- return_20d: -14.38
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -9.19
+- distance_to_high_60_pct: -28.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,235,241,225,226,233000,231.87,-2.53,229.88,228.72,1.07
 20260529,228,239.5,228,232,233000,231.88,0.05,230.57,229.24,1.04
 20260601,235.5,246,232,244,241000,232.89,4.77,231.62,230.28,1.04
 20260602,247,247,231.5,234.5,236,233.03,0.63,232.12,231.03,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,210,211.5,207,208.5,96000,217.02,-3.93,219.38,231.96,0.64
 20260623,214,215.5,204,205,66000,216.02,-5.1,217.72,230.83,0.47
 20260624,205,205,202,204.5,30000,215.06,-4.91,216.12,229.91,0.23
-20260626,198,199.5,193.5,193.5,51000,213.26,-9.27,214.45,228.57,0.42
+20260625,208,208,198,198.5,85000,213.68,-7.1,214.7,228.65,0.69
+20260626,198,199.5,193.5,193.5,51000,212,-8.73,213.07,227.32,0.44
 ```
 
 ## Latest TDCC Snapshot

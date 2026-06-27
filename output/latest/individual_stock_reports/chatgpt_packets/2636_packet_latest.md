@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2636 台驊控股
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:08 Asia/Taipei
+- generated_at: 2026-06-27 22:23:11 Asia/Taipei
 - stock_id: 2636
 - stock_name: 台驊控股
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 68.2
 - close: 68.2
 - volume: 460463
-- ma5: 69.72
-- ema23_primary: 69.45
-- distance_to_ema23_pct: -1.8
-- ma20: 69.94
-- ma60: 68.28
-- ma120: 67.5
-- return_5d: -3.26
-- return_20d: 1.94
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -2.48
+- ma5: 69.66
+- ema23_primary: 69.47
+- distance_to_ema23_pct: -1.83
+- ma20: 70.08
+- ma60: 68.29
+- ma120: 67.53
+- return_5d: -2.85
+- return_20d: 1.64
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -2.68
 - distance_to_high_60_pct: -5.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,66.9,67.6,66.9,67.1,445850,66.87,0.34,66.89,67.62,1.12
 20260529,67.3,67.8,67.2,67.7,378925,66.94,1.14,66.92,67.61,0.93
 20260601,68.4,70.2,67.8,69.8,1180246,67.18,3.9,67.03,67.69,2.59
 20260602,69.5,70,68.6,69.8,613276,67.4,3.57,67.14,67.76,1.3
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,70.2,70.7,70,70.7,449738,69.53,1.68,69.6,68.25,0.89
 20260623,71,71,70,70,296388,69.57,0.62,69.75,68.27,0.6
 20260624,70,70.2,69.4,69.5,360679,69.56,-0.09,69.87,68.29,0.73
-20260626,69.6,69.6,68.2,68.2,460463,69.45,-1.8,69.94,68.28,0.93
+20260625,69.5,70.1,69.5,69.9,257762,69.59,0.44,70.02,68.3,0.53
+20260626,69.6,69.6,68.2,68.2,460463,69.47,-1.83,70.08,68.29,0.94
 ```
 
 ## Latest TDCC Snapshot

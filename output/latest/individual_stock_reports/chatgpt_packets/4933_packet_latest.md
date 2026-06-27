@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4933 友輝
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:51 Asia/Taipei
+- generated_at: 2026-06-27 22:23:53 Asia/Taipei
 - stock_id: 4933
 - stock_name: 友輝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 65.3
 - close: 65.5
 - volume: 312000
-- ma5: 67.24
-- ema23_primary: 69.3
-- distance_to_ema23_pct: -5.48
-- ma20: 70.72
-- ma60: 67.73
-- ma120: 63.07
-- return_5d: -3.68
-- return_20d: -12.32
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -7.39
+- ma5: 67.14
+- ema23_primary: 69.09
+- distance_to_ema23_pct: -5.2
+- ma20: 70.34
+- ma60: 67.89
+- ma120: 63.13
+- return_5d: -2.82
+- return_20d: -12.08
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -6.89
 - distance_to_high_60_pct: -19.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,75.6,77.2,73.7,74.5,75000,70.46,5.74,71.42,63.94,0.09
 20260529,75.8,77.9,75,77.3,77000,71.03,8.83,71.6,64.25,0.12
 20260601,78,78.6,75.8,76.4,77000,71.48,6.89,71.87,64.57,0.13
 20260602,76.4,78,75,77.9,76,72.01,8.18,72.17,64.88,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68,69.4,67.5,68.4,440000,70.06,-2.37,71.84,67.3,1.48
 20260623,68.8,68.9,66.6,67.5,271000,69.85,-3.36,71.5,67.46,0.88
 20260624,66.5,67.4,66.5,67.4,135000,69.64,-3.22,71.19,67.61,0.44
-20260626,66.7,66.8,65.3,65.5,312000,69.3,-5.48,70.72,67.73,0.97
+20260625,67.6,67.9,66.9,66.9,215000,69.42,-3.62,70.8,67.76,0.68
+20260626,66.7,66.8,65.3,65.5,312000,69.09,-5.2,70.34,67.89,0.95
 ```
 
 ## Latest TDCC Snapshot

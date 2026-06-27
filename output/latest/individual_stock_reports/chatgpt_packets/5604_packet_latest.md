@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5604 中連
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:03 Asia/Taipei
+- generated_at: 2026-06-27 22:24:04 Asia/Taipei
 - stock_id: 5604
 - stock_name: 中連
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 152
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.75
 - close: 30.75
 - volume: 15000
-- ma5: 31.04
-- ema23_primary: 31.19
-- distance_to_ema23_pct: -1.4
+- ma5: 31.03
+- ema23_primary: 31.17
+- distance_to_ema23_pct: -1.36
 - ma20: 31
-- ma60: 32.34
-- ma120: 34.55
-- return_5d: -1.44
-- return_20d: -2.07
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -0.79
+- ma60: 32.27
+- ma120: 34.5
+- return_5d: -1.13
+- return_20d: -0.81
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -0.8
 - distance_to_high_60_pct: -13.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,31.4,31.9,31,31,31000,31.94,-2.96,31.6,33.59,1.06
 20260529,31.1,31.1,30.8,31,31000,31.87,-2.72,31.52,33.52,1.02
 20260601,31,31,30.6,30.8,31000,31.78,-3.07,31.43,33.44,0.98
 20260602,30.8,30.8,30.6,30.75,31,31.69,-2.97,31.38,33.37,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.1,31.2,31.1,31.15,21000,31.25,-0.32,31.05,32.52,0.89
 20260623,31.35,31.35,31.05,31.05,43000,31.23,-0.59,31.03,32.46,1.77
 20260624,31.05,31.15,31,31.15,35000,31.23,-0.25,31.03,32.4,1.43
-20260626,30.8,31.2,30.75,30.75,15000,31.19,-1.4,31,32.34,0.63
+20260625,31.15,31.15,30.9,31.05,27000,31.21,-0.52,31.01,32.34,1.11
+20260626,30.8,31.2,30.75,30.75,15000,31.17,-1.36,31,32.27,0.64
 ```
 
 ## Latest TDCC Snapshot

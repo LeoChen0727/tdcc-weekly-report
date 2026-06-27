@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:00 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 131.5
 - close: 131.5
 - volume: 14959559
-- ma5: 134.8
-- ema23_primary: 131.64
-- distance_to_ema23_pct: -0.11
-- ma20: 136.7
-- ma60: 112.67
-- ma120: 103.83
-- return_5d: -4.01
-- return_20d: 3.95
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -3.8
+- ma5: 133.8
+- ema23_primary: 131.78
+- distance_to_ema23_pct: -0.21
+- ma20: 137.2
+- ma60: 113.42
+- ma120: 104.1
+- return_5d: -5.05
+- return_20d: 6.48
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -4.15
 - distance_to_high_60_pct: -13.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,127.5,129,122,123.5,27848742,111.75,10.51,111.03,98.75,0.75
 20260529,126,133,126,131,41284924,113.36,15.56,112.69,99.33,1.08
 20260601,136,144,134.5,141.5,79728605,115.7,22.3,115.01,100.13,1.91
 20260602,145,152.5,142,149,98352697,118.48,25.76,117.67,101.03,2.12
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,140,140.5,136.5,137,13017671,131.3,4.34,135.75,110.56,0.39
 20260623,137,137.5,132.5,133.5,14243862,131.48,1.53,136.07,111.27,0.47
 20260624,132,136,131,133.5,9173131,131.65,1.4,136.45,111.98,0.31
-20260626,133,135.5,131.5,131.5,14959559,131.64,-0.11,136.7,112.67,0.52
+20260625,135,135.5,132,133.5,7431074,131.81,1.28,136.8,112.7,0.26
+20260626,133,135.5,131.5,131.5,14959559,131.78,-0.21,137.2,113.42,0.54
 ```
 
 ## Latest TDCC Snapshot

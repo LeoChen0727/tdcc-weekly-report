@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5464 霖宏
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:00 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5464
 - stock_name: 霖宏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -56,31 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
-- entry_style: no_entry_now
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -88,8 +86,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -119,23 +117,22 @@
 - low: 98
 - close: 100
 - volume: 5840000
-- ma5: 88.36
-- ema23_primary: 75.07
-- distance_to_ema23_pct: 33.2
-- ma20: 75.92
-- ma60: 54.09
-- ma120: 40.22
-- return_5d: 36.24
-- return_20d: 40.65
-- volume_ratio: 4.65
-- distance_to_ma20_pct_auxiliary: 31.72
+- ma5: 95.12
+- ema23_primary: 77.72
+- distance_to_ema23_pct: 28.66
+- ma20: 77.52
+- ma60: 55.42
+- ma120: 40.91
+- return_5d: 35.69
+- return_20d: 32.45
+- volume_ratio: 4.41
+- distance_to_ma20_pct_auxiliary: 29
 - distance_to_high_60_pct: -8.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,70,78.2,69,75.5,77000,58.15,29.84,58.64,38.78,0.05
 20260529,77,83,75.6,83,82000,60.22,37.83,61.14,39.7,0.05
 20260601,88,91,74.9,80.5,82000,61.91,30.03,63.37,40.58,0.06
 20260602,78.9,80,72.5,76.3,74,63.11,20.9,65.22,41.41,0
@@ -154,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,73,81,73,81,2723000,68.83,17.69,72.38,50.7,3.65
 20260623,84.5,89.1,81.6,89.1,1803000,70.52,26.35,73.19,51.72,2.17
 20260624,98,98,94.9,98,2766000,72.81,34.6,74.47,52.89,2.86
-20260626,107.5,109,98,100,5840000,75.07,33.2,75.92,54.09,4.65
+20260625,107.5,107.5,105.5,107.5,1464000,75.7,42.01,76.3,54.22,1.41
+20260626,107.5,109,98,100,5840000,77.72,28.66,77.52,55.42,4.41
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5464 | 霖宏 | true_breakout | 嚴格突破 | 89.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/25 2.發生緣由:依中華民國財團法人櫃買中心通知辦理。 3.財務業務資訊:霖宏二(54642)可轉債相關資訊 到期日期：118/05/25 實際發行總額：2.9億元 本月底發行餘額：290,000,000元(截至115/06/24) 最新轉(交)換價格：33.4 轉換標的收市價格(54642)：107.5(截至115/06/25) 轉換債收市價格(5464)：280(截至115/06/25) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5464 | 霖宏 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/06/25 2.發生緣由:依中華民國財團法人櫃買中心通知辦理。 3.財務業務資訊:霖宏二(54642)可轉債相關資訊 到期日期：118/05/25 實際發行總額：2.9億元 本月底發行餘額：290,000,000元(截至115/06/24) 最新轉(交)換價格：33.4 轉換標的收市價格(54642)：107.5(截至115/06/25) 轉換債收市價格(5464)：280(截至115/06/25) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5464 | 霖宏 | 4 | 2 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 5464 | 霖宏 | 4 | 1 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

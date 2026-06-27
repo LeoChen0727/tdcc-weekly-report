@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3563 牧德
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:33 Asia/Taipei
+- generated_at: 2026-06-27 22:23:35 Asia/Taipei
 - stock_id: 3563
 - stock_name: 牧德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 674
 - close: 675
 - volume: 657183
-- ma5: 708
-- ema23_primary: 750.03
-- distance_to_ema23_pct: -10
-- ma20: 745.6
-- ma60: 827.98
-- ma120: 694.54
-- return_5d: -3.85
-- return_20d: -19.83
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -9.47
+- ma5: 706.2
+- ema23_primary: 746.15
+- distance_to_ema23_pct: -9.54
+- ma20: 740.1
+- ma60: 825.68
+- ma120: 696.22
+- return_5d: -5.59
+- return_20d: -17.28
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -8.8
 - distance_to_high_60_pct: -32.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,850,866,814,816,1615825,858.69,-4.97,854.15,810,0.68
 20260529,835,835,812,826,966572,855.96,-3.5,851.8,813.58,0.42
 20260601,833,833,823,825,674301,853.38,-3.33,848.75,816.67,0.29
 20260602,828,828,793,807,1027614,849.52,-5,845.65,818.77,0.46
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,729,747,724,728,729884,765.53,-4.9,771.95,832.32,0.7
 20260623,741,741,705,707,700826,760.66,-7.05,762.7,831.7,0.75
 20260624,707,718,699,715,399502,756.85,-5.53,753.95,830.55,0.45
-20260626,709,709,674,675,657183,750.03,-10,745.6,827.98,0.85
+20260625,722,727,706,706,400776,752.61,-6.19,747.15,828.5,0.53
+20260626,709,709,674,675,657183,746.15,-9.54,740.1,825.68,0.93
 ```
 
 ## Latest TDCC Snapshot

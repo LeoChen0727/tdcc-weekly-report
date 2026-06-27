@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4702 中美實
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:47 Asia/Taipei
+- generated_at: 2026-06-27 22:23:49 Asia/Taipei
 - stock_id: 4702
 - stock_name: 中美實
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 9.99
 - close: 10
 - volume: 112000
-- ma5: 10.05
+- ma5: 10.03
 - ema23_primary: 10
-- distance_to_ema23_pct: 0.02
-- ma20: 10.02
+- distance_to_ema23_pct: -0.02
+- ma20: 10.04
 - ma60: 9.91
 - ma120: 9.92
-- return_5d: -0.99
-- return_20d: 3.2
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -0.18
+- return_5d: -1.48
+- return_20d: 3.52
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -0.38
 - distance_to_high_60_pct: -5.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,9.69,9.85,9.63,9.66,10000,9.76,-1.04,9.72,9.92,0.13
 20260529,9.69,9.75,9.64,9.69,10000,9.76,-0.67,9.72,9.91,0.13
 20260601,9.69,9.82,9.64,9.77,10000,9.76,0.14,9.73,9.91,0.14
 20260602,9.78,9.87,9.71,9.8,10,9.76,0.41,9.73,9.91,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10.2,10.2,10,10.05,311000,9.99,0.57,9.98,9.92,2.92
 20260623,10,10.05,9.97,10,243000,9.99,0.07,9.99,9.91,2.06
 20260624,10,10.1,9.98,10.05,94000,10,0.52,10,9.91,0.77
-20260626,10.05,10.05,9.99,10,112000,10,0.02,10.02,9.91,0.88
+20260625,10.05,10.15,10,10.05,101000,10,0.48,10.02,9.91,0.8
+20260626,10.05,10.05,9.99,10,112000,10,-0.02,10.04,9.91,0.85
 ```
 
 ## Latest TDCC Snapshot

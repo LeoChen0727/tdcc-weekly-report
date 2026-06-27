@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5478 智冠
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:00 Asia/Taipei
+- generated_at: 2026-06-27 22:24:02 Asia/Taipei
 - stock_id: 5478
 - stock_name: 智冠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 102
 - close: 103
 - volume: 149000
-- ma5: 104.3
-- ema23_primary: 102.89
-- distance_to_ema23_pct: 0.1
-- ma20: 103.47
-- ma60: 100.07
-- ma120: 101.72
-- return_5d: -1.9
-- return_20d: 6.19
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -0.45
+- ma5: 103.9
+- ema23_primary: 103.02
+- distance_to_ema23_pct: -0.02
+- ma20: 103.7
+- ma60: 100.15
+- ma120: 101.76
+- return_5d: -3.29
+- return_20d: 3.21
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -0.68
 - distance_to_high_60_pct: -5.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,97.4,99.8,97,99.8,98000,98.41,1.41,97.69,101.37,0.69
 20260529,98,99.5,98,99,99000,98.46,0.55,97.79,101.29,0.71
 20260601,99,101.5,98.7,100,100000,98.59,1.43,97.96,101.26,0.72
 20260602,100.5,104.5,100.5,104,103,99.04,5.01,98.31,101.21,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,107.5,107.5,105,105.5,207000,102.81,2.61,102.66,99.99,1.04
 20260623,105.5,105.5,103,103,147000,102.83,0.17,102.89,100.05,0.73
 20260624,103,104.5,103,103.5,88000,102.88,0.6,103.17,100.07,0.44
-20260626,104,104,102,103,149000,102.89,0.1,103.47,100.07,0.73
+20260625,103,105,103,104.5,132000,103.02,1.44,103.54,100.09,0.65
+20260626,104,104,102,103,149000,103.02,-0.02,103.7,100.15,0.72
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5701 劍湖山
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:03 Asia/Taipei
+- generated_at: 2026-06-27 22:24:05 Asia/Taipei
 - stock_id: 5701
 - stock_name: 劍湖山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 4.99
 - close: 4.99
 - volume: 196000
-- ma5: 5.28
-- ema23_primary: 4.92
-- distance_to_ema23_pct: 1.37
-- ma20: 5.17
-- ma60: 4.03
-- ma120: 3.96
-- return_5d: -16.56
-- return_20d: 50.76
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -3.51
+- ma5: 5.11
+- ema23_primary: 4.94
+- distance_to_ema23_pct: 1.05
+- ma20: 5.25
+- ma60: 4.06
+- ma120: 3.97
+- return_5d: -16.28
+- return_20d: 37.09
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -4.87
 - distance_to_high_60_pct: -23.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,3.27,3.64,3.27,3.64,4000,3.43,6.26,3.4,3.53,0.08
 20260529,4,4,4,4,4000,3.47,15.16,3.43,3.54,0.09
 20260601,4.4,4.4,4.4,4.4,4000,3.55,23.92,3.48,3.55,0.09
 20260602,4.84,4.84,4.84,4.84,5,3.66,32.31,3.55,3.56,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,5.93,5.93,5.37,5.41,501000,4.9,10.45,4.92,3.95,1.11
 20260623,5.38,5.38,4.95,5.05,214000,4.91,2.84,5.01,3.98,0.46
 20260624,5,5,4.9,4.98,164000,4.92,1.29,5.09,4,0.35
-20260626,5,5.2,4.99,4.99,196000,4.92,1.37,5.17,4.03,0.41
+20260625,4.97,5.4,4.97,5.12,168000,4.93,3.78,5.18,4.03,0.35
+20260626,5,5.2,4.99,4.99,196000,4.94,1.05,5.25,4.06,0.4
 ```
 
 ## Latest TDCC Snapshot

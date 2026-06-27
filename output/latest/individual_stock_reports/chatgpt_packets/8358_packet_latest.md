@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 570
 - close: 570
 - volume: 15194000
-- ma5: 651.2
-- ema23_primary: 590.32
-- distance_to_ema23_pct: -3.44
-- ma20: 612.45
-- ma60: 461.11
-- ma120: 360.95
-- return_5d: -10.94
-- return_20d: 1.79
-- volume_ratio: 3.27
-- distance_to_ma20_pct_auxiliary: -6.93
+- ma5: 637.2
+- ema23_primary: 593.21
+- distance_to_ema23_pct: -3.91
+- ma20: 616.3
+- ma60: 467.72
+- ma120: 364.12
+- return_5d: -18.57
+- return_20d: 3.07
+- volume_ratio: 3.01
+- distance_to_ma20_pct_auxiliary: -7.51
 - distance_to_high_60_pct: -24.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,555,578,550,553,559000,459.16,20.44,467.27,343.68,0.05
 20260529,579,608,565,608,596000,471.56,28.93,478.25,349.4,0.05
 20260601,637,668,636,668,659000,487.93,36.9,491.52,356.17,0.06
 20260602,662,687,613,627,652,499.52,25.52,501.23,362.39,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,705,758,683,691,25308000,581.72,18.78,601.1,441.92,9.58
 20260623,717,718,650,657,17152000,588,11.74,606.7,449.08,4.94
 20260624,632,640,616,638,9493000,592.16,7.74,611.95,455.56,2.42
-20260626,628,650,570,570,15194000,590.32,-3.44,612.45,461.11,3.27
+20260625,651,651,621,630,8573000,595.32,5.83,615.45,462.11,1.98
+20260626,628,650,570,570,15194000,593.21,-3.91,616.3,467.72,3.01
 ```
 
 ## Latest TDCC Snapshot

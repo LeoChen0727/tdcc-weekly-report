@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:01 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 70.8
 - close: 70.9
 - volume: 7548896
-- ma5: 78.98
-- ema23_primary: 74.04
-- distance_to_ema23_pct: -4.24
-- ma20: 72.66
-- ma60: 70.97
-- ma120: 61.25
-- return_5d: -5.72
-- return_20d: -6.59
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -2.42
+- ma5: 77.86
+- ema23_primary: 74.16
+- distance_to_ema23_pct: -4.39
+- ma20: 72.73
+- ma60: 71.37
+- ma120: 61.4
+- return_5d: -12.9
+- return_20d: -4.7
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -2.52
 - distance_to_high_60_pct: -22.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,75.9,77.5,73.2,74.4,11139381,76.1,-2.23,78.22,63.72,0.54
 20260529,76.1,77.3,75.1,76.9,6298461,76.17,0.96,78.14,64.2,0.32
 20260601,77.4,77.5,74.6,74.8,8687478,76.05,-1.65,77.72,64.71,0.5
 20260602,75,78.5,74.7,75.4,11184383,76,-0.79,77.5,65.2,0.66
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,83.5,88.6,81.4,84.4,23091050,73.43,14.95,73.11,69.8,2.17
 20260623,85.3,89.8,79.6,79.6,25638885,73.94,7.65,72.88,70.26,2.38
 20260624,78.8,81.5,76.9,78.6,11523445,74.33,5.75,72.91,70.7,1.12
-20260626,75.4,76.1,70.8,70.9,7548896,74.04,-4.24,72.66,70.97,0.76
+20260625,79,79.6,75.5,75.8,7594133,74.45,1.81,72.91,71.05,0.76
+20260626,75.4,76.1,70.8,70.9,7548896,74.16,-4.39,72.73,71.37,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -192,7 +192,6 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度營業報告書及  財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 2388 | 威盛 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 27.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度營業報告書及  財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4999 鑫禾
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:53 Asia/Taipei
+- generated_at: 2026-06-27 22:23:55 Asia/Taipei
 - stock_id: 4999
 - stock_name: 鑫禾
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 19.9
 - close: 20
 - volume: 111580
-- ma5: 20.5
-- ema23_primary: 20.62
-- distance_to_ema23_pct: -3.02
-- ma20: 20.71
-- ma60: 20.98
-- ma120: 22.04
-- return_5d: -3.38
-- return_20d: 2.3
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -3.45
+- ma5: 20.44
+- ema23_primary: 20.6
+- distance_to_ema23_pct: -2.9
+- ma20: 20.75
+- ma60: 20.95
+- ma120: 22.02
+- return_5d: -3.15
+- return_20d: 1.78
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -3.61
 - distance_to_high_60_pct: -22.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.5,20.45,19.5,19.65,141756,20.46,-3.96,20.45,21.44,1.24
 20260529,19.6,20.5,19.6,20,165468,20.42,-2.07,20.36,21.39,1.37
 20260601,20,20.5,19.9,20.4,141506,20.42,-0.1,20.3,21.36,1.18
 20260602,20.4,20.7,20.3,20.5,146361,20.43,0.36,20.27,21.32,1.17
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.6,20.65,20.5,20.55,102666,20.68,-0.65,20.61,21.04,0.71
 20260623,21.5,21.5,20.5,20.75,125619,20.69,0.29,20.65,21.03,0.86
 20260624,20.2,20.8,20.2,20.55,89760,20.68,-0.62,20.69,21,0.63
-20260626,20.4,20.4,19.9,20,111580,20.62,-3.02,20.71,20.98,0.79
+20260625,20.6,20.6,20.35,20.35,94982,20.65,-1.46,20.73,20.98,0.67
+20260626,20.4,20.4,19.9,20,111580,20.6,-2.9,20.75,20.95,0.8
 ```
 
 ## Latest TDCC Snapshot

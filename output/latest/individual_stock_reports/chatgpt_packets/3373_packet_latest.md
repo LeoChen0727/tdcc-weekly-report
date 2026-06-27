@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3373 熱映
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:27 Asia/Taipei
+- generated_at: 2026-06-27 22:23:30 Asia/Taipei
 - stock_id: 3373
 - stock_name: 熱映
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,15 +119,15 @@
 - low: 16.35
 - close: 16.4
 - volume: 128000
-- ma5: 16.66
-- ema23_primary: 16.77
-- distance_to_ema23_pct: -2.22
+- ma5: 16.64
+- ema23_primary: 16.76
+- distance_to_ema23_pct: -2.15
 - ma20: 16.78
-- ma60: 16.9
-- ma120: 17.27
-- return_5d: -2.38
-- return_20d: -1.8
-- volume_ratio: 2.25
+- ma60: 16.89
+- ma120: 17.26
+- return_5d: -2.09
+- return_20d: -1.5
+- volume_ratio: 2.2
 - distance_to_ma20_pct_auxiliary: -2.28
 - distance_to_high_60_pct: -7.87
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.7,16.8,16.6,16.65,17000,16.88,-1.38,16.86,17,0.27
 20260529,16.65,16.9,16.65,16.9,17000,16.88,0.09,16.86,16.99,0.28
 20260601,16.95,17.1,16.75,16.9,17000,16.89,0.08,16.86,17,0.29
 20260602,16.85,16.85,16.75,16.8,17,16.88,-0.47,16.86,17,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.75,17.1,16.6,16.75,138000,16.83,-0.46,16.81,16.92,3.08
 20260623,16.75,16.8,16.6,16.7,106000,16.82,-0.69,16.8,16.91,2.15
 20260624,16.8,16.8,16.7,16.7,58000,16.81,-0.64,16.8,16.91,1.13
-20260626,16.8,16.9,16.35,16.4,128000,16.77,-2.22,16.78,16.9,2.25
+20260625,16.7,16.8,16.65,16.65,45000,16.79,-0.86,16.8,16.9,0.85
+20260626,16.8,16.9,16.35,16.4,128000,16.76,-2.15,16.78,16.89,2.2
 ```
 
 ## Latest TDCC Snapshot

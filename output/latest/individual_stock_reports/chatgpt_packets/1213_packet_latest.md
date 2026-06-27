@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1213 大飲
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:31 Asia/Taipei
+- generated_at: 2026-06-27 22:22:34 Asia/Taipei
 - stock_id: 1213
 - stock_name: 大飲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 274
+- price_rows: 275
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 7.56
 - close: 7.56
 - volume: 13392
-- ma5: 7.98
-- ema23_primary: 8.32
-- distance_to_ema23_pct: -9.17
+- ma5: 7.93
+- ema23_primary: 8.3
+- distance_to_ema23_pct: -8.92
 - ma20: 8.3
-- ma60: 8.82
-- ma120: 9.47
-- return_5d: -11.06
-- return_20d: -8.59
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -8.94
+- ma60: 8.79
+- ma120: 9.45
+- return_5d: -9.24
+- return_20d: -8.14
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -8.87
 - distance_to_high_60_pct: -24.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260526,8.52,8.52,8,8.23,39371,8.73,-5.68,8.69,9.3,1.41
 20260527,8.22,8.29,8,8.29,12449,8.69,-4.6,8.66,9.27,0.55
 20260528,8.06,8.16,8.05,8.16,15055,8.65,-5.62,8.63,9.24,0.66
 20260529,8.41,8.41,8.17,8.31,16101,8.62,-3.57,8.59,9.22,0.69
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,8.35,8.35,8,8,129125,8.47,-5.52,8.39,8.93,6.39
 20260623,8,8.1,8,8.09,34280,8.44,-4.1,8.37,8.89,1.58
 20260624,8.05,8.08,7.92,7.92,12001,8.39,-5.64,8.34,8.86,0.56
-20260626,8.08,8.09,7.56,7.56,13392,8.32,-9.17,8.3,8.82,0.68
+20260625,7.99,8.09,7.98,8.09,18028,8.37,-3.32,8.33,8.83,0.91
+20260626,8.08,8.09,7.56,7.56,13392,8.3,-8.92,8.3,8.79,0.72
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8147 正淩
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:50 Asia/Taipei
+- generated_at: 2026-06-27 22:24:50 Asia/Taipei
 - stock_id: 8147
 - stock_name: 正淩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 136.5
 - close: 137
 - volume: 584000
-- ma5: 144.3
-- ema23_primary: 153.09
-- distance_to_ema23_pct: -10.51
-- ma20: 153.72
-- ma60: 159.22
-- ma120: 138.83
-- return_5d: -6.8
-- return_20d: -21.94
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: -10.88
+- ma5: 143.1
+- ema23_primary: 152.02
+- distance_to_ema23_pct: -9.88
+- ma20: 152.25
+- ma60: 159.26
+- ma120: 139.08
+- return_5d: -6.48
+- return_20d: -19.41
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: -10.02
 - distance_to_high_60_pct: -30.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,175,179.5,169,170,173000,171.67,-0.97,173.95,153.38,0.13
 20260529,173,176.5,171,176,174000,172.03,2.31,174.45,154.17,0.13
 20260601,176.5,176.5,170,171.5,173000,171.98,-0.28,174.78,154.95,0.13
 20260602,172,172.5,161.5,168,165,171.65,-2.13,174.6,155.61,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,148.5,151.5,146.5,149.5,292000,156.52,-4.48,159.05,159.26,0.89
 20260623,149.5,149.5,145,145,193000,155.56,-6.79,157.62,159.3,0.58
 20260624,144.5,146,142.5,143.5,164000,154.55,-7.15,155.65,159.34,0.5
-20260626,140.5,142,136.5,137,584000,153.09,-10.51,153.72,159.22,1.67
+20260625,146,146.5,140,140.5,312000,153.38,-8.4,153.9,159.28,0.93
+20260626,140.5,142,136.5,137,584000,152.02,-9.88,152.25,159.26,1.64
 ```
 
 ## Latest TDCC Snapshot

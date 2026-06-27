@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2038 海光
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:49 Asia/Taipei
+- generated_at: 2026-06-27 22:22:53 Asia/Taipei
 - stock_id: 2038
 - stock_name: 海光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12.75
 - close: 13.25
 - volume: 802699
-- ma5: 13.67
-- ema23_primary: 13.78
-- distance_to_ema23_pct: -3.85
+- ma5: 13.6
+- ema23_primary: 13.75
+- distance_to_ema23_pct: -3.67
 - ma20: 13.8
-- ma60: 14.24
-- ma120: 14.68
+- ma60: 14.2
+- ma120: 14.67
 - return_5d: -4.33
-- return_20d: -3.64
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: -4.02
-- distance_to_high_60_pct: -20.9
+- return_20d: -2.93
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -3.97
+- distance_to_high_60_pct: -17.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.75,14.15,13.65,13.65,634910,13.92,-1.92,13.74,14.66,0.9
 20260529,13.9,14,13.6,13.8,746911,13.91,-0.78,13.72,14.65,1.04
 20260601,13.95,14.2,13.6,13.95,676548,13.91,0.28,13.72,14.64,0.93
 20260602,14,14.05,13.65,13.85,557799,13.91,-0.41,13.72,14.62,0.75
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.05,14.25,13.8,13.9,1223340,13.86,0.3,13.89,14.35,1.35
 20260623,14,14.25,13.7,13.75,409076,13.85,-0.71,13.85,14.31,0.49
 20260624,13.75,13.75,13.5,13.6,350014,13.83,-1.65,13.83,14.28,0.54
-20260626,13.5,13.5,12.75,13.25,802699,13.78,-3.85,13.8,14.24,1.27
+20260625,13.65,13.7,13.45,13.5,318808,13.8,-2.18,13.82,14.24,0.52
+20260626,13.5,13.5,12.75,13.25,802699,13.75,-3.67,13.8,14.2,1.3
 ```
 
 ## Latest TDCC Snapshot

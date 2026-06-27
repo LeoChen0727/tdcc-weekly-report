@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3311 閎暉
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3311
 - stock_name: 閎暉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 36.7
 - close: 36.95
 - volume: 618572
-- ma5: 38.74
+- ma5: 38.54
 - ema23_primary: 37.65
-- distance_to_ema23_pct: -1.86
-- ma20: 38.53
-- ma60: 34.3
-- ma120: 33.29
-- return_5d: -6.22
-- return_20d: 5.87
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -4.1
+- distance_to_ema23_pct: -1.87
+- ma20: 38.59
+- ma60: 34.39
+- ma120: 33.35
+- return_5d: -4.65
+- return_20d: 1.37
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -4.26
 - distance_to_high_60_pct: -13.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35,38.35,34.7,36.45,4396543,32.92,10.71,32.4,32.31,7.26
 20260529,36.7,37.1,35.3,35.8,1902327,33.16,7.95,32.65,32.35,2.77
 20260601,36.15,37.8,35.9,35.95,1070910,33.4,7.65,32.92,32.41,1.46
 20260602,35.9,37,35,36.75,1226942,33.68,9.13,33.23,32.48,1.55
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,39.6,41.2,39.1,40.25,2254033,37.5,7.34,38.01,34.03,0.97
 20260623,40.55,40.7,39.15,39.35,1016547,37.65,4.51,38.28,34.13,0.43
 20260624,38.8,39.15,38.15,38.4,664424,37.72,1.82,38.43,34.23,0.29
-20260626,37.65,38.75,36.7,36.95,618572,37.65,-1.86,38.53,34.3,0.27
+20260625,38.45,38.6,37.6,37.75,1107770,37.72,0.08,38.57,34.31,0.48
+20260626,37.65,38.75,36.7,36.95,618572,37.65,-1.87,38.59,34.39,0.3
 ```
 
 ## Latest TDCC Snapshot

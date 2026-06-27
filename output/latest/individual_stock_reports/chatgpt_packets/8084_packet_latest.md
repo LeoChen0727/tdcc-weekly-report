@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8084 巨虹
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:48 Asia/Taipei
+- generated_at: 2026-06-27 22:24:48 Asia/Taipei
 - stock_id: 8084
 - stock_name: 巨虹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48
 - close: 48.3
 - volume: 103000
-- ma5: 49.76
-- ema23_primary: 47.68
-- distance_to_ema23_pct: 1.3
-- ma20: 48.23
-- ma60: 46.14
-- ma120: 50.6
-- return_5d: 5.92
-- return_20d: 6.86
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 0.16
+- ma5: 50.34
+- ema23_primary: 47.87
+- distance_to_ema23_pct: 0.9
+- ma20: 48.41
+- ma60: 46.23
+- ma120: 50.51
+- return_5d: 2.33
+- return_20d: 4.21
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -0.23
 - distance_to_high_60_pct: -8.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45.5,47.5,45,46.35,46000,44.53,4.1,44.34,46.09,0.6
 20260529,50,50,46.05,47.4,47000,44.77,5.89,44.5,45.97,0.61
 20260601,47.4,49.1,46.5,49,48000,45.12,8.6,44.7,45.88,0.65
 20260602,50,50.7,48.6,49.5,49,45.48,8.83,44.93,45.81,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,47.25,51.9,47.25,51.9,514000,47.03,10.35,47.46,45.81,5.15
 20260623,51.1,52.8,49.9,50,227000,47.28,5.76,47.75,45.92,2.08
 20260624,51.2,51.9,49,51.4,132000,47.62,7.93,48.07,46.05,1.17
-20260626,50.1,50.1,48,48.3,103000,47.68,1.3,48.23,46.14,0.89
+20260625,52,52,49.6,50.1,109000,47.83,4.75,48.31,46.17,0.94
+20260626,50.1,50.1,48,48.3,103000,47.87,0.9,48.41,46.23,0.86
 ```
 
 ## Latest TDCC Snapshot

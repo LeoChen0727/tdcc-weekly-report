@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6240 松崗
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:13 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6240
 - stock_name: 松崗
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 145
+- price_rows: 146
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 18.05
 - volume: 2000
 - ma5: 18.06
-- ema23_primary: 18.12
-- distance_to_ema23_pct: -0.38
-- ma20: 18.12
+- ema23_primary: 18.14
+- distance_to_ema23_pct: -0.51
+- ma20: 18.14
 - ma60: 18.31
 - ma120: 18.53
-- return_5d: -2.43
-- return_20d: 1.69
+- return_5d: -2.17
+- return_20d: -0.55
 - volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -0.4
+- distance_to_ma20_pct_auxiliary: -0.48
 - distance_to_high_60_pct: -7.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,18.2,18.95,17.9,18.15,18000,18.14,0.06,18.2,18.43,1.04
 20260528,18.15,18.35,17.75,17.85,18000,18.12,-1.47,18.14,18.42,1
 20260529,17.85,18.1,17.65,17.9,18000,18.1,-1.09,18.08,18.41,0.98
 20260601,17.95,18.3,17.2,18.3,18000,18.11,1.02,18.06,18.41,0.96
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.05,18.05,18.05,18.05,1000,18.17,-0.67,18.08,18.35,0.07
 20260623,18.05,18.7,17.75,17.75,23000,18.14,-2.13,18.09,18.34,1.48
 20260624,17.85,18.1,17.65,18,20000,18.12,-0.69,18.11,18.33,1.28
-20260626,18.1,18.1,18.05,18.05,2000,18.12,-0.38,18.12,18.31,0.14
+20260625,18.5,18.5,18.45,18.45,2000,18.15,1.64,18.14,18.32,0.14
+20260626,18.1,18.1,18.05,18.05,2000,18.14,-0.51,18.14,18.31,0.14
 ```
 
 ## Latest TDCC Snapshot

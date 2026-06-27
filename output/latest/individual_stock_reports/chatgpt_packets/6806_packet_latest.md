@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6806 森崴能源
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6806
 - stock_name: 森崴能源
 - packet_status: standard_180d_window_packet

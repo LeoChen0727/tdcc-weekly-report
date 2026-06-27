@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3564 其陽
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:33 Asia/Taipei
+- generated_at: 2026-06-27 22:23:35 Asia/Taipei
 - stock_id: 3564
 - stock_name: 其陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 42
 - close: 42.4
 - volume: 261000
-- ma5: 45.62
-- ema23_primary: 46.81
-- distance_to_ema23_pct: -9.42
-- ma20: 49.03
-- ma60: 44.12
-- ma120: 45.48
-- return_5d: -10.92
-- return_20d: -7.83
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -13.52
+- ma5: 45
+- ema23_primary: 46.61
+- distance_to_ema23_pct: -9.04
+- ma20: 48.85
+- ma60: 44.16
+- ma120: 45.43
+- return_5d: -11.2
+- return_20d: -11.94
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: -13.21
 - distance_to_high_60_pct: -32.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,46.15,50.6,46.1,48.15,49000,43.08,11.78,42.33,42.47,0.36
 20260529,48.6,49.15,47.2,47.7,48000,43.46,9.75,42.7,42.45,0.36
 20260601,48.55,52.4,48.55,52.4,52000,44.21,18.54,43.23,42.58,0.41
 20260602,55,57.6,54,57.6,57,45.32,27.09,44.06,42.79,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.5,48.5,47.3,47.35,185000,47.57,-0.47,49.3,44,1.2
 20260623,47.25,47.25,45.3,45.45,315000,47.4,-4.11,49.29,44.05,1.89
 20260624,45.25,46.55,45,45.15,154000,47.21,-4.36,49.21,44.11,0.89
-20260626,44.8,44.8,42,42.4,261000,46.81,-9.42,49.03,44.12,1.42
+20260625,46,46.05,44.5,44.65,172000,47,-4.99,49.14,44.16,0.96
+20260626,44.8,44.8,42,42.4,261000,46.61,-9.04,48.85,44.16,1.38
 ```
 
 ## Latest TDCC Snapshot

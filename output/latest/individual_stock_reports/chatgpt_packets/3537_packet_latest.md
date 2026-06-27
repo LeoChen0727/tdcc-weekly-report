@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:32 Asia/Taipei
+- generated_at: 2026-06-27 22:23:34 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 74.5
 - close: 74.8
 - volume: 2449000
-- ma5: 82.4
-- ema23_primary: 75.7
-- distance_to_ema23_pct: -1.19
-- ma20: 79.39
-- ma60: 59.03
-- ma120: 53.45
-- return_5d: -8.22
-- return_20d: 11.31
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -5.78
+- ma5: 80.48
+- ema23_primary: 76.03
+- distance_to_ema23_pct: -1.61
+- ma20: 79.69
+- ma60: 59.65
+- ma120: 53.7
+- return_5d: -16.52
+- return_20d: 1.22
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -6.14
 - distance_to_high_60_pct: -19.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,69.3,73.9,69.1,73.9,72000,57.31,28.95,55.01,47.67,0.06
 20260529,77.5,77.8,71.1,77,75000,58.95,30.62,56.71,48.19,0.06
 20260601,80.8,84.7,79.1,79.1,83000,60.63,30.47,58.53,48.78,0.06
 20260602,80,80.4,73.5,78.5,76,62.12,26.37,60.27,49.34,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,90.3,92.5,85.7,86,11467000,74.84,14.92,78.22,57.26,2.6
 20260623,86.1,86.1,79.4,81.2,4555000,75.37,7.74,78.44,57.88,0.98
 20260624,80,82.3,78.3,80.4,2837000,75.79,6.09,79,58.5,0.59
-20260626,79.5,82,74.5,74.8,2449000,75.7,-1.19,79.39,59.03,0.5
+20260625,81.9,83.4,78.4,80,3154000,76.14,5.07,79.64,59.12,0.64
+20260626,79.5,82,74.5,74.8,2449000,76.03,-1.61,79.69,59.65,0.49
 ```
 
 ## Latest TDCC Snapshot

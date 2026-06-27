@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6733 博晟生醫
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:27 Asia/Taipei
+- generated_at: 2026-06-27 22:24:28 Asia/Taipei
 - stock_id: 6733
 - stock_name: 博晟生醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 23.45
 - close: 23.7
 - volume: 162000
-- ma5: 24.15
-- ema23_primary: 25.63
-- distance_to_ema23_pct: -7.53
-- ma20: 25.43
-- ma60: 28.23
-- ma120: 32.53
-- return_5d: -5.58
-- return_20d: -9.37
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -6.8
+- ma5: 23.93
+- ema23_primary: 25.48
+- distance_to_ema23_pct: -6.97
+- ma20: 25.33
+- ma60: 28.07
+- ma120: 32.41
+- return_5d: -4.82
+- return_20d: -7.96
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -6.44
 - distance_to_high_60_pct: -29.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.15,26.4,25.55,25.75,26000,28.13,-8.48,27.89,31.32,0.14
 20260529,26.35,26.35,25.75,25.95,26000,27.95,-7.16,27.73,31.15,0.15
 20260601,26.1,26.3,25.6,26.05,26000,27.79,-6.27,27.57,31,0.15
 20260602,26,26,25.45,25.85,26,27.63,-6.45,27.38,30.83,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.9,25,24,24.1,548000,26.14,-7.81,25.86,28.74,4.45
 20260623,24.1,24.1,23.8,24,293000,25.96,-7.56,25.69,28.57,2.15
 20260624,24,24.5,24,24.05,132000,25.8,-6.8,25.55,28.4,0.93
-20260626,23.8,24.05,23.45,23.7,162000,25.63,-7.53,25.43,28.23,1.09
+20260625,24.05,24.6,23.8,23.8,209000,25.64,-7.17,25.43,28.23,1.39
+20260626,23.8,24.05,23.45,23.7,162000,25.48,-6.97,25.33,28.07,1.03
 ```
 
 ## Latest TDCC Snapshot

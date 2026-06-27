@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00739 元大MSCI A股
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:27 Asia/Taipei
+- generated_at: 2026-06-27 22:22:31 Asia/Taipei
 - stock_id: 00739
 - stock_name: 元大MSCI A股
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 29.12
 - close: 29.4
 - volume: 88586
-- ma5: 29.57
-- ema23_primary: 29.02
-- distance_to_ema23_pct: 1.32
-- ma20: 28.96
-- ma60: 28.94
-- ma120: 28.94
-- return_5d: 0.75
-- return_20d: 1.52
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 1.53
+- ma5: 29.65
+- ema23_primary: 29.09
+- distance_to_ema23_pct: 1.06
+- ma20: 29.02
+- ma60: 28.98
+- ma120: 28.98
+- return_5d: -0.51
+- return_20d: 2.12
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 1.32
 - distance_to_high_60_pct: -2.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.96,29.08,28.6,28.79,71503,28.65,0.5,28.85,28.85,0.8
 20260529,29.09,29.23,28.79,29.08,39634,28.68,1.38,28.89,28.89,0.49
 20260601,28.85,29,28.6,28.72,193504,28.69,0.12,28.87,28.87,1.99
 20260602,28.5,29.1,28.48,29.1,70067,28.72,1.32,28.89,28.89,0.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29.55,29.86,29.32,29.86,111861,28.88,3.39,28.88,28.87,1.13
 20260623,30,30.21,29.62,29.62,149940,28.94,2.34,28.92,28.9,1.54
 20260624,29.5,29.5,29.3,29.41,126796,28.98,1.48,28.94,28.92,1.27
-20260626,29.85,29.99,29.12,29.4,88586,29.02,1.32,28.96,28.94,0.88
+20260625,29.59,30.15,29.5,29.97,271417,29.06,3.12,28.99,28.97,2.47
+20260626,29.85,29.99,29.12,29.4,88586,29.09,1.06,29.02,28.98,0.8
 ```
 
 ## Latest TDCC Snapshot

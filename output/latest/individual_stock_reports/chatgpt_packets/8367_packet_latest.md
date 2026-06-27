@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8367 建新國際
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8367
 - stock_name: 建新國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 39.85
 - close: 39.9
 - volume: 40451
-- ma5: 40.28
-- ema23_primary: 40.65
-- distance_to_ema23_pct: -1.84
-- ma20: 40.52
-- ma60: 41.81
-- ma120: 42.89
-- return_5d: -1.24
-- return_20d: -1.6
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -1.53
+- ma5: 40.26
+- ema23_primary: 40.61
+- distance_to_ema23_pct: -1.75
+- ma20: 40.51
+- ma60: 41.76
+- ma120: 42.86
+- return_5d: -0.99
+- return_20d: -1.48
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -1.49
 - distance_to_high_60_pct: -9.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,40.8,40.8,40.45,40.5,5900,41.69,-2.86,41.64,43.4,0.09
 20260529,40.1,40.85,40.1,40.85,39098,41.62,-1.85,41.57,43.32,0.61
 20260601,40.5,41.3,40.5,41.2,62753,41.59,-0.93,41.5,43.26,0.97
 20260602,41,41.3,40.85,41,22014,41.54,-1.29,41.41,43.19,0.35
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.4,40.55,40.3,40.55,65450,40.79,-0.6,40.58,42.01,1.52
 20260623,41.5,41.5,40.2,40.45,34022,40.77,-0.77,40.57,41.92,0.84
 20260624,40.3,40.35,40.05,40.2,50238,40.72,-1.27,40.55,41.87,1.2
-20260626,40.1,40.1,39.85,39.9,40451,40.65,-1.84,40.52,41.81,0.96
+20260625,40.35,40.35,40,40.2,49111,40.67,-1.17,40.53,41.82,1.15
+20260626,40.1,40.1,39.85,39.9,40451,40.61,-1.75,40.51,41.76,0.91
 ```
 
 ## Latest TDCC Snapshot

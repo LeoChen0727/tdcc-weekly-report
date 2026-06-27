@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6843 進典
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6843
 - stock_name: 進典
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 151
+- price_rows: 152
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 40.1
 - close: 44.4
 - volume: 25000
-- ma5: 41.27
-- ema23_primary: 41.5
-- distance_to_ema23_pct: 7
-- ma20: 40.86
-- ma60: 43.91
-- ma120: 47.33
-- return_5d: 11.28
-- return_20d: 5.97
+- ma5: 41.31
+- ema23_primary: 41.45
+- distance_to_ema23_pct: 7.1
+- ma20: 40.77
+- ma60: 43.82
+- ma120: 47.21
+- return_5d: 9.63
+- return_20d: 4.72
 - volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 8.67
+- distance_to_ma20_pct_auxiliary: 8.9
 - distance_to_high_60_pct: -9.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,43.35,43.6,41.65,42.4,42000,44.25,-4.17,44.51,46.12,1.87
 20260529,42.75,42.75,41,41.8,42000,44.04,-5.09,44.3,46.01,1.76
 20260601,41,41.2,40.8,40.9,41000,43.78,-6.58,44.01,45.89,1.63
 20260602,40.8,41,40.65,40.8,41,43.53,-6.28,43.7,45.79,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.5,42.5,40.5,41,94000,41.42,-1.02,41.02,44.21,1.89
 20260623,41.5,42,40.25,40.25,44000,41.33,-2.6,40.86,44.08,0.88
 20260624,40.3,40.65,40,40.2,29000,41.23,-2.5,40.73,43.95,0.59
-20260626,40.7,44.4,40.1,44.4,25000,41.5,7,40.86,43.91,0.52
+20260625,40.95,41,40,40.7,42000,41.19,-1.18,40.67,43.85,0.85
+20260626,40.7,44.4,40.1,44.4,25000,41.45,7.1,40.77,43.82,0.52
 ```
 
 ## Latest TDCC Snapshot

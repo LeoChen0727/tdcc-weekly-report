@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:16 Asia/Taipei
+- generated_at: 2026-06-27 22:24:17 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 602
 - close: 653
 - volume: 2021000
-- ma5: 579.6
-- ema23_primary: 557.42
-- distance_to_ema23_pct: 17.15
-- ma20: 579.15
-- ma60: 493.12
-- ma120: 369.73
-- return_5d: 26.8
-- return_20d: 1.24
-- volume_ratio: 2.45
-- distance_to_ma20_pct_auxiliary: 12.75
+- ma5: 588.8
+- ema23_primary: 560.88
+- distance_to_ema23_pct: 16.43
+- ma20: 576.15
+- ma60: 496.91
+- ma120: 373.04
+- return_5d: 19.16
+- return_20d: -0.15
+- volume_ratio: 2.32
+- distance_to_ma20_pct_auxiliary: 13.34
 - distance_to_high_60_pct: -9.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,650,697,621,654,657000,507.2,28.94,501.48,411.38,0.41
 20260529,695,718,666,679,690000,521.51,30.2,514.33,417.97,0.43
 20260601,662,666,647,648,653000,532.05,21.79,524.88,424.33,0.42
 20260602,650,657,591,620,611,539.38,14.95,533.4,430.14,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,557,598,557,591,1350000,547.83,7.88,579.5,481.8,1.93
 20260623,598,598,535,543,1271000,547.43,-0.81,579.95,484.65,1.73
 20260624,527,575,520,563,917000,548.73,2.6,578.75,488.05,1.22
-20260626,604,653,602,653,2021000,557.42,17.15,579.15,493.12,2.45
+20260625,581,603,570,594,1602000,552.5,7.51,576.2,492.14,2
+20260626,604,653,602,653,2021000,560.88,16.43,576.15,496.91,2.32
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:49 Asia/Taipei
+- generated_at: 2026-06-27 22:23:51 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 284
+- price_rows: 285
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42.5
 - close: 43.5
 - volume: 9189608
-- ma5: 45.01
-- ema23_primary: 44.03
-- distance_to_ema23_pct: -1.2
-- ma20: 43.91
-- ma60: 43.21
-- ma120: 46.12
-- return_5d: -2.36
-- return_20d: 5.07
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -0.92
+- ma5: 45.05
+- ema23_primary: 44.06
+- distance_to_ema23_pct: -1.27
+- ma20: 44.12
+- ma60: 43.24
+- ma120: 46.03
+- return_5d: -1.81
+- return_20d: 7.94
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -1.39
 - distance_to_high_60_pct: -10.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,41.45,41.6,40.2,40.3,9691646,42.28,-4.69,42.06,43.32,1.52
 20260529,40.7,41.2,40.55,40.9,4558687,42.17,-3.01,41.99,43.26,0.72
 20260601,41.2,42.6,40.9,42.6,8802459,42.21,0.94,41.98,43.26,1.35
 20260602,42.9,43.2,41.95,42.7,6983265,42.25,1.07,41.94,43.23,1.06
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,44.6,45.6,44.45,45.6,7854561,43.75,4.23,43.47,43.17,1.04
 20260623,46.1,47.8,45.8,46.65,17402805,43.99,6.04,43.65,43.22,2.16
 20260624,46.4,46.4,44.5,45,8377025,44.08,2.1,43.8,43.24,1.03
-20260626,44.4,44.45,42.5,43.5,9189608,44.03,-1.2,43.91,43.21,1.11
+20260625,45.35,45.35,44.45,44.5,3470755,44.11,0.88,43.95,43.23,0.44
+20260626,44.4,44.45,42.5,43.5,9189608,44.06,-1.27,44.12,43.24,1.16
 ```
 
 ## Latest TDCC Snapshot

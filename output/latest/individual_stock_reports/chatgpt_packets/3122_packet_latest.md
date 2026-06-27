@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3122 笙泉
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:21 Asia/Taipei
+- generated_at: 2026-06-27 22:23:24 Asia/Taipei
 - stock_id: 3122
 - stock_name: 笙泉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.3
 - close: 30.3
 - volume: 351000
-- ma5: 31.97
-- ema23_primary: 31.71
-- distance_to_ema23_pct: -4.44
-- ma20: 31.01
-- ma60: 31.36
-- ma120: 27.95
-- return_5d: -0.98
-- return_20d: -9.15
-- volume_ratio: 1.63
-- distance_to_ma20_pct_auxiliary: -2.3
+- ma5: 32.28
+- ema23_primary: 31.77
+- distance_to_ema23_pct: -4.61
+- ma20: 31.02
+- ma60: 31.47
+- ma120: 28.05
+- return_5d: -2.42
+- return_20d: -6.77
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: -2.31
 - distance_to_high_60_pct: -28.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.15,34.15,32.5,32.5,33000,34.31,-5.27,35.89,29.93,0.04
 20260529,32.9,33,32,32.75,33000,34.18,-4.18,35.89,30.03,0.04
 20260601,32.75,32.75,31.6,31.8,32000,33.98,-6.42,35.86,30.14,0.04
 20260602,31.8,32.3,30.8,31.85,31,33.8,-5.78,35.8,30.23,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.3,32.5,31.25,31.85,375000,31.54,0.99,31.35,31.08,2.53
 20260623,32.55,32.55,31.2,31.75,253000,31.56,0.62,31.14,31.16,1.59
 20260624,31,34.9,30.5,34.9,836000,31.83,9.63,31.16,31.3,4.2
-20260626,32.5,32.5,30.3,30.3,351000,31.71,-4.44,31.01,31.36,1.63
+20260625,35.1,35.1,32.55,32.6,969000,31.9,2.2,31.13,31.4,3.94
+20260626,32.5,32.5,30.3,30.3,351000,31.77,-4.61,31.02,31.47,1.34
 ```
 
 ## Latest TDCC Snapshot

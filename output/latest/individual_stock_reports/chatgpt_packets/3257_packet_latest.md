@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3257 虹冠電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3257
 - stock_name: 虹冠電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 64.4
 - close: 65.3
 - volume: 2362474
-- ma5: 67.72
-- ema23_primary: 60.92
-- distance_to_ema23_pct: 7.19
-- ma20: 61.38
-- ma60: 56.68
-- ma120: 59.94
-- return_5d: 17.45
-- return_20d: 6.87
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 6.38
+- ma5: 69.1
+- ema23_primary: 61.49
+- distance_to_ema23_pct: 6.19
+- ma20: 61.51
+- ma60: 56.92
+- ma120: 59.9
+- return_5d: 6.87
+- return_20d: -0.46
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 6.17
 - distance_to_high_60_pct: -11.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,59.1,67.2,58.6,65.6,5130965,56.27,16.59,55.62,55.06,4.41
 20260529,65.6,71.2,65,68.8,5484453,57.31,20.05,56.39,55.21,3.88
 20260601,67.1,67.9,66.1,66.7,1940952,58.09,14.82,57.04,55.38,1.3
 20260602,66.1,66.2,61.3,63.1,1701509,58.51,7.84,57.42,55.47,1.09
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,67.2,67.2,66,67.2,2642935,58.26,15.35,59.63,55.93,1.55
 20260623,70.4,73.9,67.8,73.9,9788891,59.56,24.08,60.61,56.23,4.58
 20260624,71.1,73.7,69.6,71.1,6511969,60.52,17.48,61.17,56.5,2.83
-20260626,66.9,70.3,64.4,65.3,2362474,60.92,7.19,61.38,56.68,1.09
+20260625,71.5,72.1,67.6,68,2753300,61.15,11.21,61.52,56.73,1.25
+20260626,66.9,70.3,64.4,65.3,2362474,61.49,6.19,61.51,56.92,1.15
 ```
 
 ## Latest TDCC Snapshot

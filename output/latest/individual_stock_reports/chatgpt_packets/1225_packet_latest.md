@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1225 福懋油
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:31 Asia/Taipei
+- generated_at: 2026-06-27 22:22:35 Asia/Taipei
 - stock_id: 1225
 - stock_name: 福懋油
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 240
+- price_rows: 241
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 29.2
 - close: 29.4
 - volume: 239768
-- ma5: 30.54
-- ema23_primary: 30.51
-- distance_to_ema23_pct: -3.65
-- ma20: 30.3
-- ma60: 31.24
+- ma5: 30.14
+- ema23_primary: 30.49
+- distance_to_ema23_pct: -3.56
+- ma20: 30.35
+- ma60: 31.22
 - ma120: 30.51
-- return_5d: -10.91
-- return_20d: 0.51
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -2.97
+- return_5d: -8.84
+- return_20d: 0.68
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -3.14
 - distance_to_high_60_pct: -14.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.45,29.75,29.2,29.2,165480,30.49,-4.22,30.62,31.77,0.56
 20260529,29.55,29.55,29.2,29.25,99119,30.38,-3.73,30.48,31.72,0.34
 20260601,29.6,30.15,29.4,29.7,241025,30.33,-2.07,30.36,31.68,0.81
 20260602,29.7,29.8,29.3,29.6,125563,30.27,-2.2,30.25,31.65,0.47
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.1,32.1,31,31.05,177781,30.73,1.03,30.29,31.36,0.48
 20260623,31.05,31.05,30,30,268809,30.67,-2.19,30.3,31.34,0.72
 20260624,29.85,30.25,29.8,30,157622,30.62,-2.01,30.29,31.29,0.42
-20260626,29.7,29.85,29.2,29.4,239768,30.51,-3.65,30.3,31.24,0.64
+20260625,30,30.25,29.85,30.25,24250,30.59,-1.1,30.34,31.26,0.07
+20260626,29.7,29.85,29.2,29.4,239768,30.49,-3.56,30.35,31.22,0.65
 ```
 
 ## Latest TDCC Snapshot

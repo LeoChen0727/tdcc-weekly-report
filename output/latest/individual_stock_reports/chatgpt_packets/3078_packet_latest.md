@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3078 僑威
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:20 Asia/Taipei
+- generated_at: 2026-06-27 22:23:23 Asia/Taipei
 - stock_id: 3078
 - stock_name: 僑威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 52
 - close: 52
 - volume: 1830000
-- ma5: 54.1
-- ema23_primary: 55.32
-- distance_to_ema23_pct: -6
-- ma20: 55.92
-- ma60: 56.07
-- ma120: 59.7
-- return_5d: -5.63
-- return_20d: -8.45
-- volume_ratio: 2.68
-- distance_to_ma20_pct_auxiliary: -7.01
+- ma5: 53.74
+- ema23_primary: 55.15
+- distance_to_ema23_pct: -5.72
+- ma20: 55.79
+- ma60: 56.03
+- ma120: 59.56
+- return_5d: -5.97
+- return_20d: -7.31
+- volume_ratio: 2.52
+- distance_to_ma20_pct_auxiliary: -6.79
 - distance_to_high_60_pct: -13.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,57,57.8,55.9,56.1,57000,56.01,0.16,55.81,57.1,0.07
 20260529,56.3,58.4,56.3,57.6,58000,56.14,2.59,55.91,57.05,0.07
 20260601,58.1,58.9,57.7,58.9,58000,56.37,4.48,56.06,57.06,0.07
 20260602,59.1,60.4,58.1,59,59,56.59,4.25,56.16,57.03,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,55.3,55.7,54.8,55,1166000,55.9,-1.62,56.52,56.27,2.31
 20260623,55,55.5,53.4,53.7,1300000,55.72,-3.63,56.34,56.2,2.29
 20260624,53.7,54.6,53.4,54.5,588000,55.62,-2.01,56.16,56.16,0.99
-20260626,53.5,53.5,52,52,1830000,55.32,-6,55.92,56.07,2.68
+20260625,54.5,54.6,53.5,53.5,952000,55.44,-3.5,55.99,56.1,1.49
+20260626,53.5,53.5,52,52,1830000,55.15,-5.72,55.79,56.03,2.52
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6140 訊達電腦
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:07 Asia/Taipei
+- generated_at: 2026-06-27 22:24:08 Asia/Taipei
 - stock_id: 6140
 - stock_name: 訊達電腦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 19.35
 - close: 19.35
 - volume: 192000
-- ma5: 20.48
-- ema23_primary: 21.15
-- distance_to_ema23_pct: -8.53
-- ma20: 21.7
-- ma60: 20.14
-- ma120: 21.95
-- return_5d: -8.73
-- return_20d: -1.02
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -10.81
+- ma5: 20.35
+- ema23_primary: 21.08
+- distance_to_ema23_pct: -8.22
+- ma20: 21.77
+- ma60: 20.16
+- ma120: 21.89
+- return_5d: -8.08
+- return_20d: 1.84
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -11.1
 - distance_to_high_60_pct: -25.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.55,19.7,19,19,19000,19.81,-4.11,20.1,19.93,0.11
 20260529,19.2,19.25,18.75,18.8,19000,19.73,-4.71,20.09,19.87,0.11
 20260601,20,20.65,19.9,20.65,21000,19.81,4.26,20.18,19.85,0.12
 20260602,21.5,22.7,21.3,22.7,22,20.05,13.23,20.38,19.86,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.5,21.2,20.5,20.9,143000,21.46,-2.61,21.63,20.13,0.83
 20260623,20.85,20.85,20.15,20.2,140000,21.36,-5.41,21.64,20.13,0.78
 20260624,20.2,21.25,20.2,20.9,154000,21.32,-1.96,21.7,20.15,0.83
-20260626,20.4,20.6,19.35,19.35,192000,21.15,-8.53,21.7,20.14,0.99
+20260625,21.5,21.5,20.3,20.4,112000,21.24,-3.96,21.75,20.16,0.59
+20260626,20.4,20.6,19.35,19.35,192000,21.08,-8.22,21.77,20.16,0.97
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2596 綠意
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2596
 - stock_name: 綠意
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.1
 - close: 30.3
 - volume: 33000
-- ma5: 30.33
-- ema23_primary: 29.87
-- distance_to_ema23_pct: 1.44
-- ma20: 29.72
-- ma60: 29.96
-- ma120: 32.45
-- return_5d: -1.14
-- return_20d: 14.34
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 1.96
+- ma5: 30.27
+- ema23_primary: 29.92
+- distance_to_ema23_pct: 1.27
+- ma20: 29.88
+- ma60: 29.94
+- ma120: 32.38
+- return_5d: -1.62
+- return_20d: 11.4
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 1.4
 - distance_to_high_60_pct: -7.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.5,27.35,26.5,27.2,27000,28.78,-5.49,28.57,30.9,0.36
 20260529,27.25,27.35,26.55,27.25,27000,28.65,-4.89,28.49,30.82,0.36
 20260601,27.5,27.85,26.9,27.85,27000,28.59,-2.57,28.44,30.75,0.39
 20260602,27.85,29.1,27.65,29.05,29,28.62,1.49,28.44,30.7,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.3,30.8,30.1,30.4,84000,29.78,2.07,29.26,30.09,1.5
 20260623,30.6,30.6,29.9,30,61000,29.8,0.66,29.39,30.05,1.06
 20260624,30.55,30.55,30.1,30.15,14000,29.83,1.07,29.53,30,0.25
-20260626,30.6,30.85,30.1,30.3,33000,29.87,1.44,29.72,29.96,0.58
+20260625,30.55,30.55,30.2,30.5,31000,29.89,2.05,29.73,29.97,0.54
+20260626,30.6,30.85,30.1,30.3,33000,29.92,1.27,29.88,29.94,0.57
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5603 陸海
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:03 Asia/Taipei
+- generated_at: 2026-06-27 22:24:04 Asia/Taipei
 - stock_id: 5603
 - stock_name: 陸海
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.75
 - close: 14.85
 - volume: 99000
-- ma5: 14.87
-- ema23_primary: 15.23
-- distance_to_ema23_pct: -2.51
-- ma20: 15.15
-- ma60: 15.93
-- ma120: 17.01
-- return_5d: -1.98
+- ma5: 14.85
+- ema23_primary: 15.21
+- distance_to_ema23_pct: -2.36
+- ma20: 15.14
+- ma60: 15.89
+- ma120: 16.98
+- return_5d: -1.33
 - return_20d: -1.98
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -1.98
-- distance_to_high_60_pct: -14.41
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -1.92
+- distance_to_high_60_pct: -13.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,15.15,15.15,15,15.15,15000,15.85,-4.42,15.79,16.71,0.12
 20260529,15.15,15.15,14.95,15.1,15000,15.79,-4.36,15.72,16.66,0.12
 20260601,15,15.25,14.95,15.25,15000,15.74,-3.13,15.66,16.61,0.13
 20260602,15.25,15.25,14.95,15.15,15,15.69,-3.46,15.62,16.56,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15,15.1,14.45,14.65,2816000,15.34,-4.48,15.21,16.05,9.83
 20260623,14.7,14.9,14.65,14.8,206000,15.29,-3.22,15.19,16.01,0.7
 20260624,14.8,15.1,14.8,15,123000,15.27,-1.75,15.16,15.97,0.41
-20260626,14.9,14.9,14.75,14.85,99000,15.23,-2.51,15.15,15.93,0.32
+20260625,15,15.05,14.85,14.95,331000,15.24,-1.91,15.15,15.93,1.04
+20260626,14.9,14.9,14.75,14.85,99000,15.21,-2.36,15.14,15.89,0.31
 ```
 
 ## Latest TDCC Snapshot

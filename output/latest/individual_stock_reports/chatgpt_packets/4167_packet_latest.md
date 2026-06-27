@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4167 松瑞藥
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:41 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4167
 - stock_name: 松瑞藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.95
 - close: 18.95
 - volume: 794000
-- ma5: 19.41
-- ema23_primary: 19.64
-- distance_to_ema23_pct: -3.49
+- ma5: 19.27
+- ema23_primary: 19.6
+- distance_to_ema23_pct: -3.32
 - ma20: 19.88
-- ma60: 19.65
-- ma120: 19.69
-- return_5d: -4.53
-- return_20d: 0
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: -4.65
-- distance_to_high_60_pct: -13.86
+- ma60: 19.62
+- ma120: 19.7
+- return_5d: -5.01
+- return_20d: -1.3
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -4.67
+- distance_to_high_60_pct: -13.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.95,19.5,18.95,19.2,19000,19.15,0.26,18.96,19.83,0.03
 20260529,19.45,19.8,19.35,19.7,20000,19.2,2.63,19,19.84,0.04
 20260601,19.85,20.15,19.6,20.05,20000,19.27,4.06,19.06,19.88,0.04
 20260602,20.05,20.3,19.85,20.25,20,19.35,4.66,19.13,19.91,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.15,20.15,19.65,19.7,1049000,19.79,-0.44,19.85,19.75,2.17
 20260623,19.5,19.5,19.1,19.1,1259000,19.73,-3.19,19.85,19.72,2.31
 20260624,19.05,19.45,19.05,19.35,687000,19.7,-1.77,19.88,19.7,1.19
-20260626,19.2,19.3,18.95,18.95,794000,19.64,-3.49,19.88,19.65,1.29
+20260625,19.35,19.35,19.1,19.25,616000,19.66,-2.09,19.89,19.66,1.01
+20260626,19.2,19.3,18.95,18.95,794000,19.6,-3.32,19.88,19.62,1.23
 ```
 
 ## Latest TDCC Snapshot

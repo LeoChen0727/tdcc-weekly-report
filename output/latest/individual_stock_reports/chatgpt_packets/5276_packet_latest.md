@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5276 達輝-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:58 Asia/Taipei
 - stock_id: 5276
 - stock_name: 達輝-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 140
+- price_rows: 141
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.8
 - close: 17.8
 - volume: 6000
-- ma5: 18.41
-- ema23_primary: 18.69
-- distance_to_ema23_pct: -4.77
-- ma20: 18.76
-- ma60: 18.34
-- ma120: 16.91
-- return_5d: -3.78
-- return_20d: -10.55
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -5.12
+- ma5: 18.33
+- ema23_primary: 18.65
+- distance_to_ema23_pct: -4.56
+- ma20: 18.7
+- ma60: 18.4
+- ma120: 16.94
+- return_5d: -4.56
+- return_20d: -8.25
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -4.83
 - distance_to_high_60_pct: -19.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.3,19.4,19.1,19.4,19000,19.25,0.77,19.84,17.33,0.32
 20260529,19.2,20,19.1,19.2,19000,19.25,-0.25,19.88,17.39,0.33
 20260601,20.25,20.25,19.1,19.7,19000,19.29,2.15,19.86,17.45,0.38
 20260602,19.1,19.45,19,19.45,19,19.3,0.78,19.72,17.51,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.45,18.7,18.45,18.7,16000,18.83,-0.7,18.99,18.19,0.96
 20260623,19.2,19.25,18.35,18.35,12000,18.79,-2.35,18.92,18.24,0.74
 20260624,18.25,18.55,18.2,18.55,9000,18.77,-1.18,18.86,18.3,0.57
-20260626,18,18,17.8,17.8,6000,18.69,-4.77,18.76,18.34,0.4
+20260625,18.2,18.4,17.9,18.25,26000,18.73,-2.56,18.78,18.35,1.62
+20260626,18,18,17.8,17.8,6000,18.65,-4.56,18.7,18.4,0.39
 ```
 
 ## Latest TDCC Snapshot

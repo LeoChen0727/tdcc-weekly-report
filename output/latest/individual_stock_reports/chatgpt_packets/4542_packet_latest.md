@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4542 科嶠
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:44 Asia/Taipei
+- generated_at: 2026-06-27 22:23:47 Asia/Taipei
 - stock_id: 4542
 - stock_name: 科嶠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 368.5
 - close: 372
 - volume: 644000
-- ma5: 390.8
-- ema23_primary: 326.8
-- distance_to_ema23_pct: 13.83
-- ma20: 324.3
-- ma60: 241.06
-- ma120: 184.74
-- return_5d: -1.59
-- return_20d: 37.02
+- ma5: 391.2
+- ema23_primary: 333.4
+- distance_to_ema23_pct: 11.58
+- ma20: 331.68
+- ma60: 244.88
+- ma120: 187.46
+- return_5d: -8.6
+- return_20d: 42.26
 - volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 14.71
+- distance_to_ma20_pct_auxiliary: 12.16
 - distance_to_high_60_pct: -9.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,268.5,271,255,261.5,263000,229.65,13.87,230.95,191.07,0.42
 20260529,265,280,264,270,273000,233.01,15.87,234.5,193.03,0.48
 20260601,274,282,262,262,269000,235.43,11.29,236.68,195.07,0.49
 20260602,262,262,236,236.5,246,235.52,0.42,236.5,196.57,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,410,410,395,400,222000,310.36,28.88,307.57,230.63,0.23
 20260623,405,405,385,385,195000,316.58,21.61,313.57,234.15,0.2
 20260624,378,390,366,390,239000,322.7,20.86,319.27,237.78,0.25
-20260626,405,409,368.5,372,644000,326.8,13.83,324.3,241.06,0.65
+20260625,410,410,386,409,345000,329.89,23.98,326.15,241.68,0.35
+20260626,405,409,368.5,372,644000,333.4,11.58,331.68,244.88,0.65
 ```
 
 ## Latest TDCC Snapshot

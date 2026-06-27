@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4161 聿新科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:40 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4161
 - stock_name: 聿新科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,15 +119,15 @@
 - low: 22.7
 - close: 22.75
 - volume: 68000
-- ma5: 23.02
-- ema23_primary: 23.06
-- distance_to_ema23_pct: -1.32
+- ma5: 22.96
+- ema23_primary: 23.04
+- distance_to_ema23_pct: -1.26
 - ma20: 22.96
-- ma60: 23.48
-- ma120: 24.55
-- return_5d: -1.52
-- return_20d: -1.3
-- volume_ratio: 1.55
+- ma60: 23.45
+- ma120: 24.53
+- return_5d: -1.94
+- return_20d: -0.66
+- volume_ratio: 1.51
 - distance_to_ma20_pct_auxiliary: -0.93
 - distance_to_high_60_pct: -10.61
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.25,23.45,22.85,22.9,23000,23.4,-2.15,23.25,24.17,0.35
 20260529,23,23.1,22.75,22.85,23000,23.36,-2.17,23.21,24.11,0.36
 20260601,22.95,23.05,22.8,23,23000,23.33,-1.41,23.2,24.07,0.37
 20260602,23,23.15,22.65,22.8,23,23.28,-2.08,23.18,24.03,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.25,23.25,22.8,23.1,85000,23.09,0.02,23,23.59,2.11
 20260623,22.85,23.1,22.85,23.1,36000,23.1,0.02,22.99,23.56,0.88
 20260624,23.1,23.2,22.9,22.95,36000,23.08,-0.58,22.98,23.52,0.87
-20260626,22.85,23,22.7,22.75,68000,23.06,-1.32,22.96,23.48,1.55
+20260625,23.05,23.1,22.85,22.9,45000,23.07,-0.73,22.97,23.48,1.06
+20260626,22.85,23,22.7,22.75,68000,23.04,-1.26,22.96,23.45,1.51
 ```
 
 ## Latest TDCC Snapshot

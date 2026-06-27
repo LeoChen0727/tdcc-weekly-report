@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8374 羅昇
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8374
 - stock_name: 羅昇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 84
 - close: 84
 - volume: 602381
-- ma5: 89.8
-- ema23_primary: 93.04
-- distance_to_ema23_pct: -9.72
-- ma20: 94.77
-- ma60: 88.92
-- ma120: 85.48
-- return_5d: -6.87
-- return_20d: -22.22
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -11.36
+- ma5: 89.24
+- ema23_primary: 92.61
+- distance_to_ema23_pct: -9.3
+- ma20: 94.08
+- ma60: 89.27
+- ma120: 85.56
+- return_5d: -7.69
+- return_20d: -17.65
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -10.71
 - distance_to_high_60_pct: -29.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,107,109,100,102,2003206,97.01,5.15,97.58,82.21,0.59
 20260529,104,108,102.5,106,2066517,97.76,8.43,98.66,82.6,0.61
 20260601,108,114,106,112,4619522,98.94,13.2,99.95,83.19,1.31
 20260602,109.5,109.5,101,102,2560755,99.2,2.82,100.56,83.59,0.73
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,93.5,93.9,92.1,92.5,548759,94.45,-2.07,98.05,87.97,0.3
 20260623,93.1,93.1,90.2,90.4,424835,94.12,-3.95,96.94,88.31,0.27
 20260624,89.5,91.6,89.2,91.1,392721,93.86,-2.94,95.97,88.68,0.28
-20260626,88.2,88.2,84,84,602381,93.04,-9.72,94.77,88.92,0.46
+20260625,92.1,92.5,88,88.2,380398,93.39,-5.56,94.98,88.99,0.29
+20260626,88.2,88.2,84,84,602381,92.61,-9.3,94.08,89.27,0.49
 ```
 
 ## Latest TDCC Snapshot

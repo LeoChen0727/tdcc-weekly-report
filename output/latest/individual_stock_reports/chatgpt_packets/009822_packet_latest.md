@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009822 華南永昌未來金融
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:30 Asia/Taipei
+- generated_at: 2026-06-27 22:22:34 Asia/Taipei
 - stock_id: 009822
 - stock_name: 華南永昌未來金融
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 16
+- price_rows: 17
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,16 +119,16 @@
 - low: 9.55
 - close: 9.56
 - volume: 1423000
-- ma5: 9.81
-- ema23_primary: 9.71
-- distance_to_ema23_pct: -1.57
-- ma20: 9.61
-- ma60: 9.61
-- ma120: 9.61
-- return_5d: -3.24
+- ma5: 9.8
+- ema23_primary: 9.72
+- distance_to_ema23_pct: -1.63
+- ma20: 9.62
+- ma60: 9.62
+- ma120: 9.62
+- return_5d: -3.04
 - return_20d:
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -0.55
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -0.67
 - distance_to_high_60_pct: -4.3
 
 ## Recent Price Preview
@@ -150,7 +150,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9.9,9.99,9.86,9.97,4022000,9.71,2.72,9.58,9.58,2.64
 20260623,9.95,9.95,9.79,9.79,1734000,9.71,0.79,9.6,9.6,1.13
 20260624,9.79,9.89,9.72,9.88,1705000,9.73,1.57,9.62,9.62,1.1
-20260626,9.7,9.82,9.55,9.56,1423000,9.71,-1.57,9.61,9.61,0.92
+20260625,9.82,9.84,9.77,9.8,1160000,9.73,0.69,9.63,9.63,0.76
+20260626,9.7,9.82,9.55,9.56,1423000,9.72,-1.63,9.62,9.62,0.94
 ```
 
 ## Latest TDCC Snapshot

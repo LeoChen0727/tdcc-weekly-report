@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:28 Asia/Taipei
+- generated_at: 2026-06-27 22:23:31 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 299
 - close: 299
 - volume: 1618808
-- ma5: 313.5
-- ema23_primary: 314.43
-- distance_to_ema23_pct: -4.91
-- ma20: 313.5
-- ma60: 314.9
-- ma120: 304.22
-- return_5d: -6.42
-- return_20d: -4.93
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -4.63
+- ma5: 310.4
+- ema23_primary: 313.9
+- distance_to_ema23_pct: -4.75
+- ma20: 313.05
+- ma60: 314.99
+- ma120: 304.32
+- return_5d: -7.86
+- return_20d: -5.97
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -4.49
 - distance_to_high_60_pct: -16.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,315,326,313,318,6540669,320.91,-0.91,320.27,312.14,1.98
 20260529,322,323,318,320,2582808,320.83,-0.26,320.8,312.43,0.76
 20260601,322,322,315,316.5,2817259,320.47,-1.24,320.4,312.88,0.82
 20260602,317.5,320,311,312.5,3099439,319.81,-2.29,319.8,313.11,0.89
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,327.5,331,319,321,2624518,316.66,1.37,317.88,315.3,0.84
 20260623,323,324,311,312,1649455,316.27,-1.35,316.02,315.11,0.56
 20260624,307,313.5,305,311,1254266,315.83,-1.53,314.27,315.1,0.44
-20260626,309,314.5,299,299,1618808,314.43,-4.91,313.5,314.9,0.66
+20260625,314,314,307,309,854021,315.26,-1.99,314,315.07,0.35
+20260626,309,314.5,299,299,1618808,313.9,-4.75,313.05,314.99,0.74
 ```
 
 ## Latest TDCC Snapshot

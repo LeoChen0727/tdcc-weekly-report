@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6292 迅德
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:16 Asia/Taipei
+- generated_at: 2026-06-27 22:24:17 Asia/Taipei
 - stock_id: 6292
 - stock_name: 迅德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 57.7
 - close: 57.7
 - volume: 263000
-- ma5: 63.48
-- ema23_primary: 61.17
-- distance_to_ema23_pct: -5.68
-- ma20: 63.16
-- ma60: 54.14
-- ma120: 47.96
-- return_5d: -12.58
-- return_20d: -7.68
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -8.65
+- ma5: 62.08
+- ema23_primary: 61.12
+- distance_to_ema23_pct: -5.6
+- ma20: 62.77
+- ma60: 54.34
+- ma120: 48.12
+- return_5d: -14.9
+- return_20d: -16.01
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -8.08
 - distance_to_high_60_pct: -22.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,68.7,68.7,67.1,68.7,69000,54.2,26.75,53.67,48.04,0.2
 20260529,68.5,74,67,69.9,70000,55.51,25.92,54.91,48.51,0.2
 20260601,69.9,70.3,66.6,67.8,68000,56.53,19.93,55.99,48.96,0.2
 20260602,67.3,67.3,61.2,63.3,64,57.1,10.86,56.8,49.34,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,69,70,67.8,68,894000,61.41,10.74,62.95,53.37,2.22
 20260623,67,67,61.9,62.2,459000,61.47,1.18,63.16,53.68,1.09
 20260624,60.7,61.9,60,61.7,335000,61.49,0.34,63.41,53.98,0.77
-20260626,58.5,60,57.7,57.7,263000,61.17,-5.68,63.16,54.14,0.59
+20260625,62.2,62.2,60.1,60.8,231000,61.43,-1.03,63.32,54.19,0.52
+20260626,58.5,60,57.7,57.7,263000,61.12,-5.6,62.77,54.34,0.58
 ```
 
 ## Latest TDCC Snapshot

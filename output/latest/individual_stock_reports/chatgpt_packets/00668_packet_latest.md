@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00668 國泰美國道瓊
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:26 Asia/Taipei
+- generated_at: 2026-06-27 22:22:30 Asia/Taipei
 - stock_id: 00668
 - stock_name: 國泰美國道瓊
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 60.2
 - close: 60.25
 - volume: 160365
-- ma5: 59.73
-- ema23_primary: 59.05
-- distance_to_ema23_pct: 2.03
-- ma20: 58.98
-- ma60: 58.84
-- ma120: 58.84
-- return_5d: 0.33
-- return_20d: 4.15
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: 2.16
+- ma5: 59.85
+- ema23_primary: 59.15
+- distance_to_ema23_pct: 1.85
+- ma20: 59.09
+- ma60: 58.9
+- ma120: 58.9
+- return_5d: 1.01
+- return_20d: 3.97
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: 1.96
 - distance_to_high_60_pct: -0.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,58.05,58.15,57.9,57.95,215531,58.03,-0.15,58.11,58.11,2.3
 20260529,57.95,58.15,57.95,58.1,119357,58.04,0.1,58.11,58.11,1.22
 20260601,58.5,58.5,58.4,58.4,48684,58.07,0.57,58.15,58.15,0.54
 20260602,58.2,58.45,58.2,58.4,21568,58.1,0.52,58.18,58.18,0.26
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,59.55,59.55,59.25,59.3,200172,58.8,0.86,58.72,58.69,2.1
 20260623,59.9,59.9,59.55,59.6,14896,58.86,1.25,58.78,58.73,0.16
 20260624,59.4,59.85,59.4,59.85,135036,58.95,1.53,58.86,58.78,1.37
-20260626,60.45,60.45,60.2,60.25,160365,59.05,2.03,58.98,58.84,1.6
+20260625,60,60.25,60,60.25,22251,59.05,2.03,58.98,58.84,0.24
+20260626,60.45,60.45,60.2,60.25,160365,59.15,1.85,59.09,58.9,1.77
 ```
 
 ## Latest TDCC Snapshot

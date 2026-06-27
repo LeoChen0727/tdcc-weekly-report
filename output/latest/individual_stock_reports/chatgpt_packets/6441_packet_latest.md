@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6441 廣錠
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:17 Asia/Taipei
+- generated_at: 2026-06-27 22:24:18 Asia/Taipei
 - stock_id: 6441
 - stock_name: 廣錠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 21.2
 - close: 21.7
 - volume: 128000
-- ma5: 22.37
-- ema23_primary: 23.34
-- distance_to_ema23_pct: -7.03
-- ma20: 23.36
-- ma60: 23.75
-- ma120: 22.66
-- return_5d: -5.03
-- return_20d: -14.73
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -7.13
+- ma5: 22.24
+- ema23_primary: 23.23
+- distance_to_ema23_pct: -6.59
+- ma20: 23.24
+- ma60: 23.77
+- ma120: 22.65
+- return_5d: -4.41
+- return_20d: -11.61
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: -6.63
 - distance_to_high_60_pct: -34.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.45,25.45,24.05,24.55,25000,25.05,-1.99,26.04,22.8,0.06
 20260529,24.85,24.9,24.2,24.5,24000,25,-2.01,25.79,22.83,0.07
 20260601,24.5,24.6,24.2,24.3,24000,24.94,-2.59,25.59,22.88,0.08
 20260602,24.3,24.3,23.75,24,24,24.87,-3.48,25.38,22.93,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.9,23.3,22.6,22.85,106000,23.72,-3.65,23.84,23.65,1.34
 20260623,22.7,22.85,22.4,22.4,117000,23.61,-5.11,23.76,23.69,1.39
 20260624,22.05,22.4,22,22.2,97000,23.49,-5.49,23.55,23.73,1.11
-20260626,21.95,22.05,21.2,21.7,128000,23.34,-7.03,23.36,23.75,1.38
+20260625,22.2,22.3,22,22.05,66000,23.37,-5.65,23.38,23.75,0.74
+20260626,21.95,22.05,21.2,21.7,128000,23.23,-6.59,23.24,23.77,1.35
 ```
 
 ## Latest TDCC Snapshot

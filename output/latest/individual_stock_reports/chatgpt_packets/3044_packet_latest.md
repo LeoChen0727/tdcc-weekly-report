@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:18 Asia/Taipei
+- generated_at: 2026-06-27 22:23:21 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 506
 - close: 508
 - volume: 3234117
-- ma5: 540.8
-- ema23_primary: 515.41
-- distance_to_ema23_pct: -1.44
-- ma20: 516.98
-- ma60: 468.26
-- ma120: 411.1
-- return_5d: -11.03
-- return_20d: -3.05
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -1.74
+- ma5: 532.6
+- ema23_primary: 516.63
+- distance_to_ema23_pct: -1.67
+- ma20: 518.9
+- ma60: 471.32
+- ma120: 412.9
+- return_5d: -11.34
+- return_20d: 2.94
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -2.1
 - distance_to_high_60_pct: -15.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,533,533,490,493.5,5510237,478.16,3.21,487.52,418.93,1.02
 20260529,507,532,505,521,4781839,481.73,8.15,491.15,421.32,0.88
 20260601,530,540,512,518,5048181,484.75,6.86,493.77,424.12,0.91
 20260602,516,517,497,508,5329553,486.69,4.38,494.95,426.47,0.96
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,590,598,565,566,3357117,513.75,10.17,515.12,460.04,0.71
 20260623,569,570,528,531,4344653,515.19,3.07,516.98,462.94,0.92
 20260624,523,536,516,526,2755065,516.09,1.92,517.77,465.77,0.6
-20260626,526,535,506,508,3234117,515.41,-1.44,516.98,468.26,0.72
+20260625,530,539,521,532,3088650,517.41,2.82,518.17,468.66,0.69
+20260626,526,535,506,508,3234117,516.63,-1.67,518.9,471.32,0.74
 ```
 
 ## Latest TDCC Snapshot

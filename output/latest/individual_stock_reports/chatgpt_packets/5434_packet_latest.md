@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 490
 - close: 490
 - volume: 1862175
-- ma5: 490.4
-- ema23_primary: 465.46
-- distance_to_ema23_pct: 5.27
-- ma20: 467.45
-- ma60: 426.39
-- ma120: 373.5
-- return_5d: 2.51
-- return_20d: 3.48
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 4.82
+- ma5: 496.3
+- ema23_primary: 468.65
+- distance_to_ema23_pct: 4.56
+- ma20: 470.18
+- ma60: 429.62
+- ma120: 375.21
+- return_5d: 3.05
+- return_20d: 8.77
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 4.22
 - distance_to_high_60_pct: -6.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,472.5,472.5,446.5,450.5,1192985,427.39,5.41,426.65,381.03,1.34
 20260529,464.5,464.5,452,453,712060,429.53,5.46,429,383.09,0.8
 20260601,456,456,448.5,453,672845,431.48,4.99,430.85,385.48,0.75
 20260602,459,467,449.5,466,1067700,434.36,7.28,433.57,387.77,1.14
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,489,523,487,506,1874532,458.1,10.46,465.9,417.94,1.79
 20260623,509,509,487,491.5,1124810,460.88,6.64,466.23,420.7,1.08
 20260624,486.5,492.5,478.5,489,759923,463.23,5.56,466.62,423.53,0.75
-20260626,505,513,490,490,1862175,465.46,5.27,467.45,426.39,1.77
+20260625,498,505,490,505,1462340,466.71,8.2,468.2,426.64,1.42
+20260626,505,513,490,490,1862175,468.65,4.56,470.18,429.62,1.75
 ```
 
 ## Latest TDCC Snapshot

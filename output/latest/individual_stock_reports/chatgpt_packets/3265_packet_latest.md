@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3265 台星科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3265
 - stock_name: 台星科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 175.5
 - close: 176
 - volume: 1624000
-- ma5: 186.7
-- ema23_primary: 180.92
-- distance_to_ema23_pct: -2.72
-- ma20: 181.6
-- ma60: 175.08
-- ma120: 154.92
-- return_5d: 2.03
-- return_20d: -7.12
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: -3.08
+- ma5: 186.4
+- ema23_primary: 181.42
+- distance_to_ema23_pct: -2.99
+- ma20: 181.55
+- ma60: 175.83
+- ma120: 155.59
+- return_5d: -7.12
+- return_20d: -6.88
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: -3.06
 - distance_to_high_60_pct: -13.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,190,204.5,188,189,196000,179.61,5.23,182.25,160.64,0.08
 20260529,196,197.5,186.5,190.5,191000,180.52,5.53,183.38,161.47,0.08
 20260601,192.5,193.5,183,185,187000,180.89,2.27,183.4,162.44,0.09
 20260602,185,187.5,179,182.5,182,181.02,0.82,183.03,163.19,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,193,201,193,193.5,2357000,180.2,7.38,182.6,173.01,2.99
 20260623,196.5,196.5,179,181.5,1722000,180.3,0.66,182.2,173.67,1.99
 20260624,181.5,194,180,193,2085000,181.36,6.42,182.28,174.56,2.17
-20260626,189,193,175.5,176,1624000,180.92,-2.72,181.6,175.08,1.57
+20260625,193,198.5,184.5,188,1840000,181.92,3.34,182.2,175.28,1.76
+20260626,189,193,175.5,176,1624000,181.42,-2.99,181.55,175.83,1.46
 ```
 
 ## Latest TDCC Snapshot

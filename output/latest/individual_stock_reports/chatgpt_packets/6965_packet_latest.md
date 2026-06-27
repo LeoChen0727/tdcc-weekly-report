@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6965 中傑-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:35 Asia/Taipei
+- generated_at: 2026-06-27 22:24:36 Asia/Taipei
 - stock_id: 6965
 - stock_name: 中傑-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 77
 - close: 78.6
 - volume: 78626
-- ma5: 79.94
-- ema23_primary: 80.53
-- distance_to_ema23_pct: -2.39
-- ma20: 80.62
-- ma60: 82.94
-- ma120: 83.5
-- return_5d: -3.08
-- return_20d: 3.42
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -2.51
+- ma5: 79.36
+- ema23_primary: 80.4
+- distance_to_ema23_pct: -2.24
+- ma20: 80.67
+- ma60: 82.82
+- ma120: 83.46
+- return_5d: -4.15
+- return_20d: 0.77
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -2.57
 - distance_to_high_60_pct: -13.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76,78.6,75.4,78,121034,80.05,-2.56,80.39,83.49,1.81
 20260529,79,79.5,76.8,77.9,78731,79.87,-2.47,79.94,83.44,1.15
 20260601,77.9,79.5,76,79.1,148404,79.81,-0.89,79.54,83.46,2.04
 20260602,79,81.5,79,81,149549,79.91,1.37,79.31,83.49,1.89
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,78,78,75.1,77.8,106480,80.71,-3.6,80.05,83.2,1.52
 20260623,78.9,80.7,77.9,80.4,100379,80.68,-0.35,80.25,83.14,1.39
 20260624,80.2,82,79.1,80.9,67275,80.7,0.25,80.49,83.06,0.91
-20260626,78.4,80,77,78.6,78626,80.53,-2.39,80.62,82.94,1.03
+20260625,79.2,80.2,79.1,79.1,23091,80.57,-1.82,80.64,82.95,0.31
+20260626,78.4,80,77,78.6,78626,80.4,-2.24,80.67,82.82,1.1
 ```
 
 ## Latest TDCC Snapshot

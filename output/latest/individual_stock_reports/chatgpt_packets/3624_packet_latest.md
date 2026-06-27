@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3624 光頡
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:34 Asia/Taipei
+- generated_at: 2026-06-27 22:23:37 Asia/Taipei
 - stock_id: 3624
 - stock_name: 光頡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 139
 - close: 139
 - volume: 2020000
-- ma5: 156.5
-- ema23_primary: 124.67
-- distance_to_ema23_pct: 11.5
-- ma20: 126.4
-- ma60: 83.48
-- ma120: 70.18
-- return_5d: -4.79
-- return_20d: 47.87
+- ma5: 155.2
+- ema23_primary: 127.01
+- distance_to_ema23_pct: 9.44
+- ma20: 129.1
+- ma60: 85.26
+- ma120: 71.02
+- return_5d: -13.4
+- return_20d: 39
 - volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 9.97
+- distance_to_ma20_pct_auxiliary: 7.67
 - distance_to_high_60_pct: -21.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,95,103,95,100,100000,77.55,28.95,75.25,59.37,0.01
 20260529,107,110,99.7,110,106000,80.25,37.07,78.22,60.22,0.01
 20260601,114,121,113,113,117000,82.98,36.17,81.25,61.22,0.01
 20260602,107,122,102,122,109,86.23,41.48,84.61,62.34,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,171.5,176.5,165.5,176.5,16410000,117.73,49.92,118.2,78.47,1.32
 20260623,172,178,159,159,19730000,121.17,31.22,121.45,80.31,1.47
 20260624,157.5,157.5,143.5,147.5,4084000,123.36,19.57,124.15,81.96,0.3
-20260626,150,154,139,139,2020000,124.67,11.5,126.4,83.48,0.15
+20260625,149.5,157,143.5,154,1942000,125.92,22.3,127.15,83.73,0.14
+20260626,150,154,139,139,2020000,127.01,9.44,129.1,85.26,0.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3707 漢磊
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:37 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3707
 - stock_name: 漢磊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 81.6
 - close: 81.6
 - volume: 24788000
-- ma5: 89.46
-- ema23_primary: 81.73
-- distance_to_ema23_pct: -0.15
-- ma20: 81.9
-- ma60: 70.71
-- ma120: 63.83
-- return_5d: 1.37
-- return_20d: -8.62
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: -0.37
+- ma5: 89.98
+- ema23_primary: 82.04
+- distance_to_ema23_pct: -0.53
+- ma20: 81.83
+- ma60: 71.27
+- ma120: 64.12
+- return_5d: -1.92
+- return_20d: -6.31
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: -0.29
 - distance_to_high_60_pct: -18.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,88.6,96.9,86.2,87.1,91000,75.78,14.94,77.38,62.92,0
 20260529,91.4,93.1,87.2,89.3,89000,76.91,16.11,78.53,63.45,0
 20260601,90,90.9,83,83.3,85000,77.44,7.57,79.26,63.97,0
 20260602,83.2,84.8,80,81.9,82,77.81,5.25,79.58,64.41,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,86.5,91.5,86.5,91.5,28965000,79.16,15.58,81.17,69.03,4.01
 20260623,94,100.5,93.9,100.5,45967000,80.94,24.16,81.91,69.71,4.83
 20260624,95.5,95.5,90.5,90.5,33152000,81.74,10.72,82.28,70.26,2.97
-20260626,85.1,88.8,81.6,81.6,24788000,81.73,-0.15,81.9,70.71,2
+20260625,91,91,85.2,85.8,24363000,82.08,4.54,82.11,70.78,1.97
+20260626,85.1,88.8,81.6,81.6,24788000,82.04,-0.53,81.83,71.27,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3707 | 漢磊 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依櫃買中心通知辦理。 3.財務業務資訊:漢磊五(37075)可轉債相關資訊 到期日期：119/08/20 實際發行總額：10億元 本月底發行餘額：308,500,000元(截至115/06/23) 最新轉(交)換價格：40.1 轉換標的收市價格(3707)：90.5(115/06/24) 轉換債收市價格(37075)：248(115/06/24) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3707 | 漢磊 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.證券名稱: 嘉晶電子股份有限公司普通股 2.交易日期:115/6/26~115/6/26 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量: 不超過14,500,000股;  預計交易價格: 6月26日收盤價NT$124.5元(暫定)之上下10%區間內; 預計交易總金額: NT$1,624佰萬元至NT$1,985佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分交易金額扣除成本後之差額約NT$1,550佰萬元，認列科目為資本公積， 尚待會計師查核相關程序及文件後確認。 7.與交易標的公司之關係: 本公司之子公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 152,461,680股；帳面價值NT$2,593佰萬元；52.8%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 13.4%；24.2%；NT$4,316佰萬元。 10.取得或處分之具體目的: 透過處分部分持股來活化資產，以因應未來產業波動或擴充核心業務的資金需求。 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 1.民國115年6月26日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: (1)依內部人持股轉讓相關規定，實際交易日預計將介於6月29日至7月28日。 (2)公告內容係以交易最大股數14,500,000股及6月26日收盤價NT$124.5元(暫定)估算，    實際交易總金額、處分利益及處分後持有股數等，將依實際交易數量及交易價格為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

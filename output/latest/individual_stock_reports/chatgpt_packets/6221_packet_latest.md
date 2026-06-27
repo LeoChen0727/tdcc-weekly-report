@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6221 晉泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:12 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6221
 - stock_name: 晉泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 21.6
 - close: 22.3
 - volume: 217000
-- ma5: 23.38
-- ema23_primary: 23.77
-- distance_to_ema23_pct: -6.18
+- ma5: 23.11
+- ema23_primary: 23.7
+- distance_to_ema23_pct: -5.92
 - ma20: 23.81
-- ma60: 24.86
-- ma120: 27.12
-- return_5d: -8.98
-- return_20d: -2.62
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: -6.35
+- ma60: 24.81
+- ma120: 27.05
+- return_5d: -8.61
+- return_20d: -3.46
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: -6.34
 - distance_to_high_60_pct: -22.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.9,23.2,22.7,23.1,23000,24.09,-4.1,23.98,25.96,0.09
 20260529,23.2,23.35,23,23.2,23000,24.01,-3.39,23.84,25.86,0.09
 20260601,23.15,24.45,23.15,23.85,24000,24,-0.62,23.74,25.8,0.13
 20260602,24.05,24.15,23.65,24.1,24,24.01,0.38,23.65,25.73,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.5,24.5,23.6,23.65,273000,24.02,-1.55,23.83,25.02,3.21
 20260623,23.8,23.8,23.2,23.4,125000,23.97,-2.38,23.85,24.97,1.39
 20260624,23.2,23.4,22.9,23.15,183000,23.9,-3.15,23.84,24.92,1.87
-20260626,22.65,23.05,21.6,22.3,217000,23.77,-6.18,23.81,24.86,2.01
+20260625,23.15,23.3,23,23.05,54000,23.83,-3.28,23.85,24.87,0.54
+20260626,22.65,23.05,21.6,22.3,217000,23.7,-5.92,23.81,24.81,1.98
 ```
 
 ## Latest TDCC Snapshot

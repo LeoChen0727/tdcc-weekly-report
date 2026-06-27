@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:13 Asia/Taipei
+- generated_at: 2026-06-27 22:23:16 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 14.8
 - close: 14.8
 - volume: 12474148
-- ma5: 15.01
+- ma5: 14.96
 - ema23_primary: 14.95
-- distance_to_ema23_pct: -0.98
-- ma20: 14.96
+- distance_to_ema23_pct: -1
+- ma20: 14.98
 - ma60: 14.88
-- ma120: 15.71
-- return_5d: -2.63
-- return_20d: 1.72
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: -1.09
+- ma120: 15.7
+- return_5d: -2.95
+- return_20d: 1.37
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: -1.22
 - distance_to_high_60_pct: -4.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14.6,14.7,14.5,14.6,3705911,14.72,-0.82,14.62,15.31,1.31
 20260529,14.6,14.7,14.55,14.7,2933836,14.72,-0.13,14.62,15.28,1.07
 20260601,14.7,14.75,14.55,14.75,4540964,14.72,0.2,14.63,15.25,1.61
 20260602,14.65,14.8,14.5,14.75,5203169,14.72,0.18,14.64,15.23,1.76
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.3,15.3,15,15.05,8116447,14.96,0.62,14.91,14.96,1.25
 20260623,15.05,15.1,14.9,15,7798783,14.96,0.26,14.93,14.92,1.16
 20260624,15,15,14.8,14.95,5434615,14.96,-0.06,14.95,14.9,0.79
-20260626,14.9,15,14.8,14.8,12474148,14.95,-0.98,14.96,14.88,1.69
+20260625,14.95,15.05,14.95,15,5806888,14.96,0.25,14.97,14.89,0.83
+20260626,14.9,15,14.8,14.8,12474148,14.95,-1,14.98,14.88,1.67
 ```
 
 ## Latest TDCC Snapshot

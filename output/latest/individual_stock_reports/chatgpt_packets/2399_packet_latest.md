@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2399 映泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:01 Asia/Taipei
 - stock_id: 2399
 - stock_name: 映泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48.5
 - close: 48.5
 - volume: 6573192
-- ma5: 50.67
-- ema23_primary: 48.6
-- distance_to_ema23_pct: -0.2
-- ma20: 49.07
-- ma60: 43.53
-- ma120: 34.69
-- return_5d: -6.55
-- return_20d: 1.04
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -1.16
+- ma5: 51.52
+- ema23_primary: 48.88
+- distance_to_ema23_pct: -0.77
+- ma20: 49.3
+- ma60: 43.89
+- ma120: 34.93
+- return_5d: 0.94
+- return_20d: 1.68
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.62
 - distance_to_high_60_pct: -15.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,48.45,49.35,46.95,47.7,8994468,44.4,7.44,45.3,36.79,0.49
 20260529,49.8,49.8,47.85,47.9,6976008,44.69,7.18,45.58,37.17,0.39
 20260601,48.7,52.4,48.5,50.2,13406131,45.15,11.19,45.9,37.62,0.78
 20260602,51,51.9,49.05,50.1,11243720,45.56,9.96,46.25,38.06,0.66
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.45,52.4,48.15,51.6,16358972,47.83,7.88,48.68,42.49,1.25
 20260623,52.4,52.5,49.4,50.9,10503535,48.09,5.85,48.85,42.82,0.81
 20260624,51.6,55.2,51.1,54.3,20792232,48.6,11.72,49.04,43.23,1.66
-20260626,51.7,51.7,48.5,48.5,6573192,48.6,-0.2,49.07,43.53,0.55
+20260625,54.6,54.6,51.6,52.3,11813398,48.91,6.93,49.26,43.59,0.96
+20260626,51.7,51.7,48.5,48.5,6573192,48.88,-0.77,49.3,43.89,0.54
 ```
 
 ## Latest TDCC Snapshot

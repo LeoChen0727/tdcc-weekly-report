@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5426 振發
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5426
 - stock_name: 振發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 32.2
 - close: 32.55
 - volume: 2596000
-- ma5: 36.51
-- ema23_primary: 30.85
-- distance_to_ema23_pct: 5.49
-- ma20: 31.08
-- ma60: 22.79
-- ma120: 21.35
-- return_5d: -12.73
-- return_20d: 76.9
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 4.73
+- ma5: 35.57
+- ema23_primary: 31.05
+- distance_to_ema23_pct: 4.84
+- ma20: 31.81
+- ma60: 23.02
+- ma120: 21.46
+- return_5d: -14.12
+- return_20d: 74.53
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 2.33
 - distance_to_high_60_pct: -19.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.5,18.9,18.45,18.65,19000,18.47,0.98,18.22,18.98,0.07
 20260529,18.8,18.85,18.55,18.65,19000,18.48,0.9,18.27,18.95,0.07
 20260601,20.5,20.5,20.5,20.5,20000,18.65,9.91,18.39,18.96,0.08
 20260602,22.55,22.55,22.55,22.55,23,18.98,18.83,18.61,19.01,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.5,39.7,38,39.65,2920000,29.66,33.69,28.65,22.02,1.09
 20260623,40.25,40.25,36.7,37,2594000,30.27,22.24,29.54,22.31,0.93
 20260624,35.7,38.55,34.6,35.45,4970000,30.7,15.47,30.37,22.58,1.63
-20260626,33.2,33.95,32.2,32.55,2596000,30.85,5.49,31.08,22.79,0.82
+20260625,35.75,35.75,33,33.2,3349000,30.91,7.41,31.11,22.8,1.04
+20260626,33.2,33.95,32.2,32.55,2596000,31.05,4.84,31.81,23.02,0.78
 ```
 
 ## Latest TDCC Snapshot

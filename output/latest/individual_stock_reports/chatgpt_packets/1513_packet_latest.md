@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1513 中興電
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:38 Asia/Taipei
+- generated_at: 2026-06-27 22:22:42 Asia/Taipei
 - stock_id: 1513
 - stock_name: 中興電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 175.5
 - close: 175.5
 - volume: 12764277
-- ma5: 180
-- ema23_primary: 171.05
-- distance_to_ema23_pct: 2.6
-- ma20: 172.78
-- ma60: 159.3
-- ma120: 159.86
-- return_5d: 2.03
-- return_20d: 3.85
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 1.58
+- ma5: 181.7
+- ema23_primary: 172.15
+- distance_to_ema23_pct: 1.95
+- ma20: 173.75
+- ma60: 159.9
+- ma120: 160.14
+- return_5d: -0.57
+- return_20d: 6.04
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 1.01
 - distance_to_high_60_pct: -12.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,170,177,165,165.5,30884625,156.59,5.69,155.97,154.28,2.82
 20260529,168.5,169.5,165,166.5,12795546,157.41,5.77,156.88,154.3,1.12
 20260601,167.5,171,166.5,168.5,9845209,158.34,6.42,157.53,154.53,0.89
 20260602,169.5,170,165,168,8754578,159.14,5.57,158.22,154.66,0.78
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,181,181,176,181,17056003,168.19,7.61,170.35,157.99,0.83
 20260623,183.5,184.5,178.5,182,18461060,169.34,7.47,171.45,158.38,0.88
 20260624,183,185,179,185,21240039,170.65,8.41,172.45,158.91,1.04
-20260626,183.5,183.5,175.5,175.5,12764277,171.05,2.6,172.78,159.3,0.66
+20260625,185.5,185.5,182,185,13725218,171.84,7.66,173.25,159.46,0.7
+20260626,183.5,183.5,175.5,175.5,12764277,172.15,1.95,173.75,159.9,0.69
 ```
 
 ## Latest TDCC Snapshot

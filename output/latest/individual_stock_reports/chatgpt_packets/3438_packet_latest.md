@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3438 類比科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:29 Asia/Taipei
+- generated_at: 2026-06-27 22:23:31 Asia/Taipei
 - stock_id: 3438
 - stock_name: 類比科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 70
 - close: 70
 - volume: 310000
-- ma5: 74.3
-- ema23_primary: 70.33
-- distance_to_ema23_pct: -0.47
-- ma20: 71.64
-- ma60: 61.24
-- ma120: 55.65
-- return_5d: -1.13
-- return_20d: -5.41
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -2.3
+- ma5: 74.5
+- ema23_primary: 70.58
+- distance_to_ema23_pct: -0.82
+- ma20: 71.72
+- ma60: 61.72
+- ma120: 55.82
+- return_5d: -3.58
+- return_20d: -2.91
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -2.4
 - distance_to_high_60_pct: -12.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,73.5,74.5,71.5,72.1,73000,64.49,11.8,65.67,53.17,0.12
 20260529,72.9,73,71.1,71.5,72000,65.07,9.88,66.5,53.57,0.12
 20260601,70.9,75.8,69.1,74.4,73000,65.85,12.98,67.44,54.07,0.13
 20260602,76.1,80.4,76.1,79,78,66.95,18.01,68.33,54.63,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,72.8,79,72.6,78.5,1253000,69.44,13.04,71.38,59.84,5.13
 20260623,79.9,79.9,75.2,75.4,1214000,69.94,7.81,71.55,60.34,4.03
 20260624,75,75.5,72.6,75,370000,70.36,6.59,71.84,60.84,1.17
-20260626,73.5,73.7,70,70,310000,70.33,-0.47,71.64,61.24,0.95
+20260625,75.2,75.9,73.5,73.6,232000,70.63,4.2,71.83,61.3,0.72
+20260626,73.5,73.7,70,70,310000,70.58,-0.82,71.72,61.72,0.92
 ```
 
 ## Latest TDCC Snapshot

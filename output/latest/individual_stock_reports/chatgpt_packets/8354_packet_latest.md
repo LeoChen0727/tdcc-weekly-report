@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8354 冠好
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8354
 - stock_name: 冠好
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 15.8
 - close: 16.2
 - volume: 45000
-- ma5: 16.34
-- ema23_primary: 16.47
-- distance_to_ema23_pct: -1.66
-- ma20: 16.59
-- ma60: 16.32
+- ma5: 16.31
+- ema23_primary: 16.46
+- distance_to_ema23_pct: -1.57
+- ma20: 16.55
+- ma60: 16.34
 - ma120: 15.94
 - return_5d: -1.52
-- return_20d: -3.86
+- return_20d: -5.26
 - volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -2.32
+- distance_to_ma20_pct_auxiliary: -2.09
 - distance_to_high_60_pct: -16.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17,17.3,16.75,17.1,17000,16.48,3.77,16.34,15.91,0.16
 20260529,17.15,17.3,16.8,16.85,17000,16.51,2.06,16.39,15.93,0.17
 20260601,16.95,17.15,16.8,16.8,17000,16.53,1.61,16.45,15.96,0.18
 20260602,16.8,16.8,16.4,16.7,17,16.55,0.92,16.51,15.99,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.5,16.55,16.35,16.4,209000,16.53,-0.8,16.64,16.26,2.94
 20260623,16.3,16.3,16.15,16.3,67000,16.51,-1.29,16.64,16.28,0.91
 20260624,16.3,16.4,16.1,16.35,14000,16.5,-0.9,16.62,16.3,0.19
-20260626,16.15,16.2,15.8,16.2,45000,16.47,-1.66,16.59,16.32,0.6
+20260625,16.35,16.35,16.3,16.3,14000,16.48,-1.11,16.59,16.32,0.19
+20260626,16.15,16.2,15.8,16.2,45000,16.46,-1.57,16.55,16.34,0.6
 ```
 
 ## Latest TDCC Snapshot

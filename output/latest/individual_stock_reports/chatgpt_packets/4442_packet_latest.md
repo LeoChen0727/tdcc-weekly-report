@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4442 竣邦-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:43 Asia/Taipei
+- generated_at: 2026-06-27 22:23:45 Asia/Taipei
 - stock_id: 4442
 - stock_name: 竣邦-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 154
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 49.15
 - close: 50.5
 - volume: 39000
-- ma5: 53.42
-- ema23_primary: 53.11
-- distance_to_ema23_pct: -4.91
-- ma20: 52.55
-- ma60: 55.07
-- ma120: 56.86
-- return_5d: -9.82
-- return_20d: -0.39
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -3.9
+- ma5: 52.52
+- ema23_primary: 52.98
+- distance_to_ema23_pct: -4.67
+- ma20: 52.62
+- ma60: 54.92
+- ma120: 56.79
+- return_5d: -9.98
+- return_20d: 0.8
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -4.04
 - distance_to_high_60_pct: -22.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,51,51,49.6,50.1,50000,53.14,-5.72,53.01,57.04,0.99
 20260529,50.5,50.5,50.1,50.1,50000,52.88,-5.27,52.74,56.94,0.95
 20260601,50.5,50.7,50.4,50.6,51000,52.69,-3.97,52.52,56.85,0.94
 20260602,50.6,50.9,50.3,50.9,51,52.54,-3.13,52.27,56.76,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,56.5,56.6,55.5,56,37000,53.55,4.57,52.44,55.52,0.9
 20260623,54.5,54.5,51.2,52.3,34000,53.45,-2.15,52.5,55.4,0.85
 20260624,52.8,53,52.2,52.2,15000,53.35,-2.15,52.56,55.23,0.39
-20260626,51.5,51.5,49.15,50.5,39000,53.11,-4.91,52.55,55.07,1.04
+20260625,52,52,51.6,51.6,6000,53.2,-3.01,52.6,55.09,0.17
+20260626,51.5,51.5,49.15,50.5,39000,52.98,-4.67,52.62,54.92,1.1
 ```
 
 ## Latest TDCC Snapshot

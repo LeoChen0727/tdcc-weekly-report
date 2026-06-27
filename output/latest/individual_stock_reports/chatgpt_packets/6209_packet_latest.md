@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 80.6
 - close: 81.3
 - volume: 12553033
-- ma5: 90.98
-- ema23_primary: 85.03
-- distance_to_ema23_pct: -4.39
-- ma20: 86.13
-- ma60: 72.12
-- ma120: 66.27
-- return_5d: -15.05
-- return_20d: -0.73
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -5.61
+- ma5: 89.44
+- ema23_primary: 85.34
+- distance_to_ema23_pct: -4.73
+- ma20: 86.56
+- ma60: 72.78
+- ma120: 66.5
+- return_5d: -16.27
+- return_20d: 0.74
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -6.08
 - distance_to_high_60_pct: -22.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,82.5,84.4,79.4,80.7,13577210,73.16,10.3,72.5,61.94,0.8
 20260529,81.3,81.9,80.3,81.7,6317834,73.87,10.59,73.47,62.33,0.37
 20260601,83.9,86.4,83.4,84.5,16659551,74.76,13.03,74.58,62.85,0.93
 20260602,84.5,84.6,77.6,79.2,12333284,75.13,5.42,75.1,63.24,0.69
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,100,101,95.7,97.2,21879361,84.56,14.95,85.56,70.38,0.85
 20260623,97.5,97.6,89.4,90.3,15467228,85.04,6.19,85.76,70.99,0.61
 20260624,89.3,90.8,87.1,89,9781139,85.37,4.25,86.16,71.61,0.39
-20260626,88.7,88.8,80.6,81.3,12553033,85.03,-4.39,86.13,72.12,0.51
+20260625,89.7,94.8,88.1,89.4,16787960,85.7,4.31,86.53,72.25,0.67
+20260626,88.7,88.8,80.6,81.3,12553033,85.34,-4.73,86.56,72.78,0.5
 ```
 
 ## Latest TDCC Snapshot

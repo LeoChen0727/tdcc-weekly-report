@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3356 奇偶
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:27 Asia/Taipei
+- generated_at: 2026-06-27 22:23:30 Asia/Taipei
 - stock_id: 3356
 - stock_name: 奇偶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 57.2
 - close: 57.3
 - volume: 931455
-- ma5: 60.2
-- ema23_primary: 59.46
-- distance_to_ema23_pct: -3.63
-- ma20: 59.71
-- ma60: 56.71
-- ma120: 52.33
-- return_5d: -4.34
-- return_20d: -11.02
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -4.04
+- ma5: 60.18
+- ema23_primary: 59.51
+- distance_to_ema23_pct: -3.71
+- ma20: 59.62
+- ma60: 56.91
+- ma120: 52.45
+- return_5d: -5.13
+- return_20d: -7.58
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -3.9
 - distance_to_high_60_pct: -15.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,64.5,65.6,61.5,62,2763446,59.61,4,59.98,53.03,1.68
 20260529,63.2,63.2,62,62.3,1033802,59.84,4.12,60.4,53.3,0.63
 20260601,63.5,63.5,61.9,62.2,950482,60.03,3.61,60.8,53.61,0.59
 20260602,62.6,62.7,61,62.4,1567606,60.23,3.6,61.06,53.92,0.97
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.4,61.9,60.5,61.5,794079,59.41,3.51,60.51,56.22,0.54
 20260623,61.9,62,60.1,60.3,536331,59.49,1.37,60.26,56.39,0.39
 20260624,60.2,61.6,59.5,61.5,800664,59.66,3.09,60.06,56.58,0.6
-20260626,60.2,60.2,57.2,57.3,931455,59.46,-3.63,59.71,56.71,0.7
+20260625,61.9,61.9,60.3,60.3,561082,59.71,0.99,59.86,56.76,0.42
+20260626,60.2,60.2,57.2,57.3,931455,59.51,-3.71,59.62,56.91,0.76
 ```
 
 ## Latest TDCC Snapshot

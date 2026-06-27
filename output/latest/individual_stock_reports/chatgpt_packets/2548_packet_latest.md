@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2548 華固
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2548
 - stock_name: 華固
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 102
 - close: 102.5
 - volume: 1857955
-- ma5: 101.9
-- ema23_primary: 107.68
-- distance_to_ema23_pct: -4.81
-- ma20: 105.74
-- ma60: 119.11
-- ma120: 116.09
-- return_5d: -5.09
-- return_20d: -15.64
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -3.06
+- ma5: 101.8
+- ema23_primary: 107.29
+- distance_to_ema23_pct: -4.46
+- ma20: 104.84
+- ma60: 118.78
+- ma120: 115.99
+- return_5d: -0.97
+- return_20d: -15.29
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -2.23
 - distance_to_high_60_pct: -22.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,121.5,123,120,121,2654085,123.99,-2.41,124,122.92,1.25
 20260529,121,121.5,118,119.5,5111658,123.62,-3.33,123.67,123.01,2.22
 20260601,119.5,123,117.5,122.5,4868831,123.53,-0.83,123.65,123.18,2.02
 20260602,113,113,103.5,104.5,11119249,121.94,-14.3,122.83,123.03,3.88
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,103.5,103.5,100,100.5,3738172,109.42,-8.15,108.69,120.16,0.81
 20260623,101,101.5,100,101.5,2402609,108.76,-6.67,107.67,119.79,0.52
 20260624,100.5,102,100.5,101.5,1091909,108.15,-6.15,106.69,119.44,0.24
-20260626,103,104,102,102.5,1857955,107.68,-4.81,105.74,119.11,0.41
+20260625,102,104.5,102,103,2234663,107.72,-4.38,105.77,119.11,0.5
+20260626,103,104,102,102.5,1857955,107.29,-4.46,104.84,118.78,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 62.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：富邦金融中心 4.法人說明會擇要訊息：本公司受邀參加富邦證券舉辦之實體法說會，說明本公司營運現況及展望 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 29.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：富邦金融中心 4.法人說明會擇要訊息：本公司受邀參加富邦證券舉辦之實體法說會，說明本公司營運現況及展望 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 30.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：富邦金融中心 4.法人說明會擇要訊息：本公司受邀參加富邦證券舉辦之實體法說會，說明本公司營運現況及展望 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

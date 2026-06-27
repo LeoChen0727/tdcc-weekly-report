@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4306 炎洲
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:42 Asia/Taipei
+- generated_at: 2026-06-27 22:23:44 Asia/Taipei
 - stock_id: 4306
 - stock_name: 炎洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 15.7
 - close: 15.9
 - volume: 2427464
-- ma5: 16
-- ema23_primary: 15.28
-- distance_to_ema23_pct: 4.08
-- ma20: 15.34
-- ma60: 14.13
-- ma120: 13.94
-- return_5d: -0.31
-- return_20d: 15.22
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 3.63
+- ma5: 16.01
+- ema23_primary: 15.33
+- distance_to_ema23_pct: 3.72
+- ma20: 15.45
+- ma60: 14.16
+- ma120: 13.95
+- return_5d: 0.32
+- return_20d: 14.8
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 2.95
 - distance_to_high_60_pct: -3.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.85,13.85,13.65,13.85,1085621,13.59,1.93,13.46,13.49,0.76
 20260529,13.8,14.1,13.8,14.05,2295134,13.63,3.11,13.51,13.5,1.52
 20260601,14.15,14.5,14.15,14.25,2864513,13.68,4.18,13.56,13.52,1.78
 20260602,14.3,14.55,14.2,14.45,2404945,13.74,5.15,13.62,13.54,1.43
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.85,16.2,15.8,16.2,2531071,15.07,7.51,15.02,14.01,0.86
 20260623,16.2,16.3,15.9,16.1,1580463,15.15,6.24,15.12,14.05,0.55
 20260624,16,16.15,15.85,15.95,1567340,15.22,4.79,15.24,14.09,0.54
-20260626,15.85,16.1,15.7,15.9,2427464,15.28,4.08,15.34,14.13,0.82
+20260625,16,16.15,15.85,15.9,2197418,15.28,4.08,15.34,14.13,0.75
+20260626,15.85,16.1,15.7,15.9,2427464,15.33,3.72,15.45,14.16,0.81
 ```
 
 ## Latest TDCC Snapshot

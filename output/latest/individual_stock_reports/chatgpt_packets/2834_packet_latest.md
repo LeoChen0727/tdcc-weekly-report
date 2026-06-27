@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2834 臺企銀
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:11 Asia/Taipei
+- generated_at: 2026-06-27 22:23:14 Asia/Taipei
 - stock_id: 2834
 - stock_name: 臺企銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 17.65
 - close: 17.75
 - volume: 42397418
-- ma5: 17.63
-- ema23_primary: 17.06
-- distance_to_ema23_pct: 4.02
-- ma20: 17.05
-- ma60: 16.31
-- ma120: 15.97
-- return_5d: 0.57
-- return_20d: 9.91
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 4.14
-- distance_to_high_60_pct: -1.11
+- ma5: 17.73
+- ema23_primary: 17.14
+- distance_to_ema23_pct: 3.56
+- ma20: 17.15
+- ma60: 16.36
+- ma120: 15.98
+- return_5d: 1.43
+- return_20d: 11.64
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 3.5
+- distance_to_high_60_pct: -1.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.1,16.15,15.9,15.9,36626714,16.02,-0.72,16.07,15.69,1.25
 20260529,16,16.25,15.95,16.25,67812568,16.04,1.34,16.07,15.69,2.16
 20260601,16.25,16.25,16.05,16.2,32673615,16.05,0.94,16.07,15.71,1.04
 20260602,16.15,16.3,16.1,16.3,29839619,16.07,1.43,16.07,15.72,0.96
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.6,17.65,17.4,17.45,50720734,16.86,3.48,16.79,16.18,1.07
 20260623,17.5,17.75,17.45,17.65,40835416,16.93,4.26,16.88,16.22,0.85
 20260624,17.6,17.85,17.5,17.8,35024749,17,4.7,16.96,16.26,0.72
-20260626,17.9,17.95,17.65,17.75,42397418,17.06,4.02,17.05,16.31,0.87
+20260625,17.8,18.1,17.75,18,45797633,17.08,5.36,17.06,16.31,0.93
+20260626,17.9,17.95,17.65,17.75,42397418,17.14,3.56,17.15,16.36,0.86
 ```
 
 ## Latest TDCC Snapshot

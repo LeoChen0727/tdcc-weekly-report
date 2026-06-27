@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3332 幸康
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:29 Asia/Taipei
 - stock_id: 3332
 - stock_name: 幸康
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 64.8
 - volume: 16000
 - ma5: 64.78
-- ema23_primary: 64.82
-- distance_to_ema23_pct: -0.03
-- ma20: 65.41
-- ma60: 63.37
-- ma120: 60.31
-- return_5d: 1.25
-- return_20d: 2.21
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.93
+- ema23_primary: 64.83
+- distance_to_ema23_pct: -0.05
+- ma20: 65.4
+- ma60: 63.52
+- ma120: 60.38
+- return_5d: -0.31
+- return_20d: -0.46
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -0.92
 - distance_to_high_60_pct: -10.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,64.6,69.7,64.6,65.1,67000,63.97,1.77,64.7,60.82,1.77
 20260529,68.7,68.7,66.1,66.8,67000,64.2,4.05,64.91,60.94,1.66
 20260601,66.8,66.8,65,65.7,65000,64.33,2.13,65,61.06,1.55
 20260602,65.3,65.6,64.8,65.5,65,64.43,1.67,65.05,61.16,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,65,65,64.5,64.8,7000,64.85,-0.08,65.28,62.95,0.16
 20260623,63.5,64.4,63.5,64.4,3000,64.81,-0.64,65.25,63.08,0.08
 20260624,64.4,64.9,63.9,64.9,20000,64.82,0.12,65.33,63.23,0.53
-20260626,64.9,64.9,64,64.8,16000,64.82,-0.03,65.41,63.37,0.45
+20260625,64,65.6,63.8,65,13000,64.84,0.25,65.42,63.37,0.37
+20260626,64.9,64.9,64,64.8,16000,64.83,-0.05,65.4,63.52,0.49
 ```
 
 ## Latest TDCC Snapshot

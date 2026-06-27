@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6725 矽科宏晟
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:27 Asia/Taipei
+- generated_at: 2026-06-27 22:24:28 Asia/Taipei
 - stock_id: 6725
 - stock_name: 矽科宏晟
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 116
+- price_rows: 117
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 316.5
 - close: 317.5
 - volume: 240000
-- ma5: 342.3
-- ema23_primary: 320.29
-- distance_to_ema23_pct: -0.87
-- ma20: 315.55
-- ma60: 322.9
-- ma120: 290.14
-- return_5d: -4.94
-- return_20d: -6.75
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 0.62
+- ma5: 336.1
+- ema23_primary: 321.47
+- distance_to_ema23_pct: -1.23
+- ma20: 316.2
+- ma60: 324.2
+- ma120: 290.53
+- return_5d: -13.49
+- return_20d: -1.7
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 0.41
 - distance_to_high_60_pct: -25.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,340.5,345,322,323,332000,322.05,0.29,321.88,299.45,0.85
 20260529,331,334,323,333,328000,322.96,3.11,320.82,301.02,0.89
 20260601,337,337,325,325.5,328000,323.17,0.72,319.57,302.86,0.92
 20260602,334,336,324,327.5,330,323.54,1.23,319,304.52,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,367,388.5,346,346,1175000,316.75,9.23,316.52,320.18,2.9
 20260623,348,349,333.5,341,370000,318.77,6.97,317,320.97,0.91
 20260624,335,342.5,331,340,220000,320.54,6.07,316.7,322.06,0.55
-20260626,336,336,316.5,317.5,240000,320.29,-0.87,315.55,322.9,0.61
+20260625,341.5,352,335,336,344000,321.83,4.4,316.48,323.21,0.86
+20260626,336,336,316.5,317.5,240000,321.47,-1.23,316.2,324.2,0.6
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4706 大恭
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:47 Asia/Taipei
+- generated_at: 2026-06-27 22:23:49 Asia/Taipei
 - stock_id: 4706
 - stock_name: 大恭
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 143
+- price_rows: 144
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 32.1
 - close: 32.1
 - volume: 6000
-- ma5: 31.98
-- ema23_primary: 31.83
-- distance_to_ema23_pct: 0.86
-- ma20: 31.85
-- ma60: 31.63
-- ma120: 30.79
-- return_5d: 0.94
-- return_20d: 3.55
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 0.79
+- ma5: 32.27
+- ema23_primary: 31.96
+- distance_to_ema23_pct: 0.44
+- ma20: 31.96
+- ma60: 31.7
+- ma120: 30.82
+- return_5d: 0
+- return_20d: 2.88
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 0.42
 - distance_to_high_60_pct: -7.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,31.5,31.5,31,31.2,31000,31.5,-0.97,31.7,31.05,1.64
 20260528,31.5,32,31.25,32,32000,31.55,1.44,31.67,31.09,1.62
 20260529,31.25,32.5,31,32.5,32000,31.63,2.77,31.68,31.12,1.52
 20260601,32.5,32.5,31.5,31.5,32000,31.61,-0.36,31.61,31.12,1.42
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.8,32.8,31.3,31.9,17000,31.78,0.38,31.71,31.53,0.74
 20260623,31.6,32,31.3,31.5,26000,31.76,-0.81,31.73,31.55,1.15
 20260624,31.5,32.3,31.5,32.3,30000,31.8,1.57,31.79,31.6,1.33
-20260626,33,33,32.1,32.1,6000,31.83,0.86,31.85,31.63,0.28
+20260625,32.3,33.75,32,33.55,79000,31.95,5.02,31.92,31.66,3.17
+20260626,33,33,32.1,32.1,6000,31.96,0.44,31.96,31.7,0.25
 ```
 
 ## Latest TDCC Snapshot

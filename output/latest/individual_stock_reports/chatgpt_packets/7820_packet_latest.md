@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7820 立盈
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7820
 - stock_name: 立盈
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 43
+- price_rows: 44
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 110.5
 - close: 111.5
 - volume: 54000
-- ma5: 115.4
-- ema23_primary: 121.25
-- distance_to_ema23_pct: -8.04
-- ma20: 119.88
-- ma60: 130.26
-- ma120: 130.26
-- return_5d: -5.11
-- return_20d: -14.56
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -6.99
+- ma5: 114.9
+- ema23_primary: 120.75
+- distance_to_ema23_pct: -7.66
+- ma20: 119.33
+- ma60: 129.92
+- ma120: 129.92
+- return_5d: -5.51
+- return_20d: -11.86
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -6.56
 - distance_to_high_60_pct: -30.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,130.5,130.5,126,126.5,127000,134.8,-6.16,138.85,138.75,0.86
 20260529,127.5,127.5,124,124,126000,133.9,-7.39,138.07,138.16,0.85
 20260601,124,127.5,120,127.5,123000,133.37,-4.4,136.85,137.75,0.96
 20260602,126,126,121.5,122.5,123,132.46,-7.52,135.55,137.19,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,117,121,117,117.5,37000,123.5,-4.86,122.8,131.49,0.51
 20260623,117,118,114.5,115,52000,122.79,-6.34,121.75,131.09,0.77
 20260624,115,116,113,115,42000,122.14,-5.84,120.83,130.7,0.67
-20260626,112.5,114.5,110.5,111.5,54000,121.25,-8.04,119.88,130.26,0.91
+20260625,116,120,114,115.5,48000,121.59,-5.01,120.08,130.35,0.82
+20260626,112.5,114.5,110.5,111.5,54000,120.75,-7.66,119.33,129.92,0.98
 ```
 
 ## Latest TDCC Snapshot

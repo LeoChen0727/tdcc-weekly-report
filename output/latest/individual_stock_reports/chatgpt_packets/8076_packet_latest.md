@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8076 伍豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:48 Asia/Taipei
+- generated_at: 2026-06-27 22:24:48 Asia/Taipei
 - stock_id: 8076
 - stock_name: 伍豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 24.1
 - close: 24.2
 - volume: 1819000
-- ma5: 25.27
-- ema23_primary: 25.52
-- distance_to_ema23_pct: -5.16
-- ma20: 26.05
-- ma60: 24.31
-- ma120: 24.13
-- return_5d: -5.28
-- return_20d: 2.98
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: -7.1
+- ma5: 25.16
+- ema23_primary: 25.48
+- distance_to_ema23_pct: -5.03
+- ma20: 26.13
+- ma60: 24.33
+- ma120: 24.15
+- return_5d: -6.02
+- return_20d: 2.54
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -7.39
 - distance_to_high_60_pct: -19.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.8,24.3,23.5,23.6,24000,23.69,-0.36,23.66,23.83,0.02
 20260529,23.85,24.3,23.8,24.1,24000,23.72,1.6,23.75,23.84,0.02
 20260601,24.2,25.5,23.9,24.9,25000,23.82,4.54,23.88,23.89,0.03
 20260602,25,25.15,24.45,24.95,25,23.91,4.34,23.99,23.93,0
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.45,26.1,25.45,25.9,1582000,25.71,0.75,25.88,24.32,1.3
 20260623,25.9,26,25.2,25.2,1759000,25.67,-1.81,25.94,24.31,1.34
 20260624,25.2,25.5,25,25.3,818000,25.64,-1.31,26.02,24.32,0.61
-20260626,25.1,25.15,24.1,24.2,1819000,25.52,-5.16,26.05,24.31,1.27
+20260625,25.6,25.7,25.2,25.2,879000,25.6,-1.56,26.1,24.33,0.63
+20260626,25.1,25.15,24.1,24.2,1819000,25.48,-5.03,26.13,24.33,1.23
 ```
 
 ## Latest TDCC Snapshot

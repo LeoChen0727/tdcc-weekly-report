@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:49 Asia/Taipei
+- generated_at: 2026-06-27 22:24:49 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 284
+- price_rows: 285
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 95.2
 - close: 95.2
 - volume: 4293694
-- ma5: 97.02
-- ema23_primary: 99.54
-- distance_to_ema23_pct: -4.36
-- ma20: 99.5
-- ma60: 101.77
-- ma120: 96.46
-- return_5d: 0.63
-- return_20d: -10.19
-- volume_ratio: 2.55
-- distance_to_ma20_pct_auxiliary: -4.32
+- ma5: 98.6
+- ema23_primary: 99.93
+- distance_to_ema23_pct: -4.73
+- ma20: 99.67
+- ma60: 102.17
+- ma120: 96.58
+- return_5d: -1.96
+- return_20d: -6.21
+- volume_ratio: 2.4
+- distance_to_ma20_pct_auxiliary: -4.48
 - distance_to_high_60_pct: -30.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,108,108.5,100,101.5,2143816,106.77,-4.94,111.38,97.74,0.81
 20260529,104,111.5,103,111.5,3333458,107.17,4.04,110.7,98,1.34
 20260601,115,119.5,111.5,113.5,5068242,107.7,5.39,110.22,98.4,2.02
 20260602,113,113,102.5,103.5,3207820,107.35,-3.58,109.28,98.59,1.26
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,97.9,98.1,96.6,97.1,710854,100.33,-3.22,100.97,101.13,0.42
 20260623,98.2,98.2,94.7,97.4,900997,100.09,-2.69,100.47,101.32,0.55
 20260624,96,98.4,95.5,98.3,668175,99.94,-1.64,100.03,101.59,0.42
-20260626,103,109,95.2,95.2,4293694,99.54,-4.36,99.5,101.77,2.55
+20260625,99.3,107,99.3,105,4180880,100.36,4.62,99.98,101.94,2.49
+20260626,103,109,95.2,95.2,4293694,99.93,-4.73,99.67,102.17,2.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5903 全家
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:04 Asia/Taipei
+- generated_at: 2026-06-27 22:24:05 Asia/Taipei
 - stock_id: 5903
 - stock_name: 全家
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 188
 - close: 188
 - volume: 36000
-- ma5: 188.5
-- ema23_primary: 188.57
+- ma5: 188.6
+- ema23_primary: 188.56
 - distance_to_ema23_pct: -0.3
-- ma20: 188.32
-- ma60: 189.12
-- ma120: 190.54
-- return_5d: -0.53
-- return_20d: 0.27
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.17
+- ma20: 188.43
+- ma60: 189.1
+- ma120: 190.51
+- return_5d: 0
+- return_20d: 0.8
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -0.23
 - distance_to_high_60_pct: -1.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,187.5,187.5,186.5,186.5,187000,188.69,-1.16,188.78,190.12,2.69
 20260529,186.5,187,186,187,186000,188.55,-0.82,188.65,189.99,2.38
 20260601,187,187,185.5,187,186000,188.42,-0.75,188.53,189.87,2.17
 20260602,187,187,186,187,187,188.3,-0.69,188.38,189.75,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,188,189,188,189,23000,188.6,0.21,188.2,189.18,0.24
 20260623,189,189,188,188.5,16000,188.59,-0.05,188.22,189.16,0.18
 20260624,188,189,187.5,189,32000,188.62,0.2,188.3,189.14,0.4
-20260626,188.5,190,188,188,36000,188.57,-0.3,188.32,189.12,0.49
+20260625,188,189.5,188,188.5,20000,188.61,-0.06,188.35,189.12,0.28
+20260626,188.5,190,188,188,36000,188.56,-0.3,188.43,189.1,0.56
 ```
 
 ## Latest TDCC Snapshot

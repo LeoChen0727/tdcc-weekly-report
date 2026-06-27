@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6214 精誠
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6214
 - stock_name: 精誠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 127.5
 - close: 128
 - volume: 1812744
-- ma5: 134.4
-- ema23_primary: 136.64
-- distance_to_ema23_pct: -6.33
-- ma20: 141.05
-- ma60: 127.73
+- ma5: 131.9
+- ema23_primary: 136.04
+- distance_to_ema23_pct: -5.91
+- ma20: 141.07
+- ma60: 128.12
 - ma120: 121.34
-- return_5d: -9.22
+- return_5d: -9.86
 - return_20d: -0.78
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -9.25
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -9.27
 - distance_to_high_60_pct: -20.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,130.5,131.5,128.5,129,2323726,124.95,3.24,125.22,117.97,1.8
 20260529,131,132.5,131,131,1623520,125.46,4.42,125.78,118.28,1.24
 20260601,137.5,144,137.5,144,4021531,127,13.38,126.9,118.88,2.73
 20260602,158,158,156.5,158,3889084,129.59,21.93,128.55,119.66,2.41
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,143,143,139,141,4810505,138.74,1.63,140.97,126.71,1.68
 20260623,135,136.5,129.5,130,4237140,138.01,-5.81,141.03,127.04,1.41
 20260624,129.5,131,127.5,131,1401287,137.43,-4.68,141.1,127.41,0.46
-20260626,129.5,131.5,127.5,128,1812744,136.64,-6.33,141.05,127.73,0.6
+20260625,131.5,131.5,129,129.5,889887,136.77,-5.31,141.12,127.76,0.3
+20260626,129.5,131.5,127.5,128,1812744,136.04,-5.91,141.07,128.12,0.61
 ```
 
 ## Latest TDCC Snapshot

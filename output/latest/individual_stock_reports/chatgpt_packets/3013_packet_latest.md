@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:15 Asia/Taipei
+- generated_at: 2026-06-27 22:23:19 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 102.5
 - close: 103
 - volume: 2251463
-- ma5: 109.7
-- ema23_primary: 112.43
-- distance_to_ema23_pct: -8.39
-- ma20: 116.12
-- ma60: 110.08
-- ma120: 111.45
+- ma5: 108.7
+- ema23_primary: 112.02
+- distance_to_ema23_pct: -8.06
+- ma20: 115.65
+- ma60: 110.14
+- ma120: 111.27
 - return_5d: -8.85
-- return_20d: -13.81
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -11.3
+- return_20d: -12.34
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -10.94
 - distance_to_high_60_pct: -24.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,120,121.5,115.5,117.5,5144010,109.88,6.94,108.46,104.46,1.05
 20260529,119,124,118.5,122,5810970,110.89,10.02,109.33,104.74,1.2
 20260601,123.5,127,122,123.5,8444497,111.94,10.33,110.19,105.16,1.64
 20260602,129.5,135.5,129.5,133.5,27832864,113.74,17.38,111.44,105.68,4.35
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,114,114.5,113,113.5,1981144,114,-0.44,118.28,109.73,0.28
 20260623,114.5,114.5,109.5,109.5,2110406,113.63,-3.63,117.67,109.91,0.34
 20260624,109.5,111,107.5,109.5,1702441,113.28,-3.34,116.95,110.13,0.3
-20260626,107.5,107.5,102.5,103,2251463,112.43,-8.39,116.12,110.08,0.42
+20260625,110.5,111,107.5,108,1906579,112.84,-4.29,116.38,110.16,0.35
+20260626,107.5,107.5,102.5,103,2251463,112.02,-8.06,115.65,110.14,0.43
 ```
 
 ## Latest TDCC Snapshot

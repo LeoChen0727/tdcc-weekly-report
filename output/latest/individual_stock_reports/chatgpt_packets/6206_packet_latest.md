@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6206 飛捷
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6206
 - stock_name: 飛捷
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 125
 - close: 125.5
 - volume: 753265
-- ma5: 130.8
-- ema23_primary: 131.9
-- distance_to_ema23_pct: -4.85
-- ma20: 134.78
-- ma60: 121.95
-- ma120: 108.35
-- return_5d: -4.92
+- ma5: 130.4
+- ema23_primary: 131.67
+- distance_to_ema23_pct: -4.69
+- ma20: 134.32
+- ma60: 122.45
+- ma120: 108.66
+- return_5d: -4.56
 - return_20d: -9.39
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -6.88
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -6.57
 - distance_to_high_60_pct: -14.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,141,145,136,138.5,3201275,128.22,8.02,129,110.84,0.99
 20260529,141,141,137,137.5,1778545,128.99,6.6,130.47,111.59,0.54
 20260601,136.5,145.5,136.5,141.5,3174026,130.03,8.82,132,112.47,0.94
 20260602,142.5,143.5,138,142,1912937,131.03,8.37,133.57,113.3,0.56
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,133,135.5,132.5,134.5,1144815,132.72,1.34,136.5,120.55,0.59
 20260623,135,135,131.5,132,799341,132.66,-0.5,135.9,121.06,0.44
 20260624,131,132,129,130.5,675999,132.48,-1.49,135.43,121.55,0.4
-20260626,128.5,129.5,125,125.5,753265,131.9,-4.85,134.78,121.95,0.46
+20260625,132,132.5,129.5,129.5,496307,132.23,-2.06,134.97,122.01,0.31
+20260626,128.5,129.5,125,125.5,753265,131.67,-4.69,134.32,122.45,0.5
 ```
 
 ## Latest TDCC Snapshot

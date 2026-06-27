@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8042 金山電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:46 Asia/Taipei
+- generated_at: 2026-06-27 22:24:46 Asia/Taipei
 - stock_id: 8042
 - stock_name: 金山電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 180.5
 - close: 180.5
 - volume: 1074000
-- ma5: 187.1
-- ema23_primary: 161.9
-- distance_to_ema23_pct: 11.49
-- ma20: 167.32
-- ma60: 109.03
-- ma120: 83.85
-- return_5d: -7.67
-- return_20d: 19.93
+- ma5: 188.2
+- ema23_primary: 164.98
+- distance_to_ema23_pct: 9.41
+- ma20: 169.78
+- ma60: 111.41
+- ma120: 85.07
+- return_5d: -7.44
+- return_20d: 19.14
 - volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 7.87
+- distance_to_ma20_pct_auxiliary: 6.32
 - distance_to_high_60_pct: -12.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,137,158.5,137,151.5,151000,107.78,40.57,105.22,73.03,0.03
 20260529,153.5,156,151.5,154.5,154000,111.67,38.35,110.02,74.65,0.04
 20260601,164,169.5,164,169,169000,116.45,45.13,115.25,76.6,0.04
 20260602,168.5,168.5,153,162,159,120.24,34.73,119.81,78.39,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,199.5,199.5,190,190.5,1294000,155.48,22.52,161.45,102.5,0.34
 20260623,191,191,177,177.5,1414000,157.32,12.83,163.57,104.56,0.37
 20260624,176,192,176,192,782000,160.21,19.84,165.82,106.89,0.2
-20260626,195.5,195.5,180.5,180.5,1074000,161.9,11.49,167.32,109.03,0.27
+20260625,195,200.5,192.5,200.5,1189000,163.57,22.58,168.32,109.36,0.3
+20260626,195.5,195.5,180.5,180.5,1074000,164.98,9.41,169.78,111.41,0.27
 ```
 
 ## Latest TDCC Snapshot

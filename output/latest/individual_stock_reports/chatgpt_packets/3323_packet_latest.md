@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3323 加百裕
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:29 Asia/Taipei
 - stock_id: 3323
 - stock_name: 加百裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 32.9
 - close: 33.25
 - volume: 1045000
-- ma5: 34.98
-- ema23_primary: 35.57
-- distance_to_ema23_pct: -6.53
-- ma20: 36.21
-- ma60: 35
-- ma120: 36.68
-- return_5d: -5.81
-- return_20d: -13.64
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -8.18
+- ma5: 34.69
+- ema23_primary: 35.44
+- distance_to_ema23_pct: -6.18
+- ma20: 36.06
+- ma60: 34.99
+- ma120: 36.6
+- return_5d: -6.34
+- return_20d: -10.14
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: -7.81
 - distance_to_high_60_pct: -19.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,38.5,39.5,36.8,37,38000,35.65,3.79,35.52,34.69,0.03
 20260529,37.6,38.25,37.05,37.9,38000,35.84,5.76,35.73,34.71,0.03
 20260601,38.5,40.5,38.45,39.6,40000,36.15,9.54,36,34.79,0.04
 20260602,39.6,40.35,37.15,37.95,39,36.3,4.54,36.15,34.83,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,35.65,36.3,35.4,36,964000,35.92,0.22,36.68,35.05,1.56
 20260623,36.25,37.2,35.15,35.35,1085000,35.87,-1.46,36.59,35.03,1.61
 20260624,34.95,35.5,34.5,34.8,700000,35.78,-2.75,36.48,35.02,0.99
-20260626,33.75,33.8,32.9,33.25,1045000,35.57,-6.53,36.21,35,1.38
+20260625,35,35,34.05,34.05,547000,35.64,-4.46,36.25,35.01,0.75
+20260626,33.75,33.8,32.9,33.25,1045000,35.44,-6.18,36.06,34.99,1.34
 ```
 
 ## Latest TDCC Snapshot

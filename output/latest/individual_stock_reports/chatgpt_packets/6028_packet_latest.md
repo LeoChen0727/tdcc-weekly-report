@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6028 公勝保經
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:05 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6028
 - stock_name: 公勝保經
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 61
+- price_rows: 62
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 78.5
 - close: 79
 - volume: 9000
-- ma5: 79.28
-- ema23_primary: 79.34
-- distance_to_ema23_pct: -0.43
-- ma20: 79.12
-- ma60: 80.82
-- ma120: 80.79
-- return_5d: -0.88
-- return_20d: 0.51
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -0.16
+- ma5: 79.06
+- ema23_primary: 79.3
+- distance_to_ema23_pct: -0.38
+- ma20: 79.11
+- ma60: 80.65
+- ma120: 80.76
+- return_5d: -1.25
+- return_20d: -0.13
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -0.15
 - distance_to_high_60_pct: -14.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,78.6,79.5,78.6,79.1,79000,80.12,-1.27,79.99,81.54,1.98
 20260529,79.1,79.1,79,79.1,79000,80.03,-1.16,79.95,81.49,1.84
 20260601,79.1,79.1,78.8,79.1,79000,79.95,-1.07,79.93,81.43,1.71
 20260602,79.4,79.5,78.7,78.8,79,79.86,-1.32,79.92,81.37,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,80.1,80.3,79,79.9,28000,79.49,0.52,79.22,80.89,0.61
 20260623,79.8,79.8,78.3,78.5,62000,79.4,-1.14,79.14,80.85,1.38
 20260624,78.5,79.1,78.3,79,18000,79.37,-0.47,79.11,80.82,0.43
-20260626,78.7,79,78.5,79,9000,79.34,-0.43,79.12,80.82,0.24
+20260625,79,79.5,78.2,78.9,15000,79.33,-0.54,79.12,80.82,0.39
+20260626,78.7,79,78.5,79,9000,79.3,-0.38,79.11,80.65,0.26
 ```
 
 ## Latest TDCC Snapshot

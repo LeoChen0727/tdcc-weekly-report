@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:10 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 529
 - close: 531
 - volume: 1967471
-- ma5: 548.2
-- ema23_primary: 513.5
-- distance_to_ema23_pct: 3.41
-- ma20: 525.52
-- ma60: 427.85
-- ma120: 355.51
-- return_5d: -1.85
-- return_20d: 6.2
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 1.04
+- ma5: 546.6
+- ema23_primary: 517.1
+- distance_to_ema23_pct: 2.69
+- ma20: 528.67
+- ma60: 432.48
+- ma120: 357.88
+- return_5d: -6.35
+- return_20d: 7.06
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 0.44
 - distance_to_high_60_pct: -11.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,510,527,492,496,3671816,426.24,16.37,425.77,350.14,1.06
 20260529,517,522,506,511,2183542,433.3,17.93,432.43,353.83,0.62
 20260601,518,518,505,513,1688106,439.94,16.61,438.93,358,0.48
 20260602,515,517,498,517,1971616,446.36,15.83,446.07,361.88,0.56
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,575,580,561,562,1496826,506.48,10.96,519.52,415.7,0.56
 20260623,563,566,540,541,1463155,509.36,6.21,522.27,419.72,0.55
 20260624,537,543,526,540,1111816,511.91,5.49,523.98,423.88,0.46
-20260626,558,566,529,531,1967471,513.5,3.41,525.52,427.85,0.85
+20260625,545,562,538,559,1634407,515.83,8.37,526.92,428.32,0.71
+20260626,558,566,529,531,1967471,517.1,2.69,528.67,432.48,0.88
 ```
 
 ## Latest TDCC Snapshot

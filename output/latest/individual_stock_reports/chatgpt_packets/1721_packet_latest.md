@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1721 三晃
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:44 Asia/Taipei
+- generated_at: 2026-06-27 22:22:48 Asia/Taipei
 - stock_id: 1721
 - stock_name: 三晃
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 22.85
 - close: 22.9
 - volume: 1964882
-- ma5: 24.52
-- ema23_primary: 25.3
-- distance_to_ema23_pct: -9.47
-- ma20: 25.3
-- ma60: 25.15
-- ma120: 21.39
-- return_5d: -2.55
-- return_20d: -24.05
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -9.49
+- ma5: 24.62
+- ema23_primary: 25.2
+- distance_to_ema23_pct: -9.14
+- ma20: 25.09
+- ma60: 25.25
+- ma120: 21.49
+- return_5d: -3.78
+- return_20d: -19.65
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -8.73
 - distance_to_high_60_pct: -36.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,30.5,30.6,28.3,28.5,5581311,28.25,0.89,29.39,22.96,0.74
 20260529,28.65,28.8,28.05,28.25,2729624,28.25,0,29.59,23.13,0.36
 20260601,28.5,29,28.1,28.1,2992598,28.24,-0.48,29.78,23.32,0.39
 20260602,28.05,28.05,27,27.35,3680948,28.16,-2.89,29.81,23.49,0.49
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24,26.15,23.8,26.15,5316165,25.63,2.02,26.05,24.87,1.64
 20260623,26.65,26.9,24.5,24.5,4005930,25.54,-4.06,25.87,24.97,1.28
 20260624,23.8,25.7,23.8,25.25,1440516,25.51,-1.03,25.66,25.08,0.49
-20260626,24.3,24.3,22.85,22.9,1964882,25.3,-9.47,25.3,25.15,0.75
+20260625,25.3,25.4,24.3,24.3,1231054,25.41,-4.38,25.37,25.17,0.47
+20260626,24.3,24.3,22.85,22.9,1964882,25.2,-9.14,25.09,25.25,0.81
 ```
 
 ## Latest TDCC Snapshot

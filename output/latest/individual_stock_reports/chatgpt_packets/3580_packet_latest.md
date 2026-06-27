@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3580 友威科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:33 Asia/Taipei
+- generated_at: 2026-06-27 22:23:36 Asia/Taipei
 - stock_id: 3580
 - stock_name: 友威科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 90
 - close: 91.8
 - volume: 954000
-- ma5: 98.1
-- ema23_primary: 99.31
-- distance_to_ema23_pct: -7.56
-- ma20: 101.12
-- ma60: 92.91
-- ma120: 80.69
+- ma5: 96.82
+- ema23_primary: 98.94
+- distance_to_ema23_pct: -7.21
+- ma20: 100.83
+- ma60: 93.31
+- ma120: 81
 - return_5d: -9.56
-- return_20d: -14.21
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -9.22
+- return_20d: -9.11
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -8.96
 - distance_to_high_60_pct: -22.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,108.5,110,99.9,101,104000,98.35,2.69,99.97,83.1,0.03
 20260529,104,106,101.5,104,104000,98.82,5.24,100.88,83.72,0.03
 20260601,105,114,104.5,113,112000,100,13,101.81,84.56,0.03
 20260602,113,118,108,108.5,111,100.71,7.73,102.28,85.29,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,104,105.5,101,102.5,1784000,100.49,2,103.35,91.86,1.62
 20260623,103.5,103.5,95.7,96.4,1710000,100.15,-3.74,102.62,92.23,1.45
 20260624,94.5,100,94.5,98.3,748000,99.99,-1.69,101.89,92.59,0.62
-20260626,95.1,98,90,91.8,954000,99.31,-7.56,101.12,92.91,0.76
+20260625,100.5,100.5,95,95.1,967000,99.58,-4.5,101.29,92.97,0.77
+20260626,95.1,98,90,91.8,954000,98.94,-7.21,100.83,93.31,0.73
 ```
 
 ## Latest TDCC Snapshot

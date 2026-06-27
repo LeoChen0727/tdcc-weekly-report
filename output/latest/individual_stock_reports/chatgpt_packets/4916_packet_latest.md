@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 95.5
 - close: 95.7
 - volume: 4953365
-- ma5: 101.14
-- ema23_primary: 101.45
-- distance_to_ema23_pct: -5.67
-- ma20: 109.34
-- ma60: 82.15
-- ma120: 71.76
-- return_5d: -3.04
-- return_20d: -3.72
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -12.48
+- ma5: 100.34
+- ema23_primary: 101.26
+- distance_to_ema23_pct: -5.49
+- ma20: 109.19
+- ma60: 82.83
+- ma120: 72.12
+- return_5d: -7.54
+- return_20d: -6.63
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -12.36
 - distance_to_high_60_pct: -24.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,102,104.5,99.8,102.5,5999683,81.39,25.93,78.03,66.45,0.46
 20260529,108,112.5,104,112.5,6667076,83.98,33.95,80.58,67.33,0.51
 20260601,117,123.5,115.5,119,6365233,86.9,36.94,83.36,68.36,0.48
 20260602,116,116,110,114,4086731,89.16,27.86,85.81,69.24,0.31
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,107.5,110,104.5,105,10090947,102.2,2.74,109.56,80.14,1.13
 20260623,104,104,98.1,100,7663722,102.02,-1.98,109.48,80.81,0.96
 20260624,98.5,102.5,98.2,101.5,3951290,101.97,-0.47,109.53,81.54,0.5
-20260626,99,100.5,95.5,95.7,4953365,101.45,-5.67,109.34,82.15,0.62
+20260625,102.5,102.5,99.3,99.5,3232523,101.77,-2.23,109.53,82.22,0.41
+20260626,99,100.5,95.5,95.7,4953365,101.26,-5.49,109.19,82.83,0.63
 ```
 
 ## Latest TDCC Snapshot

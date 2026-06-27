@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6834 天二科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6834
 - stock_name: 天二科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 116
 - close: 121
 - volume: 1736216
-- ma5: 113.6
-- ema23_primary: 87.43
-- distance_to_ema23_pct: 38.4
-- ma20: 86.22
-- ma60: 58.08
-- ma120: 44.43
-- return_5d: 30.95
-- return_20d: 55.73
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 40.35
-- distance_to_high_60_pct: -2.02
+- ma5: 118.4
+- ema23_primary: 90.57
+- distance_to_ema23_pct: 33.6
+- ma20: 88.97
+- ma60: 59.66
+- ma120: 45.24
+- return_5d: 19.21
+- return_20d: 71.63
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 36.01
+- distance_to_high_60_pct: -7.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,75.8,80.1,70.5,70.5,1527997,56.68,24.38,54.7,39.98,0.35
 20260529,75,75.2,71.6,75.2,862197,58.22,29.16,56.58,40.74,0.2
 20260601,78,82.7,76.6,77,812284,59.79,28.79,58.46,41.55,0.19
 20260602,72.5,77.5,71,73,1083962,60.89,19.89,60.18,42.28,0.25
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,111.5,111.5,106.5,111.5,9672970,78.13,42.72,80.32,53.69,2.39
 20260623,112,116.5,108.5,111.5,11568231,80.91,37.81,82.02,55.03,2.59
 20260624,110.5,122.5,107,122.5,5845270,84.37,45.19,84.05,56.56,1.26
-20260626,123.5,123.5,116,121,1736216,87.43,38.4,86.22,58.08,0.38
+20260625,126.5,131,121.5,125.5,15328237,87.8,42.94,86.44,58.15,2.91
+20260626,123.5,123.5,116,121,1736216,90.57,33.6,88.97,59.66,0.33
 ```
 
 ## Latest TDCC Snapshot

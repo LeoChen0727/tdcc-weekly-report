@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2511 太子
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:04 Asia/Taipei
+- generated_at: 2026-06-27 22:23:08 Asia/Taipei
 - stock_id: 2511
 - stock_name: 太子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 8.04
 - close: 8.06
 - volume: 2084192
-- ma5: 8.12
-- ema23_primary: 8.02
-- distance_to_ema23_pct: 0.48
-- ma20: 8.02
+- ma5: 8.1
+- ema23_primary: 8.03
+- distance_to_ema23_pct: 0.37
+- ma20: 8.05
 - ma60: 7.96
 - ma120: 8.12
-- return_5d: -1.59
-- return_20d: 5.77
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 0.44
+- return_5d: -1.95
+- return_20d: 5.22
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 0.15
 - distance_to_high_60_pct: -2.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,7.65,7.68,7.6,7.66,937970,7.76,-1.3,7.73,7.99,0.71
 20260529,7.69,7.73,7.65,7.69,1201379,7.76,-0.84,7.71,7.98,0.9
 20260601,7.7,7.88,7.69,7.81,2463215,7.76,0.65,7.71,7.98,1.85
 20260602,7.84,7.89,7.78,7.88,1657794,7.77,1.42,7.71,7.98,1.21
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,8.22,8.22,8.07,8.11,1626121,8,1.37,7.96,7.96,0.9
 20260623,8.11,8.13,8.07,8.08,955966,8.01,0.91,7.98,7.96,0.54
 20260624,8.07,8.19,8.07,8.14,1363784,8.02,1.52,8,7.96,0.76
-20260626,8.12,8.12,8.04,8.06,2084192,8.02,0.48,8.02,7.96,1.14
+20260625,8.14,8.16,8.1,8.13,725431,8.03,1.28,8.03,7.96,0.41
+20260626,8.12,8.12,8.04,8.06,2084192,8.03,0.37,8.05,7.96,1.15
 ```
 
 ## Latest TDCC Snapshot

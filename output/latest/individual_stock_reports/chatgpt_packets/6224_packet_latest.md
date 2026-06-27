@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6224 聚鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:12 Asia/Taipei
+- generated_at: 2026-06-27 22:24:14 Asia/Taipei
 - stock_id: 6224
 - stock_name: 聚鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 74.6
 - close: 74.8
 - volume: 771049
-- ma5: 80.34
-- ema23_primary: 79.23
-- distance_to_ema23_pct: -5.59
-- ma20: 81.55
-- ma60: 70.25
-- ma120: 56.16
-- return_5d: -4.83
-- return_20d: -7.31
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -8.27
+- ma5: 79.14
+- ema23_primary: 79.18
+- distance_to_ema23_pct: -5.53
+- ma20: 81.06
+- ma60: 70.9
+- ma120: 56.46
+- return_5d: -12
+- return_20d: -15.67
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -7.72
 - distance_to_high_60_pct: -23.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,85.1,88.7,85.1,88.7,4860812,75.7,17.17,79.27,57.54,1.79
 20260529,97.5,97.5,93.3,95,8094865,77.31,22.88,80.35,58.41,2.66
 20260601,93.7,93.7,88.1,88.1,3327161,78.21,12.64,81.11,59.19,1.05
 20260602,88.3,88.5,81.6,83.9,1997615,78.68,6.63,81.28,59.89,0.63
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,85.5,85.9,81.4,83.1,2610256,79.67,4.31,82.23,68.4,1
 20260623,83.1,83.1,78.7,78.7,1067823,79.59,-1.11,81.94,69.02,0.43
 20260624,77.3,80.5,76.7,80.1,1076018,79.63,0.59,81.84,69.69,0.44
-20260626,78.6,79,74.6,74.8,771049,79.23,-5.59,81.55,70.25,0.32
+20260625,81.4,81.8,78.5,79,690259,79.58,-0.72,81.75,70.32,0.29
+20260626,78.6,79,74.6,74.8,771049,79.18,-5.53,81.06,70.9,0.35
 ```
 
 ## Latest TDCC Snapshot

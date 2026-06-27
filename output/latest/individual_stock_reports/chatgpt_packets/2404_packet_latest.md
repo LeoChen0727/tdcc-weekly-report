@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1310
 - close: 1340
 - volume: 4491931
-- ma5: 1280
-- ema23_primary: 1217.29
-- distance_to_ema23_pct: 10.08
-- ma20: 1224.5
-- ma60: 1067.65
-- ma120: 1026.35
-- return_5d: 4.69
-- return_20d: 8.5
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 9.43
+- ma5: 1300
+- ema23_primary: 1229.43
+- distance_to_ema23_pct: 8.99
+- ma20: 1234.75
+- ma60: 1076.47
+- ma120: 1029.96
+- return_5d: 5.93
+- return_20d: 15.52
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 8.52
 - distance_to_high_60_pct: -6.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1240,1255,1150,1160,4494834,1076.35,7.77,1060.7,991.13,0.87
 20260529,1200,1205,1150,1155,3394138,1082.91,6.66,1070.95,993.47,0.66
 20260601,1170,1175,1135,1175,2682577,1090.58,7.74,1080.8,996.38,0.52
 20260602,1175,1180,1135,1150,3749353,1095.53,4.97,1089.45,997.22,0.72
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1275,1285,1255,1280,1898021,1196.4,6.99,1219,1048.87,0.39
 20260623,1290,1315,1255,1260,2277495,1201.7,4.85,1219.75,1054.15,0.49
 20260624,1245,1265,1220,1255,1838096,1206.14,4.05,1219.25,1059.98,0.42
-20260626,1350,1395,1310,1340,4491931,1217.29,10.08,1224.5,1067.65,1.03
+20260625,1265,1380,1240,1365,5934949,1219.38,11.94,1225.75,1068.07,1.34
+20260626,1350,1395,1310,1340,4491931,1229.43,8.99,1234.75,1076.47,1.02
 ```
 
 ## Latest TDCC Snapshot

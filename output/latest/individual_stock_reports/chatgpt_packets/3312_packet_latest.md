@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3312 弘憶股
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:29 Asia/Taipei
 - stock_id: 3312
 - stock_name: 弘憶股
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 59
 - close: 59.1
 - volume: 5188586
-- ma5: 63
-- ema23_primary: 58.39
-- distance_to_ema23_pct: 1.21
-- ma20: 60.52
-- ma60: 48.48
-- ma120: 43.21
-- return_5d: -4.06
-- return_20d: 18.44
+- ma5: 62.84
+- ema23_primary: 58.67
+- distance_to_ema23_pct: 0.73
+- ma20: 61.16
+- ma60: 48.94
+- ma120: 43.42
+- return_5d: -5.89
+- return_20d: 19.88
 - volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -2.35
+- distance_to_ma20_pct_auxiliary: -3.36
 - distance_to_high_60_pct: -19.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,50.2,51.7,48.35,49.3,3745341,46.01,7.14,45.87,40.15,0.88
 20260529,49.75,50.6,48.4,50.1,3142666,46.35,8.08,46.34,40.38,0.72
 20260601,50.9,55.1,49.75,55.1,6614040,47.08,17.03,47.02,40.75,1.44
 20260602,60.6,60.6,60.6,60.6,2777904,48.21,25.7,47.95,41.2,0.6
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,63.4,68.8,61.6,67.4,13840745,57.47,17.27,58.94,47.18,1.7
 20260623,67.4,67.9,62.6,63.2,8625792,57.95,9.06,59.58,47.64,1.06
 20260624,62,64.6,61,62.5,5368567,58.33,7.15,60.06,48.1,0.68
-20260626,61.8,62.8,59,59.1,5188586,58.39,1.21,60.52,48.48,0.66
+20260625,63,64,60.7,62,3696687,58.63,5.74,60.66,48.53,0.47
+20260626,61.8,62.8,59,59.1,5188586,58.67,0.73,61.16,48.94,0.66
 ```
 
 ## Latest TDCC Snapshot

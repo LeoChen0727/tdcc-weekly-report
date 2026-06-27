@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8477 創業家
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:55 Asia/Taipei
+- generated_at: 2026-06-27 22:24:55 Asia/Taipei
 - stock_id: 8477
 - stock_name: 創業家
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 154
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 15.9
 - close: 16
 - volume: 88000
-- ma5: 17.3
-- ema23_primary: 17.4
-- distance_to_ema23_pct: -8.03
-- ma20: 18.18
-- ma60: 15.83
-- ma120: 14.39
-- return_5d: -4.76
-- return_20d: -22.89
-- volume_ratio: 2.02
-- distance_to_ma20_pct_auxiliary: -11.98
+- ma5: 17.21
+- ema23_primary: 17.34
+- distance_to_ema23_pct: -7.71
+- ma20: 18.02
+- ma60: 15.88
+- ma120: 14.43
+- return_5d: -6.98
+- return_20d: -20
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: -11.19
 - distance_to_high_60_pct: -29.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.75,22.75,19.7,20,21000,16.33,22.45,16.07,14.38,0.17
 20260529,21,21,18.85,19.8,20000,16.62,19.12,16.38,14.48,0.17
 20260601,19.8,19.95,19.05,19.35,19000,16.85,14.84,16.65,14.59,0.17
 20260602,19.2,19.2,18,19.2,19,17.05,12.64,16.91,14.7,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.4,17.8,17.3,17.8,61000,17.48,1.81,18.45,15.67,1.56
 20260623,17.8,19,17.6,18,40000,17.53,2.71,18.48,15.74,0.99
 20260624,17.15,17.9,17.15,17.5,17000,17.52,-0.14,18.41,15.8,0.42
-20260626,16.5,16.8,15.9,16,88000,17.4,-8.03,18.18,15.83,2.02
+20260625,17.85,17.85,16.75,16.75,87000,17.46,-4.06,18.21,15.85,2
+20260626,16.5,16.8,15.9,16,88000,17.34,-7.71,18.02,15.88,1.88
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 31.8
 - close: 31.9
 - volume: 44861106
-- ma5: 33.58
-- ema23_primary: 34.57
-- distance_to_ema23_pct: -7.71
-- ma20: 36.58
-- ma60: 30.92
-- ma120: 28.82
-- return_5d: -8.86
-- return_20d: 1.59
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -12.8
+- ma5: 33.46
+- ema23_primary: 34.49
+- distance_to_ema23_pct: -7.51
+- ma20: 36.67
+- ma60: 31.03
+- ma120: 28.88
+- return_5d: -7.27
+- return_20d: -0.31
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -13.01
 - distance_to_high_60_pct: -27.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,31.8,33.4,31.8,32,77812789,29.14,9.8,28.84,27.88,1.95
 20260529,33.8,35.2,33.55,35.2,75474874,29.65,18.72,29.22,28.02,1.77
 20260601,38.7,38.7,38.7,38.7,27395638,30.4,27.29,29.75,28.23,0.64
 20260602,42.55,42.55,41.6,42.55,217599445,31.42,35.44,30.5,28.5,4.13
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.65,34.9,34,34,38386913,35,-2.85,36.4,30.62,0.42
 20260623,34.1,34.3,33.1,33.4,42937979,34.86,-4.2,36.44,30.73,0.48
 20260624,33.3,34.5,33.05,34.2,33899962,34.81,-1.75,36.56,30.84,0.4
-20260626,33.55,33.55,31.8,31.9,44861106,34.57,-7.71,36.58,30.92,0.53
+20260625,34.6,35.05,33.7,33.8,24787270,34.72,-2.66,36.68,30.95,0.3
+20260626,33.55,33.55,31.8,31.9,44861106,34.49,-7.51,36.67,31.03,0.55
 ```
 
 ## Latest TDCC Snapshot

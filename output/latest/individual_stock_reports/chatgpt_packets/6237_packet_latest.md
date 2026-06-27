@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6237 驊訊
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:13 Asia/Taipei
+- generated_at: 2026-06-27 22:24:14 Asia/Taipei
 - stock_id: 6237
 - stock_name: 驊訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 45.1
 - close: 45.2
 - volume: 806000
-- ma5: 46.69
-- ema23_primary: 46.84
-- distance_to_ema23_pct: -3.51
-- ma20: 47.74
-- ma60: 43.68
-- ma120: 41.52
-- return_5d: -1.31
-- return_20d: -11.55
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: -5.33
+- ma5: 47.35
+- ema23_primary: 47.02
+- distance_to_ema23_pct: -3.87
+- ma20: 47.61
+- ma60: 43.9
+- ma120: 41.59
+- return_5d: -1.74
+- return_20d: -13.08
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: -5.06
 - distance_to_high_60_pct: -22.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,51.1,53,50.4,52,52000,46.92,10.81,46.46,40.5,0.03
 20260529,52.1,52.6,50.3,50.3,51000,47.21,6.55,46.99,40.69,0.03
 20260601,50.8,51.4,49.6,49.9,50000,47.43,5.21,47.5,40.91,0.03
 20260602,50,51.5,48.35,51,50,47.73,6.86,48.05,41.14,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,46.95,48.45,46.75,47.65,1081000,46.93,1.54,48.72,43.21,2.6
 20260623,47.8,47.8,46.05,46.3,513000,46.87,-1.23,48.3,43.36,1.17
 20260624,46.15,48.55,45.65,48.3,877000,46.99,2.78,48.04,43.54,1.83
-20260626,48.3,48.6,45.1,45.2,806000,46.84,-3.51,47.74,43.68,1.56
+20260625,49.05,49.6,48,49.3,1276000,47.19,4.48,47.95,43.75,2.36
+20260626,48.3,48.6,45.1,45.2,806000,47.02,-3.87,47.61,43.9,1.39
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4904 遠傳
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4904
 - stock_name: 遠傳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 107
 - volume: 17867424
 - ma5: 107.5
-- ema23_primary: 104.4
-- distance_to_ema23_pct: 2.49
-- ma20: 104.47
-- ma60: 98.33
-- ma120: 94.68
-- return_5d: -2.28
-- return_20d: 15.18
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 2.43
+- ema23_primary: 104.73
+- distance_to_ema23_pct: 2.16
+- ma20: 105.21
+- ma60: 98.63
+- ma120: 94.86
+- return_5d: -1.38
+- return_20d: 14.32
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 1.7
 - distance_to_high_60_pct: -5.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,93.4,94.9,93,93.6,10828971,95.34,-1.82,95.69,94.43,1.67
 20260529,93.6,94.9,93.5,94.6,20793915,95.28,-0.71,95.69,94.45,2.9
 20260601,95.4,97.6,94.6,97.1,10021141,95.43,1.75,95.83,94.53,1.37
 20260602,97,99.6,97,99.5,14379400,95.77,3.9,96.02,94.66,1.84
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,108,109.5,104.5,108,43158866,103.63,4.22,102.47,97.63,3.08
 20260623,108.5,109.5,105.5,107,40707552,103.91,2.97,103.11,97.85,2.6
 20260624,107.5,107.5,104,107,34782219,104.17,2.72,103.76,98.09,2.05
-20260626,108,108.5,106,107,17867424,104.4,2.49,104.47,98.33,1.03
+20260625,106.5,110,105.5,108.5,33499200,104.53,3.8,104.54,98.36,1.85
+20260626,108,108.5,106,107,17867424,104.73,2.16,105.21,98.63,0.97
 ```
 
 ## Latest TDCC Snapshot

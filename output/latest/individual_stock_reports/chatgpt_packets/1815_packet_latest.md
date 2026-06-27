@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1815 富喬
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:47 Asia/Taipei
+- generated_at: 2026-06-27 22:22:51 Asia/Taipei
 - stock_id: 1815
 - stock_name: 富喬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 96.3
 - close: 96.7
 - volume: 40258000
-- ma5: 101.66
-- ema23_primary: 100.88
-- distance_to_ema23_pct: -4.14
-- ma20: 100.36
-- ma60: 106
-- ma120: 102.29
-- return_5d: 1.79
+- ma5: 103.44
+- ema23_primary: 101.32
+- distance_to_ema23_pct: -4.56
+- ma20: 100.53
+- ma60: 106.06
+- ma120: 102.47
+- return_5d: -1.43
 - return_20d: -6.57
-- volume_ratio: 2.37
-- distance_to_ma20_pct_auxiliary: -3.65
+- volume_ratio: 2.2
+- distance_to_ma20_pct_auxiliary: -3.81
 - distance_to_high_60_pct: -25.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,103.5,110,102.5,103.5,106000,106.57,-2.88,106.72,107.78,0
 20260529,107.5,109,104.5,106,106000,106.52,-0.49,106.6,107.67,0
 20260601,108,113,107,109,110000,106.73,2.13,106.6,107.76,0
 20260602,111.5,113,106,109.5,110,106.96,2.37,106.28,107.78,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,100.5,107.5,100,106.5,52637000,100.81,5.64,101.2,106.26,4.54
 20260623,107,110.5,99.5,100.5,40475000,100.78,-0.28,100.78,106.14,2.97
 20260624,99.6,106.5,99.6,106.5,27824000,101.26,5.17,100.7,106.17,1.85
-20260626,106,106,96.3,96.7,40258000,100.88,-4.14,100.36,106,2.37
+20260625,108,109,103,107,26285000,101.74,5.17,100.88,106.18,1.61
+20260626,106,106,96.3,96.7,40258000,101.32,-4.56,100.53,106.06,2.2
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1815 | 富喬 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期: 115/06/23 2.人員別（請輸入董事長或總經理）: 董事長 3.舊任者姓名: 張元賓 4.舊任者簡歷: 富喬工業股份有限公司 董事長 5.新任者姓名: 景泰投資有限公司 代表人：張元賓 6.新任者簡歷: 富喬工業股份有限公司 董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）: 任期屆滿 8.異動原因: 115年股東常會董事全面改選 9.新任生效日期: 115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 1815 | 富喬 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  |  | continued_overheated | 1.董事會決議日期或發生變動日期: 115/06/23 2.人員別（請輸入董事長或總經理）: 董事長 3.舊任者姓名: 張元賓 4.舊任者簡歷: 富喬工業股份有限公司 董事長 5.新任者姓名: 景泰投資有限公司 代表人：張元賓 6.新任者簡歷: 富喬工業股份有限公司 董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）: 任期屆滿 8.異動原因: 115年股東常會董事全面改選 9.新任生效日期: 115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1815 | 富喬 | 4 | 4 | 4 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 1815 | 富喬 | 4 | 4 | 4 | 4 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

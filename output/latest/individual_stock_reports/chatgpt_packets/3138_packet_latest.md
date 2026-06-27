@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3138 耀登
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:21 Asia/Taipei
+- generated_at: 2026-06-27 22:23:24 Asia/Taipei
 - stock_id: 3138
 - stock_name: 耀登
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 115.5
 - close: 116
 - volume: 1107438
-- ma5: 129.6
-- ema23_primary: 144.49
-- distance_to_ema23_pct: -19.72
-- ma20: 147
-- ma60: 160.68
-- ma120: 161.37
-- return_5d: -14.39
-- return_20d: -29.91
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -21.09
+- ma5: 127
+- ema23_primary: 142.69
+- distance_to_ema23_pct: -18.7
+- ma20: 145.15
+- ma60: 159.78
+- ma120: 161.47
+- return_5d: -15.02
+- return_20d: -27.73
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: -20.08
 - distance_to_high_60_pct: -44.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,168,174,160,160.5,1533742,164.67,-2.53,160.47,172.08,0.8
 20260529,165,172,162.5,169,1345570,165.03,2.41,161.32,171.28,0.7
 20260601,169.5,171,166,167,1133365,165.19,1.09,161.93,170.81,0.6
 20260602,167.5,171.5,160,165,1079651,165.18,-0.11,162.18,170.52,0.57
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,140,140.5,136.5,138,651912,150.57,-8.35,154.05,163.42,0.58
 20260623,138.5,138.5,129.5,130,1067344,148.86,-12.67,151.72,162.66,1.07
 20260624,127,132.5,126,127.5,674290,147.08,-13.31,149.47,161.82,0.72
-20260626,122,122.5,115.5,116,1107438,144.49,-19.72,147,160.68,1.2
+20260625,130,130,123.5,123.5,626247,145.11,-14.89,147.38,160.81,0.7
+20260626,122,122.5,115.5,116,1107438,142.69,-18.7,145.15,159.78,1.26
 ```
 
 ## Latest TDCC Snapshot

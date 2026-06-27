@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3520 華盈
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:31 Asia/Taipei
+- generated_at: 2026-06-27 22:23:33 Asia/Taipei
 - stock_id: 3520
 - stock_name: 華盈
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 15.4
 - close: 15.45
 - volume: 454000
-- ma5: 16.34
-- ema23_primary: 16.27
-- distance_to_ema23_pct: -5.05
-- ma20: 16.41
-- ma60: 15.29
-- ma120: 15.37
-- return_5d: -9.12
-- return_20d: 7.67
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -5.82
+- ma5: 16.13
+- ema23_primary: 16.25
+- distance_to_ema23_pct: -4.92
+- ma20: 16.48
+- ma60: 15.31
+- ma120: 15.36
+- return_5d: -9.65
+- return_20d: 6.55
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -6.26
 - distance_to_high_60_pct: -23.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14.35,15,14.35,14.5,15000,14.91,-2.77,15.04,14.67,0.06
 20260529,14.6,14.75,14.45,14.65,15000,14.89,-1.62,15.04,14.67,0.07
 20260601,14.65,14.65,14.35,14.45,14000,14.85,-2.72,15.03,14.67,0.06
 20260602,14.6,14.65,14.35,14.45,14,14.82,-2.5,15.02,14.67,0
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.1,17.1,16.65,16.8,698000,16.38,2.57,16.23,15.23,0.55
 20260623,16.85,16.9,16.2,16.25,578000,16.37,-0.72,16.29,15.26,0.45
 20260624,16.25,16.85,15.9,16.1,733000,16.35,-1.51,16.35,15.27,0.55
-20260626,16,16,15.4,15.45,454000,16.27,-5.05,16.41,15.29,0.34
+20260625,16.4,16.4,16,16.05,211000,16.32,-1.66,16.43,15.29,0.16
+20260626,16,16,15.4,15.45,454000,16.25,-4.92,16.48,15.31,0.33
 ```
 
 ## Latest TDCC Snapshot

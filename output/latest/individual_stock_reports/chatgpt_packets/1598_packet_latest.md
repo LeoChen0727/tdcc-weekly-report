@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1598 岱宇
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:42 Asia/Taipei
+- generated_at: 2026-06-27 22:22:46 Asia/Taipei
 - stock_id: 1598
 - stock_name: 岱宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 19.1
 - close: 19.2
 - volume: 215124
-- ma5: 19.68
-- ema23_primary: 20.32
-- distance_to_ema23_pct: -5.51
-- ma20: 20.52
+- ma5: 19.53
+- ema23_primary: 20.25
+- distance_to_ema23_pct: -5.17
+- ma20: 20.5
 - ma60: 20.32
-- ma120: 20.2
-- return_5d: -6.11
-- return_20d: -4
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -6.43
+- ma120: 20.19
+- return_5d: -4.95
+- return_20d: -3.76
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -6.32
 - distance_to_high_60_pct: -14.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20,20.2,19.8,19.95,287523,20.27,-1.59,20.48,20.02,0.83
 20260529,20,20.5,20,20.45,480720,20.29,0.8,20.46,20.04,1.38
 20260601,20.5,20.75,20.05,20.65,504150,20.32,1.64,20.47,20.07,1.46
 20260602,21,21,20.2,20.4,301717,20.32,0.37,20.46,20.08,0.87
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.2,20.2,19.8,19.85,337875,20.58,-3.57,20.62,20.31,0.97
 20260623,20,20,19.65,19.7,170006,20.51,-3.95,20.6,20.32,0.51
 20260624,19.7,19.7,19.45,19.45,219499,20.42,-4.76,20.56,20.32,0.65
-20260626,19.2,19.45,19.1,19.2,215124,20.32,-5.51,20.52,20.32,0.64
+20260625,19.65,19.7,19.45,19.45,135602,20.34,-4.38,20.53,20.33,0.41
+20260626,19.2,19.45,19.1,19.2,215124,20.25,-5.17,20.5,20.32,0.65
 ```
 
 ## Latest TDCC Snapshot

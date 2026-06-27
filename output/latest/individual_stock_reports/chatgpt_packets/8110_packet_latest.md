@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8110 華東
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:49 Asia/Taipei
+- generated_at: 2026-06-27 22:24:50 Asia/Taipei
 - stock_id: 8110
 - stock_name: 華東
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 56.9
 - close: 57
 - volume: 48664603
-- ma5: 58.96
-- ema23_primary: 56.63
-- distance_to_ema23_pct: 0.65
-- ma20: 58.28
-- ma60: 52.25
-- ma120: 58.58
-- return_5d: -2.4
-- return_20d: -5.94
-- volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: -2.2
+- ma5: 59.76
+- ema23_primary: 57.13
+- distance_to_ema23_pct: -0.23
+- ma20: 58.34
+- ma60: 52.47
+- ma120: 58.66
+- return_5d: -3.72
+- return_20d: -8.06
+- volume_ratio: 2.01
+- distance_to_ma20_pct_auxiliary: -2.3
 - distance_to_high_60_pct: -17.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,61.9,66,60.3,62,114740214,51.53,20.33,50.61,51.47,5.01
 20260529,64.2,67.7,63.1,64.9,62297493,52.64,23.29,51.61,51.59,2.43
 20260601,65.6,69.5,64,65.2,56172087,53.69,21.44,52.53,51.8,2.01
 20260602,63.9,65.5,58.9,61.6,38328353,54.35,13.35,53.14,51.89,1.32
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,60.6,63.5,60,62.6,30250325,56.33,11.12,57.92,51.99,1.02
 20260623,62.6,62.6,58,58.5,17508997,56.51,3.51,58.34,52.06,0.59
 20260624,56.7,58.3,56.3,57.5,9458276,56.6,1.6,58.46,52.14,0.34
-20260626,63.6,63.9,56.9,57,48664603,56.63,0.65,58.28,52.25,1.8
+20260625,58.5,63.2,58.5,63.2,58008481,57.15,10.59,58.59,52.35,2.1
+20260626,63.6,63.9,56.9,57,48664603,57.13,-0.23,58.34,52.47,2.01
 ```
 
 ## Latest TDCC Snapshot

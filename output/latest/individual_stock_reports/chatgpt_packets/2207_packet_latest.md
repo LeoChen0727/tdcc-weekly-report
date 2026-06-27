@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2207 和泰車
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:51 Asia/Taipei
+- generated_at: 2026-06-27 22:22:55 Asia/Taipei
 - stock_id: 2207
 - stock_name: 和泰車
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 474.5
 - close: 481
 - volume: 664069
-- ma5: 481.3
-- ema23_primary: 476.84
-- distance_to_ema23_pct: 0.87
-- ma20: 477.15
-- ma60: 482.92
-- ma120: 507.45
-- return_5d: 4.23
-- return_20d: 3.11
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 0.81
+- ma5: 480.9
+- ema23_primary: 477.11
+- distance_to_ema23_pct: 0.81
+- ma20: 478.35
+- ma60: 482.6
+- ma120: 506.71
+- return_5d: -0.21
+- return_20d: 5.48
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 0.55
 - distance_to_high_60_pct: -7.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,462,462.5,456,456,952409,472.79,-3.55,470,490.82,2.07
 20260529,458,483,458,483,4080767,473.64,1.98,470.32,489.7,6.39
 20260601,478,484,470,473.5,952623,473.63,-0.03,470.35,488.86,1.42
 20260602,472,479.5,466.5,471.5,838817,473.45,-0.41,470.02,488.1,1.2
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,482.5,482.5,475,481,475516,475.58,1.14,474.43,483.92,0.29
 20260623,478,493,478,485,879506,476.37,1.81,475.65,483.68,0.53
 20260624,485,486.5,477,477.5,409190,476.46,0.22,476.43,483.19,0.25
-20260626,474.5,488,474.5,481,664069,476.84,0.87,477.15,482.92,0.4
+20260625,475.5,485.5,475.5,480,454076,476.76,0.68,477.1,482.9,0.27
+20260626,474.5,488,474.5,481,664069,477.11,0.81,478.35,482.6,0.41
 ```
 
 ## Latest TDCC Snapshot

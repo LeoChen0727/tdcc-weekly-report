@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6955 邦睿生技-創
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:35 Asia/Taipei
+- generated_at: 2026-06-27 22:24:36 Asia/Taipei
 - stock_id: 6955
 - stock_name: 邦睿生技-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 255
+- price_rows: 256
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 124
 - close: 124
 - volume: 12016
-- ma5: 127.7
-- ema23_primary: 138.7
-- distance_to_ema23_pct: -10.6
-- ma20: 138.4
-- ma60: 153.82
-- ma120: 158.17
-- return_5d: -6.77
-- return_20d: -17.06
+- ma5: 126.5
+- ema23_primary: 137.66
+- distance_to_ema23_pct: -9.92
+- ma20: 137.22
+- ma60: 153.12
+- ma120: 157.95
+- return_5d: -6.42
+- return_20d: -17.33
 - volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -10.4
+- distance_to_ma20_pct_auxiliary: -9.64
 - distance_to_high_60_pct: -27.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,150,150.5,150,150,7000,156.55,-4.18,157.25,163.61,0.38
 20260529,150,150,145,145.5,36110,155.63,-6.51,156.32,163.19,1.9
 20260601,145,145,141.5,145,23009,154.74,-6.3,155.22,162.78,1.28
 20260602,145,146,144,146,4000,154.01,-5.2,154.2,162.36,0.23
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,131,131,127.5,128,29629,142.5,-10.18,142.12,155.84,2.42
 20260623,128,128,125.5,126.5,15791,141.17,-10.39,140.88,155.17,1.24
 20260624,126,127.5,126,127.5,4205,140.03,-8.95,139.68,154.53,0.33
-20260626,125,125,124,124,12016,138.7,-10.6,138.4,153.82,0.95
+20260625,127,127,126,126.5,6800,138.9,-8.93,138.53,153.86,0.55
+20260626,125,125,124,124,12016,137.66,-9.92,137.22,153.12,0.95
 ```
 
 ## Latest TDCC Snapshot

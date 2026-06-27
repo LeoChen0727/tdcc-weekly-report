@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4749 新應材
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:49 Asia/Taipei
+- generated_at: 2026-06-27 22:23:51 Asia/Taipei
 - stock_id: 4749
 - stock_name: 新應材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 874
 - close: 877
 - volume: 1540000
-- ma5: 937
-- ema23_primary: 973.96
-- distance_to_ema23_pct: -9.96
-- ma20: 979.45
-- ma60: 985.68
-- ma120: 935.58
-- return_5d: -6.7
-- return_20d: -21.35
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -10.46
+- ma5: 924.2
+- ema23_primary: 969.7
+- distance_to_ema23_pct: -9.56
+- ma20: 971.3
+- ma60: 987.47
+- ma120: 936.52
+- return_5d: -11.5
+- return_20d: -19.54
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -9.71
 - distance_to_high_60_pct: -27.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1135,1180,1080,1090,1127000,1060.36,2.8,1072.85,968.03,0.37
 20260529,1130,1130,1055,1070,1079000,1061.16,0.83,1076.1,970.35,0.36
 20260601,1065,1080,1055,1065,1064000,1061.48,0.33,1077.85,973.45,0.36
 20260602,1075,1080,1035,1050,1052,1060.52,-0.99,1081.3,974.85,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1005,1010,966,966,1444000,993.6,-2.78,1013.55,984.35,1.34
 20260623,966,967,917,917,1861000,987.21,-7.11,1001.65,984.7,1.67
 20260624,908,939,904,934,716000,982.78,-4.96,991.35,985.48,0.66
-20260626,927,933,874,877,1540000,973.96,-9.96,979.45,985.68,1.38
+20260625,934,941,925,927,442000,978.13,-5.23,981.95,986.52,0.42
+20260626,927,933,874,877,1540000,969.7,-9.56,971.3,987.47,1.43
 ```
 
 ## Latest TDCC Snapshot

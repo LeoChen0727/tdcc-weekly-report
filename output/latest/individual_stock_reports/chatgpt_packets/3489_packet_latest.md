@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3489 森寶
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:30 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3489
 - stock_name: 森寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 22.4
 - close: 22.55
 - volume: 236000
-- ma5: 22.65
-- ema23_primary: 22.43
-- distance_to_ema23_pct: 0.54
-- ma20: 22.33
+- ma5: 22.61
+- ema23_primary: 22.45
+- distance_to_ema23_pct: 0.43
+- ma20: 22.38
 - ma60: 22.5
 - ma120: 21.98
 - return_5d: -1.74
-- return_20d: 3.68
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 1
+- return_20d: 4.16
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 0.75
 - distance_to_high_60_pct: -7.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,21.75,21.85,21.65,21.65,22000,22.07,-1.91,21.96,22.26,0.26
 20260529,21.5,21.8,21.5,21.8,22000,22.05,-1.12,21.95,22.29,0.27
 20260601,21.8,21.95,21.5,21.7,22000,22.02,-1.45,21.93,22.33,0.29
 20260602,21.7,21.8,21.4,21.65,22,21.99,-1.54,21.93,22.36,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.7,22.75,22.2,22.4,379000,22.37,0.14,22.21,22.52,3.14
 20260623,22.75,22.75,22.3,22.6,208000,22.39,0.95,22.25,22.51,1.6
 20260624,22.6,22.8,22.5,22.75,125000,22.42,1.48,22.29,22.51,0.92
-20260626,22.8,23,22.4,22.55,236000,22.43,0.54,22.33,22.5,1.62
+20260625,22.85,23.1,22.75,22.75,238000,22.45,1.36,22.34,22.5,1.63
+20260626,22.8,23,22.4,22.55,236000,22.45,0.43,22.38,22.5,1.51
 ```
 
 ## Latest TDCC Snapshot

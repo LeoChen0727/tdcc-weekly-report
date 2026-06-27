@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3709 鑫聯大投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:37 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3709
 - stock_name: 鑫聯大投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 76.4
 - close: 77.1
 - volume: 4842000
-- ma5: 74.52
-- ema23_primary: 78.09
-- distance_to_ema23_pct: -1.27
-- ma20: 79.22
-- ma60: 78.47
-- ma120: 70.77
-- return_5d: 3.35
-- return_20d: -10.66
-- volume_ratio: 5.48
-- distance_to_ma20_pct_auxiliary: -2.68
+- ma5: 74.84
+- ema23_primary: 77.93
+- distance_to_ema23_pct: -1.06
+- ma20: 78.66
+- ma60: 78.64
+- ma120: 70.99
+- return_5d: 3.63
+- return_20d: -11.68
+- volume_ratio: 5.24
+- distance_to_ma20_pct_auxiliary: -1.98
 - distance_to_high_60_pct: -17.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,86,89.3,85.1,87.3,87000,83.5,4.55,85.03,75.36,0.02
 20260529,88.4,89.5,87.4,88.8,89000,83.95,5.78,85.34,75.67,0.03
 20260601,87,88.6,86.6,86.7,87000,84.17,3,85.42,76,0.03
 20260602,87,89.1,86.1,88.4,88,84.53,4.58,85.58,76.35,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,74.9,75.3,74.2,74.6,598000,79.11,-5.71,81.34,78.13,1.01
 20260623,74.8,74.9,72.1,72.5,734000,78.56,-7.72,80.45,78.19,1.18
 20260624,72.2,74.2,71.4,74,510000,78.18,-5.35,79.69,78.32,0.79
-20260626,80.8,81.9,76.4,77.1,4842000,78.09,-1.27,79.22,78.47,5.48
+20260625,74.5,76.8,73.5,76,908000,78,-2.57,79.17,78.45,1.32
+20260626,80.8,81.9,76.4,77.1,4842000,77.93,-1.06,78.66,78.64,5.24
 ```
 
 ## Latest TDCC Snapshot

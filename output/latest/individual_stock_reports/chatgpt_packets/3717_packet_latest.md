@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:38 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 201
+- price_rows: 202
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 22.2
 - close: 23.6
 - volume: 11385294
-- ma5: 22.59
-- ema23_primary: 22.15
-- distance_to_ema23_pct: 6.53
-- ma20: 22
-- ma60: 22.12
-- ma120: 20.12
-- return_5d: 5.12
-- return_20d: 7.27
-- volume_ratio: 2.85
-- distance_to_ma20_pct_auxiliary: 7.25
+- ma5: 22.55
+- ema23_primary: 22.18
+- distance_to_ema23_pct: 6.41
+- ma20: 22.04
+- ma60: 22.13
+- ma120: 20.17
+- return_5d: 4.66
+- return_20d: 9.26
+- volume_ratio: 2.88
+- distance_to_ma20_pct_auxiliary: 7.07
 - distance_to_high_60_pct: -5.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22,22.4,21.4,21.6,3779536,22.37,-3.42,22.54,21.21,1.24
 20260529,21.8,22.6,21.5,22.6,1489537,22.39,0.96,22.7,21.3,0.48
 20260601,22.85,23.15,22.05,22.4,2246659,22.39,0.06,22.82,21.41,0.71
 20260602,22.45,22.65,21.9,22.4,1655102,22.39,0.06,22.84,21.48,0.52
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23,23.1,21.85,22.2,3417000,21.97,1.06,21.96,22.08,0.93
 20260623,22.25,22.3,21.65,22.15,1981281,21.98,0.76,21.93,22.09,0.56
 20260624,22,22.45,21.6,22.45,1932954,22.02,1.95,21.93,22.1,0.55
-20260626,22.2,24.55,22.2,23.6,11385294,22.15,6.53,22,22.12,2.85
+20260625,22.5,22.9,22.1,22.35,3009933,22.05,1.37,21.94,22.1,0.84
+20260626,22.2,24.55,22.2,23.6,11385294,22.18,6.41,22.04,22.13,2.88
 ```
 
 ## Latest TDCC Snapshot
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3717 | 聯嘉投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:聯嘉投控股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因本公司辦理除息作業，依據本公司國內第一次有擔保轉換公司債 發行及轉換辦法規定調整轉換價格。 6.因應措施:(1)依據本公司國內第一次有擔保轉換公司債發行及轉換辦法規定調整 轉換價格由新台幣17.5元調整為新台幣17.3元。 (2)該價格調整擬自115/07/20(除息基準日)生效 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3717 | 聯嘉投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北巿新生南路一段50號3樓 4.法人說明會擇要訊息：德信綜合證券舉辦之法人說明會，向投資人說明財務成果及本年度營運概況暨業務相關資訊。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

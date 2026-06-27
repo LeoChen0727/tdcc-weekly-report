@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:39 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 148
 - close: 152.5
 - volume: 2591000
-- ma5: 155.4
-- ema23_primary: 154.93
-- distance_to_ema23_pct: -1.57
-- ma20: 159.43
-- ma60: 137.88
-- ma120: 122.75
-- return_5d: -2.87
-- return_20d: -1.93
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -4.34
+- ma5: 155.2
+- ema23_primary: 154.8
+- distance_to_ema23_pct: -1.49
+- ma20: 159.55
+- ma60: 138.63
+- ma120: 123.36
+- return_5d: -1.29
+- return_20d: 0.99
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -4.42
 - distance_to_high_60_pct: -14.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,158,161.5,147.5,151,155000,140.54,7.45,143.03,124.22,0.07
 20260529,155,163,149,162,156000,142.32,13.82,145.22,124.72,0.07
 20260601,170,173,161,169.5,168000,144.59,17.23,147.22,125.57,0.08
 20260602,173,173,155,159,164,145.79,9.06,148.43,126.22,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,155.5,164,153.5,162,2687000,155.37,4.27,159.25,135.88,1.3
 20260623,162,162,151,154,2376000,155.26,-0.81,159.72,136.51,1.09
 20260624,151,156.5,151,154,981000,155.15,-0.74,159.57,137.19,0.44
-20260626,153.5,161,148,152.5,2591000,154.93,-1.57,159.43,137.88,1.11
+20260625,155,158.5,152,153.5,1340000,155.01,-0.98,159.47,137.9,0.59
+20260626,153.5,161,148,152.5,2591000,154.8,-1.49,159.55,138.63,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 3691 | 碩禾 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 3691 | 碩禾 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3691 | 碩禾 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

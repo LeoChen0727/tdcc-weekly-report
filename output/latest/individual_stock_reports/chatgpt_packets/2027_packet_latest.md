@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:49 Asia/Taipei
+- generated_at: 2026-06-27 22:22:52 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 39.5
 - close: 39.9
 - volume: 16797163
-- ma5: 40.51
-- ema23_primary: 41.48
-- distance_to_ema23_pct: -3.8
-- ma20: 42.24
-- ma60: 39.87
-- ma120: 38.34
-- return_5d: -4.32
-- return_20d: -6.01
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -5.55
+- ma5: 40.35
+- ema23_primary: 41.37
+- distance_to_ema23_pct: -3.55
+- ma20: 42.17
+- ma60: 39.93
+- ma120: 38.38
+- return_5d: -2.68
+- return_20d: -4.43
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -5.38
 - distance_to_high_60_pct: -10.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,42.55,43.15,41.4,41.75,18913490,40.21,3.83,40.09,38.17,0.6
 20260529,42.15,42.5,41.6,41.65,17386615,40.33,3.27,40.29,38.25,0.56
 20260601,42.05,43.2,41.6,43.2,28077068,40.57,6.48,40.57,38.37,0.88
 20260602,43.6,43.65,42.05,43.65,33817082,40.83,6.92,40.86,38.49,1.02
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41,42,40.85,41.1,14737337,41.87,-1.85,42.6,39.7,0.58
 20260623,41.55,41.7,40,40,17997024,41.72,-4.12,42.41,39.75,0.74
 20260624,39.9,40.6,39.6,40.55,8623384,41.62,-2.57,42.37,39.81,0.38
-20260626,40,40.45,39.5,39.9,16797163,41.48,-3.8,42.24,39.87,0.75
+20260625,40.7,41.3,40.2,40.2,10687839,41.5,-3.14,42.26,39.88,0.49
+20260626,40,40.45,39.5,39.9,16797163,41.37,-3.55,42.17,39.93,0.77
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0055 元大MSCI金融
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:25 Asia/Taipei
+- generated_at: 2026-06-27 22:22:29 Asia/Taipei
 - stock_id: 0055
 - stock_name: 元大MSCI金融
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 42
 - close: 42.18
 - volume: 621318
-- ma5: 42.77
-- ema23_primary: 39.67
-- distance_to_ema23_pct: 6.32
-- ma20: 39.8
-- ma60: 35.55
-- ma120: 34.01
-- return_5d: -1.13
-- return_20d: 20.89
+- ma5: 42.62
+- ema23_primary: 39.92
+- distance_to_ema23_pct: 5.66
+- ma20: 40.19
+- ma60: 35.73
+- ma120: 34.09
+- return_5d: -2.95
+- return_20d: 21.03
 - volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 5.99
+- distance_to_ma20_pct_auxiliary: 4.95
 - distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,34.9,35.14,34.75,34.85,615455,33.89,2.85,33.9,33.16,1.62
 20260529,35.03,35.19,34.79,35.09,656462,33.99,3.25,33.99,33.18,1.63
 20260601,35.11,36.05,34.98,35.9,501145,34.15,5.14,34.13,33.23,1.22
 20260602,35.9,36.59,35.76,36.59,1212516,34.35,6.52,34.29,33.29,2.65
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43.6,43.62,42.86,42.92,1331867,38.84,10.51,38.58,35.05,1.15
 20260623,42.92,43.65,42.87,43.12,1132150,39.2,10.01,39.04,35.22,0.96
 20260624,42.77,42.77,42.11,42.16,1048444,39.44,6.89,39.43,35.38,0.88
-20260626,42.8,42.8,42,42.18,621318,39.67,6.32,39.8,35.55,0.52
+20260625,42.24,42.98,42,42.71,489162,39.72,7.54,39.82,35.56,0.41
+20260626,42.8,42.8,42,42.18,621318,39.92,5.66,40.19,35.73,0.52
 ```
 
 ## Latest TDCC Snapshot

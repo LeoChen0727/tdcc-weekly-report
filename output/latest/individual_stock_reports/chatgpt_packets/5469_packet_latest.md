@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:00 Asia/Taipei
+- generated_at: 2026-06-27 22:24:02 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 84.9
 - close: 87.4
 - volume: 13732542
-- ma5: 87.42
-- ema23_primary: 85.33
-- distance_to_ema23_pct: 2.42
-- ma20: 85.14
-- ma60: 85.44
-- ma120: 89.58
-- return_5d: 0.92
-- return_20d: 0.46
-- volume_ratio: 2.86
-- distance_to_ma20_pct_auxiliary: 2.66
+- ma5: 87.28
+- ema23_primary: 85.41
+- distance_to_ema23_pct: 2.34
+- ma20: 85.24
+- ma60: 85.5
+- ma120: 89.49
+- return_5d: 0.69
+- return_20d: 4.05
+- volume_ratio: 2.98
+- distance_to_ma20_pct_auxiliary: 2.53
 - distance_to_high_60_pct: -12.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,88,88.5,83.5,84,7004048,83.81,0.22,82.47,85.76,1.81
 20260529,85.8,87.1,84.6,85.2,3367390,83.93,1.51,82.61,85.65,0.89
 20260601,86,86.2,84.5,86,3655630,84.1,2.26,82.73,85.64,0.95
 20260602,86.6,86.6,83.6,85.9,3723117,84.25,1.96,82.8,85.59,0.96
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,88.2,92.2,87.5,90.6,13541172,84.96,6.64,84.83,85.26,2.97
 20260623,91.5,91.7,85.8,86.8,6398054,85.11,1.98,85,85.33,1.35
 20260624,85,87,84.6,85.5,2700534,85.14,0.42,85.11,85.38,0.57
-20260626,86,91.8,84.9,87.4,13732542,85.33,2.42,85.14,85.44,2.86
+20260625,86,87.4,84.6,86.1,3126898,85.22,1.03,85.07,85.42,0.73
+20260626,86,91.8,84.9,87.4,13732542,85.41,2.34,85.24,85.5,2.98
 ```
 
 ## Latest TDCC Snapshot

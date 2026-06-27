@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6598 ABC-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:23 Asia/Taipei
+- generated_at: 2026-06-27 22:24:24 Asia/Taipei
 - stock_id: 6598
 - stock_name: ABC-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 22.5
 - close: 22.8
 - volume: 175734
-- ma5: 23.47
-- ema23_primary: 24.02
-- distance_to_ema23_pct: -5.1
-- ma20: 24.29
-- ma60: 23.45
-- ma120: 23.66
-- return_5d: -6.56
-- return_20d: -8.62
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -6.12
+- ma5: 23.22
+- ema23_primary: 23.93
+- distance_to_ema23_pct: -4.72
+- ma20: 24.2
+- ma60: 23.44
+- ma120: 23.67
+- return_5d: -5.59
+- return_20d: -7.88
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -5.77
 - distance_to_high_60_pct: -11.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25,25.3,24.7,24.75,138352,23.85,3.78,23.69,23.5,0.67
 20260529,25.3,25.35,24.65,24.75,125037,23.92,3.45,23.86,23.49,0.6
 20260601,24.75,24.95,24.15,24.2,376269,23.95,1.06,23.94,23.49,1.71
 20260602,24.2,24.45,23.95,24.3,141322,23.98,1.35,24.03,23.49,0.64
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.15,24.15,23.5,23.75,222572,24.29,-2.22,24.53,23.47,1.19
 20260623,23.8,23.8,23.35,23.45,116997,24.22,-3.18,24.48,23.46,0.65
 20260624,23.3,23.8,23.1,23.2,73568,24.14,-3.88,24.39,23.46,0.42
-20260626,22.75,23.6,22.5,22.8,175734,24.02,-5.1,24.29,23.45,1.05
+20260625,23.2,23.2,22.85,22.9,106657,24.03,-4.71,24.29,23.45,0.65
+20260626,22.75,23.6,22.5,22.8,175734,23.93,-4.72,24.2,23.44,1.06
 ```
 
 ## Latest TDCC Snapshot

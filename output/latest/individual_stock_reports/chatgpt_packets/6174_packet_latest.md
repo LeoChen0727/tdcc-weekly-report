@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6174 安碁
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:09 Asia/Taipei
+- generated_at: 2026-06-27 22:24:10 Asia/Taipei
 - stock_id: 6174
 - stock_name: 安碁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 49.05
 - close: 54.2
 - volume: 3576000
-- ma5: 51.33
-- ema23_primary: 48.38
-- distance_to_ema23_pct: 12.02
-- ma20: 49.03
-- ma60: 38.52
-- ma120: 30.19
-- return_5d: 2.46
-- return_20d: 16.18
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 10.54
+- ma5: 50.73
+- ema23_primary: 48.49
+- distance_to_ema23_pct: 11.76
+- ma20: 49.17
+- ma60: 38.97
+- ma120: 30.43
+- return_5d: 3.63
+- return_20d: 16.43
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 10.23
 - distance_to_high_60_pct: -8.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,46.65,51.2,46,46.55,49000,40.13,16.01,41.14,29.84,0.02
 20260529,47.2,48,45.6,46.65,47000,40.67,14.7,41.92,30.24,0.02
 20260601,47.05,47.5,45,45.35,46000,41.06,10.45,42.48,30.62,0.02
 20260602,45.1,46,43.15,46,45,41.47,10.92,42.9,31.02,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,53.1,53.5,49.55,51,2234000,47.52,7.31,48.43,37.08,0.7
 20260623,50.5,50.5,48.6,48.95,1437000,47.64,2.74,48.51,37.54,0.44
 20260624,48.65,51.1,48.15,50.2,2021000,47.86,4.9,48.66,38,0.61
-20260626,49.05,54.2,49.05,54.2,3576000,48.38,12.02,49.03,38.52,1.02
+20260625,51,51,48.65,49.3,1148000,47.98,2.76,48.79,38.44,0.34
+20260626,49.05,54.2,49.05,54.2,3576000,48.49,11.76,49.17,38.97,1
 ```
 
 ## Latest TDCC Snapshot

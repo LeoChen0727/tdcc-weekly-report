@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4968 立積
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4968
 - stock_name: 立積
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 110.5
 - close: 110.5
 - volume: 1042674
-- ma5: 116.3
-- ema23_primary: 113.39
-- distance_to_ema23_pct: -2.55
-- ma20: 112.8
-- ma60: 113.75
-- ma120: 116.35
-- return_5d: 2.31
-- return_20d: -5.56
+- ma5: 117
+- ema23_primary: 113.65
+- distance_to_ema23_pct: -2.77
+- ma20: 112.88
+- ma60: 113.95
+- ma120: 116.23
+- return_5d: -2.64
+- return_20d: -4.33
 - volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -2.04
+- distance_to_ma20_pct_auxiliary: -2.1
 - distance_to_high_60_pct: -17.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,119,123,115,115.5,1990469,116.22,-0.62,116.7,112.38,1.43
 20260529,119,119,115.5,116,990513,116.2,-0.18,116.7,112.33,0.72
 20260601,117.5,119,116,117,1175706,116.27,0.63,116.8,112.36,0.86
 20260602,119,123,117,120,2908795,116.58,2.93,116.75,112.42,2.12
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,114.5,119,114.5,118,1538712,112.49,4.9,113.12,113.3,1.42
 20260623,118,122,117,119,2119529,113.03,5.28,113.05,113.47,1.89
 20260624,118.5,121,117.5,120.5,1545539,113.66,6.02,113.12,113.72,1.36
-20260626,116,116,110.5,110.5,1042674,113.39,-2.55,112.8,113.75,0.92
+20260625,121.5,124,117,117,1975710,113.93,2.69,113.12,113.86,1.68
+20260626,116,116,110.5,110.5,1042674,113.65,-2.77,112.88,113.95,0.92
 ```
 
 ## Latest TDCC Snapshot

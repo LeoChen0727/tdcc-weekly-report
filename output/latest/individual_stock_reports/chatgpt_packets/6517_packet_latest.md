@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:21 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 66.9
 - close: 67.1
 - volume: 1228000
-- ma5: 73.98
-- ema23_primary: 68.4
-- distance_to_ema23_pct: -1.9
-- ma20: 67.86
-- ma60: 61.77
-- ma120: 63.42
-- return_5d: -14.63
-- return_20d: 13.54
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.12
+- ma5: 72.96
+- ema23_primary: 68.74
+- distance_to_ema23_pct: -2.39
+- ma20: 68.63
+- ma60: 62.03
+- ma120: 63.52
+- return_5d: -14.08
+- return_20d: 16.49
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -2.23
 - distance_to_high_60_pct: -19.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,59,59.9,57.3,57.6,58000,59.46,-3.13,59.31,58.4,0.22
 20260529,57.8,59.8,57.8,59,59000,59.42,-0.71,59.38,58.39,0.23
 20260601,59.6,61.4,58,60.5,60000,59.51,1.66,59.41,58.45,0.24
 20260602,60.6,60.8,59.2,60,60,59.55,0.75,59.42,58.48,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,78.1,79.1,72.6,77.1,3059000,67.52,14.18,66.21,61.05,1.5
 20260623,77.1,78.6,75,75.1,2897000,68.15,10.19,66.88,61.34,1.33
 20260624,74.1,77,71.6,72.5,1293000,68.52,5.81,67.46,61.6,0.58
-20260626,73.1,73.1,66.9,67.1,1228000,68.4,-1.9,67.86,61.77,0.53
+20260625,73,77.8,72.2,73,1821000,68.89,5.97,68.16,61.86,0.78
+20260626,73.1,73.1,66.9,67.1,1228000,68.74,-2.39,68.63,62.03,0.52
 ```
 
 ## Latest TDCC Snapshot

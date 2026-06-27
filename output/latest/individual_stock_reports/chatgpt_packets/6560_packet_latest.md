@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6560 欣普羅
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:21 Asia/Taipei
+- generated_at: 2026-06-27 22:24:22 Asia/Taipei
 - stock_id: 6560
 - stock_name: 欣普羅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 38.75
 - close: 38.75
 - volume: 103000
-- ma5: 39.01
-- ema23_primary: 38.46
-- distance_to_ema23_pct: 0.76
-- ma20: 38.45
-- ma60: 38.56
+- ma5: 39.29
+- ema23_primary: 38.53
+- distance_to_ema23_pct: 0.56
+- ma20: 38.52
+- ma60: 38.55
 - ma120: 39.98
-- return_5d: 4.59
-- return_20d: -0.9
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 0.79
+- return_5d: 1.97
+- return_20d: 1.84
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 0.61
 - distance_to_high_60_pct: -8.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.1,39.1,38,38.05,39000,38.48,-1.11,38.37,39.49,0.58
 20260529,37.8,38.8,37.8,38.5,38000,38.48,0.06,38.41,39.38,0.56
 20260601,38.05,38.6,37.95,38,38000,38.44,-1.14,38.41,39.28,0.58
 20260602,38.05,41.8,37.85,39.95,41,38.56,3.59,38.46,39.2,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.25,39.5,37.15,38.6,153000,38.16,1.16,38.38,38.61,2.18
 20260623,39.05,40.5,39.05,39.4,277000,38.26,2.97,38.41,38.59,3.38
 20260624,38.85,42.35,38.6,40.3,305000,38.43,4.86,38.47,38.58,3.2
-20260626,40.4,40.45,38.75,38.75,103000,38.46,0.76,38.45,38.56,1.05
+20260625,39.8,40.55,39.2,39.4,100000,38.51,2.3,38.48,38.57,1.02
+20260626,40.4,40.45,38.75,38.75,103000,38.53,0.56,38.52,38.55,1.01
 ```
 
 ## Latest TDCC Snapshot

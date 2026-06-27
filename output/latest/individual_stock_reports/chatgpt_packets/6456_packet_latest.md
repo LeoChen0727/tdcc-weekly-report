@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:17 Asia/Taipei
+- generated_at: 2026-06-27 22:24:19 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 67.9
 - close: 68
 - volume: 5913891
-- ma5: 73.18
-- ema23_primary: 74.3
-- distance_to_ema23_pct: -8.48
-- ma20: 76.43
-- ma60: 71.68
-- ma120: 59.99
-- return_5d: -12.03
-- return_20d: -13.92
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -11.03
+- ma5: 72.2
+- ema23_primary: 74.05
+- distance_to_ema23_pct: -8.17
+- ma20: 76.42
+- ma60: 71.93
+- ma120: 60.22
+- return_5d: -10.99
+- return_20d: -5.03
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -11.02
 - distance_to_high_60_pct: -28.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,84,84,71.2,71.6,36774170,71.76,-0.22,71.77,66.47,2.91
 20260529,72,77.4,72,76.5,18360080,72.15,6.03,71.78,66.78,1.37
 20260601,78.4,84.1,78,83.9,36104373,73.13,14.73,72.08,67.31,2.39
 20260602,84,86.4,79.9,82.9,25276861,73.94,12.11,72.19,67.74,1.57
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,77.4,77.6,75,76.1,6252638,75.28,1.08,77.54,71.12,0.38
 20260623,77,77,71.4,71.7,5973399,74.98,-4.38,77.39,71.31,0.38
 20260624,70.6,75.2,70.3,73.7,6096264,74.88,-1.57,76.98,71.53,0.41
-20260626,71.2,72.2,67.9,68,5913891,74.3,-8.48,76.43,71.68,0.43
+20260625,74.5,75.9,71.5,71.5,4304322,74.6,-4.15,76.61,71.74,0.32
+20260626,71.2,72.2,67.9,68,5913891,74.05,-8.17,76.42,71.93,0.49
 ```
 
 ## Latest TDCC Snapshot

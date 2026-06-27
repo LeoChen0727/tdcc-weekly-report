@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8255 朋程
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:51 Asia/Taipei
+- generated_at: 2026-06-27 22:24:51 Asia/Taipei
 - stock_id: 8255
 - stock_name: 朋程
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 175
 - close: 175
 - volume: 2124000
-- ma5: 196
-- ema23_primary: 177.91
-- distance_to_ema23_pct: -1.64
-- ma20: 181.3
-- ma60: 153
-- ma120: 139.03
-- return_5d: -1.41
-- return_20d: -5.66
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: -3.47
+- ma5: 194.5
+- ema23_primary: 178.63
+- distance_to_ema23_pct: -2.03
+- ma20: 181.45
+- ma60: 154.07
+- ma120: 139.61
+- return_5d: -10.26
+- return_20d: -5.15
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -3.55
 - distance_to_high_60_pct: -24.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,186,200,179.5,184.5,190000,155.09,18.96,154.03,135.52,0.15
 20260529,198.5,202,193.5,199.5,199000,158.79,25.64,157.2,136.76,0.16
 20260601,196.5,196.5,183.5,186,189000,161.06,15.49,159.38,137.88,0.16
 20260602,185,185.5,177,180.5,180,162.68,10.96,160.97,138.86,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,214,214.5,212,214.5,3574000,174.47,22.94,179.9,150.03,3.12
 20260623,217.5,233,199.5,199.5,12445000,176.56,12.99,181.38,151.12,7.07
 20260624,195,202,192,196,2530000,178.18,10,181.82,152.2,1.35
-20260626,185,190.5,175,175,2124000,177.91,-1.64,181.3,153,1.08
+20260625,198.5,198.5,186,187.5,2106000,178.96,4.77,181.93,153.21,1.07
+20260626,185,190.5,175,175,2124000,178.63,-2.03,181.45,154.07,1.03
 ```
 
 ## Latest TDCC Snapshot

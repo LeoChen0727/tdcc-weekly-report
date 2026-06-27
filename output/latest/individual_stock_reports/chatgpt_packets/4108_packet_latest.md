@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4108 懷特
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:38 Asia/Taipei
+- generated_at: 2026-06-27 22:23:41 Asia/Taipei
 - stock_id: 4108
 - stock_name: 懷特
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11.85
 - close: 11.9
 - volume: 234162
-- ma5: 12.01
-- ema23_primary: 12.15
-- distance_to_ema23_pct: -2.08
-- ma20: 12.21
-- ma60: 12.28
-- ma120: 13.01
+- ma5: 12
+- ema23_primary: 12.14
+- distance_to_ema23_pct: -1.95
+- ma20: 12.19
+- ma60: 12.27
+- ma120: 13
 - return_5d: -0.83
-- return_20d: -2.86
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -2.58
+- return_20d: -5.18
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -2.34
 - distance_to_high_60_pct: -11.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.5,12.7,12.5,12.55,295489,12.24,2.57,12.09,12.64,0.99
 20260529,12.55,12.6,12.3,12.4,192577,12.25,1.23,12.1,12.62,0.64
 20260601,12.25,12.25,12,12.15,438508,12.24,-0.74,12.09,12.6,1.4
 20260602,12.1,12.15,12,12.15,299039,12.23,-0.68,12.09,12.57,0.95
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.05,12.25,12,12.15,248169,12.21,-0.49,12.27,12.34,0.78
 20260623,12.15,12.2,11.95,12,249607,12.19,-1.58,12.24,12.32,0.83
 20260624,11.95,12.2,11.95,12,199992,12.18,-1.45,12.23,12.3,0.67
-20260626,11.95,12.05,11.85,11.9,234162,12.15,-2.08,12.21,12.28,0.79
+20260625,12,12.2,11.95,11.95,198621,12.16,-1.71,12.22,12.29,0.67
+20260626,11.95,12.05,11.85,11.9,234162,12.14,-1.95,12.19,12.27,0.8
 ```
 
 ## Latest TDCC Snapshot

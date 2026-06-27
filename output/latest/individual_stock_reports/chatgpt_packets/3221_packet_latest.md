@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:23 Asia/Taipei
+- generated_at: 2026-06-27 22:23:26 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 55.4
 - close: 57.9
 - volume: 18981000
-- ma5: 57.94
-- ema23_primary: 56.97
-- distance_to_ema23_pct: 1.64
-- ma20: 58.95
-- ma60: 49.13
-- ma120: 38.4
-- return_5d: -2.36
-- return_20d: 2.66
-- volume_ratio: 1.71
-- distance_to_ma20_pct_auxiliary: -1.79
+- ma5: 56.92
+- ema23_primary: 56.85
+- distance_to_ema23_pct: 1.84
+- ma20: 58.72
+- ma60: 49.44
+- ma120: 38.69
+- return_5d: -4.3
+- return_20d: -3.82
+- volume_ratio: 1.68
+- distance_to_ma20_pct_auxiliary: -1.39
 - distance_to_high_60_pct: -14.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,56.9,62,56.9,60.2,61000,49.14,22.52,48.09,40.45,0.01
 20260529,62.3,63.6,59.5,60,61000,50.04,19.9,48.95,40.91,0.01
 20260601,60,60.8,57,57.5,59000,50.66,13.5,49.65,41.35,0.01
 20260602,57,57.9,54.7,57.3,56,51.22,11.88,50.29,41.8,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.5,61.7,58.5,59.1,6083000,57.03,3.64,59.24,48.02,0.63
 20260623,59.2,59.2,55.2,55.6,5704000,56.91,-2.3,59.02,48.37,0.57
 20260624,55.2,57.5,55.1,56.6,4318000,56.88,-0.5,58.88,48.76,0.42
-20260626,55.4,60.6,55.4,57.9,18981000,56.97,1.64,58.95,49.13,1.71
+20260625,57.5,57.8,55.2,55.4,2999000,56.76,-2.39,58.83,49.09,0.29
+20260626,55.4,60.6,55.4,57.9,18981000,56.85,1.84,58.72,49.44,1.68
 ```
 
 ## Latest TDCC Snapshot

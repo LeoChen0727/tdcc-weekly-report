@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6603 富強鑫
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:23 Asia/Taipei
+- generated_at: 2026-06-27 22:24:24 Asia/Taipei
 - stock_id: 6603
 - stock_name: 富強鑫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 22.7
 - close: 22.9
 - volume: 1093000
-- ma5: 24.19
-- ema23_primary: 23.34
+- ma5: 24.03
+- ema23_primary: 23.35
 - distance_to_ema23_pct: -1.91
-- ma20: 23.46
-- ma60: 23.46
-- ma120: 24.91
-- return_5d: 4.09
-- return_20d: 2.46
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -2.38
+- ma20: 23.4
+- ma60: 23.49
+- ma120: 24.88
+- return_5d: -5.37
+- return_20d: -6.72
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -2.14
 - distance_to_high_60_pct: -23.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.4,24.55,22.4,24.55,24000,23.25,5.6,23.32,23.23,0.02
 20260529,25.25,26.5,25,25.55,26000,23.44,9,23.34,23.26,0.03
 20260601,25.5,26.15,24.75,24.9,25000,23.56,5.68,23.35,23.29,0.03
 20260602,25.2,25.25,23.6,23.8,24,23.58,0.93,23.27,23.29,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.75,26.2,25.2,25.35,5920000,23.22,9.17,23.27,23.35,7.17
 20260623,25.2,25.55,23.75,24.3,2391000,23.31,4.24,23.36,23.39,2.53
 20260624,24,24.6,23.9,24.2,1097000,23.39,3.48,23.43,23.43,1.1
-20260626,23.45,23.85,22.7,22.9,1093000,23.34,-1.91,23.46,23.46,1.04
+20260625,24.5,24.5,23.4,23.4,1141000,23.39,0.06,23.48,23.46,1.08
+20260626,23.45,23.85,22.7,22.9,1093000,23.35,-1.91,23.4,23.49,0.99
 ```
 
 ## Latest TDCC Snapshot

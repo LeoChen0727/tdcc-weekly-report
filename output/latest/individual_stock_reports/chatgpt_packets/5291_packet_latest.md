@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5291 邑昇
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:58 Asia/Taipei
 - stock_id: 5291
 - stock_name: 邑昇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 55.4
 - close: 55.9
 - volume: 455000
-- ma5: 61.84
-- ema23_primary: 65.59
-- distance_to_ema23_pct: -14.77
-- ma20: 66.06
-- ma60: 68.61
-- ma120: 56.34
-- return_5d: -13.2
-- return_20d: -24.05
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -15.38
+- ma5: 60.62
+- ema23_primary: 65.03
+- distance_to_ema23_pct: -14.04
+- ma20: 65.47
+- ma60: 68.3
+- ma120: 56.61
+- return_5d: -14.4
+- return_20d: -21.27
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -14.62
 - distance_to_high_60_pct: -33.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76.2,77.6,68,71,72000,71.01,-0.02,70.87,66.67,0.03
 20260529,72.9,73.6,71,71.8,72000,71.08,1.01,71.33,66.95,0.03
 20260601,71.8,72.9,70.6,71.5,72000,71.11,0.54,71.47,67.31,0.03
 20260602,72.6,72.6,67.8,68.5,69,70.9,-3.38,71.45,67.53,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,66,66.1,63.5,64.6,503000,67.38,-4.13,68.33,69.39,1.65
 20260623,65,65.1,62,62.7,409000,66.99,-6.41,67.64,69.21,1.27
 20260624,62,62.9,60.4,60.7,477000,66.47,-8.68,66.94,68.94,1.39
-20260626,58.6,59,55.4,55.9,455000,65.59,-14.77,66.06,68.61,1.26
+20260625,61,61.6,59,59.2,290000,65.86,-10.12,66.22,68.67,0.82
+20260626,58.6,59,55.4,55.9,455000,65.03,-14.04,65.47,68.3,1.22
 ```
 
 ## Latest TDCC Snapshot

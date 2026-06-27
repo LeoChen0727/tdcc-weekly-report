@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8085 福華
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:48 Asia/Taipei
+- generated_at: 2026-06-27 22:24:48 Asia/Taipei
 - stock_id: 8085
 - stock_name: 福華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 11.65
 - close: 11.65
 - volume: 607000
-- ma5: 12.35
-- ema23_primary: 12.69
-- distance_to_ema23_pct: -8.21
-- ma20: 12.94
-- ma60: 13.18
-- ma120: 15.1
-- return_5d: -10.73
-- return_20d: 5.43
-- volume_ratio: 1.89
-- distance_to_ma20_pct_auxiliary: -9.95
+- ma5: 12.19
+- ema23_primary: 12.64
+- distance_to_ema23_pct: -7.83
+- ma20: 12.99
+- ma60: 13.13
+- ma120: 15.07
+- return_5d: -9.69
+- return_20d: 5.91
+- volume_ratio: 1.81
+- distance_to_ma20_pct_auxiliary: -10.33
 - distance_to_high_60_pct: -33.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.1,11.3,10.9,11,11000,12.17,-9.6,11.88,14.39,0.03
 20260529,11,11.3,10.9,11.05,11000,12.07,-8.49,11.8,14.28,0.03
 20260601,11.4,12.15,11.4,12.15,12000,12.08,0.57,11.77,14.2,0.04
 20260602,13.35,13.35,13.35,13.35,13,12.19,9.55,11.8,14.14,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.95,12.95,12.6,12.7,295000,12.89,-1.47,12.84,13.39,1.22
 20260623,13,13,12.2,12.25,673000,12.84,-4.57,12.87,13.33,2.44
 20260624,12.25,12.6,12.15,12.25,319000,12.79,-4.2,12.91,13.26,1.1
-20260626,12.4,12.4,11.65,11.65,607000,12.69,-8.21,12.94,13.18,1.89
+20260625,12.25,12.35,12.05,12.1,310000,12.73,-4.95,12.96,13.19,1.01
+20260626,12.4,12.4,11.65,11.65,607000,12.64,-7.83,12.99,13.13,1.81
 ```
 
 ## Latest TDCC Snapshot

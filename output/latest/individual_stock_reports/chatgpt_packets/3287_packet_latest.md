@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3287 廣寰科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:25 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3287
 - stock_name: 廣寰科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 31.6
 - close: 31.75
 - volume: 192000
-- ma5: 33.33
-- ema23_primary: 33.79
-- distance_to_ema23_pct: -6.03
-- ma20: 35.13
-- ma60: 31.46
-- ma120: 30.46
-- return_5d: -7.43
-- return_20d: -12.53
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: -9.63
+- ma5: 33.25
+- ema23_primary: 33.73
+- distance_to_ema23_pct: -5.86
+- ma20: 34.88
+- ma60: 31.54
+- ma120: 30.5
+- return_5d: -5.37
+- return_20d: -16.67
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: -8.99
 - distance_to_high_60_pct: -20.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.5,39.9,37,38.1,39000,31.65,20.37,31.08,29.59,0.12
 20260529,38.1,39.4,37.25,38,38000,32.18,18.08,31.58,29.73,0.12
 20260601,38.85,39,37.95,38.45,38000,32.7,17.57,32.09,29.89,0.12
 20260602,38.4,38.4,36,37.2,37,33.08,12.46,32.53,30.01,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.55,34.1,33.4,33.75,141000,34.01,-0.76,35.26,31.22,1.39
 20260623,33.75,33.95,33.55,33.75,126000,33.99,-0.69,35.32,31.3,1.19
 20260624,33.6,34.95,33.45,33.85,132000,33.97,-0.37,35.36,31.4,1.19
-20260626,33,33.15,31.6,31.75,192000,33.79,-6.03,35.13,31.46,1.61
+20260625,33.85,33.85,33.15,33.15,130000,33.91,-2.23,35.2,31.48,1.12
+20260626,33,33.15,31.6,31.75,192000,33.73,-5.86,34.88,31.54,1.56
 ```
 
 ## Latest TDCC Snapshot

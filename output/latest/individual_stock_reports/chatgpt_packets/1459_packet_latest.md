@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1459 聯發
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:37 Asia/Taipei
+- generated_at: 2026-06-27 22:22:41 Asia/Taipei
 - stock_id: 1459
 - stock_name: 聯發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11.5
 - close: 11.5
 - volume: 377684
-- ma5: 11.7
+- ma5: 11.68
 - ema23_primary: 11.72
-- distance_to_ema23_pct: -1.9
+- distance_to_ema23_pct: -1.87
 - ma20: 11.71
 - ma60: 11.73
 - ma120: 11.79
-- return_5d: -2.95
-- return_20d: -0.86
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: -1.75
+- return_5d: -2.54
+- return_20d: -1.29
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: -1.77
 - distance_to_high_60_pct: -5.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.6,11.75,11.6,11.65,171771,11.76,-0.92,11.81,11.76,0.83
 20260529,11.7,11.75,11.65,11.65,132518,11.75,-0.84,11.81,11.75,0.63
 20260601,11.65,11.7,11.3,11.55,535807,11.73,-1.55,11.8,11.74,2.37
 20260602,11.55,11.7,11.5,11.6,184441,11.72,-1.03,11.79,11.74,0.83
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,11.85,11.85,11.65,11.7,498967,11.74,-0.36,11.7,11.73,2.43
 20260623,11.7,11.8,11.65,11.8,516441,11.75,0.45,11.71,11.74,2.51
 20260624,11.8,11.8,11.7,11.7,82325,11.74,-0.36,11.71,11.74,0.45
-20260626,11.65,11.7,11.5,11.5,377684,11.72,-1.9,11.71,11.73,1.98
+20260625,11.75,11.8,11.65,11.7,62653,11.74,-0.33,11.71,11.74,0.36
+20260626,11.65,11.7,11.5,11.5,377684,11.72,-1.87,11.71,11.73,2.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:49 Asia/Taipei
+- generated_at: 2026-06-27 22:22:53 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 305
 - close: 307
 - volume: 4271856
-- ma5: 331.3
-- ema23_primary: 338.98
-- distance_to_ema23_pct: -9.43
-- ma20: 343.88
-- ma60: 323.23
-- ma120: 274.05
-- return_5d: -5.25
-- return_20d: -24.94
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -10.72
+- ma5: 331.2
+- ema23_primary: 338.41
+- distance_to_ema23_pct: -9.28
+- ma20: 341.2
+- ma60: 324.68
+- ma120: 275.18
+- return_5d: -8.36
+- return_20d: -20.88
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -10.02
 - distance_to_high_60_pct: -27.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,418,418,383,388,9726639,356.92,8.71,361.02,289.02,1.11
 20260529,402.5,406,384,389,7950787,359.59,8.18,364.85,291.38,0.91
 20260601,392.5,398.5,387,387.5,5578905,361.91,7.07,368.3,293.82,0.67
 20260602,391,393.5,354,364,10348396,362.09,0.53,370.45,295.89,1.2
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,340,351.5,337.5,343.5,3301771,343.13,0.11,355.65,318.69,0.59
 20260623,346.5,346.5,336,339,2656491,342.78,-1.1,352.85,320.43,0.5
 20260624,334,336,327,332,1763637,341.88,-2.89,348.98,322.02,0.36
-20260626,328,329.5,305,307,4271856,338.98,-9.43,343.88,323.23,0.9
+20260625,335,338,331.5,334.5,1508556,341.27,-1.98,345.25,323.68,0.33
+20260626,328,329.5,305,307,4271856,338.41,-9.28,341.2,324.68,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣707,584,480元，每股配發新台幣2.0元 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 52.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認2025年度營業報告書  暨財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過解除董事及其代表人競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4569 六方科-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:46 Asia/Taipei
+- generated_at: 2026-06-27 22:23:48 Asia/Taipei
 - stock_id: 4569
 - stock_name: 六方科-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 166.5
 - close: 166.5
 - volume: 137808
-- ma5: 182.3
-- ema23_primary: 176.09
-- distance_to_ema23_pct: -5.44
-- ma20: 173.57
-- ma60: 174.11
-- ma120: 161.32
-- return_5d: -8.77
-- return_20d: -7.76
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -4.08
+- ma5: 179.3
+- ema23_primary: 175.98
+- distance_to_ema23_pct: -5.38
+- ma20: 173.4
+- ma60: 174.9
+- ma120: 161.5
+- return_5d: -12.6
+- return_20d: -6.98
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -3.98
 - distance_to_high_60_pct: -21.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,180.5,186,174,179,167414,179.72,-0.4,179.82,166.12,0.52
 20260529,181.5,181.5,178,180.5,52240,179.79,0.4,179.65,166.32,0.17
 20260601,180,180.5,170,170.5,294850,179.02,-4.76,179.15,166.43,0.92
 20260602,172,172.5,165,170.5,190114,178.31,-4.38,178.75,166.48,0.59
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,193,199,187,187,229691,175.69,6.44,174.88,172.12,1.67
 20260623,189.5,189.5,182,187,129811,176.64,5.87,174.62,172.86,0.96
 20260624,185.5,186.5,179,180.5,87593,176.96,2,174.28,173.59,0.65
-20260626,178,178,166.5,166.5,137808,176.09,-5.44,173.57,174.11,1.06
+20260625,179.5,179.5,173.5,175.5,88674,176.84,-0.76,174.03,174.26,0.69
+20260626,178,178,166.5,166.5,137808,175.98,-5.38,173.4,174.9,1.09
 ```
 
 ## Latest TDCC Snapshot

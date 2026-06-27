@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4923 力士
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:51 Asia/Taipei
+- generated_at: 2026-06-27 22:23:53 Asia/Taipei
 - stock_id: 4923
 - stock_name: 力士
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 54.2
 - close: 55
 - volume: 782000
-- ma5: 60
-- ema23_primary: 50.01
-- distance_to_ema23_pct: 9.98
-- ma20: 49.74
-- ma60: 40.99
-- ma120: 36.58
-- return_5d: 4.76
-- return_20d: 10.78
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 10.56
+- ma5: 60.36
+- ema23_primary: 50.77
+- distance_to_ema23_pct: 8.33
+- ma20: 50.28
+- ma60: 41.41
+- ma120: 36.83
+- return_5d: -4.68
+- return_20d: 12.59
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 9.39
 - distance_to_high_60_pct: -17.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,49.15,51.1,46.35,48.85,49000,39.6,23.34,38.98,35.84,0.13
 20260529,48.85,49.6,46.9,47,48000,40.22,16.85,39.67,36.1,0.12
 20260601,47,47.15,45.1,45.1,46000,40.63,11.01,40.09,36.35,0.12
 20260602,45.1,45.1,42,42.2,43,40.76,3.54,40.34,36.55,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.7,63.4,61.7,63.4,1569000,47.21,34.29,47.59,39.79,1.59
 20260623,64.3,67,62.1,63.3,7265000,48.55,30.37,48.7,40.24,5.38
 20260624,60.1,61.7,59.4,60.6,773000,49.56,22.28,49.48,40.66,0.56
-20260626,58.5,59.3,54.2,55,782000,50.01,9.98,49.74,40.99,0.55
+20260625,61.1,61.2,59.2,59.5,485000,50.39,18.09,49.97,41.07,0.34
+20260626,58.5,59.3,54.2,55,782000,50.77,8.33,50.28,41.41,0.54
 ```
 
 ## Latest TDCC Snapshot

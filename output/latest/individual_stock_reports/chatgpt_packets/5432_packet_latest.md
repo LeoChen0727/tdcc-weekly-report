@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5432 新門
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5432
 - stock_name: 新門
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 158.5
 - close: 162.5
 - volume: 381000
-- ma5: 157.6
-- ema23_primary: 144.94
-- distance_to_ema23_pct: 12.11
-- ma20: 140.8
-- ma60: 140.02
-- ma120: 150.28
-- return_5d: 15.25
-- return_20d: 18.61
-- volume_ratio: 1.65
-- distance_to_ma20_pct_auxiliary: 15.41
-- distance_to_high_60_pct: -0.91
+- ma5: 159.2
+- ema23_primary: 146.37
+- distance_to_ema23_pct: 11.02
+- ma20: 142.18
+- ma60: 140.43
+- ma120: 150.22
+- return_5d: 5.52
+- return_20d: 20.82
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: 14.3
+- distance_to_high_60_pct: -1.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,137,140.5,134,134.5,137000,141.38,-4.87,142.45,140.43,0.82
 20260529,136,137.5,134.5,135,136000,140.85,-4.16,142.22,140.14,0.81
 20260601,139,140.5,135.5,135.5,138000,140.41,-3.49,142,140.08,0.8
 20260602,135.5,137.5,133,133,135,139.79,-4.86,141.53,139.95,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,154,159,152.5,156.5,390000,140.62,11.29,137.9,138.67,2
 20260623,157,157.5,151,153,349000,141.65,8.01,138.43,138.97,1.7
 20260624,153,162.5,153,162,427000,143.35,13.01,139.53,139.49,1.95
-20260626,160.5,164,158.5,162.5,381000,144.94,12.11,140.8,140.02,1.65
+20260625,163.5,165,158.5,162,380000,144.9,11.8,140.78,140.01,1.64
+20260626,160.5,164,158.5,162.5,381000,146.37,11.02,142.18,140.43,1.56
 ```
 
 ## Latest TDCC Snapshot

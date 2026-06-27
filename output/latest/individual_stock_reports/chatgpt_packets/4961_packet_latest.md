@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 165
 - close: 165
 - volume: 1031567
-- ma5: 173.6
-- ema23_primary: 169.97
-- distance_to_ema23_pct: -2.93
-- ma20: 169.9
-- ma60: 164.2
-- ma120: 155.23
-- return_5d: -4.35
-- return_20d: -3.79
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -2.88
+- ma5: 173.7
+- ema23_primary: 170.29
+- distance_to_ema23_pct: -3.1
+- ma20: 170.12
+- ma60: 164.61
+- ma120: 155.47
+- return_5d: -5.17
+- return_20d: -2.94
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -3.01
 - distance_to_high_60_pct: -12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,171.5,175,167,170,1187791,168.05,1.16,168.72,155.82,0.68
 20260529,172.5,173,168.5,172.5,798614,168.42,2.42,169.72,156.22,0.46
 20260601,171.5,175,168,175,1771929,168.97,3.57,170.7,156.83,1
 20260602,176,176,168.5,173,1380749,169.3,2.18,171.4,157.36,0.77
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,177,182.5,177,177.5,1636642,169.4,4.78,170.15,162.73,1.56
 20260623,183,187.5,173.5,174.5,2330310,169.83,2.75,170.1,163.28,2.14
 20260624,172.5,179,170,177,1024953,170.43,3.86,170.22,163.85,0.95
-20260626,175,175.5,165,165,1031567,169.97,-2.93,169.9,164.2,0.96
+20260625,177,179.5,174,174.5,857596,170.77,2.19,170.38,164.36,0.81
+20260626,175,175.5,165,165,1031567,170.29,-3.1,170.12,164.61,0.98
 ```
 
 ## Latest TDCC Snapshot

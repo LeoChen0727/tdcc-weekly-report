@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4130 健亞
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:42 Asia/Taipei
 - stock_id: 4130
 - stock_name: 健亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 24.9
 - close: 24.9
 - volume: 56000
-- ma5: 25.29
-- ema23_primary: 26.06
-- distance_to_ema23_pct: -4.46
-- ma20: 25.82
-- ma60: 28.51
-- ma120: 29.98
-- return_5d: -4.6
-- return_20d: -5.14
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -3.58
+- ma5: 25.21
+- ema23_primary: 26
+- distance_to_ema23_pct: -4.22
+- ma20: 25.8
+- ma60: 28.35
+- ma120: 29.97
+- return_5d: -3.11
+- return_20d: -3.67
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -3.48
 - distance_to_high_60_pct: -28.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.25,27.05,25.8,25.85,26000,27.79,-6.97,27.27,30.61,0.22
 20260529,25.85,26.8,25.7,26.6,26000,27.69,-3.93,27.23,30.53,0.23
 20260601,26.35,27,26.1,26.2,26000,27.56,-4.95,27.2,30.41,0.26
 20260602,26.1,26.55,25.9,25.95,26,27.43,-5.4,27.12,30.3,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.7,25.7,24.85,25.25,231000,26.33,-4.11,25.97,28.84,3.15
 20260623,25.5,25.7,24.85,25.1,69000,26.23,-4.31,25.91,28.74,0.92
 20260624,24.35,26.2,24.3,25.5,94000,26.17,-2.56,25.89,28.63,1.19
-20260626,25.15,25.55,24.9,24.9,56000,26.06,-4.46,25.82,28.51,0.7
+20260625,25.1,25.5,25.05,25.3,47000,26.1,-3.05,25.84,28.52,0.59
+20260626,25.15,25.55,24.9,24.9,56000,26,-4.22,25.8,28.35,0.69
 ```
 
 ## Latest TDCC Snapshot

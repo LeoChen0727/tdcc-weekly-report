@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:46 Asia/Taipei
+- generated_at: 2026-06-27 22:24:46 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 210
 - close: 210
 - volume: 1700000
-- ma5: 232.9
-- ema23_primary: 240.68
-- distance_to_ema23_pct: -12.75
-- ma20: 252.18
-- ma60: 210.85
-- ma120: 158.74
-- return_5d: -14.98
-- return_20d: -15.83
+- ma5: 231.3
+- ema23_primary: 239.88
+- distance_to_ema23_pct: -12.46
+- ma20: 251.55
+- ma60: 212.33
+- ma120: 159.77
+- return_5d: -12.86
+- return_20d: -14.46
 - volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -16.72
+- distance_to_ma20_pct_auxiliary: -16.52
 - distance_to_high_60_pct: -29.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,250,253.5,242,245.5,248000,225.69,8.78,234.55,164.78,0.04
 20260529,255,259.5,252.5,258.5,256000,228.42,13.17,237.8,167.46,0.04
 20260601,266.5,283,266.5,283,277000,232.97,21.48,241.85,170.66,0.06
 20260602,297,297,269,277.5,278,236.68,17.25,245.62,173.68,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,240,248,235,245,1880000,245.25,-0.1,256.07,205.97,0.46
 20260623,245.5,245.5,235,237,1122000,244.56,-3.09,255.4,207.9,0.27
 20260624,229.5,237.5,229.5,231.5,1082000,243.47,-4.92,254.15,209.53,0.26
-20260626,225.5,226,210,210,1700000,240.68,-12.75,252.18,210.85,0.4
+20260625,239,239,230,233,540000,242.6,-3.96,253.32,211.23,0.13
+20260626,225.5,226,210,210,1700000,239.88,-12.46,251.55,212.33,0.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6968 萬達寵物
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:35 Asia/Taipei
+- generated_at: 2026-06-27 22:24:36 Asia/Taipei
 - stock_id: 6968
 - stock_name: 萬達寵物
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42.2
 - close: 42.5
 - volume: 53000
-- ma5: 43.05
-- ema23_primary: 43.29
-- distance_to_ema23_pct: -1.83
+- ma5: 42.89
+- ema23_primary: 43.24
+- distance_to_ema23_pct: -1.72
 - ma20: 43.12
-- ma60: 44.04
-- ma120: 47.47
-- return_5d: -2.52
-- return_20d: -1.05
+- ma60: 43.98
+- ma120: 47.37
+- return_5d: -2.41
+- return_20d: -0.35
 - volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -1.43
+- distance_to_ma20_pct_auxiliary: -1.44
 - distance_to_high_60_pct: -10.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,42.95,43,42.65,42.65,43000,43.83,-2.69,43.42,45.33,0.74
 20260529,42.5,43.4,42.5,43,43000,43.76,-1.73,43.39,45.25,0.72
 20260601,42.6,43.2,42.6,43,43000,43.7,-1.59,43.4,45.19,0.75
 20260602,42.8,43,42.45,42.6,43,43.6,-2.3,43.39,45.1,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43,43.3,42.7,43.3,45000,43.44,-0.32,43.18,44.24,0.97
 20260623,42.85,43,42.7,42.7,62000,43.38,-1.56,43.12,44.17,1.31
 20260624,43.2,43.2,42.7,43.2,25000,43.36,-0.38,43.14,44.11,0.54
-20260626,42.55,42.6,42.2,42.5,53000,43.29,-1.83,43.12,44.04,1.13
+20260625,43.2,43.2,42.4,42.75,42000,43.31,-1.3,43.13,44.04,0.9
+20260626,42.55,42.6,42.2,42.5,53000,43.24,-1.72,43.12,43.98,1.13
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6591 動力-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6591
 - stock_name: 動力-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 53
 - close: 53
 - volume: 236473
-- ma5: 54.5
-- ema23_primary: 55.39
-- distance_to_ema23_pct: -4.31
+- ma5: 54.26
+- ema23_primary: 55.29
+- distance_to_ema23_pct: -4.14
 - ma20: 56.05
-- ma60: 56.58
-- ma120: 62.66
-- return_5d: -3.64
-- return_20d: -4.33
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -5.44
+- ma60: 56.46
+- ma120: 62.46
+- return_5d: -4.5
+- return_20d: -2.57
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -5.43
 - distance_to_high_60_pct: -14.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,55.5,56,53.8,54.4,343565,55.2,-1.45,54.9,58.95,0.91
 20260529,55.6,58.8,55.6,57.2,1232174,55.37,3.31,54.91,58.8,2.86
 20260601,57.2,58.9,57.2,58.2,794034,55.6,4.67,54.9,58.72,1.76
 20260602,58.8,59.3,58,59,620500,55.89,5.57,54.95,58.61,1.33
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,55.5,55.9,54.8,55.1,272456,55.82,-1.29,56.2,57.03,0.68
 20260623,55.2,55.2,54.2,54.2,191601,55.69,-2.67,56.17,56.88,0.5
 20260624,54.2,54.9,54,54.7,123009,55.6,-1.62,56.17,56.74,0.33
-20260626,54.3,54.3,53,53,236473,55.39,-4.31,56.05,56.58,0.66
+20260625,54.4,55.4,54.3,54.3,101116,55.49,-2.15,56.12,56.6,0.29
+20260626,54.3,54.3,53,53,236473,55.29,-4.14,56.05,56.46,0.68
 ```
 
 ## Latest TDCC Snapshot

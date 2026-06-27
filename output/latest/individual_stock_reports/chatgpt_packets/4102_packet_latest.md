@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4102 永日
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:38 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 4102
 - stock_name: 永日
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.75
 - close: 18.95
 - volume: 39000
-- ma5: 19.01
-- ema23_primary: 18.35
-- distance_to_ema23_pct: 3.26
-- ma20: 18.13
-- ma60: 18.26
-- ma120: 19.12
-- return_5d: 0
+- ma5: 19.02
+- ema23_primary: 18.41
+- distance_to_ema23_pct: 2.94
+- ma20: 18.23
+- ma60: 18.25
+- ma120: 19.1
+- return_5d: -0.26
 - return_20d: 11.47
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 4.52
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 3.94
 - distance_to_high_60_pct: -3.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17,17.1,16.75,17,17000,17.62,-3.52,17.44,18.68,0.24
 20260529,16.9,16.9,16.75,16.9,17000,17.56,-3.76,17.37,18.63,0.26
 20260601,16.8,16.8,16.6,16.75,17000,17.49,-4.25,17.31,18.57,0.26
 20260602,16.8,16.9,16.65,16.8,17,17.43,-3.64,17.26,18.52,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.95,19.05,18.7,19,47000,18.15,4.66,17.86,18.27,0.74
 20260623,18.8,19,18.75,19,15000,18.22,4.26,17.93,18.26,0.24
 20260624,18.95,19.1,18.85,19.1,35000,18.3,4.39,18.03,18.26,0.54
-20260626,18.85,19.05,18.75,18.95,39000,18.35,3.26,18.13,18.26,0.59
+20260625,19.1,19.15,18.85,19.05,59000,18.36,3.76,18.14,18.26,0.88
+20260626,18.85,19.05,18.75,18.95,39000,18.41,2.94,18.23,18.25,0.57
 ```
 
 ## Latest TDCC Snapshot

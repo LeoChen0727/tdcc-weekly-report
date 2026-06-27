@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6120 達運
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:06 Asia/Taipei
+- generated_at: 2026-06-27 22:24:07 Asia/Taipei
 - stock_id: 6120
 - stock_name: 達運
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 284
+- price_rows: 285
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 13.5
 - close: 13.6
 - volume: 3651910
-- ma5: 14.65
-- ema23_primary: 14.28
-- distance_to_ema23_pct: -4.77
-- ma20: 14.51
-- ma60: 13.85
-- ma120: 13.46
-- return_5d: -7.48
-- return_20d: -2.16
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -6.29
+- ma5: 14.55
+- ema23_primary: 14.3
+- distance_to_ema23_pct: -4.87
+- ma20: 14.55
+- ma60: 13.89
+- ma120: 13.47
+- return_5d: -9.63
+- return_20d: -1.09
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -6.55
 - distance_to_high_60_pct: -17.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.95,14.6,13.65,13.75,5365705,13.53,1.63,13.26,13.39,1.15
 20260529,14.05,14.45,13.85,14.35,4929934,13.6,5.53,13.34,13.42,1.05
 20260601,14.5,15.5,14.3,14.9,8166804,13.71,8.71,13.45,13.46,1.64
 20260602,15.1,15.5,14.5,15.45,8345628,13.85,11.54,13.57,13.51,1.6
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.45,15.7,15.15,15.25,4622794,14.28,6.81,14.52,13.79,0.78
 20260623,15.25,15.5,14.35,14.5,4586769,14.3,1.42,14.48,13.81,0.83
 20260624,14.35,15.4,14.3,14.85,4855165,14.34,3.54,14.53,13.84,0.91
-20260626,14.45,14.45,13.5,13.6,3651910,14.28,-4.77,14.51,13.85,0.69
+20260625,15.1,15.1,14.35,14.55,2905390,14.36,1.32,14.56,13.87,0.55
+20260626,14.45,14.45,13.5,13.6,3651910,14.3,-4.87,14.55,13.89,0.7
 ```
 
 ## Latest TDCC Snapshot

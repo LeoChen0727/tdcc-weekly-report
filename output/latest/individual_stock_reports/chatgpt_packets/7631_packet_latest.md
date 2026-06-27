@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7631 聚賢研發-創
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:41 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7631
 - stock_name: 聚賢研發-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 279
+- price_rows: 280
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 153.5
 - close: 164
 - volume: 635519
-- ma5: 144.4
-- ema23_primary: 133.49
-- distance_to_ema23_pct: 22.86
-- ma20: 131
-- ma60: 126.29
-- ma120: 124.8
-- return_5d: 26.64
-- return_20d: 28.63
-- volume_ratio: 7.26
-- distance_to_ma20_pct_auxiliary: 25.19
+- ma5: 150.6
+- ema23_primary: 135.92
+- distance_to_ema23_pct: 20.66
+- ma20: 132.82
+- ma60: 127.09
+- ma120: 125.05
+- return_5d: 24.71
+- return_20d: 30.16
+- volume_ratio: 5.77
+- distance_to_ma20_pct_auxiliary: 23.47
 - distance_to_high_60_pct: -2.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,126,127,125.5,126,51565,125.53,0.38,125.67,121.39,0.94
 20260528,125,126,122.5,122.5,29216,125.28,-2.22,125.45,121.42,0.54
 20260529,124.5,128,124.5,125,24988,125.25,-0.2,125.45,121.53,0.46
 20260601,126,127.5,125,125,20894,125.23,-0.18,125.4,121.73,0.4
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,132.5,139,132.5,139,110187,128.18,8.44,127.38,124.58,2.47
 20260623,139,139,134,137.5,49652,128.96,6.62,127.95,124.92,1.1
 20260624,137.5,150,137.5,150,278819,130.71,14.75,129.18,125.5,4.86
-20260626,169,169,153.5,164,635519,133.49,22.86,131,126.29,7.26
+20260625,149.5,165,149,162.5,503827,133.36,21.85,130.93,126.27,6.22
+20260626,169,169,153.5,164,635519,135.92,20.66,132.82,127.09,5.77
 ```
 
 ## Latest TDCC Snapshot

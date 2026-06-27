@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2338 光罩
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:54 Asia/Taipei
+- generated_at: 2026-06-27 22:22:58 Asia/Taipei
 - stock_id: 2338
 - stock_name: 光罩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 47.35
 - close: 47.5
 - volume: 4402443
-- ma5: 51.86
-- ema23_primary: 51.29
-- distance_to_ema23_pct: -7.39
-- ma20: 51.74
-- ma60: 49.71
-- ma120: 45.98
-- return_5d: -9
-- return_20d: -15.48
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -8.2
+- ma5: 51.24
+- ema23_primary: 51.18
+- distance_to_ema23_pct: -7.19
+- ma20: 51.46
+- ma60: 49.79
+- ma120: 46.1
+- return_5d: -10.88
+- return_20d: -15.03
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -7.69
 - distance_to_high_60_pct: -22.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,56.9,61.4,55.1,55.9,15689455,51.54,8.47,51.28,49.13,1.79
 20260529,57.9,59.4,56.9,57.9,10061343,52.07,11.2,51.82,49.2,1.1
 20260601,59,60,56.9,57.2,11246181,52.5,8.96,52.3,49.34,1.17
 20260602,56.9,57,53.1,54.5,8447087,52.66,3.49,52.49,49.37,0.88
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,53.6,55.3,53.5,54,6366827,51.52,4.81,52.58,49.54,0.7
 20260623,54,54.3,51.8,52.9,4516291,51.64,2.45,52.37,49.61,0.53
 20260624,52,52.2,50.4,51.6,3488385,51.63,-0.07,52.18,49.7,0.45
-20260626,49.7,51.1,47.35,47.5,4402443,51.29,-7.39,51.74,49.71,0.58
+20260625,52.2,52.6,50.2,50.2,2926654,51.51,-2.55,51.88,49.75,0.39
+20260626,49.7,51.1,47.35,47.5,4402443,51.18,-7.19,51.46,49.79,0.63
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6179 亞通
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:09 Asia/Taipei
+- generated_at: 2026-06-27 22:24:11 Asia/Taipei
 - stock_id: 6179
 - stock_name: 亞通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 25.85
 - close: 25.9
 - volume: 1453000
-- ma5: 26.83
-- ema23_primary: 25.15
-- distance_to_ema23_pct: 3
-- ma20: 24.7
-- ma60: 24.48
-- ma120: 26.2
-- return_5d: 0.97
-- return_20d: 8.82
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 4.88
+- ma5: 26.69
+- ema23_primary: 25.22
+- distance_to_ema23_pct: 2.68
+- ma20: 24.82
+- ma60: 24.5
+- ma120: 26.18
+- return_5d: -3.36
+- return_20d: 9.51
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 4.36
 - distance_to_high_60_pct: -7.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.8,24.15,23.5,23.65,24000,24.46,-3.31,24.32,25.01,0.02
 20260529,24,24,23.7,23.85,24000,24.41,-2.29,24.32,24.95,0.02
 20260601,24,24.6,23.65,23.8,24000,24.36,-2.3,24.32,24.93,0.02
 20260602,23.85,24.05,23.35,23.6,24,24.3,-2.86,24.29,24.91,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.05,27.75,26.65,26.7,3210000,24.64,8.36,24.31,24.43,3
 20260623,27.2,28.05,26.45,27.2,4007000,24.85,9.44,24.43,24.44,3.16
 20260624,27.45,28,27,27.55,2535000,25.08,9.86,24.59,24.47,1.82
-20260626,26.15,26.55,25.85,25.9,1453000,25.15,3,24.7,24.48,0.99
+20260625,27.6,27.7,26,26.1,2330000,25.16,3.72,24.7,24.48,1.54
+20260626,26.15,26.55,25.85,25.9,1453000,25.22,2.68,24.82,24.5,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -187,9 +187,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6179 | 亞通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/07/22 5.最後過戶日:115/07/23 6.停止過戶起始日期:115/07/24 7.停止過戶截止日期:115/07/28 8.除權（息）基準日:115/07/28 9.債券最後申請轉換日期:115/07/01 10.債券停止轉換起始日期:115/07/03 11.債券停止轉換截止日期:115/07/28 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 6179 | 亞通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/07/22 5.最後過戶日:115/07/23 6.停止過戶起始日期:115/07/24 7.停止過戶截止日期:115/07/28 8.除權（息）基準日:115/07/28 9.債券最後申請轉換日期:115/07/01 10.債券停止轉換起始日期:115/07/03 11.債券停止轉換截止日期:115/07/28 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 6179 | 亞通 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 14.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/07/22 5.最後過戶日:115/07/23 6.停止過戶起始日期:115/07/24 7.停止過戶截止日期:115/07/28 8.除權（息）基準日:115/07/28 9.債券最後申請轉換日期:115/07/01 10.債券停止轉換起始日期:115/07/03 11.債券停止轉換截止日期:115/07/28 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6179 | 亞通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6179 | 亞通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6179 | 亞通 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 15.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

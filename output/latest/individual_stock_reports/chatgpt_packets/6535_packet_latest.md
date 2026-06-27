@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6535 順藥
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:21 Asia/Taipei
 - stock_id: 6535
 - stock_name: 順藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 97
 - close: 97
 - volume: 253000
-- ma5: 100.6
-- ema23_primary: 110.62
-- distance_to_ema23_pct: -12.31
-- ma20: 109.92
-- ma60: 125.84
-- ma120: 149.02
-- return_5d: -6.73
-- return_20d: -21.77
+- ma5: 99.96
+- ema23_primary: 109.69
+- distance_to_ema23_pct: -11.57
+- ma20: 108.84
+- ma60: 125.16
+- ma120: 148.26
+- return_5d: -5.83
+- return_20d: -20.16
 - volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: -11.76
+- distance_to_ma20_pct_auxiliary: -10.88
 - distance_to_high_60_pct: -39.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,124,126,121.5,121.5,123000,130.17,-6.66,131.55,139.25,0.68
 20260529,125,129,122,122,125000,129.48,-5.78,130.05,138.48,0.76
 20260601,127,133,123,124,127000,129.03,-3.9,129.12,137.92,0.98
 20260602,126,126,120.5,121.5,122,128.4,-5.37,128.28,137.26,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,103,103,99,100.5,463000,113.86,-11.73,113.75,128.21,2.8
 20260623,102,103.5,99.7,100,245000,112.7,-11.27,112.4,127.43,1.43
 20260624,99.1,103,98,102.5,278000,111.85,-8.36,111.28,126.63,1.55
-20260626,99.4,100,97,97,253000,110.62,-12.31,109.92,125.84,1.36
+20260625,103,103,99.8,99.8,128000,110.85,-9.97,110.06,125.89,0.71
+20260626,99.4,100,97,97,253000,109.69,-11.57,108.84,125.16,1.36
 ```
 
 ## Latest TDCC Snapshot

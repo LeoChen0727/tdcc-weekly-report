@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6526 達發
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:21 Asia/Taipei
 - stock_id: 6526
 - stock_name: 達發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 625
 - close: 626
 - volume: 1169286
-- ma5: 686
-- ema23_primary: 666.5
-- distance_to_ema23_pct: -6.08
-- ma20: 666.35
-- ma60: 618.92
-- ma120: 543.44
-- return_5d: -6.01
-- return_20d: -8.21
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -6.06
+- ma5: 685.2
+- ema23_primary: 668.16
+- distance_to_ema23_pct: -6.31
+- ma20: 667.95
+- ma60: 622.54
+- ma120: 545.56
+- return_5d: -10.06
+- return_20d: -5.15
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: -6.28
 - distance_to_high_60_pct: -20.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,683,694,650,660,1339136,661.59,-0.24,682.75,569.04,0.53
 20260529,678,678,657,659,779235,661.37,-0.36,688.15,571.27,0.31
 20260601,667,682,661,673,749021,662.34,1.61,692.35,573.58,0.31
 20260602,684,715,678,714,2511965,666.65,7.1,698.25,576.61,1.03
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,711,725,700,705,1189990,664.19,6.14,671.3,609.98,1.05
 20260623,723,726,691,697,969646,666.92,4.51,668.65,613.24,0.92
 20260624,690,709,682,706,812201,670.18,5.34,669.15,616.74,0.83
-20260626,684,686,625,626,1169286,666.5,-6.08,666.35,618.92,1.23
+20260625,717,720,690,692,765480,672,2.98,669.65,620.02,0.82
+20260626,684,686,625,626,1169286,668.16,-6.31,667.95,622.54,1.27
 ```
 
 ## Latest TDCC Snapshot

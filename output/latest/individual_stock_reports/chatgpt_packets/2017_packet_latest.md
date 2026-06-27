@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2017 官田鋼
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:48 Asia/Taipei
+- generated_at: 2026-06-27 22:22:52 Asia/Taipei
 - stock_id: 2017
 - stock_name: 官田鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 8.93
 - close: 9
 - volume: 484205
-- ma5: 9.23
-- ema23_primary: 9.23
-- distance_to_ema23_pct: -2.45
-- ma20: 9.31
-- ma60: 9.17
-- ma120: 9.17
-- return_5d: -2.91
-- return_20d: 1.01
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -3.37
-- distance_to_high_60_pct: -12.2
+- ma5: 9.19
+- ema23_primary: 9.22
+- distance_to_ema23_pct: -2.34
+- ma20: 9.32
+- ma60: 9.15
+- ma120: 9.18
+- return_5d: -3.54
+- return_20d: 0.11
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -3.43
+- distance_to_high_60_pct: -11.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,8.91,9.29,8.91,8.99,1124518,8.86,1.44,8.75,9.35,1.3
 20260529,8.95,9.06,8.92,8.99,742839,8.87,1.32,8.77,9.34,0.85
 20260601,8.99,9.13,8.79,9.04,1343091,8.89,1.73,8.79,9.33,1.48
 20260602,9.04,9.06,8.85,9.05,1050124,8.9,1.68,8.81,9.32,1.13
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9.33,9.55,9.32,9.36,787353,9.25,1.21,9.29,9.21,0.72
 20260623,9.45,9.45,9.22,9.26,659115,9.25,0.12,9.29,9.2,0.67
 20260624,9.3,9.3,9.2,9.22,326108,9.25,-0.28,9.31,9.18,0.35
-20260626,9.11,9.11,8.93,9,484205,9.23,-2.45,9.31,9.17,0.54
+20260625,9.23,9.34,9.11,9.11,557840,9.23,-1.35,9.32,9.17,0.62
+20260626,9.11,9.11,8.93,9,484205,9.22,-2.34,9.32,9.15,0.55
 ```
 
 ## Latest TDCC Snapshot

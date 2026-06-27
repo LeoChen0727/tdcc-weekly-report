@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3205 佰研
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:22 Asia/Taipei
+- generated_at: 2026-06-27 22:23:25 Asia/Taipei
 - stock_id: 3205
 - stock_name: 佰研
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 51.5
 - close: 51.7
 - volume: 198000
-- ma5: 52.42
-- ema23_primary: 53.48
-- distance_to_ema23_pct: -3.33
-- ma20: 53.48
-- ma60: 56.05
-- ma120: 53.34
-- return_5d: -2.08
-- return_20d: -2.27
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: -3.33
+- ma5: 52.38
+- ema23_primary: 53.38
+- distance_to_ema23_pct: -3.16
+- ma20: 53.39
+- ma60: 55.97
+- ma120: 53.35
+- return_5d: -1.71
+- return_20d: -4.61
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -3.17
 - distance_to_high_60_pct: -22.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,52.7,54.6,52.7,54.2,54000,54.86,-1.21,54.62,55.44,0.35
 20260529,54.2,54.5,53.7,54,54000,54.79,-1.44,54.51,55.48,0.36
 20260601,53.6,54.4,52.6,53.3,53000,54.67,-2.5,54.34,55.51,0.39
 20260602,53.5,54,52.3,52.3,53,54.47,-3.98,54.17,55.52,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,52.4,52.5,51.5,52.1,268000,53.8,-3.15,53.59,56.1,1.71
 20260623,52.6,54.9,51.5,53.5,329000,53.77,-0.51,53.59,56.12,1.93
 20260624,52.5,53,51.9,52.2,162000,53.64,-2.69,53.54,56.12,0.92
-20260626,52.4,52.6,51.5,51.7,198000,53.48,-3.33,53.48,56.05,1.08
+20260625,52.5,52.6,52,52.4,89000,53.54,-2.12,53.52,56.06,0.5
+20260626,52.4,52.6,51.5,51.7,198000,53.38,-3.16,53.39,55.97,1.07
 ```
 
 ## Latest TDCC Snapshot

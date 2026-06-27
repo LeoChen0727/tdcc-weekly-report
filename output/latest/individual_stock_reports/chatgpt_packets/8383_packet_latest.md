@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8383 千附
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8383
 - stock_name: 千附
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 60.6
 - close: 60.6
 - volume: 3920000
-- ma5: 61.02
-- ema23_primary: 59.95
-- distance_to_ema23_pct: 1.09
-- ma20: 60.1
-- ma60: 58.41
-- ma120: 50.09
-- return_5d: 0.83
-- return_20d: 0.66
-- volume_ratio: 3.52
-- distance_to_ma20_pct_auxiliary: 0.83
+- ma5: 61.26
+- ema23_primary: 60.08
+- distance_to_ema23_pct: 0.87
+- ma20: 60.18
+- ma60: 58.7
+- ma120: 50.27
+- return_5d: 0.33
+- return_20d: 1
+- volume_ratio: 3.1
+- distance_to_ma20_pct_auxiliary: 0.7
 - distance_to_high_60_pct: -21.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,60.9,62.6,59.9,60,61000,58.67,2.27,59.33,52.94,0.04
 20260529,62,62.3,59.9,60.6,61000,58.83,3.01,59.22,53.26,0.04
 20260601,62.6,65.5,62.6,64.2,64000,59.27,8.31,59.1,53.66,0.05
 20260602,64.2,64.2,58.7,60.4,61,59.37,1.74,58.91,53.99,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.2,62.8,60.9,61.7,1916000,59.62,3.48,60.2,57.62,2.95
 20260623,62,62.1,59.6,59.6,1210000,59.62,-0.04,60.01,57.85,1.71
 20260624,59.4,64.5,59.4,62.8,4326000,59.89,4.86,60.08,58.15,4.7
-20260626,63.3,65.5,60.6,60.6,3920000,59.95,1.09,60.1,58.41,3.52
+20260625,64.4,66,61.2,61.6,3056000,60.03,2.62,60.15,58.43,2.86
+20260626,63.3,65.5,60.6,60.6,3920000,60.08,0.87,60.18,58.7,3.1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6715 嘉基
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:27 Asia/Taipei
+- generated_at: 2026-06-27 22:24:28 Asia/Taipei
 - stock_id: 6715
 - stock_name: 嘉基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 455
 - close: 455
 - volume: 209632
-- ma5: 505.3
-- ema23_primary: 457.67
-- distance_to_ema23_pct: -0.58
-- ma20: 446.9
-- ma60: 433.46
-- ma120: 302.61
-- return_5d: -4.21
-- return_20d: -2.57
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: 1.81
+- ma5: 507
+- ema23_primary: 459.36
+- distance_to_ema23_pct: -0.95
+- ma20: 449.43
+- ma60: 435.79
+- ma120: 305.79
+- return_5d: -3.5
+- return_20d: 5.94
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 1.24
 - distance_to_high_60_pct: -20.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,455,458,425.5,429.5,789210,451.48,-4.87,464.3,380.83,0.62
 20260529,429.5,453.5,426,436,311079,450.19,-3.15,466.07,384.96,0.26
 20260601,443,455,428,453,384973,450.42,0.57,467.43,389.57,0.33
 20260602,443.5,453,431,437.5,265878,449.35,-2.64,467.1,393.64,0.25
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,518,518,516,518,1188042,442.35,17.1,440.35,424.02,2.04
 20260623,544,569,540,569,2246558,452.9,25.63,445.82,428.43,3.37
 20260624,552,569,513,513,1335197,457.91,12.03,447.5,431.61,1.89
-20260626,485,506,455,455,209632,457.67,-0.58,446.9,433.46,0.3
+20260625,516,520,477,480,385895,459.75,4.4,448.15,433.88,0.55
+20260626,485,506,455,455,209632,459.36,-0.95,449.43,435.79,0.31
 ```
 
 ## Latest TDCC Snapshot

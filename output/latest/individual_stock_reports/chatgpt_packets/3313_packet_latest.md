@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3313 斐成
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:29 Asia/Taipei
 - stock_id: 3313
 - stock_name: 斐成
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11.1
 - close: 11.1
 - volume: 277000
-- ma5: 11.66
-- ema23_primary: 11.61
-- distance_to_ema23_pct: -4.35
-- ma20: 11.51
-- ma60: 11.91
-- ma120: 12.79
-- return_5d: -4.72
-- return_20d: -0.45
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -3.58
+- ma5: 11.53
+- ema23_primary: 11.59
+- distance_to_ema23_pct: -4.26
+- ma20: 11.54
+- ma60: 11.88
+- ma120: 12.76
+- return_5d: -8.64
+- return_20d: 0.91
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: -3.79
 - distance_to_high_60_pct: -15.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.1,11.2,10.9,11,10000,11.65,-5.59,11.56,12.3,0.08
 20260529,11.15,11.2,11,11.1,11000,11.61,-4.36,11.51,12.27,0.09
 20260601,11.1,11.35,10.8,11.15,11000,11.57,-3.61,11.46,12.25,0.09
 20260602,11.15,11.4,10.9,11.2,11,11.54,-2.92,11.43,12.22,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.45,12.45,11.75,11.8,265000,11.66,1.24,11.49,11.98,1.33
 20260623,11.75,11.75,11.5,11.6,178000,11.65,-0.44,11.49,11.96,0.86
 20260624,11.6,11.75,11.55,11.65,163000,11.65,-0.01,11.52,11.94,0.76
-20260626,11.5,11.55,11.1,11.1,277000,11.61,-4.35,11.51,11.91,1.22
+20260625,11.65,11.7,11.5,11.5,169000,11.64,-1.19,11.53,11.91,0.76
+20260626,11.5,11.55,11.1,11.1,277000,11.59,-4.26,11.54,11.88,1.18
 ```
 
 ## Latest TDCC Snapshot

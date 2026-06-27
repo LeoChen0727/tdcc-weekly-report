@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4743 合一
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:48 Asia/Taipei
+- generated_at: 2026-06-27 22:23:50 Asia/Taipei
 - stock_id: 4743
 - stock_name: 合一
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48.1
 - close: 48.15
 - volume: 2997000
-- ma5: 48.41
-- ema23_primary: 49.37
-- distance_to_ema23_pct: -2.46
-- ma20: 49.21
-- ma60: 51.43
-- ma120: 55.82
-- return_5d: 1.26
-- return_20d: -5.22
-- volume_ratio: 2.45
-- distance_to_ma20_pct_auxiliary: -2.16
+- ma5: 48.85
+- ema23_primary: 49.42
+- distance_to_ema23_pct: -2.57
+- ma20: 49.24
+- ma60: 51.4
+- ma120: 55.75
+- return_5d: 0.31
+- return_20d: -3.12
+- volume_ratio: 2.19
+- distance_to_ma20_pct_auxiliary: -2.21
 - distance_to_high_60_pct: -18.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,50.8,50.9,49.7,49.7,50000,51.71,-3.89,51.88,52.77,0.03
 20260529,50.4,50.9,50,50.4,50000,51.6,-2.33,51.74,52.67,0.03
 20260601,50.7,51.9,49.85,51.1,51000,51.56,-0.89,51.59,52.63,0.03
 20260602,51.2,51.5,50.4,51.2,51,51.53,-0.64,51.31,52.59,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.2,48.2,47.8,47.9,1569000,49.56,-3.35,49.58,51.63,1.76
 20260623,48.05,49.35,48.05,48.6,2133000,49.48,-1.78,49.41,51.55,2.14
 20260624,48.4,49.6,48.3,49.4,1603000,49.48,-0.15,49.34,51.5,1.49
-20260626,50.3,51.2,48.1,48.15,2997000,49.37,-2.46,49.21,51.43,2.45
+20260625,50,51.8,49.7,50.2,2902000,49.54,1.34,49.31,51.47,2.38
+20260626,50.3,51.2,48.1,48.15,2997000,49.42,-2.57,49.24,51.4,2.19
 ```
 
 ## Latest TDCC Snapshot

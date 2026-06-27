@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7839 達人網
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7839
 - stock_name: 達人網
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 8
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,16 +119,16 @@
 - low: 44.9
 - close: 44.9
 - volume: 40000
-- ma5: 45.12
-- ema23_primary: 49.43
-- distance_to_ema23_pct: -9.17
-- ma20: 46.86
-- ma60: 46.86
-- ma120: 46.86
-- return_5d: -5.07
+- ma5: 44.84
+- ema23_primary: 49.12
+- distance_to_ema23_pct: -8.6
+- ma20: 46.74
+- ma60: 46.74
+- ma120: 46.74
+- return_5d: -4.87
 - return_20d:
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -4.19
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -3.95
 - distance_to_high_60_pct: -17.01
 
 ## Recent Price Preview
@@ -142,7 +142,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,47.5,47.5,45.9,45.95,64000,50.99,-9.89,48.49,48.49,0.38
 20260623,45.45,45.45,41.5,43,73000,50.33,-14.56,47.58,47.58,0.48
 20260624,43,44.8,42.5,44.55,31000,49.85,-10.62,47.14,47.14,0.23
-20260626,46.4,47.5,44.9,44.9,40000,49.43,-9.17,46.86,46.86,0.33
+20260625,44.9,46.6,44.3,45.8,66000,49.51,-7.49,46.98,46.98,0.52
+20260626,46.4,47.5,44.9,44.9,40000,49.12,-8.6,46.74,46.74,0.34
 ```
 
 ## Latest TDCC Snapshot

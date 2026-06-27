@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2908 特力
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:13 Asia/Taipei
+- generated_at: 2026-06-27 22:23:17 Asia/Taipei
 - stock_id: 2908
 - stock_name: 特力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.1
 - close: 21.2
 - volume: 143344
-- ma5: 21.02
+- ma5: 21.1
 - ema23_primary: 21.15
-- distance_to_ema23_pct: 0.25
-- ma20: 21.31
-- ma60: 20.8
+- distance_to_ema23_pct: 0.23
+- ma20: 21.3
+- ma60: 20.82
 - ma120: 20.53
 - return_5d: 1.92
-- return_20d: -0.7
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -0.52
+- return_20d: -1.17
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.46
 - distance_to_high_60_pct: -2.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,21.3,21.45,21.15,21.45,312229,20.91,2.59,20.91,20.4,1.03
 20260529,21.4,21.45,21.3,21.45,352317,20.95,2.37,20.95,20.42,1.13
 20260601,21.45,21.6,21.35,21.55,349972,21,2.6,21.01,20.45,1.11
 20260602,21.5,21.75,21.45,21.75,498810,21.07,3.25,21.07,20.47,1.51
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.8,20.95,20.7,20.9,175427,21.15,-1.19,21.33,20.75,0.51
 20260623,21,21.1,20.85,21.1,126936,21.15,-0.22,21.33,20.77,0.38
 20260624,21.15,21.15,20.85,21.1,117801,21.14,-0.2,21.32,20.78,0.38
-20260626,21.1,21.3,21.1,21.2,143344,21.15,0.25,21.31,20.8,0.51
+20260625,21.4,21.4,20.95,21.2,189037,21.15,0.25,21.31,20.8,0.66
+20260626,21.1,21.3,21.1,21.2,143344,21.15,0.23,21.3,20.82,0.52
 ```
 
 ## Latest TDCC Snapshot

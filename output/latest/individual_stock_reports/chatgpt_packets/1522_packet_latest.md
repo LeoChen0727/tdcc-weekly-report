@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:39 Asia/Taipei
+- generated_at: 2026-06-27 22:22:43 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 29.85
 - close: 29.85
 - volume: 860019
-- ma5: 30.85
-- ema23_primary: 31.12
-- distance_to_ema23_pct: -4.08
-- ma20: 31.62
-- ma60: 31.37
-- ma120: 37.76
-- return_5d: -5.09
-- return_20d: 4.37
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -5.61
+- ma5: 30.5
+- ema23_primary: 31.05
+- distance_to_ema23_pct: -3.87
+- ma20: 31.57
+- ma60: 31.34
+- ma120: 37.62
+- return_5d: -7.01
+- return_20d: -5.09
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -5.44
 - distance_to_high_60_pct: -13.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,31.35,31.45,31.35,31.45,3536658,30.56,2.9,30.48,33.04,2.28
 20260529,34.5,34.55,33.2,34.55,13169308,30.9,11.83,30.66,32.91,6.1
 20260601,33.95,33.95,32.65,32.85,5206287,31.06,5.77,30.76,32.77,2.19
 20260602,32.85,33.15,32,33.1,2790419,31.23,5.99,30.83,32.62,1.13
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.15,32.3,31.25,31.35,1232144,31.38,-0.09,31.43,31.49,0.59
 20260623,31.35,31.35,30.4,30.45,1102829,31.3,-2.72,31.49,31.45,0.53
 20260624,30.4,30.75,30,30.5,725961,31.23,-2.35,31.56,31.41,0.35
-20260626,30.2,30.45,29.85,29.85,860019,31.12,-4.08,31.62,31.37,0.42
+20260625,30.55,30.65,30.3,30.35,519425,31.16,-2.6,31.65,31.38,0.26
+20260626,30.2,30.45,29.85,29.85,860019,31.05,-3.87,31.57,31.34,0.45
 ```
 
 ## Latest TDCC Snapshot

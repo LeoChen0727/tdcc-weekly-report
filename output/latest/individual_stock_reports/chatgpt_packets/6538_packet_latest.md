@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6538 倉和
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:22 Asia/Taipei
 - stock_id: 6538
 - stock_name: 倉和
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 119
 - close: 119
 - volume: 894000
-- ma5: 125.7
-- ema23_primary: 113.32
-- distance_to_ema23_pct: 5.02
-- ma20: 116.28
-- ma60: 94.21
-- ma120: 80.83
-- return_5d: 13.88
-- return_20d: -3.25
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 2.33
+- ma5: 128.7
+- ema23_primary: 114.59
+- distance_to_ema23_pct: 3.85
+- ma20: 117.14
+- ma60: 95.11
+- ma120: 81.34
+- return_5d: 3.93
+- return_20d: 5.78
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 1.59
 - distance_to_high_60_pct: -17.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,123,129,111,112.5,118000,99.04,13.59,96.43,78.55,0.21
 20260529,117,123.5,117,123.5,121000,101.08,22.18,98.83,79.45,0.22
 20260601,120.5,127.5,120.5,126,125000,103.16,22.14,101.03,80.46,0.23
 20260602,126,129,123,129,125,105.31,22.5,103.39,81.48,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,115.5,125.5,115.5,125.5,960000,108.65,15.5,115.98,91.32,1.86
 20260623,138,138,133.5,138,2984000,111.1,24.21,116.31,92.49,4.53
 20260624,133.5,144,128.5,131.5,2081000,112.8,16.58,116.48,93.5,2.75
-20260626,129.5,129.5,119,119,894000,113.32,5.02,116.28,94.21,1.12
+20260625,133,135,125.5,129.5,913000,114.19,13.41,116.81,94.38,1.15
+20260626,129.5,129.5,119,119,894000,114.59,3.85,117.14,95.11,1.07
 ```
 
 ## Latest TDCC Snapshot

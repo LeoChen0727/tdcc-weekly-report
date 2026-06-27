@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5609 中菲行
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:03 Asia/Taipei
+- generated_at: 2026-06-27 22:24:04 Asia/Taipei
 - stock_id: 5609
 - stock_name: 中菲行
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 76
 - close: 76.2
 - volume: 212000
-- ma5: 76.46
-- ema23_primary: 79.54
-- distance_to_ema23_pct: -4.2
-- ma20: 80.51
-- ma60: 79.66
-- ma120: 79.45
-- return_5d: -1.55
-- return_20d: -4.99
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -5.35
+- ma5: 76.36
+- ema23_primary: 79.29
+- distance_to_ema23_pct: -3.9
+- ma20: 80.32
+- ma60: 79.62
+- ma120: 79.42
+- return_5d: -1.17
+- return_20d: -5.22
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -5.13
 - distance_to_high_60_pct: -10.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,80.8,81.1,80.2,80.4,81000,79.72,0.85,79.57,79.21,0.47
 20260529,83,83,80.5,81,81000,79.83,1.46,79.72,79.23,0.49
 20260601,81,81.4,80.5,81.3,81000,79.95,1.68,79.9,79.28,0.52
 20260602,81.4,81.6,81,81.5,81,80.08,1.77,80.08,79.34,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,76.7,76.7,76.2,76.3,482000,80.51,-5.23,81.11,79.78,1.53
 20260623,76.3,76.5,76,76.2,201000,80.15,-4.93,80.91,79.74,0.63
 20260624,75.9,76.9,75.9,76.5,197000,79.84,-4.19,80.71,79.7,0.6
-20260626,76.3,76.4,76,76.2,212000,79.54,-4.2,80.51,79.66,0.64
+20260625,76.5,76.7,76.2,76.6,246000,79.57,-3.74,80.53,79.66,0.73
+20260626,76.3,76.4,76,76.2,212000,79.29,-3.9,80.32,79.62,0.62
 ```
 
 ## Latest TDCC Snapshot

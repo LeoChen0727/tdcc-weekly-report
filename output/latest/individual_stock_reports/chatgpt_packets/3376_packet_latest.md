@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3376 新日興
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:27 Asia/Taipei
+- generated_at: 2026-06-27 22:23:30 Asia/Taipei
 - stock_id: 3376
 - stock_name: 新日興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 194.5
 - close: 194.5
 - volume: 6437961
-- ma5: 202.4
-- ema23_primary: 207.4
-- distance_to_ema23_pct: -6.22
-- ma20: 210.62
-- ma60: 207.04
-- ma120: 208.88
-- return_5d: -1.52
-- return_20d: -8.25
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -7.66
+- ma5: 201.5
+- ema23_primary: 206.78
+- distance_to_ema23_pct: -5.94
+- ma20: 210.4
+- ma60: 206.97
+- ma120: 208.81
+- return_5d: -5.12
+- return_20d: -5.12
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -7.56
 - distance_to_high_60_pct: -22.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,214.5,216.5,204,205,4332441,207.54,-1.23,206.45,205.9,0.81
 20260529,206.5,208,201.5,202.5,6564203,207.12,-2.23,206.38,205.76,1.2
 20260601,205,222.5,204.5,215,8550039,207.78,3.48,206.68,206.14,1.5
 20260602,215,217,206.5,211.5,3929312,208.09,1.64,206.97,206.45,0.68
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,207.5,211,204.5,209,5115521,209.87,-0.42,213.3,207.66,0.48
 20260623,209.5,209.5,201.5,202.5,5210627,209.26,-3.23,212.4,207.41,0.51
 20260624,200.5,205,199,201,3067287,208.57,-3.63,211.5,207.26,0.3
-20260626,200.5,201.5,194.5,194.5,6437961,207.4,-6.22,210.62,207.04,0.63
+20260625,205,214.5,200.5,200.5,8326873,207.9,-3.56,210.93,207.14,0.81
+20260626,200.5,201.5,194.5,194.5,6437961,206.78,-5.94,210.4,206.97,0.62
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1626 艾美特-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:43 Asia/Taipei
+- generated_at: 2026-06-27 22:22:47 Asia/Taipei
 - stock_id: 1626
 - stock_name: 艾美特-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 9.81
 - close: 9.82
 - volume: 103471
-- ma5: 9.83
-- ema23_primary: 10.02
-- distance_to_ema23_pct: -2.03
-- ma20: 9.99
-- ma60: 10.36
-- ma120: 10.63
-- return_5d: -3.25
-- return_20d: -2.29
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -1.69
+- ma5: 9.81
+- ema23_primary: 10.01
+- distance_to_ema23_pct: -1.89
+- ma20: 9.98
+- ma60: 10.35
+- ma120: 10.61
+- return_5d: -1.5
+- return_20d: -1.5
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -1.63
 - distance_to_high_60_pct: -18.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10.1,10.25,9.96,9.97,255576,10.32,-3.35,10.42,10.51,2.18
 20260529,9.99,10.15,9.98,9.99,102890,10.29,-2.9,10.36,10.49,0.91
 20260601,10,10.15,9.99,10,168609,10.26,-2.57,10.29,10.48,1.48
 20260602,10,10.1,9.99,10.1,148656,10.25,-1.47,10.24,10.47,1.25
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9.98,9.98,9.5,9.74,1410964,10.09,-3.42,10.02,10.37,6.67
 20260623,9.75,9.85,9.71,9.77,210306,10.06,-2.87,10.01,10.37,0.97
 20260624,9.78,9.91,9.75,9.86,82365,10.04,-1.82,10,10.36,0.37
-20260626,9.84,10.05,9.81,9.82,103471,10.02,-2.03,9.99,10.36,0.49
+20260625,9.95,10,9.82,9.85,49484,10.03,-1.76,9.99,10.36,0.24
+20260626,9.84,10.05,9.81,9.82,103471,10.01,-1.89,9.98,10.35,0.52
 ```
 
 ## Latest TDCC Snapshot

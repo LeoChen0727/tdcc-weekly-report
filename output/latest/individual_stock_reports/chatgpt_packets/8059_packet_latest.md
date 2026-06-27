@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8059 凱碩
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:47 Asia/Taipei
+- generated_at: 2026-06-27 22:24:47 Asia/Taipei
 - stock_id: 8059
 - stock_name: 凱碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 16.2
 - close: 16.4
 - volume: 369000
-- ma5: 16.88
-- ema23_primary: 18.16
-- distance_to_ema23_pct: -9.67
-- ma20: 18.38
-- ma60: 19.21
-- ma120: 19.46
-- return_5d: -5.48
-- return_20d: -15.03
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: -10.75
+- ma5: 16.84
+- ema23_primary: 18.05
+- distance_to_ema23_pct: -9.13
+- ma20: 18.27
+- ma60: 19.19
+- ma120: 19.43
+- return_5d: -4.09
+- return_20d: -13.91
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: -10.22
 - distance_to_high_60_pct: -33.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.8,19.9,18.95,19.05,19000,19.59,-2.76,19.78,19.18,0.06
 20260529,19.1,19.3,18.95,19.05,19000,19.55,-2.54,19.7,19.19,0.06
 20260601,19.3,19.3,18.8,19.1,19000,19.51,-2.1,19.64,19.21,0.07
 20260602,19,20.5,19,20,20,19.55,2.3,19.6,19.26,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.35,17.45,16.75,17.1,588000,18.58,-7.99,18.83,19.29,2.68
 20260623,17.25,17.25,16.8,16.9,293000,18.44,-8.37,18.66,19.27,1.26
 20260624,17.1,17.3,16.75,16.9,260000,18.32,-7.73,18.52,19.25,1.06
-20260626,17,17,16.2,16.4,369000,18.16,-9.67,18.38,19.21,1.41
+20260625,17.25,17.25,16.9,16.9,173000,18.2,-7.13,18.4,19.22,0.69
+20260626,17,17,16.2,16.4,369000,18.05,-9.13,18.27,19.19,1.37
 ```
 
 ## Latest TDCC Snapshot

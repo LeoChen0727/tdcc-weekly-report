@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2460 建通
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:01 Asia/Taipei
+- generated_at: 2026-06-27 22:23:05 Asia/Taipei
 - stock_id: 2460
 - stock_name: 建通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -117,23 +118,22 @@
 - low: 36
 - close: 36
 - volume: 3006424
-- ma5: 36.62
-- ema23_primary: 34.27
-- distance_to_ema23_pct: 5.05
-- ma20: 33.77
-- ma60: 33.28
-- ma120: 28.48
-- return_5d: 1.41
-- return_20d: 12.68
-- volume_ratio: 1.65
-- distance_to_ma20_pct_auxiliary: 6.62
-- distance_to_high_60_pct: -12.62
+- ma5: 37.44
+- ema23_primary: 34.64
+- distance_to_ema23_pct: 3.94
+- ma20: 34.13
+- ma60: 33.52
+- ma120: 28.65
+- return_5d: 3.45
+- return_20d: 13.74
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 5.49
+- distance_to_high_60_pct: -14.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,32,32.7,31.4,31.65,791605,32.7,-3.2,32.84,30.46,0.67
 20260529,32.65,32.7,31.9,32.4,447050,32.67,-0.84,32.66,30.55,0.4
 20260601,33.05,33.05,32.35,32.8,739399,32.68,0.36,32.55,30.68,0.7
 20260602,32.9,35.95,32.25,35.7,2635582,32.93,8.4,32.63,30.84,2.42
@@ -152,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.45,35.75,34.4,35.05,1538506,33.24,5.45,32.97,32.64,1.23
 20260623,35.2,37,33.3,36.8,3129430,33.54,9.73,33.17,32.84,2.3
 20260624,36.4,40.45,35.7,40.45,7757539,34.11,18.58,33.56,33.1,4.53
-20260626,38.3,38.35,36,36,3006424,34.27,5.05,33.77,33.28,1.65
+20260625,41.4,42,38.2,38.9,7093323,34.51,12.72,33.91,33.33,3.5
+20260626,38.3,38.35,36,36,3006424,34.64,3.94,34.13,33.52,1.41
 ```
 
 ## Latest TDCC Snapshot

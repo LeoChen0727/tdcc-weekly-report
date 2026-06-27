@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1521 大億
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:39 Asia/Taipei
+- generated_at: 2026-06-27 22:22:43 Asia/Taipei
 - stock_id: 1521
 - stock_name: 大億
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 288
+- price_rows: 289
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 25.7
 - close: 25.9
 - volume: 44432
-- ma5: 26.37
-- ema23_primary: 26.26
-- distance_to_ema23_pct: -1.37
-- ma20: 26.88
-- ma60: 25.52
-- ma120: 25.61
-- return_5d: -2.45
-- return_20d: 5.71
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -3.63
+- ma5: 26.33
+- ema23_primary: 26.27
+- distance_to_ema23_pct: -1.41
+- ma20: 26.85
+- ma60: 25.55
+- ma120: 25.63
+- return_5d: -2.63
+- return_20d: -3.9
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -3.53
 - distance_to_high_60_pct: -13.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,24.95,26.95,24.9,26.95,205333,24.9,8.23,24.81,25,4.9
 20260529,29.6,29.6,29.6,29.6,417246,25.29,17.03,25.05,25.06,6.72
 20260601,29.8,29.8,27.8,28.35,600982,25.55,10.97,25.24,25.11,6.7
 20260602,29,29,27.6,27.8,183291,25.74,8.02,25.39,25.14,1.87
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.6,26.6,26.5,26.55,49442,26.27,1.05,26.65,25.46,0.38
 20260623,26.6,26.6,26.3,26.4,19466,26.28,0.44,26.73,25.48,0.15
 20260624,26,26.85,26,26.4,30065,26.29,0.4,26.8,25.51,0.23
-20260626,26.3,26.3,25.7,25.9,44432,26.26,-1.37,26.88,25.52,0.34
+20260625,26.2,26.4,26.1,26.4,46405,26.3,0.37,26.9,25.53,0.36
+20260626,26.3,26.3,25.7,25.9,44432,26.27,-1.41,26.85,25.55,0.36
 ```
 
 ## Latest TDCC Snapshot

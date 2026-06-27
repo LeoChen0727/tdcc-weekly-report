@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1524 耿鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:39 Asia/Taipei
+- generated_at: 2026-06-27 22:22:43 Asia/Taipei
 - stock_id: 1524
 - stock_name: 耿鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 28.5
 - close: 28.6
 - volume: 715393
-- ma5: 29.31
-- ema23_primary: 29.95
-- distance_to_ema23_pct: -4.5
-- ma20: 30.82
-- ma60: 29.69
-- ma120: 30.14
-- return_5d: -2.56
-- return_20d: -1.38
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -7.19
+- ma5: 29.17
+- ema23_primary: 29.89
+- distance_to_ema23_pct: -4.3
+- ma20: 30.68
+- ma60: 29.68
+- ma120: 30.15
+- return_5d: -4.51
+- return_20d: -10.34
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -6.79
 - distance_to_high_60_pct: -18.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,31.9,31.9,31.9,31.9,5399702,29.26,9.02,29.07,29.19,4.08
 20260529,33.8,35.05,32.9,33.45,20615227,29.61,12.97,29.34,29.26,8.83
 20260601,33.45,33.65,32.55,32.7,5052270,29.87,9.49,29.57,29.33,1.97
 20260602,32.5,33.9,31.85,33.45,5412706,30.16,10.89,29.84,29.4,1.93
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30,30.15,29.7,29.7,920772,30.25,-1.8,30.86,29.76,0.32
 20260623,29.95,29.95,28.95,28.95,948532,30.14,-3.94,30.82,29.75,0.33
 20260624,28.95,29.6,28.8,29.35,459663,30.07,-2.4,30.84,29.73,0.16
-20260626,29.05,29.25,28.5,28.6,715393,29.95,-4.5,30.82,29.69,0.25
+20260625,29.4,29.65,29.1,29.25,463871,30,-2.51,30.85,29.7,0.17
+20260626,29.05,29.25,28.5,28.6,715393,29.89,-4.3,30.68,29.68,0.28
 ```
 
 ## Latest TDCC Snapshot

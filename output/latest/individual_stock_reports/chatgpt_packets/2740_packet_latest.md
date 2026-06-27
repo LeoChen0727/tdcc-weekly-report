@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2740 華軒
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:10 Asia/Taipei
+- generated_at: 2026-06-27 22:23:13 Asia/Taipei
 - stock_id: 2740
 - stock_name: 華軒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.4
 - close: 30.4
 - volume: 1000
-- ma5: 29.11
-- ema23_primary: 30.66
-- distance_to_ema23_pct: -0.86
-- ma20: 29.94
-- ma60: 35.54
-- ma120: 36.08
-- return_5d: 16.48
-- return_20d: -14.85
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 1.54
+- ma5: 29.7
+- ema23_primary: 30.64
+- distance_to_ema23_pct: -0.79
+- ma20: 29.68
+- ma60: 35.41
+- ma120: 36.09
+- return_5d: 10.75
+- return_20d: -14.37
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: 2.41
 - distance_to_high_60_pct: -30.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.2,36.2,32.8,35.5,34000,37.56,-5.48,38.06,39.01,2.42
 20260529,35.45,35.85,34.95,34.95,35000,37.34,-6.41,37.76,38.9,2.23
 20260601,34.85,34.85,31.8,34.35,34000,37.09,-7.39,37.42,38.85,1.96
 20260602,34.75,36.4,34.75,36.4,36,37.03,-1.71,37.13,38.81,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.9,28.65,27.9,28.65,2000,30.91,-7.31,30.84,36.06,0.1
 20260623,28.2,29.45,28.2,29.45,4000,30.79,-4.34,30.52,35.86,0.21
 20260624,29,29.6,29,29.6,5000,30.69,-3.55,30.2,35.69,0.29
-20260626,30.4,30.4,30.4,30.4,1000,30.66,-0.86,29.94,35.54,0.06
+20260625,29.95,31.3,27.5,30.4,7000,30.66,-0.86,29.94,35.54,0.43
+20260626,30.4,30.4,30.4,30.4,1000,30.64,-0.79,29.68,35.41,0.07
 ```
 
 ## Latest TDCC Snapshot

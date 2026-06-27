@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 144
 - close: 145
 - volume: 7793000
-- ma5: 158.2
-- ema23_primary: 133.52
-- distance_to_ema23_pct: 8.6
-- ma20: 139
-- ma60: 90.35
-- ma120: 71.63
-- return_5d: -11.59
-- return_20d: 40.1
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 4.32
+- ma5: 156
+- ema23_primary: 135.2
+- distance_to_ema23_pct: 7.25
+- ma20: 141.47
+- ma60: 92.08
+- ma120: 72.52
+- return_5d: -12.39
+- return_20d: 38.1
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 2.49
 - distance_to_high_60_pct: -20.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,104,109.5,102,105,106000,81.18,29.34,79.7,62.76,0.01
 20260529,108,115.5,107,111.5,112000,83.71,33.2,82.05,63.64,0.01
 20260601,114,122.5,114,122.5,121000,86.94,40.9,85,64.72,0.01
 20260602,128.5,133,122,127,127,90.28,40.67,87.95,65.9,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,171,181.5,165,165.5,25188000,127.7,29.6,131.54,85.38,2.62
 20260623,168,168,155,155.5,13376000,130.02,19.6,134.38,87.04,1.3
 20260624,152.5,163.5,152,159.5,12797000,132.47,20.4,136.93,88.8,1.17
-20260626,152.5,157,144,145,7793000,133.52,8.6,139,90.35,0.69
+20260625,163.5,163.5,152.5,154.5,7023000,134.31,15.03,139.47,90.51,0.62
+20260626,152.5,157,144,145,7793000,135.2,7.25,141.47,92.08,0.67
 ```
 
 ## Latest TDCC Snapshot

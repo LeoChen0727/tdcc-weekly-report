@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 139
+- price_rows: 140
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 793
 - close: 797
 - volume: 1451334
-- ma5: 813.8
-- ema23_primary: 749.88
-- distance_to_ema23_pct: 6.28
-- ma20: 754.75
-- ma60: 620.11
-- ma120: 452.2
-- return_5d: 7.7
-- return_20d: -2.8
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 5.6
-- distance_to_high_60_pct: -11.25
+- ma5: 835.4
+- ema23_primary: 760.23
+- distance_to_ema23_pct: 4.84
+- ma20: 759.3
+- ma60: 628.48
+- ma120: 457.37
+- return_5d: 3.1
+- return_20d: 0.89
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 4.97
+- distance_to_high_60_pct: -12.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,830,850,779,790,502238,674.8,17.07,672.83,484.66,0.34
 20260529,808,809,717,742,2188736,680.4,9.05,686.2,492.03,1.43
 20260601,752,802,704,762,3210530,687.2,10.88,700.65,499.34,1.97
 20260602,755,755,686,686,3416371,687.1,-0.16,708.95,505.29,1.99
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,840,840,794,817,1654202,727.38,12.32,752.4,597.94,1.26
 20260623,823,849,819,830,1529851,735.93,12.78,754.3,605.73,1.12
 20260624,820,885,800,852,1823901,745.6,14.27,755.9,613.42,1.27
-20260626,892,898,793,797,1451334,749.88,6.28,754.75,620.11,0.98
+20260625,870,909,857,881,2196663,756.88,16.4,758.95,621.51,1.45
+20260626,892,898,793,797,1451334,760.23,4.84,759.3,628.48,0.93
 ```
 
 ## Latest TDCC Snapshot

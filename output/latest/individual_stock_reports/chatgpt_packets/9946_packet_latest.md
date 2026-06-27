@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9946 三發地產
 
 ## Metadata
-- generated_at: 2026-06-26 22:25:00 Asia/Taipei
+- generated_at: 2026-06-27 22:25:00 Asia/Taipei
 - stock_id: 9946
 - stock_name: 三發地產
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 19.4
 - close: 19.55
 - volume: 581458
-- ma5: 19.8
-- ema23_primary: 18.39
-- distance_to_ema23_pct: 6.3
-- ma20: 18.15
-- ma60: 17.14
-- ma120: 17.48
-- return_5d: -4.63
-- return_20d: 20.68
+- ma5: 19.65
+- ema23_primary: 18.51
+- distance_to_ema23_pct: 5.61
+- ma20: 18.32
+- ma60: 17.18
+- ma120: 17.49
+- return_5d: -5.1
+- return_20d: 19.57
 - volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 7.71
+- distance_to_ma20_pct_auxiliary: 6.68
 - distance_to_high_60_pct: -10.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.2,16.45,16.15,16.35,313533,16.54,-1.12,16.39,16.99,0.51
 20260529,16.3,16.45,16.25,16.45,303429,16.53,-0.48,16.42,16.99,0.5
 20260601,16.45,16.55,16.2,16.55,555667,16.53,0.12,16.47,16.99,0.91
 20260602,16.55,16.55,16.35,16.55,326585,16.53,0.11,16.51,16.98,0.54
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.45,20.45,19.3,19.45,2002077,18.02,7.95,17.65,17.06,1.41
 20260623,19.6,19.75,19.3,19.65,984744,18.15,8.24,17.81,17.09,0.69
 20260624,19.45,19.8,19.4,19.75,762312,18.29,8,17.98,17.11,0.53
-20260626,19.65,19.85,19.4,19.55,581458,18.39,6.3,18.15,17.14,0.4
+20260625,19.8,19.95,19.6,19.85,564694,18.42,7.78,18.16,17.15,0.39
+20260626,19.65,19.85,19.4,19.55,581458,18.51,5.61,18.32,17.18,0.4
 ```
 
 ## Latest TDCC Snapshot

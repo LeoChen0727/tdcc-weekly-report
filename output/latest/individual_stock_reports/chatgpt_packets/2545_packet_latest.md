@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2545 皇翔
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2545
 - stock_name: 皇翔
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 37.5
 - close: 37.7
 - volume: 300829
-- ma5: 37.94
-- ema23_primary: 37.9
-- distance_to_ema23_pct: -0.54
-- ma20: 37.91
-- ma60: 37.42
-- ma120: 37.54
-- return_5d: -2.84
-- return_20d: 5.16
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -0.55
+- ma5: 37.89
+- ema23_primary: 37.93
+- distance_to_ema23_pct: -0.61
+- ma20: 38.01
+- ma60: 37.45
+- ma120: 37.53
+- return_5d: -2.2
+- return_20d: 3.71
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -0.81
 - distance_to_high_60_pct: -5.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.85,36.95,35.85,36.35,467176,37.19,-2.25,37.61,37.02,1.2
 20260529,36.35,36.35,36.05,36.3,343659,37.11,-2.19,37.55,37.01,0.88
 20260601,36.35,37.1,36.15,36.95,399065,37.1,-0.41,37.51,37.02,1.01
 20260602,37,37.55,37,37.5,464495,37.13,0.99,37.48,37.02,1.16
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.65,38.65,37.75,37.85,414461,37.94,-0.25,37.67,37.36,0.72
 20260623,37,37.8,37,37.6,573755,37.92,-0.83,37.73,37.37,1
 20260624,37.9,38.1,37.2,38,214548,37.92,0.2,37.82,37.4,0.38
-20260626,37.75,38,37.5,37.7,300829,37.9,-0.54,37.91,37.42,0.55
+20260625,38,38.5,37.8,38.3,254763,37.95,0.91,37.94,37.43,0.47
+20260626,37.75,38,37.5,37.7,300829,37.93,-0.61,38.01,37.45,0.56
 ```
 
 ## Latest TDCC Snapshot

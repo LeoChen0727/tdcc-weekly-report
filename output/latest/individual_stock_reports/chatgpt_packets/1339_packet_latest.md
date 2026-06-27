@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1339 昭輝
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:34 Asia/Taipei
+- generated_at: 2026-06-27 22:22:38 Asia/Taipei
 - stock_id: 1339
 - stock_name: 昭輝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 43.4
 - close: 43.4
 - volume: 93560
-- ma5: 43.81
-- ema23_primary: 43.44
-- distance_to_ema23_pct: -0.09
-- ma20: 44.08
-- ma60: 42.01
+- ma5: 43.86
+- ema23_primary: 43.5
+- distance_to_ema23_pct: -0.22
+- ma20: 44.05
+- ma60: 42.06
 - ma120: 42.4
-- return_5d: -0.12
-- return_20d: 6.37
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -1.55
+- return_5d: -1.25
+- return_20d: -3.23
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -1.48
 - distance_to_high_60_pct: -8.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,41.3,44.85,41.3,44.85,1127846,41.15,8.99,40.82,41.2,5.47
 20260529,47.5,47.5,45.5,45.6,1599566,41.52,9.82,41.05,41.24,5.65
 20260601,45.9,45.9,44.25,44.35,483221,41.76,6.21,41.26,41.29,1.62
 20260602,44.65,45.15,43.95,44.6,232939,42,6.2,41.47,41.33,0.77
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43.95,43.95,43,43.6,235790,43.33,0.63,43.62,41.88,0.72
 20260623,43.75,43.85,43.25,43.8,118355,43.36,1,43.78,41.92,0.36
 20260624,43.3,44.7,43.3,44.3,154867,43.44,1.97,43.95,41.98,0.46
-20260626,44.45,44.45,43.4,43.4,93560,43.44,-0.09,44.08,42.01,0.28
+20260625,44.6,44.9,43.95,44.2,103800,43.51,1.6,44.12,42.02,0.31
+20260626,44.45,44.45,43.4,43.4,93560,43.5,-0.22,44.05,42.06,0.33
 ```
 
 ## Latest TDCC Snapshot

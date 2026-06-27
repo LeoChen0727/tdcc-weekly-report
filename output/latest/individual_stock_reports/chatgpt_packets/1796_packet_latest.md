@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1796 金穎生技
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:46 Asia/Taipei
+- generated_at: 2026-06-27 22:22:50 Asia/Taipei
 - stock_id: 1796
 - stock_name: 金穎生技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 154
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 32.25
 - close: 32.25
 - volume: 7000
-- ma5: 33.29
-- ema23_primary: 34.72
-- distance_to_ema23_pct: -7.11
-- ma20: 34.74
-- ma60: 36.97
-- ma120: 40.25
-- return_5d: -4.44
-- return_20d: -9.28
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -7.17
+- ma5: 33.09
+- ema23_primary: 34.57
+- distance_to_ema23_pct: -6.71
+- ma20: 34.59
+- ma60: 36.93
+- ma120: 40.13
+- return_5d: -5.15
+- return_20d: -10.17
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -6.78
 - distance_to_high_60_pct: -27.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.9,36,35.9,35.9,36000,37.12,-3.28,36.89,38.34,1.04
 20260529,35.9,36.05,35.9,35.9,36000,37.02,-3.01,36.78,38.22,1.02
 20260601,35.5,35.85,35,35.5,35000,36.89,-3.76,36.67,38.13,0.97
 20260602,35.5,36.4,35.5,36.15,36,36.83,-1.84,36.59,38.04,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.1,34.2,33.7,33.7,8000,35.27,-4.44,35.27,37.15,0.34
 20260623,33.5,33.9,33.1,33.5,10000,35.12,-4.61,35.08,37.09,0.45
 20260624,33.1,33.4,33,33,16000,34.94,-5.56,34.91,37.03,0.75
-20260626,33,33,32.25,32.25,7000,34.72,-7.11,34.74,36.97,0.35
+20260625,32.8,33.4,32.8,33,20000,34.78,-5.12,34.78,36.99,0.98
+20260626,33,33,32.25,32.25,7000,34.57,-6.71,34.59,36.93,0.37
 ```
 
 ## Latest TDCC Snapshot

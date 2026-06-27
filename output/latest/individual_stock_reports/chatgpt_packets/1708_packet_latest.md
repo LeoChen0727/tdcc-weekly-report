@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1708 東鹼
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:43 Asia/Taipei
+- generated_at: 2026-06-27 22:22:47 Asia/Taipei
 - stock_id: 1708
 - stock_name: 東鹼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 52.9
 - close: 53.5
 - volume: 17972207
-- ma5: 51.39
-- ema23_primary: 46.41
-- distance_to_ema23_pct: 15.27
-- ma20: 45.93
-- ma60: 42.19
-- ma120: 38.99
-- return_5d: 16.94
-- return_20d: 39.14
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 16.49
+- ma5: 51.89
+- ema23_primary: 46.95
+- distance_to_ema23_pct: 13.95
+- ma20: 46.74
+- ma60: 42.36
+- ma120: 39.15
+- return_5d: 6.36
+- return_20d: 46.58
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 14.46
 - distance_to_high_60_pct: -4.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.1,37.7,36.5,36.5,3428516,39.5,-7.6,39.54,40.27,0.96
 20260529,37,38.3,36.9,38.2,2553741,39.39,-3.03,39.36,40.27,0.75
 20260601,38.3,38.9,38,38.6,2369318,39.33,-1.85,39.32,40.31,0.74
 20260602,38.6,39.65,38.1,39.45,3566312,39.34,0.29,39.28,40.37,1.11
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,53.8,54.4,50.8,51.6,20614338,44.81,15.16,44.02,41.72,1.65
 20260623,50.6,51.1,48.9,49.35,10595018,45.18,9.22,44.48,41.85,0.82
 20260624,48.8,52.5,48.8,52.2,11726065,45.77,14.05,45.17,42.01,0.89
-20260626,53,55.9,52.9,53.5,17972207,46.41,15.27,45.93,42.19,1.29
+20260625,52.1,53.1,51.7,52.8,9716237,46.36,13.9,45.89,42.17,0.72
+20260626,53,55.9,52.9,53.5,17972207,46.95,13.95,46.74,42.36,1.26
 ```
 
 ## Latest TDCC Snapshot

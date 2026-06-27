@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9933 中鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:59 Asia/Taipei
 - stock_id: 9933
 - stock_name: 中鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 41.4
 - close: 41.95
 - volume: 5630767
-- ma5: 42.91
-- ema23_primary: 41.4
-- distance_to_ema23_pct: 1.33
-- ma20: 41.7
-- ma60: 38.59
-- ma120: 35.46
-- return_5d: -2.56
-- return_20d: 6.61
+- ma5: 43.11
+- ema23_primary: 41.58
+- distance_to_ema23_pct: 0.9
+- ma20: 41.94
+- ma60: 38.73
+- ma120: 35.56
+- return_5d: -1.64
+- return_20d: 7.84
 - volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 0.61
+- distance_to_ma20_pct_auxiliary: 0.04
 - distance_to_high_60_pct: -6.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.35,39.7,38.75,38.9,3943206,38,2.37,37.84,36.02,0.8
 20260529,39.2,39.65,39,39.65,4170545,38.14,3.97,37.99,36.16,0.84
 20260601,39.8,40.1,39.35,39.65,3987304,38.26,3.63,38.12,36.31,0.79
 20260602,39.65,39.65,38.85,39.35,3971774,38.35,2.6,38.26,36.46,0.78
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43.2,44.85,42.95,43.75,6721800,41.02,6.65,41.26,38.36,0.97
 20260623,44.2,44.2,42.8,43.3,4130702,41.21,5.07,41.45,38.42,0.59
 20260624,42.8,43.15,42.4,42.9,2818579,41.35,3.74,41.57,38.49,0.42
-20260626,43.05,43.45,41.4,41.95,5630767,41.4,1.33,41.7,38.59,0.85
+20260625,43.15,44,43,43.65,3508621,41.54,5.07,41.78,38.62,0.54
+20260626,43.05,43.45,41.4,41.95,5630767,41.58,0.9,41.94,38.73,0.85
 ```
 
 ## Latest TDCC Snapshot

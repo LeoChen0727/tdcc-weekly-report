@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6111 光聚晶電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:05 Asia/Taipei
+- generated_at: 2026-06-27 22:24:07 Asia/Taipei
 - stock_id: 6111
 - stock_name: 光聚晶電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 41.85
 - close: 41.85
 - volume: 374000
-- ma5: 43.79
-- ema23_primary: 44.49
-- distance_to_ema23_pct: -5.94
-- ma20: 44.15
-- ma60: 45.47
-- ma120: 45.48
-- return_5d: -4.99
-- return_20d: -7.82
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: -5.2
+- ma5: 43.57
+- ema23_primary: 44.41
+- distance_to_ema23_pct: -5.76
+- ma20: 44.12
+- ma60: 45.51
+- ma120: 45.44
+- return_5d: -6.48
+- return_20d: -5.53
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: -5.13
 - distance_to_high_60_pct: -17.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45.1,46,44.3,44.3,45000,46.43,-4.58,46.85,45.15,0.13
 20260529,44.45,45.45,44.45,45.2,45000,46.32,-2.43,46.86,45.18,0.14
 20260601,45.45,45.45,44.1,44.1,44000,46.14,-4.42,46.77,45.2,0.14
 20260602,44.1,44.1,42.8,43.85,43,45.95,-4.57,46.62,45.21,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,44.75,44.8,44,44.8,224000,44.91,-0.25,44.51,45.44,1.44
 20260623,44.3,44.5,43.75,43.75,272000,44.82,-2.38,44.41,45.46,1.63
 20260624,43.75,44.25,43.55,43.8,198000,44.73,-2.08,44.33,45.48,1.13
-20260626,43.5,43.65,41.85,41.85,374000,44.49,-5.94,44.15,45.47,1.96
+20260625,44.25,44.35,43.4,43.65,169000,44.64,-2.22,44.24,45.5,0.93
+20260626,43.5,43.65,41.85,41.85,374000,44.41,-5.76,44.12,45.51,1.9
 ```
 
 ## Latest TDCC Snapshot

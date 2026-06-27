@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4127 天良
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:42 Asia/Taipei
 - stock_id: 4127
 - stock_name: 天良
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 63.8
 - close: 64.5
 - volume: 133000
-- ma5: 64.9
-- ema23_primary: 63.63
-- distance_to_ema23_pct: 1.37
-- ma20: 67.13
-- ma60: 50.42
-- ma120: 42.59
-- return_5d: -9.41
-- return_20d: -3.3
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -3.92
+- ma5: 64.38
+- ema23_primary: 63.7
+- distance_to_ema23_pct: 1.25
+- ma20: 67.06
+- ma60: 50.91
+- ma120: 42.88
+- return_5d: -3.87
+- return_20d: -1.98
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -3.82
 - distance_to_high_60_pct: -13.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,65.3,69.2,65.3,65.8,67000,51.12,28.72,48.86,40.51,0.12
 20260529,65.8,69,65.8,69,68000,52.61,31.16,50.43,41.05,0.12
 20260601,71.7,71.7,68.6,68.7,69000,53.95,27.34,51.95,41.59,0.13
 20260602,64,69.5,64,68.5,68,55.16,24.18,53.44,42.13,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,67.7,68.6,64.2,64.8,384000,63.46,2.12,67.69,48.99,1.56
 20260623,64.8,65.1,61.6,64,282000,63.5,0.79,67.44,49.47,1.1
 20260624,66,66.5,63.3,64.1,326000,63.55,0.86,67.24,49.94,1.21
-20260626,64.6,65.3,63.8,64.5,133000,63.63,1.37,67.13,50.42,0.49
+20260625,64.9,65.2,63.2,64.5,201000,63.63,1.37,67.13,50.42,0.73
+20260626,64.6,65.3,63.8,64.5,133000,63.7,1.25,67.06,50.91,0.48
 ```
 
 ## Latest TDCC Snapshot

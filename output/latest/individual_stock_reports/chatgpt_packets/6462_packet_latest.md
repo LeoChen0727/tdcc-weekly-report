@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6462 神盾
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:18 Asia/Taipei
+- generated_at: 2026-06-27 22:24:19 Asia/Taipei
 - stock_id: 6462
 - stock_name: 神盾
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 116
 - close: 116.5
 - volume: 2446000
-- ma5: 121.7
-- ema23_primary: 120.11
-- distance_to_ema23_pct: -3.01
-- ma20: 117.3
-- ma60: 121.19
-- ma120: 116.62
-- return_5d: 3.56
-- return_20d: -12.41
-- volume_ratio: 2.07
-- distance_to_ma20_pct_auxiliary: -0.68
+- ma5: 123.8
+- ema23_primary: 120.42
+- distance_to_ema23_pct: -3.26
+- ma20: 117.28
+- ma60: 121.57
+- ma120: 116.55
+- return_5d: 2.19
+- return_20d: -6.8
+- volume_ratio: 1.68
+- distance_to_ma20_pct_auxiliary: -0.66
 - distance_to_high_60_pct: -27.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,134,134.5,123.5,125,128000,131.9,-5.23,133.07,116.73,0.06
 20260529,126,126.5,122,125,124000,131.32,-4.82,133.22,116.91,0.06
 20260601,126,126.5,121,123,123000,130.63,-5.84,133.2,117.22,0.06
 20260602,123,125,121,122.5,123,129.95,-5.74,132.82,117.49,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,116,122.5,115.5,122,2214000,118.95,2.56,120.4,120.15,3.59
 20260623,123.5,128,121.5,122,4256000,119.21,2.34,118.75,120.53,5.18
 20260624,120,134,119,134,5014000,120.44,11.26,118.12,121,4.71
-20260626,122.5,127,116,116.5,2446000,120.11,-3.01,117.3,121.19,2.07
+20260625,134,135,123.5,124.5,5684000,120.78,3.08,117.7,121.32,4.24
+20260626,122.5,127,116,116.5,2446000,120.42,-3.26,117.28,121.57,1.68
 ```
 
 ## Latest TDCC Snapshot
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 6462 | 神盾 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長：羅森洲 4.舊任者簡歷:董事長：羅森洲；本公司董事長兼總經理 5.新任者姓名:董事長：羅森洲 6.新任者簡歷:董事長：羅森洲；本公司董事長兼總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，由新任董事會選任。 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 6462 | 神盾 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 26.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長：羅森洲 4.舊任者簡歷:董事長：羅森洲；本公司董事長兼總經理 5.新任者姓名:董事長：羅森洲 6.新任者簡歷:董事長：羅森洲；本公司董事長兼總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，由新任董事會選任。 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6462 | 神盾 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 28.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長：羅森洲 4.舊任者簡歷:董事長：羅森洲；本公司董事長兼總經理 5.新任者姓名:董事長：羅森洲 6.新任者簡歷:董事長：羅森洲；本公司董事長兼總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，由新任董事會選任。 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3528 安馳
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:31 Asia/Taipei
+- generated_at: 2026-06-27 22:23:34 Asia/Taipei
 - stock_id: 3528
 - stock_name: 安馳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 96.2
 - close: 96.7
 - volume: 962117
-- ma5: 105.24
-- ema23_primary: 111.29
-- distance_to_ema23_pct: -13.11
-- ma20: 121.16
-- ma60: 92.39
-- ma120: 79.87
-- return_5d: -21.06
-- return_20d: -6.57
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -20.19
+- ma5: 103.54
+- ema23_primary: 110.48
+- distance_to_ema23_pct: -12.47
+- ma20: 120.58
+- ma60: 93.02
+- ma120: 80.15
+- return_5d: -12.49
+- return_20d: -14.8
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -19.81
 - distance_to_high_60_pct: -32.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,112.5,113.5,111,113.5,1151640,87.42,29.84,87.47,74.26,1.01
 20260529,122.5,122.5,104,117.5,5404264,89.92,30.67,89.36,75.07,3.89
 20260601,129,129,129,129,1451709,93.18,38.44,91.79,76.12,1.01
 20260602,128.5,128.5,120,127,1457232,96,32.29,94,77.11,0.98
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,108.5,113.5,106.5,110,2784370,114.17,-3.65,120.35,90.48,1.8
 20260623,112,114,105,105,1306892,113.4,-7.41,121.02,91.19,0.86
 20260624,103.5,107,103,104,643109,112.62,-7.65,121.5,91.85,0.43
-20260626,101.5,103,96.2,96.7,962117,111.29,-13.11,121.16,92.39,0.7
+20260625,106,106,102,102,536400,111.73,-8.71,121.42,92.48,0.4
+20260626,101.5,103,96.2,96.7,962117,110.48,-12.47,120.58,93.02,0.72
 ```
 
 ## Latest TDCC Snapshot

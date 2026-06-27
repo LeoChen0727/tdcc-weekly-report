@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3060 銘異
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:19 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3060
 - stock_name: 銘異
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -118,23 +118,22 @@
 - low: 36.25
 - close: 36.35
 - volume: 9064337
-- ma5: 38.79
-- ema23_primary: 33.68
-- distance_to_ema23_pct: 7.94
-- ma20: 33.24
-- ma60: 30.23
-- ma120: 31.33
-- return_5d: -2.42
-- return_20d: 21.98
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 9.36
-- distance_to_high_60_pct: -13.56
+- ma5: 38.63
+- ema23_primary: 33.96
+- distance_to_ema23_pct: 7.05
+- ma20: 33.66
+- ma60: 30.35
+- ma120: 31.36
+- return_5d: -4.09
+- return_20d: 26.66
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 7.99
+- distance_to_high_60_pct: -13.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.8,30.1,28.45,28.7,3731614,28.4,1.04,28.09,29.34,1.62
 20260529,29.55,29.9,28.5,29.4,2896370,28.49,3.2,28.16,29.3,1.26
 20260601,30.5,30.9,29.55,29.65,3286586,28.58,3.73,28.25,29.3,1.38
 20260602,30.05,32.6,29.75,32.6,15593440,28.92,12.73,28.45,29.33,5.04
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.2,41.65,38.7,41.65,21692248,32.37,28.65,31.88,29.91,2.74
 20260623,42.05,42.05,39.05,39.45,13545303,32.96,19.68,32.4,30.02,1.61
 20260624,39,40.95,37.7,38.6,10288550,33.43,15.45,32.91,30.13,1.16
-20260626,36.9,39.75,36.25,36.35,9064337,33.68,7.94,33.24,30.23,1.01
+20260625,40.05,42.2,36.5,37.1,9939839,33.74,9.96,33.28,30.24,1.1
+20260626,36.9,39.75,36.25,36.35,9064337,33.96,7.05,33.66,30.35,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3060 | 銘異 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/26 2.減資緣由:   為妥善運用資金及調整資本結構,辦理現金減資退還股款 3.減資金額:美金2,000,000元 4.消除股份:2,000,000股 5.減資比率:9.07% 6.減資後股本:美金20,056,508元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3060 | 銘異 | 1 | 1 | 4 | 9 | 13 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

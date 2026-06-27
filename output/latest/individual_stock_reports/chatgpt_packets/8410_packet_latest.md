@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8410 森田
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:53 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8410
 - stock_name: 森田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 32.85
 - volume: 42000
 - ma5: 32.73
-- ema23_primary: 33.87
-- distance_to_ema23_pct: -3.02
-- ma20: 33.88
-- ma60: 35.45
-- ma120: 36.24
+- ema23_primary: 33.79
+- distance_to_ema23_pct: -2.79
+- ma20: 33.86
+- ma60: 35.38
+- ma120: 36.21
 - return_5d: -0.15
-- return_20d: -4.09
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -3.05
+- return_20d: -1.5
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -2.99
 - distance_to_high_60_pct: -14.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.85,34.15,33,33.35,33000,35.45,-5.92,35.63,36.32,0.87
 20260529,33.5,33.65,33.35,33.5,34000,35.29,-5.06,35.46,36.26,0.89
 20260601,33.45,35.15,33.2,34.9,34000,35.25,-1,35.37,36.24,0.88
 20260602,35.1,35.2,34.5,34.95,35,35.23,-0.79,35.27,36.23,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.2,33.35,32.8,33.15,60000,34.27,-3.27,34.21,35.66,0.84
 20260623,33.5,33.5,32.2,32.35,130000,34.11,-5.16,34.09,35.58,1.71
 20260624,32.35,32.65,32.25,32.4,25000,33.97,-4.62,33.95,35.51,0.33
-20260626,32.65,32.85,32.3,32.85,42000,33.87,-3.02,33.88,35.45,0.55
+20260625,33.4,33.4,32.35,32.9,29000,33.88,-2.89,33.89,35.45,0.39
+20260626,32.65,32.85,32.3,32.85,42000,33.79,-2.79,33.86,35.38,0.56
 ```
 
 ## Latest TDCC Snapshot

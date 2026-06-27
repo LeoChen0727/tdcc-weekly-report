@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -117,23 +118,22 @@
 - low: 443
 - close: 449
 - volume: 143165163
-- ma5: 462.3
-- ema23_primary: 391.96
-- distance_to_ema23_pct: 14.55
-- ma20: 397.35
-- ma60: 299.72
-- ma120: 274.1
-- return_5d: 2.75
-- return_20d: 43.91
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 13
+- ma5: 465.8
+- ema23_primary: 398.85
+- distance_to_ema23_pct: 12.57
+- ma20: 405
+- ma60: 303.99
+- ma120: 276.57
+- return_5d: -2.29
+- return_20d: 38.58
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 10.86
 - distance_to_high_60_pct: -11.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,310,339,306,324,226715301,285.94,13.31,292.05,248.8,1.44
 20260529,347.5,351.5,338.5,347,140975644,291.03,19.23,298.62,250.31,0.89
 20260601,362,381.5,359.5,381.5,129059908,298.57,27.78,305.85,252.76,0.82
 20260602,401,419.5,395,419.5,171631936,308.64,35.92,314,255.46,1.11
@@ -152,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,484,505,480,505,96419516,374.99,34.67,375.57,288.46,0.7
 20260623,488,500,454.5,454.5,164235709,381.62,19.1,383.5,292.26,1.19
 20260624,440,457,435,443.5,125390124,386.77,14.67,390.5,295.89,0.92
-20260626,480,498,443,449,143165163,391.96,14.55,397.35,299.72,1.07
+20260625,479,483,461.5,477,110549365,394.29,20.98,398.75,300.18,0.84
+20260626,480,498,443,449,143165163,398.85,12.57,405,303.99,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2408 | 南亞科 | 1 | 1 | 3 | 6 | 15 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

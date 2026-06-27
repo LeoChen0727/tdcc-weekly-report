@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6570 維田
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:21 Asia/Taipei
+- generated_at: 2026-06-27 22:24:22 Asia/Taipei
 - stock_id: 6570
 - stock_name: 維田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 49
 - close: 49
 - volume: 270000
-- ma5: 52.78
-- ema23_primary: 53.77
-- distance_to_ema23_pct: -8.86
-- ma20: 56.35
-- ma60: 47.24
-- ma120: 43.29
-- return_5d: -9.09
-- return_20d: -17.23
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -13.04
+- ma5: 52.16
+- ema23_primary: 53.56
+- distance_to_ema23_pct: -8.51
+- ma20: 55.96
+- ma60: 47.47
+- ma120: 43.39
+- return_5d: -10.26
+- return_20d: -17.37
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -12.44
 - distance_to_high_60_pct: -25.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,58,61.4,57.2,59.3,60000,48.7,21.76,47.4,41.67,0.29
 20260529,59.9,60.9,59.7,59.7,60000,49.62,20.32,48.43,42.01,0.29
 20260601,59.8,61.2,59.8,60.5,60000,50.53,19.74,49.49,42.38,0.29
 20260602,60,60,57.5,57.9,58,51.14,13.22,50.25,42.7,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,54.9,55.3,54.5,54.9,258000,54.48,0.76,57.84,46.58,1.28
 20260623,56,56,52.6,52.8,198000,54.34,-2.84,57.51,46.81,0.95
 20260624,52.2,53.4,52.1,52.6,176000,54.2,-2.95,56.86,47.05,0.82
-20260626,52,52,49,49,270000,53.77,-8.86,56.35,47.24,1.2
+20260625,52.8,53,51.5,51.5,167000,53.97,-4.58,56.48,47.28,0.76
+20260626,52,52,49,49,270000,53.56,-8.51,55.96,47.47,1.17
 ```
 
 ## Latest TDCC Snapshot

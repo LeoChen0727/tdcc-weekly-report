@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2340 台亞
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:54 Asia/Taipei
+- generated_at: 2026-06-27 22:22:58 Asia/Taipei
 - stock_id: 2340
 - stock_name: 台亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 36.25
 - close: 36.45
 - volume: 11975717
-- ma5: 40.95
-- ema23_primary: 37.83
-- distance_to_ema23_pct: -3.66
-- ma20: 37.25
-- ma60: 35.54
-- ma120: 31.21
-- return_5d: -5.32
-- return_20d: -9.1
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -2.15
+- ma5: 40.8
+- ema23_primary: 37.93
+- distance_to_ema23_pct: -3.9
+- ma20: 37.31
+- ma60: 35.77
+- ma120: 31.31
+- return_5d: -8.76
+- return_20d: -4.33
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -2.3
 - distance_to_high_60_pct: -20.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.4,40.8,38,38.1,11932781,36.84,3.42,37.77,32.32,0.93
 20260529,39,39.4,38.05,38.15,5153458,36.95,3.25,37.77,32.52,0.43
 20260601,38.2,38.7,36.6,36.6,8213367,36.92,-0.86,37.6,32.73,0.73
 20260602,36.5,36.8,34.45,35.3,7734978,36.78,-4.03,37.28,32.89,0.78
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,42.15,43.85,42,42.8,22297392,37.05,15.52,37.09,34.89,2.08
 20260623,42.9,45.8,42.45,43.55,30420814,37.59,15.85,37.28,35.14,2.71
 20260624,42.7,44.55,41.55,42,16333916,37.96,10.65,37.44,35.38,1.4
-20260626,39,40.25,36.25,36.45,11975717,37.83,-3.66,37.25,35.54,1.04
+20260625,42.45,42.7,38.95,39.2,13601079,38.06,2.99,37.39,35.59,1.17
+20260626,39,40.25,36.25,36.45,11975717,37.93,-3.9,37.31,35.77,1.03
 ```
 
 ## Latest TDCC Snapshot

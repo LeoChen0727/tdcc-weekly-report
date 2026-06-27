@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3693 營邦
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:39 Asia/Taipei
 - stock_id: 3693
 - stock_name: 營邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 479
 - close: 482.5
 - volume: 1420000
-- ma5: 499.1
-- ema23_primary: 530.06
-- distance_to_ema23_pct: -8.97
-- ma20: 534.7
+- ma5: 499.9
+- ema23_primary: 527.74
+- distance_to_ema23_pct: -8.57
+- ma20: 531.9
 - ma60: 575.73
-- ma120: 482.02
-- return_5d: -2.82
-- return_20d: -17.8
-- volume_ratio: 2.15
-- distance_to_ma20_pct_auxiliary: -9.76
+- ma120: 483.93
+- return_5d: -3.5
+- return_20d: -13.84
+- volume_ratio: 2.17
+- distance_to_ma20_pct_auxiliary: -9.29
 - distance_to_high_60_pct: -36.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,590,599,557,560,574000,583.91,-4.1,592.45,554.42,0.37
 20260529,570,587,564,581,579000,583.67,-0.46,588.1,556.72,0.4
 20260601,588,639,583,632,617000,587.7,7.54,587,560.26,0.45
 20260602,655,656,593,598,623,588.56,1.6,583.95,563.1,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,512,517,503,513,589000,540.89,-5.16,551.12,575.92,0.93
 20260623,514,515,496,496,594000,537.15,-7.66,544.88,575.7,0.94
 20260624,492,505,483,504,291000,534.39,-5.69,539.92,576.02,0.47
-20260626,513,522,479,482.5,1420000,530.06,-8.97,534.7,575.73,2.15
+20260625,511,513,493,504,495000,531.86,-5.24,535.77,576.08,0.81
+20260626,513,522,479,482.5,1420000,527.74,-8.57,531.9,575.73,2.17
 ```
 
 ## Latest TDCC Snapshot

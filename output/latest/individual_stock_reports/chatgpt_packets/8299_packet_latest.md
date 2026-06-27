@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8299 群聯
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8299
 - stock_name: 群聯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 2305
 - close: 2310
 - volume: 5308000
-- ma5: 2470
-- ema23_primary: 2408.16
-- distance_to_ema23_pct: -4.08
-- ma20: 2449
-- ma60: 2182.83
-- ma120: 1993.5
-- return_5d: -0.86
-- return_20d: -6.85
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -5.68
+- ma5: 2459
+- ema23_primary: 2412.59
+- distance_to_ema23_pct: -4.25
+- ma20: 2450.25
+- ma60: 2197.33
+- ma120: 2004.33
+- return_5d: -8.7
+- return_20d: -5.71
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -5.72
 - distance_to_high_60_pct: -19.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,2475,2535,2410,2450,2488000,2347.54,4.36,2443,1975.33,0.31
 20260529,2530,2620,2525,2575,2570000,2366.5,8.81,2476.75,1989,0.35
 20260601,2655,2825,2625,2770,2743000,2400.12,15.41,2514.75,2006.75,0.38
 20260602,2810,2835,2690,2820,2782,2435.11,15.81,2550,2023.75,0
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,2600,2670,2570,2580,6874000,2407.69,7.16,2460.25,2144.5,1.68
 20260623,2565,2590,2430,2430,6341000,2409.55,0.85,2457.75,2156.25,1.48
 20260624,2385,2500,2325,2500,6717000,2417.09,3.43,2457.5,2170.42,1.5
-20260626,2495,2540,2305,2310,5308000,2408.16,-4.08,2449,2182.83,1.15
+20260625,2605,2640,2475,2475,5963000,2421.91,2.19,2457.25,2185.58,1.28
+20260626,2495,2540,2305,2310,5308000,2412.59,-4.25,2450.25,2197.33,1.11
 ```
 
 ## Latest TDCC Snapshot

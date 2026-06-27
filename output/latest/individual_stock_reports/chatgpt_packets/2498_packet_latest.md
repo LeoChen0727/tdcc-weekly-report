@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:04 Asia/Taipei
+- generated_at: 2026-06-27 22:23:07 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 42.9
 - close: 42.9
 - volume: 11224697
-- ma5: 46.65
-- ema23_primary: 45.21
-- distance_to_ema23_pct: -5.11
-- ma20: 45.59
-- ma60: 42.88
-- ma120: 43.98
-- return_5d: -9.68
-- return_20d: -3.92
+- ma5: 46.55
+- ema23_primary: 45.25
+- distance_to_ema23_pct: -5.19
+- ma20: 45.69
+- ma60: 42.97
+- ma120: 43.94
+- return_5d: -7.54
+- return_20d: -2.28
 - volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -5.9
+- distance_to_ma20_pct_auxiliary: -6.11
 - distance_to_high_60_pct: -18.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45,45.5,43.8,43.9,9042819,43.29,1.41,42.97,41.62,0.5
 20260529,44.85,45.8,44.45,45.25,11262791,43.45,4.14,43.23,41.66,0.62
 20260601,45.5,45.95,45.2,45.5,8946519,43.62,4.3,43.45,41.74,0.49
 20260602,46,50,45.9,50,37219368,44.16,13.24,43.9,41.88,1.87
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,47.8,50.4,47.5,50.4,26835183,45.16,11.59,45.53,42.64,1.91
 20260623,50,50.2,46.9,46.9,18164403,45.31,3.51,45.56,42.73,1.31
 20260624,46.95,48,46.1,46.65,10887573,45.42,2.71,45.68,42.84,0.8
-20260626,45.9,45.9,42.9,42.9,11224697,45.21,-5.11,45.59,42.88,0.83
+20260625,47.7,47.8,45.9,45.9,8027517,45.46,0.97,45.74,42.92,0.6
+20260626,45.9,45.9,42.9,42.9,11224697,45.25,-5.19,45.69,42.97,0.83
 ```
 
 ## Latest TDCC Snapshot

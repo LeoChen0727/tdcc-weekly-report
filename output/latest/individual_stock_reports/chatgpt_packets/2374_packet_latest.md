@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:00 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 74.4
 - close: 74.8
 - volume: 11589059
-- ma5: 75.38
-- ema23_primary: 76.48
-- distance_to_ema23_pct: -2.2
-- ma20: 76.84
-- ma60: 76.03
-- ma120: 76.91
-- return_5d: -1.97
-- return_20d: -7.43
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -2.65
+- ma5: 76.2
+- ema23_primary: 76.69
+- distance_to_ema23_pct: -2.47
+- ma20: 76.88
+- ma60: 76.2
+- ma120: 76.92
+- return_5d: -0.66
+- return_20d: -4.83
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -2.71
 - distance_to_high_60_pct: -13.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,81,82.3,78.1,78.6,9188127,79.36,-0.96,80.72,74.35,0.65
 20260529,80,84.4,79.8,83.2,20794251,79.68,4.41,80.97,74.48,1.52
 20260601,84.2,86.4,83.3,84.7,21521256,80.1,5.74,81.1,74.72,1.6
 20260602,85.4,85.4,81.4,82.5,14325800,80.3,2.74,81.17,74.88,1.08
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,76.2,76.8,74.6,74.6,5127396,76.74,-2.79,77.83,75.86,0.53
 20260623,76,77.4,74.1,76.7,8554160,76.74,-0.05,77.48,75.94,0.9
 20260624,76.6,76.6,74.7,75.5,5247577,76.63,-1.48,77.14,75.99,0.58
-20260626,79,80.8,74.4,74.8,11589059,76.48,-2.2,76.84,76.03,1.26
+20260625,79,81.8,77.7,79.4,17877633,76.86,3.3,77.07,76.11,1.88
+20260626,79,80.8,74.4,74.8,11589059,76.69,-2.47,76.88,76.2,1.2
 ```
 
 ## Latest TDCC Snapshot

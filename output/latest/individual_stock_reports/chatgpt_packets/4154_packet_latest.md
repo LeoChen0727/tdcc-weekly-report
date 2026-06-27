@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4154 樂威科-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:40 Asia/Taipei
+- generated_at: 2026-06-27 22:23:42 Asia/Taipei
 - stock_id: 4154
 - stock_name: 樂威科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260624
-- price_rows: 134
+- latest_price_date: 20260625
+- price_rows: 135
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260624
-- open: 12.7
-- high: 12.85
-- low: 12.35
-- close: 12.65
-- volume: 7000
-- ma5: 12.78
-- ema23_primary: 13.18
-- distance_to_ema23_pct: -4.05
-- ma20: 13.22
-- ma60: 13.54
-- ma120: 13.69
-- return_5d: -3.8
-- return_20d: -12.15
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -4.35
-- distance_to_high_60_pct: -18.39
+- date: 20260625
+- open: 12.6
+- high: 12.95
+- low: 12.6
+- close: 12.95
+- volume: 3000
+- ma5: 12.81
+- ema23_primary: 13.16
+- distance_to_ema23_pct: -1.63
+- ma20: 13.18
+- ma60: 13.57
+- ma120: 13.67
+- return_5d: 1.17
+- return_20d: -6.83
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -1.73
+- distance_to_high_60_pct: -16.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,13.8,13.9,13.7,13.9,14000,13.55,2.6,13.3,12.96,0.34
 20260525,14.1,14.1,13.4,13.65,14000,13.56,0.7,13.27,12.96,0.34
 20260526,13.15,13.6,13,13.6,13000,13.56,0.3,13.29,12.97,0.32
 20260527,13.55,13.55,13,13.2,13000,13.53,-2.44,13.22,12.96,0.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.15,13.15,12.95,12.95,2000,13.28,-2.46,13.39,13.47,0.15
 20260623,12.35,12.75,12.35,12.75,2000,13.23,-3.65,13.31,13.51,0.17
 20260624,12.7,12.85,12.35,12.65,7000,13.18,-4.05,13.22,13.54,0.61
+20260625,12.6,12.95,12.6,12.95,3000,13.16,-1.63,13.18,13.57,0.27
 ```
 
 ## Latest TDCC Snapshot

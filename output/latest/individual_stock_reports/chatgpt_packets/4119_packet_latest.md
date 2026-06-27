@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4119 旭富
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:41 Asia/Taipei
 - stock_id: 4119
 - stock_name: 旭富
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 43.65
 - close: 44.5
 - volume: 252113
-- ma5: 43.79
-- ema23_primary: 42.97
-- distance_to_ema23_pct: 3.55
-- ma20: 42.24
-- ma60: 45.29
-- ma120: 48.61
-- return_5d: 2.65
-- return_20d: 8.54
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 5.34
+- ma5: 43.88
+- ema23_primary: 43.11
+- distance_to_ema23_pct: 3.22
+- ma20: 42.44
+- ma60: 45.18
+- ma120: 48.57
+- return_5d: 0.68
+- return_20d: 9.34
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 4.85
 - distance_to_high_60_pct: -16.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,41.35,41.35,40.5,40.7,312845,43.72,-6.92,43.43,48.61,1.15
 20260529,40.5,41.05,40.5,40.8,185681,43.48,-6.17,43.08,48.42,0.68
 20260601,40.45,41.9,40.35,41.9,339087,43.35,-3.34,42.81,48.29,1.21
 20260602,40.7,41.35,40.7,41,173767,43.15,-4.99,42.51,48.12,0.62
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,44.3,44.3,42.8,42.8,262588,42.66,0.32,41.83,45.71,0.9
 20260623,42.8,44,42.8,43.2,215844,42.71,1.15,41.92,45.56,0.75
 20260624,43.45,44.35,43.35,44.25,146672,42.84,3.3,42.07,45.42,0.51
-20260626,44.65,44.8,43.65,44.5,252113,42.97,3.55,42.24,45.29,0.87
+20260625,44.25,45.4,44.05,44.65,241626,42.99,3.87,42.25,45.29,0.84
+20260626,44.65,44.8,43.65,44.5,252113,43.11,3.22,42.44,45.18,0.88
 ```
 
 ## Latest TDCC Snapshot

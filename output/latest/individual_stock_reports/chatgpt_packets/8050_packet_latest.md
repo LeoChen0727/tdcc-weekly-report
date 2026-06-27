@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8050 廣積
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:47 Asia/Taipei
+- generated_at: 2026-06-27 22:24:47 Asia/Taipei
 - stock_id: 8050
 - stock_name: 廣積
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 51.9
 - close: 52
 - volume: 1004000
-- ma5: 54.88
-- ema23_primary: 54.88
-- distance_to_ema23_pct: -5.24
-- ma20: 56.81
-- ma60: 48.83
-- ma120: 45.55
-- return_5d: -5.28
-- return_20d: -10.19
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: -8.47
+- ma5: 54.56
+- ema23_primary: 54.8
+- distance_to_ema23_pct: -5.11
+- ma20: 56.6
+- ma60: 49.07
+- ma120: 45.64
+- return_5d: -6.64
+- return_20d: -10.65
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -8.14
 - distance_to_high_60_pct: -21.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,57.9,60.5,57.1,58.2,59000,49.98,16.44,49.34,43.87,0.06
 20260529,59.5,59.9,58,59,59000,50.73,16.3,50.22,44.16,0.06
 20260601,59.4,61.4,58.3,58.7,59000,51.4,14.21,51.01,44.47,0.06
 20260602,58.7,60.4,58.1,60,59,52.11,15.13,51.75,44.78,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,55.9,57,55.2,56.2,932000,55.12,1.96,57.32,48.15,1.34
 20260623,56.9,57,55,55.4,536000,55.14,0.47,57.35,48.4,0.75
 20260624,55.4,55.5,54.7,55.1,558000,55.14,-0.07,57.1,48.64,0.75
-20260626,54.4,54.4,51.9,52,1004000,54.88,-5.24,56.81,48.83,1.27
+20260625,55.3,55.8,54.1,54.1,634000,55.05,-1.73,56.91,48.87,0.82
+20260626,54.4,54.4,51.9,52,1004000,54.8,-5.11,56.6,49.07,1.23
 ```
 
 ## Latest TDCC Snapshot

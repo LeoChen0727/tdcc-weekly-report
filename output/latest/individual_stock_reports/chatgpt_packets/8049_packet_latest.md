@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8049 晶采
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:47 Asia/Taipei
+- generated_at: 2026-06-27 22:24:47 Asia/Taipei
 - stock_id: 8049
 - stock_name: 晶采
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 27.1
 - close: 28
 - volume: 1016000
-- ma5: 27.64
-- ema23_primary: 27.08
-- distance_to_ema23_pct: 3.39
-- ma20: 27.16
-- ma60: 26.13
-- ma120: 26.1
-- return_5d: 1.45
-- return_20d: 5.07
-- volume_ratio: 3.37
-- distance_to_ma20_pct_auxiliary: 3.1
+- ma5: 27.55
+- ema23_primary: 27.1
+- distance_to_ema23_pct: 3.32
+- ma20: 27.17
+- ma60: 26.17
+- ma120: 26.12
+- return_5d: 1.08
+- return_20d: 3.51
+- volume_ratio: 3.23
+- distance_to_ma20_pct_auxiliary: 3.06
 - distance_to_high_60_pct: -4.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.05,27.2,26.85,27.05,27000,26.13,3.53,25.99,25.61,0.13
 20260529,27.35,27.35,26.6,26.95,27000,26.2,2.88,26.07,25.62,0.13
 20260601,27,27.3,26.85,27,27000,26.26,2.8,26.16,25.64,0.15
 20260602,27.2,27.2,26.7,27.15,27,26.34,3.09,26.25,25.67,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.95,27.95,27.45,27.9,610000,26.94,3.56,27.07,26.02,2.71
 20260623,28.1,28.1,27.1,27.3,301000,26.97,1.22,27.07,26.05,1.26
 20260624,26.95,27.4,26.9,27.3,291000,27,1.12,27.09,26.09,1.15
-20260626,27.4,28.2,27.1,28,1016000,27.08,3.39,27.16,26.13,3.37
+20260625,27.4,27.5,27,27.25,284000,27.02,0.86,27.12,26.12,1.07
+20260626,27.4,28.2,27.1,28,1016000,27.1,3.32,27.17,26.17,3.23
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2732 六角
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:09 Asia/Taipei
+- generated_at: 2026-06-27 22:23:13 Asia/Taipei
 - stock_id: 2732
 - stock_name: 六角
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 63.3
 - close: 65.5
 - volume: 55000
-- ma5: 64.48
-- ema23_primary: 64.9
-- distance_to_ema23_pct: 0.93
-- ma20: 64.84
-- ma60: 65.53
-- ma120: 66.48
-- return_5d: 0.92
-- return_20d: 3.8
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 1.02
-- distance_to_high_60_pct: -5.21
+- ma5: 64.52
+- ema23_primary: 64.86
+- distance_to_ema23_pct: 0.98
+- ma20: 64.91
+- ma60: 65.47
+- ma120: 66.42
+- return_5d: 2.02
+- return_20d: 3.97
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 0.91
+- distance_to_high_60_pct: -5.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,63.1,63.2,62.5,63,63000,65.04,-3.13,65.03,65.88,1.15
 20260529,64.9,65.4,63.5,64.2,64000,64.97,-1.18,64.97,65.89,1.13
 20260601,64.2,65.8,63.5,65,64000,64.97,0.04,64.97,65.93,1.13
 20260602,64.3,65.7,64.2,64.8,65,64.96,-0.24,64.97,65.93,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,64.5,64.9,64.3,64.5,87000,64.98,-0.74,64.73,65.7,1.44
 20260623,64.9,64.9,64,64.2,36000,64.92,-1.11,64.72,65.65,0.61
 20260624,64,64.4,64,64,24000,64.84,-1.3,64.72,65.59,0.42
-20260626,64.2,65.5,63.3,65.5,55000,64.9,0.93,64.84,65.53,0.98
+20260625,65.3,65.3,64.1,64.4,23000,64.8,-0.62,64.78,65.51,0.42
+20260626,64.2,65.5,63.3,65.5,55000,64.86,0.98,64.91,65.47,1.01
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2617 台航
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:07 Asia/Taipei
+- generated_at: 2026-06-27 22:23:11 Asia/Taipei
 - stock_id: 2617
 - stock_name: 台航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 29.15
 - close: 29.15
 - volume: 1435808
-- ma5: 29.77
-- ema23_primary: 29.66
-- distance_to_ema23_pct: -1.73
-- ma20: 29.66
+- ma5: 29.79
+- ema23_primary: 29.68
+- distance_to_ema23_pct: -1.79
+- ma20: 29.72
 - ma60: 29.68
-- ma120: 30.37
-- return_5d: -3.32
+- ma120: 30.36
+- return_5d: -2.35
 - return_20d: 1.22
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: -1.73
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: -1.92
 - distance_to_high_60_pct: -7.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.8,29.05,28.75,28.8,747462,29.23,-1.47,29.1,30.29,1.03
 20260529,29.1,29.2,28.9,28.95,675971,29.21,-0.88,29.08,30.23,0.93
 20260601,28.95,29.7,28.95,29.65,1672299,29.24,1.39,29.1,30.2,2.17
 20260602,29.7,29.7,29.15,29.5,927269,29.27,0.8,29.11,30.15,1.17
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30,30.15,29.75,30.05,902444,29.67,1.27,29.56,29.72,1.06
 20260623,30.1,30.15,29.8,29.95,626955,29.7,0.85,29.6,29.71,0.75
 20260624,30.05,30.1,29.75,29.85,506098,29.71,0.47,29.64,29.7,0.61
-20260626,29.8,29.85,29.15,29.15,1435808,29.66,-1.73,29.66,29.68,1.68
+20260625,30.25,30.25,29.85,29.95,587768,29.73,0.74,29.7,29.69,0.72
+20260626,29.8,29.85,29.15,29.15,1435808,29.68,-1.79,29.72,29.68,1.69
 ```
 
 ## Latest TDCC Snapshot

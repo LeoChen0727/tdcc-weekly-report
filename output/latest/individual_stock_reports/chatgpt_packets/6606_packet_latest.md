@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6606 建德工業
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:23 Asia/Taipei
+- generated_at: 2026-06-27 22:24:24 Asia/Taipei
 - stock_id: 6606
 - stock_name: 建德工業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 24.3
 - close: 24.65
 - volume: 87482
-- ma5: 24.81
-- ema23_primary: 25.4
-- distance_to_ema23_pct: -2.94
-- ma20: 25.81
-- ma60: 24.96
-- ma120: 25.1
-- return_5d: -1.6
+- ma5: 24.75
+- ema23_primary: 25.34
+- distance_to_ema23_pct: -2.72
+- ma20: 25.76
+- ma60: 24.98
+- ma120: 25.09
+- return_5d: -1.4
 - return_20d: -4.27
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -4.49
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -4.3
 - distance_to_high_60_pct: -9.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.9,25.9,25.5,25.75,419170,24.91,3.39,24.88,24.57,2.74
 20260529,25.7,25.9,25.3,25.9,190771,24.99,3.65,24.96,24.58,1.2
 20260601,25.9,26.35,25,26.35,302594,25.1,4.97,25.08,24.61,1.77
 20260602,26.3,26.7,25.95,26.7,558421,25.24,5.8,25.21,24.63,2.86
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.15,25.2,24.6,24.9,112885,25.6,-2.74,25.91,24.93,0.45
 20260623,24.9,24.9,24.3,24.8,111966,25.54,-2.88,25.89,24.94,0.44
 20260624,24.8,24.8,24.5,24.7,92231,25.47,-3.01,25.86,24.95,0.37
-20260626,24.7,24.7,24.3,24.65,87482,25.4,-2.94,25.81,24.96,0.37
+20260625,24.8,25.15,24.6,24.7,69628,25.4,-2.76,25.81,24.96,0.3
+20260626,24.7,24.7,24.3,24.65,87482,25.34,-2.72,25.76,24.98,0.4
 ```
 
 ## Latest TDCC Snapshot

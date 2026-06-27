@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9928 中視
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:59 Asia/Taipei
 - stock_id: 9928
 - stock_name: 中視
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.5
 - close: 18.65
 - volume: 35080
-- ma5: 18.63
-- ema23_primary: 18.21
-- distance_to_ema23_pct: 2.44
-- ma20: 18.16
-- ma60: 17.91
+- ma5: 18.64
+- ema23_primary: 18.24
+- distance_to_ema23_pct: 2.23
+- ma20: 18.2
+- ma60: 17.92
 - ma120: 18.06
-- return_5d: -2.1
-- return_20d: 4.78
+- return_5d: 0.27
+- return_20d: 4.19
 - volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 2.71
+- distance_to_ma20_pct_auxiliary: 2.5
 - distance_to_high_60_pct: -3.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.75,18,17.6,17.9,46746,17.77,0.74,17.73,17.79,1.15
 20260529,18,18,17.9,17.9,28406,17.78,0.67,17.74,17.79,0.7
 20260601,17.55,17.9,17.5,17.9,130466,17.79,0.62,17.75,17.8,2.88
 20260602,17.85,18,17.65,18,47172,17.81,1.08,17.77,17.8,1.04
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.7,18.7,18.5,18.6,46310,18.07,2.91,18.04,17.86,0.77
 20260623,18.8,19.05,18.6,18.75,61113,18.13,3.41,18.09,17.87,1.03
 20260624,18.9,18.9,18.55,18.55,34105,18.17,2.11,18.11,17.89,0.56
-20260626,18.85,18.85,18.5,18.65,35080,18.21,2.44,18.16,17.91,0.58
+20260625,18.55,18.8,18.5,18.65,60183,18.21,2.44,18.16,17.91,0.98
+20260626,18.85,18.85,18.5,18.65,35080,18.24,2.23,18.2,17.92,0.58
 ```
 
 ## Latest TDCC Snapshot

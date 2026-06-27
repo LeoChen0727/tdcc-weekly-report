@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6846 綠茵
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6846
 - stock_name: 綠茵
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 153
+- price_rows: 154
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 62.8
 - close: 63.7
 - volume: 18000
-- ma5: 66.22
-- ema23_primary: 67.44
-- distance_to_ema23_pct: -5.54
-- ma20: 67.31
-- ma60: 69.14
-- ma120: 71.08
+- ma5: 65.56
+- ema23_primary: 67.15
+- distance_to_ema23_pct: -5.13
+- ma20: 67.18
+- ma60: 69.03
+- ma120: 70.99
 - return_5d: -5.35
-- return_20d: -5.21
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -5.36
+- return_20d: -4.21
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -5.18
 - distance_to_high_60_pct: -12.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,67.9,67.9,66,66.5,67000,69.18,-3.87,69.11,70.37,2.38
 20260529,67,67.2,65.7,67.2,66000,69.01,-2.63,69.02,70.29,2.19
 20260601,67.4,68.5,66.7,67.3,67000,68.87,-2.28,68.91,70.22,2.05
 20260602,66.8,67.1,66.5,67.1,67,68.72,-2.36,68.77,70.15,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,66.9,66.9,65.6,65.8,58000,67.9,-3.09,67.61,69.39,1.34
 20260623,67.9,68,66.2,67.3,28000,67.85,-0.81,67.55,69.33,0.68
 20260624,66.1,67.1,65.5,67,26000,67.78,-1.14,67.48,69.26,0.66
-20260626,63,63.8,62.8,63.7,18000,67.44,-5.54,67.31,69.14,0.49
+20260625,65,65,64,64,28000,67.46,-5.13,67.32,69.14,0.75
+20260626,63,63.8,62.8,63.7,18000,67.15,-5.13,67.18,69.03,0.52
 ```
 
 ## Latest TDCC Snapshot

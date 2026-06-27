@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2349 錸德
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2349
 - stock_name: 錸德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 12.7
 - close: 12.85
 - volume: 5788123
-- ma5: 13.58
-- ema23_primary: 13.54
-- distance_to_ema23_pct: -5.11
-- ma20: 13.82
-- ma60: 13.27
-- ma120: 13.76
-- return_5d: -5.86
-- return_20d: -7.22
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -7.02
+- ma5: 13.49
+- ema23_primary: 13.53
+- distance_to_ema23_pct: -5
+- ma20: 13.81
+- ma60: 13.28
+- ma120: 13.75
+- return_5d: -7.22
+- return_20d: -5.86
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -6.93
 - distance_to_high_60_pct: -20.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.75,14.35,13.6,13.65,12270688,13.05,4.59,12.82,13.17,2.03
 20260529,14,14.15,13.85,14,7983080,13.13,6.62,12.89,13.17,1.27
 20260601,14.25,14.7,14,14.3,12923315,13.23,8.1,12.99,13.2,1.9
 20260602,14.45,15,13.85,14.7,12359865,13.35,10.11,13.1,13.23,1.69
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14,14.3,13.75,14,5745668,13.61,2.9,13.9,13.3,0.53
 20260623,14.15,14.25,13.55,13.6,4364681,13.61,-0.04,13.87,13.29,0.43
 20260624,13.5,13.95,13.5,13.6,3153429,13.6,-0.03,13.87,13.29,0.33
-20260626,13.3,13.3,12.7,12.85,5788123,13.54,-5.11,13.82,13.27,0.62
+20260625,13.6,13.7,13.3,13.4,3208945,13.59,-1.38,13.85,13.28,0.35
+20260626,13.3,13.3,12.7,12.85,5788123,13.53,-5,13.81,13.28,0.65
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1340 勝悅-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:34 Asia/Taipei
+- generated_at: 2026-06-27 22:22:38 Asia/Taipei
 - stock_id: 1340
 - stock_name: 勝悅-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 5.24
 - close: 5.29
 - volume: 259253
-- ma5: 5.52
-- ema23_primary: 5.62
-- distance_to_ema23_pct: -5.82
+- ma5: 5.45
+- ema23_primary: 5.6
+- distance_to_ema23_pct: -5.46
 - ma20: 5.63
-- ma60: 5.85
-- ma120: 6.44
-- return_5d: -8.48
-- return_20d: -4.17
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: -6.06
+- ma60: 5.83
+- ma120: 6.42
+- return_5d: -7.52
+- return_20d: -2.4
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -6.02
 - distance_to_high_60_pct: -24.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,5.57,5.62,5.38,5.42,637017,5.63,-3.73,5.53,6.29,2.1
 20260529,5.57,5.57,5.42,5.48,185301,5.62,-2.45,5.51,6.27,0.62
 20260601,5.42,5.51,5.35,5.47,378812,5.61,-2.41,5.5,6.25,1.26
 20260602,5.43,5.56,5.41,5.49,379705,5.6,-1.89,5.49,6.23,1.23
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,5.72,5.72,5.55,5.66,307783,5.68,-0.33,5.63,5.92,0.78
 20260623,5.66,5.66,5.45,5.47,135644,5.66,-3.38,5.63,5.9,0.34
 20260624,5.5,5.57,5.46,5.48,124131,5.65,-2.95,5.64,5.88,0.32
-20260626,5.37,5.37,5.24,5.29,259253,5.62,-5.82,5.63,5.85,0.78
+20260625,5.48,5.48,5.36,5.37,202752,5.62,-4.5,5.64,5.85,0.61
+20260626,5.37,5.37,5.24,5.29,259253,5.6,-5.46,5.63,5.83,0.83
 ```
 
 ## Latest TDCC Snapshot

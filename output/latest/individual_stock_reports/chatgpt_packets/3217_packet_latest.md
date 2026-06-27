@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3217 優群
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:23 Asia/Taipei
+- generated_at: 2026-06-27 22:23:26 Asia/Taipei
 - stock_id: 3217
 - stock_name: 優群
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 182
 - close: 182
 - volume: 1710000
-- ma5: 176.1
-- ema23_primary: 178.22
-- distance_to_ema23_pct: 2.12
-- ma20: 179.43
-- ma60: 175.12
-- ma120: 166.65
-- return_5d: 7.37
-- return_20d: -7.85
-- volume_ratio: 2.3
-- distance_to_ma20_pct_auxiliary: 1.44
+- ma5: 179.6
+- ema23_primary: 178.96
+- distance_to_ema23_pct: 1.7
+- ma20: 179.38
+- ma60: 175.7
+- ma120: 166.85
+- return_5d: 7.06
+- return_20d: -3.45
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 1.46
 - distance_to_high_60_pct: -14.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,199.5,200,186.5,188.5,191000,184.88,1.96,184.9,167.78,0.12
 20260529,190,193,188,190.5,190000,185.35,2.78,186.1,168.4,0.12
 20260601,191.5,195,191.5,193.5,193000,186.03,4.01,187.28,169.12,0.12
 20260602,193.5,194,189.5,192,191,186.53,2.93,188.18,169.7,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,170,177,169.5,176.5,1183000,178.23,-0.97,182.25,174,2.05
 20260623,176.5,179,173,175,1410000,177.96,-1.66,181,174.32,2.21
 20260624,173.5,178.5,172,177,771000,177.88,-0.49,180.2,174.69,1.16
-20260626,186.5,188.5,182,182,1710000,178.22,2.12,179.43,175.12,2.3
+20260625,178.5,188.5,177,187.5,2589000,178.68,4.94,179.7,175.22,3.29
+20260626,186.5,188.5,182,182,1710000,178.96,1.7,179.38,175.7,1.98
 ```
 
 ## Latest TDCC Snapshot

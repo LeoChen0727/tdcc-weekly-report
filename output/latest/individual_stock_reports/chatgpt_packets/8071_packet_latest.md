@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8071 能率網通
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:47 Asia/Taipei
+- generated_at: 2026-06-27 22:24:48 Asia/Taipei
 - stock_id: 8071
 - stock_name: 能率網通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 29.7
 - close: 29.85
 - volume: 15799000
-- ma5: 28.42
-- ema23_primary: 24.87
-- distance_to_ema23_pct: 20.05
-- ma20: 24.79
-- ma60: 19.75
-- ma120: 18.61
-- return_5d: -1.16
-- return_20d: 53.08
-- volume_ratio: 3.36
-- distance_to_ma20_pct_auxiliary: 20.42
+- ma5: 28.7
+- ema23_primary: 25.35
+- distance_to_ema23_pct: 17.73
+- ma20: 25.34
+- ma60: 19.99
+- ma120: 18.71
+- return_5d: 1.53
+- return_20d: 50.38
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 17.82
 - distance_to_high_60_pct: -10.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.5,20.15,19.2,19.85,20000,18.67,6.33,18.54,17.1,0.01
 20260529,20.15,21.75,20.15,21.3,21000,18.89,12.78,18.79,17.18,0.01
 20260601,21.8,23.4,21.75,23.4,23000,19.26,21.48,19.15,17.3,0.02
 20260602,24.3,24.5,22.2,23.35,23,19.6,19.11,19.43,17.4,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29.15,29.35,27.75,27.85,4676000,23.82,16.91,23.6,19.17,1.32
 20260623,27.7,27.7,26.1,27,3381000,24.09,12.1,23.88,19.35,0.91
 20260624,26.9,28.35,26.7,28,3925000,24.41,14.7,24.27,19.54,1
-20260626,32.45,33.2,29.7,29.85,15799000,24.87,20.05,24.79,19.75,3.36
+20260625,29.1,30.8,28.5,30.8,12411000,24.94,23.47,24.84,19.77,2.74
+20260626,32.45,33.2,29.7,29.85,15799000,25.35,17.73,25.34,19.99,2.97
 ```
 
 ## Latest TDCC Snapshot

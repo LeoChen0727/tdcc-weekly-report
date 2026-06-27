@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2392 正崴
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:01 Asia/Taipei
 - stock_id: 2392
 - stock_name: 正崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 289
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 36.9
 - close: 37
 - volume: 2325709
-- ma5: 39.06
-- ema23_primary: 39.08
-- distance_to_ema23_pct: -5.33
-- ma20: 39.83
-- ma60: 37.67
-- ma120: 37.91
-- return_5d: -7.62
-- return_20d: -1.6
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -7.09
+- ma5: 38.86
+- ema23_primary: 39.04
+- distance_to_ema23_pct: -5.24
+- ma20: 39.88
+- ma60: 37.71
+- ma120: 37.92
+- return_5d: -6.92
+- return_20d: -1.73
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -7.22
 - distance_to_high_60_pct: -16.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,38,39.2,37.15,37.65,2702150,37.1,1.49,37.25,36.64,0.79
 20260529,38.2,40,38.2,39.25,5819265,37.28,5.29,37.33,36.65,1.6
 20260601,40.05,42.2,39.7,41.85,5764870,37.66,11.13,37.57,36.72,1.49
 20260602,42.3,42.3,40.4,41.75,3957505,38,9.87,37.8,36.81,1.02
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40,40.4,39.45,40.05,1774191,39.28,1.97,39.8,37.55,0.58
 20260623,40.5,40.6,39.2,39.25,1553754,39.28,-0.06,39.83,37.61,0.52
 20260624,39,39.7,38.8,39.25,1136684,39.27,-0.06,39.85,37.66,0.39
-20260626,38.55,38.55,36.9,37,2325709,39.08,-5.33,39.83,37.67,0.8
+20260625,39.9,39.9,38.6,38.75,1276896,39.23,-1.22,39.91,37.7,0.45
+20260626,38.55,38.55,36.9,37,2325709,39.04,-5.24,39.88,37.71,0.82
 ```
 
 ## Latest TDCC Snapshot

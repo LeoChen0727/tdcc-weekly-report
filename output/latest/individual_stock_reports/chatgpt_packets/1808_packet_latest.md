@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:46 Asia/Taipei
+- generated_at: 2026-06-27 22:22:50 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 284
+- price_rows: 285
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.35
 - close: 30.6
 - volume: 994646
-- ma5: 30.94
-- ema23_primary: 30.76
-- distance_to_ema23_pct: -0.53
-- ma20: 30.89
-- ma60: 30.01
-- ma120: 31.04
-- return_5d: -5.56
-- return_20d: 7.56
+- ma5: 30.7
+- ema23_primary: 30.78
+- distance_to_ema23_pct: -0.6
+- ma20: 31.04
+- ma60: 30.02
+- ma120: 31.01
+- return_5d: -5.12
+- return_20d: 8.7
 - volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -0.95
+- distance_to_ma20_pct_auxiliary: -1.42
 - distance_to_high_60_pct: -7.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.6,28.65,28.05,28.15,1633727,29.05,-3.1,28.78,29.83,1.12
 20260529,28.35,29.5,28.35,29.5,2274490,29.09,1.42,28.82,29.82,1.56
 20260601,29,29.3,28.5,29.1,2272077,29.09,0.04,28.86,29.82,1.52
 20260602,29,29.3,28.75,29.25,1356183,29.1,0.51,28.9,29.82,0.91
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.85,31.85,29.95,30.6,3964049,30.8,-0.66,30.62,30.04,1.68
 20260623,30.55,30.55,30,30,1012658,30.74,-2.4,30.67,30.02,0.44
 20260624,30.1,31.3,29.6,31.25,1720193,30.78,1.53,30.79,30.02,0.73
-20260626,30.65,30.85,30.35,30.6,994646,30.76,-0.53,30.89,30.01,0.43
+20260625,31.2,31.35,30.8,31.05,1082517,30.8,0.81,30.92,30.02,0.47
+20260626,30.65,30.85,30.35,30.6,994646,30.78,-0.6,31.04,30.02,0.43
 ```
 
 ## Latest TDCC Snapshot

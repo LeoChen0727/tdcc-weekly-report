@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6164 華興
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:08 Asia/Taipei
+- generated_at: 2026-06-27 22:24:10 Asia/Taipei
 - stock_id: 6164
 - stock_name: 華興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12.6
 - close: 12.65
 - volume: 823522
-- ma5: 13.36
-- ema23_primary: 12.91
-- distance_to_ema23_pct: -2.05
-- ma20: 12.95
-- ma60: 12.48
-- ma120: 12.44
-- return_5d: -6.99
-- return_20d: 4.55
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -2.34
+- ma5: 13.35
+- ema23_primary: 12.94
+- distance_to_ema23_pct: -2.26
+- ma20: 13.01
+- ma60: 12.5
+- ma120: 12.45
+- return_5d: -5.24
+- return_20d: 4.12
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -2.77
 - distance_to_high_60_pct: -13.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.2,12.45,12.1,12.15,589880,12.19,-0.35,12.19,12.25,0.92
 20260529,12.25,12.25,12,12.1,532526,12.19,-0.7,12.18,12.25,0.85
 20260601,12.2,12.7,12,12.65,1445052,12.22,3.48,12.22,12.28,2.16
 20260602,12.8,13.85,12.45,13.4,2593854,12.32,8.75,12.24,12.31,3.51
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.5,13.8,13.4,13.7,1543118,12.82,6.84,12.81,12.45,1.5
 20260623,13.7,14.6,13.3,13.55,3414066,12.88,5.18,12.86,12.46,2.93
 20260624,13.3,14,13.25,13.55,1138041,12.94,4.73,12.93,12.48,0.95
-20260626,13.2,13.25,12.6,12.65,823522,12.91,-2.05,12.95,12.48,0.68
+20260625,13.7,13.8,13.15,13.3,1182439,12.97,2.55,12.98,12.49,0.97
+20260626,13.2,13.25,12.6,12.65,823522,12.94,-2.26,13.01,12.5,0.67
 ```
 
 ## Latest TDCC Snapshot

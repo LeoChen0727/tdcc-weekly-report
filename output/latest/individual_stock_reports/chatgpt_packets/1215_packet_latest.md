@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1215 卜蜂
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:31 Asia/Taipei
+- generated_at: 2026-06-27 22:22:35 Asia/Taipei
 - stock_id: 1215
 - stock_name: 卜蜂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 114
 - volume: 1315608
 - ma5: 115
-- ema23_primary: 120.45
-- distance_to_ema23_pct: -5.36
-- ma20: 117.33
-- ma60: 132.47
-- ma120: 139.96
-- return_5d: -2.15
-- return_20d: -11.97
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -2.83
+- ema23_primary: 119.99
+- distance_to_ema23_pct: -4.99
+- ma20: 116.7
+- ma60: 132.06
+- ma120: 139.79
+- return_5d: -0.87
+- return_20d: -10.59
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -2.31
 - distance_to_high_60_pct: -22.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,130.5,130.5,126,127.5,3162444,138.8,-8.14,138.35,143.73,1.49
 20260529,128,128,123.5,125,2527763,137.65,-9.19,137.68,143.22,1.16
 20260601,125,125,120.5,121.5,3333840,136.3,-10.86,136.75,142.63,1.44
 20260602,121,121.5,116.5,117.5,4538524,134.74,-12.79,135.57,141.97,1.82
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,115,116,114.5,115,815664,122.1,-5.81,120.8,133.93,0.25
 20260623,115,116,114.5,116,1347156,121.59,-4.6,119.47,133.43,0.41
 20260624,116,116,114.5,115,741442,121.04,-4.99,118.1,132.95,0.23
-20260626,115,115.5,113.5,114,1315608,120.45,-5.36,117.33,132.47,0.46
+20260625,115.5,116,115,115,791668,120.54,-4.59,117.38,132.49,0.28
+20260626,115,115.5,113.5,114,1315608,119.99,-4.99,116.7,132.06,0.48
 ```
 
 ## Latest TDCC Snapshot

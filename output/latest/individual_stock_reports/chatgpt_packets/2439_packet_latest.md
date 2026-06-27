@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2439 美律
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:00 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2439
 - stock_name: 美律
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,15 +119,15 @@
 - low: 89.6
 - close: 89.6
 - volume: 2101224
-- ma5: 91.54
-- ema23_primary: 90.63
-- distance_to_ema23_pct: -1.13
+- ma5: 91.38
+- ema23_primary: 90.7
+- distance_to_ema23_pct: -1.21
 - ma20: 91.48
-- ma60: 88.46
-- ma120: 91.86
-- return_5d: -3.45
-- return_20d: -1.21
-- volume_ratio: 0.76
+- ma60: 88.58
+- ma120: 91.81
+- return_5d: -3.03
+- return_20d: -2.08
+- volume_ratio: 0.79
 - distance_to_ma20_pct_auxiliary: -2.06
 - distance_to_high_60_pct: -6.08
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,90.4,92,89.7,91.5,3882775,87.63,4.41,87.03,85.97,1.29
 20260529,92,92.5,91.3,91.8,2729921,87.98,4.34,87.32,86.04,0.93
 20260601,92,93,91,91.6,3230085,88.28,3.76,87.47,86.19,1.1
 20260602,92.6,94.2,91.2,93.5,4780807,88.72,5.39,87.67,86.38,1.56
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,93.1,93.3,92.6,92.8,1838807,90.58,2.45,91.42,88.18,0.51
 20260623,93,93.2,91.1,91.1,1578250,90.62,0.53,91.56,88.28,0.45
 20260624,90.1,92.1,89.9,91.8,1007811,90.72,1.19,91.53,88.39,0.34
-20260626,91.6,91.6,89.6,89.6,2101224,90.63,-1.13,91.48,88.46,0.76
+20260625,92.1,93,91.6,91.6,1776374,90.8,0.89,91.58,88.5,0.65
+20260626,91.6,91.6,89.6,89.6,2101224,90.7,-1.21,91.48,88.58,0.79
 ```
 
 ## Latest TDCC Snapshot

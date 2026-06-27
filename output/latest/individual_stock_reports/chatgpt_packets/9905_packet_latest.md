@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9905 大華
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:58 Asia/Taipei
 - stock_id: 9905
 - stock_name: 大華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.05
 - close: 21.1
 - volume: 107794
-- ma5: 21.04
-- ema23_primary: 20.91
-- distance_to_ema23_pct: 0.92
-- ma20: 20.83
+- ma5: 21.07
+- ema23_primary: 20.93
+- distance_to_ema23_pct: 0.8
+- ma20: 20.86
 - ma60: 21.06
-- ma120: 20.7
+- ma120: 20.71
 - return_5d: 0.24
 - return_20d: 2.18
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 1.31
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 1.17
 - distance_to_high_60_pct: -6.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.8,20.8,20.65,20.65,47497,20.94,-1.38,20.99,21.07,0.4
 20260529,20.65,20.8,20.6,20.75,79904,20.92,-0.83,20.96,21.07,0.67
 20260601,20.85,20.9,20.65,20.85,196519,20.92,-0.32,20.94,21.08,1.6
 20260602,20.85,20.9,20.7,20.85,154381,20.91,-0.3,20.91,21.08,1.22
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.05,21.1,20.95,21,149713,20.87,0.65,20.77,21.05,0.71
 20260623,21.05,21.1,20.95,21,125748,20.88,0.59,20.79,21.05,0.59
 20260624,20.95,21.05,20.9,21.05,94452,20.89,0.76,20.8,21.05,0.45
-20260626,21.05,21.2,21.05,21.1,107794,20.91,0.92,20.83,21.06,0.51
+20260625,21.05,21.2,21.05,21.2,227463,20.92,1.36,20.83,21.06,1.04
+20260626,21.05,21.2,21.05,21.1,107794,20.93,0.8,20.86,21.06,0.49
 ```
 
 ## Latest TDCC Snapshot

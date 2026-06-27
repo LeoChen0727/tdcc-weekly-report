@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 345
 - close: 346.5
 - volume: 35982616
-- ma5: 304.9
-- ema23_primary: 276.71
-- distance_to_ema23_pct: 25.22
-- ma20: 272.55
-- ma60: 256.84
-- ma120: 190.36
-- return_5d: 29.53
-- return_20d: 25.32
-- volume_ratio: 1.97
-- distance_to_ma20_pct_auxiliary: 27.13
+- ma5: 316.8
+- ema23_primary: 282
+- distance_to_ema23_pct: 22.87
+- ma20: 276.48
+- ma60: 259.98
+- ma120: 192.25
+- return_5d: 23.75
+- return_20d: 32.76
+- volume_ratio: 2
+- distance_to_ma20_pct_auxiliary: 25.33
 - distance_to_high_60_pct: -7.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,285,297,258,261,32386135,259.77,0.47,270.3,213.87,2.52
 20260529,270,280,267.5,268.5,20471464,260.5,3.07,270.23,216.11,1.51
 20260601,283,295,282,295,31063246,263.38,12.01,270.48,219,2.11
 20260602,293,294.5,268,273,26520106,264.18,3.34,269.93,221.42,1.68
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,293,308,292,308,36208426,265.57,15.98,266.62,248.69,2.18
 20260623,304,312,281,281,28641888,266.86,5.3,267.32,250.95,1.66
 20260624,309,309,303,309,25462125,270.37,14.29,269.05,253.7,1.46
-20260626,353,373,345,346.5,35982616,276.71,25.22,272.55,256.84,1.97
+20260625,329,339.5,329,339.5,26733662,276.13,22.95,272.2,256.73,1.5
+20260626,353,373,345,346.5,35982616,282,22.87,276.48,259.98,2
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6213 | 聯茂 | true_breakout | 嚴格突破 | 87.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:  一、本公司合併財務資訊：  科目　　 最近一月　　 與去年同期　　最近一季　　 與去年同期　最近四季累計  期間　　 115年05月　　增　　 減%　 115年第1季 　 增　　 減%　114年第2季至                                                               115年第1季              (自結數)               　(查核數)               (核閱或查核數)  ＝＝＝＝　 ＝＝＝＝　＝＝＝＝＝＝　＝＝＝＝＝＝ ＝＝＝＝＝＝ ＝＝＝＝＝＝＝  營業收入　　 3,803 　      29.31%　  　9,143 　　   20.62%　      34,661  (百萬)  稅前淨利       655        235.90%　      483　      -9.72%　　     2,315  (百萬)  本期淨利       438        265.00%　　    315　      -6.53%　　     1,488  (百萬)  每股盈餘　    1.21        266.67% 　    0.87　      -6.45%　        4.10  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6213 | 聯茂 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:  一、本公司合併財務資訊：  科目　　 最近一月　　 與去年同期　　最近一季　　 與去年同期　最近四季累計  期間　　 115年05月　　增　　 減%　 115年第1季 　 增　　 減%　114年第2季至                                                               115年第1季              (自結數)               　(查核數)               (核閱或查核數)  ＝＝＝＝　 ＝＝＝＝　＝＝＝＝＝＝　＝＝＝＝＝＝ ＝＝＝＝＝＝ ＝＝＝＝＝＝＝  營業收入　　 3,803 　      29.31%　  　9,143 　　   20.62%　      34,661  (百萬)  稅前淨利       655        235.90%　      483　      -9.72%　　     2,315  (百萬)  本期淨利       438        265.00%　　    315　      -6.53%　　     1,488  (百萬)  每股盈餘　    1.21        266.67% 　    0.87　      -6.45%　        4.10  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

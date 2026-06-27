@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6498 久禾光
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:19 Asia/Taipei
+- generated_at: 2026-06-27 22:24:20 Asia/Taipei
 - stock_id: 6498
 - stock_name: 久禾光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 94.6
 - close: 95
 - volume: 366000
-- ma5: 101.7
-- ema23_primary: 101.63
-- distance_to_ema23_pct: -6.53
-- ma20: 102
-- ma60: 97.58
-- ma120: 93.27
-- return_5d: -14.03
-- return_20d: -8.21
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: -6.87
+- ma5: 100.4
+- ema23_primary: 101.5
+- distance_to_ema23_pct: -6.41
+- ma20: 101.95
+- ma60: 97.75
+- ma120: 93.33
+- return_5d: -11.21
+- return_20d: -6.4
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -6.82
 - distance_to_high_60_pct: -17.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,105,106,101.5,101.5,103000,100.87,0.62,101.19,93.5,0.25
 20260529,102.5,105,102,104,103000,101.13,2.83,101.97,93.77,0.25
 20260601,105,107,103.5,105.5,106000,101.5,3.94,102.7,94.14,0.26
 20260602,108,108,101,103.5,104,101.66,1.81,103.19,94.44,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,107.5,107.5,102.5,104,588000,102.43,1.54,102.91,97.13,2.3
 20260623,106,107,101,101.5,259000,102.35,-0.83,102.63,97.31,0.98
 20260624,102.5,102.5,99.1,101,231000,102.24,-1.21,102.43,97.5,0.86
-20260626,100.5,100.5,94.6,95,366000,101.63,-6.53,102,97.58,1.29
+20260625,102,104,99.4,100.5,291000,102.09,-1.56,102.28,97.67,1.04
+20260626,100.5,100.5,94.6,95,366000,101.5,-6.41,101.95,97.75,1.25
 ```
 
 ## Latest TDCC Snapshot

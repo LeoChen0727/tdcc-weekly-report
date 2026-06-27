@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2413 環科
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2413
 - stock_name: 環科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 47.55
 - close: 47.55
 - volume: 2623434
-- ma5: 52.87
-- ema23_primary: 53.72
-- distance_to_ema23_pct: -11.49
-- ma20: 54.88
-- ma60: 50.41
-- ma120: 48.85
-- return_5d: -17.59
-- return_20d: -4.04
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -13.35
+- ma5: 51.69
+- ema23_primary: 53.44
+- distance_to_ema23_pct: -11.02
+- ma20: 54.86
+- ma60: 50.38
+- ma120: 48.99
+- return_5d: -15.84
+- return_20d: -6.76
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -13.32
 - distance_to_high_60_pct: -29.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,50.2,52.5,49.65,51,4945396,48.53,5.1,47.19,49.37,1.26
 20260529,51.9,52.6,50.5,51.2,4200223,48.75,5.03,47.57,49.36,1.04
 20260601,52.1,53.9,51.6,53.2,9055926,49.12,8.31,48,49.46,2.04
 20260602,53,53.4,50.7,53.3,5867363,49.47,7.75,48.4,49.52,1.25
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,57,58,56,56.7,3158441,54.76,3.55,54.97,50.65,0.38
 20260623,56.7,56.7,51.5,51.9,5138279,54.52,-4.8,54.97,50.61,0.62
 20260624,51,53.2,50.9,51.7,2333893,54.28,-4.76,54.98,50.55,0.29
-20260626,50.1,50.5,47.55,47.55,2623434,53.72,-11.49,54.88,50.41,0.32
+20260625,52.3,52.4,50.6,50.6,1690186,53.98,-6.26,55.03,50.46,0.21
+20260626,50.1,50.5,47.55,47.55,2623434,53.44,-11.02,54.86,50.38,0.33
 ```
 
 ## Latest TDCC Snapshot

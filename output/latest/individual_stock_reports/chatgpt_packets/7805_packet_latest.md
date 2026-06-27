@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7805 威聯通
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7805
 - stock_name: 威聯通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 121
+- price_rows: 122
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 656
 - close: 657
 - volume: 115000
-- ma5: 678.4
-- ema23_primary: 709.03
-- distance_to_ema23_pct: -7.34
-- ma20: 725.7
-- ma60: 713.22
-- ma120: 675.72
-- return_5d: -3.81
-- return_20d: -15.34
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -9.47
+- ma5: 675
+- ema23_primary: 706.07
+- distance_to_ema23_pct: -6.95
+- ma20: 720.2
+- ma60: 713.23
+- ma120: 675.59
+- return_5d: -5.06
+- return_20d: -16.31
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -8.78
 - distance_to_high_60_pct: -19.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,778,815,777,785,794000,732.08,7.23,730.25,689.68,2.81
 20260529,790,810,790,797,800000,737.49,8.07,735.7,692.87,2.5
 20260601,806,816,791,799,804000,742.61,7.59,740.1,696.58,2.3
 20260602,797,802,780,794,790,746.89,6.31,743.6,700.05,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,698,698,686,687,70000,720.56,-4.66,742.25,713.82,0.17
 20260623,692,692,678,678,89000,717.01,-5.44,736.95,714.2,0.24
 20260624,671,682,671,678,47000,713.76,-5.01,731.65,713.9,0.14
-20260626,671,674,656,657,115000,709.03,-7.34,725.7,713.22,0.38
+20260625,681,686,674,675,59000,710.53,-5,726.6,713.52,0.2
+20260626,671,674,656,657,115000,706.07,-6.95,720.2,713.23,0.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3038 全台
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:17 Asia/Taipei
+- generated_at: 2026-06-27 22:23:20 Asia/Taipei
 - stock_id: 3038
 - stock_name: 全台
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 21.75
 - close: 21.8
 - volume: 387518
-- ma5: 22.58
-- ema23_primary: 22.96
-- distance_to_ema23_pct: -5.06
-- ma20: 23.27
-- ma60: 22.67
-- ma120: 22.88
-- return_5d: -5.42
-- return_20d: -6.24
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -6.33
+- ma5: 22.47
+- ema23_primary: 22.9
+- distance_to_ema23_pct: -4.82
+- ma20: 23.22
+- ma60: 22.71
+- ma120: 22.87
+- return_5d: -4.6
+- return_20d: -6.44
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -6.13
 - distance_to_high_60_pct: -14.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.25,23.65,23.15,23.3,524593,22.83,2.05,22.88,22.29,1.23
 20260529,23.6,23.85,23.1,23.2,516096,22.86,1.47,22.89,22.31,1.18
 20260601,23.3,24.3,23.25,23.8,1094047,22.94,3.74,22.93,22.35,2.3
 20260602,24,24.15,23.3,23.8,753666,23.01,3.42,22.95,22.37,1.52
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.9,23.35,22.85,22.95,443699,23.15,-0.86,23.43,22.6,0.78
 20260623,23.05,23.15,22.7,22.8,253350,23.12,-1.38,23.39,22.63,0.47
 20260624,22.5,22.85,22.25,22.5,386222,23.07,-2.46,23.34,22.66,0.72
-20260626,22.3,22.3,21.75,21.8,387518,22.96,-5.06,23.27,22.67,0.73
+20260625,22.5,22.7,22.2,22.3,197324,23,-3.06,23.3,22.68,0.38
+20260626,22.3,22.3,21.75,21.8,387518,22.9,-4.82,23.22,22.71,0.76
 ```
 
 ## Latest TDCC Snapshot

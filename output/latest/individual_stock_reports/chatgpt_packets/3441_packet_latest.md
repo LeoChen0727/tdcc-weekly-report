@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3441 聯一光電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:29 Asia/Taipei
+- generated_at: 2026-06-27 22:23:31 Asia/Taipei
 - stock_id: 3441
 - stock_name: 聯一光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 83.6
 - close: 83.6
 - volume: 1780000
-- ma5: 86.98
-- ema23_primary: 69.99
-- distance_to_ema23_pct: 19.45
-- ma20: 68.95
-- ma60: 48.24
-- ma120: 41.8
-- return_5d: -6.17
-- return_20d: 61.7
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 21.24
-- distance_to_high_60_pct: -11.06
+- ma5: 87.08
+- ema23_primary: 71.82
+- distance_to_ema23_pct: 16.4
+- ma20: 71.08
+- ma60: 49.28
+- ma120: 42.25
+- return_5d: -9.43
+- return_20d: 66.53
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: 17.61
+- distance_to_high_60_pct: -12.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,51,53.9,49.6,50.2,51000,44.88,11.85,44.41,36.31,0.02
 20260529,50.9,54.4,49.15,53.9,52000,45.63,18.12,45.44,36.61,0.02
 20260601,53.4,55.4,52.2,54.2,54000,46.35,16.95,46.47,36.97,0.02
 20260602,56.5,58.5,51.7,54.7,55,47.04,16.28,47.35,37.31,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,90,90,86.6,86.6,3185000,65.4,32.42,64.41,45.5,0.62
 20260623,86.6,86.6,81.8,82.1,2054000,66.79,22.92,65.64,46.35,0.39
 20260624,82.2,90.3,82.2,90.3,2265000,68.75,31.35,67.36,47.35,0.42
-20260626,90.1,90.1,83.6,83.6,1780000,69.99,19.45,68.95,48.24,0.33
+20260625,93.4,95.8,91.7,92.8,1941000,70.75,31.16,69.42,48.39,0.36
+20260626,90.1,90.1,83.6,83.6,1780000,71.82,16.4,71.08,49.28,0.32
 ```
 
 ## Latest TDCC Snapshot

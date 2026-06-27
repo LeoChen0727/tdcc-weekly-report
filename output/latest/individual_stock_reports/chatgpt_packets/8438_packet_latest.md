@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8438 昶昕
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:54 Asia/Taipei
+- generated_at: 2026-06-27 22:24:54 Asia/Taipei
 - stock_id: 8438
 - stock_name: 昶昕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 90.3
 - close: 92.7
 - volume: 526967
-- ma5: 95.08
-- ema23_primary: 88.78
-- distance_to_ema23_pct: 4.42
-- ma20: 86.71
-- ma60: 87.33
-- ma120: 72.54
-- return_5d: 5.1
-- return_20d: 4.75
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 6.91
+- ma5: 95.5
+- ema23_primary: 89.25
+- distance_to_ema23_pct: 3.87
+- ma20: 87.14
+- ma60: 87.75
+- ma120: 73.08
+- return_5d: 0.22
+- return_20d: 7.79
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 6.38
 - distance_to_high_60_pct: -17.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,88.2,89.4,84.1,86,554161,89.85,-4.29,92.48,80.64,0.49
 20260529,87,90,85.8,86.2,344188,89.55,-3.74,92.38,80.94,0.3
 20260601,88,88.2,85.4,87,323984,89.34,-2.62,92,81.31,0.29
 20260602,87,87,83.9,85.7,312054,89.03,-3.74,91.58,81.64,0.28
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,95.2,96.5,91.1,92.1,1042737,86.42,6.58,85.78,85.77,1.92
 20260623,92.3,101,90.5,101,2215880,87.63,15.26,86.25,86.35,3.56
 20260624,100.5,102.5,93.1,97.1,3272082,88.42,9.82,86.5,86.88,4.27
-20260626,92.9,95,90.3,92.7,526967,88.78,4.42,86.71,87.33,0.69
+20260625,97.9,98.5,93.5,94.6,1021133,88.93,6.37,86.81,87.36,1.29
+20260626,92.9,95,90.3,92.7,526967,89.25,3.87,87.14,87.75,0.67
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4173 久裕
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:41 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4173
 - stock_name: 久裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.75
 - close: 17.8
 - volume: 392000
-- ma5: 18.01
-- ema23_primary: 18.23
-- distance_to_ema23_pct: -2.34
+- ma5: 17.99
+- ema23_primary: 18.21
+- distance_to_ema23_pct: -2.25
 - ma20: 18.17
-- ma60: 18.88
-- ma120: 20.07
+- ma60: 18.84
+- ma120: 20.04
 - return_5d: -1.93
 - return_20d: -1.11
-- volume_ratio: 5.17
-- distance_to_ma20_pct_auxiliary: -2.04
+- volume_ratio: 5.15
+- distance_to_ma20_pct_auxiliary: -2.05
 - distance_to_high_60_pct: -14.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.05,18.05,17.9,18,18000,18.59,-3.18,18.44,19.71,0.19
 20260529,18,18,17.9,17.95,18000,18.54,-3.17,18.39,19.64,0.19
 20260601,17.95,18,17.9,18,18000,18.49,-2.67,18.35,19.59,0.21
 20260602,18,18.1,18,18.05,18,18.46,-2.2,18.32,19.53,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.15,18.15,18.05,18.1,107000,18.32,-1.17,18.2,19.01,2.17
 20260623,18.1,18.1,17.95,18,135000,18.29,-1.58,18.19,18.96,2.45
 20260624,18,18.05,18,18,57000,18.26,-1.45,18.18,18.92,1
-20260626,18,18,17.75,17.8,392000,18.23,-2.34,18.17,18.88,5.17
+20260625,18.05,18.1,18,18.05,24000,18.25,-1.08,18.18,18.88,0.42
+20260626,18,18,17.75,17.8,392000,18.21,-2.25,18.17,18.84,5.15
 ```
 
 ## Latest TDCC Snapshot

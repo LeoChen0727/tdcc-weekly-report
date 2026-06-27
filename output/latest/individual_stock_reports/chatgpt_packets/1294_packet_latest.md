@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1294 漢田生技
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:32 Asia/Taipei
+- generated_at: 2026-06-27 22:22:36 Asia/Taipei
 - stock_id: 1294
 - stock_name: 漢田生技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 78.3
 - close: 78.5
 - volume: 51000
-- ma5: 79.16
-- ema23_primary: 78.92
-- distance_to_ema23_pct: -0.53
-- ma20: 78.85
-- ma60: 79.38
-- ma120: 79.71
-- return_5d: -1.88
-- return_20d: 1.95
+- ma5: 79.28
+- ema23_primary: 78.97
+- distance_to_ema23_pct: -0.6
+- ma20: 78.97
+- ma60: 79.35
+- ma120: 79.72
+- return_5d: -0.63
+- return_20d: 1.55
 - volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -0.44
+- distance_to_ma20_pct_auxiliary: -0.59
 - distance_to_high_60_pct: -7.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76.7,78,76.6,77.3,77000,78.35,-1.34,78.14,81.15,2.01
 20260529,77.3,77.9,77.2,77.9,78000,78.32,-0.53,78.06,81.14,1.92
 20260601,77.2,78,76.5,78,77000,78.29,-0.37,77.97,81.12,1.77
 20260602,78,78,78,78,78,78.27,-0.34,77.89,81.1,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,82.8,82.8,79.1,79.9,81000,78.91,1.25,78.56,79.5,1.19
 20260623,80.1,80.1,78.5,78.7,145000,78.89,-0.24,78.64,79.45,2.02
 20260624,78,79.7,78,79.7,49000,78.96,0.94,78.78,79.43,0.7
-20260626,79.5,79.5,78.3,78.5,51000,78.92,-0.53,78.85,79.38,0.74
+20260625,80,80,78.9,79.6,70000,79.01,0.74,78.91,79.39,1
+20260626,79.5,79.5,78.3,78.5,51000,78.97,-0.6,78.97,79.35,0.74
 ```
 
 ## Latest TDCC Snapshot

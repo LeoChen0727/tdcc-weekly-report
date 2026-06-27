@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:37 Asia/Taipei
+- generated_at: 2026-06-27 22:23:39 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 42.95
 - close: 43
 - volume: 6807465
-- ma5: 47.61
-- ema23_primary: 45.83
-- distance_to_ema23_pct: -6.18
-- ma20: 47.23
-- ma60: 40.18
-- ma120: 37.04
-- return_5d: -12.87
-- return_20d: -4.97
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -8.97
+- ma5: 47.5
+- ema23_primary: 45.96
+- distance_to_ema23_pct: -6.43
+- ma20: 47.35
+- ma60: 40.42
+- ma120: 37.17
+- return_5d: -10.88
+- return_20d: -5.18
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -9.19
 - distance_to_high_60_pct: -16.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45.25,47.15,45.1,45.35,8612160,39.57,14.6,38.71,35.55,1.54
 20260529,46.85,47.2,45.6,46.35,6329719,40.14,15.48,39.28,35.77,1.09
 20260601,46.85,47.2,46.25,46.8,5829927,40.69,15.01,39.88,36.03,0.98
 20260602,47,48.3,46.6,48,7373140,41.3,16.22,40.53,36.29,1.21
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.6,48.95,47.15,48.5,3368218,45.51,6.56,46.87,39.47,0.53
 20260623,49,51.4,48.8,49.7,7683558,45.86,8.37,47.18,39.75,1.22
 20260624,49.15,49.7,47.6,48.6,3701713,46.09,5.44,47.35,40.01,0.62
-20260626,47.7,47.7,42.95,43,6807465,45.83,-6.18,47.23,40.18,1.14
+20260625,49,49,47.4,47.7,2388889,46.23,3.19,47.47,40.26,0.42
+20260626,47.7,47.7,42.95,43,6807465,45.96,-6.43,47.35,40.42,1.21
 ```
 
 ## Latest TDCC Snapshot

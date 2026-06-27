@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1440 南紡
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:36 Asia/Taipei
+- generated_at: 2026-06-27 22:22:39 Asia/Taipei
 - stock_id: 1440
 - stock_name: 南紡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,22 +119,21 @@
 - close: 13
 - volume: 2921803
 - ma5: 13.3
-- ema23_primary: 13.15
-- distance_to_ema23_pct: -1.12
-- ma20: 13.43
-- ma60: 12.8
+- ema23_primary: 13.16
+- distance_to_ema23_pct: -1.2
+- ma20: 13.5
+- ma60: 12.81
 - ma120: 13.04
-- return_5d: -3.7
-- return_20d: 7.88
+- return_5d: -2.26
+- return_20d: 9.24
 - volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -3.22
+- distance_to_ma20_pct_auxiliary: -3.72
 - distance_to_high_60_pct: -17.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.2,12.3,11.8,11.9,3378596,12.02,-0.99,11.93,12.62,1.51
 20260529,12,12.55,11.9,12.55,4968831,12.06,4.03,11.93,12.61,2.04
 20260601,12.45,13.3,12.15,12.95,7678964,12.14,6.7,11.95,12.61,2.81
 20260602,12.95,14.2,12.85,14.2,18715974,12.31,15.36,12.03,12.63,5.22
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.35,13.6,13.3,13.5,2389061,13.12,2.86,13.23,12.79,0.36
 20260623,13.6,13.65,13.35,13.4,1929600,13.15,1.92,13.3,12.8,0.29
 20260624,13.35,13.45,13.15,13.3,2087283,13.16,1.06,13.38,12.8,0.32
-20260626,13.2,13.25,12.95,13,2921803,13.15,-1.12,13.43,12.8,0.45
+20260625,13.3,13.5,13.25,13.3,1931970,13.17,0.97,13.45,12.81,0.3
+20260626,13.2,13.25,12.95,13,2921803,13.16,-1.2,13.5,12.81,0.45
 ```
 
 ## Latest TDCC Snapshot

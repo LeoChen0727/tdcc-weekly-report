@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6895 宏碩系統
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:32 Asia/Taipei
+- generated_at: 2026-06-27 22:24:33 Asia/Taipei
 - stock_id: 6895
 - stock_name: 宏碩系統
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 146
 - close: 147
 - volume: 107000
-- ma5: 157.3
-- ema23_primary: 158.85
-- distance_to_ema23_pct: -7.46
-- ma20: 157.85
-- ma60: 164.22
-- ma120: 170.77
-- return_5d: -8.12
-- return_20d: -2.33
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -6.87
+- ma5: 155.4
+- ema23_primary: 158.4
+- distance_to_ema23_pct: -7.2
+- ma20: 157.97
+- ma60: 163.91
+- ma120: 170.47
+- return_5d: -10.09
+- return_20d: -2.97
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -6.95
 - distance_to_high_60_pct: -24.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,150.5,153,150,151.5,151000,158.81,-4.61,158.82,164.95,1.51
 20260529,151.5,151.5,145.5,145.5,147000,157.7,-7.74,157.53,164.55,1.41
 20260601,145.5,146.5,141.5,146.5,144000,156.77,-6.55,156.38,164.35,1.33
 20260602,145,145,140,141,142,155.46,-9.3,154.85,163.94,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,161,167.5,161,162.5,97000,160.52,1.24,157.7,164.66,0.66
 20260623,165,165.5,152,155,196000,160.06,-3.16,157.72,164.54,1.31
 20260624,155,159.5,154.5,158.5,34000,159.93,-0.89,158.03,164.54,0.24
-20260626,152,152,146,147,107000,158.85,-7.46,157.85,164.22,0.75
+20260625,156,156,154,154,24000,159.43,-3.41,158.2,164.34,0.17
+20260626,152,152,146,147,107000,158.4,-7.2,157.97,163.91,0.79
 ```
 
 ## Latest TDCC Snapshot

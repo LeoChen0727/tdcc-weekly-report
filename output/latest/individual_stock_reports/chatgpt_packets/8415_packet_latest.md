@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8415 大國鋼
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:53 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8415
 - stock_name: 大國鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 34.7
 - close: 34.85
 - volume: 285000
-- ma5: 34.94
-- ema23_primary: 35.04
-- distance_to_ema23_pct: -0.53
-- ma20: 35.02
-- ma60: 34.61
-- ma120: 34.26
-- return_5d: -1.41
-- return_20d: 0
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -0.5
+- ma5: 35.09
+- ema23_primary: 35.05
+- distance_to_ema23_pct: -0.56
+- ma20: 35.06
+- ma60: 34.63
+- ma120: 34.27
+- return_5d: 1.16
+- return_20d: 1.01
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -0.6
 - distance_to_high_60_pct: -4.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,34.8,34.85,34.3,34.5,35000,34.89,-1.13,34.87,34.19,0.05
 20260529,34.5,34.9,34.3,34.3,34000,34.84,-1.56,34.9,34.2,0.05
 20260601,34.35,35.05,34.15,34.95,35000,34.85,0.28,34.95,34.22,0.06
 20260602,35.1,35.1,34.55,34.8,35,34.85,-0.14,35,34.23,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.5,35.05,34.5,35.05,496000,35.03,0.05,35.06,34.53,1.5
 20260623,34.95,35.25,34.65,35.25,493000,35.05,0.57,35.02,34.56,1.4
 20260624,34.8,35.1,34.5,35.1,767000,35.05,0.13,35.02,34.59,1.97
-20260626,35.05,35.05,34.7,34.85,285000,35.04,-0.53,35.02,34.61,0.71
+20260625,35,35.3,34.9,35.2,399000,35.07,0.38,35.04,34.62,0.98
+20260626,35.05,35.05,34.7,34.85,285000,35.05,-0.56,35.06,34.63,0.68
 ```
 
 ## Latest TDCC Snapshot

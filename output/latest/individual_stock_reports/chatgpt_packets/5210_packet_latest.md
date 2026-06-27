@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5210 寶碩
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:54 Asia/Taipei
+- generated_at: 2026-06-27 22:23:56 Asia/Taipei
 - stock_id: 5210
 - stock_name: 寶碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30
 - close: 30
 - volume: 2195000
-- ma5: 29.97
-- ema23_primary: 29.29
-- distance_to_ema23_pct: 2.41
-- ma20: 29.96
-- ma60: 26.26
-- ma120: 24.05
-- return_5d: 1.18
-- return_20d: 10.09
-- volume_ratio: 4.67
-- distance_to_ma20_pct_auxiliary: 0.13
-- distance_to_high_60_pct: -9.64
+- ma5: 30.62
+- ema23_primary: 29.6
+- distance_to_ema23_pct: 1.35
+- ma20: 30.18
+- ma60: 26.44
+- ma120: 24.13
+- return_5d: 0
+- return_20d: 3.99
+- volume_ratio: 3.65
+- distance_to_ma20_pct_auxiliary: -0.6
+- distance_to_high_60_pct: -9.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.3,29.8,27.2,28.85,29000,26.09,10.56,26.65,23.61,0.07
 20260529,29.2,30.85,28.5,29,29000,26.34,10.12,26.96,23.73,0.07
 20260601,29.5,29.9,29.2,29.25,29000,26.58,10.05,27.18,23.86,0.08
 20260602,29.3,29.5,28.95,29.1,29,26.79,8.63,27.26,24,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.25,30.7,29.8,29.8,429000,29.08,2.49,29.48,25.87,1.4
 20260623,30.5,30.65,29.8,29.8,595000,29.14,2.28,29.64,26,1.78
 20260624,29.7,30.3,29.45,30.25,556000,29.23,3.49,29.82,26.12,1.54
-20260626,33.15,33.2,30,30,2195000,29.29,2.41,29.96,26.26,4.67
+20260625,30.7,33.25,30.7,33.25,2648000,29.56,12.46,30.12,26.31,5.38
+20260626,33.15,33.2,30,30,2195000,29.6,1.35,30.18,26.44,3.65
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5210 | 寶碩 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5210 | 寶碩 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 | 20260626 | 5210 | 寶碩 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context

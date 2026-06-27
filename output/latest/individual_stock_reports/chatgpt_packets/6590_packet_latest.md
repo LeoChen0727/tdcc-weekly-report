@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6590 普鴻
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6590
 - stock_name: 普鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 152
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 66.6
 - close: 66.6
 - volume: 7000
-- ma5: 67.82
-- ema23_primary: 67.09
-- distance_to_ema23_pct: -0.73
-- ma20: 66.39
-- ma60: 68.58
-- ma120: 70.92
+- ma5: 68
+- ema23_primary: 67.12
+- distance_to_ema23_pct: -0.77
+- ma20: 66.46
+- ma60: 68.48
+- ma120: 70.84
 - return_5d: 0
-- return_20d: -0.15
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 0.32
+- return_20d: 0.76
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 0.21
 - distance_to_high_60_pct: -9.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260526,66.5,66.5,66,66.1,66000,68.29,-3.21,68.44,70.41,3.21
 20260527,66,66,65,65.1,65000,68.03,-4.3,68.22,70.31,2.76
 20260528,65.8,65.8,65.3,65.3,66000,67.8,-3.69,67.97,70.22,2.51
 20260529,65.5,65.7,65,65,65000,67.57,-3.8,67.71,70.11,2.22
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260618,66.6,68.7,66.1,68.7,31000,66.86,2.75,66.23,68.86,0.8
 20260622,68.7,69.3,68.3,69.2,19000,67.06,3.19,66.34,68.78,0.49
 20260623,68.9,68.9,68,68,8000,67.14,1.29,66.39,68.69,0.22
-20260626,67.5,67.9,66.6,66.6,7000,67.09,-0.73,66.39,68.58,0.21
+20260625,68,68,67.5,67.5,24000,67.17,0.5,66.44,68.59,0.71
+20260626,67.5,67.9,66.6,66.6,7000,67.12,-0.77,66.46,68.48,0.23
 ```
 
 ## Latest TDCC Snapshot

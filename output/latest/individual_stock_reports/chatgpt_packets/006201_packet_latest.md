@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006201 元大富櫃50
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:25 Asia/Taipei
+- generated_at: 2026-06-27 22:22:29 Asia/Taipei
 - stock_id: 006201
 - stock_name: 元大富櫃50
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -118,23 +118,22 @@
 - low: 45.7
 - close: 45.74
 - volume: 363000
-- ma5: 49.01
-- ema23_primary: 48.23
-- distance_to_ema23_pct: -5.16
-- ma20: 48.4
+- ma5: 48.68
+- ema23_primary: 48.24
+- distance_to_ema23_pct: -5.18
+- ma20: 48.41
 - ma60: 48.51
 - ma120: 48.51
-- return_5d: -5.16
-- return_20d: -8.3
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: -5.49
+- return_5d: -8.98
+- return_20d: -5.5
+- volume_ratio: 1.78
+- distance_to_ma20_pct_auxiliary: -5.51
 - distance_to_high_60_pct: -11.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,50.25,50.75,48.4,48.4,50000,48.01,0.8,48.92,48.92,1.02
 20260529,49.14,50.65,49.14,50.3,50000,48.2,4.35,49.15,49.15,1.01
 20260601,50.35,50.95,50.15,50.35,51000,48.38,4.07,49.32,49.32,1.03
 20260602,50.8,50.8,48.6,49.55,50,48.48,2.21,49.35,49.35,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51.25,51.75,50.7,50.8,212000,48.33,5.12,48.63,48.58,1.34
 20260623,50.3,50.95,49.22,49.24,283000,48.4,1.73,48.63,48.61,1.67
 20260624,49.15,49.23,47.98,49.02,258000,48.45,1.17,48.6,48.63,1.43
-20260626,48.5,48.5,45.7,45.74,363000,48.23,-5.16,48.4,48.51,1.86
+20260625,49.34,49.7,48.48,48.62,208000,48.47,0.31,48.54,48.63,1.11
+20260626,48.5,48.5,45.7,45.74,363000,48.24,-5.18,48.41,48.51,1.78
 ```
 
 ## Latest TDCC Snapshot

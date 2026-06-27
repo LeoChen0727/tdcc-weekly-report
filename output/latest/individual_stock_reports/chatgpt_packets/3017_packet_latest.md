@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3017 奇鋐
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:16 Asia/Taipei
+- generated_at: 2026-06-27 22:23:19 Asia/Taipei
 - stock_id: 3017
 - stock_name: 奇鋐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 2255
 - close: 2255
 - volume: 6567236
-- ma5: 2406
-- ema23_primary: 2471.15
-- distance_to_ema23_pct: -8.75
-- ma20: 2514.25
-- ma60: 2490.33
-- ma120: 2054.62
-- return_5d: -4.65
-- return_20d: -16.48
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -10.31
+- ma5: 2427
+- ema23_primary: 2472.23
+- distance_to_ema23_pct: -8.79
+- ma20: 2510.5
+- ma60: 2496.5
+- ma120: 2063.21
+- return_5d: -6.04
+- return_20d: -12.6
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: -10.18
 - distance_to_high_60_pct: -25.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,2740,2795,2540,2580,5097423,2534.7,1.79,2557.5,2300.75,0.86
 20260529,2680,2730,2615,2665,9351169,2545.56,4.69,2549,2315.25,1.51
 20260601,2705,2835,2705,2785,5090031,2565.52,8.56,2544,2332.5,0.81
 20260602,2800,2835,2650,2700,4220815,2576.72,4.78,2543.75,2347.17,0.7
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,2465,2490,2380,2420,3254412,2492.89,-2.92,2553.75,2479.67,0.68
 20260623,2455,2475,2400,2425,3079821,2487.23,-2.5,2546.25,2485.08,0.66
 20260624,2355,2590,2335,2530,6494281,2490.8,1.57,2536.5,2489.33,1.39
-20260626,2475,2475,2255,2255,6567236,2471.15,-8.75,2514.25,2490.33,1.38
+20260625,2595,2635,2485,2505,3833150,2491.98,0.52,2526.75,2494.5,0.83
+20260626,2475,2475,2255,2255,6567236,2472.23,-8.79,2510.5,2496.5,1.4
 ```
 
 ## Latest TDCC Snapshot

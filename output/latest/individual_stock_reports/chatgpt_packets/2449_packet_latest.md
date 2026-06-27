@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:01 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 306.5
 - close: 308
 - volume: 52126159
-- ma5: 323.7
-- ema23_primary: 304.98
-- distance_to_ema23_pct: 0.99
-- ma20: 304.52
-- ma60: 297.43
-- ma120: 290.17
-- return_5d: 9.8
-- return_20d: -2.38
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 1.14
+- ma5: 328.9
+- ema23_primary: 307.26
+- distance_to_ema23_pct: 0.24
+- ma20: 305.25
+- ma60: 298.47
+- ma120: 291.11
+- return_5d: -0.16
+- return_20d: -3.75
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 0.9
 - distance_to_high_60_pct: -15.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,315.5,334,312,320,72840078,304.32,5.15,310.15,294.21,1.51
 20260529,329,329.5,311.5,328.5,68983487,306.33,7.24,311.45,294.6,1.43
 20260601,328.5,329.5,317,318,51661349,307.31,3.48,310.73,295.27,1.05
 20260602,320.5,324,298,306.5,48921030,307.24,-0.24,308.35,295.46,1.01
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,314,339,314,339,81551317,299.6,13.15,304.52,295.49,1.78
 20260623,338.5,353.5,325,329.5,76716982,302.09,9.07,305.15,296.18,1.63
 20260624,329.5,336.5,318,333.5,42402486,304.71,9.45,304.9,296.93,0.96
-20260626,330,349.5,306.5,308,52126159,304.98,0.99,304.52,297.43,1.24
+20260625,338.5,347,330,334.5,33666372,307.19,8.89,305.85,297.87,0.82
+20260626,330,349.5,306.5,308,52126159,307.26,0.24,305.25,298.47,1.3
 ```
 
 ## Latest TDCC Snapshot

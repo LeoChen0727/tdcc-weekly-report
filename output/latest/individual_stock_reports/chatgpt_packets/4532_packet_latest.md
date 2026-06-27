@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:44 Asia/Taipei
+- generated_at: 2026-06-27 22:23:46 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 23.45
 - close: 23.8
 - volume: 1225355
-- ma5: 23.94
-- ema23_primary: 24.05
-- distance_to_ema23_pct: -1.04
-- ma20: 24.2
-- ma60: 24.06
+- ma5: 23.98
+- ema23_primary: 24.04
+- distance_to_ema23_pct: -1
+- ma20: 24.24
+- ma60: 24.02
 - ma120: 24.78
-- return_5d: -1.45
-- return_20d: 0.85
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -1.65
-- distance_to_high_60_pct: -12.34
+- return_5d: 0.21
+- return_20d: 2.59
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -1.81
+- distance_to_high_60_pct: -11.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.75,23.8,23.2,23.2,1240931,23.54,-1.46,23.23,24.69,1.22
 20260529,23.4,24.1,23.4,23.75,1177941,23.56,0.8,23.27,24.66,1.14
 20260601,23.8,24.3,23.8,24.3,2195368,23.62,2.86,23.34,24.65,2
 20260602,24.45,24.45,24,24.1,1370578,23.66,1.85,23.4,24.63,1.21
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.75,24.2,23.75,24.2,1262955,24.09,0.45,24.17,24.22,0.9
 20260623,24.2,24.2,23.85,23.9,691637,24.08,-0.73,24.17,24.17,0.5
 20260624,23.9,24.2,23.8,24.05,1101206,24.07,-0.1,24.19,24.12,0.8
-20260626,23.85,23.85,23.45,23.8,1225355,24.05,-1.04,24.2,24.06,0.89
+20260625,24,24.25,23.85,23.95,2019727,24.06,-0.47,24.21,24.06,1.43
+20260626,23.85,23.85,23.45,23.8,1225355,24.04,-1,24.24,24.02,0.87
 ```
 
 ## Latest TDCC Snapshot

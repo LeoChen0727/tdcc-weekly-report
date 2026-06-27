@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8930 青鋼
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:56 Asia/Taipei
+- generated_at: 2026-06-27 22:24:57 Asia/Taipei
 - stock_id: 8930
 - stock_name: 青鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 27.3
 - close: 27.4
 - volume: 45000
-- ma5: 27.5
-- ema23_primary: 27.98
-- distance_to_ema23_pct: -2.07
-- ma20: 27.91
-- ma60: 28.97
-- ma120: 30.34
-- return_5d: -0.54
-- return_20d: -4.03
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -1.84
+- ma5: 27.46
+- ema23_primary: 27.93
+- distance_to_ema23_pct: -1.91
+- ma20: 27.86
+- ma60: 28.93
+- ma120: 30.29
+- return_5d: -0.9
+- return_20d: -3.69
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -1.66
 - distance_to_high_60_pct: -13.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.7,28.7,28.35,28.45,28000,29.02,-1.96,28.97,30.28,0.5
 20260529,28.5,28.5,28.25,28.45,28000,28.97,-1.8,28.89,30.23,0.51
 20260601,28.45,28.45,28.15,28.2,28000,28.91,-2.44,28.81,30.2,0.52
 20260602,28.3,28.3,27.9,28.15,28,28.84,-2.4,28.73,30.15,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.7,27.7,27.45,27.5,46000,28.14,-2.26,28.08,29.17,1.23
 20260623,27.5,27.5,27.15,27.5,62000,28.08,-2.08,28.02,29.09,1.59
 20260624,27.5,27.5,27.35,27.45,16000,28.03,-2.07,27.97,29.02,0.42
-20260626,27.45,27.45,27.3,27.4,45000,27.98,-2.07,27.91,28.97,1.15
+20260625,27.45,27.45,27.4,27.45,17000,27.98,-1.9,27.91,28.98,0.45
+20260626,27.45,27.45,27.3,27.4,45000,27.93,-1.91,27.86,28.93,1.16
 ```
 
 ## Latest TDCC Snapshot

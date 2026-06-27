@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6651 全宇昕
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:24 Asia/Taipei
+- generated_at: 2026-06-27 22:24:25 Asia/Taipei
 - stock_id: 6651
 - stock_name: 全宇昕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 145
 - close: 147.5
 - volume: 483000
-- ma5: 156.2
-- ema23_primary: 141.15
-- distance_to_ema23_pct: 4.5
-- ma20: 142.38
-- ma60: 119.72
-- ma120: 104.58
-- return_5d: 3.51
-- return_20d: -2.32
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 3.6
+- ma5: 155.8
+- ema23_primary: 142.14
+- distance_to_ema23_pct: 3.77
+- ma20: 142.78
+- ma60: 120.84
+- ma120: 105.18
+- return_5d: -5.14
+- return_20d: 1.37
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 3.31
 - distance_to_high_60_pct: -13.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,151,155,144,145.5,149000,125.84,15.63,125.7,104.47,0.25
 20260529,150,151.5,145,149,148000,127.77,16.62,127.8,105.28,0.26
 20260601,151,151,141.5,141.5,144000,128.91,9.77,129.57,105.98,0.25
 20260602,141.5,143,137.5,140.5,140,129.88,8.18,131.35,106.66,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,161.5,170.5,159.5,163,1272000,137.32,18.7,142.05,116.56,4.02
 20260623,162,166.5,150.5,153,872000,138.63,10.37,142.32,117.58,2.47
 20260624,152,162.5,148.5,162,478000,140.57,15.24,142.55,118.76,1.3
-20260626,152,158,145,147.5,483000,141.15,4.5,142.38,119.72,1.25
+20260625,161,161,151,153.5,462000,141.65,8.36,142.68,119.82,1.2
+20260626,152,158,145,147.5,483000,142.14,3.77,142.78,120.84,1.2
 ```
 
 ## Latest TDCC Snapshot

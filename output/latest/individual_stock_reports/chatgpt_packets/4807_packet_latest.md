@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4807 日成-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4807
 - stock_name: 日成-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 289
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 37.8
 - close: 37.9
 - volume: 983256
-- ma5: 42.47
-- ema23_primary: 36.16
-- distance_to_ema23_pct: 4.82
-- ma20: 36.98
-- ma60: 25
-- ma120: 21.27
-- return_5d: -5.25
-- return_20d: 51.3
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 2.5
+- ma5: 42.07
+- ema23_primary: 36.62
+- distance_to_ema23_pct: 3.5
+- ma20: 37.8
+- ma60: 25.45
+- ma120: 21.47
+- return_5d: -13.86
+- return_20d: 49.21
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 0.25
 - distance_to_high_60_pct: -17.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.7,26.25,24.5,25.4,751063,22.26,14.08,23.24,18.3,1.62
 20260529,25.7,27.9,25.5,27.9,1076122,22.73,22.72,23.6,18.47,2.27
 20260601,27.9,29.95,27.4,28.7,749541,23.23,23.54,23.89,18.65,1.62
 20260602,28.7,31.55,28.5,31.25,1272861,23.9,30.76,24.38,18.89,2.62
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,45.6,45.6,43.1,43.95,546561,34.63,26.93,34.37,23.7,0.77
 20260623,42.7,45.1,42.2,43.55,593435,35.37,23.13,35.35,24.16,0.81
 20260624,42,43.75,41.45,42.95,455181,36,19.3,36.33,24.62,0.63
-20260626,41.4,42.6,37.8,37.9,983256,36.16,4.82,36.98,25,1.33
+20260625,43.25,43.45,41.6,42,505760,36.5,15.07,37.18,25.07,0.71
+20260626,41.4,42.6,37.8,37.9,983256,36.62,3.5,37.8,25.45,1.35
 ```
 
 ## Latest TDCC Snapshot

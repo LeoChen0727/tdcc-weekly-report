@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:32 Asia/Taipei
+- generated_at: 2026-06-27 22:24:33 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 79.2
 - close: 79.4
 - volume: 331048
-- ma5: 80.44
-- ema23_primary: 84.14
-- distance_to_ema23_pct: -5.63
-- ma20: 85.42
-- ma60: 86.96
-- ma120: 96.34
-- return_5d: 2.32
-- return_20d: -13.51
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -7.05
+- ma5: 81.1
+- ema23_primary: 83.95
+- distance_to_ema23_pct: -5.42
+- ma20: 85.03
+- ma60: 86.92
+- ma120: 96.18
+- return_5d: 0.76
+- return_20d: -11.58
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -6.63
 - distance_to_high_60_pct: -23.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,93,94.2,88.3,89.8,594400,88.62,1.34,88.81,90.97,0.91
 20260529,91.1,91.1,88.6,89.1,2147894,88.66,0.5,88.81,90.65,2.9
 20260601,89.9,90.9,88.1,90.2,685382,88.79,1.59,88.77,90.42,0.92
 20260602,90.3,90.3,89,90.2,412948,88.9,1.46,88.75,90.24,0.56
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,78.8,81.9,78.8,81.8,558763,85.22,-4.01,86.8,87.4,0.61
 20260623,82.2,82.6,80.4,80.4,445788,84.82,-5.21,86.44,87.21,0.49
 20260624,80,81.8,79.7,81.8,345747,84.57,-3.27,86.04,87.09,0.39
-20260626,82.5,82.5,79.2,79.4,331048,84.14,-5.63,85.42,86.96,0.38
+20260625,81.6,82.5,81,82.1,218436,84.36,-2.68,85.56,87.01,0.25
+20260626,82.5,82.5,79.2,79.4,331048,83.95,-5.42,85.03,86.92,0.39
 ```
 
 ## Latest TDCC Snapshot

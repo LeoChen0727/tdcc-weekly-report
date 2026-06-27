@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:08 Asia/Taipei
+- generated_at: 2026-06-27 22:23:11 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 71.6
 - close: 71.7
 - volume: 4074745
-- ma5: 75.74
-- ema23_primary: 76.38
-- distance_to_ema23_pct: -6.13
-- ma20: 77.47
-- ma60: 74.11
-- ma120: 72.17
+- ma5: 75.48
+- ema23_primary: 76.33
+- distance_to_ema23_pct: -6.06
+- ma20: 77.44
+- ma60: 74.24
+- ma120: 72.23
 - return_5d: -7.36
-- return_20d: -5.53
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -7.45
+- return_20d: -6.52
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -7.41
 - distance_to_high_60_pct: -14.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76.4,78.4,76,76.7,6114298,73.55,4.28,73.81,71.75,2.06
 20260529,78.4,78.4,75.3,75.3,3827034,73.7,2.17,74,71.74,1.24
 20260601,75.7,79.8,75.2,78.8,5255457,74.12,6.31,74.28,71.86,1.61
 20260602,78.7,78.7,75.6,77,5354881,74.36,3.55,74.43,71.95,1.57
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,77.9,77.9,76.3,77.1,2003159,76.92,0.24,77.55,73.85,0.3
 20260623,77.3,77.4,76.2,76.8,2241864,76.91,-0.14,77.64,73.95,0.35
 20260624,76.7,76.8,75.1,75.7,2701575,76.81,-1.44,77.68,74.07,0.42
-20260626,75.6,75.9,71.6,71.7,4074745,76.38,-6.13,77.47,74.11,0.64
+20260625,76,76.3,75.4,76.1,2628435,76.75,-0.84,77.69,74.19,0.42
+20260626,75.6,75.9,71.6,71.7,4074745,76.33,-6.06,77.44,74.24,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -192,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:Amis Miracle S.A. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:百分之百持股公司 5.發生緣由:本集團40,000噸散裝貨輪加入營運 6.因應措施:發佈重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  本高規格新型節能散裝貨輪由今治造船株式會社  (Imabari Shipbuilding Co., Ltd.)建造，為NOx第三期環保節能船。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:Amis Miracle S.A. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:百分之百持股公司 5.發生緣由:本集團40,000噸散裝貨輪加入營運 6.因應措施:發佈重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  本高規格新型節能散裝貨輪由今治造船株式會社  (Imabari Shipbuilding Co., Ltd.)建造，為NOx第三期環保節能船。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

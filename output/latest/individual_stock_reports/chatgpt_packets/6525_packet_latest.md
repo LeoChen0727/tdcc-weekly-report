@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6525 捷敏-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:21 Asia/Taipei
 - stock_id: 6525
 - stock_name: 捷敏-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 145.5
 - close: 146
 - volume: 3178609
-- ma5: 156.1
-- ema23_primary: 132.35
-- distance_to_ema23_pct: 10.32
-- ma20: 130.45
-- ma60: 108.98
-- ma120: 94.19
-- return_5d: 12.31
-- return_20d: 12.74
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 11.92
+- ma5: 158.3
+- ema23_primary: 134.1
+- distance_to_ema23_pct: 8.88
+- ma20: 132.03
+- ma60: 110.2
+- ma120: 94.85
+- return_5d: 2.1
+- return_20d: 19.18
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 10.59
 - distance_to_high_60_pct: -15.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,127.5,131,120.5,122.5,2473415,110.78,10.58,111.31,93.56,1.19
 20260529,125.5,126,120.5,123,1490473,111.79,10.02,112.84,94.25,0.7
 20260601,124,124.5,119,120.5,1403119,112.52,7.09,114.08,94.94,0.65
 20260602,120.5,122,116,119.5,1407011,113.1,5.66,114.92,95.58,0.66
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,157,157,145.5,155,9125433,124.06,24.93,125.6,105.07,2.97
 20260623,153.5,170.5,153,170.5,10988558,127.93,33.27,128.03,106.54,3.14
 20260624,166,173.5,160,166,9062327,131.11,26.61,129.62,107.92,2.43
-20260626,152,157,145.5,146,3178609,132.35,10.32,130.45,108.98,0.88
+20260625,171,171,151,154,5295094,133.01,15.78,130.85,109.11,1.42
+20260626,152,157,145.5,146,3178609,134.1,8.88,132.03,110.2,0.84
 ```
 
 ## Latest TDCC Snapshot

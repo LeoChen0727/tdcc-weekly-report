@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8917 欣泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:56 Asia/Taipei
+- generated_at: 2026-06-27 22:24:56 Asia/Taipei
 - stock_id: 8917
 - stock_name: 欣泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 135
+- price_rows: 136
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 52.2
 - close: 52.3
 - volume: 24000
-- ma5: 52.44
-- ema23_primary: 52.39
-- distance_to_ema23_pct: -0.18
-- ma20: 52.28
-- ma60: 52.77
-- ma120: 55.14
-- return_5d: -0.38
-- return_20d: -1.51
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 0.03
+- ma5: 52.58
+- ema23_primary: 52.44
+- distance_to_ema23_pct: -0.26
+- ma20: 52.27
+- ma60: 52.73
+- ma120: 55.1
+- return_5d: 0
+- return_20d: -1.88
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 0.06
 - distance_to_high_60_pct: -7.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,53.1,53.5,53.1,53.3,53000,52.92,0.72,52.83,54.45,1.63
 20260529,52.8,52.8,52.5,52.6,53000,52.89,-0.56,52.8,54.4,1.54
 20260601,52.6,53.1,52,52,53000,52.82,-1.55,52.78,54.35,1.5
 20260602,52.5,52.6,52.3,52.6,52,52.8,-0.38,52.77,54.31,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,52.2,52.7,52,52.7,87000,52.39,0.6,52.31,52.93,2.07
 20260623,52.5,53,51.9,51.9,64000,52.35,-0.85,52.28,52.88,1.5
 20260624,52.8,53.5,52.1,53,75000,52.4,1.14,52.33,52.82,1.72
-20260626,53.5,53.5,52.2,52.3,24000,52.39,-0.18,52.28,52.77,0.57
+20260625,53,53,53,53,1000,52.45,1.05,52.32,52.78,0.02
+20260626,53.5,53.5,52.2,52.3,24000,52.44,-0.26,52.27,52.73,0.61
 ```
 
 ## Latest TDCC Snapshot

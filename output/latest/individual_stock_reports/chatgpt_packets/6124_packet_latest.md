@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6124 業強
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:06 Asia/Taipei
+- generated_at: 2026-06-27 22:24:07 Asia/Taipei
 - stock_id: 6124
 - stock_name: 業強
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 29.4
 - close: 29.7
 - volume: 73000
-- ma5: 30.31
-- ema23_primary: 30.73
-- distance_to_ema23_pct: -3.35
-- ma20: 31.22
-- ma60: 30.56
-- ma120: 30.37
-- return_5d: -0.34
-- return_20d: -0.17
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -4.88
+- ma5: 30.47
+- ema23_primary: 30.72
+- distance_to_ema23_pct: -3.31
+- ma20: 31.32
+- ma60: 30.57
+- ma120: 30.41
+- return_5d: -0.5
+- return_20d: 3.12
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -5.16
 - distance_to_high_60_pct: -19.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.75,30.1,28.8,28.8,30000,29.82,-3.41,29.79,31.34,0.38
 20260529,29.7,29.7,29,29.3,29000,29.77,-1.59,29.75,31.2,0.39
 20260601,29.8,30.55,29.35,30,30000,29.79,0.69,29.71,31.09,0.44
 20260602,30.9,33,30.35,33,32,30.06,9.78,29.82,31.04,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.15,30.75,30,30.55,88000,30.84,-0.94,31.14,30.59,1.31
 20260623,30.55,30.9,30.15,30.35,56000,30.8,-1.46,31.16,30.57,0.82
 20260624,30.75,33.2,30.55,31.1,289000,30.82,0.9,31.23,30.58,3.54
-20260626,30.6,30.6,29.4,29.7,73000,30.73,-3.35,31.22,30.56,0.87
+20260625,31.5,31.85,30.55,30.65,86000,30.81,-0.52,31.27,30.58,1.02
+20260626,30.6,30.6,29.4,29.7,73000,30.72,-3.31,31.32,30.57,0.84
 ```
 
 ## Latest TDCC Snapshot

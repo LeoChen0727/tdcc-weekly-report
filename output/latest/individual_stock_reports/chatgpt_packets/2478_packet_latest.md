@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:02 Asia/Taipei
+- generated_at: 2026-06-27 22:23:06 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 218
 - close: 218
 - volume: 1330568
-- ma5: 230.2
-- ema23_primary: 178.91
-- distance_to_ema23_pct: 21.85
-- ma20: 179.47
-- ma60: 112.3
-- ma120: 88.92
-- return_5d: -4.18
-- return_20d: 81.67
+- ma5: 231.8
+- ema23_primary: 184
+- distance_to_ema23_pct: 18.48
+- ma20: 185.22
+- ma60: 115.32
+- ma120: 90.47
+- return_5d: -6.84
+- return_20d: 71.65
 - volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: 21.47
-- distance_to_high_60_pct: -9.54
+- distance_to_ma20_pct_auxiliary: 17.69
+- distance_to_high_60_pct: -14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,118.5,129.5,118.5,127,5923063,97.03,30.88,93.97,75.99,0.69
 20260529,139,139,130.5,139,4217226,100.53,38.27,97.5,77.11,0.48
 20260601,140.5,152.5,140.5,144,3472752,104.15,38.26,101.12,78.38,0.39
 20260602,144,145,130,143,3194844,107.39,33.16,104.42,79.58,0.38
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,231,237,223,235.5,2583511,164.57,43.1,163.35,104.02,0.2
 20260623,234.5,234.5,222,223.5,1828121,169.48,31.87,168.53,106.7,0.16
 20260624,224,240,223.5,240,2802756,175.36,36.86,174.57,109.68,0.24
-20260626,240,240,218,218,1330568,178.91,21.85,179.47,112.3,0.12
+20260625,253.5,253.5,240,242,1577279,180.91,33.77,180.68,112.7,0.14
+20260626,240,240,218,218,1330568,184,18.48,185.22,115.32,0.12
 ```
 
 ## Latest TDCC Snapshot

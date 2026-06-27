@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4576 大銀微系統
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:46 Asia/Taipei
+- generated_at: 2026-06-27 22:23:48 Asia/Taipei
 - stock_id: 4576
 - stock_name: 大銀微系統
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 199
 - close: 200.5
 - volume: 1645561
-- ma5: 220.6
-- ema23_primary: 221.81
-- distance_to_ema23_pct: -9.61
-- ma20: 222.72
-- ma60: 214.09
-- ma120: 165.38
-- return_5d: -0.25
-- return_20d: -26.56
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -9.98
+- ma5: 220.2
+- ema23_primary: 221.45
+- distance_to_ema23_pct: -9.46
+- ma20: 220.9
+- ma60: 215.44
+- ma120: 166.3
+- return_5d: -9.28
+- return_20d: -21.53
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -9.23
 - distance_to_high_60_pct: -31.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,270.5,273.5,250.5,255.5,4643100,241.71,5.7,250.25,182.7,0.65
 20260529,261,272,258,266.5,3922511,243.78,9.32,252.47,185.08,0.57
 20260601,268,273,263,263,3150705,245.38,7.18,253.97,187.45,0.52
 20260602,264,265,237,238,5511392,244.77,-2.76,254.05,189.38,0.94
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,226.5,237,225.5,236,3565364,223.97,5.37,232.15,210.03,1.11
 20260623,236.5,236.5,223,226.5,2332590,224.18,1.03,229.62,211.65,0.78
 20260624,222.5,223,214,219,1363255,223.75,-2.12,226.35,213.01,0.51
-20260626,215,215,199,200.5,1645561,221.81,-9.61,222.72,214.09,0.66
+20260625,222,223.5,217.5,219,1032165,223.36,-1.95,223.65,214.4,0.42
+20260626,215,215,199,200.5,1645561,221.45,-9.46,220.9,215.44,0.71
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:58 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 98.5
 - close: 99.8
 - volume: 4723495
-- ma5: 101.2
-- ema23_primary: 90.5
-- distance_to_ema23_pct: 10.27
-- ma20: 92.49
-- ma60: 71.78
-- ma120: 61.13
-- return_5d: 10.89
-- return_20d: 10.89
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 7.9
-- distance_to_high_60_pct: -9.27
+- ma5: 102.76
+- ema23_primary: 91.41
+- distance_to_ema23_pct: 9.18
+- ma20: 93.06
+- ma60: 72.67
+- ma120: 61.56
+- return_5d: 6.51
+- return_20d: 10.77
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 7.24
+- distance_to_high_60_pct: -13.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,88,96,87.8,90.1,5980832,73.37,22.81,72.47,57.58,1.62
 20260529,92.5,94,89.1,90.1,5421694,74.76,20.52,74.23,58.26,1.37
 20260601,89.5,90,85.2,89.4,3792816,75.98,17.66,75.89,58.95,0.92
 20260602,91.8,95,88.3,90.6,7510756,77.2,17.36,77.61,59.66,1.67
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,98.5,103,98.4,102.5,10076078,86.7,18.23,90.06,69.04,1.99
 20260623,101,110,99.3,100,11508186,87.81,13.89,90.98,69.91,2.11
 20260624,99.9,110,98.1,110,13276604,89.66,22.69,92,70.93,2.37
-20260626,101.5,105,98.5,99.8,4723495,90.5,10.27,92.49,71.78,0.88
+20260625,115,115.5,101,101.5,12682625,90.64,11.98,92.58,71.8,2.2
+20260626,101.5,105,98.5,99.8,4723495,91.41,9.18,93.06,72.67,0.83
 ```
 
 ## Latest TDCC Snapshot

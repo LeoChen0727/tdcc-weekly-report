@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:03 Asia/Taipei
+- generated_at: 2026-06-27 22:23:07 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 272
 - close: 272
 - volume: 1410605
-- ma5: 268.7
-- ema23_primary: 211.33
-- distance_to_ema23_pct: 28.71
-- ma20: 205.95
-- ma60: 155.29
-- ma120: 134.06
-- return_5d: 9.24
-- return_20d: 72.15
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 32.07
+- ma5: 271.7
+- ema23_primary: 217.64
+- distance_to_ema23_pct: 24.97
+- ma20: 212.22
+- ma60: 158.29
+- ma120: 135.64
+- return_5d: -0.55
+- return_20d: 66.87
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 28.17
 - distance_to_high_60_pct: -9.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,162.5,173.5,162,163,9554309,139.08,17.2,137.82,123.4,2.11
 20260529,163.5,166,158,160,4547361,140.83,13.62,139.68,124.27,0.97
 20260601,159,159,150,153,4523902,141.84,7.87,141.12,125.17,0.93
 20260602,154,156.5,146,147,2801331,142.27,3.32,141.68,125.92,0.59
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,275.5,286.5,260.5,268,2370208,194.56,37.75,189.38,147.43,0.31
 20260623,260.5,276,255,265,1821264,200.43,32.21,195.18,150.02,0.24
 20260624,265,265,253,265,1325386,205.81,28.76,200.25,152.65,0.19
-20260626,278,299.5,272,272,1410605,211.33,28.71,205.95,155.29,0.22
+20260625,275,290,267,288.5,1635533,212.7,35.64,206.78,155.57,0.25
+20260626,278,299.5,272,272,1410605,217.64,24.97,212.22,158.29,0.23
 ```
 
 ## Latest TDCC Snapshot

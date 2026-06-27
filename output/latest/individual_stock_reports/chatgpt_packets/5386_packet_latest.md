@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:00 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 518
 - close: 520
 - volume: 2197000
-- ma5: 514.8
-- ema23_primary: 504.65
-- distance_to_ema23_pct: 3.04
-- ma20: 524.55
-- ma60: 439.07
-- ma120: 305.62
-- return_5d: 4
-- return_20d: -11.41
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: -0.87
+- ma5: 518.2
+- ema23_primary: 507.31
+- distance_to_ema23_pct: 2.5
+- ma20: 522.7
+- ma60: 443.26
+- ma120: 309.47
+- return_5d: -0.19
+- return_20d: -9.57
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: -0.52
 - distance_to_high_60_pct: -17.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,585,628,568,575,599000,462.85,24.23,467.3,373.24,0.46
 20260529,584,597,576,593,587000,473.7,25.19,478,379.79,0.51
 20260601,616,619,578,581,597000,482.64,20.38,487.15,385.89,0.58
 20260602,586,596,541,559,569,489,14.31,493.23,391.27,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,536,544,523,529,1344000,503.49,5.07,532.45,428.18,1.35
 20260623,532,534,501,502,1059000,503.37,-0.27,530.25,431.19,1.04
 20260624,490,506,486,502,712000,503.26,-0.25,527.9,434.74,0.69
-20260626,538,550,518,520,2197000,504.65,3.04,524.55,439.07,1.98
+20260625,519,548,511,538,2012000,506.15,6.29,525.45,439.37,1.83
+20260626,538,550,518,520,2197000,507.31,2.5,522.7,443.26,1.86
 ```
 
 ## Latest TDCC Snapshot

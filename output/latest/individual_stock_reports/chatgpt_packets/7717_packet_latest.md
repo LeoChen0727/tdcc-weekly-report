@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7717 萊德光電-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7717
 - stock_name: 萊德光電-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 146
+- price_rows: 147
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 432.5
 - close: 433.5
 - volume: 383000
-- ma5: 505.2
-- ema23_primary: 581.46
-- distance_to_ema23_pct: -25.45
-- ma20: 585.4
-- ma60: 693.28
-- ma120: 628.53
+- ma5: 490.3
+- ema23_primary: 572.03
+- distance_to_ema23_pct: -24.22
+- ma20: 577.58
+- ma60: 688.92
+- ma120: 629.6
 - return_5d: -20.6
-- return_20d: -33.2
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -25.95
+- return_20d: -30.97
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -24.94
 - distance_to_high_60_pct: -54.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,654,673,628,628,651000,689.83,-8.96,675.4,717.47,1.16
 20260529,638,690,628,690,664000,689.85,0.02,675.15,715.68,1.17
 20260601,710,710,643,669,674000,688.11,-2.78,670.8,714.87,1.19
 20260602,675,688,636,646,658,684.6,-5.64,666.5,714.85,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,555,555,540,544,234000,612.68,-11.21,616.65,704.52,0.42
 20260623,546,547,497.5,497.5,438000,603.08,-17.51,605.23,702.17,0.81
 20260624,501,536,501,505,457000,594.91,-15.11,596.17,698.91,0.86
-20260626,470,470,432.5,433.5,383000,581.46,-25.45,585.4,693.28,0.74
+20260625,508,512,467,471.5,411000,584.63,-19.35,587.3,693.92,0.79
+20260626,470,470,432.5,433.5,383000,572.03,-24.22,577.58,688.92,0.76
 ```
 
 ## Latest TDCC Snapshot

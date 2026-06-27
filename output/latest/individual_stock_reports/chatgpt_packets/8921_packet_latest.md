@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8921 沈氏
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:56 Asia/Taipei
+- generated_at: 2026-06-27 22:24:56 Asia/Taipei
 - stock_id: 8921
 - stock_name: 沈氏
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 112
+- price_rows: 113
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.2
 - close: 18.2
 - volume: 2000
-- ma5: 18.12
-- ema23_primary: 18.16
-- distance_to_ema23_pct: 0.22
-- ma20: 18.22
-- ma60: 17.92
+- ma5: 18
+- ema23_primary: 18.12
+- distance_to_ema23_pct: 0.46
+- ma20: 18.18
+- ma60: 17.91
 - ma120: 17.87
-- return_5d: -0.82
-- return_20d: 0
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -0.11
+- return_5d: 0
+- return_20d: -1.62
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 0.14
 - distance_to_high_60_pct: -3.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260526,18.5,18.5,18.5,18.5,18000,18.1,2.2,18.22,17.98,1.73
 20260528,18.55,18.55,17.8,18.5,18000,18.14,2.01,18.25,17.98,1.6
 20260529,18.5,18.5,18.5,18.5,18000,18.17,1.84,18.28,17.99,1.49
 20260601,18.7,18.7,18,18,18000,18.15,-0.84,18.28,17.98,1.53
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.15,18.25,18.15,18.25,4000,18.19,0.33,18.26,17.93,0.45
 20260623,17.9,18.25,17.55,17.95,7000,18.17,-1.21,18.24,17.93,0.77
 20260624,18,18,18,18,1000,18.16,-0.86,18.22,17.92,0.12
-20260626,18.2,18.2,18.2,18.2,2000,18.16,0.22,18.22,17.92,0.27
+20260625,17.6,17.6,17.6,17.6,1000,18.11,-2.82,18.19,17.91,0.14
+20260626,18.2,18.2,18.2,18.2,2000,18.12,0.46,18.18,17.91,0.3
 ```
 
 ## Latest TDCC Snapshot

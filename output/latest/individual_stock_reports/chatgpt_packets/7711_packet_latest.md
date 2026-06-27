@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7711 永擎
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7711
 - stock_name: 永擎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 143
+- price_rows: 144
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 320.5
 - close: 320.5
 - volume: 403813
-- ma5: 345.9
-- ema23_primary: 364.22
-- distance_to_ema23_pct: -12
-- ma20: 369.4
-- ma60: 362.45
-- ma120: 301.1
-- return_5d: -11.1
-- return_20d: -16.54
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -13.24
+- ma5: 340.7
+- ema23_primary: 361.95
+- distance_to_ema23_pct: -11.45
+- ma20: 368.02
+- ma60: 363.58
+- ma120: 301.73
+- return_5d: -12.07
+- return_20d: -12.43
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -12.91
 - distance_to_high_60_pct: -31.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,390,393.5,360,366,885207,381.13,-3.97,402.02,319.51,1.26
 20260529,370.5,402.5,370.5,402.5,1213577,382.91,5.12,401.8,322.43,1.62
 20260601,418,424.5,406,413,1554051,385.42,7.16,401.8,325.77,1.92
 20260602,415.5,418,390,403.5,1094572,386.92,4.28,401,328.93,1.29
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,364.5,368.5,355,356,649439,372.71,-4.48,377.4,359.53,0.9
 20260623,360,360,340,340,595333,369.99,-8.1,374.6,360.6,0.84
 20260624,331,350,331,348.5,316575,368.2,-5.35,372.57,361.74,0.45
-20260626,338.5,338.5,320.5,320.5,403813,364.22,-12,369.4,362.45,0.6
+20260625,353.5,353.5,338,338.5,316690,365.72,-7.44,370.3,362.75,0.48
+20260626,338.5,338.5,320.5,320.5,403813,361.95,-11.45,368.02,363.58,0.63
 ```
 
 ## Latest TDCC Snapshot

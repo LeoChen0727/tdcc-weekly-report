@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:04 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 17.4
 - close: 17.4
 - volume: 4657000
-- ma5: 18.33
-- ema23_primary: 18.27
-- distance_to_ema23_pct: -4.77
+- ma5: 18.27
+- ema23_primary: 18.25
+- distance_to_ema23_pct: -4.65
 - ma20: 19.34
-- ma60: 16.05
-- ma120: 14.51
-- return_5d: -4.4
-- return_20d: -3.06
-- volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: -10.03
+- ma60: 16.13
+- ma120: 14.57
+- return_5d: -5.18
+- return_20d: -3.33
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: -10.04
 - distance_to_high_60_pct: -27.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.3,18.5,17.6,18,18000,15.51,16.05,15.63,14.2,0.01
 20260529,18.3,19.5,18.15,19.3,19000,15.83,21.95,15.88,14.29,0.01
 20260601,19.85,20.05,19.2,19.75,20000,16.15,22.27,16.14,14.4,0.01
 20260602,19.75,20.95,19.4,20.85,20,16.54,26.02,16.44,14.52,0
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.6,19.05,18.35,19,4538000,18.33,3.64,19.14,15.84,1.61
 20260623,19.05,19.65,18.55,18.6,4259000,18.36,1.33,19.27,15.91,1.4
 20260624,18.5,18.5,18,18.3,3343000,18.35,-0.28,19.37,15.99,1.04
-20260626,18.05,18.15,17.4,17.4,4657000,18.27,-4.77,19.34,16.05,1.36
+20260625,18.55,18.7,18,18.05,3802000,18.33,-1.5,19.37,16.07,1.12
+20260626,18.05,18.15,17.4,17.4,4657000,18.25,-4.65,19.34,16.13,1.28
 ```
 
 ## Latest TDCC Snapshot

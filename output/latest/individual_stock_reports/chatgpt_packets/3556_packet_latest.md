@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3556 禾瑞亞
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:32 Asia/Taipei
+- generated_at: 2026-06-27 22:23:35 Asia/Taipei
 - stock_id: 3556
 - stock_name: 禾瑞亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 67.2
 - close: 67.4
 - volume: 1075000
-- ma5: 72.82
-- ema23_primary: 68.78
-- distance_to_ema23_pct: -2
-- ma20: 71.91
-- ma60: 57.84
-- ma120: 49.45
-- return_5d: -11.78
-- return_20d: 20.14
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: -6.27
+- ma5: 72.5
+- ema23_primary: 69.04
+- distance_to_ema23_pct: -2.38
+- ma20: 72.47
+- ma60: 58.32
+- ma120: 49.74
+- return_5d: -8.92
+- return_20d: 10.31
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: -7
 - distance_to_high_60_pct: -16.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,56.8,61.7,56.8,61.1,61000,53.55,14.1,53.56,48.37,0.17
 20260529,63.2,67.2,63,67.2,66000,54.69,22.89,54.4,48.76,0.19
 20260601,73.9,73.9,73.9,73.9,74000,56.29,31.29,55.53,49.29,0.22
 20260602,81,81,75,80.4,79,58.3,37.92,56.91,49.9,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,75.5,77.4,72,75.8,2768000,68.04,11.4,69.66,56.5,5.21
 20260623,76.7,77.4,73.3,74.4,1469000,68.57,8.5,70.53,56.99,2.44
 20260624,72.7,73.5,71.4,72.5,1015000,68.9,5.22,71.34,57.46,1.56
-20260626,73.1,73.3,67.2,67.4,1075000,68.78,-2,71.91,57.84,1.53
+20260625,72.9,74.5,72.2,72.4,771000,69.19,4.64,72.16,57.92,1.12
+20260626,73.1,73.3,67.2,67.4,1075000,69.04,-2.38,72.47,58.32,1.46
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 700
 - close: 701
 - volume: 7061186
-- ma5: 766.8
-- ema23_primary: 770.06
-- distance_to_ema23_pct: -8.97
-- ma20: 810.6
-- ma60: 679.65
-- ma120: 607.15
-- return_5d: -12.7
-- return_20d: 0
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -13.52
+- ma5: 758.6
+- ema23_primary: 767.9
+- distance_to_ema23_pct: -8.71
+- ma20: 813.4
+- ma60: 682.75
+- ma120: 608.8
+- return_5d: -11.15
+- return_20d: 1.3
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -13.82
 - distance_to_high_60_pct: -27.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,703,711,690,692,4308608,652.15,6.11,653.9,598.45,0.74
 20260529,708,761,708,761,13953540,661.22,15.09,662.9,602.45,2.19
 20260601,837,837,837,837,4445549,675.87,23.84,675.2,608.07,0.69
 20260602,914,920,883,920,11557431,696.21,32.14,691.7,614.77,1.69
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,793,806,788,788,3442620,776.08,1.54,803.2,670.63,0.53
 20260623,799,819,783,785,6495537,776.83,1.05,807,674.3,1
 20260624,775,783,764,771,5156891,776.34,-0.69,810.6,677.58,0.79
-20260626,730,735,700,701,7061186,770.06,-8.97,810.6,679.65,1.06
+20260625,770,773,743,748,6101570,773.98,-3.36,812.95,680.43,0.92
+20260626,730,735,700,701,7061186,767.9,-8.71,813.4,682.75,1.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8182 加高
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:50 Asia/Taipei
+- generated_at: 2026-06-27 22:24:51 Asia/Taipei
 - stock_id: 8182
 - stock_name: 加高
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 48.05
 - close: 53.6
 - volume: 10208000
-- ma5: 49.94
-- ema23_primary: 47.96
-- distance_to_ema23_pct: 11.75
-- ma20: 48.99
-- ma60: 40.5
-- ma120: 33.87
-- return_5d: 4.28
-- return_20d: 21.54
-- volume_ratio: 1.71
-- distance_to_ma20_pct_auxiliary: 9.4
+- ma5: 49.49
+- ema23_primary: 48.06
+- distance_to_ema23_pct: 11.52
+- ma20: 49.06
+- ma60: 40.84
+- ma120: 34.06
+- return_5d: 5.1
+- return_20d: 12.84
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 9.26
 - distance_to_high_60_pct: -9.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.65,48.5,44.35,47.5,48000,39.42,20.5,39.35,33.53,0.04
 20260529,48.3,49.25,46.15,47.45,47000,40.09,18.36,39.88,33.84,0.04
 20260601,47.5,47.85,44.3,44.35,46000,40.44,9.66,40.19,34.13,0.04
 20260602,43.55,43.55,41.8,43.2,43,40.67,6.21,40.34,34.41,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51.2,51.8,48.6,49.1,2747000,47.34,3.72,48.27,39.41,0.54
 20260623,49.4,50,47.1,47.3,2410000,47.34,-0.08,48.37,39.74,0.46
 20260624,46.5,49.85,46.4,48.7,4250000,47.45,2.63,48.52,40.1,0.78
-20260626,48.05,53.6,48.05,53.6,10208000,47.96,11.75,48.99,40.5,1.71
+20260625,48.9,49.05,47.5,48.75,1308000,47.56,2.51,48.75,40.42,0.24
+20260626,48.05,53.6,48.05,53.6,10208000,48.06,11.52,49.06,40.84,1.69
 ```
 
 ## Latest TDCC Snapshot

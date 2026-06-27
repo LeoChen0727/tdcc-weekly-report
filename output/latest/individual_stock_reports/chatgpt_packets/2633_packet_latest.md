@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:07 Asia/Taipei
+- generated_at: 2026-06-27 22:23:11 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 26.05
 - close: 26.05
 - volume: 16660749
-- ma5: 25.97
-- ema23_primary: 25.78
-- distance_to_ema23_pct: 1.05
-- ma20: 25.58
-- ma60: 26.11
-- ma120: 26.59
+- ma5: 25.99
+- ema23_primary: 25.82
+- distance_to_ema23_pct: 0.9
+- ma20: 25.66
+- ma60: 26.1
+- ma120: 26.57
 - return_5d: -0.38
-- return_20d: 3.17
+- return_20d: 5.04
 - volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_ma20_pct_auxiliary: 1.54
 - distance_to_high_60_pct: -3.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.25,25.25,24.8,24.8,19395430,25.88,-4.18,25.97,26.31,2.17
 20260529,25.05,25.3,24.8,24.85,222475014,25.8,-3.67,25.89,26.27,11.25
 20260601,25.2,25.4,25,25.1,14497392,25.74,-2.48,25.82,26.25,0.71
 20260602,25,25.5,25,25.3,15381758,25.7,-1.56,25.77,26.23,0.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.2,26.3,25.9,25.95,18555998,25.74,0.83,25.48,26.13,0.78
 20260623,25.95,26.1,25.7,25.75,16449056,25.74,0.05,25.5,26.11,0.7
 20260624,25.7,26.05,25.65,25.95,18106714,25.75,0.76,25.54,26.11,0.77
-20260626,26.2,26.4,26.05,26.05,16660749,25.78,1.05,25.58,26.11,0.71
+20260625,26.05,26.75,26,26.25,21130175,25.8,1.76,25.59,26.11,0.89
+20260626,26.2,26.4,26.05,26.05,16660749,25.82,0.9,25.66,26.1,0.71
 ```
 
 ## Latest TDCC Snapshot

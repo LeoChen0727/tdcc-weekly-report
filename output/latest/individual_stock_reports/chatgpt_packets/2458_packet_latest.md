@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2458 義隆
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:01 Asia/Taipei
+- generated_at: 2026-06-27 22:23:05 Asia/Taipei
 - stock_id: 2458
 - stock_name: 義隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 170.5
 - close: 172
 - volume: 10849676
-- ma5: 170.5
-- ema23_primary: 159.7
-- distance_to_ema23_pct: 7.7
-- ma20: 160.62
-- ma60: 147.47
-- ma120: 135.7
-- return_5d: 9.9
-- return_20d: 4.56
-- volume_ratio: 2.18
-- distance_to_ma20_pct_auxiliary: 7.08
+- ma5: 172.1
+- ema23_primary: 161.33
+- distance_to_ema23_pct: 6.61
+- ma20: 161.57
+- ma60: 148.36
+- ma120: 136.14
+- return_5d: 0
+- return_20d: 6.83
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 6.45
 - distance_to_high_60_pct: -6.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,164.5,166.5,158.5,161,3208940,150.65,6.87,150.12,139.16,0.75
 20260529,163.5,164.5,159.5,162,2420522,151.6,6.86,151.4,139.81,0.57
 20260601,164,168,161,167,5356022,152.88,9.23,152.88,140.47,1.2
 20260602,168,168.5,162.5,167.5,3289884,154.1,8.69,154.22,140.98,0.75
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,177,183.5,175,178.5,11709619,157.37,13.43,160.22,145.6,2.66
 20260623,176,176.5,166,166,7402912,158.09,5.01,160.35,146.12,1.62
 20260624,163.5,167,162,164,3317105,158.58,3.42,160.25,146.74,0.72
-20260626,176.5,179.5,170.5,172,10849676,159.7,7.7,160.62,147.47,2.18
+20260625,172.5,180,171.5,180,13594600,160.36,12.25,161.03,147.6,2.66
+20260626,176.5,179.5,170.5,172,10849676,161.33,6.61,161.57,148.36,1.98
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:23 Asia/Taipei
+- generated_at: 2026-06-27 22:23:26 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 386.5
 - close: 390
 - volume: 4235000
-- ma5: 425
-- ema23_primary: 417.95
-- distance_to_ema23_pct: -6.69
-- ma20: 426.65
-- ma60: 392.46
-- ma120: 351.76
-- return_5d: -8.88
-- return_20d: -15.95
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -8.59
+- ma5: 419.4
+- ema23_primary: 417
+- distance_to_ema23_pct: -6.47
+- ma20: 424.93
+- ma60: 393.35
+- ma120: 352.3
+- return_5d: -10.55
+- return_20d: -11.86
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -8.22
 - distance_to_high_60_pct: -20.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,472,490,439,442.5,461000,393.41,12.48,388.43,357.76,0.07
 20260529,451.5,455,429,436,438000,396.96,9.83,392.2,359.88,0.07
 20260601,439.5,456,431,436,440000,400.22,8.94,396.05,362.27,0.07
 20260602,436,441.5,416,422,423,402.03,4.97,399.02,363.96,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,440,458.5,422.5,452.5,9198000,420,7.74,432.8,389.76,2.46
 20260623,455.5,460,425.5,427.5,7257000,420.63,1.63,432.85,391.09,1.78
 20260624,419,425,412.5,419,3632000,420.49,-0.36,430.35,392.04,0.86
-20260626,403,407.5,386.5,390,4235000,417.95,-6.69,426.65,392.46,0.95
+20260625,425,426,405.5,408,4806000,419.45,-2.73,427.55,392.76,1.08
+20260626,403,407.5,386.5,390,4235000,417,-6.47,424.93,393.35,0.91
 ```
 
 ## Latest TDCC Snapshot

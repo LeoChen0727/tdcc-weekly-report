@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6219 富旺
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:12 Asia/Taipei
+- generated_at: 2026-06-27 22:24:13 Asia/Taipei
 - stock_id: 6219
 - stock_name: 富旺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12.95
 - close: 13.05
 - volume: 354000
-- ma5: 12.91
-- ema23_primary: 12.82
-- distance_to_ema23_pct: 1.78
-- ma20: 12.77
-- ma60: 13.06
-- ma120: 14.98
-- return_5d: -0.76
-- return_20d: 9.21
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 2.21
-- distance_to_high_60_pct: -13
+- ma5: 12.99
+- ema23_primary: 12.86
+- distance_to_ema23_pct: 1.51
+- ma20: 12.84
+- ma60: 13.03
+- ma120: 14.92
+- return_5d: 1.56
+- return_20d: 11.06
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -12.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.9,11.95,11.55,11.75,12000,12.49,-5.92,12.38,13.75,0.04
 20260529,11.85,12.35,11.7,12.05,12000,12.45,-3.23,12.32,13.69,0.04
 20260601,12.15,12.55,12.05,12.1,12000,12.42,-2.6,12.29,13.64,0.04
 20260602,12,12.35,12,12.3,12,12.41,-0.91,12.26,13.59,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.75,12.85,12.55,12.7,410000,12.77,-0.53,12.6,13.15,1.57
 20260623,12.75,12.95,12.7,12.95,155000,12.78,1.31,12.66,13.12,0.58
 20260624,12.95,13,12.8,13,82000,12.8,1.56,12.71,13.09,0.3
-20260626,13.05,13.35,12.95,13.05,354000,12.82,1.78,12.77,13.06,1.23
+20260625,13,13.5,12.9,13.25,359000,12.84,3.21,12.78,13.06,1.24
+20260626,13.05,13.35,12.95,13.05,354000,12.86,1.51,12.84,13.03,1.16
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2412 中華電
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2412
 - stock_name: 中華電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 143
 - volume: 15739362
 - ma5: 143.8
-- ema23_primary: 142.24
-- distance_to_ema23_pct: 0.54
-- ma20: 142.53
-- ma60: 138.29
-- ma120: 136.09
-- return_5d: -1.72
-- return_20d: 4.38
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 0.33
+- ema23_primary: 142.38
+- distance_to_ema23_pct: 0.44
+- ma20: 142.9
+- ma60: 138.46
+- ma120: 136.2
+- return_5d: -0.69
+- return_20d: 4.76
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 0.07
 - distance_to_high_60_pct: -2.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,137,138,136.5,136.5,16998850,136.89,-0.28,136.93,136.02,1.19
 20260529,137.5,138.5,136.5,137,28220973,136.9,0.08,136.97,136,1.86
 20260601,137,142,137,140.5,27375453,137.2,2.41,137.22,136.08,1.69
 20260602,140,142.5,140,142,19551793,137.6,3.2,137.53,136.17,1.16
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,144,146,143.5,144.5,8346517,141.87,1.86,141.47,137.84,0.55
 20260623,145,145.5,144,144,11414761,142.04,1.38,141.85,137.99,0.75
 20260624,143.5,145,143,143.5,12587116,142.17,0.94,142.22,138.14,0.85
-20260626,144,145,143,143,15739362,142.24,0.54,142.53,138.29,1.06
+20260625,144,145.5,143.5,144,12856893,142.32,1.18,142.57,138.31,0.87
+20260626,144,145,143,143,15739362,142.38,0.44,142.9,138.46,1.07
 ```
 
 ## Latest TDCC Snapshot

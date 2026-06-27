@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2331 精英
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:54 Asia/Taipei
+- generated_at: 2026-06-27 22:22:58 Asia/Taipei
 - stock_id: 2331
 - stock_name: 精英
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 20.45
 - close: 20.6
 - volume: 3251217
-- ma5: 21.95
-- ema23_primary: 21.72
-- distance_to_ema23_pct: -5.17
-- ma20: 22.21
+- ma5: 21.76
+- ema23_primary: 21.7
+- distance_to_ema23_pct: -5.05
+- ma20: 22.27
 - ma60: 21.29
-- ma120: 23.21
-- return_5d: -7.42
-- return_20d: 0.24
+- ma120: 23.19
+- return_5d: -8.04
+- return_20d: 1.98
 - volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -7.26
+- distance_to_ma20_pct_auxiliary: -7.52
 - distance_to_high_60_pct: -22.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.75,21.25,20.05,20.2,3657439,20.51,-1.52,20.31,21.65,1.11
 20260529,20.6,22.2,20.45,22.2,11905864,20.65,7.5,20.39,21.59,3.13
 20260601,24,24.4,23.85,24.4,7498574,20.96,16.39,20.58,21.6,1.83
 20260602,26,26.5,24.8,25.6,36583316,21.35,19.9,20.79,21.63,6.24
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.5,23.9,22.5,22.7,6061296,21.79,4.17,22.16,21.32,0.82
 20260623,22.8,22.8,21.35,22.3,5657809,21.83,2.14,22.18,21.32,0.81
 20260624,21.85,22.75,21.6,21.75,5451984,21.83,-0.35,22.21,21.31,0.78
-20260626,21.3,21.3,20.45,20.6,3251217,21.72,-5.17,22.21,21.29,0.47
+20260625,21.9,22,21,21.45,3855712,21.8,-1.58,22.25,21.3,0.55
+20260626,21.3,21.3,20.45,20.6,3251217,21.7,-5.05,22.27,21.29,0.47
 ```
 
 ## Latest TDCC Snapshot

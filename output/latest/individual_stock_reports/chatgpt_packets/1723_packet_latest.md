@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1723 中碳
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:44 Asia/Taipei
+- generated_at: 2026-06-27 22:22:48 Asia/Taipei
 - stock_id: 1723
 - stock_name: 中碳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 82.4
 - close: 83.6
 - volume: 692675
-- ma5: 86.8
-- ema23_primary: 85.16
-- distance_to_ema23_pct: -1.84
-- ma20: 85.65
-- ma60: 82.45
-- ma120: 76.99
-- return_5d: -4.02
-- return_20d: 3.21
+- ma5: 86.18
+- ema23_primary: 85.06
+- distance_to_ema23_pct: -1.71
+- ma20: 85.7
+- ma60: 82.37
+- ma120: 77.12
+- return_5d: -3.91
+- return_20d: 0.97
 - volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -2.39
+- distance_to_ma20_pct_auxiliary: -2.46
 - distance_to_high_60_pct: -10.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,81.2,83.3,80.9,82.8,932188,80.47,2.9,80.06,78.34,1.21
 20260529,83,83.4,81.5,82.3,655076,80.62,2.08,80.26,78.51,0.85
 20260601,82.3,84.5,82,83.9,1258260,80.89,3.72,80.6,78.76,1.58
 20260602,83.8,83.9,82.2,83.7,905289,81.13,3.17,80.89,79,1.1
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,88.1,90,87.3,89.5,1097511,85,5.3,85.06,81.94,1.08
 20260623,90,90,86.1,87.3,1023232,85.19,2.48,85.29,82.19,1.03
 20260624,85.4,87.5,85.4,86.6,480656,85.31,1.52,85.52,82.41,0.49
-20260626,83.3,84.4,82.4,83.6,692675,85.16,-1.84,85.65,82.45,0.71
+20260625,86.7,87,83.1,83.9,878804,85.19,-1.51,85.67,82.46,0.89
+20260626,83.3,84.4,82.4,83.6,692675,85.06,-1.71,85.7,82.37,0.71
 ```
 
 ## Latest TDCC Snapshot

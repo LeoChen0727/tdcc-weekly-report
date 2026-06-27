@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4126 太醫
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:41 Asia/Taipei
 - stock_id: 4126
 - stock_name: 太醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 79.9
 - close: 79.9
 - volume: 38000
-- ma5: 80.16
-- ema23_primary: 79.94
+- ma5: 80.04
+- ema23_primary: 79.95
 - distance_to_ema23_pct: -0.06
-- ma20: 79.89
-- ma60: 79.81
-- ma120: 80.97
+- ma20: 79.94
+- ma60: 79.82
+- ma120: 80.92
 - return_5d: -0.87
 - return_20d: 1.01
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 0.01
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -0.05
 - distance_to_high_60_pct: -2.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,79.1,79.3,78.7,79.1,79000,79.54,-0.56,79.56,80.12,1.85
 20260529,79.1,79.3,79.1,79.2,79000,79.51,-0.4,79.55,80.1,1.74
 20260601,79,79.5,79,79.2,79000,79.49,-0.36,79.54,80.08,1.64
 20260602,79.2,80,79,79.9,79,79.52,0.47,79.56,80.06,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,80.6,80.6,80,80.1,30000,79.92,0.23,79.73,79.81,0.57
 20260623,80.2,80.3,79.7,80.1,32000,79.93,0.21,79.8,79.81,0.64
 20260624,80.8,80.8,80,80.1,10000,79.95,0.19,79.86,79.81,0.21
-20260626,80,80,79.9,79.9,38000,79.94,-0.06,79.89,79.81,0.85
+20260625,80.9,80.9,79.9,80,18000,79.95,0.06,79.9,79.82,0.41
+20260626,80,80,79.9,79.9,38000,79.95,-0.06,79.94,79.82,0.91
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3234 光環
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3234
 - stock_name: 光環
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 125
 - close: 126
 - volume: 3089000
-- ma5: 138.9
-- ema23_primary: 124.22
-- distance_to_ema23_pct: 1.43
-- ma20: 125.66
-- ma60: 111.18
-- ma120: 89.09
-- return_5d: -4.55
-- return_20d: 21.74
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 0.27
+- ma5: 137
+- ema23_primary: 125.1
+- distance_to_ema23_pct: 0.72
+- ma20: 127.5
+- ma60: 111.95
+- ma120: 89.82
+- return_5d: -13.1
+- return_20d: 27.79
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -1.18
 - distance_to_high_60_pct: -16.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,103.5,104.5,98,98.6,101000,102.22,-3.54,102.02,98.48,0.05
 20260529,100,108,99.6,108,107000,102.7,5.16,101.74,98.69,0.07
 20260601,118.5,118.5,118.5,118.5,118000,104.01,13.93,102.24,99.22,0.08
 20260602,129,130,120,130,128,106.18,22.43,103.42,99.99,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,146,151,130.5,139,10770000,120.58,15.28,121.18,109.08,4.82
 20260623,138,146.5,133,139,6006000,122.11,13.83,122.78,109.81,2.37
 20260624,133.5,147.5,131,145.5,4437000,124.06,17.28,124.53,110.65,1.62
-20260626,135,137,125,126,3089000,124.22,1.43,125.66,111.18,1.07
+20260625,144.5,145,135,135.5,4330000,125.02,8.39,126.13,111.34,1.46
+20260626,135,137,125,126,3089000,125.1,0.72,127.5,111.95,0.99
 ```
 
 ## Latest TDCC Snapshot

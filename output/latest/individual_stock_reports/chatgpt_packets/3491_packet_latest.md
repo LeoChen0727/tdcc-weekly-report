@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:30 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1230
 - close: 1230
 - volume: 2042000
-- ma5: 1409
-- ema23_primary: 1642.21
-- distance_to_ema23_pct: -25.1
-- ma20: 1733
-- ma60: 1721.5
-- ma120: 1432.71
-- return_5d: -20.65
-- return_20d: -40.87
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -29.02
+- ma5: 1365
+- ema23_primary: 1616.26
+- distance_to_ema23_pct: -23.9
+- ma20: 1700
+- ma60: 1717.5
+- ma120: 1438.58
+- return_5d: -21.15
+- return_20d: -38.5
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -27.65
 - distance_to_high_60_pct: -44.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,2125,2180,1995,2000,2098000,1819,9.95,1793.25,1618.58,0.91
 20260529,2120,2200,2120,2200,2188000,1850.75,18.87,1825.75,1627,0.93
 20260601,2180,2200,2085,2165,2141000,1876.94,15.35,1848.75,1637.58,0.9
 20260602,2150,2175,2000,2070,2071,1893.03,9.35,1867.5,1649.08,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1555,1555,1470,1470,2758000,1733.96,-15.22,1844.5,1731.67,1.33
 20260623,1450,1450,1355,1355,3119000,1702.38,-20.41,1807.75,1730.75,1.47
 20260624,1355,1440,1355,1430,2187000,1679.69,-14.87,1775.5,1728.75,1.02
-20260626,1310,1320,1230,1230,2042000,1642.21,-25.1,1733,1721.5,0.96
+20260625,1450,1450,1340,1340,1619000,1651.38,-18.86,1738.5,1723.33,0.77
+20260626,1310,1320,1230,1230,2042000,1616.26,-23.9,1700,1717.5,0.97
 ```
 
 ## Latest TDCC Snapshot

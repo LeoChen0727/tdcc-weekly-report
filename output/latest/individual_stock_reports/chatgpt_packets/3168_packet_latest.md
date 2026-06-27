@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3168 眾福科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:22 Asia/Taipei
+- generated_at: 2026-06-27 22:23:25 Asia/Taipei
 - stock_id: 3168
 - stock_name: 眾福科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 289
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 42.5
 - close: 42.55
 - volume: 79242
-- ma5: 45.07
-- ema23_primary: 46.53
-- distance_to_ema23_pct: -8.55
-- ma20: 47.24
-- ma60: 45.55
-- ma120: 43.26
-- return_5d: -10.52
-- return_20d: -13.52
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -9.94
+- ma5: 44.25
+- ema23_primary: 46.3
+- distance_to_ema23_pct: -8.1
+- ma20: 47.06
+- ma60: 45.59
+- ma120: 43.27
+- return_5d: -11.35
+- return_20d: -10.42
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -9.59
 - distance_to_high_60_pct: -18.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,50.2,50.7,47.5,47.5,171783,46.08,3.08,45.84,43.63,1.41
 20260529,48.45,48.9,47.35,47.55,109132,46.21,2.91,46.03,43.72,0.88
 20260601,48.85,49.05,48.15,48.95,74777,46.43,5.42,46.3,43.84,0.59
 20260602,50.4,50.4,48,48.25,113177,46.59,3.57,46.42,43.95,0.92
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.05,48.05,44.05,45.1,249385,47.28,-4.62,48.19,45.41,1.61
 20260623,45.5,46.2,44.4,45.35,78676,47.12,-3.76,47.97,45.47,0.59
 20260624,44.3,45,44.3,44.35,28060,46.89,-5.42,47.58,45.52,0.25
-20260626,43.1,43.45,42.5,42.55,79242,46.53,-8.55,47.24,45.55,0.75
+20260625,44.55,44.55,43.9,43.9,24100,46.64,-5.88,47.31,45.57,0.23
+20260626,43.1,43.45,42.5,42.55,79242,46.3,-8.1,47.06,45.59,0.81
 ```
 
 ## Latest TDCC Snapshot

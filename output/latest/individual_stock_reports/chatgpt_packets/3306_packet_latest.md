@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3306 鼎天
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3306
 - stock_name: 鼎天
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 45.5
 - close: 45.5
 - volume: 352000
-- ma5: 47.94
-- ema23_primary: 47.5
-- distance_to_ema23_pct: -4.22
-- ma20: 47.84
-- ma60: 47.14
-- ma120: 47.85
+- ma5: 47.82
+- ema23_primary: 47.48
+- distance_to_ema23_pct: -4.17
+- ma20: 47.88
+- ma60: 47.16
+- ma120: 47.83
 - return_5d: -5.21
-- return_20d: -2.47
-- volume_ratio: 1.99
-- distance_to_ma20_pct_auxiliary: -4.89
+- return_20d: -2.36
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: -4.97
 - distance_to_high_60_pct: -10.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,46.7,47.55,46.2,46.6,47000,46.42,0.38,46.24,46.88,0.3
 20260529,47.3,48.5,46.65,47.4,48000,46.5,1.93,46.3,46.87,0.31
 20260601,47.45,50.4,47.4,48.9,49000,46.7,4.7,46.42,46.92,0.33
 20260602,49.5,49.6,48.4,49.4,49,46.93,5.27,46.52,46.97,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.5,49.75,48.3,49.35,374000,47.55,3.79,47.73,47.15,2.72
 20260623,49.9,49.95,48.5,48.7,298000,47.64,2.22,47.82,47.16,1.99
 20260624,48,49.05,47.75,48.15,287000,47.68,0.98,47.9,47.17,1.77
-20260626,47.25,47.95,45.5,45.5,352000,47.5,-4.22,47.84,47.14,1.99
+20260625,48,48.45,47.4,47.4,242000,47.66,-0.55,47.94,47.18,1.41
+20260626,47.25,47.95,45.5,45.5,352000,47.48,-4.17,47.88,47.16,1.88
 ```
 
 ## Latest TDCC Snapshot

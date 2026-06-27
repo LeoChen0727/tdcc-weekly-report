@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4995 晶達
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:53 Asia/Taipei
+- generated_at: 2026-06-27 22:23:55 Asia/Taipei
 - stock_id: 4995
 - stock_name: 晶達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 44
 - close: 44.6
 - volume: 38000
-- ma5: 45.43
-- ema23_primary: 45.34
-- distance_to_ema23_pct: -1.63
-- ma20: 45.45
-- ma60: 44.08
-- ma120: 42.54
-- return_5d: -0.89
-- return_20d: -0.67
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: -1.86
+- ma5: 45.33
+- ema23_primary: 45.31
+- distance_to_ema23_pct: -1.57
+- ma20: 45.48
+- ma60: 44.15
+- ma120: 42.58
+- return_5d: -1.98
+- return_20d: 0.68
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: -1.94
 - distance_to_high_60_pct: -12.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.9,44.95,44.3,44.3,45000,44.98,-1.52,45.19,42.65,0.7
 20260529,45,45.3,44.8,45.2,45000,45,0.44,45.33,42.71,0.7
 20260601,45.1,47,44.5,45.9,46000,45.08,1.83,45.41,42.8,0.75
 20260602,46.3,46.45,45.95,46.2,46,45.17,2.28,45.52,42.89,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,45.5,45.95,45.35,45.55,16000,45.34,0.46,45.78,43.86,0.42
 20260623,46,46,45.55,45.75,25000,45.38,0.82,45.56,43.94,0.69
 20260624,45.95,45.95,45.55,45.75,30000,45.41,0.75,45.46,44.02,0.84
-20260626,44.85,45,44,44.6,38000,45.34,-1.63,45.45,44.08,1.08
+20260625,45.75,45.75,45,45,12000,45.37,-0.83,45.47,44.09,0.35
+20260626,44.85,45,44,44.6,38000,45.31,-1.57,45.48,44.15,1.14
 ```
 
 ## Latest TDCC Snapshot

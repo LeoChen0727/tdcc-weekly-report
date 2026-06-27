@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00907 永豐優息存股
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:28 Asia/Taipei
+- generated_at: 2026-06-27 22:22:32 Asia/Taipei
 - stock_id: 00907
 - stock_name: 永豐優息存股
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 16.13
 - close: 16.13
 - volume: 1329017
-- ma5: 16.47
-- ema23_primary: 16.03
-- distance_to_ema23_pct: 0.6
-- ma20: 16.15
-- ma60: 15.95
-- ma120: 15.95
-- return_5d: -2
-- return_20d: 7.25
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -0.15
+- ma5: 16.42
+- ema23_primary: 16.06
+- distance_to_ema23_pct: 0.42
+- ma20: 16.22
+- ma60: 15.97
+- ma120: 15.97
+- return_5d: -3.18
+- return_20d: 7.03
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -0.55
 - distance_to_high_60_pct: -3.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,15.09,15.22,15,15.07,2346775,14.9,1.12,14.96,14.96,1.1
 20260529,15.17,15.37,15.17,15.35,2801603,14.94,2.74,15.02,15.02,1.24
 20260601,15.35,15.66,15.35,15.64,3139466,15,4.27,15.11,15.11,1.32
 20260602,15.64,15.8,15.53,15.8,4075735,15.07,4.87,15.2,15.2,1.57
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.66,16.68,16.58,16.63,2716003,15.94,4.31,15.94,15.89,1.05
 20260623,16.63,16.72,16.58,16.61,4208994,16,3.82,16.03,15.92,1.59
 20260624,16.3,16.41,16.14,16.32,912091,16.03,1.84,16.1,15.94,0.35
-20260626,16.37,16.37,16.13,16.13,1329017,16.03,0.6,16.15,15.95,0.52
+20260625,16.35,16.52,16.32,16.39,1926869,16.06,2.08,16.17,15.96,0.75
+20260626,16.37,16.37,16.13,16.13,1329017,16.06,0.42,16.22,15.97,0.53
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7556 意德士科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:41 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7556
 - stock_name: 意德士科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 271
 - close: 272
 - volume: 69000
-- ma5: 280.2
-- ema23_primary: 277
-- distance_to_ema23_pct: -1.8
-- ma20: 277.6
-- ma60: 265.05
-- ma120: 217.13
-- return_5d: -2.16
-- return_20d: -6.21
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -2.02
+- ma5: 281.3
+- ema23_primary: 277.23
+- distance_to_ema23_pct: -1.89
+- ma20: 278
+- ma60: 266.88
+- ma120: 218.1
+- return_5d: -1.09
+- return_20d: -0.18
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -2.16
 - distance_to_high_60_pct: -19.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,290,291.5,272,272.5,280000,272.3,0.07,277.07,232.6,1.04
 20260529,275,284,273.5,277.5,277000,272.73,1.75,275.68,234.31,1.01
 20260601,286,288,277.5,278.5,281000,273.21,1.93,274.9,236.15,1.04
 20260602,287,287,268,272,273,273.11,-0.41,274.23,237.8,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,276.5,302.5,276.5,293,313000,276.88,5.82,279.5,260.07,1.57
 20260623,288.5,292,280,282,98000,277.31,1.69,279.2,261.73,0.51
 20260624,273.5,280,271,279,78000,277.45,0.56,278.5,263.43,0.43
-20260626,274,279,271,272,69000,277,-1.8,277.6,265.05,0.41
+20260625,279,280.5,274.5,280.5,56000,277.71,1.01,278.02,265.19,0.33
+20260626,274,279,271,272,69000,277.23,-1.89,278,266.88,0.44
 ```
 
 ## Latest TDCC Snapshot

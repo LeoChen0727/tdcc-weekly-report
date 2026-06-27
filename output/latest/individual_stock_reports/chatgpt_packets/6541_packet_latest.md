@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6541 泰福-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:22 Asia/Taipei
 - stock_id: 6541
 - stock_name: 泰福-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 38.3
 - close: 38.55
 - volume: 1098517
-- ma5: 42.13
-- ema23_primary: 40.76
-- distance_to_ema23_pct: -5.43
-- ma20: 40.81
-- ma60: 40.27
-- ma120: 44.85
+- ma5: 42.19
+- ema23_primary: 40.75
+- distance_to_ema23_pct: -5.39
+- ma20: 40.98
+- ma60: 40.26
+- ma120: 44.68
 - return_5d: -4.7
-- return_20d: 1.72
-- volume_ratio: 2.08
-- distance_to_ma20_pct_auxiliary: -5.53
+- return_20d: 3.07
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: -5.92
 - distance_to_high_60_pct: -15.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.9,38.35,37.3,37.4,391896,39.06,-4.24,38.95,40.87,0.96
 20260529,37.9,39.4,37.9,39,512543,39.05,-0.13,38.92,40.72,1.21
 20260601,39.55,41.4,39,41.4,919912,39.25,5.48,39.03,40.67,2.04
 20260602,41.35,42.4,40.3,41.85,715798,39.46,6.04,39.13,40.62,1.51
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.45,42.75,40.05,42.55,655088,40.28,5.64,40.13,40.22,1.47
 20260623,42.55,44.55,42.35,43.85,885562,40.58,8.07,40.42,40.26,1.91
 20260624,44,45.6,43.5,45.25,901816,40.96,10.46,40.77,40.32,1.82
-20260626,39.35,39.95,38.3,38.55,1098517,40.76,-5.43,40.81,40.27,2.08
+20260625,42.55,42.55,40.75,40.75,1875295,40.95,-0.48,40.92,40.3,3.31
+20260626,39.35,39.95,38.3,38.55,1098517,40.75,-5.39,40.98,40.26,1.83
 ```
 
 ## Latest TDCC Snapshot

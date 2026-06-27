@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:26 Asia/Taipei
+- generated_at: 2026-06-27 22:22:29 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 41
 - close: 41.3
 - volume: 888399
-- ma5: 41.54
-- ema23_primary: 40.96
-- distance_to_ema23_pct: 0.82
-- ma20: 40.83
-- ma60: 40.86
-- ma120: 40.86
-- return_5d: 0.56
-- return_20d: 0.46
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 1.16
+- ma5: 41.64
+- ema23_primary: 41.05
+- distance_to_ema23_pct: 0.61
+- ma20: 40.9
+- ma60: 40.91
+- ma120: 40.91
+- return_5d: -0.58
+- return_20d: 1.65
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 0.98
 - distance_to_high_60_pct: -2.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,40.75,40.77,40.43,40.63,1358206,40.8,-0.42,40.95,40.95,1.38
 20260529,40.65,41.15,40.65,41.09,1416118,40.82,0.65,40.98,40.98,1.34
 20260601,40.89,40.92,40.4,40.63,605620,40.81,-0.44,40.93,40.93,0.61
 20260602,40.6,41.1,40.36,41.1,709356,40.83,0.65,40.95,40.95,0.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.54,41.95,41.15,41.95,747987,40.83,2.73,40.79,40.78,1.03
 20260623,42,42.46,41.46,41.46,676381,40.89,1.4,40.81,40.81,0.93
 20260624,41.23,41.46,41.1,41.46,280789,40.93,1.29,40.82,40.84,0.4
-20260626,42.05,42.09,41,41.3,888399,40.96,0.82,40.83,40.86,1.28
+20260625,41.5,42.35,41.33,42.04,1721538,41.03,2.47,40.86,40.89,2.34
+20260626,42.05,42.09,41,41.3,888399,41.05,0.61,40.9,40.91,1.25
 ```
 
 ## Latest TDCC Snapshot

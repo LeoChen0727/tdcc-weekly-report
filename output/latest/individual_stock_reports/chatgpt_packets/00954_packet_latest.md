@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00954 中信日本半導體
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:29 Asia/Taipei
+- generated_at: 2026-06-27 22:22:33 Asia/Taipei
 - stock_id: 00954
 - stock_name: 中信日本半導體
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -118,23 +118,22 @@
 - low: 21.37
 - close: 21.5
 - volume: 4924337
-- ma5: 21.82
-- ema23_primary: 20
-- distance_to_ema23_pct: 7.48
-- ma20: 19.84
-- ma60: 19.56
-- ma120: 19.56
-- return_5d: 1.42
-- return_20d: 16.98
+- ma5: 21.97
+- ema23_primary: 20.21
+- distance_to_ema23_pct: 6.38
+- ma20: 20.07
+- ma60: 19.68
+- ma120: 19.68
+- return_5d: -1.56
+- return_20d: 19.91
 - volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 8.37
+- distance_to_ma20_pct_auxiliary: 7.12
 - distance_to_high_60_pct: -6.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.29,18.29,17.78,17.93,4881786,17.79,0.8,18.12,18.12,0.96
 20260529,18.14,18.41,18.05,18.4,4381488,17.84,3.15,18.17,18.17,0.88
 20260601,18.4,18.4,18.04,18.11,5354761,17.86,1.39,18.16,18.16,1.07
 20260602,17.85,18.07,17.56,18.07,3311813,17.88,1.07,18.15,18.15,0.69
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.31,22.87,22.31,22.69,7327763,19.55,16.05,19.36,19.28,1.27
 20260623,22.75,22.88,21.88,21.89,4877460,19.75,10.85,19.53,19.4,0.83
 20260624,20.97,21.35,20.66,21.2,7107971,19.87,6.71,19.68,19.48,1.2
-20260626,22.41,22.41,21.37,21.5,4924337,20,7.48,19.84,19.56,0.86
+20260625,22.2,22.62,22.1,22.58,5146783,20.09,12.37,19.89,19.61,0.9
+20260626,22.41,22.41,21.37,21.5,4924337,20.21,6.38,20.07,19.68,0.86
 ```
 
 ## Latest TDCC Snapshot

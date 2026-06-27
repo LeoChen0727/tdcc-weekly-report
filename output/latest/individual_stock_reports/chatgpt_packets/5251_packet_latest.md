@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5251 天鉞電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:55 Asia/Taipei
+- generated_at: 2026-06-27 22:23:57 Asia/Taipei
 - stock_id: 5251
 - stock_name: 天鉞電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 31.1
 - close: 31.25
 - volume: 1084000
-- ma5: 31.51
-- ema23_primary: 30.43
-- distance_to_ema23_pct: 2.69
-- ma20: 30.64
-- ma60: 29.34
-- ma120: 31.43
-- return_5d: 1.96
-- return_20d: 16.6
-- volume_ratio: 3.95
-- distance_to_ma20_pct_auxiliary: 1.97
-- distance_to_high_60_pct: -13.43
+- ma5: 31.82
+- ema23_primary: 30.53
+- distance_to_ema23_pct: 2.35
+- ma20: 30.89
+- ma60: 29.38
+- ma120: 31.36
+- return_5d: 3.82
+- return_20d: 17.26
+- volume_ratio: 2.52
+- distance_to_ma20_pct_auxiliary: 1.15
+- distance_to_high_60_pct: -14.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.65,27.2,26.6,26.65,27000,27.8,-4.13,27.69,29.38,0.31
 20260529,26.7,26.9,26.65,26.7,27000,27.71,-3.63,27.6,29.27,0.31
 20260601,26.45,29.35,26.45,29.35,28000,27.84,5.41,27.65,29.24,0.34
 20260602,29.85,32.25,28.55,32.25,31,28.21,14.32,27.81,29.25,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.1,30.5,30.05,30.3,110000,29.85,1.5,29.83,29.23,0.68
 20260623,30.5,31.4,30.4,31.4,324000,29.98,4.73,30.07,29.24,1.84
 20260624,32.25,34.5,32,34.5,950000,30.36,13.64,30.42,29.31,4.28
-20260626,31.9,33.65,31.1,31.25,1084000,30.43,2.69,30.64,29.34,3.95
+20260625,34.5,36.35,31.65,31.65,3135000,30.47,3.89,30.66,29.35,8.31
+20260626,31.9,33.65,31.1,31.25,1084000,30.53,2.35,30.89,29.38,2.52
 ```
 
 ## Latest TDCC Snapshot

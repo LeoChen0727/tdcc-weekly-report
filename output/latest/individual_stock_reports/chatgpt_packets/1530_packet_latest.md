@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1530 亞崴
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:40 Asia/Taipei
+- generated_at: 2026-06-27 22:22:43 Asia/Taipei
 - stock_id: 1530
 - stock_name: 亞崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 28.55
 - close: 28.6
 - volume: 104356
-- ma5: 29.45
-- ema23_primary: 30.23
-- distance_to_ema23_pct: -5.41
-- ma20: 31.57
-- ma60: 28.64
-- ma120: 28.28
+- ma5: 29.2
+- ema23_primary: 30.15
+- distance_to_ema23_pct: -5.15
+- ma20: 31.25
+- ma60: 28.68
+- ma120: 28.3
 - return_5d: -6.38
-- return_20d: -12.54
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -9.41
+- return_20d: -20.11
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -8.47
 - distance_to_high_60_pct: -22.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,31.85,35.95,31.8,35.8,2307892,28.62,25.11,27.85,27.21,7.51
 20260529,36.8,36.8,34.05,35.5,1358302,29.19,21.62,28.3,27.32,3.63
 20260601,35.2,35.2,33.95,34.1,562332,29.6,15.21,28.7,27.43,1.4
 20260602,34.6,35.45,32,32.5,587510,29.84,8.91,29.02,27.5,1.37
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.55,30.55,29.5,29.85,261849,30.62,-2.52,31.91,28.52,0.52
 20260623,29.8,29.8,28.7,28.95,225288,30.48,-5.03,31.91,28.56,0.46
 20260624,28.75,29.75,28.6,29.3,80080,30.38,-3.57,31.77,28.61,0.17
-20260626,29.6,29.6,28.55,28.6,104356,30.23,-5.41,31.57,28.64,0.28
+20260625,29.35,29.9,28.85,29.3,103250,30.29,-3.28,31.61,28.65,0.28
+20260626,29.6,29.6,28.55,28.6,104356,30.15,-5.15,31.25,28.68,0.4
 ```
 
 ## Latest TDCC Snapshot

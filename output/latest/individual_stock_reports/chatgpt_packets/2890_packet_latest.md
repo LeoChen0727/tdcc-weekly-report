@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:13 Asia/Taipei
+- generated_at: 2026-06-27 22:23:16 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -103,6 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -117,23 +118,22 @@
 - low: 39
 - close: 39.15
 - volume: 43325431
-- ma5: 39.62
-- ema23_primary: 35.12
-- distance_to_ema23_pct: 11.48
-- ma20: 34.56
-- ma60: 32.35
-- ma120: 31.3
-- return_5d: 7.7
-- return_20d: 32.04
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 13.26
+- ma5: 39.65
+- ema23_primary: 35.52
+- distance_to_ema23_pct: 10.23
+- ma20: 35.09
+- ma60: 32.5
+- ma120: 31.39
+- return_5d: -1.63
+- return_20d: 32.71
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 11.58
 - distance_to_high_60_pct: -4.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.65,29.85,29.5,29.5,28864438,30.29,-2.61,30.19,31.36,0.81
 20260529,29.6,30,29.55,30,64350996,30.27,-0.88,30.14,31.31,1.74
 20260601,30,30.65,29.85,30.45,40613955,30.28,0.56,30.14,31.29,1.09
 20260602,30.4,31,30.3,31,53360627,30.34,2.17,30.16,31.28,1.38
@@ -152,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.75,40.75,39.6,39.8,93780276,33.82,17.69,33.05,31.96,1.57
 20260623,40,40.3,39.1,39.8,61232581,34.32,15.98,33.59,32.09,1.01
 20260624,39.6,40.9,38.9,39.55,65823679,34.75,13.8,34.09,32.23,1.06
-20260626,39.55,39.85,39,39.15,43325431,35.12,11.48,34.56,32.35,0.69
+20260625,39.6,40.1,39.35,39.95,59931513,35.19,13.54,34.6,32.36,0.95
+20260626,39.55,39.85,39,39.15,43325431,35.52,10.23,35.09,32.5,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -183,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 ~ 115/07/03 2.召開法人說明會之時間：15 時 30 分  3.召開法人說明會之地點：新加坡/香港 4.法人說明會擇要訊息：永豐金控將於115年6月30日至7月3日赴新加坡及香港會晤當地投資機構，說明115年第一季財務業務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2890 | 永豐金 | 1 | 1 | 3 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

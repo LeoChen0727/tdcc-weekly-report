@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:53 Asia/Taipei
+- generated_at: 2026-06-27 22:23:55 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 164
 - close: 164.5
 - volume: 2519715
-- ma5: 181.6
-- ema23_primary: 191.94
-- distance_to_ema23_pct: -14.29
-- ma20: 191.5
-- ma60: 207.04
-- ma120: 177.03
-- return_5d: -8.1
-- return_20d: -25.57
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -14.1
+- ma5: 180.1
+- ema23_primary: 190.6
+- distance_to_ema23_pct: -13.7
+- ma20: 189.82
+- ma60: 206.66
+- ma120: 177.39
+- return_5d: -10.84
+- return_20d: -21.85
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -13.34
 - distance_to_high_60_pct: -39.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,221.5,222,206,210.5,4731180,219.69,-4.18,224.35,202.8,0.53
 20260529,211,216.5,208.5,210.5,3363536,218.92,-3.85,224.35,203.41,0.39
 20260601,210.5,219.5,210.5,217,3947357,218.76,-0.8,224.32,204.16,0.48
 20260602,221.5,229,212,212.5,6972330,218.24,-2.63,223.97,205.04,0.85
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,188.5,193.5,186,191,2238478,196.43,-2.76,199.22,207.78,0.58
 20260623,193,194.5,183,185.5,2460990,195.51,-5.12,196.97,207.85,0.66
 20260624,184,188,181,182.5,1380121,194.43,-6.14,194.32,207.57,0.4
-20260626,174.5,177,164,164.5,2519715,191.94,-14.29,191.5,207.04,0.77
+20260625,185.5,185.5,177,177,1930373,192.98,-8.28,192.12,207.25,0.6
+20260626,174.5,177,164,164.5,2519715,190.6,-13.7,189.82,206.66,0.8
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8936 國統
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:57 Asia/Taipei
+- generated_at: 2026-06-27 22:24:57 Asia/Taipei
 - stock_id: 8936
 - stock_name: 國統
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 58.6
 - close: 58.8
 - volume: 10337000
-- ma5: 58.68
-- ema23_primary: 56.02
-- distance_to_ema23_pct: 4.97
-- ma20: 56.54
-- ma60: 52.52
-- ma120: 52.9
-- return_5d: 6.72
-- return_20d: 17.6
-- volume_ratio: 1.76
-- distance_to_ma20_pct_auxiliary: 4
+- ma5: 58.92
+- ema23_primary: 56.29
+- distance_to_ema23_pct: 4.47
+- ma20: 56.94
+- ma60: 52.65
+- ma120: 52.92
+- return_5d: 1.2
+- return_20d: 14.62
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 3.27
 - distance_to_high_60_pct: -6.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,49.95,52.3,49.95,51.3,51000,50.5,1.59,50.66,51.32,0.03
 20260529,52.3,53.4,51.7,52.4,52000,50.66,3.44,50.77,51.33,0.03
 20260601,52.5,54.5,51.5,53.4,53000,50.89,4.94,50.83,51.38,0.04
 20260602,53.6,53.6,51.8,52.5,53,51.02,2.9,50.85,51.4,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.5,61.5,57.5,60.5,19593000,55.34,9.33,55.34,52.33,3.99
 20260623,59.7,59.7,58,58.2,6670000,55.58,4.72,55.74,52.37,1.27
 20260624,57.6,58.9,57.3,57.8,2763000,55.76,3.65,56.1,52.43,0.51
-20260626,59.7,60.3,58.6,58.8,10337000,56.02,4.97,56.54,52.52,1.76
+20260625,58.5,59.6,57.6,59.3,6328000,56.06,5.78,56.56,52.53,1.11
+20260626,59.7,60.3,58.6,58.8,10337000,56.29,4.47,56.94,52.65,1.67
 ```
 
 ## Latest TDCC Snapshot

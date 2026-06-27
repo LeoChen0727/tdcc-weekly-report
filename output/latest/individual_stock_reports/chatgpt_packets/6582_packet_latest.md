@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6582 申豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6582
 - stock_name: 申豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 32.9
 - close: 33.5
 - volume: 351506
-- ma5: 32.34
-- ema23_primary: 31.73
-- distance_to_ema23_pct: 5.59
-- ma20: 31.67
-- ma60: 31.71
-- ma120: 32.01
-- return_5d: 6.18
-- return_20d: 9.84
-- volume_ratio: 3.51
-- distance_to_ma20_pct_auxiliary: 5.77
-- distance_to_high_60_pct: -8.09
+- ma5: 32.63
+- ema23_primary: 31.83
+- distance_to_ema23_pct: 5.25
+- ma20: 31.79
+- ma60: 31.66
+- ma120: 32
+- return_5d: 6.52
+- return_20d: 9.48
+- volume_ratio: 3.32
+- distance_to_ma20_pct_auxiliary: 5.39
+- distance_to_high_60_pct: -6.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,30.65,31.1,30.55,30.6,57920,30.95,-1.14,30.78,31.75,0.86
 20260529,30.65,30.7,30.4,30.65,85532,30.93,-0.9,30.77,31.71,1.23
 20260601,30.7,32.9,30.7,31.45,97755,30.97,1.55,30.8,31.71,1.34
 20260602,31.45,31.7,31.05,31.5,71714,31.01,1.56,30.84,31.7,0.97
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.55,32.15,31.55,32,100088,31.41,1.88,31.34,31.69,1.24
 20260623,32.15,32.2,31.8,32.2,116739,31.47,2.3,31.42,31.7,1.4
 20260624,32.15,33.35,32.05,32.55,152160,31.56,3.12,31.52,31.7,1.73
-20260626,32.9,35.6,32.9,33.5,351506,31.73,5.59,31.67,31.71,3.51
+20260625,32.7,33.3,32.55,32.9,171271,31.68,3.87,31.64,31.7,1.88
+20260626,32.9,35.6,32.9,33.5,351506,31.83,5.25,31.79,31.66,3.32
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1630
 - close: 1640
 - volume: 1173962
-- ma5: 1757
-- ema23_primary: 1813.9
-- distance_to_ema23_pct: -9.59
-- ma20: 1858
-- ma60: 1871.33
-- ma120: 1727.29
-- return_5d: -4.37
-- return_20d: -5.75
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -11.73
+- ma5: 1756
+- ema23_primary: 1807.81
+- distance_to_ema23_pct: -9.28
+- ma20: 1857.25
+- ma60: 1870
+- ma120: 1729
+- return_5d: -6.55
+- return_20d: -7.08
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -11.7
 - distance_to_high_60_pct: -27.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1765,1865,1730,1765,3125907,1827.7,-3.43,1855.75,1857.5,1.48
 20260529,1835,1940,1800,1930,4063304,1836.23,5.11,1848.75,1860.33,1.83
 20260601,2040,2120,2040,2120,2968078,1859.88,13.99,1844,1868.25,1.32
 20260602,2150,2245,2100,2190,4685723,1887.39,16.03,1853.75,1876.17,2.03
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1775,1830,1750,1820,1121658,1838.04,-0.98,1861,1879.75,0.54
 20260623,1820,1840,1760,1765,681733,1831.95,-3.65,1862,1877.42,0.34
 20260624,1750,1830,1730,1805,782503,1829.7,-1.35,1863,1875.75,0.41
-20260626,1750,1775,1630,1640,1173962,1813.9,-9.59,1858,1871.33,0.62
+20260625,1820,1865,1750,1750,949885,1823.06,-4.01,1863.5,1873.17,0.5
+20260626,1750,1775,1630,1640,1173962,1807.81,-9.28,1857.25,1870,0.65
 ```
 
 ## Latest TDCC Snapshot

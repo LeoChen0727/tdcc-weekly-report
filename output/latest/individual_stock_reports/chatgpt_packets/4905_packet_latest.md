@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4905 台聯電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4905
 - stock_name: 台聯電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 146
+- price_rows: 147
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 68
 - close: 68.4
 - volume: 22000
-- ma5: 70.54
-- ema23_primary: 74.62
-- distance_to_ema23_pct: -8.34
-- ma20: 75.73
-- ma60: 79.83
-- ma120: 72.44
-- return_5d: -4.6
-- return_20d: -13.42
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -9.68
+- ma5: 69.92
+- ema23_primary: 74.13
+- distance_to_ema23_pct: -7.73
+- ma20: 75.3
+- ma60: 79.57
+- ma120: 72.48
+- return_5d: -4.87
+- return_20d: -11.63
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -9.16
 - distance_to_high_60_pct: -28.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,80.5,80.5,77.4,77.4,78000,79.8,-3,79.25,78.77,1.99
 20260529,80,81.9,78.8,80.2,80000,79.83,0.46,79.36,79.03,1.93
 20260601,80.2,88.1,80.2,87.8,86000,80.49,9.08,79.75,79.44,1.91
 20260602,88.5,88.5,84.6,85,86,80.87,5.11,80,79.81,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71,72.4,71,72,25000,76.14,-5.44,77.32,80.6,0.55
 20260623,71,71,70.1,70.7,8000,75.69,-6.59,76.83,80.38,0.19
 20260624,69.5,71.6,69.5,69.7,11000,75.19,-7.3,76.26,80.14,0.29
-20260626,68,68.9,68,68.4,22000,74.62,-8.34,75.73,79.83,0.62
+20260625,71.9,71.9,68.8,68.8,22000,74.65,-7.84,75.75,79.83,0.62
+20260626,68,68.9,68,68.4,22000,74.13,-7.73,75.3,79.57,0.68
 ```
 
 ## Latest TDCC Snapshot

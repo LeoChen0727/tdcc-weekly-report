@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009806 台新標普500
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:29 Asia/Taipei
+- generated_at: 2026-06-27 22:22:33 Asia/Taipei
 - stock_id: 009806
 - stock_name: 台新標普500
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 12.92
 - close: 12.92
 - volume: 52000
-- ma5: 13.06
+- ma5: 13.05
 - ema23_primary: 13.1
-- distance_to_ema23_pct: -1.38
+- distance_to_ema23_pct: -1.37
 - ma20: 13.12
 - ma60: 13.12
 - ma120: 13.12
-- return_5d: -2.12
-- return_20d: -1.6
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -1.49
+- return_5d: -1.75
+- return_20d: -1.22
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -1.5
 - distance_to_high_60_pct: -2.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.13,13.13,13.08,13.08,13000,13.13,-0.39,13.14,13.14,1
 20260529,13.17,13.23,13.17,13.22,13000,13.14,0.62,13.15,13.15,1
 20260601,13.22,13.26,13.22,13.26,13000,13.15,0.84,13.17,13.17,1
 20260602,13.19,13.26,13.18,13.26,13,13.16,0.77,13.18,13.18,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.17,13.17,13.14,13.16,163000,13.13,0.2,13.14,13.14,3.36
 20260623,13.3,13.3,13.03,13.03,207000,13.12,-0.72,13.13,13.13,3.56
 20260624,13.01,13.04,12.97,13.04,21000,13.12,-0.59,13.13,13.13,0.36
-20260626,12.93,12.95,12.92,12.92,52000,13.1,-1.38,13.12,13.12,0.86
+20260625,13.04,13.1,13.04,13.1,91000,13.12,-0.12,13.12,13.13,1.46
+20260626,12.93,12.95,12.92,12.92,52000,13.1,-1.37,13.12,13.12,0.81
 ```
 
 ## Latest TDCC Snapshot

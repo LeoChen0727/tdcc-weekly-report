@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2020 美亞
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:48 Asia/Taipei
+- generated_at: 2026-06-27 22:22:52 Asia/Taipei
 - stock_id: 2020
 - stock_name: 美亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.35
 - close: 21.45
 - volume: 659442
-- ma5: 21.72
+- ma5: 21.71
 - ema23_primary: 21.64
-- distance_to_ema23_pct: -0.87
-- ma20: 21.52
-- ma60: 22.4
-- ma120: 23.18
-- return_5d: -1.61
-- return_20d: 0.94
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -0.3
+- distance_to_ema23_pct: -0.89
+- ma20: 21.55
+- ma60: 22.36
+- ma120: 23.16
+- return_5d: -1.38
+- return_20d: 1.9
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: -0.45
 - distance_to_high_60_pct: -16.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,21.25,21.4,21.05,21.05,643369,21.86,-3.73,21.64,23.21,1.3
 20260529,21.15,21.3,21.05,21.15,411510,21.81,-3,21.59,23.16,0.83
 20260601,21.1,21.25,20.95,21.25,1239900,21.76,-2.34,21.57,23.12,2.35
 20260602,21.3,21.3,20.9,21.2,419345,21.71,-2.36,21.54,23.07,0.79
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.85,22.05,21.6,21.75,942328,21.62,0.58,21.49,22.54,1.56
 20260623,21.95,22.05,21.7,21.85,531870,21.64,0.96,21.49,22.49,0.91
 20260624,21.9,21.95,21.7,21.8,359317,21.66,0.66,21.5,22.45,0.62
-20260626,21.65,21.7,21.35,21.45,659442,21.64,-0.87,21.52,22.4,1.15
+20260625,21.9,21.9,21.65,21.7,272546,21.66,0.19,21.53,22.41,0.49
+20260626,21.65,21.7,21.35,21.45,659442,21.64,-0.89,21.55,22.36,1.18
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2405 輔信
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:02 Asia/Taipei
 - stock_id: 2405
 - stock_name: 輔信
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 17.05
 - close: 17.05
 - volume: 3176077
-- ma5: 18.39
-- ema23_primary: 18.28
-- distance_to_ema23_pct: -6.73
-- ma20: 18.97
-- ma60: 16.66
+- ma5: 18.23
+- ema23_primary: 18.26
+- distance_to_ema23_pct: -6.62
+- ma20: 19.05
+- ma60: 16.7
 - ma120: 16.61
-- return_5d: -12.11
-- return_20d: 3.96
+- return_5d: -9.79
+- return_20d: 3.65
 - volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -10.13
+- distance_to_ma20_pct_auxiliary: -10.52
 - distance_to_high_60_pct: -21.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.5,17.05,16.4,16.45,4355557,15.79,4.15,15.61,15.49,1.48
 20260529,16.8,18.05,16.7,17.65,18377619,15.95,10.67,15.74,15.53,4.81
 20260601,17.8,18.75,17.45,18.4,15182646,16.15,13.91,15.89,15.59,3.39
 20260602,18.55,20.2,18.45,20.2,33872396,16.49,22.5,16.12,15.67,5.58
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19,19.25,18.85,18.9,5001150,18.36,2.93,18.77,16.56,0.47
 20260623,19.25,19.35,18.5,18.5,3851548,18.37,0.69,18.84,16.59,0.37
 20260624,18.25,18.7,18.25,18.6,2822788,18.39,1.13,18.94,16.64,0.27
-20260626,18.1,18.1,17.05,17.05,3176077,18.28,-6.73,18.97,16.66,0.31
+20260625,18.85,18.85,18,18.1,3281014,18.37,-1.46,19.02,16.67,0.32
+20260626,18.1,18.1,17.05,17.05,3176077,18.26,-6.62,19.05,16.7,0.31
 ```
 
 ## Latest TDCC Snapshot

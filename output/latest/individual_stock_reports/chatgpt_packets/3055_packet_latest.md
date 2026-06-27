@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3055 蔚華科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:19 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3055
 - stock_name: 蔚華科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -119,23 +118,22 @@
 - low: 95.3
 - close: 96
 - volume: 2369515
-- ma5: 93.98
-- ema23_primary: 93.65
-- distance_to_ema23_pct: 2.51
-- ma20: 93.63
-- ma60: 87.45
-- ma120: 77.81
-- return_5d: 10.6
-- return_20d: -14.67
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 2.53
+- ma5: 96.16
+- ema23_primary: 94.3
+- distance_to_ema23_pct: 1.8
+- ma20: 93.45
+- ma60: 88.2
+- ma120: 78.03
+- return_5d: 5.38
+- return_20d: -9
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 2.72
 - distance_to_high_60_pct: -23.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,112.5,112.5,103.5,105.5,4319594,101.82,3.62,103.17,77,0.78
 20260529,108.5,110.5,105,108,2265445,102.33,5.54,104.66,77.69,0.41
 20260601,109,113.5,107,108.5,3392801,102.85,5.5,106.18,78.47,0.6
 20260602,107,107,98.2,102,3776567,102.78,-0.76,107.34,79.11,0.66
@@ -154,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,94.5,97.2,91.5,92,1818799,93.02,-1.1,96.77,85.62,0.7
 20260623,92.6,92.6,88.1,90.9,1294045,92.84,-2.09,95.41,86.12,0.55
 20260624,89.1,99.9,88.5,99.9,2932613,93.43,6.92,94.45,86.82,1.29
-20260626,99,103.5,95.3,96,2369515,93.65,2.51,93.63,87.45,1.09
+20260625,104,104.5,95.4,102,6103663,94.15,8.34,93.93,87.55,2.58
+20260626,99,103.5,95.3,96,2369515,94.3,1.8,93.45,88.2,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3055 | 蔚華科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1. 董事會決議日期：115/06/24 2. 股利所屬年(季)度：114年 年度 3. 股利所屬期間：114/01/01 至 114/12/31 4. 股東配發內容： 　(1)盈餘分配之現金股利(元/股)：0 　(2)法定盈餘公積發放之現金(元/股)：0 　(3)資本公積發放之現金(元/股)：0.50000000 　(4)股東配發之現金(股利)總金額(元)：56,543,459 　(5)盈餘轉增資配股(元/股)：0 　(6)法定盈餘公積轉增資配股(元/股)：0 　(7)資本公積轉增資配股(元/股)：0 　(8)股東配股總股數(股)：0 5. 其他應敘明事項： 115/06/24股東常會議決通過以法定盈餘公積 新台幣297,623,847元彌補虧損後，同日董事會 議決通過自資本公積之股票發行溢價項下提撥 現&#12198;新台幣56,543,459元配發予股東。 6. 普通股每股面額欄位：新台幣10.0000元；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3055 | 蔚華科 | 5 | 5 | 5 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

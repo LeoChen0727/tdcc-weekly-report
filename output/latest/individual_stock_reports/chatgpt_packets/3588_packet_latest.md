@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3588 通嘉
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:33 Asia/Taipei
+- generated_at: 2026-06-27 22:23:36 Asia/Taipei
 - stock_id: 3588
 - stock_name: 通嘉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 71.1
 - close: 71.6
 - volume: 4145741
-- ma5: 68.62
-- ema23_primary: 62.72
-- distance_to_ema23_pct: 14.16
-- ma20: 61.48
-- ma60: 59.43
-- ma120: 55.27
-- return_5d: 23.88
-- return_20d: 11.01
-- volume_ratio: 3.37
-- distance_to_ma20_pct_auxiliary: 16.46
-- distance_to_high_60_pct: -5.67
+- ma5: 70.96
+- ema23_primary: 63.49
+- distance_to_ema23_pct: 12.78
+- ma20: 61.99
+- ma60: 59.82
+- ma120: 55.46
+- return_5d: 18.74
+- return_20d: 16.05
+- volume_ratio: 2.87
+- distance_to_ma20_pct_auxiliary: 15.49
+- distance_to_high_60_pct: -10.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,65.2,65.9,61.2,61.7,1004745,61.31,0.63,61.83,55.63,1.47
 20260529,62.9,63.4,61.3,61.8,621229,61.35,0.73,61.85,55.8,0.9
 20260601,61.8,64.5,61.8,63.6,1013354,61.54,3.34,61.98,56.07,1.43
 20260602,64,68,61.8,63.9,1320900,61.74,3.5,62.05,56.31,1.8
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,64.3,66.3,62.2,66.3,2676255,59.88,10.72,60.38,58.31,3.73
 20260623,69,71.6,67.5,69,5138479,60.64,13.79,60.59,58.62,5.5
 20260624,68,75.9,66.9,75.9,3552425,61.91,22.6,61.12,59.06,3.31
-20260626,71.7,75.9,71.1,71.6,4145741,62.72,14.16,61.48,59.43,3.37
+20260625,79.9,80,71,72,5264650,62.75,14.74,61.5,59.44,4.09
+20260626,71.7,75.9,71.1,71.6,4145741,63.49,12.78,61.99,59.82,2.87
 ```
 
 ## Latest TDCC Snapshot

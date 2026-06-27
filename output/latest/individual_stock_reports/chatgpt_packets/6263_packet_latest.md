@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:14 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 160.5
 - close: 161
 - volume: 519000
-- ma5: 164.1
-- ema23_primary: 164.71
-- distance_to_ema23_pct: -2.25
-- ma20: 166.65
-- ma60: 154.84
-- ma120: 140.2
-- return_5d: -1.53
-- return_20d: -12.5
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -3.39
+- ma5: 165.5
+- ema23_primary: 165.24
+- distance_to_ema23_pct: -2.57
+- ma20: 166.4
+- ma60: 155.65
+- ma120: 140.54
+- return_5d: -2.42
+- return_20d: -9.04
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -3.25
 - distance_to_high_60_pct: -17.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,183.5,185,177,177,181000,166.61,6.24,167.1,141.4,0.34
 20260529,183.5,184.5,177,178.5,180000,167.6,6.51,169.07,142.31,0.34
 20260601,182,182,173,175.5,176000,168.26,4.31,170.97,143.18,0.33
 20260602,178.5,184.5,173.5,182,179,169.4,7.44,173.12,144.15,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,167,167,162.5,163,283000,164.85,-1.12,169.68,152.87,0.89
 20260623,163,163,155.5,158,321000,164.28,-3.82,168.38,153.43,0.98
 20260624,157.5,173.5,156.5,173.5,889000,165.05,5.12,167.8,154.25,2.46
-20260626,170,170,160.5,161,519000,164.71,-2.25,166.65,154.84,1.37
+20260625,187,187,170,172,1485000,165.63,3.85,167.2,155.03,3.48
+20260626,170,170,160.5,161,519000,165.24,-2.57,166.4,155.65,1.17
 ```
 
 ## Latest TDCC Snapshot

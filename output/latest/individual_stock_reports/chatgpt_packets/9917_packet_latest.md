@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9917 中保科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:59 Asia/Taipei
 - stock_id: 9917
 - stock_name: 中保科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 105
 - close: 105.5
 - volume: 1097192
-- ma5: 112.2
-- ema23_primary: 114.71
-- distance_to_ema23_pct: -8.03
-- ma20: 115.78
-- ma60: 114.54
-- ma120: 111.41
-- return_5d: -10.21
-- return_20d: -7.46
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -8.88
+- ma5: 110.4
+- ema23_primary: 114.13
+- distance_to_ema23_pct: -7.56
+- ma20: 115.53
+- ma60: 114.46
+- ma120: 111.42
+- return_5d: -9.83
+- return_20d: -6.64
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -8.68
 - distance_to_high_60_pct: -14.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,114.5,114.5,112.5,113,440397,113.09,-0.08,112.85,112.91,0.99
 20260529,113.5,114,113,114,406319,113.16,0.74,112.9,113.03,0.91
 20260601,114,115,113.5,115,831291,113.31,1.49,113.03,113.19,1.78
 20260602,115,115,114,114.5,480381,113.41,0.96,113.12,113.34,1.02
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,117,117.5,116,116.5,1230882,116.45,0.04,116.4,114.78,1.44
 20260623,116.5,117,115,116,2125415,116.41,-0.35,116.55,114.81,2.24
 20260624,110,110,106,106,3151219,115.55,-8.26,116.2,114.68,2.9
-20260626,107.5,107.5,105,105.5,1097192,114.71,-8.03,115.78,114.54,0.98
+20260625,106.5,108,105,108,1419358,114.92,-6.02,115.9,114.58,1.25
+20260626,107.5,107.5,105,105.5,1097192,114.13,-7.56,115.53,114.46,0.94
 ```
 
 ## Latest TDCC Snapshot

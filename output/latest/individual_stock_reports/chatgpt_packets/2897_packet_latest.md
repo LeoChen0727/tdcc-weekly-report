@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2897 王道銀行
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:13 Asia/Taipei
+- generated_at: 2026-06-27 22:23:16 Asia/Taipei
 - stock_id: 2897
 - stock_name: 王道銀行
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 10.4
 - close: 10.5
 - volume: 3408845
-- ma5: 10.55
-- ema23_primary: 10.37
-- distance_to_ema23_pct: 1.24
-- ma20: 10.35
-- ma60: 10.19
-- ma120: 9.82
-- return_5d: -0.47
-- return_20d: 5
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 1.48
+- ma5: 10.57
+- ema23_primary: 10.39
+- distance_to_ema23_pct: 1.06
+- ma20: 10.38
+- ma60: 10.2
+- ma120: 9.83
+- return_5d: 0
+- return_20d: 5.63
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 1.16
 - distance_to_high_60_pct: -1.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10,10.05,9.9,9.94,3717300,10.05,-1.08,10.06,10.03,1.06
 20260529,9.91,9.98,9.9,9.9,3566262,10.04,-1.36,10.05,10.03,1.03
 20260601,9.92,9.98,9.88,9.94,9531175,10.03,-0.88,10.05,10.04,2.54
 20260602,9.92,10.05,9.9,10,6829656,10.03,-0.26,10.05,10.04,1.69
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10.55,10.6,10.5,10.55,4034896,10.31,2.28,10.26,10.16,0.61
 20260623,10.55,10.65,10.5,10.65,5768827,10.34,2.97,10.29,10.18,0.87
 20260624,10.55,10.6,10.45,10.55,5715615,10.36,1.84,10.32,10.19,0.84
-20260626,10.55,10.55,10.4,10.5,3408845,10.37,1.24,10.35,10.19,0.5
+20260625,10.55,10.6,10.5,10.6,2833694,10.38,2.12,10.35,10.2,0.42
+20260626,10.55,10.55,10.4,10.5,3408845,10.39,1.06,10.38,10.2,0.51
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7728 光焱科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:43 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7728
 - stock_name: 光焱科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 657
 - close: 657
 - volume: 55000
-- ma5: 703.2
-- ema23_primary: 719.44
-- distance_to_ema23_pct: -8.68
-- ma20: 725.3
-- ma60: 744.3
-- ma120: 719.4
-- return_5d: -7.07
-- return_20d: -10.85
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: -9.42
+- ma5: 698
+- ema23_primary: 716.45
+- distance_to_ema23_pct: -8.3
+- ma20: 720.7
+- ma60: 743.48
+- ma120: 721.47
+- return_5d: -7.72
+- return_20d: -15.55
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -8.84
 - distance_to_high_60_pct: -25.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,748,788,727,778,764000,744.19,4.54,743.3,755.8,2.09
 20260529,810,810,765,770,783000,746.35,3.17,747.15,753.72,1.97
 20260601,752,770,740,740,756000,745.82,-0.78,747.35,752.62,1.79
 20260602,744,746,714,715,724,743.25,-3.8,742.65,751.83,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,775,775,715,732,45000,728.53,0.48,734.85,748.65,0.12
 20260623,732,732,712,715,23000,727.4,-1.71,732.4,746.73,0.07
 20260624,724,724,692,700,45000,725.12,-3.46,729.3,745.95,0.15
-20260626,687,687,657,657,55000,719.44,-8.68,725.3,744.3,0.21
+20260625,700,700,686,686,27000,721.86,-4.97,726.75,744.78,0.1
+20260626,687,687,657,657,55000,716.45,-8.3,720.7,743.48,0.24
 ```
 
 ## Latest TDCC Snapshot

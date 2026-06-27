@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:13 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 41.65
 - close: 43
 - volume: 2312014
-- ma5: 40.68
-- ema23_primary: 35.43
-- distance_to_ema23_pct: 21.35
-- ma20: 34.23
-- ma60: 33.24
-- ma120: 33.81
-- return_5d: 35.43
-- return_20d: 24.46
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 25.62
+- ma5: 42.54
+- ema23_primary: 36.16
+- distance_to_ema23_pct: 18.93
+- ma20: 34.76
+- ma60: 33.49
+- ma120: 33.88
+- return_5d: 23.21
+- return_20d: 27.6
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 23.72
 - distance_to_high_60_pct: -5.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,34.65,35.05,33.25,33.7,286910,34.08,-1.13,34.41,32.49,0.63
 20260529,34.2,34.2,33.55,33.7,350319,34.05,-1.03,34.42,32.47,0.77
 20260601,33.7,34.7,33.3,33.85,463719,34.04,-0.54,34.41,32.49,1.01
 20260602,34.1,34.25,32.85,33.6,371676,34,-1.17,34.35,32.47,0.81
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,36.1,38.35,35.7,38.35,2144454,33.05,16.03,33,32.57,4.74
 20260623,40.5,42.15,37.45,41.5,6327185,33.76,22.94,33.28,32.76,8.66
 20260624,42.6,45.65,42.6,45.65,8694604,34.75,31.38,33.81,33.02,7.58
-20260626,43.05,44.6,41.65,43,2312014,35.43,21.35,34.23,33.24,1.86
+20260625,45.65,45.65,43,44.2,3990466,35.53,24.38,34.29,33.26,3
+20260626,43.05,44.6,41.65,43,2312014,36.16,18.93,34.76,33.49,1.62
 ```
 
 ## Latest TDCC Snapshot

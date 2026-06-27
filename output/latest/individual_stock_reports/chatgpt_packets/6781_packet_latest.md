@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:29 Asia/Taipei
+- generated_at: 2026-06-27 22:24:30 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1085
 - close: 1105
 - volume: 1572280
-- ma5: 1165
-- ema23_primary: 1156.8
-- distance_to_ema23_pct: -4.48
-- ma20: 1153
-- ma60: 1123.73
-- ma120: 1143.49
-- return_5d: -5.96
-- return_20d: -8.3
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -4.16
+- ma5: 1167
+- ema23_primary: 1158.97
+- distance_to_ema23_pct: -4.66
+- ma20: 1154.5
+- ma60: 1126.65
+- ma120: 1142.41
+- return_5d: -6.36
+- return_20d: -4.74
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -4.29
 - distance_to_high_60_pct: -19.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1220,1245,1150,1160,1487473,1169.22,-0.79,1184.75,1088.57,0.8
 20260529,1185,1210,1150,1160,1162296,1168.45,-0.72,1187.5,1089.23,0.63
 20260601,1180,1225,1175,1200,1537174,1171.08,2.47,1190.75,1092.23,0.82
 20260602,1205,1205,1100,1130,1875312,1167.66,-3.23,1191.25,1093.82,0.98
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1195,1225,1180,1205,1356985,1160.39,3.84,1166.5,1120.9,0.88
 20260623,1200,1225,1165,1170,1109969,1161.19,0.76,1162,1121.65,0.74
 20260624,1160,1170,1145,1165,630936,1161.51,0.3,1158,1123.15,0.44
-20260626,1170,1175,1085,1105,1572280,1156.8,-4.48,1153,1123.73,1.11
+20260625,1180,1205,1160,1190,1061994,1163.88,2.24,1157.25,1125.15,0.76
+20260626,1170,1175,1085,1105,1572280,1158.97,-4.66,1154.5,1126.65,1.13
 ```
 
 ## Latest TDCC Snapshot

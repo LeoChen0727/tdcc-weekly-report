@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1583 程泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:41 Asia/Taipei
+- generated_at: 2026-06-27 22:22:45 Asia/Taipei
 - stock_id: 1583
 - stock_name: 程泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 289
+- price_rows: 290
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48.6
 - close: 49.05
 - volume: 43528
-- ma5: 50.37
-- ema23_primary: 51
-- distance_to_ema23_pct: -3.83
-- ma20: 52.78
-- ma60: 48.92
-- ma120: 47.65
-- return_5d: -3.06
-- return_20d: -8.83
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -7.07
+- ma5: 50.41
+- ema23_primary: 50.95
+- distance_to_ema23_pct: -3.73
+- ma20: 52.37
+- ma60: 49.02
+- ma120: 47.69
+- return_5d: -2.49
+- return_20d: -16.44
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -6.34
 - distance_to_high_60_pct: -22.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,56.5,59.1,55,58.7,583986,48.99,19.81,48.66,46.41,7.55
 20260529,62.3,62.5,59.5,60,469257,49.91,20.21,49.33,46.6,4.69
 20260601,63,63,57,57.3,276510,50.53,13.4,49.86,46.78,2.46
 20260602,56.5,57.9,53.8,55.3,128028,50.92,8.59,50.27,46.92,1.08
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,50.5,51,50.2,50.9,50623,51.25,-0.69,52.81,48.65,0.42
 20260623,51,51,50.7,50.7,33361,51.21,-0.99,52.97,48.75,0.27
 20260624,50.7,51.4,50,50.9,46665,51.18,-0.55,53.02,48.85,0.39
-20260626,50.5,50.5,48.6,49.05,43528,51,-3.83,52.78,48.92,0.38
+20260625,51.5,51.5,50.2,50.5,23330,51.12,-1.22,52.85,48.95,0.21
+20260626,50.5,50.5,48.6,49.05,43528,50.95,-3.73,52.37,49.02,0.51
 ```
 
 ## Latest TDCC Snapshot

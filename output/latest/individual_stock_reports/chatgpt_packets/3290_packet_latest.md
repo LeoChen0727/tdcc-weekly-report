@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3290 東浦
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:25 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3290
 - stock_name: 東浦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 66.6
 - close: 66.6
 - volume: 2722000
-- ma5: 68.52
-- ema23_primary: 59.46
-- distance_to_ema23_pct: 12
-- ma20: 58.27
-- ma60: 50.82
-- ma120: 48.18
-- return_5d: 1.22
-- return_20d: 39.77
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 14.29
+- ma5: 68.82
+- ema23_primary: 60.42
+- distance_to_ema23_pct: 10.23
+- ma20: 59.44
+- ma60: 51.3
+- ma120: 48.41
+- return_5d: -4.58
+- return_20d: 38.89
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 12.05
 - distance_to_high_60_pct: -10.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,47.85,48.55,47.35,47.95,48000,47.39,1.19,47.31,46.32,0.07
 20260529,48.35,48.85,47.6,48.5,48000,47.48,2.15,47.41,46.31,0.08
 20260601,48.8,50.4,48.3,48.75,49000,47.59,2.45,47.49,46.38,0.08
 20260602,49.25,49.25,46.5,48.55,48,47.67,1.85,47.55,46.44,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.5,74.8,68,68.8,5360000,56.94,20.83,55.23,49.59,2.3
 20260623,68.8,71,67.4,68.9,2596000,57.94,18.93,56.32,50.01,1.06
 20260624,67.8,69,66,68.5,2734000,58.82,16.46,57.33,50.43,1.05
-20260626,71.5,72.6,66.6,66.6,2722000,59.46,12,58.27,50.82,1
+20260625,69.2,73.9,68.5,71.3,3057000,59.86,19.12,58.51,50.9,1.11
+20260626,71.5,72.6,66.6,66.6,2722000,60.42,10.23,59.44,51.3,0.95
 ```
 
 ## Latest TDCC Snapshot

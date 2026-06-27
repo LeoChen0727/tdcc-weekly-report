@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:35 Asia/Taipei
+- generated_at: 2026-06-27 22:23:38 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1850
 - close: 1855
 - volume: 2960359
-- ma5: 1990
-- ema23_primary: 2134.9
-- distance_to_ema23_pct: -13.11
-- ma20: 2121.75
-- ma60: 2285
-- ma120: 1891.12
-- return_5d: -11.24
-- return_20d: -18.1
+- ma5: 1954
+- ema23_primary: 2116.54
+- distance_to_ema23_pct: -12.36
+- ma20: 2112
+- ma60: 2286
+- ma120: 1895.12
+- return_5d: -11.67
+- return_20d: -12.29
 - volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -12.57
+- distance_to_ma20_pct_auxiliary: -12.17
 - distance_to_high_60_pct: -38.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,2310,2335,2115,2115,2487948,2329.54,-9.21,2464.5,2146.92,0.75
 20260528,2030,2115,1950,2115,3095357,2311.66,-8.51,2431.25,2157.08,0.93
 20260529,2315,2315,2085,2085,2705900,2292.77,-9.06,2397,2164.42,0.81
 20260601,2150,2180,2095,2120,1512799,2278.38,-6.95,2356,2172.92,0.47
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,2115,2115,1970,1990,5482246,2190.33,-9.15,2172.5,2276.5,1.65
 20260623,1990,2025,1980,2000,1956043,2174.47,-8.02,2161.25,2281,0.59
 20260624,1995,2075,1940,2005,3470666,2160.35,-7.19,2142.25,2284.33,1.03
-20260626,1900,1960,1850,1855,2960359,2134.9,-13.11,2121.75,2285,0.86
+20260625,2020,2045,1920,1920,2565586,2140.32,-10.29,2125,2286.08,0.75
+20260626,1900,1960,1850,1855,2960359,2116.54,-12.36,2112,2286,0.86
 ```
 
 ## Latest TDCC Snapshot

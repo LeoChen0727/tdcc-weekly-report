@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8431 匯鑽科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:53 Asia/Taipei
+- generated_at: 2026-06-27 22:24:54 Asia/Taipei
 - stock_id: 8431
 - stock_name: 匯鑽科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 51.1
 - close: 51.2
 - volume: 301000
-- ma5: 55.26
-- ema23_primary: 54.89
-- distance_to_ema23_pct: -6.72
-- ma20: 53.67
-- ma60: 59.4
-- ma120: 63.05
-- return_5d: -12.93
-- return_20d: -10.65
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -4.6
+- ma5: 54.52
+- ema23_primary: 54.79
+- distance_to_ema23_pct: -6.55
+- ma20: 53.57
+- ma60: 59.25
+- ma120: 62.97
+- return_5d: -11.11
+- return_20d: -8.41
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -4.42
 - distance_to_high_60_pct: -34.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,57.3,58.1,55.6,55.9,57000,60.12,-7.03,59.74,63.68,0.09
 20260529,56.2,56.8,55.5,55.9,56000,59.77,-6.48,59.38,63.49,0.09
 20260601,56.1,56.6,55.3,55.8,56000,59.44,-6.13,59.03,63.33,0.1
 20260602,56,56,53.6,53.9,54,58.98,-8.61,58.59,63.16,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58,59.8,57.2,57.4,634000,55.26,3.87,54.42,59.97,1.26
 20260623,57.4,57.4,55,55,413000,55.24,-0.43,54.18,59.78,0.79
 20260624,54.1,55.6,54.1,55.1,147000,55.23,-0.23,53.97,59.64,0.28
-20260626,53.9,54.6,51.1,51.2,301000,54.89,-6.72,53.67,59.4,0.56
+20260625,55.9,55.9,53.8,53.9,223000,55.12,-2.21,53.8,59.45,0.42
+20260626,53.9,54.6,51.1,51.2,301000,54.79,-6.55,53.57,59.25,0.55
 ```
 
 ## Latest TDCC Snapshot

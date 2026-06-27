@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6996 力領科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:36 Asia/Taipei
+- generated_at: 2026-06-27 22:24:37 Asia/Taipei
 - stock_id: 6996
 - stock_name: 力領科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 190
 - close: 193
 - volume: 128000
-- ma5: 195.2
-- ema23_primary: 192.93
-- distance_to_ema23_pct: 0.03
-- ma20: 193.97
-- ma60: 184.88
-- ma120: 173.95
-- return_5d: 0
-- return_20d: 0.78
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -0.5
+- ma5: 196.3
+- ema23_primary: 193.44
+- distance_to_ema23_pct: -0.22
+- ma20: 194.5
+- ma60: 185.45
+- ma120: 174.41
+- return_5d: -0.52
+- return_20d: 2.12
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -0.77
 - distance_to_high_60_pct: -8.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,191.5,193,186,189,190000,185.96,1.63,186.45,177.07,0.93
 20260529,192,196.5,191.5,191.5,194000,186.43,2.72,187.35,177.5,0.93
 20260601,191.5,191.5,185.5,189.5,188000,186.68,1.51,187.97,178.02,0.88
 20260602,188.5,191.5,187,191.5,189,187.08,2.36,188.38,178.41,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,195,199.5,194,194.5,122000,192.11,1.25,193.12,183.54,0.67
 20260623,194,201,192.5,197.5,223000,192.56,2.57,193.62,184.03,1.21
 20260624,196.5,198,192.5,197,77000,192.93,2.11,193.9,184.49,0.43
-20260626,200,200,190,193,128000,192.93,0.03,193.97,184.88,0.73
+20260625,199,200,196,199.5,87000,193.47,3.11,194.3,184.99,0.5
+20260626,200,200,190,193,128000,193.44,-0.22,194.5,185.45,0.75
 ```
 
 ## Latest TDCC Snapshot

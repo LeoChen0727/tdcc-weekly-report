@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6139 亞翔
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:07 Asia/Taipei
+- generated_at: 2026-06-27 22:24:08 Asia/Taipei
 - stock_id: 6139
 - stock_name: 亞翔
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 862
 - close: 878
 - volume: 10133941
-- ma5: 824
-- ema23_primary: 791.75
-- distance_to_ema23_pct: 10.89
-- ma20: 794.3
-- ma60: 717.52
-- ma120: 641.6
-- return_5d: 8.93
-- return_20d: 8.26
-- volume_ratio: 1.87
-- distance_to_ma20_pct_auxiliary: 10.54
+- ma5: 834.4
+- ema23_primary: 798.71
+- distance_to_ema23_pct: 9.93
+- ma20: 799.45
+- ma60: 723.02
+- ma120: 644.17
+- return_5d: 6.68
+- return_20d: 13.73
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: 9.83
 - distance_to_high_60_pct: -4.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,816,816,765,772,5377350,732.6,5.38,730.6,643.37,1.04
 20260529,781,792,768,784,3939440,736.89,6.39,736.3,647.45,0.74
 20260601,791,792,765,777,3006483,740.23,4.97,740.4,652,0.57
 20260602,782,789,760,762,3441594,742.04,2.69,743.95,655.68,0.64
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,840,842,805,810,3816117,779.88,3.86,792.15,706.35,0.7
 20260623,815,821,788,791,3190891,780.81,1.31,791.35,708.63,0.6
 20260624,781,826,771,818,3143254,783.91,4.35,790.95,712.45,0.61
-20260626,867,923,862,878,10133941,791.75,10.89,794.3,717.52,1.87
+20260625,825,888,822,875,7519675,791.5,10.55,794.15,717.47,1.43
+20260626,867,923,862,878,10133941,798.71,9.93,799.45,723.02,1.84
 ```
 
 ## Latest TDCC Snapshot

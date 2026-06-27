@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5439 高技
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5439
 - stock_name: 高技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 302.5
 - close: 302.5
 - volume: 1969000
-- ma5: 322.6
-- ema23_primary: 344.69
-- distance_to_ema23_pct: -12.24
-- ma20: 347.43
-- ma60: 363.38
-- ma120: 330.44
-- return_5d: -6.49
-- return_20d: -21.53
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: -12.93
+- ma5: 320.7
+- ema23_primary: 342.74
+- distance_to_ema23_pct: -11.74
+- ma20: 345.07
+- ma60: 363.88
+- ma120: 330.48
+- return_5d: -9.02
+- return_20d: -18.24
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: -12.34
 - distance_to_high_60_pct: -34.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,388.5,389,368,370,377000,380.49,-2.76,387.35,341.52,0.08
 20260529,379,386,371.5,383,379000,380.7,0.6,387.38,343.25,0.09
 20260601,386.5,389.5,379.5,380,382000,380.64,-0.17,386.75,345.22,0.1
 20260602,382.5,386,368,374,376,380.09,-1.6,385.3,346.88,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,338,340,331.5,336,1417000,353.76,-5.02,358.27,362.5,0.96
 20260623,339.5,339.5,321.5,321.5,1509000,351.07,-8.42,355.1,363.07,0.98
 20260624,317.5,324,313,320.5,1222000,348.53,-8.04,351.57,363.4,0.77
-20260626,323,323,302.5,302.5,1969000,344.69,-12.24,347.43,363.38,1.19
+20260625,322.5,331,319.5,323,1393000,346.4,-6.75,348.45,363.72,0.85
+20260626,323,323,302.5,302.5,1969000,342.74,-11.74,345.07,363.88,1.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6423 億而得
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:16 Asia/Taipei
+- generated_at: 2026-06-27 22:24:18 Asia/Taipei
 - stock_id: 6423
 - stock_name: 億而得
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 78.8
 - close: 78.8
 - volume: 142000
-- ma5: 82.12
-- ema23_primary: 87.42
-- distance_to_ema23_pct: -9.86
-- ma20: 86.05
-- ma60: 96.2
-- ma120: 92.03
-- return_5d: -2.35
-- return_20d: -19.67
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -8.42
+- ma5: 81.96
+- ema23_primary: 86.94
+- distance_to_ema23_pct: -9.36
+- ma20: 85.41
+- ma60: 96.17
+- ma120: 92.1
+- return_5d: -4.72
+- return_20d: -16.7
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -7.74
 - distance_to_high_60_pct: -42.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,99.5,101.5,93.9,94.6,97000,102.91,-8.07,106.97,97.57,0.41
 20260529,95,97,95,95.5,96000,102.29,-6.64,106.27,97.64,0.41
 20260601,96.4,96.4,93.2,94.9,95000,101.67,-6.66,105.36,97.75,0.42
 20260602,93.8,94.9,91.1,92.6,92,100.92,-8.24,104.04,97.76,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,83.5,84.8,83.4,84.2,66000,89.29,-5.7,88.97,96.56,0.58
 20260623,82.6,82.8,81.7,81.7,75000,88.66,-7.85,87.9,96.42,0.66
 20260624,81.7,83.9,81.2,83.2,94000,88.2,-5.67,87.01,96.34,0.83
-20260626,81.9,82.4,78.8,78.8,142000,87.42,-9.86,86.05,96.2,1.24
+20260625,83.3,83.3,81.8,81.9,65000,87.68,-6.59,86.2,96.25,0.59
+20260626,81.9,82.4,78.8,78.8,142000,86.94,-9.36,85.41,96.17,1.25
 ```
 
 ## Latest TDCC Snapshot

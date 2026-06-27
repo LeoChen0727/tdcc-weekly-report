@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1203 味王
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:31 Asia/Taipei
+- generated_at: 2026-06-27 22:22:34 Asia/Taipei
 - stock_id: 1203
 - stock_name: 味王
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42
 - close: 42.5
 - volume: 15503
-- ma5: 43.04
-- ema23_primary: 42.92
-- distance_to_ema23_pct: -0.97
+- ma5: 43.01
+- ema23_primary: 42.91
+- distance_to_ema23_pct: -0.95
 - ma20: 43.05
-- ma60: 42.54
-- ma120: 41.07
-- return_5d: -1.51
-- return_20d: -0.47
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.29
+- ma60: 42.6
+- ma120: 41.1
+- return_5d: -1.16
+- return_20d: -1.16
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -1.27
 - distance_to_high_60_pct: -4.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,43.5,43.5,41.1,43,16313,42.52,1.14,42.72,41.29,0.56
 20260529,43,44,43,43.55,22860,42.6,2.23,42.72,41.33,0.79
 20260601,43.55,44.3,43.55,43.65,36651,42.69,2.25,42.77,41.39,1.24
 20260602,43.5,44.15,43.4,44.15,19154,42.81,3.13,42.84,41.47,0.64
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43,43,42.6,42.8,12055,42.86,-0.14,42.98,42.36,0.52
 20260623,44,44.2,41.7,43.45,25798,42.91,1.26,43.03,42.43,1.18
 20260624,43.45,43.45,43.45,43.45,1440,42.96,1.15,43.06,42.49,0.07
-20260626,42,42.6,42,42.5,15503,42.92,-0.97,43.05,42.54,0.76
+20260625,43.1,43.1,42.85,42.85,12509,42.95,-0.22,43.07,42.55,0.62
+20260626,42,42.6,42,42.5,15503,42.91,-0.95,43.05,42.6,0.77
 ```
 
 ## Latest TDCC Snapshot

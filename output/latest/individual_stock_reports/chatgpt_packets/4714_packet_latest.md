@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4714 永捷
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:47 Asia/Taipei
+- generated_at: 2026-06-27 22:23:49 Asia/Taipei
 - stock_id: 4714
 - stock_name: 永捷
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11.8
 - close: 11.8
 - volume: 1817000
-- ma5: 12.56
-- ema23_primary: 13.24
-- distance_to_ema23_pct: -10.9
-- ma20: 13.28
-- ma60: 14.1
-- ma120: 15.26
-- return_5d: -10.27
-- return_20d: -13.55
-- volume_ratio: 2.29
-- distance_to_ma20_pct_auxiliary: -11.16
+- ma5: 12.42
+- ema23_primary: 13.16
+- distance_to_ema23_pct: -10.37
+- ma20: 13.23
+- ma60: 14.06
+- ma120: 15.22
+- return_5d: -9.58
+- return_20d: -12.27
+- volume_ratio: 2.2
+- distance_to_ma20_pct_auxiliary: -10.79
 - distance_to_high_60_pct: -32.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.65,13.85,13.35,13.45,14000,14.04,-4.22,14.05,14.7,0.02
 20260529,13.5,13.6,13.3,13.4,13000,13.99,-4.21,13.98,14.65,0.02
 20260601,13.5,13.65,13.35,13.5,14000,13.95,-3.22,13.9,14.62,0.02
 20260602,13.7,13.75,13.3,13.6,13,13.92,-2.3,13.83,14.59,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.1,13.15,12.85,12.95,1798000,13.54,-4.36,13.52,14.21,3.12
 20260623,12.9,12.95,12.5,12.5,1659000,13.45,-7.09,13.46,14.17,2.52
 20260624,12.5,12.65,12.4,12.5,894000,13.37,-6.54,13.38,14.14,1.27
-20260626,12.4,12.4,11.8,11.8,1817000,13.24,-10.9,13.28,14.1,2.29
+20260625,12.55,12.6,12.35,12.35,716000,13.29,-7.06,13.31,14.11,0.97
+20260626,12.4,12.4,11.8,11.8,1817000,13.16,-10.37,13.23,14.06,2.2
 ```
 
 ## Latest TDCC Snapshot

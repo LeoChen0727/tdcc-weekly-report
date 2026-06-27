@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6204 艾華
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6204
 - stock_name: 艾華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 114
 - close: 115
 - volume: 1200000
-- ma5: 117.2
-- ema23_primary: 105.28
-- distance_to_ema23_pct: 9.23
-- ma20: 107.8
-- ma60: 83.65
-- ma120: 78.61
-- return_5d: 7.98
-- return_20d: 27.64
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: 6.68
+- ma5: 119.2
+- ema23_primary: 106.85
+- distance_to_ema23_pct: 7.62
+- ma20: 109.47
+- ma60: 84.72
+- ma120: 79.01
+- return_5d: 0
+- return_20d: 25.68
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 5.05
 - distance_to_high_60_pct: -10.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,92,96.1,88.5,91.5,93000,80.66,13.44,81.03,69.19,0.21
 20260529,91.5,94.8,88.8,93,92000,81.69,13.84,82.11,69.61,0.21
 20260601,101.5,102,99.9,102,102000,83.38,22.33,83.61,70.24,0.25
 20260602,101.5,105,97.5,104.5,102,85.14,22.74,85.03,70.9,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,120,121.5,114.5,115.5,1231000,101.37,13.94,103.26,80.77,1.96
 20260623,114.5,121.5,109.5,118.5,1024000,102.79,15.28,104.68,81.72,1.52
 20260624,118.5,125.5,115.5,122,1503000,104.4,16.86,106.56,82.75,2.02
-20260626,125,129,114,115,1200000,105.28,9.23,107.8,83.65,1.5
+20260625,123,125.5,120,125,1054000,106.11,17.8,108.3,83.81,1.33
+20260626,125,129,114,115,1200000,106.85,7.62,109.47,84.72,1.41
 ```
 
 ## Latest TDCC Snapshot

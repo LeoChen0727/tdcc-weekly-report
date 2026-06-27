@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00962 台新AI優息動能
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:29 Asia/Taipei
+- generated_at: 2026-06-27 22:22:33 Asia/Taipei
 - stock_id: 00962
 - stock_name: 台新AI優息動能
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 14.28
 - close: 14.28
 - volume: 515383
-- ma5: 14.84
-- ema23_primary: 14.76
-- distance_to_ema23_pct: -3.27
-- ma20: 15.05
+- ma5: 14.82
+- ema23_primary: 14.77
+- distance_to_ema23_pct: -3.32
+- ma20: 15.08
 - ma60: 14.93
 - ma120: 14.93
-- return_5d: -3.64
-- return_20d: -1.31
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -5.12
+- return_5d: -4.8
+- return_20d: -0.42
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: -5.3
 - distance_to_high_60_pct: -12.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14.55,14.74,14.23,14.34,484376,14.05,2.09,14.32,14.32,0.63
 20260529,14.83,15.14,14.83,15.1,2989303,14.13,6.83,14.45,14.45,2.63
 20260601,15.68,15.83,15.62,15.77,11743503,14.27,10.51,14.64,14.64,4.43
 20260602,15.92,16.11,15.76,16.08,4897476,14.42,11.5,14.82,14.82,1.67
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.25,15.38,15.2,15.21,934103,14.8,2.78,15.02,14.96,0.39
 20260623,15.23,15.3,14.85,14.85,1157070,14.8,0.32,15.04,14.96,0.48
 20260624,14.75,14.87,14.66,14.86,1034908,14.81,0.36,15.06,14.96,0.43
-20260626,14.71,14.72,14.28,14.28,515383,14.76,-3.27,15.05,14.93,0.22
+20260625,14.99,15,14.85,14.91,620469,14.82,0.64,15.08,14.95,0.26
+20260626,14.71,14.72,14.28,14.28,515383,14.77,-3.32,15.08,14.93,0.21
 ```
 
 ## Latest TDCC Snapshot

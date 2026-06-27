@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:41 Asia/Taipei
+- generated_at: 2026-06-27 22:22:45 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,15 +119,15 @@
 - low: 1335
 - close: 1360
 - volume: 835503
-- ma5: 1379
-- ema23_primary: 1351.69
-- distance_to_ema23_pct: 0.61
+- ma5: 1381
+- ema23_primary: 1354.67
+- distance_to_ema23_pct: 0.39
 - ma20: 1333.25
-- ma60: 1325.02
-- ma120: 1185.72
-- return_5d: 3.03
-- return_20d: -5.23
-- volume_ratio: 0.92
+- ma60: 1331.73
+- ma120: 1189.46
+- return_5d: -1.45
+- return_20d: -2.16
+- volume_ratio: 0.96
 - distance_to_ma20_pct_auxiliary: 2.01
 - distance_to_high_60_pct: -15
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1435,1445,1360,1390,1607554,1409.25,-1.37,1457.25,1226.92,1.36
 20260529,1420,1420,1345,1400,1562350,1408.48,-0.6,1454.5,1230.5,1.39
 20260601,1365,1385,1340,1350,1345051,1403.6,-3.82,1448.5,1234.58,1.2
 20260602,1330,1340,1245,1280,1141184,1393.3,-8.13,1440.5,1237.75,1.02
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1400,1415,1370,1395,847669,1345.37,3.69,1344.75,1306.43,0.99
 20260623,1400,1405,1360,1375,1204438,1347.84,2.02,1341,1312.52,1.38
 20260624,1375,1405,1355,1385,1144206,1350.94,2.52,1337,1318.85,1.28
-20260626,1390,1405,1335,1360,835503,1351.69,0.61,1333.25,1325.02,0.92
+20260625,1390,1430,1390,1390,801735,1354.19,2.64,1334.75,1325.52,0.89
+20260626,1390,1405,1335,1360,835503,1354.67,0.39,1333.25,1331.73,0.96
 ```
 
 ## Latest TDCC Snapshot

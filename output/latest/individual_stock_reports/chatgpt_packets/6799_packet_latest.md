@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6799 來頡
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6799
 - stock_name: 來頡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 96.8
 - close: 97.2
 - volume: 888989
-- ma5: 103.62
-- ema23_primary: 97.1
-- distance_to_ema23_pct: 0.11
-- ma20: 97.8
-- ma60: 90.95
-- ma120: 86.59
-- return_5d: 6.93
-- return_20d: -11.23
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -0.61
+- ma5: 104.44
+- ema23_primary: 97.62
+- distance_to_ema23_pct: -0.43
+- ma20: 97.42
+- ma60: 91.41
+- ma120: 86.76
+- return_5d: -2.7
+- return_20d: -12.83
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -0.23
 - distance_to_high_60_pct: -17.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,109.5,118,109.5,111.5,2545751,96.22,15.88,95.68,84.84,2.48
 20260529,115.5,115.5,108.5,110,1656431,97.37,12.98,96.78,85.36,1.51
 20260601,112.5,115,107,107.5,1183229,98.21,9.46,97.67,85.93,1.05
 20260602,107.5,107.5,101,104.5,1020618,98.73,5.84,98.31,86.4,0.88
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,104,109.5,101,109.5,2626832,95.43,14.74,98.44,89.71,2.02
 20260623,107,109.5,103.5,105,1631112,96.23,9.11,98.64,90.14,1.21
 20260624,104.5,108.5,104,106.5,1447765,97.09,9.7,98.41,90.62,1.16
-20260626,103,103,96.8,97.2,888989,97.1,0.11,97.8,90.95,0.81
+20260625,107,109.5,103,104,943143,97.66,6.49,98.14,91.06,0.86
+20260626,103,103,96.8,97.2,888989,97.62,-0.43,97.42,91.41,0.88
 ```
 
 ## Latest TDCC Snapshot

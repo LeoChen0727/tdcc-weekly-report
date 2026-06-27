@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3207 耀勝
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:23 Asia/Taipei
+- generated_at: 2026-06-27 22:23:25 Asia/Taipei
 - stock_id: 3207
 - stock_name: 耀勝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 64
 - close: 64
 - volume: 1399000
-- ma5: 67.5
-- ema23_primary: 66.42
-- distance_to_ema23_pct: -3.64
-- ma20: 67.54
-- ma60: 64.69
-- ma120: 68.69
-- return_5d: -5.6
-- return_20d: -1.08
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -5.24
+- ma5: 67.28
+- ema23_primary: 66.47
+- distance_to_ema23_pct: -3.71
+- ma20: 67.66
+- ma60: 64.71
+- ma120: 68.66
+- return_5d: -6.43
+- return_20d: -1.54
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -5.4
 - distance_to_high_60_pct: -14.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,64.6,65.5,63.5,65,65000,61.84,5.11,60.51,66.29,0.22
 20260529,65,66.7,64.9,65.1,66000,62.11,4.81,60.65,66,0.23
 20260601,65.1,67.9,64.6,67.9,67000,62.59,8.48,60.98,65.81,0.24
 20260602,68,74.5,67.5,71.7,72,63.35,13.18,61.43,65.65,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,69.5,70.6,67.2,67.3,1294000,66.2,1.67,66.87,64.71,1.45
 20260623,67.5,68.4,64.2,67.7,922000,66.32,2.08,67.22,64.7,0.98
 20260624,66.2,70.3,65.7,70.1,3210000,66.64,5.2,67.58,64.74,2.93
-20260626,68,68,64,64,1399000,66.42,-3.64,67.54,64.69,1.21
+20260625,70.5,72.2,67.1,67.3,2683000,66.69,0.91,67.7,64.75,2.19
+20260626,68,68,64,64,1399000,66.47,-3.71,67.66,64.71,1.08
 ```
 
 ## Latest TDCC Snapshot

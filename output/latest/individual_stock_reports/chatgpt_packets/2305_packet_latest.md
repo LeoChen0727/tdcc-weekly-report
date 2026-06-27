@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2305 全友
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:53 Asia/Taipei
+- generated_at: 2026-06-27 22:22:57 Asia/Taipei
 - stock_id: 2305
 - stock_name: 全友
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 34.05
 - close: 35.1
 - volume: 3685403
-- ma5: 36.35
-- ema23_primary: 27.91
-- distance_to_ema23_pct: 25.78
-- ma20: 27.43
-- ma60: 20.69
-- ma120: 17.02
-- return_5d: 14.71
-- return_20d: 53.61
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 27.97
-- distance_to_high_60_pct: -10.34
+- ma5: 37.18
+- ema23_primary: 28.71
+- distance_to_ema23_pct: 22.25
+- ma20: 28.16
+- ma60: 21.04
+- ma120: 17.24
+- return_5d: 4.31
+- return_20d: 51.29
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 24.66
+- distance_to_high_60_pct: -12.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,24.95,25,22.55,23.2,16978285,18.41,26.05,17.89,16.44,2.55
 20260529,23.3,24.6,22.3,23.8,9462209,18.85,26.23,18.29,16.62,1.35
 20260601,23.85,24.4,23.05,23.05,6468616,19.2,20.03,18.63,16.8,0.9
 20260602,22.55,23.45,21.85,23.4,6114433,19.55,19.67,18.96,16.98,0.82
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,37,37,35.5,37,16289442,25.2,46.81,25.09,19.64,1.71
 20260623,36.9,37.8,35.65,37.1,14817775,26.19,41.64,25.91,20.01,1.46
 20260624,36.1,39.15,36,38.9,3211471,27.25,42.74,26.82,20.39,0.38
-20260626,37.6,37.6,34.05,35.1,3685403,27.91,25.78,27.43,20.69,0.45
+20260625,40,40,37.45,37.8,2149648,28.13,34.37,27.56,20.73,0.27
+20260626,37.6,37.6,34.05,35.1,3685403,28.71,22.25,28.16,21.04,0.5
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1711 永光
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:43 Asia/Taipei
+- generated_at: 2026-06-27 22:22:47 Asia/Taipei
 - stock_id: 1711
 - stock_name: 永光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 42.5
 - close: 42.55
 - volume: 8481906
-- ma5: 46.42
-- ema23_primary: 46.52
-- distance_to_ema23_pct: -8.54
-- ma20: 45.97
-- ma60: 48.09
-- ma120: 37.04
-- return_5d: -4.27
-- return_20d: -16.57
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -7.44
+- ma5: 46.62
+- ema23_primary: 46.48
+- distance_to_ema23_pct: -8.45
+- ma20: 45.84
+- ma60: 48.23
+- ma120: 37.26
+- return_5d: -6.07
+- return_20d: -13.07
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -7.17
 - distance_to_high_60_pct: -33.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,51.2,51.4,48.25,48.95,14431847,50.75,-3.55,53.17,44.33,0.93
 20260529,49,49.9,48.35,49.1,10533672,50.61,-2.99,52.8,44.66,0.67
 20260601,49.1,51.3,49,49.35,12409628,50.51,-2.29,52.37,45.05,0.77
 20260602,49.7,50.1,47,47.95,11726763,50.29,-4.66,51.72,45.39,0.71
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,46,49.8,45.35,49.55,22663600,46.79,5.89,46.75,47.78,1.9
 20260623,49.8,49.8,46.05,47,14170218,46.81,0.41,46.54,47.88,1.2
 20260624,46.1,49.5,45.85,47.7,10119969,46.88,1.74,46.39,48.03,0.88
-20260626,46.1,46.25,42.5,42.55,8481906,46.52,-8.54,45.97,48.09,0.77
+20260625,48.55,49.2,46.3,46.3,7112716,46.84,-1.14,46.16,48.16,0.65
+20260626,46.1,46.25,42.5,42.55,8481906,46.48,-8.45,45.84,48.23,0.79
 ```
 
 ## Latest TDCC Snapshot

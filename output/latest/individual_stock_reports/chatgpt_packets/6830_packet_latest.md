@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6830 汎銓
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6830
 - stock_name: 汎銓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 489
 - close: 496
 - volume: 550563
-- ma5: 556.4
-- ema23_primary: 592.21
-- distance_to_ema23_pct: -16.25
-- ma20: 582.67
-- ma60: 691.22
-- ma120: 474.74
-- return_5d: -3.31
-- return_20d: -31.11
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -14.88
+- ma5: 549.4
+- ema23_primary: 586.71
+- distance_to_ema23_pct: -15.46
+- ma20: 574.83
+- ma60: 692.5
+- ma120: 477.68
+- return_5d: -12.06
+- return_20d: -27.7
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -13.71
 - distance_to_high_60_pct: -50.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,715,727,679,686,2186193,740.03,-7.3,777.2,633.07,0.86
 20260529,715,716,675,678,1539894,734.86,-7.74,768.6,639.19,0.6
 20260601,678,685,650,683,1593903,730.54,-6.51,756.5,645.09,0.64
 20260602,696,704,660,661,1684687,724.75,-8.8,740.8,650.08,0.7
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,580,619,580,608,1057582,609.33,-0.22,616.42,686.71,0.54
 20260623,595,598,560,560,783516,605.22,-7.47,605.08,688.86,0.41
 20260624,542,572,538,554,402009,600.95,-7.81,593.88,690.19,0.23
-20260626,512,523,489,496,550563,592.21,-16.25,582.67,691.22,0.34
+20260625,569,569,520,529,403127,594.96,-11.09,584.33,691.77,0.25
+20260626,512,523,489,496,550563,586.71,-15.46,574.83,692.5,0.36
 ```
 
 ## Latest TDCC Snapshot

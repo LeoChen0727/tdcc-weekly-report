@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7792 安葆
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:44 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7792
 - stock_name: 安葆
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 96
+- price_rows: 97
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 251.5
 - close: 252.5
 - volume: 147000
-- ma5: 270.8
-- ema23_primary: 274.22
-- distance_to_ema23_pct: -7.92
-- ma20: 271.48
-- ma60: 306.22
-- ma120: 316.65
-- return_5d: -1.17
-- return_20d: -6.13
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -6.99
+- ma5: 271.6
+- ema23_primary: 273.37
+- distance_to_ema23_pct: -7.63
+- ma20: 271.93
+- ma60: 305.38
+- ma120: 316.12
+- return_5d: -3.26
+- return_20d: -1.37
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -7.14
 - distance_to_high_60_pct: -34.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,269,273.5,255.5,256,263000,295.54,-13.38,298.5,323.42,0.85
 20260529,274,281.5,274,281.5,281000,294.37,-4.37,294.8,322.12,1
 20260601,307,309.5,289.5,295,302000,294.42,0.2,292.02,321.35,1.07
 20260602,300,303,285,290.5,292,294.09,-1.22,289.45,320.18,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,265,287,265,285.5,444000,275.99,3.44,271.62,308.38,2.08
 20260623,285.5,287,278,283,172000,276.58,2.32,272.12,307.85,0.82
 20260624,278,278,268.5,272,106000,276.2,-1.52,272.3,307.24,0.53
-20260626,274,274,251.5,252.5,147000,274.22,-7.92,271.48,306.22,0.76
+20260625,273,273,265,265,61000,275.26,-3.73,272.1,306.43,0.32
+20260626,274,274,251.5,252.5,147000,273.37,-7.63,271.93,305.38,0.8
 ```
 
 ## Latest TDCC Snapshot

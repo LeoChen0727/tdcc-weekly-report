@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 19
+- price_rows: 20
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,16 +118,16 @@
 - low: 166.5
 - close: 174.5
 - volume: 852556
-- ma5: 163.8
-- ema23_primary: 157.22
-- distance_to_ema23_pct: 10.99
-- ma20: 160.11
-- ma60: 160.11
-- ma120: 160.11
-- return_5d: 4.8
+- ma5: 164.7
+- ema23_primary: 158.24
+- distance_to_ema23_pct: 10.28
+- ma20: 160.55
+- ma60: 160.55
+- ma120: 160.55
+- return_5d: 6.08
 - return_20d:
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 8.99
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 8.69
 - distance_to_high_60_pct: -1.97
 
 ## Recent Price Preview
@@ -152,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,163,164,148.5,159,1262383,154.73,2.76,159.16,159.16,1
 20260623,163,164,156,161,745582,155.25,3.7,159.26,159.26,0.61
 20260624,161,162.5,158,160,297488,155.65,2.8,159.31,159.31,0.25
-20260626,168,178,166.5,174.5,852556,157.22,10.99,160.11,160.11,0.74
+20260625,160.5,173.5,160.5,169,643001,156.76,7.81,159.82,159.82,0.56
+20260626,168,178,166.5,174.5,852556,158.24,10.28,160.55,160.55,0.75
 ```
 
 ## Latest TDCC Snapshot

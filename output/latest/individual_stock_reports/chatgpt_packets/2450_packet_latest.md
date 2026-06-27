@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2450 神腦
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:01 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2450
 - stock_name: 神腦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 28.9
 - close: 28.95
 - volume: 182465
-- ma5: 29.02
-- ema23_primary: 29.82
-- distance_to_ema23_pct: -2.93
+- ma5: 29.03
+- ema23_primary: 29.77
+- distance_to_ema23_pct: -2.76
 - ma20: 30.19
 - ma60: 29.81
 - ma120: 29.48
-- return_5d: -0.34
-- return_20d: -1.36
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -4.12
+- return_5d: -0.69
+- return_20d: -1.03
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -4.11
 - distance_to_high_60_pct: -9.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.35,29.4,29.15,29.25,164778,29.43,-0.6,29.44,29.56,0.83
 20260529,29.35,30.15,29.35,29.85,595206,29.46,1.32,29.45,29.55,2.72
 20260601,29.9,31.15,29.85,30.8,1068390,29.57,4.15,29.52,29.57,4.09
 20260602,30.8,30.9,30.4,30.9,725577,29.68,4.1,29.58,29.59,2.5
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29.25,29.25,28.9,28.9,364916,30.07,-3.88,30.23,29.82,0.75
 20260623,28.9,29.05,28.75,29.05,206016,29.98,-3.11,30.22,29.81,0.44
 20260624,29,29.2,28.85,29.05,133882,29.9,-2.86,30.21,29.81,0.29
-20260626,29.05,29.15,28.9,28.95,182465,29.82,-2.93,30.19,29.81,0.39
+20260625,29.05,29.2,29.05,29.2,100495,29.85,-2.16,30.2,29.81,0.22
+20260626,29.05,29.15,28.9,28.95,182465,29.77,-2.76,30.19,29.81,0.4
 ```
 
 ## Latest TDCC Snapshot

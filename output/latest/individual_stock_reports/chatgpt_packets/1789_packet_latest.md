@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1789 神隆
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:46 Asia/Taipei
+- generated_at: 2026-06-27 22:22:50 Asia/Taipei
 - stock_id: 1789
 - stock_name: 神隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 20
 - volume: 791183
 - ma5: 20.28
-- ema23_primary: 20.11
-- distance_to_ema23_pct: -0.54
-- ma20: 20.14
-- ma60: 20.3
-- ma120: 21.18
-- return_5d: -5.66
-- return_20d: 5.26
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -0.67
+- ema23_primary: 20.14
+- distance_to_ema23_pct: -0.71
+- ma20: 20.2
+- ma60: 20.29
+- ma120: 21.2
+- return_5d: -2.68
+- return_20d: 4.17
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -1
 - distance_to_high_60_pct: -12.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19,19.3,18.95,19.2,1045049,19.61,-2.1,19.45,20.62,1.28
 20260529,19.35,19.8,19.25,19.75,1127191,19.62,0.65,19.43,20.6,1.34
 20260601,19.75,19.85,19.5,19.7,811400,19.63,0.36,19.41,20.59,0.97
 20260602,19.85,20.05,19.5,20.05,720494,19.66,1.96,19.39,20.59,0.85
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20.65,20.9,20.2,20.4,826139,20.1,1.5,19.97,20.35,0.84
 20260623,20.5,20.5,20.1,20.25,643492,20.11,0.69,20.03,20.34,0.68
 20260624,20.1,20.5,20.1,20.2,844048,20.12,0.4,20.09,20.32,0.88
-20260626,20.35,20.45,19.9,20,791183,20.11,-0.54,20.14,20.3,0.82
+20260625,20.3,20.85,20.25,20.55,1116265,20.16,1.96,20.16,20.31,1.13
+20260626,20.35,20.45,19.9,20,791183,20.14,-0.71,20.2,20.29,0.81
 ```
 
 ## Latest TDCC Snapshot

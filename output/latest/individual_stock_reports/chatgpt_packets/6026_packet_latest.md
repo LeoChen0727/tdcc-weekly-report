@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6026 福邦證
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:05 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6026
 - stock_name: 福邦證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.4
 - close: 16.55
 - volume: 6284000
-- ma5: 16.9
-- ema23_primary: 16.9
-- distance_to_ema23_pct: -2.07
-- ma20: 17.36
-- ma60: 15.96
-- ma120: 15.08
-- return_5d: -2.65
-- return_20d: 0.61
-- volume_ratio: 2.07
-- distance_to_ma20_pct_auxiliary: -4.65
+- ma5: 16.84
+- ema23_primary: 16.89
+- distance_to_ema23_pct: -1.99
+- ma20: 17.38
+- ma60: 15.99
+- ma120: 15.11
+- return_5d: -2.93
+- return_20d: 1.85
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: -4.79
 - distance_to_high_60_pct: -15.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.7,16.8,16.2,16.25,17000,15.59,4.24,15.78,14.99,0.01
 20260529,16.55,16.95,16.45,16.85,17000,15.69,7.36,15.86,15.04,0.01
 20260601,17.2,17.5,17.05,17.3,17000,15.83,9.3,15.94,15.1,0.01
 20260602,17.45,18,17.05,17.8,17,15.99,11.3,16.04,15.17,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.25,17.25,17.05,17.15,3597000,16.94,1.22,17.23,15.86,1.54
 20260623,17.25,17.35,16.9,16.95,3855000,16.94,0.03,17.3,15.89,1.53
 20260624,16.85,16.9,16.65,16.8,3967000,16.93,-0.78,17.35,15.92,1.46
-20260626,16.75,16.8,16.4,16.55,6284000,16.9,-2.07,17.36,15.96,2.07
+20260625,16.95,16.95,16.7,16.75,3236000,16.92,-0.99,17.37,15.96,1.12
+20260626,16.75,16.8,16.4,16.55,6284000,16.89,-1.99,17.38,15.99,1.97
 ```
 
 ## Latest TDCC Snapshot

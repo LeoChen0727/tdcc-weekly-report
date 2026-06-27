@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7777 能率亞洲
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:44 Asia/Taipei
+- generated_at: 2026-06-27 22:24:44 Asia/Taipei
 - stock_id: 7777
 - stock_name: 能率亞洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 121
+- price_rows: 122
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42
 - close: 42
 - volume: 15393000
-- ma5: 41.6
-- ema23_primary: 39.31
-- distance_to_ema23_pct: 6.83
-- ma20: 40.59
-- ma60: 32.71
-- ma120: 31.21
-- return_5d: -4.44
-- return_20d: 19.49
-- volume_ratio: 4.03
-- distance_to_ma20_pct_auxiliary: 3.48
+- ma5: 42.04
+- ema23_primary: 39.72
+- distance_to_ema23_pct: 5.74
+- ma20: 40.91
+- ma60: 33.02
+- ma120: 31.38
+- return_5d: -0.47
+- return_20d: 10.82
+- volume_ratio: 3.68
+- distance_to_ma20_pct_auxiliary: 2.66
 - distance_to_high_60_pct: -13.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.85,38.5,35.45,37.9,37000,32.35,17.14,32.18,28.7,0.01
 20260529,41.65,41.65,41.65,41.65,42000,33.13,25.72,32.88,28.9,0.01
 20260601,45.75,45.8,43,43.55,45000,34,28.1,33.69,29.15,0.02
 20260602,43.75,44.85,40,41.05,42,34.59,18.69,34.24,29.36,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,42.75,42.75,40.7,41,2791000,38.63,6.14,39.65,31.97,0.99
 20260623,41.1,41.95,40.1,41.5,2381000,38.87,6.77,39.98,32.21,0.81
 20260624,42.1,42.6,40.85,41.3,2493000,39.07,5.71,40.24,32.44,0.82
-20260626,48.5,48.5,42,42,15393000,39.31,6.83,40.59,32.71,4.03
+20260625,44,44.4,43.1,44.4,7172000,39.51,12.37,40.71,32.75,2.1
+20260626,48.5,48.5,42,42,15393000,39.72,5.74,40.91,33.02,3.68
 ```
 
 ## Latest TDCC Snapshot

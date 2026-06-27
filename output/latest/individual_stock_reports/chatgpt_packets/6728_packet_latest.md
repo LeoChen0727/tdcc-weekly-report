@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6728 上洋
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:27 Asia/Taipei
+- generated_at: 2026-06-27 22:24:28 Asia/Taipei
 - stock_id: 6728
 - stock_name: 上洋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 107
 - close: 108
 - volume: 73000
-- ma5: 109.3
-- ema23_primary: 110.78
-- distance_to_ema23_pct: -2.51
-- ma20: 110.9
-- ma60: 113.89
-- ma120: 123.74
-- return_5d: -2.7
-- return_20d: 0
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -2.62
+- ma5: 109
+- ema23_primary: 110.58
+- distance_to_ema23_pct: -2.33
+- ma20: 110.85
+- ma60: 113.76
+- ma120: 123.53
+- return_5d: -1.82
+- return_20d: -1.37
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: -2.57
 - distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,109,109.5,109,109.5,109000,112.67,-2.81,112.4,118.84,1.9
 20260529,109.5,112.5,108,112.5,111000,112.65,-0.14,112.2,118.47,1.8
 20260601,111.5,112.5,111.5,112.5,112000,112.64,-0.13,112.1,118.15,1.8
 20260602,112,117,112,115,114,112.84,1.92,112.05,117.85,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,110,111,109,109.5,36000,111.32,-1.63,110.85,114.34,0.58
 20260623,109.5,109.5,109,109.5,28000,111.17,-1.5,110.85,114.19,0.48
 20260624,109,109.5,108.5,109.5,16000,111.03,-1.38,110.9,114.05,0.3
-20260626,108,108,107,108,73000,110.78,-2.51,110.9,113.89,1.42
+20260625,110,110,108,108.5,39000,110.82,-2.09,110.92,113.9,0.78
+20260626,108,108,107,108,73000,110.58,-2.33,110.85,113.76,1.52
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6203 海韻電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6203
 - stock_name: 海韻電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 65.5
 - close: 65.5
 - volume: 261000
-- ma5: 67.24
-- ema23_primary: 68.43
-- distance_to_ema23_pct: -4.27
-- ma20: 68.97
-- ma60: 68.29
-- ma120: 67.53
+- ma5: 67.2
+- ema23_primary: 68.3
+- distance_to_ema23_pct: -4.1
+- ma20: 68.81
+- ma60: 68.3
+- ma120: 67.51
 - return_5d: -2.67
-- return_20d: -7.49
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: -5.04
+- return_20d: -6.96
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: -4.81
 - distance_to_high_60_pct: -16.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,71.2,72.1,70.1,70.4,71000,69.77,0.91,70.69,67.21,0.1
 20260529,71.5,71.5,70.6,70.7,71000,69.84,1.22,71,67.28,0.11
 20260601,71.3,72.3,70.9,72,72000,70.02,2.82,71.14,67.41,0.11
 20260602,72.3,72.8,71.5,72.1,72,70.2,2.71,70.93,67.5,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,67.6,68.2,67.5,68.1,160000,68.89,-1.15,69.7,68.27,1.33
 20260623,68.5,69.3,67.2,68,213000,68.82,-1.19,69.47,68.29,1.67
 20260624,67,67.8,67,67.3,163000,68.69,-2.02,69.24,68.31,1.24
-20260626,66.9,66.9,65.5,65.5,261000,68.43,-4.27,68.97,68.29,1.85
+20260625,68.3,68.3,67,67.1,86000,68.56,-2.13,69.06,68.31,0.65
+20260626,66.9,66.9,65.5,65.5,261000,68.3,-4.1,68.81,68.3,1.84
 ```
 
 ## Latest TDCC Snapshot

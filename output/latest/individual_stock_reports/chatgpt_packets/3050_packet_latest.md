@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3050 鈺德
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:18 Asia/Taipei
+- generated_at: 2026-06-27 22:23:21 Asia/Taipei
 - stock_id: 3050
 - stock_name: 鈺德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12.15
 - close: 12.25
 - volume: 820055
-- ma5: 12.75
-- ema23_primary: 12.8
-- distance_to_ema23_pct: -4.3
-- ma20: 12.95
-- ma60: 12.75
-- ma120: 13.19
-- return_5d: -5.41
-- return_20d: -1.21
+- ma5: 12.69
+- ema23_primary: 12.79
+- distance_to_ema23_pct: -4.21
+- ma20: 12.96
+- ma60: 12.73
+- ma120: 13.18
+- return_5d: -5.77
+- return_20d: -1.61
 - volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -5.42
+- distance_to_ma20_pct_auxiliary: -5.51
 - distance_to_high_60_pct: -15.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.45,12.85,12.3,12.45,1204887,12.39,0.49,12.24,12.85,1.55
 20260529,12.6,12.6,12.35,12.55,898638,12.4,1.18,12.26,12.83,1.12
 20260601,12.5,12.8,12.4,12.75,1087585,12.43,2.56,12.28,12.83,1.3
 20260602,12.75,13.25,12.55,13.2,1407409,12.5,5.63,12.32,12.84,1.6
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.05,13.2,12.9,12.95,1190262,12.86,0.67,12.94,12.81,0.77
 20260623,13.05,13.05,12.55,12.65,1155774,12.85,-1.52,12.93,12.79,0.76
 20260624,12.5,12.9,12.45,12.9,661988,12.85,0.39,12.96,12.78,0.44
-20260626,12.65,12.65,12.15,12.25,820055,12.8,-4.3,12.95,12.75,0.56
+20260625,12.95,13,12.6,12.7,855366,12.84,-1.07,12.97,12.76,0.58
+20260626,12.65,12.65,12.15,12.25,820055,12.79,-4.21,12.96,12.73,0.56
 ```
 
 ## Latest TDCC Snapshot

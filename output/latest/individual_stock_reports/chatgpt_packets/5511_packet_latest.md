@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5511 德昌
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:01 Asia/Taipei
+- generated_at: 2026-06-27 22:24:03 Asia/Taipei
 - stock_id: 5511
 - stock_name: 德昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 76.9
 - close: 77.3
 - volume: 102000
-- ma5: 77.02
-- ema23_primary: 74.72
-- distance_to_ema23_pct: 3.46
-- ma20: 74.47
-- ma60: 72.59
-- ma120: 70.6
-- return_5d: 1.05
-- return_20d: 7.36
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 3.8
-- distance_to_high_60_pct: -0.9
+- ma5: 77.26
+- ema23_primary: 74.99
+- distance_to_ema23_pct: 3.09
+- ma20: 74.81
+- ma60: 72.65
+- ma120: 70.7
+- return_5d: 0.65
+- return_20d: 8.42
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 3.34
+- distance_to_high_60_pct: -1.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,71.7,71.8,71.3,71.3,72000,71.47,-0.24,71.34,71.61,0.55
 20260529,71.4,71.9,71.3,71.6,72000,71.48,0.16,71.39,71.7,0.54
 20260601,71,71.8,70.9,71.4,71000,71.48,-0.11,71.45,71.81,0.53
 20260602,71.6,71.8,71.4,71.8,72,71.5,0.41,71.54,71.9,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,77.1,77.6,76.7,77.6,224000,74.06,4.79,73.64,72.48,0.95
 20260623,78,78,75,76.2,358000,74.23,2.65,73.91,72.5,1.43
 20260624,76.1,77.5,75.9,77.2,238000,74.48,3.65,74.2,72.55,0.92
-20260626,77.9,77.9,76.9,77.3,102000,74.72,3.46,74.47,72.59,0.39
+20260625,78.1,78.1,76.8,78,259000,74.77,4.31,74.5,72.6,0.97
+20260626,77.9,77.9,76.9,77.3,102000,74.99,3.09,74.81,72.65,0.38
 ```
 
 ## Latest TDCC Snapshot

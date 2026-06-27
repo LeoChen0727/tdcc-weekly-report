@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00646 元大S&P500
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:26 Asia/Taipei
+- generated_at: 2026-06-27 22:22:30 Asia/Taipei
 - stock_id: 00646
 - stock_name: 元大S&P500
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,15 +119,15 @@
 - low: 73.1
 - close: 73.35
 - volume: 2929954
-- ma5: 73.87
+- ma5: 73.85
 - ema23_primary: 74.08
 - distance_to_ema23_pct: -0.99
 - ma20: 74.15
-- ma60: 74.2
-- ma120: 74.2
-- return_5d: -1.74
-- return_20d: -1.34
-- volume_ratio: 0.89
+- ma60: 74.19
+- ma120: 74.19
+- return_5d: -1.21
+- return_20d: -1.01
+- volume_ratio: 0.9
 - distance_to_ma20_pct_auxiliary: -1.08
 - distance_to_high_60_pct: -2.59
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,74.45,74.5,73.95,74.1,2404006,74.28,-0.25,74.36,74.36,0.67
 20260529,74.4,74.75,74.4,74.7,2590946,74.32,0.51,74.42,74.42,0.76
 20260601,74.85,75.05,74.75,74.95,3626592,74.37,0.78,74.49,74.49,1.05
 20260602,74.7,75.1,74.7,75,2455605,74.42,0.77,74.56,74.56,0.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,74.3,74.45,74.2,74.3,3056715,74.23,0.1,74.28,74.28,0.92
 20260623,74.3,74.4,73.7,73.7,3713738,74.18,-0.65,74.23,74.25,1.13
 20260624,73.4,73.75,73.35,73.75,2246542,74.15,-0.53,74.2,74.23,0.68
-20260626,73.85,73.85,73.1,73.35,2929954,74.08,-0.99,74.15,74.2,0.89
+20260625,74,74.15,73.7,74.15,1743246,74.15,0,74.19,74.23,0.54
+20260626,73.85,73.85,73.1,73.35,2929954,74.08,-0.99,74.15,74.19,0.9
 ```
 
 ## Latest TDCC Snapshot

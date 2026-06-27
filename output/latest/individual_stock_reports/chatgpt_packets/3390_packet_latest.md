@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3390 旭軟
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:28 Asia/Taipei
+- generated_at: 2026-06-27 22:23:30 Asia/Taipei
 - stock_id: 3390
 - stock_name: 旭軟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 27.15
 - close: 27.35
 - volume: 951000
-- ma5: 28.79
-- ema23_primary: 28.12
-- distance_to_ema23_pct: -2.73
-- ma20: 28.18
-- ma60: 26.46
-- ma120: 24.96
-- return_5d: -3.36
-- return_20d: -8.22
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -2.94
+- ma5: 28.61
+- ema23_primary: 28.07
+- distance_to_ema23_pct: -2.58
+- ma20: 28.13
+- ma60: 26.56
+- ma120: 25
+- return_5d: -4.04
+- return_20d: -4.04
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -2.78
 - distance_to_high_60_pct: -14.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.8,30.05,28.05,28.5,29000,27.25,4.59,27.41,24.64,0.02
 20260529,28.8,28.8,28,28.1,28000,27.32,2.85,27.55,24.69,0.02
 20260601,28.3,29.5,28.2,28.75,29000,27.44,4.78,27.73,24.78,0.02
 20260602,29.05,29.05,27.5,28.15,28,27.5,2.37,27.86,24.84,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.8,29.85,28.35,29.4,2206000,27.97,5.1,28.22,26.12,3.2
 20260623,30,31.9,29.55,29.95,5251000,28.14,6.44,28.3,26.25,5.53
 20260624,29.4,29.85,28.6,28.75,1388000,28.19,1.99,28.3,26.36,1.36
-20260626,27.35,28.65,27.15,27.35,951000,28.12,-2.73,28.18,26.46,0.89
+20260625,28.7,28.8,27.6,27.6,1313000,28.14,-1.92,28.19,26.46,1.21
+20260626,27.35,28.65,27.15,27.35,951000,28.07,-2.58,28.13,26.56,0.84
 ```
 
 ## Latest TDCC Snapshot

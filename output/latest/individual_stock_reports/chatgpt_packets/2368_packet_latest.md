@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:00 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 1180
 - close: 1190
 - volume: 5855085
-- ma5: 1292
-- ema23_primary: 1323.88
-- distance_to_ema23_pct: -10.11
-- ma20: 1335.5
-- ma60: 1277.9
-- ma120: 1018.48
-- return_5d: -13.14
-- return_20d: -13.45
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -10.89
+- ma5: 1269
+- ema23_primary: 1316.54
+- distance_to_ema23_pct: -9.61
+- ma20: 1332.25
+- ma60: 1283.6
+- ma120: 1023.39
+- return_5d: -12.18
+- return_20d: -8.81
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -10.68
 - distance_to_high_60_pct: -24.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1395,1420,1290,1305,5166050,1321.39,-1.24,1366.5,1132.4,0.87
 20260529,1335,1360,1275,1320,6593515,1321.27,-0.1,1363,1141.63,1.1
 20260601,1345,1350,1300,1325,4844214,1321.58,0.26,1357.25,1151.9,0.8
 20260602,1330,1330,1235,1275,7260097,1317.7,-3.24,1347,1160.88,1.17
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1390,1400,1335,1395,5223186,1350.54,3.29,1362.25,1262.13,0.85
 20260623,1390,1390,1250,1265,9347906,1343.41,-5.84,1354.25,1267.85,1.5
 20260624,1230,1265,1200,1255,7064225,1336.05,-6.07,1344.75,1273.47,1.12
-20260626,1240,1260,1180,1190,5855085,1323.88,-10.11,1335.5,1277.9,0.93
+20260625,1270,1305,1230,1240,6146688,1328.04,-6.63,1338,1278.73,0.97
+20260626,1240,1260,1180,1190,5855085,1316.54,-9.61,1332.25,1283.6,0.92
 ```
 
 ## Latest TDCC Snapshot

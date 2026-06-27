@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4417 金洲
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:42 Asia/Taipei
+- generated_at: 2026-06-27 22:23:45 Asia/Taipei
 - stock_id: 4417
 - stock_name: 金洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 47
 - close: 47.1
 - volume: 121000
-- ma5: 47.06
-- ema23_primary: 46.47
-- distance_to_ema23_pct: 1.36
-- ma20: 46.33
-- ma60: 46.96
-- ma120: 49.67
-- return_5d: 1.29
-- return_20d: 3.4
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 1.67
+- ma5: 47.24
+- ema23_primary: 46.55
+- distance_to_ema23_pct: 1.17
+- ma20: 46.41
+- ma60: 46.92
+- ma120: 49.62
+- return_5d: 0.96
+- return_20d: 2.5
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 1.5
 - distance_to_high_60_pct: -7.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45.7,46.65,45.7,45.95,46000,46.01,-0.13,45.71,48.73,0.33
 20260529,46.7,46.8,45.85,46,46000,46.01,-0.02,45.65,48.61,0.33
 20260601,45.95,45.95,45.3,45.65,46000,45.98,-0.72,45.59,48.5,0.35
 20260602,45.65,45.7,45.4,45.65,46,45.95,-0.66,45.53,48.39,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,46.8,47.4,46.7,46.85,73000,46.23,1.34,45.98,47.15,0.92
 20260623,47,47.65,47,47.5,161000,46.34,2.51,46.13,47.09,1.88
 20260624,47.5,47.8,47.2,47.2,83000,46.41,1.71,46.25,47.02,0.95
-20260626,47.55,47.6,47,47.1,121000,46.47,1.36,46.33,46.96,1.33
+20260625,47.7,47.7,47.4,47.55,89000,46.5,2.25,46.35,46.97,0.99
+20260626,47.55,47.6,47,47.1,121000,46.55,1.17,46.41,46.92,1.3
 ```
 
 ## Latest TDCC Snapshot

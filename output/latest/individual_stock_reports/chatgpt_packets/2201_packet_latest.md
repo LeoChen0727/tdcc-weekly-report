@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:51 Asia/Taipei
+- generated_at: 2026-06-27 22:22:55 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 26.75
 - close: 26.8
 - volume: 2314856
-- ma5: 27.38
-- ema23_primary: 27.6
-- distance_to_ema23_pct: -2.91
-- ma20: 27.84
-- ma60: 27.37
-- ma120: 29.02
-- return_5d: -4.8
-- return_20d: 1.32
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -3.74
+- ma5: 27.19
+- ema23_primary: 27.56
+- distance_to_ema23_pct: -2.76
+- ma20: 27.83
+- ma60: 27.36
+- ma120: 28.96
+- return_5d: -4.63
+- return_20d: -2.01
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -3.71
 - distance_to_high_60_pct: -10.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.85,27.5,26.85,27.35,5240162,27.1,0.93,27.11,27.47,1.72
 20260529,27.4,27.6,27.15,27.45,3495015,27.13,1.19,27.13,27.43,1.13
 20260601,27.35,28.05,26.75,27.85,5791756,27.19,2.43,27.18,27.42,1.76
 20260602,27.8,28.2,27.55,28.15,4514327,27.27,3.23,27.23,27.4,1.33
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.15,28.4,27.35,27.6,5141703,27.76,-0.59,27.82,27.43,1.35
 20260623,27.6,27.65,27,27,3329440,27.7,-2.53,27.8,27.41,0.88
 20260624,27,27.5,26.8,27.4,2171967,27.68,-0.99,27.82,27.39,0.58
-20260626,27,27.05,26.75,26.8,2314856,27.6,-2.91,27.84,27.37,0.62
+20260625,27.4,27.55,27,27.15,2894573,27.63,-1.74,27.86,27.38,0.77
+20260626,27,27.05,26.75,26.8,2314856,27.56,-2.76,27.83,27.36,0.64
 ```
 
 ## Latest TDCC Snapshot

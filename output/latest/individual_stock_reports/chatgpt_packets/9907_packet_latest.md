@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9907 統一實
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:58 Asia/Taipei
 - stock_id: 9907
 - stock_name: 統一實
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 14.9
 - close: 14.95
 - volume: 9358452
-- ma5: 15.47
-- ema23_primary: 16.17
-- distance_to_ema23_pct: -7.57
-- ma20: 16.25
-- ma60: 17
-- ma120: 17.68
-- return_5d: -10.21
-- return_20d: -5.68
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: -8.01
+- ma5: 15.21
+- ema23_primary: 16.11
+- distance_to_ema23_pct: -7.18
+- ma20: 16.23
+- ma60: 16.95
+- ma120: 17.66
+- return_5d: -10.48
+- return_20d: -5.38
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: -7.9
 - distance_to_high_60_pct: -20.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,15.85,15.95,15.8,15.8,2923040,16.55,-4.55,16.52,17.65,0.64
 20260529,15.95,16,15.85,15.95,3229168,16.5,-3.35,16.45,17.6,0.71
 20260601,16.1,16.25,16.05,16.2,4822284,16.48,-1.69,16.37,17.55,1.04
 20260602,16.25,16.4,16.25,16.35,4422741,16.47,-0.71,16.31,17.51,0.95
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.7,15.7,15.4,15.5,9624359,16.51,-6.12,16.38,17.15,1.92
 20260623,15.55,15.55,15.15,15.15,7466515,16.4,-7.61,16.34,17.1,1.43
 20260624,15.1,15.2,15,15.05,6997263,16.29,-7.58,16.3,17.05,1.3
-20260626,15.25,15.45,14.9,14.95,9358452,16.17,-7.57,16.25,17,1.64
+20260625,15.1,15.5,15.1,15.4,7566363,16.21,-5,16.27,17.01,1.35
+20260626,15.25,15.45,14.9,14.95,9358452,16.11,-7.18,16.23,16.95,1.58
 ```
 
 ## Latest TDCC Snapshot

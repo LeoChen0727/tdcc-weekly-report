@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:05 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 38.3
 - close: 38.3
 - volume: 1676017
-- ma5: 41.22
-- ema23_primary: 44.41
-- distance_to_ema23_pct: -13.75
-- ma20: 45.35
-- ma60: 47.68
-- ma120: 56.4
-- return_5d: -17.55
-- return_20d: -7.71
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -15.54
-- distance_to_high_60_pct: -38.03
+- ma5: 40.36
+- ema23_primary: 44.01
+- distance_to_ema23_pct: -12.98
+- ma20: 45.25
+- ma60: 47.34
+- ma120: 56.22
+- return_5d: -13.15
+- return_20d: -8.37
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -15.35
+- distance_to_high_60_pct: -36.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,41.7,42.7,41,41.8,2298599,44.31,-5.67,42.39,55.42,0.59
 20260529,42,45.9,41.55,45.9,5022725,44.44,3.28,42.35,55.02,1.29
 20260601,46.5,48.1,46.1,47,4006244,44.66,5.25,42.44,54.63,1.01
 20260602,47,47.4,45.6,45.75,1920465,44.75,2.24,42.51,54.21,0.49
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,44.2,44.5,42.8,42.95,2056486,45.85,-6.32,45.62,48.88,0.67
 20260623,43,43.1,41.8,41.85,1634328,45.51,-8.05,45.6,48.49,0.57
 20260624,38.75,40.05,38.7,38.9,5820476,44.96,-13.48,45.51,48.09,1.95
-20260626,39.3,39.3,38.3,38.3,1676017,44.41,-13.75,45.35,47.68,0.56
+20260625,38.9,40.1,38.9,39.8,1684305,44.53,-10.63,45.42,47.71,0.57
+20260626,39.3,39.3,38.3,38.3,1676017,44.01,-12.98,45.25,47.34,0.57
 ```
 
 ## Latest TDCC Snapshot

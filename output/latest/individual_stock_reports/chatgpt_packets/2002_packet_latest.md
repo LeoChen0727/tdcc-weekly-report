@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2002 中鋼
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:47 Asia/Taipei
+- generated_at: 2026-06-27 22:22:51 Asia/Taipei
 - stock_id: 2002
 - stock_name: 中鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.9
 - close: 19
 - volume: 57535587
-- ma5: 19.23
-- ema23_primary: 18.99
-- distance_to_ema23_pct: 0.04
-- ma20: 19
-- ma60: 19.09
+- ma5: 19.22
+- ema23_primary: 19
+- distance_to_ema23_pct: 0.02
+- ma20: 19.01
+- ma60: 19.08
 - ma120: 19.34
-- return_5d: 1.33
-- return_20d: -0.52
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -0.01
+- return_5d: -0.52
+- return_20d: 0.8
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -0.07
 - distance_to_high_60_pct: -9.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.1,19.35,18.8,18.85,85146738,18.83,0.09,18.63,19.19,1.3
 20260529,19.05,19.4,19,19.1,79358213,18.86,1.3,18.64,19.18,1.18
 20260601,19.2,19.25,18.9,19.1,66981679,18.88,1.19,18.67,19.18,0.98
 20260602,19.1,19.1,18.8,18.95,70796205,18.88,0.36,18.69,19.17,1.01
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19.25,19.9,19.15,19.5,129639571,18.94,2.98,19.05,19.1,1.21
 20260623,19.75,19.95,19.15,19.2,87164256,18.96,1.27,19.02,19.1,0.86
 20260624,19.15,19.45,19,19.35,44605457,18.99,1.89,19.01,19.1,0.5
-20260626,19,19.2,18.9,19,57535587,18.99,0.04,19,19.09,0.66
+20260625,19.4,19.65,19.05,19.05,54980656,19,0.28,19,19.09,0.63
+20260626,19,19.2,18.9,19,57535587,19,0.02,19.01,19.08,0.67
 ```
 
 ## Latest TDCC Snapshot

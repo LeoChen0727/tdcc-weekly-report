@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6024 群益期
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:04 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6024
 - stock_name: 群益期
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 60.2
 - close: 60.4
 - volume: 559138
-- ma5: 61.5
-- ema23_primary: 60.19
-- distance_to_ema23_pct: 0.35
-- ma20: 60.47
-- ma60: 57.8
-- ma120: 55.17
-- return_5d: -3.05
-- return_20d: 6.34
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -0.12
+- ma5: 61.42
+- ema23_primary: 60.3
+- distance_to_ema23_pct: 0.16
+- ma20: 60.73
+- ma60: 57.91
+- ma120: 55.25
+- return_5d: -2.58
+- return_20d: 6.9
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -0.54
 - distance_to_high_60_pct: -4.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,57.1,57.2,56.2,56.5,413557,56.46,0.07,56.83,55.78,0.96
 20260529,56.7,57.7,56.7,57.7,602135,56.56,2.01,56.91,55.87,1.35
 20260601,58,58.5,57.5,58.2,578834,56.7,2.65,56.96,55.98,1.36
 20260602,58.2,58.5,57.7,58.5,378044,56.85,2.9,57.02,56.09,0.89
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,62,62.4,61.7,62,408348,59.92,3.48,59.73,57.48,0.65
 20260623,62,62.3,61.5,62,313218,60.09,3.18,60.05,57.6,0.51
 20260624,61.6,61.8,61,61.1,394957,60.17,1.54,60.29,57.71,0.64
-20260626,61.1,61.2,60.2,60.4,559138,60.19,0.35,60.47,57.8,0.9
+20260625,61.3,61.8,61.3,61.6,290316,60.29,2.17,60.53,57.82,0.48
+20260626,61.1,61.2,60.2,60.4,559138,60.3,0.16,60.73,57.91,0.91
 ```
 
 ## Latest TDCC Snapshot

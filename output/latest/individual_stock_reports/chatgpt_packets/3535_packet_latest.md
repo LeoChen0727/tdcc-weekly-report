@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:32 Asia/Taipei
+- generated_at: 2026-06-27 22:23:34 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,15 +118,15 @@
 - low: 112
 - close: 112
 - volume: 2368740
-- ma5: 123.8
-- ema23_primary: 126.48
-- distance_to_ema23_pct: -11.45
+- ma5: 121.1
+- ema23_primary: 125.92
+- distance_to_ema23_pct: -11.06
 - ma20: 127.92
-- ma60: 125.56
-- ma120: 117.06
-- return_5d: -16.73
-- return_20d: -9.31
-- volume_ratio: 0.65
+- ma60: 125.68
+- ma120: 117.31
+- return_5d: -16.42
+- return_20d: -7.05
+- volume_ratio: 0.66
 - distance_to_ma20_pct_auxiliary: -12.45
 - distance_to_high_60_pct: -25.83
 
@@ -134,7 +134,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,124.5,126.5,120,120.5,2462809,125.71,-4.14,128.18,124.97,0.34
 20260529,124,124,122,122.5,1298172,125.44,-2.34,127.88,124.91,0.19
 20260601,124.5,134.5,123,134.5,6979303,126.19,6.58,127.55,125.02,1.08
 20260602,135,140,132.5,137.5,18882679,127.14,8.15,127.15,125.06,3.19
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,133,134,128,128.5,3692494,128.85,-0.27,129.2,125.52,0.96
 20260623,129,129,121,122,3088752,128.28,-4.9,128.8,125.53,0.81
 20260624,120,125.5,119,122.5,1711188,127.8,-4.15,128.5,125.63,0.47
-20260626,119.5,120.5,112,112,2368740,126.48,-11.45,127.92,125.56,0.65
+20260625,124,124,120,120.5,1150649,127.19,-5.26,128.35,125.7,0.32
+20260626,119.5,120.5,112,112,2368740,125.92,-11.06,127.92,125.68,0.66
 ```
 
 ## Latest TDCC Snapshot

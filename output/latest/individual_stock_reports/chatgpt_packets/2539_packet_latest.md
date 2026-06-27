@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2539 櫻花建
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:05 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2539
 - stock_name: 櫻花建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 37.75
 - close: 38.1
 - volume: 1140843
-- ma5: 38.89
-- ema23_primary: 38.5
-- distance_to_ema23_pct: -1.04
-- ma20: 37.91
-- ma60: 40.9
-- ma120: 44.61
-- return_5d: -3.3
-- return_20d: 14.76
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 0.51
-- distance_to_high_60_pct: -21.36
+- ma5: 38.69
+- ema23_primary: 38.53
+- distance_to_ema23_pct: -1.12
+- ma20: 38.13
+- ma60: 40.75
+- ma120: 44.53
+- return_5d: -4.63
+- return_20d: 10.43
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -0.07
+- distance_to_high_60_pct: -21.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.2,34.8,33.1,34.5,2917441,38.74,-10.94,38.21,44.2,1.59
 20260529,34.65,36.6,34.35,36.6,2644964,38.56,-5.08,37.99,43.99,1.38
 20260601,36.7,37.55,35.35,36.7,3249439,38.4,-4.44,37.81,43.8,1.62
 20260602,36.8,36.95,35.55,36,1849317,38.2,-5.77,37.62,43.59,0.92
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,39.95,39.95,38.55,38.65,1776165,38.47,0.46,37.34,41.4,0.73
 20260623,38.5,38.85,38.3,38.65,1068071,38.49,0.43,37.44,41.23,0.47
 20260624,38.65,39.45,38.2,39.1,950165,38.54,1.46,37.66,41.07,0.45
-20260626,38.5,38.75,37.75,38.1,1140843,38.5,-1.04,37.91,40.9,0.6
+20260625,39.15,39.4,38.8,38.95,696124,38.57,0.98,37.95,40.91,0.37
+20260626,38.5,38.75,37.75,38.1,1140843,38.53,-1.12,38.13,40.75,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 2539 | 櫻花建 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:櫻花建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報。 6.報導內容:「櫻花建全年營收有機會維持去年約140億元高水準。」...等內容。 7.發生緣由:澄清媒體報導。 8.因應措施:本公司對外並未公開揭露財務預測，該資訊純屬媒體推估，有關本公司 財務和業務資訊請依公開資訊觀測站公告為準，特此澄清。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 30.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:櫻花建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報。 6.報導內容:「櫻花建全年營收有機會維持去年約140億元高水準。」...等內容。 7.發生緣由:澄清媒體報導。 8.因應措施:本公司對外並未公開揭露財務預測，該資訊純屬媒體推估，有關本公司 財務和業務資訊請依公開資訊觀測站公告為準，特此澄清。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 33.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:櫻花建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報。 6.報導內容:「櫻花建全年營收有機會維持去年約140億元高水準。」...等內容。 7.發生緣由:澄清媒體報導。 8.因應措施:本公司對外並未公開揭露財務預測，該資訊純屬媒體推估，有關本公司 財務和業務資訊請依公開資訊觀測站公告為準，特此澄清。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

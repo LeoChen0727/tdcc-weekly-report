@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:16 Asia/Taipei
+- generated_at: 2026-06-27 22:23:19 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 139.5
 - close: 139.5
 - volume: 6950782
-- ma5: 155.1
-- ema23_primary: 151.95
-- distance_to_ema23_pct: -8.2
-- ma20: 152.7
-- ma60: 142.67
-- ma120: 142.17
-- return_5d: -11.99
+- ma5: 153
+- ema23_primary: 151.72
+- distance_to_ema23_pct: -8.05
+- ma20: 152.72
+- ma60: 143.11
+- ma120: 142.26
+- return_5d: -13.08
 - return_20d: -6.69
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -8.64
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -8.66
 - distance_to_high_60_pct: -17.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,152,156.5,149,149.5,11103904,146.1,2.33,147.05,135.78,1.25
 20260529,152,158.5,151.5,154,9863655,146.76,4.94,147.82,135.95,1.09
 20260601,155.5,156.5,153,155,6349794,147.44,5.13,148.43,136.32,0.7
 20260602,157.5,157.5,150,152.5,7761836,147.86,3.14,148.9,136.6,0.84
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,164.5,169,162.5,163,10008263,152.49,6.89,153.07,141.53,0.82
 20260623,164.5,164.5,155,157,8759876,152.87,2.7,153.1,142.01,0.72
 20260624,151,155.5,149.5,155.5,5037781,153.09,1.58,153.2,142.46,0.42
-20260626,150,150,139.5,139.5,6950782,151.95,-8.2,152.7,142.67,0.58
+20260625,156,156.5,149,150,5694860,152.83,-1.85,153.22,142.84,0.48
+20260626,150,150,139.5,139.5,6950782,151.72,-8.05,152.72,143.11,0.6
 ```
 
 ## Latest TDCC Snapshot

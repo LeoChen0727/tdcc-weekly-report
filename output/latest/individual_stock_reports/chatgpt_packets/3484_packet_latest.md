@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3484 崧騰
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:30 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3484
 - stock_name: 崧騰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 50.3
 - close: 51
 - volume: 686000
-- ma5: 52.56
-- ema23_primary: 48
-- distance_to_ema23_pct: 6.25
-- ma20: 47.28
-- ma60: 45.53
-- ma120: 46.87
-- return_5d: -1.54
-- return_20d: 18.06
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 7.86
+- ma5: 51.92
+- ema23_primary: 48.32
+- distance_to_ema23_pct: 5.54
+- ma20: 47.73
+- ma60: 45.65
+- ma120: 46.9
+- return_5d: -7.44
+- return_20d: 18.33
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 6.86
 - distance_to_high_60_pct: -9.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,43.9,43.9,42.9,43.1,43000,44,-2.04,43.88,45.12,0.19
 20260529,43.2,43.9,42.95,43.7,43000,43.97,-0.62,43.83,45.05,0.19
 20260601,43.7,44.5,43.7,44.4,44000,44.01,0.89,43.81,45.03,0.2
 20260602,44.4,45.4,44.2,44.65,45,44.06,1.34,43.8,45,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,56,56.1,52.6,52.9,7209000,46.94,12.7,46.08,45.23,7.89
 20260623,52.9,52.9,50.2,52,1766000,47.36,9.8,46.49,45.33,1.77
 20260624,51.9,52,50.5,51.8,736000,47.73,8.53,46.9,45.44,0.71
-20260626,52,52.1,50.3,51,686000,48,6.25,47.28,45.53,0.64
+20260625,52.2,52.5,51.2,51.9,660000,48.08,7.95,47.33,45.54,0.62
+20260626,52,52.1,50.3,51,686000,48.32,5.54,47.73,45.65,0.62
 ```
 
 ## Latest TDCC Snapshot

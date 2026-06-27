@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5321 美而快
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:59 Asia/Taipei
 - stock_id: 5321
 - stock_name: 美而快
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 60.1
 - close: 63.5
 - volume: 1382000
-- ma5: 49.54
-- ema23_primary: 43.41
-- distance_to_ema23_pct: 46.29
-- ma20: 46.16
-- ma60: 32.98
-- ma120: 31.37
+- ma5: 53.07
+- ema23_primary: 44.65
+- distance_to_ema23_pct: 42.23
+- ma20: 46.6
+- ma60: 33.54
+- ma120: 31.55
 - return_5d: 58.16
-- return_20d: 22.82
-- volume_ratio: 4.69
-- distance_to_ma20_pct_auxiliary: 37.57
+- return_20d: 29.59
+- volume_ratio: 4.34
+- distance_to_ma20_pct_auxiliary: 36.27
 - distance_to_high_60_pct: -3.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,56.8,56.8,49,49,55000,32.91,48.91,30.04,26.24,0.17
 20260529,49.6,52.2,49.6,52.2,51000,34.51,51.24,31.5,26.67,0.17
 20260601,57.4,57.4,56.4,57.4,57000,36.42,57.6,33.27,27.2,0.2
 20260602,53.3,61.5,53.3,60.6,60,38.44,57.66,35.22,27.79,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,44.05,44.15,42.4,43.55,651000,39.91,9.11,45.03,31.47,3.45
 20260623,46.95,47.9,46,47.9,481000,40.58,18.04,45.29,31.87,2.29
 20260624,52.6,52.6,52.6,52.6,398000,41.58,26.5,45.57,32.34,1.75
-20260626,63,63.5,60.1,63.5,1382000,43.41,46.29,46.16,32.98,4.69
+20260625,57.8,57.8,57.8,57.8,538000,42.93,34.63,45.87,32.89,2.13
+20260626,63,63.5,60.1,63.5,1382000,44.65,42.23,46.6,33.54,4.34
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5321 | 美而快 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5321 | 美而快 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 1.事實發生日:115/06/26 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: (1)單月                      最近一月單月       去年同月       與去年同期增減%                       (115/05)         (114/05) ----------------------------------------------------------------------- 營業收入(百萬元)         191.62         234.69            -18.35% 稅前淨利(百萬元)          -8.90           3.80            由盈轉虧 歸屬於母公司 稅後純益(百萬元)          -7.94           0.03            由盈轉虧 每股盈餘(元)              -0.15           0.00            由盈轉虧 ======================================================================== (2)單季                      最近一季單季       去年同期       與去年同期增減%                        (115第1季)       (114第1季) ----------------------------------------------------------------------- 營業收入(百萬元)         568.52           734.12          -22.56% 稅前淨利(百萬元)        -129.84            22.14          由盈轉虧 歸屬於母公司 稅後純益(百萬元)        -126.14             3.29          由盈轉虧 每股盈餘(元)              -2.37             0.06          由盈轉虧 ======================================================================= (3)最近四季累計                           114年第2季至115年第1季 營業收入(百萬元)               2,676.72 稅前淨利(百萬元)                -102.34 歸屬於母公司 稅後純益(百萬元)                -143.80 每股盈餘(元)                      -2.70 (4)公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)：以上115年05月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 (3)：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

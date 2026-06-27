@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3114 好德
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:20 Asia/Taipei
+- generated_at: 2026-06-27 22:23:23 Asia/Taipei
 - stock_id: 3114
 - stock_name: 好德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 52
 - close: 52
 - volume: 4471000
-- ma5: 50.51
-- ema23_primary: 41.71
-- distance_to_ema23_pct: 24.68
-- ma20: 41.95
-- ma60: 31.68
-- ma120: 28.87
-- return_5d: 19.68
-- return_20d: 81.5
-- volume_ratio: 2.78
-- distance_to_ma20_pct_auxiliary: 23.94
+- ma5: 52.5
+- ema23_primary: 43
+- distance_to_ema23_pct: 20.93
+- ma20: 43.42
+- ma60: 32.21
+- ma120: 29.14
+- return_5d: 8.9
+- return_20d: 82.78
+- volume_ratio: 2.38
+- distance_to_ma20_pct_auxiliary: 19.77
 - distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.75,29.4,28.2,28.45,29000,27.2,4.61,26.92,26.39,0.19
 20260529,28.5,31.25,28.5,31.25,31000,27.53,13.5,27.19,26.47,0.21
 20260601,32.45,34.35,31.75,33.1,33000,28,18.22,27.57,26.6,0.24
 20260602,32.7,33.8,31,33.6,32,28.46,18.04,27.95,26.73,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,52.5,52.5,50.2,52.5,1895000,38.97,34.72,38.62,30.45,1.7
 20260623,52.5,55.4,47.8,47.8,2023000,39.7,20.39,39.56,30.81,1.67
 20260624,47.35,52.5,45.7,52.5,3490000,40.77,28.77,40.79,31.25,2.52
-20260626,58.2,58.5,52,52,4471000,41.71,24.68,41.95,31.68,2.78
+20260625,52.8,57.7,52.8,57.7,5386000,42.18,36.79,42.24,31.78,3.26
+20260626,58.2,58.5,52,52,4471000,43,20.93,43.42,32.21,2.38
 ```
 
 ## Latest TDCC Snapshot

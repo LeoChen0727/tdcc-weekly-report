@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2641 正德
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:08 Asia/Taipei
+- generated_at: 2026-06-27 22:23:11 Asia/Taipei
 - stock_id: 2641
 - stock_name: 正德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.6
 - close: 17.6
 - volume: 2158000
-- ma5: 18.26
-- ema23_primary: 18.48
-- distance_to_ema23_pct: -4.76
-- ma20: 18.79
+- ma5: 18.1
+- ema23_primary: 18.44
+- distance_to_ema23_pct: -4.54
+- ma20: 18.81
 - ma60: 18.1
-- ma120: 18.98
-- return_5d: -6.63
-- return_20d: -0.56
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: -6.33
+- ma120: 18.96
+- return_5d: -6.38
+- return_20d: 0.28
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: -6.45
 - distance_to_high_60_pct: -14.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.8,17.85,17.5,17.55,18000,17.72,-0.95,17.68,18.12,0.01
 20260529,17.75,17.85,17.5,17.7,18000,17.72,-0.09,17.71,18.06,0.01
 20260601,17.7,19.4,17.7,19.35,19000,17.85,8.39,17.81,18.05,0.02
 20260602,19.05,19.7,18.85,19.7,19,18.01,9.4,17.93,18.05,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.8,18.85,18.7,18.7,2437000,18.65,0.28,18.77,18.11,1.99
 20260623,18.35,18.35,18.1,18.15,1327000,18.61,-2.45,18.79,18.11,1.03
 20260624,18,18.2,17.85,18.05,1417000,18.56,-2.75,18.8,18.11,1.04
-20260626,18,18,17.6,17.6,2158000,18.48,-4.76,18.79,18.1,1.47
+20260625,18.15,18.2,18,18,1186000,18.51,-2.77,18.81,18.11,0.83
+20260626,18,18,17.6,17.6,2158000,18.44,-4.54,18.81,18.1,1.41
 ```
 
 ## Latest TDCC Snapshot

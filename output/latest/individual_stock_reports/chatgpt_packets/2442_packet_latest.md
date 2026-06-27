@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2442 新美齊
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:00 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2442
 - stock_name: 新美齊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.95
 - close: 18.95
 - volume: 1763511
-- ma5: 19.39
-- ema23_primary: 19.35
-- distance_to_ema23_pct: -2.07
-- ma20: 19.46
-- ma60: 19.2
-- ma120: 20.58
-- return_5d: -5.01
-- return_20d: 3.55
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -2.61
+- ma5: 19.28
+- ema23_primary: 19.34
+- distance_to_ema23_pct: -2.04
+- ma20: 19.49
+- ma60: 19.18
+- ma120: 20.52
+- return_5d: -4.53
+- return_20d: 1.34
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -2.76
 - distance_to_high_60_pct: -9.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.4,18.8,18.4,18.7,2656069,18.65,0.28,18.48,19.36,1.69
 20260529,18.75,18.75,18.45,18.65,2579878,18.65,0.01,18.5,19.35,1.6
 20260601,18.7,18.95,18.55,18.9,2759401,18.67,1.24,18.53,19.35,1.65
 20260602,19,19,18.7,18.9,2083562,18.69,1.14,18.55,19.34,1.21
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19.8,19.8,19.35,19.5,2599723,19.4,0.52,19.34,19.27,1.01
 20260623,19.5,19.5,19.25,19.35,1609309,19.4,-0.24,19.39,19.25,0.63
 20260624,19.4,19.4,19.15,19.3,1091893,19.39,-0.45,19.43,19.23,0.43
-20260626,19.4,19.4,18.95,18.95,1763511,19.35,-2.07,19.46,19.2,0.69
+20260625,19.35,19.45,19.25,19.3,1121560,19.38,-0.41,19.48,19.21,0.45
+20260626,19.4,19.4,18.95,18.95,1763511,19.34,-2.04,19.49,19.18,0.71
 ```
 
 ## Latest TDCC Snapshot

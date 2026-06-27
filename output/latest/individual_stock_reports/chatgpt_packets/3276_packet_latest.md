@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3276 宇環
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:25 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3276
 - stock_name: 宇環
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 15.55
 - close: 16.45
 - volume: 972000
-- ma5: 15.79
-- ema23_primary: 15.13
-- distance_to_ema23_pct: 8.71
-- ma20: 14.97
-- ma60: 14.73
+- ma5: 15.88
+- ema23_primary: 15.18
+- distance_to_ema23_pct: 8.36
+- ma20: 15.05
+- ma60: 14.76
 - ma120: 14.71
-- return_5d: 7.52
+- return_5d: 8.22
 - return_20d: 17.5
-- volume_ratio: 3.65
-- distance_to_ma20_pct_auxiliary: 9.87
+- volume_ratio: 3.44
+- distance_to_ma20_pct_auxiliary: 9.27
 - distance_to_high_60_pct: -6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14,14.4,13.85,14,14000,14.54,-3.74,14.82,14.41,0.02
 20260529,14.15,14.25,13.8,14.05,14000,14.5,-3.13,14.78,14.41,0.02
 20260601,14.2,15,14.2,14.8,15000,14.53,1.87,14.78,14.42,0.02
 20260602,14.9,15.1,14.25,14.8,15,14.55,1.71,14.77,14.44,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.4,15.8,15.3,15.7,475000,14.86,5.64,14.68,14.63,2.74
 20260623,15.65,15.9,15.4,15.8,399000,14.94,5.76,14.76,14.65,2.07
 20260624,15.6,16.25,15.6,15.8,528000,15.01,5.25,14.85,14.68,2.42
-20260626,15.65,17.15,15.55,16.45,972000,15.13,8.71,14.97,14.73,3.65
+20260625,16,16.05,15.5,15.65,338000,15.06,3.88,14.93,14.71,1.44
+20260626,15.65,17.15,15.55,16.45,972000,15.18,8.36,15.05,14.76,3.44
 ```
 
 ## Latest TDCC Snapshot

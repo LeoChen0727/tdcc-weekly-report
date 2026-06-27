@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3252 海灣
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3252
 - stock_name: 海灣
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.4
 - close: 17.4
 - volume: 15000
-- ma5: 17.52
-- ema23_primary: 17.87
-- distance_to_ema23_pct: -2.62
-- ma20: 17.78
-- ma60: 18.76
-- ma120: 19.02
-- return_5d: -2.52
-- return_20d: -3.87
+- ma5: 17.46
+- ema23_primary: 17.83
+- distance_to_ema23_pct: -2.41
+- ma20: 17.75
+- ma60: 18.71
+- ma120: 19
+- return_5d: -1.69
+- return_20d: -2.79
 - volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -2.14
+- distance_to_ma20_pct_auxiliary: -2
 - distance_to_high_60_pct: -20.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.55,18.55,17.9,17.9,18000,18.56,-3.55,18.46,19.48,1.36
 20260529,17.65,18,17.65,17.85,18000,18.5,-3.51,18.39,19.45,1.29
 20260601,18.3,18.3,17.75,17.75,18000,18.44,-3.73,18.32,19.42,1.29
 20260602,17.7,17.8,17.7,17.8,18,18.38,-3.18,18.27,19.38,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,18.1,18.1,17.6,17.6,17000,18,-2.21,17.91,18.89,0.91
 20260623,17.3,17.45,17.2,17.45,18000,17.95,-2.8,17.86,18.85,0.97
 20260624,17.65,17.65,17.35,17.45,3000,17.91,-2.57,17.82,18.8,0.17
-20260626,17.4,17.8,17.4,17.4,15000,17.87,-2.62,17.78,18.76,0.85
+20260625,17.45,17.45,17.35,17.4,18000,17.87,-2.62,17.78,18.76,1.01
+20260626,17.4,17.8,17.4,17.4,15000,17.83,-2.41,17.75,18.71,0.85
 ```
 
 ## Latest TDCC Snapshot

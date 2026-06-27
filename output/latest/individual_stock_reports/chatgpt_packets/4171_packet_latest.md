@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4171 瑞基
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:41 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4171
 - stock_name: 瑞基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.5
 - close: 16.95
 - volume: 177000
-- ma5: 17.09
-- ema23_primary: 17.58
-- distance_to_ema23_pct: -3.6
-- ma20: 17.57
-- ma60: 18.39
-- ma120: 19.14
-- return_5d: -2.59
-- return_20d: -4.51
-- volume_ratio: 2.59
-- distance_to_ma20_pct_auxiliary: -3.5
+- ma5: 16.99
+- ema23_primary: 17.52
+- distance_to_ema23_pct: -3.25
+- ma20: 17.52
+- ma60: 18.36
+- ma120: 19.12
+- return_5d: -2.02
+- return_20d: -4.78
+- volume_ratio: 2.52
+- distance_to_ma20_pct_auxiliary: -3.23
 - distance_to_high_60_pct: -20.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.7,17.95,17.6,17.8,18000,18.39,-3.19,18.3,18.84,0.17
 20260529,17.8,18.45,17.75,17.75,18000,18.33,-3.19,18.23,18.81,0.19
 20260601,18,18,17.75,17.85,18000,18.29,-2.43,18.18,18.8,0.2
 20260602,17.85,18.3,17.7,18.1,18,18.28,-0.97,18.16,18.78,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.25,17.6,17.25,17.35,123000,17.78,-2.4,17.73,18.48,2.57
 20260623,17.35,17.35,16.95,17,193000,17.71,-4.02,17.67,18.45,3.41
 20260624,17,17.05,16.85,16.85,92000,17.64,-4.48,17.61,18.41,1.52
-20260626,16.8,17,16.5,16.95,177000,17.58,-3.6,17.57,18.39,2.59
+20260625,16.8,17.05,16.8,16.8,58000,17.57,-4.38,17.56,18.38,0.93
+20260626,16.8,17,16.5,16.95,177000,17.52,-3.25,17.52,18.36,2.52
 ```
 
 ## Latest TDCC Snapshot

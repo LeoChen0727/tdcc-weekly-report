@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6023 元大期貨
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:04 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6023
 - stock_name: 元大期貨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 99
 - close: 99.5
 - volume: 335000
-- ma5: 99.84
-- ema23_primary: 99.58
-- distance_to_ema23_pct: -0.08
-- ma20: 99.8
-- ma60: 99.19
-- ma120: 97.11
-- return_5d: -0.99
-- return_20d: 0.71
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: -0.3
+- ma5: 99.8
+- ema23_primary: 99.59
+- distance_to_ema23_pct: -0.09
+- ma20: 99.83
+- ma60: 99.24
+- ma120: 97.14
+- return_5d: -0.5
+- return_20d: 0.4
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -0.33
 - distance_to_high_60_pct: -2.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,99.4,99.8,98.6,99.1,99000,98.66,0.45,99.08,97.51,0.59
 20260529,98.8,100,98.8,98.9,99000,98.68,0.22,99.06,97.58,0.59
 20260601,99.7,101,99.3,100,100000,98.79,1.23,99.06,97.69,0.65
 20260602,100,100,99.4,100,100,98.89,1.12,99.06,97.78,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,100,100.5,98.7,100,672000,99.53,0.47,99.58,98.95,3.6
 20260623,100,100.5,99.3,100,469000,99.57,0.43,99.69,99.04,2.28
 20260624,101,101,99,99.7,931000,99.58,0.12,99.76,99.14,3.77
-20260626,99.3,99.7,99,99.5,335000,99.58,-0.08,99.8,99.19,1.29
+20260625,99.7,100.5,99.7,99.8,383000,99.6,0.2,99.81,99.2,1.47
+20260626,99.3,99.7,99,99.5,335000,99.59,-0.09,99.83,99.24,1.23
 ```
 
 ## Latest TDCC Snapshot

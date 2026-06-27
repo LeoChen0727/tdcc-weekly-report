@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1259 安心
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:32 Asia/Taipei
+- generated_at: 2026-06-27 22:22:36 Asia/Taipei
 - stock_id: 1259
 - stock_name: 安心
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 131
+- price_rows: 132
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 55.9
 - close: 56.1
 - volume: 14000
-- ma5: 58.02
-- ema23_primary: 57.93
-- distance_to_ema23_pct: -3.16
-- ma20: 57.77
-- ma60: 58.51
-- ma120: 60.07
-- return_5d: -3.94
-- return_20d: -1.58
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -2.9
-- distance_to_high_60_pct: -9.37
+- ma5: 57.38
+- ema23_primary: 57.8
+- distance_to_ema23_pct: -2.95
+- ma20: 57.78
+- ma60: 58.41
+- ma120: 60.02
+- return_5d: -5.87
+- return_20d: -0.36
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -2.91
+- distance_to_high_60_pct: -8.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260521,57,57,56.3,56.3,12000,58.09,-3.08,57.92,59.59,0.88
 20260522,56.3,57,55.9,56.8,57000,57.98,-2.04,57.83,59.54,3.68
 20260525,56.3,57,56.2,57,57000,57.9,-1.55,57.77,59.47,3.18
 20260526,57,57,57,57,57000,57.82,-1.42,57.72,59.41,2.76
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260616,58,58.6,58,58.6,6000,58.14,0.8,57.84,58.79,0.17
 20260617,57.8,57.8,57.8,57.8,1000,58.11,-0.53,57.78,58.67,0.03
 20260618,57.5,58,57,58,17000,58.1,-0.17,57.82,58.59,0.51
-20260626,56.1,57.8,55.9,56.1,14000,57.93,-3.16,57.77,58.51,0.42
+20260625,57,58,56.4,56.4,10000,57.96,-2.69,57.79,58.51,0.31
+20260626,56.1,57.8,55.9,56.1,14000,57.8,-2.95,57.78,58.41,0.43
 ```
 
 ## Latest TDCC Snapshot

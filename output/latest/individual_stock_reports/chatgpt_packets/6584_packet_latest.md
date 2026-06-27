@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6584 南俊國際
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6584
 - stock_name: 南俊國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 702
 - close: 708
 - volume: 2173000
-- ma5: 660.8
-- ema23_primary: 649.95
-- distance_to_ema23_pct: 8.93
-- ma20: 649.3
-- ma60: 665.02
-- ma120: 518.16
-- return_5d: 15.5
-- return_20d: 2.91
-- volume_ratio: 2.84
-- distance_to_ma20_pct_auxiliary: 9.04
+- ma5: 681.4
+- ema23_primary: 656.31
+- distance_to_ema23_pct: 7.88
+- ma20: 651.2
+- ma60: 667.12
+- ma120: 521.45
+- return_5d: 13.28
+- return_20d: 2.61
+- volume_ratio: 2.61
+- distance_to_ma20_pct_auxiliary: 8.72
 - distance_to_high_60_pct: -17.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,704,720,672,690,698000,673.37,2.47,678.25,599.37,0.64
 20260529,701,752,690,744,731000,679.25,9.53,681.55,605,0.7
 20260601,799,818,710,731,765000,683.57,6.94,684.5,611.06,0.77
 20260602,731,731,658,658,678,681.44,-3.44,681.7,615.34,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,637,680,627,660,1420000,642.56,2.71,651.6,660.28,2.08
 20260623,661,663,629,649,956000,643.09,0.92,649.7,661.63,1.37
 20260624,646,665,637,662,577000,644.67,2.69,648.3,663.37,0.84
-20260626,730,748,702,708,2173000,649.95,8.93,649.3,665.02,2.84
+20260625,671,728,671,728,2073000,651.61,11.72,650.3,665.35,2.73
+20260626,730,748,702,708,2173000,656.31,7.88,651.2,667.12,2.61
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 6584 | 南俊國際 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 6584 | 南俊國際 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6584 | 南俊國際 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2385 群光
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:01 Asia/Taipei
 - stock_id: 2385
 - stock_name: 群光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 101
 - close: 102
 - volume: 6856863
-- ma5: 109.7
-- ema23_primary: 123.93
-- distance_to_ema23_pct: -17.7
-- ma20: 129.18
-- ma60: 127.36
-- ma120: 123.69
-- return_5d: -11.3
-- return_20d: -24.72
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -21.04
+- ma5: 108.1
+- ema23_primary: 122.41
+- distance_to_ema23_pct: -16.67
+- ma20: 127.88
+- ma60: 127.09
+- ma120: 123.6
+- return_5d: -10.53
+- return_20d: -22.73
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -20.23
 - distance_to_high_60_pct: -31.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,137,137.5,132,132,3385321,129.18,2.18,129.8,125.59,0.81
 20260529,133,136,133,135.5,3427065,129.71,4.47,130.4,125.75,0.81
 20260601,136.5,142.5,136,141.5,6640551,130.69,8.27,131.1,126.04,1.55
 20260602,141.5,143.5,138.5,143.5,5327928,131.76,8.91,131.78,126.34,1.24
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,114.5,115.5,113.5,114,4219820,129.1,-11.7,133.1,128.15,0.66
 20260623,114,114,110,110,6496691,127.51,-13.73,132.07,127.93,0.99
 20260624,110,111,108,108.5,4855310,125.92,-13.84,130.85,127.71,0.73
-20260626,105.5,105.5,101,102,6856863,123.93,-17.7,129.18,127.36,1.03
+20260625,109.5,109.5,106,106,5553640,124.26,-14.7,129.38,127.42,0.84
+20260626,105.5,105.5,101,102,6856863,122.41,-16.67,127.88,127.09,1.01
 ```
 
 ## Latest TDCC Snapshot

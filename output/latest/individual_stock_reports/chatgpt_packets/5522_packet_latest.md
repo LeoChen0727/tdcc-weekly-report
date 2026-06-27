@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5522 遠雄
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:01 Asia/Taipei
+- generated_at: 2026-06-27 22:24:03 Asia/Taipei
 - stock_id: 5522
 - stock_name: 遠雄
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 64.1
 - close: 64.1
 - volume: 2329629
-- ma5: 71.24
-- ema23_primary: 73.5
-- distance_to_ema23_pct: -12.78
-- ma20: 74.91
-- ma60: 72
-- ma120: 70.9
-- return_5d: -14.53
-- return_20d: -9.97
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -14.43
+- ma5: 69.52
+- ema23_primary: 72.84
+- distance_to_ema23_pct: -12
+- ma20: 74.6
+- ma60: 71.93
+- ma120: 70.81
+- return_5d: -13.84
+- return_20d: -10.97
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -14.08
 - distance_to_high_60_pct: -23.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,71.5,72.7,70.8,72,1327165,70.49,2.14,70.37,69.88,1.47
 20260529,72,72.7,71.5,72.7,1807328,70.68,2.86,70.56,69.96,1.93
 20260601,72.8,74.2,71.9,74.2,1485785,70.97,4.55,70.81,70.09,1.51
 20260602,74.1,75.1,73.7,75.1,1394974,71.31,5.31,71.11,70.23,1.35
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,74,74.5,71.5,73.8,3469055,74.81,-1.35,75.08,72.17,1.95
 20260623,72.9,73.7,72.1,72.4,2780848,74.61,-2.96,75.25,72.16,1.49
 20260624,71.5,73,71.4,71.5,4387027,74.35,-3.83,75.27,72.13,2.15
-20260626,65,65.7,64.1,64.1,2329629,73.5,-12.78,74.91,72,1.09
+20260625,65.6,66.9,63.4,65.8,4365955,73.64,-10.64,75,72.03,1.95
+20260626,65,65.7,64.1,64.1,2329629,72.84,-12,74.6,71.93,1.02
 ```
 
 ## Latest TDCC Snapshot

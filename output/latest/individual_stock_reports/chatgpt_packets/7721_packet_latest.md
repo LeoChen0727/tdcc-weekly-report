@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7721 微程式
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7721
 - stock_name: 微程式
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 214
+- price_rows: 215
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 69.2
 - close: 70.2
 - volume: 532734
-- ma5: 73.62
-- ema23_primary: 76.03
-- distance_to_ema23_pct: -7.67
-- ma20: 76.61
-- ma60: 77.68
-- ma120: 63.68
-- return_5d: -8.95
-- return_20d: -6.52
+- ma5: 73.42
+- ema23_primary: 75.84
+- distance_to_ema23_pct: -7.44
+- ma20: 76.62
+- ma60: 77.8
+- ma120: 63.87
+- return_5d: -6.52
+- return_20d: -5.01
 - volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -8.37
+- distance_to_ma20_pct_auxiliary: -8.38
 - distance_to_high_60_pct: -24.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,74,77,73.6,73.9,366520,75.71,-2.39,76.09,69.62,0.51
 20260529,74.2,74.5,71.8,72.8,792667,75.47,-3.53,75.83,69.92,1.12
 20260601,74.1,80,73.6,80,1787470,75.84,5.48,75.94,70.39,2.5
 20260602,79.5,80,74.3,75.7,1067636,75.83,-0.17,75.86,70.78,1.45
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,77,81.1,75.1,77,752876,77.26,-0.34,77.56,76.88,0.92
 20260623,77.3,77.3,73,73,703389,76.9,-5.08,77.16,77.25,0.91
 20260624,71.3,73.1,71.3,72.8,366625,76.56,-4.91,76.86,77.53,0.48
-20260626,72.9,72.9,69.2,70.2,532734,76.03,-7.67,76.61,77.68,0.7
+20260625,73.2,74.9,71.6,74.1,360868,76.36,-2.96,76.81,77.75,0.48
+20260626,72.9,72.9,69.2,70.2,532734,75.84,-7.44,76.62,77.8,0.7
 ```
 
 ## Latest TDCC Snapshot

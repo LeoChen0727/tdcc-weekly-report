@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3268 海德威
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3268
 - stock_name: 海德威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 20.4
 - close: 20.5
 - volume: 212000
-- ma5: 22.17
-- ema23_primary: 20.28
-- distance_to_ema23_pct: 1.07
-- ma20: 20.31
-- ma60: 18.09
-- ma120: 17.27
-- return_5d: -5.31
-- return_20d: 18.16
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 0.92
+- ma5: 22.11
+- ema23_primary: 20.38
+- distance_to_ema23_pct: 0.58
+- ma20: 20.52
+- ma60: 18.2
+- ma120: 17.3
+- return_5d: -6.18
+- return_20d: 17.82
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -0.1
 - distance_to_high_60_pct: -14.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.6,18.2,17.35,17.4,18000,17.42,-0.09,17.62,16.5,0.09
 20260529,17.8,18.05,17.25,18,18000,17.47,3.06,17.66,16.53,0.09
 20260601,18.55,18.55,17.55,17.55,18000,17.47,0.45,17.68,16.56,0.09
 20260602,17.5,19.3,17.35,19.3,19,17.62,9.51,17.77,16.62,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.3,23.95,21.65,23.75,1023000,19.86,19.57,19.7,17.78,3.43
 20260623,23.55,23.85,21.9,22.4,721000,20.07,11.59,19.92,17.89,2.16
 20260624,22.1,22.9,22.1,22.35,379000,20.26,10.29,20.16,18,1.08
-20260626,21.55,21.55,20.4,20.5,212000,20.28,1.07,20.31,18.09,0.59
+20260625,22.55,22.55,21.4,21.55,328000,20.37,5.79,20.36,18.1,0.89
+20260626,21.55,21.55,20.4,20.5,212000,20.38,0.58,20.52,18.2,0.56
 ```
 
 ## Latest TDCC Snapshot

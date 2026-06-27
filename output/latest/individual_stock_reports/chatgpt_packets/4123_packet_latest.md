@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4123 晟德
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:41 Asia/Taipei
 - stock_id: 4123
 - stock_name: 晟德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 37.1
 - close: 37.2
 - volume: 2054000
-- ma5: 37.38
+- ma5: 37.51
 - ema23_primary: 37.79
 - distance_to_ema23_pct: -1.57
 - ma20: 37.79
-- ma60: 38.82
+- ma60: 38.78
 - ma120: 40.33
-- return_5d: 0.13
-- return_20d: -0.13
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: -1.56
+- return_5d: 0
+- return_20d: -1.59
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: -1.57
 - distance_to_high_60_pct: -13.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.2,38.15,37.15,37.8,38000,38.54,-1.92,38.27,40.81,0.02
 20260529,38,38.3,37.85,38.25,38000,38.52,-0.69,38.23,40.7,0.02
 20260601,38.55,38.55,37.9,38.4,38000,38.51,-0.28,38.21,40.52,0.02
 20260602,38.35,38.35,38.05,38.35,38,38.49,-0.37,38.2,40.36,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,37.15,37.15,36.8,36.95,2511000,37.86,-2.4,37.8,39.01,2.45
 20260623,37,37.3,36.85,37.3,1627000,37.81,-1.35,37.77,38.93,1.48
 20260624,37.1,38.3,37.1,38.25,3423000,37.85,1.06,37.79,38.88,2.69
-20260626,37.85,38.05,37.1,37.2,2054000,37.79,-1.57,37.79,38.82,1.5
+20260625,38.4,38.75,37.85,37.85,2231000,37.85,0.01,37.82,38.83,1.62
+20260626,37.85,38.05,37.1,37.2,2054000,37.79,-1.57,37.79,38.78,1.39
 ```
 
 ## Latest TDCC Snapshot

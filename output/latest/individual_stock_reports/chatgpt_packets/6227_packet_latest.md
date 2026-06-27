@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6227 茂綸
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:12 Asia/Taipei
+- generated_at: 2026-06-27 22:24:14 Asia/Taipei
 - stock_id: 6227
 - stock_name: 茂綸
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 116
 - close: 116.5
 - volume: 371000
-- ma5: 120.5
-- ema23_primary: 122.51
-- distance_to_ema23_pct: -4.91
-- ma20: 127.2
-- ma60: 109.73
-- ma120: 97.4
-- return_5d: -6.05
-- return_20d: -6.8
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -8.41
+- ma5: 120.4
+- ema23_primary: 122.39
+- distance_to_ema23_pct: -4.82
+- ma20: 126.75
+- ma60: 110.33
+- ma120: 97.72
+- return_5d: -4.51
+- return_20d: -10.73
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -8.09
 - distance_to_high_60_pct: -18.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,128,136,127,130.5,132000,112.9,15.59,111.78,96.12,0.11
 20260529,139,143,132,134.5,137000,114.7,17.27,113.94,96.96,0.11
 20260601,136.5,136.5,130,132,132000,116.14,13.66,115.81,97.82,0.11
 20260602,131,132,125,130.5,129,117.34,11.22,117.55,98.63,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,124,126,121.5,125,719000,123.74,1.02,128.5,108.16,1.39
 20260623,125.5,125.5,119.5,119.5,518000,123.38,-3.15,127.92,108.71,0.96
 20260624,117,120,116,119.5,301000,123.06,-2.89,127.62,109.23,0.55
-20260626,121,121,116,116.5,371000,122.51,-4.91,127.2,109.73,0.66
+20260625,122,122.5,118.5,121.5,333000,122.93,-1.16,127.45,109.82,0.6
+20260626,121,121,116,116.5,371000,122.39,-4.82,126.75,110.33,0.65
 ```
 
 ## Latest TDCC Snapshot

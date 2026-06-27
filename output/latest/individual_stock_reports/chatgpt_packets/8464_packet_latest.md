@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8464 億豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:55 Asia/Taipei
+- generated_at: 2026-06-27 22:24:55 Asia/Taipei
 - stock_id: 8464
 - stock_name: 億豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 344.5
 - close: 350.5
 - volume: 1074630
-- ma5: 349.3
-- ema23_primary: 339.72
-- distance_to_ema23_pct: 3.17
-- ma20: 336.52
-- ma60: 340.52
-- ma120: 366.41
-- return_5d: 0.29
-- return_20d: 14.54
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 4.15
+- ma5: 348.8
+- ema23_primary: 341
+- distance_to_ema23_pct: 2.78
+- ma20: 338.88
+- ma60: 340.88
+- ma120: 366.2
+- return_5d: -2.1
+- return_20d: 13.61
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 3.43
 - distance_to_high_60_pct: -8.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,311,311,302.5,308.5,650222,327.78,-5.88,326.1,352.55,0.56
 20260529,312.5,321.5,311,317.5,1162750,326.92,-2.88,324.43,351.48,1
 20260601,321,325.5,318,324,2260844,326.68,-0.82,323.43,350.84,1.84
 20260602,323.5,324.5,317.5,322,1968274,326.29,-1.31,322.3,350.07,1.5
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,354.5,355,344,346,1132815,337.34,2.57,331.43,340.27,1.06
 20260623,343.5,351.5,338.5,343.5,1297070,337.86,1.67,332.65,340.29,1.25
 20260624,343.5,353,341,348.5,808545,338.74,2.88,334.3,340.43,0.78
-20260626,350,351.5,344.5,350.5,1074630,339.72,3.17,336.52,340.52,1.02
+20260625,352,363.5,349.5,355.5,1163229,340.14,4.52,336.77,340.61,1.1
+20260626,350,351.5,344.5,350.5,1074630,341,2.78,338.88,340.88,1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5371 中光電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:00 Asia/Taipei
 - stock_id: 5371
 - stock_name: 中光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 71.9
 - close: 71.9
 - volume: 5485000
-- ma5: 74.32
-- ema23_primary: 72.08
-- distance_to_ema23_pct: -0.25
-- ma20: 71.88
-- ma60: 72.68
-- ma120: 79.4
-- return_5d: 4.35
-- return_20d: 0.56
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 0.03
+- ma5: 75.26
+- ema23_primary: 72.28
+- distance_to_ema23_pct: -0.52
+- ma20: 72.11
+- ma60: 72.67
+- ma120: 79.28
+- return_5d: 2.71
+- return_20d: 2.57
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -0.29
 - distance_to_high_60_pct: -11.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,72,73.4,70,70.1,72000,71.86,-2.45,70.97,74.89,0.02
 20260529,72.5,75.1,71.9,72.6,73000,71.92,0.94,71.29,74.69,0.02
 20260601,73,76,71.8,73.9,74000,72.09,2.52,71.47,74.59,0.02
 20260602,73.8,74.3,71.8,73.9,73,72.24,2.3,71.45,74.43,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.7,76.3,71.7,74.6,9118000,71.05,5,71.39,72.68,5.37
 20260623,75.5,80.4,74.4,76.5,19710000,71.5,6.99,71.57,72.67,7.35
 20260624,77.1,79.3,75.1,78.6,10935000,72.1,9.02,71.86,72.73,3.39
-20260626,74.6,75.5,71.9,71.9,5485000,72.08,-0.25,71.88,72.68,1.57
+20260625,78.6,78.6,74.6,74.7,7043000,72.31,3.3,72.02,72.73,1.97
+20260626,74.6,75.5,71.9,71.9,5485000,72.28,-0.52,72.11,72.67,1.43
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:53 Asia/Taipei
+- generated_at: 2026-06-27 22:23:55 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 82.4
 - close: 82.4
 - volume: 5864340
-- ma5: 89.92
-- ema23_primary: 89.37
-- distance_to_ema23_pct: -7.8
-- ma20: 89.72
-- ma60: 92.32
-- ma120: 75.7
-- return_5d: 2.23
-- return_20d: -21.9
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -8.15
+- ma5: 91.1
+- ema23_primary: 89.48
+- distance_to_ema23_pct: -7.91
+- ma20: 89.16
+- ma60: 92.76
+- ma120: 76.13
+- return_5d: -3.63
+- return_20d: -19.61
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -7.58
 - distance_to_high_60_pct: -34.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,105,108,99.7,102.5,16085442,97.04,5.63,98.05,85.83,1.25
 20260529,103,109.5,102,104.5,19360833,97.66,7.01,97.62,86.44,1.42
 20260601,105,111.5,104.5,107,15450155,98.44,8.7,97.82,87.09,1.17
 20260602,107,107.5,98.6,100,13428646,98.57,1.45,97.57,87.65,1.01
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,87.1,94,86.1,94,11160142,89.28,5.29,91.56,91.11,1.12
 20260623,96.3,98.6,92.5,94,15576410,89.67,4.83,91.28,91.56,1.55
 20260624,92.4,101,92.3,93.7,9861389,90.01,4.1,90.87,92.02,1.04
-20260626,92,92,82.4,82.4,5864340,89.37,-7.8,89.72,92.32,0.67
+20260625,96.5,99.4,90.6,91.4,6632081,90.12,1.42,90.17,92.47,0.75
+20260626,92,92,82.4,82.4,5864340,89.48,-7.91,89.16,92.76,0.7
 ```
 
 ## Latest TDCC Snapshot

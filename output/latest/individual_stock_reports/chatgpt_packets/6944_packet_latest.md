@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6944 兆聯實業
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:35 Asia/Taipei
 - stock_id: 6944
 - stock_name: 兆聯實業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 257
+- price_rows: 258
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 973
 - close: 976
 - volume: 541258
-- ma5: 1030
-- ema23_primary: 974.78
-- distance_to_ema23_pct: 0.12
-- ma20: 967.05
-- ma60: 928.55
-- ma120: 830.91
-- return_5d: -4.78
-- return_20d: 4.27
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 0.93
+- ma5: 1021
+- ema23_primary: 976.72
+- distance_to_ema23_pct: -0.07
+- ma20: 970.85
+- ma60: 932.4
+- ma120: 833.54
+- return_5d: -6.6
+- return_20d: 5.63
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 0.53
 - distance_to_high_60_pct: -12.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,949,950,900,924,757048,918.95,0.55,925.65,865.12,0.83
 20260529,936,952,931,946,781906,921.2,2.69,927.8,868.92,0.85
 20260601,959,959,922,932,530948,922.1,1.07,928.85,873.33,0.59
 20260602,938,938,899,900,840607,920.26,-2.2,926.6,876.12,0.93
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1080,1115,1060,1070,1092999,964.5,10.94,956.2,917.33,1.29
 20260623,1085,1110,1060,1060,667077,972.46,9,962.65,921.92,0.78
 20260624,1040,1045,989,999,700539,974.67,2.5,965.05,925.62,0.83
-20260626,1000,1005,973,976,541258,974.78,0.12,967.05,928.55,0.64
+20260625,1010,1035,1000,1000,347565,976.78,2.38,968.25,928.95,0.42
+20260626,1000,1005,973,976,541258,976.72,-0.07,970.85,932.4,0.66
 ```
 
 ## Latest TDCC Snapshot

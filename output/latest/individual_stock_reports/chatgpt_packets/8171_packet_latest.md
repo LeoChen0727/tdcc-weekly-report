@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8171 天宇
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:50 Asia/Taipei
+- generated_at: 2026-06-27 22:24:50 Asia/Taipei
 - stock_id: 8171
 - stock_name: 天宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 20.15
 - close: 20.2
 - volume: 228000
-- ma5: 21.25
-- ema23_primary: 22.42
-- distance_to_ema23_pct: -9.91
-- ma20: 22.83
-- ma60: 23.34
-- ma120: 25.19
+- ma5: 21.09
+- ema23_primary: 22.28
+- distance_to_ema23_pct: -9.33
+- ma20: 22.72
+- ma60: 23.27
+- ma120: 25.16
 - return_5d: -6.26
-- return_20d: -11.79
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -11.51
+- return_20d: -11.98
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -11.08
 - distance_to_high_60_pct: -23.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.3,23.7,22.85,22.95,23000,23.41,-1.98,23.24,24.41,0.12
 20260529,23.2,23.8,23.2,23.65,24000,23.43,0.93,23.27,24.36,0.12
 20260601,25,25.55,24.35,24.7,25000,23.54,4.93,23.38,24.34,0.13
 20260602,24.5,24.5,23.7,23.8,24,23.56,1.02,23.43,24.3,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.35,22.35,21.9,22,254000,22.89,-3.88,23.16,23.58,1.27
 20260623,21.95,21.95,21.35,21.45,220000,22.77,-5.79,23.06,23.5,1.05
 20260624,21.5,21.5,20.95,21.05,222000,22.62,-6.96,22.96,23.42,1.01
-20260626,20.9,20.9,20.15,20.2,228000,22.42,-9.91,22.83,23.34,0.99
+20260625,21,21,20.7,20.75,152000,22.47,-7.65,22.86,23.34,0.67
+20260626,20.9,20.9,20.15,20.2,228000,22.28,-9.33,22.72,23.27,0.97
 ```
 
 ## Latest TDCC Snapshot

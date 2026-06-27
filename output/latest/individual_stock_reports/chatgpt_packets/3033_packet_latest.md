@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:17 Asia/Taipei
+- generated_at: 2026-06-27 22:23:20 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48.8
 - close: 49
 - volume: 11261112
-- ma5: 49.98
-- ema23_primary: 48.99
-- distance_to_ema23_pct: 0.03
-- ma20: 49.8
-- ma60: 43.04
-- ma120: 37.15
-- return_5d: 0.2
-- return_20d: -3.35
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -1.61
+- ma5: 49.93
+- ema23_primary: 49.01
+- distance_to_ema23_pct: -0.01
+- ma20: 49.76
+- ma60: 43.33
+- ma120: 37.3
+- return_5d: -1.01
+- return_20d: -2.2
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -1.52
 - distance_to_high_60_pct: -11.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,51.1,51.7,49.8,50.1,12249078,45.71,9.61,46.13,37.38,0.49
 20260529,50.8,50.9,49.55,50.3,10625441,46.09,9.13,46.86,37.7,0.42
 20260601,50.3,50.5,48.05,48.85,17868088,46.32,5.46,47.41,38.03,0.72
 20260602,48.85,49.7,48.45,49.7,7798189,46.6,6.65,47.97,38.36,0.32
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,50.4,51.7,50,51.2,13382386,48.77,4.97,49.85,42.21,0.94
 20260623,52.3,52.4,49.7,50.2,12994139,48.89,2.67,49.9,42.49,1.03
 20260624,49.75,50.6,49.3,50,5438787,48.99,2.07,49.88,42.77,0.45
-20260626,49.1,51.3,48.8,49,11261112,48.99,0.03,49.8,43.04,0.96
+20260625,50.7,50.9,49.2,49.25,4956433,49.01,0.49,49.81,43.05,0.43
+20260626,49.1,51.3,48.8,49,11261112,49.01,-0.01,49.76,43.33,0.99
 ```
 
 ## Latest TDCC Snapshot

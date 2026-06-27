@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:58 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 203
 - close: 206.5
 - volume: 254263166
-- ma5: 212.7
-- ema23_primary: 177.38
-- distance_to_ema23_pct: 16.41
-- ma20: 180.5
-- ma60: 129.89
-- ma120: 117.66
-- return_5d: 3.77
-- return_20d: 33.23
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 14.4
+- ma5: 212.9
+- ema23_primary: 180.8
+- distance_to_ema23_pct: 14.21
+- ma20: 184.28
+- ma60: 132
+- ma120: 118.88
+- return_5d: -5.49
+- return_20d: 43.4
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 12.06
 - distance_to_high_60_pct: -11.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,151,156.5,142,144,362557912,121.07,18.94,120.45,106.59,1.43
 20260529,155,158,151,158,249880280,124.15,27.27,123.86,107.34,0.96
 20260601,168,173.5,166,168,295190831,127.8,31.45,127.49,108.41,1.11
 20260602,174,184.5,171.5,184.5,270430116,132.53,39.21,131.78,109.62,1.01
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,229.5,233.5,219,222,403194761,168.39,31.83,170.57,124.29,1.42
 20260623,219,222,205.5,211.5,263314980,171.98,22.98,174.72,126.17,0.94
 20260624,208.5,217,201,205,253065352,174.74,17.32,177.93,127.99,0.92
-20260626,220,225,203,206.5,254263166,177.38,16.41,180.5,129.89,0.96
+20260625,219.5,222.5,211,219.5,227328719,178.47,22.99,181.15,130.11,0.86
+20260626,220,225,203,206.5,254263166,180.8,14.21,184.28,132,0.98
 ```
 
 ## Latest TDCC Snapshot

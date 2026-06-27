@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:59 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 64.2
 - close: 70.2
 - volume: 45561000
-- ma5: 59.14
-- ema23_primary: 46.96
-- distance_to_ema23_pct: 49.5
-- ma20: 46.44
-- ma60: 33.64
-- ma120: 29.64
-- return_5d: 36.58
-- return_20d: 97.47
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 51.17
+- ma5: 60.62
+- ema23_primary: 48.41
+- distance_to_ema23_pct: 45
+- ma20: 47.83
+- ma60: 34.3
+- ma120: 29.99
+- return_5d: 24.25
+- return_20d: 95
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: 46.76
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.8,39,35.7,36,37000,30.66,17.41,30.07,27.15,0
 20260529,37.5,39.6,35.95,39.6,38000,31.41,26.09,30.82,27.36,0
 20260601,41.7,43.35,39.8,39.8,41000,32.11,23.97,31.52,27.6,0
 20260602,39.1,40.5,37.25,40.2,38,32.78,22.64,32.19,27.82,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.4,60,57,58,44254000,42.8,35.52,42.72,31.87,1.9
 20260623,57,58.2,52.6,52.9,21110000,43.64,21.22,43.56,32.33,0.87
 20260624,51.7,58.1,51.7,58.1,28193000,44.84,29.56,44.7,32.88,1.09
-20260626,64.5,70.2,64.2,70.2,45561000,46.96,49.5,46.44,33.64,1.62
+20260625,59.9,63.9,59.7,63.9,30203000,46.43,37.62,46.12,33.53,1.11
+20260626,64.5,70.2,64.2,70.2,45561000,48.41,45,47.83,34.3,1.54
 ```
 
 ## Latest TDCC Snapshot

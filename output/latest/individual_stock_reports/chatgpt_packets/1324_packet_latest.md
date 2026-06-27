@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1324 地球
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:34 Asia/Taipei
+- generated_at: 2026-06-27 22:22:37 Asia/Taipei
 - stock_id: 1324
 - stock_name: 地球
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 10.25
 - volume: 61975
 - ma5: 10.36
-- ema23_primary: 10.44
-- distance_to_ema23_pct: -1.81
+- ema23_primary: 10.43
+- distance_to_ema23_pct: -1.77
 - ma20: 10.47
 - ma60: 10.72
 - ma120: 10.72
-- return_5d: -2.38
-- return_20d: 0.49
+- return_5d: -1.44
+- return_20d: 0
 - volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -2.08
+- distance_to_ma20_pct_auxiliary: -2.15
 - distance_to_high_60_pct: -22.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10.25,10.3,10.2,10.25,38719,10.39,-1.32,10.27,10.73,0.36
 20260529,10.25,10.35,10.2,10.3,83419,10.38,-0.77,10.26,10.72,0.8
 20260601,10.3,10.5,10.15,10.35,146889,10.38,-0.27,10.25,10.72,1.38
 20260602,10.45,10.5,10.3,10.4,71306,10.38,0.2,10.25,10.72,0.68
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10.4,10.45,10.35,10.45,73854,10.48,-0.25,10.45,10.74,0.73
 20260623,10.45,10.45,10.3,10.35,108515,10.47,-1.11,10.46,10.74,1.06
 20260624,10.3,10.4,10.25,10.35,49548,10.46,-1.01,10.46,10.73,0.49
-20260626,10.25,10.3,10.2,10.25,61975,10.44,-1.81,10.47,10.72,0.67
+20260625,10.35,10.4,10.3,10.4,44934,10.45,-0.49,10.47,10.73,0.49
+20260626,10.25,10.3,10.2,10.25,61975,10.43,-1.77,10.47,10.72,0.67
 ```
 
 ## Latest TDCC Snapshot

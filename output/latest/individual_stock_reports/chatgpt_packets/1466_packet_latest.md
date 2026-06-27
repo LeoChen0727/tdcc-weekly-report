@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1466 聚隆
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:37 Asia/Taipei
+- generated_at: 2026-06-27 22:22:41 Asia/Taipei
 - stock_id: 1466
 - stock_name: 聚隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 13.8
 - close: 14.1
 - volume: 148849
-- ma5: 14.3
-- ema23_primary: 14.46
-- distance_to_ema23_pct: -2.47
-- ma20: 14.3
-- ma60: 15.39
+- ma5: 14.28
+- ema23_primary: 14.43
+- distance_to_ema23_pct: -2.32
+- ma20: 14.32
+- ma60: 15.35
 - ma120: 15.64
-- return_5d: 0.71
-- return_20d: 2.55
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -1.43
+- return_5d: -1.4
+- return_20d: 2.17
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -1.57
 - distance_to_high_60_pct: -21.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.55,14.15,13.55,13.8,409748,15.06,-8.37,15,16.39,2.04
 20260529,14,14,13.5,14,557148,14.97,-6.5,14.89,16.32,2.54
 20260601,14.05,14.3,13.75,14.2,303595,14.91,-4.75,14.81,16.26,1.38
 20260602,14.2,14.35,13.95,14.35,173737,14.86,-3.44,14.73,16.2,0.78
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.6,14.8,14.35,14.65,317642,14.54,0.75,14.32,15.53,0.89
 20260623,14.65,14.65,14.15,14.4,248383,14.53,-0.89,14.31,15.49,0.69
 20260624,14.35,14.35,14,14.05,278087,14.49,-3.03,14.29,15.44,0.76
-20260626,14.2,14.2,13.8,14.1,148849,14.46,-2.47,14.3,15.39,0.41
+20260625,14.15,14.25,14.05,14.2,116003,14.46,-1.83,14.31,15.39,0.32
+20260626,14.2,14.2,13.8,14.1,148849,14.43,-2.32,14.32,15.35,0.43
 ```
 
 ## Latest TDCC Snapshot

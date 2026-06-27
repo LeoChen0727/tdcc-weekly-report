@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:03 Asia/Taipei
+- generated_at: 2026-06-27 22:23:06 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 224.5
 - close: 225
 - volume: 9897711
-- ma5: 258.7
-- ema23_primary: 256.32
-- distance_to_ema23_pct: -12.22
-- ma20: 258.23
-- ma60: 238.75
-- ma120: 180.57
-- return_5d: -10.54
-- return_20d: -18.48
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -12.87
+- ma5: 253.1
+- ema23_primary: 255.51
+- distance_to_ema23_pct: -11.94
+- ma20: 257.6
+- ma60: 240.45
+- ma120: 181.86
+- return_5d: -18.63
+- return_20d: -13.79
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -12.66
 - distance_to_high_60_pct: -29.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,279.5,282,255,261,9778309,258.59,0.93,273.65,202.73,1.06
 20260529,264,276,263,264.5,6617064,259.08,2.09,273.35,204.88,0.84
 20260601,267,270,256,266.5,11620881,259.7,2.62,271.8,207.24,1.52
 20260602,268.5,276,248,253.5,10774406,259.18,-2.19,269.12,209.21,1.54
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,291.5,295,270,272,17859431,259.05,5,264.1,233.85,1.78
 20260623,271.5,276.5,264.5,265,6306125,259.55,2.1,262.48,235.69,0.64
 20260624,263,267,248.5,255,8013695,259.17,-1.61,260.77,237.48,0.83
-20260626,248,250,224.5,225,9897711,256.32,-12.22,258.23,238.75,1.03
+20260625,259,259,246.5,248.5,4805507,258.28,-3.79,259.4,239.14,0.51
+20260626,248,250,224.5,225,9897711,255.51,-11.94,257.6,240.45,1.06
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6881 潤德
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:32 Asia/Taipei
+- generated_at: 2026-06-27 22:24:33 Asia/Taipei
 - stock_id: 6881
 - stock_name: 潤德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 138
+- price_rows: 139
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 230
 - close: 231.5
 - volume: 15000
-- ma5: 237.3
-- ema23_primary: 256.54
-- distance_to_ema23_pct: -9.76
-- ma20: 260.52
-- ma60: 257.34
-- ma120: 243.12
-- return_5d: -13.78
-- return_20d: -13.13
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -11.14
+- ma5: 236.3
+- ema23_primary: 254.8
+- distance_to_ema23_pct: -9.14
+- ma20: 258.75
+- ma60: 257.32
+- ma120: 243.18
+- return_5d: -3.94
+- return_20d: -14.73
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -10.53
 - distance_to_high_60_pct: -18.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,269.5,271.5,269.5,271.5,271000,265.53,2.25,269.12,248.11,3.61
 20260529,270.5,270.5,270,270.5,270000,265.94,1.71,269.98,248.83,3.05
 20260601,255,268.5,255,267,262000,266.03,0.36,270.32,249.52,2.61
 20260602,259.5,268.5,259.5,268.5,266,266.24,0.85,270.6,250.19,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,242.5,242.5,241.5,242,4000,263.16,-8.04,265.68,257.51,0.03
 20260623,242,242,235,236,20000,260.9,-9.54,263.88,257.43,0.17
 20260624,235,236,235,236,5000,258.82,-8.82,262.27,257.43,0.05
-20260626,234,234,230,231.5,15000,256.54,-9.76,260.52,257.34,0.17
+20260625,235.5,236,234,236,11000,256.92,-8.14,260.75,257.42,0.12
+20260626,234,234,230,231.5,15000,254.8,-9.14,258.75,257.32,0.2
 ```
 
 ## Latest TDCC Snapshot

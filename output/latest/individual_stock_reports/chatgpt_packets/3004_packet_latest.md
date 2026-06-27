@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3004 豐達科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:15 Asia/Taipei
+- generated_at: 2026-06-27 22:23:18 Asia/Taipei
 - stock_id: 3004
 - stock_name: 豐達科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 127
 - close: 127.5
 - volume: 419438
-- ma5: 132.6
-- ema23_primary: 129.85
-- distance_to_ema23_pct: -1.81
-- ma20: 129.72
-- ma60: 121.73
-- ma120: 115.87
-- return_5d: -4.85
-- return_20d: 2.82
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -1.72
+- ma5: 131.6
+- ema23_primary: 129.81
+- distance_to_ema23_pct: -1.78
+- ma20: 130.3
+- ma60: 122.2
+- ma120: 116.09
+- return_5d: -5.2
+- return_20d: 8.05
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -2.15
 - distance_to_high_60_pct: -10.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,123.5,123.5,118,118,1126580,122.7,-3.83,122.67,114.02,1.19
 20260529,121,124.5,120.5,123.5,606384,122.77,0.6,123.03,114.24,0.63
 20260601,123.5,125,120,123.5,671744,122.83,0.55,123.42,114.55,0.69
 20260602,123.5,123.5,118.5,119.5,673967,122.55,-2.49,123.12,114.73,0.76
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,136,140.5,135.5,138,474278,129.78,6.33,130.3,120.31,0.51
 20260623,138,138,130.5,131,457539,129.89,0.86,129.82,120.77,0.53
 20260624,129,132,128,132,317193,130.06,1.49,129.55,121.28,0.38
-20260626,129.5,131,127,127.5,419438,129.85,-1.81,129.72,121.73,0.57
+20260625,132,133,129,129.5,243132,130.02,-0.4,129.82,121.76,0.33
+20260626,129.5,131,127,127.5,419438,129.81,-1.78,130.3,122.2,0.6
 ```
 
 ## Latest TDCC Snapshot

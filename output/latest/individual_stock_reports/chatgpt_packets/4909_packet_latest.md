@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4909 新復興
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4909
 - stock_name: 新復興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 44.5
 - close: 44.55
 - volume: 727000
-- ma5: 47.87
-- ema23_primary: 50.07
-- distance_to_ema23_pct: -11.02
-- ma20: 50
-- ma60: 54.4
-- ma120: 57
-- return_5d: -11.43
-- return_20d: -17.04
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: -10.9
+- ma5: 47.05
+- ema23_primary: 49.7
+- distance_to_ema23_pct: -10.37
+- ma20: 49.69
+- ma60: 54.24
+- ma120: 56.95
+- return_5d: -10.63
+- return_20d: -14.49
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -10.34
 - distance_to_high_60_pct: -34.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,54.2,55.7,51.6,52.1,54000,54.41,-4.25,53.63,58.02,0.06
 20260529,53.1,55.5,53,54.9,54000,54.45,0.82,53.64,57.78,0.07
 20260601,55.5,55.5,53.3,54,54000,54.41,-0.76,53.56,57.59,0.07
 20260602,54,54.5,51.9,53.3,53,54.32,-1.88,53.41,57.41,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49.95,50.7,49.8,49.85,794000,51.15,-2.54,51.33,54.93,1.8
 20260623,50.6,50.9,48.05,48.05,929000,50.89,-5.58,50.88,54.77,1.92
 20260624,47.6,48.55,46.8,47.05,597000,50.57,-6.96,50.46,54.6,1.17
-20260626,46.05,46.05,44.5,44.55,727000,50.07,-11.02,50,54.4,1.33
+20260625,47.4,47.7,45.7,45.75,740000,50.17,-8.81,50.06,54.42,1.36
+20260626,46.05,46.05,44.5,44.55,727000,49.7,-10.37,49.69,54.24,1.25
 ```
 
 ## Latest TDCC Snapshot

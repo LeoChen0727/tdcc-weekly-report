@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 31.65
 - close: 31.65
 - volume: 1981000
-- ma5: 33.85
-- ema23_primary: 33.46
-- distance_to_ema23_pct: -5.4
-- ma20: 33.68
+- ma5: 33.75
+- ema23_primary: 33.44
+- distance_to_ema23_pct: -5.35
+- ma20: 33.73
 - ma60: 33.27
-- ma120: 32.31
-- return_5d: -4.96
-- return_20d: -3.65
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: -6.02
+- ma120: 32.39
+- return_5d: -6.64
+- return_20d: -2.16
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -6.17
 - distance_to_high_60_pct: -15.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,32.85,34,32,32.35,33000,33.02,-2.02,32.87,33.38,0.02
 20260529,32.5,35.5,32.05,34.95,34000,33.18,5.34,33.05,33.4,0.03
 20260601,35.3,35.95,34.7,35.1,35000,33.34,5.28,33.2,33.45,0.03
 20260602,35.15,35.6,33.45,34.15,34,33.41,2.23,33.23,33.49,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.6,36.5,34.4,35.55,4324000,33.54,6,33.75,33.35,3.77
 20260623,35.85,35.95,33.8,34.2,2405000,33.59,1.81,33.72,33.32,1.9
 20260624,33.55,34.25,33.15,33.95,1198000,33.62,0.98,33.74,33.32,0.91
-20260626,33.45,33.55,31.65,31.65,1981000,33.46,-5.4,33.68,33.27,1.39
+20260625,34.25,35.15,33.4,33.4,2076000,33.6,-0.61,33.77,33.3,1.46
+20260626,33.45,33.55,31.65,31.65,1981000,33.44,-5.35,33.73,33.27,1.3
 ```
 
 ## Latest TDCC Snapshot

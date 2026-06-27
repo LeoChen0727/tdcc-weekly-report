@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6494 九齊
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:19 Asia/Taipei
+- generated_at: 2026-06-27 22:24:20 Asia/Taipei
 - stock_id: 6494
 - stock_name: 九齊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 62.7
 - close: 62.9
 - volume: 454000
-- ma5: 67.78
-- ema23_primary: 61.38
-- distance_to_ema23_pct: 2.47
-- ma20: 60.59
-- ma60: 55.44
-- ma120: 48.13
-- return_5d: -6.68
-- return_20d: 6.97
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 3.82
+- ma5: 67.18
+- ema23_primary: 61.76
+- distance_to_ema23_pct: 1.85
+- ma20: 60.95
+- ma60: 55.81
+- ma120: 48.38
+- return_5d: -9.1
+- return_20d: 6.61
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 3.21
 - distance_to_high_60_pct: -13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,59.7,62.5,58.4,59,61000,55.23,6.83,55.41,50.85,0.18
 20260529,59,59.8,57.6,59.1,59000,55.55,6.39,55.7,51.05,0.18
 20260601,59.3,60.5,57.2,57.2,58000,55.69,2.72,55.87,51.27,0.19
 20260602,57.2,57.4,55.7,57,56,55.8,2.16,55.99,51.48,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,70.3,72.2,68.6,69.2,1426000,59.81,15.71,59.25,54.43,2.4
 20260623,71.5,72.3,66.2,68.6,1309000,60.54,13.32,59.82,54.79,2
 20260624,69,70.3,66.9,69,795000,61.24,12.66,60.38,55.15,1.15
-20260626,66.2,66.4,62.7,62.9,454000,61.38,2.47,60.59,55.44,0.64
+20260625,69,69.2,66.2,66.2,450000,61.66,7.37,60.75,55.49,0.63
+20260626,66.2,66.4,62.7,62.9,454000,61.76,1.85,60.95,55.81,0.62
 ```
 
 ## Latest TDCC Snapshot

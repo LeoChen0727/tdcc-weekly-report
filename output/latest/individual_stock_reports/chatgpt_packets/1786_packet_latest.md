@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1786 科妍
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:46 Asia/Taipei
+- generated_at: 2026-06-27 22:22:50 Asia/Taipei
 - stock_id: 1786
 - stock_name: 科妍
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 52.1
 - close: 52.6
 - volume: 287227
-- ma5: 53.06
-- ema23_primary: 55.14
-- distance_to_ema23_pct: -4.6
-- ma20: 54.97
-- ma60: 57.88
-- ma120: 65.52
-- return_5d: -2.41
-- return_20d: -1.31
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -4.3
+- ma5: 53.04
+- ema23_primary: 54.99
+- distance_to_ema23_pct: -4.34
+- ma20: 55.02
+- ma60: 57.71
+- ma120: 65.34
+- return_5d: -1.68
+- return_20d: 0.77
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -4.41
 - distance_to_high_60_pct: -19.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,53.4,53.5,52.1,52.2,371753,57.14,-8.65,56.27,61.51,0.68
 20260529,52.8,53.1,52.2,52.6,252191,56.77,-7.34,56.02,61.18,0.46
 20260601,53.6,55,52.8,54.8,397101,56.6,-3.18,55.97,60.97,0.73
 20260602,54.9,55,53.3,54.5,255897,56.43,-3.41,55.88,60.7,0.47
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,54.5,54.5,52.7,53,323828,55.8,-5.01,55.12,58.49,0.78
 20260623,53.3,53.7,52.7,52.9,276549,55.55,-4.78,55.02,58.29,0.69
 20260624,52.9,54.3,52.5,53.3,285496,55.37,-3.73,55,58.09,0.71
-20260626,53.2,53.6,52.1,52.6,287227,55.14,-4.6,54.97,57.88,0.72
+20260625,53.2,54.3,52.4,53.4,243023,55.2,-3.27,55.01,57.9,0.61
+20260626,53.2,53.6,52.1,52.6,287227,54.99,-4.34,55.02,57.71,0.73
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:34 Asia/Taipei
+- generated_at: 2026-06-27 22:23:36 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 181.5
 - close: 181.5
 - volume: 3322802
-- ma5: 186.5
-- ema23_primary: 185.69
-- distance_to_ema23_pct: -2.26
-- ma20: 187.15
-- ma60: 178.07
-- ma120: 181.3
-- return_5d: -6.2
-- return_20d: -3.71
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: -3.02
+- ma5: 187.2
+- ema23_primary: 186.37
+- distance_to_ema23_pct: -2.61
+- ma20: 187.7
+- ma60: 178.7
+- ma120: 181.4
+- return_5d: -5.22
+- return_20d: -1.36
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -3.3
 - distance_to_high_60_pct: -7.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,190,191,183,184,1572264,180.69,1.83,179.15,180.32,0.78
 20260529,187.5,188,184.5,187.5,1241492,181.26,3.44,180.57,180.12,0.61
 20260601,191,195.5,188,193.5,3205909,182.28,6.16,182.03,180.1,1.48
 20260602,195,195,189,191.5,1810052,183.05,4.62,183.35,179.94,0.81
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,193.5,193.5,188,188,2104443,186.09,1.02,187.95,177.38,1.05
 20260623,191,192,179.5,181,4604341,185.67,-2.52,187.55,177.43,2.22
 20260624,183,192,180.5,190.5,3041374,186.07,2.38,187.5,177.85,1.42
-20260626,195.5,195.5,181.5,181.5,3322802,185.69,-2.26,187.15,178.07,1.5
+20260625,193,195,190,195,3895568,186.82,4.38,187.82,178.3,1.74
+20260626,195.5,195.5,181.5,181.5,3322802,186.37,-2.61,187.7,178.7,1.43
 ```
 
 ## Latest TDCC Snapshot

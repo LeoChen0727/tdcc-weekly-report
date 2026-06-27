@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6870 騰雲
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:32 Asia/Taipei
+- generated_at: 2026-06-27 22:24:33 Asia/Taipei
 - stock_id: 6870
 - stock_name: 騰雲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 257
 - close: 257
 - volume: 79000
-- ma5: 269.3
-- ema23_primary: 266.92
-- distance_to_ema23_pct: -3.72
-- ma20: 283.7
-- ma60: 222.49
-- ma120: 213.86
-- return_5d: -8.87
-- return_20d: 7.31
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -9.41
+- ma5: 266.6
+- ema23_primary: 267.24
+- distance_to_ema23_pct: -3.83
+- ma20: 284.15
+- ma60: 223.96
+- ma120: 214.02
+- return_5d: -9.98
+- return_20d: -2.28
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -9.55
 - distance_to_high_60_pct: -22.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,245,263,232,263,252000,209.05,25.81,202.85,192.83,1.68
 20260529,253,278,253,266,268000,213.8,24.42,207.22,194.16,1.67
 20260601,278,292.5,278,292.5,291000,220.36,32.74,212.72,196.03,1.7
 20260602,321.5,321.5,321.5,321.5,322,228.78,40.52,219.35,198.24,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,277.5,284,270,270,143000,267.94,0.77,279.43,218.72,0.57
 20260623,274.5,275,260,262.5,139000,267.49,-1.86,280.9,219.99,0.56
 20260624,262.5,275,258,271.5,116000,267.82,1.37,282.82,221.38,0.48
-20260626,271,271,257,257,79000,266.92,-3.72,283.7,222.49,0.34
+20260625,274,283,271,272,37000,268.17,1.43,284.45,222.74,0.16
+20260626,271,271,257,257,79000,267.24,-3.83,284.15,223.96,0.36
 ```
 
 ## Latest TDCC Snapshot

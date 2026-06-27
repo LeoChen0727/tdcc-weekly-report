@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2006 東和鋼鐵
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:47 Asia/Taipei
+- generated_at: 2026-06-27 22:22:51 Asia/Taipei
 - stock_id: 2006
 - stock_name: 東和鋼鐵
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 69.3
 - close: 69.8
 - volume: 4752764
-- ma5: 69.68
-- ema23_primary: 68.22
-- distance_to_ema23_pct: 2.31
-- ma20: 67.97
-- ma60: 67.91
-- ma120: 69.73
-- return_5d: 0.29
-- return_20d: 4.33
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 2.7
+- ma5: 69.78
+- ema23_primary: 68.37
+- distance_to_ema23_pct: 2.09
+- ma20: 68.14
+- ma60: 67.93
+- ma120: 69.78
+- return_5d: 0.43
+- return_20d: 5.12
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 2.43
 - distance_to_high_60_pct: -3.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,66.9,67,66.1,66.4,4043591,66.7,-0.45,66.11,70.66,1.86
 20260529,66.9,67.6,66.6,67.6,3585466,66.77,1.24,66.23,70.47,1.69
 20260601,67.9,67.9,66.8,67.6,1859124,66.84,1.13,66.28,70.28,0.88
 20260602,67.5,67.6,65.8,66.5,3202300,66.81,-0.47,66.27,70.04,1.46
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,70,70.8,69.1,69.6,8231213,67.76,2.72,67.42,68,2.38
 20260623,69.8,70.7,69.1,69.7,8539641,67.92,2.62,67.59,67.95,2.3
 20260624,69.7,71,69.5,69.8,9941447,68.08,2.53,67.82,67.92,2.46
-20260626,70,70.2,69.3,69.8,4752764,68.22,2.31,67.97,67.91,1.14
+20260625,69.9,71.8,69.7,70,9442130,68.24,2.58,67.97,67.91,2.15
+20260626,70,70.2,69.3,69.8,4752764,68.37,2.09,68.14,67.93,1.07
 ```
 
 ## Latest TDCC Snapshot

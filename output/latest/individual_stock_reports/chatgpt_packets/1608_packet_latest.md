@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1608 華榮
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:42 Asia/Taipei
+- generated_at: 2026-06-27 22:22:46 Asia/Taipei
 - stock_id: 1608
 - stock_name: 華榮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 32.8
 - close: 32.8
 - volume: 3743985
-- ma5: 34.32
-- ema23_primary: 34.38
-- distance_to_ema23_pct: -4.6
-- ma20: 34.93
-- ma60: 33.57
-- ma120: 34.81
-- return_5d: -5.61
-- return_20d: -2.53
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -6.1
+- ma5: 34.19
+- ema23_primary: 34.34
+- distance_to_ema23_pct: -4.49
+- ma20: 34.96
+- ma60: 33.6
+- ma120: 34.79
+- return_5d: -5.34
+- return_20d: -1.94
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -6.18
 - distance_to_high_60_pct: -16.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.95,34.45,33.4,33.45,8820319,33.09,1.09,33.12,33.02,2.29
 20260529,33.8,34.75,33.8,34.5,7478284,33.21,3.89,33.2,33.01,1.82
 20260601,34.8,35,34.1,34.8,5230771,33.34,4.38,33.27,33.03,1.27
 20260602,36.3,37.2,35.15,35.85,16323294,33.55,6.86,33.41,33.06,3.51
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.85,35.45,34.85,35.2,4030648,34.54,1.92,34.9,33.48,0.52
 20260623,35.35,35.4,34.4,34.45,3007907,34.53,-0.23,34.92,33.51,0.39
 20260624,34.3,34.85,34.1,34.5,1800650,34.53,-0.07,34.98,33.55,0.24
-20260626,33.8,33.8,32.8,32.8,3743985,34.38,-4.6,34.93,33.57,0.49
+20260625,35.1,35.2,34,34,3084214,34.48,-1.4,34.99,33.59,0.41
+20260626,33.8,33.8,32.8,32.8,3743985,34.34,-4.49,34.96,33.6,0.51
 ```
 
 ## Latest TDCC Snapshot

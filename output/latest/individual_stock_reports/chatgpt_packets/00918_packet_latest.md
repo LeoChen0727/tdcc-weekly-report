@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00918 大華優利高填息30
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:28 Asia/Taipei
+- generated_at: 2026-06-27 22:22:32 Asia/Taipei
 - stock_id: 00918
 - stock_name: 大華優利高填息30
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 31.1
 - close: 31.15
 - volume: 58149472
-- ma5: 31.87
-- ema23_primary: 30.65
-- distance_to_ema23_pct: 1.64
-- ma20: 31.04
-- ma60: 30.5
-- ma120: 30.5
-- return_5d: -4.62
-- return_20d: 9.07
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 0.37
+- ma5: 31.96
+- ema23_primary: 30.79
+- distance_to_ema23_pct: 1.16
+- ma20: 31.24
+- ma60: 30.58
+- ma120: 30.58
+- return_5d: -2.66
+- return_20d: 9.84
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -0.29
 - distance_to_high_60_pct: -4.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.67,29.02,28.17,28.36,44593896,27.34,3.74,27.92,27.92,1.51
 20260529,29.06,29.21,28.77,29.2,27351805,27.49,6.21,28.13,28.13,0.94
 20260601,29.94,30.61,29.87,30.46,108961858,27.74,9.8,28.46,28.46,2.69
 20260602,30.74,31.41,30.44,31.41,126166583,28.05,11.99,28.83,28.83,2.46
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.2,32.39,32.05,32.11,92837027,30.33,5.87,30.49,30.32,1.09
 20260623,32.38,32.65,31.98,32,71850348,30.47,5.02,30.7,30.4,0.82
 20260624,31.61,32.3,31.45,32.08,53625315,30.6,4.83,30.91,30.47,0.6
-20260626,32.07,32.07,31.1,31.15,58149472,30.65,1.64,31.04,30.5,0.65
+20260625,32.33,32.61,32.01,32.48,61652299,30.76,5.59,31.1,30.55,0.68
+20260626,32.07,32.07,31.1,31.15,58149472,30.79,1.16,31.24,30.58,0.64
 ```
 
 ## Latest TDCC Snapshot

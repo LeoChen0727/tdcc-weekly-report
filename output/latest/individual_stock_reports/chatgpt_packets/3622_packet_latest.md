@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3622 洋華
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:34 Asia/Taipei
+- generated_at: 2026-06-27 22:23:37 Asia/Taipei
 - stock_id: 3622
 - stock_name: 洋華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 54.2
 - close: 54.3
 - volume: 347612
-- ma5: 55.9
-- ema23_primary: 56.23
-- distance_to_ema23_pct: -3.43
-- ma20: 56.77
-- ma60: 56.15
-- ma120: 59.44
-- return_5d: -2.34
-- return_20d: -4.9
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -4.36
+- ma5: 55.88
+- ema23_primary: 56.16
+- distance_to_ema23_pct: -3.32
+- ma20: 56.73
+- ma60: 56.11
+- ma120: 59.35
+- return_5d: -2.51
+- return_20d: -3.72
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -4.29
 - distance_to_high_60_pct: -11.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,57.4,58,55.9,56.4,532825,55.95,0.81,55.76,56.92,1.07
 20260529,56.7,57,56.4,56.8,309346,56.02,1.4,55.81,56.88,0.62
 20260601,56.8,58.6,56.6,58.4,585949,56.22,3.88,55.95,56.9,1.14
 20260602,58.8,59,57,58.4,478056,56.4,3.55,56.06,56.89,0.91
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,55.8,56.7,55.6,56.5,350097,56.38,0.21,57.02,56.32,0.57
 20260623,56.4,56.8,56,56.6,273997,56.4,0.35,57.02,56.27,0.46
 20260624,56,56.5,55.7,56.4,310009,56.4,-0,56.91,56.23,0.56
-20260626,55.6,55.8,54.2,54.3,347612,56.23,-3.43,56.77,56.15,0.66
+20260625,56.7,56.7,55.6,55.6,235659,56.33,-1.3,56.84,56.17,0.45
+20260626,55.6,55.8,54.2,54.3,347612,56.16,-3.32,56.73,56.11,0.67
 ```
 
 ## Latest TDCC Snapshot

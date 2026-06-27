@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4766 南寶
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:49 Asia/Taipei
+- generated_at: 2026-06-27 22:23:51 Asia/Taipei
 - stock_id: 4766
 - stock_name: 南寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 338
 - close: 340
 - volume: 560632
-- ma5: 356.1
-- ema23_primary: 362.67
-- distance_to_ema23_pct: -6.25
-- ma20: 364.32
-- ma60: 358.18
-- ma120: 339.12
-- return_5d: -7.61
-- return_20d: -7.36
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -6.68
+- ma5: 350.9
+- ema23_primary: 361.24
+- distance_to_ema23_pct: -5.88
+- ma20: 363.82
+- ma60: 358.68
+- ma120: 339.3
+- return_5d: -8.6
+- return_20d: -4.49
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -6.55
 - distance_to_high_60_pct: -14.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,368.5,368.5,354.5,356,1209752,365.54,-2.61,371.57,345.27,0.75
 20260529,359,364.5,358,359,613775,364.99,-1.64,371.6,345.79,0.44
 20260601,363.5,374.5,361.5,372.5,880197,365.62,1.88,371.5,346.71,0.65
 20260602,372,375,363.5,372.5,994738,366.19,1.72,372,347.46,0.75
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,372.5,376,367.5,372,1311880,367.88,1.12,368.38,357.34,1.7
 20260623,359,362,348,350,937144,366.39,-4.47,367.1,357.5,1.28
 20260624,347,350.5,342.5,346.5,419340,364.73,-5,365.68,357.86,0.59
-20260626,346,349,338,340,560632,362.67,-6.25,364.32,358.18,0.81
+20260625,350,356.5,345.5,346,833811,363.17,-4.73,364.62,358.27,1.18
+20260626,346,349,338,340,560632,361.24,-5.88,363.82,358.68,0.83
 ```
 
 ## Latest TDCC Snapshot

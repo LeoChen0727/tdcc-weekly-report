@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:04 Asia/Taipei
+- generated_at: 2026-06-27 22:24:06 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 37.65
 - close: 37.8
 - volume: 14232867
-- ma5: 39.11
-- ema23_primary: 38.15
-- distance_to_ema23_pct: -0.92
-- ma20: 39.95
-- ma60: 33.04
-- ma120: 30.46
-- return_5d: -4.18
-- return_20d: 8
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -5.39
+- ma5: 38.94
+- ema23_primary: 38.2
+- distance_to_ema23_pct: -1.04
+- ma20: 40.09
+- ma60: 33.22
+- ma120: 30.57
+- return_5d: -4.67
+- return_20d: 5
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -5.72
 - distance_to_high_60_pct: -17.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.85,37.2,35.05,36,25048885,31.49,14.33,31.46,29.34,1.41
 20260529,36.8,38.5,36.5,38.5,17154226,32.07,20.04,31.99,29.46,0.95
 20260601,39.5,40.3,38.35,39.6,20435696,32.7,21.11,32.52,29.64,1.16
 20260602,39.55,41.25,39,41.25,21818173,33.41,23.46,33.09,29.82,1.25
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.2,40.35,39.65,39.8,16939884,38,4.73,39.19,32.52,0.7
 20260623,39.9,40.3,39.55,39.75,15260426,38.15,4.2,39.54,32.71,0.62
 20260624,39.4,39.4,38,38.55,21762523,38.18,0.97,39.81,32.88,0.87
-20260626,38.5,39,37.65,37.8,14232867,38.15,-0.92,39.95,33.04,0.58
+20260625,38.65,39.2,38.5,38.8,10154612,38.23,1.48,40.01,33.06,0.42
+20260626,38.5,39,37.65,37.8,14232867,38.2,-1.04,40.09,33.22,0.6
 ```
 
 ## Latest TDCC Snapshot

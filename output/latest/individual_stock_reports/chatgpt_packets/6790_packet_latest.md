@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6790 永豐實
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:29 Asia/Taipei
+- generated_at: 2026-06-27 22:24:30 Asia/Taipei
 - stock_id: 6790
 - stock_name: 永豐實
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 39.95
 - close: 40.1
 - volume: 258751
-- ma5: 40.07
-- ema23_primary: 39.8
-- distance_to_ema23_pct: 0.75
-- ma20: 39.73
+- ma5: 40.2
+- ema23_primary: 39.87
+- distance_to_ema23_pct: 0.57
+- ma20: 39.8
 - ma60: 39.88
-- ma120: 39.37
-- return_5d: 0
-- return_20d: 2.43
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 0.93
-- distance_to_high_60_pct: -2.79
+- ma120: 39.39
+- return_5d: 0.12
+- return_20d: 2.3
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 0.74
+- distance_to_high_60_pct: -2.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.2,39.4,39,39.2,200928,39.59,-1,39.66,39.93,0.97
 20260529,39.2,39.4,39.2,39.35,76259,39.57,-0.57,39.64,39.92,0.38
 20260601,39.4,39.65,39.1,39.5,280907,39.57,-0.17,39.61,39.92,1.38
 20260602,39.5,39.65,39.45,39.65,153883,39.57,0.19,39.6,39.92,0.75
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.2,40.2,39.85,39.95,240539,39.71,0.61,39.59,39.91,0.96
 20260623,40.05,40.25,39.95,40.2,260980,39.75,1.13,39.64,39.91,1.05
 20260624,40.1,40.3,39.85,40.05,112018,39.77,0.69,39.68,39.9,0.46
-20260626,40.4,40.4,39.95,40.1,258751,39.8,0.75,39.73,39.88,1.06
+20260625,40.35,40.9,40.2,40.7,284830,39.85,2.13,39.76,39.89,1.16
+20260626,40.4,40.4,39.95,40.1,258751,39.87,0.57,39.8,39.88,1.04
 ```
 
 ## Latest TDCC Snapshot

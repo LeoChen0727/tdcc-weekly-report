@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1446 宏和
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:36 Asia/Taipei
+- generated_at: 2026-06-27 22:22:40 Asia/Taipei
 - stock_id: 1446
 - stock_name: 宏和
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.25
 - close: 16.45
 - volume: 368362
-- ma5: 16.61
-- ema23_primary: 16.43
-- distance_to_ema23_pct: 0.11
-- ma20: 16.52
-- ma60: 16.15
-- ma120: 16.64
-- return_5d: -1.79
-- return_20d: 4.78
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -0.42
+- ma5: 16.59
+- ema23_primary: 16.45
+- distance_to_ema23_pct: 0.03
+- ma20: 16.55
+- ma60: 16.14
+- ma120: 16.63
+- return_5d: -1.5
+- return_20d: 3.46
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -0.63
 - distance_to_high_60_pct: -3.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.3,16.3,15.8,15.9,293346,15.69,1.33,15.54,16.09,1.36
 20260529,15.9,16.1,15.7,15.8,274252,15.7,0.64,15.54,16.09,1.24
 20260601,16,16.1,15.75,16.1,306353,15.73,2.33,15.56,16.11,1.34
 20260602,16,16.3,15.85,16.2,219457,15.77,2.71,15.6,16.12,0.94
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.7,16.7,16.45,16.55,319859,16.38,1.01,16.37,16.17,1
 20260623,16.6,16.8,16.5,16.7,366249,16.41,1.76,16.43,16.16,1.14
 20260624,16.65,16.8,16.5,16.65,259009,16.43,1.33,16.48,16.16,0.8
-20260626,16.5,16.6,16.25,16.45,368362,16.43,0.11,16.52,16.15,1.1
+20260625,16.7,16.75,16.5,16.6,281738,16.45,0.94,16.53,16.15,0.86
+20260626,16.5,16.6,16.25,16.45,368362,16.45,0.03,16.55,16.14,1.11
 ```
 
 ## Latest TDCC Snapshot

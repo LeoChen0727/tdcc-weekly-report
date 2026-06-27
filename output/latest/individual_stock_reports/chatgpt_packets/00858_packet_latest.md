@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:27 Asia/Taipei
+- generated_at: 2026-06-27 22:22:31 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 35.43
 - close: 35.51
 - volume: 667000
-- ma5: 35.86
-- ema23_primary: 35.83
-- distance_to_ema23_pct: -0.89
-- ma20: 35.84
+- ma5: 35.85
+- ema23_primary: 35.84
+- distance_to_ema23_pct: -0.91
+- ma20: 35.85
 - ma60: 35.85
 - ma120: 35.85
-- return_5d: -1.77
-- return_20d: -1.11
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: -0.91
+- return_5d: -1.39
+- return_20d: -0.53
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: -0.95
 - distance_to_high_60_pct: -2.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.92,35.93,35.7,35.7,36000,35.82,-0.33,35.85,35.85,1
 20260529,35.73,36.06,35.73,36.05,36000,35.84,0.59,35.89,35.89,1
 20260601,36.05,36.1,36.01,36.1,36000,35.86,0.67,35.92,35.92,1
 20260602,35.91,36.05,35.91,36.05,36,35.87,0.49,35.93,35.93,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,36.09,36.19,36.09,36.18,722000,35.87,0.87,35.87,35.87,2.05
 20260623,36.18,36.18,35.84,35.84,589000,35.87,-0.08,35.87,35.87,1.55
 20260624,35.61,35.77,35.58,35.77,525000,35.86,-0.25,35.86,35.86,1.3
-20260626,35.75,35.75,35.43,35.51,667000,35.83,-0.89,35.84,35.85,1.53
+20260625,35.77,35.96,35.77,35.96,296000,35.87,0.26,35.86,35.87,0.71
+20260626,35.75,35.75,35.43,35.51,667000,35.84,-0.91,35.85,35.85,1.49
 ```
 
 ## Latest TDCC Snapshot

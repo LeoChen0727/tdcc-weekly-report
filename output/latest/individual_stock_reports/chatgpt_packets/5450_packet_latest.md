@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5450 南良
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:01 Asia/Taipei
 - stock_id: 5450
 - stock_name: 南良
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.6
 - close: 14.6
 - volume: 365000
-- ma5: 14.89
-- ema23_primary: 14.17
-- distance_to_ema23_pct: 3.05
-- ma20: 14.09
-- ma60: 13.67
-- ma120: 14.07
-- return_5d: 2.82
-- return_20d: 16.8
-- volume_ratio: 1.52
-- distance_to_ma20_pct_auxiliary: 3.66
+- ma5: 15
+- ema23_primary: 14.22
+- distance_to_ema23_pct: 2.68
+- ma20: 14.2
+- ma60: 13.68
+- ma120: 14.08
+- return_5d: 2.46
+- return_20d: 15.87
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 2.85
 - distance_to_high_60_pct: -8.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.65,12.7,12.5,12.6,13000,12.96,-2.81,12.79,13.81,0.34
 20260529,12.7,13,12.65,12.8,13000,12.95,-1.16,12.78,13.78,0.35
 20260601,12.95,12.95,12.7,12.8,13000,12.94,-1.07,12.77,13.76,0.36
 20260602,12.8,12.95,12.7,12.95,13,12.94,0.08,12.77,13.73,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.5,15.65,14.5,15.65,653000,13.97,12.04,13.77,13.65,3.74
 20260623,15.8,15.9,14.85,15.15,593000,14.07,7.7,13.88,13.66,2.91
 20260624,15.25,15.35,14.55,14.8,382000,14.13,4.76,13.98,13.67,1.72
-20260626,14.9,15.4,14.6,14.6,365000,14.17,3.05,14.09,13.67,1.52
+20260625,14.8,14.95,14.75,14.8,153000,14.18,4.34,14.1,13.67,0.67
+20260626,14.9,15.4,14.6,14.6,365000,14.22,2.68,14.2,13.68,1.48
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6578 達邦蛋白
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6578
 - stock_name: 達邦蛋白
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.1
 - close: 16.1
 - volume: 67000
-- ma5: 16.32
-- ema23_primary: 16.56
-- distance_to_ema23_pct: -2.77
-- ma20: 16.64
-- ma60: 16.68
-- ma120: 17.84
-- return_5d: -2.72
-- return_20d: -3.3
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -3.26
+- ma5: 16.25
+- ema23_primary: 16.52
+- distance_to_ema23_pct: -2.55
+- ma20: 16.63
+- ma60: 16.66
+- ma120: 17.82
+- return_5d: -2.13
+- return_20d: -1.83
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -3.17
 - distance_to_high_60_pct: -11.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.65,16.7,16,16.4,16000,16.51,-0.66,16.05,17.09,0.08
 20260529,16.35,16.7,16.35,16.6,17000,16.52,0.51,16.11,17.07,0.09
 20260601,16.6,16.6,16,16.35,16000,16.5,-0.92,16.16,17.05,0.09
 20260602,16.45,16.7,16.35,16.6,16,16.51,0.54,16.22,17.03,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.8,16.8,16.15,16.45,116000,16.66,-1.25,16.76,16.76,2.13
 20260623,16.25,16.35,16.1,16.3,44000,16.63,-1.98,16.72,16.73,0.79
 20260624,16,16.3,16,16.3,58000,16.6,-1.81,16.67,16.71,1
-20260626,16.1,16.25,16.1,16.1,67000,16.56,-2.77,16.64,16.68,1.11
+20260625,16.3,16.3,16,16.1,108000,16.56,-2.77,16.64,16.68,1.73
+20260626,16.1,16.25,16.1,16.1,67000,16.52,-2.55,16.63,16.66,1.03
 ```
 
 ## Latest TDCC Snapshot

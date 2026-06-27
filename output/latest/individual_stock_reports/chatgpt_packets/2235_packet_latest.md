@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2235 謚源
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:52 Asia/Taipei
+- generated_at: 2026-06-27 22:22:56 Asia/Taipei
 - stock_id: 2235
 - stock_name: 謚源
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 114
+- price_rows: 115
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 30.3
 - close: 30.3
 - volume: 9000
-- ma5: 30.36
+- ma5: 30.45
 - ema23_primary: 30.47
-- distance_to_ema23_pct: -0.56
+- distance_to_ema23_pct: -0.55
 - ma20: 30.49
-- ma60: 31.57
-- ma120: 32.88
+- ma60: 31.52
+- ma120: 32.86
 - return_5d: 1
-- return_20d: 0.66
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.62
+- return_20d: -0.66
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -0.61
 - distance_to_high_60_pct: -16.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,29.25,30.5,29.25,30.5,30000,30.93,-1.39,30.86,33.02,2.36
 20260528,30.5,31.95,30.5,31.95,31000,31.02,3.01,30.82,32.97,2.19
 20260529,32,32.6,31.8,32.3,32000,31.12,3.78,30.77,32.92,2.08
 20260601,30.3,30.8,30.05,30.5,30000,31.07,-1.84,30.68,32.83,1.81
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31,31,31,31,1000,30.53,1.54,30.46,31.73,0.05
 20260623,30.25,30.25,30.25,30.25,1000,30.51,-0.84,30.47,31.67,0.05
 20260624,30.25,30.25,30.2,30.25,6000,30.49,-0.77,30.48,31.62,0.35
-20260626,31.45,31.45,30.3,30.3,9000,30.47,-0.56,30.49,31.57,0.56
+20260625,29.75,30.45,29.75,30.45,6000,30.48,-0.11,30.5,31.57,0.38
+20260626,31.45,31.45,30.3,30.3,9000,30.47,-0.55,30.49,31.52,0.61
 ```
 
 ## Latest TDCC Snapshot

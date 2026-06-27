@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9943 好樂迪
 
 ## Metadata
-- generated_at: 2026-06-26 22:25:00 Asia/Taipei
+- generated_at: 2026-06-27 22:25:00 Asia/Taipei
 - stock_id: 9943
 - stock_name: 好樂迪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 56.4
 - close: 56.6
 - volume: 143176
-- ma5: 57.16
-- ema23_primary: 56.82
-- distance_to_ema23_pct: -0.38
-- ma20: 56.84
-- ma60: 56.51
-- ma120: 57.92
-- return_5d: -1.91
-- return_20d: 2.54
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: -0.41
+- ma5: 57.1
+- ema23_primary: 56.85
+- distance_to_ema23_pct: -0.44
+- ma20: 56.92
+- ma60: 56.5
+- ma120: 57.89
+- return_5d: -1.74
+- return_20d: 1.98
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: -0.57
 - distance_to_high_60_pct: -3.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,55.3,55.8,55.2,55.5,99013,55.82,-0.57,55.75,56.84,1.09
 20260529,55.9,56.1,55.6,55.8,71551,55.82,-0.03,55.77,56.8,0.8
 20260601,55.7,55.8,55.3,55.6,130897,55.8,-0.35,55.77,56.77,1.42
 20260602,55.7,56.7,55.6,56,106284,55.81,0.33,55.76,56.75,1.12
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,57.6,57.6,57.1,57.4,106716,56.78,1.08,56.61,56.6,0.98
 20260623,57.4,57.4,56.9,57.1,101174,56.81,0.51,56.7,56.56,1.04
 20260624,57.2,57.3,56.5,57.1,56673,56.83,0.47,56.77,56.54,0.59
-20260626,57.5,57.5,56.4,56.6,143176,56.82,-0.38,56.84,56.51,1.44
+20260625,57,57.4,56.9,57.3,50661,56.87,0.75,56.87,56.52,0.54
+20260626,57.5,57.5,56.4,56.6,143176,56.85,-0.44,56.92,56.5,1.48
 ```
 
 ## Latest TDCC Snapshot

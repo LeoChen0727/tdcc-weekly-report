@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4972 湯石照明
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4972
 - stock_name: 湯石照明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.8
 - close: 16.9
 - volume: 71000
-- ma5: 16.88
-- ema23_primary: 16.74
-- distance_to_ema23_pct: 0.98
-- ma20: 16.72
-- ma60: 16.76
-- ma120: 17.35
-- return_5d: 0.3
-- return_20d: 2.74
-- volume_ratio: 3.03
-- distance_to_ma20_pct_auxiliary: 1.08
+- ma5: 16.87
+- ema23_primary: 16.75
+- distance_to_ema23_pct: 0.92
+- ma20: 16.74
+- ma60: 16.75
+- ma120: 17.34
+- return_5d: 0
+- return_20d: 2.42
+- volume_ratio: 2.68
+- distance_to_ma20_pct_auxiliary: 0.97
 - distance_to_high_60_pct: -4.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.45,16.5,16.4,16.5,16000,16.54,-0.25,16.43,17.09,0.31
 20260529,16.4,16.45,16.4,16.45,16000,16.53,-0.5,16.43,17.06,0.31
 20260601,16.45,16.8,16.45,16.55,17000,16.53,0.09,16.44,17.04,0.35
 20260602,16.6,16.6,16.3,16.5,16,16.53,-0.19,16.45,17.02,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.9,16.9,16.8,16.85,33000,16.69,0.95,16.65,16.8,1.58
 20260623,16.95,16.95,16.8,16.9,15000,16.71,1.14,16.68,16.79,0.72
 20260624,16.9,17.05,16.85,16.85,13000,16.72,0.77,16.7,16.78,0.63
-20260626,16.85,16.95,16.8,16.9,71000,16.74,0.98,16.72,16.76,3.03
+20260625,17,17,16.8,16.85,77000,16.73,0.71,16.72,16.76,3.24
+20260626,16.85,16.95,16.8,16.9,71000,16.75,0.92,16.74,16.75,2.68
 ```
 
 ## Latest TDCC Snapshot

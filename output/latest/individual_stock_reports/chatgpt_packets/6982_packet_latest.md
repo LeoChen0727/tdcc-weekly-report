@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6982 大井泵浦
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:36 Asia/Taipei
+- generated_at: 2026-06-27 22:24:36 Asia/Taipei
 - stock_id: 6982
 - stock_name: 大井泵浦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 52.5
 - close: 52.5
 - volume: 116000
-- ma5: 57.02
-- ema23_primary: 57.15
-- distance_to_ema23_pct: -8.14
-- ma20: 58.1
-- ma60: 55.4
-- ma120: 57.4
-- return_5d: -9.95
-- return_20d: -4.89
-- volume_ratio: 1.81
-- distance_to_ma20_pct_auxiliary: -9.64
+- ma5: 56.32
+- ema23_primary: 56.95
+- distance_to_ema23_pct: -7.82
+- ma20: 58.09
+- ma60: 55.45
+- ma120: 57.33
+- return_5d: -10.26
+- return_20d: -5.06
+- volume_ratio: 1.78
+- distance_to_ma20_pct_auxiliary: -9.62
 - distance_to_high_60_pct: -21.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,53.8,57,53.8,55.3,55000,54.14,2.15,53.51,53.87,1.06
 20260529,56,56,55.1,55.4,55000,54.24,2.14,53.63,53.84,1.04
 20260601,56,56,54.7,55.1,55000,54.31,1.45,53.71,53.85,1.06
 20260602,57.4,57.4,55.1,56,56,54.45,2.84,53.81,53.84,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.7,59,58.6,59,54000,57.59,2.46,58.17,55.22,0.91
 20260623,59.2,59.2,57.6,58.6,67000,57.67,1.61,58.26,55.31,1.12
 20260624,57,57.2,56,56.5,78000,57.57,-1.86,58.23,55.39,1.28
-20260626,54.2,54.5,52.5,52.5,116000,57.15,-8.14,58.1,55.4,1.81
+20260625,55.6,55.8,54.9,55,76000,57.36,-4.11,58.23,55.44,1.23
+20260626,54.2,54.5,52.5,52.5,116000,56.95,-7.82,58.09,55.45,1.78
 ```
 
 ## Latest TDCC Snapshot

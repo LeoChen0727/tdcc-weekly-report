@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2393 億光
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:01 Asia/Taipei
 - stock_id: 2393
 - stock_name: 億光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 67.3
 - close: 67.6
 - volume: 2735003
-- ma5: 69.64
-- ema23_primary: 68.44
-- distance_to_ema23_pct: -1.22
-- ma20: 67.75
-- ma60: 68.81
-- ma120: 63.9
-- return_5d: -5.45
-- return_20d: 7.82
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -0.21
+- ma5: 69.34
+- ema23_primary: 68.48
+- distance_to_ema23_pct: -1.29
+- ma20: 68.08
+- ma60: 68.84
+- ma120: 64.02
+- return_5d: -4.25
+- return_20d: 8.51
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -0.71
 - distance_to_high_60_pct: -9.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,62.9,63.4,61.7,62.3,2711238,66.68,-6.57,67.72,67.64,0.7
 20260529,62.6,63.5,62.1,62.5,2865722,66.33,-5.78,67.29,67.71,0.75
 20260601,62.8,64.5,62.6,64.4,3534669,66.17,-2.68,66.92,67.85,0.91
 20260602,64.5,64.8,63.2,64.6,3332641,66.04,-2.18,66.54,67.95,0.87
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,70.7,71.7,70.2,70.8,2492605,68.31,3.65,67.05,68.84,0.65
 20260623,71.1,71.4,69.4,69.5,2757930,68.41,1.6,67.25,68.84,0.72
 20260624,69.5,70,68.4,69.7,1357872,68.51,1.73,67.5,68.84,0.36
-20260626,68.8,68.9,67.3,67.6,2735003,68.44,-1.22,67.75,68.81,0.74
+20260625,69.8,70.5,69.1,69.1,1570827,68.56,0.78,67.82,68.84,0.43
+20260626,68.8,68.9,67.3,67.6,2735003,68.48,-1.29,68.08,68.84,0.76
 ```
 
 ## Latest TDCC Snapshot

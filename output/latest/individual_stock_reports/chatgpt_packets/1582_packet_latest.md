@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1582 信錦
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:41 Asia/Taipei
+- generated_at: 2026-06-27 22:22:45 Asia/Taipei
 - stock_id: 1582
 - stock_name: 信錦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 83
 - close: 83.4
 - volume: 2406726
-- ma5: 90.38
-- ema23_primary: 95.98
-- distance_to_ema23_pct: -13.1
-- ma20: 98.55
-- ma60: 99.69
-- ma120: 86.83
-- return_5d: -8.85
-- return_20d: -24.18
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -15.37
+- ma5: 89.22
+- ema23_primary: 95.28
+- distance_to_ema23_pct: -12.47
+- ma20: 97.27
+- ma60: 99.46
+- ma120: 87.01
+- return_5d: -11.09
+- return_20d: -26.52
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -14.26
 - distance_to_high_60_pct: -32.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,110.5,121,110,113.5,21256228,103.97,9.16,101.19,96.64,2.1
 20260529,121.5,123,116,119.5,12841930,105.27,13.52,102.73,97.36,1.2
 20260601,121,121.5,112,114,10144671,105.99,7.55,103.73,97.9,0.93
 20260602,114.5,115,109,112,4372763,106.49,5.17,104.66,98.4,0.4
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,94.2,97.5,93.3,93.9,2727998,98.4,-4.57,102.11,99.95,0.42
 20260623,94.3,94.3,90.2,90.5,2366427,97.74,-7.41,100.94,100.05,0.41
 20260624,90,91.4,89.5,90.3,1561571,97.12,-7.02,99.88,100,0.29
-20260626,87.6,87.9,83,83.4,2406726,95.98,-13.1,98.55,99.69,0.46
+20260625,90.7,91.5,88,88,1761862,96.36,-8.67,98.78,99.77,0.34
+20260626,87.6,87.9,83,83.4,2406726,95.28,-12.47,97.27,99.46,0.57
 ```
 
 ## Latest TDCC Snapshot

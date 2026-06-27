@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2904 匯僑
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:13 Asia/Taipei
+- generated_at: 2026-06-27 22:23:16 Asia/Taipei
 - stock_id: 2904
 - stock_name: 匯僑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.1
 - close: 14.15
 - volume: 29047
-- ma5: 14.19
-- ema23_primary: 14.31
-- distance_to_ema23_pct: -1.12
+- ma5: 14.2
+- ema23_primary: 14.3
+- distance_to_ema23_pct: -1.05
 - ma20: 14.14
-- ma60: 15.31
-- ma120: 16.2
-- return_5d: 0.71
-- return_20d: 0
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 0.09
-- distance_to_high_60_pct: -17.73
+- ma60: 15.26
+- ma120: 16.17
+- return_5d: 0
+- return_20d: 0.71
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 0.04
+- distance_to_high_60_pct: -16.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14.15,14.4,14,14.05,55425,15.01,-6.38,15.05,16.24,0.58
 20260529,14.05,14.25,14.05,14.1,52142,14.93,-5.57,14.94,16.18,0.54
 20260601,14.05,14.45,14,14.2,137837,14.87,-4.51,14.84,16.13,1.36
 20260602,14.2,14.3,14.05,14.2,39767,14.82,-4.15,14.74,16.07,0.41
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.15,14.2,14.1,14.2,37466,14.34,-1,14.13,15.44,0.52
 20260623,14.3,14.35,14.15,14.25,30052,14.34,-0.6,14.14,15.4,0.45
 20260624,14.25,14.25,14.1,14.2,21443,14.32,-0.87,14.14,15.35,0.33
-20260626,14.2,14.2,14.1,14.15,29047,14.31,-1.12,14.14,15.31,0.46
+20260625,14.35,14.35,14.15,14.2,26276,14.31,-0.8,14.14,15.31,0.42
+20260626,14.2,14.2,14.1,14.15,29047,14.3,-1.05,14.14,15.26,0.47
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:37 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 108
 - close: 108.5
 - volume: 943407
-- ma5: 113.9
-- ema23_primary: 117.59
-- distance_to_ema23_pct: -7.73
-- ma20: 118.22
-- ma60: 119.65
-- ma120: 118.68
-- return_5d: -5.24
-- return_20d: -17.18
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -8.23
+- ma5: 113.6
+- ema23_primary: 117.33
+- distance_to_ema23_pct: -7.52
+- ma20: 117.78
+- ma60: 119.46
+- ma120: 118.66
+- return_5d: -6.87
+- return_20d: -12.5
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -7.88
 - distance_to_high_60_pct: -22.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,132,133.5,123,124,2389494,122.33,1.36,121.45,120.87,1.52
 20260529,126,126.5,123.5,124.5,873664,122.51,1.62,121.85,120.95,0.55
 20260601,124.5,125,119,119,1921018,122.22,-2.63,121.78,121.06,1.16
 20260602,120,120.5,116,119.5,1388917,121.99,-2.04,121.45,121.12,0.85
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,117.5,118.5,115,115.5,983541,119.16,-3.07,120.72,120.08,0.74
 20260623,115.5,115.5,113.5,114.5,646482,118.77,-3.6,120.2,119.97,0.49
 20260624,115,115,112.5,114.5,372075,118.41,-3.31,119.35,119.88,0.34
-20260626,108,111.5,108,108.5,943407,117.59,-7.73,118.22,119.65,1.03
+20260625,115.5,117,114.5,115,1040793,118.13,-2.65,118.55,119.76,1.12
+20260626,108,111.5,108,108.5,943407,117.33,-7.52,117.78,119.46,1.11
 ```
 
 ## Latest TDCC Snapshot

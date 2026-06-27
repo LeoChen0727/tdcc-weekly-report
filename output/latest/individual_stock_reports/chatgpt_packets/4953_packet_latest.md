@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4953 緯致
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4953
 - stock_name: 緯致
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 122.5
 - close: 122.5
 - volume: 669000
-- ma5: 128.5
-- ema23_primary: 130.33
-- distance_to_ema23_pct: -6.01
-- ma20: 133.68
-- ma60: 123.72
+- ma5: 127.3
+- ema23_primary: 129.98
+- distance_to_ema23_pct: -5.75
+- ma20: 134
+- ma60: 124
 - ma120: 122.82
-- return_5d: -7.89
-- return_20d: 2.51
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -8.36
+- return_5d: -7.55
+- return_20d: 2.08
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -8.58
 - distance_to_high_60_pct: -15.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,120,123.5,120,120,121000,119.72,0.24,119.92,117.29,0.39
 20260529,121,124,121,122.5,123000,119.95,2.13,120.1,117.46,0.4
 20260601,125,134,125,132,130000,120.95,9.13,120.6,117.86,0.43
 20260602,133,138,131,135.5,134,122.16,10.92,121.28,118.26,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,134,134.5,132,132.5,500000,131.72,0.59,133.05,123.08,0.96
 20260623,133.5,134,128,128.5,762000,131.45,-2.24,133.3,123.32,1.38
 20260624,127,128,125,126.5,505000,131.04,-3.46,133.53,123.54,0.88
-20260626,125.5,125.5,122.5,122.5,669000,130.33,-6.01,133.68,123.72,1.12
+20260625,128,129.5,126.5,126.5,356000,130.66,-3.18,133.88,123.78,0.61
+20260626,125.5,125.5,122.5,122.5,669000,129.98,-5.75,134,124,1.1
 ```
 
 ## Latest TDCC Snapshot

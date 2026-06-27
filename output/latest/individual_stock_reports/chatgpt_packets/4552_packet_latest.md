@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4552 力達-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:45 Asia/Taipei
+- generated_at: 2026-06-27 22:23:47 Asia/Taipei
 - stock_id: 4552
 - stock_name: 力達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 20.05
 - close: 20.15
 - volume: 106408
-- ma5: 21.05
+- ma5: 20.89
 - ema23_primary: 20.8
-- distance_to_ema23_pct: -3.15
-- ma20: 20.84
+- distance_to_ema23_pct: -3.11
+- ma20: 20.89
 - ma60: 20.56
-- ma120: 21.93
-- return_5d: -5.4
-- return_20d: 1.26
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -3.32
+- ma120: 21.91
+- return_5d: -6.5
+- return_20d: 2.28
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -3.57
 - distance_to_high_60_pct: -7.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.9,19.95,19.65,19.7,124056,20.08,-1.89,19.93,20.95,0.85
 20260529,19.7,19.95,19.6,19.95,54680,20.07,-0.59,19.93,20.88,0.38
 20260601,19.95,20.6,19.95,20.55,306994,20.11,2.19,19.96,20.84,1.98
 20260602,20.55,20.7,20.2,20.7,151267,20.16,2.69,20,20.8,0.98
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.35,21.55,21.25,21.45,159047,20.83,2.98,20.73,20.59,1.15
 20260623,21.4,21.4,21,21,44429,20.84,0.75,20.77,20.58,0.35
 20260624,21,21.4,20.95,21.1,48589,20.86,1.13,20.83,20.58,0.41
-20260626,20.6,20.7,20.05,20.15,106408,20.8,-3.15,20.84,20.56,0.92
+20260625,20.85,21.05,20.75,20.75,44137,20.85,-0.5,20.87,20.57,0.39
+20260626,20.6,20.7,20.05,20.15,106408,20.8,-3.11,20.89,20.56,0.95
 ```
 
 ## Latest TDCC Snapshot

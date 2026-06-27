@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6233 旺玖
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:13 Asia/Taipei
+- generated_at: 2026-06-27 22:24:14 Asia/Taipei
 - stock_id: 6233
 - stock_name: 旺玖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 25.35
 - close: 25.4
 - volume: 762000
-- ma5: 25.8
-- ema23_primary: 25.14
-- distance_to_ema23_pct: 1.02
-- ma20: 24.78
-- ma60: 25.9
-- ma120: 25.53
-- return_5d: 5.18
-- return_20d: 0
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: 2.5
+- ma5: 25.98
+- ema23_primary: 25.21
+- distance_to_ema23_pct: 0.77
+- ma20: 24.83
+- ma60: 25.91
+- ma120: 25.56
+- return_5d: 1.4
+- return_20d: 1.6
+- volume_ratio: 1.8
+- distance_to_ma20_pct_auxiliary: 2.31
 - distance_to_high_60_pct: -17.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.5,26,25,25,25000,26.2,-4.57,26.37,26.67,0.05
 20260529,25.15,25.35,25,25.1,25000,26.11,-3.86,26.21,26.64,0.05
 20260601,26.3,26.35,25.35,25.65,26000,26.07,-1.61,26.05,26.65,0.06
 20260602,25.85,25.85,24.9,25.05,25,25.98,-3.59,25.84,26.63,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.15,27.05,25,26.1,1003000,24.9,4.8,24.79,25.95,4.25
 20260623,26.5,26.9,25.4,25.45,761000,24.95,2.01,24.73,25.92,2.79
 20260624,25.45,27.35,25.45,27,1445000,25.12,7.48,24.78,25.92,4.2
-20260626,25.85,26.95,25.35,25.4,762000,25.14,1.02,24.78,25.9,2
+20260625,27.3,27.3,25.95,25.95,866000,25.19,3.02,24.81,25.91,2.25
+20260626,25.85,26.95,25.35,25.4,762000,25.21,0.77,24.83,25.91,1.8
 ```
 
 ## Latest TDCC Snapshot

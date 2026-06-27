@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4129 聯合
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:42 Asia/Taipei
 - stock_id: 4129
 - stock_name: 聯合
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 88.5
 - volume: 289000
 - ma5: 90.18
-- ema23_primary: 90.8
-- distance_to_ema23_pct: -2.53
-- ma20: 89.83
-- ma60: 95.48
-- ma120: 102.54
+- ema23_primary: 90.79
+- distance_to_ema23_pct: -2.52
+- ma20: 89.88
+- ma60: 95.31
+- ma120: 102.35
 - return_5d: -2.64
 - return_20d: -1.67
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: -1.49
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: -1.54
 - distance_to_high_60_pct: -18.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,90.1,90.3,89.2,90,90000,94.29,-4.55,94.03,100.9,0.29
 20260529,90,90.5,89.7,90,90000,93.93,-4.19,93.61,100.63,0.29
 20260601,90.2,90.2,88.5,88.8,89000,93.51,-5.03,93.09,100.38,0.29
 20260602,88.1,88.8,87.6,88,88,93.05,-5.42,92.53,100.11,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,91,91,90.2,90.3,217000,91.08,-0.86,89.87,96.06,1.55
 20260623,90.6,90.7,89.8,90.1,105000,91,-0.99,89.87,95.86,0.75
 20260624,90.6,91.1,90.4,91.1,155000,91.01,0.1,89.91,95.69,1.08
-20260626,90.9,90.9,88.4,88.5,289000,90.8,-2.53,89.83,95.48,1.88
+20260625,91.4,91.5,90.3,90.9,167000,91,-0.11,89.95,95.52,1.13
+20260626,90.9,90.9,88.4,88.5,289000,90.79,-2.52,89.88,95.31,1.84
 ```
 
 ## Latest TDCC Snapshot

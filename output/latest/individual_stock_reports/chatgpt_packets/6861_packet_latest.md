@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 302
 - close: 303
 - volume: 657949
-- ma5: 352.7
-- ema23_primary: 351.69
-- distance_to_ema23_pct: -13.84
-- ma20: 352.68
-- ma60: 310.38
-- ma120: 203.3
-- return_5d: -10.22
-- return_20d: -34.42
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -14.09
+- ma5: 345.2
+- ema23_primary: 349.96
+- distance_to_ema23_pct: -13.42
+- ma20: 348.55
+- ma60: 313.7
+- ma120: 205.6
+- return_5d: -18.33
+- return_20d: -27.16
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -13.07
 - distance_to_high_60_pct: -38.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,463.5,470,416,416,1599761,384.13,8.3,413.77,247.99,1.52
 20260529,419.5,452.5,417,440,1766201,388.79,13.17,419.38,253.03,1.59
 20260601,435,439,396,396,2244673,389.39,1.7,421.15,257.23,1.88
 20260602,390,395.5,356.5,370,3070621,387.77,-4.58,419.82,260.85,2.34
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,408,408,375.5,378.5,1385169,356.25,6.25,368.65,300.69,0.99
 20260623,377.5,378.5,342.5,358,945795,356.4,0.45,365.45,304.16,0.7
 20260624,356,374.5,348.5,353,901819,356.11,-0.87,360.62,307.63,0.72
-20260626,320,330,302,303,657949,351.69,-13.84,352.68,310.38,0.57
+20260625,366.5,366.5,327.5,333.5,716671,354.23,-5.85,354.2,310.89,0.62
+20260626,320,330,302,303,657949,349.96,-13.42,348.55,313.7,0.59
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2457 飛宏
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:01 Asia/Taipei
+- generated_at: 2026-06-27 22:23:05 Asia/Taipei
 - stock_id: 2457
 - stock_name: 飛宏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 27
 - close: 27
 - volume: 5709611
-- ma5: 29.51
-- ema23_primary: 28.5
-- distance_to_ema23_pct: -5.28
-- ma20: 28.94
-- ma60: 26.16
-- ma120: 27.76
-- return_5d: -6.9
-- return_20d: 7.14
+- ma5: 29.57
+- ema23_primary: 28.54
+- distance_to_ema23_pct: -5.39
+- ma20: 29.14
+- ma60: 26.23
+- ma120: 27.75
+- return_5d: -6.25
+- return_20d: 7.36
 - volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -6.7
+- distance_to_ma20_pct_auxiliary: -7.33
 - distance_to_high_60_pct: -17.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.2,26,24.7,25.15,3685718,25.16,-0.04,25.06,25.68,1.2
 20260529,25.4,26,25.15,26,3856330,25.23,3.05,25.16,25.62,1.21
 20260601,27,27.4,26.4,26.85,5181637,25.37,5.85,25.27,25.59,1.56
 20260602,26.85,26.85,26,26.5,4168094,25.46,4.09,25.31,25.55,1.24
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29.2,31.65,28.8,31.5,17959829,28.36,11.07,28.48,26.02,1.85
 20260623,31.4,32.35,29.9,30.35,11733071,28.53,6.4,28.65,26.08,1.17
 20260624,29.9,30.7,29.55,29.9,4747837,28.64,4.4,28.85,26.14,0.47
-20260626,29.1,29.1,27,27,5709611,28.5,-5.28,28.94,26.16,0.56
+20260625,30.35,30.5,29.1,29.1,3585516,28.68,1.47,29.04,26.2,0.36
+20260626,29.1,29.1,27,27,5709611,28.54,-5.39,29.14,26.23,0.56
 ```
 
 ## Latest TDCC Snapshot

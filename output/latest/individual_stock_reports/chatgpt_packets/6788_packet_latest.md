@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6788 華景電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:29 Asia/Taipei
+- generated_at: 2026-06-27 22:24:30 Asia/Taipei
 - stock_id: 6788
 - stock_name: 華景電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 422
 - close: 422
 - volume: 908000
-- ma5: 437.7
-- ema23_primary: 431
-- distance_to_ema23_pct: -2.09
-- ma20: 429.25
-- ma60: 425.09
-- ma120: 383.07
-- return_5d: -2.99
-- return_20d: 0.72
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -1.69
+- ma5: 438.7
+- ema23_primary: 431.85
+- distance_to_ema23_pct: -2.28
+- ma20: 430.52
+- ma60: 426.39
+- ma120: 383.95
+- return_5d: -3.65
+- return_20d: 1.08
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -1.98
 - distance_to_high_60_pct: -23.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,420,425,416,417.5,420000,424.5,-1.65,431.7,400.5,0.4
 20260529,423,423.5,417.5,423.5,421000,424.42,-0.22,430.77,402.05,0.41
 20260601,424.5,429,420,425.5,425000,424.51,0.23,430.12,403.96,0.43
 20260602,412.5,414.5,401,401.5,406,422.59,-4.99,428.1,404.95,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,443,449,436.5,443.5,919000,429.67,3.22,427.4,422.68,0.87
 20260623,445,447.5,428,429,878000,429.62,-0.14,427.65,423.14,0.81
 20260624,425.5,466,420,456,2605000,431.81,5.6,429.1,424.39,2.19
-20260626,437,453,422,422,908000,431,-2.09,429.25,425.09,0.75
+20260625,458.5,459.5,443,443,1382000,432.75,2.37,430.3,425.44,1.11
+20260626,437,453,422,422,908000,431.85,-2.28,430.52,426.39,0.72
 ```
 
 ## Latest TDCC Snapshot

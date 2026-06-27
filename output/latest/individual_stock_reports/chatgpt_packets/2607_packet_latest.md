@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2607 榮運
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:10 Asia/Taipei
 - stock_id: 2607
 - stock_name: 榮運
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 285
+- price_rows: 286
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48.45
 - close: 48.45
 - volume: 644024
-- ma5: 49.14
-- ema23_primary: 49.05
-- distance_to_ema23_pct: -1.21
-- ma20: 49.13
-- ma60: 49.01
-- ma120: 52.54
-- return_5d: -3.1
+- ma5: 49.15
+- ema23_primary: 49.08
+- distance_to_ema23_pct: -1.29
+- ma20: 49.24
+- ma60: 48.99
+- ma120: 52.47
+- return_5d: -2.22
 - return_20d: 2.43
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -1.38
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -1.61
 - distance_to_high_60_pct: -7.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,47.5,47.7,47.2,47.3,995513,48.05,-1.55,47.54,50.43,1.56
 20260529,47.5,48.1,47.4,47.6,1071285,48.01,-0.85,47.55,50.27,1.61
 20260601,48,48.6,47.7,48.55,814686,48.05,1.03,47.62,50.17,1.21
 20260602,48.45,48.75,48.1,48.65,483714,48.1,1.14,47.69,50.07,0.72
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49.55,49.65,49.25,49.55,376002,49.1,0.91,48.99,49.14,0.58
 20260623,49.65,49.65,49.1,49.2,332454,49.11,0.18,49.02,49.1,0.53
 20260624,49.1,49.3,48.85,48.95,637819,49.1,-0.3,49.07,49.06,1.01
-20260626,49.25,49.5,48.45,48.45,644024,49.05,-1.21,49.13,49.01,1.05
+20260625,49,49.8,49,49.6,375385,49.14,0.93,49.19,49.03,0.63
+20260626,49.25,49.5,48.45,48.45,644024,49.08,-1.29,49.24,48.99,1.11
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3675 德微
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:38 Asia/Taipei
 - stock_id: 3675
 - stock_name: 德微
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 359.5
 - close: 359.5
 - volume: 596000
-- ma5: 398.3
-- ema23_primary: 347.16
-- distance_to_ema23_pct: 3.55
-- ma20: 359.23
-- ma60: 276.02
-- ma120: 219.22
-- return_5d: 7.31
-- return_20d: -1.51
+- ma5: 401.7
+- ema23_primary: 350.18
+- distance_to_ema23_pct: 2.66
+- ma20: 359.3
+- ma60: 279.25
+- ma120: 221.34
+- return_5d: -2.44
+- return_20d: -6.38
 - volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 0.08
+- distance_to_ma20_pct_auxiliary: 0.06
 - distance_to_high_60_pct: -19.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,369.5,401.5,367,384,395000,282.91,35.73,274.32,224.22,0.21
 20260529,399.5,413,391.5,413,404000,293.75,40.6,284.12,228.12,0.21
 20260601,413,413,372,372,383000,300.27,23.89,292.2,231.52,0.21
 20260602,365,370.5,338,370.5,354,306.12,21.03,299.45,234.73,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,405,405,405,405,423000,330.36,22.59,349.98,265.78,0.41
 20260623,445.5,445.5,425.5,445.5,9687000,339.96,31.05,355.55,269.79,6.49
 20260624,422,440,403.5,413,5899000,346.04,19.35,359.5,273.38,3.33
-20260626,386,387,359.5,359.5,596000,347.16,3.55,359.23,276.02,0.33
+20260625,421,421,385,385.5,734000,349.33,10.35,360.52,276.46,0.41
+20260626,386,387,359.5,359.5,596000,350.18,2.66,359.3,279.25,0.33
 ```
 
 ## Latest TDCC Snapshot

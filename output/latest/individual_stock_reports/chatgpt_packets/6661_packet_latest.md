@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6661 威健生技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:25 Asia/Taipei
+- generated_at: 2026-06-27 22:24:26 Asia/Taipei
 - stock_id: 6661
 - stock_name: 威健生技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 151
+- price_rows: 152
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.1
 - close: 17.1
 - volume: 13000
-- ma5: 17
-- ema23_primary: 16.81
-- distance_to_ema23_pct: 1.71
-- ma20: 16.5
+- ma5: 17.52
+- ema23_primary: 16.94
+- distance_to_ema23_pct: 0.95
+- ma20: 16.57
 - ma60: 17.56
 - ma120: 18.2
-- return_5d: 5.56
-- return_20d: -0.29
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 3.62
-- distance_to_high_60_pct: -12.08
+- return_5d: 7.89
+- return_20d: 0.59
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 3.17
+- distance_to_high_60_pct: -10.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.15,17.15,17,17,17000,17.69,-3.9,17.62,18.29,1.63
 20260529,17.35,17.35,17.05,17.05,17000,17.64,-3.33,17.57,18.26,1.52
 20260601,17.05,17.05,16.6,16.6,17000,17.55,-5.42,17.5,18.22,1.48
 20260602,16.5,16.5,16.2,16.2,16,17.44,-7.1,17.4,18.18,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16,16,16,16,2000,16.55,-3.31,16.46,17.63,0.18
 20260623,16.15,17.6,16.15,17.6,87000,16.64,5.8,16.46,17.61,5.94
 20260624,17.4,18.95,16.75,18.45,40000,16.79,9.91,16.5,17.59,2.54
-20260626,17.3,18.25,17.1,17.1,13000,16.81,1.71,16.5,17.56,0.84
+20260625,18.8,18.8,17.65,18.45,21000,16.92,9.01,16.57,17.58,1.32
+20260626,17.3,18.25,17.1,17.1,13000,16.94,0.95,16.57,17.56,0.83
 ```
 
 ## Latest TDCC Snapshot

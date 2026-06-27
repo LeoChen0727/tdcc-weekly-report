@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:03 Asia/Taipei
+- generated_at: 2026-06-27 22:24:05 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 41.4
 - close: 42.4
 - volume: 16227765
-- ma5: 41.94
-- ema23_primary: 41.43
-- distance_to_ema23_pct: 2.34
-- ma20: 41.44
-- ma60: 40.18
+- ma5: 41.84
+- ema23_primary: 41.48
+- distance_to_ema23_pct: 2.22
+- ma20: 41.61
+- ma60: 40.23
 - ma120: 39.99
-- return_5d: -0.93
-- return_20d: 7.48
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 2.31
+- return_5d: -0.24
+- return_20d: 9.7
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 1.9
 - distance_to_high_60_pct: -2.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.7,39.7,38.65,38.65,16133014,39.6,-2.41,39.54,39.41,1.44
 20260529,39.05,39.75,38.8,39.75,23187292,39.62,0.34,39.57,39.42,1.98
 20260601,39.5,40,39.2,39.8,13437766,39.63,0.43,39.63,39.44,1.12
 20260602,39.8,41,39.75,41,22267405,39.74,3.16,39.76,39.49,1.74
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,42.55,42.65,41.4,41.45,23506048,41.28,0.41,41.09,40.06,1.53
 20260623,41.5,41.9,41.2,41.8,16696189,41.32,1.16,41.19,40.1,1.08
 20260624,41.8,41.85,41.2,41.55,17454220,41.34,0.5,41.3,40.13,1.12
-20260626,41.6,42.4,41.4,42.4,16227765,41.43,2.34,41.44,40.18,1.03
+20260625,41.55,42.25,41.35,42,13447252,41.4,1.46,41.42,40.18,0.86
+20260626,41.6,42.4,41.4,42.4,16227765,41.48,2.22,41.61,40.23,1.04
 ```
 
 ## Latest TDCC Snapshot

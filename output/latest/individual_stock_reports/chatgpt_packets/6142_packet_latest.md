@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6142 友勁
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:07 Asia/Taipei
+- generated_at: 2026-06-27 22:24:08 Asia/Taipei
 - stock_id: 6142
 - stock_name: 友勁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 9.06
 - close: 9.07
 - volume: 664348
-- ma5: 9.33
-- ema23_primary: 8.82
-- distance_to_ema23_pct: 2.8
-- ma20: 8.76
-- ma60: 8.81
+- ma5: 9.26
+- ema23_primary: 8.86
+- distance_to_ema23_pct: 2.39
+- ma20: 8.81
+- ma60: 8.8
 - ma120: 9.26
-- return_5d: -3.41
-- return_20d: 13.38
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 3.59
+- return_5d: -5.62
+- return_20d: 11.29
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 2.93
 - distance_to_high_60_pct: -8.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,8,8.39,8,8.15,952900,8.41,-3.05,8.36,9.14,1.28
 20260529,8.15,8.34,8.1,8.27,520379,8.39,-1.49,8.33,9.11,0.71
 20260601,8.39,8.79,8.27,8.52,1213144,8.41,1.36,8.32,9.09,1.56
 20260602,8.59,8.73,8.3,8.72,1133383,8.43,3.42,8.3,9.08,1.47
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9.86,9.86,9.31,9.55,1762282,8.72,9.48,8.59,8.85,1.85
 20260623,9.52,9.55,9.15,9.2,864632,8.76,4.99,8.65,8.83,0.91
 20260624,9.04,9.45,9.04,9.21,677719,8.8,4.66,8.7,8.82,0.72
-20260626,9.2,9.32,9.06,9.07,664348,8.82,2.8,8.76,8.81,0.71
+20260625,9.51,9.51,9.18,9.27,454361,8.84,4.87,8.77,8.81,0.49
+20260626,9.2,9.32,9.06,9.07,664348,8.86,2.39,8.81,8.8,0.73
 ```
 
 ## Latest TDCC Snapshot

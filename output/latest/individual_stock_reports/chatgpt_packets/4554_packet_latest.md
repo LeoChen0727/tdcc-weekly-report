@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4554 橙的
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:45 Asia/Taipei
+- generated_at: 2026-06-27 22:23:47 Asia/Taipei
 - stock_id: 4554
 - stock_name: 橙的
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 31.25
 - close: 31.3
 - volume: 109000
-- ma5: 30.63
-- ema23_primary: 30.42
-- distance_to_ema23_pct: 2.9
-- ma20: 30.29
-- ma60: 30.18
-- ma120: 28.72
-- return_5d: 5.03
-- return_20d: 1.46
-- volume_ratio: 2.32
-- distance_to_ma20_pct_auxiliary: 3.33
+- ma5: 31.01
+- ema23_primary: 30.55
+- distance_to_ema23_pct: 2.46
+- ma20: 30.38
+- ma60: 30.23
+- ma120: 28.76
+- return_5d: 3.81
+- return_20d: 3.13
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 3.05
 - distance_to_high_60_pct: -8.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,30.9,30.95,30.35,30.35,31000,30.65,-0.97,30.81,29.23,0.22
 20260529,30.5,30.5,30.35,30.35,30000,30.62,-0.89,30.83,29.3,0.21
 20260601,30.3,30.5,30,30.25,30000,30.59,-1.12,30.84,29.37,0.22
 20260602,30.7,30.7,30,30.05,30,30.55,-1.62,30.83,29.43,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.1,31.55,30.25,30.65,97000,30.3,1.16,30.32,30.09,2.35
 20260623,30.55,30.55,30.15,30.2,42000,30.29,-0.3,30.27,30.11,1
 20260624,30.3,30.95,30.3,30.85,54000,30.34,1.69,30.27,30.14,1.26
-20260626,32.75,32.75,31.25,31.3,109000,30.42,2.9,30.29,30.18,2.32
+20260625,31.1,32.3,30.75,32.05,283000,30.48,5.15,30.33,30.19,5.09
+20260626,32.75,32.75,31.25,31.3,109000,30.55,2.46,30.38,30.23,1.83
 ```
 
 ## Latest TDCC Snapshot

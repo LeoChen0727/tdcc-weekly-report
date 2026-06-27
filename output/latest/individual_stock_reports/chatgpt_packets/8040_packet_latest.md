@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8040 九暘
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:46 Asia/Taipei
+- generated_at: 2026-06-27 22:24:46 Asia/Taipei
 - stock_id: 8040
 - stock_name: 九暘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 106
 - close: 107
 - volume: 6881000
-- ma5: 108.96
-- ema23_primary: 101.37
-- distance_to_ema23_pct: 5.55
-- ma20: 102.95
-- ma60: 83.61
-- ma120: 66.24
-- return_5d: 14.44
-- return_20d: -5.31
-- volume_ratio: 3.01
-- distance_to_ma20_pct_auxiliary: 3.93
+- ma5: 113.3
+- ema23_primary: 102.57
+- distance_to_ema23_pct: 4.32
+- ma20: 103.31
+- ma60: 84.74
+- ma120: 66.8
+- return_5d: 12.87
+- return_20d: -2.28
+- volume_ratio: 2.52
+- distance_to_ma20_pct_auxiliary: 3.58
 - distance_to_high_60_pct: -18.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,113.5,120,107,109.5,112000,92.88,17.89,92.42,66.82,0.03
 20260529,110,114,109.5,111.5,111000,94.43,18.07,94.61,67.84,0.03
 20260601,112,117.5,111,112.5,114000,95.94,17.26,96.52,68.89,0.04
 20260602,113,113.5,104,105.5,107,96.73,9.06,97.7,69.82,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,97.5,104,97.2,104,1814000,97.28,6.91,103.33,80.33,2.26
 20260623,107,114,101,114,8103000,98.67,15.54,102.91,81.4,6.75
 20260624,113,125,113,125,15070000,100.86,23.93,103.25,82.66,7.74
-20260626,115.5,122.5,106,107,6881000,101.37,5.55,102.95,83.61,3.01
+20260625,126,126.5,116,116.5,8901000,102.17,14.03,103.43,83.77,3.73
+20260626,115.5,122.5,106,107,6881000,102.57,4.32,103.31,84.74,2.52
 ```
 
 ## Latest TDCC Snapshot
@@ -187,8 +187,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8040 | 九暘 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 8040 | 九暘 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8040 | 九暘 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_overheated | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8040 | 九暘 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

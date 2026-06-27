@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6640 均華
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:24 Asia/Taipei
+- generated_at: 2026-06-27 22:24:25 Asia/Taipei
 - stock_id: 6640
 - stock_name: 均華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 980
 - close: 980
 - volume: 176000
-- ma5: 1062
-- ema23_primary: 1158.39
-- distance_to_ema23_pct: -15.4
-- ma20: 1147.25
-- ma60: 1356.92
-- ma120: 1091.14
-- return_5d: -9.68
-- return_20d: -31.23
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -14.58
+- ma5: 1046
+- ema23_primary: 1148.11
+- distance_to_ema23_pct: -14.64
+- ma20: 1132.25
+- ma60: 1351.25
+- ma120: 1094.84
+- return_5d: -12.5
+- return_20d: -26.87
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -13.45
 - distance_to_high_60_pct: -47.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1440,1475,1330,1340,1389000,1400.35,-4.31,1403,1320.77,2.12
 20260529,1405,1425,1355,1365,1380000,1397.4,-2.32,1398.25,1330.32,1.97
 20260601,1370,1370,1285,1315,1305000,1390.54,-5.43,1389.75,1339.88,1.74
 20260602,1315,1315,1265,1285,1280,1381.74,-7,1379.25,1347.72,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1170,1170,1100,1100,188000,1197.3,-8.13,1210.5,1370.33,0.26
 20260623,1100,1100,1035,1050,188000,1185.02,-11.39,1189.5,1368.17,0.28
 20260624,1025,1060,1025,1060,86000,1174.6,-9.76,1169.5,1364.25,0.14
-20260626,1040,1040,980,980,176000,1158.39,-15.4,1147.25,1356.92,0.33
+20260625,1090,1090,1040,1040,77000,1163.39,-10.61,1150.25,1357.92,0.14
+20260626,1040,1040,980,980,176000,1148.11,-14.64,1132.25,1351.25,0.37
 ```
 
 ## Latest TDCC Snapshot

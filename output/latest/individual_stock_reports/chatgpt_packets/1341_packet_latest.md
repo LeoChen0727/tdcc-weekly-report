@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1341 富林-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:34 Asia/Taipei
+- generated_at: 2026-06-27 22:22:38 Asia/Taipei
 - stock_id: 1341
 - stock_name: 富林-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 286
+- price_rows: 287
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 57.2
 - close: 57.5
 - volume: 7158
-- ma5: 59.72
-- ema23_primary: 61.16
-- distance_to_ema23_pct: -5.99
-- ma20: 61.7
-- ma60: 61
-- ma120: 59.94
-- return_5d: -7.56
-- return_20d: -6.96
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -6.81
+- ma5: 58.78
+- ema23_primary: 60.84
+- distance_to_ema23_pct: -5.49
+- ma20: 61.48
+- ma60: 60.98
+- ma120: 59.93
+- return_5d: -7.26
+- return_20d: -6.81
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -6.47
 - distance_to_high_60_pct: -9.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,61.7,61.7,61.7,61.7,1003,61.23,0.77,61.38,60.14,0.11
 20260529,61.6,61.6,60.8,60.8,13017,61.19,-0.64,61.35,60.12,1.36
 20260601,61,62,61,62,32511,61.26,1.21,61.41,60.17,3
 20260602,61.3,62.2,61.2,62.2,6493,61.34,1.4,61.48,60.21,0.62
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,62.1,62.1,61.2,61.9,50048,62.05,-0.24,62.21,61.01,3.77
 20260623,58,59,58,59,25882,61.8,-4.53,62.08,61.02,1.81
 20260624,58.4,58.4,58.2,58.2,13155,61.5,-5.36,61.91,61.02,0.89
-20260626,57.3,57.5,57.2,57.5,7158,61.16,-5.99,61.7,61,0.48
+20260625,58.5,58.6,57.3,57.3,14259,61.15,-6.29,61.69,60.99,0.94
+20260626,57.3,57.5,57.2,57.5,7158,60.84,-5.49,61.48,60.98,0.46
 ```
 
 ## Latest TDCC Snapshot

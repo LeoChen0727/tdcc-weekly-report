@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6160 欣技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:08 Asia/Taipei
+- generated_at: 2026-06-27 22:24:09 Asia/Taipei
 - stock_id: 6160
 - stock_name: 欣技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.1
 - close: 16.35
 - volume: 87000
-- ma5: 16.68
+- ma5: 16.66
 - ema23_primary: 16.69
-- distance_to_ema23_pct: -2.04
-- ma20: 16.91
-- ma60: 16.3
-- ma120: 16.69
+- distance_to_ema23_pct: -2.03
+- ma20: 16.93
+- ma60: 16.31
+- ma120: 16.68
 - return_5d: -2.68
 - return_20d: 1.24
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -3.28
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -3.44
 - distance_to_high_60_pct: -11.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,16.25,16.8,16,16.15,16000,16.17,-0.1,16.14,16.09,0.13
 20260529,16.85,17.75,16.3,17.35,17000,16.27,6.67,16.22,16.11,0.14
 20260601,17.5,17.65,17.05,17.1,17000,16.33,4.69,16.29,16.13,0.15
 20260602,17.5,17.55,17,17.5,17,16.43,6.5,16.38,16.16,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,16.8,17.05,16.45,16.6,153000,16.7,-0.59,16.84,16.27,2.54
 20260623,16.85,16.85,16.45,16.55,90000,16.69,-0.82,16.85,16.28,1.41
 20260624,18.15,18.15,16.9,17.1,370000,16.72,2.27,16.89,16.3,4.53
-20260626,16.6,16.9,16.1,16.35,87000,16.69,-2.04,16.91,16.3,1.02
+20260625,17.6,17.6,16.7,16.7,115000,16.72,-0.12,16.92,16.3,1.33
+20260626,16.6,16.9,16.1,16.35,87000,16.69,-2.03,16.93,16.31,0.97
 ```
 
 ## Latest TDCC Snapshot

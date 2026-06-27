@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2535 達欣工
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:05 Asia/Taipei
+- generated_at: 2026-06-27 22:23:08 Asia/Taipei
 - stock_id: 2535
 - stock_name: 達欣工
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 93.5
 - close: 94.3
 - volume: 504992
-- ma5: 94.24
-- ema23_primary: 88.43
-- distance_to_ema23_pct: 6.64
-- ma20: 88.78
-- ma60: 78.36
-- ma120: 73.76
-- return_5d: -2.48
-- return_20d: 20.9
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 6.22
+- ma5: 94.52
+- ema23_primary: 88.98
+- distance_to_ema23_pct: 5.98
+- ma20: 89.56
+- ma60: 78.75
+- ma120: 74.03
+- return_5d: 0.64
+- return_20d: 18.62
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 5.3
 - distance_to_high_60_pct: -4.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,78.1,81,78.1,79.5,885579,75.17,5.76,74.97,73.03,1.1
 20260529,80.2,80.5,79.6,80.3,378566,75.6,6.22,75.39,73.16,0.48
 20260601,81,83,79.9,82.4,628114,76.17,8.18,75.84,73.36,0.8
 20260602,82.4,82.8,80,81.3,504708,76.59,6.14,76.27,73.51,0.63
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,92.7,94.2,91.9,93.8,531100,86.6,8.31,86.12,77.28,0.71
 20260623,93.2,94.9,92.7,94.9,365242,87.3,8.71,87.03,77.63,0.5
 20260624,94.5,94.6,92.8,94.5,356009,87.9,7.51,87.96,77.99,0.48
-20260626,95,95.8,93.5,94.3,504992,88.43,6.64,88.78,78.36,0.73
+20260625,94.6,96.3,94.5,95.1,389727,88.5,7.46,88.81,78.37,0.57
+20260626,95,95.8,93.5,94.3,504992,88.98,5.98,89.56,78.75,0.76
 ```
 
 ## Latest TDCC Snapshot

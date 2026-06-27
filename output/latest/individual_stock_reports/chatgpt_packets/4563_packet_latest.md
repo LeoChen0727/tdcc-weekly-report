@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4563 百德
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:46 Asia/Taipei
+- generated_at: 2026-06-27 22:23:48 Asia/Taipei
 - stock_id: 4563
 - stock_name: 百德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 40
 - close: 40
 - volume: 119000
-- ma5: 41.82
-- ema23_primary: 44.51
-- distance_to_ema23_pct: -10.14
-- ma20: 45.3
-- ma60: 45.37
-- ma120: 47.73
-- return_5d: -5.55
-- return_20d: -17.7
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -11.69
+- ma5: 41.46
+- ema23_primary: 44.21
+- distance_to_ema23_pct: -9.53
+- ma20: 44.94
+- ma60: 45.35
+- ma120: 47.71
+- return_5d: -6.54
+- return_20d: -16.84
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -11
 - distance_to_high_60_pct: -28.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,49.35,50.3,47.05,48.1,49000,47.93,0.35,49.13,45.2,0.13
 20260529,48.35,48.9,48,48.5,48000,47.98,1.09,49.03,45.17,0.14
 20260601,48.3,50.9,48.3,50.2,50000,48.16,4.23,48.88,45.22,0.19
 20260602,51,51,48.75,50.1,50,48.32,3.68,48.87,45.25,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43.05,43.75,43.05,43.55,121000,45.6,-4.5,46.63,45.47,1
 20260623,43.65,43.65,41.8,41.8,182000,45.28,-7.7,46.19,45.46,1.43
 20260624,41,41.75,40.75,40.95,187000,44.92,-8.85,45.73,45.42,1.39
-20260626,40.9,41,40,40,119000,44.51,-10.14,45.3,45.37,0.86
+20260625,41.3,41.95,41,41,91000,44.6,-8.06,45.35,45.39,0.67
+20260626,40.9,41,40,40,119000,44.21,-9.53,44.94,45.35,0.85
 ```
 
 ## Latest TDCC Snapshot

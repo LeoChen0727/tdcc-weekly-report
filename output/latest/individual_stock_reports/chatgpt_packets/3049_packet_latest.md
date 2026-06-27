@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3049 精金
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:18 Asia/Taipei
+- generated_at: 2026-06-27 22:23:21 Asia/Taipei
 - stock_id: 3049
 - stock_name: 精金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 13
 - close: 13
 - volume: 5840465
-- ma5: 13.91
-- ema23_primary: 13.93
-- distance_to_ema23_pct: -6.66
-- ma20: 14.31
-- ma60: 13.06
-- ma120: 11.61
-- return_5d: -12.75
-- return_20d: 6.56
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -9.19
+- ma5: 13.76
+- ema23_primary: 13.9
+- distance_to_ema23_pct: -6.5
+- ma20: 14.38
+- ma60: 13.09
+- ma120: 11.67
+- return_5d: -10.03
+- return_20d: 4.84
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -9.6
 - distance_to_high_60_pct: -25.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.3,13.2,12.3,12.4,14374387,12.48,-0.61,12.57,12.9,1.83
 20260529,12.5,12.6,12.15,12.5,6122628,12.48,0.18,12.59,12.9,0.77
 20260601,12.95,13.5,12.7,13.1,18135107,12.53,4.55,12.57,12.91,2.15
 20260602,13.5,14.4,12.9,14.4,32371295,12.69,13.52,12.63,12.93,3.56
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.45,14.85,14.3,14.3,8643605,14.03,1.91,14.13,13.05,0.46
 20260623,14.35,14.35,13.7,13.7,8696217,14,-2.17,14.18,13.05,0.46
 20260624,13.2,14.5,13.2,14.1,7034882,14.01,0.63,14.28,13.06,0.37
-20260626,13.75,13.75,13,13,5840465,13.93,-6.66,14.31,13.06,0.31
+20260625,14.1,14.1,13.6,13.7,4223397,13.99,-2.04,14.35,13.07,0.23
+20260626,13.75,13.75,13,13,5840465,13.9,-6.5,14.38,13.09,0.32
 ```
 
 ## Latest TDCC Snapshot

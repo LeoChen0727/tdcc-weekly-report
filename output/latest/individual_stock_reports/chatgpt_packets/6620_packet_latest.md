@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6620 漢達
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:23 Asia/Taipei
+- generated_at: 2026-06-27 22:24:25 Asia/Taipei
 - stock_id: 6620
 - stock_name: 漢達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 120
+- price_rows: 121
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 91.1
 - close: 93.7
 - volume: 690000
-- ma5: 91.24
-- ema23_primary: 78.75
-- distance_to_ema23_pct: 18.99
-- ma20: 76.06
-- ma60: 74.06
-- ma120: 77.54
-- return_5d: 25.94
-- return_20d: 28.53
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 23.19
-- distance_to_high_60_pct: -6.3
+- ma5: 94.64
+- ema23_primary: 80.38
+- distance_to_ema23_pct: 16.57
+- ma20: 77.42
+- ma60: 74.55
+- ma120: 77.76
+- return_5d: 14.55
+- return_20d: 30.68
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 21.04
+- distance_to_high_60_pct: -14.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,72.9,73.5,71.7,71.7,72000,73.18,-2.02,72.53,73.56,0.19
 20260529,71.8,72,71,72,72000,73.08,-1.48,72.37,73.43,0.2
 20260601,72,72.5,71.2,72.1,72000,73,-1.23,72.27,73.31,0.21
 20260602,72.2,72.2,71.2,71.2,72,72.85,-2.26,72.17,73.17,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,89.9,89.9,89.9,89.9,566000,73.93,21.61,72.73,72.78,1.46
 20260623,93.6,95.8,90.2,90.9,2945000,75.34,20.65,73.67,73.14,5.55
 20260624,90.8,99.9,88.2,99.9,2243000,77.39,29.09,75.02,73.65,3.51
-20260626,100,100,91.1,93.7,690000,78.75,18.99,76.06,74.06,1.03
+20260625,102,109,98.2,98.8,3145000,79.17,24.79,76.31,74.14,3.97
+20260626,100,100,91.1,93.7,690000,80.38,16.57,77.42,74.55,0.84
 ```
 
 ## Latest TDCC Snapshot

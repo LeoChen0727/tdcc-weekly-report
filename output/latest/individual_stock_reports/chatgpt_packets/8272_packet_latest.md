@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8272 全景軟體
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:51 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8272
 - stock_name: 全景軟體
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 153
+- price_rows: 154
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 69.5
 - close: 69.5
 - volume: 9000
-- ma5: 70.22
-- ema23_primary: 71.02
-- distance_to_ema23_pct: -2.14
-- ma20: 71.25
-- ma60: 71.5
-- ma120: 74.64
+- ma5: 69.98
+- ema23_primary: 70.95
+- distance_to_ema23_pct: -2.05
+- ma20: 71.28
+- ma60: 71.45
+- ma120: 74.56
 - return_5d: -2.8
-- return_20d: -1.56
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -2.46
+- return_20d: -0.14
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -2.5
 - distance_to_high_60_pct: -12.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,71.5,71.5,69.6,69.6,70000,71.53,-2.7,71.83,72.68,1.94
 20260529,70.8,70.8,69.5,69.5,70000,71.36,-2.61,71.81,72.56,1.78
 20260601,72.5,76.3,70,73.9,74000,71.57,3.25,72.04,72.54,1.75
 20260602,74.5,78,74.2,75.4,76,71.89,4.88,72.34,72.53,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,70.6,71.5,70,71.1,33000,71.47,-0.51,71.38,71.69,0.8
 20260623,70,71.4,67,69.2,30000,71.28,-2.92,71.33,71.61,0.76
 20260624,68.2,70,68.2,69.8,11000,71.16,-1.9,71.31,71.56,0.3
-20260626,71.5,71.5,69.5,69.5,9000,71.02,-2.14,71.25,71.5,0.27
+20260625,69.7,70.3,69.6,70.3,17000,71.08,-1.1,71.29,71.51,0.5
+20260626,71.5,71.5,69.5,69.5,9000,70.95,-2.05,71.28,71.45,0.29
 ```
 
 ## Latest TDCC Snapshot

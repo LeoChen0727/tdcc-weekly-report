@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6664 群翊
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:25 Asia/Taipei
+- generated_at: 2026-06-27 22:24:26 Asia/Taipei
 - stock_id: 6664
 - stock_name: 群翊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 368
 - close: 368
 - volume: 505000
-- ma5: 381.4
-- ema23_primary: 392.77
-- distance_to_ema23_pct: -6.31
-- ma20: 392.25
-- ma60: 408.89
-- ma120: 347.88
-- return_5d: -2
-- return_20d: -19.03
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -6.18
+- ma5: 380.9
+- ema23_primary: 391.77
+- distance_to_ema23_pct: -6.07
+- ma20: 389.3
+- ma60: 410.25
+- ma120: 348.7
+- return_5d: -4.29
+- return_20d: -16.55
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -5.47
 - distance_to_high_60_pct: -26.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,456,468,436,441,452000,431.45,2.21,443.85,373.1,0.26
 20260529,457,457,436,436,440000,431.83,0.97,442.43,375.58,0.29
 20260601,438,444,429.5,429.5,434000,431.63,-0.49,440.77,378.32,0.31
 20260602,433,433,405,409,413,429.75,-4.83,438.1,380.48,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,394.5,396.5,387,388.5,566000,397.25,-2.2,403.8,404.51,1.24
 20260623,390.5,390.5,375,376.5,445000,395.52,-4.81,400.43,406,0.98
 20260624,371.5,390.5,371.5,389.5,443000,395.02,-1.4,396.57,407.62,0.97
-20260626,382,393.5,368,368,505000,392.77,-6.31,392.25,408.89,1.1
+20260625,392,394,380,382,386000,393.94,-3.03,392.95,409.12,0.86
+20260626,382,393.5,368,368,505000,391.77,-6.07,389.3,410.25,1.11
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:17 Asia/Taipei
+- generated_at: 2026-06-27 22:23:20 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 206.5
 - close: 206.5
 - volume: 14764389
-- ma5: 221.7
-- ema23_primary: 203.11
-- distance_to_ema23_pct: 1.67
-- ma20: 201.72
-- ma60: 184.05
-- ma120: 173.91
-- return_5d: 2.23
-- return_20d: 1.98
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 2.37
+- ma5: 225.7
+- ema23_primary: 205.11
+- distance_to_ema23_pct: 0.68
+- ma20: 202.75
+- ma60: 185.43
+- ma120: 174.44
+- return_5d: -1.2
+- return_20d: -0.96
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 1.85
 - distance_to_high_60_pct: -15.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,203,210.5,201.5,208.5,16061701,192.85,8.11,193.43,169.24,0.89
 20260529,213.5,215.5,206,207,13700926,194.03,6.68,195.38,169.95,0.75
 20260601,209.5,214,205,211,11475001,195.44,7.96,197.47,170.83,0.62
 20260602,212,217,201,209.5,14574649,196.62,6.55,199.1,171.68,0.78
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,221,229.5,220,229.5,16276996,197.31,16.31,199.68,180.43,1.36
 20260623,232.5,245,232,233,31052125,200.28,16.33,200.4,181.79,2.59
 20260624,229.5,233,221,230.5,15426860,202.8,13.66,201.53,183.12,1.32
-20260626,225.5,225.5,206.5,206.5,14764389,203.11,1.67,201.72,184.05,1.27
+20260625,237,245,224,229,16967764,204.99,11.72,202.85,184.43,1.45
+20260626,225.5,225.5,206.5,206.5,14764389,205.11,0.68,202.75,185.43,1.26
 ```
 
 ## Latest TDCC Snapshot

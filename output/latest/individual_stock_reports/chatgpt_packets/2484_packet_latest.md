@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:03 Asia/Taipei
+- generated_at: 2026-06-27 22:23:06 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 69.1
 - close: 76.8
 - volume: 60315978
-- ma5: 69.44
-- ema23_primary: 61.34
-- distance_to_ema23_pct: 25.21
-- ma20: 61.73
-- ma60: 47.23
-- ma120: 36.74
-- return_5d: 10.5
-- return_20d: 46.01
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: 24.4
+- ma5: 69.18
+- ema23_primary: 62.1
+- distance_to_ema23_pct: 23.68
+- ma20: 62.47
+- ma60: 47.92
+- ma120: 37.15
+- return_5d: 7.87
+- return_20d: 39.13
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: 22.94
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,52.6,57.8,52.5,55.2,43220213,44.84,23.1,44.04,36.35,2.26
 20260529,57.5,58,53.2,54.3,25851618,45.63,19,44.78,36.78,1.27
 20260601,54.7,55.2,52.6,53.2,13856413,46.26,15,45.36,37.22,0.66
 20260602,53,53.1,50,51.9,12711853,46.73,11.06,45.83,37.62,0.59
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.3,72.2,66,66.9,27790961,58.72,13.93,59.42,45.21,0.65
 20260623,66,67,63,63,14163885,59.08,6.64,59.86,45.77,0.34
 20260624,63,69.3,63,69.3,27494715,59.93,15.64,60.52,46.46,0.68
-20260626,69.2,76.8,69.1,76.8,60315978,61.34,25.21,61.73,47.23,1.42
+20260625,70,70.9,66.5,69.9,27831314,60.76,15.04,61.39,47.11,0.68
+20260626,69.2,76.8,69.1,76.8,60315978,62.1,23.68,62.47,47.92,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2484 | 希華 | true_breakout | 嚴格突破 | 76.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2484 | 希華 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

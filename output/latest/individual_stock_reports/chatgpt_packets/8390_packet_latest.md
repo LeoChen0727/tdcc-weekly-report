@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8390 金益鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8390
 - stock_name: 金益鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 103
 - close: 104
 - volume: 544000
-- ma5: 111.2
-- ema23_primary: 113.76
-- distance_to_ema23_pct: -8.58
-- ma20: 117.2
-- ma60: 104.46
-- ma120: 100.59
-- return_5d: -7.96
-- return_20d: -14.4
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -11.26
+- ma5: 110
+- ema23_primary: 113.25
+- distance_to_ema23_pct: -8.17
+- ma20: 116.55
+- ma60: 104.77
+- ma120: 100.77
+- return_5d: -8.77
+- return_20d: -14.05
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -10.77
 - distance_to_high_60_pct: -21.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,120,124.5,119.5,121,123000,109.49,10.51,108.49,97.77,0.09
 20260529,126,126,121,121.5,123000,110.49,9.96,110.3,98.11,0.09
 20260601,123,123.5,119.5,120.5,121000,111.33,8.24,111.98,98.56,0.09
 20260602,121,121,114.5,120,117,112.05,7.09,113.53,98.93,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,115.5,119,115,116,798000,115.36,0.55,119.03,103.61,1.22
 20260623,116.5,116.5,113,113.5,512000,115.21,-1.48,118.67,103.95,0.76
 20260624,111,112,106,108.5,1245000,114.65,-5.36,118.08,104.24,1.71
-20260626,108,108,103,104,544000,113.76,-8.58,117.2,104.46,0.72
+20260625,108,109,106.5,108,573000,114.09,-5.34,117.4,104.53,0.76
+20260626,108,108,103,104,544000,113.25,-8.17,116.55,104.77,0.7
 ```
 
 ## Latest TDCC Snapshot

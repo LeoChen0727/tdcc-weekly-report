@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6862 三集瑞-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6862
 - stock_name: 三集瑞-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 186
 - close: 188
 - volume: 952390
-- ma5: 209.5
+- ma5: 203.8
 - ema23_primary: 197.67
 - distance_to_ema23_pct: -4.89
-- ma20: 201.95
-- ma60: 184.5
-- ma120: 184.44
-- return_5d: -8.96
-- return_20d: 1.08
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -6.91
+- ma20: 201.65
+- ma60: 184.92
+- ma120: 184.76
+- return_5d: -17.18
+- return_20d: -8.07
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -6.77
 - distance_to_high_60_pct: -24.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,183,204.5,183,204.5,4190531,178.77,14.39,175.05,181.62,3.39
 20260529,224,224.5,220.5,224.5,1577735,182.58,22.96,177.78,181.93,1.21
 20260601,228,245,209.5,214,5544393,185.2,15.55,179.85,182.42,3.54
 20260602,211.5,215,193.5,199.5,2597517,186.39,7.03,181.1,182.5,1.55
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,241,248,223.5,224,4010370,197.46,13.44,199.78,183.82,1.8
 20260623,215,221.5,202,203.5,1913348,197.96,2.8,200.68,184.13,0.85
 20260624,202,205.5,197,205,1081793,198.55,3.25,201.85,184.47,0.48
-20260626,196.5,200,186,188,952390,197.67,-4.89,201.95,184.5,0.42
+20260625,205,210,198,198.5,1120864,198.55,-0.02,202.47,184.68,0.5
+20260626,196.5,200,186,188,952390,197.67,-4.89,201.65,184.92,0.45
 ```
 
 ## Latest TDCC Snapshot

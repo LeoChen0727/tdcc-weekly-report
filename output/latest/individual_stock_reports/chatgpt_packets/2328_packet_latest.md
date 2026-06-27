@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2328 廣宇
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:54 Asia/Taipei
+- generated_at: 2026-06-27 22:22:58 Asia/Taipei
 - stock_id: 2328
 - stock_name: 廣宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 48
 - close: 48
 - volume: 6282840
-- ma5: 51.54
-- ema23_primary: 52.62
-- distance_to_ema23_pct: -8.78
-- ma20: 53.97
-- ma60: 50.54
-- ma120: 49.72
-- return_5d: -8.75
-- return_20d: -10.78
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -11.05
+- ma5: 50.98
+- ema23_primary: 52.43
+- distance_to_ema23_pct: -8.45
+- ma20: 53.84
+- ma60: 50.64
+- ma120: 49.74
+- return_5d: -10.11
+- return_20d: -9.43
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -10.86
 - distance_to_high_60_pct: -25.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,54,55.8,52.7,53,9669234,51.79,2.33,52.96,47.99,0.63
 20260529,54.1,56.4,53.6,55.5,15829377,52.1,6.52,53.26,48.09,1.06
 20260601,57,61,56.4,61,26828228,52.84,15.43,53.59,48.34,1.86
 20260602,64.4,64.5,59,61.7,72637061,53.58,15.15,53.92,48.57,4.63
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,54,54.5,53.4,53.4,6071086,53.34,0.11,54.66,50.3,0.42
 20260623,53.9,53.9,51.3,51.7,5105781,53.2,-2.83,54.42,50.4,0.38
 20260624,50.8,52.4,50.6,51.2,4245003,53.04,-3.46,54.26,50.5,0.32
-20260626,50.4,50.4,48,48,6282840,52.62,-8.78,53.97,50.54,0.49
+20260625,51.5,51.8,50.6,50.6,3567289,52.83,-4.23,54.09,50.59,0.28
+20260626,50.4,50.4,48,48,6282840,52.43,-8.45,53.84,50.64,0.5
 ```
 
 ## Latest TDCC Snapshot

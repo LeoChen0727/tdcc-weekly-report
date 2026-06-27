@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6616 特昇-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:23 Asia/Taipei
+- generated_at: 2026-06-27 22:24:24 Asia/Taipei
 - stock_id: 6616
 - stock_name: 特昇-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 8.88
 - close: 8.93
 - volume: 31000
-- ma5: 9.18
-- ema23_primary: 9.46
-- distance_to_ema23_pct: -5.63
-- ma20: 9.41
-- ma60: 9.77
-- ma120: 9.95
-- return_5d: -7.84
-- return_20d: -6
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -5.08
+- ma5: 9.1
+- ema23_primary: 9.43
+- distance_to_ema23_pct: -5.32
+- ma20: 9.4
+- ma60: 9.75
+- ma120: 9.94
+- return_5d: -6.3
+- return_20d: -2.72
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -5.05
 - distance_to_high_60_pct: -16.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,9.52,9.52,9.05,9.18,9000,9.77,-6.07,9.8,9.99,0.27
 20260529,9.18,9.26,9.06,9.26,9000,9.73,-4.83,9.77,9.98,0.27
 20260601,9.26,9.26,8.9,8.99,9000,9.67,-7.02,9.72,9.96,0.29
 20260602,9,9.19,9,9.15,9,9.63,-4.94,9.68,9.94,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9.41,9.41,9.11,9.17,90000,9.58,-4.31,9.49,9.82,3.42
 20260623,9.12,9.15,8.91,9.15,95000,9.55,-4.16,9.46,9.8,3.1
 20260624,9.19,9.21,8.96,9.12,37000,9.51,-4.11,9.44,9.79,1.16
-20260626,9.12,9.15,8.88,8.93,31000,9.46,-5.63,9.41,9.77,0.94
+20260625,9.17,9.17,9,9.11,16000,9.48,-3.88,9.42,9.77,0.5
+20260626,9.12,9.15,8.88,8.93,31000,9.43,-5.32,9.4,9.75,0.93
 ```
 
 ## Latest TDCC Snapshot

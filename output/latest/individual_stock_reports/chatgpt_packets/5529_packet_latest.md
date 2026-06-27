@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5529 鉅陞
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:02 Asia/Taipei
+- generated_at: 2026-06-27 22:24:03 Asia/Taipei
 - stock_id: 5529
 - stock_name: 鉅陞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.05
 - close: 21.45
 - volume: 57000
-- ma5: 21.43
-- ema23_primary: 22.32
-- distance_to_ema23_pct: -3.9
-- ma20: 22.3
-- ma60: 23.11
-- ma120: 25.29
-- return_5d: -4.45
-- return_20d: -5.92
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -3.81
+- ma5: 21.35
+- ema23_primary: 22.26
+- distance_to_ema23_pct: -3.64
+- ma20: 22.28
+- ma60: 23.04
+- ma120: 25.24
+- return_5d: -2.5
+- return_20d: -2.28
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -3.74
 - distance_to_high_60_pct: -20.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,22.7,22.75,21.75,21.95,22000,23.15,-5.2,22.68,24.3,0.19
 20260529,21.95,22.3,21.9,22.25,22000,23.08,-3.59,22.7,24.23,0.19
 20260601,22.25,22.3,22,22.2,22000,23.01,-3.5,22.7,24.17,0.19
 20260602,22.25,23.75,22.2,22.5,23,22.96,-2.02,22.73,24.11,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.45,22.45,21.3,21.55,73000,22.65,-4.86,22.65,23.35,1.1
 20260623,21.3,21.4,21,21,105000,22.51,-6.72,22.5,23.27,1.49
 20260624,21.05,21.15,20.9,21.15,19000,22.4,-5.58,22.37,23.18,0.27
-20260626,21.6,21.65,21.05,21.45,57000,22.32,-3.9,22.3,23.11,0.79
+20260625,21.05,21.6,21.05,21.6,69000,22.33,-3.28,22.31,23.11,0.95
+20260626,21.6,21.65,21.05,21.45,57000,22.26,-3.64,22.28,23.04,0.77
 ```
 
 ## Latest TDCC Snapshot

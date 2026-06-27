@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4121 優盛
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:39 Asia/Taipei
+- generated_at: 2026-06-27 22:23:41 Asia/Taipei
 - stock_id: 4121
 - stock_name: 優盛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 13.2
 - close: 13.3
 - volume: 94000
-- ma5: 13.37
-- ema23_primary: 13.76
-- distance_to_ema23_pct: -3.32
-- ma20: 13.74
-- ma60: 14.45
-- ma120: 15.89
+- ma5: 13.32
+- ema23_primary: 13.72
+- distance_to_ema23_pct: -3.05
+- ma20: 13.7
+- ma60: 14.41
+- ma120: 15.88
 - return_5d: -1.84
-- return_20d: -5.34
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: -3.2
+- return_20d: -6.01
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: -2.9
 - distance_to_high_60_pct: -19.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,14.05,14.25,13.95,14.15,14000,14.47,-2.2,14.29,15.96,0.14
 20260529,14.1,14.15,13.75,13.95,14000,14.42,-3.29,14.26,15.87,0.15
 20260601,14,14.35,14,14.2,14000,14.41,-1.43,14.24,15.79,0.16
 20260602,14.05,14.3,13.95,14,14,14.37,-2.59,14.21,15.7,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.6,13.75,13.4,13.5,97000,13.9,-2.89,13.91,14.59,1.78
 20260623,13.3,13.45,13.25,13.25,136000,13.85,-4.31,13.84,14.54,2.25
 20260624,13.45,13.5,13.25,13.25,73000,13.8,-3.97,13.78,14.49,1.15
-20260626,13.2,13.4,13.2,13.3,94000,13.76,-3.32,13.74,14.45,1.4
+20260625,13.25,13.45,13.25,13.3,45000,13.76,-3.32,13.74,14.45,0.69
+20260626,13.2,13.4,13.2,13.3,94000,13.72,-3.05,13.7,14.41,1.37
 ```
 
 ## Latest TDCC Snapshot

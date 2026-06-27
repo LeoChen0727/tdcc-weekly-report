@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3232 昱捷
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3232
 - stock_name: 昱捷
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.15
 - close: 21.7
 - volume: 102000
-- ma5: 22.46
-- ema23_primary: 22.61
-- distance_to_ema23_pct: -4.02
-- ma20: 23.03
+- ma5: 22.35
+- ema23_primary: 22.58
+- distance_to_ema23_pct: -3.88
+- ma20: 23
 - ma60: 22.14
-- ma120: 22.66
-- return_5d: -5.86
-- return_20d: 4.08
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: -5.76
+- ma120: 22.64
+- return_5d: -4.82
+- return_20d: -5.24
+- volume_ratio: 1.55
+- distance_to_ma20_pct_auxiliary: -5.63
 - distance_to_high_60_pct: -13.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.75,22.9,20.75,22.9,22000,21.52,6.43,21.22,22.04,0.36
 20260529,25.15,25.15,23.2,23.6,25000,21.69,8.8,21.33,22.04,0.42
 20260601,23.5,23.5,22.6,23.2,23000,21.82,6.34,21.44,22.05,0.42
 20260602,22.85,23,22.4,22.8,23,21.9,4.12,21.52,22.05,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.7,23.2,22,22.55,287000,22.71,-0.68,22.88,22.14,5.35
 20260623,22.6,22.75,22.5,22.65,147000,22.7,-0.22,22.91,22.14,2.45
 20260624,22.25,22.65,22.25,22.6,43000,22.69,-0.41,22.98,22.15,0.71
-20260626,22.1,22.35,21.15,21.7,102000,22.61,-4.02,23.03,22.14,1.57
+20260625,22.6,22.6,22.15,22.25,40000,22.66,-1.79,23.05,22.15,0.65
+20260626,22.1,22.35,21.15,21.7,102000,22.58,-3.88,23,22.14,1.55
 ```
 
 ## Latest TDCC Snapshot

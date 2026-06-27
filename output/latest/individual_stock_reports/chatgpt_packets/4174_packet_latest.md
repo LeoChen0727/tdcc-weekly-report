@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4174 浩鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:41 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4174
 - stock_name: 浩鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 151
+- price_rows: 152
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 26.55
 - close: 26.55
 - volume: 1130000
-- ma5: 28.18
-- ema23_primary: 29.02
-- distance_to_ema23_pct: -8.5
+- ma5: 28.25
+- ema23_primary: 28.94
+- distance_to_ema23_pct: -8.26
 - ma20: 28.38
-- ma60: 32.48
+- ma60: 32.32
 - ma120: 33.43
-- return_5d: -5.35
-- return_20d: -7.33
-- volume_ratio: 2.89
-- distance_to_ma20_pct_auxiliary: -6.44
+- return_5d: -4.84
+- return_20d: -5.85
+- volume_ratio: 2.7
+- distance_to_ma20_pct_auxiliary: -6.45
 - distance_to_high_60_pct: -32.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.7,28.85,28.05,28.2,28000,32.23,-12.5,32.24,35.79,0.07
 20260529,28.35,28.9,28.3,28.6,29000,31.93,-10.42,32.08,35.6,0.08
 20260601,28.85,29.2,28.35,28.55,29000,31.65,-9.78,31.92,35.43,0.08
 20260602,28.5,28.7,27.75,28.35,28,31.37,-9.63,31.6,35.27,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.95,28.1,27.7,27.8,353000,29.22,-4.88,28.54,32.99,2.15
 20260623,28.15,30.55,28,29.4,2603000,29.24,0.55,28.49,32.83,8.89
 20260624,29.05,30.05,28.7,29.25,895000,29.24,0.03,28.48,32.68,2.66
-20260626,28.25,28.25,26.55,26.55,1130000,29.02,-8.5,28.38,32.48,2.89
+20260625,29.5,29.5,28.25,28.25,567000,29.16,-3.11,28.46,32.51,1.56
+20260626,28.25,28.25,26.55,26.55,1130000,28.94,-8.26,28.38,32.32,2.7
 ```
 
 ## Latest TDCC Snapshot

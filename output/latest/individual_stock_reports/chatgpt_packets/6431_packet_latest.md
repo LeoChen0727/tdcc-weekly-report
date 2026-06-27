@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6431 光麗-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:17 Asia/Taipei
+- generated_at: 2026-06-27 22:24:18 Asia/Taipei
 - stock_id: 6431
 - stock_name: 光麗-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.6
 - close: 18.2
 - volume: 80014
-- ma5: 18.75
-- ema23_primary: 19.06
-- distance_to_ema23_pct: -4.53
-- ma20: 18.66
-- ma60: 20.28
-- ma120: 23.24
+- ma5: 18.53
+- ema23_primary: 19
+- distance_to_ema23_pct: -4.19
+- ma20: 18.62
+- ma60: 20.17
+- ma120: 23.14
 - return_5d: -5.94
-- return_20d: -5.94
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -2.47
+- return_20d: -4.46
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -2.26
 - distance_to_high_60_pct: -31.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.35,19.85,19.05,19.05,125502,20.63,-7.68,20.43,21.7,0.79
 20260529,19.55,19.55,18.25,18.65,164550,20.47,-8.89,20.39,21.6,1.01
 20260601,18.65,19.55,18.55,18.85,220101,20.33,-7.3,20.35,21.5,1.31
 20260602,19.25,19.25,18.15,18.65,90006,20.19,-7.65,20.32,21.4,0.53
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19,19,18.15,19,176294,19.25,-1.29,18.92,20.46,1.21
 20260623,18.9,18.95,18.2,18.95,79050,19.22,-1.42,18.83,20.43,0.56
 20260624,18.35,18.9,18.25,18.25,72802,19.14,-4.66,18.72,20.36,0.53
-20260626,18.5,18.5,17.6,18.2,80014,19.06,-4.53,18.66,20.28,0.59
+20260625,18.25,18.25,18.1,18.25,32001,19.07,-4.29,18.66,20.28,0.24
+20260626,18.5,18.5,17.6,18.2,80014,19,-4.19,18.62,20.17,0.61
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2949 欣新網
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:15 Asia/Taipei
+- generated_at: 2026-06-27 22:23:18 Asia/Taipei
 - stock_id: 2949
 - stock_name: 欣新網
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 126
+- price_rows: 127
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 67
 - close: 68.3
 - volume: 42000
-- ma5: 68.9
-- ema23_primary: 65.3
-- distance_to_ema23_pct: 4.59
-- ma20: 65.62
-- ma60: 60.69
-- ma120: 63.49
-- return_5d: 1.94
+- ma5: 68.84
+- ema23_primary: 65.54
+- distance_to_ema23_pct: 4.21
+- ma20: 65.88
+- ma60: 60.79
+- ma120: 63.46
+- return_5d: -0.15
 - return_20d: 8.41
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 4.08
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 3.68
 - distance_to_high_60_pct: -3.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,63,63,63,63,63000,59.57,5.76,57.97,59.95,2.36
 20260529,63,63.5,63,63.5,63000,59.89,6.02,58.42,59.98,2.12
 20260601,63.4,63.5,63.1,63.5,63000,60.2,5.49,58.84,59.96,1.93
 20260602,63.5,63.5,62.9,63.5,63,60.47,5.01,59.31,59.95,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68,68.7,67.9,68.7,15000,64.17,7.06,64.69,60.28,0.46
 20260623,68.5,69,67.8,69,15000,64.57,6.86,65,60.4,0.49
 20260624,70.5,70.5,70.1,70.1,2000,65.03,7.79,65.36,60.55,0.07
-20260626,68,68.3,67,68.3,42000,65.3,4.59,65.62,60.69,1.59
+20260625,68.4,68.7,67.7,68.1,14000,65.29,4.31,65.61,60.69,0.56
+20260626,68,68.3,67,68.3,42000,65.54,4.21,65.88,60.79,1.75
 ```
 
 ## Latest TDCC Snapshot

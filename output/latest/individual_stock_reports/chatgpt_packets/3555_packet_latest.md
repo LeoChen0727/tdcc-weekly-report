@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3555 博士旺
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:32 Asia/Taipei
+- generated_at: 2026-06-27 22:23:35 Asia/Taipei
 - stock_id: 3555
 - stock_name: 博士旺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 175.5
 - close: 175.5
 - volume: 97000
-- ma5: 194.2
-- ema23_primary: 203.88
-- distance_to_ema23_pct: -13.92
-- ma20: 204.25
-- ma60: 213.85
-- ma120: 165.26
-- return_5d: -10.23
-- return_20d: -21.3
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -14.08
+- ma5: 191.7
+- ema23_primary: 202.36
+- distance_to_ema23_pct: -13.27
+- ma20: 202.97
+- ma60: 214.42
+- ma120: 166.08
+- return_5d: -11.81
+- return_20d: -17.22
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -13.54
 - distance_to_high_60_pct: -37.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,228.5,232.5,211,212,218000,221.41,-4.25,227.1,199.07,0.81
 20260529,217,217,210.5,213.5,214000,220.75,-3.29,225.38,200.62,0.78
 20260601,211,214,210,211,212000,219.94,-4.07,222.43,202.32,0.76
 20260602,217,218,208.5,211.5,212,219.24,-3.53,219.2,203.94,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,204,204,199,202,88000,208.25,-3,210.7,212.49,0.44
 20260623,210,214,196,202,164000,207.73,-2.76,209.12,212.96,0.84
 20260624,199.5,200,190,192.5,107000,206.46,-6.76,206.62,213.47,0.57
-20260626,187,187,175.5,175.5,97000,203.88,-13.92,204.25,213.85,0.53
+20260625,194.5,194.5,186,186.5,92000,204.8,-8.93,204.8,214.03,0.51
+20260626,187,187,175.5,175.5,97000,202.36,-13.27,202.97,214.42,0.55
 ```
 
 ## Latest TDCC Snapshot

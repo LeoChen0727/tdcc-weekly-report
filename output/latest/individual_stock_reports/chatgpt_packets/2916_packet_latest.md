@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2916 滿心
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:14 Asia/Taipei
+- generated_at: 2026-06-27 22:23:17 Asia/Taipei
 - stock_id: 2916
 - stock_name: 滿心
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 41.3
 - close: 41.3
 - volume: 168000
-- ma5: 41.56
-- ema23_primary: 42.94
-- distance_to_ema23_pct: -3.81
-- ma20: 42.51
-- ma60: 45.18
-- ma120: 46.37
-- return_5d: -1.55
-- return_20d: -12.96
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: -2.83
+- ma5: 41.57
+- ema23_primary: 42.84
+- distance_to_ema23_pct: -3.6
+- ma20: 42.41
+- ma60: 45.08
+- ma120: 46.31
+- return_5d: -1.2
+- return_20d: -5.38
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: -2.63
 - distance_to_high_60_pct: -14.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,43.5,44,43.25,43.65,44000,46.42,-5.98,46.07,46.86,0.42
 20260529,43.65,43.7,43.3,43.5,43000,46.18,-5.81,45.98,46.8,0.41
 20260601,43.5,43.6,43.35,43.45,43000,45.95,-5.45,45.89,46.75,0.43
 20260602,43.45,43.45,43.2,43.35,43,45.74,-5.22,45.8,46.69,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.8,41.8,41.6,41.65,106000,43.38,-3.99,43.41,45.51,1.32
 20260623,41.65,41.65,41.45,41.6,71000,43.23,-3.78,43.12,45.4,0.87
 20260624,41.6,41.85,41.35,41.45,116000,43.08,-3.79,42.81,45.29,1.36
-20260626,41.85,41.85,41.3,41.3,168000,42.94,-3.81,42.51,45.18,1.84
+20260625,41.45,41.9,41.45,41.85,95000,42.98,-2.63,42.53,45.19,1.08
+20260626,41.85,41.85,41.3,41.3,168000,42.84,-3.6,42.41,45.08,1.79
 ```
 
 ## Latest TDCC Snapshot

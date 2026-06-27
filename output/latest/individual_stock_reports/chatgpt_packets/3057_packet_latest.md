@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3057 喬鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:19 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3057
 - stock_name: 喬鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 285
+- price_rows: 286
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 19.15
 - close: 19.15
 - volume: 266859
-- ma5: 19.58
-- ema23_primary: 20.09
-- distance_to_ema23_pct: -4.7
-- ma20: 20.65
-- ma60: 19.4
+- ma5: 19.71
+- ema23_primary: 20.11
+- distance_to_ema23_pct: -4.76
+- ma20: 20.66
+- ma60: 19.48
 - ma120: 18.71
-- return_5d: -6.13
-- return_20d: -5.43
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -7.25
+- return_5d: -2.79
+- return_20d: -4.49
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -7.32
 - distance_to_high_60_pct: -20.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.25,20.65,19.85,20.05,298348,19.5,2.83,19.96,17.93,0.52
 20260529,19.9,20.75,19.9,20.45,447199,19.58,4.45,19.97,18,0.94
 20260601,20.45,22.45,20.45,22.4,1590981,19.81,13.05,20.09,18.12,3.07
 20260602,22.4,22.95,21.65,21.95,744499,19.99,9.8,20.17,18.23,1.4
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,20,20.75,19.95,20.1,244240,20.31,-1.04,20.75,19.26,0.51
 20260623,20.15,20.15,19,19,280048,20.2,-5.95,20.7,19.3,0.59
 20260624,18.95,20,18.8,19.95,211103,20.18,-1.14,20.7,19.35,0.45
-20260626,20.1,20.45,19.15,19.15,266859,20.09,-4.7,20.65,19.4,0.58
+20260625,20.15,21.15,20.05,20.35,464807,20.19,0.77,20.71,19.42,0.98
+20260626,20.1,20.45,19.15,19.15,266859,20.11,-4.76,20.66,19.48,0.57
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:28 Asia/Taipei
+- generated_at: 2026-06-27 22:24:29 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 93.7
 - close: 94.7
 - volume: 336350
-- ma5: 103.04
-- ema23_primary: 98.97
-- distance_to_ema23_pct: -4.31
-- ma20: 98.78
-- ma60: 90.95
-- ma120: 85.26
-- return_5d: -4.34
-- return_20d: -9.81
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -4.14
+- ma5: 102.44
+- ema23_primary: 99.06
+- distance_to_ema23_pct: -4.4
+- ma20: 98.76
+- ma60: 91.42
+- ma120: 85.4
+- return_5d: -8.5
+- return_20d: -6.24
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -4.11
 - distance_to_high_60_pct: -18.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,106.5,108,100.5,101,432874,96.95,4.18,98.2,83.66,0.6
 20260529,103,103.5,99,100,486986,97.2,2.88,98.97,84.04,0.68
 20260601,101,101.5,98.3,98.5,434663,97.31,1.22,99.58,84.49,0.61
 20260602,99,104.5,99,102.5,621926,97.74,4.87,100.11,84.95,0.88
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,106.5,110,105,108,717323,98.38,9.77,99.83,89.67,1.63
 20260623,109.5,111,102.5,105,482126,98.94,6.13,99.45,90.15,1.18
 20260624,101.5,106,101,104,223610,99.36,4.67,99.3,90.63,0.59
-20260626,99.9,99.9,93.7,94.7,336350,98.97,-4.31,98.78,90.95,0.9
+20260625,106,106,99.8,100.5,229252,99.45,1.05,99.08,91.05,0.62
+20260626,99.9,99.9,93.7,94.7,336350,99.06,-4.4,98.76,91.42,0.93
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7757 金色三麥
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:44 Asia/Taipei
+- generated_at: 2026-06-27 22:24:44 Asia/Taipei
 - stock_id: 7757
 - stock_name: 金色三麥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 94
 - close: 94.1
 - volume: 70000
-- ma5: 97.76
-- ema23_primary: 102.2
-- distance_to_ema23_pct: -7.92
-- ma20: 103.69
-- ma60: 105.7
-- ma120: 108.64
-- return_5d: -6.83
-- return_20d: -9.08
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -9.25
+- ma5: 97.12
+- ema23_primary: 101.73
+- distance_to_ema23_pct: -7.5
+- ma20: 103.33
+- ma60: 105.5
+- ma120: 108.45
+- return_5d: -5.9
+- return_20d: -9.52
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -8.93
 - distance_to_high_60_pct: -16.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,104.5,104.5,103.5,104,104000,104.88,-0.83,104.42,107,2.4
 20260529,104.5,105.5,104.5,104.5,105000,104.84,-0.33,104.35,106.92,2.19
 20260601,106,112,106,110,108000,105.27,4.49,104.58,106.97,2.1
 20260602,113,113,107.5,110,110,105.67,4.1,104.83,107,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,100.5,100.5,99.6,99.6,56000,103.96,-4.19,104.78,106.32,0.74
 20260623,99.9,100,98,98.1,54000,103.47,-5.19,104.51,106.14,0.74
 20260624,98,98,96.1,97,48000,102.93,-5.76,104.16,105.94,0.69
-20260626,96.3,96.4,94,94.1,70000,102.2,-7.92,103.69,105.7,1.02
+20260625,97.1,97.5,96.2,96.8,21000,102.42,-5.49,103.83,105.74,0.32
+20260626,96.3,96.4,94,94.1,70000,101.73,-7.5,103.33,105.5,1.09
 ```
 
 ## Latest TDCC Snapshot

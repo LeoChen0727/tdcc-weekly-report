@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6126 信音
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:06 Asia/Taipei
+- generated_at: 2026-06-27 22:24:08 Asia/Taipei
 - stock_id: 6126
 - stock_name: 信音
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 35.65
 - close: 35.75
 - volume: 4233000
-- ma5: 39.08
-- ema23_primary: 38.58
-- distance_to_ema23_pct: -7.33
-- ma20: 39.58
-- ma60: 34.9
-- ma120: 34.72
-- return_5d: -11.51
-- return_20d: 1.85
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -9.67
+- ma5: 38.94
+- ema23_primary: 38.64
+- distance_to_ema23_pct: -7.47
+- ma20: 39.79
+- ma60: 35.06
+- ma120: 34.79
+- return_5d: -11.29
+- return_20d: 1.13
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: -10.15
 - distance_to_high_60_pct: -19.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.4,36.45,35.2,35.35,36000,33.99,3.99,33.86,32.49,0.03
 20260529,36,36.15,35.35,35.5,36000,34.12,4.05,34.08,32.52,0.03
 20260601,36.95,37.85,36.35,37.25,37000,34.38,8.35,34.26,32.62,0.03
 20260602,38.2,39.15,36.85,38.8,38,34.75,11.66,34.51,32.73,0
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.9,40.9,39.7,40.15,2463000,38.69,3.77,39.22,34.53,0.91
 20260623,40.7,40.75,39.25,39.4,2517000,38.75,1.68,39.38,34.66,0.89
 20260624,39,39.8,38.55,39.8,1430000,38.84,2.48,39.55,34.81,0.5
-20260626,39.6,39.6,35.65,35.75,4233000,38.58,-7.33,39.58,34.9,1.37
+20260625,40.05,41.1,39.5,39.6,2876000,38.9,1.8,39.77,34.96,0.95
+20260626,39.6,39.6,35.65,35.75,4233000,38.64,-7.47,39.79,35.06,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -193,8 +193,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/23 2.發放股利種類及金額:現金股利美金2,213,292.41元 3.其他應敘明事項: (1)、信音(香港)國際控股有限公司分配予SINGATRON (BVI) ENTERPRISE CO.,LTD.，再由SINGATRON (BVI)ENTERPRISE CO.,LTD.分配予本公司。 (2)、信音(香港)國際控股有限公司及SINGATRON (BVI)ENTERPRISE CO.,LTD.為本公司100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 6126 | 信音 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 12.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/23 2.發放股利種類及金額:現金股利美金2,213,292.41元 3.其他應敘明事項: (1)、信音(香港)國際控股有限公司分配予SINGATRON (BVI) ENTERPRISE CO.,LTD.，再由SINGATRON (BVI)ENTERPRISE CO.,LTD.分配予本公司。 (2)、信音(香港)國際控股有限公司及SINGATRON (BVI)ENTERPRISE CO.,LTD.為本公司100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/23 2.發放股利種類及金額:現金股利美金2,213,292.41元 3.其他應敘明事項: (1)、信音(香港)國際控股有限公司分配予SINGATRON (BVI) ENTERPRISE CO.,LTD.，再由SINGATRON (BVI)ENTERPRISE CO.,LTD.分配予本公司。 (2)、信音(香港)國際控股有限公司及SINGATRON (BVI)ENTERPRISE CO.,LTD.為本公司100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6126 | 信音 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 13.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/23 2.發放股利種類及金額:現金股利美金2,213,292.41元 3.其他應敘明事項: (1)、信音(香港)國際控股有限公司分配予SINGATRON (BVI) ENTERPRISE CO.,LTD.，再由SINGATRON (BVI)ENTERPRISE CO.,LTD.分配予本公司。 (2)、信音(香港)國際控股有限公司及SINGATRON (BVI)ENTERPRISE CO.,LTD.為本公司100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

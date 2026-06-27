@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:47 Asia/Taipei
+- generated_at: 2026-06-27 22:24:47 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1100
 - close: 1125
 - volume: 35045851
-- ma5: 945.4
-- ema23_primary: 894.65
-- distance_to_ema23_pct: 25.75
-- ma20: 884.2
-- ma60: 828.83
-- ma120: 611.3
-- return_5d: 27.12
-- return_20d: 24.31
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 27.23
+- ma5: 979.6
+- ema23_primary: 907.73
+- distance_to_ema23_pct: 23.94
+- ma20: 893.95
+- ma60: 836.58
+- ma120: 617.98
+- return_5d: 28.72
+- return_20d: 32.35
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 25.85
 - distance_to_high_60_pct: -1.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,905,909,837,850,20528191,854.49,-0.53,891.75,709.26,1.14
 20260529,860,867,825,848,17926232,853.95,-0.7,883.9,715.06,1
 20260601,842,923,838,905,21446815,858.2,5.45,879.85,722.64,1.21
 20260602,905,907,834,862,14435807,858.52,0.41,873.1,729.33,0.81
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,891,910,862,864,21056848,862.43,0.18,870.3,806.85,1.17
 20260623,875,945,867,909,34962190,866.31,4.93,871.55,813,1.92
 20260624,906,956,887,955,24693365,873.7,9.3,873.2,819.43,1.36
-20260626,1100,1145,1100,1125,35045851,894.65,25.75,884.2,828.83,1.86
+20260625,990,1045,981,1045,26849041,887.98,17.68,880.2,827.5,1.46
+20260626,1100,1145,1100,1125,35045851,907.73,23.94,893.95,836.58,1.83
 ```
 
 ## Latest TDCC Snapshot

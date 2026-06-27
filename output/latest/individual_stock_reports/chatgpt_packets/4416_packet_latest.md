@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4416 三圓
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:42 Asia/Taipei
+- generated_at: 2026-06-27 22:23:45 Asia/Taipei
 - stock_id: 4416
 - stock_name: 三圓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12.55
 - close: 13.05
 - volume: 4645000
-- ma5: 10.85
-- ema23_primary: 11.08
-- distance_to_ema23_pct: 17.73
-- ma20: 10.91
-- ma60: 12.2
-- ma120: 18.57
-- return_5d: 39.87
-- return_20d: 21.4
-- volume_ratio: 7.59
-- distance_to_ma20_pct_auxiliary: 19.6
+- ma5: 11.29
+- ema23_primary: 11.18
+- distance_to_ema23_pct: 16.69
+- ma20: 10.98
+- ma60: 12.16
+- ma120: 18.4
+- return_5d: 30.5
+- return_20d: 20.83
+- volume_ratio: 7.05
+- distance_to_ma20_pct_auxiliary: 18.84
 - distance_to_high_60_pct: -21.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10.8,11.25,10.8,10.8,11000,12.1,-10.75,11.94,13.65,0.09
 20260529,10.95,11.15,10.85,10.9,11000,12,-9.18,11.84,13.45,0.1
 20260601,10.9,11.5,10.9,11.45,11000,11.96,-4.23,11.78,13.3,0.13
 20260602,11.4,12.4,11.4,12.1,12,11.97,1.11,11.75,13.19,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,9.98,10.5,9.76,10,961000,10.96,-8.76,10.91,12.3,2.92
 20260623,10,10.3,9.87,10.1,295000,10.89,-7.24,10.8,12.26,0.86
 20260624,10.15,11.1,10.15,11.1,739000,10.91,1.78,10.8,12.22,1.94
-20260626,13.4,13.4,12.55,13.05,4645000,11.08,17.73,10.91,12.2,7.59
+20260625,12,12.2,12,12.2,950000,11.01,10.77,10.87,12.18,2.22
+20260626,13.4,13.4,12.55,13.05,4645000,11.18,16.69,10.98,12.16,7.05
 ```
 
 ## Latest TDCC Snapshot

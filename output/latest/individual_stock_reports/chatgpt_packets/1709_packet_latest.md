@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1709 和益
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:43 Asia/Taipei
+- generated_at: 2026-06-27 22:22:47 Asia/Taipei
 - stock_id: 1709
 - stock_name: 和益
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21
 - close: 21.05
 - volume: 1229515
-- ma5: 21.25
-- ema23_primary: 20.47
-- distance_to_ema23_pct: 2.86
-- ma20: 20.6
-- ma60: 19.26
-- ma120: 18.18
-- return_5d: 0.48
-- return_20d: 9.64
+- ma5: 21.28
+- ema23_primary: 20.54
+- distance_to_ema23_pct: 2.48
+- ma20: 20.69
+- ma60: 19.31
+- ma120: 18.22
+- return_5d: -0.94
+- return_20d: 7.4
 - volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 2.17
+- distance_to_ma20_pct_auxiliary: 1.73
 - distance_to_high_60_pct: -4.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.3,19.75,19.1,19.6,1363298,18.68,4.91,18.58,18.29,1.78
 20260529,19.8,19.8,19.25,19.4,739828,18.74,3.51,18.62,18.33,0.94
 20260601,19.25,19.7,19.15,19.5,1029105,18.81,3.69,18.66,18.39,1.26
 20260602,19.8,20,19.5,19.75,1622169,18.88,4.59,18.73,18.44,1.87
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,22.15,22.15,21.25,21.5,1581613,20.26,6.14,20.31,19.1,0.89
 20260623,21.5,21.5,20.9,21.15,841153,20.33,4.03,20.41,19.16,0.48
 20260624,20.85,21.45,20.85,21.3,669586,20.41,4.35,20.51,19.21,0.39
-20260626,21.2,21.5,21,21.05,1229515,20.47,2.86,20.6,19.26,0.73
+20260625,21.2,21.7,21.2,21.4,1389364,20.49,4.42,20.62,19.27,0.82
+20260626,21.2,21.5,21,21.05,1229515,20.54,2.48,20.69,19.31,0.73
 ```
 
 ## Latest TDCC Snapshot

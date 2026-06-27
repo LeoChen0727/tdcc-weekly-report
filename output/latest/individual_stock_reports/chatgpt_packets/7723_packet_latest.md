@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7723 築間
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7723
 - stock_name: 築間
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 22.55
 - close: 22.55
 - volume: 80000
-- ma5: 23.15
-- ema23_primary: 23.82
-- distance_to_ema23_pct: -5.34
-- ma20: 23.09
-- ma60: 27.88
-- ma120: 30.28
-- return_5d: -7.96
-- return_20d: -2.8
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -2.35
+- ma5: 23.01
+- ema23_primary: 23.76
+- distance_to_ema23_pct: -5.08
+- ma20: 23.11
+- ma60: 27.69
+- ma120: 30.21
+- return_5d: -5.25
+- return_20d: -0.66
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -2.43
 - distance_to_high_60_pct: -35.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,23.2,23.45,22.6,22.7,23000,26.61,-14.68,26.15,30.78,0.16
 20260529,22.55,23.45,22.5,22.8,23000,26.29,-13.27,25.79,30.64,0.17
 20260601,23.05,23.05,22.3,22.65,22000,25.99,-12.84,25.48,30.51,0.18
 20260602,22.65,23.3,22.5,22.9,23,25.73,-10.99,25.2,30.37,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,23.8,23.95,23.25,23.35,155000,24.11,-3.16,23.2,28.47,1.76
 20260623,23.35,23.35,22.95,23.1,137000,24.03,-3.86,23.16,28.27,1.46
 20260624,22.85,23.15,22.85,22.95,29000,23.94,-4.12,23.12,28.08,0.31
-20260626,23,23.05,22.55,22.55,80000,23.82,-5.34,23.09,27.88,0.83
+20260625,22.8,23.25,22.8,23.1,76000,23.87,-3.22,23.12,27.89,0.79
+20260626,23,23.05,22.55,22.55,80000,23.76,-5.08,23.11,27.69,0.8
 ```
 
 ## Latest TDCC Snapshot

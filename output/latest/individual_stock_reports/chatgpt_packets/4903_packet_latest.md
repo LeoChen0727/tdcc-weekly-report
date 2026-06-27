@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4903 聯光通
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4903
 - stock_name: 聯光通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 40.7
 - close: 40.7
 - volume: 5416000
-- ma5: 39.95
-- ema23_primary: 41.61
-- distance_to_ema23_pct: -2.18
-- ma20: 41.47
-- ma60: 44.82
-- ma120: 43.49
+- ma5: 40.68
+- ema23_primary: 41.66
+- distance_to_ema23_pct: -2.32
+- ma20: 41.4
+- ma60: 44.78
+- ma120: 43.45
 - return_5d: 4.9
-- return_20d: -9.35
-- volume_ratio: 4.51
-- distance_to_ma20_pct_auxiliary: -1.84
+- return_20d: -6.87
+- volume_ratio: 3.49
+- distance_to_ma20_pct_auxiliary: -1.7
 - distance_to_high_60_pct: -27.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45.05,45.45,43.6,43.7,45000,46.03,-5.06,45.77,45.71,0.01
 20260529,44.05,45,43.6,44.85,44000,45.93,-2.35,45.75,45.71,0.02
 20260601,44.95,45.35,44.35,44.4,45000,45.8,-3.06,45.71,45.78,0.02
 20260602,44.65,45.95,44,45,45,45.73,-1.61,45.68,45.83,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,39.2,41.1,39,40.25,2154000,42,-4.17,42.37,45.23,3.39
 20260623,41.4,41.75,39,39,2330000,41.75,-6.59,41.96,45.05,3.11
 20260624,38.7,41.7,38.4,41,3730000,41.69,-1.65,41.67,44.94,4
-20260626,42.5,44.1,40.7,40.7,5416000,41.61,-2.18,41.47,44.82,4.51
+20260625,41.05,43.4,40.75,42.45,7025000,41.75,1.67,41.55,44.84,5.48
+20260626,42.5,44.1,40.7,40.7,5416000,41.66,-2.32,41.4,44.78,3.49
 ```
 
 ## Latest TDCC Snapshot

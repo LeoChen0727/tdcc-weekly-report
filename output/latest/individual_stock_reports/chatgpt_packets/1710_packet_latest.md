@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:43 Asia/Taipei
+- generated_at: 2026-06-27 22:22:47 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 13.7
 - close: 14.1
 - volume: 7888729
-- ma5: 13.84
-- ema23_primary: 13.8
-- distance_to_ema23_pct: 2.18
-- ma20: 14.16
-- ma60: 13.52
-- ma120: 13.34
+- ma5: 13.9
+- ema23_primary: 13.81
+- distance_to_ema23_pct: 2.08
+- ma20: 14.19
+- ma60: 13.49
+- ma120: 13.35
 - return_5d: 3.3
-- return_20d: 8.88
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -0.44
+- return_20d: 4.44
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -0.6
 - distance_to_high_60_pct: -15.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13,13.5,12.85,13.5,7280790,12.81,5.37,12.5,13.46,1.71
 20260529,13.45,14.55,13.4,13.8,12493834,12.89,7.03,12.54,13.47,2.68
 20260601,13.95,14.05,13.5,13.65,11797943,12.96,5.35,12.58,13.49,2.31
 20260602,13.8,14.6,13.75,14.55,13980958,13.09,11.16,12.68,13.52,2.47
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.9,14.3,13.75,14.15,6461350,13.79,2.58,14.03,13.56,0.63
 20260623,14.1,14.1,13.35,13.5,5582441,13.77,-1.96,14.05,13.54,0.55
 20260624,13.5,13.85,13.35,13.8,3404754,13.77,0.2,14.11,13.53,0.33
-20260626,14.1,14.55,13.7,14.1,7888729,13.8,2.18,14.16,13.52,0.75
+20260625,13.9,14.5,13.8,13.95,6104047,13.79,1.18,14.15,13.52,0.59
+20260626,14.1,14.55,13.7,14.1,7888729,13.81,2.08,14.19,13.49,0.76
 ```
 
 ## Latest TDCC Snapshot

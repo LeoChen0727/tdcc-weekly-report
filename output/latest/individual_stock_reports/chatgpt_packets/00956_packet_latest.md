@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00956 中信日經高股息
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:29 Asia/Taipei
+- generated_at: 2026-06-27 22:22:33 Asia/Taipei
 - stock_id: 00956
 - stock_name: 中信日經高股息
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 11.97
 - close: 12.05
 - volume: 591502
-- ma5: 12.19
-- ema23_primary: 12.22
-- distance_to_ema23_pct: -1.41
+- ma5: 12.14
+- ema23_primary: 12.21
+- distance_to_ema23_pct: -1.33
 - ma20: 12.21
 - ma60: 12.23
 - ma120: 12.23
-- return_5d: -2.35
-- return_20d: -2.27
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -1.31
+- return_5d: -2.51
+- return_20d: -1.07
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -1.29
 - distance_to_high_60_pct: -3.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.3,12.3,12.12,12.18,1092240,12.31,-1.08,12.3,12.3,1.82
 20260529,12.33,12.45,12.3,12.45,608892,12.32,1.02,12.33,12.33,1.01
 20260601,12.4,12.4,12.16,12.19,1886579,12.31,-1,12.31,12.31,2.4
 20260602,12.16,12.16,12.06,12.15,618563,12.3,-1.21,12.29,12.29,0.81
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.32,12.34,12.25,12.31,542104,12.26,0.38,12.25,12.25,0.89
 20260623,12.25,12.25,12.16,12.16,436042,12.25,-0.77,12.24,12.25,0.73
 20260624,12.08,12.14,12.04,12.06,315405,12.24,-1.46,12.22,12.24,0.54
-20260626,12.05,12.08,11.97,12.05,591502,12.22,-1.41,12.21,12.23,1
+20260625,12.13,12.13,12.09,12.11,607337,12.23,-0.96,12.21,12.23,1.02
+20260626,12.05,12.08,11.97,12.05,591502,12.21,-1.33,12.21,12.23,1.04
 ```
 
 ## Latest TDCC Snapshot

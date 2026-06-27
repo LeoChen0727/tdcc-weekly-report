@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6576 逸達
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6576
 - stock_name: 逸達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 77.9
 - close: 78
 - volume: 111000
-- ma5: 78.7
-- ema23_primary: 78.63
-- distance_to_ema23_pct: -0.8
-- ma20: 78.08
-- ma60: 78.73
+- ma5: 78.88
+- ema23_primary: 78.68
+- distance_to_ema23_pct: -0.86
+- ma20: 78.17
+- ma60: 78.77
 - ma120: 79.89
-- return_5d: -1.02
-- return_20d: -0.13
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -0.11
+- return_5d: -0.51
+- return_20d: 0.52
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -0.22
 - distance_to_high_60_pct: -6.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,77.6,77.9,76.9,77.6,77000,79.5,-2.39,79.72,79.12,0.58
 20260529,77.2,77.6,76.5,77,77000,79.29,-2.89,79.57,79.03,0.6
 20260601,76.5,77,75.6,76.8,76000,79.08,-2.89,79.44,78.97,0.6
 20260602,77,77,75.6,76,76,78.83,-3.59,79.27,78.86,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,79.3,79.8,78.2,78.4,166000,78.56,-0.21,78,78.67,1.34
 20260623,79.5,79.7,78.5,79.6,127000,78.65,1.21,78.06,78.7,1.01
 20260624,79.6,80.4,79.1,79.1,78000,78.69,0.52,78.09,78.72,0.62
-20260626,78.9,79.9,77.9,78,111000,78.63,-0.8,78.08,78.73,0.87
+20260625,79.1,79.8,78.9,79.3,57000,78.74,0.71,78.15,78.75,0.46
+20260626,78.9,79.9,77.9,78,111000,78.68,-0.86,78.17,78.77,0.88
 ```
 
 ## Latest TDCC Snapshot

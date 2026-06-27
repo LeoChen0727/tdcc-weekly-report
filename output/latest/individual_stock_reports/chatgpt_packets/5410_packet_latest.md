@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5410 國眾
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:59 Asia/Taipei
+- generated_at: 2026-06-27 22:24:00 Asia/Taipei
 - stock_id: 5410
 - stock_name: 國眾
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 44.1
 - close: 44.3
 - volume: 795000
-- ma5: 44.61
-- ema23_primary: 42.33
-- distance_to_ema23_pct: 4.64
-- ma20: 42.69
-- ma60: 36.87
-- ma120: 33.68
-- return_5d: -1.12
-- return_20d: 15.52
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.78
+- ma5: 44.54
+- ema23_primary: 42.51
+- distance_to_ema23_pct: 4.22
+- ma20: 42.96
+- ma60: 37.11
+- ma120: 33.8
+- return_5d: -1.01
+- return_20d: 13.59
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 3.13
 - distance_to_high_60_pct: -11.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,38.15,39.25,38.15,39,39000,36.53,6.75,36.85,32.98,0.05
 20260529,39.85,39.95,38.8,39.95,39000,36.82,8.51,37.21,33.15,0.05
 20260601,41.65,42.15,41,41.75,42000,37.23,12.15,37.65,33.35,0.06
 20260602,41.75,41.75,40.65,41.25,41,37.56,9.81,38.02,33.53,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,45.2,45.45,44.05,44.75,1468000,41.69,7.35,41.75,36.16,0.98
 20260623,45.05,45.4,44.05,44.4,982000,41.91,5.94,42.03,36.4,0.64
 20260624,44.4,45.2,44.05,44.85,917000,42.16,6.39,42.39,36.64,0.58
-20260626,44.45,44.9,44.1,44.3,795000,42.33,4.64,42.69,36.87,0.49
+20260625,45,45.15,44.4,44.4,671000,42.34,4.86,42.69,36.87,0.41
+20260626,44.45,44.9,44.1,44.3,795000,42.51,4.22,42.96,37.11,0.48
 ```
 
 ## Latest TDCC Snapshot

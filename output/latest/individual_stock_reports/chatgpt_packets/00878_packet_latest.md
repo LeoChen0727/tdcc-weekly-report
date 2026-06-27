@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00878 國泰永續高股息
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:27 Asia/Taipei
+- generated_at: 2026-06-27 22:22:31 Asia/Taipei
 - stock_id: 00878
 - stock_name: 國泰永續高股息
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 32.68
 - close: 32.71
 - volume: 69355166
-- ma5: 33.63
-- ema23_primary: 32.08
-- distance_to_ema23_pct: 1.96
-- ma20: 32.46
-- ma60: 31.96
-- ma120: 31.96
-- return_5d: -1.68
-- return_20d: 7.07
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 0.78
+- ma5: 33.64
+- ema23_primary: 32.21
+- distance_to_ema23_pct: 1.55
+- ma20: 32.64
+- ma60: 32.03
+- ma120: 32.03
+- return_5d: -2.85
+- return_20d: 9.03
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 0.2
 - distance_to_high_60_pct: -5.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,30.55,30.79,29.84,30,90876706,28.76,4.31,29.58,29.58,0.87
 20260529,30.58,30.8,30.35,30.76,71631385,28.93,6.34,29.78,29.78,0.72
 20260601,31.3,32.05,31.3,31.99,103435481,29.18,9.62,30.1,30.1,1.04
 20260602,32.1,32.5,31.81,32.49,111980868,29.46,10.29,30.39,30.39,1.11
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.98,34.3,33.98,34.12,48412504,31.68,7.69,31.92,31.75,0.57
 20260623,34.4,34.62,33.98,33.98,48726737,31.87,6.61,32.15,31.85,0.61
 20260624,33.6,33.87,33.37,33.66,45814735,32.02,5.11,32.35,31.93,0.59
-20260626,33.43,33.43,32.68,32.71,69355166,32.08,1.96,32.46,31.96,0.92
+20260625,33.93,34,33.49,33.75,32653639,32.17,4.92,32.51,32,0.44
+20260626,33.43,33.43,32.68,32.71,69355166,32.21,1.55,32.64,32.03,0.95
 ```
 
 ## Latest TDCC Snapshot

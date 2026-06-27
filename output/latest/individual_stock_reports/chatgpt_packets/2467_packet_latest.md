@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:02 Asia/Taipei
+- generated_at: 2026-06-27 22:23:05 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 560
 - close: 560
 - volume: 1422280
-- ma5: 591.4
-- ema23_primary: 583.86
-- distance_to_ema23_pct: -4.09
-- ma20: 587
-- ma60: 561.37
-- ma120: 429.54
-- return_5d: -4.27
-- return_20d: -14.76
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: -4.6
+- ma5: 588.6
+- ema23_primary: 583.78
+- distance_to_ema23_pct: -4.07
+- ma20: 585.4
+- ma60: 564.38
+- ma120: 432.53
+- return_5d: -6.51
+- return_20d: -9.24
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -4.34
 - distance_to_high_60_pct: -19.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,655,660,614,617,2719603,590.38,4.51,599.85,496.03,0.82
 20260529,640,640,612,619,1559812,592.77,4.43,600.35,499.88,0.5
 20260601,634,647,625,637,1405177,596.45,6.8,603.2,504.42,0.5
 20260602,637,637,582,588,3530661,595.75,-1.3,604.05,507.55,1.26
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,617,644,614,630,1743491,586.38,7.44,600,553.12,0.8
 20260623,624,624,578,580,2007305,585.85,-1,595.85,556.04,0.97
 20260624,576,594,573,588,956831,586.03,0.34,591.85,558.94,0.5
-20260626,579,600,560,560,1422280,583.86,-4.09,587,561.37,0.78
+20260625,600,601,581,585,941009,585.94,-0.16,588.25,561.78,0.52
+20260626,579,600,560,560,1422280,583.78,-4.07,585.4,564.38,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所通知辦理 3.財務業務資訊: 期間              (月)                    (季)             (最近四季累計)             最近一月 與去年同期   最近一季   與去年同期      114第2季至 科目       115年05月 增     減%  115年第1季  增     減%     115年第1季              (IFRS-合併自結數)      (IFRS-合併查核數)     (IFRS-合併查核數) ========   ========== ==========  ========== ==========    ============== 營業收入     1,022       75%        2,262        73%            7,055 (百萬) 稅前淨利       316      205%          614       156%            1,501 (百萬) 歸屬母公司 業主淨利       236      170%          466       210%            1,146 (百萬) 每股盈餘      1.53      164%         3.06       206%             7.56 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下：   (1)近期營業收入及損益資訊：基本資料>精華版   (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊   (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表   (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.原公告申報日期:114/12/19 3.簡述原公告申報內容:子公司蘇州創峰光電智能科技有限公司建廠預算案，                     約人民幣1.77億。 4.變動緣由及主要內容:因配合當地政府規劃，調整地塊用地面積，                     經重新規劃及工程估價，建廠預算由人民幣1.77億元                     調整為3.46億元。 5.變動後對公司財務業務之影響:無。 6.其他應敘明事項: (1)本次公告係更新114/12/19重大訊息。 (2)蘇州創峰光電智能科技有限公司原先規劃購置之土地業經114/12/19董事會決議通過    ，並於115/06/26董事會決議通過購置新規劃之土地及預算。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

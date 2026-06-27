@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:28 Asia/Taipei
+- generated_at: 2026-06-27 22:23:30 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 31.5
 - close: 31.5
 - volume: 4566331
-- ma5: 34.19
-- ema23_primary: 34.87
-- distance_to_ema23_pct: -9.67
-- ma20: 35.85
-- ma60: 35.69
-- ma120: 34.64
-- return_5d: -11.02
-- return_20d: -11.27
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -12.13
+- ma5: 33.93
+- ema23_primary: 34.75
+- distance_to_ema23_pct: -9.36
+- ma20: 35.73
+- ma60: 35.65
+- ma120: 34.65
+- return_5d: -9.87
+- return_20d: -12.74
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -11.83
 - distance_to_high_60_pct: -28.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.7,38.05,35.7,36.1,9716466,34.21,5.53,33.1,35.56,2.42
 20260529,37,39.4,36.45,38.6,10992438,34.58,11.64,33.35,35.61,2.48
 20260601,39.1,39.65,38.1,38.8,7954792,34.93,11.09,33.61,35.72,1.69
 20260602,38.85,40.3,38.45,40.2,9176825,35.37,13.67,33.88,35.8,1.82
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,35.5,36.3,34.85,35.8,4215799,35.33,1.32,36.17,35.85,0.76
 20260623,36,36,33.95,34.2,4087117,35.24,-2.95,36.09,35.81,0.76
 20260624,33.8,34.85,33.8,34.5,2701768,35.18,-1.93,36.05,35.78,0.51
-20260626,33.65,33.65,31.5,31.5,4566331,34.87,-9.67,35.85,35.69,0.87
+20260625,34.9,34.9,33.5,33.65,2685981,35.05,-4,35.95,35.73,0.52
+20260626,33.65,33.65,31.5,31.5,4566331,34.75,-9.36,35.73,35.65,0.94
 ```
 
 ## Latest TDCC Snapshot

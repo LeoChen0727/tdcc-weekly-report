@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4979 華星光
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:53 Asia/Taipei
+- generated_at: 2026-06-27 22:23:55 Asia/Taipei
 - stock_id: 4979
 - stock_name: 華星光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 450.5
 - close: 459
 - volume: 8696000
-- ma5: 520.6
-- ema23_primary: 551.03
-- distance_to_ema23_pct: -16.7
-- ma20: 558.65
-- ma60: 563.88
-- ma120: 452.52
-- return_5d: -15.93
-- return_20d: -26.91
-- volume_ratio: 3.29
-- distance_to_ma20_pct_auxiliary: -17.84
+- ma5: 502.3
+- ema23_primary: 544.62
+- distance_to_ema23_pct: -15.72
+- ma20: 552.23
+- ma60: 565.48
+- ma120: 454.28
+- return_5d: -19.05
+- return_20d: -24.01
+- volume_ratio: 2.89
+- distance_to_ma20_pct_auxiliary: -16.88
 - distance_to_high_60_pct: -39.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,645,654,594,604,625000,602.15,0.31,626.8,513.16,0.13
 20260529,610,646,608,624,624000,603.97,3.32,627.55,515.82,0.13
 20260601,622,679,618,650,656000,607.81,6.94,626.6,519.67,0.14
 20260602,671,691,630,630,653,609.66,3.34,622.2,523.51,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,579,585,547,552,6462000,568.41,-2.89,582.6,559.69,3.81
 20260623,561,568,525,525,5356000,564.79,-7.05,576.1,561.35,2.78
 20260624,517,542,499,500,6933000,559.4,-10.62,567.1,562.83,3.09
-20260626,473,489.5,450.5,459,8696000,551.03,-16.7,558.65,563.88,3.29
+20260625,515,515,475,475.5,7993000,552.4,-13.92,559.48,564.15,3.06
+20260626,473,489.5,450.5,459,8696000,544.62,-15.72,552.23,565.48,2.89
 ```
 
 ## Latest TDCC Snapshot

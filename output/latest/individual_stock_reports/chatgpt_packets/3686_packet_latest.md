@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3686 達能
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:39 Asia/Taipei
 - stock_id: 3686
 - stock_name: 達能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.65
 - close: 16.7
 - volume: 289866
-- ma5: 17.17
+- ma5: 17.16
 - ema23_primary: 17.22
-- distance_to_ema23_pct: -3.03
-- ma20: 17.18
-- ma60: 17.43
-- ma120: 18.35
-- return_5d: -4.02
-- return_20d: -4.84
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -2.78
+- distance_to_ema23_pct: -3
+- ma20: 17.17
+- ma60: 17.41
+- ma120: 18.34
+- return_5d: -3.19
+- return_20d: -3.75
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -2.74
 - distance_to_high_60_pct: -11.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.6,18.1,17.3,17.35,312757,17.52,-0.99,17.45,18,0.84
 20260529,17.5,17.5,17.2,17.35,364865,17.51,-0.91,17.46,17.94,0.96
 20260601,17.8,17.8,17.2,17.6,290209,17.52,0.48,17.45,17.91,0.76
 20260602,17.7,17.7,16.7,17.25,809404,17.49,-1.4,17.42,17.88,1.97
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.2,17.35,17.05,17.15,294868,17.25,-0.57,17.27,17.52,0.85
 20260623,17.2,17.4,16.9,17.4,243849,17.26,0.8,17.23,17.49,0.73
 20260624,17.8,17.8,17.25,17.35,363353,17.27,0.47,17.22,17.47,1.11
-20260626,17.2,17.2,16.65,16.7,289866,17.22,-3.03,17.18,17.43,0.88
+20260625,17.35,17.45,17.15,17.2,174532,17.26,-0.36,17.2,17.44,0.54
+20260626,17.2,17.2,16.65,16.7,289866,17.22,-3,17.17,17.41,0.89
 ```
 
 ## Latest TDCC Snapshot

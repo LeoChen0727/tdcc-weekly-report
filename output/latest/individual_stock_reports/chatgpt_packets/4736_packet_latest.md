@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4736 泰博
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:48 Asia/Taipei
+- generated_at: 2026-06-27 22:23:50 Asia/Taipei
 - stock_id: 4736
 - stock_name: 泰博
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 122
 - close: 123
 - volume: 126011
-- ma5: 123.8
+- ma5: 123.5
 - ema23_primary: 124.31
-- distance_to_ema23_pct: -1.05
-- ma20: 124.58
-- ma60: 124.47
-- ma120: 125.2
+- distance_to_ema23_pct: -1.06
+- ma20: 124.7
+- ma60: 124.5
+- ma120: 125.22
 - return_5d: -2.38
 - return_20d: 0.82
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -1.26
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -1.36
 - distance_to_high_60_pct: -5.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,123,123,121.5,122,114273,123.42,-1.15,123.6,124.67,0.54
 20260529,123,124.5,122.5,122.5,144525,123.35,-0.69,123.47,124.64,0.68
 20260601,123,124,123,124,274075,123.4,0.48,123.4,124.66,1.25
 20260602,124.5,125,123.5,125,170973,123.53,1.19,123.38,124.61,0.77
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,125.5,125.5,123,124,302642,124.7,-0.56,124.47,124.53,1.63
 20260623,124.5,124.5,123,123,140453,124.55,-1.25,124.5,124.51,0.77
 20260624,123,124,122.5,123,84516,124.43,-1.15,124.53,124.49,0.47
-20260626,123.5,124,122,123,126011,124.31,-1.05,124.58,124.47,0.71
+20260625,125,125,124,124.5,108952,124.43,0.06,124.65,124.49,0.62
+20260626,123.5,124,122,123,126011,124.31,-1.06,124.7,124.5,0.72
 ```
 
 ## Latest TDCC Snapshot

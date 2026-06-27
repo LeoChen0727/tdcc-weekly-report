@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2612 中航
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:07 Asia/Taipei
+- generated_at: 2026-06-27 22:23:10 Asia/Taipei
 - stock_id: 2612
 - stock_name: 中航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 51.5
 - close: 51.5
 - volume: 909857
-- ma5: 53.42
-- ema23_primary: 54.93
-- distance_to_ema23_pct: -6.24
-- ma20: 55.31
+- ma5: 53.48
+- ema23_primary: 54.83
+- distance_to_ema23_pct: -6.08
+- ma20: 55.13
 - ma60: 55.87
-- ma120: 58.22
-- return_5d: -5.33
-- return_20d: -10.59
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -6.89
+- ma120: 58.17
+- return_5d: -4.1
+- return_20d: -10.43
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -6.59
 - distance_to_high_60_pct: -15.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,58.2,58.6,57.4,57.5,980812,56.4,1.96,56.24,57.14,1.64
 20260529,58.3,58.5,57.6,57.7,1072015,56.51,2.11,56.42,56.95,1.68
 20260601,55.8,57.7,55.3,57.3,1289024,56.57,1.29,56.55,56.84,1.91
 20260602,57,57.2,55.9,56.6,597984,56.57,0.05,56.59,56.71,0.88
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,54.1,54.4,53.7,54.4,301626,55.52,-2.02,55.93,55.98,0.38
 20260623,54.5,54.5,53.6,53.7,375508,55.37,-3.01,55.77,55.94,0.49
 20260624,54.3,54.3,53.2,53.8,242117,55.24,-2.6,55.62,55.92,0.32
-20260626,54,54,51.5,51.5,909857,54.93,-6.24,55.31,55.87,1.23
+20260625,53.7,54.5,53.7,54,349964,55.13,-2.06,55.44,55.91,0.49
+20260626,54,54,51.5,51.5,909857,54.83,-6.08,55.13,55.87,1.29
 ```
 
 ## Latest TDCC Snapshot

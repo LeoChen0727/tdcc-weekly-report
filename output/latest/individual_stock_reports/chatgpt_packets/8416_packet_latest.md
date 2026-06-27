@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8416 實威
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:53 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8416
 - stock_name: 實威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 153
+- price_rows: 154
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -120,22 +120,21 @@
 - close: 171
 - volume: 6000
 - ma5: 171.9
-- ema23_primary: 176.15
-- distance_to_ema23_pct: -2.93
-- ma20: 179.3
-- ma60: 174.05
-- ma120: 175.36
+- ema23_primary: 175.8
+- distance_to_ema23_pct: -2.73
+- ma20: 178.45
+- ma60: 174.08
+- ma120: 175.32
 - return_5d: -0.58
-- return_20d: -0.58
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -4.63
+- return_20d: -9.52
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -4.17
 - distance_to_high_60_pct: -10.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,189,189,189,189,189000,173.73,8.79,173.32,170.94,3.8
 20260529,191,191,179,186,188000,174.75,6.44,174.18,171.18,3.19
 20260601,179.5,182,177,181.5,180000,175.31,3.53,174.78,171.39,2.68
 20260602,183,183,179,181,181,175.79,2.97,175.25,171.63,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,172,174,170.5,172.5,48000,177.5,-2.82,179.38,173.9,0.54
 20260623,172,173,172,172.5,10000,177.09,-2.59,179.4,173.97,0.12
 20260624,172.5,172.5,171,171.5,4000,176.62,-2.9,179.35,174.01,0.06
-20260626,172,172,171,171,6000,176.15,-2.93,179.3,174.05,0.09
+20260625,171.5,172,171.5,172,3000,176.24,-2.4,179.35,174.07,0.05
+20260626,172,172,171,171,6000,175.8,-2.73,178.45,174.08,0.11
 ```
 
 ## Latest TDCC Snapshot

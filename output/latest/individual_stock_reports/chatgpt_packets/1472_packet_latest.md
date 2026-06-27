@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1472 三洋實業
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:38 Asia/Taipei
+- generated_at: 2026-06-27 22:22:41 Asia/Taipei
 - stock_id: 1472
 - stock_name: 三洋實業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 90
 - close: 90.5
 - volume: 140688
-- ma5: 89.7
-- ema23_primary: 89.95
+- ma5: 89.5
+- ema23_primary: 89.96
 - distance_to_ema23_pct: 0.61
-- ma20: 89.86
-- ma60: 91.64
-- ma120: 90.85
+- ma20: 89.83
+- ma60: 91.52
+- ma120: 90.86
 - return_5d: -0.55
-- return_20d: 1.12
+- return_20d: 0
 - volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 0.72
+- distance_to_ma20_pct_auxiliary: 0.75
 - distance_to_high_60_pct: -7.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,89.9,91,89.1,90.5,56389,90.48,0.03,89.69,92.61,3.58
 20260529,89.6,91,89.1,90,42542,90.44,-0.48,89.7,92.62,2.48
 20260601,89.8,90.9,89.8,90,78039,90.4,-0.44,89.74,92.61,4
 20260602,90,90.5,90,90,11055,90.37,-0.41,89.78,92.62,0.57
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,90,91,88.6,88.6,87042,90.03,-1.59,89.86,91.98,0.31
 20260623,89.9,89.9,89,89,19227,89.94,-1.05,89.83,91.85,0.07
 20260624,88.6,89.6,88.6,89.4,38336,89.9,-0.55,89.81,91.72,0.14
-20260626,90.5,92.6,90,90.5,140688,89.95,0.61,89.86,91.64,0.49
+20260625,89.4,90.1,88.8,90,41852,89.91,0.1,89.83,91.63,0.15
+20260626,90.5,92.6,90,90.5,140688,89.96,0.61,89.83,91.52,0.49
 ```
 
 ## Latest TDCC Snapshot

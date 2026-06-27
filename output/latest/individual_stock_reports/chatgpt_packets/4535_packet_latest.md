@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4535 至興
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:44 Asia/Taipei
+- generated_at: 2026-06-27 22:23:46 Asia/Taipei
 - stock_id: 4535
 - stock_name: 至興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 152
+- price_rows: 153
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 27.2
 - close: 27.4
 - volume: 5000
-- ma5: 27.5
+- ma5: 27.48
 - ema23_primary: 27.37
-- distance_to_ema23_pct: 0.13
+- distance_to_ema23_pct: 0.12
 - ma20: 27.29
-- ma60: 27.62
-- ma120: 28.13
-- return_5d: 0.74
-- return_20d: 1.48
+- ma60: 27.61
+- ma120: 28.12
+- return_5d: -0.36
+- return_20d: 0.18
 - volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 0.42
+- distance_to_ma20_pct_auxiliary: 0.41
 - distance_to_high_60_pct: -4.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.35,27.35,27.35,27.35,27000,27.52,-0.61,27.44,27.83,2.04
 20260529,27.35,27.35,27.2,27.3,27000,27.5,-0.72,27.42,27.79,1.87
 20260601,27.3,27.3,27,27.3,27000,27.48,-0.66,27.4,27.74,1.71
 20260602,27.35,28,27.2,27.2,27,27.46,-0.94,27.38,27.71,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.65,27.8,27.2,27.6,58000,27.34,0.97,27.24,27.64,2.35
 20260623,27.5,27.7,27.3,27.5,29000,27.35,0.55,27.25,27.64,1.17
 20260624,27.5,27.5,27.5,27.5,11000,27.36,0.5,27.27,27.64,0.46
-20260626,27.2,27.4,27.2,27.4,5000,27.37,0.13,27.29,27.62,0.22
+20260625,27.5,27.5,27.35,27.4,20000,27.37,0.13,27.29,27.62,0.85
+20260626,27.2,27.4,27.2,27.4,5000,27.37,0.12,27.29,27.61,0.22
 ```
 
 ## Latest TDCC Snapshot

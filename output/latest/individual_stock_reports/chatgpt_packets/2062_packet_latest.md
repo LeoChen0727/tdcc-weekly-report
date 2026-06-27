@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2062 橋椿
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:50 Asia/Taipei
+- generated_at: 2026-06-27 22:22:53 Asia/Taipei
 - stock_id: 2062
 - stock_name: 橋椿
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 18.7
 - close: 18.75
 - volume: 326923
-- ma5: 18.98
+- ma5: 19
 - ema23_primary: 19.12
-- distance_to_ema23_pct: -1.95
-- ma20: 19.01
-- ma60: 20.08
-- ma120: 20.68
-- return_5d: -2.34
-- return_20d: 3.02
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -1.38
+- distance_to_ema23_pct: -1.93
+- ma20: 19.05
+- ma60: 20.05
+- ma120: 20.66
+- return_5d: -1.32
+- return_20d: 1.9
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -1.56
 - distance_to_high_60_pct: -19.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,18.35,18.65,18.25,18.4,607780,19.49,-5.61,19.53,20.52,1.09
 20260529,18.55,18.7,18.5,18.7,464078,19.43,-3.74,19.43,20.47,0.82
 20260601,18.7,18.85,18.4,18.85,337807,19.38,-2.73,19.32,20.45,0.61
 20260602,18.85,19.1,18.65,19,405451,19.35,-1.79,19.21,20.42,0.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19.1,19.2,19,19.05,322673,19.18,-0.66,18.91,20.15,0.77
 20260623,19.05,19.1,18.9,19.1,326388,19.17,-0.37,18.95,20.13,0.83
 20260624,19.05,19.15,18.95,19,165305,19.16,-0.82,18.98,20.11,0.45
-20260626,19,19.05,18.7,18.75,326923,19.12,-1.95,19.01,20.08,0.91
+20260625,19.2,19.3,19,19.1,234523,19.15,-0.27,19.03,20.08,0.66
+20260626,19,19.05,18.7,18.75,326923,19.12,-1.93,19.05,20.05,0.96
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6854 錼創科技-KY創
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:31 Asia/Taipei
+- generated_at: 2026-06-27 22:24:32 Asia/Taipei
 - stock_id: 6854
 - stock_name: 錼創科技-KY創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 120
 - close: 121
 - volume: 608510
-- ma5: 127.5
-- ema23_primary: 136.08
-- distance_to_ema23_pct: -11.08
-- ma20: 135.5
-- ma60: 148.35
-- ma120: 139.55
+- ma5: 126.3
+- ema23_primary: 135.06
+- distance_to_ema23_pct: -10.41
+- ma20: 134.1
+- ma60: 147.98
+- ma120: 139.49
 - return_5d: -6.92
-- return_20d: -22.19
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -10.7
+- return_20d: -20.39
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -9.77
 - distance_to_high_60_pct: -38.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,156,164,150.5,152,927419,155.31,-2.13,153.6,149.88,1.06
 20260529,156.5,158,151,151.5,518681,154.99,-2.25,153.4,150.12,0.59
 20260601,152,152,146,148,967441,154.41,-4.15,153,150.4,1.08
 20260602,148,148,142.5,143.5,660047,153.5,-6.52,152.2,150.57,0.73
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,131.5,135.5,131,132.5,452113,139.45,-4.99,141.15,149.73,0.69
 20260623,133.5,133.5,128,128,297681,138.5,-7.58,138.93,149.33,0.5
 20260624,126,127.5,124,126,494597,137.46,-8.33,137.22,148.89,0.95
-20260626,124,128,120,121,608510,136.08,-11.08,135.5,148.35,1.23
+20260625,127.5,129,123.5,124,386137,136.33,-9.05,135.65,148.4,0.8
+20260626,124,128,120,121,608510,135.06,-10.41,134.1,147.98,1.3
 ```
 
 ## Latest TDCC Snapshot

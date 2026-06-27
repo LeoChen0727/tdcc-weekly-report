@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9918 欣天然
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:58 Asia/Taipei
+- generated_at: 2026-06-27 22:24:59 Asia/Taipei
 - stock_id: 9918
 - stock_name: 欣天然
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 278
+- price_rows: 279
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42.95
 - close: 43.2
 - volume: 69164
-- ma5: 43.31
-- ema23_primary: 43.48
-- distance_to_ema23_pct: -0.64
-- ma20: 43.58
-- ma60: 43.73
-- ma120: 43.26
-- return_5d: -0.69
-- return_20d: -0.92
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -0.86
-- distance_to_high_60_pct: -17.56
+- ma5: 43.36
+- ema23_primary: 43.47
+- distance_to_ema23_pct: -0.61
+- ma20: 43.52
+- ma60: 43.62
+- ma120: 43.28
+- return_5d: 0.23
+- return_20d: -2.59
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -0.75
+- distance_to_high_60_pct: -13.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,43.7,45,43.45,44.35,152282,43.55,1.84,43.31,45.54,1.73
 20260529,43.25,43.7,43,43.15,98589,43.52,-0.84,43.3,45.56,1.12
 20260601,43.2,44.2,43.05,43.5,110094,43.52,-0.04,43.33,45.51,1.23
 20260602,43.4,44,43.35,43.75,53597,43.53,0.49,43.33,45.4,0.61
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,44.2,44.2,43.05,43.05,32185,43.49,-1,43.56,43.99,0.41
 20260623,44.15,44.15,43.05,43.65,65247,43.5,0.35,43.58,43.92,0.86
 20260624,43.05,43.65,43,43.55,31445,43.5,0.11,43.59,43.83,0.43
-20260626,42.95,43.65,42.95,43.2,69164,43.48,-0.64,43.58,43.73,0.95
+20260625,43.35,43.35,43.05,43.35,28713,43.49,-0.32,43.58,43.73,0.41
+20260626,42.95,43.65,42.95,43.2,69164,43.47,-0.61,43.52,43.62,1.04
 ```
 
 ## Latest TDCC Snapshot

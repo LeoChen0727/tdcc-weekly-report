@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8472 夠麻吉
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:55 Asia/Taipei
+- generated_at: 2026-06-27 22:24:55 Asia/Taipei
 - stock_id: 8472
 - stock_name: 夠麻吉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 79.9
 - close: 83.9
 - volume: 13000
-- ma5: 84.4
-- ema23_primary: 83.53
-- distance_to_ema23_pct: 0.44
-- ma20: 86.37
-- ma60: 77.25
-- ma120: 72.21
-- return_5d: -3.12
-- return_20d: 19.01
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -2.86
+- ma5: 83.34
+- ema23_primary: 83.28
+- distance_to_ema23_pct: 0.75
+- ma20: 86.83
+- ma60: 77.29
+- ma120: 72.29
+- return_5d: -1.87
+- return_20d: 18.17
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -3.37
 - distance_to_high_60_pct: -15.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,70.5,73,68.3,71,70000,70.85,0.22,70.31,72.36,2.34
 20260529,71.9,78.1,71.9,78.1,77000,71.45,9.31,70.84,72.68,2.35
 20260601,85.9,85.9,82.9,85.9,86000,72.65,18.23,71.61,73.18,2.37
 20260602,88.1,90,82.9,90,87,74.1,21.46,72.62,73.67,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,86,86,83.9,83.9,12000,83.33,0.68,84.17,76.92,0.23
 20260623,83.9,83.9,83.9,83.9,1000,83.38,0.63,84.94,77.02,0.02
 20260624,85.9,85.9,83.9,84.8,5000,83.5,1.56,85.7,77.14,0.11
-20260626,80.1,84,79.9,83.9,13000,83.53,0.44,86.37,77.25,0.31
+20260625,83.8,86.4,80.2,80.2,13000,83.22,-3.63,86.19,77.19,0.31
+20260626,80.1,84,79.9,83.9,13000,83.28,0.75,86.83,77.29,0.33
 ```
 
 ## Latest TDCC Snapshot

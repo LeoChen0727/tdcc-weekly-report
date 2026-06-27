@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8183 精星
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:50 Asia/Taipei
+- generated_at: 2026-06-27 22:24:51 Asia/Taipei
 - stock_id: 8183
 - stock_name: 精星
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 32
 - close: 32.3
 - volume: 1284000
-- ma5: 32.45
-- ema23_primary: 32.26
-- distance_to_ema23_pct: 0.13
+- ma5: 32.36
+- ema23_primary: 32.25
+- distance_to_ema23_pct: 0.16
 - ma20: 32.19
-- ma60: 33.03
-- ma120: 33.66
-- return_5d: -1.37
-- return_20d: -0.77
-- volume_ratio: 3.78
-- distance_to_ma20_pct_auxiliary: 0.33
+- ma60: 33.02
+- ma120: 33.65
+- return_5d: -0.77
+- return_20d: 0.47
+- volume_ratio: 3.71
+- distance_to_ma20_pct_auxiliary: 0.34
 - distance_to_high_60_pct: -19.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,32.75,33.3,31.8,32.15,33000,32.34,-0.58,31.9,34.15,0.08
 20260529,32.35,32.45,31.9,32.15,32000,32.32,-0.53,31.85,34.04,0.08
 20260601,32.15,32.35,31.9,32.05,32000,32.3,-0.77,31.78,33.98,0.08
 20260602,32.4,32.4,31.7,32.4,32,32.31,0.29,31.68,33.9,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.55,33.55,32.15,33.1,871000,32.28,2.55,32.19,33.13,3.56
 20260623,33.2,33.45,31.9,32.35,514000,32.28,0.21,32.21,33.09,1.91
 20260624,32.2,32.5,31.75,31.95,202000,32.26,-0.95,32.2,33.06,0.73
-20260626,32,34.15,32,32.3,1284000,32.26,0.13,32.19,33.03,3.78
+20260625,32.4,32.45,31.75,32.1,168000,32.24,-0.44,32.18,33.03,0.59
+20260626,32,34.15,32,32.3,1284000,32.25,0.16,32.19,33.02,3.71
 ```
 
 ## Latest TDCC Snapshot

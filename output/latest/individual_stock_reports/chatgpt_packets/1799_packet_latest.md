@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1799 易威
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:46 Asia/Taipei
+- generated_at: 2026-06-27 22:22:50 Asia/Taipei
 - stock_id: 1799
 - stock_name: 易威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 30.2
 - close: 30.2
 - volume: 144000
-- ma5: 30.6
-- ema23_primary: 32.19
-- distance_to_ema23_pct: -6.18
-- ma20: 31.91
-- ma60: 36.1
-- ma120: 35.01
-- return_5d: -3.21
-- return_20d: -10.65
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: -5.36
+- ma5: 30.71
+- ema23_primary: 32.1
+- distance_to_ema23_pct: -5.93
+- ma20: 31.81
+- ma60: 36
+- ma120: 34.99
+- return_5d: -1.63
+- return_20d: -9.04
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: -5.07
 - distance_to_high_60_pct: -32.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.8,34,33,33.2,33000,35.81,-7.29,35.65,36.92,0.28
 20260529,33.2,33.65,33.1,33.25,33000,35.6,-6.59,35.43,36.95,0.29
 20260601,33.25,33.3,32,33.05,33000,35.38,-6.6,35.24,37.01,0.31
 20260602,32.85,34.65,32.75,33.4,34,35.22,-5.17,35.08,37.1,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,30.7,30.9,30,30.9,128000,32.71,-5.53,32.41,36.5,1.84
 20260623,31,32.3,30.5,30.6,167000,32.53,-5.94,32.25,36.38,2.19
 20260624,30.6,31.7,30.35,30.6,108000,32.37,-5.47,32.09,36.24,1.35
-20260626,31.55,31.75,30.2,30.2,144000,32.19,-6.18,31.91,36.1,1.69
+20260625,31,31.45,30.75,31.25,82000,32.28,-3.19,31.96,36.12,1
+20260626,31.55,31.75,30.2,30.2,144000,32.1,-5.93,31.81,36,1.64
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6693 廣閎科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:26 Asia/Taipei
+- generated_at: 2026-06-27 22:24:27 Asia/Taipei
 - stock_id: 6693
 - stock_name: 廣閎科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 220.5
 - close: 221
 - volume: 1037000
-- ma5: 232
-- ema23_primary: 186.61
-- distance_to_ema23_pct: 18.43
-- ma20: 180.55
-- ma60: 154.32
-- ma120: 121.53
-- return_5d: 13.04
-- return_20d: 46.36
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 22.4
-- distance_to_high_60_pct: -14.51
+- ma5: 237.8
+- ema23_primary: 191.23
+- distance_to_ema23_pct: 15.56
+- ma20: 185.25
+- ma60: 156.65
+- ma120: 122.91
+- return_5d: 2.79
+- return_20d: 47.33
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 19.3
+- distance_to_high_60_pct: -15.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,152.5,157.5,148.5,150,154000,145.11,3.37,147.45,127,0.16
 20260529,153.5,153.5,147,148.5,150000,145.39,2.14,147.9,128.02,0.16
 20260601,150,153,148,152,151000,145.94,4.15,148.4,129.19,0.16
 20260602,153.5,153.5,145,148,148,146.12,1.29,148.15,130.25,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,236.5,236.5,233,236.5,1179000,171.97,37.52,167.95,147.78,0.83
 20260623,246,258.5,231,236.5,4903000,177.35,33.35,172.38,149.97,2.96
 20260624,226.5,252,224.5,251,999000,183.49,36.8,177.05,152.41,0.59
-20260626,243,244,220.5,221,1037000,186.61,18.43,180.55,154.32,0.59
+20260625,262,262,238,244,835000,188.53,29.42,181.7,154.7,0.48
+20260626,243,244,220.5,221,1037000,191.23,15.56,185.25,156.65,0.58
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6585 鼎基
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6585
 - stock_name: 鼎基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 127
 - close: 129
 - volume: 618442
-- ma5: 140.8
-- ema23_primary: 123.65
-- distance_to_ema23_pct: 4.32
-- ma20: 123.31
-- ma60: 101.94
-- ma120: 95.59
-- return_5d: -5.49
-- return_20d: 36.65
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 4.61
+- ma5: 139.7
+- ema23_primary: 124.37
+- distance_to_ema23_pct: 3.73
+- ma20: 125.08
+- ma60: 102.48
+- ma120: 95.95
+- return_5d: -6.52
+- return_20d: 32.72
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 3.13
 - distance_to_high_60_pct: -14.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,95.5,97.2,94.2,97.2,243863,92.54,5.03,91.62,90.21,1.27
 20260529,99.3,99.3,96.2,97.4,184600,92.95,4.79,92.28,90.32,0.93
 20260601,97.9,99.9,96.8,98,187882,93.37,4.96,92.97,90.5,0.91
 20260602,99.8,104.5,98.1,102,527922,94.09,8.41,93.83,90.75,2.3
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,151.5,151.5,145,150.5,1663809,119.36,26.09,116.84,99.93,1.54
 20260623,147.5,149.5,140,144.5,1173724,121.46,18.97,119.27,100.79,1.04
 20260624,141,145.5,139.5,142,1209809,123.17,15.29,121.58,101.45,1.02
-20260626,132.5,133.5,127,129,618442,123.65,4.32,123.31,101.94,0.51
+20260625,141.5,143.5,131,132.5,760556,123.95,6.9,123.49,102,0.63
+20260626,132.5,133.5,127,129,618442,124.37,3.73,125.08,102.48,0.5
 ```
 
 ## Latest TDCC Snapshot

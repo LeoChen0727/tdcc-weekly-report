@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4949 有成精密
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:53 Asia/Taipei
 - stock_id: 4949
 - stock_name: 有成精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 82
 - close: 82
 - volume: 1136437
-- ma5: 87.6
-- ema23_primary: 90.75
-- distance_to_ema23_pct: -9.64
-- ma20: 92.34
-- ma60: 90.25
-- ma120: 69.27
-- return_5d: -5.31
-- return_20d: -19.61
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -11.2
+- ma5: 87.46
+- ema23_primary: 90.46
+- distance_to_ema23_pct: -9.36
+- ma20: 91.95
+- ma60: 90.61
+- ma120: 69.69
+- return_5d: -7.34
+- return_20d: -14.14
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -10.83
 - distance_to_high_60_pct: -27.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,100,102,94,95.5,3357003,93.9,1.7,95.95,80.12,0.86
 20260529,98.7,98.7,94.1,94.6,1945889,93.96,0.68,95.41,80.89,0.57
 20260601,97.5,104,95.7,103.5,4367818,94.76,9.23,95.33,81.83,1.3
 20260602,101,104.5,96.1,104.5,3747212,95.57,9.34,95.48,82.77,1.11
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,89.1,90.8,89,89.2,761128,91.99,-3.03,95.08,89.25,0.35
 20260623,90.7,91,86.1,87.8,946577,91.64,-4.19,94.06,89.62,0.45
 20260624,88.8,90.5,86.8,90.5,1376320,91.54,-1.14,93.34,90.06,0.75
-20260626,87.4,87.7,82,82,1136437,90.75,-9.64,92.34,90.25,0.67
+20260625,91.5,91.5,87.8,87.8,1021868,91.23,-3.76,92.63,90.35,0.6
+20260626,87.4,87.7,82,82,1136437,90.46,-9.36,91.95,90.61,0.72
 ```
 
 ## Latest TDCC Snapshot

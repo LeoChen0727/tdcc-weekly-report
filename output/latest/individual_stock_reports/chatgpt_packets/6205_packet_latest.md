@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6205 詮欣
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:11 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6205
 - stock_name: 詮欣
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 73.9
 - close: 74.2
 - volume: 1048344
-- ma5: 80.36
-- ema23_primary: 81.04
-- distance_to_ema23_pct: -8.44
-- ma20: 81.78
-- ma60: 77.83
-- ma120: 66.27
-- return_5d: -8.62
-- return_20d: -8.4
+- ma5: 79.76
+- ema23_primary: 80.78
+- distance_to_ema23_pct: -8.15
+- ma20: 81.85
+- ma60: 78.23
+- ma120: 66.59
+- return_5d: -8.73
+- return_20d: -3.64
 - volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -9.27
+- distance_to_ma20_pct_auxiliary: -9.35
 - distance_to_high_60_pct: -29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,81.5,81.7,76.4,77,1834167,79.9,-3.63,83.47,69.48,0.3
 20260529,79,79.1,77.7,78,857091,79.74,-2.19,83.05,69.84,0.18
 20260601,78,81.5,77.7,81.2,1384344,79.87,1.67,82.39,70.3,0.32
 20260602,81.2,89.3,79.9,89.3,8792071,80.65,10.72,81.94,70.9,2.23
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,81.8,85.5,80.3,84.1,1535635,81.77,2.85,82.49,76.75,0.48
 20260623,85.8,85.8,81.5,81.5,1608793,81.75,-0.3,82.24,77.12,0.55
 20260624,80.2,81.8,79,80.7,1246920,81.66,-1.17,82.12,77.53,0.44
-20260626,77.9,78.8,73.9,74.2,1048344,81.04,-8.44,81.78,77.83,0.38
+20260625,80.5,80.9,78.3,78.3,693121,81.38,-3.78,81.99,77.9,0.25
+20260626,77.9,78.8,73.9,74.2,1048344,80.78,-8.15,81.85,78.23,0.38
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3684 榮昌
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:39 Asia/Taipei
 - stock_id: 3684
 - stock_name: 榮昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 52.8
 - close: 53.1
 - volume: 84000
-- ma5: 57.16
-- ema23_primary: 58.83
-- distance_to_ema23_pct: -9.74
-- ma20: 59.18
-- ma60: 59.05
-- ma120: 59.62
-- return_5d: -10.3
-- return_20d: -10
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -10.27
+- ma5: 56.52
+- ema23_primary: 58.53
+- distance_to_ema23_pct: -9.27
+- ma20: 59.03
+- ma60: 58.94
+- ma120: 59.6
+- return_5d: -9.39
+- return_20d: -8.92
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -10.05
 - distance_to_high_60_pct: -17.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,59.3,60,57.5,58.3,59000,59.58,-2.15,59.58,59.77,0.63
 20260529,59,60.3,59,59.3,60000,59.56,-0.44,59.63,59.65,0.64
 20260601,59.1,60.9,59.1,59.7,60000,59.57,0.22,59.62,59.6,0.67
 20260602,59.3,59.6,58.7,59.1,59,59.53,-0.73,59.59,59.58,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.8,60,58.4,59.8,77000,59.77,0.05,59.88,59.46,0.95
 20260623,57.2,59,57.2,57.4,70000,59.57,-3.64,59.63,59.34,0.86
 20260624,57.1,58.2,56,56.9,66000,59.35,-4.12,59.48,59.23,0.8
-20260626,55,55,52.8,53.1,84000,58.83,-9.74,59.18,59.05,1.01
+20260625,56.5,56.5,55.1,55.4,88000,59.02,-6.13,59.3,59.09,1.05
+20260626,55,55,52.8,53.1,84000,58.53,-9.27,59.03,58.94,0.99
 ```
 
 ## Latest TDCC Snapshot

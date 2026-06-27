@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1435 中福
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:35 Asia/Taipei
+- generated_at: 2026-06-27 22:22:39 Asia/Taipei
 - stock_id: 1435
 - stock_name: 中福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 221
+- price_rows: 222
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 22.65
 - close: 22.65
 - volume: 81630
-- ma5: 17.61
-- ema23_primary: 16.58
-- distance_to_ema23_pct: 36.63
-- ma20: 15.46
-- ma60: 18.95
-- ma120: 21.54
-- return_5d: 76.26
-- return_20d: 23.77
-- volume_ratio: 5.97
-- distance_to_ma20_pct_auxiliary: 46.53
+- ma5: 18.91
+- ema23_primary: 16.93
+- distance_to_ema23_pct: 33.81
+- ma20: 15.61
+- ma60: 18.92
+- ma120: 21.47
+- return_5d: 60.64
+- return_20d: 29.43
+- volume_ratio: 5.72
+- distance_to_ma20_pct_auxiliary: 45.08
 - distance_to_high_60_pct: -8.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260331,17.6,17.6,17.5,17.5,15406,19.47,-10.11,19.36,20.97,0.28
 20260401,18,18.75,17.7,17.7,11515,19.32,-8.39,19.12,20.9,0.21
 20260402,17.7,17.8,16.3,16.35,17020,19.07,-14.28,18.89,20.81,0.31
 20260407,14.75,14.75,14.75,14.75,14516,18.71,-21.18,18.55,20.69,0.27
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.5,15.5,15.5,15.5,3596,15.66,-1.04,15.35,19.07,0.36
 20260623,17.05,17.05,17.05,17.05,4545,15.78,8.06,15.26,18.99,0.47
 20260624,18.75,18.75,18.75,18.75,10963,16.03,17,15.24,18.93,1.08
-20260626,22.65,22.65,22.65,22.65,81630,16.58,36.63,15.46,18.95,5.97
+20260625,20.6,20.6,20.6,20.6,27220,16.41,25.55,15.36,18.91,2.48
+20260626,22.65,22.65,22.65,22.65,81630,16.93,33.81,15.61,18.92,5.72
 ```
 
 ## Latest TDCC Snapshot

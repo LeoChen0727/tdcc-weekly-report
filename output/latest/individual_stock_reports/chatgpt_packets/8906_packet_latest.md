@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8906 花王
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:56 Asia/Taipei
+- generated_at: 2026-06-27 22:24:56 Asia/Taipei
 - stock_id: 8906
 - stock_name: 花王
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 28.45
 - close: 28.75
 - volume: 68000
-- ma5: 29.3
-- ema23_primary: 27.18
-- distance_to_ema23_pct: 5.76
-- ma20: 26.45
-- ma60: 26.6
-- ma120: 30.57
-- return_5d: -8.15
-- return_20d: 15.23
+- ma5: 28.72
+- ema23_primary: 27.32
+- distance_to_ema23_pct: 5.24
+- ma20: 26.67
+- ma60: 26.59
+- ma120: 30.5
+- return_5d: -9.31
+- return_20d: 17.35
 - volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 8.69
+- distance_to_ma20_pct_auxiliary: 7.81
 - distance_to_high_60_pct: -10.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,24.8,24.8,24.5,24.5,25000,25.51,-3.97,25.03,27.88,0.41
 20260529,24.3,24.45,23.7,24.05,24000,25.39,-5.28,25.03,27.73,0.41
 20260601,23.85,24,23.35,23.9,24000,25.27,-5.41,25,27.6,0.42
 20260602,23.75,23.9,23.7,23.85,24,25.15,-5.17,24.85,27.46,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31,31.1,28.65,28.8,206000,26.74,7.71,25.9,26.64,2.11
 20260623,28.55,28.7,28.2,28.3,73000,26.87,5.33,26.07,26.62,0.73
 20260624,28.85,29.6,28.55,28.95,57000,27.04,7.06,26.26,26.61,0.56
-20260626,28.55,28.75,28.45,28.75,68000,27.18,5.76,26.45,26.6,0.65
+20260625,28.9,29.1,28.55,28.8,29000,27.19,5.93,26.45,26.6,0.28
+20260626,28.55,28.75,28.45,28.75,68000,27.32,5.24,26.67,26.59,0.65
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8499 鼎炫-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:56 Asia/Taipei
+- generated_at: 2026-06-27 22:24:56 Asia/Taipei
 - stock_id: 8499
 - stock_name: 鼎炫-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 292
 - close: 300
 - volume: 130494
-- ma5: 309
-- ema23_primary: 297.84
-- distance_to_ema23_pct: 0.72
-- ma20: 297.75
-- ma60: 284.05
-- ma120: 292.08
-- return_5d: -1.15
-- return_20d: -4.31
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 0.76
+- ma5: 309.3
+- ema23_primary: 298.44
+- distance_to_ema23_pct: 0.52
+- ma20: 297.32
+- ma60: 285.04
+- ma120: 291.43
+- return_5d: -1.32
+- return_20d: -4.46
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 0.9
 - distance_to_high_60_pct: -11.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,313,319.5,309.5,314,156963,293.22,7.09,289.55,275.11,0.62
 20260529,320,326,317.5,321,117294,295.53,8.62,292.77,275.24,0.46
 20260601,321.5,322,299,301.5,175542,296.03,1.85,294.98,275.57,0.68
 20260602,301,301.5,292.5,298.5,76496,296.24,0.76,296.95,275.99,0.29
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,304,324,304,324,189572,295.61,9.6,300.8,281.61,1.41
 20260623,326,332.5,308,312,173233,296.98,5.06,300,282.5,1.43
 20260624,310.5,315.5,303,305,72702,297.65,2.47,298.43,283.32,0.65
-20260626,309,309,292,300,130494,297.84,0.72,297.75,284.05,1.27
+20260625,314.5,314.5,305.5,305.5,70158,298.3,2.41,298.02,284.14,0.71
+20260626,309,309,292,300,130494,298.44,0.52,297.32,285.04,1.33
 ```
 
 ## Latest TDCC Snapshot

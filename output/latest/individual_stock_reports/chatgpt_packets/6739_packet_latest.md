@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6739 竹陞科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:27 Asia/Taipei
+- generated_at: 2026-06-27 22:24:28 Asia/Taipei
 - stock_id: 6739
 - stock_name: 竹陞科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1015
 - close: 1030
 - volume: 257000
-- ma5: 1117
-- ema23_primary: 1186.54
-- distance_to_ema23_pct: -13.19
-- ma20: 1182.25
-- ma60: 1332.83
-- ma120: 1116.35
-- return_5d: -6.79
-- return_20d: -20.46
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -12.88
+- ma5: 1115
+- ema23_primary: 1179.61
+- distance_to_ema23_pct: -12.68
+- ma20: 1175
+- ma60: 1331.58
+- ma120: 1119.2
+- return_5d: -8.04
+- return_20d: -17.93
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -12.34
 - distance_to_high_60_pct: -41.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1305,1350,1250,1255,1295000,1334.11,-5.93,1331.75,1309.42,1.9
 20260529,1280,1280,1225,1235,1249000,1325.85,-6.85,1322.5,1313.98,1.74
 20260601,1235,1280,1230,1255,1249000,1319.95,-4.92,1312.25,1319.98,1.64
 20260602,1260,1300,1245,1285,1276,1317.04,-2.43,1305.75,1325,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1125,1210,1125,1190,167000,1215.63,-2.11,1219,1339.83,0.25
 20260623,1205,1245,1120,1120,180000,1207.66,-7.26,1207.25,1338.5,0.29
 20260624,1085,1145,1085,1125,79000,1200.77,-6.31,1195.5,1336.17,0.14
-20260626,1115,1115,1015,1030,257000,1186.54,-13.19,1182.25,1332.83,0.51
+20260625,1160,1165,1110,1110,96000,1193.21,-6.97,1186.25,1334.17,0.2
+20260626,1115,1115,1015,1030,257000,1179.61,-12.68,1175,1331.58,0.58
 ```
 
 ## Latest TDCC Snapshot

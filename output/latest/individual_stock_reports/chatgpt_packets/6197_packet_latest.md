@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:10 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 359.5
 - close: 364
 - volume: 5378560
-- ma5: 354.8
-- ema23_primary: 318.4
-- distance_to_ema23_pct: 14.32
-- ma20: 328.48
-- ma60: 246.86
-- ma120: 200.4
-- return_5d: 9.31
-- return_20d: 29.31
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 10.82
-- distance_to_high_60_pct: -3.58
+- ma5: 360
+- ema23_primary: 322.93
+- distance_to_ema23_pct: 12.72
+- ma20: 333.02
+- ma60: 250.38
+- ma120: 202.35
+- return_5d: 4.75
+- return_20d: 28.85
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 9.3
+- distance_to_high_60_pct: -5.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,287,296.5,274,282.5,8131163,235.54,19.94,238.43,195.91,1.39
 20260529,287,298,277,297,6987775,240.66,23.41,242.88,198.36,1.25
 20260601,300.5,318,297,309,7216843,246.35,25.43,246.9,201.13,1.25
 20260602,312,316,303.5,311,5369208,251.74,23.54,250.28,203.79,1
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,352,359,346,353,4317386,306.52,15.16,316.55,237.58,0.71
 20260623,356,359.5,346,350,3565381,310.15,12.85,320.35,240.48,0.6
 20260624,350,361.5,346.5,359.5,3769680,314.26,14.4,324.35,243.65,0.66
-20260626,368,377.5,359.5,364,5378560,318.4,14.32,328.48,246.86,0.94
+20260625,361.5,384.5,358,373.5,5469848,319.2,17.01,328.95,247.02,0.96
+20260626,368,377.5,359.5,364,5378560,322.93,12.72,333.02,250.38,0.97
 ```
 
 ## Latest TDCC Snapshot

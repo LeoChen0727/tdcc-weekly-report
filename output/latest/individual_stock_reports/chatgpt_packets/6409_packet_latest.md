@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:16 Asia/Taipei
+- generated_at: 2026-06-27 22:24:17 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 977
 - close: 977
 - volume: 1801286
-- ma5: 934.2
-- ema23_primary: 867
-- distance_to_ema23_pct: 12.69
-- ma20: 864.5
-- ma60: 786.05
-- ma120: 843.57
-- return_5d: 5.05
-- return_20d: 38.19
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 13.01
+- ma5: 949
+- ema23_primary: 877.92
+- distance_to_ema23_pct: 11.29
+- ma20: 879.55
+- ma60: 790.22
+- ma120: 843.88
+- return_5d: 5.51
+- return_20d: 39.77
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 11.08
 - distance_to_high_60_pct: -4.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,718,731,692,699,1345694,725.9,-3.71,734.25,759.5,1.19
 20260529,711,715,696,709,991985,724.49,-2.14,731.1,756.93,0.87
 20260601,713,718,697,713,1106779,723.53,-1.46,727.2,755.27,0.95
 20260602,712,759,702,742,1760234,725.07,2.34,725.1,753.35,1.47
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,937,969,930,943,668836,846.44,11.41,830.3,776.67,0.41
 20260623,946,951,912,912,618968,851.9,7.05,840.15,779.23,0.38
 20260624,910,924,907,913,340858,857,6.53,851,782.12,0.22
-20260626,1005,1025,977,977,1801286,867,12.69,864.5,786.05,1.13
+20260625,918,1000,918,1000,2063236,868.91,15.09,865.65,786.43,1.28
+20260626,1005,1025,977,977,1801286,877.92,11.29,879.55,790.22,1.1
 ```
 
 ## Latest TDCC Snapshot

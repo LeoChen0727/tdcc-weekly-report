@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:04 Asia/Taipei
+- generated_at: 2026-06-27 22:23:07 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 23.95
 - close: 24.15
 - volume: 2827573
-- ma5: 24.87
+- ma5: 24.41
 - ema23_primary: 24.55
-- distance_to_ema23_pct: -1.64
-- ma20: 24.62
-- ma60: 23.74
-- ma120: 23.37
-- return_5d: -10.56
-- return_20d: 10.53
+- distance_to_ema23_pct: -1.63
+- ma20: 24.73
+- ma60: 23.76
+- ma120: 23.38
+- return_5d: -10.06
+- return_20d: 8.54
 - volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -1.91
+- distance_to_ma20_pct_auxiliary: -2.37
 - distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,21.95,22.4,21.95,22.25,4399149,22.59,-1.49,22.38,23.22,1.34
 20260529,22.25,22.65,22.2,22.65,5382351,22.59,0.26,22.36,23.21,1.59
 20260601,22.65,23,22.35,22.95,5070997,22.62,1.45,22.38,23.22,1.53
 20260602,22.9,22.9,22.6,22.7,2458605,22.63,0.32,22.39,23.22,0.74
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.4,26.45,24.65,24.85,9637556,24.65,0.8,24.25,23.72,1.25
 20260623,24.85,24.9,24.1,24.2,5465810,24.62,-1.69,24.38,23.73,0.7
 20260624,23.95,24.6,23.8,24.3,4425602,24.59,-1.17,24.5,23.73,0.56
-20260626,24.5,24.55,23.95,24.15,2827573,24.55,-1.64,24.62,23.74,0.36
+20260625,24.5,24.55,24.1,24.55,2675157,24.59,-0.14,24.64,23.74,0.34
+20260626,24.5,24.55,23.95,24.15,2827573,24.55,-1.63,24.73,23.76,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -186,7 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2501 | 國建 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日:115/06/24 2.許可從事競業行為之經理人姓名及職稱:郭文鎧總經理 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職經理人職務期間 5.決議情形（請依公司法第32條說明表決結果）:除郭文鎧董事 迴避，其餘出席董事全體同意照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2501 | 國建 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:國泰建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:投標由臺北市住宅及都市更新中心公開評選主旨 所揭開發案之出資人綜合評選 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本案由國泰建設股份有限公司（領銜）、 三重置業地產股份有限公司（本公司之子公司）共同投標。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

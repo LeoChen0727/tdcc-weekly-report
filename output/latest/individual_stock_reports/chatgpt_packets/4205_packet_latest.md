@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4205 中華食
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:41 Asia/Taipei
+- generated_at: 2026-06-27 22:23:44 Asia/Taipei
 - stock_id: 4205
 - stock_name: 中華食
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 72.9
 - close: 72.9
 - volume: 48000
-- ma5: 73.22
-- ema23_primary: 73.11
-- distance_to_ema23_pct: -0.29
-- ma20: 72.83
-- ma60: 74.46
-- ma120: 76.59
+- ma5: 73.28
+- ema23_primary: 73.12
+- distance_to_ema23_pct: -0.3
+- ma20: 72.87
+- ma60: 74.35
+- ma120: 76.53
 - return_5d: 0
-- return_20d: 0.28
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: 0.1
-- distance_to_high_60_pct: -9.22
+- return_20d: 0.69
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 0.04
+- distance_to_high_60_pct: -7.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,72.8,72.8,72.3,72.4,72000,73.7,-1.76,73.36,75.67,1.63
 20260529,72.4,72.5,72,72.3,72000,73.58,-1.74,73.25,75.59,1.53
 20260601,72.4,72.4,72,72.2,72000,73.47,-1.73,73.15,75.51,1.55
 20260602,72.2,72.5,72.1,72.5,72,73.39,-1.21,73.08,75.44,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,73,74.1,73,74,110000,73.13,1.19,72.78,74.71,2.15
 20260623,74,74,73.1,73.2,23000,73.14,0.09,72.8,74.65,0.47
 20260624,73.2,73.2,73,73.1,15000,73.13,-0.04,72.82,74.56,0.33
-20260626,73.2,73.2,72.9,72.9,48000,73.11,-0.29,72.83,74.46,1.08
+20260625,73.1,73.4,73,73.2,14000,73.14,0.08,72.84,74.47,0.33
+20260626,73.2,73.2,72.9,72.9,48000,73.12,-0.3,72.87,74.35,1.15
 ```
 
 ## Latest TDCC Snapshot

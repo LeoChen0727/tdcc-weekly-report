@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7770 君曜
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:44 Asia/Taipei
+- generated_at: 2026-06-27 22:24:44 Asia/Taipei
 - stock_id: 7770
 - stock_name: 君曜
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 128
+- price_rows: 129
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 41.05
 - close: 41.9
 - volume: 28000
-- ma5: 42.84
-- ema23_primary: 43.24
-- distance_to_ema23_pct: -3.09
-- ma20: 43.11
-- ma60: 45.97
-- ma120: 50.05
-- return_5d: 0.12
-- return_20d: -8.81
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -2.81
+- ma5: 42.82
+- ema23_primary: 43.14
+- distance_to_ema23_pct: -2.88
+- ma20: 42.95
+- ma60: 45.86
+- ma120: 49.91
+- return_5d: -0.71
+- return_20d: -7.3
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -2.46
 - distance_to_high_60_pct: -22.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,45,48.95,45,45.2,46000,45.33,-0.28,45.36,47.77,2.15
 20260529,45.45,47,44.75,44.8,46000,45.28,-1.07,45.22,47.7,1.97
 20260601,44,44.8,42.1,44.05,44000,45.18,-2.5,45.03,47.63,1.75
 20260602,43.15,44.05,42.6,44.05,43,45.09,-2.3,44.83,47.58,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,42.2,46,42.2,44,21000,43.42,1.34,43.23,46.26,0.82
 20260623,44,44.5,43.2,43.2,20000,43.4,-0.46,43.26,46.18,0.82
 20260624,42.05,43,42,42.9,39000,43.36,-1.06,43.31,46.09,1.61
-20260626,42.05,42.3,41.05,41.9,28000,43.24,-3.09,43.11,45.97,1.2
+20260625,43.9,43.9,40.1,42.1,56000,43.25,-2.67,43.12,45.98,2.26
+20260626,42.05,42.3,41.05,41.9,28000,43.14,-2.88,42.95,45.86,1.17
 ```
 
 ## Latest TDCC Snapshot

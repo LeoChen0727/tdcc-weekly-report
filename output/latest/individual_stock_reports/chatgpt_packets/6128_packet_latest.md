@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6128 上福
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:06 Asia/Taipei
+- generated_at: 2026-06-27 22:24:08 Asia/Taipei
 - stock_id: 6128
 - stock_name: 上福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 20
 - close: 20
 - volume: 129900
-- ma5: 20.51
+- ma5: 20.42
 - ema23_primary: 20.45
-- distance_to_ema23_pct: -2.19
-- ma20: 20.52
-- ma60: 20.39
-- ma120: 21.84
-- return_5d: -5.66
-- return_20d: 3.63
+- distance_to_ema23_pct: -2.21
+- ma20: 20.58
+- ma60: 20.38
+- ma120: 21.82
+- return_5d: -4.76
+- return_20d: 3.36
 - volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -2.53
+- distance_to_ma20_pct_auxiliary: -2.82
 - distance_to_high_60_pct: -8.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,19.45,19.5,19,19.35,168938,19.72,-1.87,19.72,21.11,0.92
 20260529,19.3,19.5,19.25,19.45,182178,19.7,-1.25,19.67,21.02,0.97
 20260601,19.45,19.6,19.1,19.5,217093,19.68,-0.91,19.61,20.94,1.12
 20260602,19.5,20.2,19.5,20.2,362052,19.72,2.42,19.58,20.88,1.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.1,21.1,20.6,20.6,193484,20.49,0.53,20.31,20.45,0.87
 20260623,20.6,20.6,20.35,20.4,117533,20.48,-0.41,20.39,20.43,0.55
 20260624,20.4,20.65,20.2,20.55,155704,20.49,0.3,20.48,20.42,0.76
-20260626,20.6,20.6,20,20,129900,20.45,-2.19,20.52,20.39,0.66
+20260625,20.35,20.55,20.3,20.55,158083,20.49,0.27,20.55,20.4,0.8
+20260626,20.6,20.6,20,20,129900,20.45,-2.21,20.58,20.38,0.66
 ```
 
 ## Latest TDCC Snapshot

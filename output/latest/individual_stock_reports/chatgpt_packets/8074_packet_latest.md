@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:48 Asia/Taipei
+- generated_at: 2026-06-27 22:24:48 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 65.8
 - close: 65.8
 - volume: 1904000
-- ma5: 72.28
-- ema23_primary: 73.4
-- distance_to_ema23_pct: -10.35
-- ma20: 73.05
-- ma60: 73.41
-- ma120: 66.54
-- return_5d: -12.15
-- return_20d: -15.75
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -9.92
+- ma5: 71.28
+- ema23_primary: 73
+- distance_to_ema23_pct: -9.87
+- ma20: 72.72
+- ma60: 73.63
+- ma120: 66.73
+- return_5d: -10.96
+- return_20d: -12.85
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -9.51
 - distance_to_high_60_pct: -31.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,78,79.5,75,75.5,77000,77.02,-1.97,80.03,69.58,0.02
 20260529,77.2,77.7,74.7,74.7,76000,76.82,-2.76,79.75,69.72,0.02
 20260601,75.5,77.8,74.2,76.5,76000,76.8,-0.39,79.16,69.97,0.03
 20260602,77.2,77.4,72.1,74.2,74,76.58,-3.11,78.23,70.15,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,75.1,78.5,74.2,77.7,3237000,74.5,4.3,74.5,72.78,2.56
 20260623,78.2,78.4,73,73,2094000,74.37,-1.84,74.11,73.02,1.54
 20260624,71.6,73,69.9,71,1185000,74.09,-4.17,73.66,73.26,0.84
-20260626,69,71,65.8,65.8,1904000,73.4,-10.35,73.05,73.41,1.26
+20260625,70.6,72,68.9,68.9,1386000,73.66,-6.46,73.2,73.46,0.93
+20260626,69,71,65.8,65.8,1904000,73,-9.87,72.72,73.63,1.21
 ```
 
 ## Latest TDCC Snapshot

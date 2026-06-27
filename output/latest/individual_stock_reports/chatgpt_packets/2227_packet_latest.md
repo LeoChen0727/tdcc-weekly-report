@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2227 裕日車
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:52 Asia/Taipei
+- generated_at: 2026-06-27 22:22:55 Asia/Taipei
 - stock_id: 2227
 - stock_name: 裕日車
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 48.7
 - close: 48.75
 - volume: 53591
-- ma5: 49.35
-- ema23_primary: 49.76
-- distance_to_ema23_pct: -2.04
-- ma20: 49.66
-- ma60: 51.05
-- ma120: 52.2
-- return_5d: -1.91
-- return_20d: 0.72
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -1.84
+- ma5: 49.39
+- ema23_primary: 49.74
+- distance_to_ema23_pct: -1.98
+- ma20: 49.71
+- ma60: 51.04
+- ma120: 52.14
+- return_5d: -1.12
+- return_20d: 0.52
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: -1.94
 - distance_to_high_60_pct: -13.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,49.9,49.9,48.35,48.5,55329,50.4,-3.76,50.64,51.41,1.1
 20260529,48.55,50.4,48.55,50.4,74244,50.4,0.01,50.48,51.33,1.41
 20260601,50.5,50.5,49.75,50,73899,50.36,-0.72,50.34,51.29,1.36
 20260602,49.9,50.5,49.5,50.5,38824,50.37,0.25,50.23,51.25,0.72
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49.3,49.3,49,49.25,48740,49.88,-1.26,49.57,51.11,1.01
 20260623,49.75,49.95,48.6,49.75,39573,49.87,-0.24,49.61,51.09,0.8
 20260624,49.75,49.75,49.1,49.7,13640,49.86,-0.31,49.65,51.08,0.28
-20260626,48.8,49.25,48.7,48.75,53591,49.76,-2.04,49.66,51.05,1.13
+20260625,49.5,49.55,49.15,49.5,19013,49.83,-0.65,49.7,51.06,0.42
+20260626,48.8,49.25,48.7,48.75,53591,49.74,-1.98,49.71,51.04,1.18
 ```
 
 ## Latest TDCC Snapshot

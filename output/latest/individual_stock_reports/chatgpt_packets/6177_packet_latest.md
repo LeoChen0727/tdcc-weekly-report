@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6177 達麗
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:09 Asia/Taipei
+- generated_at: 2026-06-27 22:24:10 Asia/Taipei
 - stock_id: 6177
 - stock_name: 達麗
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 45.35
 - close: 45.65
 - volume: 1303245
-- ma5: 46.79
+- ma5: 45.91
 - ema23_primary: 45.97
 - distance_to_ema23_pct: -0.7
-- ma20: 45.61
-- ma60: 45.68
-- ma120: 47.45
-- return_5d: -5.39
-- return_20d: 7.29
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 0.09
+- ma20: 45.82
+- ma60: 45.66
+- ma120: 47.42
+- return_5d: -9.42
+- return_20d: 9.21
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.37
 - distance_to_high_60_pct: -11.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,42.55,42.55,41.7,41.8,1953505,44.64,-6.36,44.97,46.01,1.24
 20260529,41.85,42.4,41.8,42.4,1855662,44.45,-4.62,44.82,45.93,1.14
 20260601,42.45,43.7,42.1,43.6,1553593,44.38,-1.76,44.74,45.88,0.93
 20260602,43.8,43.8,42.85,43,1344905,44.27,-2.86,44.62,45.83,0.79
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48,48,45.6,45.9,7130141,46,-0.22,45.09,45.8,2.47
 20260623,46.05,46.3,45.6,45.9,1499899,45.99,-0.21,45.26,45.76,0.54
 20260624,45.9,46.8,45.55,46.1,998057,46,0.21,45.45,45.73,0.38
-20260626,45.95,46.1,45.35,45.65,1303245,45.97,-0.7,45.61,45.68,0.5
+20260625,46.15,46.4,45.95,46,651334,46,-0.01,45.62,45.69,0.25
+20260626,45.95,46.1,45.35,45.65,1303245,45.97,-0.7,45.82,45.66,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -192,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 6177 | 達麗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 16.0 | B_可觀察 |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 19.0 | B_可觀察 |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分配表 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 討論事項： (1)通過修訂「取得或處分資產處理程序」部份條文 (2)通過修正「股東會議事規則」部份條文 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

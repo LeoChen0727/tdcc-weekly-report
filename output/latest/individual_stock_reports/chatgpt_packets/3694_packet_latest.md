@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:39 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 55.7
 - close: 55.7
 - volume: 1623657
-- ma5: 59.7
-- ema23_primary: 62.17
-- distance_to_ema23_pct: -10.4
-- ma20: 63.38
-- ma60: 61.7
-- ma120: 60.56
-- return_5d: -10.02
-- return_20d: -18.69
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -12.11
+- ma5: 59.26
+- ema23_primary: 61.85
+- distance_to_ema23_pct: -9.94
+- ma20: 62.98
+- ma60: 61.75
+- ma120: 60.54
+- return_5d: -8.39
+- return_20d: -16.37
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -11.55
 - distance_to_high_60_pct: -23.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,68.7,70,66.2,66.6,2596190,64.22,3.7,63.34,59.55,0.64
 20260529,67.6,70.2,67.3,69.5,2636138,64.66,7.48,63.78,59.73,0.64
 20260601,69,69.9,68.4,68.9,1674570,65.02,5.97,64.16,59.96,0.4
 20260602,68.9,69.8,66.9,69.1,2046541,65.36,5.73,64.52,60.16,0.49
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.2,62.2,60.9,62,1967197,63.28,-2.03,65.06,61.57,1
 20260623,62.1,62.4,60.3,60.4,1032481,63.04,-4.19,64.55,61.65,0.59
 20260624,60,60.9,58.9,59.6,1118626,62.76,-5.03,64.02,61.73,0.69
-20260626,58.1,58.2,55.7,55.7,1623657,62.17,-10.4,63.38,61.7,1.05
+20260625,60.5,60.5,58.6,58.6,876012,62.41,-6.1,63.52,61.75,0.58
+20260626,58.1,58.2,55.7,55.7,1623657,61.85,-9.94,62.98,61.75,1.12
 ```
 
 ## Latest TDCC Snapshot

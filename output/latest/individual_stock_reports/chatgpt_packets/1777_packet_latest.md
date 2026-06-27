@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1777 生泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:45 Asia/Taipei
+- generated_at: 2026-06-27 22:22:49 Asia/Taipei
 - stock_id: 1777
 - stock_name: 生泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 70.5
 - close: 70.9
 - volume: 86000
-- ma5: 71.66
-- ema23_primary: 71.74
-- distance_to_ema23_pct: -1.17
-- ma20: 71.85
-- ma60: 71.47
-- ma120: 71.91
+- ma5: 71.5
+- ema23_primary: 71.72
+- distance_to_ema23_pct: -1.15
+- ma20: 71.86
+- ma60: 71.46
+- ma120: 71.89
 - return_5d: -2.07
-- return_20d: -0.7
-- volume_ratio: 2.07
-- distance_to_ma20_pct_auxiliary: -1.32
+- return_20d: -0.84
+- volume_ratio: 2.14
+- distance_to_ma20_pct_auxiliary: -1.33
 - distance_to_high_60_pct: -2.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,71.4,71.6,71.3,71.5,71000,71.28,0.31,71.18,71.47,2.02
 20260529,71.3,72.1,71.1,71.7,72000,71.31,0.54,71.22,71.45,1.9
 20260601,71.1,71.7,71.1,71.6,71000,71.34,0.37,71.27,71.47,1.8
 20260602,71.6,72.6,71.4,71.7,72,71.37,0.47,71.3,71.48,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,72.3,72.3,71.5,71.6,56000,71.84,-0.33,71.84,71.51,1.23
 20260623,71.6,72.2,71.5,71.7,43000,71.83,-0.17,71.86,71.5,0.98
 20260624,71.7,71.7,71.7,71.7,6000,71.81,-0.16,71.88,71.48,0.15
-20260626,71.6,71.6,70.5,70.9,86000,71.74,-1.17,71.85,71.47,2.07
+20260625,71.6,71.7,71.4,71.6,44000,71.8,-0.27,71.89,71.48,1.12
+20260626,71.6,71.6,70.5,70.9,86000,71.72,-1.15,71.86,71.46,2.14
 ```
 
 ## Latest TDCC Snapshot

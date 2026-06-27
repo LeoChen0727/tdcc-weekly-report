@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1809 中釉
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:47 Asia/Taipei
+- generated_at: 2026-06-27 22:22:50 Asia/Taipei
 - stock_id: 1809
 - stock_name: 中釉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 47.2
 - close: 47.85
 - volume: 6022710
-- ma5: 52.79
-- ema23_primary: 49.43
-- distance_to_ema23_pct: -3.2
-- ma20: 51.68
-- ma60: 38.5
-- ma120: 31.2
-- return_5d: -7.45
-- return_20d: 7.77
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -7.42
+- ma5: 52.89
+- ema23_primary: 49.61
+- distance_to_ema23_pct: -3.54
+- ma20: 52.19
+- ma60: 38.92
+- ma120: 31.48
+- return_5d: -6.91
+- return_20d: 14.61
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -8.32
 - distance_to_high_60_pct: -22.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.45,44.9,40.55,41.75,12395902,37.89,10.19,38.13,30.54,1.17
 20260529,43.3,44.2,41.2,43.55,8472822,38.36,13.53,39.02,30.81,0.77
 20260601,43.55,47.9,42.65,47.9,13633772,39.15,22.34,40.01,31.19,1.19
 20260602,49.9,52.6,49.9,52.6,7761848,40.27,30.6,41.09,31.64,0.71
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51.7,56.5,51.5,56.5,16413912,48.71,15.99,50.85,37.3,1.12
 20260623,57.5,57.8,53,53.9,15073889,49.14,9.68,51.26,37.73,1
 20260624,53.5,56.9,53,54.3,9866343,49.57,9.53,51.51,38.18,0.65
-20260626,51,51.4,47.2,47.85,6022710,49.43,-3.2,51.68,38.5,0.4
+20260625,54.3,55.1,51.8,51.9,5402514,49.77,4.28,51.88,38.57,0.36
+20260626,51,51.4,47.2,47.85,6022710,49.61,-3.54,52.19,38.92,0.41
 ```
 
 ## Latest TDCC Snapshot

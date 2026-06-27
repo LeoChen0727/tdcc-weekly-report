@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3264 欣銓
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:24 Asia/Taipei
+- generated_at: 2026-06-27 22:23:27 Asia/Taipei
 - stock_id: 3264
 - stock_name: 欣銓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 212
 - close: 214.5
 - volume: 6988000
-- ma5: 231.4
-- ema23_primary: 223.94
-- distance_to_ema23_pct: -4.22
-- ma20: 225.45
-- ma60: 210.29
-- ma120: 176.4
-- return_5d: 1.42
-- return_20d: -6.54
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: -4.86
+- ma5: 230.5
+- ema23_primary: 224.19
+- distance_to_ema23_pct: -4.32
+- ma20: 225.07
+- ma60: 211.39
+- ma120: 177.53
+- return_5d: -7.74
+- return_20d: -8.92
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: -4.7
 - distance_to_high_60_pct: -17.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,231,249,227.5,235.5,237000,218.16,7.95,224.7,186.13,0.02
 20260529,254.5,259,241,243.5,252000,220.27,10.54,227.12,187.82,0.03
 20260601,245,245,219.5,223,225000,220.5,1.13,227.55,189.22,0.03
 20260602,224.5,225.5,213,214.5,216,220,-2.5,226.5,190.44,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,238,248,238,242,14378000,223.05,8.5,225.55,206.62,3.62
 20260623,243,251.5,233,233.5,13695000,223.92,4.28,226.03,207.94,2.95
 20260624,233,235.5,226,234.5,6408000,224.8,4.31,226.2,209.35,1.29
-20260626,230,232,212,214.5,6988000,223.94,-4.22,225.45,210.29,1.32
+20260625,239.5,243.5,227.5,228,5618000,225.07,1.3,226.12,210.52,1.08
+20260626,230,232,212,214.5,6988000,224.19,-4.32,225.07,211.39,1.26
 ```
 
 ## Latest TDCC Snapshot

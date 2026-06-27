@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2247 汎德永業
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:52 Asia/Taipei
+- generated_at: 2026-06-27 22:22:56 Asia/Taipei
 - stock_id: 2247
 - stock_name: 汎德永業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 230.5
 - close: 231
 - volume: 121852
-- ma5: 234.6
-- ema23_primary: 228.93
-- distance_to_ema23_pct: 0.91
-- ma20: 230.25
-- ma60: 223.59
-- ma120: 244.74
-- return_5d: -2.74
-- return_20d: 12.96
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 0.33
+- ma5: 234.1
+- ema23_primary: 229.44
+- distance_to_ema23_pct: 0.68
+- ma20: 231.45
+- ma60: 223.6
+- ma120: 244.32
+- return_5d: -2.94
+- return_20d: 9.22
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -0.19
 - distance_to_high_60_pct: -5.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,206,211.5,206,211.5,169731,211.7,-0.1,209.3,226.95,1.62
 20260529,214.5,227.5,213,223.5,789406,212.69,5.08,209.85,226.33,5.61
 20260601,225,225,216.5,217.5,167555,213.09,2.07,209.97,225.8,1.16
 20260602,216,220,216,220,61187,213.66,2.97,210.25,225.32,0.42
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,236,237.5,231,234.5,115347,227.6,3.03,225.97,223.85,0.74
 20260623,234.5,238,234.5,235,53060,228.21,2.97,227.45,223.78,0.34
 20260624,234.5,236,234,234.5,34343,228.74,2.52,228.93,223.72,0.23
-20260626,233,234,230.5,231,121852,228.93,0.91,230.25,223.59,0.79
+20260625,237.5,239,235,235.5,43807,229.3,2.7,230.47,223.67,0.29
+20260626,233,234,230.5,231,121852,229.44,0.68,231.45,223.6,0.83
 ```
 
 ## Latest TDCC Snapshot

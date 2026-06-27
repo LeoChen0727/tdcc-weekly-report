@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4147 中裕
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:40 Asia/Taipei
+- generated_at: 2026-06-27 22:23:42 Asia/Taipei
 - stock_id: 4147
 - stock_name: 中裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 59.6
 - close: 60.1
 - volume: 1727000
-- ma5: 60.58
-- ema23_primary: 56.51
-- distance_to_ema23_pct: 6.35
-- ma20: 56.38
-- ma60: 52.88
-- ma120: 54.58
+- ma5: 61.74
+- ema23_primary: 57.03
+- distance_to_ema23_pct: 5.38
+- ma20: 57.18
+- ma60: 53.03
+- ma120: 54.59
 - return_5d: 5.07
-- return_20d: 25.6
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 6.59
+- return_20d: 27.6
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 5.11
 - distance_to_high_60_pct: -9.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,47.75,48.1,47,47.1,47000,49.67,-5.17,49.48,51.31,0.06
 20260529,47.35,49.25,47.35,49.25,49000,49.63,-0.77,49.47,51.29,0.06
 20260601,50.1,54.1,48.85,53.2,53000,49.93,6.55,49.7,51.31,0.07
 20260602,52.9,55.2,51.9,52.7,53,50.16,5.06,49.84,51.28,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,57.6,58.3,56.7,57.7,856000,54.7,5.48,54.28,52.52,1.04
 20260623,57.9,63.4,57.4,63.4,3855000,55.43,14.38,54.98,52.66,3.81
 20260624,64.5,66.7,62.7,64.5,6328000,56.18,14.8,55.77,52.79,4.77
-20260626,62.9,63.2,59.6,60.1,1727000,56.51,6.35,56.38,52.88,1.22
+20260625,64.9,65.7,62.6,63,2055000,56.75,11.01,56.53,52.93,1.44
+20260626,62.9,63.2,59.6,60.1,1727000,57.03,5.38,57.18,53.03,1.14
 ```
 
 ## Latest TDCC Snapshot

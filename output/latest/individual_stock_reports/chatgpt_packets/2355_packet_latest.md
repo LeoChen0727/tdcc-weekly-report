@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2355 敬鵬
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:55 Asia/Taipei
+- generated_at: 2026-06-27 22:22:59 Asia/Taipei
 - stock_id: 2355
 - stock_name: 敬鵬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 51.6
 - close: 51.7
 - volume: 8097190
-- ma5: 56.06
-- ema23_primary: 57.16
-- distance_to_ema23_pct: -9.55
-- ma20: 57.77
-- ma60: 55.48
-- ma120: 47.03
-- return_5d: -10.86
-- return_20d: -17.41
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -10.5
+- ma5: 55.48
+- ema23_primary: 56.96
+- distance_to_ema23_pct: -9.23
+- ma20: 57.43
+- ma60: 55.55
+- ma120: 47.22
+- return_5d: -10.71
+- return_20d: -16.21
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -9.98
 - distance_to_high_60_pct: -27.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,62.6,66.1,60.3,61.7,23172318,57.95,6.47,56.98,51.26,0.78
 20260529,62.5,65.3,61.4,65.3,23338036,58.56,11.51,57.69,51.63,0.77
 20260601,63,63,60,60.2,38150885,58.7,2.56,58.13,51.94,1.22
 20260602,60.5,61.8,58.7,60.1,16675611,58.82,2.18,58.53,52.25,0.52
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.4,59.1,57.6,58.7,9160422,57.97,1.25,59.31,55.17,0.42
 20260623,58.8,58.8,55.8,56.1,9479403,57.82,-2.97,58.77,55.36,0.48
 20260624,55.3,57.4,55.1,55.9,6213714,57.66,-3.05,58.31,55.47,0.33
-20260626,54,55.3,51.6,51.7,8097190,57.16,-9.55,57.77,55.48,0.46
+20260625,56.4,56.4,55,55,4715134,57.44,-4.24,57.93,55.54,0.27
+20260626,54,55.3,51.6,51.7,8097190,56.96,-9.23,57.43,55.55,0.48
 ```
 
 ## Latest TDCC Snapshot

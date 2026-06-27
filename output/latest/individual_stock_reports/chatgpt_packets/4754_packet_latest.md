@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4754 國碳科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:49 Asia/Taipei
+- generated_at: 2026-06-27 22:23:51 Asia/Taipei
 - stock_id: 4754
 - stock_name: 國碳科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 154
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 36.7
 - close: 36.95
 - volume: 22000
-- ma5: 36.97
-- ema23_primary: 37.96
-- distance_to_ema23_pct: -2.65
-- ma20: 38.14
-- ma60: 37.75
-- ma120: 38.08
-- return_5d: -6.1
-- return_20d: -3.02
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -3.13
+- ma5: 36.85
+- ema23_primary: 37.87
+- distance_to_ema23_pct: -2.42
+- ma20: 38.1
+- ma60: 37.74
+- ma120: 38.07
+- return_5d: -1.34
+- return_20d: -1.99
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -3.02
 - distance_to_high_60_pct: -7.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.9,38.1,37.65,37.7,38000,37.84,-0.37,37.8,37.7,0.99
 20260529,37.9,37.9,37.7,37.85,38000,37.84,0.02,37.84,37.69,0.95
 20260601,37.85,37.95,37.65,37.65,38000,37.83,-0.47,37.86,37.69,0.93
 20260602,37.65,37.7,37.6,37.7,38,37.82,-0.31,37.89,37.68,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,37.3,37.4,36.85,36.95,138000,38.29,-3.51,38.32,37.79,2.19
 20260623,36.85,36.85,36.5,36.65,44000,38.16,-3.95,38.26,37.77,0.69
 20260624,36.6,36.85,36.6,36.85,7000,38.05,-3.15,38.2,37.76,0.11
-20260626,36.85,37.2,36.7,36.95,22000,37.96,-2.65,38.14,37.75,0.36
+20260625,36.75,37,36.75,36.85,10000,37.95,-2.89,38.14,37.75,0.17
+20260626,36.85,37.2,36.7,36.95,22000,37.87,-2.42,38.1,37.74,0.37
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6823 濾能
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6823
 - stock_name: 濾能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 67.3
 - close: 69
 - volume: 77000
-- ma5: 70.96
-- ema23_primary: 71.54
-- distance_to_ema23_pct: -3.55
-- ma20: 69.77
-- ma60: 76.14
-- ma120: 72.11
-- return_5d: 3.76
-- return_20d: -8.85
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.1
+- ma5: 70.26
+- ema23_primary: 71.38
+- distance_to_ema23_pct: -3.33
+- ma20: 69.61
+- ma60: 76.27
+- ma120: 71.97
+- return_5d: -5.61
+- return_20d: -5.09
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -0.88
 - distance_to_high_60_pct: -39.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,75.9,75.9,72.5,72.7,74000,81.19,-10.46,86.25,74.17,0.12
 20260529,73.6,73.9,72,73,73000,80.51,-9.32,85.06,74.39,0.14
 20260601,75,75.3,72,74,74000,79.96,-7.46,83.56,74.62,0.16
 20260602,74.4,74.4,71.8,73.9,73,79.46,-7,81.97,74.84,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,73.2,73.2,71.5,71.7,203000,72.02,-0.45,71.15,75.93,2.04
 20260623,72.9,72.9,71,71.5,105000,71.98,-0.67,70.66,75.98,1.04
 20260624,71.6,71.6,69,69.5,81000,71.77,-3.17,70.1,76.05,0.8
-20260626,69.5,69.9,67.3,69,77000,71.54,-3.55,69.77,76.14,0.76
+20260625,70.9,70.9,68.2,69.6,38000,71.59,-2.78,69.8,76.15,0.38
+20260626,69.5,69.9,67.3,69,77000,71.38,-3.33,69.61,76.27,0.78
 ```
 
 ## Latest TDCC Snapshot

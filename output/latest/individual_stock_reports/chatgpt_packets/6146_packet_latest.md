@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6146 耕興
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:07 Asia/Taipei
+- generated_at: 2026-06-27 22:24:09 Asia/Taipei
 - stock_id: 6146
 - stock_name: 耕興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 190
 - close: 190
 - volume: 252000
-- ma5: 192
-- ema23_primary: 204.01
-- distance_to_ema23_pct: -6.87
-- ma20: 207.68
+- ma5: 192.2
+- ema23_primary: 203.26
+- distance_to_ema23_pct: -6.52
+- ma20: 206.07
 - ma60: 211.82
-- ma120: 195.93
-- return_5d: -1.81
-- return_20d: -14.8
+- ma120: 196.23
+- return_5d: -2.31
+- return_20d: -16.48
 - volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -8.51
+- distance_to_ma20_pct_auxiliary: -7.8
 - distance_to_high_60_pct: -20.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,226,235,224,227.5,229000,218.39,4.17,220.05,209.04,0.45
 20260529,220,234.5,220,233,229000,219.61,6.1,220.65,209.74,0.46
 20260601,233,233,225.5,227.5,228000,220.27,3.28,220.1,210.35,0.52
 20260602,227.5,227.5,220.5,221.5,223,220.37,0.51,219.9,210.72,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,196,198,192,193.5,431000,208,-6.97,212.32,212.12,1.06
 20260623,194.5,194.5,189,191.5,372000,206.63,-7.32,210.85,211.99,0.9
 20260624,189,192.5,189,190.5,263000,205.28,-7.2,209.32,211.9,0.63
-20260626,194,195,190,190,252000,204.01,-6.87,207.68,211.82,0.6
+20260625,191.5,196.5,191,195.5,300000,204.47,-4.39,207.95,211.91,0.72
+20260626,194,195,190,190,252000,203.26,-6.52,206.07,211.82,0.6
 ```
 
 ## Latest TDCC Snapshot

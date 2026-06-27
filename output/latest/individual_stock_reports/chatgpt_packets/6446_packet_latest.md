@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:17 Asia/Taipei
+- generated_at: 2026-06-27 22:24:19 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 1145
 - close: 1155
 - volume: 2826807
-- ma5: 1113
-- ema23_primary: 978.18
-- distance_to_ema23_pct: 18.08
-- ma20: 986.65
-- ma60: 791.7
-- ma120: 709.15
-- return_5d: 14.36
-- return_20d: 31.7
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 17.06
+- ma5: 1140
+- ema23_primary: 995.97
+- distance_to_ema23_pct: 15.97
+- ma20: 1003.3
+- ma60: 801.37
+- ma120: 714.97
+- return_5d: 8.96
+- return_20d: 33.99
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 15.12
 - distance_to_high_60_pct: -4.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,886,896,852,862,3014839,769.79,11.98,762.7,685.47,0.86
 20260529,870,934,868,930,5399400,783.14,18.75,776.15,689.47,1.48
 20260601,958,978,930,962,3934830,798.05,20.54,792,694.33,1.05
 20260602,962,965,900,902,4137928,806.71,11.81,804.75,697.88,1.06
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1060,1120,1015,1095,2689147,930.4,17.69,945.9,766.92,0.81
 20260623,1090,1150,1090,1095,2382960,944.12,15.98,958.65,774.5,0.73
 20260624,1085,1180,1085,1160,2929068,962.11,20.57,972.75,783.12,0.91
-20260626,1185,1215,1145,1155,2826807,978.18,18.08,986.65,791.7,0.88
+20260625,1165,1215,1145,1195,2772540,981.52,21.75,988.65,792.37,0.87
+20260626,1185,1215,1145,1155,2826807,995.97,15.97,1003.3,801.37,0.89
 ```
 
 ## Latest TDCC Snapshot

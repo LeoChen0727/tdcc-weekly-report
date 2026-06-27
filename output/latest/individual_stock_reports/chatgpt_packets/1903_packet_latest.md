@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1903 士紙
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:47 Asia/Taipei
+- generated_at: 2026-06-27 22:22:51 Asia/Taipei
 - stock_id: 1903
 - stock_name: 士紙
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 46.4
 - close: 46.45
 - volume: 439934
-- ma5: 47.43
-- ema23_primary: 48.09
-- distance_to_ema23_pct: -3.41
-- ma20: 48.26
-- ma60: 48.89
-- ma120: 51.38
-- return_5d: -2.93
-- return_20d: -5.69
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -3.75
+- ma5: 47.27
+- ema23_primary: 48.02
+- distance_to_ema23_pct: -3.26
+- ma20: 48.17
+- ma60: 48.83
+- ma120: 51.31
+- return_5d: -3.43
+- return_20d: -5.2
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: -3.58
 - distance_to_high_60_pct: -12.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,49.25,50,49,49,324125,48.95,0.11,48.78,49.6,1.26
 20260529,49.05,49.4,48.85,49.2,197745,48.97,0.48,48.77,49.53,0.76
 20260601,49.2,49.4,48.6,49.4,227194,49,0.81,48.77,49.49,0.86
 20260602,49.1,49.3,48.5,48.95,245843,49,-0.1,48.74,49.43,0.92
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48,48.05,47.5,48.05,234597,48.42,-0.77,48.67,49.03,0.73
 20260623,48,48,47.35,47.35,189060,48.33,-2.03,48.53,49,0.63
 20260624,47.35,47.95,47,47.2,387811,48.24,-2.15,48.4,48.95,1.29
-20260626,47.2,47.2,46.4,46.45,439934,48.09,-3.41,48.26,48.89,1.46
+20260625,47.45,47.7,47.2,47.3,121522,48.16,-1.79,48.3,48.9,0.43
+20260626,47.2,47.2,46.4,46.45,439934,48.02,-3.26,48.17,48.83,1.51
 ```
 
 ## Latest TDCC Snapshot

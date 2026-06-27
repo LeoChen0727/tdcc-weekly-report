@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1338 廣華-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:34 Asia/Taipei
+- generated_at: 2026-06-27 22:22:38 Asia/Taipei
 - stock_id: 1338
 - stock_name: 廣華-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 16.55
 - close: 16.6
 - volume: 275171
-- ma5: 16.91
-- ema23_primary: 16.68
-- distance_to_ema23_pct: -0.51
-- ma20: 16.78
-- ma60: 16.33
-- ma120: 17.47
+- ma5: 16.83
+- ema23_primary: 16.69
+- distance_to_ema23_pct: -0.56
+- ma20: 16.82
+- ma60: 16.37
+- ma120: 17.44
 - return_5d: -3.49
-- return_20d: 5.73
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -1.07
+- return_20d: 3.11
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -1.28
 - distance_to_high_60_pct: -7.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,15.65,16.3,15.5,16.1,471364,15.94,1.01,15.88,15.93,2.46
 20260529,16.3,16.8,16.05,16.35,434511,15.97,2.36,15.88,15.9,2.1
 20260601,16.45,16.8,16.2,16.35,703009,16,2.16,15.9,15.89,2.96
 20260602,16.5,16.5,16.05,16.45,545637,16.04,2.55,15.92,15.88,2.1
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.15,17.25,17.05,17.2,106317,16.68,3.14,16.62,16.21,0.37
 20260623,17.15,17.15,16.7,16.75,290821,16.68,0.4,16.68,16.25,0.97
 20260624,16.75,16.85,16.55,16.8,40924,16.69,0.65,16.73,16.29,0.14
-20260626,16.65,16.8,16.55,16.6,275171,16.68,-0.51,16.78,16.33,0.92
+20260625,16.85,17,16.65,16.8,98385,16.7,0.59,16.79,16.33,0.34
+20260626,16.65,16.8,16.55,16.6,275171,16.69,-0.56,16.82,16.37,0.98
 ```
 
 ## Latest TDCC Snapshot

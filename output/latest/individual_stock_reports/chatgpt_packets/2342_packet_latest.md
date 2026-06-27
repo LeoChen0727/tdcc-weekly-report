@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2342 茂矽
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:54 Asia/Taipei
+- generated_at: 2026-06-27 22:22:58 Asia/Taipei
 - stock_id: 2342
 - stock_name: 茂矽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 50.6
 - close: 51
 - volume: 2605249
-- ma5: 55.32
-- ema23_primary: 46.7
-- distance_to_ema23_pct: 9.21
-- ma20: 45.74
-- ma60: 38.85
-- ma120: 35.45
-- return_5d: 1.59
-- return_20d: 15.78
+- ma5: 54.92
+- ema23_primary: 47.22
+- distance_to_ema23_pct: 8
+- ma20: 46.28
+- ma60: 39.25
+- ma120: 35.65
+- return_5d: -7.61
+- return_20d: 20.28
 - volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: 11.49
+- distance_to_ma20_pct_auxiliary: 10.19
 - distance_to_high_60_pct: -20.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.05,46.5,41.8,42.4,13734592,39.73,6.73,41.15,34.14,1.12
 20260529,44.1,44.75,42.05,42.8,5841696,39.98,7.05,41.61,34.34,0.48
 20260601,42.55,43.3,41.5,41.7,5208118,40.13,3.92,41.89,34.55,0.44
 20260602,41.75,42.4,39.7,40.6,4794854,40.17,1.08,41.93,34.72,0.41
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,57.1,60.7,56.7,58.6,35417003,44.49,31.71,44.13,37.67,2.5
 20260623,58.5,63.9,56.6,57,27649013,45.53,25.18,44.82,38.1,1.83
 20260624,54.4,54.8,52.7,54.8,6167055,46.31,18.34,45.4,38.5,0.43
-20260626,53,53.5,50.6,51,2605249,46.7,9.21,45.74,38.85,0.19
+20260625,55.5,55.5,52.4,53.2,3658648,46.88,13.48,45.85,38.89,0.26
+20260626,53,53.5,50.6,51,2605249,47.22,8,46.28,39.25,0.19
 ```
 
 ## Latest TDCC Snapshot

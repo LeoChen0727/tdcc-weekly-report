@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7819 精誠金融
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7819
 - stock_name: 精誠金融
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 22
+- price_rows: 23
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 39.35
 - close: 39.45
 - volume: 151000
-- ma5: 41.53
-- ema23_primary: 44.61
-- distance_to_ema23_pct: -11.57
-- ma20: 45.56
-- ma60: 45.57
-- ma120: 45.57
-- return_5d: -12.72
-- return_20d: -13.86
-- volume_ratio: 2.08
-- distance_to_ma20_pct_auxiliary: -13.41
+- ma5: 41.12
+- ema23_primary: 44.31
+- distance_to_ema23_pct: -10.96
+- ma20: 45.32
+- ma60: 45.37
+- ma120: 45.37
+- return_5d: -8.57
+- return_20d: -14.15
+- volume_ratio: 2.1
+- distance_to_ma20_pct_auxiliary: -12.95
 - distance_to_high_60_pct: -21.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,46,47.55,45.85,45.95,47000,,,,,
 20260529,46.3,46.55,45.15,45.5,46000,,,,,
 20260601,45.65,46,45.4,45.75,46000,45.57,0.39,45.7,45.7,0.48
 20260602,45.95,49.95,45.95,48.65,48,45.83,6.16,46.19,46.19,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43.35,43.35,42,42.1,136000,45.76,-8.01,46.32,46.32,1.71
 20260623,41.85,41.85,41.4,41.4,66000,45.4,-8.81,46.08,46.08,0.84
 20260624,41.05,42.4,41.05,41.55,71000,45.08,-7.83,45.88,45.86,1.05
-20260626,40.8,40.9,39.35,39.45,151000,44.61,-11.57,45.56,45.57,2.08
+20260625,41.6,41.6,41.1,41.1,30000,44.75,-8.15,45.64,45.64,0.45
+20260626,40.8,40.9,39.35,39.45,151000,44.31,-10.96,45.32,45.37,2.1
 ```
 
 ## Latest TDCC Snapshot

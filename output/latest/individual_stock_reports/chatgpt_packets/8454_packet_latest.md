@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8454 富邦媒
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:54 Asia/Taipei
+- generated_at: 2026-06-27 22:24:55 Asia/Taipei
 - stock_id: 8454
 - stock_name: 富邦媒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 314.5
 - close: 325.5
 - volume: 3069658
-- ma5: 335.9
-- ema23_primary: 310.75
-- distance_to_ema23_pct: 4.75
-- ma20: 328.35
-- ma60: 231.22
-- ma120: 211.56
-- return_5d: 3.33
-- return_20d: 70.42
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -0.87
+- ma5: 335.4
+- ema23_primary: 312.97
+- distance_to_ema23_pct: 4
+- ma20: 334.77
+- ma60: 233.83
+- ma120: 212.59
+- return_5d: -4.55
+- return_20d: 55
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -2.77
 - distance_to_high_60_pct: -30.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,193.5,210,193.5,210,2765166,189.32,10.92,189.68,181.83,2.99
 20260529,219,231,216,231,3691482,192.79,19.82,192.7,182.59,3.39
 20260601,240,254,236.5,241.5,6217906,196.85,22.68,195.97,183.64,4.58
 20260602,237,265.5,231,265.5,5770329,202.57,31.06,200.3,185.04,3.58
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,350,354,327.5,335,971943,303.71,10.3,306.52,223.49,0.32
 20260623,341,361.5,330,330,1215452,305.9,7.88,313.62,226,0.4
 20260624,330,348,330,348,872345,309.41,12.47,321.62,228.78,0.28
-20260626,340,346,314.5,325.5,3069658,310.75,4.75,328.35,231.22,0.96
+20260625,351,380,338,338.5,7936289,311.83,8.55,329,231.43,2.3
+20260626,340,346,314.5,325.5,3069658,312.97,4,334.77,233.83,0.88
 ```
 
 ## Latest TDCC Snapshot

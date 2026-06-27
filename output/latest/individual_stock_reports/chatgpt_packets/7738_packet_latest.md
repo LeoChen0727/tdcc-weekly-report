@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7738 東聯互動
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:43 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7738
 - stock_name: 東聯互動
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 166
 - close: 166
 - volume: 56000
-- ma5: 170.1
-- ema23_primary: 170.34
-- distance_to_ema23_pct: -2.55
-- ma20: 170.05
-- ma60: 175.51
-- ma120: 176.93
-- return_5d: -2.92
+- ma5: 169.2
+- ema23_primary: 170.21
+- distance_to_ema23_pct: -2.47
+- ma20: 170.2
+- ma60: 175.31
+- ma120: 176.77
+- return_5d: -4.32
 - return_20d: 0
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -2.38
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -2.47
 - distance_to_high_60_pct: -14.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,166,167.5,165.5,166,166000,171.99,-3.48,172.12,179.89,1.88
 20260529,167,178,166.5,178,173000,172.49,3.19,172.05,179.92,1.82
 20260601,172,175,172,174,174000,172.62,0.8,171.8,179.93,1.71
 20260602,180,180,169,171,171,172.48,-0.86,171.35,179.93,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,173,173,171,172,27000,170.97,0.6,169.7,176.35,0.26
 20260623,171,172.5,169.5,169.5,35000,170.85,-0.79,169.95,176.07,0.36
 20260624,168.5,169.5,168,169.5,13000,170.74,-0.72,170.05,175.81,0.14
-20260626,168,168.5,166,166,56000,170.34,-2.55,170.05,175.51,0.66
+20260625,169,169,167.5,169,38000,170.59,-0.93,170.2,175.56,0.45
+20260626,168,168.5,166,166,56000,170.21,-2.47,170.2,175.31,0.71
 ```
 
 ## Latest TDCC Snapshot

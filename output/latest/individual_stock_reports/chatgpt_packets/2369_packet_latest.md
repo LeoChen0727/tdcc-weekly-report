@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2369 菱生
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:56 Asia/Taipei
+- generated_at: 2026-06-27 22:23:00 Asia/Taipei
 - stock_id: 2369
 - stock_name: 菱生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 40.75
 - close: 40.95
 - volume: 44242300
-- ma5: 41.23
-- ema23_primary: 36.53
-- distance_to_ema23_pct: 12.1
-- ma20: 36.66
-- ma60: 32.94
-- ma120: 30.1
-- return_5d: 18.7
-- return_20d: 1.99
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 11.71
-- distance_to_high_60_pct: -10.2
+- ma5: 42.54
+- ema23_primary: 37.09
+- distance_to_ema23_pct: 10.42
+- ma20: 36.84
+- ma60: 33.16
+- ma120: 30.27
+- return_5d: 11.13
+- return_20d: 3.02
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 11.16
+- distance_to_high_60_pct: -10.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,40,42,38.75,39.75,54879227,32.73,21.46,32.14,30.7,2.41
 20260529,40.05,41.45,39.2,40.3,48804998,33.36,20.81,32.68,30.91,1.96
 20260601,40.9,40.9,39.5,39.7,23872689,33.89,17.16,33.11,31.15,0.94
 20260602,39.35,39.35,35.9,36.65,26454211,34.12,7.42,33.28,31.32,1.06
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.15,40.5,38.15,40.5,50186512,34.65,16.88,35.83,32.37,1.83
 20260623,41.25,44.55,40.5,44.55,83496234,35.48,25.58,36.34,32.56,2.79
 20260624,43.65,45.6,41.9,43.3,80920880,36.13,19.85,36.62,32.76,2.6
-20260626,43.25,44.8,40.75,40.95,44242300,36.53,12.1,36.66,32.94,1.54
+20260625,45.05,45.7,42.55,43.4,40320621,36.73,18.14,36.78,32.98,1.41
+20260626,43.25,44.8,40.75,40.95,44242300,37.09,10.42,36.84,33.16,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2369 | 菱生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2369 | 菱生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2369 | 菱生 | 21 | 2 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 2369 | 菱生 | 21 | 2 | 5 | 10 | 20 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

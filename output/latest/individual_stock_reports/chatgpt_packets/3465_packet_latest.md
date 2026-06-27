@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:29 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 35.55
 - close: 35.55
 - volume: 143000
-- ma5: 38.23
-- ema23_primary: 33.42
-- distance_to_ema23_pct: 6.36
-- ma20: 32.92
-- ma60: 32.17
-- ma120: 39.1
-- return_5d: 7.73
-- return_20d: 29.27
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: 7.98
+- ma5: 38.69
+- ema23_primary: 33.83
+- distance_to_ema23_pct: 5.08
+- ma20: 33.46
+- ma60: 32.19
+- ma120: 39.04
+- return_5d: -2.07
+- return_20d: 27.88
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 6.24
 - distance_to_high_60_pct: -18.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.5,27.95,27.45,27.8,28000,29.13,-4.56,28.09,35.12,0.62
 20260529,27.95,30.55,27.6,28.6,29000,29.08,-1.66,27.89,34.88,0.63
 20260601,28.65,29.8,28.65,29.8,29000,29.14,2.25,27.82,34.69,0.66
 20260602,30.5,32.75,30.5,32,32,29.38,8.91,27.94,34.5,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,39.9,39.9,39.9,39.9,110000,32,24.68,31.3,32.26,2.09
 20260623,43.8,43.85,40,40,702000,32.67,22.44,31.92,32.24,8.12
 20260624,38.1,39.4,37.1,39.4,230000,33.23,18.57,32.52,32.25,2.38
-20260626,37.45,38.3,35.55,35.55,143000,33.42,6.36,32.92,32.17,1.4
+20260625,40,42,38.6,38.6,227000,33.68,14.62,33.08,32.22,2.13
+20260626,37.45,38.3,35.55,35.55,143000,33.83,5.08,33.46,32.19,1.27
 ```
 
 ## Latest TDCC Snapshot

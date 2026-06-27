@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3041 揚智
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:18 Asia/Taipei
+- generated_at: 2026-06-27 22:23:21 Asia/Taipei
 - stock_id: 3041
 - stock_name: 揚智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 27.15
 - close: 27.3
 - volume: 2851145
-- ma5: 29.69
-- ema23_primary: 26.84
-- distance_to_ema23_pct: 1.73
-- ma20: 26.46
-- ma60: 24.55
-- ma120: 24.75
-- return_5d: -5.86
-- return_20d: 5.41
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 3.18
+- ma5: 29.91
+- ema23_primary: 27.02
+- distance_to_ema23_pct: 1.02
+- ma20: 26.65
+- ma60: 24.67
+- ma120: 24.79
+- return_5d: -3.02
+- return_20d: 7.48
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 2.44
 - distance_to_high_60_pct: -16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.9,26.3,25.1,25.4,1790404,24.66,2.98,24.62,23.55,0.92
 20260529,25.65,26.35,25.15,25.65,1372519,24.75,3.65,24.73,23.58,0.7
 20260601,25.85,26.05,25.3,25.65,1271368,24.82,3.34,24.82,23.63,0.65
 20260602,25.95,26.25,24.95,25.65,1576802,24.89,3.05,24.87,23.67,0.8
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29,30.95,29,30.95,7407056,25.99,19.08,25.95,24.22,2.23
 20260623,32,32.5,30.55,31.2,11710657,26.43,18.07,26.16,24.35,3.16
 20260624,30.5,32,29.8,30.85,5043562,26.79,15.14,26.39,24.48,1.31
-20260626,28.7,28.9,27.15,27.3,2851145,26.84,1.73,26.46,24.55,0.73
+20260625,31,31.15,29.25,29.25,3772109,27,8.34,26.55,24.59,0.96
+20260626,28.7,28.9,27.15,27.3,2851145,27.02,1.02,26.65,24.67,0.72
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1540 喬福
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:40 Asia/Taipei
+- generated_at: 2026-06-27 22:22:44 Asia/Taipei
 - stock_id: 1540
 - stock_name: 喬福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.25
 - close: 21.25
 - volume: 419448
-- ma5: 21.76
+- ma5: 21.74
 - ema23_primary: 21.76
 - distance_to_ema23_pct: -2.36
-- ma20: 21.99
+- ma20: 22.02
 - ma60: 21.55
-- ma120: 22.66
-- return_5d: -3.63
-- return_20d: 1.92
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -3.35
+- ma120: 22.65
+- return_5d: -2.97
+- return_20d: 0
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -3.47
 - distance_to_high_60_pct: -10.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.85,21.9,20.85,21.25,558970,21.1,0.7,20.97,21.65,1.75
 20260529,21.45,21.6,21.15,21.2,377133,21.11,0.42,20.98,21.62,1.16
 20260601,21.2,22.25,21.2,22.2,778391,21.2,4.71,21.04,21.62,2.27
 20260602,22.55,23.15,22,22.75,1004044,21.33,6.65,21.1,21.63,2.62
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.85,22.2,21.75,22,435651,21.81,0.88,21.9,21.58,0.98
 20260623,22.35,22.35,21.8,21.85,276235,21.81,0.17,21.94,21.58,0.64
 20260624,21.65,21.95,21.55,21.8,175748,21.81,-0.05,21.97,21.57,0.42
-20260626,21.7,21.85,21.25,21.25,419448,21.76,-2.36,21.99,21.55,1.01
+20260625,21.9,22.05,21.7,21.8,216653,21.81,-0.05,22.02,21.56,0.53
+20260626,21.7,21.85,21.25,21.25,419448,21.76,-2.36,22.02,21.55,1.05
 ```
 
 ## Latest TDCC Snapshot

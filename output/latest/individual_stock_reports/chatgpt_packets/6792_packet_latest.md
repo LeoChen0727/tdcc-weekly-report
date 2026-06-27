@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6792 詠業
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:29 Asia/Taipei
+- generated_at: 2026-06-27 22:24:30 Asia/Taipei
 - stock_id: 6792
 - stock_name: 詠業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 63
 - close: 63.6
 - volume: 139381
-- ma5: 67.06
-- ema23_primary: 66.91
-- distance_to_ema23_pct: -4.95
-- ma20: 68.68
-- ma60: 62.67
-- ma120: 59.36
-- return_5d: -4.36
-- return_20d: -8.62
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -7.4
+- ma5: 66.04
+- ema23_primary: 66.74
+- distance_to_ema23_pct: -4.7
+- ma20: 68.3
+- ma60: 62.82
+- ma120: 59.47
+- return_5d: -9.14
+- return_20d: -12.28
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -6.88
 - distance_to_high_60_pct: -16.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,69.6,76.5,69.6,72.5,744091,63.32,14.49,61.96,59.47,3.98
 20260529,73.2,73.9,70.5,71.1,268350,63.97,11.14,62.63,59.6,1.35
 20260601,71.3,73.8,70.6,72,150164,64.64,11.39,63.37,59.76,0.74
 20260602,72,72,70,70,164538,65.09,7.55,63.98,59.9,0.79
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.5,72,68.2,68.4,156718,67.33,1.59,69.14,62.27,0.82
 20260623,68.6,68.6,66.3,67.4,100521,67.33,0.1,69.05,62.45,0.55
 20260624,67.4,67.4,65.6,65.9,94422,67.21,-1.96,68.98,62.59,0.53
-20260626,65.7,65.7,63,63.6,139381,66.91,-4.95,68.68,62.67,0.81
+20260625,65.8,66.1,64.3,64.9,119457,67.02,-3.17,68.75,62.7,0.7
+20260626,65.7,65.7,63,63.6,139381,66.74,-4.7,68.3,62.82,0.99
 ```
 
 ## Latest TDCC Snapshot

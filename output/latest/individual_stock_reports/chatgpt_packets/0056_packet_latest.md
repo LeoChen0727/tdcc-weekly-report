@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0056 元大高股息
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:25 Asia/Taipei
+- generated_at: 2026-06-27 22:22:29 Asia/Taipei
 - stock_id: 0056
 - stock_name: 元大高股息
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 51.35
 - close: 51.45
 - volume: 75502054
-- ma5: 53.01
-- ema23_primary: 50.67
-- distance_to_ema23_pct: 1.55
-- ma20: 51.63
-- ma60: 45.45
-- ma120: 41.77
-- return_5d: -0.96
-- return_20d: 3.65
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -0.34
+- ma5: 53.09
+- ema23_primary: 50.87
+- distance_to_ema23_pct: 1.15
+- ma20: 51.85
+- ma60: 45.7
+- ma120: 41.91
+- return_5d: -2.56
+- return_20d: 5.37
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: -0.76
 - distance_to_high_60_pct: -6.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,49.65,50.1,48.5,48.83,62678749,45.1,8.27,45.22,41.25,0.94
 20260529,49.69,50.25,49.5,50.2,58208526,45.52,10.27,45.69,41.43,0.87
 20260601,50.5,51.9,50.5,51.9,58919831,46.06,12.69,46.19,41.67,0.91
 20260602,52.2,52.8,51.45,52.8,69462828,46.62,13.26,46.7,41.9,1.1
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,53.5,54.15,53.5,54.05,47649273,50.07,7.95,51.03,44.74,0.82
 20260623,54.35,54.9,53.6,53.6,53667533,50.36,6.43,51.3,44.99,0.94
 20260624,52.8,53.4,52.5,53.15,50678632,50.6,5.05,51.54,45.23,0.88
-20260626,52.8,52.95,51.35,51.45,75502054,50.67,1.55,51.63,45.45,1.3
+20260625,53.7,53.8,52.95,53.2,29133924,50.81,4.7,51.71,45.48,0.52
+20260626,52.8,52.95,51.35,51.45,75502054,50.87,1.15,51.85,45.7,1.34
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1587 吉茂
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:41 Asia/Taipei
+- generated_at: 2026-06-27 22:22:45 Asia/Taipei
 - stock_id: 1587
 - stock_name: 吉茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 26.6
 - close: 26.7
 - volume: 352143
-- ma5: 27.53
-- ema23_primary: 28.62
-- distance_to_ema23_pct: -6.72
-- ma20: 28.87
-- ma60: 31.29
-- ma120: 38.37
+- ma5: 27.42
+- ema23_primary: 28.52
+- distance_to_ema23_pct: -6.39
+- ma20: 28.64
+- ma60: 31.17
+- ma120: 38.12
 - return_5d: -4.81
-- return_20d: -8.56
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -7.52
+- return_20d: -16.82
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -6.77
 - distance_to_high_60_pct: -29.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,29.95,32.1,29.5,32.1,1815261,30.51,5.2,30.05,33.97,3.6
 20260529,32.2,32.35,29.85,32,4398331,30.64,4.45,30.07,33.81,6.25
 20260601,31.45,31.45,30.3,30.65,1429368,30.64,0.04,29.99,33.67,1.89
 20260602,30.75,30.75,29.55,29.9,672058,30.58,-2.21,29.84,33.51,0.87
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.15,28.4,27.85,27.9,275385,29.04,-3.94,29.07,31.68,0.34
 20260623,28.15,28.15,27.6,27.6,249048,28.92,-4.58,29.04,31.55,0.32
 20260624,27.05,27.45,27.05,27.4,243495,28.8,-4.85,29,31.43,0.31
-20260626,27.65,27.65,26.6,26.7,352143,28.62,-6.72,28.87,31.29,0.46
+20260625,27.2,27.7,27.2,27.5,234991,28.69,-4.15,28.91,31.3,0.31
+20260626,27.65,27.65,26.6,26.7,352143,28.52,-6.39,28.64,31.17,0.52
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2729 瓦城
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:09 Asia/Taipei
+- generated_at: 2026-06-27 22:23:13 Asia/Taipei
 - stock_id: 2729
 - stock_name: 瓦城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 160
 - close: 161
 - volume: 90000
-- ma5: 163.5
-- ema23_primary: 161.67
-- distance_to_ema23_pct: -0.42
-- ma20: 160.25
-- ma60: 164.99
-- ma120: 168.63
-- return_5d: 0.31
-- return_20d: 0
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 0.47
+- ma5: 163.4
+- ema23_primary: 161.81
+- distance_to_ema23_pct: -0.5
+- ma20: 160.47
+- ma60: 164.85
+- ma120: 168.53
+- return_5d: -1.83
+- return_20d: 1.26
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 0.33
 - distance_to_high_60_pct: -7.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,162,162,159,159,160000,163.41,-2.7,162.8,167.82,2.38
 20260529,159,160,159,159,159000,163.04,-2.48,162.47,167.66,2.19
 20260601,159,159,157,158,158000,162.62,-2.84,162.12,167.53,2.02
 20260602,158,158.5,157.5,158.5,158,162.28,-2.33,161.85,167.42,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,162.5,165.5,162.5,164,41000,161.25,1.7,159.82,165.52,0.4
 20260623,164,166,163,163.5,87000,161.44,1.28,160,165.35,0.88
 20260624,162.5,165.5,162,165,59000,161.74,2.02,160.25,165.2,0.63
-20260626,164,166,160,161,90000,161.67,-0.42,160.25,164.99,1
+20260625,165.5,167,163.5,163.5,53000,161.88,1,160.38,165.03,0.6
+20260626,164,166,160,161,90000,161.81,-0.5,160.47,164.85,1.06
 ```
 
 ## Latest TDCC Snapshot

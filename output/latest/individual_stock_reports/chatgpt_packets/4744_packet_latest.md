@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4744 皇將
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:48 Asia/Taipei
+- generated_at: 2026-06-27 22:23:50 Asia/Taipei
 - stock_id: 4744
 - stock_name: 皇將
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 24.9
 - close: 24.9
 - volume: 33000
-- ma5: 26.67
-- ema23_primary: 30.52
-- distance_to_ema23_pct: -18.42
-- ma20: 31.84
-- ma60: 32.96
-- ma120: 32.1
-- return_5d: -8.46
-- return_20d: -27.09
+- ma5: 26.16
+- ema23_primary: 30.1
+- distance_to_ema23_pct: -17.29
+- ma20: 31.39
+- ma60: 32.76
+- ma120: 32.07
+- return_5d: -11.39
+- return_20d: -27.72
 - volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -21.79
+- distance_to_ma20_pct_auxiliary: -20.68
 - distance_to_high_60_pct: -37.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,34.15,35.2,34.05,34.45,35000,33.54,2.71,33.36,33.6,0.15
 20260529,34.75,35.1,34.5,34.6,35000,33.63,2.88,33.44,33.65,0.16
 20260601,34.6,37.15,34.25,36.7,36000,33.89,8.3,33.63,33.76,0.18
 20260602,36.75,37.4,35.45,35.6,36,34.03,4.62,33.8,33.83,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,28.2,28.55,27.2,27.6,110000,31.92,-13.54,33.1,33.45,0.25
 20260623,27.6,27.6,26.7,26.85,95000,31.5,-14.76,32.73,33.32,0.21
 20260624,26.85,26.9,25.9,25.9,47000,31.03,-16.54,32.3,33.16,0.11
-20260626,25.55,25.6,24.9,24.9,33000,30.52,-18.42,31.84,32.96,0.07
+20260625,25.55,25.75,25.1,25.55,24000,30.58,-16.44,31.87,32.97,0.05
+20260626,25.55,25.6,24.9,24.9,33000,30.1,-17.29,31.39,32.76,0.07
 ```
 
 ## Latest TDCC Snapshot

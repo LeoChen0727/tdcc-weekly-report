@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6552 易華電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:21 Asia/Taipei
+- generated_at: 2026-06-27 22:24:22 Asia/Taipei
 - stock_id: 6552
 - stock_name: 易華電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 28.95
 - close: 29.4
 - volume: 245390
-- ma5: 31.35
-- ema23_primary: 31.09
-- distance_to_ema23_pct: -5.44
-- ma20: 31.66
-- ma60: 30.14
-- ma120: 28.9
-- return_5d: -1.01
-- return_20d: -19.56
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -7.12
+- ma5: 31.22
+- ema23_primary: 31.03
+- distance_to_ema23_pct: -5.24
+- ma20: 31.47
+- ma60: 30.2
+- ma120: 28.95
+- return_5d: -5.31
+- return_20d: -13.78
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -6.58
 - distance_to_high_60_pct: -22.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.2,37.45,34,34.1,1144021,31.22,9.22,31.14,28.73,1.5
 20260529,34.85,35.3,33.7,34.75,707118,31.52,10.26,31.26,28.83,1.05
 20260601,35.35,35.35,33.2,33.65,557112,31.69,6.17,31.31,28.95,0.85
 20260602,33.65,34.9,33.05,34.55,562485,31.93,8.2,31.43,29.07,0.84
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,31.9,33.4,31.55,33.05,639955,31.17,6.03,32.43,29.96,0.9
 20260623,33.95,33.95,31.5,31.7,501520,31.22,1.55,32.28,30.03,0.79
 20260624,31.65,32.05,31,31.55,284621,31.24,0.98,32.01,30.11,0.55
-20260626,30.4,30.4,28.95,29.4,245390,31.09,-5.44,31.66,30.14,0.54
+20260625,31.8,32.25,30.4,30.4,352530,31.17,-2.48,31.7,30.16,0.77
+20260626,30.4,30.4,28.95,29.4,245390,31.03,-5.24,31.47,30.2,0.59
 ```
 
 ## Latest TDCC Snapshot

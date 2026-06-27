@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3056 富華新
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:19 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3056
 - stock_name: 富華新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.5
 - close: 14.5
 - volume: 1117626
-- ma5: 14.91
-- ema23_primary: 14.53
-- distance_to_ema23_pct: -0.23
-- ma20: 14.48
+- ma5: 14.8
+- ema23_primary: 14.55
+- distance_to_ema23_pct: -0.32
+- ma20: 14.55
 - ma60: 14.22
-- ma120: 15.52
-- return_5d: -4.61
-- return_20d: 9.02
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 0.16
+- ma120: 15.5
+- return_5d: -4.92
+- return_20d: 9.85
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -0.36
 - distance_to_high_60_pct: -7.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.3,13.4,13.15,13.2,1401559,13.69,-3.59,13.54,14.5,0.94
 20260529,13.2,13.35,13.15,13.25,1391535,13.66,-2.97,13.5,14.44,0.93
 20260601,13.2,13.55,13.15,13.4,2169157,13.63,-1.72,13.48,14.39,1.41
 20260602,13.4,13.5,13.25,13.5,1413061,13.62,-0.9,13.48,14.33,0.94
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.25,15.25,14.65,14.9,2481740,14.46,3.04,14.26,14.22,1.13
 20260623,14.9,15.6,14.8,15.25,6575813,14.53,4.98,14.36,14.23,2.75
 20260624,15.2,15.2,14.65,14.65,2051371,14.54,0.78,14.42,14.23,0.84
-20260626,14.55,14.85,14.5,14.5,1117626,14.53,-0.23,14.48,14.22,0.46
+20260625,14.8,14.85,14.65,14.7,921419,14.55,1.03,14.49,14.22,0.38
+20260626,14.55,14.85,14.5,14.5,1117626,14.55,-0.32,14.55,14.22,0.47
 ```
 
 ## Latest TDCC Snapshot

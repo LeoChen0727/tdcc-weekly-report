@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2923 鼎固-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:14 Asia/Taipei
+- generated_at: 2026-06-27 22:23:17 Asia/Taipei
 - stock_id: 2923
 - stock_name: 鼎固-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 23.6
 - close: 23.7
 - volume: 113382
-- ma5: 24.45
-- ema23_primary: 24.19
-- distance_to_ema23_pct: -2.04
-- ma20: 24.5
-- ma60: 23.32
-- ma120: 21.9
-- return_5d: -7.06
-- return_20d: -1.04
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -3.29
+- ma5: 24.8
+- ema23_primary: 24.27
+- distance_to_ema23_pct: -2.37
+- ma20: 24.58
+- ma60: 23.45
+- ma120: 21.94
+- return_5d: 0.64
+- return_20d: -0.42
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -3.58
 - distance_to_high_60_pct: -20.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25,25,23.35,23.8,73739,22.94,3.74,23.26,21.71,0.73
 20260529,25,26.15,24.65,25.6,220219,23.16,10.52,23.46,21.7,1.97
 20260601,25.05,26.25,24.3,25.7,150455,23.37,9.95,23.67,21.74,1.28
 20260602,25.4,26.6,25,26.2,139421,23.61,10.97,23.86,21.8,1.14
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.2,24.5,23.65,24,57232,24,0,24.24,23,0.45
 20260623,24.7,26.25,23.9,25.6,170557,24.13,6.08,24.4,23.12,1.29
 20260624,25.55,26.4,25.2,25.4,78651,24.24,4.79,24.52,23.23,0.59
-20260626,24.05,24.6,23.6,23.7,113382,24.19,-2.04,24.5,23.32,0.85
+20260625,25.5,25.5,25.3,25.3,9056,24.33,4,24.59,23.35,0.07
+20260626,24.05,24.6,23.6,23.7,113382,24.27,-2.37,24.58,23.45,0.87
 ```
 
 ## Latest TDCC Snapshot

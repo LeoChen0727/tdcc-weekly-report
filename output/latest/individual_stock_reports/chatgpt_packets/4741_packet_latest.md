@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4741 泓瀚
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:48 Asia/Taipei
+- generated_at: 2026-06-27 22:23:50 Asia/Taipei
 - stock_id: 4741
 - stock_name: 泓瀚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 56.4
 - close: 56.4
 - volume: 494000
-- ma5: 61.44
-- ema23_primary: 65.19
-- distance_to_ema23_pct: -13.49
-- ma20: 66.78
-- ma60: 59.04
-- ma120: 40.97
-- return_5d: -21.34
-- return_20d: -9.9
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -15.55
+- ma5: 60.48
+- ema23_primary: 64.72
+- distance_to_ema23_pct: -12.86
+- ma20: 66.68
+- ma60: 59.45
+- ma120: 41.29
+- return_5d: -12.69
+- return_20d: -8.89
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -15.42
 - distance_to_high_60_pct: -34.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,62.6,64.4,61.2,61.9,63000,58.66,5.53,60.2,45.65,0.04
 20260529,62.7,63.4,59.4,60,61000,58.77,2.1,60.56,46.27,0.04
 20260601,60.8,61.9,59.3,59.3,60000,58.81,0.83,60.91,46.87,0.05
 20260602,59.4,59.4,55.7,58.9,57,58.82,0.14,60.98,47.47,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,65.4,65.9,62.9,63.1,1088000,66.84,-5.59,67.3,57.53,0.94
 20260623,63.5,64.3,59.4,61.4,908000,66.38,-7.51,67.19,58.1,0.76
 20260624,60.4,62.2,59.6,61.7,723000,65.99,-6.5,67.09,58.64,0.59
-20260626,59.2,60.1,56.4,56.4,494000,65.19,-13.49,66.78,59.04,0.4
+20260625,62,63.1,59.4,59.8,665000,65.48,-8.67,66.95,59.1,0.53
+20260626,59.2,60.1,56.4,56.4,494000,64.72,-12.86,66.68,59.45,0.39
 ```
 
 ## Latest TDCC Snapshot

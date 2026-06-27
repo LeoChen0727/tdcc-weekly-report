@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5222 全訊
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:55 Asia/Taipei
+- generated_at: 2026-06-27 22:23:57 Asia/Taipei
 - stock_id: 5222
 - stock_name: 全訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 115
 - close: 117
 - volume: 484132
-- ma5: 118.9
-- ema23_primary: 119.72
-- distance_to_ema23_pct: -2.27
-- ma20: 118.75
-- ma60: 126.2
-- ma120: 131.53
+- ma5: 119.6
+- ema23_primary: 119.53
+- distance_to_ema23_pct: -2.11
+- ma20: 118.5
+- ma60: 125.97
+- ma120: 131.37
 - return_5d: 2.63
-- return_20d: -6.4
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -1.47
+- return_20d: -4.49
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -1.27
 - distance_to_high_60_pct: -23.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,125.5,126.5,121,122.5,561201,128.1,-4.37,128.7,131.49,0.9
 20260529,123.5,126.5,123,126,470800,127.92,-1.5,128.43,131.18,0.75
 20260601,127.5,128,126,126.5,515993,127.8,-1.02,127.97,130.99,0.84
 20260602,126.5,126.5,122,123.5,643262,127.45,-3.1,127.28,130.72,1.02
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,117,125,117,125,1127038,120.1,4.08,119.88,126.98,2.33
 20260623,125,125.5,119,119.5,772487,120.05,-0.46,119.45,126.72,1.59
 20260624,119,120,117,119,305896,119.96,-0.8,119.15,126.5,0.64
-20260626,117.5,119,115,117,484132,119.72,-2.27,118.75,126.2,1.01
+20260625,119.5,119.5,116,117.5,303316,119.76,-1.89,118.78,126.21,0.65
+20260626,117.5,119,115,117,484132,119.53,-2.11,118.5,125.97,1.04
 ```
 
 ## Latest TDCC Snapshot

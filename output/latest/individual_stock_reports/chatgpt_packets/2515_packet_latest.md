@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2515 中工
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:04 Asia/Taipei
+- generated_at: 2026-06-27 22:23:08 Asia/Taipei
 - stock_id: 2515
 - stock_name: 中工
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 12.8
 - close: 12.95
 - volume: 6945292
-- ma5: 13.27
+- ma5: 13.21
 - ema23_primary: 13.09
-- distance_to_ema23_pct: -1.1
-- ma20: 13.04
-- ma60: 13.14
-- ma120: 13.78
-- return_5d: -2.63
-- return_20d: 0.78
+- distance_to_ema23_pct: -1.07
+- ma20: 13.06
+- ma60: 13.13
+- ma120: 13.77
+- return_5d: -3
+- return_20d: 2.78
 - volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -0.65
+- distance_to_ma20_pct_auxiliary: -0.82
 - distance_to_high_60_pct: -10.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.9,12.9,12.6,12.6,7476571,13.04,-3.39,12.96,13.82,0.92
 20260529,12.75,13,12.6,13,8422798,13.04,-0.3,12.95,13.75,1.03
 20260601,12.95,13.1,12.8,12.8,8437441,13.02,-1.68,12.94,13.69,1.02
 20260602,12.85,12.85,12.65,12.75,7754666,13,-1.9,12.93,13.61,0.91
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.45,13.7,13.25,13.55,13906752,13.08,3.59,13.01,13.17,1.33
 20260623,13.65,13.7,13.25,13.3,11268933,13.1,1.54,13.01,13.16,1.07
 20260624,13.25,13.4,13.15,13.2,4934386,13.11,0.71,13.03,13.15,0.48
-20260626,13.05,13.1,12.8,12.95,6945292,13.09,-1.1,13.04,13.14,0.68
+20260625,13.25,13.35,13,13.05,8197869,13.1,-0.4,13.04,13.14,0.8
+20260626,13.05,13.1,12.8,12.95,6945292,13.09,-1.07,13.06,13.13,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -192,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 2515 | 中工 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 2515 | 中工 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 22.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2515 | 中工 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 23.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

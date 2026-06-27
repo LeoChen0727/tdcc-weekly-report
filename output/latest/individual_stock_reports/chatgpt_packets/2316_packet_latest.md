@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:53 Asia/Taipei
+- generated_at: 2026-06-27 22:22:57 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 221.5
 - close: 230
 - volume: 4468727
-- ma5: 219.9
-- ema23_primary: 180.6
-- distance_to_ema23_pct: 27.35
-- ma20: 179.35
-- ma60: 141.14
-- ma120: 120.22
-- return_5d: 22.99
-- return_20d: 36.9
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 28.24
+- ma5: 225.7
+- ema23_primary: 185.06
+- distance_to_ema23_pct: 24.28
+- ma20: 182.65
+- ma60: 143.36
+- ma120: 121.3
+- return_5d: 11.92
+- return_20d: 36.5
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 25.92
 - distance_to_high_60_pct: -7.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,169.5,172.5,166.5,168.5,5762749,140,20.36,137,115.47,0.59
 20260529,172.5,174,165.5,168.5,5756651,142.37,18.35,139.8,116.67,0.58
 20260601,171.5,175,164,166,6644660,144.34,15.01,142.38,117.94,0.66
 20260602,167,167,157.5,161,4585696,145.73,10.48,144.53,119.06,0.45
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,226,226,226,226,2199185,167.94,34.57,171.35,135.18,0.33
 20260623,237.5,248.5,216.5,217.5,19257817,172.07,26.4,173.8,137.09,2.64
 20260624,221,227,210,220.5,10864590,176.11,25.21,176.25,139.05,1.52
-20260626,226,238,221.5,230,4468727,180.6,27.35,179.35,141.14,0.66
+20260625,220.5,234.5,216,234.5,4062844,180.97,29.58,179.57,141.22,0.6
+20260626,226,238,221.5,230,4468727,185.06,24.28,182.65,143.36,0.67
 ```
 
 ## Latest TDCC Snapshot

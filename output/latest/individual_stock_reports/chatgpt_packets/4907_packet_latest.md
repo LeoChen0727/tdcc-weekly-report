@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4907 富宇
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:50 Asia/Taipei
+- generated_at: 2026-06-27 22:23:52 Asia/Taipei
 - stock_id: 4907
 - stock_name: 富宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,23 +119,22 @@
 - low: 40.3
 - close: 41.7
 - volume: 109000
-- ma5: 41.09
-- ema23_primary: 39.58
-- distance_to_ema23_pct: 5.36
-- ma20: 39.06
-- ma60: 39.09
-- ma120: 40.98
-- return_5d: 0.36
-- return_20d: 16.64
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 6.75
+- ma5: 40.86
+- ema23_primary: 39.73
+- distance_to_ema23_pct: 4.96
+- ma20: 39.35
+- ma60: 39.1
+- ma120: 40.94
+- return_5d: -1.88
+- return_20d: 17.13
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 5.97
 - distance_to_high_60_pct: -2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,35.75,35.75,35.5,35.6,36000,38.06,-6.46,37.98,39.45,0.88
 20260529,35.55,35.6,35.1,35.6,35000,37.85,-5.95,37.87,39.37,0.85
 20260601,36.15,37.85,35.55,37.5,37000,37.82,-0.85,37.84,39.32,0.87
 20260602,37.35,37.35,36.3,37,37,37.75,-2,37.81,39.26,0
@@ -153,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,41.6,41.65,39.5,39.95,240000,39.14,2.06,38.42,39.08,2.32
 20260623,40.45,40.7,39.5,40.5,138000,39.26,3.17,38.58,39.08,1.27
 20260624,40.5,40.8,39.7,40.8,77000,39.39,3.59,38.77,39.08,0.7
-20260626,41.35,41.7,40.3,41.7,109000,39.58,5.36,39.06,39.09,0.95
+20260625,40.8,41.55,40.75,41.35,80000,39.55,4.55,39.05,39.08,0.71
+20260626,41.35,41.7,40.3,41.7,109000,39.73,4.96,39.35,39.1,0.94
 ```
 
 ## Latest TDCC Snapshot

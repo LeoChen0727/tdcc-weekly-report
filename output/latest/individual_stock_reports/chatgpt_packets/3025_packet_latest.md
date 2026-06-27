@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3025 星通
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:16 Asia/Taipei
+- generated_at: 2026-06-27 22:23:19 Asia/Taipei
 - stock_id: 3025
 - stock_name: 星通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 66.9
 - close: 67.1
 - volume: 659928
-- ma5: 69.84
-- ema23_primary: 69.86
-- distance_to_ema23_pct: -3.95
-- ma20: 71.29
-- ma60: 65.95
-- ma120: 65.27
-- return_5d: -4.82
-- return_20d: -13.08
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -5.88
+- ma5: 69.56
+- ema23_primary: 69.82
+- distance_to_ema23_pct: -3.9
+- ma20: 71
+- ma60: 66.14
+- ma120: 65.32
+- return_5d: -5.49
+- return_20d: -11.13
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -5.49
 - distance_to_high_60_pct: -21.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,77.2,79.3,74.6,75.5,2256619,66.79,13.04,65.36,62.4,1.65
 20260529,77.2,77.2,74.1,74.5,1495762,67.43,10.48,66.08,62.69,1.05
 20260601,74.5,74.5,72.5,72.5,1391911,67.85,6.85,66.66,62.99,0.95
 20260602,72.5,73.3,70,72.1,1100988,68.21,5.71,67.11,63.25,0.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.8,72.2,71.1,71.5,502930,70.17,1.89,72.66,65.53,0.35
 20260623,72.1,72.1,69.4,69.7,536922,70.13,-0.62,72.24,65.66,0.4
 20260624,69.7,70.9,69,69.9,399361,70.11,-0.31,71.8,65.83,0.4
-20260626,69.1,69.1,66.9,67.1,659928,69.86,-3.95,71.29,65.95,0.71
+20260625,71,71.1,69.4,69.6,269919,70.07,-0.67,71.42,65.99,0.3
+20260626,69.1,69.1,66.9,67.1,659928,69.82,-3.9,71,66.14,0.8
 ```
 
 ## Latest TDCC Snapshot

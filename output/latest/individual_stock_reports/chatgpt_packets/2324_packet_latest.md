@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:54 Asia/Taipei
+- generated_at: 2026-06-27 22:22:57 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 34.6
 - close: 34.8
 - volume: 80548337
-- ma5: 36.9
-- ema23_primary: 36.56
-- distance_to_ema23_pct: -4.8
-- ma20: 38.47
-- ma60: 32.61
-- ma120: 31.96
-- return_5d: -6.7
-- return_20d: 4.19
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -9.54
+- ma5: 36.72
+- ema23_primary: 36.57
+- distance_to_ema23_pct: -4.83
+- ma20: 38.64
+- ma60: 32.76
+- ma120: 32.01
+- return_5d: -7.81
+- return_20d: 3.88
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -9.93
 - distance_to_high_60_pct: -27.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.5,35.4,33.05,33.5,146821203,30.87,8.52,30.37,30.38,1.56
 20260529,35.25,36.85,35,36.7,709500533,31.35,17.05,30.75,30.48,5.52
 20260601,40.05,40.35,40.05,40.35,113043360,32.1,25.68,31.31,30.67,0.85
 20260602,44.3,44.35,43.1,44.35,177995051,33.12,33.89,32.06,30.9,1.26
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.1,39.2,37.5,37.5,92199498,36.61,2.42,38.09,32.35,0.51
 20260623,37.8,38,36.2,36.55,62365832,36.61,-0.16,38.19,32.43,0.37
 20260624,36.25,38.4,36.2,37.9,88993364,36.72,3.23,38.4,32.54,0.55
-20260626,36.4,36.45,34.6,34.8,80548337,36.56,-4.8,38.47,32.61,0.5
+20260625,37.9,38.7,36.85,36.85,65609405,36.73,0.33,38.57,32.65,0.41
+20260626,36.4,36.45,34.6,34.8,80548337,36.57,-4.83,38.64,32.76,0.52
 ```
 
 ## Latest TDCC Snapshot

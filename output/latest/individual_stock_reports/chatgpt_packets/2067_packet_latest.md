@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2067 嘉鋼
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:50 Asia/Taipei
+- generated_at: 2026-06-27 22:22:54 Asia/Taipei
 - stock_id: 2067
 - stock_name: 嘉鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 6.4
 - close: 6.4
 - volume: 8000
-- ma5: 6.57
+- ma5: 6.56
 - ema23_primary: 6.57
 - distance_to_ema23_pct: -2.57
-- ma20: 6.47
-- ma60: 6.94
-- ma120: 8.32
-- return_5d: -1.84
-- return_20d: -4.19
+- ma20: 6.46
+- ma60: 6.92
+- ma120: 8.29
+- return_5d: -3.03
+- return_20d: -3.03
 - volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -1.01
+- distance_to_ma20_pct_auxiliary: -1
 - distance_to_high_60_pct: -20.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,6.84,6.84,6.52,6.6,7000,6.98,-5.38,6.94,7.57,0.15
 20260529,6.6,6.6,6.55,6.56,7000,6.94,-5.48,6.91,7.51,0.21
 20260601,6.5,6.7,6.42,6.5,6000,6.9,-5.85,6.89,7.46,0.22
 20260602,6.5,6.6,6.45,6.5,6,6.87,-5.39,6.86,7.41,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,6.6,6.65,6.6,6.64,88000,6.58,0.9,6.49,7.01,3.88
 20260623,6.64,6.64,6.52,6.52,39000,6.58,-0.85,6.48,6.99,1.6
 20260624,6.52,6.69,6.42,6.68,19000,6.58,1.45,6.48,6.97,0.76
-20260626,6.5,6.57,6.4,6.4,8000,6.57,-2.57,6.47,6.94,0.32
+20260625,6.73,6.73,6.52,6.58,12000,6.58,-0.06,6.47,6.94,0.48
+20260626,6.5,6.57,6.4,6.4,8000,6.57,-2.57,6.46,6.92,0.32
 ```
 
 ## Latest TDCC Snapshot

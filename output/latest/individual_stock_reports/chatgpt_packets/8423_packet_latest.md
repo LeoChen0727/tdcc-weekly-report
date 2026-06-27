@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8423 保綠-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:53 Asia/Taipei
+- generated_at: 2026-06-27 22:24:53 Asia/Taipei
 - stock_id: 8423
 - stock_name: 保綠-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17.6
 - close: 17.6
 - volume: 7000
-- ma5: 17.71
+- ma5: 17.7
 - ema23_primary: 17.77
-- distance_to_ema23_pct: -0.98
-- ma20: 17.75
-- ma60: 17.95
+- distance_to_ema23_pct: -0.94
+- ma20: 17.77
+- ma60: 17.94
 - ma120: 18.22
 - return_5d: -0.85
-- return_20d: 0.28
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -0.87
+- return_20d: 1.15
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -0.96
 - distance_to_high_60_pct: -7.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.8,18,17.4,17.4,18000,17.84,-2.47,17.82,18.24,0.83
 20260529,17.4,17.7,17.4,17.7,18000,17.83,-0.72,17.8,18.23,0.84
 20260601,17.7,17.75,17.7,17.7,18000,17.82,-0.66,17.79,18.22,0.82
 20260602,17.7,17.8,17.45,17.65,18,17.8,-0.86,17.77,18.2,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.65,17.8,17.65,17.8,6000,17.81,-0.04,17.75,18.01,0.34
 20260623,17.6,17.8,17.6,17.8,6000,17.81,-0.04,17.76,18,0.35
 20260624,17.6,17.6,17.3,17.6,13000,17.79,-1.06,17.75,17.98,0.78
-20260626,17.7,17.7,17.6,17.6,7000,17.77,-0.98,17.75,17.95,0.43
+20260625,17.6,17.7,17.6,17.7,8000,17.78,-0.46,17.76,17.95,0.49
+20260626,17.7,17.7,17.6,17.6,7000,17.77,-0.94,17.77,17.94,0.45
 ```
 
 ## Latest TDCC Snapshot

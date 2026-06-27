@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1325 恆大
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:34 Asia/Taipei
+- generated_at: 2026-06-27 22:22:38 Asia/Taipei
 - stock_id: 1325
 - stock_name: 恆大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 24.4
 - close: 24.4
 - volume: 542532
-- ma5: 25.49
-- ema23_primary: 26.15
-- distance_to_ema23_pct: -6.7
-- ma20: 26.25
-- ma60: 26.66
-- ma120: 27.96
-- return_5d: -6.87
-- return_20d: -9.29
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -7.03
+- ma5: 25.32
+- ema23_primary: 26.07
+- distance_to_ema23_pct: -6.41
+- ma20: 26.16
+- ma60: 26.63
+- ma120: 27.91
+- return_5d: -6.51
+- return_20d: -9.63
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: -6.72
 - distance_to_high_60_pct: -15.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27,27.2,26.9,27,391375,26.94,0.22,26.92,27.02,0.8
 20260529,27.2,27.3,27,27,302631,26.95,0.2,26.96,26.99,0.61
 20260601,27.25,27.25,26.8,26.8,428596,26.93,-0.5,26.98,26.99,0.85
 20260602,26.8,26.8,26.25,26.3,570136,26.88,-2.16,26.95,26.97,1.09
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26.15,26.15,25.6,25.6,589319,26.43,-3.15,26.52,26.76,1.48
 20260623,25.8,26.05,25.5,25.75,297283,26.38,-2.37,26.44,26.73,0.77
 20260624,25.95,25.95,25.55,25.6,211981,26.31,-2.7,26.37,26.71,0.57
-20260626,25.25,25.25,24.4,24.4,542532,26.15,-6.7,26.25,26.66,1.42
+20260625,25.6,25.6,25.25,25.25,215260,26.22,-3.71,26.29,26.68,0.59
+20260626,25.25,25.25,24.4,24.4,542532,26.07,-6.41,26.16,26.63,1.45
 ```
 
 ## Latest TDCC Snapshot

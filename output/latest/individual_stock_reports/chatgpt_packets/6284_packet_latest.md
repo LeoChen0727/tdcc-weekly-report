@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:15 Asia/Taipei
+- generated_at: 2026-06-27 22:24:17 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 95.8
 - close: 95.8
 - volume: 2475000
-- ma5: 101.56
-- ema23_primary: 101.22
-- distance_to_ema23_pct: -5.36
-- ma20: 105.28
-- ma60: 92.33
-- ma120: 87.78
-- return_5d: -10.88
-- return_20d: -15.22
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -9
+- ma5: 100.76
+- ema23_primary: 101.24
+- distance_to_ema23_pct: -5.38
+- ma20: 104.17
+- ma60: 92.67
+- ma120: 88
+- return_5d: -9.62
+- return_20d: -22.74
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -8.04
 - distance_to_high_60_pct: -26.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,122,124,122,124,124000,94.72,30.92,90.59,84.5,0.06
 20260529,130,131,117,119.5,122000,96.78,23.47,92.8,85.09,0.06
 20260601,120,130.5,115,116,122000,98.38,17.91,94.75,85.72,0.06
 20260602,116,116,104.5,110,108,99.35,10.72,96.32,86.22,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,107,107,101,103.5,5368000,101.8,1.67,107.51,91.52,1.27
 20260623,105.5,105.5,99.6,101,3447000,101.73,-0.72,106.94,91.81,0.78
 20260624,98,101.5,98,101.5,2321000,101.71,-0.21,106.14,92.13,0.52
-20260626,100.5,101.5,95.8,95.8,2475000,101.22,-5.36,105.28,92.33,0.54
+20260625,102,104,99.8,102,2356000,101.74,0.26,105.58,92.44,0.51
+20260626,100.5,101.5,95.8,95.8,2475000,101.24,-5.38,104.17,92.67,0.52
 ```
 
 ## Latest TDCC Snapshot

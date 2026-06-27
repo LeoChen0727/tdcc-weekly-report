@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8240 華宏
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:51 Asia/Taipei
+- generated_at: 2026-06-27 22:24:51 Asia/Taipei
 - stock_id: 8240
 - stock_name: 華宏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 51.1
 - close: 51.3
 - volume: 565000
-- ma5: 56.36
-- ema23_primary: 58.63
-- distance_to_ema23_pct: -12.5
-- ma20: 58.34
-- ma60: 62.36
-- ma120: 52.6
-- return_5d: -8.88
-- return_20d: -24.78
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -12.07
+- ma5: 55.86
+- ema23_primary: 58.25
+- distance_to_ema23_pct: -11.94
+- ma20: 57.88
+- ma60: 62.39
+- ma120: 52.77
+- return_5d: -9.84
+- return_20d: -19.59
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -11.36
 - distance_to_high_60_pct: -37.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,68.3,68.6,63.5,63.8,66000,65.48,-2.57,66.41,59.3,0.03
 20260529,65.5,65.5,63.8,63.8,64000,65.34,-2.36,66.28,59.71,0.04
 20260601,63.7,65.4,63.6,63.8,64000,65.22,-2.17,66.17,60.14,0.04
 20260602,64.8,64.8,60.5,62.4,62,64.98,-3.97,65.84,60.53,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,57.3,61.8,57.3,60.7,2643000,59.84,1.44,60.37,62.29,5.99
 20260623,60.5,60.5,56.8,57,1278000,59.6,-4.37,59.87,62.31,2.55
 20260624,56,56.8,55.3,55.9,657000,59.29,-5.73,59.19,62.4,1.24
-20260626,55,55,51.1,51.3,565000,58.63,-12.5,58.34,62.36,1.02
+20260625,56.3,56.4,54.2,54.4,469000,58.89,-7.62,58.5,62.41,0.85
+20260626,55,55,51.1,51.3,565000,58.25,-11.94,57.88,62.39,0.98
 ```
 
 ## Latest TDCC Snapshot

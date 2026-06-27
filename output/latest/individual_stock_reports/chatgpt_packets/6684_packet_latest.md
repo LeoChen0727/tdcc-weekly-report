@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6684 安格
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:26 Asia/Taipei
+- generated_at: 2026-06-27 22:24:27 Asia/Taipei
 - stock_id: 6684
 - stock_name: 安格
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 62
 - close: 62.5
 - volume: 5702000
-- ma5: 58.6
-- ema23_primary: 51.75
-- distance_to_ema23_pct: 20.76
-- ma20: 50.16
-- ma60: 47.48
-- ma120: 47.74
-- return_5d: 24.75
-- return_20d: 36.31
-- volume_ratio: 5.21
-- distance_to_ma20_pct_auxiliary: 24.6
+- ma5: 61.28
+- ema23_primary: 52.76
+- distance_to_ema23_pct: 18.47
+- ma20: 51.15
+- ma60: 47.83
+- ma120: 47.83
+- return_5d: 23.76
+- return_20d: 41.24
+- volume_ratio: 4.59
+- distance_to_ma20_pct_auxiliary: 22.2
 - distance_to_high_60_pct: -6.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,46.8,46.8,44,44.25,45000,46.47,-4.78,46.87,45.77,0.22
 20260529,44.35,44.7,44.05,44.3,44000,46.29,-4.3,46.69,45.72,0.23
 20260601,44.7,44.7,44.1,44.3,44000,46.12,-3.95,46.51,45.72,0.24
 20260602,44.9,45.25,43.95,44.9,45,46.02,-2.44,46.34,45.71,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,51.3,55.5,51.3,55.5,1335000,48.58,14.24,47.88,46.57,4.32
 20260623,61,61,59,60.5,5332000,49.58,22.04,48.49,46.84,9.31
 20260624,60.4,66.5,57.8,64,4817000,50.78,26.04,49.33,47.17,5.94
-20260626,64.4,66.5,62,62.5,5702000,51.75,20.76,50.16,47.48,5.21
+20260625,63.7,64.5,60.2,63.9,2993000,51.87,23.19,50.23,47.5,3.12
+20260626,64.4,66.5,62,62.5,5702000,52.76,18.47,51.15,47.83,4.59
 ```
 
 ## Latest TDCC Snapshot

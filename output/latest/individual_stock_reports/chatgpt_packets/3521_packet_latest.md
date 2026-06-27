@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3521 台鋼建設
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:31 Asia/Taipei
+- generated_at: 2026-06-27 22:23:33 Asia/Taipei
 - stock_id: 3521
 - stock_name: 台鋼建設
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11.9
 - close: 12.05
 - volume: 70000
-- ma5: 12.22
-- ema23_primary: 12.51
-- distance_to_ema23_pct: -3.69
-- ma20: 12.34
-- ma60: 13.18
-- ma120: 13.89
-- return_5d: -4.37
+- ma5: 12.12
+- ema23_primary: 12.47
+- distance_to_ema23_pct: -3.39
+- ma20: 12.33
+- ma60: 13.15
+- ma120: 13.87
+- return_5d: -3.98
 - return_20d: -1.23
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -2.35
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -2.29
 - distance_to_high_60_pct: -20.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.5,12.5,12.2,12.2,12000,13.17,-7.38,13.24,13.77,0.17
 20260529,12.2,12.2,12.1,12.1,12000,13.08,-7.52,13.15,13.72,0.17
 20260601,12.1,12.1,11.95,11.95,12000,12.99,-8,13.04,13.67,0.18
 20260602,11.95,12,11.8,11.8,12,12.89,-8.45,12.89,13.62,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.5,12.5,12.2,12.25,69000,12.64,-3.05,12.4,13.26,1.56
 20260623,12.3,12.45,12.05,12.15,59000,12.59,-3.53,12.37,13.24,1.27
 20260624,12.15,12.25,12.1,12.1,48000,12.55,-3.61,12.35,13.21,1
-20260626,11.95,12.05,11.9,12.05,70000,12.51,-3.69,12.34,13.18,1.37
+20260625,12.05,12.05,11.95,12.05,73000,12.51,-3.69,12.34,13.18,1.42
+20260626,11.95,12.05,11.9,12.05,70000,12.47,-3.39,12.33,13.15,1.29
 ```
 
 ## Latest TDCC Snapshot

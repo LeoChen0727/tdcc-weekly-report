@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4720 德淵
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:47 Asia/Taipei
+- generated_at: 2026-06-27 22:23:49 Asia/Taipei
 - stock_id: 4720
 - stock_name: 德淵
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 22.35
 - close: 22.4
 - volume: 1743244
-- ma5: 23.8
-- ema23_primary: 24.56
-- distance_to_ema23_pct: -8.79
-- ma20: 24.88
-- ma60: 24.26
-- ma120: 20.46
-- return_5d: -8.01
-- return_20d: -16.73
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -9.96
+- ma5: 23.64
+- ema23_primary: 24.46
+- distance_to_ema23_pct: -8.41
+- ma20: 24.76
+- ma60: 24.34
+- ma120: 20.53
+- return_5d: -7.44
+- return_20d: -13.01
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -9.53
 - distance_to_high_60_pct: -25.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.4,26.6,25.25,25.75,6497742,25.38,1.45,26.07,21.67,1.06
 20260529,26,26,25.05,25.25,3009929,25.37,-0.48,26.02,21.82,0.51
 20260601,25.25,25.75,24.9,25.4,2507282,25.37,0.1,26.02,21.98,0.44
 20260602,25.4,25.5,24.8,25.5,2248409,25.38,0.46,25.99,22.14,0.39
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.2,24.9,23.9,24.55,2108408,24.91,-1.46,25.23,24,0.51
 20260623,24.65,24.65,23.65,23.9,1764452,24.83,-3.74,25.14,24.1,0.43
 20260624,23.4,24,23.2,23.95,1019568,24.76,-3.25,25.1,24.2,0.25
-20260626,23.4,23.4,22.35,22.4,1743244,24.56,-8.79,24.88,24.26,0.52
+20260625,24,24.15,23.4,23.4,1074815,24.64,-5.04,24.93,24.28,0.33
+20260626,23.4,23.4,22.35,22.4,1743244,24.46,-8.41,24.76,24.34,0.57
 ```
 
 ## Latest TDCC Snapshot

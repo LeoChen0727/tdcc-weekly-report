@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3583 辛耘
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:33 Asia/Taipei
+- generated_at: 2026-06-27 22:23:36 Asia/Taipei
 - stock_id: 3583
 - stock_name: 辛耘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 800
 - close: 812
 - volume: 1242126
-- ma5: 866
-- ema23_primary: 842.31
-- distance_to_ema23_pct: -3.6
-- ma20: 844.25
-- ma60: 789.88
-- ma120: 573.64
-- return_5d: -1.81
-- return_20d: -7.31
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -3.82
+- ma5: 858.2
+- ema23_primary: 842.69
+- distance_to_ema23_pct: -3.64
+- ma20: 842.9
+- ma60: 796.06
+- ma120: 578
+- return_5d: -8.66
+- return_20d: -7.41
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -3.67
 - distance_to_high_60_pct: -19.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,878,947,872,877,4759940,839.29,4.49,862.45,651.22,1.44
 20260529,921,947,861,867,4881211,841.6,3.02,866.2,659.59,1.49
 20260601,867,880,851,867,1598854,843.72,2.76,869.9,668.38,0.5
 20260602,874,882,835,845,2265456,843.83,0.14,872.45,676.47,0.72
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,917,939,885,889,2288227,840.43,5.78,851.65,772.27,1.06
 20260623,895,895,865,882,1685203,843.89,4.52,849.95,778.68,0.8
 20260624,866,876,849,858,929675,845.07,1.53,847.45,784.63,0.45
-20260626,848,871,800,812,1242126,842.31,-3.6,844.25,789.88,0.62
+20260625,870,873,850,850,693979,845.48,0.53,846.15,790.51,0.35
+20260626,848,871,800,812,1242126,842.69,-3.64,842.9,796.06,0.69
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6474 華豫寧
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:18 Asia/Taipei
+- generated_at: 2026-06-27 22:24:19 Asia/Taipei
 - stock_id: 6474
 - stock_name: 華豫寧
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 139
+- price_rows: 140
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 36.95
 - close: 36.95
 - volume: 100000
-- ma5: 37.63
-- ema23_primary: 37.84
-- distance_to_ema23_pct: -2.35
-- ma20: 37.86
-- ma60: 37.6
-- ma120: 36.67
-- return_5d: -3.02
-- return_20d: -4.15
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: -2.41
+- ma5: 37.55
+- ema23_primary: 37.81
+- distance_to_ema23_pct: -2.27
+- ma20: 37.83
+- ma60: 37.63
+- ma120: 36.69
+- return_5d: -2.51
+- return_20d: -3.15
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: -2.33
 - distance_to_high_60_pct: -10.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,38.15,38.8,38,38.15,38000,38.1,0.14,38.65,36.9,0.36
 20260528,38.15,38.45,37.8,37.8,38000,38.07,-0.71,38.68,36.92,0.36
 20260529,37.85,37.85,37.5,37.65,38000,38.04,-1.02,38.69,36.95,0.38
 20260601,37.65,38.2,37.65,37.85,38000,38.02,-0.45,38.52,36.99,0.51
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.3,38.3,37.9,38,117000,37.97,0.08,38.02,37.53,2.48
 20260623,38.5,39.5,37.6,37.6,216000,37.94,-0.9,37.98,37.56,3.86
 20260624,37.6,37.8,37.6,37.7,54000,37.92,-0.58,37.94,37.59,0.95
-20260626,37.55,37.8,36.95,36.95,100000,37.84,-2.35,37.86,37.6,1.67
+20260625,38.25,38.25,37.45,37.5,110000,37.88,-1.02,37.89,37.61,1.82
+20260626,37.55,37.8,36.95,36.95,100000,37.81,-2.27,37.83,37.63,1.58
 ```
 
 ## Latest TDCC Snapshot

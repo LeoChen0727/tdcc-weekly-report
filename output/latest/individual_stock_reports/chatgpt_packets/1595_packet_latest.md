@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1595 川寶
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:42 Asia/Taipei
+- generated_at: 2026-06-27 22:22:45 Asia/Taipei
 - stock_id: 1595
 - stock_name: 川寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 76.6
 - close: 78
 - volume: 1066000
-- ma5: 80.56
-- ema23_primary: 79.18
-- distance_to_ema23_pct: -1.49
-- ma20: 77.94
-- ma60: 72.55
-- ma120: 56.52
-- return_5d: 2.77
-- return_20d: -14.85
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: 0.07
+- ma5: 81.4
+- ema23_primary: 79.32
+- distance_to_ema23_pct: -1.67
+- ma20: 77.64
+- ma60: 73.19
+- ma120: 56.88
+- return_5d: 1.3
+- return_20d: -10.65
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 0.46
 - distance_to_high_60_pct: -27.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,92.3,94.4,86.2,87.3,90000,85.06,2.63,90.56,61.05,0.04
 20260529,88.8,90.8,83.7,85.5,87000,85.1,0.47,91.2,61.8,0.04
 20260601,86.2,87.5,77.8,80,82000,84.68,-5.52,91.35,62.48,0.05
 20260602,78.6,79.7,75,76.4,77,83.99,-9.03,90.94,63.08,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,77.5,84.7,77.5,84.7,1597000,78.86,7.41,80.3,70.66,2.93
 20260623,89.6,89.6,78.6,82,2545000,79.12,3.64,79.59,71.31,3.82
 20260624,79.5,82.3,78.9,81.1,778000,79.28,2.29,78.62,71.95,1.11
-20260626,79.3,82.1,76.6,78,1066000,79.18,-1.49,77.94,72.55,1.42
+20260625,82,82.5,78.9,81.2,716000,79.44,2.21,78.11,72.6,0.98
+20260626,79.3,82.1,76.6,78,1066000,79.32,-1.67,77.64,73.19,1.37
 ```
 
 ## Latest TDCC Snapshot

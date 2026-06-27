@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:51 Asia/Taipei
+- generated_at: 2026-06-27 22:23:53 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 80.7
 - close: 81
 - volume: 23506778
-- ma5: 82.06
-- ema23_primary: 85.81
-- distance_to_ema23_pct: -5.61
-- ma20: 89.18
-- ma60: 83.52
-- ma120: 77.56
-- return_5d: -2.41
-- return_20d: -1.34
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -9.17
+- ma5: 82.68
+- ema23_primary: 85.79
+- distance_to_ema23_pct: -5.58
+- ma20: 89.31
+- ma60: 83.64
+- ma120: 77.7
+- return_5d: -2.29
+- return_20d: -2.88
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -9.3
 - distance_to_high_60_pct: -20.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,82.5,84.4,82.5,83.4,16399172,80.62,3.44,80.78,78.87,1.27
 20260529,85.5,89.4,85.3,88.5,38620432,81.28,8.88,81.09,79.16,2.67
 20260601,92,92.1,89.5,91.2,39426487,82.11,11.07,81.59,79.54,2.49
 20260602,92,99.5,90.8,97.8,62079513,83.41,17.25,82.41,80.02,3.35
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,83.8,84.6,82,82,22605594,87,-5.75,89.14,83.41,0.68
 20260623,82.6,82.6,80.1,80.4,17179673,86.45,-7,89.11,83.46,0.52
 20260624,80.3,84.5,80.1,84,24050446,86.25,-2.61,89.23,83.52,0.71
-20260626,86,86,80.7,81,23506778,85.81,-5.61,89.18,83.52,0.68
+20260625,84,89.4,83,86,37471685,86.23,-0.26,89.43,83.6,1.06
+20260626,86,86,80.7,81,23506778,85.79,-5.58,89.31,83.64,0.66
 ```
 
 ## Latest TDCC Snapshot

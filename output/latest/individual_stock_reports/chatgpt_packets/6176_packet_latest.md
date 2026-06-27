@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:09 Asia/Taipei
+- generated_at: 2026-06-27 22:24:10 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 87.6
 - close: 87.7
 - volume: 8059351
-- ma5: 89.2
-- ema23_primary: 93.72
-- distance_to_ema23_pct: -6.43
-- ma20: 94.51
-- ma60: 97.04
-- ma120: 106.21
-- return_5d: -0.57
-- return_20d: -13.6
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -7.21
+- ma5: 89.76
+- ema23_primary: 93.45
+- distance_to_ema23_pct: -6.15
+- ma20: 93.94
+- ma60: 97.02
+- ma120: 105.94
+- return_5d: -0.23
+- return_20d: -14.02
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -6.65
 - distance_to_high_60_pct: -24.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,102,105,101.5,102,5255764,102.14,-0.13,102.86,97.68,0.77
 20260529,103.5,109.5,102,106.5,10413493,102.5,3.9,103.2,97.75,1.56
 20260601,104,105.5,102,105,10495679,102.71,2.23,103.4,97.85,1.53
 20260602,105.5,106,101.5,103.5,12251701,102.77,0.71,103.45,97.89,1.7
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,89.1,93.6,88.9,90.2,13235707,95.06,-5.12,96.81,97.16,1.28
 20260623,90.7,91.3,89.2,90,8514065,94.64,-4.91,95.94,97.13,0.82
 20260624,89.3,91.5,89.1,90.2,8466976,94.27,-4.32,95.2,97.11,0.81
-20260626,90.7,91,87.6,87.7,8059351,93.72,-6.43,94.51,97.04,0.76
+20260625,91.2,92.3,90.7,90.7,9764581,93.97,-3.48,94.66,97.09,0.92
+20260626,90.7,91,87.6,87.7,8059351,93.45,-6.15,93.94,97.02,0.75
 ```
 
 ## Latest TDCC Snapshot

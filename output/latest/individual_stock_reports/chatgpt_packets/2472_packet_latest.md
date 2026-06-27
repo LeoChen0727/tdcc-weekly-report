@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:02 Asia/Taipei
+- generated_at: 2026-06-27 22:23:06 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 372
 - close: 376
 - volume: 13004483
-- ma5: 379.1
-- ema23_primary: 345.51
-- distance_to_ema23_pct: 8.83
-- ma20: 367.48
-- ma60: 253.36
-- ma120: 183.85
-- return_5d: 2.87
-- return_20d: 11.41
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 2.32
+- ma5: 378.1
+- ema23_primary: 349.65
+- distance_to_ema23_pct: 7.54
+- ma20: 368.77
+- ma60: 257.77
+- ma120: 186.27
+- return_5d: -6.47
+- return_20d: 1.35
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 1.96
 - distance_to_high_60_pct: -13.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,352,371,352,371,9320465,246.87,50.28,241.57,174.32,0.73
 20260529,404,404,362,371,21372445,257.21,44.24,251.3,178.57,1.56
 20260601,383,408,383,392,3708970,268.45,46.03,261.7,183.32,0.27
 20260602,387,387,353,380,4684429,277.74,36.82,271.27,187.79,0.34
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,429.5,432.5,382.5,393.5,15931682,339.08,16.05,358.68,241.41,1.63
 20260623,394,395,360.5,363,10070939,341.07,6.43,362.85,245.34,1.11
 20260624,361.5,371.5,350,361,8798499,342.73,5.33,365.55,249.25,1
-20260626,386,396.5,372,376,13004483,345.51,8.83,367.48,253.36,1.47
+20260625,379,397,368,397,16430382,347.26,14.33,368.52,253.71,1.83
+20260626,386,396.5,372,376,13004483,349.65,7.54,368.77,257.77,1.42
 ```
 
 ## Latest TDCC Snapshot

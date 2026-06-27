@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2701 萬企
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:08 Asia/Taipei
+- generated_at: 2026-06-27 22:23:12 Asia/Taipei
 - stock_id: 2701
 - stock_name: 萬企
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 10.4
 - close: 10.45
 - volume: 146579
-- ma5: 10.56
-- ema23_primary: 10.49
-- distance_to_ema23_pct: -0.38
-- ma20: 10.46
+- ma5: 10.57
+- ema23_primary: 10.5
+- distance_to_ema23_pct: -0.46
+- ma20: 10.48
 - ma60: 10.56
-- ma120: 10.76
+- ma120: 10.75
 - return_5d: -0.95
 - return_20d: 2.45
-- volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: -0.07
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: -0.26
 - distance_to_high_60_pct: -5.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10.3,10.3,10.2,10.2,110210,10.42,-2.14,10.44,10.66,0.84
 20260529,10.25,10.3,10.2,10.25,170454,10.41,-1.52,10.42,10.65,1.24
 20260601,10.3,10.35,10.2,10.3,88830,10.4,-0.96,10.4,10.64,0.63
 20260602,10.3,10.35,10.25,10.25,58995,10.39,-1.32,10.38,10.63,0.42
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10.85,10.85,10.5,10.6,152339,10.47,1.21,10.41,10.57,1.23
 20260623,10.65,10.7,10.55,10.55,74830,10.48,0.67,10.43,10.57,0.63
 20260624,10.55,10.85,10.55,10.65,59808,10.49,1.49,10.45,10.57,0.55
-20260626,10.55,10.65,10.4,10.45,146579,10.49,-0.38,10.46,10.56,1.36
+20260625,10.6,10.65,10.55,10.6,32699,10.5,0.93,10.46,10.57,0.32
+20260626,10.55,10.65,10.4,10.45,146579,10.5,-0.46,10.48,10.56,1.41
 ```
 
 ## Latest TDCC Snapshot

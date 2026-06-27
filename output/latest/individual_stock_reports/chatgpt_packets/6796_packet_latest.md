@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6796 晉弘
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:29 Asia/Taipei
+- generated_at: 2026-06-27 22:24:30 Asia/Taipei
 - stock_id: 6796
 - stock_name: 晉弘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 56.5
 - close: 56.5
 - volume: 79432
-- ma5: 58.44
-- ema23_primary: 60.41
-- distance_to_ema23_pct: -6.48
-- ma20: 59.88
-- ma60: 66.01
-- ma120: 76.01
-- return_5d: -5.52
-- return_20d: -8.87
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -5.64
+- ma5: 58.16
+- ema23_primary: 60.2
+- distance_to_ema23_pct: -6.14
+- ma20: 59.66
+- ma60: 65.72
+- ma120: 75.66
+- return_5d: -4.72
+- return_20d: -9.16
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -5.3
 - distance_to_high_60_pct: -28.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,63,63,61.5,62.2,61025,65.24,-4.66,65.08,71.29,0.55
 20260529,60.8,62,60.1,60.9,180959,64.88,-6.13,64.65,70.92,1.53
 20260601,61.3,62.3,60.5,61.9,139978,64.63,-4.23,64.14,70.62,1.15
 20260602,62,62.7,60,60.1,140185,64.25,-6.46,63.63,70.27,1.12
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,59.5,59.7,58.8,59,71038,61.17,-3.54,60.38,66.78,0.67
 20260623,59.3,60.3,58.6,59.2,65034,61,-2.96,60.31,66.56,0.65
 20260624,59,59,58.2,58.2,41326,60.77,-4.23,60.15,66.32,0.44
-20260626,58.7,58.7,56.5,56.5,79432,60.41,-6.48,59.88,66.01,0.84
+20260625,57.9,58.4,56.5,57.9,48700,60.53,-4.35,59.95,66.03,0.53
+20260626,58.7,58.7,56.5,56.5,79432,60.2,-6.14,59.66,65.72,0.85
 ```
 
 ## Latest TDCC Snapshot

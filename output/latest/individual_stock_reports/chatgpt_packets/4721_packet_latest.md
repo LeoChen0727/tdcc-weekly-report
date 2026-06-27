@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4721 美琪瑪
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:47 Asia/Taipei
+- generated_at: 2026-06-27 22:23:50 Asia/Taipei
 - stock_id: 4721
 - stock_name: 美琪瑪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 87.9
 - close: 87.9
 - volume: 1309000
-- ma5: 96.58
-- ema23_primary: 93.52
-- distance_to_ema23_pct: -6.01
-- ma20: 93.29
-- ma60: 88.29
-- ma120: 78.22
-- return_5d: -10.4
-- return_20d: -2.77
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -5.78
+- ma5: 95.08
+- ema23_primary: 93.44
+- distance_to_ema23_pct: -5.93
+- ma20: 93.59
+- ma60: 88.64
+- ma120: 78.44
+- return_5d: -12.54
+- return_20d: 1.03
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -6.08
 - distance_to_high_60_pct: -20.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,90.4,91.7,87,87,89000,88.56,-1.76,90.36,80.51,0.04
 20260529,89,93.3,88.2,92.7,92000,88.91,4.27,90.83,80.94,0.04
 20260601,95.1,96.4,90.8,91.6,94000,89.13,2.77,91.08,81.42,0.04
 20260602,91.6,91.7,87.2,88.8,89,89.1,-0.34,91.07,81.83,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,101.5,102,99.1,100.5,2447000,93.46,7.53,92.86,87.3,1.31
 20260623,99.6,99.8,96,96.5,1986000,93.71,2.97,93.14,87.68,1.01
 20260624,96.2,98.2,94.9,97.5,1011000,94.03,3.69,93.42,88.08,0.5
-20260626,93,93.5,87.9,87.9,1309000,93.52,-6.01,93.29,88.29,0.63
+20260625,97.5,97.9,92.6,93,1765000,93.94,-1,93.55,88.38,0.84
+20260626,93,93.5,87.9,87.9,1309000,93.44,-5.93,93.59,88.64,0.61
 ```
 
 ## Latest TDCC Snapshot

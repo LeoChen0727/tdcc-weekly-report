@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6189 豐藝
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:10 Asia/Taipei
+- generated_at: 2026-06-27 22:24:11 Asia/Taipei
 - stock_id: 6189
 - stock_name: 豐藝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 49.85
 - close: 50.5
 - volume: 1542497
-- ma5: 53.42
-- ema23_primary: 52.82
-- distance_to_ema23_pct: -4.4
-- ma20: 53.34
-- ma60: 49.67
-- ma120: 47.74
-- return_5d: -7.17
+- ma5: 52.54
+- ema23_primary: 52.63
+- distance_to_ema23_pct: -4.04
+- ma20: 53.37
+- ma60: 49.75
+- ma120: 47.78
+- return_5d: -8.01
 - return_20d: 0.8
 - volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -5.33
+- distance_to_ma20_pct_auxiliary: -5.37
 - distance_to_high_60_pct: -16.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,50.1,51.3,49.85,50.1,1293781,49.29,1.63,49.33,47.09,0.94
 20260529,50.6,51,50.2,50.3,772034,49.38,1.87,49.45,47.19,0.56
 20260601,50.3,50.9,49.6,49.9,1167419,49.42,0.97,49.48,47.31,0.87
 20260602,50,51.3,49.7,51.1,1558080,49.56,3.1,49.56,47.43,1.14
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,55.3,55.5,54.2,54.6,1826148,52.94,3.14,53.14,49.4,0.53
 20260623,55,55,53.4,53.7,2077037,53,1.32,53.24,49.51,0.6
 20260624,53.6,53.7,52.8,53.4,1887399,53.03,0.69,53.33,49.61,0.54
-20260626,50.2,51.6,49.85,50.5,1542497,52.82,-4.4,53.34,49.67,0.44
+20260625,51.1,51.5,50.2,50.5,1646809,52.82,-4.4,53.34,49.67,0.47
+20260626,50.2,51.6,49.85,50.5,1542497,52.63,-4.04,53.37,49.75,0.44
 ```
 
 ## Latest TDCC Snapshot

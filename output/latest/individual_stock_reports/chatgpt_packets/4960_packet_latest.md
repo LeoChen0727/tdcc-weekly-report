@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4960 誠美材
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4960
 - stock_name: 誠美材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 25.6
 - close: 25.65
 - volume: 7189146
-- ma5: 28.11
-- ema23_primary: 30.48
-- distance_to_ema23_pct: -15.84
-- ma20: 30.36
-- ma60: 32.48
-- ma120: 24.43
-- return_5d: -12.61
-- return_20d: -22.62
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -15.5
+- ma5: 27.78
+- ema23_primary: 30.21
+- distance_to_ema23_pct: -15.1
+- ma20: 30.13
+- ma60: 32.49
+- ma120: 24.55
+- return_5d: -11.86
+- return_20d: -19.72
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -14.87
 - distance_to_high_60_pct: -46.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,33.6,34.25,31.7,31.95,9341790,34.89,-8.42,36.69,29.86,0.63
 20260529,32.25,32.6,31.7,31.95,7490299,34.64,-7.77,36.33,30.15,0.5
 20260601,32.1,34.8,32.1,33.75,12317380,34.57,-2.37,36.06,30.46,0.8
 20260602,34,34,31.8,32.45,8378567,34.39,-5.65,35.56,30.73,0.54
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,29.3,29.95,28.8,29.2,4330191,31.41,-7.04,31.41,32.4,0.54
 20260623,29.75,29.75,27.9,28.25,5777713,31.15,-9.31,31.02,32.43,0.77
 20260624,28.2,29.2,28,28.35,3586776,30.92,-8.3,30.73,32.49,0.51
-20260626,27.05,27.4,25.6,25.65,7189146,30.48,-15.84,30.36,32.48,1.03
+20260625,28.7,28.7,27.2,27.45,5298929,30.63,-10.37,30.45,32.51,0.77
+20260626,27.05,27.4,25.6,25.65,7189146,30.21,-15.1,30.13,32.49,1.06
 ```
 
 ## Latest TDCC Snapshot

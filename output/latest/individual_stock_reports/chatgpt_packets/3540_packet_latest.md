@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3540 曜越
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:32 Asia/Taipei
+- generated_at: 2026-06-27 22:23:34 Asia/Taipei
 - stock_id: 3540
 - stock_name: 曜越
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 23.65
 - close: 23.7
 - volume: 357000
-- ma5: 24.92
-- ema23_primary: 25.98
-- distance_to_ema23_pct: -8.77
-- ma20: 26.24
-- ma60: 26.77
-- ma120: 28.74
-- return_5d: -8.67
-- return_20d: -10.73
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: -9.67
+- ma5: 24.69
+- ema23_primary: 25.84
+- distance_to_ema23_pct: -8.27
+- ma20: 26.13
+- ma60: 26.73
+- ma120: 28.69
+- return_5d: -7.06
+- return_20d: -10.57
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -9.3
 - distance_to_high_60_pct: -22.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.55,27.75,26.5,26.5,27000,26.79,-1.08,26.85,27.6,0.11
 20260529,27.2,27.2,26.3,26.45,27000,26.76,-1.16,26.78,27.54,0.12
 20260601,26.3,27.6,26.3,27.5,27000,26.82,2.53,26.75,27.53,0.13
 20260602,27.5,27.9,26.9,27.75,27,26.9,3.16,26.73,27.51,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,25.55,25.55,25.05,25.35,328000,26.41,-4,26.54,26.94,1.44
 20260623,25.35,25.35,25,25.15,354000,26.3,-4.38,26.46,26.89,1.45
 20260624,25,25.25,24.8,24.9,216000,26.18,-4.91,26.38,26.84,0.85
-20260626,24.35,24.35,23.65,23.7,357000,25.98,-8.77,26.24,26.77,1.32
+20260625,24.95,24.95,24.25,24.35,350000,26.03,-6.46,26.27,26.78,1.3
+20260626,24.35,24.35,23.65,23.7,357000,25.84,-8.27,26.13,26.73,1.25
 ```
 
 ## Latest TDCC Snapshot

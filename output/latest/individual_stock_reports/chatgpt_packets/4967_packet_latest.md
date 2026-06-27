@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4967 十銓
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:52 Asia/Taipei
+- generated_at: 2026-06-27 22:23:54 Asia/Taipei
 - stock_id: 4967
 - stock_name: 十銓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 265
 - close: 265
 - volume: 4161420
-- ma5: 275.6
-- ema23_primary: 276.38
-- distance_to_ema23_pct: -4.12
-- ma20: 280.35
-- ma60: 263.67
-- ma120: 236.14
-- return_5d: -3.64
-- return_20d: -0.75
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -5.48
+- ma5: 275.1
+- ema23_primary: 276.27
+- distance_to_ema23_pct: -4.08
+- ma20: 280.62
+- ma60: 264.59
+- ma120: 237.2
+- return_5d: -4.85
+- return_20d: -2.03
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -5.57
 - distance_to_high_60_pct: -17.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,269.5,284.5,268,270.5,11768847,269.22,0.48,278.9,243.43,0.93
 20260529,277.5,279,273,276,4992882,269.78,2.3,278.65,244.83,0.43
 20260601,280,290,278,289,12063317,271.39,6.49,278.88,246.65,1.04
 20260602,295,310,290,304.5,28823810,274.14,11.07,279.65,248.57,2.33
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,284.5,290,280,284.5,8241413,277.85,2.39,280.07,261.96,0.85
 20260623,287.5,287.5,271,272,6116407,277.36,-1.93,280.1,262.25,0.63
 20260624,265.5,278,265.5,278,3018982,277.42,0.21,280.45,263.06,0.32
-20260626,277,280.5,265,265,4161420,276.38,-4.12,280.35,263.67,0.45
+20260625,283.5,286,275,276,4565269,277.3,-0.47,280.9,263.85,0.49
+20260626,277,280.5,265,265,4161420,276.27,-4.08,280.62,264.59,0.47
 ```
 
 ## Latest TDCC Snapshot

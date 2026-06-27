@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5244 弘凱
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:55 Asia/Taipei
+- generated_at: 2026-06-27 22:23:57 Asia/Taipei
 - stock_id: 5244
 - stock_name: 弘凱
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 35.95
 - close: 36.1
 - volume: 226816
-- ma5: 37.51
-- ema23_primary: 38.12
-- distance_to_ema23_pct: -5.31
-- ma20: 37.98
-- ma60: 39.83
-- ma120: 39.15
-- return_5d: -4.5
-- return_20d: -7.32
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -4.96
+- ma5: 37.38
+- ema23_primary: 38.03
+- distance_to_ema23_pct: -5.08
+- ma20: 37.93
+- ma60: 39.78
+- ma120: 39.12
+- return_5d: -4.37
+- return_20d: -5.5
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -4.82
 - distance_to_high_60_pct: -28.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39,39.5,38.1,38.2,465842,39.82,-4.07,39.91,39.56,0.72
 20260529,38.8,38.8,38.05,38.1,282303,39.68,-3.97,39.69,39.55,0.49
 20260601,38.4,39.25,38.4,38.65,318853,39.59,-2.38,39.54,39.58,0.57
 20260602,39.05,39.3,38.6,38.8,196088,39.52,-1.83,39.35,39.61,0.36
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.15,38.25,37.7,38.25,218170,38.42,-0.44,38.38,39.95,0.57
 20260623,38.5,38.5,37.5,37.9,149293,38.38,-1.24,38.26,39.89,0.42
 20260624,37.9,38,37.5,37.55,115500,38.31,-1.98,38.12,39.87,0.34
-20260626,37,37.05,35.95,36.1,226816,38.12,-5.31,37.98,39.83,0.7
+20260625,38,38,37.1,37.1,105371,38.21,-2.9,38.03,39.85,0.33
+20260626,37,37.05,35.95,36.1,226816,38.03,-5.08,37.93,39.78,0.75
 ```
 
 ## Latest TDCC Snapshot

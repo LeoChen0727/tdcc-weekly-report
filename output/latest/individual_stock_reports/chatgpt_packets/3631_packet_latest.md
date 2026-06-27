@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3631 晟楠
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:35 Asia/Taipei
+- generated_at: 2026-06-27 22:23:37 Asia/Taipei
 - stock_id: 3631
 - stock_name: 晟楠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 33.15
 - close: 33.55
 - volume: 41000
-- ma5: 34.02
-- ema23_primary: 34.71
-- distance_to_ema23_pct: -3.34
-- ma20: 34.39
-- ma60: 34.63
-- ma120: 30.8
-- return_5d: -1.76
-- return_20d: -10.29
+- ma5: 34.1
+- ema23_primary: 34.68
+- distance_to_ema23_pct: -3.25
+- ma20: 34.28
+- ma60: 34.74
+- ma120: 30.88
+- return_5d: -1.32
+- return_20d: -7.96
 - volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -2.44
+- distance_to_ma20_pct_auxiliary: -2.14
 - distance_to_high_60_pct: -21.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.5,37.75,36.4,36.45,37000,37.24,-2.12,38.63,32.62,0.23
 20260529,36.8,36.8,36.05,36.45,36000,37.17,-1.95,38.53,32.75,0.23
 20260601,36.45,36.7,36.2,36.4,36000,37.11,-1.91,38.44,32.9,0.23
 20260602,36.3,36.4,34.35,34.9,35,36.93,-5.48,38.24,33.01,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.1,34.35,33.75,34.1,39000,34.92,-2.36,34.9,34.35,0.55
 20260623,34.3,34.3,33,33.85,52000,34.83,-2.83,34.71,34.43,0.73
 20260624,34.2,34.65,33.9,34.6,82000,34.81,-0.62,34.58,34.52,1.12
-20260626,34.15,34.25,33.15,33.55,41000,34.71,-3.34,34.39,34.63,0.56
+20260625,34.6,35.05,34.05,34.4,43000,34.78,-1.09,34.43,34.64,0.58
+20260626,34.15,34.25,33.15,33.55,41000,34.68,-3.25,34.28,34.74,0.56
 ```
 
 ## Latest TDCC Snapshot

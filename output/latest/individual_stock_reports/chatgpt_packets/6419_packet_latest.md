@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6419 京晨科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:16 Asia/Taipei
+- generated_at: 2026-06-27 22:24:18 Asia/Taipei
 - stock_id: 6419
 - stock_name: 京晨科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 139
 - close: 139
 - volume: 299000
-- ma5: 150
-- ema23_primary: 144.71
-- distance_to_ema23_pct: -3.94
-- ma20: 142.6
-- ma60: 137.83
-- ma120: 107.99
-- return_5d: 0.36
-- return_20d: -4.79
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -2.52
+- ma5: 149.7
+- ema23_primary: 144.92
+- distance_to_ema23_pct: -4.08
+- ma20: 143
+- ma60: 138.76
+- ma120: 108.54
+- return_5d: -7.02
+- return_20d: -0.71
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -2.8
 - distance_to_high_60_pct: -28.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,146,147.5,140,140,144000,147.64,-5.17,153.35,118.13,0.19
 20260529,143,144,139,140.5,141000,147.04,-4.45,152.93,119.29,0.18
 20260601,139,144.5,138.5,142,142000,146.62,-3.15,152.07,120.53,0.19
 20260602,141,152,138,149.5,145,146.86,1.8,152.38,121.87,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,151,158.5,151,152.5,994000,143.47,6.3,142.8,134.65,3.18
 20260623,153.5,156,146.5,155,578000,144.43,7.32,142.95,135.83,1.73
 20260624,152,156.5,149.5,154,495000,145.22,6.04,142.95,137.02,1.41
-20260626,147.5,148.5,139,139,299000,144.71,-3.94,142.6,137.83,0.83
+20260625,154,156,148,148,333000,145.46,1.75,143.05,137.98,0.92
+20260626,147.5,148.5,139,139,299000,144.92,-4.08,143,138.76,0.81
 ```
 
 ## Latest TDCC Snapshot

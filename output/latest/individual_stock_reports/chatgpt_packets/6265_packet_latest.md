@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6265 方土昶
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:14 Asia/Taipei
+- generated_at: 2026-06-27 22:24:16 Asia/Taipei
 - stock_id: 6265
 - stock_name: 方土昶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 52.1
 - close: 52.2
 - volume: 4772000
-- ma5: 56.42
-- ema23_primary: 54.84
-- distance_to_ema23_pct: -4.81
-- ma20: 57.09
-- ma60: 46.99
-- ma120: 43.3
-- return_5d: -8.74
-- return_20d: -5.09
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -8.57
+- ma5: 55.9
+- ema23_primary: 54.83
+- distance_to_ema23_pct: -4.8
+- ma20: 57.16
+- ma60: 47.25
+- ma120: 43.58
+- return_5d: -9.38
+- return_20d: -2.97
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -8.67
 - distance_to_high_60_pct: -19.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,55,57.8,52.8,53.8,55000,46.19,16.48,45.88,41.55,0.01
 20260529,55,56,53,55.2,55000,46.94,17.6,46.66,41.87,0.01
 20260601,56,57.9,54.9,56,56000,47.69,17.41,47.34,42.25,0.01
 20260602,56,61.6,55.5,61.6,60,48.85,26.09,48.25,42.68,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.4,61,57.3,59.8,12191000,54.86,9,56.9,46.23,2.46
 20260623,61,61,56,56.6,8930000,55.01,2.9,57.09,46.48,1.66
 20260624,55.2,56.6,55,55.9,4120000,55.08,1.49,57.23,46.76,0.74
-20260626,54.6,55.8,52.1,52.2,4772000,54.84,-4.81,57.09,46.99,0.82
+20260625,57.1,58.4,55,55,6131000,55.07,-0.13,57.23,47.03,1.04
+20260626,54.6,55.8,52.1,52.2,4772000,54.83,-4.8,57.16,47.25,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6265 | 方土昶 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6265 | 方土昶 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

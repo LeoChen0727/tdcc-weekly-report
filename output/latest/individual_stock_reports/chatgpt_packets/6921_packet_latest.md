@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6921 嘉雨思-創
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:34 Asia/Taipei
 - stock_id: 6921
 - stock_name: 嘉雨思-創
-- packet_status: standard_rawdata_packet
+- packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 119
+- price_rows: 120
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial
+- notes:
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -119,23 +119,22 @@
 - low: 68.1
 - close: 68.3
 - volume: 40300
-- ma5: 70.2
-- ema23_primary: 72.62
-- distance_to_ema23_pct: -5.95
-- ma20: 71.73
-- ma60: 78.68
-- ma120: 75.62
-- return_5d: -2.43
-- return_20d: -10.25
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -4.78
+- ma5: 69.84
+- ema23_primary: 72.37
+- distance_to_ema23_pct: -5.62
+- ma20: 71.47
+- ma60: 78.72
+- ma120: 75.57
+- return_5d: -4.48
+- return_20d: -8.93
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -4.43
 - distance_to_high_60_pct: -34.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76.1,76.2,73.9,75,42734,80.4,-6.72,82.08,79.19,0.77
 20260529,75.6,76,74.2,76,30513,80.04,-5.04,81.3,79.14,0.56
 20260601,75,75.9,75,75.5,19755,79.66,-5.22,80.42,79.14,0.37
 20260602,75.5,75.5,72.4,73.4,50465,79.14,-7.25,79.54,79.03,0.94
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.5,71.6,70,70.2,65437,73.49,-4.47,72.82,78.71,1.55
 20260623,70.2,71.5,70,70,61400,73.2,-4.37,72.42,78.69,1.43
 20260624,70,74.9,68.7,71,83164,73.01,-2.76,72.12,78.7,1.85
-20260626,69.7,69.7,68.1,68.3,40300,72.62,-5.95,71.73,78.68,0.94
+20260625,71,75,69,69.7,118559,72.74,-4.18,71.8,78.7,2.55
+20260626,69.7,69.7,68.1,68.3,40300,72.37,-5.62,71.47,78.72,0.87
 ```
 
 ## Latest TDCC Snapshot

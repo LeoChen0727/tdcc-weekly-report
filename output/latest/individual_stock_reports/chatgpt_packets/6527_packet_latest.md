@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6527 明達醫
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:20 Asia/Taipei
+- generated_at: 2026-06-27 22:24:21 Asia/Taipei
 - stock_id: 6527
 - stock_name: 明達醫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 71.8
 - close: 72.2
 - volume: 14000
-- ma5: 72.38
-- ema23_primary: 71.44
-- distance_to_ema23_pct: 1.07
-- ma20: 71.36
-- ma60: 70.41
-- ma120: 72.92
-- return_5d: 1.4
-- return_20d: 2.56
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 1.17
+- ma5: 72.46
+- ema23_primary: 71.5
+- distance_to_ema23_pct: 0.98
+- ma20: 71.52
+- ma60: 70.42
+- ma120: 72.88
+- return_5d: 0.56
+- return_20d: 4.49
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 0.95
 - distance_to_high_60_pct: -1.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,70.3,70.3,69.1,69.1,70000,69.97,-1.25,69.8,71.15,1.35
 20260529,70,70.2,69.8,70,70000,69.98,0.04,69.94,71.07,1.38
 20260601,70,70.3,69.5,70,70000,69.98,0.03,70.11,71.02,1.36
 20260602,69.8,71,67.8,70.5,70,70.02,0.68,70.17,70.95,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.2,71.6,71.2,71.6,26000,71.03,0.8,70.95,70.4,0.6
 20260623,71.8,73.3,71.8,73.3,39000,71.22,2.92,71.11,70.41,0.93
 20260624,72.8,73.5,72.8,73,19000,71.37,2.28,71.28,70.41,0.48
-20260626,72.2,72.2,71.8,72.2,14000,71.44,1.07,71.36,70.41,0.38
+20260625,72,72.5,72,72.2,12000,71.44,1.07,71.36,70.41,0.33
+20260626,72.2,72.2,71.8,72.2,14000,71.5,0.98,71.52,70.42,0.41
 ```
 
 ## Latest TDCC Snapshot

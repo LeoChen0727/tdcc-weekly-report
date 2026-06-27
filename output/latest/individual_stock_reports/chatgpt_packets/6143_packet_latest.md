@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6143 振曜
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:07 Asia/Taipei
+- generated_at: 2026-06-27 22:24:09 Asia/Taipei
 - stock_id: 6143
 - stock_name: 振曜
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 88.4
 - close: 90.5
 - volume: 1125000
-- ma5: 89.62
-- ema23_primary: 92.19
-- distance_to_ema23_pct: -1.84
-- ma20: 93.06
-- ma60: 93.86
-- ma120: 100.79
-- return_5d: 1.23
-- return_20d: -9.5
-- volume_ratio: 2.97
-- distance_to_ma20_pct_auxiliary: -2.76
+- ma5: 89.44
+- ema23_primary: 91.88
+- distance_to_ema23_pct: -1.51
+- ma20: 92.41
+- ma60: 93.72
+- ma120: 100.49
+- return_5d: 1.46
+- return_20d: -10.84
+- volume_ratio: 2.85
+- distance_to_ma20_pct_auxiliary: -2.06
 - distance_to_high_60_pct: -13.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,101,104,99.7,101.5,102000,96.48,5.21,95.73,96.33,0.08
 20260529,103,103,99.8,99.8,101000,96.75,3.15,96.37,96.22,0.09
 20260601,99.9,101,98.8,99.4,100000,96.97,2.5,96.89,96.2,0.09
 20260602,99.4,101,98.7,100,100,97.23,2.85,97.33,96.08,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,90.8,90.9,89.8,90.1,395000,92.95,-3.07,94.57,94.31,1.3
 20260623,91.1,91.1,88.6,89.1,317000,92.63,-3.81,94.06,94.13,1.01
 20260624,87.1,89.3,87.1,89.2,386000,92.35,-3.41,93.54,93.98,1.18
-20260626,89,93,88.4,90.5,1125000,92.19,-1.84,93.06,93.86,2.97
+20260625,89.4,90,88.3,88.3,422000,92.01,-4.03,92.95,93.82,1.23
+20260626,89,93,88.4,90.5,1125000,91.88,-1.51,92.41,93.72,2.85
 ```
 
 ## Latest TDCC Snapshot

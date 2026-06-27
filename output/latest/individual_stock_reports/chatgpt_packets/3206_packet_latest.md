@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3206 志豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:23 Asia/Taipei
+- generated_at: 2026-06-27 22:23:25 Asia/Taipei
 - stock_id: 3206
 - stock_name: 志豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 36.6
 - close: 36.95
 - volume: 95000
-- ma5: 37.97
-- ema23_primary: 38.09
-- distance_to_ema23_pct: -3
-- ma20: 38.66
-- ma60: 37.67
-- ma120: 35.83
-- return_5d: -2.76
-- return_20d: -2.12
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -4.41
+- ma5: 37.81
+- ema23_primary: 38.06
+- distance_to_ema23_pct: -2.91
+- ma20: 38.53
+- ma60: 37.65
+- ma120: 35.88
+- return_5d: -4.03
+- return_20d: -7.86
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -4.11
 - distance_to_high_60_pct: -13.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,38.3,41.5,37.1,40.1,40000,37.48,7,37.12,37.29,0.2
 20260529,41.3,42.75,40.8,42,42000,37.85,10.96,37.5,37.4,0.21
 20260601,40.1,41.2,39.3,40.4,40000,38.06,6.14,37.81,37.51,0.2
 20260602,41,41.9,39.7,40.4,41,38.26,5.6,38.12,37.56,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,38.75,39.5,38.75,38.8,239000,38.27,1.37,38.65,37.77,3.02
 20260623,39.4,39.4,37.8,37.8,175000,38.23,-1.14,38.65,37.74,2.03
 20260624,37.8,38.3,37.5,37.8,54000,38.2,-1.04,38.7,37.71,0.62
-20260626,37.3,37.3,36.6,36.95,95000,38.09,-3,38.66,37.67,1.06
+20260625,38.4,38.4,37.4,37.7,62000,38.16,-1.2,38.69,37.69,0.7
+20260626,37.3,37.3,36.6,36.95,95000,38.06,-2.91,38.53,37.65,1.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:15 Asia/Taipei
+- generated_at: 2026-06-27 22:24:16 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 1575
 - close: 1580
 - volume: 5774000
-- ma5: 1763
-- ema23_primary: 1594.23
-- distance_to_ema23_pct: -0.89
-- ma20: 1637.25
-- ma60: 1272.63
-- ma120: 890.71
-- return_5d: -5.39
-- return_20d: -3.07
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -3.5
+- ma5: 1736
+- ema23_primary: 1602.21
+- distance_to_ema23_pct: -1.39
+- ma20: 1645.25
+- ma60: 1290.93
+- ma120: 901.09
+- return_5d: -13.9
+- return_20d: 2.6
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: -3.97
 - distance_to_high_60_pct: -17.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,1615,1695,1525,1540,1586000,1320.39,16.63,1370,918.65,0.39
 20260529,1615,1690,1610,1690,1677000,1351.19,25.08,1404,937.85,0.42
 20260601,1690,1815,1650,1705,1740000,1380.67,23.49,1433.75,958.09,0.46
 20260602,1700,1700,1565,1590,1612,1398.12,13.72,1452.25,976.16,0
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,1900,1920,1835,1900,7359000,1566.03,21.33,1623.75,1218.17,1.81
 20260623,1905,1905,1715,1735,6126000,1580.11,9.8,1630.5,1237.42,1.42
 20260624,1700,1765,1670,1765,4384000,1595.52,10.62,1639.75,1256.73,0.99
-20260626,1680,1750,1575,1580,5774000,1594.23,-0.89,1637.25,1272.63,1.24
+20260625,1795,1795,1650,1700,6721000,1604.23,5.97,1643.25,1274.63,1.43
+20260626,1680,1750,1575,1580,5774000,1602.21,-1.39,1645.25,1290.93,1.18
 ```
 
 ## Latest TDCC Snapshot

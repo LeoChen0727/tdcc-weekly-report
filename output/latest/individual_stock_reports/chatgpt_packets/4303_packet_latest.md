@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4303 信立
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:42 Asia/Taipei
+- generated_at: 2026-06-27 22:23:44 Asia/Taipei
 - stock_id: 4303
 - stock_name: 信立
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 44.65
 - close: 44.75
 - volume: 826000
-- ma5: 46.89
-- ema23_primary: 47.53
-- distance_to_ema23_pct: -5.86
-- ma20: 47.16
-- ma60: 50.65
-- ma120: 54.49
-- return_5d: -4.89
-- return_20d: -5.49
-- volume_ratio: 2.53
-- distance_to_ma20_pct_auxiliary: -5.1
+- ma5: 46.69
+- ema23_primary: 47.43
+- distance_to_ema23_pct: -5.66
+- ma20: 47.12
+- ma60: 50.49
+- ma120: 54.36
+- return_5d: -5.79
+- return_20d: -4.99
+- volume_ratio: 2.41
+- distance_to_ma20_pct_auxiliary: -5.04
 - distance_to_high_60_pct: -22.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,47.4,48,46.55,47.1,47000,50,-5.81,49.9,53.4,0.07
 20260529,47.2,47.4,46.9,46.95,47000,49.75,-5.63,49.55,53.25,0.08
 20260601,47.2,48.65,46.95,48.3,48000,49.63,-2.68,49.3,53.15,0.08
 20260602,48.8,48.8,47.35,47.7,48,49.47,-3.57,49.05,53.09,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,48.15,48.15,47.5,47.9,342000,47.91,-0.02,47.51,51.06,1.36
 20260623,48.25,48.3,46.95,47.2,468000,47.85,-1.36,47.4,50.94,1.72
 20260624,47.2,47.45,46.65,47.1,362000,47.79,-1.44,47.28,50.81,1.26
-20260626,46.75,46.75,44.65,44.75,826000,47.53,-5.86,47.16,50.65,2.53
+20260625,47.15,47.45,46.5,46.5,372000,47.68,-2.47,47.24,50.68,1.22
+20260626,46.75,46.75,44.65,44.75,826000,47.43,-5.66,47.12,50.49,2.41
 ```
 
 ## Latest TDCC Snapshot

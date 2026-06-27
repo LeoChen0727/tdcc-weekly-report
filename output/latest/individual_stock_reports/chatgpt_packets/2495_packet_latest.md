@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:03 Asia/Taipei
+- generated_at: 2026-06-27 22:23:07 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 49.95
 - close: 50.3
 - volume: 11304892
-- ma5: 52.04
-- ema23_primary: 49.24
-- distance_to_ema23_pct: 2.15
-- ma20: 50.68
-- ma60: 43.22
-- ma120: 37.97
-- return_5d: -6.51
-- return_20d: -0.59
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -0.75
+- ma5: 52.32
+- ema23_primary: 49.57
+- distance_to_ema23_pct: 1.47
+- ma20: 50.99
+- ma60: 43.54
+- ma120: 38.16
+- return_5d: -3.45
+- return_20d: 6.23
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -1.35
 - distance_to_high_60_pct: -7.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,49,49.85,46.55,47.35,25814174,41.34,14.55,40.36,37.64,2.48
 20260529,50.5,52,49.5,51.5,22833459,42.18,22.09,40.93,37.99,2.03
 20260601,50.6,52.6,49.05,50.9,15163420,42.91,18.62,41.44,38.36,1.28
 20260602,51.2,53,48.75,51.6,15066170,43.63,18.26,41.94,38.71,1.22
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,52.3,53.3,51.8,52.1,8008101,48.44,7.56,50.02,42.39,0.52
 20260623,52.3,53.3,50.6,52.5,10701907,48.78,7.63,50.34,42.65,0.71
 20260624,52.2,53.8,51.7,53.2,15228681,49.14,8.25,50.7,42.96,1.02
-20260626,53.5,53.9,49.95,50.3,11304892,49.24,2.15,50.68,43.22,0.8
+20260625,53.6,54.3,52,53.5,17828126,49.51,8.06,50.84,43.27,1.24
+20260626,53.5,53.9,49.95,50.3,11304892,49.57,1.47,50.99,43.54,0.83
 ```
 
 ## Latest TDCC Snapshot

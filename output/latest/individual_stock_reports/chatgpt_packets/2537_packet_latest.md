@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:05 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 10.85
 - close: 10.85
 - volume: 1583771
-- ma5: 11.17
-- ema23_primary: 10.8
-- distance_to_ema23_pct: 0.49
-- ma20: 10.72
-- ma60: 10.37
-- ma120: 10.6
+- ma5: 10.99
+- ema23_primary: 10.82
+- distance_to_ema23_pct: 0.27
+- ma20: 10.81
+- ma60: 10.38
+- ma120: 10.59
 - return_5d: -9.58
-- return_20d: 15.55
+- return_20d: 14.57
 - volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 1.17
+- distance_to_ma20_pct_auxiliary: 0.4
 - distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,9.39,9.61,9.39,9.47,878090,9.88,-4.16,9.91,10.18,0.78
 20260529,9.48,9.52,9.42,9.45,618812,9.85,-4.01,9.87,10.17,0.57
 20260601,9.42,10.1,9.42,10.05,1983251,9.86,1.9,9.86,10.17,1.75
 20260602,10.05,10.15,9.82,9.98,1236305,9.87,1.09,9.85,10.16,1.06
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,11.65,11.65,11.05,11.1,5217297,10.76,3.15,10.51,10.34,1.33
 20260623,11.1,11.1,10.75,10.8,1866173,10.76,0.34,10.58,10.34,0.47
 20260624,10.65,11.25,10.65,11.1,1724441,10.79,2.85,10.65,10.36,0.43
-20260626,11.2,11.2,10.85,10.85,1583771,10.8,0.49,10.72,10.37,0.4
+20260625,11.25,11.25,11.1,11.1,1013735,10.82,2.61,10.74,10.37,0.26
+20260626,11.2,11.2,10.85,10.85,1583771,10.82,0.27,10.81,10.38,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 2537 | 聯上發 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蘇永義。 4.舊任者簡歷:聯上投資(股)公司代表人。 5.新任者姓名:蘇永義。 6.新任者簡歷:聯上投資(股)公司代表人。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，續任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 | 20260626 | 2537 | 聯上發 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蘇永義。 4.舊任者簡歷:聯上投資(股)公司代表人。 5.新任者姓名:蘇永義。 6.新任者簡歷:聯上投資(股)公司代表人。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，續任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 31.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蘇永義。 4.舊任者簡歷:聯上投資(股)公司代表人。 5.新任者姓名:蘇永義。 6.新任者簡歷:聯上投資(股)公司代表人。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，續任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2537 | 聯上發 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 32.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:蘇永義。 4.舊任者簡歷:聯上投資(股)公司代表人。 5.新任者姓名:蘇永義。 6.新任者簡歷:聯上投資(股)公司代表人。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿，續任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

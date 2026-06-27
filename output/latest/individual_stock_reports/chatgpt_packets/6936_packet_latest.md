@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6936 永鴻生技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:35 Asia/Taipei
 - stock_id: 6936
 - stock_name: 永鴻生技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 277
+- price_rows: 278
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 32.25
 - close: 32.25
 - volume: 37221
-- ma5: 32.77
-- ema23_primary: 33.31
-- distance_to_ema23_pct: -3.17
-- ma20: 33.34
-- ma60: 34.02
-- ma120: 34.74
-- return_5d: -4.02
-- return_20d: -2.12
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -3.26
+- ma5: 32.61
+- ema23_primary: 33.25
+- distance_to_ema23_pct: -3
+- ma20: 33.33
+- ma60: 34
+- ma120: 34.71
+- return_5d: -3.44
+- return_20d: -1.38
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -3.25
 - distance_to_high_60_pct: -10.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,32.9,33,32.65,32.7,81908,33.72,-3.01,33.72,34.39,1.44
 20260529,32.7,33.2,32.7,32.9,38660,33.65,-2.22,33.65,34.34,0.68
 20260601,32.95,33.4,32.95,33.4,34100,33.63,-0.68,33.6,34.3,0.61
 20260602,33.5,33.75,33.25,33.7,59545,33.63,0.2,33.55,34.28,1.04
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,33.35,33.35,32.9,33,74277,33.56,-1.66,33.42,34.12,1.37
 20260623,33,33,32.5,32.6,30580,33.48,-2.62,33.39,34.09,0.61
 20260624,32.35,32.9,32.35,32.6,23114,33.4,-2.4,33.37,34.06,0.5
-20260626,32.45,32.6,32.25,32.25,37221,33.31,-3.17,33.34,34.02,0.82
+20260625,33.35,33.35,32.6,32.6,5022,33.34,-2.21,33.35,34.03,0.12
+20260626,32.45,32.6,32.25,32.25,37221,33.25,-3,33.33,34,0.9
 ```
 
 ## Latest TDCC Snapshot

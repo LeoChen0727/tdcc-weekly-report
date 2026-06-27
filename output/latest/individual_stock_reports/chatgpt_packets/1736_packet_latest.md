@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1736 喬山
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:45 Asia/Taipei
+- generated_at: 2026-06-27 22:22:49 Asia/Taipei
 - stock_id: 1736
 - stock_name: 喬山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 116
 - close: 118.5
 - volume: 639596
-- ma5: 117.1
-- ema23_primary: 116.72
-- distance_to_ema23_pct: 1.52
-- ma20: 115.3
-- ma60: 119.27
-- ma120: 130.11
-- return_5d: 0.42
-- return_20d: 1.72
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 2.78
+- ma5: 117
+- ema23_primary: 116.91
+- distance_to_ema23_pct: 1.36
+- ma20: 115.45
+- ma60: 119.21
+- ma120: 129.89
+- return_5d: -0.84
+- return_20d: 2.16
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 2.64
 - distance_to_high_60_pct: -15.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,116.5,116.5,114.5,116,403467,120.81,-3.98,121.58,123.7,0.65
 20260529,116,119.5,113.5,119.5,939255,120.7,-1,121.45,123.53,1.5
 20260601,120.5,123,116,118.5,1154556,120.52,-1.68,121.17,123.46,1.77
 20260602,118,122,117,118,611445,120.31,-1.92,120.8,123.17,0.95
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,119.5,119.5,115,116,693075,116.7,-0.6,115.53,119.72,0.93
 20260623,116,116,113,114,312003,116.47,-2.12,115.28,119.52,0.43
 20260624,114,117.5,110.5,117.5,670124,116.56,0.81,115.2,119.37,0.9
-20260626,117.5,119.5,116,118.5,639596,116.72,1.52,115.3,119.27,0.85
+20260625,118,120,116.5,119,775267,116.76,1.92,115.33,119.28,1.03
+20260626,117.5,119.5,116,118.5,639596,116.91,1.36,115.45,119.21,0.83
 ```
 
 ## Latest TDCC Snapshot

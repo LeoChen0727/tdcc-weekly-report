@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:58 Asia/Taipei
+- generated_at: 2026-06-27 22:23:01 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 453
 - close: 455.5
 - volume: 2470330
-- ma5: 482
-- ema23_primary: 477.72
-- distance_to_ema23_pct: -4.65
-- ma20: 488.75
-- ma60: 429.38
-- ma120: 369.03
-- return_5d: -6.76
-- return_20d: -10.51
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -6.8
+- ma5: 479.2
+- ema23_primary: 477.74
+- distance_to_ema23_pct: -4.66
+- ma20: 488.23
+- ma60: 432.02
+- ma120: 370.68
+- return_5d: -7.79
+- return_20d: -7.14
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -6.7
 - distance_to_high_60_pct: -15.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,509,523,488.5,490.5,4642973,450.96,8.77,458.38,382.52,0.85
 20260529,496,515,492,495,10573832,454.63,8.88,465.15,385.27,1.81
 20260601,505,525,505,517,3813940,459.83,12.43,471.25,388.69,0.68
 20260602,520,530,508,515,6795914,464.43,10.89,477.18,391.57,1.2
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,501,511,494.5,499.5,3050140,479.66,4.14,493.8,422.52,0.72
 20260623,505,505,483,487.5,2317136,480.31,1.5,493.25,425.08,0.57
 20260624,477.5,483.5,466,473.5,2781664,479.74,-1.3,491.43,427.32,0.69
-20260626,469.5,469.5,453,455.5,2470330,477.72,-4.65,488.75,429.38,0.63
+20260625,482,485,472,480,1411701,479.76,0.05,489.98,429.78,0.37
+20260626,469.5,469.5,453,455.5,2470330,477.74,-4.66,488.23,432.02,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放：普通股現金股利新台幣9,697,298,744元(每股預計配發11.2元，其中 盈餘分配每股9.2元、資本公積發放每股2元)。 (2)變更後：普通股現金股利新台幣9,697,298,744元(每股預計配發11.15855623元， 其中盈餘分配每股9.16595690元、資本公積發放每股1.99259933元)。 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項: 因本公司員工認股權之行使，致流通在外股數變動而調整配息率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

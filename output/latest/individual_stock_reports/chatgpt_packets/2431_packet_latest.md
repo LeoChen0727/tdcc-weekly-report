@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2431 聯昌
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:00 Asia/Taipei
+- generated_at: 2026-06-27 22:23:03 Asia/Taipei
 - stock_id: 2431
 - stock_name: 聯昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11
 - close: 11
 - volume: 448696
-- ma5: 11.46
-- ema23_primary: 11.11
-- distance_to_ema23_pct: -1
-- ma20: 11.09
-- ma60: 11.03
+- ma5: 11.41
+- ema23_primary: 11.13
+- distance_to_ema23_pct: -1.19
+- ma20: 11.14
+- ma60: 11.02
 - ma120: 12.22
-- return_5d: -7.95
-- return_20d: 6.28
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.77
+- return_5d: -5.58
+- return_20d: 7.84
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -1.3
 - distance_to_high_60_pct: -12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10.35,10.6,10.2,10.2,676655,10.63,-4.05,10.51,11.52,1.48
 20260529,10.2,10.5,10.2,10.45,556567,10.62,-1.56,10.49,11.44,1.2
 20260601,10.45,11.2,10.35,10.9,1517803,10.64,2.45,10.5,11.4,2.89
 20260602,10.9,10.95,10.55,10.95,847826,10.67,2.67,10.5,11.37,1.54
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,11.75,11.95,11.5,11.75,846821,11.06,6.26,10.95,11.07,1.03
 20260623,11.75,11.85,11.35,11.35,464048,11.08,2.42,10.99,11.06,0.57
 20260624,11.25,11.55,11.05,11.55,275995,11.12,3.86,11.05,11.05,0.35
-20260626,11.3,11.35,11,11,448696,11.11,-1,11.09,11.03,0.56
+20260625,11.65,11.65,11.4,11.4,256729,11.14,2.29,11.11,11.04,0.32
+20260626,11.3,11.35,11,11,448696,11.13,-1.19,11.14,11.02,0.57
 ```
 
 ## Latest TDCC Snapshot

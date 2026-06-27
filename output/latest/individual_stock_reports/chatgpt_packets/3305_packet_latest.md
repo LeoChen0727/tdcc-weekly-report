@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3305 昇貿
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:25 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3305
 - stock_name: 昇貿
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 128.5
 - close: 129.5
 - volume: 3338157
-- ma5: 139.9
-- ema23_primary: 142.11
-- distance_to_ema23_pct: -8.87
-- ma20: 147.7
-- ma60: 129.75
-- ma120: 120.31
-- return_5d: -9.12
-- return_20d: -19.06
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -12.32
+- ma5: 137.7
+- ema23_primary: 141.48
+- distance_to_ema23_pct: -8.47
+- ma20: 146.55
+- ma60: 130.27
+- ma120: 120.53
+- return_5d: -11.3
+- return_20d: -18.04
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -11.63
 - distance_to_high_60_pct: -23.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,161.5,165,155.5,158,10438593,135.6,16.52,132.72,116.35,0.77
 20260529,162.5,164,152.5,157.5,9574871,137.43,14.61,135.18,117.06,0.69
 20260601,160.5,167.5,154,167.5,12706781,139.93,19.7,138.15,118.12,0.88
 20260602,168,168,155,157.5,10982260,141.4,11.39,140.47,118.96,0.73
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,148.5,148.5,144.5,147,3945720,144.17,1.97,151.57,128.18,0.5
 20260623,149.5,149.5,138,139,3598293,143.74,-3.29,150.5,128.78,0.49
 20260624,135.5,138.5,135,138,1988362,143.26,-3.67,149.22,129.37,0.3
-20260626,134,137,128.5,129.5,3338157,142.11,-8.87,147.7,129.75,0.54
+20260625,140,140.5,135,135,1954494,142.57,-5.31,147.97,129.84,0.32
+20260626,134,137,128.5,129.5,3338157,141.48,-8.47,146.55,130.27,0.58
 ```
 
 ## Latest TDCC Snapshot

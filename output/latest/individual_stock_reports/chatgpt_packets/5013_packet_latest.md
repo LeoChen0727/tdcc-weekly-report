@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5013 強新
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:54 Asia/Taipei
+- generated_at: 2026-06-27 22:23:55 Asia/Taipei
 - stock_id: 5013
 - stock_name: 強新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 136
+- price_rows: 137
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 26.85
 - close: 26.9
 - volume: 18000
-- ma5: 27.55
-- ema23_primary: 27.72
-- distance_to_ema23_pct: -2.97
-- ma20: 27.83
-- ma60: 28.52
-- ma120: 29.05
-- return_5d: -2.54
-- return_20d: -1.1
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -3.33
+- ma5: 27.46
+- ema23_primary: 27.69
+- distance_to_ema23_pct: -2.85
+- ma20: 27.72
+- ma60: 28.5
+- ma120: 29.03
+- return_5d: -3.24
+- return_20d: -8.66
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -2.97
 - distance_to_high_60_pct: -14.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,27.3,29.45,27.3,29.45,28000,28.12,4.73,27.99,29.18,1.69
 20260526,29.45,29.45,28.45,28.45,29000,28.15,1.08,27.96,29.16,1.64
 20260528,27.5,28.4,27.5,28,28000,28.14,-0.48,27.9,29.13,1.5
 20260529,28,28,27.55,27.85,28000,28.11,-0.93,27.84,29.1,1.47
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.45,27.75,27.45,27.75,9000,27.83,-0.28,27.77,28.62,0.62
 20260623,27.65,27.75,27.2,27.75,7000,27.82,-0.26,27.82,28.58,0.47
 20260624,27.8,27.85,27.2,27.55,15000,27.8,-0.9,27.84,28.55,0.99
-20260626,27.05,27.05,26.85,26.9,18000,27.72,-2.97,27.83,28.52,1.22
+20260625,27.45,27.45,27.35,27.35,21000,27.76,-1.48,27.85,28.53,1.41
+20260626,27.05,27.05,26.85,26.9,18000,27.69,-2.85,27.72,28.5,1.25
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:25 Asia/Taipei
+- generated_at: 2026-06-27 22:22:29 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 102.8
 - close: 103.1
 - volume: 291814760
-- ma5: 107.76
-- ema23_primary: 103.53
-- distance_to_ema23_pct: -0.41
-- ma20: 104.87
-- ma60: 94.36
-- ma120: 83.7
-- return_5d: -2.74
-- return_20d: 0.54
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: -1.69
+- ma5: 107.74
+- ema23_primary: 103.81
+- distance_to_ema23_pct: -0.68
+- ma20: 105.2
+- ma60: 94.91
+- ma120: 84.06
+- return_5d: -3.91
+- return_20d: 2.59
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: -2
 - distance_to_high_60_pct: -8.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,104,104.25,100.1,100.5,152915695,95.01,5.78,96.42,85.17,1.45
 20260529,103.2,105.4,102.7,105.4,102355526,95.88,9.93,97.17,85.61,0.96
 20260601,105.25,106.7,104.5,105.5,135817122,96.68,9.12,97.71,86.11,1.27
 20260602,106.3,106.3,104.2,105.7,117160979,97.43,8.49,98.27,86.58,1.08
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,109.45,111.2,109.45,111.15,116042256,102.62,8.31,104.03,92.8,0.71
 20260623,112,112.3,110.05,110.1,130786727,103.24,6.64,104.49,93.36,0.8
 20260624,108,108.1,106.15,107.15,235939737,103.57,3.46,104.84,93.89,1.38
-20260626,105.4,105.85,102.8,103.1,291814760,103.53,-0.41,104.87,94.36,1.61
+20260625,108,108.05,106.35,107.2,96345582,103.87,3.2,105.08,94.42,0.56
+20260626,105.4,105.85,102.8,103.1,291814760,103.81,-0.68,105.2,94.91,1.64
 ```
 
 ## Latest TDCC Snapshot

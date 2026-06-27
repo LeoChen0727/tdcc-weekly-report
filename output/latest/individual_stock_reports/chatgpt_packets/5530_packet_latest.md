@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5530 龍巖
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:02 Asia/Taipei
+- generated_at: 2026-06-27 22:24:03 Asia/Taipei
 - stock_id: 5530
 - stock_name: 龍巖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 47
 - close: 47.15
 - volume: 758000
-- ma5: 48.49
-- ema23_primary: 48.84
-- distance_to_ema23_pct: -3.46
-- ma20: 49.55
+- ma5: 48.26
+- ema23_primary: 48.78
+- distance_to_ema23_pct: -3.35
+- ma20: 49.66
 - ma60: 47.18
-- ma120: 48.66
-- return_5d: -5.42
-- return_20d: 1.62
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -4.83
+- ma120: 48.67
+- return_5d: -4.55
+- return_20d: 2.5
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -5.05
 - distance_to_high_60_pct: -19.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,46.75,46.85,45.95,46,46000,46.6,-1.29,46.51,46.86,0.07
 20260529,46.1,46.95,46.05,46.4,46000,46.59,-0.4,46.62,46.76,0.07
 20260601,46.55,50.1,46.55,49,49000,46.79,4.73,46.88,46.74,0.08
 20260602,49.15,50,48.85,49.1,49,46.98,4.51,47.12,46.7,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,49.55,49.55,48.7,49.2,895000,49.12,0.17,49.45,47.12,1.14
 20260623,49.2,49.3,48.2,48.35,716000,49.05,-1.43,49.44,47.15,0.88
 20260624,48.1,48.55,47.95,48.35,342000,48.99,-1.31,49.51,47.17,0.41
-20260626,48.25,48.25,47,47.15,758000,48.84,-3.46,49.55,47.18,0.88
+20260625,48.55,49.15,48.2,48.25,387000,48.93,-1.39,49.6,47.19,0.46
+20260626,48.25,48.25,47,47.15,758000,48.78,-3.35,49.66,47.18,0.86
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006206 元大上證50
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:26 Asia/Taipei
+- generated_at: 2026-06-27 22:22:29 Asia/Taipei
 - stock_id: 006206
 - stock_name: 元大上證50
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -119,23 +119,22 @@
 - low: 36.78
 - close: 37.22
 - volume: 69174
-- ma5: 37.42
-- ema23_primary: 36.85
-- distance_to_ema23_pct: 0.99
-- ma20: 36.71
-- ma60: 36.7
-- ma120: 36.7
-- return_5d: 0.59
-- return_20d: 1.64
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 1.4
+- ma5: 37.51
+- ema23_primary: 36.93
+- distance_to_ema23_pct: 0.78
+- ma20: 36.79
+- ma60: 36.75
+- ma120: 36.75
+- return_5d: -0.43
+- return_20d: 3.13
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 1.16
 - distance_to_high_60_pct: -2.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,36.62,36.62,36.09,36.09,60079,36.56,-1.28,36.56,36.56,0.5
 20260529,36.14,36.68,36.04,36.68,263290,36.57,0.3,36.58,36.58,1.82
 20260601,36.66,36.66,36.2,36.35,163990,36.55,-0.55,36.55,36.55,1.11
 20260602,36.2,36.87,36.16,36.87,242547,36.58,0.8,36.59,36.59,1.52
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,37.18,37.86,37.18,37.86,176800,36.73,3.08,36.62,36.62,1.48
 20260623,37.9,38.34,37.51,37.51,89995,36.79,1.95,36.66,36.66,0.75
 20260624,37.03,37.28,37,37.13,25458,36.82,0.84,36.68,36.68,0.23
-20260626,37.81,37.82,36.78,37.22,69174,36.85,0.99,36.71,36.7,0.64
+20260625,37.09,38.05,37.09,37.82,183265,36.9,2.48,36.74,36.73,1.61
+20260626,37.81,37.82,36.78,37.22,69174,36.93,0.78,36.79,36.75,0.61
 ```
 
 ## Latest TDCC Snapshot

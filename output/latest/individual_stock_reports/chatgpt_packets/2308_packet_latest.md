@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:53 Asia/Taipei
+- generated_at: 2026-06-27 22:22:57 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 1790
 - close: 1810
 - volume: 28604290
-- ma5: 2038
-- ema23_primary: 2158.09
-- distance_to_ema23_pct: -16.13
-- ma20: 2241.25
-- ma60: 2060.33
-- ma120: 1640.73
-- return_5d: -16.01
-- return_20d: -28.17
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: -19.24
+- ma5: 2004
+- ema23_primary: 2142.07
+- distance_to_ema23_pct: -15.5
+- ma20: 2220.75
+- ma60: 2068.58
+- ma120: 1649.29
+- return_5d: -15.81
+- return_20d: -24.27
+- volume_ratio: 1.99
+- distance_to_ma20_pct_auxiliary: -18.5
 - distance_to_high_60_pct: -29.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,2485,2520,2370,2390,11721062,2135.05,11.94,2180,1794.92,0.99
 20260529,2470,2525,2445,2445,17179076,2160.88,13.15,2194,1813.33,1.43
 20260601,2450,2520,2410,2420,9840869,2182.47,10.88,2204,1832.75,0.83
 20260602,2430,2455,2330,2360,12331189,2197.27,7.41,2213.75,1849.83,1.03
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,2170,2195,2135,2150,16874717,2218.52,-3.09,2304.75,2038.42,1.31
 20260623,2170,2170,2080,2080,14787242,2206.98,-5.75,2294.25,2047.25,1.14
 20260624,2030,2050,1970,2000,23907070,2189.73,-8.66,2276.75,2055.33,1.76
-20260626,1925,1935,1790,1810,28604290,2158.09,-16.13,2241.25,2060.33,2
+20260625,2060,2060,1960,1980,13727341,2172.25,-8.85,2249.75,2063.17,1.01
+20260626,1925,1935,1790,1810,28604290,2142.07,-15.5,2220.75,2068.58,1.99
 ```
 
 ## Latest TDCC Snapshot

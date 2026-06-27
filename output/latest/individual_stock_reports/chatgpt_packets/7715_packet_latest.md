@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7715 裕山
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7715
 - stock_name: 裕山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 34.1
 - close: 34.5
 - volume: 306000
-- ma5: 35.05
-- ema23_primary: 30.96
-- distance_to_ema23_pct: 11.44
-- ma20: 30.02
-- ma60: 29.17
-- ma120: 30.44
-- return_5d: 15
-- return_20d: 23.88
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 14.9
-- distance_to_high_60_pct: -12.33
+- ma5: 35.72
+- ema23_primary: 31.35
+- distance_to_ema23_pct: 10.05
+- ma20: 30.41
+- ma60: 29.28
+- ma120: 30.48
+- return_5d: 6.48
+- return_20d: 23.21
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 13.44
+- distance_to_high_60_pct: -12.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.9,28,27.5,28,28000,28.74,-2.56,28.66,29.17,0.53
 20260529,27.7,28,27.7,28,28000,28.67,-2.35,28.66,29.12,0.53
 20260601,27.65,28,27.5,27.95,28000,28.61,-2.32,28.64,29.07,0.52
 20260602,28.2,28.2,27.8,28,28,28.56,-1.97,28.62,29.01,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,35,35.6,33.7,34.85,1146000,29.47,18.27,28.84,28.82,5.71
 20260623,35.35,37.4,34.35,35.8,802000,30,19.35,29.21,28.93,3.35
 20260624,35,39.35,34.8,37.7,661000,30.64,23.05,29.69,29.07,2.44
-20260626,35.75,36.25,34.1,34.5,306000,30.96,11.44,30.02,29.17,1.07
+20260625,39.2,39.6,35.2,35.75,762000,31.06,15.09,30.09,29.19,2.48
+20260626,35.75,36.25,34.1,34.5,306000,31.35,10.05,30.41,29.28,0.95
 ```
 
 ## Latest TDCC Snapshot

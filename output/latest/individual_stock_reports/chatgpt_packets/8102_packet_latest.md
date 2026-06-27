@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8102 傑霖科技
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:49 Asia/Taipei
+- generated_at: 2026-06-27 22:24:49 Asia/Taipei
 - stock_id: 8102
 - stock_name: 傑霖科技
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 116
+- price_rows: 117
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 65
 - close: 69
 - volume: 19000
-- ma5: 70.82
-- ema23_primary: 70.73
-- distance_to_ema23_pct: -2.45
-- ma20: 72.63
-- ma60: 67.32
-- ma120: 61.92
-- return_5d: -1.15
-- return_20d: 8.49
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -5
+- ma5: 70.48
+- ema23_primary: 70.68
+- distance_to_ema23_pct: -2.38
+- ma20: 73.04
+- ma60: 67.54
+- ma120: 61.99
+- return_5d: -4.03
+- return_20d: 11.29
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -5.53
 - distance_to_high_60_pct: -15.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,62.6,63,62,62,62000,64.44,-3.78,65.28,60.45,1.27
 20260529,62,67.4,61.7,67.1,64000,64.66,3.77,65.22,60.65,1.28
 20260601,71.2,73.7,71.2,73.4,73000,65.39,12.25,65.47,60.98,1.41
 20260602,73,80,71.5,80,75,66.61,20.11,66,61.43,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.8,72.1,71.4,72,45000,70.95,1.48,71.74,66.61,0.9
 20260623,72,72,70.8,71,11000,70.95,0.07,72.09,66.84,0.23
 20260624,70.1,71.4,70.1,70.2,10000,70.89,-0.97,72.36,67.06,0.22
-20260626,68,69,65,69,19000,70.73,-2.45,72.63,67.32,0.45
+20260625,70.2,70.2,69.1,70.2,17000,70.83,-0.89,72.69,67.34,0.4
+20260626,68,69,65,69,19000,70.68,-2.38,73.04,67.54,0.47
 ```
 
 ## Latest TDCC Snapshot

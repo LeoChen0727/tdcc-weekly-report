@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4162 智擎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:40 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4162
 - stock_name: 智擎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 57.3
 - close: 57.9
 - volume: 522000
-- ma5: 57.68
-- ema23_primary: 56.78
-- distance_to_ema23_pct: 1.98
-- ma20: 56.36
-- ma60: 56.56
-- ma120: 61.09
-- return_5d: 2.12
-- return_20d: 7.02
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 2.73
+- ma5: 58.02
+- ema23_primary: 56.95
+- distance_to_ema23_pct: 1.66
+- ma20: 56.66
+- ma60: 56.59
+- ma120: 60.98
+- return_5d: 1.05
+- return_20d: 9.25
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 2.19
 - distance_to_high_60_pct: -4.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,53.9,54.1,53,53,53000,55.77,-4.97,55.8,57.26,0.17
 20260529,53.5,53.8,53.1,53.6,53000,55.59,-3.58,55.73,57.1,0.18
 20260601,53.9,54.9,53.1,54.3,54000,55.48,-2.13,55.68,56.98,0.19
 20260602,54.5,55,54.1,54.9,54,55.43,-0.96,55.59,56.86,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,57.3,57.3,56,56.3,543000,56.33,-0.05,55.87,56.56,1.84
 20260623,56.3,57.6,55.8,57.6,568000,56.44,2.06,55.95,56.55,1.77
 20260624,58.1,60.5,57.7,59.3,2334000,56.68,4.63,56.17,56.58,5.38
-20260626,58.6,59.1,57.3,57.9,522000,56.78,1.98,56.36,56.56,1.14
+20260625,59.5,59.7,58.5,59,492000,56.87,3.75,56.41,56.58,1.08
+20260626,58.6,59.1,57.3,57.9,522000,56.95,1.66,56.66,56.59,1.09
 ```
 
 ## Latest TDCC Snapshot

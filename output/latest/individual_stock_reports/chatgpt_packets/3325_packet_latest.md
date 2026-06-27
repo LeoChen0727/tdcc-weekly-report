@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3325 旭品
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:29 Asia/Taipei
 - stock_id: 3325
 - stock_name: 旭品
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 12
 - close: 12
 - volume: 290000
-- ma5: 12.54
-- ema23_primary: 12.62
-- distance_to_ema23_pct: -4.9
-- ma20: 12.74
-- ma60: 12.71
-- ma120: 14.04
-- return_5d: -4
-- return_20d: 1.27
-- volume_ratio: 2.11
-- distance_to_ma20_pct_auxiliary: -5.81
+- ma5: 12.52
+- ema23_primary: 12.6
+- distance_to_ema23_pct: -4.8
+- ma20: 12.78
+- ma60: 12.7
+- ma120: 13.99
+- return_5d: -4.76
+- return_20d: 2.13
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: -6.08
 - distance_to_high_60_pct: -25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.65,12.05,11.65,11.75,12000,12.35,-4.9,12.31,13.03,0.05
 20260529,11.8,11.95,11.7,11.8,12000,12.31,-4.13,12.25,12.99,0.05
 20260601,11.8,12.15,11.65,12.1,12000,12.29,-1.56,12.21,12.95,0.06
 20260602,12,13.3,11.95,13.3,13,12.38,7.47,12.23,12.93,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,12.55,12.9,12.5,12.7,218000,12.67,0.25,12.69,12.74,2.04
 20260623,12.65,12.7,12.55,12.65,134000,12.67,-0.13,12.7,12.73,1.19
 20260624,12.55,12.75,12.5,12.75,227000,12.67,0.6,12.73,12.72,1.84
-20260626,12.5,12.5,12,12,290000,12.62,-4.9,12.74,12.71,2.11
+20260625,12.75,12.75,12.5,12.5,214000,12.66,-1.26,12.77,12.71,1.6
+20260626,12.5,12.5,12,12,290000,12.6,-4.8,12.78,12.7,1.96
 ```
 
 ## Latest TDCC Snapshot

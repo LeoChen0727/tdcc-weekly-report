@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1220 台榮
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:31 Asia/Taipei
+- generated_at: 2026-06-27 22:22:35 Asia/Taipei
 - stock_id: 1220
 - stock_name: 台榮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 11.45
 - close: 11.45
 - volume: 162358
-- ma5: 11.63
-- ema23_primary: 11.75
-- distance_to_ema23_pct: -2.58
-- ma20: 11.71
-- ma60: 12.13
-- ma120: 12.44
+- ma5: 11.6
+- ema23_primary: 11.74
+- distance_to_ema23_pct: -2.44
+- ma20: 11.7
+- ma60: 12.11
+- ma120: 12.43
 - return_5d: -2.14
-- return_20d: -2.55
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -2.2
+- return_20d: -1.72
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: -2.16
 - distance_to_high_60_pct: -10.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.8,11.8,11.65,11.65,173597,12.07,-3.47,12.08,12.46,1.19
 20260529,11.75,11.8,11.65,11.65,132002,12.03,-3.19,12.04,12.44,0.89
 20260601,11.75,11.75,11.6,11.7,183079,12.01,-2.55,12.01,12.42,1.2
 20260602,11.7,11.75,11.6,11.75,160771,11.98,-1.96,11.97,12.4,1.04
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,11.8,11.85,11.7,11.7,94424,11.81,-0.9,11.74,12.17,0.72
 20260623,11.85,11.85,11.65,11.7,84439,11.8,-0.83,11.73,12.16,0.7
 20260624,11.7,11.7,11.5,11.6,104644,11.78,-1.54,11.72,12.14,0.87
-20260626,11.6,11.6,11.45,11.45,162358,11.75,-2.58,11.71,12.13,1.3
+20260625,11.65,11.65,11.55,11.55,78898,11.76,-1.8,11.71,12.13,0.66
+20260626,11.6,11.6,11.45,11.45,162358,11.74,-2.44,11.7,12.11,1.35
 ```
 
 ## Latest TDCC Snapshot

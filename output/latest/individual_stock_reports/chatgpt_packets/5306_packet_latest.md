@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5306 桂盟
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:57 Asia/Taipei
+- generated_at: 2026-06-27 22:23:59 Asia/Taipei
 - stock_id: 5306
 - stock_name: 桂盟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 84.7
 - close: 84.7
 - volume: 118451
-- ma5: 85.68
-- ema23_primary: 85.17
-- distance_to_ema23_pct: -0.55
-- ma20: 85.3
-- ma60: 84.05
-- ma120: 87.33
-- return_5d: -2.19
-- return_20d: 2.92
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -0.7
+- ma5: 85.7
+- ema23_primary: 85.22
+- distance_to_ema23_pct: -0.61
+- ma20: 85.45
+- ma60: 84.02
+- ma120: 87.32
+- return_5d: -1.17
+- return_20d: 2.54
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -0.88
 - distance_to_high_60_pct: -6.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,83.2,83.2,82.2,82.6,155616,82.91,-0.37,82.19,85.08,0.73
 20260529,82.6,83.9,82.6,83.4,168217,82.95,0.54,82.31,84.94,0.78
 20260601,83.4,84.5,83,84.3,191725,83.06,1.49,82.5,84.86,0.88
 20260602,84.5,85,84,84.6,137456,83.19,1.69,82.69,84.77,0.62
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,86.1,87.6,85.7,87,192917,85.16,2.16,84.92,84.22,0.99
 20260623,86.3,86.3,84.7,85.4,196166,85.18,0.26,85.04,84.16,1.01
 20260624,84.8,85.6,84.7,85.6,97626,85.22,0.45,85.17,84.11,0.51
-20260626,85.5,85.7,84.7,84.7,118451,85.17,-0.55,85.3,84.05,0.62
+20260625,85.7,86.5,85.6,85.8,51855,85.26,0.63,85.35,84.07,0.28
+20260626,85.5,85.7,84.7,84.7,118451,85.22,-0.61,85.45,84.02,0.64
 ```
 
 ## Latest TDCC Snapshot

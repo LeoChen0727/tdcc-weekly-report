@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2905 三商
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:13 Asia/Taipei
+- generated_at: 2026-06-27 22:23:16 Asia/Taipei
 - stock_id: 2905
 - stock_name: 三商
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 290
+- price_rows: 291
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.7
 - close: 14.8
 - volume: 684437
-- ma5: 15.03
-- ema23_primary: 14.57
-- distance_to_ema23_pct: 1.58
-- ma20: 14.55
-- ma60: 14.13
-- ma120: 14.81
-- return_5d: -3.9
-- return_20d: 9.23
+- ma5: 15
+- ema23_primary: 14.6
+- distance_to_ema23_pct: 1.34
+- ma20: 14.62
+- ma60: 14.14
+- ma120: 14.8
+- return_5d: -2.31
+- return_20d: 10.04
 - volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 1.74
+- distance_to_ma20_pct_auxiliary: 1.2
 - distance_to_high_60_pct: -5.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.65,13.65,13.4,13.45,506851,13.6,-1.1,13.43,14.25,0.88
 20260529,13.5,13.7,13.45,13.7,661295,13.61,0.68,13.43,14.21,1.13
 20260601,13.65,13.75,13.5,13.7,1316973,13.62,0.62,13.45,14.19,2.21
 20260602,13.7,14.1,13.6,14,980867,13.65,2.58,13.47,14.15,1.59
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.2,15.25,15.15,15.15,751143,14.46,4.78,14.34,14.11,0.79
 20260623,15,15.2,14.9,15.05,912693,14.51,3.74,14.42,14.12,0.95
 20260624,14.95,15.1,14.8,15,633355,14.55,3.1,14.48,14.13,0.65
-20260626,14.9,14.95,14.7,14.8,684437,14.57,1.58,14.55,14.13,0.7
+20260625,15.05,15.15,14.95,15,611457,14.59,2.83,14.56,14.14,0.63
+20260626,14.9,14.95,14.7,14.8,684437,14.6,1.34,14.62,14.14,0.7
 ```
 
 ## Latest TDCC Snapshot

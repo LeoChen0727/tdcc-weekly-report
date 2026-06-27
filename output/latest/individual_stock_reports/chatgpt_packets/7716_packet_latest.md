@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7716 昱臺國際
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:42 Asia/Taipei
+- generated_at: 2026-06-27 22:24:43 Asia/Taipei
 - stock_id: 7716
 - stock_name: 昱臺國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 128
+- price_rows: 129
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 24.7
 - close: 24.7
 - volume: 3000
-- ma5: 25.32
-- ema23_primary: 25.34
-- distance_to_ema23_pct: -2.51
-- ma20: 25.4
+- ma5: 25.16
+- ema23_primary: 25.32
+- distance_to_ema23_pct: -2.45
+- ma20: 25.41
 - ma60: 25.46
-- ma120: 25.61
-- return_5d: -4.82
-- return_20d: 0
+- ma120: 25.6
+- return_5d: -5
+- return_20d: -1.2
 - volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -2.76
+- distance_to_ma20_pct_auxiliary: -2.79
 - distance_to_high_60_pct: -7.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260521,25,25,25,25,1000,25.11,-0.45,25.09,25.54,0.11
 20260522,25,25.3,24.25,25.2,25000,25.12,0.31,25.08,25.54,2.48
 20260526,24.5,25.15,24.5,25.15,25000,25.12,0.1,25.08,25.53,2.22
 20260527,24.2,25.3,24.2,25.3,25000,25.14,0.64,25.08,25.53,2.02
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,26,26,25.05,25.05,7000,25.39,-1.32,25.3,25.48,0.44
 20260623,25.3,25.3,25.3,25.3,1000,25.38,-0.31,25.35,25.47,0.07
 20260624,25.7,25.7,25.55,25.55,2000,25.39,0.62,25.4,25.47,0.16
-20260626,25,25,24.7,24.7,3000,25.34,-2.51,25.4,25.46,0.23
+20260625,25.2,25.7,25.2,25.2,4000,25.38,-0.7,25.43,25.47,0.31
+20260626,25,25,24.7,24.7,3000,25.32,-2.45,25.41,25.46,0.23
 ```
 
 ## Latest TDCC Snapshot

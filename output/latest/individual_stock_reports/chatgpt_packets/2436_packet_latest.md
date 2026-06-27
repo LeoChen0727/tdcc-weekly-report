@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2436 偉詮電
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:00 Asia/Taipei
+- generated_at: 2026-06-27 22:23:04 Asia/Taipei
 - stock_id: 2436
 - stock_name: 偉詮電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 70.4
 - close: 70.8
 - volume: 4964899
-- ma5: 75.3
-- ema23_primary: 72.22
-- distance_to_ema23_pct: -1.96
-- ma20: 71.73
-- ma60: 70.61
-- ma120: 62.54
-- return_5d: 0.71
-- return_20d: -9.35
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -1.3
+- ma5: 75.8
+- ema23_primary: 72.49
+- distance_to_ema23_pct: -2.33
+- ma20: 71.69
+- ma60: 70.84
+- ma120: 62.77
+- return_5d: -3.54
+- return_20d: -7.81
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -1.23
 - distance_to_high_60_pct: -16.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,78.5,81.4,75.6,76.8,10774837,73.86,3.98,74.37,67.08,1.15
 20260529,78.9,79.5,75.8,77.2,8182744,74.14,4.13,74.59,67.4,0.89
 20260601,78.2,78.6,75.5,75.9,6523093,74.28,2.17,74.69,67.75,0.72
 20260602,75.9,76.5,72.8,73.8,6226452,74.24,-0.6,74.7,68.03,0.68
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,74.8,79.3,74.8,78.6,12905162,71.5,9.93,72.42,69.99,1.93
 20260623,80.5,81.4,76.9,77.5,14546159,72,7.64,72.27,70.22,2.25
 20260624,77,77.9,75.4,76.2,4484797,72.35,5.32,72.09,70.49,0.74
-20260626,76.5,76.7,70.4,70.8,4964899,72.22,-1.96,71.73,70.61,0.87
+20260625,77.1,77.9,75.3,75.9,4834747,72.64,4.48,71.98,70.69,0.85
+20260626,76.5,76.7,70.4,70.8,4964899,72.49,-2.33,71.69,70.84,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

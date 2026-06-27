@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6282 康舒
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:15 Asia/Taipei
+- generated_at: 2026-06-27 22:24:16 Asia/Taipei
 - stock_id: 6282
 - stock_name: 康舒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 54
 - close: 54.1
 - volume: 34323502
-- ma5: 59.92
-- ema23_primary: 58.86
-- distance_to_ema23_pct: -8.08
-- ma20: 60.71
-- ma60: 53.71
-- ma120: 51.31
-- return_5d: -5.75
-- return_20d: -8.92
+- ma5: 60.04
+- ema23_primary: 58.81
+- distance_to_ema23_pct: -8.01
+- ma20: 60.76
+- ma60: 53.9
+- ma120: 51.44
+- return_5d: -6.88
+- return_20d: -6.24
 - volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -10.89
+- distance_to_ma20_pct_auxiliary: -10.96
 - distance_to_high_60_pct: -23.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,59.8,61.4,56.8,57.7,52796324,53.81,7.22,53.32,49.42,1.1
 20260529,59.4,60.5,57,59.9,46988603,54.32,10.27,53.95,49.6,0.96
 20260601,61.2,65.8,61.1,65.8,103122372,55.28,19.03,54.79,49.96,1.93
 20260602,65.5,65.8,60.8,63,83461611,55.92,12.66,55.45,50.23,1.47
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,58.9,63.9,58,63.9,56918124,58.82,8.64,61.08,53.18,0.88
 20260623,64,64.6,60.7,61.5,60744658,59.04,4.16,60.99,53.41,0.96
 20260624,61.2,64,60.7,62,48228358,59.29,4.57,60.98,53.62,0.79
-20260626,58.1,58.1,54,54.1,34323502,58.86,-8.08,60.71,53.71,0.59
+20260625,62.8,62.9,58.7,58.7,39071732,59.24,-0.91,60.94,53.78,0.67
+20260626,58.1,58.1,54,54.1,34323502,58.81,-8.01,60.76,53.9,0.59
 ```
 
 ## Latest TDCC Snapshot

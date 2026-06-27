@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6492 生華科
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:19 Asia/Taipei
+- generated_at: 2026-06-27 22:24:20 Asia/Taipei
 - stock_id: 6492
 - stock_name: 生華科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 42
 - close: 42.25
 - volume: 135000
-- ma5: 42.97
-- ema23_primary: 44.45
-- distance_to_ema23_pct: -4.94
-- ma20: 43.99
-- ma60: 47.99
-- ma120: 49.22
-- return_5d: -4.95
-- return_20d: -4.63
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: -3.96
+- ma5: 42.77
+- ema23_primary: 44.32
+- distance_to_ema23_pct: -4.67
+- ma20: 43.94
+- ma60: 47.86
+- ma120: 49.24
+- return_5d: -3.98
+- return_20d: -3.98
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -3.85
 - distance_to_high_60_pct: -25.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.4,44.5,43.65,44,44000,47.64,-7.64,47.84,50.62,0.19
 20260529,44.5,46,43.8,45.2,45000,47.44,-4.71,47.61,50.54,0.21
 20260601,44.05,45.15,43,45.15,44000,47.25,-4.44,47.33,50.41,0.22
 20260602,45,45,43.5,43.9,44,46.97,-6.53,46.99,50.27,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43.55,44,42.8,43,304000,44.99,-4.43,44.3,48.56,2.67
 20260623,43,43.15,42.55,42.6,146000,44.79,-4.9,44.17,48.37,1.23
 20260624,42.6,43.55,42.6,43,83000,44.64,-3.68,44.09,48.2,0.69
-20260626,42.8,43,42,42.25,135000,44.45,-4.94,43.99,47.99,1.08
+20260625,43,43.3,42.7,43,132000,44.51,-3.39,44.03,48,1.05
+20260626,42.8,43,42,42.25,135000,44.32,-4.67,43.94,47.86,1.04
 ```
 
 ## Latest TDCC Snapshot

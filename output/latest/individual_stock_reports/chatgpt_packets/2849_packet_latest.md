@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2849 安泰銀
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:11 Asia/Taipei
+- generated_at: 2026-06-27 22:23:15 Asia/Taipei
 - stock_id: 2849
 - stock_name: 安泰銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 14.35
 - close: 14.4
 - volume: 171752
-- ma5: 14.55
-- ema23_primary: 14.18
-- distance_to_ema23_pct: 1.54
-- ma20: 14.21
-- ma60: 13.78
-- ma120: 13.55
-- return_5d: -1.03
-- return_20d: 4.35
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 1.37
+- ma5: 14.58
+- ema23_primary: 14.23
+- distance_to_ema23_pct: 1.22
+- ma20: 14.26
+- ma60: 13.81
+- ma120: 13.56
+- return_5d: -1.37
+- return_20d: 4.73
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 1.02
 - distance_to_high_60_pct: -2.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.85,13.85,13.6,13.75,58158,13.52,1.72,13.54,13.42,0.5
 20260529,13.75,14.1,13.75,13.9,169608,13.55,2.59,13.55,13.43,1.43
 20260601,14.05,14.05,13.8,14,125707,13.59,3.04,13.56,13.44,1.02
 20260602,13.95,14,13.8,14,116480,13.62,2.78,13.58,13.45,0.91
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.5,14.65,14.3,14.4,199678,14.06,2.39,14.04,13.71,1.1
 20260623,14.5,14.75,14.45,14.65,251153,14.11,3.8,14.11,13.73,1.31
 20260624,14.7,14.7,14.6,14.7,100744,14.16,3.8,14.18,13.76,0.53
-20260626,14.6,14.6,14.35,14.4,171752,14.18,1.54,14.21,13.78,0.9
+20260625,14.7,14.75,14.6,14.75,150316,14.21,3.79,14.22,13.79,0.79
+20260626,14.6,14.6,14.35,14.4,171752,14.23,1.22,14.26,13.81,0.88
 ```
 
 ## Latest TDCC Snapshot

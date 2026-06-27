@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:04 Asia/Taipei
+- generated_at: 2026-06-27 22:23:08 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 33.5
 - close: 34.1
 - volume: 2300159
-- ma5: 34.57
-- ema23_primary: 33.26
-- distance_to_ema23_pct: 2.52
-- ma20: 33.17
-- ma60: 31.5
+- ma5: 34.14
+- ema23_primary: 33.34
+- distance_to_ema23_pct: 2.27
+- ma20: 33.39
+- ma60: 31.54
 - ma120: 32
-- return_5d: -5.67
-- return_20d: 13.48
+- return_5d: -6.32
+- return_20d: 13.86
 - volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 2.79
+- distance_to_ma20_pct_auxiliary: 2.13
 - distance_to_high_60_pct: -8.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,30.15,30.35,29.9,29.95,1942195,30.41,-1.51,30.15,31.09,1.23
 20260529,30.15,30.15,29.8,29.85,1374743,30.36,-1.69,30.17,31.07,0.91
 20260601,29.9,30.9,29.8,30.9,1729973,30.41,1.62,30.26,31.08,1.17
 20260602,30.9,31.35,30.55,31.2,1781415,30.47,2.38,30.38,31.08,1.22
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,34.65,34.65,32.8,34,7398527,33,3.04,32.56,31.39,1.86
 20260623,34.2,34.6,33.75,34.4,2368282,33.12,3.88,32.78,31.44,0.59
 20260624,34.15,34.4,33.65,33.95,1335316,33.18,2.31,32.97,31.47,0.33
-20260626,34,34.25,33.5,34.1,2300159,33.26,2.52,33.17,31.5,0.57
+20260625,33.95,34.55,33.85,34.25,1868595,33.27,2.93,33.18,31.5,0.47
+20260626,34,34.25,33.5,34.1,2300159,33.34,2.27,33.39,31.54,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260626 | 2520 | 冠德 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 | 20260626 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 2520 | 冠德 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 23.0 | B_可觀察 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2520 | 冠德 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 24.0 | B_可觀察 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

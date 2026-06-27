@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3066 李洲
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:19 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3066
 - stock_name: 李洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 22
 - close: 22
 - volume: 1072000
-- ma5: 22.65
-- ema23_primary: 21.33
-- distance_to_ema23_pct: 3.16
-- ma20: 21.5
-- ma60: 20.12
-- ma120: 17.97
-- return_5d: 6.28
-- return_20d: 6.54
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: 2.34
+- ma5: 23.19
+- ema23_primary: 21.53
+- distance_to_ema23_pct: 2.16
+- ma20: 21.64
+- ma60: 20.2
+- ma120: 18.06
+- return_5d: 3.29
+- return_20d: 4.51
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 1.64
 - distance_to_high_60_pct: -13.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.9,22,20.9,21.05,21000,19.78,6.44,19.38,19.19,0.05
 20260529,21.55,22.4,21.15,21.45,22000,19.92,7.71,19.51,19.32,0.06
 20260601,21.45,22.2,21.15,21.35,22000,20.03,6.56,19.64,19.41,0.06
 20260602,21.3,21.95,20.75,21.75,21,20.18,7.79,19.8,19.52,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.5,22.5,21.3,22.05,558000,20.76,6.23,21.14,19.95,3.07
 20260623,22.4,24.25,21.8,24.25,1981000,21.05,15.21,21.29,20.02,7.08
 20260624,24.55,25.4,23.65,23.65,4112000,21.26,11.22,21.43,20.08,8.49
-20260626,24,24.25,22,22,1072000,21.33,3.16,21.5,20.12,2
+20260625,23.65,25.4,23.65,24,1798000,21.49,11.67,21.6,20.15,3.14
+20260626,24,24.25,22,22,1072000,21.53,2.16,21.64,20.2,1.71
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3066 | 李洲 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 3066 | 李洲 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 3066 | 李洲 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 20.0 | B_可觀察 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3066 | 李洲 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3066 | 李洲 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3066 | 李洲 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 21.0 | B_可觀察 |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3066 | 李洲 | 3 | 2 | 3 | 3 | 11 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 3066 | 李洲 | 3 | 2 | 3 | 3 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

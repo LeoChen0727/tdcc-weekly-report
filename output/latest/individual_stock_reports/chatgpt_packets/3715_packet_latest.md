@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:38 Asia/Taipei
+- generated_at: 2026-06-27 22:23:40 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -124,23 +124,22 @@
 - low: 168
 - close: 168.5
 - volume: 8957639
-- ma5: 180.3
-- ema23_primary: 174.94
-- distance_to_ema23_pct: -3.68
-- ma20: 173.3
-- ma60: 178.62
-- ma120: 162.08
-- return_5d: -4.26
-- return_20d: -5.87
+- ma5: 179.9
+- ema23_primary: 175.05
+- distance_to_ema23_pct: -3.74
+- ma20: 173.6
+- ma60: 178.48
+- ma120: 162.55
+- return_5d: -5.87
+- return_20d: -1.46
 - volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -2.77
-- distance_to_high_60_pct: -17
+- distance_to_ma20_pct_auxiliary: -2.94
+- distance_to_high_60_pct: -16.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,178.5,180,170,171,9726568,176.87,-3.32,177.5,175.81,0.6
 20260529,173,179.5,171.5,173.5,9388270,176.59,-1.75,177.47,176.15,0.59
 20260601,176,185.5,173.5,182,15082932,177.04,2.8,177.62,176.77,0.94
 20260602,185,185.5,172,173.5,12856675,176.74,-1.84,176.47,177.17,0.89
@@ -159,7 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,182.5,196.5,181.5,194.5,38842852,174.72,11.32,174.1,179.34,3.16
 20260623,195,196,180,180,19355976,175.16,2.76,174.15,179.29,1.56
 20260624,180,182.5,177.5,179.5,8366932,175.53,2.26,173.82,179.2,0.71
-20260626,176.5,180,168,168.5,8957639,174.94,-3.68,173.3,178.62,0.79
+20260625,183.5,185.5,177,177,8598596,175.65,0.77,173.72,178.76,0.76
+20260626,176.5,180,168,168.5,8957639,175.05,-3.74,173.6,178.48,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -192,8 +192,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 8.0 | A_優先追蹤 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃銘宏 4.舊任者簡歷:定穎投資控股股份有限公司董事長 5.新任者姓名:黃銘宏 6.新任者簡歷:定穎投資控股股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 8.0 | A_優先追蹤 |  |  | call_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃銘宏 4.舊任者簡歷:定穎投資控股股份有限公司董事長 5.新任者姓名:黃銘宏 6.新任者簡歷:定穎投資控股股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

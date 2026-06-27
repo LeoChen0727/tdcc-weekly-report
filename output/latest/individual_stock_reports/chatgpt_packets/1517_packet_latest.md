@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1517 利奇
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:39 Asia/Taipei
+- generated_at: 2026-06-27 22:22:43 Asia/Taipei
 - stock_id: 1517
 - stock_name: 利奇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 10.15
 - close: 10.25
 - volume: 298849
-- ma5: 10.43
+- ma5: 10.39
 - ema23_primary: 10.37
-- distance_to_ema23_pct: -1.18
-- ma20: 10.37
-- ma60: 10.51
-- ma120: 11.1
-- return_5d: -3.3
-- return_20d: 3.02
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -1.13
+- distance_to_ema23_pct: -1.12
+- ma20: 10.38
+- ma60: 10.49
+- ma120: 11.09
+- return_5d: -2.38
+- return_20d: 1.99
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -1.25
 - distance_to_high_60_pct: -10.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10,10.1,9.94,10.05,358242,10.23,-1.72,10.11,10.87,1.3
 20260529,10,10.1,9.99,10,300043,10.21,-2.03,10.09,10.84,1.05
 20260601,10,10.2,10,10.2,362185,10.21,-0.06,10.08,10.81,1.24
 20260602,10.1,10.2,10.05,10.2,205425,10.21,-0.06,10.08,10.79,0.7
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10.5,10.85,10.45,10.5,504649,10.37,1.24,10.31,10.55,1.4
 20260623,10.45,10.55,10.4,10.45,138814,10.38,0.69,10.33,10.54,0.41
 20260624,10.35,10.45,10.25,10.45,135204,10.38,0.64,10.35,10.53,0.41
-20260626,10.4,10.4,10.15,10.25,298849,10.37,-1.18,10.37,10.51,0.93
+20260625,10.45,10.45,10.25,10.3,209033,10.38,-0.74,10.37,10.51,0.66
+20260626,10.4,10.4,10.15,10.25,298849,10.37,-1.12,10.38,10.49,0.95
 ```
 
 ## Latest TDCC Snapshot

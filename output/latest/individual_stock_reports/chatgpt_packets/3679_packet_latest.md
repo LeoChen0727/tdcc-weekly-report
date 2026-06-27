@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3679 新至陞
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:38 Asia/Taipei
 - stock_id: 3679
 - stock_name: 新至陞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 108.5
 - close: 108.5
 - volume: 84267
-- ma5: 110.3
-- ema23_primary: 116.27
-- distance_to_ema23_pct: -6.68
-- ma20: 118.42
-- ma60: 119.13
-- ma120: 117.5
-- return_5d: -3.12
-- return_20d: -9.58
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -8.38
+- ma5: 110.2
+- ema23_primary: 115.78
+- distance_to_ema23_pct: -6.28
+- ma20: 117.92
+- ma60: 119
+- ma120: 117.46
+- return_5d: -2.25
+- return_20d: -9.96
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -7.99
 - distance_to_high_60_pct: -16.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,120,121.5,119.5,120.5,58267,119.28,1.02,119.08,119.17,0.92
 20260529,121,121,120,120.5,56466,119.38,0.94,119.1,119.2,0.88
 20260601,121.5,125,121.5,124.5,170674,119.81,3.92,119.38,119.33,2.45
 20260602,124,126.5,123,125,229612,120.24,3.96,119.62,119.45,2.93
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,111,111,110,110.5,76933,118.16,-6.48,119.95,119.6,0.54
 20260623,110.5,111,110,111,51731,117.57,-5.58,119.53,119.45,0.36
 20260624,111,111.5,110,110.5,41956,116.98,-5.54,119,119.31,0.3
-20260626,111,111,108.5,108.5,84267,116.27,-6.68,118.42,119.13,0.61
+20260625,110.5,111,110.5,110.5,33621,116.44,-5.1,118.53,119.17,0.25
+20260626,111,111,108.5,108.5,84267,115.78,-6.28,117.92,119,0.62
 ```
 
 ## Latest TDCC Snapshot

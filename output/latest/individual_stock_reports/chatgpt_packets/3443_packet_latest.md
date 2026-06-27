@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3443 創意
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:29 Asia/Taipei
+- generated_at: 2026-06-27 22:23:31 Asia/Taipei
 - stock_id: 3443
 - stock_name: 創意
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 4410
 - close: 4420
 - volume: 2291763
-- ma5: 4728
-- ema23_primary: 4636.64
-- distance_to_ema23_pct: -4.67
-- ma20: 4569.5
-- ma60: 4218.08
-- ma120: 3326.67
-- return_5d: -12.91
-- return_20d: -13.33
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -3.27
+- ma5: 4726
+- ema23_primary: 4651.43
+- distance_to_ema23_pct: -4.98
+- ma20: 4582.5
+- ma60: 4260.42
+- ma120: 3350.33
+- return_5d: -9.05
+- return_20d: -3.7
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -3.55
 - distance_to_high_60_pct: -25.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,5090,5320,4590,4590,4074783,4712.51,-2.6,5012.25,3534.5,1.45
 20260529,4440,4835,4155,4670,7153455,4708.97,-0.83,5032.75,3570.83,2.29
 20260601,4655,4790,4540,4655,3322337,4704.47,-1.05,5031.25,3610.42,1.04
 20260602,4745,4795,4420,4535,2850767,4690.35,-3.31,5016.25,3646.75,0.91
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,5000,5050,4715,4755,2992095,4627.91,2.75,4653,4108.92,1.06
 20260623,4855,4980,4650,4725,1910835,4636,1.92,4623.75,4146.42,0.69
 20260624,4725,4880,4615,4880,1747105,4656.34,4.8,4603.5,4185.42,0.63
-20260626,4790,4875,4410,4420,2291763,4636.64,-4.67,4569.5,4218.08,0.83
+20260625,5255,5330,4735,4850,3234838,4672.47,3.8,4591,4225.25,1.16
+20260626,4790,4875,4410,4420,2291763,4651.43,-4.98,4582.5,4260.42,0.85
 ```
 
 ## Latest TDCC Snapshot

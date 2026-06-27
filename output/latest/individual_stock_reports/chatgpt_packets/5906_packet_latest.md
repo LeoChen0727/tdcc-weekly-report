@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5906 台南-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:04 Asia/Taipei
+- generated_at: 2026-06-27 22:24:05 Asia/Taipei
 - stock_id: 5906
 - stock_name: 台南-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 221
+- price_rows: 222
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 37.05
 - close: 38
 - volume: 19228
-- ma5: 38.73
-- ema23_primary: 44.26
-- distance_to_ema23_pct: -14.13
-- ma20: 44.62
-- ma60: 47.67
-- ma120: 49.63
-- return_5d: -16.3
-- return_20d: -24
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -14.84
+- ma5: 38.2
+- ema23_primary: 43.75
+- distance_to_ema23_pct: -13.15
+- ma20: 44.17
+- ma60: 47.44
+- ma120: 49.51
+- return_5d: -7.09
+- return_20d: -19.66
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -13.96
 - distance_to_high_60_pct: -28.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260508,49,49,47.3,47.3,4010,49.3,-4.06,49.32,49.88,1.02
 20260511,48.6,48.6,47.05,47.9,3151,49.18,-2.61,49.37,49.84,0.79
 20260513,46.5,46.5,46.5,46.5,1000,48.96,-5.02,49.29,49.75,0.25
 20260514,46.45,46.45,46.45,46.45,1010,48.75,-4.72,49.21,49.68,0.26
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,40.5,40.85,36.85,38.25,150527,46.08,-16.98,46.38,48.38,7.11
 20260623,38.25,38.8,35.75,38.5,107703,45.44,-15.28,45.82,48.15,4.07
 20260624,38.5,38.5,37.1,38,5064,44.82,-15.22,45.22,47.91,0.19
-20260626,38.15,38.25,37.05,38,19228,44.26,-14.13,44.62,47.67,0.7
+20260625,35.6,38.25,35.6,38.25,17263,44.28,-13.61,44.63,47.68,0.63
+20260626,38.15,38.25,37.05,38,19228,43.75,-13.15,44.17,47.44,0.68
 ```
 
 ## Latest TDCC Snapshot

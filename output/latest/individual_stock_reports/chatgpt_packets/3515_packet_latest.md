@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:31 Asia/Taipei
+- generated_at: 2026-06-27 22:23:33 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 232
 - close: 232
 - volume: 584244
-- ma5: 241.4
+- ma5: 240.8
 - ema23_primary: 242.55
 - distance_to_ema23_pct: -4.35
-- ma20: 246.75
-- ma60: 233.36
-- ma120: 230.19
-- return_5d: -6.07
-- return_20d: -3.33
+- ma20: 247.25
+- ma60: 233.93
+- ma120: 230.11
+- return_5d: -5.88
+- return_20d: -0.64
 - volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -5.98
+- distance_to_ma20_pct_auxiliary: -6.17
 - distance_to_high_60_pct: -15.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,240.5,246,232,233.5,638226,231.81,0.73,233.65,223.32,0.68
 20260529,237.5,245,236,242,1355728,232.66,4.01,233.97,223.63,1.39
 20260601,247,258,242.5,253.5,2588126,234.4,8.15,234.88,224.32,2.41
 20260602,255,273.5,252,273.5,4098455,237.65,15.08,236.68,225.14,3.27
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,252,253,245,246,713844,243.94,0.85,247.53,232.25,0.56
 20260623,248.5,248.5,241.5,241.5,466679,243.73,-0.92,247.35,232.64,0.38
 20260624,242.5,243,239,241,321463,243.5,-1.03,247.15,233.08,0.27
-20260626,243.5,243.5,232,232,584244,242.55,-4.35,246.75,233.36,0.49
+20260625,244,247,241,243.5,477405,243.5,-0,247.32,233.55,0.4
+20260626,243.5,243.5,232,232,584244,242.55,-4.35,247.25,233.93,0.49
 ```
 
 ## Latest TDCC Snapshot

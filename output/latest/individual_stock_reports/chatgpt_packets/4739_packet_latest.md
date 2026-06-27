@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4739 康普
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:48 Asia/Taipei
+- generated_at: 2026-06-27 22:23:50 Asia/Taipei
 - stock_id: 4739
 - stock_name: 康普
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -125,23 +125,22 @@
 - low: 105.5
 - close: 106
 - volume: 4208205
-- ma5: 120.1
-- ema23_primary: 114.98
-- distance_to_ema23_pct: -7.81
-- ma20: 117.71
-- ma60: 99.64
-- ma120: 86.34
-- return_5d: -13.82
-- return_20d: 1.92
+- ma5: 118.1
+- ema23_primary: 114.81
+- distance_to_ema23_pct: -7.67
+- ma20: 118.47
+- ma60: 100.17
+- ma120: 86.73
+- return_5d: -14.17
+- return_20d: 7.94
 - volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -9.95
+- distance_to_ma20_pct_auxiliary: -10.53
 - distance_to_high_60_pct: -21.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,104.5,105.5,97.6,98.2,4862452,95.88,2.42,95.93,86.74,0.95
 20260529,101,108,100,108,6774903,96.89,11.47,97.09,87.3,1.27
 20260601,115,118.5,108,109,12940791,97.9,11.34,98.19,87.99,2.2
 20260602,112,113,104.5,107.5,4572117,98.7,8.92,98.97,88.59,0.77
@@ -160,7 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,124,128,122,128,4508545,114.72,11.57,116.01,98.05,0.62
 20260623,127.5,127.5,120,122,4142215,115.33,5.79,116.81,98.66,0.58
 20260624,122,122,118.5,121,1843929,115.8,4.49,117.61,99.29,0.26
-20260626,112.5,116,105.5,106,4208205,114.98,-7.81,117.71,99.64,0.6
+20260625,121,122,113.5,113.5,4732629,115.61,-1.82,118.08,99.76,0.67
+20260626,112.5,116,105.5,106,4208205,114.81,-7.67,118.47,100.17,0.6
 ```
 
 ## Latest TDCC Snapshot

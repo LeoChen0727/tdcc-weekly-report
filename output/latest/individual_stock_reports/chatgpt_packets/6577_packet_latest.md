@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6577 勁豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:22 Asia/Taipei
+- generated_at: 2026-06-27 22:24:23 Asia/Taipei
 - stock_id: 6577
 - stock_name: 勁豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 72.3
 - close: 72.3
 - volume: 88000
-- ma5: 74.44
-- ema23_primary: 77.83
-- distance_to_ema23_pct: -7.1
-- ma20: 78.72
-- ma60: 78.81
-- ma120: 75.64
-- return_5d: -6.35
-- return_20d: -9.51
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -8.15
+- ma5: 74.1
+- ema23_primary: 77.5
+- distance_to_ema23_pct: -6.71
+- ma20: 78.44
+- ma60: 78.76
+- ma120: 75.69
+- return_5d: -4.49
+- return_20d: -9.17
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -7.82
 - distance_to_high_60_pct: -13.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,80,80.5,79.4,79.6,80000,79.41,0.24,79.8,77.89,1.65
 20260529,81,81,80.2,80.4,80000,79.5,1.14,79.88,77.95,1.55
 20260601,80.5,80.9,80.4,80.4,81000,79.57,1.04,79.91,78.06,1.49
 20260602,80,80.4,80,80.1,80,79.61,0.61,79.84,78.15,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,76.1,76.1,75.1,75.3,48000,79.07,-4.77,79.7,78.95,0.59
 20260623,76,76,74.8,74.8,68000,78.71,-4.97,79.41,78.92,0.84
 20260624,74.8,75.1,74,74.1,72000,78.33,-5.4,79.09,78.88,0.9
-20260626,73.8,74,72.3,72.3,88000,77.83,-7.1,78.72,78.81,1.09
+20260625,74.2,75,73.6,74,43000,77.97,-5.09,78.8,78.83,0.55
+20260626,73.8,74,72.3,72.3,88000,77.5,-6.71,78.44,78.76,1.12
 ```
 
 ## Latest TDCC Snapshot

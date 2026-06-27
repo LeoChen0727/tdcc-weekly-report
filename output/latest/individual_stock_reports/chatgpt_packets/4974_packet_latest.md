@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4974 亞泰
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:53 Asia/Taipei
+- generated_at: 2026-06-27 22:23:55 Asia/Taipei
 - stock_id: 4974
 - stock_name: 亞泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 68.6
 - close: 68.6
 - volume: 445000
-- ma5: 70.88
-- ema23_primary: 73.61
-- distance_to_ema23_pct: -6.81
-- ma20: 74.86
-- ma60: 73.33
+- ma5: 70.48
+- ema23_primary: 73.34
+- distance_to_ema23_pct: -6.46
+- ma20: 74.5
+- ma60: 73.34
 - ma120: 73
-- return_5d: -4.85
-- return_20d: -9.5
-- volume_ratio: 1.76
-- distance_to_ma20_pct_auxiliary: -8.36
+- return_5d: -5.38
+- return_20d: -11.83
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: -7.91
 - distance_to_high_60_pct: -14.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76.9,80,76.9,77.8,78000,74.44,4.52,74.41,72.41,0.42
 20260529,79.2,79.3,77.2,78,78000,74.74,4.37,74.71,72.48,0.43
 20260601,78,78.5,77.5,77.8,78000,74.99,3.75,75,72.58,0.44
 20260602,77.9,77.9,76.6,77.6,77,75.21,3.18,75.2,72.68,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,73,73.3,72,72.5,261000,74.77,-3.03,75.81,73.43,1.25
 20260623,72.2,72.3,70.5,70.7,390000,74.43,-5.01,75.54,73.41,1.73
 20260624,70.4,70.8,69.4,70.1,248000,74.07,-5.36,75.22,73.39,1.06
-20260626,70.6,70.6,68.6,68.6,445000,73.61,-6.81,74.86,73.33,1.76
+20260625,70.8,70.9,70.1,70.5,104000,73.77,-4.43,74.95,73.37,0.44
+20260626,70.6,70.6,68.6,68.6,445000,73.34,-6.46,74.5,73.34,1.75
 ```
 
 ## Latest TDCC Snapshot

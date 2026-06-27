@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6270 倍微
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:14 Asia/Taipei
+- generated_at: 2026-06-27 22:24:16 Asia/Taipei
 - stock_id: 6270
 - stock_name: 倍微
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 42.5
 - close: 42.75
 - volume: 14062000
-- ma5: 38.7
-- ema23_primary: 34.31
-- distance_to_ema23_pct: 24.6
-- ma20: 34.17
-- ma60: 28.97
-- ma120: 26.81
-- return_5d: 22.14
-- return_20d: 58.92
-- volume_ratio: 3.98
-- distance_to_ma20_pct_auxiliary: 25.11
+- ma5: 40.17
+- ema23_primary: 34.99
+- distance_to_ema23_pct: 22.16
+- ma20: 34.94
+- ma60: 29.26
+- ma120: 26.99
+- return_5d: 21.62
+- return_20d: 58.04
+- volume_ratio: 3.68
+- distance_to_ma20_pct_auxiliary: 22.34
 - distance_to_high_60_pct: -8.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,27.25,27.85,26.65,27.05,27000,26.74,1.16,26.81,25.75,0.06
 20260529,27.25,27.65,27.1,27.65,27000,26.82,3.11,26.88,25.8,0.07
 20260601,27.95,29,27.55,28.15,28000,26.93,4.54,26.94,25.88,0.08
 20260602,28.5,29.25,27.95,29.05,29,27.1,7.18,27.05,25.97,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,35.5,38.65,34.5,38.65,4981000,32.6,18.54,32.24,28.31,2.11
 20260623,41.35,41.65,37.55,38.3,6440000,33.08,15.78,32.79,28.48,2.4
 20260624,39.55,40.9,38.1,38.65,3072000,33.54,15.22,33.38,28.69,1.08
-20260626,44.45,46.55,42.5,42.75,14062000,34.31,24.6,34.17,28.97,3.98
+20260625,40,42.5,39.6,42.5,5834000,34.29,23.94,34.16,28.97,1.87
+20260626,44.45,46.55,42.5,42.75,14062000,34.99,22.16,34.94,29.26,3.68
 ```
 
 ## Latest TDCC Snapshot

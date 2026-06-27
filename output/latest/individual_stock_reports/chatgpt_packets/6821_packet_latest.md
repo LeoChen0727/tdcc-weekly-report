@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6821 聯寶
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6821
 - stock_name: 聯寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 59.3
 - close: 59.4
 - volume: 1495000
-- ma5: 64.72
-- ema23_primary: 63.89
-- distance_to_ema23_pct: -7.03
-- ma20: 66.47
+- ma5: 63.4
+- ema23_primary: 63.64
+- distance_to_ema23_pct: -6.66
+- ma20: 65.92
 - ma60: 60.58
-- ma120: 49.22
-- return_5d: -3.41
-- return_20d: -17.39
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: -10.64
+- ma120: 49.43
+- return_5d: -12.13
+- return_20d: -17.5
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: -9.9
 - distance_to_high_60_pct: -22.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,69.7,74.4,69,72,72000,58.2,23.72,55.38,52.08,0.13
 20260529,72.6,72.8,69.8,70.1,71000,59.19,18.44,56.24,52.63,0.14
 20260601,70.4,70.4,69,69,70000,60.01,14.99,57.09,53.17,0.14
 20260602,69,71.8,68.9,69.9,70,60.83,14.91,57.98,53.73,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68.7,71.7,66.8,68.5,3365000,64.35,6.44,67.32,60,3.79
 20260623,67.7,69,63.7,64.9,2272000,64.4,0.78,67.41,60.31,2.28
 20260624,63.7,66,63.2,63.2,996000,64.3,-1.71,67.1,60.52,0.95
-20260626,61,64.4,59.3,59.4,1495000,63.89,-7.03,66.47,60.58,1.34
+20260625,64.2,66.6,60.8,61,1342000,64.02,-4.72,66.56,60.6,1.21
+20260626,61,64.4,59.3,59.4,1495000,63.64,-6.66,65.92,60.58,1.27
 ```
 
 ## Latest TDCC Snapshot

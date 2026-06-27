@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:25 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 37.05
 - close: 37.05
 - volume: 1621000
-- ma5: 39.17
-- ema23_primary: 38.28
-- distance_to_ema23_pct: -3.22
+- ma5: 39.11
+- ema23_primary: 38.36
+- distance_to_ema23_pct: -3.42
 - ma20: 38.83
-- ma60: 35.28
-- ma120: 36.78
-- return_5d: -7.14
-- return_20d: -6.91
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -4.57
+- ma60: 35.4
+- ma120: 36.77
+- return_5d: -6.68
+- return_20d: -5.84
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -4.58
 - distance_to_high_60_pct: -17.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,40.05,40.9,38.5,39.35,40000,36.49,7.85,35.33,34.48,0.02
 20260529,40.35,40.65,39.35,40.2,40000,36.8,9.25,35.82,34.5,0.02
 20260601,41,42.95,40.15,40.2,41000,37.08,8.42,36.3,34.56,0.02
 20260602,40.45,42.6,40.25,41.15,42,37.42,9.97,36.81,34.62,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,39.8,41.35,39.8,40,2361000,38.17,4.8,39.15,35.04,2.62
 20260623,40.4,40.45,38.35,38.6,1190000,38.2,1.04,38.96,35.11,1.24
 20260624,39.55,40.95,39.15,40.5,2773000,38.4,5.48,38.96,35.22,2.53
-20260626,39.4,40.25,37.05,37.05,1621000,38.28,-3.22,38.83,35.28,1.38
+20260625,41,41.65,39.4,39.4,2604000,38.48,2.39,38.94,35.32,2.13
+20260626,39.4,40.25,37.05,37.05,1621000,38.36,-3.42,38.83,35.4,1.24
 ```
 
 ## Latest TDCC Snapshot

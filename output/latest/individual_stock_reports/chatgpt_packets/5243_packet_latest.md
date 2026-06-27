@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5243 乙盛-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:55 Asia/Taipei
+- generated_at: 2026-06-27 22:23:57 Asia/Taipei
 - stock_id: 5243
 - stock_name: 乙盛-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 98.6
 - close: 98.8
 - volume: 3069379
-- ma5: 104.96
-- ema23_primary: 110.23
-- distance_to_ema23_pct: -10.37
-- ma20: 112.97
-- ma60: 111.23
-- ma120: 95.44
-- return_5d: -8.52
-- return_20d: -22.2
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -12.54
+- ma5: 104.16
+- ema23_primary: 109.79
+- distance_to_ema23_pct: -10.01
+- ma20: 112.22
+- ma60: 111.62
+- ma120: 95.64
+- return_5d: -9.77
+- return_20d: -18.01
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -11.95
 - distance_to_high_60_pct: -31.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,128,133.5,118.5,120.5,10693165,113.75,5.93,111.45,98.69,1.44
 20260529,123.5,129,121,126.5,8560150,114.81,10.18,112.5,99.48,1.15
 20260601,128.5,132,123,124,5910308,115.58,7.29,113.4,100.35,0.81
 20260602,124,124,117,124,5180875,116.28,6.64,114.15,101.18,0.71
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,112,113,108.5,109.5,3724565,112.75,-2.88,117.38,109.84,0.67
 20260623,110,110.5,102.5,103,3311976,111.94,-7.98,115.78,110.34,0.59
 20260624,101,104.5,100,104,2198514,111.27,-6.54,114.38,110.84,0.45
-20260626,104.5,104.5,98.6,98.8,3069379,110.23,-10.37,112.97,111.23,0.67
+20260625,107.5,108,104.5,105.5,2816482,110.79,-4.78,113.3,111.35,0.62
+20260626,104.5,104.5,98.6,98.8,3069379,109.79,-10.01,112.22,111.62,0.73
 ```
 
 ## Latest TDCC Snapshot

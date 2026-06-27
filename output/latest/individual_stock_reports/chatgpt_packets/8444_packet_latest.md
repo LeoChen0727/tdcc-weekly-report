@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8444 綠河-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:54 Asia/Taipei
+- generated_at: 2026-06-27 22:24:54 Asia/Taipei
 - stock_id: 8444
 - stock_name: 綠河-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 6.59
 - close: 6.59
 - volume: 59000
-- ma5: 5.56
-- ema23_primary: 5.48
-- distance_to_ema23_pct: 20.16
-- ma20: 5.08
-- ma60: 6.12
-- ma120: 8.14
-- return_5d: 39.92
-- return_20d: 7.15
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 29.6
+- ma5: 5.98
+- ema23_primary: 5.58
+- distance_to_ema23_pct: 18.06
+- ma20: 5.14
+- ma60: 6.09
+- ma120: 8.09
+- return_5d: 43.26
+- return_20d: 17.68
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 28.26
 - distance_to_high_60_pct: -31.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,5.64,6,5.6,5.6,6000,6.72,-16.72,6.92,7.31,0.12
 20260529,5.5,5.52,5.5,5.51,6000,6.62,-16.81,6.88,7.25,0.14
 20260601,5.02,5.13,5,5,5000,6.49,-22.94,6.83,7.18,0.13
 20260602,4.98,4.98,4.66,4.67,5,6.34,-26.3,6.76,7.11,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,4.99,5.06,4.98,5.06,38000,5.31,-4.63,5.12,6.26,1.28
 20260623,5.07,5.51,5.07,5.51,64000,5.32,3.52,5.07,6.21,1.96
 20260624,5.8,6.06,5.8,6.06,54000,5.38,12.56,5.06,6.16,1.54
-20260626,7.25,7.25,6.59,6.59,59000,5.48,20.16,5.08,6.12,1.56
+20260625,6.57,6.66,6.57,6.66,71000,5.49,21.3,5.09,6.12,1.85
+20260626,7.25,7.25,6.59,6.59,59000,5.58,18.06,5.14,6.09,1.44
 ```
 
 ## Latest TDCC Snapshot

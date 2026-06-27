@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6241 鑫永洋
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:13 Asia/Taipei
+- generated_at: 2026-06-27 22:24:15 Asia/Taipei
 - stock_id: 6241
 - stock_name: 鑫永洋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 15.15
 - close: 15.25
 - volume: 483000
-- ma5: 14.69
-- ema23_primary: 12.68
-- distance_to_ema23_pct: 20.29
-- ma20: 12.28
-- ma60: 10.98
-- ma120: 11.74
-- return_5d: 12.13
-- return_20d: 50.99
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: 24.19
-- distance_to_high_60_pct: -4.98
+- ma5: 15.05
+- ema23_primary: 12.96
+- distance_to_ema23_pct: 17.66
+- ma20: 12.59
+- ma60: 11.06
+- ma120: 11.77
+- return_5d: 6.27
+- return_20d: 52.5
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 21.15
+- distance_to_high_60_pct: -7.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,10.1,10.2,10,10,10000,10.28,-2.69,10.06,10.81,0.05
 20260529,10.1,10.1,9.86,9.89,10000,10.24,-3.45,10.04,10.77,0.05
 20260601,9.91,10.3,9.91,10.2,10000,10.24,-0.39,10.05,10.75,0.05
 20260602,10.2,10.35,10.05,10.3,10,10.25,0.54,10.07,10.73,0
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,14.5,14.5,14.05,14.3,303000,12,19.18,11.59,10.83,0.87
 20260623,14.35,14.5,14.25,14.45,304000,12.2,18.42,11.79,10.87,0.84
 20260624,14.45,15.2,14.45,15.1,507000,12.44,21.34,12.02,10.93,1.31
-20260626,15.5,16.05,15.15,15.25,483000,12.68,20.29,12.28,10.98,1.17
+20260625,15.9,16.55,15.5,16.15,680000,12.75,26.64,12.32,11,1.62
+20260626,15.5,16.05,15.15,15.25,483000,12.96,17.66,12.59,11.06,1.09
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3490 單井
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:30 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3490
 - stock_name: 單井
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 30.45
 - close: 30.45
 - volume: 663000
-- ma5: 32.27
-- ema23_primary: 33.89
-- distance_to_ema23_pct: -10.16
-- ma20: 34.6
-- ma60: 32.55
-- ma120: 28.83
-- return_5d: -8.56
-- return_20d: -22.72
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -12
+- ma5: 32.12
+- ema23_primary: 33.7
+- distance_to_ema23_pct: -9.65
+- ma20: 34.27
+- ma60: 32.64
+- ma120: 28.88
+- return_5d: -6.16
+- return_20d: -20.81
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -11.13
 - distance_to_high_60_pct: -31.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,39.4,40.8,38.05,38.45,39000,35.73,7.62,35.27,29.62,0.01
 20260529,39.2,39.2,38,38.45,39000,35.96,6.94,35.66,29.84,0.01
 20260601,38.5,38.9,37.55,38,38000,36.13,5.19,36.13,30.07,0.01
 20260602,37.7,37.95,36.2,37.5,37,36.24,3.48,36.55,30.29,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,32.7,33.75,32.6,33.4,822000,34.52,-3.26,35.98,32.29,1.61
 20260623,33.5,33.5,32.1,32.5,675000,34.36,-5.4,35.51,32.4,1.24
 20260624,32.3,32.6,31.85,32.55,471000,34.21,-4.84,35.05,32.48,0.84
-20260626,31.7,32.1,30.45,30.45,663000,33.89,-10.16,34.6,32.55,1.11
+20260625,32.65,32.85,31.65,31.7,432000,34,-6.76,34.66,32.57,0.74
+20260626,31.7,32.1,30.45,30.45,663000,33.7,-9.65,34.27,32.64,1.08
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6158 禾昌
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:08 Asia/Taipei
+- generated_at: 2026-06-27 22:24:09 Asia/Taipei
 - stock_id: 6158
 - stock_name: 禾昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 17
 - close: 17.1
 - volume: 66000
-- ma5: 17.37
-- ema23_primary: 17.74
-- distance_to_ema23_pct: -3.61
-- ma20: 17.75
-- ma60: 18.23
-- ma120: 19.38
-- return_5d: -2.29
-- return_20d: -5
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -3.68
+- ma5: 17.3
+- ema23_primary: 17.7
+- distance_to_ema23_pct: -3.41
+- ma20: 17.74
+- ma60: 18.22
+- ma120: 19.34
+- return_5d: -3.12
+- return_20d: -2.84
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -3.59
 - distance_to_high_60_pct: -21.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.85,17.9,17.6,17.6,18000,18.25,-3.59,18.26,18.59,0.3
 20260529,17.9,18,17.8,17.95,18000,18.23,-1.53,18.2,18.55,0.3
 20260601,17.95,18.6,17.9,18.25,18000,18.23,0.1,18.15,18.52,0.32
 20260602,18.35,18.35,17.4,18,18,18.21,-1.16,18.09,18.48,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,17.55,17.75,17.5,17.5,111000,17.89,-2.2,17.87,18.27,1.93
 20260623,17.7,17.7,17.05,17.3,119000,17.84,-3.05,17.84,18.26,1.9
 20260624,17.4,17.4,17.2,17.3,51000,17.8,-2.81,17.8,18.25,0.8
-20260626,17.2,17.25,17,17.1,66000,17.74,-3.61,17.75,18.23,0.99
+20260625,17.3,17.4,17.2,17.3,32000,17.76,-2.58,17.76,18.24,0.49
+20260626,17.2,17.25,17,17.1,66000,17.7,-3.41,17.74,18.22,0.98
 ```
 
 ## Latest TDCC Snapshot

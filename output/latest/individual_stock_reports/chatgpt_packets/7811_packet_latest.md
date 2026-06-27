@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7811 民盛
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:45 Asia/Taipei
+- generated_at: 2026-06-27 22:24:45 Asia/Taipei
 - stock_id: 7811
 - stock_name: 民盛
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 64
+- price_rows: 65
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 78.1
 - close: 78.1
 - volume: 20000
-- ma5: 79.02
-- ema23_primary: 79.65
-- distance_to_ema23_pct: -1.94
-- ma20: 79.58
-- ma60: 82.5
-- ma120: 82.9
-- return_5d: -1.14
-- return_20d: -1.01
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -1.85
+- ma5: 79.1
+- ema23_primary: 79.63
+- distance_to_ema23_pct: -1.92
+- ma20: 79.53
+- ma60: 82.32
+- ma120: 82.84
+- return_5d: -1.26
+- return_20d: -2.74
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -1.8
 - distance_to_high_60_pct: -14.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,78.9,81.6,75.8,80.3,80000,80.74,-0.54,80.36,84.32,1.36
 20260529,79,80.5,79,80,80000,80.68,-0.84,80.14,84.22,1.29
 20260601,79.2,80,79.2,79.3,80000,80.56,-1.57,79.85,84.12,1.24
 20260602,79.3,80,79,80,79,80.52,-0.64,79.67,84.03,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,78.9,79.5,78.9,79.5,5000,79.9,-0.5,79.59,83.15,0.13
 20260623,79,79.5,79,79.1,8000,79.83,-0.92,79.67,82.93,0.22
 20260624,78.3,79.3,78.3,79.3,5000,79.79,-0.61,79.61,82.71,0.16
-20260626,79.1,79.1,78.1,78.1,20000,79.65,-1.94,79.58,82.5,0.69
+20260625,79.3,79.8,79,79.5,31000,79.76,-0.33,79.64,82.52,1.05
+20260626,79.1,79.1,78.1,78.1,20000,79.63,-1.92,79.53,82.32,0.76
 ```
 
 ## Latest TDCC Snapshot

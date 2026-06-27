@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009821 野村稀土關鍵資源
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:30 Asia/Taipei
+- generated_at: 2026-06-27 22:22:34 Asia/Taipei
 - stock_id: 009821
 - stock_name: 野村稀土關鍵資源
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 6
+- price_rows: 7
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -118,16 +118,16 @@
 - low: 14.23
 - close: 14.23
 - volume: 58119455
-- ma5: 15.55
-- ema23_primary: 15.34
-- distance_to_ema23_pct: -7.26
-- ma20: 15.5
-- ma60: 15.5
-- ma120: 15.5
-- return_5d: -6.87
+- ma5: 15.36
+- ema23_primary: 15.28
+- distance_to_ema23_pct: -6.87
+- ma20: 15.37
+- ma60: 15.37
+- ma120: 15.37
+- return_5d: -8.55
 - return_20d:
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -8.2
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -7.44
 - distance_to_high_60_pct: -21.73
 
 ## Recent Price Preview
@@ -139,7 +139,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,15.85,18.18,15.77,17.21,98536665,,,,,
 20260623,15.64,16.08,15.6,15.7,176487959,,,,,
 20260624,14.98,15.12,14.96,15.03,139949367,15.44,-2.68,15.76,15.76,1.33
-20260626,14.56,14.56,14.23,14.23,58119455,15.34,-7.26,15.5,15.5,0.6
+20260625,14.86,14.86,14.61,14.61,117852137,15.37,-4.97,15.56,15.56,1.1
+20260626,14.56,14.56,14.23,14.23,58119455,15.28,-6.87,15.37,15.37,0.58
 ```
 
 ## Latest TDCC Snapshot

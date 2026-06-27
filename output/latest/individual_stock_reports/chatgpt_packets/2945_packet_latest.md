@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2945 三商家購
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:14 Asia/Taipei
+- generated_at: 2026-06-27 22:23:18 Asia/Taipei
 - stock_id: 2945
 - stock_name: 三商家購
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 285
+- price_rows: 286
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 41.95
 - close: 43
 - volume: 18935
-- ma5: 42.94
-- ema23_primary: 42.23
-- distance_to_ema23_pct: 1.81
-- ma20: 42.19
-- ma60: 41.52
-- ma120: 40.84
-- return_5d: -0.35
-- return_20d: 6.44
+- ma5: 43.03
+- ema23_primary: 42.32
+- distance_to_ema23_pct: 1.6
+- ma20: 42.32
+- ma60: 41.58
+- ma120: 40.89
+- return_5d: 0.23
+- return_20d: 5.91
 - volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 1.93
+- distance_to_ma20_pct_auxiliary: 1.6
 - distance_to_high_60_pct: -1.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,41.15,41.15,40.6,40.6,5562,40.96,-0.87,40.91,41.04,0.02
 20260529,40.6,41,40.6,41,7670,40.96,0.1,40.9,41.01,0.03
 20260601,41,41.8,40.6,41.7,45189,41.02,1.66,40.93,41.02,0.16
 20260602,41.7,42.3,41.2,42.3,58490,41.13,2.85,41,41.03,0.21
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,43,43,41.5,42.5,21706,41.98,1.25,41.87,41.4,0.83
 20260623,42.5,43.5,42.5,42.95,31225,42.06,2.12,41.95,41.44,1.17
 20260624,42.75,43.8,42.75,43.35,62461,42.16,2.81,42.05,41.48,2.11
-20260626,42.1,43.35,41.95,43,18935,42.23,1.81,42.19,41.52,0.63
+20260625,43,43.35,43,43.35,9628,42.26,2.57,42.2,41.53,0.33
+20260626,42.1,43.35,41.95,43,18935,42.32,1.6,42.32,41.58,0.63
 ```
 
 ## Latest TDCC Snapshot

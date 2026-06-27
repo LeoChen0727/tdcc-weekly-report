@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009800 中信NASDAQ
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:29 Asia/Taipei
+- generated_at: 2026-06-27 22:22:33 Asia/Taipei
 - stock_id: 009800
 - stock_name: 中信NASDAQ
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -121,21 +121,20 @@
 - volume: 2032166
 - ma5: 13.11
 - ema23_primary: 13.07
-- distance_to_ema23_pct: -1.5
-- ma20: 13.1
+- distance_to_ema23_pct: -1.55
+- ma20: 13.11
 - ma60: 13.09
 - ma120: 13.09
-- return_5d: -2.65
-- return_20d: -1.98
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -1.76
+- return_5d: -2.35
+- return_20d: -1
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -1.82
 - distance_to_high_60_pct: -3.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,13.13,13.13,12.98,13,3686255,12.95,0.38,13.02,13.02,1.6
 20260529,13.16,13.22,13.15,13.22,2980329,12.97,1.9,13.05,13.05,1.24
 20260601,13.24,13.29,13.22,13.26,6868862,13,2.02,13.08,13.08,2.25
 20260602,13.23,13.29,13.19,13.28,1685233,13.02,1.99,13.11,13.11,0.59
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,13.3,13.34,13.28,13.32,1911769,13.08,1.81,13.11,13.1,0.8
 20260623,13.32,13.32,13.14,13.14,1509817,13.09,0.39,13.11,13.1,0.64
 20260624,12.99,13.04,12.93,13.04,1250265,13.08,-0.34,13.11,13.1,0.53
-20260626,13.02,13.02,12.82,12.87,2032166,13.07,-1.5,13.1,13.09,0.89
+20260625,13.1,13.17,13.1,13.16,1285844,13.09,0.53,13.11,13.1,0.57
+20260626,13.02,13.02,12.82,12.87,2032166,13.07,-1.55,13.11,13.09,0.93
 ```
 
 ## Latest TDCC Snapshot

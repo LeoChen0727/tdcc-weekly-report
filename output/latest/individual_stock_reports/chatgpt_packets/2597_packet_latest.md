@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2597 潤弘
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:06 Asia/Taipei
+- generated_at: 2026-06-27 22:23:09 Asia/Taipei
 - stock_id: 2597
 - stock_name: 潤弘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 164
 - close: 164
 - volume: 514561
-- ma5: 172.4
-- ema23_primary: 175.83
-- distance_to_ema23_pct: -6.73
-- ma20: 179.57
-- ma60: 163.98
-- ma120: 166.29
-- return_5d: -10.63
-- return_20d: 4.13
+- ma5: 170.8
+- ema23_primary: 175.3
+- distance_to_ema23_pct: -6.45
+- ma20: 180.22
+- ma60: 164.31
+- ma120: 166.33
+- return_5d: -7.87
+- return_20d: 4.46
 - volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -8.67
+- distance_to_ma20_pct_auxiliary: -9
 - distance_to_high_60_pct: -20
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,158,159.5,155,157,509683,158.71,-1.08,158.95,157.8,0.7
 20260529,158.5,166,157,166,1330536,159.32,4.19,159.4,157.72,1.77
 20260601,164.5,169,163.5,166.5,1026549,159.92,4.12,160.05,157.73,1.34
 20260602,168,180,166.5,173.5,3924400,161.05,7.73,161.1,157.81,4.2
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,176.5,176.5,173.5,173.5,551366,177.62,-2.32,177.85,163.13,0.27
 20260623,174.5,175.5,173,175.5,445285,177.44,-1.1,178.57,163.49,0.22
 20260624,173,173,170,171,405603,176.91,-3.34,179.25,163.8,0.2
-20260626,169,169,164,164,514561,175.83,-6.73,179.57,163.98,0.25
+20260625,171.5,172.5,169,170,338052,176.33,-3.59,179.88,164.08,0.17
+20260626,169,169,164,164,514561,175.3,-6.45,180.22,164.31,0.25
 ```
 
 ## Latest TDCC Snapshot

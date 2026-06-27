@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7642 昶瑞機電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:41 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7642
 - stock_name: 昶瑞機電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 66.8
 - close: 67.2
 - volume: 11000
-- ma5: 69.48
-- ema23_primary: 70.61
-- distance_to_ema23_pct: -4.83
-- ma20: 70.87
-- ma60: 70.55
-- ma120: 74.9
-- return_5d: -7.69
-- return_20d: 0.9
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -5.18
+- ma5: 68.7
+- ema23_primary: 70.38
+- distance_to_ema23_pct: -4.51
+- ma20: 70.97
+- ma60: 70.41
+- ma120: 74.8
+- return_5d: -6.41
+- return_20d: 1.82
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -5.31
 - distance_to_high_60_pct: -16.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,68.4,68.4,65.6,66,67000,69.07,-4.44,68.81,71.66,1.34
 20260529,65.4,66.6,65.4,66.3,66000,68.84,-3.69,68.95,71.46,1.27
 20260601,66.6,67,66.4,66.8,67000,68.67,-2.72,69.11,71.33,1.23
 20260602,66.7,66.7,65.4,65.9,66,68.44,-3.71,69.24,71.17,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,71.8,72,71.1,71.1,19000,71.35,-0.34,70.81,70.84,0.4
 20260623,71.2,71.2,68.3,68.3,42000,71.09,-3.93,70.79,70.74,0.91
 20260624,68.4,69,67.2,69,32000,70.92,-2.7,70.84,70.66,0.72
-20260626,68.5,68.7,66.8,67.2,11000,70.61,-4.83,70.87,70.55,0.27
+20260625,68.1,68.5,67,67.9,23000,70.67,-3.91,70.91,70.56,0.55
+20260626,68.5,68.7,66.8,67.2,11000,70.38,-4.51,70.97,70.41,0.28
 ```
 
 ## Latest TDCC Snapshot

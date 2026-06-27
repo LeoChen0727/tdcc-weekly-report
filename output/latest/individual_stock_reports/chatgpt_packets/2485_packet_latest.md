@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2485 兆赫
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:03 Asia/Taipei
+- generated_at: 2026-06-27 22:23:06 Asia/Taipei
 - stock_id: 2485
 - stock_name: 兆赫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 52.1
 - close: 52.2
 - volume: 11023018
-- ma5: 58.14
-- ema23_primary: 63.73
-- distance_to_ema23_pct: -18.09
-- ma20: 64.66
-- ma60: 69.04
-- ma120: 56.97
-- return_5d: -17.14
-- return_20d: -29.55
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -19.26
+- ma5: 57.2
+- ema23_primary: 63.13
+- distance_to_ema23_pct: -17.32
+- ma20: 63.91
+- ma60: 68.67
+- ma120: 57.2
+- return_5d: -15.4
+- return_20d: -27.3
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -18.33
 - distance_to_high_60_pct: -39.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,74.8,77.6,70.3,71.8,38949087,70.77,1.45,69.63,69.7,0.91
 20260529,72.5,74.9,71.3,74.2,26575995,71.06,4.42,70.41,70.03,0.63
 20260601,74.6,74.8,72.5,72.6,21901665,71.19,1.99,70.81,70.41,0.52
 20260602,72.8,73.8,69.1,69.9,15331008,71.08,-1.66,70.87,70.72,0.39
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,61.8,62,60.2,60.6,10636712,66.04,-8.23,67.5,70.22,0.51
 20260623,60.6,60.8,56.9,57.4,14274892,65.32,-12.12,66.54,69.84,0.79
 20260624,56.8,61.1,56.3,58.8,12596991,64.77,-9.22,65.75,69.51,0.73
-20260626,57,58,52.1,52.2,11023018,63.73,-18.09,64.66,69.04,0.67
+20260625,59.2,59.3,57,57,6292379,64.13,-11.11,64.89,69.12,0.39
+20260626,57,58,52.1,52.2,11023018,63.13,-17.32,63.91,68.67,0.74
 ```
 
 ## Latest TDCC Snapshot

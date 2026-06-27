@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:29 Asia/Taipei
+- generated_at: 2026-06-27 22:23:32 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 529
 - close: 530
 - volume: 13681463
-- ma5: 569
-- ema23_primary: 507.77
-- distance_to_ema23_pct: 4.38
-- ma20: 517.33
-- ma60: 412.63
-- ma120: 339.33
-- return_5d: 3.11
-- return_20d: 5.79
+- ma5: 573.2
+- ema23_primary: 513.9
+- distance_to_ema23_pct: 3.13
+- ma20: 522.58
+- ma60: 418.11
+- ma120: 342.18
+- return_5d: -6.19
+- return_20d: 10.19
 - volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 2.45
+- distance_to_ma20_pct_auxiliary: 1.42
 - distance_to_high_60_pct: -13.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,510,527,471.5,481,15667104,420.94,14.27,420.77,336.48,1.09
 20260529,498,499,477,490.5,9193909,426.73,14.94,430.2,339.09,0.66
 20260601,497.5,539,497,539,10680566,436.09,23.6,440.55,343.06,0.79
 20260602,555,592,540,548,29356562,445.42,23.03,449.7,347.41,2.17
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,573,600,549,557,17551853,488.63,13.99,507.77,397.73,1.41
 20260623,570,612,558,612,20431403,498.91,22.67,513.33,403.29,1.54
 20260624,586,604,568,581,16201906,505.75,14.88,515.88,408.32,1.17
-20260626,586,591,529,530,13681463,507.77,4.38,517.33,412.63,1
+20260625,595,607,564,586,15879660,512.44,14.36,520.12,413.57,1.16
+20260626,586,591,529,530,13681463,513.9,3.13,522.58,418.11,1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:35 Asia/Taipei
+- generated_at: 2026-06-27 22:24:36 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 36.5
 - close: 36.6
 - volume: 5194624
-- ma5: 38.89
-- ema23_primary: 37.45
-- distance_to_ema23_pct: -2.28
-- ma20: 37.2
-- ma60: 36.3
-- ma120: 36.27
-- return_5d: -5.06
-- return_20d: -3.3
+- ma5: 38.91
+- ema23_primary: 37.57
+- distance_to_ema23_pct: -2.57
+- ma20: 37.28
+- ma60: 36.38
+- ma120: 36.26
+- return_5d: -5.91
+- return_20d: -2.53
 - volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -1.63
+- distance_to_ma20_pct_auxiliary: -1.82
 - distance_to_high_60_pct: -11.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,37.9,39.25,37.25,37.55,4861867,37.21,0.92,37.22,34.49,0.79
 20260529,38.05,38.5,37.65,38.25,3766614,37.29,2.56,37.44,34.56,0.61
 20260601,38.45,38.95,37.9,38.1,4974459,37.36,1.98,37.6,34.66,0.79
 20260602,38.2,38.25,37.25,38.15,4124449,37.43,1.93,37.74,34.76,0.65
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,39.7,41.4,39.65,40.05,9748938,37.16,7.77,37.21,36.03,1.95
 20260623,40.65,40.9,39,39,5612918,37.32,4.51,37.21,36.16,1.17
 20260624,38.8,40.1,38.5,39.9,4715355,37.53,6.31,37.27,36.26,1
-20260626,38.8,38.9,36.5,36.6,5194624,37.45,-2.28,37.2,36.3,1.11
+20260625,40.5,40.75,39,39,4910485,37.65,3.57,37.33,36.34,1.05
+20260626,38.8,38.9,36.5,36.6,5194624,37.57,-2.57,37.28,36.38,1.11
 ```
 
 ## Latest TDCC Snapshot

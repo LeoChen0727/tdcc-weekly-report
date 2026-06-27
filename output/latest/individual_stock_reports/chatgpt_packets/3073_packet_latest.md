@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3073 天方能源
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:20 Asia/Taipei
+- generated_at: 2026-06-27 22:23:22 Asia/Taipei
 - stock_id: 3073
 - stock_name: 天方能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 21.55
 - close: 21.55
 - volume: 203000
-- ma5: 21.79
-- ema23_primary: 21.42
-- distance_to_ema23_pct: 0.59
-- ma20: 21.27
-- ma60: 22.85
-- ma120: 26.86
-- return_5d: 4.36
-- return_20d: 6.95
-- volume_ratio: 2.38
-- distance_to_ma20_pct_auxiliary: 1.34
+- ma5: 21.95
+- ema23_primary: 21.47
+- distance_to_ema23_pct: 0.38
+- ma20: 21.35
+- ma60: 22.76
+- ma120: 26.79
+- return_5d: 1.65
+- return_20d: 6.16
+- volume_ratio: 2.34
+- distance_to_ma20_pct_auxiliary: 0.94
 - distance_to_high_60_pct: -25.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,20.3,20.45,19.8,20.3,20000,21.74,-6.61,21.29,25.37,0.17
 20260529,20.5,20.5,20.2,20.25,20000,21.61,-6.31,21.15,25.2,0.17
 20260601,20.25,20.4,20,20.25,20000,21.5,-5.81,21.01,25.04,0.17
 20260602,20.5,20.85,20.3,20.5,21,21.42,-4.28,20.91,24.88,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,21.4,23.3,21.4,22.05,296000,21.28,3.6,21.01,23.18,4.4
 20260623,22.2,22.3,21.65,22.05,122000,21.35,3.29,21.1,23.06,1.69
 20260624,22.2,22.2,21.7,22.1,97000,21.41,3.22,21.2,22.95,1.27
-20260626,22.25,22.9,21.55,21.55,203000,21.42,0.59,21.27,22.85,2.38
+20260625,22.25,22.25,21.6,22,47000,21.46,2.52,21.29,22.86,0.61
+20260626,22.25,22.9,21.55,21.55,203000,21.47,0.38,21.35,22.76,2.34
 ```
 
 ## Latest TDCC Snapshot

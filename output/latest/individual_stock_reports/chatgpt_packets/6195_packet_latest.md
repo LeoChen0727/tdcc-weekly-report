@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6195 詩肯
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:10 Asia/Taipei
+- generated_at: 2026-06-27 22:24:12 Asia/Taipei
 - stock_id: 6195
 - stock_name: 詩肯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 24.65
 - close: 24.65
 - volume: 237000
-- ma5: 26.62
-- ema23_primary: 26.5
-- distance_to_ema23_pct: -6.97
-- ma20: 26.66
-- ma60: 25.46
-- ma120: 25.36
-- return_5d: -10.2
+- ma5: 26.52
+- ema23_primary: 26.52
+- distance_to_ema23_pct: -7.06
+- ma20: 26.7
+- ma60: 25.49
+- ma120: 25.37
+- return_5d: -10.36
 - return_20d: -5.56
-- volume_ratio: 4.58
-- distance_to_ma20_pct_auxiliary: -7.52
+- volume_ratio: 4.44
+- distance_to_ma20_pct_auxiliary: -7.68
 - distance_to_high_60_pct: -13.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26,26.5,26,26.1,26000,25.54,2.2,25.39,24.93,0.34
 20260529,26.1,26.25,26.1,26.2,26000,25.59,2.37,25.51,24.95,0.33
 20260601,26.2,26.45,26,26.15,26000,25.64,1.99,25.63,24.97,0.34
 20260602,26.15,26.2,25.85,26.05,26,25.67,1.46,25.76,24.98,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,27.3,27.35,26.7,27.2,42000,26.62,2.16,26.63,25.39,1.05
 20260623,26.9,27,26.8,26.9,65000,26.65,0.95,26.68,25.42,1.55
 20260624,26.9,26.9,26.8,26.85,14000,26.66,0.7,26.73,25.46,0.34
-20260626,27,27.1,24.65,24.65,237000,26.5,-6.97,26.66,25.46,4.58
+20260625,27.25,27.25,27,27,57000,26.69,1.15,26.77,25.5,1.33
+20260626,27,27.1,24.65,24.65,237000,26.52,-7.06,26.7,25.49,4.44
 ```
 
 ## Latest TDCC Snapshot

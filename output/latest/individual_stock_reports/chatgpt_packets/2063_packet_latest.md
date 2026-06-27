@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2063 世鎧精密
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:50 Asia/Taipei
+- generated_at: 2026-06-27 22:22:53 Asia/Taipei
 - stock_id: 2063
 - stock_name: 世鎧精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 24.1
 - close: 24.1
 - volume: 12000
-- ma5: 24.44
-- ema23_primary: 24.94
-- distance_to_ema23_pct: -3.36
-- ma20: 24.97
-- ma60: 25.76
-- ma120: 26.08
-- return_5d: -2.43
-- return_20d: -4.55
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -3.48
+- ma5: 24.34
+- ema23_primary: 24.89
+- distance_to_ema23_pct: -3.19
+- ma20: 24.95
+- ma60: 25.71
+- ma120: 26.07
+- return_5d: -3.41
+- return_20d: -3.21
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -3.4
 - distance_to_high_60_pct: -12.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,25.05,25.05,24.65,24.9,25000,25.54,-2.49,25.39,26.37,0.85
 20260529,24.9,25.55,24.8,25.2,25000,25.51,-1.21,25.36,26.35,0.83
 20260601,25.2,25.2,25.1,25.2,25000,25.48,-1.11,25.33,26.32,0.82
 20260602,25.25,25.7,24.95,25.7,25,25.5,0.78,25.34,26.3,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.65,24.9,24.3,24.4,42000,25.14,-2.93,25.12,25.9,1.56
 20260623,24.55,24.55,24.05,24.35,49000,25.07,-2.87,25.08,25.86,1.74
 20260624,24.4,24.5,24.1,24.4,36000,25.01,-2.46,25.03,25.81,1.25
-20260626,24.3,24.3,24.1,24.1,12000,24.94,-3.36,24.97,25.76,0.43
+20260625,24.4,24.5,24.1,24.45,38000,24.97,-2.07,24.99,25.76,1.29
+20260626,24.3,24.3,24.1,24.1,12000,24.89,-3.19,24.95,25.71,0.42
 ```
 
 ## Latest TDCC Snapshot

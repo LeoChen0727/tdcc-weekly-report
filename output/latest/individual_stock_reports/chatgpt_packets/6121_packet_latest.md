@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6121 新普
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:06 Asia/Taipei
+- generated_at: 2026-06-27 22:24:07 Asia/Taipei
 - stock_id: 6121
 - stock_name: 新普
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -123,23 +123,22 @@
 - low: 414
 - close: 415.5
 - volume: 1170000
-- ma5: 418.1
-- ema23_primary: 406.34
-- distance_to_ema23_pct: 2.26
-- ma20: 409.9
-- ma60: 379.38
-- ma120: 363.5
-- return_5d: 1.96
-- return_20d: 4.79
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 1.37
+- ma5: 419.1
+- ema23_primary: 407.63
+- distance_to_ema23_pct: 1.93
+- ma20: 411.65
+- ma60: 380.76
+- ma120: 363.95
+- return_5d: -0.48
+- return_20d: 7.23
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 0.94
 - distance_to_high_60_pct: -4.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,398,400,387,387.5,392000,376.22,3,376.93,356.75,0.51
 20260529,390,399,385,393,391000,377.62,4.07,378.7,357.91,0.52
 20260601,393,397.5,388.5,396,394000,379.15,4.44,380.62,359.31,0.53
 20260602,397,403.5,394,402.5,399,381.1,5.62,382.62,360.68,0
@@ -158,7 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,425,425,417,424,620000,403.37,5.12,406.25,375.85,0.83
 20260623,424,424,416.5,417,538000,404.5,3.09,407.85,377.02,0.71
 20260624,412.5,421.5,411,416.5,441000,405.5,2.71,408.95,378.16,0.58
-20260626,419,423.5,414,415.5,1170000,406.34,2.26,409.9,379.38,1.46
+20260625,416.5,424,415.5,422.5,917000,406.92,3.83,410.25,379.5,1.17
+20260626,419,423.5,414,415.5,1170000,407.63,1.93,411.65,380.76,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6121 | 新普 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6121 | 新普 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:配發現金股利新台幣 2,275,137,384元, 每股配發新台幣 12.3元 4.除權（息）交易日:115/07/13 5.最後過戶日:115/07/14 6.停止過戶起始日期:115/07/15 7.停止過戶截止日期:115/07/19 8.除權（息）基準日:115/07/19 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項:郵資及匯費由股東自行負擔。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

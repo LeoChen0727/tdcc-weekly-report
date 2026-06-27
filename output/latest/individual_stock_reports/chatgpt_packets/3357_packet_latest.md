@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3357 臺慶科
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:27 Asia/Taipei
+- generated_at: 2026-06-27 22:23:30 Asia/Taipei
 - stock_id: 3357
 - stock_name: 臺慶科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 300.5
 - close: 300.5
 - volume: 3167000
-- ma5: 325.9
-- ema23_primary: 292.71
-- distance_to_ema23_pct: 2.66
-- ma20: 300.9
-- ma60: 225.85
-- ma120: 192.78
-- return_5d: -5.06
-- return_20d: 5.25
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -0.13
+- ma5: 319.5
+- ema23_primary: 294.55
+- distance_to_ema23_pct: 2.02
+- ma20: 302.55
+- ma60: 228.66
+- ma120: 194.18
+- return_5d: -13.65
+- return_20d: 6.18
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -0.68
 - distance_to_high_60_pct: -19.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,290,298,270,283,288000,226.2,25.11,219.6,180.5,0.05
 20260529,300,308,280,287,290000,231.26,24.1,225.7,182.26,0.06
 20260601,298,314.5,282,284.5,298000,235.7,20.7,231.53,184.28,0.06
 20260602,280,290,270,289.5,278,240.18,20.53,237.3,186.47,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,366,371.5,336,346.5,11846000,287.19,20.65,295.6,218,1.5
 20260623,341,341,313,315,7194000,289.51,8.81,297.65,220.68,0.87
 20260624,305,322.5,304,319.5,4961000,292.01,9.42,300.15,223.39,0.58
-20260626,312.5,319.5,300.5,300.5,3167000,292.71,2.66,300.9,225.85,0.37
+20260625,325,329,310.5,316,5038000,294.01,7.48,301.68,226.11,0.58
+20260626,312.5,319.5,300.5,300.5,3167000,294.55,2.02,302.55,228.66,0.36
 ```
 
 ## Latest TDCC Snapshot

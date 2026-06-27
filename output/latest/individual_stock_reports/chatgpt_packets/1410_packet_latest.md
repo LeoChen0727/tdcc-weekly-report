@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1410 南染
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:35 Asia/Taipei
+- generated_at: 2026-06-27 22:22:38 Asia/Taipei
 - stock_id: 1410
 - stock_name: 南染
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 287
+- price_rows: 288
 - latest_tdcc_date: 20260618
 - tdcc_rows: 30
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 24.4
 - close: 24.85
 - volume: 125019
-- ma5: 24.73
-- ema23_primary: 25.51
-- distance_to_ema23_pct: -2.58
-- ma20: 25.34
-- ma60: 27.86
-- ma120: 30.55
-- return_5d: 0.4
-- return_20d: -5.33
-- volume_ratio: 1.78
-- distance_to_ma20_pct_auxiliary: -1.93
+- ma5: 24.7
+- ema23_primary: 25.44
+- distance_to_ema23_pct: -2.33
+- ma20: 25.27
+- ma60: 27.75
+- ma120: 30.47
+- return_5d: 0
+- return_20d: -4.97
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: -1.65
 - distance_to_high_60_pct: -24.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,26.35,26.35,25.95,26.15,23135,27.46,-4.78,27.05,30,0.26
 20260529,26.35,26.6,26.05,26.45,24945,27.38,-3.39,27,29.89,0.28
 20260601,26.1,26.9,25.8,25.9,84078,27.26,-4.98,26.93,29.76,0.9
 20260602,25.95,26,25.4,25.5,48139,27.11,-5.94,26.76,29.63,0.51
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,24.6,25.15,24.4,24.7,141070,25.75,-4.07,25.58,28.21,1.96
 20260623,24.65,24.9,24.4,24.65,65712,25.66,-3.92,25.49,28.1,0.88
 20260624,25.1,25.1,24.5,24.6,36076,25.57,-3.79,25.41,27.98,0.55
-20260626,24.4,24.85,24.4,24.85,125019,25.51,-2.58,25.34,27.86,1.78
+20260625,24.5,24.85,24.5,24.7,26569,25.5,-3.12,25.33,27.86,0.41
+20260626,24.4,24.85,24.4,24.85,125019,25.44,-2.33,25.27,27.75,1.77
 ```
 
 ## Latest TDCC Snapshot

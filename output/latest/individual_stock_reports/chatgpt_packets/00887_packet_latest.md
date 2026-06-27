@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00887 永豐中國科技50大
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:27 Asia/Taipei
+- generated_at: 2026-06-27 22:22:31 Asia/Taipei
 - stock_id: 00887
 - stock_name: 永豐中國科技50大
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
-- price_rows: 24
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -118,23 +118,22 @@
 - low: 19.44
 - close: 19.76
 - volume: 13297000
-- ma5: 19.35
-- ema23_primary: 18.05
-- distance_to_ema23_pct: 9.45
-- ma20: 17.93
-- ma60: 17.85
-- ma120: 17.85
-- return_5d: 8.21
-- return_20d: 11.14
-- volume_ratio: 2.14
-- distance_to_ma20_pct_auxiliary: 10.18
+- ma5: 19.52
+- ema23_primary: 18.23
+- distance_to_ema23_pct: 8.41
+- ma20: 18.06
+- ma60: 17.94
+- ma120: 17.94
+- return_5d: 2.28
+- return_20d: 12.27
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: 9.4
 - distance_to_high_60_pct: -2.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,17.75,17.78,17.36,17.6,18000,17.04,3.27,17.47,17.47,1.02
 20260529,17.93,17.99,17.44,17.82,18000,17.11,4.17,17.53,17.53,1.02
 20260601,17.69,17.69,17.01,17.2,17000,17.11,0.5,17.48,17.48,0.97
 20260602,17.1,17.41,16.81,17.39,17,17.14,1.47,17.47,17.47,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,19.5,19.58,19.02,19.33,11130000,17.66,9.48,17.68,17.64,2.41
 20260623,19.81,19.81,18.98,19.01,9234000,17.77,6.98,17.75,17.7,1.82
 20260624,18.78,19.33,18.75,19.33,9442000,17.9,7.99,17.84,17.77,1.7
-20260626,20.2,20.32,19.44,19.76,13297000,18.05,9.45,17.93,17.85,2.14
+20260625,19.44,20.25,19.36,20.15,15920000,18.09,11.41,17.95,17.87,2.51
+20260626,20.2,20.32,19.44,19.76,13297000,18.23,8.41,18.06,17.94,1.9
 ```
 
 ## Latest TDCC Snapshot

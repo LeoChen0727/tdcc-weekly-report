@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3661 世芯-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:35 Asia/Taipei
+- generated_at: 2026-06-27 22:23:38 Asia/Taipei
 - stock_id: 3661
 - stock_name: 世芯-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 3870
 - close: 3870
 - volume: 2691066
-- ma5: 4256
-- ema23_primary: 4305.5
-- distance_to_ema23_pct: -10.12
-- ma20: 4307.75
-- ma60: 4099.67
-- ma120: 3717.29
-- return_5d: -10.42
-- return_20d: -14
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: -10.16
+- ma5: 4226
+- ema23_primary: 4296.71
+- distance_to_ema23_pct: -9.93
+- ma20: 4304.25
+- ma60: 4124.33
+- ma120: 3725.67
+- return_5d: -11.64
+- return_20d: -10
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: -10.09
 - distance_to_high_60_pct: -31.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,4530,4575,4230,4300,2420551,4478.52,-3.99,4672.25,3747.83,1
 20260529,4470,4575,4315,4415,2199066,4473.23,-1.3,4686.25,3765.5,0.92
 20260601,4485,4855,4450,4855,2425118,4505.04,7.77,4716.5,3794.42,1.02
 20260602,4870,4870,4500,4575,2077361,4510.87,1.42,4737.75,3816.17,0.87
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,4510,4580,4285,4325,2381897,4343.87,-0.43,4381,4044.33,1.32
 20260623,4410,4525,4215,4375,2239314,4346.47,0.66,4354.75,4064.75,1.22
 20260624,4315,4345,4220,4330,1230751,4345.09,-0.35,4339.25,4085.83,0.68
-20260626,4135,4170,3870,3870,2691066,4305.5,-10.12,4307.75,4099.67,1.49
+20260625,4350,4460,4135,4230,2081103,4335.5,-2.43,4325.75,4105.67,1.17
+20260626,4135,4170,3870,3870,2691066,4296.71,-9.93,4304.25,4124.33,1.5
 ```
 
 ## Latest TDCC Snapshot

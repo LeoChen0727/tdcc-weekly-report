@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6230 尼得科超眾
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:13 Asia/Taipei
+- generated_at: 2026-06-27 22:24:14 Asia/Taipei
 - stock_id: 6230
 - stock_name: 尼得科超眾
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 122
 - close: 122
 - volume: 112216
-- ma5: 130.7
-- ema23_primary: 135.43
-- distance_to_ema23_pct: -9.91
-- ma20: 135.25
-- ma60: 144.48
-- ma120: 140.67
-- return_5d: -9.63
-- return_20d: -10.95
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -9.8
+- ma5: 130
+- ema23_primary: 134.84
+- distance_to_ema23_pct: -9.52
+- ma20: 135
+- ma60: 144.18
+- ma120: 140.73
+- return_5d: -7.92
+- return_20d: -8.96
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -9.63
 - distance_to_high_60_pct: -32.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,137,139,132,134,125389,143.26,-6.47,143.93,154.9,0.87
 20260529,134,136,134,135.5,74455,142.62,-4.99,142.75,154.28,0.53
 20260601,140.5,144.5,137.5,141.5,186664,142.52,-0.72,142.05,153.95,1.29
 20260602,147,147,138.5,142,162702,142.48,-0.34,141.28,153.37,1.11
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,132.5,135.5,132.5,135,65108,137.54,-1.85,137,145.78,0.58
 20260623,138,138,131,133,76365,137.16,-3.03,136.57,145.41,0.71
 20260624,134,134,130,131,45145,136.65,-4.13,136,144.99,0.45
-20260626,127.5,127.5,122,122,112216,135.43,-9.91,135.25,144.48,1.14
+20260625,131,133.5,128.5,129,78343,136.01,-5.15,135.6,144.6,0.81
+20260626,127.5,127.5,122,122,112216,134.84,-9.52,135,144.18,1.16
 ```
 
 ## Latest TDCC Snapshot

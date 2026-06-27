@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6163 華電網
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:08 Asia/Taipei
+- generated_at: 2026-06-27 22:24:10 Asia/Taipei
 - stock_id: 6163
 - stock_name: 華電網
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 47.2
 - close: 47.4
 - volume: 1936000
-- ma5: 49.61
-- ema23_primary: 51.69
-- distance_to_ema23_pct: -8.29
-- ma20: 51.48
-- ma60: 56.69
-- ma120: 57.57
-- return_5d: -6.51
-- return_20d: -5.58
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: -7.92
+- ma5: 49.58
+- ema23_primary: 51.51
+- distance_to_ema23_pct: -7.98
+- ma20: 51.55
+- ma60: 56.53
+- ma120: 57.55
+- return_5d: -5.11
+- return_20d: -1.66
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: -8.06
 - distance_to_high_60_pct: -36.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,50.2,50.9,48,48.2,49000,55.04,-12.42,55.1,58.03,0.02
 20260529,49,53,48.4,53,51000,54.87,-3.4,54.96,58.04,0.02
 20260601,53.4,53.9,51.9,53.4,53000,54.74,-2.45,54.71,58.08,0.02
 20260602,52.9,53.6,51.1,52.2,52,54.53,-4.28,54.38,58.09,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,50.1,51.4,50.1,51,1549000,52.5,-2.85,51.77,57.47,1.92
 20260623,51.8,51.8,48.95,49.3,1745000,52.23,-5.61,51.65,57.2,1.95
 20260624,49.55,52,49.55,50.4,3455000,52.08,-3.22,51.62,56.94,3.25
-20260626,50,50,47.2,47.4,1936000,51.69,-8.29,51.48,56.69,1.67
+20260625,50.6,50.8,49.7,49.8,941000,51.89,-4.02,51.59,56.73,0.85
+20260626,50,50,47.2,47.4,1936000,51.51,-7.98,51.55,56.53,1.61
 ```
 
 ## Latest TDCC Snapshot

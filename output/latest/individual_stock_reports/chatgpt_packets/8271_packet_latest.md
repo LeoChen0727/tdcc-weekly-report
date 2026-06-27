@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:51 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 197.5
 - close: 198
 - volume: 2773043
-- ma5: 206.7
-- ema23_primary: 214.78
-- distance_to_ema23_pct: -7.81
-- ma20: 219.53
-- ma60: 209.94
-- ma120: 169.15
-- return_5d: -5.04
-- return_20d: -14.84
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -9.81
+- ma5: 205.4
+- ema23_primary: 213.88
+- distance_to_ema23_pct: -7.42
+- ma20: 217.9
+- ma60: 210.95
+- ma120: 170.03
+- return_5d: -6.16
+- return_20d: -16.46
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -9.13
 - distance_to_high_60_pct: -26.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,234.5,243,231.5,237,7539115,225.5,5.1,235.95,189.66,1.81
 20260529,242,247.5,239.5,245.5,5991499,227.16,8.07,237.22,191.87,1.36
 20260601,248.5,256,245.5,248.5,6612524,228.94,8.54,238.5,194.22,1.41
 20260602,251,264.5,248,257.5,11768701,231.32,11.32,239.78,196.58,2.24
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,214.5,221.5,214.5,215.5,3426284,218.56,-1.4,223.75,207.33,0.75
 20260623,217,217,203,205.5,2795012,217.47,-5.5,222.57,208.09,0.62
 20260624,200.5,206.5,199.5,203.5,1720975,216.31,-5.92,221.25,209.05,0.39
-20260626,204.5,211,197.5,198,2773043,214.78,-7.81,219.53,209.94,0.64
+20260625,206.5,210,204,204.5,2537560,215.32,-5.03,219.85,210.05,0.59
+20260626,204.5,211,197.5,198,2773043,213.88,-7.42,217.9,210.95,0.68
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7584 樂意
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:41 Asia/Taipei
+- generated_at: 2026-06-27 22:24:42 Asia/Taipei
 - stock_id: 7584
 - stock_name: 樂意
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 154
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 30
 - close: 30
 - volume: 6000
-- ma5: 28.68
-- ema23_primary: 27.42
-- distance_to_ema23_pct: 9.39
-- ma20: 26.02
-- ma60: 29.77
-- ma120: 33.91
-- return_5d: 10.09
-- return_20d: 20.48
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 15.32
+- ma5: 29.38
+- ema23_primary: 27.68
+- distance_to_ema23_pct: 8.36
+- ma20: 26.38
+- ma60: 29.71
+- ma120: 33.81
+- return_5d: 10.7
+- return_20d: 28.48
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 13.73
 - distance_to_high_60_pct: -14.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,24,24.4,23.35,23.35,24000,29.23,-20.13,29.82,32.57,0.98
 20260528,22.55,23.75,22.2,23.75,23000,28.78,-17.47,29.32,32.34,0.95
 20260529,24.35,24.5,24,24.5,24000,28.42,-13.79,28.92,32.12,1.05
 20260601,24.25,24.25,23.5,23.6,24000,28.02,-15.77,28.46,31.87,1.05
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260618,27.55,28.2,27.2,28,20000,26.82,4.41,25.57,29.99,0.9
 20260622,28.9,29.7,27.8,29.1,30000,27.01,7.75,25.64,29.9,1.35
 20260624,29.55,29.6,28.35,29.2,21000,27.19,7.39,25.76,29.82,0.95
-20260626,30.1,30.1,30,30,6000,27.42,9.39,26.02,29.77,0.28
+20260625,30.1,32,30.1,30.6,44000,27.47,11.38,26.05,29.78,1.92
+20260626,30.1,30.1,30,30,6000,27.68,8.36,26.38,29.71,0.27
 ```
 
 ## Latest TDCC Snapshot

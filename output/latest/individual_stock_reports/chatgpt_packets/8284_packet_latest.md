@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8284 三竹
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:52 Asia/Taipei
+- generated_at: 2026-06-27 22:24:52 Asia/Taipei
 - stock_id: 8284
 - stock_name: 三竹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 155
+- price_rows: 156
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 65.2
 - close: 66.1
 - volume: 43000
-- ma5: 65.78
-- ema23_primary: 64.28
-- distance_to_ema23_pct: 2.84
-- ma20: 63.94
-- ma60: 63.77
-- ma120: 63.42
-- return_5d: 3.6
+- ma5: 65.98
+- ema23_primary: 64.41
+- distance_to_ema23_pct: 2.63
+- ma20: 64.08
+- ma60: 63.81
+- ma120: 63.44
+- return_5d: 2.01
 - return_20d: 4.75
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 3.38
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 3.16
 - distance_to_high_60_pct: -1.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,63.1,63.6,63,63.1,63000,63.49,-0.62,63.59,63.44,1.94
 20260529,63,63.6,63,63,63000,63.45,-0.71,63.53,63.45,1.82
 20260601,62.8,63.3,62.6,63.3,63000,63.44,-0.22,63.51,63.47,1.74
 20260602,62.7,63.3,62.7,63,63,63.4,-0.64,63.45,63.49,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,65.2,67,64.5,66.5,79000,63.8,4.23,63.53,63.66,1.87
 20260623,66,66,65.3,65.8,23000,63.97,2.87,63.67,63.69,0.57
 20260624,65.5,65.8,65,65.7,38000,64.11,2.48,63.79,63.73,0.97
-20260626,65.5,66.3,65.2,66.1,43000,64.28,2.84,63.94,63.77,1.13
+20260625,66.5,66.6,65.8,65.8,159000,64.25,2.41,63.92,63.76,3.63
+20260626,65.5,66.3,65.2,66.1,43000,64.41,2.63,64.08,63.81,1
 ```
 
 ## Latest TDCC Snapshot

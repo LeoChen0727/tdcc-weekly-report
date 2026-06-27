@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6829 千附精密
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:30 Asia/Taipei
+- generated_at: 2026-06-27 22:24:31 Asia/Taipei
 - stock_id: 6829
 - stock_name: 千附精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 210.5
 - close: 214.5
 - volume: 1852000
-- ma5: 211.6
-- ema23_primary: 208.78
-- distance_to_ema23_pct: 2.74
-- ma20: 209.8
-- ma60: 202.24
-- ma120: 156.47
-- return_5d: 6.45
-- return_20d: 1.66
-- volume_ratio: 2.48
-- distance_to_ma20_pct_auxiliary: 2.24
+- ma5: 215.7
+- ema23_primary: 209.98
+- distance_to_ema23_pct: 2.15
+- ma20: 210.2
+- ma60: 203.92
+- ma120: 157.42
+- return_5d: 5.41
+- return_20d: -0.69
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 2.05
 - distance_to_high_60_pct: -25.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,218,220,207,216,216000,209.91,2.9,223.12,170.86,0.21
 20260529,225,225,221,223.5,224000,211.05,5.9,222.03,172.76,0.23
 20260601,230,245.5,225.5,245.5,239000,213.92,14.76,220.8,175.07,0.24
 20260602,249,250,221,225,230,214.84,4.73,218.4,177.03,0
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,205.5,209.5,202,207.5,697000,206.66,0.41,210.15,197.1,1.49
 20260623,210,214,201,206,661000,206.6,-0.29,209.18,198.68,1.35
 20260624,214,226.5,211.5,226.5,3734000,208.26,8.76,209.62,200.54,5.62
-20260626,221.5,231,210.5,214.5,1852000,208.78,2.74,209.8,202.24,2.48
+20260625,239,241,220,224,3151000,209.57,6.88,210.28,202.4,3.88
+20260626,221.5,231,210.5,214.5,1852000,209.98,2.15,210.2,203.92,2.07
 ```
 
 ## Latest TDCC Snapshot

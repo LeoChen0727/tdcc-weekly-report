@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7402 邑錡
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:41 Asia/Taipei
+- generated_at: 2026-06-27 22:24:41 Asia/Taipei
 - stock_id: 7402
 - stock_name: 邑錡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 97.2
 - close: 99.2
 - volume: 343000
-- ma5: 99.46
-- ema23_primary: 98.52
-- distance_to_ema23_pct: 0.69
-- ma20: 96.86
-- ma60: 108.9
-- ma120: 119.06
-- return_5d: 8.77
-- return_20d: 1.54
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 2.42
+- ma5: 101.02
+- ema23_primary: 98.63
+- distance_to_ema23_pct: 0.58
+- ma20: 96.95
+- ma60: 108.53
+- ma120: 118.83
+- return_5d: 7.71
+- return_20d: 1.22
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 2.32
 - distance_to_high_60_pct: -27.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,97.5,100.5,96.3,98,99000,106.05,-7.59,107.12,116.78,0.21
 20260529,101,105.5,99.3,99.6,102000,105.51,-5.61,106.13,116.21,0.22
 20260601,102,108,102,104,105000,105.39,-1.32,105.2,115.81,0.23
 20260602,104.5,105.5,99.6,101,101,105.02,-3.83,103.98,115.33,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,97,101,96.8,101,497000,97.7,3.38,96.44,109.97,2.66
 20260623,106.5,107.5,101,103,1414000,98.14,4.95,96.61,109.64,5.6
 20260624,103,105,100.5,102,339000,98.46,3.6,96.78,109.28,1.28
-20260626,99.8,104,97.2,99.2,343000,98.52,0.69,96.86,108.9,1.24
+20260625,103,103,99.9,99.9,214000,98.58,1.34,96.89,108.92,0.79
+20260626,99.8,104,97.2,99.2,343000,98.63,0.58,96.95,108.53,1.21
 ```
 
 ## Latest TDCC Snapshot

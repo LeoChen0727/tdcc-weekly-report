@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6617 共信-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:23 Asia/Taipei
+- generated_at: 2026-06-27 22:24:24 Asia/Taipei
 - stock_id: 6617
 - stock_name: 共信-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 64
 - close: 64.1
 - volume: 165000
-- ma5: 65.9
-- ema23_primary: 67.19
-- distance_to_ema23_pct: -4.6
-- ma20: 68.06
-- ma60: 66.96
-- ma120: 72.39
-- return_5d: -6.15
-- return_20d: -13.14
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -5.82
+- ma5: 65.78
+- ema23_primary: 67.16
+- distance_to_ema23_pct: -4.55
+- ma20: 67.82
+- ma60: 66.95
+- ma120: 72.23
+- return_5d: -5.18
+- return_20d: -10.72
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -5.49
 - distance_to_high_60_pct: -20.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,78,80.3,70.6,71.8,75000,66.98,7.2,66.22,69.1,0.41
 20260529,74.4,74.4,71.6,72.2,73000,67.42,7.1,66.08,68.95,0.43
 20260601,72.2,72.2,69,69,71000,67.55,2.15,66.09,68.8,0.46
 20260602,69.9,69.9,68.1,69.2,69,67.68,2.24,66.19,68.62,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,68.3,68.4,66.1,67.2,184000,67.89,-1.02,68.64,67.13,1.47
 20260623,67.4,67.7,65.9,65.9,116000,67.73,-2.7,68.67,67.1,0.91
 20260624,66.7,66.7,64.7,64.7,83000,67.48,-4.11,68.55,67.02,0.64
-20260626,67.9,67.9,64,64.1,165000,67.19,-4.6,68.06,66.96,1.24
+20260625,64.8,67.3,64.7,67,346000,67.44,-0.65,68.2,67.01,2.43
+20260626,67.9,67.9,64,64.1,165000,67.16,-4.55,67.82,66.95,1.12
 ```
 
 ## Latest TDCC Snapshot

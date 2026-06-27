@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1416 廣豐
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:35 Asia/Taipei
+- generated_at: 2026-06-27 22:22:39 Asia/Taipei
 - stock_id: 1416
 - stock_name: 廣豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 10.7
 - close: 10.8
 - volume: 437745
-- ma5: 10.91
-- ema23_primary: 11.12
-- distance_to_ema23_pct: -2.92
-- ma20: 11.19
-- ma60: 11.31
-- ma120: 11.53
-- return_5d: -3.14
-- return_20d: -2.7
+- ma5: 10.85
+- ema23_primary: 11.1
+- distance_to_ema23_pct: -2.68
+- ma20: 11.18
+- ma60: 11.3
+- ma120: 11.51
+- return_5d: -2.7
+- return_20d: -2.26
 - volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -3.51
+- distance_to_ma20_pct_auxiliary: -3.4
 - distance_to_high_60_pct: -9.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,11.1,11.15,11,11.05,199411,11.22,-1.55,11.2,11.44,0.84
 20260529,11.05,11.15,11.05,11.1,228604,11.21,-1.02,11.19,11.43,0.95
 20260601,11.1,11.35,11.1,11.25,452492,11.22,0.29,11.18,11.42,1.77
 20260602,11.3,11.55,11.3,11.5,684230,11.24,2.31,11.19,11.42,2.42
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,11.05,11.05,10.85,10.95,808104,11.21,-2.34,11.24,11.35,1.58
 20260623,10.9,10.95,10.85,10.9,279576,11.19,-2.56,11.22,11.34,0.55
 20260624,10.85,10.9,10.8,10.8,175371,11.15,-3.18,11.21,11.32,0.35
-20260626,10.8,10.85,10.7,10.8,437745,11.12,-2.92,11.19,11.31,0.88
+20260625,10.8,10.9,10.8,10.8,199162,11.12,-2.92,11.19,11.31,0.41
+20260626,10.8,10.85,10.7,10.8,437745,11.1,-2.68,11.18,11.3,0.88
 ```
 
 ## Latest TDCC Snapshot

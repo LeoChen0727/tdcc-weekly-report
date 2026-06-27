@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2104 國際中橡
 
 ## Metadata
-- generated_at: 2026-06-26 22:22:50 Asia/Taipei
+- generated_at: 2026-06-27 22:22:54 Asia/Taipei
 - stock_id: 2104
 - stock_name: 國際中橡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 9.97
 - close: 9.99
 - volume: 3936926
-- ma5: 10.19
-- ema23_primary: 10.37
-- distance_to_ema23_pct: -3.65
-- ma20: 10.47
-- ma60: 10.74
-- ma120: 11.35
-- return_5d: -2.06
-- return_20d: 1.32
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -4.59
+- ma5: 10.18
+- ema23_primary: 10.36
+- distance_to_ema23_pct: -3.58
+- ma20: 10.49
+- ma60: 10.7
+- ma120: 11.34
+- return_5d: -3.48
+- return_20d: 1.22
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -4.78
 - distance_to_high_60_pct: -25.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,9.97,9.97,9.77,9.87,2425860,10.27,-3.91,10.11,11.34,0.77
 20260529,9.93,10.2,9.93,10.2,4310819,10.27,-0.64,10.08,11.3,1.31
 20260601,10.25,10.5,10.1,10.5,4265320,10.29,2.09,10.08,11.27,1.27
 20260602,10.55,10.9,10.5,10.9,6184420,10.34,5.45,10.11,11.25,1.74
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,10.3,10.4,10.25,10.4,2175233,10.46,-0.57,10.45,10.85,0.62
 20260623,10.4,10.4,9.99,10,5461515,10.42,-4.04,10.45,10.81,1.5
 20260624,9.99,10.2,9.92,10.2,3321952,10.4,-1.95,10.46,10.78,0.9
-20260626,10.25,10.25,9.97,9.99,3936926,10.37,-3.65,10.47,10.74,1.04
+20260625,10.15,10.35,10.15,10.3,2315590,10.39,-0.91,10.49,10.75,0.63
+20260626,10.25,10.25,9.97,9.99,3936926,10.36,-3.58,10.49,10.7,1.05
 ```
 
 ## Latest TDCC Snapshot

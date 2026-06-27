@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:36 Asia/Taipei
+- generated_at: 2026-06-27 22:23:38 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 76.3
 - close: 76.5
 - volume: 14505535
-- ma5: 83.4
-- ema23_primary: 81
-- distance_to_ema23_pct: -5.56
-- ma20: 84.36
-- ma60: 69.93
-- ma120: 55.62
-- return_5d: -11.66
-- return_20d: -12.97
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -9.32
+- ma5: 82.54
+- ema23_primary: 81.04
+- distance_to_ema23_pct: -5.6
+- ma20: 84.41
+- ma60: 70.55
+- ma120: 55.95
+- return_5d: -11.25
+- return_20d: -5.56
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -9.37
 - distance_to_high_60_pct: -22.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,89.6,90.3,80,81,41573738,70.61,14.71,69.1,56.38,1.52
 20260529,81.7,88.5,78.8,86.3,41007388,71.92,19.99,70.39,57.12,1.41
 20260601,87.5,94.9,87.4,89.5,48207223,73.39,21.96,71.8,57.97,1.55
 20260602,88,92.4,83.3,92,49966718,74.94,22.77,73.28,58.84,1.51
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,87.6,91,86.7,88.5,30691658,81.12,9.1,84.99,68.18,0.97
 20260623,88.6,90.9,80.8,82.2,24261168,81.21,1.22,85.12,68.81,0.78
 20260624,81.5,88.5,80.8,83.6,22043409,81.41,2.69,84.94,69.43,0.71
-20260626,81.1,82,76.3,76.5,14505535,81,-5.56,84.36,69.93,0.51
+20260625,84.3,84.7,80.8,81.9,12347195,81.45,0.55,84.64,70.02,0.43
+20260626,81.1,82,76.3,76.5,14505535,81.04,-5.6,84.41,70.55,0.54
 ```
 
 ## Latest TDCC Snapshot

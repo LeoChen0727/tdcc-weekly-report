@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6933 AMAX-KY
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:34 Asia/Taipei
+- generated_at: 2026-06-27 22:24:35 Asia/Taipei
 - stock_id: 6933
 - stock_name: AMAX-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 135.5
 - close: 137.5
 - volume: 235651
-- ma5: 150.7
-- ema23_primary: 157.51
-- distance_to_ema23_pct: -12.7
-- ma20: 160.4
-- ma60: 165.09
-- ma120: 152.28
-- return_5d: -11.29
-- return_20d: -16.16
+- ma5: 148.3
+- ema23_primary: 156.42
+- distance_to_ema23_pct: -12.09
+- ma20: 159.8
+- ma60: 165.35
+- ma120: 152.22
+- return_5d: -12.42
+- return_20d: -12.42
 - volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -14.28
+- distance_to_ma20_pct_auxiliary: -13.95
 - distance_to_high_60_pct: -33.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,163,166,155.5,157,244011,164.8,-4.73,165.95,155.51,0.8
 20260529,158.5,172.5,158.5,172.5,466925,165.44,4.27,166.35,156.13,1.46
 20260601,189,189.5,188.5,189.5,651087,167.45,13.17,167.35,157.16,1.94
 20260602,194.5,195,180,183,1542070,168.74,8.45,167.9,158.01,3.85
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,157.5,161,156,156.5,202055,160.88,-2.72,163.22,164.24,0.63
 20260623,156.5,156.5,150.5,152.5,144700,160.18,-4.79,162.5,164.67,0.46
 20260624,149,152,148.5,150,132252,159.33,-5.86,161.72,165.03,0.42
-20260626,143,143.5,135.5,137.5,235651,157.51,-12.7,160.4,165.09,0.75
+20260625,152,152,144.5,145,230569,158.14,-8.31,160.78,165.22,0.74
+20260626,143,143.5,135.5,137.5,235651,156.42,-12.09,159.8,165.35,0.75
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4163 鐿鈦
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:40 Asia/Taipei
+- generated_at: 2026-06-27 22:23:43 Asia/Taipei
 - stock_id: 4163
 - stock_name: 鐿鈦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 154
+- price_rows: 155
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 119
 - close: 121.5
 - volume: 129000
-- ma5: 123
-- ema23_primary: 117.69
-- distance_to_ema23_pct: 3.24
-- ma20: 119.8
-- ma60: 110.27
-- ma120: 104.33
+- ma5: 125.4
+- ema23_primary: 118.43
+- distance_to_ema23_pct: 2.59
+- ma20: 120.25
+- ma60: 110.67
+- ma120: 104.62
 - return_5d: 5.65
-- return_20d: 4.74
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 1.42
+- return_20d: 2.97
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 1.04
 - distance_to_high_60_pct: -16.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,115.5,122.5,113,118,118000,108.04,9.22,105.55,105.7,0.95
 20260529,117,117,114.5,115.5,116000,108.66,6.3,106.37,105.83,0.9
 20260601,117.5,122,114,121,118000,109.69,10.31,107.61,106.06,0.88
 20260602,133,133,129,133,133,111.63,19.14,109.45,106.52,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,117.5,121,117,118,147000,114.89,2.71,117.05,109.1,1.21
 20260623,118,129.5,118,129.5,404000,116.1,11.54,118.25,109.53,2.97
 20260624,130,136,127.5,131,350000,117.34,11.64,119.53,109.98,2.36
-20260626,126,126,119,121.5,129000,117.69,3.24,119.8,110.27,0.87
+20260625,133,133,127,127,166000,118.15,7.49,120.08,110.36,1.1
+20260626,126,126,119,121.5,129000,118.43,2.59,120.25,110.67,0.85
 ```
 
 ## Latest TDCC Snapshot

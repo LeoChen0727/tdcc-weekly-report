@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:51 Asia/Taipei
+- generated_at: 2026-06-27 22:24:51 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -117,23 +117,22 @@
 - low: 241.5
 - close: 244
 - volume: 23938959
-- ma5: 240.4
-- ema23_primary: 192.73
-- distance_to_ema23_pct: 26.61
-- ma20: 190.05
-- ma60: 147.92
-- ma120: 122.07
-- return_5d: 24.81
-- return_20d: 25.13
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: 28.39
+- ma5: 248.5
+- ema23_primary: 197.88
+- distance_to_ema23_pct: 23.31
+- ma20: 193.32
+- ma60: 150.52
+- ma120: 123.44
+- return_5d: 13.49
+- return_20d: 28.42
+- volume_ratio: 2
+- distance_to_ma20_pct_auxiliary: 26.21
 - distance_to_high_60_pct: -13.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,190,198,183.5,190,16676956,148.82,27.67,144.72,120.74,1.8
 20260529,193,193,173.5,181,16747454,151.5,19.47,147.85,122.1,1.68
 20260601,182.5,188.5,172,174,9012092,153.37,13.45,150.57,123.43,0.87
 20260602,176.5,178.5,161.5,167.5,8981983,154.55,8.38,152.72,124.59,0.85
@@ -152,7 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,236.5,236.5,236.5,236.5,1392680,175.73,34.58,180.75,140.59,0.14
 20260623,260,260,251,260,21884055,182.75,42.27,184.95,143.18,2
 20260624,249.5,268.5,240,246.5,33335694,188.06,31.07,187.6,145.56,2.81
-20260626,251.5,281,241.5,244,23938959,192.73,26.61,190.05,147.92,1.98
+20260625,260,262.5,244.5,255.5,14616204,193.68,31.92,190.62,148.11,1.26
+20260626,251.5,281,241.5,244,23938959,197.88,23.31,193.32,150.52,2
 ```
 
 ## Latest TDCC Snapshot

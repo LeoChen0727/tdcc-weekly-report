@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-06-26 22:24:50 Asia/Taipei
+- generated_at: 2026-06-27 22:24:50 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 291
+- price_rows: 292
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -118,23 +118,22 @@
 - low: 184
 - close: 185
 - volume: 705931
-- ma5: 204.8
-- ema23_primary: 214.37
-- distance_to_ema23_pct: -13.7
-- ma20: 220.3
-- ma60: 204.71
-- ma120: 192.52
-- return_5d: -11.48
-- return_20d: -30.71
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -16.02
+- ma5: 200.2
+- ema23_primary: 212.23
+- distance_to_ema23_pct: -12.83
+- ma20: 217.45
+- ma60: 205.02
+- ma120: 192.63
+- return_5d: -12.74
+- return_20d: -24.8
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -14.92
 - distance_to_high_60_pct: -33.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,270,276.5,241,246,1306763,224.12,9.76,222.03,191.16,0.74
 20260529,251,259.5,239,246,1504598,225.94,8.88,225.12,192.35,0.83
 20260601,247,264,238.5,259.5,2148303,228.74,13.45,229,193.92,1.14
 20260602,260,262,239.5,254.5,2336554,230.88,10.23,232.78,195.3,1.19
@@ -153,7 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,215,215,206.5,211.5,1275421,218.8,-3.34,229.65,203.48,0.97
 20260623,213.5,213.5,207,207,985263,217.82,-4.97,227,203.99,0.76
 20260624,207.5,209.5,202,208.5,1113643,217.04,-3.94,224.4,204.54,0.85
-20260626,190,192,184,185,705931,214.37,-13.7,220.3,204.71,0.55
+20260625,199,206,187.5,189,2252445,214.71,-11.97,220.5,204.78,1.67
+20260626,190,192,184,185,705931,212.23,-12.83,217.45,205.02,0.53
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3310 佳穎
 
 ## Metadata
-- generated_at: 2026-06-26 22:23:26 Asia/Taipei
+- generated_at: 2026-06-27 22:23:28 Asia/Taipei
 - stock_id: 3310
 - stock_name: 佳穎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
-- price_rows: 156
+- price_rows: 157
 - latest_tdcc_date: 20260618
 - tdcc_rows: 8
 - tdcc_history_status: tdcc_history_ready
@@ -119,23 +119,22 @@
 - low: 63.5
 - close: 64.6
 - volume: 13000
-- ma5: 65.14
-- ema23_primary: 67.91
-- distance_to_ema23_pct: -4.88
-- ma20: 68.56
-- ma60: 69.92
-- ma120: 73.62
+- ma5: 64.96
+- ema23_primary: 67.66
+- distance_to_ema23_pct: -4.52
+- ma20: 68.17
+- ma60: 69.76
+- ma120: 73.43
 - return_5d: -1.82
-- return_20d: -15.67
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -5.78
+- return_20d: -11.02
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -5.24
 - distance_to_high_60_pct: -17.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,76.6,78,72.6,72.6,76000,71.38,1.71,70.52,72.3,1.37
 20260529,72.7,74.5,72.3,72.3,74000,71.46,1.18,70.64,72.2,1.3
 20260601,72.4,76.4,71.6,72.8,73000,71.57,1.72,70.91,72.15,1.25
 20260602,72.8,73.4,71.2,71.2,73,71.54,-0.47,71.02,72.06,0
@@ -154,7 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,65.3,65.3,64.1,65.3,77000,68.83,-5.12,69.95,70.61,1.37
 20260623,65.3,65.3,63.6,65.1,36000,68.52,-4.99,69.55,70.42,0.66
 20260624,65,65,64.5,64.9,5000,68.21,-4.86,69.16,70.11,0.1
-20260626,63.8,64.9,63.5,64.6,13000,67.91,-4.88,68.56,69.92,0.27
+20260625,64.4,64.9,64.1,64.9,10000,67.94,-4.47,68.58,69.92,0.21
+20260626,63.8,64.9,63.5,64.6,13000,67.66,-4.52,68.17,69.76,0.29
 ```
 
 ## Latest TDCC Snapshot
