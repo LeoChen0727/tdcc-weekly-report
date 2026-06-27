@@ -52,6 +52,7 @@ DELIVERY_FULL_PDF_PREFIX = "TDCC大戶籌碼週報_完整版"
 DELIVERY_PDF_DIR = LATEST_DIR / "published_reports" / "tdcc_weekly"
 SECTION_MANIFEST_CSV = LATEST_DIR / "tdcc_weekly_report_section_manifest_latest.csv"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
+INVALID_HOLDER_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_invalid_holder_distribution_latest.csv"
 
 TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS = {"tdcc_short_term_continuation_d5_d10"}
 TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT = 10
@@ -833,6 +834,67 @@ def pdf_columns_for_contract(table_contract: Any, fallback_group: pd.DataFrame |
         return PDF_RANKING_COLUMNS
     return pdf_columns_for_section(fallback_group if fallback_group is not None else pd.DataFrame())
 
+
+def load_invalid_holder_distributions(report_date: str) -> pd.DataFrame:
+    columns = [
+        "date",
+        "code",
+        "name",
+        "invalid_reason",
+        "active_level",
+        "active_holders",
+        "active_ratio_pct",
+        "total_holders",
+        "total_ratio_pct",
+    ]
+    df = read_csv(INVALID_HOLDER_DISTRIBUTION_CSV, dtype=str)
+    if df.empty:
+        return pd.DataFrame(columns=columns)
+    for column in columns:
+        if column not in df.columns:
+            df[column] = ""
+    date = safe_str(report_date)
+    if date:
+        df = df[df["date"].map(safe_str) == date].copy()
+    return df[columns].reset_index(drop=True)
+
+
+def latest_frame_signal_date(df: pd.DataFrame, meta: dict[str, Any] | None = None) -> str:
+    meta_date = safe_str((meta or {}).get("latest_signal_date"))
+    if meta_date:
+        return meta_date
+    if "signal_date" not in df.columns:
+        return ""
+    dates = sorted({safe_str(value) for value in df["signal_date"].dropna() if safe_str(value)})
+    return dates[-1] if dates else ""
+
+
+def invalid_holder_distribution_codes(report_date: str) -> set[str]:
+    invalid = load_invalid_holder_distributions(report_date)
+    if invalid.empty or "code" not in invalid.columns:
+        return set()
+    return {safe_str(value) for value in invalid["code"].dropna() if safe_str(value)}
+
+
+def filter_invalid_holder_distributions(df: pd.DataFrame, report_date: str) -> pd.DataFrame:
+    if df.empty:
+        return df
+    invalid_codes = invalid_holder_distribution_codes(report_date)
+    if not invalid_codes:
+        return df
+    code_col = "stock_id" if "stock_id" in df.columns else "code" if "code" in df.columns else ""
+    if not code_col:
+        return df
+    filtered = df[~df[code_col].map(safe_str).isin(invalid_codes)].copy()
+    removed = len(df) - len(filtered)
+    if removed:
+        print(
+            "WARNING: quarantined invalid TDCC holder distributions from weekly report tables: "
+            + ", ".join(sorted(invalid_codes))
+        )
+    return filtered
+
+
 def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_date: str) -> None:
     report_kind = 'highlight'
     try:
@@ -987,6 +1049,44 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
             table = Table(table_data, colWidths=col_widths, repeatRows=1)
             table.setStyle(table_style())
             story.append(table)
+
+    invalid_holder_distributions = load_invalid_holder_distributions(report_date)
+    if not invalid_holder_distributions.empty:
+        story.append(PageBreak())
+        story.append(Paragraph("TDCC data anomaly note", h2))
+        story.append(Paragraph("DATA_ANOMALY_NOTE", small))
+        story.append(Paragraph("資料異常備註", h2))
+        story.append(
+            Paragraph(
+                "下列個股因 TDCC 原始持股級距分布異常，已自本週 TDCC 排名與候選報告排除；"
+                "此備註只說明資料品質，不代表基本面、股價或買賣判斷。",
+                normal,
+            )
+        )
+        story.append(Spacer(1, 0.25 * cm))
+        note_columns = [
+            ("code", "股票代號", 1.6 * cm, 8),
+            ("name", "股票名稱", 2.0 * cm, 8),
+            ("invalid_reason", "異常原因", 7.2 * cm, 22),
+            ("active_level", "異常級距", 2.0 * cm, 8),
+            ("active_holders", "級距人數", 2.0 * cm, 8),
+            ("active_ratio_pct", "級距占比", 2.0 * cm, 8),
+            ("total_holders", "總人數", 2.0 * cm, 8),
+            ("total_ratio_pct", "總占比", 2.0 * cm, 8),
+        ]
+        reason_zh = {
+            "single_holder_or_placeholder_distribution": "單一持有人或占比 100% 的占位式分布，無法當成有效大戶級距資料",
+        }
+        table_data = [[Paragraph(header, normal) for _, header, _, _ in note_columns]]
+        for _, row in invalid_holder_distributions.iterrows():
+            note_row = []
+            for column, _, _, max_chars in note_columns:
+                value = reason_zh.get(safe_str(row.get(column)), row.get(column))
+                note_row.append(Paragraph(wrap_text(clean_pdf_text(value), max_chars), small))
+            table_data.append(note_row)
+        table = Table(table_data, colWidths=[width for _, _, width, _ in note_columns], repeatRows=1)
+        table.setStyle(table_style())
+        story.append(table)
     path.parent.mkdir(parents=True, exist_ok=True)
     doc.build(story)
 
@@ -1897,6 +1997,7 @@ def main() -> int:
     latest, meta = prepare_latest_frame()
     if latest.empty:
         raise RuntimeError("No TDCC latest frame available.")
+    latest = filter_invalid_holder_distributions(latest, latest_frame_signal_date(latest, meta))
     latest = add_tdcc_scores(latest)
     theme_map = load_theme_display_map()
     latest = apply_theme_display(latest, theme_map)

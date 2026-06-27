@@ -16,11 +16,13 @@ OUTPUT_DIR = Path("output")
 LATEST_DIR = OUTPUT_DIR / "latest"
 HISTORY_DIR = OUTPUT_DIR / "history"
 TDCC_HISTORY_DIR = HISTORY_DIR / "tdcc"
+INVALID_DISTRIBUTION_LATEST = LATEST_DIR / "tdcc_invalid_holder_distribution_latest.csv"
 README_PATH = Path("README.md")
 
 THRESHOLDS = [400, 600, 800, 1000]
 TOP_N = 20
 CONSECUTIVE_WEEKS = 2
+INVALID_SINGLE_HOLDER_RATIO_PCT = 99.9
 
 COLUMN_ALIASES = {
     "資料日期": "date",
@@ -309,6 +311,79 @@ def parse_level_lower_bound(level: str) -> Optional[int]:
     return first_number
 
 
+def is_invalid_single_holder_distribution(group: pd.DataFrame) -> bool:
+    """Reject TDCC rows where only a one-holder total placeholder is present."""
+    if group.empty or "level" not in group.columns or "ratio_pct" not in group.columns:
+        return False
+
+    levels = group["level"].map(normalize_text)
+    ratios = pd.to_numeric(group["ratio_pct"], errors="coerce")
+    distribution = group[~levels.isin({"16", "17"})].copy()
+    distribution_ratios = pd.to_numeric(distribution.get("ratio_pct", pd.Series(dtype=float)), errors="coerce")
+    non_zero_distribution = distribution[distribution_ratios > 0].copy()
+
+    if len(non_zero_distribution) != 1:
+        return False
+
+    only_ratio = pd.to_numeric(non_zero_distribution["ratio_pct"], errors="coerce").iloc[0]
+    if pd.isna(only_ratio) or float(only_ratio) < INVALID_SINGLE_HOLDER_RATIO_PCT:
+        return False
+
+    active_holders = pd.NA
+    if "holders" in non_zero_distribution.columns:
+        active_holders = pd.to_numeric(non_zero_distribution["holders"], errors="coerce").iloc[0]
+
+    total_holders = pd.NA
+    total_rows = group[levels.eq("17")]
+    if not total_rows.empty and "holders" in total_rows.columns:
+        total_holders = pd.to_numeric(total_rows["holders"], errors="coerce").iloc[0]
+
+    if pd.notna(active_holders) and float(active_holders) <= 1:
+        return True
+    if pd.notna(total_holders) and float(total_holders) <= 1:
+        return True
+
+    return bool(
+        ratios.max(skipna=True) >= INVALID_SINGLE_HOLDER_RATIO_PCT
+        and distribution_ratios.fillna(0).sum() >= INVALID_SINGLE_HOLDER_RATIO_PCT
+    )
+
+
+def invalid_single_holder_record(code: str, group: pd.DataFrame, stock_name_map: dict[str, str] | None = None) -> dict[str, object]:
+    levels = group["level"].map(normalize_text) if "level" in group.columns else pd.Series(dtype=str)
+    non_total = group[~levels.isin({"16", "17"})].copy() if not group.empty else pd.DataFrame()
+    non_total_ratios = pd.to_numeric(non_total.get("ratio_pct", pd.Series(dtype=float)), errors="coerce")
+    non_zero = non_total[non_total_ratios > 0].copy()
+    name = ""
+    if "name" in group.columns:
+        names = group["name"].map(normalize_text)
+        names = names[names != ""]
+        if not names.empty:
+            name = names.iloc[0]
+    if not name and stock_name_map:
+        name = stock_name_map.get(code, "")
+    date = ""
+    if "date" in group.columns:
+        dates = group["date"].map(normalize_text)
+        dates = dates[dates != ""]
+        if not dates.empty:
+            date = dates.max()
+    active = non_zero.iloc[0] if not non_zero.empty else pd.Series(dtype=object)
+    total_rows = group[levels.eq("17")] if not group.empty else pd.DataFrame()
+    total = total_rows.iloc[0] if not total_rows.empty else pd.Series(dtype=object)
+    return {
+        "date": date,
+        "code": code,
+        "name": name,
+        "invalid_reason": "single_holder_or_placeholder_distribution",
+        "active_level": normalize_text(active.get("level", "")),
+        "active_holders": normalize_text(active.get("holders", "")),
+        "active_ratio_pct": normalize_text(active.get("ratio_pct", "")),
+        "total_holders": normalize_text(total.get("holders", "")),
+        "total_ratio_pct": normalize_text(total.get("ratio_pct", "")),
+    }
+
+
 def build_holder_ratio_snapshot(
     tdcc_df: pd.DataFrame,
     stock_name_map: dict[str, str],
@@ -335,8 +410,13 @@ def build_holder_ratio_snapshot(
     latest_df = df[df["date"] == latest_date].copy()
 
     rows = []
+    invalid_records: list[dict[str, object]] = []
 
     for code, group in latest_df.groupby("code"):
+        if is_invalid_single_holder_distribution(group):
+            invalid_records.append(invalid_single_holder_record(code, group, stock_name_map))
+            continue
+
         name = stock_name_map.get(code, "")
 
         if not name and "name" in group.columns:
@@ -366,8 +446,14 @@ def build_holder_ratio_snapshot(
         raise ValueError("沒有產生任何上市櫃普通股持股比例資料。")
 
     snapshot = snapshot.sort_values("code").reset_index(drop=True)
+    snapshot.attrs["invalid_holder_distributions"] = invalid_records
 
     print(f"Snapshot stock count: {len(snapshot)}")
+    if invalid_records:
+        invalid_codes = sorted(str(item["code"]) for item in invalid_records)
+        invalid_preview = ", ".join(invalid_codes[:20])
+        suffix = f" ... total={len(invalid_codes)}" if len(invalid_codes) > 20 else ""
+        print(f"WARNING: excluded invalid TDCC single-holder distributions: {invalid_preview}{suffix}")
     print("Snapshot sample:")
     print(snapshot.head(10).to_string(index=False))
 
@@ -507,6 +593,35 @@ def save_current_snapshot(snapshot: pd.DataFrame) -> Path:
     snapshot.to_csv(latest_path, index=False, encoding="utf-8-sig")
 
     return history_path
+
+
+def save_invalid_holder_distributions(records: list[dict[str, object]], latest_date: str) -> Path:
+    columns = [
+        "date",
+        "code",
+        "name",
+        "invalid_reason",
+        "active_level",
+        "active_holders",
+        "active_ratio_pct",
+        "total_holders",
+        "total_ratio_pct",
+    ]
+    if records:
+        out = pd.DataFrame(records)
+    else:
+        out = pd.DataFrame(columns=columns)
+    for column in columns:
+        if column not in out.columns:
+            out[column] = ""
+    out = out[columns]
+    latest_date = normalize_text(latest_date)
+    INVALID_DISTRIBUTION_LATEST.parent.mkdir(parents=True, exist_ok=True)
+    out.to_csv(INVALID_DISTRIBUTION_LATEST, index=False, encoding="utf-8-sig")
+    if latest_date:
+        dated_path = TDCC_HISTORY_DIR / f"tdcc_invalid_holder_distribution_{latest_date}.csv"
+        out.to_csv(dated_path, index=False, encoding="utf-8-sig")
+    return INVALID_DISTRIBUTION_LATEST
 
 
 def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> None:
@@ -984,6 +1099,12 @@ def main() -> int:
 
         print(f"Current TDCC date from cached snapshot: {current_date}")
         print(f"Current snapshot saved: {current_snapshot_path}")
+
+    invalid_distribution_path = save_invalid_holder_distributions(
+        list(current_snapshot.attrs.get("invalid_holder_distributions", [])),
+        current_date,
+    )
+    print(f"Invalid TDCC holder distributions saved: {invalid_distribution_path}")
 
     previous_snapshot_path = find_previous_snapshot(current_date)
 

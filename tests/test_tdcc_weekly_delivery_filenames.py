@@ -286,3 +286,66 @@ def test_tdcc_weekly_validator_rejects_model_cross_not_sorted_by_model_score() -
     )
 
     assert any("not sorted by model_score desc" in error for error in errors)
+
+
+def test_tdcc_weekly_validator_warns_invalid_single_holder_spike_without_failing_report() -> None:
+    report = builder.ensure_columns(
+        pd.DataFrame(
+            [
+                {
+                    "stock_id": "2380",
+                    "tdcc_1w_change_400": "54.95",
+                    "tdcc_1w_change_600": "59.51",
+                    "tdcc_1w_change_800": "61.04",
+                    "tdcc_1w_change_1000": "62.59",
+                }
+            ]
+        ),
+        builder.REPORT_COLUMNS,
+    )
+    holder_ratio = pd.DataFrame(
+        [
+            {
+                "code": "2380",
+                "over_400_pct": "100.0",
+                "over_600_pct": "100.0",
+                "over_800_pct": "100.0",
+                "over_1000_pct": "100.0",
+            }
+        ]
+    )
+    warnings: list[str] = []
+
+    validator.validate_no_invalid_single_holder_spikes(
+        report,
+        holder_ratio,
+        "highlight report-ready CSV",
+        warnings,
+    )
+
+    assert warnings
+    assert "2380" in warnings[0]
+
+
+def test_tdcc_weekly_builder_quarantines_invalid_holder_distribution_codes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    invalid_path = tmp_path / "tdcc_invalid_holder_distribution_latest.csv"
+    invalid_path.write_text(
+        "\n".join(
+            [
+                "date,code,name,invalid_reason,active_level,active_holders,active_ratio_pct,total_holders,total_ratio_pct",
+                "20260626,2380,虹光,single_holder_or_placeholder_distribution,15,1,100.0,1,100.0",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(builder, "INVALID_HOLDER_DISTRIBUTION_CSV", invalid_path)
+    latest = pd.DataFrame(
+        [
+            {"signal_date": "20260626", "stock_id": "2380", "stock_name": "虹光"},
+            {"signal_date": "20260626", "stock_id": "3374", "stock_name": "精材"},
+        ]
+    )
+
+    filtered = builder.filter_invalid_holder_distributions(latest, "20260626")
+
+    assert filtered["stock_id"].tolist() == ["3374"]
