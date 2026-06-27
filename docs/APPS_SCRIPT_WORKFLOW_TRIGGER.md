@@ -41,12 +41,15 @@ Run these from the Apps Script editor when validating or repairing the trigger:
 ```text
 diagnoseDailyStockMonitorTrigger
 diagnoseDailyPriceGapRepairTrigger
+diagnoseTdccHistoryGapRepairTrigger
 installDailyStockMonitorTrigger
 installDailyPriceGapRepairTrigger
+installTdccHistoryGapRepairTrigger
 triggerDailyStockMonitor
 triggerDailyFullPipeline
 triggerDailyPriceGapRepair
 triggerTdccWeeklyReport
+triggerTdccHistoryGapRepair
 triggerIndividualStockDataRefresh
 triggerEventCatalystUpdate
 triggerWeeklyThemeReview
@@ -69,6 +72,12 @@ current Asia/Taipei date and uses the repository non-trading-day calendar before
 attempting repairs.
 
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
+
+`triggerTdccHistoryGapRepair` dispatches
+`.github/workflows/repair_tdcc_monthly_history_gaps.yml`. The workflow checks
+official TDCC query-form dates in the current calendar month, excludes the
+current Asia/Taipei ISO week, and repairs missing TDCC history rows only for the
+bounded TDCC report universe.
 
 `triggerIndividualStockDataRefresh` dispatches
 `.github/workflows/individual_stock_data_refresh.yml`.
@@ -146,6 +155,7 @@ The canonical Apps Script source currently installs:
 | `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Saturday/Sunday in handler | `daily_full_pipeline.yml` |
 | `triggerIndividualStockDataRefresh` | daily 22:20 Asia/Taipei | `individual_stock_data_refresh.yml` |
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
+| `triggerTdccHistoryGapRepair` | Tuesday 09:00 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
 | `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |
 | `triggerWeeklyThemeReview` | Sunday 18:30 Asia/Taipei | `weekly_theme_review.yml` |
 | `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 20:30 Asia/Taipei | `research_backtest_pipeline.yml` |

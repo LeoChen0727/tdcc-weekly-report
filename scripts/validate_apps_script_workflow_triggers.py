@@ -11,6 +11,7 @@ WORKFLOW_DIR = ROOT / ".github" / "workflows"
 EXPECTED_DISPATCHES = {
     "daily_full_pipeline.yml",
     "repair_recent_daily_price_gaps.yml",
+    "repair_tdcc_monthly_history_gaps.yml",
     "individual_stock_data_refresh.yml",
     "tdcc_weekly.yml",
     "event_catalyst_update.yml",
@@ -125,6 +126,25 @@ def main() -> int:
     if bad_repair_values:
         errors.append(f"Apps Script daily price gap repair inputs have unexpected values: {bad_repair_values}")
 
+    tdcc_repair_workflow = "repair_tdcc_monthly_history_gaps.yml"
+    tdcc_repair_expected_inputs = {
+        "universe": "chatgpt-top",
+        "max_stocks": "80",
+        "max_requests": "500",
+        "rebuild_max_dates": "4",
+    }
+    tdcc_repair_inputs = dispatches.get(tdcc_repair_workflow, {})
+    missing_tdcc_repair_inputs = set(tdcc_repair_expected_inputs) - set(tdcc_repair_inputs)
+    bad_tdcc_repair_values = {
+        key: value
+        for key, value in tdcc_repair_inputs.items()
+        if key in tdcc_repair_expected_inputs and value != tdcc_repair_expected_inputs[key]
+    }
+    if missing_tdcc_repair_inputs:
+        errors.append(f"Apps Script TDCC history gap repair dispatch missing inputs: {sorted(missing_tdcc_repair_inputs)}")
+    if bad_tdcc_repair_values:
+        errors.append(f"Apps Script TDCC history gap repair inputs have unexpected values: {bad_tdcc_repair_values}")
+
     try:
         daily_trigger_body = apps_script_function_body("triggerDailyStockMonitor")
     except ValueError as exc:
@@ -153,6 +173,27 @@ def main() -> int:
         if 'max_repair_dates: "5"' not in repair_trigger_body:
             errors.append("Apps Script daily price gap repair trigger must use max_repair_dates=5")
 
+    try:
+        tdcc_repair_trigger_body = apps_script_function_body("triggerTdccHistoryGapRepair")
+    except ValueError as exc:
+        errors.append(str(exc))
+    else:
+        if 'dispatchWorkflow_("repair_tdcc_monthly_history_gaps.yml", {' not in tdcc_repair_trigger_body:
+            errors.append("Apps Script TDCC history gap repair trigger must dispatch repair_tdcc_monthly_history_gaps.yml")
+        for key, expected_value in tdcc_repair_expected_inputs.items():
+            if f'{key}: "{expected_value}"' not in tdcc_repair_trigger_body:
+                errors.append(f"Apps Script TDCC history gap repair trigger must use {key}={expected_value}")
+
+    try:
+        tdcc_repair_install_body = apps_script_function_body("installTdccHistoryGapRepairTrigger_")
+    except ValueError as exc:
+        errors.append(str(exc))
+    else:
+        if "ScriptApp.WeekDay.TUESDAY" not in tdcc_repair_install_body:
+            errors.append("Apps Script TDCC history gap repair trigger must run on Tuesday")
+        if ".atHour(9)" not in tdcc_repair_install_body:
+            errors.append("Apps Script TDCC history gap repair trigger must run at hour 9 Asia/Taipei")
+
     research_text = read_text(WORKFLOW_DIR / research_workflow)
     forbidden_research_auto_commit_patterns = [
         r"git add\s+scripts/",
@@ -170,6 +211,7 @@ def main() -> int:
         "triggerDailyStockMonitor",
         "triggerDailyFullPipeline",
         "triggerDailyPriceGapRepair",
+        "triggerTdccHistoryGapRepair",
         "triggerIndividualStockDataRefresh",
         "triggerTdccWeeklyReport",
         "triggerEventCatalystUpdate",
@@ -177,12 +219,16 @@ def main() -> int:
         "triggerResearchBacktestPipeline",
         "diagnoseDailyStockMonitorTrigger",
         "diagnoseDailyPriceGapRepairTrigger",
+        "diagnoseTdccHistoryGapRepairTrigger",
         "installDailyStockMonitorTrigger",
         "installDailyPriceGapRepairTrigger",
+        "installTdccHistoryGapRepairTrigger",
         "removeDailyStockMonitorTrigger",
         "removeDailyPriceGapRepairTrigger",
+        "removeTdccHistoryGapRepairTrigger",
         "installAllWorkflowTriggers",
         "installDailyPriceGapRepairTrigger_",
+        "installTdccHistoryGapRepairTrigger_",
         "installIndividualStockDataRefreshTrigger_",
         "installBiweeklyResearchBacktestTrigger",
         "listAllTriggers",

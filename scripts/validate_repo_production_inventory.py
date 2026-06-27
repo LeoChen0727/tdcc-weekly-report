@@ -71,6 +71,7 @@ WORKFLOW_ALLOWED_OWNERS = {
     ".github/workflows/repair_daily_price_range.yml": {"official_price_data", "repo_infrastructure"},
     ".github/workflows/repair_one_daily_price.yml": {"official_price_data", "repo_infrastructure"},
     ".github/workflows/repair_recent_daily_price_gaps.yml": {"official_price_data", "repo_infrastructure"},
+    ".github/workflows/repair_tdcc_monthly_history_gaps.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/research_backtest_pipeline.yml": {
         "research_backtest",
         "market_risk",
@@ -157,6 +158,20 @@ FORBIDDEN_WORKFLOW_SNIPPETS = {
             "git add docs/latest/non_mainstream_",
         ),
     },
+    ".github/workflows/repair_tdcc_monthly_history_gaps.yml": {
+        "TDCC monthly history gap repair must not stage broad source or data roots": (
+            "git add output/ data/",
+            "git add scripts/",
+            "git add .github/workflows/",
+            "git add config/",
+        ),
+        "TDCC monthly history gap repair must not stage daily PDF outputs": (
+            "git add output/latest/mainstream_",
+            "git add output/latest/non_mainstream_",
+            "git add docs/latest/mainstream_",
+            "git add docs/latest/non_mainstream_",
+        ),
+    },
     ".github/workflows/warrant_flow.yml": {
         "warrant flow must not stage source or workflow files": (
             "git add scripts/",
@@ -204,6 +219,12 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_tdcc_report_contract_consumers.py",
     ),
     ".github/workflows/tdcc_history_backfill.yml": ("python scripts/validate_repo_production_inventory.py",),
+    ".github/workflows/repair_tdcc_monthly_history_gaps.yml": (
+        "python scripts/validate_apps_script_workflow_triggers.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_semantic_integrity.py",
+    ),
     ".github/workflows/individual_stock_report.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/individual_stock_data_refresh.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/warrant_flow.yml": ("python scripts/validate_repo_production_inventory.py",),

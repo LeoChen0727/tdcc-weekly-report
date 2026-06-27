@@ -89,8 +89,11 @@ daily PDF artifact paths.
   ChatGPT-side daily report route.
 - `research_backtest`: research-only parameter studies, backtests, operation
   readiness evidence, and historical performance outputs.
-- `tdcc_weekly`: TDCC holder-flow, weekly candidate reports, and TDCC-specific
-  tracking artifacts.
+- `tdcc_weekly`: TDCC holder-flow, weekly candidate reports, TDCC-specific
+  tracking artifacts, and bounded TDCC history gap repair. The weekly report
+  workflow remains the report-production entrypoint; `scripts/repair_tdcc_monthly_history_gaps.py`
+  is the source-integrity entrypoint for current-month TDCC history repairs
+  before the current week.
 - `individual_stock`: single-stock packet/report generation and single-stock
   raw-data indexes.
 - `catalyst_event`: catalyst and event-calendar data builders and validators.
@@ -177,6 +180,7 @@ The repo-wide validator is run by:
 - `.github/workflows/research_backtest_pipeline.yml`
 - `.github/workflows/tdcc_weekly.yml`
 - `.github/workflows/tdcc_history_backfill.yml`
+- `.github/workflows/repair_tdcc_monthly_history_gaps.yml`
 - `.github/workflows/individual_stock_report.yml`
 - `.github/workflows/individual_stock_data_refresh.yml`
 - `.github/workflows/warrant_flow.yml`
