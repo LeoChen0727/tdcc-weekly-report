@@ -91,7 +91,7 @@ daily PDF artifact paths.
   readiness evidence, and historical performance outputs.
 - `tdcc_weekly`: TDCC holder-flow, weekly candidate reports, TDCC-specific
   tracking artifacts, and bounded TDCC history gap repair. The weekly report
-  workflow remains the report-production entrypoint; `scripts/repair_tdcc_monthly_history_gaps.py`
+  workflow remains the report-production entrypoint; `tdcc_weekly_pr_validation.yml` is PR-safe validation only and does not publish artifacts; `scripts/repair_tdcc_monthly_history_gaps.py`
   is the source-integrity entrypoint for current-month TDCC history repairs
   before the current week.
 - `individual_stock`: single-stock packet/report generation and single-stock
@@ -118,7 +118,8 @@ The validator enforces these repository-wide rules:
   weekly report builders or stage TDCC weekly PDFs.
 - Research workflows may publish research artifacts, but must not mutate
   production config/source paths or rebuild daily PDF entrypoints.
-- TDCC weekly workflows must not run or stage daily PDF outputs.
+- TDCC weekly production workflows must not run or stage daily PDF outputs.
+- TDCC weekly PR validation workflows must not commit, push, sync Pages, deploy Pages, or replace post-merge production evidence.
 - Individual-stock workflows must not publish full-market daily report outputs.
 - Warrant workflows must not stage source files or workflow files as part of a
   data refresh.
@@ -179,6 +180,7 @@ The repo-wide validator is run by:
 - `.github/workflows/daily_full_pipeline.yml`
 - `.github/workflows/research_backtest_pipeline.yml`
 - `.github/workflows/tdcc_weekly.yml`
+- `.github/workflows/tdcc_weekly_pr_validation.yml`
 - `.github/workflows/tdcc_history_backfill.yml`
 - `.github/workflows/repair_tdcc_monthly_history_gaps.yml`
 - `.github/workflows/individual_stock_report.yml`
@@ -187,4 +189,7 @@ The repo-wide validator is run by:
 - `.github/workflows/repair_recent_daily_price_gaps.yml`
 
 Daily Full Pipeline remains the main production gate. The other workflow gates
-prevent lane-specific PRs or manual runs from reviving old shared paths.
+prevent lane-specific PRs or manual runs from reviving old shared paths. `TDCC
+Weekly PR Validation` is branch PR evidence only; TDCC weekly production
+completion still requires the post-merge `TDCC Weekly Report` main run and any
+applicable Pages/parity evidence.

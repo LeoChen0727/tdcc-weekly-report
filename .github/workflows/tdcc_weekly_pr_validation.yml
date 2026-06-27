@@ -1,0 +1,95 @@
+name: TDCC Weekly PR Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/tdcc_weekly.yml"
+      - ".github/workflows/tdcc_weekly_pr_validation.yml"
+      - "tdcc_holder_ratio_top10.py"
+      - "tdcc_signal_tracker.py"
+      - "tdcc_trend_utils.py"
+      - "scripts/build_tdcc_*.py"
+      - "scripts/tdcc_*.py"
+      - "scripts/validate_tdcc_*.py"
+      - "scripts/validate_pdf_facing_display_text.py"
+      - "scripts/validate_daily_production_boundaries.py"
+      - "scripts/validate_repo_file_lifecycle_inventory.py"
+      - "scripts/validate_repo_production_inventory.py"
+      - "tests/test_tdcc_*.py"
+      - "tests/test_repo_file_lifecycle_inventory.py"
+      - "tests/test_repo_production_inventory.py"
+      - "config/repo_file_lifecycle_inventory.csv"
+      - "config/repo_production_inventory.csv"
+      - "config/report_artifact_lineage.csv"
+      - "config/runtime_file_lineage_contract.csv"
+      - "rules/tdcc_weekly_rules.md"
+      - "rules/master_priority_rules.md"
+      - "docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md"
+      - "docs/CODEX_THREAD_WORKFLOW.md"
+      - "docs/pdf_production_inventory.md"
+      - "docs/repo_production_inventory.md"
+      - "docs/tdcc_report_contract_consumer_governance.md"
+      - "docs/tdcc_weekly_artifact_relocation_plan_20260621.md"
+      - "docs/thread_templates/ci_release.md"
+      - "docs/thread_templates/tdcc_weekly.md"
+      - "output/latest/tdcc_*"
+      - "output/latest/published_reports/tdcc_weekly/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-tdcc-weekly-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Validate repo production inventory
+        run: |
+          python scripts/validate_repo_production_inventory.py
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib reportlab pypdf pytest
+
+      - name: Run TDCC weekly build chain without publishing
+        run: |
+          python tdcc_holder_ratio_top10.py
+          python tdcc_signal_tracker.py
+          python scripts/build_tdcc_signal_structures.py --max-dates 8 --price-metrics-limit 500
+          python scripts/build_tdcc_overheated_short_term_edge.py
+          python scripts/build_tdcc_stock_history.py
+          python scripts/build_tdcc_pre_move_accumulation.py
+          python scripts/build_tdcc_chatgpt_tracking_outputs.py
+          python scripts/build_tdcc_weekly_candidate_reports.py
+
+      - name: Validate TDCC weekly contracts and outputs
+        run: |
+          python scripts/validate_tdcc_report_contract_consumers.py
+          python scripts/validate_tdcc_weekly_candidate_reports.py
+          python scripts/validate_pdf_facing_display_text.py
+
+      - name: Validate repository boundaries and inventories
+        run: |
+          python scripts/validate_daily_production_boundaries.py
+          python scripts/validate_repo_file_lifecycle_inventory.py
+          python scripts/validate_repo_production_inventory.py
+
+      - name: Run TDCC weekly pytest coverage
+        run: |
+          python -m pytest tests/test_tdcc_weekly_delivery_filenames.py -q
+
+      - name: Show generated validation diff without publishing
+        run: |
+          git status --short
+          echo "PR validation stops here without publishing generated artifacts."

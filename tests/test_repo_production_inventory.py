@@ -43,12 +43,27 @@ def test_all_lane_workflows_run_repo_inventory_gate() -> None:
 def test_weekly_and_warrant_workflows_do_not_stage_source_files() -> None:
     for workflow_path in (
         ".github/workflows/tdcc_weekly.yml",
+        ".github/workflows/tdcc_weekly_pr_validation.yml",
         ".github/workflows/tdcc_history_backfill.yml",
         ".github/workflows/warrant_flow.yml",
     ):
         workflow_text = (ROOT / workflow_path).read_text(encoding="utf-8")
         assert "git add scripts/" not in workflow_text
         assert "git add .github/workflows/" not in workflow_text
+
+
+def test_tdcc_weekly_pr_validation_is_not_a_publish_workflow() -> None:
+    workflow_text = (ROOT / ".github" / "workflows" / "tdcc_weekly_pr_validation.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "pull_request:" in workflow_text
+    assert "workflow_dispatch:" not in workflow_text
+    assert "contents: read" in workflow_text
+    assert "contents: write" not in workflow_text
+    assert "git commit" not in workflow_text
+    assert "git push" not in workflow_text
+    assert "actions/deploy-pages" not in workflow_text
 
 
 def test_daily_workflow_runs_repo_inventory_before_daily_generation() -> None:

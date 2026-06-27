@@ -41,7 +41,8 @@ Completion condition:
 - Make scoped TDCC weekly changes only.
 - Run relevant TDCC validators, including PDF-facing validation when PDFs are touched.
 - Commit and push any file changes.
-- Run the relevant GitHub Actions.
-- Debug Actions until the relevant workflow executes successfully.
-- End with branch, commit, PR, Actions result, and residual risks.
+- Open a PR and use `TDCC Weekly PR Validation` (`.github/workflows/tdcc_weekly_pr_validation.yml`) as PR-safe branch evidence.
+- Do not treat a draft PR, branch check, or branch `workflow_dispatch` run as complete.
+- If publishing or production workflow behavior is affected, complete requires merge to `main`, the post-merge `TDCC Weekly Report` (`.github/workflows/tdcc_weekly.yml`) production run, Pages deploy when artifacts are published, and raw-vs-Pages parity when published artifacts are affected.
+- End with branch, commit, PR, validators, Actions result, `completion_state`, and residual risks.
 ```

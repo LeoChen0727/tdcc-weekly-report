@@ -37,7 +37,7 @@ separate pull requests unless a single integration fix is clearly safer.
 | --- | --- | --- |
 | `daily_production` | Daily Taiwan stock recommendation list, daily packets, daily PDFs, daily data freshness | `daily_full_pipeline.yml`, daily candidate scripts, daily rules, daily latest artifacts |
 | `research_backtest` | Long research, parameter studies, model evidence tables, historical performance, backtests | `research_backtest_pipeline.yml`, research scripts, research outputs |
-| `tdcc_weekly` | Weekly large-holder chip flow, TDCC weekly reports, TDCC PDF artifacts | `tdcc_weekly.yml`, TDCC scripts, TDCC rules, weekly outputs |
+| `tdcc_weekly` | Weekly large-holder chip flow, TDCC weekly reports, TDCC PDF artifacts | `tdcc_weekly.yml`, `tdcc_weekly_pr_validation.yml`, TDCC scripts, TDCC rules, weekly outputs |
 | `ci_release` | Branch health, PRs, GitHub Actions, Pages/raw alignment, automation pointers, docs handoff | `.github/workflows/`, `docs/`, validation scripts, Apps Script trigger docs |
 
 ## Hard Boundaries
@@ -73,6 +73,13 @@ separate pull requests unless a single integration fix is clearly safer.
   ChatGPT-side PDF task has already been completed.
 - Prefer raw GitHub or GitHub API data over Pages for daily freshness. Pages is
   a share view and can lag behind `main`.
+- `.github/workflows/tdcc_weekly.yml` is the formal TDCC weekly production
+  workflow. It may commit generated artifacts and push them for Pages. It is
+  not a normal PR validation workflow.
+- `.github/workflows/tdcc_weekly_pr_validation.yml` is the PR-safe TDCC weekly
+  validation workflow. It runs on `pull_request`, builds and validates TDCC
+  weekly outputs in the runner workspace, and must not commit, push, sync Pages,
+  deploy Pages, or replace the formal production workflow.
 
 ## Branch And PR Discipline
 
@@ -88,13 +95,37 @@ For repo maintenance and code changes:
 7. Open a pull request.
 8. Run the relevant local validations and GitHub Actions. Debug failed Actions
    until the requested workflow can execute successfully.
-9. For `daily_production` code, rule, workflow, Apps Script trigger, or generated
-   contract changes, do not stop at a branch PR with passing checks. Merge the PR
-   to `main`, wait for the follow-up `main` GitHub Actions run, and verify it
-   succeeds before reporting the task complete.
+9. For TDCC weekly PRs, use `TDCC Weekly PR Validation` as branch PR evidence.
+   A draft PR, branch check, or temporary branch `workflow_dispatch` run is not
+   completion evidence.
+10. For `daily_production` code, TDCC weekly production workflow changes, rule,
+   workflow, Apps Script trigger, or generated contract changes, do not stop at a
+   branch PR with passing checks. Merge the PR to `main`, wait for the follow-up
+   `main` production workflow run, and verify it succeeds before reporting the
+   task complete.
 
 For documentation-only changes, use the smallest relevant validation set and
 still publish through branch plus PR.
+
+## Completion Evidence
+
+Use an explicit `completion_state` for production-affecting workflow, Pages,
+report-artifact, model-contract, or `main` PR work:
+
+```text
+local_validated
+pr_open
+branch_action_passed
+merged_pending_main_validation
+complete
+blocked
+```
+
+`local_validated`, `pr_open`, and `branch_action_passed` are not `complete`.
+Temporary branch runs and branch `workflow_dispatch` evidence are validation
+only. `complete` requires merge to `main` plus the applicable post-merge main
+production workflow, Pages deploy, and raw-vs-Pages parity evidence when
+publishing is affected.
 
 ## Exit Summary
 
@@ -107,7 +138,8 @@ Every thread that changes the repo should end with a short handoff summary:
 - Files changed
 - Local validation
 - GitHub Actions result or pending run URL
-- For daily production changes: merge commit and successful `main` Action run
+- `completion_state`
+- For production-affecting changes: merge commit and successful post-merge `main` Action run
 - Residual risks or follow-up items
 
 Do not use an old conversation as the source of truth. If a future thread needs
