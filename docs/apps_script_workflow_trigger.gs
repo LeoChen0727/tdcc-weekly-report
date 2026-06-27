@@ -199,6 +199,13 @@ function diagnoseDailyPriceGapRepairTrigger() {
   Logger.log("Daily price gap repair diagnostics OK. If the scheduled trigger still fails, run installDailyPriceGapRepairTrigger().");
 }
 
+function diagnoseTdccHistoryGapRepairTrigger() {
+  testGithubTokenAndWorkflowAccess();
+  assertWorkflowAccessible_("repair_tdcc_monthly_history_gaps.yml");
+  logLatestWorkflowRunsSafe_("repair_tdcc_monthly_history_gaps.yml");
+  Logger.log("TDCC monthly history gap repair diagnostics OK. If the scheduled trigger still fails, run installTdccHistoryGapRepairTrigger().");
+}
+
 function triggerDailyStockMonitor() {
   const dayOfWeek = new Date().getDay();
   if (dayOfWeek === 0 || dayOfWeek === 6) {
@@ -234,6 +241,17 @@ function triggerTdccWeeklyReport() {
   dispatchWorkflow_("tdcc_weekly.yml");
   Utilities.sleep(5000);
   logLatestWorkflowRunsSafe_("tdcc_weekly.yml");
+}
+
+function triggerTdccHistoryGapRepair() {
+  dispatchWorkflow_("repair_tdcc_monthly_history_gaps.yml", {
+    universe: "chatgpt-top",
+    max_stocks: "80",
+    max_requests: "500",
+    rebuild_max_dates: "4",
+  });
+  Utilities.sleep(5000);
+  logLatestWorkflowRunsSafe_("repair_tdcc_monthly_history_gaps.yml");
 }
 
 function triggerEventCatalystUpdate() {
@@ -285,6 +303,12 @@ function installDailyPriceGapRepairTrigger() {
   listAllTriggers();
 }
 
+function installTdccHistoryGapRepairTrigger() {
+  installTdccHistoryGapRepairTrigger_();
+  Logger.log("Installed TDCC monthly history gap repair trigger: Tuesday 09:00 Asia/Taipei.");
+  listAllTriggers();
+}
+
 function removeDailyStockMonitorTrigger() {
   removeTriggersForFunction_("triggerDailyStockMonitor");
   Logger.log("Removed daily stock monitor triggers.");
@@ -294,6 +318,12 @@ function removeDailyStockMonitorTrigger() {
 function removeDailyPriceGapRepairTrigger() {
   removeTriggersForFunction_("triggerDailyPriceGapRepair");
   Logger.log("Removed daily price gap repair triggers.");
+  listAllTriggers();
+}
+
+function removeTdccHistoryGapRepairTrigger() {
+  removeTriggersForFunction_("triggerTdccHistoryGapRepair");
+  Logger.log("Removed TDCC monthly history gap repair triggers.");
   listAllTriggers();
 }
 
@@ -314,6 +344,7 @@ function installAllWorkflowTriggers() {
   installDailyPriceGapRepairTrigger_();
   installDailyStockMonitorTrigger_();
   installIndividualStockDataRefreshTrigger_();
+  installTdccHistoryGapRepairTrigger_();
   installTdccWeeklyReportTrigger_();
   installEventCatalystUpdateTriggers_();
   installWeeklyThemeReviewTrigger_();
@@ -362,6 +393,17 @@ function installTdccWeeklyReportTrigger_() {
     .onWeekDay(ScriptApp.WeekDay.SATURDAY)
     .atHour(15)
     .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installTdccHistoryGapRepairTrigger_() {
+  removeTriggersForFunction_("triggerTdccHistoryGapRepair");
+  ScriptApp.newTrigger("triggerTdccHistoryGapRepair")
+    .timeBased()
+    .onWeekDay(ScriptApp.WeekDay.TUESDAY)
+    .atHour(9)
+    .nearMinute(0)
     .inTimezone("Asia/Taipei")
     .create();
 }
