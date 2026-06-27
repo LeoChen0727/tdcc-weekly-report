@@ -83,6 +83,7 @@ WORKFLOW_ALLOWED_OWNERS = {
     ".github/workflows/signal_performance_tracker.yml": {"research_backtest", "repo_infrastructure"},
     ".github/workflows/tdcc_history_backfill.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/tdcc_weekly.yml": {"tdcc_weekly", "repo_infrastructure"},
+    ".github/workflows/tdcc_weekly_pr_validation.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/test_tdcc_trend.yml": {"tdcc_weekly", "diagnostics", "repo_infrastructure"},
     ".github/workflows/warrant_flow.yml": {"warrant", "official_price_data", "repo_infrastructure"},
     ".github/workflows/weekly_theme_review.yml": {"catalyst_event", "repo_infrastructure"},
@@ -142,6 +143,27 @@ FORBIDDEN_WORKFLOW_SNIPPETS = {
             "git add output/latest/non_mainstream_",
             "git add docs/latest/mainstream_",
             "git add docs/latest/non_mainstream_",
+        ),
+    },
+    ".github/workflows/tdcc_weekly_pr_validation.yml": {
+        "TDCC weekly PR validation must not commit, push, or deploy artifacts": (
+            "contents: write",
+            "git add ",
+            "git commit",
+            "git push",
+            "actions/deploy-pages",
+            "actions/upload-pages-artifact",
+            "peaceiris/actions-gh-pages",
+        ),
+        "TDCC weekly PR validation must not run production publish steps": (
+            "Sync TDCC Pages artifacts",
+            "Validate TDCC Pages sync",
+            "Commit TDCC outputs",
+        ),
+        "TDCC weekly PR validation must not run daily PDF entrypoints": (
+            "python scripts/run_chatgpt_daily_report_entrypoint.py",
+            "python scripts/generate_chatgpt_side_daily_reports.py",
+            "python build_chatgpt_daily_report_packet.py",
         ),
     },
     ".github/workflows/tdcc_history_backfill.yml": {
@@ -217,6 +239,16 @@ REQUIRED_WORKFLOW_COMMANDS = {
     ".github/workflows/tdcc_weekly.yml": (
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_tdcc_report_contract_consumers.py",
+    ),
+    ".github/workflows/tdcc_weekly_pr_validation.yml": (
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/build_tdcc_weekly_candidate_reports.py",
+        "python scripts/validate_tdcc_report_contract_consumers.py",
+        "python scripts/validate_tdcc_weekly_candidate_reports.py",
+        "python scripts/validate_pdf_facing_display_text.py",
+        "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python -m pytest tests/test_tdcc_weekly_delivery_filenames.py -q",
     ),
     ".github/workflows/tdcc_history_backfill.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/repair_tdcc_monthly_history_gaps.yml": (

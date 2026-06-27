@@ -71,7 +71,14 @@ lookback and a maximum of 5 automatic repair dates. The workflow excludes the
 current Asia/Taipei date and uses the repository non-trading-day calendar before
 attempting repairs.
 
-`triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
+`triggerTdccWeeklyReport` dispatches the TDCC weekly production workflow,
+`.github/workflows/tdcc_weekly.yml`. That workflow may commit and push generated
+TDCC artifacts after a production run.
+
+Do not configure Apps Script to dispatch
+`.github/workflows/tdcc_weekly_pr_validation.yml`. That workflow is
+`pull_request` only and exists as branch PR validation evidence. It must not be
+used as external scheduling or production completion evidence.
 
 `triggerTdccHistoryGapRepair` dispatches
 `.github/workflows/repair_tdcc_monthly_history_gaps.yml`. The workflow checks

@@ -49,6 +49,8 @@ Completion condition:
 - Make scoped docs/CI/release changes only.
 - Commit and push any file changes.
 - Run local validation and the relevant GitHub Actions or PR checks.
+- For TDCC weekly PR work, use `TDCC Weekly PR Validation` as branch evidence and keep `TDCC Weekly Report` as post-merge production evidence.
+- Do not treat a draft PR, branch check, or branch `workflow_dispatch` run as complete.
 - Debug Actions until the relevant workflow executes successfully.
-- End with branch, commit, PR, Actions result, and residual risks.
+- End with branch, commit, PR, Actions result, `completion_state`, and residual risks.
 ```

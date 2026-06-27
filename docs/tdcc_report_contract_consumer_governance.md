@@ -15,7 +15,7 @@ The TDCC weekly report validator is:
 python scripts/validate_tdcc_report_contract_consumers.py
 ```
 
-The validator is required in `.github/workflows/tdcc_weekly.yml`. Unit coverage
+The validator is required in `.github/workflows/tdcc_weekly.yml` and in the PR-safe `.github/workflows/tdcc_weekly_pr_validation.yml`. Unit coverage
 for the contract consumer guard is:
 
 ```text
