@@ -1,6 +1,6 @@
 # TDCC Normalized Signal Structures
 
-- generated_at: `2026-06-28 04:54:00 Asia/Taipei`
+- generated_at: `2026-06-28 05:53:46 Asia/Taipei`
 - processed_snapshot_window: `latest_8_dates`
 - price_metrics_limit: `500`
 - snapshot_rows: `10460`
@@ -29,7 +29,7 @@
 | 20260612 | passive components | 4 | 4 | 1 | 10 | mixed_divergence | B | B | 2375,2492,3624,6173 |
 | 20260605 | passive components | 4 | 1 | 1 | 10 | mixed_divergence | B | B | 2492,3357,6173,8042 |
 | 20260605 | other | 1117 | 477 | 208 | 10 | synchronized_accumulation | A | A | 1101,1102,1216,1218,1220,1229,1233,1301 |
-| 20260626 | other | 1089 | 416 | 197 | 10 | synchronized_accumulation | A | A | 1101,1102,1103,1201,1210,1216,1227,1229 |
+| 20260626 | other | 1088 | 415 | 196 | 10 | synchronized_accumulation | A | A | 1101,1102,1103,1201,1210,1216,1227,1229 |
 | 20260618 | semiconductor | 3 | 1 | 1 | 10 | mixed_divergence | B | B | 3707,3033,4966 |
 | 20260626 | semiconductor | 3 | 3 | 1 | 10 | mixed_divergence | B | B | 3033,3048,3707 |
 | 20260626 | power discrete/diodes | 2 | 2 | 1 | 10 | mixed_divergence | B | B | 2481,8261 |
@@ -66,10 +66,11 @@
 
 | tdcc_consecutive_up_weeks | tdcc_price_phase | signal_count |
 | --- | --- | --- |
+| 7 | price_leading_tdcc | 1 |
 | 7 | insufficient_price_context | 35 |
 | 7 | tdcc_price_divergence | 35 |
 | 7 | tdcc_leading_price | 30 |
-| 7 | price_leading_tdcc | 4 |
+| 7 | price_leading_tdcc | 3 |
 | 7 | tdcc_price_confirmed | 1 |
 | 6 | tdcc_price_divergence | 16 |
 | 6 | insufficient_price_context | 14 |
@@ -88,8 +89,8 @@
 | 4 | overheated_after_tdcc | 4 |
 | 4 | price_leading_tdcc | 2 |
 | 4 | tdcc_price_confirmed | 1 |
-| 3 | insufficient_price_context | 65 |
-| 3 | tdcc_price_divergence | 23 |
+| 3 | insufficient_price_context | 64 |
+| 3 | tdcc_price_divergence | 24 |
 | 3 | tdcc_leading_price | 21 |
 | 3 | price_leading_tdcc | 7 |
 | 3 | overheated_after_tdcc | 4 |

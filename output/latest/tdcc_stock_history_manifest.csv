@@ -352,7 +352,7 @@ stock_id,stock_name,theme,rows,start_date,end_date,file_path
 2376,技嘉,,9,20260430,20260626,data/tdcc_stock_history/2376.csv
 2377,微星,,9,20260430,20260626,data/tdcc_stock_history/2377.csv
 2379,瑞昱,,9,20260430,20260626,data/tdcc_stock_history/2379.csv
-2380,虹光,,9,20260430,20260626,data/tdcc_stock_history/2380.csv
+2380,虹光,,8,20260430,20260618,data/tdcc_stock_history/2380.csv
 2382,廣達,,9,20260430,20260626,data/tdcc_stock_history/2382.csv
 2383,台光電,,9,20260430,20260626,data/tdcc_stock_history/2383.csv
 2385,群光,,9,20260430,20260626,data/tdcc_stock_history/2385.csv

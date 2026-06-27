@@ -24,7 +24,7 @@
 
 ## Report Row Counts
 
-- weekly_increase: 413
+- weekly_increase: 412
 - consecutive_accumulation: 28
 - model_cross: 8
 - highlight_report: 28

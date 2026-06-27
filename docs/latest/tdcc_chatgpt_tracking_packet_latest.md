@@ -1,7 +1,7 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-06-28 04:54:58 Asia/Taipei
+- generated_at: 2026-06-28 05:54:45 Asia/Taipei
 - main_price_date: 20260626
 - latest_tdcc_signal_date: 20260626
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
@@ -11,8 +11,8 @@
 - phase_mature_d10_count: 161
 - overall_mature_d20_count: 119
 - phase_mature_d20_count: 119
-- pending_count: 40
-- insufficient_sample_count: 756
+- pending_count: 42
+- insufficient_sample_count: 755
 - ranking_quality: complete
 - phase_mature_join_quality: ok
 - benchmark_available: yes
@@ -55,8 +55,8 @@
 - phase_mature_d10_count: 161
 - overall_mature_d20_count: 119
 - phase_mature_d20_count: 119
-- pending_count: 40
-- insufficient_sample_count: 756
+- pending_count: 42
+- insufficient_sample_count: 755
 - phase_mature_join_quality: ok
 - sample_status: phase_samples_available
 
@@ -66,7 +66,7 @@
 
 | rank | stock_id | stock_name | theme | theme_mainstream_status | theme_heat_level | tdcc_strength_score | tdcc_consecutive_up_weeks | all_thresholds_up | high_thresholds_up | tdcc_price_phase | setup_type | abm_score | price_return_5d | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | theme_breadth_score | theme_momentum_score | theme_tdcc_breadth_score | theme_price_breadth_score | theme_warrant_heat_score | theme_relative_strength | risk_label | risk_bucket | interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 1233 | 天仁 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 90.00 | 0.71 | 0.71 | -2.58 | 1.17 | 0.43 | 10.00 | 181.24 | 10.00 | 19.00 | 0.00 | -1.76 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
+| 1 | 1233 | 天仁 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 90.00 | 0.71 | 0.71 | -2.58 | 1.17 | 0.43 | 10.00 | 181.21 | 10.00 | 19.00 | 0.00 | -1.79 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
 | 2 | 1304 | 台聚 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 75.00 | -2.58 | 6.88 | 2.30 | 0.74 | 0.74 | 10.00 | 420.65 | 10.00 | 47.00 | 0.00 | -0.35 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
 | 3 | 1308 | 亞聚 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 82.00 | -1.43 | 3.77 | -1.07 | 0.13 | 0.67 | 10.00 | 420.65 | 10.00 | 47.00 | 0.00 | -0.35 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
 | 4 | 1410 | 南染 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_price_divergence | quiet_accumulation | 91.00 | 0.00 | -4.97 | -3.50 | -1.65 | 1.77 | 10.00 | 420.65 | 10.00 | 47.00 | 0.00 | -0.35 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
@@ -138,7 +138,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | other electronics | mainstream_leader | 419 | 24 | 4 | 25 | 52 | 148.54 | 52.43 | 8084/8047/2380/1617/6418 |
 | traditional industries | mainstream_leader | 211 | 39 | 1 | 10 | 33 | 167.54 | 59.89 | 1304/1308/1410/1474/2017 |
-| other | single_name_signal | 190 | 16 | 2 | 2 | 42 | 160.00 | 58.88 | 1233/4107/4108/4538/4535 |
+| other | single_name_signal | 190 | 16 | 2 | 2 | 43 | 160.00 | 58.83 | 1233/4107/4108/4538/4535 |
 | semiconductor | mainstream_leader | 107 | 3 | 3 | 21 | 10 | 156.03 | 57.93 | 3092/3164/3056/3252/3294 |
 | biotechnology | mainstream_leader | 94 | 13 | 0 | 3 | 13 | 159.57 | 58.29 | 1733/1734/2107/1737/4747 |
 | finance | mainstream_leader | 30 | 11 | 0 | 1 | 1 | 176.83 | 62.10 | 2867/2836/2886/2845/2801 |
@@ -284,6 +284,7 @@
 | 4745 | 合富-KY | other | single_name_signal | 165.00 | tdcc_price_divergence | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 4746 | 台耀 | other | single_name_signal | 205.00 | tdcc_price_divergence | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 4749 | 新應材 | other | single_name_signal | 165.00 | tdcc_price_divergence | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 4770 | 上品 | other | single_name_signal | 165.00 | tdcc_price_divergence | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 5902 | 德記 | other | single_name_signal | 185.00 | tdcc_price_divergence | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 6835 | 圓裕 | other | single_name_signal | 215.00 | tdcc_price_divergence | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 6870 | 騰雲 | other | single_name_signal | 185.00 | tdcc_price_divergence | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
@@ -391,8 +392,8 @@
 
 | tdcc_price_phase | sample_count | pct_of_total |
 | --- | --- | --- |
-| insufficient_price_context | 756.0 | 68.42 |
-| tdcc_price_divergence | 151.0 | 13.67 |
+| insufficient_price_context | 755.0 | 68.33 |
+| tdcc_price_divergence | 152.0 | 13.76 |
 | tdcc_leading_price | 110.0 | 9.95 |
 | price_leading_tdcc | 53.0 | 4.80 |
 | overheated_after_tdcc | 19.0 | 1.72 |
@@ -413,12 +414,12 @@
 | 2 | tdcc_leading_price | 24.0 |
 | 2 | tdcc_price_confirmed | 3.0 |
 | 2 | tdcc_price_divergence | 45.0 |
-| 3 | insufficient_price_context | 65.0 |
+| 3 | insufficient_price_context | 64.0 |
 | 3 | overheated_after_tdcc | 4.0 |
 | 3 | price_leading_tdcc | 7.0 |
 | 3 | tdcc_leading_price | 21.0 |
 | 3 | tdcc_price_confirmed | 4.0 |
-| 3 | tdcc_price_divergence | 23.0 |
+| 3 | tdcc_price_divergence | 24.0 |
 | 4 | insufficient_price_context | 51.0 |
 | 4 | overheated_after_tdcc | 4.0 |
 | 4 | price_leading_tdcc | 2.0 |
