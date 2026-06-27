@@ -130,8 +130,8 @@ The current review group is:
 
 ### `volume_range_breakout` Meaning
 
-`volume_range_breakout` is not a generic previous-high breakout model and is not
-a model targeted for removal in this review.
+`volume_range_breakout` is not defined by "previous high" semantics and is not a
+model targeted for removal in this review.
 
 The intended business meaning is:
 
@@ -142,16 +142,17 @@ Bottom/base volume attack after a contracted consolidation base.
 In this context, "range" means a controlled, volume-contracted consolidation
 base near a lower or recovering price position. It does not mean a broad
 high-low trading range, a high-position box breakout, or any arbitrary
-previous-high breakout.
+high breakout.
 
-The current production implementation uses a previous-20-trading-day high as a
-technical breakout reference. That implementation detail should be treated as
-the current trigger mechanism, not as the business definition of the model. If
-future evidence shows that the trigger admits too many high-position or wide
-range breakouts, the fix should be a formal `volume_range_breakout`
-model-change PR that tightens low-position, base-width, volume-contraction, and
-candle-quality rules. It should not be silently replaced by
-`neckline_volume_breakout_confirmation`.
+The current production implementation needs a computable breakout line, so it
+uses the highest price in the recent 20 trading sessions as a short local base
+ceiling. Twenty sessions is intentionally short and should be understood as a
+trigger threshold for a recent contracted base, not as the model's business
+meaning. If future evidence shows that the trigger admits too many
+high-position or wide-range breakouts, the fix should be a formal
+`volume_range_breakout` model-change PR that tightens low-position, base-width,
+volume-contraction, and candle-quality rules. It should not be silently
+replaced by `neckline_volume_breakout_confirmation`.
 
 ## Breakout Gate Decision
 
@@ -161,9 +162,9 @@ an analysis frame, but it should not be implemented as a shared hard gate yet.
 Reason:
 
 - `volume_range_breakout` is intended to capture bottom/base volume attack from
-  a controlled consolidation base. Its current previous-20-day high trigger is
-  a reference mechanism, not permission to treat it as a generic previous-high
-  breakout model.
+  a controlled consolidation base. Its current recent-20-session local base
+  ceiling is only the breakout threshold; it must not become the model
+  definition.
 - `w_bottom_right_side` depends on a W-bottom neckline and low-position
   structure.
 - `neckline_volume_breakout_confirmation` is intended to represent a

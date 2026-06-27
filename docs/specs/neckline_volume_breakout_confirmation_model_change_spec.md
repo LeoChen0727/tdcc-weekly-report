@@ -39,20 +39,22 @@ Current production behavior shows three different concepts:
 
 | model_id | current production meaning | issue for this change |
 |---|---|---|
-| `volume_range_breakout` | bottom/base volume attack after controlled consolidation; current code uses the previous-20-day high as the trigger reference | Keep unchanged as current baseline. It is the only current stock model with research parity status `ok`, and it is not a target for removal in this neckline review. |
+| `volume_range_breakout` | bottom/base volume attack after controlled consolidation; current code uses the recent-20-session local base ceiling as the trigger threshold | Keep unchanged as current baseline. It is the only current stock model with research parity status `ok`, and it is not a target for removal in this neckline review. |
 | `w_bottom_right_side` | W-bottom right-side setup near the neckline, before confirmed breakout | Useful structured neckline source, but current entry condition rejects already-confirmed breakouts. |
 | `near_high_neckline_challenge` | near pressure before confirmed breakout | Condition and scoring use opposite sides of the distance sign convention. |
 | `platform_strengthening` | platform-inside strengthening before confirmed breakout | Not a confirmed breakout model. |
 
-`volume_range_breakout` must not be described as a generic previous-high
-breakout model. Its intended business meaning is bottom/base volume attack:
-price leaves a controlled, volume-contracted consolidation base with clear
-volume expansion or a locked-limit-up exception. In this model, "range" means
-the consolidation base, not a broad high-low range and not a high-position box
-breakout.
+`volume_range_breakout` must be described from the base structure and volume
+attack, not from the field name used to compute the breakout threshold. Its
+intended business meaning is bottom/base volume attack: price leaves a
+controlled, volume-contracted consolidation base with clear volume expansion or
+a locked-limit-up exception. In this model, "range" means the consolidation
+base, not a broad high-low range and not a high-position box breakout.
 
-The current production trigger uses the previous-20-trading-day high as a
-reference point. That is a trigger implementation detail, not the business
+The current production trigger still needs a computable breakout standard, so
+it uses the highest price in the recent 20 trading sessions as a short local
+base ceiling. Twenty sessions is intentionally short and should be understood
+as the breakout line for a recent contracted base, not as the business
 definition. If future review finds the production condition too loose, the
 correct action is to tighten `volume_range_breakout` through its own
 model-change PR, especially around low-position, base-width,
@@ -129,9 +131,9 @@ Rejected references:
 - broad `pattern` text without a price-history or audited upstream neckline
   reference.
 
-If only a generic previous-high or range-high reference exists, the stock may
-belong to `volume_range_breakout` only when it also fits the bottom/base volume
-attack intent. A generic previous-high or wide-range breakout must not enter
+If only a generic high or range-high reference exists, the stock may belong to
+`volume_range_breakout` only when it also fits the bottom/base volume attack
+intent. A generic high or wide-range breakout must not enter
 `neckline_volume_breakout_confirmation`, and should not be treated as a clean
 `volume_range_breakout` candidate without the bottom/base context.
 
