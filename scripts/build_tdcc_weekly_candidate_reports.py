@@ -24,6 +24,10 @@ from tracking_utils import (  # noqa: E402
     to_number,
     write_csv,
 )
+from tdcc_weekly_pdf_font_contract import (  # noqa: E402
+    register_tdcc_weekly_pdf_font,
+    validate_tdcc_weekly_pdf_font_contract,
+)
 
 
 DAILY_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
@@ -836,22 +840,11 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
         from reportlab.lib.pagesizes import A4, landscape
         from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
         from reportlab.lib.units import cm
-        from reportlab.pdfbase import pdfmetrics
-        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-        from reportlab.pdfbase.ttfonts import TTFont
         from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
     except Exception as exc:  # pragma: no cover - validated in CI
         raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
 
-    def register_report_font() -> str:
-        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
-        if font_path.exists():
-            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
-            return "DFKai-SB"
-        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
-        return "STSong-Light"
-
-    pdf_font = register_report_font()
+    pdf_font = register_tdcc_weekly_pdf_font()
     styles = getSampleStyleSheet()
     normal = ParagraphStyle(
         "zh-normal-v2",
@@ -1004,22 +997,11 @@ def write_tdcc_weekly_full_pdf(df: pd.DataFrame, path: Path, title: str, manifes
         from reportlab.lib.pagesizes import A4, landscape
         from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
         from reportlab.lib.units import cm
-        from reportlab.pdfbase import pdfmetrics
-        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-        from reportlab.pdfbase.ttfonts import TTFont
         from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
     except Exception as exc:  # pragma: no cover - validated in CI
         raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
 
-    def register_report_font() -> str:
-        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
-        if font_path.exists():
-            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
-            return "DFKai-SB"
-        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
-        return "STSong-Light"
-
-    pdf_font = register_report_font()
+    pdf_font = register_tdcc_weekly_pdf_font()
     styles = getSampleStyleSheet()
     normal = ParagraphStyle(
         "zh-normal-v2",
@@ -1693,6 +1675,7 @@ def assert_pdf_openable(path: Path) -> None:
 def validate_delivery_pdfs(paths: dict[str, Path]) -> None:
     for path in paths.values():
         assert_pdf_openable(path)
+    validate_tdcc_weekly_pdf_font_contract([HIGHLIGHT_PDF, FULL_PDF, *paths.values()])
 
 
 def cleanup_flat_delivery_pdfs(base_dir: Path) -> None:
