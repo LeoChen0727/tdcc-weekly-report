@@ -163,6 +163,7 @@ scripts/build_w_bottom_split_entry_outcome_backtest.py,python,research_backtest,
 scripts/build_w_bottom_early_entry_parameter_grid.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry parameter grid builder,,medium
 scripts/build_w_bottom_early_entry_outcome_diagnostics.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry outcome diagnostics builder,,medium
 scripts/build_w_bottom_early_entry_stability_audit.py,python,research_backtest,active,,scripts/build_w_bottom_market_regime_gated_review_packet.py,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry period stability audit builder,,medium
+scripts/build_w_bottom_early_entry_candidate_spec.py,python,research_backtest,active,,scripts/validate_w_bottom_early_entry_candidate_spec.py,,,,,research/backtest W-bottom early-entry current candidate spec builder,,medium
 scripts/build_w_bottom_market_regime_gated_review_packet.py,python,research_backtest,active,,scripts/validate_w_bottom_market_regime_gated_review_packet.py,,,,,research/backtest W-bottom market-regime gated review packet builder,,medium
 scripts/build_w_bottom_early_entry_data_coverage_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry data coverage audit builder,,medium
 scripts/build_w_bottom_early_entry_backfill_feasibility_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry backfill feasibility audit builder,,medium
@@ -286,6 +287,7 @@ scripts/validate_w_bottom_split_entry_outcome_backtest.py,python,research_backte
 scripts/validate_w_bottom_early_entry_parameter_grid.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry parameter grid validator,,medium
 scripts/validate_w_bottom_early_entry_outcome_diagnostics.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry outcome diagnostics validator,,medium
 scripts/validate_w_bottom_early_entry_stability_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry period stability audit validator,,medium
+scripts/validate_w_bottom_early_entry_candidate_spec.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry current candidate spec validator,,medium
 scripts/validate_w_bottom_market_regime_gated_review_packet.py,python,research_backtest,active,,,,,,,research/backtest W-bottom market-regime gated review packet validator,,medium
 scripts/validate_w_bottom_early_entry_data_coverage_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry data coverage audit validator,,medium
 scripts/validate_w_bottom_early_entry_backfill_feasibility_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry backfill feasibility audit validator,,medium
