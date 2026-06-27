@@ -1402,7 +1402,10 @@ def build_model_cross(
         merged["display_rank"] = merged.get("display_rank", merged.get("model_rank", ""))
         merged["model_score"] = merged.get("model_score", "")
         merged["tdcc_model_rank_in_list"] = (
-            merged.sort_values(["tdcc_list_type", "model_id", "tdcc_rank", "display_rank_num"])
+            merged.sort_values(
+                ["tdcc_list_type", "model_id", "model_score_num", "display_rank_num", "tdcc_rank"],
+                ascending=[True, True, False, True, True],
+            )
             .groupby(["tdcc_list_type", "model_id"])
             .cumcount()
             + 1

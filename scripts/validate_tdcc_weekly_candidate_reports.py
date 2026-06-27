@@ -387,6 +387,23 @@ def validate_report(
     bad_models = sorted(set(model_rows["model_id"].dropna().map(safe_str)) - ALLOWED_MODEL_CROSS_IDS)
     if bad_models:
         errors.append(f"{label} has unsupported model cross ids: {', '.join(bad_models)}")
+    for section_id, rows in model_rows.groupby(model_rows["section_id"].map(safe_str), dropna=False):
+        actual = rows.sort_values("section_rank", key=lambda s: to_number(s).fillna(999999))
+        expected = rows.assign(
+            _model_score=to_number(rows.get("model_score", pd.Series(index=rows.index))).fillna(float("-inf")),
+            _display_rank=to_number(rows.get("model_rank", pd.Series(index=rows.index))).fillna(999999),
+            _tdcc_rank=to_number(rows.get("tdcc_rank", pd.Series(index=rows.index))).fillna(999999),
+        ).sort_values(
+            ["_model_score", "_display_rank", "_tdcc_rank"],
+            ascending=[False, True, True],
+        )
+        actual_ids = actual["stock_id"].map(safe_str).tolist()
+        expected_ids = expected["stock_id"].map(safe_str).tolist()
+        if actual_ids != expected_ids:
+            errors.append(
+                f"{label} model cross section {section_id} is not sorted by model_score desc, "
+                "model rank asc, then TDCC rank asc"
+            )
 
 
 def read_text_artifact(path: Path, errors: list[str]) -> str:
