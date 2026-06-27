@@ -139,6 +139,16 @@ def manifest_bool(value: Any, default: bool) -> bool:
     return text in {"1", "true", "yes", "y", "on", "是", "啟用"}
 
 
+def is_model_cross_section(row: pd.Series) -> bool:
+    section_id = safe_str(row.get("section_id"))
+    table_contract = safe_str(row.get("table_contract"))
+    return table_contract == "model_cross" or section_id.startswith("model_cross_")
+
+
+def section_allows_empty(row: pd.Series) -> bool:
+    return is_model_cross_section(row)
+
+
 def manifest_limit(value: Any, default: int) -> int:
     number = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
     if pd.isna(number) or number <= 0:
@@ -325,10 +335,10 @@ def validate_report(
         limit = section_limit(section_row, report_kind)
         required = manifest_bool(section_row.get("required"), True)
         if rows.empty:
-            if required:
+            if required and not section_allows_empty(section_row):
                 errors.append(f"{label} required section is empty or missing: {section_id}")
             else:
-                warnings.append(f"{label} optional section has no rows: {section_id}")
+                warnings.append(f"{label} section has no rows and will render an explicit empty state: {section_id}")
             continue
         if len(rows) > limit:
             errors.append(f"{label} section {section_id} has {len(rows)} rows above manifest limit {limit}")
@@ -540,6 +550,24 @@ def validate_signal_dates(highlight: pd.DataFrame, full: pd.DataFrame, errors: l
     return signal_date
 
 
+def report_section_counts(report: pd.DataFrame, manifest: pd.DataFrame, report_kind: str) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    actual_counts: dict[str, int] = {}
+    if "section_id" in report.columns:
+        actual_counts = {
+            safe_str(section_id): int(count)
+            for section_id, count in report.groupby("section_id", dropna=False).size().to_dict().items()
+        }
+    for _, section_row in sections_for_report(manifest, report_kind).iterrows():
+        section_id = safe_str(section_row.get("section_id"))
+        if section_id:
+            counts[section_id] = int(actual_counts.get(section_id, 0))
+    for section_id, count in actual_counts.items():
+        if section_id and section_id not in counts:
+            counts[section_id] = int(count)
+    return counts
+
+
 def write_validation(result: dict[str, Any]) -> None:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     VALIDATION_JSON.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -675,18 +703,8 @@ def main() -> None:
         "manifest_sections": int(len(manifest)),
     }
     section_counts = {
-        "highlight": {
-            safe_str(section_id): int(count)
-            for section_id, count in highlight.groupby("section_id", dropna=False).size().to_dict().items()
-        }
-        if "section_id" in highlight.columns
-        else {},
-        "full": {
-            safe_str(section_id): int(count)
-            for section_id, count in full.groupby("section_id", dropna=False).size().to_dict().items()
-        }
-        if "section_id" in full.columns
-        else {},
+        "highlight": report_section_counts(highlight, manifest, "highlight"),
+        "full": report_section_counts(full, manifest, "full"),
     }
     manifest_sections = [
         {
