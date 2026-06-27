@@ -192,6 +192,13 @@ function diagnoseDailyStockMonitorTrigger() {
   Logger.log("Daily stock monitor diagnostics OK. If the scheduled trigger still fails, run installDailyStockMonitorTrigger().");
 }
 
+function diagnoseDailyPriceGapRepairTrigger() {
+  testGithubTokenAndWorkflowAccess();
+  assertWorkflowAccessible_("repair_recent_daily_price_gaps.yml");
+  logLatestWorkflowRunsSafe_("repair_recent_daily_price_gaps.yml");
+  Logger.log("Daily price gap repair diagnostics OK. If the scheduled trigger still fails, run installDailyPriceGapRepairTrigger().");
+}
+
 function triggerDailyStockMonitor() {
   const dayOfWeek = new Date().getDay();
   if (dayOfWeek === 0 || dayOfWeek === 6) {
@@ -207,6 +214,20 @@ function triggerDailyStockMonitor() {
 
 function triggerDailyFullPipeline() {
   triggerDailyStockMonitor();
+}
+
+function triggerDailyPriceGapRepair() {
+  const dayOfWeek = new Date().getDay();
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    Logger.log("Skip recent daily price gap repair on weekend.");
+    return;
+  }
+  dispatchWorkflow_("repair_recent_daily_price_gaps.yml", {
+    lookback_days: "7",
+    max_repair_dates: "5",
+  });
+  Utilities.sleep(5000);
+  logLatestWorkflowRunsSafe_("repair_recent_daily_price_gaps.yml");
 }
 
 function triggerTdccWeeklyReport() {
@@ -258,9 +279,21 @@ function installDailyStockMonitorTrigger() {
   listAllTriggers();
 }
 
+function installDailyPriceGapRepairTrigger() {
+  installDailyPriceGapRepairTrigger_();
+  Logger.log("Installed daily price gap repair trigger: daily 08:30 Asia/Taipei, self-skips weekends.");
+  listAllTriggers();
+}
+
 function removeDailyStockMonitorTrigger() {
   removeTriggersForFunction_("triggerDailyStockMonitor");
   Logger.log("Removed daily stock monitor triggers.");
+  listAllTriggers();
+}
+
+function removeDailyPriceGapRepairTrigger() {
+  removeTriggersForFunction_("triggerDailyPriceGapRepair");
+  Logger.log("Removed daily price gap repair triggers.");
   listAllTriggers();
 }
 
@@ -278,6 +311,7 @@ function installBiweeklyResearchBacktestTrigger() {
 }
 
 function installAllWorkflowTriggers() {
+  installDailyPriceGapRepairTrigger_();
   installDailyStockMonitorTrigger_();
   installIndividualStockDataRefreshTrigger_();
   installTdccWeeklyReportTrigger_();
@@ -294,6 +328,17 @@ function installDailyStockMonitorTrigger_() {
     .timeBased()
     .everyDays(1)
     .atHour(19)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installDailyPriceGapRepairTrigger_() {
+  removeTriggersForFunction_("triggerDailyPriceGapRepair");
+  ScriptApp.newTrigger("triggerDailyPriceGapRepair")
+    .timeBased()
+    .everyDays(1)
+    .atHour(8)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();

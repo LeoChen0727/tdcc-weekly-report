@@ -180,6 +180,7 @@ The repo-wide validator is run by:
 - `.github/workflows/individual_stock_report.yml`
 - `.github/workflows/individual_stock_data_refresh.yml`
 - `.github/workflows/warrant_flow.yml`
+- `.github/workflows/repair_recent_daily_price_gaps.yml`
 
 Daily Full Pipeline remains the main production gate. The other workflow gates
 prevent lane-specific PRs or manual runs from reviving old shared paths.

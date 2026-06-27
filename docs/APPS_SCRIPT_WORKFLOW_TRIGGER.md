@@ -40,9 +40,12 @@ Run these from the Apps Script editor when validating or repairing the trigger:
 
 ```text
 diagnoseDailyStockMonitorTrigger
+diagnoseDailyPriceGapRepairTrigger
 installDailyStockMonitorTrigger
+installDailyPriceGapRepairTrigger
 triggerDailyStockMonitor
 triggerDailyFullPipeline
+triggerDailyPriceGapRepair
 triggerTdccWeeklyReport
 triggerIndividualStockDataRefresh
 triggerEventCatalystUpdate
@@ -58,6 +61,12 @@ testGithubTokenAndWorkflowAccess
 and is the function used by the scheduled daily stock monitor trigger.
 
 `triggerDailyFullPipeline` is the manual full daily pipeline dispatcher.
+
+`triggerDailyPriceGapRepair` dispatches
+`.github/workflows/repair_recent_daily_price_gaps.yml` with a 7 calendar-day
+lookback and a maximum of 5 automatic repair dates. The workflow excludes the
+current Asia/Taipei date and uses the repository non-trading-day calendar before
+attempting repairs.
 
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
 
@@ -133,7 +142,8 @@ The canonical Apps Script source currently installs:
 
 | handler | cadence | workflow |
 |---|---|---|
-| `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Sunday in handler | `daily_full_pipeline.yml` |
+| `triggerDailyPriceGapRepair` | daily 08:30 Asia/Taipei, skips Saturday/Sunday in handler | `repair_recent_daily_price_gaps.yml` |
+| `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Saturday/Sunday in handler | `daily_full_pipeline.yml` |
 | `triggerIndividualStockDataRefresh` | daily 22:20 Asia/Taipei | `individual_stock_data_refresh.yml` |
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
 | `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |

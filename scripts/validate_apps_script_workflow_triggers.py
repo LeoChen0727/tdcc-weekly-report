@@ -10,6 +10,7 @@ WORKFLOW_DIR = ROOT / ".github" / "workflows"
 
 EXPECTED_DISPATCHES = {
     "daily_full_pipeline.yml",
+    "repair_recent_daily_price_gaps.yml",
     "individual_stock_data_refresh.yml",
     "tdcc_weekly.yml",
     "event_catalyst_update.yml",
@@ -107,6 +108,23 @@ def main() -> int:
     if bad_daily_values:
         errors.append(f"Apps Script daily dispatch inputs must be false: {bad_daily_values}")
 
+    repair_workflow = "repair_recent_daily_price_gaps.yml"
+    repair_expected_inputs = {
+        "lookback_days": "7",
+        "max_repair_dates": "5",
+    }
+    repair_inputs = dispatches.get(repair_workflow, {})
+    missing_repair_inputs = set(repair_expected_inputs) - set(repair_inputs)
+    bad_repair_values = {
+        key: value
+        for key, value in repair_inputs.items()
+        if key in repair_expected_inputs and value != repair_expected_inputs[key]
+    }
+    if missing_repair_inputs:
+        errors.append(f"Apps Script daily price gap repair dispatch missing inputs: {sorted(missing_repair_inputs)}")
+    if bad_repair_values:
+        errors.append(f"Apps Script daily price gap repair inputs have unexpected values: {bad_repair_values}")
+
     try:
         daily_trigger_body = apps_script_function_body("triggerDailyStockMonitor")
     except ValueError as exc:
@@ -120,6 +138,20 @@ def main() -> int:
             re.S,
         ):
             errors.append("Apps Script daily trigger must dispatch daily_full_pipeline with run_raw_health_check=false")
+
+    try:
+        repair_trigger_body = apps_script_function_body("triggerDailyPriceGapRepair")
+    except ValueError as exc:
+        errors.append(str(exc))
+    else:
+        if not re.search(r"dayOfWeek\s*===\s*0\s*\|\|\s*dayOfWeek\s*===\s*6", repair_trigger_body):
+            errors.append("Apps Script daily price gap repair trigger must skip Saturday and Sunday")
+        if 'dispatchWorkflow_("repair_recent_daily_price_gaps.yml", {' not in repair_trigger_body:
+            errors.append("Apps Script daily price gap repair trigger must dispatch repair_recent_daily_price_gaps.yml")
+        if 'lookback_days: "7"' not in repair_trigger_body:
+            errors.append("Apps Script daily price gap repair trigger must use lookback_days=7")
+        if 'max_repair_dates: "5"' not in repair_trigger_body:
+            errors.append("Apps Script daily price gap repair trigger must use max_repair_dates=5")
 
     research_text = read_text(WORKFLOW_DIR / research_workflow)
     forbidden_research_auto_commit_patterns = [
@@ -137,15 +169,20 @@ def main() -> int:
     required_functions = {
         "triggerDailyStockMonitor",
         "triggerDailyFullPipeline",
+        "triggerDailyPriceGapRepair",
         "triggerIndividualStockDataRefresh",
         "triggerTdccWeeklyReport",
         "triggerEventCatalystUpdate",
         "triggerWeeklyThemeReview",
         "triggerResearchBacktestPipeline",
         "diagnoseDailyStockMonitorTrigger",
+        "diagnoseDailyPriceGapRepairTrigger",
         "installDailyStockMonitorTrigger",
+        "installDailyPriceGapRepairTrigger",
         "removeDailyStockMonitorTrigger",
+        "removeDailyPriceGapRepairTrigger",
         "installAllWorkflowTriggers",
+        "installDailyPriceGapRepairTrigger_",
         "installIndividualStockDataRefreshTrigger_",
         "installBiweeklyResearchBacktestTrigger",
         "listAllTriggers",
