@@ -145,8 +145,8 @@ scripts/validate_workspace_cleanup_policy.py,python,repo_infrastructure,active,w
 scripts/validate_repo_production_inventory.py,python,repo_infrastructure,active,repo-wide script and workflow ownership inventory gate,,
 scripts/repair_daily_price_range.py,python,official_price_data,active,official price data script: repair_daily_price_range,.github/workflows/repair_daily_price_range.yml;.github/workflows/repair_one_daily_price.yml,
 scripts/repair_missing_daily_price_files.py,python,official_price_data,active,official price data source recovery gate,.github/workflows/daily_full_pipeline.yml,
-scripts/repair_recent_daily_price_gaps.py,python,official_price_data,active,official price data proactive recent gap repair,,
-scripts/validate_daily_price_history_continuity.py,python,official_price_data,active,official price data continuity gate,.github/workflows/daily_full_pipeline.yml;.github/workflows/repair_daily_price_range.yml;.github/workflows/repair_one_daily_price.yml,
+scripts/repair_recent_daily_price_gaps.py,python,official_price_data,active,official price data proactive recent gap repair,.github/workflows/repair_recent_daily_price_gaps.yml,
+scripts/validate_daily_price_history_continuity.py,python,official_price_data,active,official price data continuity gate,.github/workflows/daily_full_pipeline.yml;.github/workflows/repair_daily_price_range.yml;.github/workflows/repair_one_daily_price.yml;.github/workflows/repair_recent_daily_price_gaps.yml,
 scripts/validate_repo_semantic_integrity.py,python,repo_infrastructure,active,"repo semantic integrity gate for import graph, data/date sources, lineage, model parity, orphan code, and semantic assertions",,
 scripts/validate_research_production_boundaries.py,python,repo_infrastructure,active,research versus production boundary gate,,
 scripts/validate_stock_model_contract_registry.py,python,repo_infrastructure,active,validator: validate_stock_model_contract_registry,,
@@ -241,6 +241,7 @@ tests/test_warrant_source_status.py,test_python,warrant,active,warrant source st
 .github/workflows/pages.yml,workflow,repo_infrastructure,active,repo infrastructure workflow boundary,,
 .github/workflows/repair_daily_price_range.yml,workflow,official_price_data,active,official price data workflow boundary,,git add data/daily_price/
 .github/workflows/repair_one_daily_price.yml,workflow,official_price_data,active,official price data workflow boundary,,git add data/daily_price/
+.github/workflows/repair_recent_daily_price_gaps.yml,workflow,official_price_data,active,official price data proactive recent gap repair workflow,,"git add data/daily_price/;git add data/stock_price_history/;git add output/latest/recent_daily_price_gap_repair_latest.*"
 .github/workflows/research_backtest_pipeline.yml,workflow,research_backtest,active,research backtest workflow boundary,,git add output/latest/daily_model_parameter_recommendations_latest.csv;git add output/latest/model_operation_readiness_latest.csv;git add output/latest/daily_signal_performance_*.csv
 .github/workflows/signal_performance_tracker.yml,workflow,research_backtest,active,research backtest workflow boundary,,
 .github/workflows/tdcc_history_backfill.yml,workflow,tdcc_weekly,active,tdcc weekly workflow boundary,,git add data/tdcc_stock_history/ data/tdcc_stock_history_raw/;git add output/latest/tdcc_* output/history/tdcc_signals/ output/history/tdcc/

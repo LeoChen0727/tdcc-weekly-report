@@ -70,6 +70,7 @@ WORKFLOW_ALLOWED_OWNERS = {
     ".github/workflows/pages.yml": {"repo_infrastructure"},
     ".github/workflows/repair_daily_price_range.yml": {"official_price_data", "repo_infrastructure"},
     ".github/workflows/repair_one_daily_price.yml": {"official_price_data", "repo_infrastructure"},
+    ".github/workflows/repair_recent_daily_price_gaps.yml": {"official_price_data", "repo_infrastructure"},
     ".github/workflows/research_backtest_pipeline.yml": {
         "research_backtest",
         "market_risk",
@@ -206,6 +207,12 @@ REQUIRED_WORKFLOW_COMMANDS = {
     ".github/workflows/individual_stock_report.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/individual_stock_data_refresh.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/warrant_flow.yml": ("python scripts/validate_repo_production_inventory.py",),
+    ".github/workflows/repair_recent_daily_price_gaps.yml": (
+        "python scripts/validate_apps_script_workflow_triggers.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_semantic_integrity.py",
+    ),
 }
 
 PYTHON_INVOKE_RE = re.compile(r"\bpython(?:3)?\s+([A-Za-z0-9_./\\-]+\.py)")
