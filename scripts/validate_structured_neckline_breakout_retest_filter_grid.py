@@ -22,6 +22,9 @@ EXPECTED_SEGMENTS = {
     "low_position_le60",
     "clean_attack_candle",
     "weak_or_upper_shadow_candle",
+    "locked_limit_down_risk",
+    "formal_volume_gate_reference",
+    "formal_volume_gate_low_position_le60",
     "tdcc_fresh_supportive",
 }
 
@@ -82,6 +85,10 @@ def main() -> int:
         "broad structured-neckline",
         "retest-not-broken",
         "not a production recommendation",
+        "current formal `volume_range_breakout` volume/candle gate",
+        "not a selective filter",
+        "locked limit-up can count",
+        "locked limit-down is risk",
         "TDCC",
         "Revenue remains pending",
         "does not yet support production promotion",
