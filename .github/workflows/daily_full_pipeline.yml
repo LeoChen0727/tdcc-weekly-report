@@ -95,7 +95,7 @@ jobs:
 
       - name: Build per-stock price history
         run: |
-          python scripts/build_stock_price_history.py --incremental-latest
+          python scripts/build_stock_price_history.py --incremental-latest --full-rebuild-if-source-recovered
 
       - name: Validate daily price history continuity
         run: |
