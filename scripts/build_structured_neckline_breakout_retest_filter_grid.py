@@ -25,6 +25,7 @@ from volume_breakout_operation_utils import (
     ENTRY_RULE_ID as CONFIRMATION_ENTRY_RULE_ID,
     MAX_CONFIRM_DAYS,
     TRIGGERS,
+    load_market_regime_map,
     selected_confirmation_for_signal,
     simulate_confirmed_trade,
 )
@@ -313,6 +314,13 @@ def attach_confirmation_signal_features(events: pd.DataFrame) -> pd.DataFrame:
     return pd.concat([events.reset_index(drop=True), features], axis=1)
 
 
+def attach_market_regime_features(events: pd.DataFrame) -> pd.DataFrame:
+    market_regimes = load_market_regime_map()
+    out = events.copy()
+    out["signal_market_regime"] = out["signal_date"].map(lambda date: market_regimes.get(normalize_date(date), "unknown"))
+    return out
+
+
 def read_tdcc_file(stock_id: str) -> pd.DataFrame:
     path = TDCC_DIR / f"{stock_id}.csv"
     if not path.exists():
@@ -381,6 +389,7 @@ def attach_tdcc_features(events: pd.DataFrame) -> pd.DataFrame:
 def enrich_events(events: pd.DataFrame) -> pd.DataFrame:
     events = attach_signal_candle_features(events)
     events = attach_confirmation_signal_features(events)
+    events = attach_market_regime_features(events)
     events = attach_tdcc_features(events)
     return events
 
@@ -501,6 +510,8 @@ def interpretation_for(
         return "existing_volume_breakout_operation_confirmation_reference", "compare_confirmation_entry_against_retest_entry_not_production"
     if segment_id.startswith("confirmation_trigger_"):
         return "trigger_specific_confirmation_reference_only", "keep_trigger_as_research_diagnostic"
+    if segment_id.startswith("market_regime_") or "_market_" in segment_id:
+        return "market_regime_research_filter_only", "compare_market_regime_stability_not_production_gate"
     if "tdcc" in segment_id:
         return "tdcc_layer_is_observation_only_due_coverage", "keep_tdcc_as_scoring_research_not_required_gate"
     if win_lift >= 8.0 and avg_lift >= 0.5:
@@ -511,6 +522,11 @@ def interpretation_for(
 
 
 def build_grid(events: pd.DataFrame, generated_at: str) -> pd.DataFrame:
+    strong_bull = lambda d: d["signal_market_regime"].astype(str).eq("strong_bull")
+    bull = lambda d: d["signal_market_regime"].astype(str).isin(["strong_bull", "mild_bull"])
+    not_correction = lambda d: d["signal_market_regime"].astype(str).isin(["strong_bull", "mild_bull", "range_or_mixed"])
+    low_position = lambda d: d["low_position_120_pct"].le(60)
+    confirmation_signal = lambda d: d["confirmation_signal_matched"].astype(bool)
     segments: list[tuple[str, str, str, Callable[[pd.DataFrame], pd.Series]]] = [
         ("all_structured_neckline", "all broad structured-neckline proxy rows", "all structured-neckline events", lambda d: pd.Series(True, index=d.index)),
         ("triple_or_multi_bottom_proxy", "triple or multi-bottom proxy", "pattern_subtype", lambda d: d["pattern_subtype"].astype(str).eq("triple_or_multi_bottom_proxy")),
@@ -527,9 +543,19 @@ def build_grid(events: pd.DataFrame, generated_at: str) -> pd.DataFrame:
         ("normal_volume_breakout", "normal volume-confirmed breakout", "volume confirmation type", lambda d: d["normal_volume_breakout"].astype(str).str.lower().eq("true")),
         ("locked_limit_up_breakout", "locked limit-up breakout", "volume confirmation type", lambda d: d["locked_limit_up_breakout"].astype(str).str.lower().eq("true")),
         ("locked_limit_down_risk", "locked limit-down risk", "limit-down special case", lambda d: d["locked_limit_down_risk"].astype(bool)),
-        ("confirmation_signal_reference", "existing confirmed-operation signal matched", "volume_breakout_confirmed_operation confirmation rules", lambda d: d["confirmation_signal_matched"].astype(bool)),
-        ("confirmation_signal_low_position_le60", "confirmed-operation signal plus low position <= 60", "volume_breakout_confirmed_operation confirmation rules + low_position_120_pct", lambda d: d["confirmation_signal_matched"].astype(bool) & d["low_position_120_pct"].le(60)),
+        ("market_regime_strong_bull", "signal date market regime is strong_bull", "signal_market_regime", strong_bull),
+        ("market_regime_bull", "signal date market regime is strong_bull or mild_bull", "signal_market_regime", bull),
+        ("market_regime_not_correction", "signal date market regime is known non-correction", "signal_market_regime", not_correction),
+        ("market_regime_range_or_mixed", "signal date market regime is range_or_mixed", "signal_market_regime", lambda d: d["signal_market_regime"].astype(str).eq("range_or_mixed")),
+        ("market_regime_correction", "signal date market regime is correction", "signal_market_regime", lambda d: d["signal_market_regime"].astype(str).eq("correction")),
+        ("market_regime_unknown", "signal date market regime is unknown", "signal_market_regime", lambda d: d["signal_market_regime"].astype(str).eq("unknown")),
+        ("low_position_le60_market_bull", "low position <= 60 and bull market regime", "low_position_120_pct + signal_market_regime", lambda d: low_position(d) & bull(d)),
+        ("confirmation_signal_reference", "existing confirmed-operation signal matched", "volume_breakout_confirmed_operation confirmation rules", confirmation_signal),
+        ("confirmation_signal_low_position_le60", "confirmed-operation signal plus low position <= 60", "volume_breakout_confirmed_operation confirmation rules + low_position_120_pct", lambda d: confirmation_signal(d) & low_position(d)),
+        ("confirmation_signal_market_bull", "confirmed-operation signal plus bull market regime", "volume_breakout_confirmed_operation confirmation rules + signal_market_regime", lambda d: confirmation_signal(d) & bull(d)),
+        ("confirmation_signal_low_position_le60_market_bull", "confirmed-operation signal plus low position <= 60 and bull market regime", "volume_breakout_confirmed_operation confirmation rules + low_position_120_pct + signal_market_regime", lambda d: confirmation_signal(d) & low_position(d) & bull(d)),
         ("tdcc_fresh_supportive", "fresh supportive TDCC observation", "TDCC <= 10 calendar days", lambda d: d["tdcc_supportive"].astype(bool)),
+        ("tdcc_fresh_supportive_market_bull", "fresh supportive TDCC observation plus bull market regime", "TDCC <= 10 calendar days + signal_market_regime", lambda d: d["tdcc_supportive"].astype(bool) & bull(d)),
         ("tdcc_no_fresh_support", "no fresh supportive TDCC observation", "TDCC <= 10 calendar days", lambda d: ~d["tdcc_supportive"].astype(bool)),
     ]
     for trigger in TRIGGERS:
@@ -596,6 +622,8 @@ def write_markdown(grid: pd.DataFrame, generated_at: str) -> None:
         "Confirmation trigger ids referenced here: `pullback_5ma_confirmed`, `next_day_break_signal_high_confirmed`, `next_day_continuation_confirmed`, and `pullback_10ma_confirmed`. Confirmed-operation performance uses the existing rule: buy at the next open after confirmation, stop at the signal-day low, otherwise exit at the fixed 10-trading-day close.",
         "",
         "The main entry hypotheses are now compared separately: direct next-open after neckline breakout, retest-not-broken then renewed attack, and existing confirmed-operation signal after the neckline event. Limit special cases remain diagnostic tags: locked limit-up may be part of the source attack-volume confirmation, while locked limit-down is risk and must not count as confirmation. TDCC is included only as an observation layer because historical coverage is short. Revenue remains pending because a point-in-time historical revenue panel is not available in this worktree.",
+        "",
+        "Market regime is included as a research-only segmentation layer, using the same `strong_bull`, `mild_bull`, `range_or_mixed`, `correction`, and `unknown` categories used by W-bottom early-entry research. These rows test whether broad-market context improves structured-neckline behavior; they are not production gates.",
         "",
         "## Filter Grid",
         "",

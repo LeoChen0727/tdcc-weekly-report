@@ -1,6 +1,6 @@
 # Structured Neckline Breakout Retest Filter Grid
 
-- generated_at: `2026-06-27 17:57:32 Asia/Taipei`
+- generated_at: `2026-06-27 18:08:28 Asia/Taipei`
 - research_id: `structured_neckline_breakout_retest_filter_grid`
 - source_research_id: `breakout_family_retest_grid`
 - source_parameter_set_id: `breakout_family_retest_grid_20260627`
@@ -15,6 +15,8 @@ The confirmation-signal reference intentionally uses the existing `volume_breako
 Confirmation trigger ids referenced here: `pullback_5ma_confirmed`, `next_day_break_signal_high_confirmed`, `next_day_continuation_confirmed`, and `pullback_10ma_confirmed`. Confirmed-operation performance uses the existing rule: buy at the next open after confirmation, stop at the signal-day low, otherwise exit at the fixed 10-trading-day close.
 
 The main entry hypotheses are now compared separately: direct next-open after neckline breakout, retest-not-broken then renewed attack, and existing confirmed-operation signal after the neckline event. Limit special cases remain diagnostic tags: locked limit-up may be part of the source attack-volume confirmation, while locked limit-down is risk and must not count as confirmation. TDCC is included only as an observation layer because historical coverage is short. Revenue remains pending because a point-in-time historical revenue panel is not available in this worktree.
+
+Market regime is included as a research-only segmentation layer, using the same `strong_bull`, `mild_bull`, `range_or_mixed`, `correction`, and `unknown` categories used by W-bottom early-entry research. These rows test whether broad-market context improves structured-neckline behavior; they are not production gates.
 
 ## Filter Grid
 
@@ -35,9 +37,19 @@ The main entry hypotheses are now compared separately: direct next-open after ne
 | normal_volume_breakout | 1212 | 30.4455 | 365 | 43.5616 | 13.1161 | 0.8327 | 101 | 51 | 831 | 68.5644 | 36.9434 | 0.6712 | candidate_filter_for_second_pass_review | review_chart_quality_and_expand_replay |
 | locked_limit_up_breakout | 50 | 28.0000 | 10 | 30.0000 | 2.0000 | -2.6599 | 8 | 5 | 39 | 78.0000 | 30.7692 | -0.8198 | sample_too_thin_for_model_decision | expand_or_drop_segment_before_promotion_discussion |
 | locked_limit_down_risk | 0 |  | 0 |  |  |  | 0 | 0 | 0 |  |  |  | sample_too_thin_for_model_decision | expand_or_drop_segment_before_promotion_discussion |
+| market_regime_strong_bull | 867 | 31.0265 | 279 | 46.2366 | 15.2100 | 1.7820 | 96 | 47 | 622 | 71.7416 | 36.1736 | 0.6283 | market_regime_research_filter_only | compare_market_regime_stability_not_production_gate |
+| market_regime_bull | 1037 | 31.4368 | 323 | 44.8916 | 13.4548 | 1.2894 | 98 | 49 | 730 | 70.3954 | 37.1233 | 0.7441 | market_regime_research_filter_only | compare_market_regime_stability_not_production_gate |
+| market_regime_not_correction | 1158 | 31.5199 | 350 | 44.0000 | 12.4801 | 1.0007 | 107 | 55 | 818 | 70.6390 | 36.9193 | 0.6588 | market_regime_research_filter_only | compare_market_regime_stability_not_production_gate |
+| market_regime_range_or_mixed | 121 | 32.2314 | 27 | 33.3333 | 1.1019 | -2.4531 | 9 | 6 | 88 | 72.7273 | 35.2273 | -0.0486 | market_regime_research_filter_only | compare_market_regime_stability_not_production_gate |
+| market_regime_correction | 95 | 16.8421 | 24 | 33.3333 | 16.4912 | -1.7808 | 1 | 0 | 46 | 48.4211 | 34.7826 | 0.1424 | market_regime_research_filter_only | compare_market_regime_stability_not_production_gate |
+| market_regime_unknown | 0 |  | 0 |  |  |  | 0 | 0 | 0 |  |  |  | sample_too_thin_for_model_decision | expand_or_drop_segment_before_promotion_discussion |
+| low_position_le60_market_bull | 285 | 34.3860 | 95 | 46.3158 | 11.9298 | 2.3243 | 17 | 8 | 218 | 76.4912 | 36.6972 | 0.9786 | market_regime_research_filter_only | compare_market_regime_stability_not_production_gate |
 | confirmation_signal_reference | 864 | 44.0972 | 330 | 44.8485 | 0.7513 | 1.0749 | 84 | 39 | 864 | 100.0000 | 36.8056 | 0.6313 | existing_volume_breakout_operation_confirmation_reference | compare_confirmation_entry_against_retest_entry_not_production |
 | confirmation_signal_low_position_le60 | 248 | 45.5645 | 95 | 49.4737 | 3.9092 | 3.0012 | 15 | 7 | 248 | 100.0000 | 37.9032 | 1.1643 | existing_volume_breakout_operation_confirmation_reference | compare_confirmation_entry_against_retest_entry_not_production |
+| confirmation_signal_market_bull | 730 | 44.6575 | 287 | 45.9930 | 1.3355 | 1.6115 | 76 | 34 | 730 | 100.0000 | 37.1233 | 0.7441 | existing_volume_breakout_operation_confirmation_reference | compare_confirmation_entry_against_retest_entry_not_production |
+| confirmation_signal_low_position_le60_market_bull | 218 | 44.9541 | 86 | 47.6744 | 2.7203 | 3.0422 | 15 | 7 | 218 | 100.0000 | 36.6972 | 0.9786 | existing_volume_breakout_operation_confirmation_reference | compare_confirmation_entry_against_retest_entry_not_production |
 | tdcc_fresh_supportive | 55 | 49.0909 | 20 | 75.0000 | 25.9091 | 10.4791 | 55 | 55 | 39 | 70.9091 | 69.2308 | 11.2365 | tdcc_layer_is_observation_only_due_coverage | keep_tdcc_as_scoring_research_not_required_gate |
+| tdcc_fresh_supportive_market_bull | 49 | 48.9796 | 18 | 77.7778 | 28.7982 | 11.4987 | 49 | 49 | 34 | 69.3878 | 73.5294 | 12.6226 | sample_too_thin_for_model_decision | expand_or_drop_segment_before_promotion_discussion |
 | tdcc_no_fresh_support | 1198 | 29.5492 | 354 | 41.5254 | 11.9762 | 0.2766 | 53 | 0 | 825 | 68.8648 | 35.2727 | 0.1300 | tdcc_layer_is_observation_only_due_coverage | keep_tdcc_as_scoring_research_not_required_gate |
 | confirmation_trigger_pullback_5ma_confirmed | 281 | 37.7224 | 113 | 48.6726 | 10.9501 | 2.2015 | 26 | 13 | 281 | 100.0000 | 33.8078 | 0.3721 | trigger_specific_confirmation_reference_only | keep_trigger_as_research_diagnostic |
 | confirmation_trigger_next_day_break_signal_high_confirmed | 554 | 48.3755 | 208 | 42.7885 | -5.5870 | 0.5136 | 54 | 22 | 554 | 100.0000 | 38.4477 | 0.6020 | trigger_specific_confirmation_reference_only | keep_trigger_as_research_diagnostic |
