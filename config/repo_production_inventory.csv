@@ -145,6 +145,7 @@ scripts/validate_workspace_cleanup_policy.py,python,repo_infrastructure,active,w
 scripts/validate_repo_production_inventory.py,python,repo_infrastructure,active,repo-wide script and workflow ownership inventory gate,,
 scripts/repair_daily_price_range.py,python,official_price_data,active,official price data script: repair_daily_price_range,.github/workflows/repair_daily_price_range.yml;.github/workflows/repair_one_daily_price.yml,
 scripts/repair_missing_daily_price_files.py,python,official_price_data,active,official price data source recovery gate,.github/workflows/daily_full_pipeline.yml,
+scripts/repair_recent_daily_price_gaps.py,python,official_price_data,active,official price data proactive recent gap repair,,
 scripts/validate_daily_price_history_continuity.py,python,official_price_data,active,official price data continuity gate,.github/workflows/daily_full_pipeline.yml;.github/workflows/repair_daily_price_range.yml;.github/workflows/repair_one_daily_price.yml,
 scripts/validate_repo_semantic_integrity.py,python,repo_infrastructure,active,"repo semantic integrity gate for import graph, data/date sources, lineage, model parity, orphan code, and semantic assertions",,
 scripts/validate_research_production_boundaries.py,python,repo_infrastructure,active,research versus production boundary gate,,
