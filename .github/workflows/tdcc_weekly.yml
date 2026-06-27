@@ -8,7 +8,10 @@ permissions:
 
 jobs:
   run-tdcc-weekly:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Checkout repository
@@ -29,6 +32,24 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib reportlab pypdf
+
+      - name: Ensure Traditional Chinese Kai font
+        shell: pwsh
+        run: |
+          $fontPath = "C:\Windows\Fonts\kaiu.ttf"
+          if (-not (Test-Path -LiteralPath $fontPath)) {
+            $capability = Get-WindowsCapability -Online -Name "Language.Fonts.Hant*" | Select-Object -First 1
+            if ($null -eq $capability) {
+              throw "Traditional Chinese supplemental font capability was not found; cannot render TDCC weekly PDFs with DFKai."
+            }
+            if ($capability.State -ne "Installed") {
+              Add-WindowsCapability -Online -Name $capability.Name
+            }
+          }
+          if (-not (Test-Path -LiteralPath $fontPath)) {
+            throw "Required TDCC weekly Kai font missing after setup: $fontPath"
+          }
+          Get-Item -LiteralPath $fontPath | Select-Object FullName,Length,LastWriteTime
 
       - name: Run TDCC weekly report
         run: |

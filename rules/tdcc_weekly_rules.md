@@ -73,14 +73,13 @@ The {signal_date} value must come only from the unique matching signal_date in t
 
 When reporting TDCC weekly PDF delivery completion to the user, include clickable links to the delivered PDF files when possible. At minimum, include a clickable link to `output/latest/published_reports/tdcc_weekly/` using the absolute local workspace path.
 
-PDF text and table content must use the repo-controlled TDCC weekly CJK font asset
-`assets/fonts/TDCCSansTC-Regular.ttf` at 14 pt. Do not depend on runner-installed
-fonts such as `C:\Windows\Fonts\kaiu.ttf`. Do not silently fall back to
-ReportLab built-in CID fonts such as `STSong-Light` for formal TDCC weekly
-production PDFs. If the repo font asset is missing, cannot be registered, or the
-final PDF does not contain the expected `TDCCSansTC-Regular` font token, the builder or
-validator must fail closed. Page count is not fixed; do not treat five pages as
-a rule.
+PDF text and table content must use Traditional Chinese Kai/DFKai
+(`C:\Windows\Fonts\kaiu.ttf`, registered as `DFKai-SB`) at 14 pt. Formal TDCC
+weekly production PDFs must not silently fall back to ReportLab built-in CID
+fonts such as `STSong-Light`, or to Noto Sans / generic sans-serif fonts. If
+the Kai font is missing, cannot be registered, or the final PDF does not contain
+a DFKai/Kai font token, the builder or validator must fail closed. Page count is
+not fixed; do not treat five pages as a rule.
 
 TDCC ranking sections and daily-model cross sections must use different PDF table contracts:
 
