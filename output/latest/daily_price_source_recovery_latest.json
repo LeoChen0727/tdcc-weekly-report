@@ -1,0 +1,40 @@
+{
+  "status": "repaired",
+  "required_end_date": "20260626",
+  "date_candidates": {
+    "main_price_date": "20260626",
+    "official_fetch_saved_price_date": "20260626",
+    "latest_daily_price_file_date": "20260626"
+  },
+  "lookback_days": 20,
+  "expected_trading_dates": [
+    "20260608",
+    "20260609",
+    "20260610",
+    "20260611",
+    "20260612",
+    "20260615",
+    "20260616",
+    "20260617",
+    "20260618",
+    "20260622",
+    "20260623",
+    "20260624",
+    "20260625",
+    "20260626"
+  ],
+  "legacy_only_before": [],
+  "missing_before": [
+    "20260625"
+  ],
+  "missing_after": [],
+  "actions": [
+    {
+      "date": "20260625",
+      "action": "repair_daily_price_range",
+      "return_code": "0",
+      "target": "data/daily_price/daily_price_20260625.csv"
+    }
+  ],
+  "errors": []
+}

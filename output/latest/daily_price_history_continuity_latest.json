@@ -1,10 +1,8 @@
 {
   "status": "pass",
-  "main_price_date": "20260624",
+  "main_price_date": "20260626",
   "lookback_days": 20,
   "expected_trading_dates": [
-    "20260604",
-    "20260605",
     "20260608",
     "20260609",
     "20260610",
@@ -16,36 +14,14 @@
     "20260618",
     "20260622",
     "20260623",
-    "20260624"
+    "20260624",
+    "20260625",
+    "20260626"
   ],
   "non_trading_days_in_window": [
     "20260619"
   ],
   "daily_price_files": {
-    "20260604": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260604.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 6706,
-      "date_rows": 6706,
-      "stock_rows": 2107,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20260605": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260605.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 6431,
-      "date_rows": 6431,
-      "stock_rows": 2109,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
     "20260608": {
       "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260608.csv",
       "exists": true,
@@ -189,9 +165,33 @@
         "TPEx",
         "TWSE"
       ]
+    },
+    "20260625": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260625.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2132,
+      "date_rows": 2132,
+      "stock_rows": 2109,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
+    },
+    "20260626": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260626.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2130,
+      "date_rows": 2130,
+      "stock_rows": 2110,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
     }
   },
-  "target_stock_count": 364,
+  "target_stock_count": 332,
   "stock_history_missing_rows": [],
   "stock_history_missing_row_count": 0,
   "errors": []
