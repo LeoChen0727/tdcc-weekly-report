@@ -103,6 +103,8 @@ The previous week's PDF or any reference PDF is a visual style reference only. I
 
 Each rendered table must correspond to exactly one `section_id`. The generator must filter with the section ID for each section and must not combine multiple `section_id` values into one table. The weekly-increase model-cross section and consecutive-accumulation model-cross section must remain separate sections; they must not be merged through a generic source column.
 
+Daily-model cross sections are intersection disclosures, not primary TDCC ranking gates. If an enabled `table_contract=model_cross` section has zero qualifying rows for the current week, the Markdown/PDF renderer and validator must keep the section visible and render an explicit empty-state message such as no qualifying names this week. This must not fail the weekly workflow, must not fabricate rows, and must not lower ranking/model thresholds. Core TDCC ranking sections such as `weekly_increase` and `consecutive_accumulation` remain fail-closed when empty.
+
 ## Ranking Lines
 
 The weekly report has two independent TDCC ranking lines:

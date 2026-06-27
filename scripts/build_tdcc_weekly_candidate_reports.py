@@ -508,6 +508,20 @@ def is_model_cross_section_id(value: Any) -> bool:
     return "model_cross" in safe_str(value)
 
 
+def is_model_cross_section(row: pd.Series) -> bool:
+    return manifest_table_contract(row.get("section_id"), row.get("table_contract")) == "model_cross"
+
+
+def section_allows_empty(row: pd.Series) -> bool:
+    return is_model_cross_section(row)
+
+
+def section_empty_message(row: pd.Series) -> str:
+    if is_model_cross_section(row):
+        return "本週無符合此模型交集條件的個股；保留 section 供檢核，不補造候選股。"
+    return "本週無符合此 section 條件的個股。"
+
+
 def pdf_columns_for_section(group: pd.DataFrame) -> list[str]:
     if group.empty:
         return PDF_RANKING_COLUMNS
@@ -968,7 +982,7 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
             show = group
 
             if show.empty:
-                story.append(Paragraph("沒有可用報告資料。", normal))
+                story.append(Paragraph(section_empty_message(section_row), normal))
                 continue
 
             columns = tdcc_highlight_pdf_columns_for_contract(section_row.get("table_contract"), show)
@@ -1136,7 +1150,7 @@ def write_tdcc_weekly_full_pdf(df: pd.DataFrame, path: Path, title: str, manifes
             show = group
 
             if show.empty:
-                story.append(Paragraph("沒有可用報告資料。", normal))
+                story.append(Paragraph(section_empty_message(section_row), normal))
                 continue
 
             columns = tdcc_full_pdf_columns_for_contract(section_row.get("table_contract"), show)
@@ -1720,7 +1734,7 @@ def write_report_md(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataF
                 "",
                 markdown_table(display_df, list(display_df.columns), limit=None)
                 if not display_df.empty
-                else "沒有可用報告資料。",
+                else section_empty_message(section_row),
                 "",
             ]
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -1844,7 +1858,7 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame, manifest: pd.D
             limit = section_limit(section_row, report_name)
             if count > limit:
                 raise RuntimeError(f"{report_name} TDCC report section {section_id} has {count} rows above limit {limit}")
-            if manifest_bool(section_row.get("required"), True) and count == 0:
+            if manifest_bool(section_row.get("required"), True) and count == 0 and not section_allows_empty(section_row):
                 raise RuntimeError(f"{report_name} TDCC report required section is empty: {section_id}")
         title_groups = report_df.groupby("section_name_zh", dropna=False)["section_id"].nunique()
         merged_titles = title_groups[title_groups > 1]
