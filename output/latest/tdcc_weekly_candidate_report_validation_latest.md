@@ -1,19 +1,19 @@
 # TDCC Weekly Candidate Report Validation
 
 - status: pass
-- signal_date: 20260618
+- signal_date: 20260626
 - date_source: report_ready_csv_signal_date
 - error_count: 0
-- warning_count: 0
+- warning_count: 2
 
 ## Date Contract
 
 - date_source: `report_ready_csv_signal_date`
-- report_date: `20260618`
-- highlight_report_ready_signal_dates: `['20260618']`
-- full_report_ready_signal_dates: `['20260618']`
-- weekly_source_signal_dates: `['20260618']`
-- consecutive_source_signal_dates: `['20260618']`
+- report_date: `20260626`
+- highlight_report_ready_signal_dates: `['20260626']`
+- full_report_ready_signal_dates: `['20260626']`
+- weekly_source_signal_dates: `['20260626']`
+- consecutive_source_signal_dates: `['20260626']`
 
 ## Manifest Sections
 
@@ -24,25 +24,25 @@
 
 ## Report Row Counts
 
-- weekly_increase: 420
-- consecutive_accumulation: 16
-- model_cross: 11
-- highlight_report: 31
-- full_report: 77
+- weekly_increase: 413
+- consecutive_accumulation: 28
+- model_cross: 8
+- highlight_report: 28
+- full_report: 86
 - manifest_sections: 4
 
 ## Section Row Counts
 
 ### highlight
-- `consecutive_accumulation`: 10
-- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 2
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 9
 - `weekly_increase`: 10
+- `consecutive_accumulation`: 10
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 8
+- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 0
 ### full
-- `consecutive_accumulation`: 16
-- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 2
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 9
 - `weekly_increase`: 50
+- `consecutive_accumulation`: 28
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 8
+- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 0
 
 ## Errors
 
@@ -50,4 +50,5 @@
 
 ## Warnings
 
-- none
+- highlight report-ready CSV section has no rows and will render an explicit empty state: model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10
+- full report-ready CSV section has no rows and will render an explicit empty state: model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10
