@@ -78,6 +78,10 @@ jobs:
         run: |
           python scripts/validate_pdf_facing_display_text.py
 
+      - name: Validate TDCC weekly PDF font contract
+        run: |
+          python scripts/validate_tdcc_weekly_pdf_font_contract.py
+
       - name: Write TDCC weekly run status
         run: |
           mkdir -p output/latest

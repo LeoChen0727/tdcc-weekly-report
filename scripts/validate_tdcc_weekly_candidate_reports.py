@@ -9,6 +9,10 @@ from typing import Any
 
 import pandas as pd
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from tdcc_weekly_pdf_font_contract import validate_tdcc_weekly_pdf_font_contract  # noqa: E402
+
 
 LATEST_DIR = Path("output/latest")
 VALIDATION_MD = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.md"
@@ -619,6 +623,13 @@ def write_validation(result: dict[str, Any]) -> None:
                 lines.append(f"- `{section_id}`: {count}")
     else:
         lines.append("- none")
+    lines.extend(["", "## Font Contract", ""])
+    font_contract = result.get("font_contract", {})
+    if font_contract:
+        for path, fonts in font_contract.items():
+            lines.append(f"- `{path}`: `{fonts}`")
+    else:
+        lines.append("- none")
     lines.extend(["", "## Errors", ""])
     lines.extend([f"- {item}" for item in result["errors"]] or ["- none"])
     lines.extend(["", "## Warnings", ""])
@@ -689,7 +700,20 @@ def main() -> None:
             manifest,
             errors,
         )
+        try:
+            font_contract = validate_tdcc_weekly_pdf_font_contract(
+                [
+                    HIGHLIGHT_PDF,
+                    FULL_PDF,
+                    delivery_pdf_path("highlight", signal_date),
+                    delivery_pdf_path("full", signal_date),
+                ]
+            )
+        except RuntimeError as exc:
+            errors.append(str(exc))
+            font_contract = {}
     else:
+        font_contract = {}
         for path in [HIGHLIGHT_PDF, FULL_PDF]:
             if not path.exists() or path.stat().st_size < 10_000:
                 errors.append(f"missing or too-small TDCC PDF: {path.as_posix()}")
@@ -734,6 +758,7 @@ def main() -> None:
         "row_counts": row_counts,
         "section_counts": section_counts,
         "manifest_sections": manifest_sections,
+        "font_contract": font_contract,
         "errors": errors,
         "warnings": warnings,
     }

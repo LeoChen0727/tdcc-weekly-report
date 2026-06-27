@@ -44,6 +44,13 @@
 - `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 8
 - `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 0
 
+## Font Contract
+
+- `output/latest/tdcc_weekly_candidate_highlight_latest.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
+- `output/latest/tdcc_weekly_candidate_full_latest.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf`: `['/AAAAAA+TDCCSansTC-Regular', '/AAAAAB+TDCCSansTC-Regular', '/Helvetica']`
+
 ## Errors
 
 - none
