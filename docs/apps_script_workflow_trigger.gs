@@ -299,13 +299,13 @@ function installDailyStockMonitorTrigger() {
 
 function installDailyPriceGapRepairTrigger() {
   installDailyPriceGapRepairTrigger_();
-  Logger.log("Installed daily price gap repair trigger: daily 08:30 Asia/Taipei, self-skips weekends.");
+  Logger.log("Installed daily price gap repair trigger: daily 10:30 Asia/Taipei, self-skips weekends.");
   listAllTriggers();
 }
 
 function installTdccHistoryGapRepairTrigger() {
   installTdccHistoryGapRepairTrigger_();
-  Logger.log("Installed TDCC monthly history gap repair trigger: Tuesday 09:00 Asia/Taipei.");
+  Logger.log("Installed TDCC monthly history gap repair trigger: Tuesday 09:30 Asia/Taipei.");
   listAllTriggers();
 }
 
@@ -333,11 +333,11 @@ function installBiweeklyResearchBacktestTrigger() {
     .timeBased()
     .everyWeeks(2)
     .onWeekDay(ScriptApp.WeekDay.SUNDAY)
-    .atHour(20)
-    .nearMinute(30)
+    .atHour(21)
+    .nearMinute(10)
     .inTimezone("Asia/Taipei")
     .create();
-  Logger.log("Installed biweekly research backtest trigger: Sunday 20:30 Asia/Taipei, every 2 weeks.");
+  Logger.log("Installed biweekly research backtest trigger: Sunday 21:10 Asia/Taipei, every 2 weeks.");
 }
 
 function installAllWorkflowTriggers() {
@@ -369,7 +369,7 @@ function installDailyPriceGapRepairTrigger_() {
   ScriptApp.newTrigger("triggerDailyPriceGapRepair")
     .timeBased()
     .everyDays(1)
-    .atHour(8)
+    .atHour(10)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();
@@ -403,7 +403,7 @@ function installTdccHistoryGapRepairTrigger_() {
     .timeBased()
     .onWeekDay(ScriptApp.WeekDay.TUESDAY)
     .atHour(9)
-    .nearMinute(0)
+    .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();
 }
@@ -431,7 +431,7 @@ function installWeeklyThemeReviewTrigger_() {
   ScriptApp.newTrigger("triggerWeeklyThemeReview")
     .timeBased()
     .onWeekDay(ScriptApp.WeekDay.SUNDAY)
-    .atHour(18)
+    .atHour(19)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();

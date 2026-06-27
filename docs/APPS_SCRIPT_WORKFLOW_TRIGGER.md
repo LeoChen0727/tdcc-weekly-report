@@ -151,14 +151,19 @@ The canonical Apps Script source currently installs:
 
 | handler | cadence | workflow |
 |---|---|---|
-| `triggerDailyPriceGapRepair` | daily 08:30 Asia/Taipei, skips Saturday/Sunday in handler | `repair_recent_daily_price_gaps.yml` |
+| `triggerDailyPriceGapRepair` | daily 10:30 Asia/Taipei, skips Saturday/Sunday in handler | `repair_recent_daily_price_gaps.yml` |
 | `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Saturday/Sunday in handler | `daily_full_pipeline.yml` |
 | `triggerIndividualStockDataRefresh` | daily 22:20 Asia/Taipei | `individual_stock_data_refresh.yml` |
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
-| `triggerTdccHistoryGapRepair` | Tuesday 09:00 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
+| `triggerTdccHistoryGapRepair` | Tuesday 09:30 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
 | `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |
-| `triggerWeeklyThemeReview` | Sunday 18:30 Asia/Taipei | `weekly_theme_review.yml` |
-| `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 20:30 Asia/Taipei | `research_backtest_pipeline.yml` |
+| `triggerWeeklyThemeReview` | Sunday 19:30 Asia/Taipei | `weekly_theme_review.yml` |
+| `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 21:10 Asia/Taipei | `research_backtest_pipeline.yml` |
+
+The trigger times are intentionally staggered. Workflows that may dispatch on
+the same day should have at least a 60-minute gap between their nominal trigger
+times. The daily stock monitor trigger still exists on weekends, but its handler
+self-skips before dispatching GitHub Actions.
 
 Research/backtest cadence is intentionally external to
 `research_backtest_pipeline.yml`. The GitHub workflow itself is

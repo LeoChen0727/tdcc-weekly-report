@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 APPS_SCRIPT = ROOT / "docs" / "apps_script_workflow_trigger.gs"
 WORKFLOW_DIR = ROOT / ".github" / "workflows"
+MIN_TRIGGER_SPACING_MINUTES = 60
 
 EXPECTED_DISPATCHES = {
     "daily_full_pipeline.yml",
@@ -18,6 +19,28 @@ EXPECTED_DISPATCHES = {
     "weekly_theme_review.yml",
     "research_backtest_pipeline.yml",
 }
+
+SUNDAY = 0
+MONDAY = 1
+TUESDAY = 2
+WEDNESDAY = 3
+THURSDAY = 4
+FRIDAY = 5
+SATURDAY = 6
+WEEKDAYS = {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY}
+ALL_DAYS = {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY}
+
+SCHEDULED_WORKFLOW_DISPATCHES = [
+    ("triggerEventCatalystUpdate morning", ALL_DAYS, 8 * 60 + 10),
+    ("triggerTdccHistoryGapRepair", {TUESDAY}, 9 * 60 + 30),
+    ("triggerDailyPriceGapRepair", WEEKDAYS, 10 * 60 + 30),
+    ("triggerTdccWeeklyReport", {SATURDAY}, 15 * 60 + 30),
+    ("triggerEventCatalystUpdate evening", ALL_DAYS, 18 * 60 + 10),
+    ("triggerDailyStockMonitor", WEEKDAYS, 19 * 60 + 30),
+    ("triggerWeeklyThemeReview", {SUNDAY}, 19 * 60 + 30),
+    ("triggerResearchBacktestPipeline", {SUNDAY}, 21 * 60 + 10),
+    ("triggerIndividualStockDataRefresh", ALL_DAYS, 22 * 60 + 20),
+]
 
 
 def read_text(path: Path) -> str:
@@ -68,6 +91,34 @@ def apps_script_function_body(function_name: str) -> str:
     if not match:
         raise ValueError(f"Apps Script function not found: {function_name}")
     return match.group("body")
+
+
+def require_text(body: str, expected: str, errors: list[str], message: str) -> None:
+    if expected not in body:
+        errors.append(message)
+
+
+def require_regex(body: str, pattern: str, errors: list[str], message: str) -> None:
+    if not re.search(pattern, body, re.S):
+        errors.append(message)
+
+
+def validate_trigger_spacing(errors: list[str]) -> None:
+    for day in sorted(ALL_DAYS):
+        day_items = [
+            (name, minutes)
+            for name, days, minutes in SCHEDULED_WORKFLOW_DISPATCHES
+            if day in days
+        ]
+        day_items.sort(key=lambda item: item[1])
+        for (left_name, left_minutes), (right_name, right_minutes) in zip(day_items, day_items[1:]):
+            spacing = right_minutes - left_minutes
+            if spacing < MIN_TRIGGER_SPACING_MINUTES:
+                errors.append(
+                    "Apps Script scheduled workflow dispatches are too close: "
+                    f"day={day} {left_name}->{right_name} spacing_minutes={spacing} "
+                    f"minimum={MIN_TRIGGER_SPACING_MINUTES}"
+                )
 
 
 def main() -> int:
@@ -193,6 +244,57 @@ def main() -> int:
             errors.append("Apps Script TDCC history gap repair trigger must run on Tuesday")
         if ".atHour(9)" not in tdcc_repair_install_body:
             errors.append("Apps Script TDCC history gap repair trigger must run at hour 9 Asia/Taipei")
+        if ".nearMinute(30)" not in tdcc_repair_install_body:
+            errors.append("Apps Script TDCC history gap repair trigger must run near minute 30 Asia/Taipei")
+
+    trigger_time_expectations = {
+        "installDailyStockMonitorTrigger_": (
+            [".everyDays(1)", ".atHour(19)", ".nearMinute(30)"],
+            "Apps Script daily stock monitor trigger must run daily at 19:30 Asia/Taipei",
+        ),
+        "installDailyPriceGapRepairTrigger_": (
+            [".everyDays(1)", ".atHour(10)", ".nearMinute(30)"],
+            "Apps Script daily price gap repair trigger must run daily at 10:30 Asia/Taipei",
+        ),
+        "installIndividualStockDataRefreshTrigger_": (
+            [".everyDays(1)", ".atHour(22)", ".nearMinute(20)"],
+            "Apps Script individual stock data refresh trigger must run daily at 22:20 Asia/Taipei",
+        ),
+        "installTdccWeeklyReportTrigger_": (
+            ["ScriptApp.WeekDay.SATURDAY", ".atHour(15)", ".nearMinute(30)"],
+            "Apps Script TDCC weekly report trigger must run Saturday at 15:30 Asia/Taipei",
+        ),
+        "installWeeklyThemeReviewTrigger_": (
+            ["ScriptApp.WeekDay.SUNDAY", ".atHour(19)", ".nearMinute(30)"],
+            "Apps Script weekly theme review trigger must run Sunday at 19:30 Asia/Taipei",
+        ),
+        "installBiweeklyResearchBacktestTrigger": (
+            [".everyWeeks(2)", "ScriptApp.WeekDay.SUNDAY", ".atHour(21)", ".nearMinute(10)"],
+            "Apps Script research/backtest trigger must run every 2 weeks Sunday at 21:10 Asia/Taipei",
+        ),
+    }
+    for function_name, (expected_snippets, message) in trigger_time_expectations.items():
+        try:
+            install_body = apps_script_function_body(function_name)
+        except ValueError as exc:
+            errors.append(str(exc))
+            continue
+        for expected_snippet in expected_snippets:
+            require_text(install_body, expected_snippet, errors, message)
+
+    try:
+        event_install_body = apps_script_function_body("installEventCatalystUpdateTriggers_")
+    except ValueError as exc:
+        errors.append(str(exc))
+    else:
+        require_regex(
+            event_install_body,
+            r"\.everyDays\(1\).*?\.atHour\(8\).*?\.nearMinute\(10\).*?\.everyDays\(1\).*?\.atHour\(18\).*?\.nearMinute\(10\)",
+            errors,
+            "Apps Script event catalyst update triggers must run daily at 08:10 and 18:10 Asia/Taipei",
+        )
+
+    validate_trigger_spacing(errors)
 
     research_text = read_text(WORKFLOW_DIR / research_workflow)
     forbidden_research_auto_commit_patterns = [
