@@ -1,6 +1,6 @@
 # TDCC Phase Distribution
 
-- generated_at: 2026-06-28 04:45:38 Asia/Taipei
+- generated_at: 2026-06-28 04:54:57 Asia/Taipei
 - latest_signal_count: 1105
 - phase_mature_d5_count: 266
 - phase_mature_d10_count: 161
