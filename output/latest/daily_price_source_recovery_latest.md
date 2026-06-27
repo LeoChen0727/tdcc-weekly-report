@@ -1,11 +1,11 @@
 # Daily Price Source Recovery
 
-- status: `repaired`
+- status: `pass`
 - required_end_date: `20260626`
 - lookback_days: `20`
 - expected_trading_date_count: `14`
 - legacy_only_before: ``
-- missing_before: `20260625`
+- missing_before: ``
 - missing_after: ``
 
 ## Date Candidates
@@ -16,6 +16,4 @@
 
 ## Actions
 
-| date | action | result | target |
-|---|---|---|---|
-| 20260625 | repair_daily_price_range | 0 | data/daily_price/daily_price_20260625.csv |
+No recovery action was required.

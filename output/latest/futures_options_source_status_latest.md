@@ -1,6 +1,6 @@
 # Futures / Options Source Status
 
-- generated_at: `2026-06-27 21:34:44 Asia/Taipei`
+- generated_at: `2026-06-28 00:03:31 Asia/Taipei`
 - overall_status: `ready`
 
 | source | status | rows | latest_date | message |

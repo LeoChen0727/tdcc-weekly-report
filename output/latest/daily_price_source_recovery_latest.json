@@ -1,5 +1,5 @@
 {
-  "status": "repaired",
+  "status": "pass",
   "required_end_date": "20260626",
   "date_candidates": {
     "main_price_date": "20260626",
@@ -24,17 +24,8 @@
     "20260626"
   ],
   "legacy_only_before": [],
-  "missing_before": [
-    "20260625"
-  ],
+  "missing_before": [],
   "missing_after": [],
-  "actions": [
-    {
-      "date": "20260625",
-      "action": "repair_daily_price_range",
-      "return_code": "0",
-      "target": "data/daily_price/daily_price_20260625.csv"
-    }
-  ],
+  "actions": [],
   "errors": []
 }
