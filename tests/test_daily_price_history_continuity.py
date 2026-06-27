@@ -196,6 +196,7 @@ def test_daily_workflow_runs_price_history_continuity_gate() -> None:
     gate_at = workflow.index("python scripts/validate_daily_price_history_continuity.py")
     monitor_at = workflow.index("python stock_daily_monitor.py")
 
+    assert "--full-rebuild-if-source-recovered" in workflow
     assert repair_at < evidence_at < build_at < gate_at < monitor_at
 
 

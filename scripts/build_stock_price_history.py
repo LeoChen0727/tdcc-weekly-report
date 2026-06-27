@@ -28,6 +28,7 @@ MANIFEST_MD = LATEST_DIR / "stock_price_history_manifest.md"
 DOCS_MANIFEST_CSV = DOCS_LATEST_DIR / MANIFEST_CSV.name
 DOCS_MANIFEST_JSON = DOCS_LATEST_DIR / MANIFEST_JSON.name
 DOCS_MANIFEST_MD = DOCS_LATEST_DIR / MANIFEST_MD.name
+SOURCE_RECOVERY_JSON = LATEST_DIR / "daily_price_source_recovery_latest.json"
 
 NUMERIC_COLUMNS = ["open", "high", "low", "close", "volume", "trading_value"]
 BASE_COLUMNS = [
@@ -644,6 +645,20 @@ def write_manifest_md(manifest: pd.DataFrame) -> None:
     MANIFEST_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def source_recovery_has_repair_action(path: Path | None = None) -> bool:
+    path = path or SOURCE_RECOVERY_JSON
+    if not path.exists():
+        return False
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return False
+    if safe_str(payload.get("status")) != "repaired":
+        return False
+    actions = payload.get("actions", [])
+    return isinstance(actions, list) and bool(actions)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build per-stock historical price CSV files from daily market CSV files.")
     parser.add_argument(
@@ -657,6 +672,14 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Update from the newest trading daily-price file only. Use for daily pipeline; default remains full rebuild.",
     )
+    parser.add_argument(
+        "--full-rebuild-if-source-recovered",
+        action="store_true",
+        help=(
+            "When source recovery repaired missing daily price files, rebuild full stock history instead of "
+            "updating only the newest daily price file."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -664,7 +687,11 @@ def main() -> int:
     args = parse_args()
     limit = {normalize_stock_id(x) for x in args.stock_id} if args.stock_id else None
     if args.incremental_latest:
-        manifest = build_history_files_incremental_latest(limit)
+        if args.full_rebuild_if_source_recovered and source_recovery_has_repair_action():
+            print("Source recovery repaired daily price files; rebuilding full stock price history.")
+            manifest = build_history_files(limit)
+        else:
+            manifest = build_history_files_incremental_latest(limit)
     else:
         manifest = build_history_files(limit)
     print(f"Saved {len(manifest)} stock history files under {STOCK_HISTORY_DIR}")
