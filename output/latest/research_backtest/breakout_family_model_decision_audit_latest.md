@@ -1,6 +1,6 @@
 # Breakout Family Model Decision Audit
 
-- generated_at: `2026-06-27 17:09:46 Asia/Taipei`
+- generated_at: `2026-06-27 17:33:27 Asia/Taipei`
 - research_id: `breakout_family_model_decision_audit`
 - source_research_id: `breakout_family_retest_grid`
 - source_parameter_set_id: `breakout_family_retest_grid_20260627`
@@ -11,6 +11,7 @@
 - Primary research direction: keep testing `retest_hold_then_attack_next_open`; retest-not-broken then renewed attack is stronger than direct breakout in most reviewable families.
 - Model split direction: do not split W-bottom / triple-bottom / other neckline subtypes yet. The current evidence supports a broad structured-neckline research surface first.
 - Volume model meaning: `bottom_base_volume_attack_reference` is bottom/base volume attack after contracted consolidation; it is not a previous-high model definition.
+- Volume range breakout research direction: future `volume_range_breakout` research should prioritize `low_position_base_attack`; `base_attack_position_review` is only a broad review bucket and must not define the model because it lacks a low-position gate.
 - Production status: all rows remain `approved_for_daily=false`, `warning_research_variant_only`, and `not_production_ready_research_only`.
 
 ## Family-Level Decisions
