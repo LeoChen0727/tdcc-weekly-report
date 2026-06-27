@@ -131,6 +131,67 @@ def test_tdcc_weekly_model_cross_empty_sections_do_not_fail_builder_validation()
     builder.validate_outputs(highlight, full, manifest)
 
 
+def test_tdcc_weekly_model_cross_ranks_by_model_score_before_tdcc_rank() -> None:
+    weekly = builder.ensure_columns(
+        pd.DataFrame(
+            [
+                {"stock_id": "1001", "rank": 1, "tdcc_weekly_increase_score": 90},
+                {"stock_id": "1002", "rank": 2, "tdcc_weekly_increase_score": 80},
+                {"stock_id": "1003", "rank": 3, "tdcc_weekly_increase_score": 70},
+            ]
+        ),
+        builder.BASE_COLUMNS,
+    )
+    consecutive = builder.ensure_columns(pd.DataFrame(), builder.BASE_COLUMNS)
+    daily_models = pd.DataFrame(
+        [
+            {
+                "stock_id": "1001",
+                "model_id": "tdcc_short_term_continuation_d5_d10",
+                "model_name_zh": "TDCC short-term continuation",
+                "display_rank": 10,
+                "model_score": 60,
+                "source_hit_labels_zh": "",
+                "risk_tags_zh": "",
+                "next_confirmation_zh": "",
+                "recommended_usage_zh": "",
+                "source_category_zh": "Short-term model",
+            },
+            {
+                "stock_id": "1002",
+                "model_id": "tdcc_short_term_continuation_d5_d10",
+                "model_name_zh": "TDCC short-term continuation",
+                "display_rank": 20,
+                "model_score": 100,
+                "source_hit_labels_zh": "",
+                "risk_tags_zh": "",
+                "next_confirmation_zh": "",
+                "recommended_usage_zh": "",
+                "source_category_zh": "Short-term model",
+            },
+            {
+                "stock_id": "1003",
+                "model_id": "tdcc_short_term_continuation_d5_d10",
+                "model_name_zh": "TDCC short-term continuation",
+                "display_rank": 30,
+                "model_score": 80,
+                "source_hit_labels_zh": "",
+                "risk_tags_zh": "",
+                "next_confirmation_zh": "",
+                "recommended_usage_zh": "",
+                "source_category_zh": "Short-term model",
+            },
+        ]
+    )
+
+    cross = builder.build_model_cross(weekly, consecutive, daily_models)
+    weekly_cross = cross[cross["tdcc_list_type"] == "weekly_increase"].sort_values("tdcc_model_rank_in_list")
+
+    assert weekly_cross["stock_id"].tolist() == ["1002", "1003", "1001"]
+    assert weekly_cross["model_score"].astype(float).tolist() == [100.0, 80.0, 60.0]
+    assert weekly_cross["tdcc_rank"].astype(int).tolist() == [2, 3, 1]
+
+
 def test_tdcc_weekly_core_required_sections_still_fail_when_empty() -> None:
     manifest = _tdcc_manifest()
     highlight = _tdcc_report(["consecutive_accumulation"], "highlight")
@@ -177,3 +238,51 @@ def test_tdcc_weekly_validator_lists_empty_model_cross_sections_as_zero_count_wa
     section_counts = validator.report_section_counts(report, manifest, "highlight")
     assert section_counts[MODEL_CROSS_WEEKLY_SECTION] == 0
     assert section_counts[MODEL_CROSS_CONSECUTIVE_SECTION] == 0
+
+
+def test_tdcc_weekly_validator_rejects_model_cross_not_sorted_by_model_score() -> None:
+    manifest = _tdcc_manifest()
+    base = _tdcc_report(["weekly_increase", "consecutive_accumulation"], "highlight")
+    model_rows = []
+    for section_rank, stock_id, tdcc_rank, model_rank, model_score in [
+        ("1", "1003", "1", "10", "60"),
+        ("2", "1004", "2", "20", "100"),
+    ]:
+        row = {column: "" for column in builder.REPORT_COLUMNS}
+        row.update(
+            {
+                "report_kind": "highlight",
+                "section_id": MODEL_CROSS_WEEKLY_SECTION,
+                "section_name_zh": "Weekly increase x model",
+                "section_rank": section_rank,
+                "tdcc_list_type": "weekly_increase",
+                "tdcc_rank": tdcc_rank,
+                "signal_date": "20260626",
+                "stock_id": stock_id,
+                "stock_name": f"Stock {stock_id}",
+                "model_id": "tdcc_short_term_continuation_d5_d10",
+                "model_rank": model_rank,
+                "tdcc_model_rank_in_list": section_rank,
+                "model_score": model_score,
+            }
+        )
+        model_rows.append(row)
+    report = builder.ensure_columns(pd.concat([base, pd.DataFrame(model_rows)], ignore_index=True), builder.REPORT_COLUMNS)
+    weekly_source = pd.DataFrame([{"stock_id": "1001"}])
+    consecutive_source = pd.DataFrame([{"stock_id": "1002"}])
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    validator.validate_report(
+        report,
+        "highlight report-ready CSV",
+        "highlight",
+        "20260626",
+        weekly_source,
+        consecutive_source,
+        manifest,
+        errors,
+        warnings,
+    )
+
+    assert any("not sorted by model_score desc" in error for error in errors)

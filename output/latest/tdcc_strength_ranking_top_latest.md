@@ -1,6 +1,6 @@
 # TDCC Strength Ranking Top
 
-- generated_at: 2026-06-28 04:16:24 Asia/Taipei
+- generated_at: 2026-06-28 04:45:38 Asia/Taipei
 - latest_signal_date: 20260626
 - ranking_quality: complete
 - missing_columns: none

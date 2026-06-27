@@ -84,7 +84,7 @@ must fail closed. Page count is not fixed; do not treat five pages as a rule.
 TDCC ranking sections and daily-model cross sections must use different PDF table contracts:
 
 - TDCC ranking sections use: section rank, stock id, stock name, TDCC phase, risk bucket, TDCC score, selected reason, next confirmation, operation note.
-- Daily-model cross sections use the ranking columns plus daily model, model rank within TDCC list, and model score.
+- Daily-model cross sections use the ranking columns plus daily model, model rank within TDCC list, and model score. Within each model-cross section, the section rank and model rank within the TDCC list must be sorted by `model_score` descending, then daily model display rank ascending, then original TDCC rank ascending. The original TDCC rank remains a reference column, not the primary sort key for the model-cross table.
 
 Ranking fields must render as integers when they are whole numbers. Do not display ranks as `1.00`, `2.00`, or similar decimal strings.
 
