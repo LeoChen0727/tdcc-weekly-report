@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from scripts import repair_missing_daily_price_files as recovery
 from scripts import validate_daily_price_history_continuity as validator
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +20,21 @@ def _write_daily_price(root: Path, date_text: str, rows: list[dict[str, object]]
     path = root / "data" / "daily_price" / f"daily_price_{date_text}.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).to_csv(path, index=False)
+
+
+def _write_official_fetch_json(root: Path, saved_price_date: str) -> None:
+    path = root / "output" / "latest" / "official_price_fetch_latest.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        (
+            "{\n"
+            f'  "saved_price_date": "{saved_price_date}",\n'
+            '  "is_target_date": true,\n'
+            '  "result": "success_target_full_market"\n'
+            "}\n"
+        ),
+        encoding="utf-8",
+    )
 
 
 def _market_rows(date_text: str, stock_ids: list[str] | None = None) -> list[dict[str, object]]:
@@ -142,15 +158,45 @@ def test_warrant_like_daily_price_id_does_not_alias_target_stock_history(tmp_pat
     assert not any("7631" in error for error in result.errors)
 
 
+def test_missing_intermediate_daily_price_is_repaired_before_history_build(tmp_path: Path) -> None:
+    _write_freshness(tmp_path, "20260624")
+    _write_official_fetch_json(tmp_path, "20260626")
+    _write_daily_price(tmp_path, "20260624", _market_rows("20260624"))
+    _write_daily_price(tmp_path, "20260626", _market_rows("20260626"))
+    repaired_dates: list[str] = []
+
+    def fake_repair(root: Path, date_text: str, args: object) -> int:
+        repaired_dates.append(date_text)
+        _write_daily_price(root, date_text, _market_rows(date_text))
+        return 0
+
+    result = recovery.recover(
+        tmp_path,
+        lookback_days=2,
+        min_full_rows=1,
+        max_repair_dates=3,
+        repair_func=fake_repair,
+    )
+
+    assert result.status == "repaired"
+    assert result.report["required_end_date"] == "20260626"
+    assert result.report["missing_before"] == ["20260625"]
+    assert result.report["missing_after"] == []
+    assert repaired_dates == ["20260625"]
+    assert (tmp_path / "data" / "daily_price" / "daily_price_20260625.csv").exists()
+
+
 def test_daily_workflow_runs_price_history_continuity_gate() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
     )
+    repair_at = workflow.index("python scripts/repair_missing_daily_price_files.py")
+    evidence_at = workflow.index("daily-price-source-recovery")
     build_at = workflow.index("python scripts/build_stock_price_history.py --incremental-latest")
     gate_at = workflow.index("python scripts/validate_daily_price_history_continuity.py")
     monitor_at = workflow.index("python stock_daily_monitor.py")
 
-    assert build_at < gate_at < monitor_at
+    assert repair_at < evidence_at < build_at < gate_at < monitor_at
 
 
 def test_repair_workflows_use_shared_repair_script_not_deleted_fetch_functions() -> None:
