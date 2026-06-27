@@ -736,6 +736,70 @@ def test_volume_operation_validator_rejects_unsynced_model_signal_log(monkeypatc
         section_validator.validate_latest_signal_log_sync(section)
 
 
+def test_volume_operation_validator_allows_lineage_only_signal_log_rows(monkeypatch, tmp_path) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    history_dir = tmp_path / "output" / "history" / "daily_candidate_models"
+    latest_dir.mkdir(parents=True)
+    history_dir.mkdir(parents=True)
+
+    freshness = latest_dir / "data_freshness_latest.csv"
+    latest_signals = latest_dir / "daily_candidate_model_signals_for_report_latest.csv"
+    signal_log = history_dir / "daily_candidate_model_signal_log.csv"
+
+    pd.DataFrame(
+        [
+            {
+                "main_price_date": "20260618",
+                "report_ready": "True",
+                "warrant_ready": "True",
+                "daily_pdf_ready": "True",
+            }
+        ]
+    ).to_csv(freshness, index=False)
+    pd.DataFrame(
+        [
+            {
+                "signal_date": "20260618",
+                "report_bucket": "mainstream",
+                "stock_id": "2061",
+                "model_id": "volume_range_breakout",
+            }
+        ]
+    ).to_csv(latest_signals, index=False)
+    pd.DataFrame(
+        [
+            {
+                "signal_date": "20260618",
+                "report_bucket": "mainstream",
+                "stock_id": "2061",
+                "model_id": "volume_range_breakout",
+            },
+            {
+                "signal_date": "20260618",
+                "report_bucket": "",
+                "stock_id": "5211",
+                "model_id": "volume_range_breakout",
+            },
+        ]
+    ).to_csv(signal_log, index=False)
+
+    monkeypatch.setattr(section_validator, "DATA_FRESHNESS_CSV", freshness)
+    monkeypatch.setattr(section_validator, "DAILY_SIGNALS_CSV", latest_signals)
+    monkeypatch.setattr(section_validator, "MODEL_SIGNAL_LOG_CSV", signal_log)
+
+    section = pd.DataFrame(
+        [
+            {
+                "daily_signal_date": "20260618",
+                "row_type": "data",
+                "stock_id": "2061",
+                "daily_volume_model_signal_count": "1",
+            }
+        ]
+    )
+    section_validator.validate_latest_signal_log_sync(section)
+
+
 def test_volume_operation_builder_rejects_latest_signal_date_mismatch() -> None:
     signals = pd.DataFrame(
         [
