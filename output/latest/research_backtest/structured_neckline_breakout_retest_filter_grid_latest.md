@@ -1,6 +1,6 @@
 # Structured Neckline Breakout Retest Filter Grid
 
-- generated_at: `2026-06-27 18:08:28 Asia/Taipei`
+- generated_at: `2026-06-27 18:16:50 Asia/Taipei`
 - research_id: `structured_neckline_breakout_retest_filter_grid`
 - source_research_id: `breakout_family_retest_grid`
 - source_parameter_set_id: `breakout_family_retest_grid_20260627`
@@ -17,6 +17,8 @@ Confirmation trigger ids referenced here: `pullback_5ma_confirmed`, `next_day_br
 The main entry hypotheses are now compared separately: direct next-open after neckline breakout, retest-not-broken then renewed attack, and existing confirmed-operation signal after the neckline event. Limit special cases remain diagnostic tags: locked limit-up may be part of the source attack-volume confirmation, while locked limit-down is risk and must not count as confirmation. TDCC is included only as an observation layer because historical coverage is short. Revenue remains pending because a point-in-time historical revenue panel is not available in this worktree.
 
 Market regime is included as a research-only segmentation layer, using the same `strong_bull`, `mild_bull`, `range_or_mixed`, `correction`, and `unknown` categories used by W-bottom early-entry research. These rows test whether broad-market context improves structured-neckline behavior; they are not production gates.
+
+Comparison rule: do not choose between entry methods by win rate alone. If the win-rate gap is small, treat the result as close and compare `avg_return_pct`, `median_return_pct`, mature sample size, and downside behavior before making any model recommendation. A higher win rate with materially worse return quality is not automatically better. A production promotion discussion requires the win-rate and return tradeoff to be stated explicitly.
 
 ## Filter Grid
 

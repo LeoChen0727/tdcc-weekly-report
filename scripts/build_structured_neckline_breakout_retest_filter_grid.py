@@ -625,6 +625,8 @@ def write_markdown(grid: pd.DataFrame, generated_at: str) -> None:
         "",
         "Market regime is included as a research-only segmentation layer, using the same `strong_bull`, `mild_bull`, `range_or_mixed`, `correction`, and `unknown` categories used by W-bottom early-entry research. These rows test whether broad-market context improves structured-neckline behavior; they are not production gates.",
         "",
+        "Comparison rule: do not choose between entry methods by win rate alone. If the win-rate gap is small, treat the result as close and compare `avg_return_pct`, `median_return_pct`, mature sample size, and downside behavior before making any model recommendation. A higher win rate with materially worse return quality is not automatically better. A production promotion discussion requires the win-rate and return tradeoff to be stated explicitly.",
+        "",
         "## Filter Grid",
         "",
         *markdown_table(
