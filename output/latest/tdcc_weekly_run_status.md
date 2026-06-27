@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-06-28 00:50:13 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28295397294
-- commit: `0741b1c60e5b77242d8db6afa381ae10e3494459`
+- generated_at: `2026-06-28 02:41:54 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28298139228
+- commit: `daf4db1470abfe8b4025a051db67f2fe6992459d`
 
 ## Outputs
 
@@ -41,14 +41,14 @@
 | `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 87 |
 | `output/latest/tdcc_weekly_candidate_highlight_latest.md` | yes | 52 |
 | `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 110 |
-| `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 222 |
-| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 413 |
+| `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 501 |
+| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 795 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260618.pdf` | yes | 780 |
-| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf` | yes | 413 |
+| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260626.pdf` | yes | 795 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260618.pdf` | yes | 590 |
-| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf` | yes | 222 |
-| `output/latest/tdcc_weekly_candidate_report_validation_latest.md` | yes | 54 |
-| `output/latest/tdcc_weekly_candidate_report_validation_latest.json` | yes | 88 |
+| `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260626.pdf` | yes | 501 |
+| `output/latest/tdcc_weekly_candidate_report_validation_latest.md` | yes | 61 |
+| `output/latest/tdcc_weekly_candidate_report_validation_latest.json` | yes | 110 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.json` | yes | 5 |
 | `output/history/tdcc_signals/tdcc_signal_log.csv` | yes | 701 |
