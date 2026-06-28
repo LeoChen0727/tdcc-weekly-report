@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-06-24 14:47:47 Asia/Taipei`
+- generated_at: `2026-06-29 05:17:53 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -16,9 +16,9 @@
 | parity_status | count |
 | --- | --- |
 | hard_fail_contract_drift | 0 |
-| missing_research_baseline | 1 |
+| missing_research_baseline | 0 |
 | ok | 1 |
-| warning_research_variant_only | 9 |
+| warning_research_variant_only | 10 |
 
 ## OK Models
 
@@ -32,19 +32,18 @@
 | --- | --- | --- | --- | --- |
 | hot_theme_pullback | research:production_current_proxy | True | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | near_high_neckline_challenge | research:production_current_proxy | True | neckline-specific fields and already-confirmed-breakout flags are not fully backfilled | research_variant_only_do_not_promote_without_explicit_promotion_pr |
+| neckline_volume_breakout_confirmation | research:production_current_proxy | True | structured neckline production detector is row/context based and not yet optimized for historical batch replay | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | platform_strengthening | research:production_current_proxy | True | platform_base_flag and platform width fields are not fully point-in-time backfilled | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | price_pullback_23ema | research:production_current_proxy | True | support/platform entry flags are not fully backfilled in the historical research frame | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | pullback_short_reclaim | research:production_current_proxy | True | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | revenue_unreacted_range | research:production_current_proxy | True | historical revenue panel is incomplete; strong_revenue gate cannot be replayed point-in-time | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | tdcc_short_term_continuation_d5_d10 | research:production_current_proxy | True | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | tdcc_stealth_accumulation | research:production_current_proxy | True | tdcc_price_phase is not fully available historically for every signal date | research_variant_only_do_not_promote_without_explicit_promotion_pr |
-| w_bottom_right_side | research:production_current_proxy | True | full production W-bottom detector is row/context based and not yet reused by the research grid | research_variant_only_do_not_promote_without_explicit_promotion_pr |
+| w_bottom_right_side | research:production_current_proxy | True | full production W-bottom detector is row/context based; exact historical replay is too slow until an optimized batch detector exists | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 
 ## Missing Research Baseline
 
-| model_id | parity_blocker | recommended_action |
-| --- | --- | --- |
-| neckline_volume_breakout_confirmation | research production_baseline row is missing or unsupported | add_research_production_baseline_before_parameter_experiments |
+No rows.
 
 ## Hard Fail Contract Drift
 

@@ -10,6 +10,13 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
+from build_approved_operation_patterns import (  # noqa: E402
+    W_BOTTOM_APPROVAL_METRICS,
+    W_BOTTOM_APPROVAL_VERSION,
+    W_BOTTOM_BUY_FILTER_ID,
+    W_BOTTOM_MODEL_ID,
+    W_BOTTOM_OPERATION_MODULE_ID,
+)
 
 
 RESEARCH_CSV = LATEST_DIR / "daily_model_parameter_research_latest.csv"
@@ -133,14 +140,48 @@ def recommendation_for(row: pd.Series, high_stats: dict[str, Any]) -> tuple[str,
     )
 
 
+def approved_w_bottom_operation_recommendation(generated_at: str) -> dict[str, Any]:
+    return {
+        "generated_at": generated_at,
+        "model_id": W_BOTTOM_MODEL_ID,
+        "model_name_zh": "W底右側模型",
+        "parameter_set_id": W_BOTTOM_OPERATION_MODULE_ID,
+        "parameter_summary": (
+            "W-bottom right-low early entry; buy next open after the right-low observation signal; "
+            "evaluate by D+40 close with +10% win and +5% neutral rule."
+        ),
+        "entry_basis": "signal_date_next_open",
+        "recommended_usage": "promote_to_pdf_core",
+        "recommendation_reason_code": "approved_w_bottom_early_entry_operation_v1",
+        "recommended_close_exit_horizon": "D+40",
+        "best_close_win_rate_pct": W_BOTTOM_APPROVAL_METRICS["pure_win_rate_pct"],
+        "best_avg_close_return_pct": W_BOTTOM_APPROVAL_METRICS["avg_return_pct"],
+        "recommended_high_exit_horizon": "",
+        "best_avg_high_return_pct": "",
+        "best_high_5pct_hit_rate_pct": "",
+        "selected_stock_days": W_BOTTOM_APPROVAL_METRICS["sample_size"],
+        "selected_unique_stocks": W_BOTTOM_APPROVAL_METRICS["unique_stock_count"],
+        "sample_status": "approved_operation_v1",
+        "pdf_visibility": "pdf_core_model",
+        "model_revision_note": (
+            f"Approved operation {W_BOTTOM_APPROVAL_VERSION}; pure win rate "
+            f"{W_BOTTOM_APPROVAL_METRICS['pure_win_rate_pct']} uses win/(win+loss). "
+            f"Inclusive success {W_BOTTOM_APPROVAL_METRICS['neutral_inclusive_success_rate_pct']} includes neutral rows "
+            "and must not be labeled as pure win rate. "
+            f"buy_filter_id={W_BOTTOM_BUY_FILTER_ID}."
+        ),
+    }
+
+
 def build_recommendations(research: pd.DataFrame, detail: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
+    generated_at = now_text()
     for _, row in research.iterrows():
         high_stats = best_detail(detail, str(row.get("model_id", "")), str(row.get("parameter_set_id", "")))
         rec, reason_code, note = recommendation_for(row, high_stats)
         rows.append(
             {
-                "generated_at": now_text(),
+                "generated_at": generated_at,
                 "model_id": row.get("model_id", ""),
                 "model_name_zh": row.get("model_name_zh", ""),
                 "parameter_set_id": row.get("parameter_set_id", ""),
@@ -161,6 +202,7 @@ def build_recommendations(research: pd.DataFrame, detail: pd.DataFrame) -> pd.Da
                 "model_revision_note": note,
             }
         )
+    rows.append(approved_w_bottom_operation_recommendation(generated_at))
     out = pd.DataFrame(rows)
     if out.empty:
         return out
