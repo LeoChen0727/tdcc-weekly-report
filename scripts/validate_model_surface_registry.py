@@ -75,6 +75,7 @@ ALLOWED_CONTRACT_SENTINELS = {
 ALLOWED_PARITY_STATUSES = {
     "ok",
     "warning_research_variant_only",
+    "approved_operation_v1_proxy_baseline",
     "research_backtest_advisory_only",
     "pending_backtest_optimization",
     "disclosure_only_not_ranked",

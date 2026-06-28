@@ -50,8 +50,9 @@ def detail_row(**kwargs: object) -> dict[str, object]:
 
 def test_promote_strong_close_hold_edge() -> None:
     out = build_recommendations(pd.DataFrame([base_row()]), pd.DataFrame([detail_row()]))
-    assert out.iloc[0]["recommended_usage"] == "promote_to_pdf_core"
-    assert out.iloc[0]["recommended_close_exit_horizon"] == "D+10"
+    row = out[out["model_id"].eq("tdcc_short_term_continuation_d5_d10")].iloc[0]
+    assert row["recommended_usage"] == "promote_to_pdf_core"
+    assert row["recommended_close_exit_horizon"] == "D+10"
 
 
 def test_research_only_visibility_stays_research_only() -> None:
@@ -59,8 +60,9 @@ def test_research_only_visibility_stays_research_only() -> None:
         pd.DataFrame([base_row(pdf_visibility="research_only_not_pdf_core")]),
         pd.DataFrame([detail_row()]),
     )
-    assert out.iloc[0]["recommended_usage"] == "research_only"
-    assert out.iloc[0]["recommendation_reason_code"] == "explicit_research_model"
+    row = out[out["model_id"].eq("tdcc_short_term_continuation_d5_d10")].iloc[0]
+    assert row["recommended_usage"] == "research_only"
+    assert row["recommendation_reason_code"] == "explicit_research_model"
 
 
 def test_high_return_without_close_edge_is_intraday_watch() -> None:
@@ -86,7 +88,8 @@ def test_high_return_without_close_edge_is_intraday_watch() -> None:
             ]
         ),
     )
-    assert out.iloc[0]["recommended_usage"] == "intraday_target_watch"
+    row = out[out["model_id"].eq("volume_range_breakout")].iloc[0]
+    assert row["recommended_usage"] == "intraday_target_watch"
 
 
 def test_small_sample_is_not_promoted() -> None:
@@ -94,5 +97,18 @@ def test_small_sample_is_not_promoted() -> None:
         pd.DataFrame([base_row(selected_stock_days=20, sample_status="insufficient_sample")]),
         pd.DataFrame([detail_row()]),
     )
-    assert out.iloc[0]["recommended_usage"] == "research_only"
-    assert out.iloc[0]["recommendation_reason_code"] == "insufficient_sample"
+    row = out[out["model_id"].eq("tdcc_short_term_continuation_d5_d10")].iloc[0]
+    assert row["recommended_usage"] == "research_only"
+    assert row["recommendation_reason_code"] == "insufficient_sample"
+
+
+def test_w_bottom_approved_operation_recommendation_is_added() -> None:
+    out = build_recommendations(pd.DataFrame([base_row()]), pd.DataFrame([detail_row()]))
+    row = out[out["model_id"].eq("w_bottom_right_side")].iloc[0]
+
+    assert row["recommended_usage"] == "promote_to_pdf_core"
+    assert row["recommendation_reason_code"] == "approved_w_bottom_early_entry_operation_v1"
+    assert row["recommended_close_exit_horizon"] == "D+40"
+    assert row["best_close_win_rate_pct"] == "65.0000"
+    assert row["best_avg_close_return_pct"] == "2.9504"
+    assert "Inclusive success 77.4194" in row["model_revision_note"]

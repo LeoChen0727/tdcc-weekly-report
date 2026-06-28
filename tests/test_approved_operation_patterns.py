@@ -76,7 +76,7 @@ def test_build_approval_creates_versioned_daily_guidance() -> None:
     )
 
     approval = build_approval(summary, rank, generated_at="2026-06-15 00:00:00 Asia/Taipei")
-    row = approval.iloc[0]
+    row = approval[approval["model_id"].eq("volume_range_breakout")].iloc[0]
 
     assert row["model_id"] == "volume_range_breakout"
     assert row["approved_for_daily"] == "True"
@@ -85,3 +85,16 @@ def test_build_approval_creates_versioned_daily_guidance() -> None:
     assert row["stop_loss_rule_id"] == "signal_low_stop"
     assert row["exit_rule_id"] == "signal_low_stop_or_fixed_10d_close"
     assert row["evidence_positive_rank_rows"] == 1
+
+    w_bottom = approval[approval["model_id"].eq("w_bottom_right_side")].iloc[0]
+    assert w_bottom["operation_module_id"] == "w_bottom_early_entry_operation_v1"
+    assert w_bottom["approval_version"] == "w_bottom_early_entry_operation_v1_20260629"
+    assert w_bottom["approved_for_daily"] == "True"
+    assert w_bottom["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert w_bottom["entry_rule_id"] == "right_low_signal_next_open"
+    assert w_bottom["stop_loss_rule_id"] == "no_fixed_stop_loss_d40_evaluation"
+    assert w_bottom["exit_rule_id"] == "take_profit_10pct_or_neutral_5pct_d40_close"
+    assert w_bottom["buy_filter_id"] == "smooth_core_mainstream_right_rebound_5_20_bull"
+    assert w_bottom["best_evidence_sample_size"] == "20"
+    assert w_bottom["best_evidence_win_rate"] == "65.0000"
+    assert w_bottom["w_bottom_neutral_inclusive_success_rate_pct"] == "77.4194"

@@ -398,10 +398,10 @@ def production_baseline_specs() -> list[RuleSpec]:
             "production baseline proxy: W-bottom geometry proxy and not already a breakout",
             "pdf_core_model",
             current_w_bottom_baseline_proxy,
-            "Production uses stricter two-trough geometry from price history; research keeps a lightweight W proxy until the detector is shared safely.",
+            "W-bottom early-entry operation v1 is approved separately; full historical condition parity still needs an optimized batch replay detector.",
             "production_baseline",
             "production_proxy",
-            "full production W-bottom detector is row/context based and not yet reused by the research grid",
+            "full production W-bottom detector is row/context based; exact historical replay is too slow until an optimized batch detector exists",
             "production_current",
         ),
         RuleSpec(

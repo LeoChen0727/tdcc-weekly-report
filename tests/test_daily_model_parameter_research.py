@@ -28,6 +28,7 @@ def test_required_model_families_exist() -> None:
     assert "hot_theme_pullback" in model_ids
     assert "revenue_unreacted_range" in model_ids
     assert "tdcc_short_term_continuation_d5_d10" in model_ids
+    assert "w_bottom_right_side" in model_ids
     assert "explosive_volume_red_candle" in model_ids
     assert "revenue_unreacted_range_proxy" not in model_ids
 
@@ -59,6 +60,8 @@ def test_research_baselines_are_labeled_as_parity_or_proxy() -> None:
     }
     assert any(spec.production_parity_status == "production_parity" for spec in baselines)
     assert all(spec.variant_of == "production_current" for spec in baselines)
+    proxy = {spec.model_id for spec in baselines if spec.production_parity_status == "production_proxy"}
+    assert "w_bottom_right_side" in proxy
     assert all(
         spec.parity_blocker
         for spec in baselines
