@@ -168,12 +168,12 @@ Preferred Traditional Chinese display:
 純勝率: 65.0%
 含和局成功率: 77.4%
 平均報酬: 2.95%
-評估期間: D+40
-買點: 右低點觀察訊號成立後，下一個交易日開盤買進。
-勝: 40 個交易日內，收盤報酬先達 >= +10%。
-和: 曾超過 +5%，但未達 +10% 前又回到 <= +5%。
-敗: D+40 前未達 +10%，以 D+40 收盤評估。
-樣本: 44；已評估 31；未成熟 13。
+評估期: D+40
+買進: 右低點觀察訊號成立後，下一個交易日開盤買進。
+出場: 40 個交易日內收盤報酬先達 +10% 記為勝。
+和局: 曾超過 +5%，但未達 +10% 前又回到 <= +5%，記為和局。
+失敗: 未達 +10% 者，以 D+40 收盤評估。
+樣本: 44；已評估 31；成熟樣本 20；勝 13；和局 11；敗 7；未成熟 13。
 ```
 
 The label must not simply say "勝率 77.4%". The 77.4% value is an inclusive
@@ -183,7 +183,7 @@ If D+10 / D+20 statistics are also displayed, they must be shown as secondary
 watch statistics, not as the operation rule:
 
 ```text
-D+10 / D+20 觀察統計: from daily_candidate_model_parameters_latest.csv
+D+10 / D+20 觀察統計 from daily_candidate_model_parameters_latest.csv
 ```
 
 Do not merge D+10 / D+20 watch metrics into the D+40 operation win-rate line.
