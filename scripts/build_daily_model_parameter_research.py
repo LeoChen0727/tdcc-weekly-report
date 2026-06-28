@@ -280,6 +280,16 @@ def current_w_bottom_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return d["w_bottom_proxy"] & (d["range_breakout_20d_pct"] < 2.0)
 
 
+def current_neckline_volume_breakout_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        d["w_bottom_proxy"]
+        & (
+            ((d["range_breakout_20d_pct"] >= 0.0) & (d["volume_ratio_prev20"] >= 2.0) & d["bullish_attack_candle"])
+            | d["locked_limit_up_breakout"]
+        )
+    )
+
+
 def current_near_high_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return (
         between(d["near_60d_high_pct"], -5.0, 0.0)
@@ -398,10 +408,23 @@ def production_baseline_specs() -> list[RuleSpec]:
             "production baseline proxy: W-bottom geometry proxy and not already a breakout",
             "pdf_core_model",
             current_w_bottom_baseline_proxy,
-            "Production uses stricter two-trough geometry from price history; research keeps a lightweight W proxy until the detector is shared safely.",
+            "W-bottom early-entry operation v1 is approved separately; full historical condition parity still needs an optimized batch replay detector.",
             "production_baseline",
             "production_proxy",
-            "full production W-bottom detector is row/context based and not yet reused by the research grid",
+            "full production W-bottom detector is row/context based; exact historical replay is too slow until an optimized batch detector exists",
+            "production_current",
+        ),
+        RuleSpec(
+            "neckline_volume_breakout_confirmation",
+            "W底頸線帶量突破確認模型",
+            "production_current_proxy",
+            "production baseline proxy: W-bottom proxy + volume/locked-limit neckline breakout proxy",
+            "pdf_core_model",
+            current_neckline_volume_breakout_baseline_proxy,
+            "Production uses structured W-bottom neckline context; research uses a proxy until a batch replay detector is implemented.",
+            "production_baseline",
+            "production_proxy",
+            "structured neckline production detector is row/context based and not yet optimized for historical batch replay",
             "production_current",
         ),
         RuleSpec(

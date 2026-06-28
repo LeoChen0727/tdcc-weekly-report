@@ -22,6 +22,19 @@ from build_approved_operation_patterns import (  # noqa: E402
     OUT_CSV,
     OUT_MD,
     STOP_LOSS_RULE_ID,
+    W_BOTTOM_APPROVAL_METRICS,
+    W_BOTTOM_APPROVAL_VERSION,
+    W_BOTTOM_BUY_FILTER_ID,
+    W_BOTTOM_ENTRY_RULE_ID,
+    W_BOTTOM_EXIT_RULE_ID,
+    W_BOTTOM_MIN_MATURE_SAMPLE_SIZE,
+    W_BOTTOM_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE,
+    W_BOTTOM_MIN_PURE_WIN_RATE,
+    W_BOTTOM_MODEL_ID,
+    W_BOTTOM_OPERATION_MODULE_ID,
+    W_BOTTOM_SOURCE_RESEARCH_ID,
+    W_BOTTOM_SPEC_SOURCE,
+    W_BOTTOM_STOP_LOSS_RULE_ID,
     positive_rank_rows,
 )
 from tracking_utils import read_csv, to_number  # noqa: E402
@@ -44,10 +57,13 @@ REQUIRED_COLUMNS = {
     "require_out_of_sample_pass",
     "min_research_score",
     "evidence_rank_source",
+    "evidence_source_kind",
     "evidence_total_rank_rows",
     "evidence_positive_rank_rows",
     "risk_notes_zh",
 }
+
+EXPECTED_APPROVED_MODELS = {MODEL_ID, W_BOTTOM_MODEL_ID}
 
 
 def bool_text(value: object) -> str:
@@ -74,10 +90,19 @@ def validate_approval() -> list[str]:
     missing = sorted(REQUIRED_COLUMNS - set(df.columns))
     if missing:
         return [f"approved operation artifact missing columns: {missing}"]
-    if len(df) != 1:
-        errors.append(f"approved operation artifact must contain exactly one current approval row, got {len(df)}")
+    approved_models = set(df["model_id"].astype(str))
+    missing_models = sorted(EXPECTED_APPROVED_MODELS - approved_models)
+    extra_models = sorted(approved_models - EXPECTED_APPROVED_MODELS)
+    if missing_models:
+        errors.append(f"approved operation artifact missing approved models: {missing_models}")
+    if extra_models:
+        errors.append(f"approved operation artifact has unexpected models: {extra_models}")
 
-    row = df.iloc[0]
+    volume_rows = df[df["model_id"].astype(str).eq(MODEL_ID)]
+    if len(volume_rows) != 1:
+        errors.append(f"approved operation artifact must contain exactly one {MODEL_ID} row")
+        return errors
+    row = volume_rows.iloc[0]
     expected = {
         "model_id": MODEL_ID,
         "operation_module_id": OPERATION_MODULE_ID,
@@ -105,6 +130,43 @@ def validate_approval() -> list[str]:
     if int(to_number(row.get("evidence_positive_rank_rows"), 0)) <= 0:
         errors.append("approval must have at least one positive confirmed rank row")
 
+    w_rows = df[df["model_id"].astype(str).eq(W_BOTTOM_MODEL_ID)]
+    if len(w_rows) != 1:
+        errors.append(f"approved operation artifact must contain exactly one {W_BOTTOM_MODEL_ID} row")
+        return errors
+    w_row = w_rows.iloc[0]
+    expected_w = {
+        "model_id": W_BOTTOM_MODEL_ID,
+        "operation_module_id": W_BOTTOM_OPERATION_MODULE_ID,
+        "approval_version": W_BOTTOM_APPROVAL_VERSION,
+        "approved_for_daily": "True",
+        "approval_status": "approved_for_daily_v1",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "source_research_id": W_BOTTOM_SOURCE_RESEARCH_ID,
+        "entry_rule_id": W_BOTTOM_ENTRY_RULE_ID,
+        "stop_loss_rule_id": W_BOTTOM_STOP_LOSS_RULE_ID,
+        "exit_rule_id": W_BOTTOM_EXIT_RULE_ID,
+        "buy_filter_id": W_BOTTOM_BUY_FILTER_ID,
+        "evidence_source_kind": "w_bottom_early_entry_operation_spec",
+    }
+    for col, value in expected_w.items():
+        if str(w_row.get(col, "")) != value:
+            errors.append(f"{W_BOTTOM_MODEL_ID} {col} must be {value!r}, got {w_row.get(col, '')!r}")
+    if not W_BOTTOM_SPEC_SOURCE.exists():
+        errors.append(f"missing W-bottom operation spec source: {W_BOTTOM_SPEC_SOURCE}")
+    if to_number(w_row.get("best_evidence_sample_size")) < W_BOTTOM_MIN_MATURE_SAMPLE_SIZE:
+        errors.append("W-bottom approval mature sample size is weaker than the v1 gate")
+    if to_number(w_row.get("best_evidence_win_rate")) < W_BOTTOM_MIN_PURE_WIN_RATE:
+        errors.append("W-bottom approval pure win rate is weaker than the v1 gate")
+    if to_number(w_row.get("w_bottom_neutral_inclusive_success_rate_pct")) < W_BOTTOM_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE:
+        errors.append("W-bottom approval inclusive success rate is weaker than the v1 gate")
+    if str(w_row.get("w_bottom_win_count", "")) != W_BOTTOM_APPROVAL_METRICS["win_count"]:
+        errors.append("W-bottom approval win_count does not match operation spec metrics")
+    if str(w_row.get("w_bottom_neutral_count", "")) != W_BOTTOM_APPROVAL_METRICS["neutral_count"]:
+        errors.append("W-bottom approval neutral_count does not match operation spec metrics")
+    if str(w_row.get("w_bottom_loss_count", "")) != W_BOTTOM_APPROVAL_METRICS["loss_count"]:
+        errors.append("W-bottom approval loss_count does not match operation spec metrics")
+
     return errors
 
 
@@ -113,7 +175,10 @@ def validate_positive_rank_source() -> list[str]:
     df = read_csv(OUT_CSV, dtype=str).fillna("")
     if df.empty:
         return errors
-    row = df.iloc[0]
+    volume_rows = df[df["model_id"].astype(str).eq(MODEL_ID)]
+    if volume_rows.empty:
+        return [f"approval source must contain {MODEL_ID}: {OUT_CSV}"]
+    row = volume_rows.iloc[0]
     source = Path("output/latest") / str(row.get("evidence_rank_source", ""))
     rank = read_csv(source, dtype=str).fillna("")
     if rank.empty:
@@ -139,7 +204,7 @@ def main() -> int:
     print("approved operation pattern validation passed")
     print(f"validated_output={OUT_CSV}")
     print(f"approved_models={df['model_id'].tolist()}")
-    print(f"operation_module_id={df.iloc[0]['operation_module_id']}")
+    print(f"operation_module_ids={df['operation_module_id'].tolist()}")
     return 0
 
 

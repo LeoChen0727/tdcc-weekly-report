@@ -16,6 +16,7 @@ from build_model_operation_readiness import (  # noqa: E402
     OUT_MD,
     PARITY_CSV,
     VOLUME_MODEL_ID,
+    W_BOTTOM_MODEL_ID,
 )
 from tracking_utils import read_csv  # noqa: E402
 
@@ -36,6 +37,8 @@ REQUIRED_COLUMNS = {
     "packet_integration_status",
     "status_note_zh",
 }
+
+APPROVED_MODEL_IDS = {VOLUME_MODEL_ID, W_BOTTOM_MODEL_ID}
 
 
 def as_bool_text(series: pd.Series) -> pd.Series:
@@ -81,8 +84,8 @@ def validate_readiness_csv() -> list[str]:
 
     approved = df[as_bool_text(df["approved_for_daily"]).eq("true")]
     approved_ids = sorted(approved["model_id"].astype(str).tolist())
-    if approved_ids != [VOLUME_MODEL_ID]:
-        errors.append(f"only {VOLUME_MODEL_ID} may currently be approved_for_daily=True, got {approved_ids}")
+    if approved_ids != sorted(APPROVED_MODEL_IDS):
+        errors.append(f"approved_for_daily=True must be limited to {sorted(APPROVED_MODEL_IDS)}, got {approved_ids}")
 
     volume = df[df["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
     if len(volume) != 1:
@@ -115,7 +118,30 @@ def validate_readiness_csv() -> list[str]:
         if not str(row.get("approval_version", "")):
             errors.append(f"{VOLUME_MODEL_ID} approval_version must be populated")
 
-    others = df[~df["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
+    w_bottom = df[df["model_id"].astype(str).eq(W_BOTTOM_MODEL_ID)]
+    if len(w_bottom) != 1:
+        errors.append(f"readiness must contain exactly one {W_BOTTOM_MODEL_ID} row")
+    else:
+        row = w_bottom.iloc[0]
+        expected = {
+            "operation_module_status": "approved_operation_v1",
+            "daily_adapter_status": "model_header_evidence_ready",
+            "approved_for_daily": "True",
+            "approval_status": "approved_for_daily_v1",
+            "presentation_allowed": "True",
+            "operation_directive_level": "approved_daily_operation_guidance",
+            "pdf_integration_status": "pdf_model_header_evidence_ready",
+            "packet_integration_status": "packet_model_header_evidence_ready",
+        }
+        for col, value in expected.items():
+            if str(row.get(col, "")) != value:
+                errors.append(f"{W_BOTTOM_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+        if str(row.get("operation_module_id", "")) != "w_bottom_early_entry_operation_v1":
+            errors.append(f"{W_BOTTOM_MODEL_ID} operation_module_id must be w_bottom_early_entry_operation_v1")
+        if str(row.get("approval_version", "")) != "w_bottom_early_entry_operation_v1_20260629":
+            errors.append(f"{W_BOTTOM_MODEL_ID} approval_version must be w_bottom_early_entry_operation_v1_20260629")
+
+    others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS)]
     if not others.empty:
         bad_operation = others[~others["operation_module_status"].eq("baseline_only_no_validated_operation_module")]
         if not bad_operation.empty:
@@ -192,9 +218,10 @@ def validate_approval_source() -> list[str]:
     approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
     if approval.empty:
         return [f"missing approval source for readiness validation: {APPROVAL_CSV}"]
-    approved = approval[approval["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
-    if approved.empty:
-        return [f"approval source must contain {VOLUME_MODEL_ID}: {APPROVAL_CSV}"]
+    approved_ids = set(approval["model_id"].astype(str))
+    missing = sorted(APPROVED_MODEL_IDS - approved_ids)
+    if missing:
+        return [f"approval source missing approved model rows: {missing}"]
     return []
 
 
@@ -209,6 +236,7 @@ def main() -> int:
     print(f"validated_output={OUT_CSV}")
     print(f"rows={len(df)}")
     print(f"volume_status={df.loc[df['model_id'].eq(VOLUME_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
+    print(f"w_bottom_status={df.loc[df['model_id'].eq(W_BOTTOM_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     return 0
 
 

@@ -22,6 +22,7 @@ DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 
 VOLUME_MODEL_ID = "volume_range_breakout"
+W_BOTTOM_MODEL_ID = "w_bottom_right_side"
 
 
 def truthy(value: Any) -> bool:
@@ -173,6 +174,52 @@ def summarize_volume_approval(approval: pd.DataFrame) -> dict[str, Any]:
     }
 
 
+def summarize_model_approval(approval: pd.DataFrame, model_id: str) -> dict[str, Any]:
+    if approval.empty or "model_id" not in approval.columns:
+        return {
+            "approved_for_daily": "False",
+            "approval_status": "missing",
+            "operation_module_id": "",
+            "approval_version": "",
+            "operation_directive_level": "no_operation_directive",
+            "approval_note_zh": "missing approved operation artifact",
+            "best_evidence_sample_size": "",
+            "best_evidence_win_rate": "",
+            "best_evidence_median_return": "",
+            "best_evidence_id": "",
+        }
+    part = approval[approval["model_id"].astype(str).eq(model_id)].copy()
+    if part.empty:
+        return {
+            "approved_for_daily": "False",
+            "approval_status": "missing",
+            "operation_module_id": "",
+            "approval_version": "",
+            "operation_directive_level": "no_operation_directive",
+            "approval_note_zh": "approved operation artifact has no row for this model",
+            "best_evidence_sample_size": "",
+            "best_evidence_win_rate": "",
+            "best_evidence_median_return": "",
+            "best_evidence_id": "",
+        }
+    row = part.iloc[0]
+    approved = "True" if truthy(row.get("approved_for_daily")) else "False"
+    return {
+        "approved_for_daily": approved,
+        "approval_status": safe_str(row.get("approval_status")),
+        "operation_module_id": safe_str(row.get("operation_module_id")),
+        "approval_version": safe_str(row.get("approval_version")),
+        "operation_directive_level": (
+            safe_str(row.get("operation_directive_level")) if approved == "True" else "no_operation_directive"
+        ),
+        "approval_note_zh": safe_str(row.get("approval_note_zh")),
+        "best_evidence_sample_size": safe_str(row.get("best_evidence_sample_size")),
+        "best_evidence_win_rate": safe_str(row.get("best_evidence_win_rate")),
+        "best_evidence_median_return": safe_str(row.get("best_evidence_median_return")),
+        "best_evidence_id": safe_str(row.get("best_evidence_id")),
+    }
+
+
 def build_model_operation_readiness(
     parity: pd.DataFrame,
     registry: pd.DataFrame,
@@ -190,8 +237,11 @@ def build_model_operation_readiness(
     generated = generated_at or now_text()
     volume_registry = summarize_volume_registry(registry)
     volume_adapter = summarize_volume_daily_adapter(adapter)
-    volume_approval = summarize_volume_approval(approval if approval is not None else pd.DataFrame())
+    approval_frame = approval if approval is not None else pd.DataFrame()
+    volume_approval = summarize_volume_approval(approval_frame)
+    w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
     volume_approved = volume_approval["approved_for_daily"] == "True"
+    w_bottom_approved = w_bottom_approval["approved_for_daily"] == "True"
     adapter_ready = volume_adapter["daily_adapter_status"] in {
         "ready_pending_approval_metadata",
         "ready_approved_operation_guidance",
@@ -254,6 +304,57 @@ def build_model_operation_readiness(
             )
             continue
 
+        if model_id == W_BOTTOM_MODEL_ID:
+            presentation_allowed = w_bottom_approved and parity_status in {
+                "production_parity",
+                "production_proxy",
+                "proxy_only",
+            }
+            blocker = parity_blocker or (
+                "W-bottom early-entry operation approval is ready; pure win rate and inclusive success rate must be labeled separately"
+            )
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": model_name,
+                    "parity_status": parity_status,
+                    "blocker": blocker,
+                    "operation_module_status": (
+                        "approved_operation_v1" if w_bottom_approved else "baseline_only_no_validated_operation_module"
+                    ),
+                    "daily_adapter_status": "model_header_evidence_ready" if w_bottom_approved else "not_started",
+                    "approved_for_daily": w_bottom_approval["approved_for_daily"],
+                    "approval_status": w_bottom_approval["approval_status"],
+                    "operation_module_id": w_bottom_approval["operation_module_id"],
+                    "approval_version": w_bottom_approval["approval_version"],
+                    "presentation_allowed": "True" if presentation_allowed else "False",
+                    "operation_directive_level": (
+                        w_bottom_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive"
+                    ),
+                    "pdf_integration_status": (
+                        "pdf_model_header_evidence_ready" if presentation_allowed else "not_started"
+                    ),
+                    "packet_integration_status": (
+                        "packet_model_header_evidence_ready" if presentation_allowed else "not_started"
+                    ),
+                    "registry_pattern_count": 1 if w_bottom_approved else 0,
+                    "registry_current_model_pattern_count": 1 if w_bottom_approved else 0,
+                    "registry_best_pattern_id": w_bottom_approval.get("best_evidence_id", ""),
+                    "registry_best_sample_size": w_bottom_approval.get("best_evidence_sample_size", ""),
+                    "registry_best_win_rate": w_bottom_approval.get("best_evidence_win_rate", ""),
+                    "registry_best_median_return": w_bottom_approval.get("best_evidence_median_return", ""),
+                    "daily_adapter_row_count": 0,
+                    "daily_adapter_data_row_count": 0,
+                    "daily_adapter_sections": "model_header_evidence",
+                    "status_note_zh": (
+                        "W底右低點早期進場 v1 已由 approved_operation_patterns 批准；"
+                        "此模型使用標題下方證據，不共用放量攻擊 operation section adapter。"
+                    ),
+                }
+            )
+            continue
+
         blocker = parity_blocker or "operation module not validated yet"
         rows.append(
             {
@@ -288,7 +389,7 @@ def build_model_operation_readiness(
             }
         )
 
-    order = {VOLUME_MODEL_ID: 0}
+    order = {VOLUME_MODEL_ID: 0, W_BOTTOM_MODEL_ID: 1}
     out = pd.DataFrame(rows)
     out["_order"] = out["model_id"].map(order).fillna(9)
     out = out.sort_values(["_order", "model_id"]).drop(columns=["_order"]).reset_index(drop=True)

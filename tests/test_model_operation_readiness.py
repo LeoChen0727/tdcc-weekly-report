@@ -27,6 +27,12 @@ def parity_frame() -> pd.DataFrame:
                 "research_baseline_status": "production_proxy",
                 "parity_blocker": "support flags not fully backfilled",
             },
+            {
+                "model_id": "w_bottom_right_side",
+                "model_name_zh": "W bottom right side",
+                "research_baseline_status": "production_parity",
+                "parity_blocker": "",
+            },
         ]
     )
 
@@ -58,6 +64,18 @@ def approval_frame() -> pd.DataFrame:
                 "approved_for_daily": "True",
                 "approval_status": "approved_for_daily_v1",
                 "operation_directive_level": "approved_daily_operation_guidance",
+            },
+            {
+                "model_id": "w_bottom_right_side",
+                "operation_module_id": "w_bottom_early_entry_operation_v1",
+                "approval_version": "w_bottom_early_entry_operation_v1_20260629",
+                "approved_for_daily": "True",
+                "approval_status": "approved_for_daily_v1",
+                "operation_directive_level": "approved_daily_operation_guidance",
+                "best_evidence_sample_size": "20",
+                "best_evidence_win_rate": "65.0000",
+                "best_evidence_median_return": "4.7478",
+                "best_evidence_id": "smooth_core_mainstream_right_rebound_5_20_bull",
             }
         ]
     )
@@ -101,6 +119,16 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
     assert pullback["presentation_allowed"] == "False"
     assert pullback["approved_for_daily"] == "False"
     assert pullback["operation_directive_level"] == "no_operation_directive"
+
+    w_bottom = readiness[readiness["model_id"].eq("w_bottom_right_side")].iloc[0]
+    assert w_bottom["operation_module_status"] == "approved_operation_v1"
+    assert w_bottom["daily_adapter_status"] == "model_header_evidence_ready"
+    assert w_bottom["presentation_allowed"] == "True"
+    assert w_bottom["approved_for_daily"] == "True"
+    assert w_bottom["operation_module_id"] == "w_bottom_early_entry_operation_v1"
+    assert w_bottom["approval_version"] == "w_bottom_early_entry_operation_v1_20260629"
+    assert w_bottom["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert w_bottom["pdf_integration_status"] == "pdf_model_header_evidence_ready"
 
 
 def test_volume_adapter_approval_metadata_changes_adapter_status() -> None:

@@ -46,12 +46,10 @@ def normalize_stock_id(value: object) -> str:
 
 
 def read_price(path: Path) -> pd.DataFrame:
+    required = ["date", "stock_id", "stock_name", "open", "high", "low", "close", "volume"]
     try:
-        df = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False)
-    except Exception:
-        return pd.DataFrame()
-    required = {"date", "stock_id", "stock_name", "open", "high", "low", "close", "volume"}
-    if not required.issubset(df.columns):
+        df = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False, usecols=required)
+    except (ValueError, OSError, pd.errors.ParserError):
         return pd.DataFrame()
     df = df.copy()
     df["stock_id"] = df["stock_id"].map(normalize_stock_id)
