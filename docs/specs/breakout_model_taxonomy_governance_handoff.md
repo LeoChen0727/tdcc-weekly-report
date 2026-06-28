@@ -124,9 +124,35 @@ The current review group is:
 
 | model_id | Recommended role in the group |
 |---|---|
-| `volume_range_breakout` | Keep as the current production baseline and do not rewrite as a shared pre-filter in the first change. It is the only current stock model with research parity status `ok`. |
+| `volume_range_breakout` | Keep as the current production baseline for bottom/base volume attack. Do not rewrite it as a shared pre-filter in the first change. It is the only current stock model with research parity status `ok`. |
 | `w_bottom_right_side` | Review as a low-position W-bottom structure model. If converted to confirmation behavior, its neckline breakout and volume confirmation must be explicit. |
 | `neckline_volume_breakout_confirmation` | Proposed new model. It should not be added to the formal registries until production code, contract, tests, and research parity handling exist. |
+
+### `volume_range_breakout` Meaning
+
+`volume_range_breakout` is not defined by "previous high" semantics and is not a
+model targeted for removal in this review.
+
+The intended business meaning is:
+
+```text
+Bottom/base volume attack after a contracted consolidation base.
+```
+
+In this context, "range" means a controlled, volume-contracted consolidation
+base near a lower or recovering price position. It does not mean a broad
+high-low trading range, a high-position box breakout, or any arbitrary
+high breakout.
+
+The current production implementation needs a computable breakout line, so it
+uses the highest price in the recent 20 trading sessions as a short local base
+ceiling. Twenty sessions is intentionally short and should be understood as a
+trigger threshold for a recent contracted base, not as the model's business
+meaning. If future evidence shows that the trigger admits too many
+high-position or wide-range breakouts, the fix should be a formal
+`volume_range_breakout` model-change PR that tightens low-position, base-width,
+volume-contraction, and candle-quality rules. It should not be silently
+replaced by `neckline_volume_breakout_confirmation`.
 
 ## Breakout Gate Decision
 
@@ -135,7 +161,10 @@ an analysis frame, but it should not be implemented as a shared hard gate yet.
 
 Reason:
 
-- `volume_range_breakout` is based on previous high or range breakout behavior.
+- `volume_range_breakout` is intended to capture bottom/base volume attack from
+  a controlled consolidation base. Its current recent-20-session local base
+  ceiling is only the breakout threshold; it must not become the model
+  definition.
 - `w_bottom_right_side` depends on a W-bottom neckline and low-position
   structure.
 - `neckline_volume_breakout_confirmation` is intended to represent a
