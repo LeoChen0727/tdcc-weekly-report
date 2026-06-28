@@ -18,6 +18,8 @@ from build_structured_neckline_non_bearish_exit_rule_comparison_audit import (
     PRODUCTION_READINESS,
     RESEARCH_ID,
     RESEARCH_VARIANT_ID,
+    RESEARCH_SELECTION_REASON,
+    SELECTED_EXIT_RULE_COMPARISON_ID,
     SUMMARY_COLUMNS,
 )
 from build_structured_neckline_context_filter_entry_exit_audit import (
@@ -106,6 +108,13 @@ def main() -> int:
 
     if set(summary["exit_rule_comparison_id"].astype(str)) != {INTRADAY_RULE_ID, CLOSE_NEUTRAL_RULE_ID}:
         fail(f"summary must contain exactly the two target comparison rows: {sorted(summary['exit_rule_comparison_id'].astype(str))}")
+    selected = summary[summary["selected_for_next_research_iteration"].astype(str).str.lower().eq("true")]
+    if len(selected) != 1:
+        fail("summary must select exactly one next research iteration rule")
+    if selected["exit_rule_comparison_id"].iloc[0] != SELECTED_EXIT_RULE_COMPARISON_ID:
+        fail(f"selected rule must be {SELECTED_EXIT_RULE_COMPARISON_ID}")
+    if set(selected["research_selection_reason"].astype(str)) != {RESEARCH_SELECTION_REASON}:
+        fail("selected rule must preserve the explicit research selection reason")
     if set(comparison["event_family_id"].astype(str)) != {EVENT_FAMILY_ID}:
         fail("comparison event_family_id mismatch")
     if set(comparison["segment_id"].astype(str)) != {TARGET_SEGMENT_ID}:
@@ -138,6 +147,9 @@ def main() -> int:
 
     md_text = LATEST_MD.read_text(encoding="utf-8", errors="replace")
     required_text = [
+        "Research Selection",
+        SELECTED_EXIT_RULE_COMPARISON_ID,
+        RESEARCH_SELECTION_REASON,
         "Rule Summary",
         "Outcome Transition Counts",
         "Rows To Review",

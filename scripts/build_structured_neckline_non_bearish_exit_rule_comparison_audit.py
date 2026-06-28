@@ -39,6 +39,8 @@ INTRADAY_OUTCOME_RULE_ID = "tp10_intraday_required_else_loss"
 CLOSE_NEUTRAL_RULE_ID = "tp10_close_with_5pct_pullback_neutral"
 CLOSE_NEUTRAL_EXIT_RULE_ID = "tp10_close_or_neutral_after_5pct_close_20d"
 CLOSE_NEUTRAL_OUTCOME_RULE_ID = "tp10_close_win_5pct_pullback_neutral"
+SELECTED_EXIT_RULE_COMPARISON_ID = CLOSE_NEUTRAL_RULE_ID
+RESEARCH_SELECTION_REASON = "close_based_exit_selected_intraday_price_not_repeatable_rule"
 
 LATEST_COMPARISON_CSV = RESEARCH_LATEST_DIR / "structured_neckline_non_bearish_exit_rule_comparison_latest.csv"
 LATEST_SUMMARY_CSV = RESEARCH_LATEST_DIR / "structured_neckline_non_bearish_exit_rule_comparison_summary_latest.csv"
@@ -94,6 +96,9 @@ SUMMARY_COLUMNS = [
     "exit_rule_comparison_id",
     "exit_rule_id",
     "outcome_rule_id",
+    "selected_for_next_research_iteration",
+    "research_selection_status",
+    "research_selection_reason",
     "sample_size",
     "unique_stock_count",
     "win_count",
@@ -286,6 +291,7 @@ def summary_for(rule_rows: pd.DataFrame, comparison_id: str, exit_rule_id: str, 
     mfe = pd.to_numeric(rule_rows["mfe_pct"], errors="coerce").dropna()
     mae = pd.to_numeric(rule_rows["mae_pct"], errors="coerce").dropna()
     positives = rule_rows["positive_return_result"].astype(str).eq("positive")
+    selected = comparison_id == SELECTED_EXIT_RULE_COMPARISON_ID
     return {
         "research_id": RESEARCH_ID,
         "research_variant_id": RESEARCH_VARIANT_ID,
@@ -295,6 +301,9 @@ def summary_for(rule_rows: pd.DataFrame, comparison_id: str, exit_rule_id: str, 
         "exit_rule_comparison_id": comparison_id,
         "exit_rule_id": exit_rule_id,
         "outcome_rule_id": outcome_rule_id,
+        "selected_for_next_research_iteration": "true" if selected else "false",
+        "research_selection_status": "selected_research_candidate" if selected else "not_selected_research_candidate",
+        "research_selection_reason": RESEARCH_SELECTION_REASON if selected else "intraday_touch_not_selected_for_repeatable_rule",
         "sample_size": str(len(rule_rows)),
         "unique_stock_count": str(int(rule_rows["stock_id"].nunique())),
         "win_count": str(wins),
@@ -375,6 +384,8 @@ def write_markdown(comparison: pd.DataFrame, summary: pd.DataFrame, generated_at
         f"- comparison_scope_id: `{COMPARISON_SCOPE_ID}`",
         f"- sample_size: `{len(comparison)}`",
         f"- stop_rule_id: `{STOP_RULE_ID}`",
+        f"- selected_exit_rule_comparison_id: `{SELECTED_EXIT_RULE_COMPARISON_ID}`",
+        f"- research_selection_reason: `{RESEARCH_SELECTION_REASON}`",
         f"- advisory_status: `{RESEARCH_VARIANT_ID}`",
         f"- production_readiness: `{PRODUCTION_READINESS}`",
         "- production impact: `none`; this audit does not update production model conditions, scoring, ranking, PDF logic, or baseline.",
@@ -386,12 +397,19 @@ def write_markdown(comparison: pd.DataFrame, summary: pd.DataFrame, generated_at
         "- It compares two sell/outcome definitions on the same entry event set.",
         "- Pure win rate and neutral-inclusive success rate remain separate metrics.",
         "",
+        "## Research Selection",
+        "",
+        f"- Selected for next research iteration: `{SELECTED_EXIT_RULE_COMPARISON_ID}`.",
+        "- Reason: intraday touch prices are not reliable enough to define a repeatable model rule, so this research path uses close-based confirmation.",
+        "- This selection does not promote the rule to production and does not change any production model, score, ranking, PDF, or baseline.",
+        "",
         "## Rule Summary",
         "",
         *markdown_table(
             summary,
             [
                 "exit_rule_comparison_id",
+                "selected_for_next_research_iteration",
                 "sample_size",
                 "win_count",
                 "neutral_count",

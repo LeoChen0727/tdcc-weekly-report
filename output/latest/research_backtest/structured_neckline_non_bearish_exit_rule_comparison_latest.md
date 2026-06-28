@@ -1,11 +1,13 @@
 # Structured Neckline Non-Bearish Exit Rule Comparison
 
-- generated_at: `2026-06-29 00:30:30 Asia/Taipei`
+- generated_at: `2026-06-29 00:38:50 Asia/Taipei`
 - research_id: `structured_neckline_non_bearish_exit_rule_comparison_audit`
 - source_research_id: `structured_neckline_context_filter_entry_exit_audit`
 - comparison_scope_id: `visual_context_non_bearish_signal_low_stop`
 - sample_size: `23`
 - stop_rule_id: `signal_low_stop`
+- selected_exit_rule_comparison_id: `tp10_close_with_5pct_pullback_neutral`
+- research_selection_reason: `close_based_exit_selected_intraday_price_not_repeatable_rule`
 - advisory_status: `warning_research_variant_only`
 - production_readiness: `not_production_ready_research_only`
 - production impact: `none`; this audit does not update production model conditions, scoring, ranking, PDF logic, or baseline.
@@ -17,12 +19,18 @@
 - It compares two sell/outcome definitions on the same entry event set.
 - Pure win rate and neutral-inclusive success rate remain separate metrics.
 
+## Research Selection
+
+- Selected for next research iteration: `tp10_close_with_5pct_pullback_neutral`.
+- Reason: intraday touch prices are not reliable enough to define a repeatable model rule, so this research path uses close-based confirmation.
+- This selection does not promote the rule to production and does not change any production model, score, ranking, PDF, or baseline.
+
 ## Rule Summary
 
-| exit_rule_comparison_id | sample_size | win_count | neutral_count | loss_count | pure_win_rate_pct | neutral_inclusive_success_rate_pct | positive_return_rate_pct | avg_return_pct | median_return_pct | avg_mae_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| tp10_intraday_touch | 23 | 16 | 0 | 7 | 69.5652 | 69.5652 | 73.9130 | 4.6638 | 10.0000 | -6.7176 |
-| tp10_close_with_5pct_pullback_neutral | 23 | 8 | 10 | 5 | 61.5385 | 78.2609 | 69.5652 | 3.0639 | 3.6290 | -6.8108 |
+| exit_rule_comparison_id | selected_for_next_research_iteration | sample_size | win_count | neutral_count | loss_count | pure_win_rate_pct | neutral_inclusive_success_rate_pct | positive_return_rate_pct | avg_return_pct | median_return_pct | avg_mae_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| tp10_intraday_touch | false | 23 | 16 | 0 | 7 | 69.5652 | 69.5652 | 73.9130 | 4.6638 | 10.0000 | -6.7176 |
+| tp10_close_with_5pct_pullback_neutral | true | 23 | 8 | 10 | 5 | 61.5385 | 78.2609 | 69.5652 | 3.0639 | 3.6290 | -6.8108 |
 
 ## Outcome Transition Counts
 
