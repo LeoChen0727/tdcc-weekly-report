@@ -437,11 +437,23 @@ MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
         tdcc_positive_bonus=6.0,
         warrant_bullish_bonus=3.0,
         strong_revenue_bonus=3.0,
-        lower_position_bonus=8.0,
+        lower_position_bonus=0.0,
         high_return_penalty_threshold_20d=35.0,
         high_return_penalty=5.0,
         tdcc_distribution_penalty=6.0,
         false_breakout_penalty=5.0,
+    ),
+    "neckline_volume_breakout_confirmation": ScoreProfile(
+        "neckline_volume_breakout_confirmation",
+        base_score=38.0,
+        volume_ratio_bonus_per_1x=3.0,
+        volume_ratio_bonus_cap=12.0,
+        tdcc_positive_bonus=6.0,
+        warrant_bullish_bonus=4.0,
+        strong_revenue_bonus=4.0,
+        lower_position_bonus=2.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=6.0,
     ),
     "near_high_neckline_challenge": ScoreProfile(
         "near_high_neckline_challenge",
@@ -1363,8 +1375,9 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
     vol = num(row, "volume_ratio")
     attack1 = num(row, "attack1_gain_pct")
     attack2 = num(row, "attack2_gain_pct")
-    vol2_vs_1 = num(row, "volume_ratio_2_vs_1")
-    red_body2_vs_1 = num(row, "red_body_ratio_2_vs_1")
+    vol2_vs_1 = w_bottom_second_arc_volume_ratio(row)
+    red_candle_bonus, red_candle_components = w_bottom_red_candle_ratio_bonus(row)
+    low_position_score, low_position_components, low_position_risks = w_bottom_low_position_score(row)
     context = detected_w_bottom_context(row)
     if context.get("available"):
         low_pos = context.get("w_bottom_low_position_pct")
@@ -1374,12 +1387,24 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
             comps.append(f"W low position:{low_pos:.1f}%")
         if isinstance(neck_dist, (int, float)):
             comps.append(f"W neckline distance:{neck_dist:.1f}%")
+            neckline_distance = float(neck_dist)
         if isinstance(base_width, (int, float)) and not math.isnan(base_width):
             comps.append(f"pre-W base width:{base_width:.1f}%")
+        current_vs_median = context.get("w_bottom_current_vs_long_median_pct")
+        long_days = context.get("w_bottom_long_position_days")
+        if isinstance(current_vs_median, (int, float)) and not math.isnan(current_vs_median):
+            comps.append(f"W long position vs median:{current_vs_median:.1f}%/{int(long_days)}d")
         attack1 = float(context.get("attack1_gain_pct", math.nan))
         attack2 = float(context.get("attack2_gain_pct", math.nan))
-        vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
-        red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
+        vol2_vs_1 = w_bottom_second_arc_volume_ratio(row, context)
+        red_candle_bonus, red_candle_components = w_bottom_red_candle_ratio_bonus(row, context)
+        low_position_score, low_position_components, low_position_risks = w_bottom_low_position_score(row, context)
+        first_arc_volume = float(context.get("first_arc_month_avg_volume", math.nan))
+        second_arc_volume = float(context.get("second_arc_avg_daily_volume", math.nan))
+        if not math.isnan(first_arc_volume):
+            comps.append(f"first arc avg volume:{first_arc_volume:.0f}")
+        if not math.isnan(second_arc_volume):
+            comps.append(f"second arc avg volume:{second_arc_volume:.0f}")
     if not math.isnan(second_low_gap):
         if 0 <= second_low_gap <= 4:
             score += 8
@@ -1392,40 +1417,103 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
             comps.append("second low higher but stretched +3")
     if not math.isnan(neckline_distance):
         if -3 <= neckline_distance <= 0:
-            score += 8
-            comps.append("near neckline from below +8")
-        elif 0 < neckline_distance <= 0.5:
-            score += 5
-            comps.append("neckline just reclaimed +5")
-        elif -5 <= neckline_distance < -3:
-            score += 3
-            comps.append("approaching neckline +3")
+            score -= 2
+            risks.append("near_neckline_wait_for_breakout_confirmation")
+        elif 0 < neckline_distance <= 1:
+            score -= 4
+            risks.append("above_neckline_without_volume_breakout_confirmation")
     if not math.isnan(vol) and vol >= 1.2:
         add = min(5, (vol - 1.0) * 2)
         score += add
         comps.append(f"right-side volume support +{add:.1f}")
     if not math.isnan(attack1) and not math.isnan(attack2):
-        if attack2 >= attack1 + 3 and attack2 >= attack1 * 1.25:
-            score += 7
-            comps.append("second attack materially stronger +7")
-        elif attack2 >= attack1 * 0.9:
+        if W_BOTTOM_RIGHT_SIDE_REBOUND_MIN <= attack2 <= 8:
+            score += 5
+            comps.append("early right-side rebound +5")
+        elif 8 < attack2 <= W_BOTTOM_RIGHT_SIDE_REBOUND_MAX:
+            score += 3
+            comps.append("right-side rebound advancing +3")
+        if attack2 >= attack1 * 0.9:
             score += 2
             comps.append("second attack comparable to first +2")
-        else:
-            score -= 4
-            risks.append("second_attack_weaker_watch")
+        elif attack2 < attack1 * 0.5:
+            score -= 2
+            risks.append("second_attack_still_weak_watch")
     if not math.isnan(vol2_vs_1):
         if vol2_vs_1 >= 1.5:
             score += 4
-            comps.append("second attack volume expansion +4")
+            comps.append("second arc volume expansion +4")
         elif vol2_vs_1 >= 1.2:
             score += 2
-            comps.append("second attack volume mildly higher +2")
+            comps.append("second arc volume mildly higher +2")
         elif vol2_vs_1 < 0.8:
-            risks.append("second_attack_volume_not_confirmed")
-    if not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.2:
-        score += 3
-        comps.append("second attack red-body improvement +3")
+            risks.append("second_arc_volume_not_confirmed")
+    if red_candle_bonus:
+        score += red_candle_bonus
+        comps.extend(red_candle_components)
+    if low_position_score:
+        score += low_position_score
+        comps.extend(low_position_components)
+        risks.extend(low_position_risks)
+    return score, comps, risks
+
+
+def score_neckline_volume_breakout_confirmation(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["neckline_volume_breakout_confirmation"])
+    context = detected_w_bottom_context(row)
+    context_for_use = context if context.get("available") else None
+    neckline_distance = w_bottom_neckline_distance_pct(row, context_for_use)
+    second_arc_ratio = w_bottom_second_arc_volume_ratio(row, context_for_use)
+    red_candle_bonus, red_candle_components = w_bottom_red_candle_ratio_bonus(row, context_for_use)
+
+    if not math.isnan(second_arc_ratio):
+        if second_arc_ratio >= 1.5:
+            score += 6
+            comps.append("W second arc volume expansion +6")
+        elif second_arc_ratio >= 1.2:
+            score += 3
+            comps.append("W second arc volume confirmed +3")
+        else:
+            risks.append("W_second_arc_volume_below_first_arc_baseline")
+
+    if w_bottom_neckline_locked_limit_up(row, context_for_use):
+        score += 8
+        comps.append("locked_limit_up_neckline_breakout +8")
+        if num(row, "high") == num(row, "low"):
+            score += 4
+            comps.append("one_price_limit_up +4")
+    elif w_bottom_neckline_normal_volume_breakout(row, context_for_use):
+        score += 5
+        comps.append("neckline_volume_confirmation +5")
+    if red_candle_bonus:
+        score += red_candle_bonus
+        comps.extend(red_candle_components)
+
+    if not math.isnan(neckline_distance) and neckline_distance >= 0:
+        add = min(8.0, neckline_distance * 1.2)
+        if add:
+            score += add
+            comps.append(f"neckline breakout distance:{neckline_distance:.2f}% +{add:.1f}")
+
+    close_pos = close_position_in_day_range(row)
+    if not math.isnan(close_pos):
+        if close_pos >= 0.90:
+            score += 6
+            comps.append("close_near_day_high +6")
+        elif close_pos >= 0.75:
+            score += 3
+            comps.append("close_high_position +3")
+    if red_solid_candle(row):
+        score += 5
+        comps.append("strong_red_body +5")
+    elif bottom_volume_attack_bullish_candle(row):
+        score += 2
+        comps.append("red_body_confirmed +2")
+    upper_shadow = upper_shadow_pct_of_close(row)
+    if not math.isnan(upper_shadow) and upper_shadow > 3.0:
+        penalty = min(8.0, (upper_shadow - 3.0) * 1.5)
+        score -= penalty
+        risks.append(f"long_upper_shadow_quality_penalty:{penalty:.1f}")
     return score, comps, risks
 
 
@@ -1593,17 +1681,240 @@ def explicit_w_bottom_context_ok(row: pd.Series) -> bool:
     return base_ok and not_extended
 
 
-def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | str | bool] | None = None) -> bool:
-    """Require a real right-side attack, without making strength a hard veto.
+W_BOTTOM_SECOND_LOW_GAP_MIN = -3.0
+W_BOTTOM_SECOND_LOW_GAP_MAX = 6.0
+W_BOTTOM_RIGHT_SIDE_REBOUND_MIN = 3.0
+W_BOTTOM_RIGHT_SIDE_REBOUND_MAX = 15.0
+W_BOTTOM_LONG_POSITION_LOOKBACK_DAYS = 252
+W_BOTTOM_LONG_POSITION_MIN_DAYS = 180
 
-    The W-bottom label should be controlled by geometry, base quality and
-    neckline proximity. Second-leg strength is a ranking feature: a second
-    attack that is only comparable to the first is still a valid W candidate,
-    but receives a lower score than a clearly stronger second leg.
-    """
+
+def context_num(context: dict[str, float | str | bool] | None, *names: str) -> float:
+    if not context:
+        return math.nan
+    for name in names:
+        if name in context:
+            value = to_number(context.get(name, math.nan))
+            if not math.isnan(value):
+                return float(value)
+    return math.nan
+
+
+def w_bottom_second_arc_volume_ratio(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> float:
+    ratio = context_num(context, "second_arc_volume_ratio", "w_bottom_second_arc_volume_ratio")
+    if not math.isnan(ratio):
+        return ratio
+    return num(row, "second_arc_volume_ratio", "w_bottom_second_arc_volume_ratio", "volume_ratio_2_vs_1")
+
+
+def w_bottom_second_arc_volume_ok(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> bool:
+    ratio = w_bottom_second_arc_volume_ratio(row, context)
+    return not math.isnan(ratio) and ratio >= 1.2
+
+
+def w_bottom_red_candle_ratios(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> tuple[float, float, float]:
+    first_ratio = context_num(context, "first_arc_red_candle_ratio", "w_bottom_first_arc_red_candle_ratio")
+    second_ratio = context_num(context, "second_arc_red_candle_ratio", "w_bottom_second_arc_red_candle_ratio")
+    delta = context_num(context, "second_arc_red_candle_ratio_delta", "w_bottom_second_arc_red_candle_ratio_delta")
+    if math.isnan(first_ratio):
+        first_ratio = num(row, "first_arc_red_candle_ratio", "w_bottom_first_arc_red_candle_ratio")
+    if math.isnan(second_ratio):
+        second_ratio = num(row, "second_arc_red_candle_ratio", "w_bottom_second_arc_red_candle_ratio")
+    if math.isnan(delta):
+        delta = num(row, "second_arc_red_candle_ratio_delta", "w_bottom_second_arc_red_candle_ratio_delta")
+    if math.isnan(delta) and not math.isnan(first_ratio) and not math.isnan(second_ratio):
+        delta = second_ratio - first_ratio
+    return first_ratio, second_ratio, delta
+
+
+def w_bottom_red_candle_ratio_bonus(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> tuple[float, list[str]]:
+    first_ratio, second_ratio, delta = w_bottom_red_candle_ratios(row, context)
+    if any(math.isnan(value) for value in [first_ratio, second_ratio, delta]):
+        return 0.0, []
+    if second_ratio >= 0.55 and delta >= 0.15:
+        return 4.0, [
+            f"second arc red candle ratio improved +4 ({second_ratio:.0%} vs {first_ratio:.0%})"
+        ]
+    if second_ratio >= 0.45 and delta >= 0.08:
+        return 2.0, [
+            f"second arc red candle ratio mildly improved +2 ({second_ratio:.0%} vs {first_ratio:.0%})"
+        ]
+    return 0.0, []
+
+
+def w_bottom_low_position_score(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> tuple[float, list[str], list[str]]:
+    low_pos = context_num(context, "w_bottom_low_position_pct")
+    if math.isnan(low_pos):
+        low_pos = num(row, "w_bottom_low_position_pct", "double_bottom_low_position_pct")
+    if math.isnan(low_pos):
+        low_pos = num(row, "off_60d_low_pct")
+    if math.isnan(low_pos):
+        return 0.0, [], []
+
+    if low_pos <= 10:
+        return 8.0, [f"W low position very low +8 ({low_pos:.1f}%)"], []
+    if low_pos <= 20:
+        return 6.0, [f"W low position low +6 ({low_pos:.1f}%)"], []
+    if low_pos <= 30:
+        return 4.0, [f"W low position acceptable +4 ({low_pos:.1f}%)"], []
+    if low_pos <= 35:
+        return 2.0, [f"W low position upper base +2 ({low_pos:.1f}%)"], []
+    if low_pos <= 45:
+        return -2.0, [], [f"W_low_position_higher_watch:{low_pos:.1f}%"]
+    return -5.0, [], [f"W_low_position_too_high_penalty:{low_pos:.1f}%"]
+
+
+def w_bottom_long_price_position_metrics(
+    history: pd.DataFrame,
+    current_close: float,
+) -> dict[str, float | str | bool]:
+    lookback = history.tail(W_BOTTOM_LONG_POSITION_LOOKBACK_DAYS)
+    valid_close = pd.to_numeric(lookback["close"], errors="coerce").dropna()
+    days = int(len(valid_close))
+    if days < W_BOTTOM_LONG_POSITION_MIN_DAYS or math.isnan(current_close):
+        return {
+            "w_bottom_long_position_ok": False,
+            "w_bottom_long_position_fail_reason": "long_price_position_insufficient_history",
+            "w_bottom_long_position_days": days,
+            "w_bottom_long_close_median": math.nan,
+            "w_bottom_long_close_mean": math.nan,
+            "w_bottom_current_vs_long_median_pct": math.nan,
+            "w_bottom_current_vs_long_mean_pct": math.nan,
+        }
+
+    median_close = float(valid_close.median())
+    mean_close = float(valid_close.mean())
+    current_vs_median = (current_close / median_close - 1) * 100 if median_close > 0 else math.nan
+    current_vs_mean = (current_close / mean_close - 1) * 100 if mean_close > 0 else math.nan
+    ok = not math.isnan(current_vs_median) and current_vs_median <= 0
+    return {
+        "w_bottom_long_position_ok": ok,
+        "w_bottom_long_position_fail_reason": "" if ok else "current_close_above_long_median",
+        "w_bottom_long_position_days": days,
+        "w_bottom_long_close_median": median_close,
+        "w_bottom_long_close_mean": mean_close,
+        "w_bottom_current_vs_long_median_pct": current_vs_median,
+        "w_bottom_current_vs_long_mean_pct": current_vs_mean,
+    }
+
+
+def w_bottom_neckline_distance_pct(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> float:
+    distance = context_num(context, "neckline_distance_pct", "distance_to_neckline_pct")
+    if not math.isnan(distance):
+        return distance
+    return num(row, "neckline_distance_pct", "distance_to_neckline_pct")
+
+
+def w_bottom_neckline_price(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> float:
+    price = context_num(context, "neckline_price")
+    if not math.isnan(price):
+        return price
+    return num(row, "neckline_price")
+
+
+def w_bottom_base_structure_ok(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> bool:
+    second_low_gap = context_num(context, "second_low_gap_pct")
+    if math.isnan(second_low_gap):
+        second_low_gap = num(row, "second_low_gap_pct")
+    if math.isnan(second_low_gap) or not (
+        W_BOTTOM_SECOND_LOW_GAP_MIN <= second_low_gap <= W_BOTTOM_SECOND_LOW_GAP_MAX
+    ):
+        return False
+
+    base_width = context_num(context, "pre_base_width_pct")
+    if math.isnan(base_width):
+        base_width = num(row, "w_bottom_base_width_pct", "double_bottom_base_width_pct", "platform_width_pct", "short_platform_width_pct")
+    if math.isnan(base_width) or base_width > 35.0:
+        return False
+
+    pre_return = context_num(context, "pre_base_return_pct")
+    if not math.isnan(pre_return) and abs(pre_return) > 25.0:
+        return False
+    return True
+
+
+def w_bottom_neckline_normal_volume_breakout(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> bool:
+    close = close_price(row)
+    neckline = w_bottom_neckline_price(row, context)
+    vol = num(row, "volume_ratio")
+    ma20 = volume_ma20_lots(row)
+    if any(math.isnan(v) for v in [close, neckline, vol, ma20]):
+        return False
+    return close >= neckline and vol >= 2.0 and ma20 >= 1000 and bottom_volume_attack_bullish_candle(row)
+
+
+def w_bottom_neckline_locked_limit_up(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> bool:
+    close = close_price(row)
+    open_ = num(row, "open")
+    high = num(row, "high")
+    low = num(row, "low")
+    prev_close = previous_close_price(row)
+    neckline = w_bottom_neckline_price(row, context)
+    ret = daily_signal_return_pct(row)
+    if any(math.isnan(v) for v in [close, open_, high, low, neckline, ret]):
+        return False
+    one_price_locked = high == low
+    range_pct = math.nan
+    if not one_price_locked:
+        if math.isnan(prev_close) or prev_close <= 0:
+            return False
+        range_pct = (high - low) / prev_close * 100.0
+    locked_or_tight_range = one_price_locked or range_pct <= 1.0
+    return close >= neckline and ret >= 9.0 and close >= high * 0.995 and open_ >= close * 0.995 and locked_or_tight_range
+
+
+def w_bottom_neckline_breakout_confirmation_ok(
+    row: pd.Series,
+    context: dict[str, float | str | bool] | None = None,
+) -> bool:
+    neckline_distance = w_bottom_neckline_distance_pct(row, context)
+    if math.isnan(neckline_distance) or neckline_distance < 0:
+        return False
+    return (
+        w_bottom_base_structure_ok(row, context)
+        and w_bottom_second_arc_volume_ok(row, context)
+        and (
+            w_bottom_neckline_normal_volume_breakout(row, context)
+            or w_bottom_neckline_locked_limit_up(row, context)
+        )
+    )
+
+
+def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | str | bool] | None = None) -> bool:
+    """Require an early right-side rebound and second-arc volume confirmation."""
     attack1 = num(row, "attack1_gain_pct")
     attack2 = num(row, "attack2_gain_pct")
-    vol2_vs_1 = num(row, "volume_ratio_2_vs_1")
+    vol2_vs_1 = w_bottom_second_arc_volume_ratio(row)
     red_body2_vs_1 = num(row, "red_body_ratio_2_vs_1")
 
     if context:
@@ -1612,25 +1923,101 @@ def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | s
         # post-rally pullback can inherit stale explicit W metrics and pass.
         attack1 = float(context.get("attack1_gain_pct", math.nan))
         attack2 = float(context.get("attack2_gain_pct", math.nan))
-        vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
+        vol2_vs_1 = w_bottom_second_arc_volume_ratio(row, context)
         red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
 
     if math.isnan(attack1) or math.isnan(attack2):
         return False
 
-    price_leg_ok = attack2 >= 6.0 and attack2 >= attack1 * 0.85
+    price_leg_ok = W_BOTTOM_RIGHT_SIDE_REBOUND_MIN <= attack2 <= W_BOTTOM_RIGHT_SIDE_REBOUND_MAX
     volume_ok = not math.isnan(vol2_vs_1) and vol2_vs_1 >= 1.2
-    body_ok = not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.0
-    return price_leg_ok and (volume_ok or body_ok)
+    return price_leg_ok and volume_ok
+
+
+def w_bottom_segment_quality(
+    df: pd.DataFrame,
+    left_peak_idx: int,
+    left_low_idx: int,
+    neckline_idx: int,
+    right_low_idx: int,
+    current_close: float,
+) -> dict[str, float | str | bool]:
+    """Validate W-bottom as connected segments, not only swing points."""
+    left_descent = df.iloc[left_peak_idx : left_low_idx + 1]
+    first_rebound = df.iloc[left_low_idx : neckline_idx + 1]
+    second_decline = df.iloc[neckline_idx : right_low_idx + 1]
+    right_rebound = df.iloc[right_low_idx:]
+
+    failures: list[str] = []
+    if len(left_descent) < 5:
+        failures.append("left_descent_too_short")
+    if len(first_rebound) < 5:
+        failures.append("first_rebound_too_short")
+    if len(second_decline) < 3:
+        failures.append("second_decline_too_short")
+    if len(right_rebound) < 4:
+        failures.append("right_rebound_too_short")
+
+    left_low = float(df["low"].iloc[left_low_idx])
+    right_low = float(df["low"].iloc[right_low_idx])
+    neckline = float(df["high"].iloc[neckline_idx])
+    left_low_close = float(df["close"].iloc[left_low_idx])
+    right_low_close = float(df["close"].iloc[right_low_idx])
+
+    if float(first_rebound["low"].min()) < left_low * 0.98:
+        failures.append("first_low_undercut_before_neckline")
+    first_after_low = df.iloc[left_low_idx + 1 : neckline_idx + 1]
+    first_close_undercuts = 0
+    if not first_after_low.empty:
+        first_close_undercuts = int((first_after_low["close"] < left_low_close * 0.98).sum())
+        if first_close_undercuts > 1:
+            failures.append("first_low_close_repeatedly_undercut")
+
+    after_neckline = df.iloc[neckline_idx + 1 : right_low_idx + 1]
+    if not after_neckline.empty and float(after_neckline["high"].max()) > neckline * 1.02:
+        failures.append("higher_high_after_neckline_before_second_low")
+    if float(second_decline["low"].min()) < right_low * 0.98:
+        failures.append("second_low_undercut_inside_decline")
+
+    if float(right_rebound["low"].min()) < right_low * 0.98:
+        failures.append("second_low_undercut_after_right_side")
+    right_after_low = df.iloc[right_low_idx + 1 :]
+    second_close_undercuts = 0
+    if not right_after_low.empty:
+        second_close_undercuts = int((right_after_low["close"] < right_low_close * 0.98).sum())
+        if second_close_undercuts > 1:
+            failures.append("second_low_close_repeatedly_undercut")
+
+    right_rebound_high = float(right_rebound["high"].max())
+    right_span = right_rebound_high - right_low
+    right_rebound_retention_pct = 100.0
+    if right_span > 0:
+        right_rebound_retention_pct = (current_close - right_low) / right_span * 100.0
+        if right_rebound_retention_pct < 45.0:
+            failures.append("right_rebound_faded")
+
+    return {
+        "w_shape_quality_passed": not failures,
+        "w_shape_quality_failures": ";".join(failures),
+        "left_descent_days": len(left_descent),
+        "first_rebound_days": len(first_rebound),
+        "second_decline_days": len(second_decline),
+        "right_rebound_days": len(right_rebound),
+        "first_low_close_undercut_count": first_close_undercuts,
+        "second_low_close_undercut_count": second_close_undercuts,
+        "right_rebound_retention_pct": right_rebound_retention_pct,
+    }
 
 
 def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
     """Infer current W-bottom context from price history.
 
     This is intentionally conservative. Broad upstream pattern flags are not
-    enough: the two lows must be close in height, formed in the lower part of
-    the recent range, preceded by a base-like stretch, and the latest price
-    must not already be far above the neckline.
+    enough: the detector must find a connected swing sequence of left peak,
+    first low, neckline, second low, and current right-side rebound. The two
+    lows must be close in height, the lows must not be meaningfully undercut
+    inside their own legs, and the latest price must not already be far above
+    the neckline.
     """
     stock_id = text(row, "stock_id")
     df = price_history_for_stock(stock_id)
@@ -1642,6 +2029,9 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
         dated = df[df["date"] <= date]
         if len(dated) >= 80:
             df = dated
+    position_history = df.reset_index(drop=True)
+    current_close = float(position_history["close"].iloc[-1])
+    long_position = w_bottom_long_price_position_metrics(position_history, current_close)
     df = df.tail(120).reset_index(drop=True)
     if len(df) < 80:
         return {"available": False}
@@ -1651,16 +2041,39 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
     if high_120 <= low_120:
         return {"available": False}
     range_span = high_120 - low_120
-    current_close = float(df["close"].iloc[-1])
 
+    peaks: list[int] = []
     troughs: list[int] = []
+    for idx in range(3, len(df) - 3):
+        local = df["high"].iloc[idx - 3 : idx + 4]
+        if float(df["high"].iloc[idx]) >= float(local.max()) * 0.998:
+            peaks.append(idx)
     for idx in range(3, len(df) - 3):
         local = df["low"].iloc[idx - 3 : idx + 4]
         if float(df["low"].iloc[idx]) <= float(local.min()) * 1.002:
             troughs.append(idx)
 
     best: dict[str, float | str | bool] | None = None
+    best_rejected_shape: dict[str, float | str | bool] | None = None
     for left in troughs:
+        pre_peak_start = max(0, left - 45)
+        pre_peak_end = left - 2
+        if pre_peak_end <= pre_peak_start:
+            continue
+        left_peak_candidates = [idx for idx in peaks if pre_peak_start <= idx <= pre_peak_end]
+        if left_peak_candidates:
+            left_peak_idx = max(left_peak_candidates, key=lambda idx: float(df["high"].iloc[idx]))
+        else:
+            left_peak_idx = int(df["high"].iloc[pre_peak_start:pre_peak_end].idxmax())
+        left_peak = float(df["high"].iloc[left_peak_idx])
+        low_left = float(df["low"].iloc[left])
+        left_decline_pct = (left_peak / low_left - 1) * 100 if low_left > 0 else math.nan
+        if math.isnan(left_decline_pct) or left_decline_pct < 8:
+            continue
+        left_descent_slice = df.iloc[left_peak_idx : left + 1]
+        if float(left_descent_slice["low"].min()) < low_left * 0.98:
+            continue
+
         for right in troughs:
             if right <= left:
                 continue
@@ -1673,10 +2086,9 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             right_age = len(df) - 1 - right
             if right_age > 45:
                 continue
-            low_left = float(df["low"].iloc[left])
             low_right = float(df["low"].iloc[right])
             second_low_gap = (low_right / low_left - 1) * 100
-            if second_low_gap < 0 or second_low_gap > 4:
+            if second_low_gap < W_BOTTOM_SECOND_LOW_GAP_MIN or second_low_gap > W_BOTTOM_SECOND_LOW_GAP_MAX:
                 continue
             middle = df.iloc[left : right + 1]
             neckline_idx = int(middle["high"].idxmax())
@@ -1696,11 +2108,47 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             if min(depth_left, depth_right) < 6:
                 continue
 
+            # A W is a connected swing sequence:
+            # left peak -> first low -> neckline -> second low -> right side.
+            # If the first "low" is meaningfully undercut before the neckline,
+            # or the second low is undercut after it forms, the shape is not a
+            # clean W-bottom for this model.
+            first_rebound_slice = df.iloc[left : neckline_idx + 1]
+            right_rebound_slice = df.iloc[right:]
+            segment_quality = w_bottom_segment_quality(
+                df,
+                left_peak_idx,
+                left,
+                neckline_idx,
+                right,
+                current_close,
+            )
+            if not segment_quality["w_shape_quality_passed"]:
+                rejected_shape: dict[str, float | str | bool] = {
+                    "available": True,
+                    "context_ok": False,
+                    "left_peak_date": str(df["date"].iloc[left_peak_idx]),
+                    "left_low_date": str(df["date"].iloc[left]),
+                    "neckline_date": str(df["date"].iloc[neckline_idx]),
+                    "right_low_date": str(df["date"].iloc[right]),
+                    "right_low_age_days": right_age,
+                    "second_low_gap_pct": second_low_gap,
+                    "neckline_price": neckline,
+                }
+                rejected_shape.update(segment_quality)
+                rejected_shape.update(long_position)
+                if (
+                    best_rejected_shape is None
+                    or right_age < float(best_rejected_shape.get("right_low_age_days", math.inf))
+                ):
+                    best_rejected_shape = rejected_shape
+                continue
+
             low_left_position = (low_left - low_120) / range_span * 100
             low_right_position = (low_right - low_120) / range_span * 100
             lows_in_lower_base = low_left_position <= 35 and low_right_position <= 35
 
-            pre_base = df.iloc[max(0, left - 30) : left]
+            pre_base = df.iloc[max(0, left_peak_idx - 30) : left_peak_idx]
             pre_base_ok = False
             pre_width = math.nan
             pre_return = math.nan
@@ -1719,15 +2167,36 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             close_position = (current_close - low_120) / range_span * 100
             attack1_gain = (neckline / low_left - 1) * 100
             attack2_gain = (current_close / low_right - 1) * 100
-            attack1_slice = df.iloc[left : min(right, left + 8)]
-            attack2_slice = df.iloc[right : min(len(df), right + 8)]
+            first_arc_slice = df.iloc[left_peak_idx : neckline_idx + 1]
+            second_arc_slice = df.iloc[neckline_idx:]
+            attack1_slice = first_arc_slice
+            attack2_slice = second_arc_slice
             vol2_vs_1 = math.nan
+            first_arc_month_avg_volume = math.nan
+            second_arc_avg_daily_volume = math.nan
+            second_arc_volume_ratio = math.nan
             red_body2_vs_1 = math.nan
+            first_arc_red_candle_count = math.nan
+            second_arc_red_candle_count = math.nan
+            first_arc_red_candle_ratio = math.nan
+            second_arc_red_candle_ratio = math.nan
+            second_arc_red_candle_ratio_delta = math.nan
             if "volume" in df.columns and len(attack1_slice) >= 3 and len(attack2_slice) >= 3:
                 vol1 = float(attack1_slice["volume"].mean())
                 vol2 = float(attack2_slice["volume"].mean())
                 if vol1 > 0:
                     vol2_vs_1 = vol2 / vol1
+            if "volume" in df.columns and len(first_arc_slice) >= 3 and len(second_arc_slice) >= 3:
+                first_arc_month_avg_volume = float(first_arc_slice["volume"].mean())
+                second_arc_avg_daily_volume = float(second_arc_slice["volume"].mean())
+                if first_arc_month_avg_volume > 0:
+                    second_arc_volume_ratio = second_arc_avg_daily_volume / first_arc_month_avg_volume
+            if len(first_arc_slice) >= 3 and len(second_arc_slice) >= 3:
+                first_arc_red_candle_count = int((first_arc_slice["close"] > first_arc_slice["open"]).sum())
+                second_arc_red_candle_count = int((second_arc_slice["close"] > second_arc_slice["open"]).sum())
+                first_arc_red_candle_ratio = first_arc_red_candle_count / len(first_arc_slice)
+                second_arc_red_candle_ratio = second_arc_red_candle_count / len(second_arc_slice)
+                second_arc_red_candle_ratio_delta = second_arc_red_candle_ratio - first_arc_red_candle_ratio
             if len(attack1_slice) >= 3 and len(attack2_slice) >= 3:
                 red1 = int((attack1_slice["close"] > attack1_slice["open"]).sum())
                 red2 = int((attack2_slice["close"] > attack2_slice["open"]).sum())
@@ -1735,16 +2204,29 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                     red_body2_vs_1 = red2 / red1
                 elif red2 > 0:
                     red_body2_vs_1 = float("inf")
-            not_extended = -5 <= current_to_neckline <= 5 and close_position <= 65
+            right_side_rebound_ok = (
+                W_BOTTOM_RIGHT_SIDE_REBOUND_MIN
+                <= attack2_gain
+                <= W_BOTTOM_RIGHT_SIDE_REBOUND_MAX
+            )
+            not_extended = current_to_neckline <= 1 and close_position <= 65
             # Low position is a score/ranking feature, not an absolute gate.
-            # The W label itself is controlled by geometry, base quality,
-            # neckline proximity, and right-side attack confirmation.
-            context_ok = pre_base_ok and not_extended
+            # The W label itself is controlled by geometry, base quality, and
+            # early right-side rebound. Neckline proximity is a scoring/risk
+            # feature, not the entry gate for this pre-breakout model.
+            context_ok = (
+                pre_base_ok
+                and bool(segment_quality["w_shape_quality_passed"])
+                and bool(long_position["w_bottom_long_position_ok"])
+                and right_side_rebound_ok
+                and not_extended
+            )
             candidate: dict[str, float | str | bool] = {
                 "available": True,
                 "context_ok": context_ok,
                 "second_low_gap_pct": second_low_gap,
                 "neckline_distance_pct": current_to_neckline,
+                "neckline_price": neckline,
                 "w_bottom_low_position_pct": max(low_left_position, low_right_position),
                 "pre_base_width_pct": pre_width,
                 "pre_base_return_pct": pre_return,
@@ -1752,34 +2234,52 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 "lows_in_lower_base": lows_in_lower_base,
                 "attack1_gain_pct": attack1_gain,
                 "attack2_gain_pct": attack2_gain,
+                "left_decline_pct": left_decline_pct,
                 "depth_left_pct": depth_left,
                 "depth_right_pct": depth_right,
                 "volume_ratio_2_vs_1": vol2_vs_1,
+                "first_arc_month_avg_volume": first_arc_month_avg_volume,
+                "second_arc_avg_daily_volume": second_arc_avg_daily_volume,
+                "second_arc_volume_ratio": second_arc_volume_ratio,
+                "first_arc_volume_days": len(first_arc_slice),
+                "second_arc_volume_days": len(second_arc_slice),
+                "first_arc_red_candle_count": first_arc_red_candle_count,
+                "second_arc_red_candle_count": second_arc_red_candle_count,
+                "first_arc_red_candle_ratio": first_arc_red_candle_ratio,
+                "second_arc_red_candle_ratio": second_arc_red_candle_ratio,
+                "second_arc_red_candle_ratio_delta": second_arc_red_candle_ratio_delta,
                 "red_body_ratio_2_vs_1": red_body2_vs_1,
+                "left_peak_date": str(df["date"].iloc[left_peak_idx]),
                 "left_low_date": str(df["date"].iloc[left]),
                 "neckline_date": str(df["date"].iloc[neckline_idx]),
                 "right_low_date": str(df["date"].iloc[right]),
+                "first_arc_start_date": str(first_arc_slice["date"].iloc[0]),
+                "first_arc_end_date": str(first_arc_slice["date"].iloc[-1]),
+                "second_arc_start_date": str(second_arc_slice["date"].iloc[0]),
+                "second_arc_end_date": str(second_arc_slice["date"].iloc[-1]),
                 "right_low_age_days": right_age,
             }
+            candidate.update(segment_quality)
+            candidate.update(long_position)
             if best is None:
                 best = candidate
             else:
-                candidate_distance = abs(float(candidate["neckline_distance_pct"]))
-                best_distance = abs(float(best["neckline_distance_pct"]))
-                candidate_volume = float(candidate.get("volume_ratio_2_vs_1", math.nan))
-                best_volume = float(best.get("volume_ratio_2_vs_1", math.nan))
+                candidate_volume = float(candidate.get("second_arc_volume_ratio", math.nan))
+                best_volume = float(best.get("second_arc_volume_ratio", math.nan))
                 candidate_right = right
                 best_date = str(best.get("right_low_date", ""))
                 best_right_matches = df.index[df["date"].astype(str).eq(best_date)].tolist()
                 best_right = int(best_right_matches[0]) if best_right_matches else -1
-                # Prefer the more recent right trough when neckline distance is
-                # effectively the same. This avoids choosing an early pullback
-                # inside the middle of the W instead of the actual right low.
+                candidate_ok = bool(candidate.get("context_ok"))
+                best_ok = bool(best.get("context_ok"))
+                # Prefer a valid, recent right trough for the current
+                # right-side setup. Neckline proximity should not dominate this
+                # pre-breakout model.
                 if (
-                    candidate_distance < best_distance - 0.25
-                    or (abs(candidate_distance - best_distance) <= 0.25 and candidate_right > best_right)
+                    (candidate_ok and not best_ok)
+                    or (candidate_ok == best_ok and candidate_right > best_right)
                     or (
-                        abs(candidate_distance - best_distance) <= 0.25
+                        candidate_ok == best_ok
                         and candidate_right == best_right
                         and not math.isnan(candidate_volume)
                         and (math.isnan(best_volume) or candidate_volume > best_volume)
@@ -1787,6 +2287,8 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 ):
                     best = candidate
 
+    if best is None and best_rejected_shape is not None:
+        return best_rejected_shape
     if best is None:
         return {"available": True, "context_ok": False}
     return best
@@ -1807,12 +2309,11 @@ def double_bottom_structure_ok(row: pd.Series) -> bool:
         neckline_distance = float(price_context.get("neckline_distance_pct", math.nan))
     if math.isnan(second_low_gap) or math.isnan(neckline_distance):
         return False
-    # W-bottom right side means two similar troughs in a low/base context. If
-    # the right low is far higher than the left low, it is usually a pullback
-    # after a prior advance, not a bottoming W.
-    second_low_ok = 0.0 <= second_low_gap <= 4.0
-    neckline_ok = -5.0 <= neckline_distance <= 1.0
-    if not (second_low_ok and neckline_ok):
+    # W-bottom right side means two similar troughs in a low/base context.
+    # The second trough may slightly undercut or sit above the first trough;
+    # neckline proximity is scoring/risk, not an entry gate for this model.
+    second_low_ok = W_BOTTOM_SECOND_LOW_GAP_MIN <= second_low_gap <= W_BOTTOM_SECOND_LOW_GAP_MAX
+    if not second_low_ok:
         return False
 
     attack_ok = w_bottom_attack_confirmation_ok(row, price_context if price_context.get("available") else None)
@@ -1826,6 +2327,12 @@ def cond_w_bottom_right(row: pd.Series) -> bool:
     if already_confirmed_breakout(row):
         return False
     return double_bottom_structure_ok(row)
+
+
+def cond_neckline_volume_breakout_confirmation(row: pd.Series) -> bool:
+    price_context = detected_w_bottom_context(row)
+    context_for_use = price_context if price_context.get("available") else None
+    return w_bottom_neckline_breakout_confirmation_ok(row, context_for_use)
 
 
 def cond_neckline_challenge(row: pd.Series) -> bool:
@@ -1938,6 +2445,18 @@ def build_specs() -> list[ModelSpec]:
             "後續看頸線突破與右側量價品質；跌回右側低點或頸線攻擊失敗則降級。",
             cond_w_bottom_right,
             score_w_bottom,
+        ),
+        ModelSpec(
+            "neckline_volume_breakout_confirmation",
+            "W-bottom neckline volume breakout confirmation",
+            "pdf_core_model",
+            "signal_date_next_open",
+            "W-bottom neckline confirmed breakout: price closes above the detected neckline with volume confirmation or locked-limit-up confirmation; second arc average volume must exceed the first arc baseline.",
+            "Scores W-bottom arc-volume quality, signal-day candle quality, close near day high, neckline breakout distance, TDCC, warrant, and revenue support.",
+            "Does not exclude or penalize solely because neckline distance is above 10% or 20-day return is high; long upper shadow and weak candle quality remain risk penalties.",
+            "Treat as confirmed neckline breakout; entry basis is the next trading day's open after the signal day.",
+            cond_neckline_volume_breakout_confirmation,
+            score_neckline_volume_breakout_confirmation,
         ),
         ModelSpec(
             "near_high_neckline_challenge",
@@ -2994,6 +3513,7 @@ PDF_TOKEN_ZH = {
     "phase_overheated_after_tdcc": "TDCC後股價過熱",
     "all_thresholds_overheated": "四級距同步過熱",
     "w_bottom_right_side": "W底右側",
+    "neckline_volume_breakout_confirmation": "W底頸線帶量突破確認",
     "platform_right_side": "平台右側",
     "platform_breakout": "平台突破",
     "neckline_challenge": "頸線挑戰",
@@ -3042,6 +3562,7 @@ MODEL_NAME_ZH_BY_ID = {
     "hot_theme_pullback": "熱門族群回檔模型",
     "revenue_unreacted_range": "營收爆發但股價尚未反應模型",
     "w_bottom_right_side": "W底右側模型",
+    "neckline_volume_breakout_confirmation": "W底頸線帶量突破確認模型",
     "near_high_neckline_challenge": "接近前高 / 頸線挑戰模型",
     "platform_strengthening": "平台整理轉強模型",
     "pullback_short_reclaim": "回檔後短線轉強模型",
@@ -3058,6 +3579,7 @@ MODEL_HUMAN_REASON_ZH = {
     "hot_theme_pullback": "符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。",
     "revenue_unreacted_range": "符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。",
     "w_bottom_right_side": "符合W底右側模型，右側低點墊高並接近頸線或轉強區。",
+    "neckline_volume_breakout_confirmation": "符合W底頸線帶量突破確認模型，股價已站上頸線且第二弧量能高於第一弧基準。",
     "near_high_neckline_challenge": "符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。",
     "platform_strengthening": "符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。",
     "pullback_short_reclaim": "符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。",

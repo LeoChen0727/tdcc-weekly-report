@@ -1,6 +1,6 @@
 # Daily Model Parameter Research - Horizon Detail
 
-- generated_at: `2026-06-29 05:07:44 Asia/Taipei`
+- generated_at: `2026-06-29 05:37:11 Asia/Taipei`
 - entry_basis: `signal_date_next_open`
 
 | model_id | parameter_set_id | horizon | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | avg_high_return_pct | high_5pct_hit_rate_pct |
@@ -55,6 +55,16 @@
 | w_bottom_right_side | production_current_proxy | D+8 | 86058 | 44.22 | 0.83 | -0.51 | 6.96 | 40.47 |
 | w_bottom_right_side | production_current_proxy | D+9 | 85427 | 44.81 | 1.03 | -0.48 | 7.53 | 42.74 |
 | w_bottom_right_side | production_current_proxy | D+10 | 84857 | 45.18 | 1.26 | -0.46 | 8.1 | 44.73 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+1 | 8252 | 36.55 | -0.62 | -0.56 | 2.46 | 17.27 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+2 | 8230 | 39.91 | -0.46 | -0.93 | 4.25 | 32.31 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+3 | 8199 | 39.35 | -0.36 | -1.19 | 5.53 | 37.88 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+4 | 8161 | 39.53 | -0.24 | -1.49 | 6.54 | 41.92 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+5 | 8112 | 40.1 | -0.12 | -1.47 | 7.41 | 45.24 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+6 | 8070 | 40.33 | 0.06 | -1.49 | 8.18 | 47.98 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+7 | 8029 | 40.89 | 0.31 | -1.51 | 8.92 | 50.47 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+8 | 8006 | 41.53 | 0.51 | -1.54 | 9.6 | 52.39 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+9 | 7965 | 41.95 | 0.75 | -1.39 | 10.27 | 54.09 |
+| neckline_volume_breakout_confirmation | production_current_proxy | D+10 | 7932 | 42.36 | 1.0 | -1.38 | 10.88 | 55.51 |
 | near_high_neckline_challenge | production_current_proxy | D+1 | 17814 | 39.39 | -0.22 | -0.23 | 1.78 | 10.18 |
 | near_high_neckline_challenge | production_current_proxy | D+2 | 17739 | 41.61 | -0.16 | -0.34 | 2.9 | 19.08 |
 | near_high_neckline_challenge | production_current_proxy | D+3 | 17660 | 41.52 | -0.08 | -0.4 | 3.75 | 24.47 |
@@ -295,13 +305,3 @@
 | volume_range_breakout | prior20x1.03_vol2_minvol500 | D+8 | 3551 | 42.16 | 0.73 | -1.99 | 11.41 | 60.35 |
 | volume_range_breakout | prior20x1.03_vol2_minvol500 | D+9 | 3537 | 42.32 | 1.09 | -2.06 | 12.22 | 61.97 |
 | volume_range_breakout | prior20x1.03_vol2_minvol500 | D+10 | 3527 | 43.12 | 1.39 | -1.82 | 12.98 | 63.48 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+1 | 3043 | 39.01 | -0.62 | -0.64 | 3.08 | 23.6 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+2 | 3029 | 42.32 | -0.41 | -1.15 | 5.28 | 41.99 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+3 | 3017 | 41.66 | -0.28 | -1.34 | 6.81 | 48.29 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+4 | 3003 | 41.69 | -0.06 | -1.76 | 8.05 | 51.98 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+5 | 2981 | 41.66 | 0.1 | -1.77 | 9.06 | 55.08 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+6 | 2964 | 42.21 | 0.39 | -1.75 | 9.99 | 57.39 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+7 | 2943 | 43.02 | 0.77 | -1.81 | 10.91 | 59.36 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+8 | 2934 | 43.32 | 1.15 | -1.63 | 11.77 | 61.42 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+9 | 2925 | 43.59 | 1.57 | -1.57 | 12.64 | 63.08 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+10 | 2918 | 44.28 | 1.88 | -1.37 | 13.41 | 64.56 |

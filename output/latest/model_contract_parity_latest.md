@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-06-29 05:21:10 Asia/Taipei`
+- generated_at: `2026-06-29 06:33:24 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -18,7 +18,7 @@
 | hard_fail_contract_drift | 0 |
 | missing_research_baseline | 0 |
 | ok | 1 |
-| warning_research_variant_only | 9 |
+| warning_research_variant_only | 10 |
 
 ## OK Models
 
@@ -32,6 +32,7 @@
 | --- | --- | --- | --- | --- |
 | hot_theme_pullback | research:production_current_proxy | True | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | near_high_neckline_challenge | research:production_current_proxy | True | neckline-specific fields and already-confirmed-breakout flags are not fully backfilled | research_variant_only_do_not_promote_without_explicit_promotion_pr |
+| neckline_volume_breakout_confirmation | research:production_current_proxy | True | structured neckline production detector is row/context based and not yet optimized for historical batch replay | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | platform_strengthening | research:production_current_proxy | True | platform_base_flag and platform width fields are not fully point-in-time backfilled | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | price_pullback_23ema | research:production_current_proxy | True | support/platform entry flags are not fully backfilled in the historical research frame | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | pullback_short_reclaim | research:production_current_proxy | True | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | research_variant_only_do_not_promote_without_explicit_promotion_pr |

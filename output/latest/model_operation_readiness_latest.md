@@ -1,6 +1,6 @@
 # Model Operation Readiness
 
-- generated_at: `2026-06-29 05:07:59 Asia/Taipei`
+- generated_at: `2026-06-29 05:37:26 Asia/Taipei`
 - purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries
 - rule: `approved_for_daily=True` requires an explicit approved operation artifact
 - rule: raw research evidence rows can remain research-only even after an operation module is approved
@@ -10,14 +10,14 @@
 
 | operation_module_status | count |
 | --- | --- |
-| baseline_only_no_validated_operation_module | 8 |
+| baseline_only_no_validated_operation_module | 9 |
 | approved_operation_v1 | 2 |
 
 ## daily_adapter_status
 
 | daily_adapter_status | count |
 | --- | --- |
-| not_started | 8 |
+| not_started | 9 |
 | ready_approved_operation_guidance | 1 |
 | model_header_evidence_ready | 1 |
 
@@ -25,14 +25,14 @@
 
 | approved_for_daily | count |
 | --- | --- |
-| False | 8 |
+| False | 9 |
 | True | 2 |
 
 ## presentation_allowed
 
 | presentation_allowed | count |
 | --- | --- |
-| False | 8 |
+| False | 9 |
 | True | 2 |
 
 ## Status Table
@@ -43,6 +43,7 @@
 | w_bottom_right_side | production_proxy | approved_operation_v1 | model_header_evidence_ready | True | approved_for_daily_v1 | w_bottom_early_entry_operation_v1 | w_bottom_early_entry_operation_v1_20260629 | True | approved_daily_operation_guidance | pdf_model_header_evidence_ready | packet_model_header_evidence_ready | full production W-bottom detector is row/context based; exact historical replay is too slow until an optimized batch detector exists | W底右低點早期進場 v1 已由 approved_operation_patterns 批准；此模型使用標題下方證據，不共用放量攻擊 operation section adapter。 |
 | hot_theme_pullback | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | near_high_neckline_challenge | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | neckline-specific fields and already-confirmed-breakout flags are not fully backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
+| neckline_volume_breakout_confirmation | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | structured neckline production detector is row/context based and not yet optimized for historical batch replay | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | platform_strengthening | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | platform_base_flag and platform width fields are not fully point-in-time backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | price_pullback_23ema | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | support/platform entry flags are not fully backfilled in the historical research frame | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | pullback_short_reclaim | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |

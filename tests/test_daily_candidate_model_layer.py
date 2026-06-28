@@ -23,6 +23,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     build_report_ready_model_signals,
     build_signals,
     build_specs,
+    cond_neckline_volume_breakout_confirmation,
     cond_neckline_challenge,
     cond_platform_strength,
     cond_pullback,
@@ -75,6 +76,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 "price_pullback_23ema",
                 "revenue_unreacted_range",
                 "w_bottom_right_side",
+                "neckline_volume_breakout_confirmation",
                 "near_high_neckline_challenge",
                 "platform_strengthening",
                 "pullback_short_reclaim",
@@ -119,6 +121,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 "hot_theme_pullback",
                 "revenue_unreacted_range",
                 "w_bottom_right_side",
+                "neckline_volume_breakout_confirmation",
                 "near_high_neckline_challenge",
                 "platform_strengthening",
                 "pullback_short_reclaim",
@@ -182,6 +185,10 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         params = build_parameter_table(build_specs()).set_index("model_id")
         self.assertEqual(params.loc["volume_range_breakout", "score_profile_id"], "volume_range_breakout")
         self.assertEqual(params.loc["price_pullback_23ema", "score_profile_id"], "price_pullback_23ema")
+        self.assertEqual(
+            params.loc["neckline_volume_breakout_confirmation", "score_profile_id"],
+            "neckline_volume_breakout_confirmation",
+        )
         self.assertEqual(params.loc["tdcc_stealth_accumulation", "score_profile_id"], "tdcc_stealth_accumulation")
         self.assertNotEqual(
             params.loc["volume_range_breakout", "volume_ratio_bonus_per_1x"],
@@ -458,7 +465,20 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             attack2_gain_pct="9.0",
             volume_ratio_2_vs_1="1.6",
         )
-        self.assertFalse(cond_w_bottom_right(slight_undercut))
+        self.assertTrue(cond_w_bottom_right(slight_undercut))
+
+        deep_undercut = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="-4.0",
+            distance_to_neckline_pct="-12.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertFalse(cond_w_bottom_right(deep_undercut))
 
         right_low_too_high = make_row(
             category="pattern",
@@ -472,6 +492,47 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(right_low_too_high))
+
+        far_from_neckline_but_turning_up = make_row(
+            category="pattern",
+            pattern_stage="right_side_rebound",
+            volume_breakout_type="",
+            close_above_range_high="",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-12.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="5.0",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertTrue(cond_w_bottom_right(far_from_neckline_but_turning_up))
+
+        right_side_too_early = make_row(
+            category="pattern",
+            pattern_stage="right_side_rebound",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-12.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="2.5",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertFalse(cond_w_bottom_right(right_side_too_early))
+
+        right_side_too_extended = make_row(
+            category="pattern",
+            pattern_stage="right_side_rebound",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="18.0",
+            volume_ratio_2_vs_1="1.6",
+        )
+        self.assertFalse(cond_w_bottom_right(right_side_too_extended))
 
         weak_second_attack = make_row(
             category="pattern",
@@ -540,7 +601,227 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             volume_breakout_type="",
             close_above_range_high="",
         )
-        self.assertTrue(cond_w_bottom_right(range_rebound_with_detected_w))
+        self.assertFalse(cond_w_bottom_right(range_rebound_with_detected_w))
+
+    def test_w_bottom_requires_second_arc_volume_not_red_body_only(self) -> None:
+        red_body_only = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            volume_breakout_type="",
+            close_above_range_high="",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="9.0",
+            second_arc_volume_ratio="0.9",
+            red_body_ratio_2_vs_1="3.0",
+        )
+
+        self.assertFalse(cond_w_bottom_right(red_body_only))
+
+    def test_detected_w_bottom_context_exposes_arc_volume_fields(self) -> None:
+        context = model_layer.detected_w_bottom_context(
+            make_row(stock_id="1618", signal_date="20260529", volume_breakout_type="")
+        )
+
+        self.assertTrue(context["available"])
+        self.assertEqual(context["first_arc_start_date"], context["left_peak_date"])
+        self.assertEqual(context["first_arc_end_date"], context["neckline_date"])
+        self.assertEqual(context["second_arc_start_date"], context["neckline_date"])
+        self.assertEqual(context["second_arc_end_date"], "20260529")
+        self.assertTrue(context["w_shape_quality_passed"])
+        self.assertEqual(context["w_shape_quality_failures"], "")
+        self.assertTrue(context["w_bottom_long_position_ok"])
+        self.assertLessEqual(float(context["w_bottom_current_vs_long_median_pct"]), 0.0)
+        self.assertGreaterEqual(int(context["w_bottom_long_position_days"]), 180)
+        self.assertGreaterEqual(int(context["left_descent_days"]), 5)
+        self.assertGreaterEqual(int(context["first_rebound_days"]), 5)
+        self.assertGreaterEqual(int(context["second_decline_days"]), 3)
+        self.assertGreaterEqual(int(context["right_rebound_days"]), 4)
+        self.assertGreater(float(context["first_arc_month_avg_volume"]), 0)
+        self.assertGreater(float(context["second_arc_avg_daily_volume"]), 0)
+        self.assertGreater(float(context["second_arc_volume_ratio"]), 0)
+        self.assertGreaterEqual(float(context["first_arc_red_candle_ratio"]), 0.0)
+        self.assertLessEqual(float(context["first_arc_red_candle_ratio"]), 1.0)
+        self.assertGreaterEqual(float(context["second_arc_red_candle_ratio"]), 0.0)
+        self.assertLessEqual(float(context["second_arc_red_candle_ratio"]), 1.0)
+
+    def test_detected_w_bottom_rejects_disconnected_shape(self) -> None:
+        row = make_row(
+            stock_id="6462",
+            signal_date="20260623",
+            volume_breakout_type="",
+            close_above_range_high="",
+        )
+
+        context = model_layer.detected_w_bottom_context(row)
+
+        self.assertTrue(context["available"])
+        self.assertFalse(context["context_ok"])
+        self.assertFalse(context["w_shape_quality_passed"])
+        self.assertIn("left_descent_too_short", context["w_shape_quality_failures"])
+        self.assertIn("right_rebound_faded", context["w_shape_quality_failures"])
+        self.assertFalse(cond_w_bottom_right(row))
+
+    def test_w_bottom_segment_quality_rejects_faded_right_side(self) -> None:
+        df = pd.DataFrame(
+            {
+                "high": [15, 14, 13, 12, 11, 10, 11, 12, 13, 14, 15, 14, 13, 12, 10, 14, 13, 12],
+                "low": [14, 13, 12, 11, 10, 9.5, 10, 11, 12, 13, 14, 13, 12, 11, 9.6, 10, 9.8, 9.7],
+                "close": [14.5, 13.5, 12.5, 11.5, 10.5, 9.8, 10.5, 11.5, 12.5, 13.5, 14.5, 13.5, 12.5, 11.5, 9.8, 13.5, 12.5, 10.0],
+            }
+        )
+
+        quality = model_layer.w_bottom_segment_quality(
+            df,
+            left_peak_idx=0,
+            left_low_idx=5,
+            neckline_idx=10,
+            right_low_idx=14,
+            current_close=10.0,
+        )
+
+        self.assertFalse(quality["w_shape_quality_passed"])
+        self.assertIn("right_rebound_faded", quality["w_shape_quality_failures"])
+
+    def test_w_bottom_long_price_position_requires_below_year_median(self) -> None:
+        history = pd.DataFrame({"close": list(range(1, 253))})
+
+        low_metrics = model_layer.w_bottom_long_price_position_metrics(history, current_close=100.0)
+        high_metrics = model_layer.w_bottom_long_price_position_metrics(history, current_close=200.0)
+
+        self.assertTrue(low_metrics["w_bottom_long_position_ok"])
+        self.assertFalse(high_metrics["w_bottom_long_position_ok"])
+        self.assertEqual(high_metrics["w_bottom_long_position_fail_reason"], "current_close_above_long_median")
+
+    def test_w_bottom_red_candle_bonus_uses_ratio_not_count(self) -> None:
+        high_ratio = make_row(
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.58",
+        )
+        mild_ratio = make_row(
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.49",
+        )
+        count_only = make_row(
+            red_body_ratio_2_vs_1="3.0",
+        )
+
+        high_bonus, high_components = model_layer.w_bottom_red_candle_ratio_bonus(high_ratio)
+        mild_bonus, mild_components = model_layer.w_bottom_red_candle_ratio_bonus(mild_ratio)
+        count_bonus, count_components = model_layer.w_bottom_red_candle_ratio_bonus(count_only)
+
+        self.assertEqual(high_bonus, 4.0)
+        self.assertTrue(any("second arc red candle ratio improved" in item for item in high_components))
+        self.assertEqual(mild_bonus, 2.0)
+        self.assertTrue(any("second arc red candle ratio mildly improved" in item for item in mild_components))
+        self.assertEqual(count_bonus, 0.0)
+        self.assertEqual(count_components, [])
+
+    def test_w_bottom_score_adds_red_candle_ratio_bonus(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="9.0",
+            second_arc_volume_ratio="1.35",
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.58",
+        )
+
+        _score, components, _risks = model_layer.score_w_bottom(row)
+
+        self.assertTrue(any("second arc red candle ratio improved +4" in item for item in components))
+
+    def test_w_bottom_low_position_is_score_not_gate(self) -> None:
+        low_position = make_row(w_bottom_low_position_pct="8")
+        high_position = make_row(w_bottom_low_position_pct="48")
+
+        low_score, low_components, low_risks = model_layer.w_bottom_low_position_score(low_position)
+        high_score, high_components, high_risks = model_layer.w_bottom_low_position_score(high_position)
+
+        self.assertEqual(low_score, 8.0)
+        self.assertTrue(any("W low position very low +8" in item for item in low_components))
+        self.assertEqual(low_risks, [])
+        self.assertEqual(high_score, -5.0)
+        self.assertEqual(high_components, [])
+        self.assertTrue(any("W_low_position_too_high_penalty" in item for item in high_risks))
+
+    def test_neckline_volume_breakout_confirmation_requires_arc_volume_quality(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="neckline_breakout",
+            close="105",
+            open="101",
+            high="106",
+            low="100",
+            previous_close="100",
+            neckline_price="100",
+            distance_to_neckline_pct="5.0",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            first_arc_red_candle_ratio="0.40",
+            second_arc_red_candle_ratio="0.58",
+            volume_ratio="2.5",
+            volume_ma20="2000",
+        )
+        weak_arc = row.copy()
+        weak_arc["second_arc_volume_ratio"] = "1.0"
+
+        self.assertTrue(cond_neckline_volume_breakout_confirmation(row))
+        self.assertFalse(cond_neckline_volume_breakout_confirmation(weak_arc))
+        _score, components, _risks = model_layer.score_neckline_volume_breakout_confirmation(row)
+        self.assertTrue(any("second arc red candle ratio improved +4" in item for item in components))
+
+    def test_neckline_locked_limit_up_bypasses_signal_volume_not_arc_volume(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="neckline_breakout",
+            close="110",
+            open="110",
+            high="110",
+            low="110",
+            previous_close="100",
+            neckline_price="105",
+            distance_to_neckline_pct="4.8",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            volume_ratio="",
+            volume_ma20="",
+        )
+        weak_arc = row.copy()
+        weak_arc["second_arc_volume_ratio"] = "1.0"
+
+        self.assertTrue(cond_neckline_volume_breakout_confirmation(row))
+        self.assertFalse(cond_neckline_volume_breakout_confirmation(weak_arc))
+
+    def test_neckline_breakout_score_keeps_candle_quality_penalty(self) -> None:
+        row = make_row(
+            close="105",
+            open="104",
+            high="112",
+            low="100",
+            previous_close="100",
+            neckline_price="100",
+            distance_to_neckline_pct="5.0",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            volume_ratio="2.5",
+            volume_ma20="2000",
+        )
+
+        _score, _components, risks = model_layer.score_neckline_volume_breakout_confirmation(row)
+
+        self.assertTrue(any(str(risk).startswith("long_upper_shadow_quality_penalty") for risk in risks))
 
     def test_risk_penalty_does_not_cancel_model_entry(self) -> None:
         row = make_row(

@@ -12,6 +12,7 @@ from build_daily_candidate_model_layer import (
     active_price_attack_for_early_models,
     build_signals,
     build_specs,
+    cond_neckline_volume_breakout_confirmation,
     cond_volume_breakout,
     cond_pullback,
     cond_w_bottom_right,
@@ -348,6 +349,9 @@ def audit_selected_row(
             errors.append(f"{sid}: w_bottom_right_side selected after confirmed breakout")
         if not cond_w_bottom_right(source):
             errors.append(f"{sid}: w_bottom_right_side selected but price-history W geometry check failed")
+    elif model == "neckline_volume_breakout_confirmation":
+        if not cond_neckline_volume_breakout_confirmation(source):
+            errors.append(f"{sid}: neckline_volume_breakout_confirmation selected but W-bottom neckline breakout condition failed")
     elif model == "price_pullback_23ema":
         if not cond_pullback(source):
             errors.append(f"{sid}: price_pullback_23ema selected but pullback/23EMA/support condition failed")

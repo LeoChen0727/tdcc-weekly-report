@@ -27,6 +27,7 @@ REQUIRED_PARAMETER_MODELS = {
     "price_pullback_23ema",
     "revenue_unreacted_range",
     "w_bottom_right_side",
+    "neckline_volume_breakout_confirmation",
     "near_high_neckline_challenge",
     "platform_strengthening",
     "pullback_short_reclaim",
