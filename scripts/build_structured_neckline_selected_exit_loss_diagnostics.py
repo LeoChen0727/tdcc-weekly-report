@@ -177,7 +177,7 @@ def format_float(value: Any) -> str:
 
 def is_clean_stock_name(value: Any) -> bool:
     text = safe_str(value)
-    return bool(text) and "�" not in text and "?" not in text
+    return bool(text) and "�" not in text and "嚙" not in text and "?" not in text
 
 
 def load_stock_name_lookup(stock_ids: list[str]) -> dict[str, str]:

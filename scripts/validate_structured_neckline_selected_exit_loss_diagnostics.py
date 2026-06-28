@@ -97,7 +97,8 @@ def main() -> int:
 
     if len(events) != 23:
         fail(f"expected 23 selected-rule diagnostic events; got {len(events)}")
-    bad_names = events[events["stock_name"].astype(str).str.contains("�", regex=False)]
+    names = events["stock_name"].astype(str)
+    bad_names = events[names.str.contains("�", regex=False) | names.str.contains("嚙", regex=False)]
     if not bad_names.empty:
         fail(f"stock_name contains replacement characters for ids: {sorted(bad_names['stock_id'].astype(str).unique())}")
     if "bearish" in set(events["visual_pre_signal_context"].astype(str)):

@@ -1,6 +1,6 @@
 # Structured Neckline Selected Exit Loss Diagnostics
 
-- generated_at: `2026-06-29 00:50:41 Asia/Taipei`
+- generated_at: `2026-06-29 01:00:59 Asia/Taipei`
 - research_id: `structured_neckline_selected_exit_loss_diagnostics`
 - selected_exit_rule_comparison_id: `tp10_close_with_5pct_pullback_neutral`
 - research_selection_reason: `close_based_exit_selected_intraday_price_not_repeatable_rule`
