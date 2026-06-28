@@ -17,6 +17,12 @@
 
 This expands the strict 45/90 confirmation-next-open hypothesis from the 48-row low-position bull subset to all strict 45/90 accepted events. It remains research-only and is not a production promotion.
 
+## Research Convergence
+
+Current interpretation should converge instead of adding unlimited grids: use the broader strict 45/90 accepted event set as the candidate-model base, and treat stricter context features as scoring, quality, or risk-label inputs. The low-position bull/context subset is stronger, but this audit does not support making it a production hard filter yet.
+
+Operational implication for any later production proposal: broad candidate eligibility first; stricter context confirmation as add/subtract scoring evidence after separate promotion review. Do not copy this research variant into production baseline from this PR.
+
 ## Key Scope Summary
 
 | analysis_scope_id | confirmation_rule_id | scope_event_count | tradable_entry_count | win_count | neutral_count | loss_count | neutral_inclusive_success_rate_pct | avg_return_pct | sample_status |
