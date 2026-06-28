@@ -1,11 +1,14 @@
 # W Bottom Right Side Early Entry Operation Spec
 
-This document records the promoted v1 operation rule and PDF evidence display
-rule for `w_bottom_right_side`.
+This document records the promoted v1 production operation rule and PDF evidence
+display rule for `w_bottom_right_side`.
 
-It does not change production model conditions, scoring, ranking, or the stock
-model contract row. It is the stable evidence source used by the formal
-approval artifact for W-bottom early-entry operation guidance.
+The promotion PR that owns this spec changes the formal W-bottom early-entry
+production surface: it tightens the W-bottom detector, adds the W-bottom
+arc-volume / red-candle / long-position fields to the contract, and registers
+`w_bottom_early_entry_operation_v1` as the model's operation contract. Raw
+research rows remain advisory-only; the production approval path is the explicit
+approval artifact described below.
 
 ## Scope
 
@@ -18,6 +21,32 @@ right side has started to rise, before the neckline breakout is confirmed.
 The confirmed W-bottom neckline breakout belongs to
 `neckline_volume_breakout_confirmation` with a W-bottom subtype. That surface
 must keep a separate entry point, outcome rule, and evidence line.
+
+## Production Model Boundary
+
+The v1 production detector is intentionally separate from the neckline-breakout
+model. Its hard entry shape requirements are:
+
+```text
+left peak -> first low -> neckline -> second low -> current right-side rebound
+```
+
+Current production thresholds:
+
+| rule | production treatment |
+|---|---|
+| second-low gap | hard gate: `-3%` to `+6%` versus the first low |
+| right-side rebound | hard gate: current close is `3%` to `15%` above the right low |
+| second-arc volume | hard gate: second arc average daily volume is at least `1.2x` the first arc baseline |
+| long-position context | hard gate: current close is at or below the recent `252` trading-day median, with at least `180` valid close rows |
+| W continuity | hard gate: connected swing sequence; repeated undercuts or faded right side are rejected |
+| neckline distance | score/risk only; being closer to the neckline is not an entry gate |
+| low-position percentile | score/risk only; lower position scores better, higher position is penalized |
+| second-arc red-candle ratio | score bonus when the second arc has a higher red-candle ratio than the first arc |
+
+This model must stay pre-breakout. If the stock has already entered a confirmed
+neckline-breakout state, it belongs to `neckline_volume_breakout_confirmation`,
+not `w_bottom_right_side`.
 
 ## Current Evidence Sources
 
@@ -181,8 +210,9 @@ The promotion/sync PR must:
    daily PDF consumers.
 2. Keep `w_bottom_right_side` separate from
    `neckline_volume_breakout_confirmation`.
-3. Update `config/stock_model_contract_registry.csv` only if the production
-   contract surface changes.
+3. Update `config/stock_model_contract_registry.csv` and
+   `config/daily_model_condition_spec.csv` when the production contract surface
+   or operation contract changes.
 4. Keep research/backtest advisory output out of production baseline unless the
    PR is explicitly a promotion/sync PR.
 5. Make the PDF display source explicit so the PDF layer does not invent or
@@ -192,10 +222,11 @@ The promotion/sync PR must:
 
 - Do not call inclusive success rate "win rate".
 - Do not use intraday high statistics as close-return win rate.
-- Do not promote the research candidate into production without a formal
-  promotion/sync PR.
-- Do not change `w_bottom_right_side` scoring or ranking while only adding the
-  evidence-display rule.
+- Do not promote raw research candidate rows directly into production baseline;
+  production usage must go through the approved operation artifact.
+- Do not hide scoring/ranking changes inside an evidence-display-only change.
+  Any future scoring/ranking change must be explicit and must update contracts
+  and parity evidence.
 - Do not fold W-bottom early entry into the neckline breakout model.
 - Do not use D+10 / D+20 broad watch statistics as the primary W-bottom
   early-entry operation evidence.
@@ -213,6 +244,7 @@ python scripts/validate_daily_model_research_parity.py
 python scripts/validate_repo_semantic_integrity.py
 ```
 
-This spec-only change should run repository lifecycle and semantic validators,
-but it does not require production parity to change because no production model
-condition, scoring, ranking, or contract row is edited here.
+Because this promotion changes the formal production model surface and operation
+contract, repository lifecycle, production inventory, model-surface, operation
+readiness, and focused unit tests should also pass before the PR is marked ready
+for review.
