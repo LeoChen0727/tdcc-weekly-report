@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6933 AMAX-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:41 Asia/Taipei
+- generated_at: 2026-06-28 22:27:28 Asia/Taipei
 - stock_id: 6933
 - stock_name: AMAX-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 157.5
-- high: 161
-- low: 156
-- close: 156.5
-- volume: 202055
-- ma5: 155.3
-- ema23_primary: 160.88
-- distance_to_ema23_pct: -2.72
-- ma20: 163.22
-- ma60: 164.24
-- ma120: 152.32
-- return_5d: 3.99
-- return_20d: -5.15
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -4.12
-- distance_to_high_60_pct: -24.4
+- date: 20260626
+- open: 143
+- high: 143.5
+- low: 135.5
+- close: 137.5
+- volume: 235651
+- ma5: 148.3
+- ema23_primary: 156.42
+- distance_to_ema23_pct: -12.09
+- ma20: 159.8
+- ma60: 165.35
+- ma120: 152.22
+- return_5d: -12.42
+- return_20d: -12.42
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -13.95
+- distance_to_high_60_pct: -33.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,169,172,165.5,167,246411,165.66,0.81,166.7,154.57,0.8
-20260526,169.5,169.5,162.5,165.5,180559,165.65,-0.09,166.55,154.88,0.6
-20260527,170,170,163,164,235791,165.51,-0.91,166.32,155.2,0.78
-20260528,163,166,155.5,157,244011,164.8,-4.73,165.95,155.51,0.8
 20260529,158.5,172.5,158.5,172.5,466925,165.44,4.27,166.35,156.13,1.46
 20260601,189,189.5,188.5,189.5,651087,167.45,13.17,167.35,157.16,1.94
 20260602,194.5,195,180,183,1542070,168.74,8.45,167.9,158.01,3.85
@@ -155,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,153.5,156,153.5,155,44515,161.66,-4.12,163.8,163.18,0.14
 20260618,156,159.5,155,157,97071,161.27,-2.65,163.65,163.71,0.3
 20260622,157.5,161,156,156.5,202055,160.88,-2.72,163.22,164.24,0.63
+20260623,156.5,156.5,150.5,152.5,144700,160.18,-4.79,162.5,164.67,0.46
+20260624,149,152,148.5,150,132252,159.33,-5.86,161.72,165.03,0.42
+20260625,152,152,144.5,145,230569,158.14,-8.31,160.78,165.22,0.74
+20260626,143,143.5,135.5,137.5,235651,156.42,-12.09,159.8,165.35,0.75
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.52
-- over_600_ratio: 61.52
-- over_800_ratio: 61.52
-- over_1000_ratio: 61.52
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.05
+- as_of_date: 20260626
+- over_400_ratio: 61.51
+- over_600_ratio: 61.51
+- over_800_ratio: 61.51
+- over_1000_ratio: 61.51
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.57,-0.26,61.57,-0.26,61.57,-0.26,0,False,False
 20260612,61.57,0,61.57,0,61.57,0,0,False,False
 20260618,61.52,-0.05,61.52,-0.05,61.52,-0.05,0,False,False
+20260626,61.51,-0.01,61.51,-0.01,61.51,-0.01,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6933 | AMAX-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 6933 | AMAX-KY | 1 | 0 | 1500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

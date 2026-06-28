@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6138 茂達
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:12 Asia/Taipei
+- generated_at: 2026-06-28 22:27:05 Asia/Taipei
 - stock_id: 6138
 - stock_name: 茂達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,12 +87,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 389
-- high: 394
-- low: 389
-- close: 394
-- volume: 2195000
-- ma5: 343.6
-- ema23_primary: 321.92
-- distance_to_ema23_pct: 22.39
-- ma20: 332.55
-- ma60: 275.93
-- ma120: 252.76
-- return_5d: 25.88
-- return_20d: 23.7
-- volume_ratio: 3.26
-- distance_to_ma20_pct_auxiliary: 18.48
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 360
+- high: 373
+- low: 332.5
+- close: 332.5
+- volume: 1568000
+- ma5: 362.7
+- ema23_primary: 331.33
+- distance_to_ema23_pct: 0.35
+- ma20: 332.62
+- ma60: 284.9
+- ma120: 257.38
+- return_5d: -7.25
+- return_20d: -3.06
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: -0.04
+- distance_to_high_60_pct: -21.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,332,350,325,350,340000,280.2,24.91,277.18,242.82,0.22
-20260526,383.5,383.5,354,369.5,368000,287.65,28.46,283.3,245.04,0.24
-20260527,376,377,354,355.5,362000,293.3,21.21,288.9,247.01,0.24
-20260528,361,365.5,331,343,350000,297.44,15.32,294.1,248.82,0.23
 20260529,353,355.5,341.5,345.5,348000,301.45,14.61,299.6,250.84,0.23
 20260601,349.5,354.5,342,353,349000,305.74,15.46,305.05,253.15,0.23
 20260602,356,356,322,329,334,307.68,6.93,308.93,254.91,0
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,317,332,313,326,903000,311.44,4.67,325.95,270.78,1.48
 20260618,342,358.5,342,358.5,2387000,315.36,13.68,328.77,273.06,4.12
 20260622,389,394,389,394,2195000,321.92,22.39,332.55,275.93,3.26
+20260623,400.5,422,360,361,4126000,325.17,11.02,333.1,278.18,4.78
+20260624,360,368.5,350,362,1671000,328.24,10.28,332.73,280.53,1.8
+20260625,366,367,346,364,1667000,331.22,9.9,333.15,282.94,1.68
+20260626,360,373,332.5,332.5,1568000,331.33,0.35,332.62,284.9,1.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.17
-- over_600_ratio: 44.54
-- over_800_ratio: 38.04
+- as_of_date: 20260626
+- over_400_ratio: 50.47
+- over_600_ratio: 43.66
+- over_800_ratio: 37.89
 - over_1000_ratio: 30.68
-- over_400_change_1w: -0.26
-- over_800_change_1w: -1.06
+- over_400_change_1w: 0.3
+- over_800_change_1w: -0.15
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.04,0.38,39.1,-0.1,30.68,0,1,False,False
 20260612,50.43,-0.61,39.1,0,30.68,0,0,False,False
 20260618,50.17,-0.26,38.04,-1.06,30.68,0,1,False,False
+20260626,50.47,0.3,37.89,-0.15,30.68,0,2,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6138 | 茂達 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6138 | 茂達 | 2 | 1 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

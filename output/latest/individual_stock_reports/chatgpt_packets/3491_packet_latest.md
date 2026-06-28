@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:35 Asia/Taipei
+- generated_at: 2026-06-28 22:26:35 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 1555
-- high: 1555
-- low: 1470
-- close: 1470
-- volume: 2758000
-- ma5: 1541
-- ema23_primary: 1733.96
-- distance_to_ema23_pct: -15.22
-- ma20: 1844.5
-- ma60: 1731.67
-- ma120: 1414.48
-- return_5d: -13.02
-- return_20d: -23.83
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: -20.3
-- distance_to_high_60_pct: -33.18
+- date: 20260626
+- open: 1310
+- high: 1320
+- low: 1230
+- close: 1230
+- volume: 2042000
+- ma5: 1365
+- ema23_primary: 1616.26
+- distance_to_ema23_pct: -23.9
+- ma20: 1700
+- ma60: 1717.5
+- ma120: 1438.58
+- return_5d: -21.15
+- return_20d: -38.5
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -27.65
+- distance_to_high_60_pct: -44.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,2035,2120,1995,2090,2083000,1750.26,19.41,1724.5,1596.75,0.91
-20260526,2060,2075,2005,2075,2034000,1777.32,16.75,1748,1606,0.89
-20260527,2120,2130,2025,2080,2087000,1802.54,15.39,1771,1614,0.9
-20260528,2125,2180,1995,2000,2098000,1819,9.95,1793.25,1618.58,0.91
 20260529,2120,2200,2120,2200,2188000,1850.75,18.87,1825.75,1627,0.93
 20260601,2180,2200,2085,2165,2141000,1876.94,15.35,1848.75,1637.58,0.9
 20260602,2150,2175,2000,2070,2071,1893.03,9.35,1867.5,1649.08,0
@@ -154,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,1570,1625,1545,1550,1538000,1775.96,-12.72,1882,1724.58,0.74
 20260618,1560,1575,1520,1560,1469000,1757.96,-11.26,1867.5,1728.58,0.72
 20260622,1555,1555,1470,1470,2758000,1733.96,-15.22,1844.5,1731.67,1.33
+20260623,1450,1450,1355,1355,3119000,1702.38,-20.41,1807.75,1730.75,1.47
+20260624,1355,1440,1355,1430,2187000,1679.69,-14.87,1775.5,1728.75,1.02
+20260625,1450,1450,1340,1340,1619000,1651.38,-18.86,1738.5,1723.33,0.77
+20260626,1310,1320,1230,1230,2042000,1616.26,-23.9,1700,1717.5,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 33.17
-- over_600_ratio: 27.98
-- over_800_ratio: 19.06
-- over_1000_ratio: 15.1
-- over_400_change_1w: -1.64
-- over_800_change_1w: -2.35
-- over_1000_change_1w: -1.08
+- as_of_date: 20260626
+- over_400_ratio: 33.16
+- over_600_ratio: 26.64
+- over_800_ratio: 17.41
+- over_1000_ratio: 14.7
+- over_400_change_1w: -0.01
+- over_800_change_1w: -1.65
+- over_1000_change_1w: -0.4
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,36.7,-0.73,20.43,2.92,13.83,1.75,5,False,True
 20260612,34.81,-1.89,21.41,0.98,16.18,2.35,6,False,True
 20260618,33.17,-1.64,19.06,-2.35,15.1,-1.08,0,False,False
+20260626,33.16,-0.01,17.41,-1.65,14.7,-0.4,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3491 | 昇達科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3491 | 昇達科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: (1)單月： 　　　　　　　　 最近一個月單月　　 去年同月　　　　　與去年同期 　　　　　　　　　　 　115/5　　　　　114/5　　　　　　增減％ 營業收入（百萬元）　　　296　　　　　　 188　　　　　　　 57% 稅前淨利（百萬元）　　　116　　　　　　  19　　　　　　  511% 歸屬母公司 業主淨利（百萬元）　　　111　　　　　    15　　　　　　  640% 每股盈餘（元）　　　　 1.62　　　　　  0.23　　　　　　  604% －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ (2)單季：                       最近一季單季      去年同期       與去年同期                       115年第一季     114年第一季        增減％ 營業收入（百萬元）     1,020             620　　　　　　  65% 稅前淨利（百萬元）       318             183               74% 歸屬母公司                  　 業主淨利（百萬元）  　   253             143               77% 每股盈餘（元）           3.68            2.22              66% －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ (3)最近四季累計：                          114年第二季至115年第一季 營業收入（百萬元）     　       2,852 稅前淨利（百萬元）                776 歸屬母公司　　　　 業主淨利（百萬元）     　         628 每股盈餘（元）                   9.29 公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採 IFRS會計準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，係經會計師查核(閱)。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3491 | 昇達科 | 1 | 1 | 1 | 2 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 3491 | 昇達科 | 4 | 4 | 4 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

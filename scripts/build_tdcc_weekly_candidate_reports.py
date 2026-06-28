@@ -24,6 +24,10 @@ from tracking_utils import (  # noqa: E402
     to_number,
     write_csv,
 )
+from tdcc_weekly_pdf_font_contract import (  # noqa: E402
+    register_tdcc_weekly_pdf_font,
+    validate_tdcc_weekly_pdf_font_contract,
+)
 
 
 DAILY_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
@@ -48,6 +52,7 @@ DELIVERY_FULL_PDF_PREFIX = "TDCC大戶籌碼週報_完整版"
 DELIVERY_PDF_DIR = LATEST_DIR / "published_reports" / "tdcc_weekly"
 SECTION_MANIFEST_CSV = LATEST_DIR / "tdcc_weekly_report_section_manifest_latest.csv"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
+INVALID_HOLDER_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_invalid_holder_distribution_latest.csv"
 
 TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS = {"tdcc_short_term_continuation_d5_d10"}
 TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT = 10
@@ -508,6 +513,20 @@ def is_model_cross_section_id(value: Any) -> bool:
     return "model_cross" in safe_str(value)
 
 
+def is_model_cross_section(row: pd.Series) -> bool:
+    return manifest_table_contract(row.get("section_id"), row.get("table_contract")) == "model_cross"
+
+
+def section_allows_empty(row: pd.Series) -> bool:
+    return is_model_cross_section(row)
+
+
+def section_empty_message(row: pd.Series) -> str:
+    if is_model_cross_section(row):
+        return "本週無符合此模型交集條件的個股；保留 section 供檢核，不補造候選股。"
+    return "本週無符合此 section 條件的個股。"
+
+
 def pdf_columns_for_section(group: pd.DataFrame) -> list[str]:
     if group.empty:
         return PDF_RANKING_COLUMNS
@@ -815,6 +834,67 @@ def pdf_columns_for_contract(table_contract: Any, fallback_group: pd.DataFrame |
         return PDF_RANKING_COLUMNS
     return pdf_columns_for_section(fallback_group if fallback_group is not None else pd.DataFrame())
 
+
+def load_invalid_holder_distributions(report_date: str) -> pd.DataFrame:
+    columns = [
+        "date",
+        "code",
+        "name",
+        "invalid_reason",
+        "active_level",
+        "active_holders",
+        "active_ratio_pct",
+        "total_holders",
+        "total_ratio_pct",
+    ]
+    df = read_csv(INVALID_HOLDER_DISTRIBUTION_CSV, dtype=str)
+    if df.empty:
+        return pd.DataFrame(columns=columns)
+    for column in columns:
+        if column not in df.columns:
+            df[column] = ""
+    date = safe_str(report_date)
+    if date:
+        df = df[df["date"].map(safe_str) == date].copy()
+    return df[columns].reset_index(drop=True)
+
+
+def latest_frame_signal_date(df: pd.DataFrame, meta: dict[str, Any] | None = None) -> str:
+    meta_date = safe_str((meta or {}).get("latest_signal_date"))
+    if meta_date:
+        return meta_date
+    if "signal_date" not in df.columns:
+        return ""
+    dates = sorted({safe_str(value) for value in df["signal_date"].dropna() if safe_str(value)})
+    return dates[-1] if dates else ""
+
+
+def invalid_holder_distribution_codes(report_date: str) -> set[str]:
+    invalid = load_invalid_holder_distributions(report_date)
+    if invalid.empty or "code" not in invalid.columns:
+        return set()
+    return {safe_str(value) for value in invalid["code"].dropna() if safe_str(value)}
+
+
+def filter_invalid_holder_distributions(df: pd.DataFrame, report_date: str) -> pd.DataFrame:
+    if df.empty:
+        return df
+    invalid_codes = invalid_holder_distribution_codes(report_date)
+    if not invalid_codes:
+        return df
+    code_col = "stock_id" if "stock_id" in df.columns else "code" if "code" in df.columns else ""
+    if not code_col:
+        return df
+    filtered = df[~df[code_col].map(safe_str).isin(invalid_codes)].copy()
+    removed = len(df) - len(filtered)
+    if removed:
+        print(
+            "WARNING: quarantined invalid TDCC holder distributions from weekly report tables: "
+            + ", ".join(sorted(invalid_codes))
+        )
+    return filtered
+
+
 def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_date: str) -> None:
     report_kind = 'highlight'
     try:
@@ -822,22 +902,11 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
         from reportlab.lib.pagesizes import A4, landscape
         from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
         from reportlab.lib.units import cm
-        from reportlab.pdfbase import pdfmetrics
-        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-        from reportlab.pdfbase.ttfonts import TTFont
         from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
     except Exception as exc:  # pragma: no cover - validated in CI
         raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
 
-    def register_report_font() -> str:
-        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
-        if font_path.exists():
-            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
-            return "DFKai-SB"
-        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
-        return "STSong-Light"
-
-    pdf_font = register_report_font()
+    pdf_font = register_tdcc_weekly_pdf_font()
     styles = getSampleStyleSheet()
     normal = ParagraphStyle(
         "zh-normal-v2",
@@ -968,7 +1037,7 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
             show = group
 
             if show.empty:
-                story.append(Paragraph("沒有可用報告資料。", normal))
+                story.append(Paragraph(section_empty_message(section_row), normal))
                 continue
 
             columns = tdcc_highlight_pdf_columns_for_contract(section_row.get("table_contract"), show)
@@ -980,6 +1049,44 @@ def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, ma
             table = Table(table_data, colWidths=col_widths, repeatRows=1)
             table.setStyle(table_style())
             story.append(table)
+
+    invalid_holder_distributions = load_invalid_holder_distributions(report_date)
+    if not invalid_holder_distributions.empty:
+        story.append(PageBreak())
+        story.append(Paragraph("TDCC data anomaly note", h2))
+        story.append(Paragraph("DATA_ANOMALY_NOTE", small))
+        story.append(Paragraph("資料異常備註", h2))
+        story.append(
+            Paragraph(
+                "下列個股因 TDCC 原始持股級距分布異常，已自本週 TDCC 排名與候選報告排除；"
+                "此備註只說明資料品質，不代表基本面、股價或買賣判斷。",
+                normal,
+            )
+        )
+        story.append(Spacer(1, 0.25 * cm))
+        note_columns = [
+            ("code", "股票代號", 1.6 * cm, 8),
+            ("name", "股票名稱", 2.0 * cm, 8),
+            ("invalid_reason", "異常原因", 7.2 * cm, 22),
+            ("active_level", "異常級距", 2.0 * cm, 8),
+            ("active_holders", "級距人數", 2.0 * cm, 8),
+            ("active_ratio_pct", "級距占比", 2.0 * cm, 8),
+            ("total_holders", "總人數", 2.0 * cm, 8),
+            ("total_ratio_pct", "總占比", 2.0 * cm, 8),
+        ]
+        reason_zh = {
+            "single_holder_or_placeholder_distribution": "單一持有人或占比 100% 的占位式分布，無法當成有效大戶級距資料",
+        }
+        table_data = [[Paragraph(header, normal) for _, header, _, _ in note_columns]]
+        for _, row in invalid_holder_distributions.iterrows():
+            note_row = []
+            for column, _, _, max_chars in note_columns:
+                value = reason_zh.get(safe_str(row.get(column)), row.get(column))
+                note_row.append(Paragraph(wrap_text(clean_pdf_text(value), max_chars), small))
+            table_data.append(note_row)
+        table = Table(table_data, colWidths=[width for _, _, width, _ in note_columns], repeatRows=1)
+        table.setStyle(table_style())
+        story.append(table)
     path.parent.mkdir(parents=True, exist_ok=True)
     doc.build(story)
 
@@ -990,22 +1097,11 @@ def write_tdcc_weekly_full_pdf(df: pd.DataFrame, path: Path, title: str, manifes
         from reportlab.lib.pagesizes import A4, landscape
         from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
         from reportlab.lib.units import cm
-        from reportlab.pdfbase import pdfmetrics
-        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-        from reportlab.pdfbase.ttfonts import TTFont
         from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
     except Exception as exc:  # pragma: no cover - validated in CI
         raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
 
-    def register_report_font() -> str:
-        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
-        if font_path.exists():
-            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
-            return "DFKai-SB"
-        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
-        return "STSong-Light"
-
-    pdf_font = register_report_font()
+    pdf_font = register_tdcc_weekly_pdf_font()
     styles = getSampleStyleSheet()
     normal = ParagraphStyle(
         "zh-normal-v2",
@@ -1136,7 +1232,7 @@ def write_tdcc_weekly_full_pdf(df: pd.DataFrame, path: Path, title: str, manifes
             show = group
 
             if show.empty:
-                story.append(Paragraph("沒有可用報告資料。", normal))
+                story.append(Paragraph(section_empty_message(section_row), normal))
                 continue
 
             columns = tdcc_full_pdf_columns_for_contract(section_row.get("table_contract"), show)
@@ -1406,7 +1502,10 @@ def build_model_cross(
         merged["display_rank"] = merged.get("display_rank", merged.get("model_rank", ""))
         merged["model_score"] = merged.get("model_score", "")
         merged["tdcc_model_rank_in_list"] = (
-            merged.sort_values(["tdcc_list_type", "model_id", "tdcc_rank", "display_rank_num"])
+            merged.sort_values(
+                ["tdcc_list_type", "model_id", "model_score_num", "display_rank_num", "tdcc_rank"],
+                ascending=[True, True, False, True, True],
+            )
             .groupby(["tdcc_list_type", "model_id"])
             .cumcount()
             + 1
@@ -1679,6 +1778,7 @@ def assert_pdf_openable(path: Path) -> None:
 def validate_delivery_pdfs(paths: dict[str, Path]) -> None:
     for path in paths.values():
         assert_pdf_openable(path)
+    validate_tdcc_weekly_pdf_font_contract([HIGHLIGHT_PDF, FULL_PDF, *paths.values()])
 
 
 def cleanup_flat_delivery_pdfs(base_dir: Path) -> None:
@@ -1720,7 +1820,7 @@ def write_report_md(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataF
                 "",
                 markdown_table(display_df, list(display_df.columns), limit=None)
                 if not display_df.empty
-                else "沒有可用報告資料。",
+                else section_empty_message(section_row),
                 "",
             ]
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -1844,7 +1944,7 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame, manifest: pd.D
             limit = section_limit(section_row, report_name)
             if count > limit:
                 raise RuntimeError(f"{report_name} TDCC report section {section_id} has {count} rows above limit {limit}")
-            if manifest_bool(section_row.get("required"), True) and count == 0:
+            if manifest_bool(section_row.get("required"), True) and count == 0 and not section_allows_empty(section_row):
                 raise RuntimeError(f"{report_name} TDCC report required section is empty: {section_id}")
         title_groups = report_df.groupby("section_name_zh", dropna=False)["section_id"].nunique()
         merged_titles = title_groups[title_groups > 1]
@@ -1897,6 +1997,7 @@ def main() -> int:
     latest, meta = prepare_latest_frame()
     if latest.empty:
         raise RuntimeError("No TDCC latest frame available.")
+    latest = filter_invalid_holder_distributions(latest, latest_frame_signal_date(latest, meta))
     latest = add_tdcc_scores(latest)
     theme_map = load_theme_display_map()
     latest = apply_theme_display(latest, theme_map)

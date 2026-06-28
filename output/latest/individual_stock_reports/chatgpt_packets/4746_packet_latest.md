@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4746 台耀
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:54 Asia/Taipei
+- generated_at: 2026-06-28 22:26:50 Asia/Taipei
 - stock_id: 4746
 - stock_name: 台耀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 52.3
-- high: 53.1
-- low: 52.3
-- close: 52.5
-- volume: 576439
-- ma5: 52.02
-- ema23_primary: 52.26
-- distance_to_ema23_pct: 0.45
-- ma20: 51.97
-- ma60: 53.12
-- ma120: 55.33
-- return_5d: 1.94
-- return_20d: 0.38
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 1.02
-- distance_to_high_60_pct: -8.06
+- date: 20260626
+- open: 52.4
+- high: 52.4
+- low: 50.7
+- close: 50.8
+- volume: 664923
+- ma5: 51.92
+- ema23_primary: 52.11
+- distance_to_ema23_pct: -2.51
+- ma20: 52.15
+- ma60: 52.91
+- ma120: 55.03
+- return_5d: -2.87
+- return_20d: 0.99
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -2.58
+- distance_to_high_60_pct: -10.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,52.5,52.6,51.2,51.3,1625202,53.21,-3.59,53.76,53.77,1.37
-20260526,51.1,51.9,51,51.2,728267,53.04,-3.47,53.65,53.67,0.63
-20260527,51.8,51.8,50.5,50.8,1088719,52.86,-3.89,53.41,53.58,1.01
-20260528,50.5,51.2,50.1,50.3,977140,52.64,-4.45,53.17,53.49,0.91
 20260529,50.8,52.7,50.7,52.2,1449359,52.61,-0.77,53.08,53.45,1.3
 20260601,52.4,53.8,51.3,53.3,1485591,52.66,1.21,53,53.47,1.29
 20260602,53.3,53.3,51.8,52.3,941618,52.63,-0.63,52.81,53.44,0.84
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,51.3,52.9,51.2,52.2,522325,52.24,-0.07,52,53.21,0.64
 20260618,52.8,53.3,51.8,52.3,705842,52.24,0.11,51.96,53.15,0.87
 20260622,52.3,53.1,52.3,52.5,576439,52.26,0.45,51.97,53.12,0.71
+20260623,52.5,52.5,51.6,51.7,570370,52.22,-0.99,51.99,53.05,0.75
+20260624,52.2,53.4,51.5,52.6,957863,52.25,0.67,52.06,53.02,1.24
+20260625,53.2,53.2,51.7,52,487403,52.23,-0.44,52.12,52.98,0.66
+20260626,52.4,52.4,50.7,50.8,664923,52.11,-2.51,52.15,52.91,0.92
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 42.37
-- over_600_ratio: 37.67
-- over_800_ratio: 34.72
-- over_1000_ratio: 30.96
-- over_400_change_1w: 0.36
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 42.46
+- over_600_ratio: 37.9
+- over_800_ratio: 34.92
+- over_1000_ratio: 31.97
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 1.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,41.62,0.93,34.59,1.52,31,0.13,1,True,True
 20260612,42.01,0.39,34.53,-0.06,30.92,-0.08,2,False,False
 20260618,42.37,0.36,34.72,0.19,30.96,0.04,3,True,True
+20260626,42.46,0.09,34.92,0.2,31.97,1.01,4,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4746 | 台耀 | 2 | 0 | 111460.0 | 0.0 |  | no_signal |
+| 20260626 | 4746 | 台耀 | 2 | 0 | 5630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

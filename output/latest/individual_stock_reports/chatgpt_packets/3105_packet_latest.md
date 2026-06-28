@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3105 穩懋
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:25 Asia/Taipei
+- generated_at: 2026-06-28 22:26:27 Asia/Taipei
 - stock_id: 3105
 - stock_name: 穩懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 545
-- high: 550
-- low: 522
-- close: 541
-- volume: 27340000
-- ma5: 518.4
-- ema23_primary: 505.84
-- distance_to_ema23_pct: 6.95
-- ma20: 512.98
-- ma60: 488.97
-- ma120: 367.77
-- return_5d: 7.13
-- return_20d: 1.88
-- volume_ratio: 2.24
-- distance_to_ma20_pct_auxiliary: 5.46
-- distance_to_high_60_pct: -15.07
+- date: 20260626
+- open: 458
+- high: 463.5
+- low: 421
+- close: 424
+- volume: 32502000
+- ma5: 485.6
+- ema23_primary: 494.84
+- distance_to_ema23_pct: -14.32
+- ma20: 497.68
+- ma60: 495.82
+- ma120: 377.64
+- return_5d: -19.7
+- return_20d: -19.7
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: -14.8
+- distance_to_high_60_pct: -33.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,551,565,538,543,549000,490.96,10.6,499.38,425.62,0.02
-20260526,551,562,517,562,540000,496.88,13.1,502.85,429.62,0.02
-20260527,571,588,545,560,566000,502.14,11.52,505.88,433.32,0.03
-20260528,558,582,520,528,553000,504.3,4.7,507.18,436.59,0.03
 20260529,542,544,516,527,530000,506.19,4.11,506.73,439.94,0.03
 20260601,528,546,522,530,535000,508.17,4.29,507.02,443.88,0.03
 20260602,538,554,515,519,534,509.08,1.95,505.23,447.53,0
@@ -154,19 +150,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,488,520,481,519,21800000,500.34,3.73,510.23,481.62,2.15
 20260618,522,557,521,528,38731000,502.65,5.04,512.48,485.18,3.56
 20260622,545,550,522,541,27340000,505.84,6.95,512.98,488.97,2.24
+20260623,531,573,522,522,40284000,507.19,2.92,511.93,491.93,2.84
+20260624,516,516,472,478,36391000,504.76,-5.3,507.73,493.92,2.27
+20260625,486.5,486.5,458,463,20376000,501.28,-7.64,502.88,495.26,1.2
+20260626,458,463.5,421,424,32502000,494.84,-14.32,497.68,495.82,1.75
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.69
-- over_600_ratio: 52.85
-- over_800_ratio: 50.81
-- over_1000_ratio: 48.1
-- over_400_change_1w: 1.57
-- over_800_change_1w: 2.2
-- over_1000_change_1w: 1.39
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 54.25
+- over_600_ratio: 51.27
+- over_800_ratio: 50.08
+- over_1000_ratio: 48.13
+- over_400_change_1w: -1.44
+- over_800_change_1w: -0.73
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,54.22,-2.64,48.53,-3.2,46.22,-2.76,0,False,False
 20260612,54.12,-0.1,48.61,0.08,46.71,0.49,1,False,True
 20260618,55.69,1.57,50.81,2.2,48.1,1.39,2,True,True
+20260626,54.25,-1.44,50.08,-0.73,48.13,0.03,3,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3105 | 穩懋 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | 1.董事會決議日期:115/06/22 2.股東會召開日期:115/06/30 3.股東會召開地點:書面決議 4.召集事由一、報告事項:無 5.召集事由二、承認事項:  第一案:本公司2025年度財務報表案 6.召集事由三、討論事項:  第一案:本公司章程修正案 7.召集事由四、選舉事項:無 8.召集事由五、其他議案:無 9.召集事由六、臨時動議:無 10.停止過戶起始日期:NA 11.停止過戶截止日期:NA 12.其他應敘明事項:本次係新增討論事項─本公司章程修正案；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3105 | 穩懋 | 2 | 1 | 2 | 2 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

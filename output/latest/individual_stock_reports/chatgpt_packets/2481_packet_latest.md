@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2481 強茂
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:07 Asia/Taipei
+- generated_at: 2026-06-28 22:26:12 Asia/Taipei
 - stock_id: 2481
 - stock_name: 強茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 176
-- high: 176
-- low: 176
-- close: 176
-- volume: 4035369
-- ma5: 152.8
-- ema23_primary: 144.76
-- distance_to_ema23_pct: 21.58
-- ma20: 150.07
-- ma60: 121.12
-- ma120: 104.75
-- return_5d: 21.38
-- return_20d: 31.84
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: 17.27
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 189
+- high: 198
+- low: 174
+- close: 175
+- volume: 13911471
+- ma5: 186.3
+- ema23_primary: 157.53
+- distance_to_ema23_pct: 11.09
+- ma20: 159.03
+- ma60: 127.28
+- ma120: 108.31
+- return_5d: 9.38
+- return_20d: 18.24
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 10.05
+- distance_to_high_60_pct: -14.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,135.5,142.5,133,134,51247093,117.2,14.34,114.3,102.91,1.25
-20260526,137,147,135.5,147,52336498,119.68,22.83,116.5,103.9,1.25
-20260527,157.5,161.5,143,147.5,72240943,122,20.9,118.91,104.85,1.62
-20260528,146.5,160.5,143,148,86464838,124.16,19.2,121.26,105.74,1.8
 20260529,157,162.5,150,162.5,40975255,127.36,27.59,124.33,106.92,0.83
 20260601,163.5,163.5,151,157,61880344,129.83,20.93,127.2,108.06,1.2
 20260602,157.5,158.5,144.5,146,42083147,131.18,11.3,129.4,109,0.79
@@ -153,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,140,145.5,137.5,145.5,19846379,140.27,3.73,146.57,118.67,0.44
 20260618,160,160,160,160,11956520,141.92,12.74,147.95,119.81,0.28
 20260622,176,176,176,176,4035369,144.76,21.58,150.07,121.12,0.1
+20260623,193.5,193.5,187,193.5,64988473,148.82,30.02,153.05,122.68,1.6
+20260624,186.5,201,186,195,71737579,152.67,27.73,155.45,124.27,1.72
+20260625,203,204,186,192,62966916,155.95,23.12,157.68,125.84,1.53
+20260626,189,198,174,175,13911471,157.53,11.09,159.03,127.28,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.38
-- over_600_ratio: 62.54
-- over_800_ratio: 60.28
-- over_1000_ratio: 57.45
-- over_400_change_1w: -1.1
-- over_800_change_1w: -0.56
-- over_1000_change_1w: -1.26
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 66.68
+- over_600_ratio: 64.5
+- over_800_ratio: 62.23
+- over_1000_ratio: 60.77
+- over_400_change_1w: 2.3
+- over_800_change_1w: 1.95
+- over_1000_change_1w: 3.32
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.3,1.33,62.17,1.29,59.64,1.31,5,True,True
 20260612,65.48,-1.82,60.84,-1.33,58.71,-0.93,0,False,False
 20260618,64.38,-1.1,60.28,-0.56,57.45,-1.26,0,False,False
+20260626,66.68,2.3,62.23,1.95,60.77,3.32,1,True,True
 ```
 
 ## Candidate Context
@@ -195,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2481 | 強茂 | 157 | 2 | 4766450.0 | 0.0 |  | no_signal |
+| 20260626 | 2481 | 強茂 | 169 | 0 | 11525120.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

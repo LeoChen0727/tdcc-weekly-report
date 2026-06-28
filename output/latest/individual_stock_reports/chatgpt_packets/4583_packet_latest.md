@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4583 台灣精銳
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:49 Asia/Taipei
 - stock_id: 4583
 - stock_name: 台灣精銳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 640
-- high: 640
-- low: 620
-- close: 630
-- volume: 131625
-- ma5: 627.4
-- ema23_primary: 663.21
-- distance_to_ema23_pct: -5.01
-- ma20: 664.9
-- ma60: 699.6
-- ma120: 692.13
-- return_5d: 1.94
-- return_20d: -13.58
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -5.25
-- distance_to_high_60_pct: -23.17
+- date: 20260626
+- open: 595
+- high: 599
+- low: 565
+- close: 576
+- volume: 184321
+- ma5: 607
+- ema23_primary: 644.56
+- distance_to_ema23_pct: -10.64
+- ma20: 642.1
+- ma60: 695.47
+- ma120: 691.17
+- return_5d: -8.57
+- return_20d: -16.76
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: -10.29
+- distance_to_high_60_pct: -29.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,735,759,725,731,187984,733.75,-0.37,745.95,695.45,0.79
-20260526,731,755,719,725,179845,733.02,-1.09,746.1,695.83,0.76
-20260527,730,732,700,713,200878,731.35,-2.51,745.65,696.12,0.83
-20260528,715,722,683,692,225847,728.07,-4.95,743.7,696.05,0.94
 20260529,704,719,700,719,290890,727.32,-1.14,741.45,696.88,1.29
 20260601,735,735,715,715,112814,726.29,-1.55,738.5,698.35,0.53
 20260602,714,715,679,689,217792,723.18,-4.73,734.7,698.98,1.01
@@ -154,16 +150,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,631,632,617,628,73441,669.53,-6.2,673.7,699.67,0.54
 20260618,632,637,624,630,77176,666.23,-5.44,669.85,699.73,0.57
 20260622,640,640,620,630,131625,663.21,-5.01,664.9,699.6,0.98
+20260623,631,631,617,618,99299,659.45,-6.28,659.25,698.92,0.76
+20260624,607,615,599,611,76055,655.41,-6.78,653.55,697.78,0.61
+20260625,614,614,599,600,135038,650.79,-7.8,647.9,696.67,1.11
+20260626,595,599,565,576,184321,644.56,-10.64,642.1,695.47,1.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 86.93
-- over_600_ratio: 85.09
-- over_800_ratio: 84.11
+- as_of_date: 20260626
+- over_400_ratio: 86.78
+- over_600_ratio: 84.96
+- over_800_ratio: 83.01
 - over_1000_ratio: 81.82
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.02
+- over_400_change_1w: -0.15
+- over_800_change_1w: -1.1
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,86.93,-1.02,84.12,-0.44,81.82,-0.45,0,False,False
 20260612,86.95,0.02,84.13,0.01,81.82,0,1,False,True
 20260618,86.93,-0.02,84.11,-0.02,81.82,0,0,False,False
+20260626,86.78,-0.15,83.01,-1.1,81.82,0,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4583 | 台灣精銳 | 24 | 0 | 968840.0 | 0.0 |  | no_signal |
+| 20260626 | 4583 | 台灣精銳 | 23 | 0 | 40920.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

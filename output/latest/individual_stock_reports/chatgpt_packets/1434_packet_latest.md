@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:38 Asia/Taipei
+- generated_at: 2026-06-28 22:25:49 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 17.05
-- high: 17.1
-- low: 16.8
-- close: 16.9
-- volume: 4717230
-- ma5: 16.85
-- ema23_primary: 16.31
-- distance_to_ema23_pct: 3.63
-- ma20: 16.16
-- ma60: 16.13
-- ma120: 16.41
-- return_5d: 1.5
-- return_20d: 11.18
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 4.6
-- distance_to_high_60_pct: -2.31
+- date: 20260626
+- open: 17.2
+- high: 17.25
+- low: 16.7
+- close: 16.7
+- volume: 3207355
+- ma5: 16.91
+- ema23_primary: 16.49
+- distance_to_ema23_pct: 1.28
+- ma20: 16.54
+- ma60: 16.15
+- ma120: 16.45
+- return_5d: -1.47
+- return_20d: 11.71
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 0.98
+- distance_to_high_60_pct: -5.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,15.2,15.2,14.95,15.1,3637339,15.65,-3.5,15.61,16.39,1.98
-20260526,15.05,15.15,14.95,15,1710024,15.59,-3.81,15.57,16.34,0.94
-20260527,15,15.15,14.9,15,2110131,15.54,-3.5,15.53,16.28,1.13
-20260528,15,15.05,14.8,14.95,2804119,15.49,-3.51,15.47,16.23,1.44
 20260529,14.95,15.45,14.95,15.45,3946190,15.49,-0.26,15.45,16.19,1.88
 20260601,15.4,15.7,15.2,15.55,4225210,15.5,0.35,15.43,16.17,1.9
 20260602,15.55,15.8,15.5,15.75,2814639,15.52,1.5,15.42,16.14,1.22
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,16.8,16.9,16.65,16.85,1916082,16.19,4.07,15.99,16.11,0.64
 20260618,16.9,17.3,16.9,16.95,2826616,16.25,4.28,16.07,16.12,0.92
 20260622,17.05,17.1,16.8,16.9,4717230,16.31,3.63,16.16,16.13,1.46
+20260623,16.95,17.1,16.45,16.6,4713146,16.33,1.64,16.23,16.13,1.44
+20260624,16.5,16.95,16.4,16.95,4279922,16.38,3.45,16.33,16.14,1.26
+20260625,17,17.6,17,17.4,6458829,16.47,5.65,16.45,16.15,1.78
+20260626,17.2,17.25,16.7,16.7,3207355,16.49,1.28,16.54,16.15,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 72.07
-- over_600_ratio: 70.25
-- over_800_ratio: 69.16
-- over_1000_ratio: 68.36
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 72.17
+- over_600_ratio: 70.35
+- over_800_ratio: 69.44
+- over_1000_ratio: 68.44
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.28
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.84,0.19,69.02,0.1,68.33,0.31,5,True,True
 20260612,71.93,0.09,69.07,0.05,68.27,-0.06,6,False,True
 20260618,72.07,0.14,69.16,0.09,68.36,0.09,7,True,True
+20260626,72.17,0.1,69.44,0.28,68.44,0.08,8,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 1434 | 福懋 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:王文淵 4.舊任者簡歷:本公司董事長 5.新任者姓名:王文淵 6.新任者簡歷:本公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 1434 | 福懋 | 2 | 1 | 3 | 8 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

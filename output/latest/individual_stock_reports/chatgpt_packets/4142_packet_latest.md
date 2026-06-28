@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4142 國光生
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:45 Asia/Taipei
+- generated_at: 2026-06-28 22:26:43 Asia/Taipei
 - stock_id: 4142
 - stock_name: 國光生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 17.4
-- high: 17.4
-- low: 17.15
-- close: 17.2
-- volume: 1477481
-- ma5: 17.45
-- ema23_primary: 17.52
-- distance_to_ema23_pct: -1.82
-- ma20: 17.43
-- ma60: 17.84
-- ma120: 18.35
-- return_5d: -2.55
-- return_20d: -1.71
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -1.32
-- distance_to_high_60_pct: -10.42
+- date: 20260626
+- open: 17.05
+- high: 17.05
+- low: 16.8
+- close: 16.8
+- volume: 1618148
+- ma5: 17.1
+- ema23_primary: 17.38
+- distance_to_ema23_pct: -3.36
+- ma20: 17.42
+- ma60: 17.74
+- ma120: 18.27
+- return_5d: -3.45
+- return_20d: -0.89
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -3.55
+- distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,17.6,17.6,17.3,17.4,1544045,17.71,-1.75,17.69,17.98,1.33
-20260526,17.4,17.45,17.15,17.2,1310602,17.67,-2.65,17.64,17.96,1.12
-20260527,17.1,17.3,17,17,1712660,17.61,-3.48,17.59,17.95,1.4
-20260528,17.05,17.15,16.8,16.95,1344624,17.56,-3.46,17.54,17.93,1.07
 20260529,17,17.25,16.9,17.15,1083886,17.52,-2.13,17.52,17.92,0.85
 20260601,17.15,17.35,17.15,17.2,1055354,17.5,-1.69,17.5,17.92,0.84
 20260602,17.2,17.25,17,17.2,1006529,17.47,-1.55,17.45,17.91,0.84
@@ -160,18 +156,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,17.55,17.7,17.4,17.5,631830,17.56,-0.35,17.45,17.87,0.49
 20260618,17.55,17.7,17.35,17.4,1102349,17.55,-0.84,17.45,17.86,0.84
 20260622,17.4,17.4,17.15,17.2,1477481,17.52,-1.82,17.43,17.84,1.11
+20260623,17.35,17.4,17.1,17.15,1353572,17.49,-1.94,17.42,17.81,1.03
+20260624,17.15,17.35,17.1,17.25,1075670,17.47,-1.25,17.42,17.8,0.82
+20260625,17.25,17.35,17.05,17.1,1328492,17.44,-1.94,17.43,17.77,1.03
+20260626,17.05,17.05,16.8,16.8,1618148,17.38,-3.36,17.42,17.74,1.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.55
-- over_600_ratio: 36.7
-- over_800_ratio: 34.47
-- over_1000_ratio: 32.92
-- over_400_change_1w: 0.03
-- over_800_change_1w: -0.13
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 39.51
+- over_600_ratio: 36.42
+- over_800_ratio: 34.54
+- over_1000_ratio: 33.03
+- over_400_change_1w: -0.04
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,22 +187,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.48,0.19,34.64,0.18,32.94,0.18,5,True,True
 20260612,39.52,0.04,34.6,-0.04,32.86,-0.08,6,False,False
 20260618,39.55,0.03,34.47,-0.13,32.92,0.06,7,False,True
+20260626,39.51,-0.04,34.54,0.07,33.03,0.11,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4142 | 國光生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 4142 | 國光生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4142 | 國光生 | 1 | 1 | 1 | 4 | 12 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 4142 | 國光生 | 4 | 4 | 4 | 5 | 14 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4142 | 國光生 | 1 | 0 | 442080.0 | 0.0 |  | no_signal |
+| 20260626 | 4142 | 國光生 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

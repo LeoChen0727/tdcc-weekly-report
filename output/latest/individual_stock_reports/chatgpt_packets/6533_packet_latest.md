@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:26 Asia/Taipei
+- generated_at: 2026-06-28 22:27:16 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 203
-- high: 209.5
-- low: 203
-- close: 207
-- volume: 539728
-- ma5: 203.6
-- ema23_primary: 213.53
-- distance_to_ema23_pct: -3.06
-- ma20: 215.88
-- ma60: 216.18
-- ma120: 220.74
-- return_5d: 2.99
-- return_20d: -13.75
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -4.11
-- distance_to_high_60_pct: -25.41
+- date: 20260626
+- open: 201.5
+- high: 201.5
+- low: 192
+- close: 192
+- volume: 588371
+- ma5: 202.5
+- ema23_primary: 209.81
+- distance_to_ema23_pct: -8.49
+- ma20: 209.82
+- ma60: 217.43
+- ma120: 219.28
+- return_5d: -4.71
+- return_20d: -12.53
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -8.5
+- distance_to_high_60_pct: -30.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,245,249.5,240,244.5,1324091,229.72,6.43,234.95,210,1.15
-20260526,245,245,234,234.5,911660,230.12,1.9,234.7,210.28,0.82
-20260527,238.5,240,226.5,228,840485,229.95,-0.85,234.53,210.43,0.77
-20260528,229,232,217,219.5,921331,229.08,-4.18,233.97,210.55,0.83
 20260529,221.5,223.5,217,219,508665,228.24,-4.05,233.5,210.87,0.46
 20260601,220,222.5,217.5,221,505431,227.63,-2.91,232.68,211.39,0.47
 20260602,225,243,223.5,241,2862076,228.75,5.36,232.55,212.08,2.54
@@ -155,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,198,202,197.5,201.5,325971,215.27,-6.4,218.95,215.79,0.39
 20260618,201,204.5,201,201.5,287777,214.12,-5.89,217.53,215.84,0.37
 20260622,203,209.5,203,207,539728,213.53,-3.06,215.88,216.18,0.71
+20260623,210,212,205,206.5,498444,212.94,-3.02,213.97,216.47,0.69
+20260624,204,205.5,201.5,204.5,344295,212.24,-3.65,212.47,216.82,0.5
+20260625,205,211,202,202.5,421913,211.43,-4.22,211.2,217.22,0.63
+20260626,201.5,201.5,192,192,588371,209.81,-8.49,209.82,217.43,0.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 21.92
+- as_of_date: 20260626
+- over_400_ratio: 21.94
 - over_600_ratio: 18.26
 - over_800_ratio: 18.26
 - over_1000_ratio: 16.37
-- over_400_change_1w: 0
+- over_400_change_1w: 0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,21.92,0.01,18.26,0.01,16.37,0.01,2,True,True
 20260612,21.92,0,18.26,0,16.37,0,0,False,False
 20260618,21.92,0,18.26,0,16.37,0,0,False,False
+20260626,21.94,0.02,18.26,0,16.37,0,1,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6533 | 晶心科 | 7 | 0 | 4930.0 | 0.0 |  | no_signal |
+| 20260626 | 6533 | 晶心科 | 7 | 0 | 82230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

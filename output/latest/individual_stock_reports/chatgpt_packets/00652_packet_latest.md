@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00652 富邦印度
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:28 Asia/Taipei
+- generated_at: 2026-06-28 22:25:41 Asia/Taipei
 - stock_id: 00652
 - stock_name: 富邦印度
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 32.9
-- high: 33.03
-- low: 32.87
-- close: 33
-- volume: 407013
-- ma5: 32.85
-- ema23_primary: 32.24
-- distance_to_ema23_pct: 2.35
-- ma20: 32.1
-- ma60: 32.11
-- ma120: 32.11
-- return_5d: 3.84
-- return_20d: 2.2
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 2.79
-- distance_to_high_60_pct: -0.21
+- date: 20260626
+- open: 33.2
+- high: 33.23
+- low: 32.99
+- close: 33.04
+- volume: 504146
+- ma5: 33.03
+- ema23_primary: 32.48
+- distance_to_ema23_pct: 1.72
+- ma20: 32.25
+- ma60: 32.26
+- ma120: 32.26
+- return_5d: 0.33
+- return_20d: 3.8
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 2.45
+- distance_to_high_60_pct: -1.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,32.3,32.48,32.3,32.48,415765,,,,,
-20260526,32.48,32.63,32.48,32.63,276998,,,,,
-20260527,32.6,32.6,32.21,32.33,520067,,,,,
-20260528,32.28,32.28,31.82,31.83,451878,32.29,-1.43,32.31,32.31,1.14
 20260529,31.89,32.43,31.88,32.38,284249,32.3,0.25,32.32,32.32,0.76
 20260601,32.38,32.38,31.85,31.91,501178,32.27,-1.1,32.26,32.26,1.27
 20260602,31.78,31.78,31.53,31.71,532212,32.22,-1.58,32.2,32.2,1.29
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,32.71,32.96,32.71,32.96,257172,32.1,2.66,32.02,32.02,0.59
 20260618,32.96,33.07,32.9,32.93,311281,32.17,2.35,32.07,32.07,0.72
 20260622,32.9,33.03,32.87,33,407013,32.24,2.35,32.1,32.11,0.94
+20260623,33,33.04,32.84,32.95,356103,32.3,2.01,32.13,32.15,0.82
+20260624,32.65,32.84,32.62,32.84,671964,32.35,1.53,32.14,32.18,1.49
+20260625,33,33.38,33,33.34,473944,32.43,2.81,32.19,32.23,1.05
+20260626,33.2,33.23,32.99,33.04,504146,32.48,1.72,32.25,32.26,1.11
 ```
 
 ## Latest TDCC Snapshot

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3583 辛耘
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:39 Asia/Taipei
+- generated_at: 2026-06-28 22:26:38 Asia/Taipei
 - stock_id: 3583
 - stock_name: 辛耘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 917
-- high: 939
-- low: 885
-- close: 889
-- volume: 2288227
-- ma5: 847.8
-- ema23_primary: 840.43
-- distance_to_ema23_pct: 5.78
-- ma20: 851.65
-- ma60: 772.27
-- ma120: 560.45
-- return_5d: 10.71
-- return_20d: 1.6
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 4.39
-- distance_to_high_60_pct: -11.98
+- date: 20260626
+- open: 848
+- high: 871
+- low: 800
+- close: 812
+- volume: 1242126
+- ma5: 858.2
+- ema23_primary: 842.69
+- distance_to_ema23_pct: -3.64
+- ma20: 842.9
+- ma60: 796.06
+- ma120: 578
+- return_5d: -8.66
+- return_20d: -7.41
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -3.67
+- distance_to_high_60_pct: -19.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,891,957,888,916,2911488,825.33,10.99,841.7,625.18,0.85
-20260526,921,932,902,908,1727027,832.22,9.11,850.3,634.32,0.51
-20260527,917,917,873,876,2189557,835.87,4.8,857.2,642.73,0.67
-20260528,878,947,872,877,4759940,839.29,4.49,862.45,651.22,1.44
 20260529,921,947,861,867,4881211,841.6,3.02,866.2,659.59,1.49
 20260601,867,880,851,867,1598854,843.72,2.76,869.9,668.38,0.5
 20260602,874,882,835,845,2265456,843.83,0.14,872.45,676.47,0.72
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,805,829,801,827,830790,831.19,-0.5,849.55,757.43,0.4
 20260618,828,895,823,889,2799253,836.01,6.34,850.95,764.98,1.3
 20260622,917,939,885,889,2288227,840.43,5.78,851.65,772.27,1.06
+20260623,895,895,865,882,1685203,843.89,4.52,849.95,778.68,0.8
+20260624,866,876,849,858,929675,845.07,1.53,847.45,784.63,0.45
+20260625,870,873,850,850,693979,845.48,0.53,846.15,790.51,0.35
+20260626,848,871,800,812,1242126,842.69,-3.64,842.9,796.06,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.85
-- over_600_ratio: 58.24
-- over_800_ratio: 53.38
-- over_1000_ratio: 50.11
-- over_400_change_1w: -0.04
-- over_800_change_1w: 0.93
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 60.63
+- over_600_ratio: 58.01
+- over_800_ratio: 54.15
+- over_1000_ratio: 49.6
+- over_400_change_1w: -0.22
+- over_800_change_1w: 0.77
+- over_1000_change_1w: -0.51
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,22 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,59.52,-0.19,52.79,-3.08,51.67,-2.08,0,False,False
 20260612,60.89,1.37,52.45,-0.34,50.17,-1.5,1,False,False
 20260618,60.85,-0.04,53.38,0.93,50.11,-0.06,2,False,True
+20260626,60.63,-0.22,54.15,0.77,49.6,-0.51,3,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3583 | 辛耘 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | 1.事實發生日:115/06/22 2.發生緣由:依台灣證券交易所股份有限公司通知辦理 3.財務業務資訊: (1)合併財務資訊如下:          最近一個月   與去年同    最近一季   與去年同     最近四季累計       科目(115年05月)  期增減%  (115年第1季) 期增減%   (114年第2季至115年                                                            第1季)               (自結數)             (查核數)                (查核數)   ---    ---------  --------  --------     --------     --------------- 營業收入      971　　    1%    3,120        11 %           11,679 (百萬) 稅前純益      109        5%      441        20 %            1,615 (百萬) 歸屬母公司業主淨利               158       17%      333        29 %            1,185 (百萬) 每股盈餘     1.97       17%      4.14       29 %            14.76 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3583 | 辛耘 | 2 | 1 | 3 | 6 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3583 | 辛耘 | 101 | 2 | 23730440.0 | 19670.0 | 1206.43 | call_inflow |
+| 20260626 | 3583 | 辛耘 | 102 | 0 | 15387390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

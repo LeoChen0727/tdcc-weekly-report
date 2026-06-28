@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7722 LINEPAY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:49 Asia/Taipei
+- generated_at: 2026-06-28 22:27:35 Asia/Taipei
 - stock_id: 7722
 - stock_name: LINEPAY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 330
-- high: 332
-- low: 320.5
-- close: 321
-- volume: 178419
-- ma5: 325.6
-- ema23_primary: 306.56
-- distance_to_ema23_pct: 4.71
-- ma20: 300.3
-- ma60: 293.72
-- ma120: 377.75
-- return_5d: -3.75
-- return_20d: 20.68
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 6.89
-- distance_to_high_60_pct: -17.69
+- date: 20260626
+- open: 343
+- high: 357.5
+- low: 319
+- close: 320
+- volume: 854046
+- ma5: 315.8
+- ema23_primary: 309.12
+- distance_to_ema23_pct: 3.52
+- ma20: 311.12
+- ma60: 293.4
+- ma120: 369.52
+- return_5d: -2.44
+- return_20d: 23.79
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 2.85
+- distance_to_high_60_pct: -17.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,269.5,270.5,260,261.5,154551,275.41,-5.05,271.4,313.16,1
-20260526,262,267.5,260,261,116621,274.21,-4.82,270.35,310.58,0.78
-20260527,262.5,265.5,257.5,260.5,104783,273.07,-4.6,269.32,307.91,0.71
-20260528,260.5,260.5,256,258.5,95222,271.86,-4.91,268.15,305.45,0.65
 20260529,258.5,265.5,258.5,262.5,130557,271.08,-3.16,267.2,303.06,0.89
 20260601,263.5,280.5,263,280,256231,271.82,3.01,266.95,301.29,1.69
 20260602,280,280,268,270.5,205857,271.71,-0.45,266.55,299.14,1.34
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,331,333,317,319,354281,303.18,5.22,294.1,293.61,0.84
 20260618,320,328,312,328,385472,305.25,7.45,297.55,293.63,0.89
 20260622,330,332,320.5,321,178419,306.56,4.71,300.3,293.72,0.41
+20260623,322,322,306,306,223787,306.51,-0.17,302.52,293.41,0.51
+20260624,303,306.5,300,301,209578,306.06,-1.65,304.52,293.09,0.47
+20260625,301.5,331,301.5,331,459753,308.13,7.42,308.05,293.2,1
+20260626,343,357.5,319,320,854046,309.12,3.52,311.12,293.4,1.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 84.79
-- over_600_ratio: 83.93
+- as_of_date: 20260626
+- over_400_ratio: 84.89
+- over_600_ratio: 84.89
 - over_800_ratio: 83.93
 - over_1000_ratio: 83.93
-- over_400_change_1w: 0.05
+- over_400_change_1w: 0.1
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,84.77,-0.6,83.93,0,83.93,0,0,False,False
 20260612,84.74,-0.03,83.93,0,83.93,0,0,False,False
 20260618,84.79,0.05,83.93,0,83.93,0,1,False,False
+20260626,84.89,0.1,83.93,0,83.93,0,2,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 7722 | LINEPAY | 10 | 0 | 92070.0 | 0.0 |  | no_signal |
+| 20260626 | 7722 | LINEPAY | 10 | 0 | 38860.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

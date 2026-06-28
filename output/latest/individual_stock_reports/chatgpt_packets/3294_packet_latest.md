@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:30 Asia/Taipei
+- generated_at: 2026-06-28 22:26:31 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 39.8
-- high: 41.35
-- low: 39.8
-- close: 40
-- volume: 2361000
-- ma5: 39.43
-- ema23_primary: 38.17
-- distance_to_ema23_pct: 4.8
-- ma20: 39.15
-- ma60: 35.04
-- ma120: 36.8
-- return_5d: 11.58
-- return_20d: -2.68
-- volume_ratio: 2.62
-- distance_to_ma20_pct_auxiliary: 2.18
-- distance_to_high_60_pct: -11.01
+- date: 20260626
+- open: 39.4
+- high: 40.25
+- low: 37.05
+- close: 37.05
+- volume: 1621000
+- ma5: 39.11
+- ema23_primary: 38.36
+- distance_to_ema23_pct: -3.42
+- ma20: 38.83
+- ma60: 35.4
+- ma120: 36.77
+- return_5d: -6.68
+- return_20d: -5.84
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -4.58
+- distance_to_high_60_pct: -17.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,41.2,44.95,40.45,42.3,43000,35.48,19.21,33.95,34.46,0.02
-20260526,42.5,43,39.75,40.5,41000,35.9,12.81,34.44,34.49,0.02
-20260527,40.9,41.15,39.5,39.8,40000,36.23,9.87,34.89,34.5,0.02
-20260528,40.05,40.9,38.5,39.35,40000,36.49,7.85,35.33,34.48,0.02
 20260529,40.35,40.65,39.35,40.2,40000,36.8,9.25,35.82,34.5,0.02
 20260601,41,42.95,40.15,40.2,41000,37.08,8.42,36.3,34.56,0.02
 20260602,40.45,42.6,40.25,41.15,42,37.42,9.97,36.81,34.62,0
@@ -160,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,38.15,41.05,38.15,39.9,2819000,37.85,5.42,39.25,34.85,2.54
 20260618,41,41.5,39.4,39.7,1577000,38,4.47,39.2,34.94,2
 20260622,39.8,41.35,39.8,40,2361000,38.17,4.8,39.15,35.04,2.62
+20260623,40.4,40.45,38.35,38.6,1190000,38.2,1.04,38.96,35.11,1.24
+20260624,39.55,40.95,39.15,40.5,2773000,38.4,5.48,38.96,35.22,2.53
+20260625,41,41.65,39.4,39.4,2604000,38.48,2.39,38.94,35.32,2.13
+20260626,39.4,40.25,37.05,37.05,1621000,38.36,-3.42,38.83,35.4,1.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 53.21
-- over_600_ratio: 50.97
-- over_800_ratio: 49.9
-- over_1000_ratio: 47.06
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 53.49
+- over_600_ratio: 51.58
+- over_800_ratio: 50.06
+- over_1000_ratio: 47.95
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.89
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,52.25,0.18,49.17,0.03,47.06,0.03,2,True,True
 20260612,52.82,0.57,49.9,0.73,47.1,0.04,3,True,True
 20260618,53.21,0.39,49.9,0,47.06,-0.04,4,False,False
+20260626,53.49,0.28,50.06,0.16,47.95,0.89,5,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3294 | 英濟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、 自然人董事或自然人監察人）:法人董事、自然人監察人 3.舊任者職稱及姓名: 法人董事：英濟股份有限公司代表人徐文麟 法人董事：英濟股份有限公司代表人姜同會 自然人董事：增田麻言 自然人監察人：張嘉正 4.舊任者簡歷: 徐文麟：英濟股份有限公司董事長 姜同會：英濟股份有限公司總經理 增田麻言：Barintec Co., Ltd.董事長 張嘉正：英濟股份有限公司財務長 5.新任者職稱及姓名: 法人董事：英濟股份有限公司代表人徐文麟 自然人監察人：張嘉正 6.新任者簡歷: 徐文麟：英濟股份有限公司董事長 張嘉正：英濟股份有限公司財務長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.新任者選任時持股數: 法人董事：英濟股份有限公司代表人徐文麟-1,498,699股 自然人監察人：張嘉正-0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/04/25~115/04/24 11.新任生效日期:115/06/18~118/06/17 12.同任期董事變動比率:2/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:0 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3294 | 英濟 | 2 | 2 | 2 | 3 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

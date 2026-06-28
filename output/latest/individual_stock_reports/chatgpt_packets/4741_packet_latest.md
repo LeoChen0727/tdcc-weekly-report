@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4741 泓瀚
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:50 Asia/Taipei
 - stock_id: 4741
 - stock_name: 泓瀚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -103,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 65.4
-- high: 65.9
-- low: 62.9
-- close: 63.1
-- volume: 1088000
-- ma5: 69.28
-- ema23_primary: 66.84
-- distance_to_ema23_pct: -5.59
-- ma20: 67.3
-- ma60: 57.53
-- ma120: 40
-- return_5d: -19.1
-- return_20d: 0.48
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -6.24
-- distance_to_high_60_pct: -27.14
+- date: 20260626
+- open: 59.2
+- high: 60.1
+- low: 56.4
+- close: 56.4
+- volume: 494000
+- ma5: 60.48
+- ema23_primary: 64.72
+- distance_to_ema23_pct: -12.86
+- ma20: 66.68
+- ma60: 59.45
+- ma120: 41.29
+- return_5d: -12.69
+- return_20d: -8.89
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -15.42
+- distance_to_high_60_pct: -34.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,63.5,66.6,63,63.7,64000,57.47,10.83,58.76,43.66,0.04
-20260526,63.7,64.7,61.8,63.5,63000,57.98,9.53,59.44,44.34,0.04
-20260527,63.5,63.5,61,62.6,62000,58.36,7.26,59.83,45.01,0.04
-20260528,62.6,64.4,61.2,61.9,63000,58.66,5.53,60.2,45.65,0.04
 20260529,62.7,63.4,59.4,60,61000,58.77,2.1,60.56,46.27,0.04
 20260601,60.8,61.9,59.3,59.3,60000,58.81,0.83,60.91,46.87,0.05
 20260602,59.4,59.4,55.7,58.9,57,58.82,0.14,60.98,47.47,0
@@ -153,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,71.3,74.4,71.3,71.7,485000,67.41,6.37,67,56.24,0.51
 20260618,71.5,71.7,64.6,64.6,4093000,67.17,-3.83,67.28,56.89,3.72
 20260622,65.4,65.9,62.9,63.1,1088000,66.84,-5.59,67.3,57.53,0.94
+20260623,63.5,64.3,59.4,61.4,908000,66.38,-7.51,67.19,58.1,0.76
+20260624,60.4,62.2,59.6,61.7,723000,65.99,-6.5,67.09,58.64,0.59
+20260625,62,63.1,59.4,59.8,665000,65.48,-8.67,66.95,59.1,0.53
+20260626,59.2,60.1,56.4,56.4,494000,64.72,-12.86,66.68,59.45,0.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.42
-- over_600_ratio: 45.04
-- over_800_ratio: 43.2
-- over_1000_ratio: 43.2
-- over_400_change_1w: -1.81
-- over_800_change_1w: -0.31
-- over_1000_change_1w: -0.31
+- as_of_date: 20260626
+- over_400_ratio: 45.94
+- over_600_ratio: 41.91
+- over_800_ratio: 40.07
+- over_1000_ratio: 40.07
+- over_400_change_1w: -5.48
+- over_800_change_1w: -3.13
+- over_1000_change_1w: -3.13
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,18 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.5,0.2,42.48,2.41,40.07,0,3,False,True
 20260612,53.23,1.73,43.51,1.03,43.51,3.44,4,True,True
 20260618,51.42,-1.81,43.2,-0.31,43.2,-0.31,0,False,False
+20260626,45.94,-5.48,40.07,-3.13,40.07,-3.13,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4741 | 泓瀚 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | 1.股東常會日期:115/06/22 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司 民國一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認本公司民國一一四年度 營業報告書及財務決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過修訂「取得與處分資產處理程序」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 4741 | 泓瀚 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | 1.股東常會日期:115/06/22 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司 民國一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認本公司民國一一四年度 營業報告書及財務決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過修訂「取得與處分資產處理程序」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4741 | 泓瀚 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

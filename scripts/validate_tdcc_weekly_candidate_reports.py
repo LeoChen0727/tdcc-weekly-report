@@ -9,6 +9,10 @@ from typing import Any
 
 import pandas as pd
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from tdcc_weekly_pdf_font_contract import validate_tdcc_weekly_pdf_font_contract  # noqa: E402
+
 
 LATEST_DIR = Path("output/latest")
 VALIDATION_MD = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.md"
@@ -17,6 +21,8 @@ VALIDATION_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.j
 WEEKLY_INCREASE_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
 CONSECUTIVE_CSV = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.csv"
 MODEL_CROSS_CSV = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.csv"
+HOLDER_RATIO_LATEST_CSV = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
+INVALID_HOLDER_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_invalid_holder_distribution_latest.csv"
 SECTION_MANIFEST_CSV = LATEST_DIR / "tdcc_weekly_report_section_manifest_latest.csv"
 HIGHLIGHT_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.csv"
 FULL_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.csv"
@@ -41,6 +47,14 @@ DELTA_COLS = [
     "tdcc_1w_change_800",
     "tdcc_1w_change_1000",
 ]
+HOLDER_RATIO_COLS = [
+    "over_400_pct",
+    "over_600_pct",
+    "over_800_pct",
+    "over_1000_pct",
+]
+INVALID_LATEST_RATIO_PCT = 99.9
+INVALID_WEEKLY_CHANGE_PCT = 50.0
 MANIFEST_COLUMNS = [
     "section_order",
     "section_id",
@@ -139,6 +153,16 @@ def manifest_bool(value: Any, default: bool) -> bool:
     return text in {"1", "true", "yes", "y", "on", "是", "啟用"}
 
 
+def is_model_cross_section(row: pd.Series) -> bool:
+    section_id = safe_str(row.get("section_id"))
+    table_contract = safe_str(row.get("table_contract"))
+    return table_contract == "model_cross" or section_id.startswith("model_cross_")
+
+
+def section_allows_empty(row: pd.Series) -> bool:
+    return is_model_cross_section(row)
+
+
 def manifest_limit(value: Any, default: int) -> int:
     number = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
     if pd.isna(number) or number <= 0:
@@ -210,6 +234,43 @@ def validate_score_formulas(df: pd.DataFrame, label: str, errors: list[str]) -> 
     consecutive = (weighted + sync_bonus + high_pair_bonus + theme_bonus - low_volume_penalty).round(2)
     check_close(df, weekly, "tdcc_weekly_increase_score", f"{label} weekly score", errors)
     check_close(df, consecutive, "tdcc_consecutive_accumulation_score", f"{label} consecutive score", errors)
+
+
+def validate_no_invalid_single_holder_spikes(
+    df: pd.DataFrame,
+    holder_ratio: pd.DataFrame,
+    label: str,
+    warnings: list[str],
+) -> None:
+    if df.empty or holder_ratio.empty:
+        return
+    required = {"stock_id", *DELTA_COLS}
+    if any(col not in df.columns for col in required):
+        return
+    if "code" not in holder_ratio.columns or any(col not in holder_ratio.columns for col in HOLDER_RATIO_COLS):
+        return
+
+    latest = holder_ratio.copy()
+    latest["code"] = latest["code"].map(safe_str)
+    latest = latest.drop_duplicates("code", keep="last").set_index("code", drop=False)
+    bad_examples: list[str] = []
+    for _, row in df.iterrows():
+        stock_id = safe_str(row.get("stock_id"))
+        if not stock_id or stock_id not in latest.index:
+            continue
+        ratios = [pd.to_numeric(pd.Series([latest.at[stock_id, col]]), errors="coerce").iloc[0] for col in HOLDER_RATIO_COLS]
+        deltas = [pd.to_numeric(pd.Series([row.get(col)]), errors="coerce").iloc[0] for col in DELTA_COLS]
+        if (
+            all(not pd.isna(value) and float(value) >= INVALID_LATEST_RATIO_PCT for value in ratios)
+            and all(not pd.isna(value) and float(value) >= INVALID_WEEKLY_CHANGE_PCT for value in deltas)
+        ):
+            bad_examples.append(f"{stock_id}:latest_ratios={ratios},weekly_changes={deltas}")
+
+    if bad_examples:
+        warnings.append(
+            f"{label} contains invalid TDCC single-holder/placeholder spike rows: "
+            + "; ".join(bad_examples[:8])
+        )
 
 
 def sorted_signal_dates(df: pd.DataFrame) -> list[str]:
@@ -325,10 +386,10 @@ def validate_report(
         limit = section_limit(section_row, report_kind)
         required = manifest_bool(section_row.get("required"), True)
         if rows.empty:
-            if required:
+            if required and not section_allows_empty(section_row):
                 errors.append(f"{label} required section is empty or missing: {section_id}")
             else:
-                warnings.append(f"{label} optional section has no rows: {section_id}")
+                warnings.append(f"{label} section has no rows and will render an explicit empty state: {section_id}")
             continue
         if len(rows) > limit:
             errors.append(f"{label} section {section_id} has {len(rows)} rows above manifest limit {limit}")
@@ -373,6 +434,23 @@ def validate_report(
     bad_models = sorted(set(model_rows["model_id"].dropna().map(safe_str)) - ALLOWED_MODEL_CROSS_IDS)
     if bad_models:
         errors.append(f"{label} has unsupported model cross ids: {', '.join(bad_models)}")
+    for section_id, rows in model_rows.groupby(model_rows["section_id"].map(safe_str), dropna=False):
+        actual = rows.sort_values("section_rank", key=lambda s: to_number(s).fillna(999999))
+        expected = rows.assign(
+            _model_score=to_number(rows.get("model_score", pd.Series(index=rows.index))).fillna(float("-inf")),
+            _display_rank=to_number(rows.get("model_rank", pd.Series(index=rows.index))).fillna(999999),
+            _tdcc_rank=to_number(rows.get("tdcc_rank", pd.Series(index=rows.index))).fillna(999999),
+        ).sort_values(
+            ["_model_score", "_display_rank", "_tdcc_rank"],
+            ascending=[False, True, True],
+        )
+        actual_ids = actual["stock_id"].map(safe_str).tolist()
+        expected_ids = expected["stock_id"].map(safe_str).tolist()
+        if actual_ids != expected_ids:
+            errors.append(
+                f"{label} model cross section {section_id} is not sorted by model_score desc, "
+                "model rank asc, then TDCC rank asc"
+            )
 
 
 def read_text_artifact(path: Path, errors: list[str]) -> str:
@@ -432,6 +510,70 @@ def read_pdf_page_count_and_text(path: Path, errors: list[str]) -> tuple[int, st
     except Exception as exc:
         errors.append(f"failed to open or extract PDF text from {path.as_posix()}: {exc}")
         return 0, ""
+
+
+def read_pdf_page_texts(path: Path, errors: list[str]) -> list[str]:
+    if not path.exists() or path.stat().st_size < 10_000:
+        errors.append(f"missing or too-small TDCC PDF: {path.as_posix()}")
+        return []
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:
+        errors.append(f"pypdf unavailable for PDF validation: {exc}")
+        return []
+    try:
+        reader = PdfReader(str(path))
+        pages = [page.extract_text() or "" for page in reader.pages]
+        if not any(text.strip() for text in pages):
+            errors.append(f"TDCC PDF has no extractable text: {path.as_posix()}")
+        return pages
+    except Exception as exc:
+        errors.append(f"failed to open or extract PDF text from {path.as_posix()}: {exc}")
+        return []
+
+
+def load_invalid_holder_distributions(signal_date: str) -> pd.DataFrame:
+    if not INVALID_HOLDER_DISTRIBUTION_CSV.exists():
+        return pd.DataFrame()
+    df = pd.read_csv(INVALID_HOLDER_DISTRIBUTION_CSV, dtype=str).fillna("")
+    if "date" not in df.columns or "code" not in df.columns:
+        return pd.DataFrame()
+    return df[df["date"].map(safe_str) == safe_str(signal_date)].copy()
+
+
+def validate_invalid_holder_distribution_quarantine(
+    signal_date: str,
+    highlight: pd.DataFrame,
+    full: pd.DataFrame,
+    errors: list[str],
+) -> None:
+    invalid = load_invalid_holder_distributions(signal_date)
+    if invalid.empty:
+        return
+    invalid_codes = {safe_str(value) for value in invalid["code"].dropna() if safe_str(value)}
+    if not invalid_codes:
+        return
+    for label, report in [("highlight report-ready CSV", highlight), ("full report-ready CSV", full)]:
+        if "stock_id" not in report.columns:
+            continue
+        leaked = sorted(set(report["stock_id"].map(safe_str)) & invalid_codes)
+        if leaked:
+            errors.append(f"{label} contains invalid TDCC holder distribution codes that must be quarantined: {leaked}")
+
+    highlight_pages = read_pdf_page_texts(HIGHLIGHT_PDF, errors)
+    full_pages = read_pdf_page_texts(FULL_PDF, errors)
+    if highlight_pages:
+        last_page = highlight_pages[-1]
+        if "DATA_ANOMALY_NOTE" not in last_page:
+            errors.append("highlight PDF final page must contain DATA_ANOMALY_NOTE when invalid TDCC holder distributions exist")
+        missing_codes = sorted(code for code in invalid_codes if code not in last_page)
+        if missing_codes:
+            errors.append(f"highlight PDF final anomaly note is missing invalid TDCC codes: {missing_codes}")
+    if full_pages:
+        full_text = "\n".join(full_pages)
+        leaked = sorted(code for code in invalid_codes if code in full_text)
+        if leaked:
+            errors.append(f"full PDF must not contain invalid TDCC holder distribution codes: {leaked}")
 
 
 def tdcc_data_dates_from_text(text: str) -> list[str]:
@@ -540,6 +682,24 @@ def validate_signal_dates(highlight: pd.DataFrame, full: pd.DataFrame, errors: l
     return signal_date
 
 
+def report_section_counts(report: pd.DataFrame, manifest: pd.DataFrame, report_kind: str) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    actual_counts: dict[str, int] = {}
+    if "section_id" in report.columns:
+        actual_counts = {
+            safe_str(section_id): int(count)
+            for section_id, count in report.groupby("section_id", dropna=False).size().to_dict().items()
+        }
+    for _, section_row in sections_for_report(manifest, report_kind).iterrows():
+        section_id = safe_str(section_row.get("section_id"))
+        if section_id:
+            counts[section_id] = int(actual_counts.get(section_id, 0))
+    for section_id, count in actual_counts.items():
+        if section_id and section_id not in counts:
+            counts[section_id] = int(count)
+    return counts
+
+
 def write_validation(result: dict[str, Any]) -> None:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     VALIDATION_JSON.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -591,6 +751,13 @@ def write_validation(result: dict[str, Any]) -> None:
                 lines.append(f"- `{section_id}`: {count}")
     else:
         lines.append("- none")
+    lines.extend(["", "## Font Contract", ""])
+    font_contract = result.get("font_contract", {})
+    if font_contract:
+        for path, fonts in font_contract.items():
+            lines.append(f"- `{path}`: `{fonts}`")
+    else:
+        lines.append("- none")
     lines.extend(["", "## Errors", ""])
     lines.extend([f"- {item}" for item in result["errors"]] or ["- none"])
     lines.extend(["", "## Warnings", ""])
@@ -605,6 +772,7 @@ def main() -> None:
     weekly = read_csv(WEEKLY_INCREASE_CSV, errors)
     consecutive = read_csv(CONSECUTIVE_CSV, errors)
     model_cross = read_csv(MODEL_CROSS_CSV, errors)
+    holder_ratio = read_csv(HOLDER_RATIO_LATEST_CSV, errors)
     manifest = ensure_manifest_columns(read_csv(SECTION_MANIFEST_CSV, errors), errors)
     manifest = ordered_manifest(manifest) if not manifest.empty else manifest
     highlight = read_csv(HIGHLIGHT_FOR_REPORT_CSV, errors)
@@ -613,6 +781,10 @@ def main() -> None:
     validate_manifest(manifest, errors)
     validate_score_formulas(weekly, "weekly increase ranking", errors)
     validate_score_formulas(consecutive, "consecutive accumulation ranking", errors)
+    validate_no_invalid_single_holder_spikes(weekly, holder_ratio, "weekly increase ranking", warnings)
+    validate_no_invalid_single_holder_spikes(consecutive, holder_ratio, "consecutive accumulation ranking", warnings)
+    validate_no_invalid_single_holder_spikes(highlight, holder_ratio, "highlight report-ready CSV", warnings)
+    validate_no_invalid_single_holder_spikes(full, holder_ratio, "full report-ready CSV", warnings)
 
     consecutive_streak = to_number(consecutive.get("tdcc_high_pair_effective_streak_weeks", pd.Series(dtype=str))).fillna(0)
     if not consecutive.empty and (consecutive_streak < 2).any():
@@ -661,7 +833,21 @@ def main() -> None:
             manifest,
             errors,
         )
+        validate_invalid_holder_distribution_quarantine(signal_date, highlight, full, errors)
+        try:
+            font_contract = validate_tdcc_weekly_pdf_font_contract(
+                [
+                    HIGHLIGHT_PDF,
+                    FULL_PDF,
+                    delivery_pdf_path("highlight", signal_date),
+                    delivery_pdf_path("full", signal_date),
+                ]
+            )
+        except RuntimeError as exc:
+            errors.append(str(exc))
+            font_contract = {}
     else:
+        font_contract = {}
         for path in [HIGHLIGHT_PDF, FULL_PDF]:
             if not path.exists() or path.stat().st_size < 10_000:
                 errors.append(f"missing or too-small TDCC PDF: {path.as_posix()}")
@@ -675,18 +861,8 @@ def main() -> None:
         "manifest_sections": int(len(manifest)),
     }
     section_counts = {
-        "highlight": {
-            safe_str(section_id): int(count)
-            for section_id, count in highlight.groupby("section_id", dropna=False).size().to_dict().items()
-        }
-        if "section_id" in highlight.columns
-        else {},
-        "full": {
-            safe_str(section_id): int(count)
-            for section_id, count in full.groupby("section_id", dropna=False).size().to_dict().items()
-        }
-        if "section_id" in full.columns
-        else {},
+        "highlight": report_section_counts(highlight, manifest, "highlight"),
+        "full": report_section_counts(full, manifest, "full"),
     }
     manifest_sections = [
         {
@@ -716,6 +892,7 @@ def main() -> None:
         "row_counts": row_counts,
         "section_counts": section_counts,
         "manifest_sections": manifest_sections,
+        "font_contract": font_contract,
         "errors": errors,
         "warnings": warnings,
     }

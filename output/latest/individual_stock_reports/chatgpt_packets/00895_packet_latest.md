@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00895 富邦未來車
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-28 22:25:42 Asia/Taipei
 - stock_id: 00895
 - stock_name: 富邦未來車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 52.8
-- high: 53.2
-- low: 52.8
-- close: 53.15
-- volume: 491293
-- ma5: 52.45
-- ema23_primary: 51.44
-- distance_to_ema23_pct: 3.32
-- ma20: 51.66
-- ma60: 51.59
-- ma120: 51.59
-- return_5d: 5.56
-- return_20d: 5.88
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 2.89
-- distance_to_high_60_pct: -0.93
+- date: 20260626
+- open: 50.85
+- high: 51.1
+- low: 50.1
+- close: 50.3
+- volume: 556854
+- ma5: 51.79
+- ema23_primary: 51.42
+- distance_to_ema23_pct: -2.18
+- ma20: 51.69
+- ma60: 51.56
+- ma120: 51.56
+- return_5d: -3.73
+- return_20d: -1.47
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -2.69
+- distance_to_high_60_pct: -6.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,51.4,51.85,51.05,51.2,431886,,,,,
-20260526,51.15,51.45,51.05,51.15,700070,,,,,
-20260527,51.6,51.85,51.55,51.65,610060,,,,,
-20260528,51.65,51.95,50.9,51.05,2349181,50.51,1.06,51.05,51.05,2.22
 20260529,52.15,52.7,52.15,52.65,1133264,50.69,3.87,51.32,51.32,1.06
 20260601,52.6,52.8,52.35,52.45,1603243,50.84,3.17,51.48,51.48,1.4
 20260602,52.4,52.6,51.85,52.55,1015287,50.98,3.08,51.61,51.61,0.9
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,52,52.15,51.7,52.15,634338,51.2,1.86,51.47,51.47,0.73
 20260618,52.15,52.3,52.1,52.25,248801,51.29,1.88,51.51,51.51,0.3
 20260622,52.8,53.2,52.8,53.15,491293,51.44,3.32,51.66,51.59,0.61
+20260623,53.4,53.75,52.6,52.6,1353540,51.54,2.06,51.73,51.63,1.59
+20260624,51.05,51.35,50.9,51.3,529459,51.52,-0.42,51.73,51.62,0.63
+20260625,51.3,51.6,51.25,51.6,629732,51.52,0.15,51.73,51.62,0.75
+20260626,50.85,51.1,50.1,50.3,556854,51.42,-2.18,51.69,51.56,0.74
 ```
 
 ## Latest TDCC Snapshot

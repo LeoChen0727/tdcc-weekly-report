@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2542 興富發
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:10 Asia/Taipei
+- generated_at: 2026-06-28 22:26:15 Asia/Taipei
 - stock_id: 2542
 - stock_name: 興富發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,32 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 44.1
-- high: 44.1
-- low: 42.6
-- close: 42.7
-- volume: 24903981
-- ma5: 44.68
-- ema23_primary: 43.43
-- distance_to_ema23_pct: -1.68
-- ma20: 43.51
-- ma60: 40.15
-- ma120: 39.09
-- return_5d: -5.01
-- return_20d: -1.16
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -1.87
-- distance_to_high_60_pct: -9.34
+- date: 20260626
+- open: 43.3
+- high: 43.5
+- low: 42.85
+- close: 42.9
+- volume: 6821790
+- ma5: 42.94
+- ema23_primary: 43.31
+- distance_to_ema23_pct: -0.94
+- ma20: 43.62
+- ma60: 40.63
+- ma120: 39.22
+- return_5d: -4.13
+- return_20d: 2.14
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -1.65
+- distance_to_high_60_pct: -8.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,43.05,43.1,42.1,42.4,14109404,41.18,2.96,41.55,37.94,1.05
-20260526,42.5,42.8,42.05,42.4,7146669,41.28,2.71,41.73,38.02,0.55
-20260527,42.15,43.4,42.1,43.1,15190373,41.43,4.02,41.92,38.11,1.16
-20260528,43.05,43.45,42,42,13535015,41.48,1.25,41.99,38.18,1.07
 20260529,42.3,42.35,41.6,41.95,12369851,41.52,1.04,42.09,38.26,0.98
 20260601,41.9,42.6,41.3,42.6,10112070,41.61,2.38,42.22,38.36,0.8
 20260602,42.5,43.25,42.25,42.45,23826164,41.68,1.85,42.35,38.45,1.77
@@ -160,20 +157,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,44.95,45.85,44.8,45.45,10905865,43.38,4.76,43.48,39.88,0.58
 20260618,45.65,47,44.75,44.75,19814060,43.5,2.88,43.54,40.03,1.02
 20260622,44.1,44.1,42.6,42.7,24903981,43.43,-1.68,43.51,40.15,1.23
+20260623,42.5,42.85,41.95,42.7,8908238,43.37,-1.55,43.53,40.26,0.45
+20260624,42.55,43.35,42.3,43.1,9836406,43.35,-0.57,43.56,40.38,0.49
+20260625,43.2,43.85,43.2,43.3,5727579,43.34,-0.1,43.57,40.5,0.29
+20260626,43.3,43.5,42.85,42.9,6821790,43.31,-0.94,43.62,40.63,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 63.08
-- over_600_ratio: 61.55
-- over_800_ratio: 60.43
-- over_1000_ratio: 59.55
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 62.69
+- over_600_ratio: 61.16
+- over_800_ratio: 60.02
+- over_1000_ratio: 59.06
+- over_400_change_1w: -0.39
+- over_800_change_1w: -0.41
+- over_1000_change_1w: -0.49
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,23 +188,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,62.01,0.17,59.22,0.17,58.22,0.1,5,True,True
 20260612,63.01,1,60.29,1.07,59.37,1.15,6,True,True
 20260618,63.08,0.07,60.43,0.14,59.55,0.18,7,True,True
+20260626,62.69,-0.39,60.02,-0.41,59.06,-0.49,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2542 | 興富發 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260622 | 2542 | 興富發 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 13.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2542 | 興富發 | revenue_pullback | 營收成長股價回檔 | 84.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2542 | 興富發 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 14.0 | B_可觀察 |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2542 | 興富發 | 1 | 1 | 4 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 2542 | 興富發 | 4 | 4 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2542 | 興富發 | 3 | 0 | 734830.0 | 0.0 |  | no_signal |
+| 20260626 | 2542 | 興富發 | 3 | 0 | 124550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

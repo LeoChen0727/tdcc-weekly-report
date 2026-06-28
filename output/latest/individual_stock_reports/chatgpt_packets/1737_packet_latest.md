@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1737 臺鹽
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:48 Asia/Taipei
+- generated_at: 2026-06-28 22:25:57 Asia/Taipei
 - stock_id: 1737
 - stock_name: 臺鹽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 31.7
-- high: 31.85
-- low: 31.65
+- date: 20260626
+- open: 31.9
+- high: 31.95
+- low: 31.7
 - close: 31.75
-- volume: 145768
-- ma5: 31.76
-- ema23_primary: 31.67
-- distance_to_ema23_pct: 0.24
-- ma20: 31.65
-- ma60: 31.72
-- ma120: 31.66
-- return_5d: 0
-- return_20d: 0.63
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 0.32
+- volume: 169992
+- ma5: 31.84
+- ema23_primary: 31.73
+- distance_to_ema23_pct: 0.07
+- ma20: 31.72
+- ma60: 31.73
+- ma120: 31.67
+- return_5d: -0.16
+- return_20d: 0.95
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 0.1
 - distance_to_high_60_pct: -1.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,31.55,31.6,31.45,31.5,220550,31.6,-0.3,31.56,31.7,2.03
-20260526,31.5,31.7,31.5,31.55,179214,31.59,-0.13,31.56,31.7,1.65
-20260527,31.5,31.6,31.5,31.55,104438,31.59,-0.12,31.55,31.7,0.94
-20260528,31.6,31.6,31.4,31.45,320341,31.58,-0.4,31.54,31.69,2.58
 20260529,31.45,31.7,31.4,31.55,165962,31.57,-0.08,31.52,31.69,1.28
 20260601,31.55,31.65,31.45,31.6,170201,31.58,0.07,31.52,31.69,1.33
 20260602,31.6,31.75,31.55,31.6,179696,31.58,0.07,31.52,31.69,1.37
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,31.65,31.85,31.65,31.75,71438,31.66,0.3,31.62,31.71,0.45
 20260618,31.75,31.85,31.65,31.8,114571,31.67,0.42,31.64,31.72,0.71
 20260622,31.7,31.85,31.65,31.75,145768,31.67,0.24,31.65,31.72,0.9
+20260623,31.65,31.8,31.65,31.8,89952,31.68,0.36,31.66,31.72,0.58
+20260624,31.65,31.95,31.65,31.95,101106,31.71,0.77,31.68,31.73,0.67
+20260625,31.7,31.95,31.7,31.95,123386,31.73,0.7,31.7,31.73,0.81
+20260626,31.9,31.95,31.7,31.75,169992,31.73,0.07,31.72,31.73,1.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 63.73
-- over_600_ratio: 61.82
-- over_800_ratio: 59.68
-- over_1000_ratio: 59.25
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260626
+- over_400_ratio: 63.77
+- over_600_ratio: 61.86
+- over_800_ratio: 59.72
+- over_1000_ratio: 59.29
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,63.31,-0.01,59.12,0,58.27,0,0,False,False
 20260410,63.54,0.23,59.14,0.02,58.29,0.02,1,True,True
 20260417,63.54,0,59.15,0.01,58.3,0.01,2,False,True
 20260424,63.51,-0.03,59.15,0,58.3,0,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.61,0.08,59.56,0.3,59.13,0.3,6,True,True
 20260612,63.72,0.11,59.67,0.11,59.24,0.11,7,True,True
 20260618,63.73,0.01,59.68,0.01,59.25,0.01,8,True,True
+20260626,63.77,0.04,59.72,0.04,59.29,0.04,9,True,True
 ```
 
 ## Candidate Context

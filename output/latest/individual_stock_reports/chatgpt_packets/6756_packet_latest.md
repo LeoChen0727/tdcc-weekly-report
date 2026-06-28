@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:34 Asia/Taipei
+- generated_at: 2026-06-28 22:27:23 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 106.5
-- high: 110
-- low: 105
-- close: 108
-- volume: 717323
-- ma5: 101.84
-- ema23_primary: 98.38
-- distance_to_ema23_pct: 9.77
-- ma20: 99.83
-- ma60: 89.67
-- ma120: 84.78
-- return_5d: 11.92
-- return_20d: 2.86
-- volume_ratio: 1.63
-- distance_to_ma20_pct_auxiliary: 8.19
-- distance_to_high_60_pct: -6.49
+- date: 20260626
+- open: 99.9
+- high: 99.9
+- low: 93.7
+- close: 94.7
+- volume: 336350
+- ma5: 102.44
+- ema23_primary: 99.06
+- distance_to_ema23_pct: -4.4
+- ma20: 98.76
+- ma60: 91.42
+- ma120: 85.4
+- return_5d: -8.5
+- return_20d: -6.24
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -4.11
+- distance_to_high_60_pct: -18.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,109,115.5,105,112.5,1115983,94.8,18.67,95.16,82.47,1.62
-20260526,112.5,112.5,104.5,107,748955,95.81,11.67,96.22,82.91,1.08
-20260527,109,109,103,105,489625,96.58,8.72,97.3,83.31,0.69
-20260528,106.5,108,100.5,101,432874,96.95,4.18,98.2,83.66,0.6
 20260529,103,103.5,99,100,486986,97.2,2.88,98.97,84.04,0.68
 20260601,101,101.5,98.3,98.5,434663,97.31,1.22,99.58,84.49,0.61
 20260602,99,104.5,99,102.5,621926,97.74,4.87,100.11,84.95,0.88
@@ -154,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,97.7,100.5,97,99,216327,96.96,2.1,99.58,88.62,0.49
 20260618,99.9,105.5,99.9,103.5,476003,97.51,6.14,99.67,89.1,1.08
 20260622,106.5,110,105,108,717323,98.38,9.77,99.83,89.67,1.63
+20260623,109.5,111,102.5,105,482126,98.94,6.13,99.45,90.15,1.18
+20260624,101.5,106,101,104,223610,99.36,4.67,99.3,90.63,0.59
+20260625,106,106,99.8,100.5,229252,99.45,1.05,99.08,91.05,0.62
+20260626,99.9,99.9,93.7,94.7,336350,99.06,-4.4,98.76,91.42,0.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.48
+- as_of_date: 20260626
+- over_400_ratio: 61.59
 - over_600_ratio: 57.45
 - over_800_ratio: 57.45
 - over_1000_ratio: 57.45
-- over_400_change_1w: 0.06
+- over_400_change_1w: 0.11
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.53,-0.04,57.45,0,57.45,0,0,False,False
 20260612,61.42,-0.11,57.45,0,57.45,0,0,False,False
 20260618,61.48,0.06,57.45,0,57.45,0,1,False,False
+20260626,61.59,0.11,57.45,0,57.45,0,2,False,False
 ```
 
 ## Candidate Context

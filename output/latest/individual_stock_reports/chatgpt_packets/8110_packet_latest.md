@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8110 華東
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:56 Asia/Taipei
+- generated_at: 2026-06-28 22:27:41 Asia/Taipei
 - stock_id: 8110
 - stock_name: 華東
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -103,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 60.6
-- high: 63.5
-- low: 60
-- close: 62.6
-- volume: 30250325
-- ma5: 59.22
-- ema23_primary: 56.33
-- distance_to_ema23_pct: 11.12
-- ma20: 57.92
-- ma60: 51.99
-- ma120: 58.43
-- return_5d: 14.23
-- return_20d: 27.37
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 8.08
-- distance_to_high_60_pct: -9.93
+- date: 20260626
+- open: 63.6
+- high: 63.9
+- low: 56.9
+- close: 57
+- volume: 48664603
+- ma5: 59.76
+- ema23_primary: 57.13
+- distance_to_ema23_pct: -0.23
+- ma20: 58.34
+- ma60: 52.47
+- ma120: 58.66
+- return_5d: -3.72
+- return_20d: -8.06
+- volume_ratio: 2.01
+- distance_to_ma20_pct_auxiliary: -2.3
+- distance_to_high_60_pct: -17.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,49.65,50.5,48.1,50.1,12879597,49.17,1.89,48.79,51.71,0.97
-20260526,50.5,55.1,50.1,55.1,43681777,49.66,10.95,49.24,51.57,2.93
-20260527,60,60.6,57.1,60.6,68790601,50.57,19.82,49.83,51.49,3.91
-20260528,61.9,66,60.3,62,114740214,51.53,20.33,50.61,51.47,5.01
 20260529,64.2,67.7,63.1,64.9,62297493,52.64,23.29,51.61,51.59,2.43
 20260601,65.6,69.5,64,65.2,56172087,53.69,21.44,52.53,51.8,2.01
 20260602,63.9,65.5,58.9,61.6,38328353,54.35,13.35,53.14,51.89,1.32
@@ -153,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,58,58.4,56.6,58.4,7731537,55.45,5.32,56.64,51.82,0.28
 20260618,58.5,60.2,58.2,59.2,15164864,55.76,6.16,57.25,51.84,0.53
 20260622,60.6,63.5,60,62.6,30250325,56.33,11.12,57.92,51.99,1.02
+20260623,62.6,62.6,58,58.5,17508997,56.51,3.51,58.34,52.06,0.59
+20260624,56.7,58.3,56.3,57.5,9458276,56.6,1.6,58.46,52.14,0.34
+20260625,58.5,63.2,58.5,63.2,58008481,57.15,10.59,58.59,52.35,2.1
+20260626,63.6,63.9,56.9,57,48664603,57.13,-0.23,58.34,52.47,2.01
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.26
-- over_600_ratio: 51
-- over_800_ratio: 49.77
-- over_1000_ratio: 49.05
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.57
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 56.4
+- over_600_ratio: 54.87
+- over_800_ratio: 54.2
+- over_1000_ratio: 53.87
+- over_400_change_1w: 4.14
+- over_800_change_1w: 4.43
+- over_1000_change_1w: 4.82
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,22 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.86,-1.61,49.31,-2.47,48.47,-1.24,0,False,False
 20260612,52.14,0.28,49.2,-0.11,48.87,0.4,1,False,True
 20260618,52.26,0.12,49.77,0.57,49.05,0.18,2,True,True
+20260626,56.4,4.14,54.2,4.43,53.87,4.82,3,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8110 | 華東 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:不適用。 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度營業報告書及 財務決算表冊案。 5.重要決議事項四、董監事選舉:不適用。 6.重要決議事項五、其他事項:不適用。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8110 | 華東 | 8 | 8 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8110 | 華東 | 33 | 6 | 15613310.0 | 1200.0 | 13011.09 | call_put_bullish |
+| 20260626 | 8110 | 華東 | 33 | 0 | 6753360.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

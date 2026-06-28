@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9917 中保科
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:49 Asia/Taipei
 - stock_id: 9917
 - stock_name: 中保科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 117
-- high: 117.5
-- low: 116
-- close: 116.5
-- volume: 1230882
-- ma5: 117.6
-- ema23_primary: 116.45
-- distance_to_ema23_pct: 0.04
-- ma20: 116.4
-- ma60: 114.78
-- ma120: 111.34
-- return_5d: -4.51
-- return_20d: 4.02
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 0.09
-- distance_to_high_60_pct: -5.28
+- date: 20260626
+- open: 107.5
+- high: 107.5
+- low: 105
+- close: 105.5
+- volume: 1097192
+- ma5: 110.4
+- ema23_primary: 114.13
+- distance_to_ema23_pct: -7.56
+- ma20: 115.53
+- ma60: 114.46
+- ma120: 111.42
+- return_5d: -9.83
+- return_20d: -6.64
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -8.68
+- distance_to_high_60_pct: -14.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,113,113,112,113,344310,113.01,-0.01,112.88,112.56,0.78
-20260526,113,114,112.5,113,366716,113.01,-0.01,112.88,112.67,0.86
-20260527,113,114,113,114,434166,113.09,0.8,112.92,112.81,0.99
-20260528,114.5,114.5,112.5,113,440397,113.09,-0.08,112.85,112.91,0.99
 20260529,113.5,114,113,114,406319,113.16,0.74,112.9,113.03,0.91
 20260601,114,115,113.5,115,831291,113.31,1.49,113.03,113.19,1.78
 20260602,115,115,114,114.5,480381,113.41,0.96,113.12,113.34,1.02
@@ -155,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,117.5,118.5,117,117.5,1285329,116.4,0.95,115.95,114.62,1.64
 20260618,117.5,118.5,116.5,117,1088780,116.45,0.48,116.17,114.72,1.34
 20260622,117,117.5,116,116.5,1230882,116.45,0.04,116.4,114.78,1.44
+20260623,116.5,117,115,116,2125415,116.41,-0.35,116.55,114.81,2.24
+20260624,110,110,106,106,3151219,115.55,-8.26,116.2,114.68,2.9
+20260625,106.5,108,105,108,1419358,114.92,-6.02,115.9,114.58,1.25
+20260626,107.5,107.5,105,105.5,1097192,114.13,-7.56,115.53,114.46,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.88
-- over_600_ratio: 75.89
-- over_800_ratio: 73.08
-- over_1000_ratio: 71.33
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.34
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 77.19
+- over_600_ratio: 74.85
+- over_800_ratio: 72.55
+- over_1000_ratio: 71.13
+- over_400_change_1w: -0.69
+- over_800_change_1w: -0.53
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,77.6,0.25,72.78,0.37,71.18,-0.04,5,False,True
 20260612,77.75,0.15,72.74,-0.04,71.34,0.16,6,False,True
 20260618,77.88,0.13,73.08,0.34,71.33,-0.01,7,False,True
+20260626,77.19,-0.69,72.55,-0.53,71.13,-0.2,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9917 | 中保科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/15 2.法人名稱:財團法人宜蘭縣林孝信文化基金會 3.舊任者姓名:林孝信 4.舊任者簡歷:財團法人宜蘭縣林孝信文化基金會，法人董事代表人：林孝信 5.新任者姓名:林昭陽 6.新任者簡歷:威剛科技股份有限公司執行副總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/05/29-118/05/28 9.新任生效日期:115/06/15-118/05/28 10.其他應敘明事項:無；degraded calendar context only: ex_dividend on 20260624; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9917 | 中保科 | 1 | 1 | 4 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

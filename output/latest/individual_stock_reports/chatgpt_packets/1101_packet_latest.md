@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1101 台泥
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:32 Asia/Taipei
+- generated_at: 2026-06-28 22:25:45 Asia/Taipei
 - stock_id: 1101
 - stock_name: 台泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 287
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 291
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 24.55
-- high: 24.65
-- low: 24.2
-- close: 24.35
-- volume: 40462324
-- ma5: 24.55
-- ema23_primary: 24.39
-- distance_to_ema23_pct: -0.16
-- ma20: 24.32
-- ma60: 24.37
-- ma120: 24.53
-- return_5d: -0.81
-- return_20d: 1.04
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 0.14
-- distance_to_high_60_pct: -7.77
+- date: 20260626
+- open: 24.6
+- high: 24.75
+- low: 24.15
+- close: 24.15
+- volume: 34476565
+- ma5: 24.29
+- ema23_primary: 24.36
+- distance_to_ema23_pct: -0.85
+- ma20: 24.38
+- ma60: 24.47
+- ma120: 24.59
+- return_5d: -1.43
+- return_20d: 2.11
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -0.95
+- distance_to_high_60_pct: -8.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,24.1,24.45,23.95,24.3,33786766,24.46,-0.65,24.53,24.5,1.2
-20260526,24.3,24.6,23.95,23.95,31297642,24.42,-1.91,24.51,24.46,1.11
-20260527,23.95,24.05,23.8,23.85,29819864,24.37,-2.13,24.48,24.42,1.04
-20260528,23.85,24,23.65,23.65,35826774,24.31,-2.71,24.44,24.37,1.22
 20260529,24.1,24.4,23.9,24.4,49699249,24.32,0.34,24.43,24.35,1.62
 20260601,24.4,24.7,24.2,24.55,35557711,24.34,0.88,24.44,24.34,1.15
 20260602,24.55,24.8,24.4,24.65,33068326,24.36,1.18,24.46,24.34,1.06
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,24.5,24.8,24.45,24.55,26236790,24.38,0.69,24.29,24.31,0.78
 20260618,24.6,24.8,24.5,24.5,33250276,24.39,0.45,24.3,24.34,0.96
 20260622,24.55,24.65,24.2,24.35,40462324,24.39,-0.16,24.32,24.37,1.14
+20260623,24.35,24.5,24.05,24.15,34786016,24.37,-0.89,24.31,24.39,0.98
+20260624,24.15,24.35,24,24.2,26165910,24.35,-0.63,24.32,24.41,0.74
+20260625,24.25,25.15,24.2,24.6,37491440,24.37,0.93,24.36,24.44,1.05
+20260626,24.6,24.75,24.15,24.15,34476565,24.36,-0.85,24.38,24.47,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.41
-- over_600_ratio: 53.62
-- over_800_ratio: 52.35
-- over_1000_ratio: 51.23
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.16
+- as_of_date: 20260626
+- over_400_ratio: 55.52
+- over_600_ratio: 53.71
+- over_800_ratio: 52.47
+- over_1000_ratio: 51.34
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.12
 - over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 4
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,55.22,0.45,52.1,0.44,51.05,0.49,2,True,True
 20260612,55.28,0.06,52.19,0.09,51.12,0.07,3,True,True
 20260618,55.41,0.13,52.35,0.16,51.23,0.11,4,True,True
+20260626,55.52,0.11,52.47,0.12,51.34,0.11,5,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1101 | 台泥 | 36 | 2 | 281130.0 | 0.0 |  | no_signal |
+| 20260626 | 1101 | 台泥 | 35 | 0 | 539070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

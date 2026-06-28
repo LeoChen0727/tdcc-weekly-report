@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4960 誠美材
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:53 Asia/Taipei
 - stock_id: 4960
 - stock_name: 誠美材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 29.3
-- high: 29.95
-- low: 28.8
-- close: 29.2
-- volume: 4330191
-- ma5: 29.55
-- ema23_primary: 31.41
-- distance_to_ema23_pct: -7.04
-- ma20: 31.41
-- ma60: 32.4
-- ma120: 24.08
-- return_5d: 2.28
-- return_20d: -18.44
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -7.04
-- distance_to_high_60_pct: -39.17
+- date: 20260626
+- open: 27.05
+- high: 27.4
+- low: 25.6
+- close: 25.65
+- volume: 7189146
+- ma5: 27.78
+- ema23_primary: 30.21
+- distance_to_ema23_pct: -15.1
+- ma20: 30.13
+- ma60: 32.49
+- ma120: 24.55
+- return_5d: -11.86
+- return_20d: -19.72
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -14.87
+- distance_to_high_60_pct: -46.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,37,38.55,36,36,16699898,35.44,1.59,37.5,28.91,1.21
-20260526,36.85,36.85,33.8,34.25,11138430,35.34,-3.08,37.34,29.25,0.78
-20260527,35,35,32.8,33.15,9945718,35.16,-5.7,37.01,29.57,0.69
-20260528,33.6,34.25,31.7,31.95,9341790,34.89,-8.42,36.69,29.86,0.63
 20260529,32.25,32.6,31.7,31.95,7490299,34.64,-7.77,36.33,30.15,0.5
 20260601,32.1,34.8,32.1,33.75,12317380,34.57,-2.37,36.06,30.46,0.8
 20260602,34,34,31.8,32.45,8378567,34.39,-5.65,35.56,30.73,0.54
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,29.85,31,29.05,29.35,6850521,31.84,-7.83,32.11,32.24,0.72
 20260618,29.25,29.5,28.3,29.1,6978926,31.61,-7.95,31.74,32.32,0.77
 20260622,29.3,29.95,28.8,29.2,4330191,31.41,-7.04,31.41,32.4,0.54
+20260623,29.75,29.75,27.9,28.25,5777713,31.15,-9.31,31.02,32.43,0.77
+20260624,28.2,29.2,28,28.35,3586776,30.92,-8.3,30.73,32.49,0.51
+20260625,28.7,28.7,27.2,27.45,5298929,30.63,-10.37,30.45,32.51,0.77
+20260626,27.05,27.4,25.6,25.65,7189146,30.21,-15.1,30.13,32.49,1.06
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.15
-- over_600_ratio: 60.66
-- over_800_ratio: 59.54
-- over_1000_ratio: 57.18
-- over_400_change_1w: -0.27
-- over_800_change_1w: 0.07
-- over_1000_change_1w: -0.54
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 62.12
+- over_600_ratio: 60.32
+- over_800_ratio: 59.08
+- over_1000_ratio: 57.35
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.46
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,62.4,-0.82,59.12,-0.99,57.85,-0.67,0,False,False
 20260612,62.42,0.02,59.47,0.35,57.72,-0.13,1,False,True
 20260618,62.15,-0.27,59.54,0.07,57.18,-0.54,2,False,True
+20260626,62.12,-0.03,59.08,-0.46,57.35,0.17,3,False,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4960 | 誠美材 | 3 | 0 | 258860.0 | 0.0 |  | no_signal |
+| 20260626 | 4960 | 誠美材 | 4 | 0 | 237720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8932 智通*
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:04 Asia/Taipei
+- generated_at: 2026-06-28 22:27:47 Asia/Taipei
 - stock_id: 8932
 - stock_name: 智通*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 146
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 150
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 100
-- high: 103
-- low: 99.2
-- close: 100
-- volume: 2254000
-- ma5: 100.7
-- ema23_primary: 100.11
-- distance_to_ema23_pct: -0.11
-- ma20: 101.05
-- ma60: 94
-- ma120: 128.02
-- return_5d: -6.1
-- return_20d: -0.99
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -1.04
-- distance_to_high_60_pct: -7.41
+- date: 20260626
+- open: 120
+- high: 122.5
+- low: 109.5
+- close: 111
+- volume: 20303000
+- ma5: 106.1
+- ema23_primary: 102.45
+- distance_to_ema23_pct: 8.35
+- ma20: 102.38
+- ma60: 95.65
+- ma120: 125.92
+- return_5d: 11
+- return_20d: 14.43
+- volume_ratio: 5.16
+- distance_to_ma20_pct_auxiliary: 8.42
+- distance_to_high_60_pct: -9.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,103,107,100.5,105.5,104000,97.02,8.74,95.09,101.96,0.04
-20260526,105.5,108,100,101.5,103000,97.4,4.21,95.69,100.43,0.04
-20260527,102.5,103,99.5,100,100000,97.61,2.44,96.3,98.9,0.04
-20260528,101,102,96.2,97,98000,97.56,-0.58,96.64,97.37,0.04
 20260529,98.6,103,98.5,100.5,101000,97.81,2.75,97.19,95.89,0.04
 20260601,101,106,100,103.5,103000,98.28,5.31,97.94,94.52,0.05
 20260602,103,104.5,100,102.5,102,98.63,3.92,98.42,93.02,0
@@ -155,18 +156,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,100.5,101,99.4,100,1837000,100.13,-0.13,101.1,93.39,0.91
 20260618,101,102.5,99.5,100,2074000,100.12,-0.12,101.1,93.69,1.06
 20260622,100,103,99.2,100,2254000,100.11,-0.11,101.05,94,1.1
+20260623,100.5,102.5,98.5,100.5,2195000,100.14,0.36,100.8,94.27,1.02
+20260624,100,106,99.6,104.5,4260000,100.5,3.98,100.95,94.64,1.8
+20260625,104,114.5,102.5,114.5,11167000,101.67,12.62,101.67,95.18,3.82
+20260626,120,122.5,109.5,111,20303000,102.45,8.35,102.38,95.65,5.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 80.28
-- over_600_ratio: 78.28
-- over_800_ratio: 75.66
-- over_1000_ratio: 74.16
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.52
-- over_1000_change_1w: 0.81
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 81.44
+- over_600_ratio: 79.16
+- over_800_ratio: 76.56
+- over_1000_ratio: 74.84
+- over_400_change_1w: 1.16
+- over_800_change_1w: 0.9
+- over_1000_change_1w: 0.68
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,80.03,0.11,74.84,-0.23,73.33,0.03,5,False,True
 20260612,80.17,0.14,75.14,0.3,73.35,0.02,6,False,True
 20260618,80.28,0.11,75.66,0.52,74.16,0.81,7,True,True
+20260626,81.44,1.16,76.56,0.9,74.84,0.68,8,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 8932 | 智通* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋 (2)永讚開發投資(股)公司代表人：林俊儀 (3)永讚開發投資(股)公司代表人：TAN TIONG MING (4)宏達開發投資(股)公司代表人：黃偉特 (5)宏達開發投資(股)公司代表人：蔡焜煌 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng 獨立董事 (1)李天行　 (2)張居德 (3)劉慧儀 3.許可從事競業行為之項目: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋    永讚開發投資(股)公司 董事長    金銓富投資有限公司 董事長    富勛投資有限公司 董事長    智捷醫學科技股份有限公司 董事    雙都經貿股份有限公司 董事    龍邦國際興業股份有限公司 獨立董事    笙泉科技股份有限公司 董事長 (2)永讚開發投資(股)公司代表人：林俊儀    恆理致遠國際法律事務所 所長    宣德科技股份有限公司 獨立董事    金益鼎企業股份有限公司 獨立董事    新潤興業股份有限公司 獨立董事    台翰精密科技股份有限公司 獨立董事    台灣運動彩券股份有限公司 董事    笙泉科技股份有限公司 董事 (3)永讚開發投資(股)公司代表人：TAN TIONG MING    聯和科創股份有限公司 董事    沛聯(北京)科技有限公司 董事    GLOBAL LINE NETWORK SDN BHD – CEO    GLOBAL LINE NETWORK LTD. – Director    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director (4)宏達開發投資(股)公司代表人：黃偉特    易邦建設有限公司 董事    億邦開發股份有限公司 董事    蘭邦投資股份有限公司 董事長    暟富投資股份有限公司 董事長    巨興醫學科技股份有限公司 董事長    澳迪科技股份有限公司 董事長 (5)宏達開發投資(股)公司代表人：蔡焜煌    宏達開發投資(股)公司 董事長    金愛投資有限公司 董事    楚芬投資有限公司 董事    智捷醫學科技股份有限公司 董事    聯和科創股份有限公司 董事長    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director    華智數位娛樂股份有限公司 董事    HuaZhi Software Private Ltd. – Director    笙泉科技股份有限公司 董事 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng    Vincenology Solution – Founder    Vincenology (M) Sdn Bhd – Managing Director    A Plus Network – Managing Director    TG Agrosolutions Limited – Director    Binary Reliance Sdn Bhd – Director 獨立董事 (1)李天行　    勝德國際研發股份有限公司 董事 (2)張居德    張居德律師事務所 主持律師    坤悅開發股份有限公司 獨立董事    元檜投資有限公司 董事 (2)劉慧儀    台亞風能股份有限公司 法人董事代表人    台灣銘板股份有限公司 獨立董事    瀚軒股份有限公司 獨立董事    亞洲新能源(開曼)(股)公司 營運管理總監 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 贊成權數：217,011,081權 反對權數：141,485權 無效權數：0權 棄權與未投票權數：14,636,621權 贊成本案之表決權數占總表決權數93.62%，本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 8932 | 智通* | 2 | 2 | 2 | 2 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

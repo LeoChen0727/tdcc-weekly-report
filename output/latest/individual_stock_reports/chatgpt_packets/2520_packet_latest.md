@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:09 Asia/Taipei
+- generated_at: 2026-06-28 22:26:14 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 34.65
-- high: 34.65
-- low: 32.8
-- close: 34
-- volume: 7398527
-- ma5: 35.16
-- ema23_primary: 33
-- distance_to_ema23_pct: 3.04
-- ma20: 32.56
-- ma60: 31.39
+- date: 20260626
+- open: 34
+- high: 34.25
+- low: 33.5
+- close: 34.1
+- volume: 2300159
+- ma5: 34.14
+- ema23_primary: 33.34
+- distance_to_ema23_pct: 2.27
+- ma20: 33.39
+- ma60: 31.54
 - ma120: 32
-- return_5d: -2.86
-- return_20d: 11.66
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 4.41
-- distance_to_high_60_pct: -8.97
+- return_5d: -6.32
+- return_20d: 13.86
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 2.13
+- distance_to_high_60_pct: -8.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,30.45,30.45,29.65,30.05,2106524,30.52,-1.54,30.17,31.17,1.34
-20260526,30.05,30.4,29.9,30.15,1401272,30.49,-1.11,30.17,31.15,0.93
-20260527,30.15,30.3,29.9,30.05,1341939,30.45,-1.32,30.18,31.12,0.88
-20260528,30.15,30.35,29.9,29.95,1942195,30.41,-1.51,30.15,31.09,1.23
 20260529,30.15,30.15,29.8,29.85,1374743,30.36,-1.69,30.17,31.07,0.91
 20260601,29.9,30.9,29.8,30.9,1729973,30.41,1.62,30.26,31.08,1.17
 20260602,30.9,31.35,30.55,31.2,1781415,30.47,2.38,30.38,31.08,1.22
@@ -154,19 +150,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.35,36.15,34.3,36.15,4822749,32.59,10.92,32.1,31.27,1.51
 20260618,36.25,37.35,35.6,36.4,10674434,32.91,10.61,32.39,31.35,2.9
 20260622,34.65,34.65,32.8,34,7398527,33,3.04,32.56,31.39,1.86
+20260623,34.2,34.6,33.75,34.4,2368282,33.12,3.88,32.78,31.44,0.59
+20260624,34.15,34.4,33.65,33.95,1335316,33.18,2.31,32.97,31.47,0.33
+20260625,33.95,34.55,33.85,34.25,1868595,33.27,2.93,33.18,31.5,0.47
+20260626,34,34.25,33.5,34.1,2300159,33.34,2.27,33.39,31.54,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.49
-- over_600_ratio: 69.42
-- over_800_ratio: 68.44
-- over_1000_ratio: 67.23
-- over_400_change_1w: 0.36
-- over_800_change_1w: 0.62
-- over_1000_change_1w: 0.33
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 71.34
+- over_600_ratio: 69.4
+- over_800_ratio: 68.24
+- over_1000_ratio: 67.35
+- over_400_change_1w: -0.15
+- over_800_change_1w: -0.2
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,24 +181,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,70.61,0.34,66.68,0.21,65.74,0.32,4,True,True
 20260612,71.13,0.52,67.82,1.14,66.9,1.16,5,True,True
 20260618,71.49,0.36,68.44,0.62,67.23,0.33,6,True,True
+20260626,71.34,-0.15,68.24,-0.2,67.35,0.12,7,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2520 | 冠德 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260622 | 2520 | 冠德 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 26.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2520 | 冠德 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2520 | 冠德 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 24.0 | B_可觀察 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2520 | 冠德 | 3 | 1 | 3 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2520 | 冠德 | 6 | 4 | 5 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2520 | 冠德 | 6 | 0 | 882960.0 | 0.0 |  | no_signal |
+| 20260626 | 2520 | 冠德 | 6 | 0 | 295190.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

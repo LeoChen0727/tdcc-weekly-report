@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8299 群聯
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:59 Asia/Taipei
+- generated_at: 2026-06-28 22:27:43 Asia/Taipei
 - stock_id: 8299
 - stock_name: 群聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: True
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,32 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 2600
-- high: 2670
-- low: 2570
-- close: 2580
-- volume: 6874000
-- ma5: 2427
-- ema23_primary: 2407.69
-- distance_to_ema23_pct: 7.16
-- ma20: 2460.25
-- ma60: 2144.5
-- ma120: 1960.54
-- return_5d: 11.69
-- return_20d: 6.17
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: 4.87
-- distance_to_high_60_pct: -10.42
+- date: 20260626
+- open: 2495
+- high: 2540
+- low: 2305
+- close: 2310
+- volume: 5308000
+- ma5: 2459
+- ema23_primary: 2412.59
+- distance_to_ema23_pct: -4.25
+- ma20: 2450.25
+- ma60: 2197.33
+- ma120: 2004.33
+- return_5d: -8.7
+- return_20d: -5.71
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -5.72
+- distance_to_high_60_pct: -19.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,2450,2540,2320,2480,2450000,2309.01,7.41,2365,1947,0.26
-20260526,2510,2590,2440,2505,2515000,2325.34,7.73,2398.5,1956.67,0.28
-20260527,2700,2730,2455,2480,2572000,2338.23,6.06,2424,1966.5,0.3
-20260528,2475,2535,2410,2450,2488000,2347.54,4.36,2443,1975.33,0.31
 20260529,2530,2620,2525,2575,2570000,2366.5,8.81,2476.75,1989,0.35
 20260601,2655,2825,2625,2770,2743000,2400.12,15.41,2514.75,2006.75,0.38
 20260602,2810,2835,2690,2820,2782,2435.11,15.81,2550,2023.75,0
@@ -160,20 +157,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,2340,2355,2285,2330,3957000,2379.48,-2.08,2443,2117.42,1.03
 20260618,2350,2535,2335,2530,7486000,2392.03,5.77,2452.75,2129.58,1.94
 20260622,2600,2670,2570,2580,6874000,2407.69,7.16,2460.25,2144.5,1.68
+20260623,2565,2590,2430,2430,6341000,2409.55,0.85,2457.75,2156.25,1.48
+20260624,2385,2500,2325,2500,6717000,2417.09,3.43,2457.5,2170.42,1.5
+20260625,2605,2640,2475,2475,5963000,2421.91,2.19,2457.25,2185.58,1.28
+20260626,2495,2540,2305,2310,5308000,2412.59,-4.25,2450.25,2197.33,1.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 45.76
-- over_600_ratio: 40.98
-- over_800_ratio: 38.36
-- over_1000_ratio: 35.11
-- over_400_change_1w: -0.42
-- over_800_change_1w: -0.75
-- over_1000_change_1w: -0.79
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 46.29
+- over_600_ratio: 41.21
+- over_800_ratio: 37.29
+- over_1000_ratio: 36.09
+- over_400_change_1w: 0.53
+- over_800_change_1w: -1.07
+- over_1000_change_1w: 0.98
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,48.31,-1.13,39.95,-2.4,37.91,-0.77,0,False,False
 20260612,46.18,-2.13,39.11,-0.84,35.9,-2.01,0,False,False
 20260618,45.76,-0.42,38.36,-0.75,35.11,-0.79,0,False,False
+20260626,46.29,0.53,37.29,-1.07,36.09,0.98,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8299 | 群聯 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 8299 | 群聯 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 8299 | 群聯 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8299 | 群聯 | 2 | 2 | 2 | 2 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 8299 | 群聯 | 5 | 4 | 5 | 5 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import pandas as pd
@@ -25,6 +26,7 @@ def patch_history_paths(tmp_path: Path, monkeypatch) -> tuple[Path, Path, Path, 
     monkeypatch.setattr(history, "DOCS_MANIFEST_CSV", docs_latest_dir / "stock_price_history_manifest.csv")
     monkeypatch.setattr(history, "DOCS_MANIFEST_JSON", docs_latest_dir / "stock_price_history_manifest.json")
     monkeypatch.setattr(history, "DOCS_MANIFEST_MD", docs_latest_dir / "stock_price_history_manifest.md")
+    monkeypatch.setattr(history, "SOURCE_RECOVERY_JSON", latest_dir / "daily_price_source_recovery_latest.json")
     return daily_dir, stock_dir, latest_dir, docs_latest_dir
 
 
@@ -100,3 +102,34 @@ def test_incremental_latest_updates_when_manifest_is_newer_than_actual_history(t
 
     assert updated["date"].iloc[-1] == "20260611"
     assert manifest.loc[manifest["stock_id"].astype(str).eq("2330"), "end_date"].iloc[0] == "20260611"
+
+
+def test_source_recovery_action_forces_full_history_rebuild(tmp_path, monkeypatch):
+    daily_dir, stock_dir, latest_dir, _ = patch_history_paths(tmp_path, monkeypatch)
+    write_daily_price(daily_dir / "daily_price_20260625.csv", "20260625", close=1040)
+    write_daily_price(daily_dir / "daily_price_20260626.csv", "20260626", close=1050)
+    (latest_dir / "daily_price_source_recovery_latest.json").write_text(
+        (
+            "{\n"
+            '  "status": "repaired",\n'
+            '  "actions": [{"date": "20260625", "action": "repair_daily_price_range"}]\n'
+            "}\n"
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        history,
+        "parse_args",
+        lambda: argparse.Namespace(
+            stock_id=None,
+            incremental_latest=True,
+            full_rebuild_if_source_recovered=True,
+        ),
+    )
+
+    assert history.main() == 0
+
+    updated = pd.read_csv(stock_dir / "2330.csv", dtype=str)
+
+    assert list(updated["date"]) == ["20260625", "20260626"]
+    assert history.source_recovery_has_repair_action()

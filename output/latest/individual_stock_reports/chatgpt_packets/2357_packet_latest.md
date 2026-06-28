@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:06 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 793
-- high: 806
-- low: 788
-- close: 788
-- volume: 3442620
-- ma5: 792.6
-- ema23_primary: 776.08
-- distance_to_ema23_pct: 1.54
-- ma20: 803.2
-- ma60: 670.63
-- ma120: 602.35
-- return_5d: 0.38
-- return_20d: 15.54
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.89
-- distance_to_high_60_pct: -18.26
+- date: 20260626
+- open: 730
+- high: 735
+- low: 700
+- close: 701
+- volume: 7061186
+- ma5: 758.6
+- ema23_primary: 767.9
+- distance_to_ema23_pct: -8.71
+- ma20: 813.4
+- ma60: 682.75
+- ma120: 608.8
+- return_5d: -11.15
+- return_20d: 1.3
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -13.82
+- distance_to_high_60_pct: -27.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,692,717,690,709,6899791,638.74,11,637.5,590.03,1.24
-20260526,711,717,694,699,4568619,643.76,8.58,643.05,592.93,0.81
-20260527,700,709,694,701,4222844,648.53,8.09,648.7,595.75,0.74
-20260528,703,711,690,692,4308608,652.15,6.11,653.9,598.45,0.74
 20260529,708,761,708,761,13953540,661.22,15.09,662.9,602.45,2.19
 20260601,837,837,837,837,4445549,675.87,23.84,675.2,608.07,0.69
 20260602,914,920,883,920,11557431,696.21,32.14,691.7,614.77,1.69
@@ -155,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,790,803,782,803,3336854,773.73,3.78,791.25,663.15,0.52
 20260618,807,810,789,789,7939182,775,1.81,797.9,666.92,1.2
 20260622,793,806,788,788,3442620,776.08,1.54,803.2,670.63,0.53
+20260623,799,819,783,785,6495537,776.83,1.05,807,674.3,1
+20260624,775,783,764,771,5156891,776.34,-0.69,810.6,677.58,0.79
+20260625,770,773,743,748,6101570,773.98,-3.36,812.95,680.43,0.92
+20260626,730,735,700,701,7061186,767.9,-8.71,813.4,682.75,1.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.92
-- over_600_ratio: 70.61
-- over_800_ratio: 67.75
-- over_1000_ratio: 64.01
-- over_400_change_1w: -0.03
-- over_800_change_1w: -0.62
-- over_1000_change_1w: -0.39
+- as_of_date: 20260626
+- over_400_ratio: 73.12
+- over_600_ratio: 69.74
+- over_800_ratio: 66.92
+- over_1000_ratio: 63.05
+- over_400_change_1w: -0.8
+- over_800_change_1w: -0.83
+- over_1000_change_1w: -0.96
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,74.56,1.61,68.53,1.59,64.27,1.42,2,True,True
 20260612,73.95,-0.61,68.37,-0.16,64.4,0.13,3,False,True
 20260618,73.92,-0.03,67.75,-0.62,64.01,-0.39,0,False,False
+20260626,73.12,-0.8,66.92,-0.83,63.05,-0.96,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2357 | 華碩 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=within_14d; model_effect_allowed=False; pdf_effect_allowed=False |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2357 | 華碩 | 2 | 2 | 3 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2357 | 華碩 | 85 | 5 | 6352460.0 | 1660.0 | 3826.78 | no_signal |
+| 20260626 | 2357 | 華碩 | 87 | 0 | 5573100.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

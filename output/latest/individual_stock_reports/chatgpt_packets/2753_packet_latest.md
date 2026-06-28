@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2753 八方雲集
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:15 Asia/Taipei
+- generated_at: 2026-06-28 22:26:19 Asia/Taipei
 - stock_id: 2753
 - stock_name: 八方雲集
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 190
-- high: 192
-- low: 189
+- date: 20260626
+- open: 190.5
+- high: 190.5
+- low: 188
 - close: 190
-- volume: 710882
-- ma5: 188
-- ema23_primary: 183.09
-- distance_to_ema23_pct: 3.77
-- ma20: 181.72
-- ma60: 180.08
-- ma120: 182.87
-- return_5d: -0.26
-- return_20d: 9.51
-- volume_ratio: 1.83
-- distance_to_ma20_pct_auxiliary: 4.55
+- volume: 474098
+- ma5: 190.1
+- ema23_primary: 185.16
+- distance_to_ema23_pct: 2.61
+- ma20: 185.05
+- ma60: 180.7
+- ma120: 182.7
+- return_5d: 1.6
+- return_20d: 10.47
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 2.67
 - distance_to_high_60_pct: -1.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,175,176.5,173.5,174.5,375292,177.25,-1.55,177.4,180.84,1.17
-20260526,174,174.5,173.5,174.5,276738,177.02,-1.42,177.18,180.67,0.87
-20260527,175.5,175.5,173,173,324821,176.68,-2.09,176.93,180.47,1
-20260528,173,174,172,172,282960,176.29,-2.44,176.57,180.28,0.86
 20260529,173.5,176,172.5,175.5,357136,176.23,-0.41,176.47,180.12,1.07
 20260601,175.5,178,174.5,177,312427,176.29,0.4,176.4,180.06,0.92
 20260602,178,179,176.5,179,233959,176.52,1.41,176.38,180,0.7
@@ -155,16 +151,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,188,188.5,186.5,187,230908,182.05,2.72,180.22,179.81,0.61
 20260618,187,189,183,187,339330,182.46,2.49,180.9,179.93,0.9
 20260622,190,192,189,190,710882,183.09,3.77,181.72,180.08,1.83
+20260623,191,191,189,190,471028,183.66,3.45,182.5,180.22,1.2
+20260624,190,190.5,188.5,190,391650,184.19,3.15,183.28,180.38,0.98
+20260625,190.5,192,190,190.5,467911,184.72,3.13,184.15,180.54,1.15
+20260626,190.5,190.5,188,190,474098,185.16,2.61,185.05,180.7,1.14
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.53
-- over_600_ratio: 51.84
+- as_of_date: 20260626
+- over_400_ratio: 54.91
+- over_600_ratio: 51.83
 - over_800_ratio: 46.23
 - over_1000_ratio: 43.66
-- over_400_change_1w: -0.47
-- over_800_change_1w: -0.05
+- over_400_change_1w: -0.62
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,55.72,0.17,46.28,0,43.66,0,3,False,False
 20260612,56,0.28,46.28,0,43.66,0,4,False,False
 20260618,55.53,-0.47,46.23,-0.05,43.66,0,0,False,False
+20260626,54.91,-0.62,46.23,0,43.66,0,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2753 | 八方雲集 | 3 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 2753 | 八方雲集 | 3 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2897 王道銀行
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:18 Asia/Taipei
+- generated_at: 2026-06-28 22:26:21 Asia/Taipei
 - stock_id: 2897
 - stock_name: 王道銀行
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
+- date: 20260626
 - open: 10.55
-- high: 10.6
-- low: 10.5
-- close: 10.55
-- volume: 4034896
-- ma5: 10.52
-- ema23_primary: 10.31
-- distance_to_ema23_pct: 2.28
-- ma20: 10.26
-- ma60: 10.16
-- ma120: 9.78
-- return_5d: 0.48
-- return_20d: 5.5
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 2.85
-- distance_to_high_60_pct: -1.4
+- high: 10.55
+- low: 10.4
+- close: 10.5
+- volume: 3408845
+- ma5: 10.57
+- ema23_primary: 10.39
+- distance_to_ema23_pct: 1.06
+- ma20: 10.38
+- ma60: 10.2
+- ma120: 9.83
+- return_5d: 0
+- return_20d: 5.63
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 1.16
+- distance_to_high_60_pct: -1.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,10.1,10.1,9.9,9.95,6948908,10.07,-1.21,10.09,10.02,1.95
-20260526,9.95,9.99,9.94,9.98,1592966,10.06,-0.84,10.08,10.03,0.47
-20260527,10,10.05,9.93,10,3689643,10.06,-0.58,10.07,10.03,1.08
-20260528,10,10.05,9.9,9.94,3717300,10.05,-1.08,10.06,10.03,1.06
 20260529,9.91,9.98,9.9,9.9,3566262,10.04,-1.36,10.05,10.03,1.03
 20260601,9.92,9.98,9.88,9.94,9531175,10.03,-0.88,10.05,10.04,2.54
 20260602,9.92,10.05,9.9,10,6829656,10.03,-0.26,10.05,10.04,1.69
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,10.55,10.6,10.5,10.55,9193596,10.27,2.68,10.21,10.14,1.43
 20260618,10.55,10.7,10.5,10.5,5248084,10.29,2.01,10.23,10.15,0.8
 20260622,10.55,10.6,10.5,10.55,4034896,10.31,2.28,10.26,10.16,0.61
+20260623,10.55,10.65,10.5,10.65,5768827,10.34,2.97,10.29,10.18,0.87
+20260624,10.55,10.6,10.45,10.55,5715615,10.36,1.84,10.32,10.19,0.84
+20260625,10.55,10.6,10.5,10.6,2833694,10.38,2.12,10.35,10.2,0.42
+20260626,10.55,10.55,10.4,10.5,3408845,10.39,1.06,10.38,10.2,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 85.56
-- over_600_ratio: 83.69
-- over_800_ratio: 82.32
-- over_1000_ratio: 81.18
-- over_400_change_1w: 0.09
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.15
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 85.58
+- over_600_ratio: 83.72
+- over_800_ratio: 82.45
+- over_1000_ratio: 81.21
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,18 +182,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,85.16,0.2,82.02,0.35,81,0.38,1,True,True
 20260612,85.47,0.31,82.39,0.37,81.33,0.33,2,True,True
 20260618,85.56,0.09,82.32,-0.07,81.18,-0.15,3,False,False
+20260626,85.58,0.02,82.45,0.13,81.21,0.03,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2897 | 王道銀行 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2897 | 王道銀行 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 2897 | 王道銀行 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利每股配發新台幣0.52元，合計新台幣1,446,857,817元 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/24 6.停止過戶起始日期:115/07/25 7.停止過戶截止日期:115/07/29 8.除權（息）基準日:115/07/29 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項: 普通股每股實際分派金額受本行於配息基準日之前， 特別股轉換、辦理增減資、買回本行股份、或股份轉讓、轉換、 註銷或其他因素影響，經董事會授權董事長依配息基準日 實際流通在外普通股股數及普通股實際總分派金額調整之， 但普通股合計總分派金額不變，屆時將另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2897 | 王道銀行 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利每股配發新台幣0.52元，合計新台幣1,446,857,817元 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/24 6.停止過戶起始日期:115/07/25 7.停止過戶截止日期:115/07/29 8.除權（息）基準日:115/07/29 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項: 普通股每股實際分派金額受本行於配息基準日之前， 特別股轉換、辦理增減資、買回本行股份、或股份轉讓、轉換、 註銷或其他因素影響，經董事會授權董事長依配息基準日 實際流通在外普通股股數及普通股實際總分派金額調整之， 但普通股合計總分派金額不變，屆時將另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2897 | 王道銀行 | 18 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2897 | 王道銀行 | 21 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

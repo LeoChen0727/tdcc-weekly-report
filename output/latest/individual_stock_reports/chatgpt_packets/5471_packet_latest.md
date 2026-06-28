@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5471 松翰
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:00 Asia/Taipei
 - stock_id: 5471
 - stock_name: 松翰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,12 +87,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 61.6
-- high: 66.3
-- low: 61.6
-- close: 63.6
-- volume: 9863302
-- ma5: 60.4
-- ema23_primary: 54.24
-- distance_to_ema23_pct: 17.26
-- ma20: 54.3
-- ma60: 47.35
-- ma120: 42.37
-- return_5d: 17.34
-- return_20d: 17.78
-- volume_ratio: 1.66
-- distance_to_ma20_pct_auxiliary: 17.12
-- distance_to_high_60_pct: -4.07
+- date: 20260626
+- open: 61.5
+- high: 62.3
+- low: 58.3
+- close: 58.5
+- volume: 3621183
+- ma5: 61.84
+- ema23_primary: 56.3
+- distance_to_ema23_pct: 3.9
+- ma20: 55.75
+- ma60: 48.77
+- ma120: 43.32
+- return_5d: -3.94
+- return_20d: 5.22
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 4.93
+- distance_to_high_60_pct: -12.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,53.9,54.6,52.8,53,2866200,48.13,10.12,47.68,43.6,0.91
-20260526,53.3,53.7,51.5,52.2,1701948,48.47,7.7,48.22,43.76,0.54
-20260527,52.8,55.8,51.6,55.8,4231394,49.08,13.69,48.9,43.96,1.28
-20260528,58.2,58.2,54.1,55.6,16326463,49.62,12.04,49.56,44.11,4.02
 20260529,55.2,55.6,53.5,54.1,4892496,50,8.21,50.17,44.27,1.15
 20260601,54.4,54.5,52.7,53.1,2996860,50.26,5.66,50.65,44.47,0.69
 20260602,52.8,53.1,51.7,52.6,2373564,50.45,4.26,51.06,44.63,0.54
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,57,63,56.4,62.6,16230644,52.7,18.78,53.4,46.63,2.96
 20260618,61.3,62.3,60.1,60.9,10384518,53.39,14.07,53.82,46.96,1.84
 20260622,61.6,66.3,61.6,63.6,9863302,54.24,17.26,54.3,47.35,1.66
+20260623,65.7,66.8,61.5,62.4,9190753,54.92,13.62,54.77,47.71,1.47
+20260624,61.3,64.3,60.8,62.4,4241690,55.54,12.35,55.28,48.08,0.66
+20260625,64.4,64.9,61.2,62.3,4469912,56.1,11.04,55.61,48.44,0.7
+20260626,61.5,62.3,58.3,58.5,3621183,56.3,3.9,55.75,48.77,0.63
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 29.62
-- over_600_ratio: 25.49
-- over_800_ratio: 21.84
-- over_1000_ratio: 20.15
-- over_400_change_1w: -0.68
-- over_800_change_1w: -0.54
-- over_1000_change_1w: -0.59
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 30.19
+- over_600_ratio: 25.02
+- over_800_ratio: 21.87
+- over_1000_ratio: 20.78
+- over_400_change_1w: 0.57
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.63
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,30.83,-0.56,22.81,-0.22,20.54,-2.02,1,False,False
 20260612,30.3,-0.53,22.38,-0.43,20.74,0.2,2,False,True
 20260618,29.62,-0.68,21.84,-0.54,20.15,-0.59,0,False,False
+20260626,30.19,0.57,21.87,0.03,20.78,0.63,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5471 | 松翰 | true_breakout | 嚴格突破 | 90.0 |  |  | platform_breakout |  |  | continued_many_days | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：國票證券(台北市松山區南京東路五段188號15樓) 4.法人說明會擇要訊息：本公司受邀參加國票證券舉辦之法人座談會，報告本公司營運狀況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 5471 | 松翰 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：國票證券(台北市松山區南京東路五段188號15樓) 4.法人說明會擇要訊息：本公司受邀參加國票證券舉辦之法人座談會，報告本公司營運狀況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5471 | 松翰 | 18 | 1 | 5 | 10 | 18 | continued_many_days | 連續 18 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260626 | 5471 | 松翰 | 1 | 1 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

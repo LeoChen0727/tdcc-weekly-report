@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-24 08:06:11 Asia/Taipei",
+  "generated_at": "2026-06-28 19:31:47 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 2734
+      "rows": 2831
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -11,21 +11,21 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 1326
+      "rows": 1334
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
-      "rows": 18
+      "rows": 17
     }
   },
   "sources": {
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
       "status": "ok",
-      "rows": 281,
+      "rows": 296,
       "error": "",
       "http_status": 200,
-      "live_rows": 281,
+      "live_rows": 296,
       "consecutive_live_failures": 0,
       "calendar_effect_allowed": true
     },
@@ -40,20 +40,20 @@
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 496,
+      "rows": 392,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
       "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "status": "ok",
-      "rows": 13,
+      "rows": 12,
       "error": "",
       "http_status": 200
     },
     "bea_release_schedule": {
       "url": "https://www.bea.gov/news/schedule",
       "status": "ok",
-      "rows": 22,
+      "rows": 20,
       "error": "",
       "http_status": 200
     },

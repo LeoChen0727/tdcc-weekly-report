@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3712 永崴投控
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:43 Asia/Taipei
+- generated_at: 2026-06-28 22:26:41 Asia/Taipei
 - stock_id: 3712
 - stock_name: 永崴投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 286
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 290
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 17.6
+- date: 20260626
+- open: 18.3
 - high: 18.3
-- low: 17.6
-- close: 18.05
-- volume: 697487
-- ma5: 17.88
-- ema23_primary: 18.01
-- distance_to_ema23_pct: 0.2
-- ma20: 17.87
-- ma60: 18.98
-- ma120: 22.02
-- return_5d: 4.94
-- return_20d: 11.76
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.01
-- distance_to_high_60_pct: -24.16
+- low: 17.3
+- close: 17.35
+- volume: 834850
+- ma5: 17.97
+- ema23_primary: 17.99
+- distance_to_ema23_pct: -3.56
+- ma20: 18.22
+- ma60: 18.63
+- ma120: 21.77
+- return_5d: -1.7
+- return_20d: 4.52
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -4.78
+- distance_to_high_60_pct: -26.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,16.35,16.9,15.65,16,1231762,18.17,-11.95,18.55,20.76,0.8
-20260526,16.1,16.5,15.8,16.15,940586,18,-10.3,18.36,20.61,0.61
-20260527,16.3,16.5,15.85,16.05,1027593,17.84,-10.04,18.14,20.46,0.7
-20260528,16.3,17.15,16.3,16.6,1453812,17.74,-6.41,17.96,20.32,0.97
 20260529,16.6,18.25,16.5,18.25,2025386,17.78,2.64,17.84,20.21,1.29
 20260601,19.5,20.05,18.55,19.9,3244829,17.96,10.82,17.84,20.13,1.91
 20260602,19.85,19.85,18.6,19.1,1510711,18.05,5.8,17.81,20.05,0.92
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,17.95,18.25,17.7,17.9,383814,18.04,-0.79,17.68,19.16,0.32
 20260618,18,18.05,17.65,17.65,522909,18.01,-2,17.77,19.07,0.45
 20260622,17.6,18.3,17.6,18.05,697487,18.01,0.2,17.87,18.98,0.62
+20260623,18.15,18.3,17.75,17.95,540937,18.01,-0.33,17.97,18.9,0.5
+20260624,17.9,18.35,17.7,17.95,538889,18,-0.3,18.06,18.81,0.5
+20260625,18.2,18.9,18.2,18.55,676337,18.05,2.77,18.18,18.73,0.64
+20260626,18.3,18.3,17.3,17.35,834850,17.99,-3.56,18.22,18.63,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 54.24
-- over_600_ratio: 53.54
-- over_800_ratio: 52.71
-- over_1000_ratio: 51.95
-- over_400_change_1w: 0.16
-- over_800_change_1w: 0.34
-- over_1000_change_1w: 0.34
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 54.48
+- over_600_ratio: 53.97
+- over_800_ratio: 53.41
+- over_1000_ratio: 52.65
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.7
+- over_1000_change_1w: 0.7
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.98,-0.21,52.45,-0.56,51.69,-0.56,0,False,False
 20260612,54.08,0.1,52.37,-0.08,51.61,-0.08,1,False,False
 20260618,54.24,0.16,52.71,0.34,51.95,0.34,2,True,True
+20260626,54.48,0.24,53.41,0.7,52.65,0.7,3,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3712 | 永崴投控 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 3712 | 永崴投控 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3284 太普高
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:30 Asia/Taipei
+- generated_at: 2026-06-28 22:26:31 Asia/Taipei
 - stock_id: 3284
 - stock_name: 太普高
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 23.2
-- high: 24.6
-- low: 23
-- close: 24.1
-- volume: 1751000
-- ma5: 21.89
-- ema23_primary: 19.36
-- distance_to_ema23_pct: 24.46
-- ma20: 18.79
-- ma60: 18.06
-- ma120: 19.19
-- return_5d: 23.27
-- return_20d: 43.45
-- volume_ratio: 3.36
-- distance_to_ma20_pct_auxiliary: 28.26
-- distance_to_high_60_pct: -2.03
+- date: 20260626
+- open: 30.4
+- high: 31.5
+- low: 28.9
+- close: 29.35
+- volume: 4167000
+- ma5: 26.9
+- ema23_primary: 21.83
+- distance_to_ema23_pct: 34.44
+- ma20: 21.08
+- ma60: 18.58
+- ma120: 19.41
+- return_5d: 29.3
+- return_20d: 84.59
+- volume_ratio: 4.18
+- distance_to_ma20_pct_auxiliary: 39.25
+- distance_to_high_60_pct: -6.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,17.55,18.45,16.65,16.65,17000,16.79,-0.83,16.35,18.26,0.07
-20260526,16.8,16.8,16.1,16.2,16000,16.74,-3.22,16.34,18.19,0.07
-20260527,16.3,16.4,15.85,15.9,16000,16.67,-4.62,16.3,18.12,0.07
-20260528,15.9,16,15.7,15.9,16000,16.61,-4.25,16.29,18.05,0.07
 20260529,15.95,16.15,15.8,16,16000,16.56,-3.35,16.3,17.98,0.08
 20260601,16,16.3,15.8,15.85,16000,16.5,-3.92,16.29,17.93,0.08
 20260602,16.1,16.1,15.7,15.85,16,16.44,-3.6,16.29,17.87,0
@@ -155,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,20.2,22.2,20.15,22.2,1144000,18.59,19.42,18.14,17.92,3.45
 20260618,23.5,23.75,22.2,22.7,2502000,18.93,19.9,18.43,17.98,5.77
 20260622,23.2,24.6,23,24.1,1751000,19.36,24.46,18.79,18.06,3.36
+20260623,24.1,25.75,23.7,25.4,1293000,19.87,27.85,19.23,18.15,2.21
+20260624,24.9,26.55,24.75,26.5,1611000,20.42,29.78,19.74,18.26,2.43
+20260625,27.2,29.15,26.6,29.15,2538000,21.15,37.84,20.41,18.42,3.21
+20260626,30.4,31.5,28.9,29.35,4167000,21.83,34.44,21.08,18.58,4.18
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.64
-- over_600_ratio: 70.26
-- over_800_ratio: 69
-- over_1000_ratio: 68.19
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.92
+- as_of_date: 20260626
+- over_400_ratio: 71.44
+- over_600_ratio: 69.72
+- over_800_ratio: 67.85
+- over_1000_ratio: 67.85
+- over_400_change_1w: -0.2
+- over_800_change_1w: -1.15
+- over_1000_change_1w: -0.34
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.41,-0.07,69.19,-0.1,69.19,-0.1,0,False,False
 20260612,71.66,-0.75,69.11,-0.08,69.11,-0.08,0,False,False
 20260618,71.64,-0.02,69,-0.11,68.19,-0.92,0,False,False
+20260626,71.44,-0.2,67.85,-1.15,67.85,-0.34,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3284 | 太普高 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 3284 | 太普高 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_breakout |  |  | continued_overheated | 1. 原公告日期： 115/04/15 2. 簡述原公告申報內容： 本公司董事會通過處分「科工164」在建工案 3. 變動緣由及主要內容： 因買方公司基於自身營運策略考量，決定不予本公司簽訂土地買賣合約， 致原處分交易無法依原計畫進行，故撤銷原處分案。 4. 變動後對公司財務業務之影響： 無。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3284 | 太普高 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 3284 | 太普高 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

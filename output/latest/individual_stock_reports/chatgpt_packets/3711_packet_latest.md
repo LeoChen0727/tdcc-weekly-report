@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:43 Asia/Taipei
+- generated_at: 2026-06-28 22:26:41 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,10 +87,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +104,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 660
-- high: 674
-- low: 652
-- close: 674
-- volume: 37123135
-- ma5: 612.8
-- ema23_primary: 579.9
-- distance_to_ema23_pct: 16.23
-- ma20: 596.65
-- ma60: 505.12
-- ma120: 405.26
-- return_5d: 14.24
-- return_20d: 20.14
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: 12.96
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 650
+- high: 695
+- low: 630
+- close: 632
+- volume: 45022342
+- ma5: 652.4
+- ema23_primary: 599.3
+- distance_to_ema23_pct: 5.46
+- ma20: 601.2
+- ma60: 524.62
+- ma120: 419.23
+- return_5d: 3.1
+- return_20d: 0.8
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 5.12
+- distance_to_high_60_pct: -9.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,598,617,584,617,26609382,510.08,20.96,523.17,426.48,0.99
-20260526,636,636,590,611,39627497,518.49,17.84,528.95,430.18,1.45
-20260527,641,669,626,642,30005707,528.78,21.41,536.27,434.42,1.09
-20260528,626,668,617,627,35071941,536.97,16.77,543.2,438.69,1.24
 20260529,642,644,608,611,43968378,543.14,12.49,549.85,442.88,1.53
 20260601,603,615,599,601,25834856,547.96,9.68,553.65,447.44,0.9
 20260602,600,608,577,590,27769330,551.46,6.99,557.15,451.38,0.99
@@ -154,20 +149,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,584,595,573,595,13317248,567.56,4.83,585.85,494.71,0.52
 20260618,591,618,591,613,36191812,571.35,7.29,591,499.43,1.38
 20260622,660,674,652,674,37123135,579.9,16.23,596.65,505.12,1.4
+20260623,679,700,662,662,44546851,586.74,12.83,598.9,510.29,1.62
+20260624,636,659,618,653,35911480,592.26,10.25,601,515.19,1.32
+20260625,679,679,625,641,31615796,596.33,7.49,600.95,519.98,1.16
+20260626,650,695,630,632,45022342,599.3,5.46,601.2,524.62,1.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 87.07
-- over_600_ratio: 84.86
-- over_800_ratio: 83.21
-- over_1000_ratio: 81.72
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 87.19
+- over_600_ratio: 84.96
+- over_800_ratio: 83.59
+- over_1000_ratio: 82.01
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.38
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,22 +180,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,87.24,-0.5,83.48,-0.42,82.13,-0.43,0,False,False
 20260612,87.05,-0.19,83.24,-0.24,81.79,-0.34,0,False,False
 20260618,87.07,0.02,83.21,-0.03,81.72,-0.07,1,False,False
+20260626,87.19,0.12,83.59,0.38,82.01,0.29,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3711 | 日月光投控 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_right_side |  | call_put_bullish | continued_many_days | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：JP Morgan 倫敦辦公室 4.法人說明會擇要訊息：無。 5.其他應敘明事項：簡報檔內容與115年4月29日召開之法人說明會相同。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 3711 | 日月光投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | 1.董事會決議日期:115/06/25 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 日月光投資控股股份有限公司民國115年度海外第一次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:暫定以美金10億元為上限 5.每張面額:美金20萬元，或如超過美金20萬元， 為美金10萬元之整數倍數。 6.發行價格:依面額之100%發行 7.發行期間:暫定發行期間為5年 8.發行利率:暫定為年利率0% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:認購子公司日月光半導體製造股份 有限公司及矽品精密工業股份有限公司以現金增資方式發行之新股 11.承銷方式:本公司債將於中華民國境外地區發行，並將依照 銷售國家的法律與規範及國際市場慣例辦理。 所有本公司債將全數對外公開銷售。 12.公司債受託人:Citicorp International Limited 13.承銷或代銷機構: 國外主辦承銷商：DBS Bank Ltd., Goldman Sachs International, and The Hongkong and Shanghai Banking Corporation Limited 國內主辦承銷商：凱基證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:Citibank, N.A., London Branch 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法: 授權董事長或集團財務長視市場實際狀況決定 18.賣回條件: 授權董事長或集團財務長視市場實際狀況決定 19.買回條件: 授權董事長或集團財務長視市場實際狀況決定 20.附有轉換、交換或認股者，其換股基準日: 授權董事長或集團財務長視市場實際狀況決定 21.附有轉換、交換或認股者，對股權可能稀釋情形: 視實際發行時轉換溢價率而定 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: 一、本次發行之海外無擔保轉換公司債重要內容，包括發行辦法、 計畫項目、實際發行與募集金額、票面利率、預定進度及預計可 能產生效益等相關事項之議定及其他一切有關發行作業，授權董 事長或集團財務長視市場實際狀況決定； 並得依主管機關指示或基於營運評估或因客觀環境需要進行必要 之修正或調整。實際發行條件，將於海外無擔保轉換公司債完成 發行後向股東會報告。 二、為配合本次海外無擔保轉換公司債之發行，授權董事長或 集團財務長及/或其指定之人核可並代表本公司簽 署一切有關發行海外無擔保轉換公司債之契約、文件及辦理一 切相關事宜。 三、本次發行海外無擔保轉換公司債若有未盡事宜，授權董事長 或集團財務長依法全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3711 | 日月光投控 | 8 | 1 | 5 | 8 | 12 | continued_many_days | 連續 8 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260626 | 3711 | 日月光投控 | 1 | 1 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3711 | 日月光投控 | 227 | 16 | 53379190.0 | 468140.0 | 114.02 | call_put_bullish |
+| 20260626 | 3711 | 日月光投控 | 232 | 0 | 106569030.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

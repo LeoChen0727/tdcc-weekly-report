@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:09 Asia/Taipei
+- generated_at: 2026-06-28 22:27:03 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 24.75
-- high: 24.75
-- low: 24.35
-- close: 24.45
-- volume: 23219136
-- ma5: 24.54
-- ema23_primary: 23.74
-- distance_to_ema23_pct: 3.01
-- ma20: 23.57
-- ma60: 23.37
+- date: 20260626
+- open: 24.95
+- high: 25.05
+- low: 24.7
+- close: 24.7
+- volume: 19431632
+- ma5: 24.64
+- ema23_primary: 24.02
+- distance_to_ema23_pct: 2.84
+- ma20: 23.97
+- ma60: 23.45
 - ma120: 23.59
-- return_5d: 1.66
-- return_20d: 7.71
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 3.73
-- distance_to_high_60_pct: -2.2
+- return_5d: -0.2
+- return_20d: 8.81
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 3.06
+- distance_to_high_60_pct: -1.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,22.7,22.7,22.6,22.65,17695942,22.94,-1.25,22.86,23.26,1.03
-20260526,22.65,22.8,22.65,22.7,14984565,22.92,-0.94,22.85,23.24,0.9
-20260527,22.7,22.8,22.65,22.75,16022020,22.9,-0.66,22.84,23.22,0.96
-20260528,22.75,22.8,22.6,22.7,21036566,22.89,-0.81,22.82,23.2,1.25
 20260529,22.7,22.85,22.6,22.85,71316116,22.88,-0.14,22.82,23.18,3.64
 20260601,22.85,22.95,22.6,22.85,29130456,22.88,-0.13,22.81,23.17,1.44
 20260602,22.8,23.1,22.7,23.05,31996097,22.89,0.68,22.82,23.16,1.51
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,24.55,25,24.5,24.75,28807379,23.57,5,23.38,23.3,1
 20260618,24.75,25,24.7,24.75,33174894,23.67,4.56,23.48,23.34,1.11
 20260622,24.75,24.75,24.35,24.45,23219136,23.74,3.01,23.57,23.37,0.77
+20260623,24.35,24.65,24.3,24.55,23831499,23.8,3.14,23.66,23.39,0.78
+20260624,24.5,24.65,24.3,24.4,18131110,23.85,2.29,23.75,23.4,0.59
+20260625,24.4,25.1,24.35,25.1,47340824,23.96,4.77,23.87,23.43,1.47
+20260626,24.95,25.05,24.7,24.7,19431632,24.02,2.84,23.97,23.45,0.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.3
-- over_600_ratio: 71.23
-- over_800_ratio: 70.1
-- over_1000_ratio: 69.28
-- over_400_change_1w: 0.3
-- over_800_change_1w: 0.33
-- over_1000_change_1w: 0.31
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 73.57
+- over_600_ratio: 71.52
+- over_800_ratio: 70.39
+- over_1000_ratio: 69.57
+- over_400_change_1w: 0.27
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,18 +181,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.76,0.25,69.51,0.29,68.68,0.28,1,True,True
 20260612,73,0.24,69.77,0.26,68.97,0.29,2,True,True
 20260618,73.3,0.3,70.1,0.33,69.28,0.31,3,True,True
+20260626,73.57,0.27,70.39,0.29,69.57,0.29,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/18 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:蘇佐政 4.舊任者簡歷:本公司總經理 5.新任者姓名:蘇佐政 6.新任者簡歷:本公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:續任 8.異動原因:配合董事改選，董事會委聘 9.新任生效日期:115/06/18 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/18 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:蘇佐政 4.舊任者簡歷:本公司總經理 5.新任者姓名:蘇佐政 6.新任者簡歷:本公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:續任 8.異動原因:配合董事改選，董事會委聘 9.新任生效日期:115/06/18 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:通過公司章程修正案 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:通過公司章程修正案 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5880 | 合庫金 | 18 | 8 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 5880 | 合庫金 | 21 | 11 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

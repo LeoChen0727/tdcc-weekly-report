@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:15 Asia/Taipei
+- generated_at: 2026-06-28 22:27:07 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 89.1
-- high: 93.6
-- low: 88.9
-- close: 90.2
-- volume: 13235707
-- ma5: 88.46
-- ema23_primary: 95.06
-- distance_to_ema23_pct: -5.12
-- ma20: 96.81
-- ma60: 97.16
-- ma120: 106.93
-- return_5d: -1.2
-- return_20d: -16.09
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: -6.83
-- distance_to_high_60_pct: -22.58
+- date: 20260626
+- open: 90.7
+- high: 91
+- low: 87.6
+- close: 87.7
+- volume: 8059351
+- ma5: 89.76
+- ema23_primary: 93.45
+- distance_to_ema23_pct: -6.15
+- ma20: 93.94
+- ma60: 97.02
+- ma120: 105.94
+- return_5d: -0.23
+- return_20d: -14.02
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -6.65
+- distance_to_high_60_pct: -24.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,109,109.5,106.5,107.5,6949932,101.95,5.44,102.19,98.66,0.85
-20260526,108,108,104,105,6571468,102.21,2.73,102.48,98.16,0.89
-20260527,105,105.5,101.5,101.5,6731004,102.15,-0.63,102.78,97.81,0.94
-20260528,102,105,101.5,102,5255764,102.14,-0.13,102.86,97.68,0.77
 20260529,103.5,109.5,102,106.5,10413493,102.5,3.9,103.2,97.75,1.56
 20260601,104,105.5,102,105,10495679,102.71,2.23,103.4,97.85,1.53
 20260602,105.5,106,101.5,103.5,12251701,102.77,0.71,103.45,97.89,1.7
@@ -154,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,86.9,88.7,86.6,88.2,5736475,96.2,-8.31,98.53,97.27,0.59
 20260618,88.9,89.4,87.2,87.9,11842519,95.51,-7.96,97.68,97.19,1.18
 20260622,89.1,93.6,88.9,90.2,13235707,95.06,-5.12,96.81,97.16,1.28
+20260623,90.7,91.3,89.2,90,8514065,94.64,-4.91,95.94,97.13,0.82
+20260624,89.3,91.5,89.1,90.2,8466976,94.27,-4.32,95.2,97.11,0.81
+20260625,91.2,92.3,90.7,90.7,9764581,93.97,-3.48,94.66,97.09,0.92
+20260626,90.7,91,87.6,87.7,8059351,93.45,-6.15,93.94,97.02,0.75
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.24
-- over_600_ratio: 47.73
-- over_800_ratio: 44.9
-- over_1000_ratio: 42.33
-- over_400_change_1w: -2.58
-- over_800_change_1w: -2.66
-- over_1000_change_1w: -3.3
+- as_of_date: 20260626
+- over_400_ratio: 50.2
+- over_600_ratio: 46.5
+- over_800_ratio: 44.01
+- over_1000_ratio: 41.44
+- over_400_change_1w: -1.04
+- over_800_change_1w: -0.89
+- over_1000_change_1w: -0.89
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.88,-0.7,51.57,-0.71,49.43,-0.5,0,False,False
 20260612,53.82,-4.06,47.56,-4.01,45.63,-3.8,0,False,False
 20260618,51.24,-2.58,44.9,-2.66,42.33,-3.3,0,False,False
+20260626,50.2,-1.04,44.01,-0.89,41.44,-0.89,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6176 | 瑞儀 | 21 | 1 | 4009040.0 | 23010.0 | 174.23 | no_signal |
+| 20260626 | 6176 | 瑞儀 | 22 | 0 | 1765660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

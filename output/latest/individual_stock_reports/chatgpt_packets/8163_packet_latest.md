@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8163 達方
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:57 Asia/Taipei
+- generated_at: 2026-06-28 22:27:42 Asia/Taipei
 - stock_id: 8163
 - stock_name: 達方
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 46.5
-- high: 47.8
-- low: 44.75
-- close: 45.3
-- volume: 6403907
-- ma5: 44.66
-- ema23_primary: 40.4
-- distance_to_ema23_pct: 12.14
-- ma20: 41.14
-- ma60: 32.98
-- ma120: 31.69
-- return_5d: 5.72
-- return_20d: 27.07
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 10.11
-- distance_to_high_60_pct: -5.23
+- date: 20260626
+- open: 42.9
+- high: 43.2
+- low: 40.5
+- close: 40.8
+- volume: 2976661
+- ma5: 43.06
+- ema23_primary: 41
+- distance_to_ema23_pct: -0.49
+- ma20: 42.39
+- ma60: 33.94
+- ma120: 32.08
+- return_5d: -9.23
+- return_20d: 11.02
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -3.75
+- distance_to_high_60_pct: -14.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,35.7,36.5,34.85,35.55,5120113,31.27,13.69,30.47,29.02,1.21
-20260526,36.55,38,36.1,36.75,6096700,31.73,15.83,30.96,29.11,1.36
-20260527,37.1,37.1,35.45,36,3551927,32.08,12.21,31.41,29.19,0.77
-20260528,36,38.5,36,36.75,8111438,32.47,13.17,31.91,29.3,1.62
 20260529,37.1,40,37.1,39.3,10405996,33.04,18.94,32.54,29.45,1.9
 20260601,39.3,42.9,39,41.8,8252234,33.77,23.77,33.29,29.66,1.41
 20260602,41.8,43.5,40.1,41.6,6575150,34.42,20.85,34,29.87,1.07
@@ -154,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,43.3,44.5,42.45,44.45,2921906,39.5,12.54,40.19,32.4,0.43
 20260618,44.65,47.8,44.65,44.95,7719062,39.95,12.51,40.66,32.69,1.17
 20260622,46.5,47.8,44.75,45.3,6403907,40.4,12.14,41.14,32.98,0.99
+20260623,45.4,45.4,42.35,42.5,3890066,40.57,4.75,41.49,33.22,0.61
+20260624,41.95,43.35,41.65,43,1986315,40.77,5.46,41.8,33.46,0.32
+20260625,43.35,43.95,42.2,43.7,2276805,41.02,6.54,42.19,33.72,0.37
+20260626,42.9,43.2,40.5,40.8,2976661,41,-0.49,42.39,33.94,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.68
-- over_600_ratio: 43.13
-- over_800_ratio: 41.59
-- over_1000_ratio: 41.02
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.16
-- over_1000_change_1w: -0.13
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 46.43
+- over_600_ratio: 43.35
+- over_800_ratio: 41.54
+- over_1000_ratio: 40.65
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.37
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.41,-0.24,39.68,-0.24,38.09,-0.26,0,False,False
 20260612,46.5,2.09,41.43,1.75,41.15,3.06,1,True,True
 20260618,46.68,0.18,41.59,0.16,41.02,-0.13,2,False,True
+20260626,46.43,-0.25,41.54,-0.05,40.65,-0.37,3,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8163 | 達方 | 3 | 0 | 581370.0 | 0.0 |  | no_signal |
+| 20260626 | 8163 | 達方 | 3 | 0 | 324660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

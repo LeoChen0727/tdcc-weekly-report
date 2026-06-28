@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1308 亞聚
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:35 Asia/Taipei
+- generated_at: 2026-06-28 22:25:47 Asia/Taipei
 - stock_id: 1308
 - stock_name: 亞聚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 14.1
-- high: 14.3
-- low: 13.95
-- close: 14.15
-- volume: 2989410
-- ma5: 13.75
-- ema23_primary: 13.72
-- distance_to_ema23_pct: 3.16
-- ma20: 13.57
-- ma60: 14.77
-- ma120: 14.38
-- return_5d: 3.66
-- return_20d: 6.39
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 4.27
-- distance_to_high_60_pct: -33.1
+- date: 20260626
+- open: 14.05
+- high: 14.25
+- low: 13.75
+- close: 13.75
+- volume: 1925086
+- ma5: 13.96
+- ema23_primary: 13.77
+- distance_to_ema23_pct: -0.18
+- ma20: 13.73
+- ma60: 14.5
+- ma120: 14.4
+- return_5d: -1.43
+- return_20d: 3.77
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 0.13
+- distance_to_high_60_pct: -34.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,13.2,13.45,12.9,13.35,3329010,13.96,-4.36,13.73,15.25,1.01
-20260526,13.3,13.45,12.95,12.95,3068116,13.87,-6.66,13.64,15.22,0.96
-20260527,12.95,13.1,12.85,12.85,2106356,13.79,-6.81,13.54,15.21,0.68
-20260528,12.8,13.35,12.75,13.25,6690841,13.74,-3.6,13.47,15.2,2.02
 20260529,13,13.2,12.95,13.1,3054408,13.69,-4.31,13.38,15.18,0.97
 20260601,13.2,13.7,13,13.65,4039526,13.69,-0.27,13.36,15.17,1.31
 20260602,13.8,13.95,13.5,13.85,5159293,13.7,1.09,13.34,15.17,1.62
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,13.65,13.8,13.5,13.7,2244153,13.65,0.35,13.49,14.9,0.75
 20260618,13.75,14.3,13.75,13.95,3483109,13.68,2,13.53,14.83,1.13
 20260622,14.1,14.3,13.95,14.15,2989410,13.72,3.16,13.57,14.77,0.96
+20260623,14.2,14.2,13.5,13.6,2920811,13.71,-0.78,13.58,14.72,0.95
+20260624,13.45,14.25,13.4,14.25,2766299,13.75,3.62,13.65,14.66,0.9
+20260625,14.25,14.55,14.05,14.05,3027604,13.78,1.99,13.71,14.6,0.97
+20260626,14.05,14.25,13.75,13.75,1925086,13.77,-0.18,13.73,14.5,0.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.84
-- over_600_ratio: 50.18
-- over_800_ratio: 49.07
-- over_1000_ratio: 48.45
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 10
+- as_of_date: 20260626
+- over_400_ratio: 52.13
+- over_600_ratio: 50.41
+- over_800_ratio: 49.54
+- over_1000_ratio: 48.95
+- over_400_change_1w: 0.29
+- over_800_change_1w: 0.47
+- over_1000_change_1w: 0.5
+- tdcc_consecutive_up_weeks: 11
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,51.2,-0.95,48.47,-0.91,47.72,-1.05,0,False,False
 20260410,50.34,-0.86,47.97,-0.5,47.37,-0.35,0,False,False
 20260417,50.41,0.07,47.92,-0.05,47.48,0.11,1,False,True
 20260424,50.25,-0.16,47.97,0.05,47.35,-0.13,2,False,True
@@ -186,22 +185,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.58,0.19,48.89,0.27,48.12,-0.18,8,False,True
 20260612,51.82,0.24,49.05,0.16,48.28,0.16,9,False,True
 20260618,51.84,0.02,49.07,0.02,48.45,0.17,10,True,True
+20260626,52.13,0.29,49.54,0.47,48.95,0.5,11,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1308 | 亞聚 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 1308 | 亞聚 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1308 | 亞聚 | 2 | 2 | 2 | 3 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 1308 | 亞聚 | 2 | 2 | 4 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1308 | 亞聚 | 19 | 1 | 50470.0 | 0.0 |  | no_signal |
+| 20260626 | 1308 | 亞聚 | 19 | 0 | 46490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

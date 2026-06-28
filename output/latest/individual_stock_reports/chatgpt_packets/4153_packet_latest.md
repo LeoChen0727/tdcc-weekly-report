@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4153 鈺緯
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:45 Asia/Taipei
+- generated_at: 2026-06-28 22:26:43 Asia/Taipei
 - stock_id: 4153
 - stock_name: 鈺緯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 29.8
-- high: 30.5
-- low: 29.6
-- close: 30.1
-- volume: 31000
-- ma5: 29.93
-- ema23_primary: 30.78
-- distance_to_ema23_pct: -2.21
-- ma20: 30.98
-- ma60: 31.36
-- ma120: 32.8
-- return_5d: 0.67
-- return_20d: -2.9
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -2.82
-- distance_to_high_60_pct: -10.55
+- date: 20260626
+- open: 30.2
+- high: 30.2
+- low: 29.85
+- close: 29.85
+- volume: 4000
+- ma5: 29.98
+- ema23_primary: 30.54
+- distance_to_ema23_pct: -2.25
+- ma20: 30.79
+- ma60: 31.14
+- ma120: 32.62
+- return_5d: -0.5
+- return_20d: -5.54
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -3.05
+- distance_to_high_60_pct: -11.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,31,31.2,30.45,30.65,31000,30.9,-0.8,30.51,32.24,1.06
-20260526,30.2,30.9,30.15,30.6,31000,30.87,-0.88,30.49,32.19,1.05
-20260527,30.7,31,30.65,30.7,31000,30.86,-0.51,30.5,32.13,1.07
-20260528,31.5,32.55,31,31.6,32000,30.92,2.2,30.55,32.09,1.06
 20260529,32.9,32.9,31.6,31.7,32000,30.98,2.31,30.61,32.05,1.02
 20260601,32.5,32.5,31.75,31.85,32000,31.06,2.56,30.68,32.01,1.02
 20260602,31.85,32,31.3,31.4,32,31.08,1.01,30.72,31.97,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,29.8,30.65,29.8,30,8000,30.92,-2.98,31.05,31.44,0.3
 20260618,30,30.35,29.7,30,10000,30.84,-2.73,31.02,31.39,0.37
 20260622,29.8,30.5,29.6,30.1,31000,30.78,-2.21,30.98,31.36,1.15
+20260623,29.9,30,29.9,29.9,17000,30.71,-2.63,30.94,31.3,0.65
+20260624,29,30.05,29,30.05,22000,30.65,-1.97,30.91,31.25,0.86
+20260625,30.05,30.45,29.65,30,22000,30.6,-1.96,30.88,31.2,0.87
+20260626,30.2,30.2,29.85,29.85,4000,30.54,-2.25,30.79,31.14,0.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 76.39
-- over_600_ratio: 74.56
-- over_800_ratio: 73.44
-- over_1000_ratio: 71.84
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 76.43
+- over_600_ratio: 74.59
+- over_800_ratio: 73.47
+- over_1000_ratio: 71.87
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,76.36,0.52,73.44,0.52,71.84,-1.08,1,False,True
 20260612,76.38,0.02,73.44,0,71.84,0,2,False,False
 20260618,76.39,0.01,73.44,0,71.84,0,3,False,False
+20260626,76.43,0.04,73.47,0.03,71.87,0.03,4,True,True
 ```
 
 ## Candidate Context

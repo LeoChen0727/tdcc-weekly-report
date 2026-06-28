@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2485 兆赫
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:07 Asia/Taipei
+- generated_at: 2026-06-28 22:26:13 Asia/Taipei
 - stock_id: 2485
 - stock_name: 兆赫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 61.8
-- high: 62
-- low: 60.2
-- close: 60.6
-- volume: 10636712
-- ma5: 61.9
-- ema23_primary: 66.04
-- distance_to_ema23_pct: -8.23
-- ma20: 67.5
-- ma60: 70.22
-- ma120: 56.3
-- return_5d: -6.48
-- return_20d: -16.99
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -10.23
-- distance_to_high_60_pct: -30.26
+- date: 20260626
+- open: 57
+- high: 58
+- low: 52.1
+- close: 52.2
+- volume: 11023018
+- ma5: 57.2
+- ema23_primary: 63.13
+- distance_to_ema23_pct: -17.32
+- ma20: 63.91
+- ma60: 68.67
+- ma120: 57.2
+- return_5d: -15.4
+- return_20d: -27.3
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -18.33
+- distance_to_high_60_pct: -39.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,74.7,78.6,74,76.7,70451327,69.98,9.6,67.88,68.3,1.7
-20260526,77.6,77.8,73.6,74.6,30717706,70.37,6.02,68.5,68.84,0.75
-20260527,75.8,76.2,73,74.1,25057758,70.68,4.84,69.08,69.33,0.61
-20260528,74.8,77.6,70.3,71.8,38949087,70.77,1.45,69.63,69.7,0.91
 20260529,72.5,74.9,71.3,74.2,26575995,71.06,4.42,70.41,70.03,0.63
 20260601,74.6,74.8,72.5,72.6,21901665,71.19,1.99,70.81,70.41,0.52
 20260602,72.8,73.8,69.1,69.9,15331008,71.08,-1.66,70.87,70.72,0.39
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,60,63.3,59.3,63,16859845,66.97,-5.93,68.54,70.73,0.73
 20260618,63,63,61.7,61.7,8343039,66.53,-7.26,68.12,70.46,0.38
 20260622,61.8,62,60.2,60.6,10636712,66.04,-8.23,67.5,70.22,0.51
+20260623,60.6,60.8,56.9,57.4,14274892,65.32,-12.12,66.54,69.84,0.79
+20260624,56.8,61.1,56.3,58.8,12596991,64.77,-9.22,65.75,69.51,0.73
+20260625,59.2,59.3,57,57,6292379,64.13,-11.11,64.89,69.12,0.39
+20260626,57,58,52.1,52.2,11023018,63.13,-17.32,63.91,68.67,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 19.86
-- over_600_ratio: 18.26
-- over_800_ratio: 17.39
-- over_1000_ratio: 17.1
-- over_400_change_1w: 0.29
-- over_800_change_1w: -0.17
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 19.18
+- over_600_ratio: 18.03
+- over_800_ratio: 16.94
+- over_1000_ratio: 16.37
+- over_400_change_1w: -0.68
+- over_800_change_1w: -0.45
+- over_1000_change_1w: -0.73
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,20.8,-0.47,18.19,-0.56,17.1,-0.88,0,False,False
 20260612,19.57,-1.23,17.56,-0.63,17.03,-0.07,0,False,False
 20260618,19.86,0.29,17.39,-0.17,17.1,0.07,1,False,True
+20260626,19.18,-0.68,16.94,-0.45,16.37,-0.73,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2485 | 兆赫 | 43 | 2 | 4383690.0 | 15120.0 | 289.93 | no_signal |
+| 20260626 | 2485 | 兆赫 | 44 | 0 | 1023350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

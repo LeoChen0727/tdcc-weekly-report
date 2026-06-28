@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:17 Asia/Taipei
+- generated_at: 2026-06-28 22:27:09 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 100
-- high: 101
-- low: 95.7
-- close: 97.2
-- volume: 21879361
-- ma5: 94.4
-- ema23_primary: 84.56
-- distance_to_ema23_pct: 14.95
-- ma20: 85.56
-- ma60: 70.38
-- ma120: 65.64
-- return_5d: 17.96
-- return_20d: 13.29
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 13.61
-- distance_to_high_60_pct: -6.99
+- date: 20260626
+- open: 88.7
+- high: 88.8
+- low: 80.6
+- close: 81.3
+- volume: 12553033
+- ma5: 89.44
+- ema23_primary: 85.34
+- distance_to_ema23_pct: -4.73
+- ma20: 86.56
+- ma60: 72.78
+- ma120: 66.5
+- return_5d: -16.27
+- return_20d: 0.74
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -6.08
+- distance_to_high_60_pct: -22.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,87.9,90.9,86,86.2,24327776,70.77,21.81,69.98,61.05,1.5
-20260526,86.2,86.2,80.3,81,17326289,71.62,13.1,70.73,61.32,1.07
-20260527,81.5,82.6,78,81.9,14859096,72.48,13,71.61,61.62,0.9
-20260528,82.5,84.4,79.4,80.7,13577210,73.16,10.3,72.5,61.94,0.8
 20260529,81.3,81.9,80.3,81.7,6317834,73.87,10.59,73.47,62.33,0.37
 20260601,83.9,86.4,83.4,84.5,16659551,74.76,13.03,74.58,62.85,0.93
 20260602,84.5,84.6,77.6,79.2,12333284,75.13,5.42,75.1,63.24,0.69
@@ -154,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,95.5,104.5,93.8,95.7,95741959,82.17,16.47,84.47,68.94,3.46
 20260618,95.8,98.3,93.1,97.1,30951785,83.41,16.41,84.98,69.66,1.16
 20260622,100,101,95.7,97.2,21879361,84.56,14.95,85.56,70.38,0.85
+20260623,97.5,97.6,89.4,90.3,15467228,85.04,6.19,85.76,70.99,0.61
+20260624,89.3,90.8,87.1,89,9781139,85.37,4.25,86.16,71.61,0.39
+20260625,89.7,94.8,88.1,89.4,16787960,85.7,4.31,86.53,72.25,0.67
+20260626,88.7,88.8,80.6,81.3,12553033,85.34,-4.73,86.56,72.78,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 45.06
-- over_600_ratio: 42.62
-- over_800_ratio: 38.8
-- over_1000_ratio: 37.37
-- over_400_change_1w: 1.26
-- over_800_change_1w: 1.24
-- over_1000_change_1w: 1.78
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 41.19
+- over_600_ratio: 38.53
+- over_800_ratio: 35.51
+- over_1000_ratio: 33.08
+- over_400_change_1w: -3.87
+- over_800_change_1w: -3.29
+- over_1000_change_1w: -4.29
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,22 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.86,-0.18,39.3,0.69,36.81,0.64,1,False,True
 20260612,43.8,-2.06,37.56,-1.74,35.59,-1.22,0,False,False
 20260618,45.06,1.26,38.8,1.24,37.37,1.78,1,True,True
+20260626,41.19,-3.87,35.51,-3.29,33.08,-4.29,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額:現金股利美金4,174仟元 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 6209 | 今國光 | 3 | 3 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6209 | 今國光 | 53 | 0 | 19711690.0 | 0.0 |  | no_signal |
+| 20260626 | 6209 | 今國光 | 56 | 0 | 12816940.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

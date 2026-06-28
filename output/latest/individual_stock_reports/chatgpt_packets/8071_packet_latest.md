@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8071 能率網通
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:54 Asia/Taipei
+- generated_at: 2026-06-28 22:27:40 Asia/Taipei
 - stock_id: 8071
 - stock_name: 能率網通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,40 +56,39 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: high_level_distribution_risk
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -103,6 +102,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 29.15
-- high: 29.35
-- low: 27.75
-- close: 27.85
-- volume: 4676000
-- ma5: 28.8
-- ema23_primary: 23.82
-- distance_to_ema23_pct: 16.91
-- ma20: 23.6
-- ma60: 19.17
-- ma120: 18.34
-- return_5d: 13.67
-- return_20d: 38.9
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 18.02
-- distance_to_high_60_pct: -10.16
+- date: 20260626
+- open: 32.45
+- high: 33.2
+- low: 29.7
+- close: 29.85
+- volume: 15799000
+- ma5: 28.7
+- ema23_primary: 25.35
+- distance_to_ema23_pct: 17.73
+- ma20: 25.34
+- ma60: 19.99
+- ma120: 18.71
+- return_5d: 1.53
+- return_20d: 50.38
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 17.82
+- distance_to_high_60_pct: -10.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,20.05,21.6,19.7,21.45,20000,18.33,17.04,17.93,16.97,0.01
-20260526,21.25,21.25,20,20.1,20000,18.47,8.8,18.16,17.02,0.01
-20260527,20.15,20.25,19.5,19.5,20000,18.56,5.06,18.36,17.06,0.01
-20260528,19.5,20.15,19.2,19.85,20000,18.67,6.33,18.54,17.1,0.01
 20260529,20.15,21.75,20.15,21.3,21000,18.89,12.78,18.79,17.18,0.01
 20260601,21.8,23.4,21.75,23.4,23000,19.26,21.48,19.15,17.3,0.02
 20260602,24.3,24.5,22.2,23.35,23,19.6,19.11,19.43,17.4,0
@@ -153,20 +149,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,29.6,31,29,30.2,12218000,22.91,31.79,22.73,18.76,3.89
 20260618,29.45,29.8,28.4,29.4,4735000,23.46,25.35,23.21,18.98,1.43
 20260622,29.15,29.35,27.75,27.85,4676000,23.82,16.91,23.6,19.17,1.32
+20260623,27.7,27.7,26.1,27,3381000,24.09,12.1,23.88,19.35,0.91
+20260624,26.9,28.35,26.7,28,3925000,24.41,14.7,24.27,19.54,1
+20260625,29.1,30.8,28.5,30.8,12411000,24.94,23.47,24.84,19.77,2.74
+20260626,32.45,33.2,29.7,29.85,15799000,25.35,17.73,25.34,19.99,2.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 34.21
-- over_600_ratio: 29.1
-- over_800_ratio: 26.7
-- over_1000_ratio: 25.23
-- over_400_change_1w: -0.09
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 36.47
+- over_600_ratio: 32.33
+- over_800_ratio: 28.67
+- over_1000_ratio: 27.2
+- over_400_change_1w: 2.26
+- over_800_change_1w: 1.97
+- over_1000_change_1w: 1.97
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,17 +180,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,35.08,1.48,26.7,0,25.23,0,1,False,False
 20260612,34.3,-0.78,26.7,0,25.23,0,2,False,False
 20260618,34.21,-0.09,26.7,0,25.23,0,0,False,False
+20260626,36.47,2.26,28.67,1.97,27.2,1.97,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 8071 | 能率網通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/06/24 2.公司名稱:能率網通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)通過董事長選舉案。 (2)通過選舉第六屆薪資報酬委員案。 (3)通過追認本公司處分股權案。 (4)通過本公司預計處分股權案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 8071 | 能率網通 | 2 | 1 | 2 | 2 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

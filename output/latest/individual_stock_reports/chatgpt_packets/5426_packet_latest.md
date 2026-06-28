@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5426 振發
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:04 Asia/Taipei
+- generated_at: 2026-06-28 22:26:59 Asia/Taipei
 - stock_id: 5426
 - stock_name: 振發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 38.5
-- high: 39.7
-- low: 38
-- close: 39.65
-- volume: 2920000
-- ma5: 37.6
-- ema23_primary: 29.66
-- distance_to_ema23_pct: 33.69
-- ma20: 28.65
-- ma60: 22.02
-- ma120: 20.97
-- return_5d: 22.38
-- return_20d: 106.51
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 38.41
-- distance_to_high_60_pct: -0.13
+- date: 20260626
+- open: 33.2
+- high: 33.95
+- low: 32.2
+- close: 32.55
+- volume: 2596000
+- ma5: 35.57
+- ema23_primary: 31.05
+- distance_to_ema23_pct: 4.84
+- ma20: 31.81
+- ma60: 23.02
+- ma120: 21.46
+- return_5d: -14.12
+- return_20d: 74.53
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 2.33
+- distance_to_high_60_pct: -19.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,19.35,19.65,19.05,19.1,19000,18.42,3.69,18.1,19.09,0.06
-20260526,19.7,19.8,18.7,18.85,19000,18.46,2.13,18.15,19.06,0.07
-20260527,19,19,18.35,18.4,19000,18.45,-0.28,18.18,19.02,0.07
-20260528,18.5,18.9,18.45,18.65,19000,18.47,0.98,18.22,18.98,0.07
 20260529,18.8,18.85,18.55,18.65,19000,18.48,0.9,18.27,18.95,0.07
 20260601,20.5,20.5,20.5,20.5,20000,18.65,9.91,18.39,18.96,0.08
 20260602,22.55,22.55,22.55,22.55,23,18.98,18.83,18.61,19.01,0
@@ -153,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,37.9,38.4,36.3,37.3,1371000,27.92,33.61,26.65,21.38,0.55
 20260618,39,39,37.9,37.9,1443000,28.75,31.83,27.62,21.69,0.57
 20260622,38.5,39.7,38,39.65,2920000,29.66,33.69,28.65,22.02,1.09
+20260623,40.25,40.25,36.7,37,2594000,30.27,22.24,29.54,22.31,0.93
+20260624,35.7,38.55,34.6,35.45,4970000,30.7,15.47,30.37,22.58,1.63
+20260625,35.75,35.75,33,33.2,3349000,30.91,7.41,31.11,22.8,1.04
+20260626,33.2,33.95,32.2,32.55,2596000,31.05,4.84,31.81,23.02,0.78
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.34
-- over_600_ratio: 55.93
-- over_800_ratio: 55
-- over_1000_ratio: 54.39
-- over_400_change_1w: 1.16
-- over_800_change_1w: 0.91
-- over_1000_change_1w: 0.89
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 56.85
+- over_600_ratio: 55.5
+- over_800_ratio: 54.07
+- over_1000_ratio: 52.77
+- over_400_change_1w: -0.49
+- over_800_change_1w: -0.93
+- over_1000_change_1w: -1.62
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.46,0.64,54.63,0.13,54.63,0.13,5,True,True
 20260612,56.18,-1.28,54.09,-0.54,53.5,-1.13,0,False,False
 20260618,57.34,1.16,55,0.91,54.39,0.89,1,True,True
+20260626,56.85,-0.49,54.07,-0.93,52.77,-1.62,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5426 | 振發 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5426 | 振發 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

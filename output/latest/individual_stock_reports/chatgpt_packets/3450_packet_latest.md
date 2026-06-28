@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:34 Asia/Taipei
+- generated_at: 2026-06-28 22:26:34 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 573
-- high: 600
-- low: 549
-- close: 557
-- volume: 17551853
-- ma5: 528.5
-- ema23_primary: 488.63
-- distance_to_ema23_pct: 13.99
-- ma20: 507.77
-- ma60: 397.73
-- ma120: 331.03
-- return_5d: 20.82
-- return_20d: 21.22
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: 9.69
-- distance_to_high_60_pct: -7.48
+- date: 20260626
+- open: 586
+- high: 591
+- low: 529
+- close: 530
+- volume: 13681463
+- ma5: 573.2
+- ema23_primary: 513.9
+- distance_to_ema23_pct: 3.13
+- ma20: 522.58
+- ma60: 418.11
+- ma120: 342.18
+- return_5d: -6.19
+- return_20d: 10.19
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 1.42
+- distance_to_high_60_pct: -13.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,473.5,505,464,501,4925666,396.59,26.33,390.62,326.2,0.34
-20260526,510,534,485.5,530,4386126,407.7,30,402.05,330.34,0.32
-20260527,533,538,496,501,17332125,415.48,20.58,411.82,333.53,1.23
-20260528,510,527,471.5,481,15667104,420.94,14.27,420.77,336.48,1.09
 20260529,498,499,477,490.5,9193909,426.73,14.94,430.2,339.09,0.66
 20260601,497.5,539,497,539,10680566,436.09,23.6,440.55,343.06,0.79
 20260602,555,592,540,548,29356562,445.42,23.03,449.7,347.41,2.17
@@ -154,19 +151,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,503,525,492,514,8825688,474.91,8.23,496.65,387.67,0.8
 20260618,521,565,520,565,15584608,482.42,17.12,502.9,392.73,1.33
 20260622,573,600,549,557,17551853,488.63,13.99,507.77,397.73,1.41
+20260623,570,612,558,612,20431403,498.91,22.67,513.33,403.29,1.54
+20260624,586,604,568,581,16201906,505.75,14.88,515.88,408.32,1.17
+20260625,595,607,564,586,15879660,512.44,14.36,520.12,413.57,1.16
+20260626,586,591,529,530,13681463,513.9,3.13,522.58,418.11,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 45.17
-- over_600_ratio: 40.8
-- over_800_ratio: 37.39
-- over_1000_ratio: 34.94
-- over_400_change_1w: -0.61
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 48.93
+- over_600_ratio: 44.15
+- over_800_ratio: 40.32
+- over_1000_ratio: 37.81
+- over_400_change_1w: 3.76
+- over_800_change_1w: 2.93
+- over_1000_change_1w: 2.87
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,22 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,47.57,-0.81,39.89,-1.36,35.01,-3.03,0,False,False
 20260612,45.78,-1.79,37.41,-2.48,34.82,-0.19,0,False,False
 20260618,45.17,-0.61,37.39,-0.02,34.94,0.12,1,False,True
+20260626,48.93,3.76,40.32,2.93,37.81,2.87,2,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3450 | 聯鈞 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:   董事長  -鄭祝良 4.舊任者簡歷:   董事長  -鄭祝良  聯鈞光電股份有限公司董事長                    捷敏股份有限公司董事長                    源傑科技股份有限公司董事長                    三菱電機捷敏功率半導體（合肥）有限公司副董事長 5.新任者姓名:   董事長  -鄭祝良 6.新任者簡歷:   董事長  -鄭祝良  聯鈞光電股份有限公司董事長                    捷敏股份有限公司董事長                    源傑科技股份有限公司董事長                    三菱電機捷敏功率半導體（合肥）有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事任期屆滿全面改選 9.新任生效日期:115/6/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3450 | 聯鈞 | 1 | 1 | 3 | 6 | 9 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3450 | 聯鈞 | 145 | 5 | 20514740.0 | 18900.0 | 1085.44 | no_signal |
+| 20260626 | 3450 | 聯鈞 | 140 | 0 | 10284920.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

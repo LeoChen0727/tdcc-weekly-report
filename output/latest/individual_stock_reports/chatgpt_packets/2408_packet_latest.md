@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:02 Asia/Taipei
+- generated_at: 2026-06-28 22:26:09 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 484
-- high: 505
-- low: 480
-- close: 505
-- volume: 96419516
-- ma5: 444.4
-- ema23_primary: 374.99
-- distance_to_ema23_pct: 34.67
-- ma20: 375.57
-- ma60: 288.46
-- ma120: 267.12
-- return_5d: 35.03
-- return_20d: 62.64
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 34.46
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 480
+- high: 498
+- low: 443
+- close: 449
+- volume: 143165163
+- ma5: 465.8
+- ema23_primary: 398.85
+- distance_to_ema23_pct: 12.57
+- ma20: 405
+- ma60: 303.99
+- ma120: 276.57
+- return_5d: -2.29
+- return_20d: 38.58
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 10.86
+- distance_to_high_60_pct: -11.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,295,303.5,288,296,155862832,277.64,6.61,280.02,247.45,1.04
-20260526,300.5,314,295.5,303.5,152949355,279.79,8.47,283.88,247.71,1.02
-20260527,333,333.5,306,312,206216639,282.48,10.45,287.6,248.15,1.37
-20260528,310,339,306,324,226715301,285.94,13.31,292.05,248.8,1.44
 20260529,347.5,351.5,338.5,347,140975644,291.03,19.23,298.62,250.31,0.89
 20260601,362,381.5,359.5,381.5,129059908,298.57,27.78,305.85,252.76,0.82
 20260602,401,419.5,395,419.5,171631936,308.64,35.92,314,255.46,1.11
@@ -153,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,415,437,412,437,101278057,354.41,23.3,357.52,279.71,0.73
 20260618,443.5,459.5,427.5,459.5,180896115,363.17,26.52,365.85,283.65,1.29
 20260622,484,505,480,505,96419516,374.99,34.67,375.57,288.46,0.7
+20260623,488,500,454.5,454.5,164235709,381.62,19.1,383.5,292.26,1.19
+20260624,440,457,435,443.5,125390124,386.77,14.67,390.5,295.89,0.92
+20260625,479,483,461.5,477,110549365,394.29,20.98,398.75,300.18,0.84
+20260626,480,498,443,449,143165163,398.85,12.57,405,303.99,1.12
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 84.12
-- over_600_ratio: 83.25
-- over_800_ratio: 82.64
-- over_1000_ratio: 82.04
-- over_400_change_1w: 2.31
-- over_800_change_1w: 2.3
-- over_1000_change_1w: 2.38
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 83.66
+- over_600_ratio: 82.81
+- over_800_ratio: 82.1
+- over_1000_ratio: 81.69
+- over_400_change_1w: -0.46
+- over_800_change_1w: -0.54
+- over_1000_change_1w: -0.35
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,82.86,0.51,81.47,0.59,80.83,0.53,2,True,True
 20260612,81.81,-1.05,80.34,-1.13,79.66,-1.17,0,False,False
 20260618,84.12,2.31,82.64,2.3,82.04,2.38,1,True,True
+20260626,83.66,-0.46,82.1,-0.54,81.69,-0.35,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2408 | 南亞科 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2408 | 南亞科 | 2 | 1 | 3 | 7 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 2408 | 南亞科 | 1 | 1 | 3 | 6 | 15 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2408 | 南亞科 | 250 | 22 | 132384260.0 | 1314150.0 | 100.74 | no_signal |
+| 20260626 | 2408 | 南亞科 | 277 | 0 | 136986770.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

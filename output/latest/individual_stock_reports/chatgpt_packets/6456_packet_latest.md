@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:24 Asia/Taipei
+- generated_at: 2026-06-28 22:27:14 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 77.4
-- high: 77.6
-- low: 75
-- close: 76.1
-- volume: 6252638
-- ma5: 74.88
-- ema23_primary: 75.28
-- distance_to_ema23_pct: 1.08
-- ma20: 77.54
-- ma60: 71.12
-- ma120: 59.3
-- return_5d: 7.03
-- return_20d: 0
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -1.86
-- distance_to_high_60_pct: -19.98
+- date: 20260626
+- open: 71.2
+- high: 72.2
+- low: 67.9
+- close: 68
+- volume: 5913891
+- ma5: 72.2
+- ema23_primary: 74.05
+- distance_to_ema23_pct: -8.17
+- ma20: 76.42
+- ma60: 71.93
+- ma120: 60.22
+- return_5d: -10.99
+- return_20d: -5.03
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -11.02
+- distance_to_high_60_pct: -28.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,78,78.5,74.5,74.6,17672817,70.12,6.39,71.66,64.98,2.07
-20260526,76,82,73.2,82,23937751,71.11,15.31,72.12,65.63,2.51
-20260527,80.7,85.9,77.4,79,32121753,71.77,10.07,72.14,66.15,2.93
-20260528,84,84,71.2,71.6,36774170,71.76,-0.22,71.77,66.47,2.91
 20260529,72,77.4,72,76.5,18360080,72.15,6.03,71.78,66.78,1.37
 20260601,78.4,84.1,78,83.9,36104373,73.13,14.73,72.08,67.31,2.39
 20260602,84,86.4,79.9,82.9,25276861,73.94,12.11,72.19,67.74,1.57
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,70.8,77.4,69.7,77.3,9041894,75.1,2.93,77.22,70.56,0.52
 20260618,78.1,78.3,76,76.4,6567679,75.21,1.58,77.54,70.83,0.38
 20260622,77.4,77.6,75,76.1,6252638,75.28,1.08,77.54,71.12,0.38
+20260623,77,77,71.4,71.7,5973399,74.98,-4.38,77.39,71.31,0.38
+20260624,70.6,75.2,70.3,73.7,6096264,74.88,-1.57,76.98,71.53,0.41
+20260625,74.5,75.9,71.5,71.5,4304322,74.6,-4.15,76.61,71.74,0.32
+20260626,71.2,72.2,67.9,68,5913891,74.05,-8.17,76.42,71.93,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.32
-- over_600_ratio: 48.62
-- over_800_ratio: 47.07
-- over_1000_ratio: 46.03
-- over_400_change_1w: -0.36
-- over_800_change_1w: -0.13
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 49.04
+- over_600_ratio: 47.5
+- over_800_ratio: 46.3
+- over_1000_ratio: 44.98
+- over_400_change_1w: -1.28
+- over_800_change_1w: -0.77
+- over_1000_change_1w: -1.05
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.7,1.08,49.18,1.92,47.16,2.03,3,True,True
 20260612,50.68,-1.02,47.2,-1.98,45.91,-1.25,0,False,False
 20260618,50.32,-0.36,47.07,-0.13,46.03,0.12,1,False,True
+20260626,49.04,-1.28,46.3,-0.77,44.98,-1.05,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6456 | GIS-KY | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.投資計畫內容: 本公司董事會核准子公司業桓科技(成都)有限公司追減專案預算新台幣6.82億元， 並將該專案及預算金額移轉至業成科技(成都)有限公司繼續執行。 3.預計投資金額:新台幣6.82億元。 4.預計投資日期:於董事會通過後進行二家子公司資本支出專案預算調整。 5.資金來源:子公司營運資金支應。 6.具體目的:為子公司間營運效益最大化考量，故進行本次專案預算調整。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6456 | GIS-KY | 6 | 6 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6456 | GIS-KY | 52 | 0 | 3105010.0 | 0.0 |  | no_signal |
+| 20260626 | 6456 | GIS-KY | 52 | 0 | 1944670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

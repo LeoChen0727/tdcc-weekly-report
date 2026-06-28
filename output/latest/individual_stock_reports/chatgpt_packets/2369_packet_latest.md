@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2369 菱生
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:00 Asia/Taipei
+- generated_at: 2026-06-28 22:26:07 Asia/Taipei
 - stock_id: 2369
 - stock_name: 菱生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
+- action_rating_display_zh: 可分批買進
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -93,6 +97,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,7 +110,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 38.15
-- high: 40.5
-- low: 38.15
-- close: 40.5
-- volume: 50186512
-- ma5: 36.47
-- ema23_primary: 34.65
-- distance_to_ema23_pct: 16.88
-- ma20: 35.83
-- ma60: 32.37
-- ma120: 29.59
-- return_5d: 22.17
-- return_20d: 26.37
-- volume_ratio: 1.83
-- distance_to_ma20_pct_auxiliary: 13.05
-- distance_to_high_60_pct: -3.57
+- date: 20260626
+- open: 43.25
+- high: 44.8
+- low: 40.75
+- close: 40.95
+- volume: 44242300
+- ma5: 42.54
+- ema23_primary: 37.09
+- distance_to_ema23_pct: 10.42
+- ma20: 36.84
+- ma60: 33.16
+- ma120: 30.27
+- return_5d: 11.13
+- return_20d: 3.02
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 11.16
+- distance_to_high_60_pct: -10.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,33,34.7,31.7,34.3,34218864,30.78,11.44,30.86,30.15,2.35
-20260526,37.1,37.7,36.65,37.7,58300950,31.36,20.23,31.2,30.32,3.5
-20260527,38.85,41,36.95,40.15,90986427,32.09,25.12,31.66,30.51,4.46
-20260528,40,42,38.75,39.75,54879227,32.73,21.46,32.14,30.7,2.41
 20260529,40.05,41.45,39.2,40.3,48804998,33.36,20.81,32.68,30.91,1.96
 20260601,40.9,40.9,39.5,39.7,23872689,33.89,17.16,33.11,31.15,0.94
 20260602,39.35,39.35,35.9,36.65,26454211,34.12,7.42,33.28,31.32,1.06
@@ -155,18 +156,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.75,35,33.9,34.5,5645666,33.87,1.85,35.06,32.19,0.23
 20260618,34.65,37.4,34.65,36.85,25394055,34.12,8,35.4,32.23,0.98
 20260622,38.15,40.5,38.15,40.5,50186512,34.65,16.88,35.83,32.37,1.83
+20260623,41.25,44.55,40.5,44.55,83496234,35.48,25.58,36.34,32.56,2.79
+20260624,43.65,45.6,41.9,43.3,80920880,36.13,19.85,36.62,32.76,2.6
+20260625,45.05,45.7,42.55,43.4,40320621,36.73,18.14,36.78,32.98,1.41
+20260626,43.25,44.8,40.75,40.95,44242300,37.09,10.42,36.84,33.16,1.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 35.62
-- over_600_ratio: 34.55
-- over_800_ratio: 33.31
-- over_1000_ratio: 31.91
-- over_400_change_1w: 0.9
-- over_800_change_1w: 2.18
-- over_1000_change_1w: 1.73
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 40.94
+- over_600_ratio: 40.19
+- over_800_ratio: 39.06
+- over_1000_ratio: 38.1
+- over_400_change_1w: 5.32
+- over_800_change_1w: 5.75
+- over_1000_change_1w: 6.19
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,22 +187,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,36.22,-3.6,33.93,-3.88,33.21,-3.41,0,False,False
 20260612,34.72,-1.5,31.13,-2.8,30.18,-3.03,0,False,False
 20260618,35.62,0.9,33.31,2.18,31.91,1.73,1,True,True
+20260626,40.94,5.32,39.06,5.75,38.1,6.19,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2369 | 菱生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 2369 | 菱生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2369 | 菱生 | 18 | 1 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 2369 | 菱生 | 21 | 2 | 5 | 10 | 20 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2369 | 菱生 | 49 | 0 | 13484020.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 2369 | 菱生 | 58 | 0 | 15241180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

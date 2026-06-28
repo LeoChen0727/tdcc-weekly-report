@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:05 Asia/Taipei
+- generated_at: 2026-06-28 22:27:48 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 5.37
-- high: 5.39
-- low: 5.22
-- close: 5.25
-- volume: 1364602
-- ma5: 5.33
-- ema23_primary: 5.4
-- distance_to_ema23_pct: -2.86
-- ma20: 5.52
-- ma60: 5.11
-- ma120: 5.07
-- return_5d: -6.58
-- return_20d: 0.96
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -4.84
-- distance_to_high_60_pct: -20.09
+- date: 20260626
+- open: 5.17
+- high: 5.22
+- low: 5.12
+- close: 5.14
+- volume: 885591
+- ma5: 5.23
+- ema23_primary: 5.35
+- distance_to_ema23_pct: -3.9
+- ma20: 5.49
+- ma60: 5.12
+- ma120: 5.09
+- return_5d: -3.56
+- return_20d: -3.02
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -6.32
+- distance_to_high_60_pct: -21.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,5.49,5.63,5.22,5.55,5823088,4.95,12.02,4.85,5.02,3.63
-20260526,5.66,5.66,5.21,5.21,3333215,4.98,4.71,4.88,5.02,1.93
-20260527,5.36,5.48,5.27,5.43,2860424,5.01,8.31,4.92,5.01,1.55
-20260528,5.5,5.55,5.27,5.3,2198425,5.04,5.21,4.95,5.01,1.14
 20260529,5.42,5.42,5.2,5.23,1289130,5.05,3.49,4.98,5.01,0.66
 20260601,5.27,5.27,5.12,5.16,1936736,5.06,1.93,5,5.01,0.96
 20260602,5.27,5.27,5.14,5.25,1216116,5.08,3.39,5.03,5.01,0.59
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,5.26,5.35,5.15,5.33,2271047,5.43,-1.78,5.5,5.11,0.59
 20260618,5.33,5.51,5.24,5.33,1442856,5.42,-1.63,5.51,5.11,0.37
 20260622,5.37,5.39,5.22,5.25,1364602,5.4,-2.86,5.52,5.11,0.36
+20260623,5.25,5.39,5.2,5.34,1036347,5.4,-1.09,5.51,5.12,0.29
+20260624,5.33,5.33,5.2,5.23,1231146,5.38,-2.88,5.51,5.12,0.36
+20260625,5.23,5.25,5.17,5.18,877242,5.37,-3.5,5.5,5.12,0.26
+20260626,5.17,5.22,5.12,5.14,885591,5.35,-3.9,5.49,5.12,0.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 10.99
-- over_600_ratio: 7.75
-- over_800_ratio: 5.66
-- over_1000_ratio: 3.1
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.74
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 10.91
+- over_600_ratio: 6.65
+- over_800_ratio: 4.48
+- over_1000_ratio: 3.13
+- over_400_change_1w: -0.08
+- over_800_change_1w: -1.18
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,11.68,1.5,5.71,0.94,4.41,0.52,3,True,True
 20260612,10.7,-0.98,4.92,-0.79,3.13,-1.28,0,False,False
 20260618,10.99,0.29,5.66,0.74,3.1,-0.03,1,False,True
+20260626,10.91,-0.08,4.48,-1.18,3.13,0.03,2,False,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9103 | 美德醫療-DR | 2 | 0 | 17000.0 | 0.0 |  | no_signal |
+| 20260626 | 9103 | 美德醫療-DR | 2 | 0 | 79000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

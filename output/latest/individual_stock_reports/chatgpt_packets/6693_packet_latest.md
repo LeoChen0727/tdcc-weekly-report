@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6693 廣閎科
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:32 Asia/Taipei
+- generated_at: 2026-06-28 22:27:21 Asia/Taipei
 - stock_id: 6693
 - stock_name: 廣閎科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -102,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 236.5
-- high: 236.5
-- low: 233
-- close: 236.5
-- volume: 1179000
-- ma5: 202.1
-- ema23_primary: 171.97
-- distance_to_ema23_pct: 37.52
-- ma20: 167.95
-- ma60: 147.78
-- ma120: 117.56
-- return_5d: 39.94
-- return_20d: 61.99
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 40.82
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 243
+- high: 244
+- low: 220.5
+- close: 221
+- volume: 1037000
+- ma5: 237.8
+- ema23_primary: 191.23
+- distance_to_ema23_pct: 15.56
+- ma20: 185.25
+- ma60: 156.65
+- ma120: 122.91
+- return_5d: 2.79
+- return_20d: 47.33
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 19.3
+- distance_to_high_60_pct: -15.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,146.5,152,145,148,148000,142.87,3.59,145.28,123.84,0.14
-20260526,148,157.5,146,157.5,152000,144.09,9.31,146.32,124.97,0.15
-20260527,161.5,161.5,148,151,155000,144.67,4.38,147.03,125.98,0.15
-20260528,152.5,157.5,148.5,150,154000,145.11,3.37,147.45,127,0.16
 20260529,153.5,153.5,147,148.5,150000,145.39,2.14,147.9,128.02,0.16
 20260601,150,153,148,152,151000,145.94,4.15,148.4,129.19,0.16
 20260602,153.5,153.5,145,148,148,146.12,1.29,148.15,130.25,0
@@ -153,18 +149,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,184,195.5,183.5,195.5,2864000,161.66,20.93,159.78,143.65,2.15
 20260618,210,215,209,215,1062000,166.1,29.44,163.43,145.55,0.78
 20260622,236.5,236.5,233,236.5,1179000,171.97,37.52,167.95,147.78,0.83
+20260623,246,258.5,231,236.5,4903000,177.35,33.35,172.38,149.97,2.96
+20260624,226.5,252,224.5,251,999000,183.49,36.8,177.05,152.41,0.59
+20260625,262,262,238,244,835000,188.53,29.42,181.7,154.7,0.48
+20260626,243,244,220.5,221,1037000,191.23,15.56,185.25,156.65,0.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.8
-- over_600_ratio: 39.69
-- over_800_ratio: 35.26
+- as_of_date: 20260626
+- over_400_ratio: 47.38
+- over_600_ratio: 40.03
+- over_800_ratio: 35.37
 - over_1000_ratio: 31.39
-- over_400_change_1w: 2
-- over_800_change_1w: 0.01
+- over_400_change_1w: 2.58
+- over_800_change_1w: 0.11
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,17 +180,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.37,0.08,36.94,-0.05,31.39,0,3,False,False
 20260612,42.8,-1.57,35.25,-1.69,31.39,0,0,False,False
 20260618,44.8,2,35.26,0.01,31.39,0,1,False,True
+20260626,47.38,2.58,35.37,0.11,31.39,0,2,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6693 | 廣閎科 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:現金股利新台幣 27,027,600 元(每股配發新台幣 0.6 元) 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用。 10.債券停止轉換起始日期:不適用。 11.債券停止轉換截止日期:不適用。 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:115/06/15股東常會通過授權董事長訂定除息基準日、   發放日及其他相關事宜，董事長決定除息基準日及現金股利發放日如上。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6693 | 廣閎科 | 2 | 2 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

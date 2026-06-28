@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:16 Asia/Taipei
+- generated_at: 2026-06-28 22:26:19 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 12.35
-- high: 12.35
-- low: 12.25
-- close: 12.3
-- volume: 1084491
-- ma5: 12.29
-- ema23_primary: 12.11
-- distance_to_ema23_pct: 1.59
-- ma20: 12.06
-- ma60: 12.02
-- ma120: 12.14
-- return_5d: 0.41
-- return_20d: 3.8
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 2.01
-- distance_to_high_60_pct: -1.2
+- date: 20260626
+- open: 12.3
+- high: 12.3
+- low: 12.15
+- close: 12.25
+- volume: 1967602
+- ma5: 12.28
+- ema23_primary: 12.16
+- distance_to_ema23_pct: 0.77
+- ma20: 12.15
+- ma60: 12.03
+- ma120: 12.13
+- return_5d: -0.81
+- return_20d: 4.26
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.8
+- distance_to_high_60_pct: -1.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,11.8,11.85,11.75,11.8,1479389,11.89,-0.73,11.85,12.1,1.28
-20260526,11.8,11.85,11.75,11.85,761661,11.88,-0.28,11.85,12.09,0.73
-20260527,11.8,11.85,11.75,11.8,1346349,11.88,-0.65,11.85,12.07,1.32
-20260528,11.8,11.8,11.7,11.75,1676345,11.87,-0.98,11.84,12.05,1.61
 20260529,11.75,11.8,11.65,11.65,1846766,11.85,-1.67,11.82,12.03,1.71
 20260601,11.7,11.75,11.55,11.7,2996445,11.84,-1.15,11.82,12.02,2.57
 20260602,11.7,11.9,11.7,11.9,2578975,11.84,0.5,11.82,12.01,2.03
@@ -155,19 +151,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,12.2,12.4,12.2,12.3,4119777,12.07,1.94,12.01,12.01,1.4
 20260618,12.3,12.4,12.25,12.35,3004980,12.09,2.15,12.04,12.01,0.98
 20260622,12.35,12.35,12.25,12.3,1084491,12.11,1.59,12.06,12.02,0.36
+20260623,12.25,12.4,12.2,12.3,1870696,12.12,1.46,12.08,12.02,0.61
+20260624,12.3,12.35,12.2,12.25,1175781,12.13,0.96,12.1,12.02,0.38
+20260625,12.25,12.4,12.2,12.3,2382886,12.15,1.25,12.13,12.02,0.76
+20260626,12.3,12.3,12.15,12.25,1967602,12.16,0.77,12.15,12.03,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 85.2
-- over_600_ratio: 83.72
-- over_800_ratio: 82.65
-- over_1000_ratio: 82.11
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 85.27
+- over_600_ratio: 83.73
+- over_800_ratio: 82.74
+- over_1000_ratio: 82.15
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,85.01,0.21,82.36,0.25,81.87,0.2,5,True,True
 20260612,85.23,0.22,82.65,0.29,82.06,0.19,6,True,True
 20260618,85.2,-0.03,82.65,0,82.11,0.05,7,False,True
+20260626,85.27,0.07,82.74,0.09,82.15,0.04,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2836 | 高雄銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 2836 | 高雄銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 高雄市岡山區本工路17號1至3樓部分面積之使用權資產 2.事實發生日:115/6/25~115/6/25 3.董事會通過日期: 民國115年6月25日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量： 360.65平方公尺，折合109.10坪 每單位價格： 每平方公尺每月租金新台幣131元 租金總金額：每月新台幣47,245元 使用權資產金額：新台幣2,756,011元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：高雄市政府經濟發展局 與公司關係：關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：到期續租 前次移轉之所有人：不適用 前次移轉日期及移轉金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 租賃期間：116/09/01~121/08/31 付款金額：每半年新台幣283,470元 租賃期間總金額：2,834,700元 契約限制條款：無 其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 到期續租案，租金依「高雄市政府產業園區開發建設費用及計價審定小組」 訂定之每單位價格計算，由本公司董事會核定。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 作為本行岡山本洲分行營業場所使用，以提供鄰近區域金融相關服務 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年06月09日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2836 | 高雄銀 | 6 | 2 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2836 | 高雄銀 | 9 | 5 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

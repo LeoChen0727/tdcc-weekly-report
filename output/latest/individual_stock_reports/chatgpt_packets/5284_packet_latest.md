@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5284 jpp-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:02 Asia/Taipei
+- generated_at: 2026-06-28 22:26:57 Asia/Taipei
 - stock_id: 5284
 - stock_name: jpp-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 410
-- high: 421
-- low: 398
-- close: 400
-- volume: 724592
-- ma5: 391.4
-- ema23_primary: 391.63
-- distance_to_ema23_pct: 2.14
-- ma20: 406.18
-- ma60: 358.95
-- ma120: 315.43
-- return_5d: 9.89
-- return_20d: -2.44
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -1.52
-- distance_to_high_60_pct: -16.67
+- date: 20260626
+- open: 372
+- high: 372
+- low: 351
+- close: 355
+- volume: 483606
+- ma5: 376.4
+- ema23_primary: 385.2
+- distance_to_ema23_pct: -7.84
+- ma20: 394.65
+- ma60: 364.72
+- ma120: 318.21
+- return_5d: -12.35
+- return_20d: -22.83
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -10.05
+- distance_to_high_60_pct: -26.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,417.5,417.5,399,408.5,2101739,366.06,11.6,368.02,315.62,0.98
-20260526,408.5,415,399.5,402,1319648,369.05,8.93,371.75,317.86,0.63
-20260527,420,442,415,442,1626972,375.13,17.83,377.38,320.75,0.76
-20260528,478,480,453,460,3032340,382.2,20.36,383.52,323.98,1.41
 20260529,478,478,442,451.5,1531179,387.98,16.37,388.95,327.04,0.72
 20260601,451,454.5,441,446.5,715774,392.85,13.66,394.05,330.29,0.34
 20260602,448,451.5,420,428,1016643,395.78,8.14,397.18,333.2,0.51
@@ -155,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,380.5,396,377,392,653845,389.58,0.62,405.98,354.71,0.53
 20260618,395,410,394,405,735940,390.86,3.62,406.68,356.82,0.62
 20260622,410,421,398,400,724592,391.63,2.14,406.18,358.95,0.66
+20260623,396,396,375,376,706023,390.32,-3.67,404.55,360.43,0.69
+20260624,372.5,380,372,377.5,352384,389.25,-3.02,403.32,362.05,0.36
+20260625,382,383,371,373.5,288111,387.94,-3.72,399.9,363.44,0.32
+20260626,372,372,351,355,483606,385.2,-7.84,394.65,364.72,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.1
+- as_of_date: 20260626
+- over_400_ratio: 57
 - over_600_ratio: 53.4
 - over_800_ratio: 52.08
 - over_1000_ratio: 52.08
-- over_400_change_1w: 0
+- over_400_change_1w: 0.9
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,58.72,-1.1,52.08,0,52.08,0,0,False,False
 20260612,56.1,-2.62,52.08,0,52.08,0,0,False,False
 20260618,56.1,0,52.08,0,52.08,0,0,False,False
+20260626,57,0.9,52.08,0,52.08,0,1,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5284 | jpp-KY | 68 | 2 | 12930460.0 | 0.0 |  | no_signal |
+| 20260626 | 5284 | jpp-KY | 69 | 0 | 3162020.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

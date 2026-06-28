@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8045 達運光電
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:53 Asia/Taipei
+- generated_at: 2026-06-28 22:27:39 Asia/Taipei
 - stock_id: 8045
 - stock_name: 達運光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 64.8
-- high: 64.8
-- low: 61.7
-- close: 62
-- volume: 266541
-- ma5: 61.94
-- ema23_primary: 65.38
-- distance_to_ema23_pct: -5.17
-- ma20: 64.92
-- ma60: 71.13
-- ma120: 74.61
-- return_5d: 0
-- return_20d: -13.65
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -4.49
-- distance_to_high_60_pct: -29.14
+- date: 20260626
+- open: 62
+- high: 62
+- low: 58
+- close: 58.8
+- volume: 323747
+- ma5: 61.04
+- ema23_primary: 64
+- distance_to_ema23_pct: -8.13
+- ma20: 63.7
+- ma60: 70.05
+- ma120: 74.03
+- return_5d: -3.76
+- return_20d: -8.98
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: -7.69
+- distance_to_high_60_pct: -32.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,73,73,69.4,69.6,468754,72.99,-4.65,72.97,75.44,1.51
-20260526,70.5,70.5,67.3,68.3,632446,72.6,-5.92,72.7,75.21,1.96
-20260527,68.2,68.3,64.5,65,586413,71.97,-9.68,72.28,74.95,1.72
-20260528,65.2,65.4,64,64.6,307225,71.35,-9.47,71.82,74.64,0.88
 20260529,64.8,66.2,64,66,225013,70.91,-6.92,71.45,74.34,0.64
 20260601,66,71.7,64.9,71.3,711902,70.94,0.51,71.2,74.22,1.97
 20260602,71.5,73.5,67.3,69.7,390738,70.84,-1.61,70.93,74.03,1.06
@@ -155,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,61.5,62.7,61,61.2,157270,66.1,-7.42,65.96,71.49,0.48
 20260618,61.5,63.2,61.1,61.1,87562,65.69,-6.98,65.41,71.28,0.27
 20260622,64.8,64.8,61.7,62,266541,65.38,-5.17,64.92,71.13,0.83
+20260623,62.7,63.5,61.3,61.5,130488,65.06,-5.47,64.51,70.9,0.43
+20260624,59.2,62.4,59.2,62.4,101789,64.83,-3.76,64.22,70.67,0.36
+20260625,61.4,62,60.5,60.5,67898,64.47,-6.16,63.99,70.33,0.27
+20260626,62,62,58,58.8,323747,64,-8.13,63.7,70.05,1.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 67.14
-- over_600_ratio: 62.37
-- over_800_ratio: 59.3
-- over_1000_ratio: 55.63
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.05
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 67.15
+- over_600_ratio: 62.39
+- over_800_ratio: 59.31
+- over_1000_ratio: 55.62
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.91,-0.09,59.84,0.01,57.13,0.02,1,False,True
 20260612,67.6,-0.31,59.35,-0.49,55.63,-1.5,2,False,False
 20260618,67.14,-0.46,59.3,-0.05,55.63,0,3,False,False
+20260626,67.15,0.01,59.31,0.01,55.62,-0.01,4,False,True
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8045 | 達運光電 | 1 | 0 | 1400.0 | 0.0 |  | no_signal |
+| 20260626 | 8045 | 達運光電 | 1 | 0 | 18000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

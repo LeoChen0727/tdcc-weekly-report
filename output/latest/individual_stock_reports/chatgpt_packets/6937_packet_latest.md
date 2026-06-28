@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:41 Asia/Taipei
+- generated_at: 2026-06-28 22:27:28 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 282
-- high: 288
-- low: 281.5
-- close: 287
-- volume: 354894
-- ma5: 275.4
-- ema23_primary: 287.54
-- distance_to_ema23_pct: -0.19
-- ma20: 293.12
-- ma60: 293.68
-- ma120: 264.2
-- return_5d: 3.8
-- return_20d: -11.28
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -2.09
-- distance_to_high_60_pct: -19.94
+- date: 20260626
+- open: 270
+- high: 270
+- low: 248.5
+- close: 250
+- volume: 931763
+- ma5: 271.6
+- ema23_primary: 281.45
+- distance_to_ema23_pct: -11.17
+- ma20: 280.88
+- ma60: 294.25
+- ma120: 265.96
+- return_5d: -10.55
+- return_20d: -18.83
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: -10.99
+- distance_to_high_60_pct: -30.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,330,352,330,351.5,2500871,303.72,15.73,307.65,282.56,2.15
-20260526,355,355,337.5,337.5,1480605,306.53,10.1,309.75,284.46,1.23
-20260527,347,347,317.5,319,1090906,307.57,3.72,310.65,285.91,0.9
-20260528,321,326.5,302,308,858592,307.61,0.13,311,286.92,0.69
 20260529,316,316,301.5,303,660900,307.22,-1.37,309.6,287.77,0.59
 20260601,303,312,295,311,1017386,307.54,1.13,308.4,288.98,1.01
 20260602,311.5,311.5,295.5,300.5,719593,306.95,-2.1,306.57,289.83,0.76
@@ -155,19 +150,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,269,271.5,262,271,464053,288.32,-6.01,295.7,292.68,0.53
 20260618,272,281,271.5,279.5,558001,287.58,-2.81,294.95,293.07,0.64
 20260622,282,288,281.5,287,354894,287.54,-0.19,293.12,293.68,0.44
+20260623,287,287,276.5,277,364949,286.66,-3.37,289.4,293.86,0.52
+20260624,270.5,278,270.5,273.5,207658,285.56,-4.22,286.2,293.92,0.33
+20260625,279.5,279.5,269.5,270.5,188649,284.31,-4.86,283.77,294.12,0.32
+20260626,270,270,248.5,250,931763,281.45,-11.17,280.88,294.25,1.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.24
-- over_600_ratio: 56.85
-- over_800_ratio: 55.77
-- over_1000_ratio: 54.34
-- over_400_change_1w: -0.89
-- over_800_change_1w: 0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 62.3
+- over_600_ratio: 56.91
+- over_800_ratio: 55.83
+- over_1000_ratio: 54.56
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.22
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.03,0.22,56.03,-1.36,56.03,-0.08,3,False,False
 20260612,63.13,-0.9,55.76,-0.27,54.35,-1.68,0,False,False
 20260618,62.24,-0.89,55.77,0.01,54.34,-0.01,1,False,True
+20260626,62.3,0.06,55.83,0.06,54.56,0.22,2,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6937 | 天虹 | 44 | 1 | 1239570.0 | 92130.0 | 13.45 | no_signal |
+| 20260626 | 6937 | 天虹 | 43 | 0 | 548560.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

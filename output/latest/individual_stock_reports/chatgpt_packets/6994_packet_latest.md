@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6994 富威電力
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:42 Asia/Taipei
+- generated_at: 2026-06-28 22:27:29 Asia/Taipei
 - stock_id: 6994
 - stock_name: 富威電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 287
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 291
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 53.4
-- high: 54.4
-- low: 51.2
-- close: 53.4
-- volume: 1522008
-- ma5: 54.78
-- ema23_primary: 58.39
-- distance_to_ema23_pct: -8.55
-- ma20: 59.18
-- ma60: 63.14
-- ma120: 76.26
-- return_5d: -5.65
-- return_20d: -4.64
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: -9.77
-- distance_to_high_60_pct: -30.74
+- date: 20260626
+- open: 50
+- high: 50
+- low: 46.75
+- close: 46.75
+- volume: 1748870
+- ma5: 50.69
+- ema23_primary: 55.88
+- distance_to_ema23_pct: -16.34
+- ma20: 57.51
+- ma60: 61.58
+- ma120: 74.73
+- return_5d: -12.12
+- return_20d: -24.11
+- volume_ratio: 1.95
+- distance_to_ma20_pct_auxiliary: -18.71
+- distance_to_high_60_pct: -39.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,57.4,57.4,55,55.1,397426,60.24,-8.54,59.96,70.82,0.61
-20260526,55.3,56.6,54.9,56.4,506729,59.92,-5.88,59.61,70.39,0.78
-20260527,57.4,62,57,60.4,1166298,59.96,0.73,59.46,69.92,1.7
-20260528,60.9,64,60.3,61.6,983591,60.1,2.5,59.37,69.45,1.37
 20260529,62,66.5,61,64.8,1131076,60.49,7.12,59.41,68.92,1.48
 20260601,64.8,67,63,66,1019618,60.95,8.29,59.48,68.33,1.27
 20260602,65.5,65.5,62.4,62.8,632118,61.1,2.78,59.41,67.86,0.77
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,55.5,55.5,54.2,54.7,533405,59.36,-7.85,59.32,63.75,0.78
 20260618,55,55.2,53,53.2,1409572,58.84,-9.59,59.31,63.42,1.92
 20260622,53.4,54.4,51.2,53.4,1522008,58.39,-8.55,59.18,63.14,1.94
+20260623,53.3,54.3,51.1,51.3,1000435,57.8,-11.25,58.99,62.74,1.23
+20260624,51.3,52.3,51.2,51.9,1562050,57.31,-9.44,58.77,62.37,1.8
+20260625,51.8,51.8,50.1,50.1,932993,56.71,-11.65,58.25,61.99,1.09
+20260626,50,50,46.75,46.75,1748870,55.88,-16.34,57.51,61.58,1.95
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.19
-- over_600_ratio: 58.17
-- over_800_ratio: 58.17
-- over_1000_ratio: 56.83
-- over_400_change_1w: -0.85
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 57.06
+- over_600_ratio: 55.04
+- over_800_ratio: 54.13
+- over_1000_ratio: 52.79
+- over_400_change_1w: -3.13
+- over_800_change_1w: -4.04
+- over_1000_change_1w: -4.04
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.01,-0.46,58.03,-0.32,56.69,-0.32,0,False,False
 20260612,61.04,0.03,58.06,0.03,56.72,0.03,1,True,True
 20260618,60.19,-0.85,58.17,0.11,56.83,0.11,2,False,True
+20260626,57.06,-3.13,54.13,-4.04,52.79,-4.04,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6994 | 富威電力 | 1 | 0 | 260.0 | 0.0 |  | no_signal |
+| 20260626 | 6994 | 富威電力 | 1 | 0 | 6220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:42 Asia/Taipei
+- generated_at: 2026-06-28 22:27:29 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 25
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 385.5
-- high: 398
-- low: 364
-- close: 371.5
-- volume: 148000
-- ma5: 353.8
+- date: 20260626
+- open: 370.5
+- high: 370.5
+- low: 350
+- close: 350
+- volume: 101000
+- ma5: 367.1
 - ema23_primary: 364.98
-- distance_to_ema23_pct: 1.79
-- ma20: 369.45
-- ma60: 370.02
-- ma120: 370.02
-- return_5d: 6.6
-- return_20d: -2.62
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 0.55
-- distance_to_high_60_pct: -28.56
+- distance_to_ema23_pct: -4.11
+- ma20: 359.05
+- ma60: 369.38
+- ma120: 369.38
+- return_5d: -5.66
+- return_20d: -9.09
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -2.52
+- distance_to_high_60_pct: -32.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,349.5,388,326,385,351000,,,,,
-20260526,385.5,520,385.5,472,453000,,,,,
-20260527,497.5,498,428,430,452000,,,,,
-20260528,430,430,380,385,395000,392.06,-1.8,410.7,410.7,1.09
 20260529,391,400,372,381.5,382000,391.18,-2.47,405.83,405.83,1.05
 20260601,380,398,361.5,370.5,374000,389.46,-4.87,400.79,400.79,1.02
 20260602,370.5,370.5,345.5,355,356,386.58,-8.17,395.06,395.06,0
@@ -155,10 +151,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,332,338,328,337.5,91000,363.78,-7.22,369.89,369.89,0.41
 20260618,339.5,371,338.5,371,107000,364.38,1.82,369.95,369.95,0.5
 20260622,385.5,398,364,371.5,148000,364.98,1.79,369.45,370.02,0.69
+20260623,373,398,365,381,150000,366.31,4.01,369.25,370.52,0.74
+20260624,371,375,360,366,86000,366.29,-0.08,363.95,370.33,0.46
+20260625,365.5,371.5,362,367,35000,366.34,0.18,360.8,370.19,0.21
+20260626,370.5,370.5,350,350,101000,364.98,-4.11,359.05,369.38,0.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 44.17
 - over_600_ratio: 41.84
 - over_800_ratio: 26.11
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.17,0,26.11,0,16.01,0,0,False,False
 20260612,44.17,0,26.11,0,16.01,0,0,False,False
 20260618,44.17,0,26.11,0,16.01,0,0,False,False
+20260626,44.17,0,26.11,0,16.01,0,0,False,False
 ```
 
 ## Candidate Context

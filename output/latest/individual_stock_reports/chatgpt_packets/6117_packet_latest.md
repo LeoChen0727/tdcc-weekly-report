@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6117 迎廣
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:11 Asia/Taipei
+- generated_at: 2026-06-28 22:27:04 Asia/Taipei
 - stock_id: 6117
 - stock_name: 迎廣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 77.9
-- high: 77.9
-- low: 76.5
-- close: 77.2
-- volume: 360601
-- ma5: 76.3
-- ema23_primary: 80.08
-- distance_to_ema23_pct: -3.6
-- ma20: 81.95
-- ma60: 80.81
-- ma120: 78.87
-- return_5d: 1.18
-- return_20d: -12.77
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -5.8
-- distance_to_high_60_pct: -19.5
+- date: 20260626
+- open: 74.1
+- high: 74.1
+- low: 71.6
+- close: 71.7
+- volume: 569023
+- ma5: 74.78
+- ema23_primary: 78.31
+- distance_to_ema23_pct: -8.44
+- ma20: 79.03
+- ma60: 80.95
+- ma120: 78.69
+- return_5d: -5.78
+- return_20d: -13.2
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -9.28
+- distance_to_high_60_pct: -25.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,90.2,92.4,89.1,91.9,2262487,82.97,10.76,84.37,77.77,2.02
-20260526,93.2,95.9,91.1,95,2800346,83.97,13.13,84.76,78.09,2.43
-20260527,95.5,95.5,85.5,85.5,4327883,84.1,1.66,84.58,78.25,3.59
-20260528,85.2,85.8,82.5,82.6,1734725,83.98,-1.64,84.17,78.38,1.43
 20260529,84.8,84.8,82.5,84,827113,83.98,0.03,83.97,78.56,0.71
 20260601,84.9,86.6,84.1,85.8,980886,84.13,1.99,83.92,78.83,0.85
 20260602,86.2,91.8,85.9,86.9,2504633,84.36,3.01,83.81,79.1,2
@@ -155,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,74.7,75.8,74.6,75.5,268206,80.73,-6.48,82.84,80.63,0.21
 20260618,75.5,76.8,75.5,76.1,302596,80.35,-5.28,82.52,80.71,0.24
 20260622,77.9,77.9,76.5,77.2,360601,80.08,-3.6,81.95,80.81,0.3
+20260623,77,77.2,75,75.1,500827,79.67,-5.73,81.11,80.86,0.45
+20260624,75.1,75.8,74.5,75.2,331825,79.3,-5.17,80.12,80.91,0.33
+20260625,76.9,76.9,74.1,74.7,282746,78.91,-5.34,79.58,80.94,0.36
+20260626,74.1,74.1,71.6,71.7,569023,78.31,-8.44,79.03,80.95,0.77
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 53.38
+- as_of_date: 20260626
+- over_400_ratio: 53.39
 - over_600_ratio: 52.4
 - over_800_ratio: 50.96
 - over_1000_ratio: 49.06
-- over_400_change_1w: -0.42
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.81,-1.05,50.96,0,49.06,0,0,False,False
 20260612,53.8,-0.01,50.96,0,49.06,0,0,False,False
 20260618,53.38,-0.42,50.96,0,49.06,0,0,False,False
+20260626,53.39,0.01,50.96,0,49.06,0,1,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6117 | 迎廣 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 6117 | 迎廣 | 4 | 0 | 3170.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

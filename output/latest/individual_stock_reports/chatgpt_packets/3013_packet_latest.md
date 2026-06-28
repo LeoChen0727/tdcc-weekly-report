@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:20 Asia/Taipei
+- generated_at: 2026-06-28 22:26:23 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 114
-- high: 114.5
-- low: 113
-- close: 113.5
-- volume: 1981144
-- ma5: 112.4
-- ema23_primary: 114
-- distance_to_ema23_pct: -0.44
-- ma20: 118.28
-- ma60: 109.73
-- ma120: 111.92
-- return_5d: 5.58
-- return_20d: 2.71
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -4.04
-- distance_to_high_60_pct: -16.54
+- date: 20260626
+- open: 107.5
+- high: 107.5
+- low: 102.5
+- close: 103
+- volume: 2251463
+- ma5: 108.7
+- ema23_primary: 112.02
+- distance_to_ema23_pct: -8.06
+- ma20: 115.65
+- ma60: 110.14
+- ma120: 111.27
+- return_5d: -8.85
+- return_20d: -12.34
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -10.94
+- distance_to_high_60_pct: -24.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,113.5,121.5,113,121.5,19744095,106.81,13.75,107.23,104.06,4.82
-20260526,123,124.5,118.5,124,13122956,108.25,14.55,107.78,104.25,2.89
-20260527,124,125,119,119.5,8185601,109.18,9.45,108.19,104.35,1.71
-20260528,120,121.5,115.5,117.5,5144010,109.88,6.94,108.46,104.46,1.05
 20260529,119,124,118.5,122,5810970,110.89,10.02,109.33,104.74,1.2
 20260601,123.5,127,122,123.5,8444497,111.94,10.33,110.19,105.16,1.64
 20260602,129.5,135.5,129.5,133.5,27832864,113.74,17.38,111.44,105.68,4.35
@@ -154,19 +150,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,110.5,113,109.5,113,1547425,114.15,-1,117.5,109.21,0.21
 20260618,113.5,115,113,113,2330671,114.05,-0.92,118.12,109.45,0.32
 20260622,114,114.5,113,113.5,1981144,114,-0.44,118.28,109.73,0.28
+20260623,114.5,114.5,109.5,109.5,2110406,113.63,-3.63,117.67,109.91,0.34
+20260624,109.5,111,107.5,109.5,1702441,113.28,-3.34,116.95,110.13,0.3
+20260625,110.5,111,107.5,108,1906579,112.84,-4.29,116.38,110.16,0.35
+20260626,107.5,107.5,102.5,103,2251463,112.02,-8.06,115.65,110.14,0.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.67
-- over_600_ratio: 42.76
-- over_800_ratio: 41.7
-- over_1000_ratio: 39.5
-- over_400_change_1w: 0.51
-- over_800_change_1w: 1.11
-- over_1000_change_1w: 0.67
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 44.75
+- over_600_ratio: 42.58
+- over_800_ratio: 41.88
+- over_1000_ratio: 39.67
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.18
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,46.25,0.06,42.41,-0.46,39.8,-0.04,4,False,False
 20260612,44.16,-2.09,40.59,-1.82,38.83,-0.97,0,False,False
 20260618,44.67,0.51,41.7,1.11,39.5,0.67,1,True,True
+20260626,44.75,0.08,41.88,0.18,39.67,0.17,2,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3013 | 晟銘電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利新台幣82,055,572元。 4.除權（息）交易日:115/07/14 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.債券最後申請轉換日期:115/06/23 10.債券停止轉換起始日期:115/06/25 11.債券停止轉換截止日期:115/07/20 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:嗣後因法令變更或主管機關調整，或公司債轉換股份， 或本公司買回公司股份等因素致影響流通在外股份數量致需調整分配比率時， 授權董事長調整配息比率等相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3013 | 晟銘電 | 5 | 5 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3013 | 晟銘電 | 75 | 0 | 1737640.0 | 0.0 |  | no_signal |
+| 20260626 | 3013 | 晟銘電 | 73 | 0 | 1528250.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

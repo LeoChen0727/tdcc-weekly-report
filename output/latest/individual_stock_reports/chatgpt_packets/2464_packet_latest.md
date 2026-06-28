@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:06 Asia/Taipei
+- generated_at: 2026-06-28 22:26:11 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 178
-- high: 186.5
-- low: 172
-- close: 173
-- volume: 23281729
-- ma5: 170.8
-- ema23_primary: 156.93
-- distance_to_ema23_pct: 10.24
-- ma20: 167.25
-- ma60: 119.95
-- ma120: 94.26
-- return_5d: 16.11
-- return_20d: 20.14
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 3.44
-- distance_to_high_60_pct: -14.36
+- date: 20260626
+- open: 167
+- high: 169
+- low: 155.5
+- close: 155.5
+- volume: 8991048
+- ma5: 168.9
+- ema23_primary: 159.97
+- distance_to_ema23_pct: -2.79
+- ma20: 167
+- ma60: 126.32
+- ma120: 97.82
+- return_5d: -9.59
+- return_20d: -7.44
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -6.89
+- distance_to_high_60_pct: -23.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,156,158,155,158,8728463,119.06,32.71,121.65,89.62,0.3
-20260526,163.5,173.5,163.5,173.5,17717493,123.6,40.38,125.47,91.32,0.63
-20260527,177,184,173,177,32535439,128.05,38.23,129,93.03,1.16
-20260528,177,177,163.5,168,17695107,131.38,27.88,131.68,94.59,0.67
 20260529,175,184.5,173,184.5,14603817,135.8,35.86,135.22,96.47,0.57
 20260601,194.5,202,191.5,199,23206852,141.07,41.06,139.38,98.67,0.91
 20260602,200,200,182.5,185,17736318,144.73,27.82,142.97,100.61,0.7
@@ -154,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,177,180.5,163,166,33322459,153.97,7.82,164,116.61,1.98
 20260618,168,175.5,166.5,172,20454203,155.47,10.63,165.8,118.27,1.25
 20260622,178,186.5,172,173,23281729,156.93,10.24,167.25,119.95,1.48
+20260623,174,176.5,168,172,13981385,158.19,8.73,167.95,121.58,0.88
+20260624,169,175,166.5,174.5,7179715,159.54,9.37,168,123.28,0.47
+20260625,175.5,175.5,167,169.5,8208934,160.37,5.69,167.62,124.91,0.58
+20260626,167,169,155.5,155.5,8991048,159.97,-2.79,167,126.32,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 41.33
-- over_600_ratio: 38.44
-- over_800_ratio: 36.09
-- over_1000_ratio: 34.78
-- over_400_change_1w: -3.02
-- over_800_change_1w: -3.1
-- over_1000_change_1w: -2.78
+- as_of_date: 20260626
+- over_400_ratio: 40.02
+- over_600_ratio: 36.84
+- over_800_ratio: 32.85
+- over_1000_ratio: 31.14
+- over_400_change_1w: -1.31
+- over_800_change_1w: -3.24
+- over_1000_change_1w: -3.64
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.82,-0.5,41.49,-0.3,37.71,-2.84,0,False,False
 20260612,44.35,-1.47,39.19,-2.3,37.56,-0.15,0,False,False
 20260618,41.33,-3.02,36.09,-3.1,34.78,-2.78,0,False,False
+20260626,40.02,-1.31,32.85,-3.24,31.14,-3.64,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.增資資金來源:現金增資發行普通股 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  本公司擬發行普通股不超過8,500仟股，發行總面額不超過新台幣1,000,000仟元。 5.採總括申報發行新股案件，本次發行金額及股數:不適用。 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 7.每股面額:新台幣10元。 8.發行價格:實際發行價格授權董事長俟本案向主管機關申報生效後，依相關法令規定  與主辦承銷商依當時市場狀況共同議定。 9.員工認購股數或配發金額:依公司法第267條規定，保留發行新股總額10%~15%，  由本公司員工認購。 10.公開銷售股數: 依證券交易法第28條之1規定，提撥發行新股總額10%對外公開銷售。 11.原股東認購或無償配發比例:其餘發行新股總數75%~80%，由原股東按認股基準日 股東名簿所載之持股比例認購。 12.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，得由股東自 停止過戶日起五日內自行至本公司股務代理機構辦理拼湊一整股認購，原股東、員工 放棄認購或拼湊不足一股之畸零股部分，授權董事長洽特定人按發行價格認購之。 13.本次發行新股之權利義務:與原已發行股份相同。 14.本次增資資金用途:償還銀行借款及充實營運資金。 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項: (1)本次計畫之重要內容，包括發行價格、資金來源、計畫項目、資金運用計畫及進    度、預計可能產生效益及其他相關發行事宜，如有因市場狀況或依主管機關指示    修正而需修正者，授權董事長全權處理。 (2)本次現金增資案俟呈主管機關申報生效後，有關認股基準日、增資基準日及其他    未盡事宜，授權董事長視實際情況依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.增資資金來源:現金增資發行普通股 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  本公司擬發行普通股不超過8,500仟股，發行總面額不超過新台幣1,000,000仟元。 5.採總括申報發行新股案件，本次發行金額及股數:不適用。 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 7.每股面額:新台幣10元。 8.發行價格:實際發行價格授權董事長俟本案向主管機關申報生效後，依相關法令規定  與主辦承銷商依當時市場狀況共同議定。 9.員工認購股數或配發金額:依公司法第267條規定，保留發行新股總額10%~15%，  由本公司員工認購。 10.公開銷售股數: 依證券交易法第28條之1規定，提撥發行新股總額10%對外公開銷售。 11.原股東認購或無償配發比例:其餘發行新股總數75%~80%，由原股東按認股基準日 股東名簿所載之持股比例認購。 12.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，得由股東自 停止過戶日起五日內自行至本公司股務代理機構辦理拼湊一整股認購，原股東、員工 放棄認購或拼湊不足一股之畸零股部分，授權董事長洽特定人按發行價格認購之。 13.本次發行新股之權利義務:與原已發行股份相同。 14.本次增資資金用途:償還銀行借款及充實營運資金。 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項: (1)本次計畫之重要內容，包括發行價格、資金來源、計畫項目、資金運用計畫及進    度、預計可能產生效益及其他相關發行事宜，如有因市場狀況或依主管機關指示    修正而需修正者，授權董事長全權處理。 (2)本次現金增資案俟呈主管機關申報生效後，有關認股基準日、增資基準日及其他    未盡事宜，授權董事長視實際情況依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2464 | 盟立 | 3 | 1 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2464 | 盟立 | 6 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2464 | 盟立 | 106 | 3 | 15013660.0 | 77590.0 | 193.5 | no_signal |
+| 20260626 | 2464 | 盟立 | 105 | 0 | 7111940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

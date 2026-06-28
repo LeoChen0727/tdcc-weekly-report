@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:07 Asia/Taipei
+- generated_at: 2026-06-28 22:26:12 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 231
-- high: 237
-- low: 223
-- close: 235.5
-- volume: 2583511
-- ma5: 218.5
-- ema23_primary: 164.57
-- distance_to_ema23_pct: 43.1
-- ma20: 163.35
-- ma60: 104.02
-- ma120: 84.64
-- return_5d: 37.32
-- return_20d: 84.71
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: 44.17
-- distance_to_high_60_pct: -2.28
+- date: 20260626
+- open: 240
+- high: 240
+- low: 218
+- close: 218
+- volume: 1330568
+- ma5: 231.8
+- ema23_primary: 184
+- distance_to_ema23_pct: 18.48
+- ma20: 185.22
+- ma60: 115.32
+- ma120: 90.47
+- return_5d: -6.84
+- return_20d: 71.65
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: 17.69
+- distance_to_high_60_pct: -14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,134,134,119,120,25874117,89.52,34.05,85.86,73.5,3.15
-20260526,120,121.5,112,119,3880856,91.97,29.39,88.5,74.28,0.47
-20260527,121,123.5,113.5,120,3718085,94.31,27.24,91.08,75.07,0.44
-20260528,118.5,129.5,118.5,127,5923063,97.03,30.88,93.97,75.99,0.69
 20260529,139,139,130.5,139,4217226,100.53,38.27,97.5,77.11,0.48
 20260601,140.5,152.5,140.5,144,3472752,104.15,38.26,101.12,78.38,0.39
 20260602,144,145,130,143,3194844,107.39,33.16,104.42,79.58,0.38
@@ -153,20 +149,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,205.5,227.5,205.5,227.5,18754227,151.22,50.44,152.05,98.3,1.65
 20260618,236,241,223,234,36381648,158.12,47.99,157.95,101.13,2.81
 20260622,231,237,223,235.5,2583511,164.57,43.1,163.35,104.02,0.2
+20260623,234.5,234.5,222,223.5,1828121,169.48,31.87,168.53,106.7,0.16
+20260624,224,240,223.5,240,2802756,175.36,36.86,174.57,109.68,0.24
+20260625,253.5,253.5,240,242,1577279,180.91,33.77,180.68,112.7,0.14
+20260626,240,240,218,218,1330568,184,18.48,185.22,115.32,0.12
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.68
-- over_600_ratio: 64.6
-- over_800_ratio: 61.78
-- over_1000_ratio: 59.36
-- over_400_change_1w: 4.18
-- over_800_change_1w: 4.79
-- over_1000_change_1w: 4.22
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 67.92
+- over_600_ratio: 62.21
+- over_800_ratio: 60.4
+- over_1000_ratio: 58.66
+- over_400_change_1w: -1.76
+- over_800_change_1w: -1.38
+- over_1000_change_1w: -0.7
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.04,1.94,54.41,1.98,52.57,2.02,5,True,True
 20260612,65.5,1.46,56.99,2.58,55.14,2.57,6,True,True
 20260618,69.68,4.18,61.78,4.79,59.36,4.22,7,True,True
+20260626,67.92,-1.76,60.4,-1.38,58.66,-0.7,0,False,False
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2478 | 大毅 | 17 | 0 | 1582290.0 | 0.0 |  | no_signal |
+| 20260626 | 2478 | 大毅 | 17 | 0 | 794080.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

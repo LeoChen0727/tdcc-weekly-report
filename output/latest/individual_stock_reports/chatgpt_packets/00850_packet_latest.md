@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00850 元大臺灣ESG永續
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:29 Asia/Taipei
+- generated_at: 2026-06-28 22:25:42 Asia/Taipei
 - stock_id: 00850
 - stock_name: 元大臺灣ESG永續
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 93.55
-- high: 95.05
-- low: 93.55
-- close: 95
-- volume: 1070642
-- ma5: 92.05
-- ema23_primary: 88.82
-- distance_to_ema23_pct: 6.96
-- ma20: 89.47
-- ma60: 89.15
-- ma120: 89.15
-- return_5d: 8.2
-- return_20d: 14.67
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 6.18
-- distance_to_high_60_pct: -0.05
+- date: 20260626
+- open: 91.1
+- high: 91.1
+- low: 88
+- close: 88.05
+- volume: 1100727
+- ma5: 92.18
+- ema23_primary: 89.54
+- distance_to_ema23_pct: -1.67
+- ma20: 90.33
+- ma60: 89.53
+- ma120: 89.53
+- return_5d: -4.76
+- return_20d: 1.56
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: -2.52
+- distance_to_high_60_pct: -7.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,84.25,86.55,84.25,86.5,2905492,,,,,
-20260526,86.9,87.45,86,86.7,903650,,,,,
-20260527,87.75,90,87.75,88.9,945782,,,,,
-20260528,89.1,89.7,86.15,86.7,1073179,84.14,3.05,86.33,86.33,0.62
 20260529,88.15,89.4,88.1,89.15,685514,84.55,5.43,86.8,86.8,0.44
 20260601,89.85,91.45,89.85,90.75,1022806,85.07,6.68,87.36,87.36,0.69
 20260602,91.15,91.3,89.45,91.05,973454,85.57,6.41,87.83,87.83,0.68
@@ -154,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,90.6,91.4,89.95,91.4,512006,87.87,4.01,88.67,88.67,0.44
 20260618,92.05,92.5,92,92.45,949370,88.25,4.75,88.86,88.86,0.82
 20260622,93.55,95.05,93.55,95,1070642,88.82,6.96,89.47,89.15,1
+20260623,95.25,95.65,93.6,93.8,654861,89.23,5.12,89.83,89.37,0.68
+20260624,91.5,92.15,90.8,91.85,1093410,89.45,2.68,90.09,89.47,1.13
+20260625,92.5,92.85,91.35,92.2,594325,89.68,2.81,90.26,89.59,0.62
+20260626,91.1,91.1,88,88.05,1100727,89.54,-1.67,90.33,89.53,1.15
 ```
 
 ## Latest TDCC Snapshot

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5302 太欣
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:02 Asia/Taipei
+- generated_at: 2026-06-28 22:26:57 Asia/Taipei
 - stock_id: 5302
 - stock_name: 太欣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 12.8
-- high: 13.4
-- low: 12.25
-- close: 12.6
-- volume: 2227000
-- ma5: 12.38
-- ema23_primary: 11.41
-- distance_to_ema23_pct: 10.42
-- ma20: 11.22
-- ma60: 11.06
-- ma120: 11.13
-- return_5d: 11.5
-- return_20d: 24.75
-- volume_ratio: 2.37
-- distance_to_ma20_pct_auxiliary: 12.32
-- distance_to_high_60_pct: -5.97
+- date: 20260626
+- open: 12.95
+- high: 13.25
+- low: 12.6
+- close: 12.65
+- volume: 1842000
+- ma5: 13.32
+- ema23_primary: 12.01
+- distance_to_ema23_pct: 5.34
+- ma20: 11.86
+- ma60: 11.21
+- ma120: 11.28
+- return_5d: 0.8
+- return_20d: 15.53
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 6.64
+- distance_to_high_60_pct: -14.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,10,10.3,9.92,10,10000,10.67,-6.27,10.83,11.21,0.01
-20260526,10.05,10.5,10.05,10.2,10000,10.63,-4.04,10.76,11.17,0.02
-20260527,10.35,10.35,9.96,9.96,10000,10.57,-5.8,10.69,11.13,0.02
-20260528,10.05,10.95,10,10.95,11000,10.61,3.25,10.68,11.1,0.02
 20260529,11.7,11.7,10.55,10.8,11000,10.62,1.68,10.66,11.08,0.02
 20260601,10.55,11.35,10.55,11,11000,10.65,3.26,10.66,11.07,0.02
 20260602,11.2,11.7,10.95,11.35,11,10.71,5.97,10.66,11.06,0
@@ -155,19 +150,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,13.15,13.2,12.2,12.5,3453000,11.19,11.72,10.97,11.02,4.42
 20260618,12.5,12.8,12.15,12.55,1439000,11.3,11.04,11.09,11.04,1.73
 20260622,12.8,13.4,12.25,12.6,2227000,11.41,10.42,11.22,11.06,2.37
+20260623,12.75,13.85,12.45,13.85,4980000,11.61,19.25,11.41,11.1,4.19
+20260624,13.85,14.75,13.15,14.45,6658000,11.85,21.94,11.62,11.15,4.37
+20260625,13.6,13.9,13.05,13.05,3997000,11.95,9.2,11.78,11.18,2.32
+20260626,12.95,13.25,12.6,12.65,1842000,12.01,5.34,11.86,11.21,1.02
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.82
-- over_600_ratio: 49.18
-- over_800_ratio: 47.38
-- over_1000_ratio: 46.18
-- over_400_change_1w: 1.8
-- over_800_change_1w: 1.22
-- over_1000_change_1w: 0.64
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 51.17
+- over_600_ratio: 48.68
+- over_800_ratio: 47.37
+- over_1000_ratio: 46.19
+- over_400_change_1w: -1.65
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,18 +181,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,50.45,0,46.16,0,45.54,0,0,False,False
 20260612,51.02,0.57,46.16,0,45.54,0,1,False,False
 20260618,52.82,1.8,47.38,1.22,46.18,0.64,2,True,True
+20260626,51.17,-1.65,47.37,-0.01,46.19,0.01,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5302 | 太欣 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 5302 | 太欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 5302 | 太欣 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 5302 | 太欣 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 5302 | 太欣 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 5.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5302 | 太欣 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 5302 | 太欣 | 5 | 1 | 5 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

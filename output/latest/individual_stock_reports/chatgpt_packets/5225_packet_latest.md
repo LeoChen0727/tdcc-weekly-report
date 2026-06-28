@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5225 東科-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:00 Asia/Taipei
+- generated_at: 2026-06-28 22:26:56 Asia/Taipei
 - stock_id: 5225
 - stock_name: 東科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 74.2
-- high: 74.6
-- low: 73.6
-- close: 73.9
-- volume: 251765
-- ma5: 73.66
-- ema23_primary: 73.28
-- distance_to_ema23_pct: 0.85
-- ma20: 72.79
-- ma60: 75.47
-- ma120: 87.22
-- return_5d: 3.21
-- return_20d: 3.79
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 1.52
-- distance_to_high_60_pct: -20.79
+- date: 20260626
+- open: 73.1
+- high: 73.4
+- low: 71.6
+- close: 71.6
+- volume: 303121
+- ma5: 72.88
+- ema23_primary: 73.07
+- distance_to_ema23_pct: -2.01
+- ma20: 73.19
+- ma60: 74.57
+- ma120: 86.31
+- return_5d: -3.24
+- return_20d: 1.99
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -2.17
+- distance_to_high_60_pct: -11.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,71.5,71.5,70.3,70.5,352033,73.88,-4.57,73.48,82.11,1.09
-20260526,70.9,71.4,70.2,71.3,214490,73.66,-3.21,73.28,81.64,0.68
-20260527,71.5,72.3,69.8,70.6,525158,73.41,-3.82,73.06,81.16,1.57
-20260528,70.6,71.1,69.7,70.2,369262,73.14,-4.02,72.73,80.7,1.1
 20260529,70.2,71.1,70,70.9,312023,72.95,-2.81,72.44,80.27,0.94
 20260601,70.9,71.9,70.1,71.6,550787,72.84,-1.7,72.12,79.9,1.61
 20260602,71.7,71.7,70.8,71.5,307177,72.73,-1.69,71.81,79.53,0.89
@@ -155,19 +151,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,73.3,73.8,73.1,73.3,173192,73.15,0.21,72.51,76.05,0.34
 20260618,73.4,74.4,73.3,74,204030,73.22,1.07,72.66,75.75,0.4
 20260622,74.2,74.6,73.6,73.9,251765,73.28,0.85,72.79,75.47,0.5
+20260623,73.9,74,72.8,73,209502,73.25,-0.35,72.92,75.18,0.42
+20260624,72.6,73.6,72.5,72.8,129954,73.22,-0.57,72.99,74.89,0.26
+20260625,73.3,74.8,73.1,73.1,220991,73.21,-0.14,73.11,74.72,0.46
+20260626,73.1,73.4,71.6,71.6,303121,73.07,-2.01,73.19,74.57,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 45.93
-- over_600_ratio: 43.44
-- over_800_ratio: 42.66
-- over_1000_ratio: 39.28
-- over_400_change_1w: 0.03
-- over_800_change_1w: 1.03
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 46.63
+- over_600_ratio: 43.54
+- over_800_ratio: 42.75
+- over_1000_ratio: 39.29
+- over_400_change_1w: 0.7
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.84,-0.96,42.72,-1.24,39.24,-1.33,0,False,False
 20260612,45.9,0.06,41.63,-1.09,39.28,0.04,1,False,True
 20260618,45.93,0.03,42.66,1.03,39.28,0,2,False,True
+20260626,46.63,0.7,42.75,0.09,39.29,0.01,3,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5225 | 東科-KY | 2 | 0 | 11350.0 | 0.0 |  | no_signal |
+| 20260626 | 5225 | 東科-KY | 2 | 0 | 27280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8374 羅昇
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:59 Asia/Taipei
+- generated_at: 2026-06-28 22:27:44 Asia/Taipei
 - stock_id: 8374
 - stock_name: 羅昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 93.5
-- high: 93.9
-- low: 92.1
-- close: 92.5
-- volume: 548759
-- ma5: 91.24
-- ema23_primary: 94.45
-- distance_to_ema23_pct: -2.07
-- ma20: 98.05
-- ma60: 87.97
-- ma120: 85.2
-- return_5d: 2.1
-- return_20d: -15.14
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -5.66
-- distance_to_high_60_pct: -21.94
+- date: 20260626
+- open: 88.2
+- high: 88.2
+- low: 84
+- close: 84
+- volume: 602381
+- ma5: 89.24
+- ema23_primary: 92.61
+- distance_to_ema23_pct: -9.3
+- ma20: 94.08
+- ma60: 89.27
+- ma120: 85.56
+- return_5d: -7.69
+- return_20d: -17.65
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -10.71
+- distance_to_high_60_pct: -29.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,113,118.5,111,112.5,6047352,94.15,19.49,93.58,81.22,1.91
-20260526,111,117,107.5,110.5,3295480,95.51,15.69,95.36,81.63,1
-20260527,112.5,113.5,106.5,108,2683351,96.55,11.85,96.64,81.97,0.79
-20260528,107,109,100,102,2003206,97.01,5.15,97.58,82.21,0.59
 20260529,104,108,102.5,106,2066517,97.76,8.43,98.66,82.6,0.61
 20260601,108,114,106,112,4619522,98.94,13.2,99.95,83.19,1.31
 20260602,109.5,109.5,101,102,2560755,99.2,2.82,100.56,83.59,0.73
@@ -155,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,90.5,90.9,88.8,90.2,329121,94.96,-5.01,99.28,87.21,0.15
 20260618,91.5,92.2,90.2,91,523639,94.63,-3.84,98.87,87.58,0.25
 20260622,93.5,93.9,92.1,92.5,548759,94.45,-2.07,98.05,87.97,0.3
+20260623,93.1,93.1,90.2,90.4,424835,94.12,-3.95,96.94,88.31,0.27
+20260624,89.5,91.6,89.2,91.1,392721,93.86,-2.94,95.97,88.68,0.28
+20260625,92.1,92.5,88,88.2,380398,93.39,-5.56,94.98,88.99,0.29
+20260626,88.2,88.2,84,84,602381,92.61,-9.3,94.08,89.27,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.58
+- as_of_date: 20260626
+- over_400_ratio: 71.68
 - over_600_ratio: 70.75
 - over_800_ratio: 70.08
 - over_1000_ratio: 68.57
-- over_400_change_1w: 0.35
+- over_400_change_1w: 0.1
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.23,-0.97,70.08,0,68.57,0,0,False,False
 20260612,71.23,0,70.08,0,68.57,0,0,False,False
 20260618,71.58,0.35,70.08,0,68.57,0,1,False,False
+20260626,71.68,0.1,70.08,0,68.57,0,2,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8374 | 羅昇 | 11 | 0 | 9960.0 | 0.0 |  | no_signal |
+| 20260626 | 8374 | 羅昇 | 11 | 0 | 31660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

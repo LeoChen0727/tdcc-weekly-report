@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:07 Asia/Taipei
+- generated_at: 2026-06-28 22:26:12 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 126
-- high: 127
-- low: 122.5
-- close: 125.5
-- volume: 4346629
-- ma5: 124.1
-- ema23_primary: 121.37
-- distance_to_ema23_pct: 3.41
-- ma20: 122.9
-- ma60: 113.22
-- ma120: 99.57
-- return_5d: 2.03
-- return_20d: 3.72
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 2.12
-- distance_to_high_60_pct: -7.04
+- date: 20260626
+- open: 129
+- high: 132
+- low: 125.5
+- close: 126
+- volume: 4449741
+- ma5: 127.6
+- ema23_primary: 123.34
+- distance_to_ema23_pct: 2.16
+- ma20: 123.2
+- ma60: 116.11
+- ma120: 100.87
+- return_5d: 0.8
+- return_20d: 3.28
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 2.27
+- distance_to_high_60_pct: -6.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,123,127.5,122,124.5,8008393,115.43,7.86,117.2,99.97,1.44
-20260526,126.5,133,123,131,12057370,116.72,12.23,117.72,100.75,2.09
-20260527,132,135,126.5,129,8050511,117.75,9.56,118.25,101.48,1.36
-20260528,130,132,119.5,122,9137196,118.1,3.3,118.65,102.12,1.5
 20260529,127,127,120.5,122,5305669,118.43,3.02,118.9,102.82,0.86
 20260601,124.5,127,121,122,3308580,118.72,2.76,119.3,103.58,0.55
 20260602,122.5,123,114.5,119,5706515,118.75,0.21,119.45,104.26,0.94
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,120.5,123.5,119,122.5,2925439,120.63,1.55,122.42,111.83,0.5
 20260618,123.5,126,122,125,3435420,120.99,3.31,122.67,112.53,0.6
 20260622,126,127,122.5,125.5,4346629,121.37,3.41,122.9,113.22,0.78
+20260623,126.5,130,123,128.5,5646835,121.96,5.36,123.1,113.96,1.03
+20260624,126.5,130,124,127.5,4318803,122.42,4.15,122.92,114.67,0.85
+20260625,127.5,133,126,130.5,5951791,123.1,6.01,123,115.42,1.2
+20260626,129,132,125.5,126,4449741,123.34,2.16,123.2,116.11,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.42
-- over_600_ratio: 59.81
-- over_800_ratio: 57.87
-- over_1000_ratio: 56.67
-- over_400_change_1w: 0.77
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 65.76
+- over_600_ratio: 62.06
+- over_800_ratio: 59.46
+- over_1000_ratio: 57.81
+- over_400_change_1w: 1.34
+- over_800_change_1w: 1.59
+- over_1000_change_1w: 1.14
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,23 +182,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,62.91,-0.35,57.94,0.95,55.16,-1.01,3,False,True
 20260612,63.65,0.74,57.95,0.01,56.73,1.57,4,True,True
 20260618,64.42,0.77,57.87,-0.08,56.67,-0.06,5,False,False
+20260626,65.76,1.34,59.46,1.59,57.81,1.14,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2476 | 鉅祥 | 13 | 2 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2476 | 鉅祥 | 16 | 4 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2476 | 鉅祥 | 47 | 0 | 9556750.0 | 0.0 |  | no_signal |
+| 20260626 | 2476 | 鉅祥 | 47 | 0 | 18775370.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

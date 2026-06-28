@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:35 Asia/Taipei
+- generated_at: 2026-06-28 22:27:24 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 1195
-- high: 1225
-- low: 1180
-- close: 1205
-- volume: 1356985
-- ma5: 1177
-- ema23_primary: 1160.39
-- distance_to_ema23_pct: 3.84
-- ma20: 1166.5
-- ma60: 1120.9
-- ma120: 1147.41
-- return_5d: 5.24
-- return_20d: -0.41
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 3.3
-- distance_to_high_60_pct: -12.04
+- date: 20260626
+- open: 1170
+- high: 1175
+- low: 1085
+- close: 1105
+- volume: 1572280
+- ma5: 1167
+- ema23_primary: 1158.97
+- distance_to_ema23_pct: -4.66
+- ma20: 1154.5
+- ma60: 1126.65
+- ma120: 1142.41
+- return_5d: -6.36
+- return_20d: -4.74
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -4.29
+- distance_to_high_60_pct: -19.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,1245,1290,1230,1260,2114609,1159.78,8.64,1182.25,1088.07,1.02
-20260526,1270,1315,1235,1245,2030758,1166.88,6.69,1183.25,1088.9,1.02
-20260527,1265,1300,1195,1205,1704374,1170.06,2.99,1183.25,1088.9,0.89
-20260528,1220,1245,1150,1160,1487473,1169.22,-0.79,1184.75,1088.57,0.8
 20260529,1185,1210,1150,1160,1162296,1168.45,-0.72,1187.5,1089.23,0.63
 20260601,1180,1225,1175,1200,1537174,1171.08,2.47,1190.75,1092.23,0.82
 20260602,1205,1205,1100,1130,1875312,1167.66,-3.23,1191.25,1093.82,0.98
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,1140,1185,1140,1175,644524,1154.18,1.8,1164.75,1116.9,0.43
 20260618,1180,1190,1140,1180,1161735,1156.33,2.05,1166.75,1118.98,0.76
 20260622,1195,1225,1180,1205,1356985,1160.39,3.84,1166.5,1120.9,0.88
+20260623,1200,1225,1165,1170,1109969,1161.19,0.76,1162,1121.65,0.74
+20260624,1160,1170,1145,1165,630936,1161.51,0.3,1158,1123.15,0.44
+20260625,1180,1205,1160,1190,1061994,1163.88,2.24,1157.25,1125.15,0.76
+20260626,1170,1175,1085,1105,1572280,1158.97,-4.66,1154.5,1126.65,1.13
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 70.27
-- over_600_ratio: 70.27
-- over_800_ratio: 69.46
-- over_1000_ratio: 68.3
-- over_400_change_1w: 0
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 69.9
+- over_600_ratio: 69.27
+- over_800_ratio: 69.27
+- over_1000_ratio: 68.24
+- over_400_change_1w: -0.37
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,23 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.36,-0.89,69.99,-0.97,69.99,0.08,3,False,True
 20260612,70.27,-1.09,69.41,-0.58,68.25,-1.74,0,False,False
 20260618,70.27,0,69.46,0.05,68.3,0.05,1,False,True
+20260626,69.9,-0.37,69.27,-0.19,68.24,-0.06,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6781 | AES-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 6781 | AES-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6781 | AES-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6781 | AES-KY | 1 | 1 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 6781 | AES-KY | 1 | 1 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6781 | AES-KY | 168 | 2 | 19437950.0 | 100690.0 | 193.05 | call_inflow |
+| 20260626 | 6781 | AES-KY | 168 | 0 | 19116460.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

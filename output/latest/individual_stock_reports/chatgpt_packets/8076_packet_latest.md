@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8076 伍豐
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:55 Asia/Taipei
+- generated_at: 2026-06-28 22:27:40 Asia/Taipei
 - stock_id: 8076
 - stock_name: 伍豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -119,32 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 25.45
-- high: 26.1
-- low: 25.45
-- close: 25.9
-- volume: 1582000
-- ma5: 25.89
-- ema23_primary: 25.71
-- distance_to_ema23_pct: 0.75
-- ma20: 25.88
-- ma60: 24.32
-- ma120: 24.08
-- return_5d: -3.54
-- return_20d: 7.69
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 0.1
-- distance_to_high_60_pct: -13.38
+- date: 20260626
+- open: 25.1
+- high: 25.15
+- low: 24.1
+- close: 24.2
+- volume: 1819000
+- ma5: 25.16
+- ema23_primary: 25.48
+- distance_to_ema23_pct: -5.03
+- ma20: 26.13
+- ma60: 24.33
+- ma120: 24.15
+- return_5d: -6.02
+- return_20d: 2.54
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -7.39
+- distance_to_high_60_pct: -19.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,24.3,24.5,23.85,23.85,24000,23.7,0.64,23.5,23.8,0.02
-20260526,24,24.2,23.6,23.85,24000,23.71,0.59,23.57,23.82,0.02
-20260527,24.15,24.2,23.3,23.5,24000,23.69,-0.82,23.61,23.82,0.02
-20260528,23.8,24.3,23.5,23.6,24000,23.69,-0.36,23.66,23.83,0.02
 20260529,23.85,24.3,23.8,24.1,24000,23.72,1.6,23.75,23.84,0.02
 20260601,24.2,25.5,23.9,24.9,25000,23.82,4.54,23.88,23.89,0.03
 20260602,25,25.15,24.45,24.95,25,23.91,4.34,23.99,23.93,0
@@ -161,18 +157,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,25.2,25.85,25.2,25.55,1275000,25.69,-0.53,25.7,24.29,1.15
 20260618,25.8,26.25,25.45,25.75,1630000,25.69,0.23,25.78,24.31,1.43
 20260622,25.45,26.1,25.45,25.9,1582000,25.71,0.75,25.88,24.32,1.3
+20260623,25.9,26,25.2,25.2,1759000,25.67,-1.81,25.94,24.31,1.34
+20260624,25.2,25.5,25,25.3,818000,25.64,-1.31,26.02,24.32,0.61
+20260625,25.6,25.7,25.2,25.2,879000,25.6,-1.56,26.1,24.33,0.63
+20260626,25.1,25.15,24.1,24.2,1819000,25.48,-5.03,26.13,24.33,1.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 34.22
-- over_600_ratio: 30.98
-- over_800_ratio: 28.65
-- over_1000_ratio: 25.85
+- as_of_date: 20260626
+- over_400_ratio: 34.38
+- over_600_ratio: 31.1
+- over_800_ratio: 28.46
+- over_1000_ratio: 25.32
 - over_400_change_1w: 0.16
-- over_800_change_1w: -0.2
+- over_800_change_1w: -0.19
 - over_1000_change_1w: -0.53
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.3,-0.34,29.18,0.25,26.75,0.6,5,False,True
 20260612,34.06,-0.24,28.85,-0.33,26.38,-0.37,0,False,False
 20260618,34.22,0.16,28.65,-0.2,25.85,-0.53,1,False,False
+20260626,34.38,0.16,28.46,-0.19,25.32,-0.53,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8076 | 伍豐 | pullback_rebound | 回檔後短線轉強 | 82.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 8076 | 伍豐 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8076 | 伍豐 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8076 | 伍豐 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260626 | 8076 | 伍豐 | 1 | 1 | 3 | 3 | 5 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

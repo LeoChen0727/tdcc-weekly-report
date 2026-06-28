@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00770 國泰北美科技
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:29 Asia/Taipei
+- generated_at: 2026-06-28 22:25:42 Asia/Taipei
 - stock_id: 00770
 - stock_name: 國泰北美科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 68.6
-- high: 69
-- low: 68.6
-- close: 68.9
-- volume: 319039
-- ma5: 68.4
-- ema23_primary: 67.37
-- distance_to_ema23_pct: 2.27
-- ma20: 67.79
-- ma60: 67.66
-- ma120: 67.66
-- return_5d: 3.45
-- return_20d: 5.67
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 1.64
-- distance_to_high_60_pct: -3.77
+- date: 20260626
+- open: 67.35
+- high: 67.35
+- low: 66.1
+- close: 66.4
+- volume: 612442
+- ma5: 67.65
+- ema23_primary: 67.35
+- distance_to_ema23_pct: -1.41
+- ma20: 67.98
+- ma60: 67.61
+- ma120: 67.61
+- return_5d: -2.35
+- return_20d: 0.3
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: -2.33
+- distance_to_high_60_pct: -7.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,65.95,66.3,65.95,66.25,528959,,,,,
-20260526,66.25,66.25,65.75,66,177633,,,,,
-20260527,67,67.3,66.95,67,289864,,,,,
-20260528,67.5,67.5,66.05,66.2,314318,65.54,1,66.13,66.13,0.82
 20260529,67.3,68.05,67.3,68,647607,65.75,3.42,66.44,66.44,1.52
 20260601,68.8,69.75,68.8,69.55,423263,66.07,5.27,66.89,66.89,0.99
 20260602,69.75,70.75,69.75,70.75,453679,66.46,6.46,67.37,67.37,1.06
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,68.65,68.65,67.8,68,149243,67.16,1.25,67.58,67.58,0.35
 20260618,68,68.35,67.9,68,350964,67.23,1.14,67.6,67.6,0.84
 20260622,68.6,69,68.6,68.9,319039,67.37,2.27,67.79,67.66,0.79
+20260623,68.9,68.95,67.9,67.9,247188,67.42,0.72,67.87,67.67,0.63
+20260624,67.05,67.1,66.45,67.05,581887,67.38,-0.5,67.92,67.65,1.42
+20260625,67.5,68,67.5,68,273024,67.44,0.84,67.97,67.66,0.67
+20260626,67.35,67.35,66.1,66.4,612442,67.35,-1.41,67.98,67.61,1.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3588 通嘉
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:39 Asia/Taipei
+- generated_at: 2026-06-28 22:26:38 Asia/Taipei
 - stock_id: 3588
 - stock_name: 通嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -60,13 +60,13 @@
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,8 +74,8 @@
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
 - position_sizing: half_position
 
 ### management_plan
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 64.3
-- high: 66.3
-- low: 62.2
-- close: 66.3
-- volume: 2676255
-- ma5: 60.34
-- ema23_primary: 59.88
-- distance_to_ema23_pct: 10.72
-- ma20: 60.38
-- ma60: 58.31
-- ma120: 54.67
-- return_5d: 15.51
-- return_20d: 5.07
-- volume_ratio: 3.73
-- distance_to_ma20_pct_auxiliary: 9.81
-- distance_to_high_60_pct: -7.4
+- date: 20260626
+- open: 71.7
+- high: 75.9
+- low: 71.1
+- close: 71.6
+- volume: 4145741
+- ma5: 70.96
+- ema23_primary: 63.49
+- distance_to_ema23_pct: 12.78
+- ma20: 61.99
+- ma60: 59.82
+- ma120: 55.46
+- return_5d: 18.74
+- return_20d: 16.05
+- volume_ratio: 2.87
+- distance_to_ma20_pct_auxiliary: 15.49
+- distance_to_high_60_pct: -10.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,65,65.4,63.5,64.8,831861,60.61,6.91,61.52,55.05,1.1
-20260526,65.3,66.7,64,65.1,732396,60.99,6.75,61.74,55.26,1.09
-20260527,66,66.3,62.9,64.5,1030226,61.28,5.26,61.8,55.47,1.54
-20260528,65.2,65.9,61.2,61.7,1004745,61.31,0.63,61.83,55.63,1.47
 20260529,62.9,63.4,61.3,61.8,621229,61.35,0.73,61.85,55.8,0.9
 20260601,61.8,64.5,61.8,63.6,1013354,61.54,3.34,61.98,56.07,1.43
 20260602,64,68,61.8,63.9,1320900,61.74,3.5,62.05,56.31,1.8
@@ -160,20 +156,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,58.7,58.7,57.4,57.8,198649,59.2,-2.37,60.32,57.85,0.32
 20260618,58.7,60.9,58.6,60.3,592678,59.29,1.7,60.22,58.02,0.95
 20260622,64.3,66.3,62.2,66.3,2676255,59.88,10.72,60.38,58.31,3.73
+20260623,69,71.6,67.5,69,5138479,60.64,13.79,60.59,58.62,5.5
+20260624,68,75.9,66.9,75.9,3552425,61.91,22.6,61.12,59.06,3.31
+20260625,79.9,80,71,72,5264650,62.75,14.74,61.5,59.44,4.09
+20260626,71.7,75.9,71.1,71.6,4145741,63.49,12.78,61.99,59.82,2.87
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 27.93
-- over_600_ratio: 27.09
-- over_800_ratio: 22.57
-- over_1000_ratio: 18.42
-- over_400_change_1w: 0.16
-- over_800_change_1w: -0.04
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 30.95
+- over_600_ratio: 26.41
+- over_800_ratio: 21.69
+- over_1000_ratio: 20.23
+- over_400_change_1w: 3.02
+- over_800_change_1w: -0.88
+- over_1000_change_1w: 1.81
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,27.63,-0.87,21.24,0.01,18.37,-0.03,5,False,True
 20260612,27.77,0.14,22.61,1.37,18.42,0.05,6,True,True
 20260618,27.93,0.16,22.57,-0.04,18.42,0,7,False,False
+20260626,30.95,3.02,21.69,-0.88,20.23,1.81,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3588 | 通嘉 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會(Webex會議) 4.法人說明會擇要訊息：本公司受邀參加康和綜合證券所舉辦之線上法人說明會，就本公司已公開發佈之財務數字及經營績效等相關資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 3588 | 通嘉 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會(Webex會議) 4.法人說明會擇要訊息：本公司受邀參加康和綜合證券所舉辦之線上法人說明會，就本公司已公開發佈之財務數字及經營績效等相關資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3588 | 通嘉 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260626 | 3588 | 通嘉 | 4 | 1 | 4 | 4 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:17 Asia/Taipei
+- generated_at: 2026-06-28 22:26:20 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 38.45
-- high: 38.5
-- low: 37.05
-- close: 37.6
-- volume: 43716046
-- ma5: 37.64
-- ema23_primary: 35.22
-- distance_to_ema23_pct: 6.75
-- ma20: 34.53
-- ma60: 33.95
-- ma120: 33.68
-- return_5d: 4.44
-- return_20d: 17.68
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 8.88
-- distance_to_high_60_pct: -4.08
+- date: 20260626
+- open: 36.9
+- high: 37.75
+- low: 36.9
+- close: 36.9
+- volume: 28094453
+- ma5: 37.41
+- ema23_primary: 35.85
+- distance_to_ema23_pct: 2.94
+- ma20: 35.99
+- ma60: 34.2
+- ma120: 33.87
+- return_5d: -3.78
+- return_20d: 24.66
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 2.51
+- distance_to_high_60_pct: -5.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,32,32,30.55,30.55,66355162,32.72,-6.63,32.57,33.92,2.63
-20260526,30.85,31.45,30.15,30.15,79395720,32.5,-7.24,32.32,33.8,2.81
-20260527,30.35,30.55,29.95,29.95,78460919,32.29,-7.25,32.16,33.66,2.6
-20260528,30.1,30.3,29.6,29.6,96181130,32.07,-7.69,32,33.55,2.87
 20260529,29.95,31.2,29.8,30.5,129129440,31.94,-4.5,31.92,33.45,3.35
 20260601,30.55,33.45,30.55,32.85,92466538,32.01,2.62,31.96,33.41,2.22
 20260602,32.5,34.4,32.4,34.05,115623011,32.18,5.8,32.03,33.39,2.46
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,36.95,38.6,36.95,38.1,32919856,34.7,9.79,33.94,33.79,0.55
 20260618,38.15,39.2,38,38.35,67936605,35.01,9.55,34.25,33.88,1.11
 20260622,38.45,38.5,37.05,37.6,43716046,35.22,6.75,34.53,33.95,0.71
+20260623,37.2,38,36.95,37.55,48365107,35.42,6.03,34.88,34.01,0.79
+20260624,37.2,37.35,36.25,37,55048004,35.55,4.08,35.23,34.07,0.92
+20260625,36.55,38,36.5,38,52957611,35.75,6.29,35.63,34.14,0.9
+20260626,36.9,37.75,36.9,36.9,28094453,35.85,2.94,35.99,34.2,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 81.2
-- over_600_ratio: 80.07
-- over_800_ratio: 79.4
-- over_1000_ratio: 78.74
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 81.26
+- over_600_ratio: 80.11
+- over_800_ratio: 79.46
+- over_1000_ratio: 78.8
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,22 +181,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,81.06,0.6,79.28,0.6,78.59,0.57,1,True,True
 20260612,81.07,0.01,79.26,-0.02,78.57,-0.02,2,False,False
 20260618,81.2,0.13,79.4,0.14,78.74,0.17,3,True,True
+20260626,81.26,0.06,79.46,0.06,78.8,0.06,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分派承認案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報表 承認案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)通過修正本公司「取得或處分資產處理程序」案。  (2)通過辦理本公司114年度盈餘轉增資發行新股案。  (3)通過解除本公司董事競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 2880 | 華南金 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 金融機構債權(放款) 2.事實發生日:115/6/26~115/6/26 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:常務董事會 民國115年6月26日 5.交易數量、每單位價格及交易總金額: 澳門幣174,017,474.00元整 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 待出售後另行公告 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 處分之債權附隨之擔保品：不動產等 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 依實際處分價格認列處分利得(或損失) 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依原聯合授信合約及次級公開市場慣例辦理 12.本次交易之決定方式、價格決定之參考依據及決策單位: 常務董事會核定，價格依次級公開市場決定 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 不適用 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 原授信資產之出售 18.本次交易表示異議董事之意見: 不適用 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 本交易係依115/05/30之匯率計算(MOP:NTD=1:3.8874)；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 金融機構債權(放款) 2.事實發生日:115/6/26~115/6/26 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:常務董事會 民國115年6月26日 5.交易數量、每單位價格及交易總金額: 澳門幣174,017,474.00元整 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 待出售後另行公告 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 處分之債權附隨之擔保品：不動產等 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 依實際處分價格認列處分利得(或損失) 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依原聯合授信合約及次級公開市場慣例辦理 12.本次交易之決定方式、價格決定之參考依據及決策單位: 常務董事會核定，價格依次級公開市場決定 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 不適用 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 原授信資產之出售 18.本次交易表示異議董事之意見: 不適用 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 本交易係依115/05/30之匯率計算(MOP:NTD=1:3.8874)；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2880 | 華南金 | 18 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2880 | 華南金 | 21 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2880 | 華南金 | 2 | 0 | 662760.0 | 0.0 |  | no_signal |
+| 20260626 | 2880 | 華南金 | 2 | 0 | 31750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -78,6 +78,10 @@ jobs:
         run: |
           python scripts/validate_pdf_facing_display_text.py
 
+      - name: Validate TDCC weekly PDF font contract
+        run: |
+          python scripts/validate_tdcc_weekly_pdf_font_contract.py
+
       - name: Write TDCC weekly run status
         run: |
           mkdir -p output/latest
@@ -100,6 +104,7 @@ jobs:
             for file in \
               output/latest/tdcc_weekly_report_latest.md \
               output/latest/tdcc_holder_ratio_latest.csv \
+              output/latest/tdcc_invalid_holder_distribution_latest.csv \
               output/latest/tdcc_signal_performance_latest.md \
               output/latest/tdcc_signal_structures_latest.md \
               output/latest/tdcc_stock_history_manifest.csv \

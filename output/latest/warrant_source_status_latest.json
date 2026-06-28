@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "generated_at": "2026-06-24 00:36:19 Asia/Taipei",
-  "requested_date": "20260623",
-  "target_date": "20260623",
-  "data_date": "20260623",
+  "generated_at": "2026-06-27 23:59:13 Asia/Taipei",
+  "requested_date": "20260626",
+  "target_date": "20260626",
+  "data_date": "20260626",
   "last_unavailable_date": "",
   "consecutive_unavailable_trading_days": 0,
   "max_warning_days": 2,
@@ -12,8 +12,8 @@
   "warrant_pdf_visibility": "visible",
   "model_effect_allowed": true,
   "pdf_effect_allowed": true,
-  "final_rows": 28979,
-  "mapping_rows": 29040,
-  "quote_rows": 0,
-  "note": "preserved existing same-date usable raw snapshot from output/latest/warrant_daily_raw_latest.csv"
+  "final_rows": 26577,
+  "mapping_rows": 28971,
+  "quote_rows": 26577,
+  "note": "current-date stock-level warrant data is usable"
 }

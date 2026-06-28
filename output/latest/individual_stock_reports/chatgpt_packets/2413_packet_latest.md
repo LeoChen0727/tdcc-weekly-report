@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2413 環科
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:03 Asia/Taipei
+- generated_at: 2026-06-28 22:26:09 Asia/Taipei
 - stock_id: 2413
 - stock_name: 環科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
+- action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -112,32 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 57
-- high: 58
-- low: 56
-- close: 56.7
-- volume: 3158441
-- ma5: 58.58
-- ema23_primary: 54.76
-- distance_to_ema23_pct: 3.55
-- ma20: 54.97
-- ma60: 50.65
-- ma120: 48.38
-- return_5d: -7.35
-- return_20d: 10.1
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 3.15
-- distance_to_high_60_pct: -15.75
+- date: 20260626
+- open: 50.1
+- high: 50.5
+- low: 47.55
+- close: 47.55
+- volume: 2623434
+- ma5: 51.69
+- ema23_primary: 53.44
+- distance_to_ema23_pct: -11.02
+- ma20: 54.86
+- ma60: 50.38
+- ma120: 48.99
+- return_5d: -15.84
+- return_20d: -6.76
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -13.32
+- distance_to_high_60_pct: -29.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,51.9,52.6,50.7,51.9,5772028,47.89,8.38,46.3,49.63,1.66
-20260526,51.5,53.1,49.05,51.5,5268638,48.19,6.87,46.63,49.57,1.45
-20260527,51.7,52,49.45,49.55,2953112,48.3,2.58,46.88,49.45,0.79
-20260528,50.2,52.5,49.65,51,4945396,48.53,5.1,47.19,49.37,1.26
 20260529,51.9,52.6,50.5,51.2,4200223,48.75,5.03,47.57,49.36,1.04
 20260601,52.1,53.9,51.6,53.2,9055926,49.12,8.31,48,49.46,2.04
 20260602,53,53.4,50.7,53.3,5867363,49.47,7.75,48.4,49.52,1.25
@@ -154,18 +155,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,58.4,59.2,57.1,57.7,3719887,54.4,6.06,54.44,50.56,0.42
 20260618,58,58.6,56.2,56.5,3254286,54.58,3.52,54.71,50.59,0.38
 20260622,57,58,56,56.7,3158441,54.76,3.55,54.97,50.65,0.38
+20260623,56.7,56.7,51.5,51.9,5138279,54.52,-4.8,54.97,50.61,0.62
+20260624,51,53.2,50.9,51.7,2333893,54.28,-4.76,54.98,50.55,0.29
+20260625,52.3,52.4,50.6,50.6,1690186,53.98,-6.26,55.03,50.46,0.21
+20260626,50.1,50.5,47.55,47.55,2623434,53.44,-11.02,54.86,50.38,0.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 63.88
-- over_600_ratio: 61.46
-- over_800_ratio: 58.1
-- over_1000_ratio: 53.87
-- over_400_change_1w: 0.7
-- over_800_change_1w: -0.85
-- over_1000_change_1w: -2.26
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 61.32
+- over_600_ratio: 58.91
+- over_800_ratio: 55.18
+- over_1000_ratio: 52.43
+- over_400_change_1w: -2.56
+- over_800_change_1w: -2.92
+- over_1000_change_1w: -1.44
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,17 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.96,-0.84,52.72,-0.72,50.67,-0.06,0,False,False
 20260612,63.18,6.22,58.95,6.23,56.13,5.46,1,True,True
 20260618,63.88,0.7,58.1,-0.85,53.87,-2.26,2,False,False
+20260626,61.32,-2.56,55.18,-2.92,52.43,-1.44,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2413 | 環科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2413 | 環科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2413 | 環科 | 1 | 1 | 2 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2413 | 環科 | 4 | 4 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

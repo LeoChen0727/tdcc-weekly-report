@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4164 承業醫
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:46 Asia/Taipei
+- generated_at: 2026-06-28 22:26:44 Asia/Taipei
 - stock_id: 4164
 - stock_name: 承業醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 31.45
-- high: 31.5
-- low: 30.35
-- close: 30.4
-- volume: 1157953
-- ma5: 30.77
-- ema23_primary: 29.98
-- distance_to_ema23_pct: 1.39
-- ma20: 29.69
-- ma60: 29.91
-- ma120: 32.13
-- return_5d: -1.62
-- return_20d: 5.37
-- volume_ratio: 1.36
-- distance_to_ma20_pct_auxiliary: 2.39
-- distance_to_high_60_pct: -11.76
+- date: 20260626
+- open: 30.05
+- high: 30.2
+- low: 29.5
+- close: 29.6
+- volume: 1273407
+- ma5: 30.17
+- ema23_primary: 30.01
+- distance_to_ema23_pct: -1.38
+- ma20: 30.09
+- ma60: 29.88
+- ma120: 31.84
+- return_5d: -4.98
+- return_20d: 5.71
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: -1.61
+- distance_to_high_60_pct: -14.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,29.05,29.2,28.3,28.3,1289508,29.1,-2.75,28.79,30.44,1.17
-20260526,28.3,28.45,28.05,28.05,588830,29.01,-3.31,28.7,30.35,0.56
-20260527,28.25,28.25,27.95,28.2,670026,28.94,-2.57,28.65,30.27,0.7
-20260528,28.25,28.55,27.9,28,540438,28.87,-3,28.57,30.21,0.57
 20260529,28.25,28.4,28,28.1,617173,28.8,-2.44,28.53,30.14,0.68
 20260601,28.05,28.6,27.95,28.55,868403,28.78,-0.8,28.51,30.1,0.97
 20260602,28.55,28.75,28.2,28.75,727166,28.78,-0.1,28.47,30.05,0.81
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,30.85,31.2,30.6,30.7,528448,29.84,2.9,29.48,29.91,0.64
 20260618,30.7,31.4,30.7,31.15,691554,29.95,4.02,29.61,29.91,0.83
 20260622,31.45,31.5,30.35,30.4,1157953,29.98,1.39,29.69,29.91,1.36
+20260623,30.4,30.55,30.15,30.15,928354,30,0.51,29.78,29.89,1.11
+20260624,30,30.55,29.7,30.55,538247,30.04,1.69,29.91,29.89,0.65
+20260625,30.55,30.75,30.15,30.15,656536,30.05,0.33,30,29.89,0.79
+20260626,30.05,30.2,29.5,29.6,1273407,30.01,-1.38,30.09,29.88,1.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.53
-- over_600_ratio: 48.04
-- over_800_ratio: 44.47
-- over_1000_ratio: 42.14
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.15
-- over_1000_change_1w: -0.3
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 51.82
+- over_600_ratio: 47.79
+- over_800_ratio: 43.91
+- over_1000_ratio: 42.04
+- over_400_change_1w: 0.29
+- over_800_change_1w: -0.56
+- over_1000_change_1w: -0.1
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.05,0.26,44.04,0.19,42.17,0.23,3,True,True
 20260612,51.43,0.38,44.32,0.28,42.44,0.27,4,True,True
 20260618,51.53,0.1,44.47,0.15,42.14,-0.3,5,False,True
+20260626,51.82,0.29,43.91,-0.56,42.04,-0.1,6,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4164 | 承業醫 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | degraded calendar context only: ex_dividend on 20260629; status=source_stale_cached; proximity=within_7d; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 4164 | 承業醫 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期:115/06/26 2.增資資金來源:現金增資發行新股 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): 發行總金額新台幣77,466,400元，普通股880,300股 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:新台幣10元 8.發行價格:新台幣88元 9.員工認購股數或配發金額:88,030股 10.公開銷售股數:不適用 11.原股東認購或無償配發比例:90% 12.畸零股及逾期未認購股份之處理方式:授權董事長洽特定人認購。 13.本次發行新股之權利義務:其權利義務與原有股份相同。 14.本次增資資金用途:充實營運資金 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項:無；calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4164 | 承業醫 | 1 | 1 | 1 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 4164 | 承業醫 | 1 | 1 | 2 | 2 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

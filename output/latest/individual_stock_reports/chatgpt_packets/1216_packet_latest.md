@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1216 統一
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:33 Asia/Taipei
+- generated_at: 2026-06-28 22:25:45 Asia/Taipei
 - stock_id: 1216
 - stock_name: 統一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
+- date: 20260626
 - open: 74.9
-- high: 74.9
-- low: 74
-- close: 74.3
-- volume: 14851130
-- ma5: 75.34
-- ema23_primary: 74.07
+- high: 75.7
+- low: 74.6
+- close: 74.6
+- volume: 9813989
+- ma5: 74.94
+- ema23_primary: 74.37
 - distance_to_ema23_pct: 0.31
-- ma20: 73.68
-- ma60: 72.63
-- ma120: 73.31
-- return_5d: -2.88
-- return_20d: 3.92
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 0.84
-- distance_to_high_60_pct: -4.38
+- ma20: 74.55
+- ma60: 72.88
+- ma120: 73.21
+- return_5d: 0.13
+- return_20d: 5.37
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 0.07
+- distance_to_high_60_pct: -3.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,72,72,71.2,71.2,13632732,72.54,-1.85,72.09,71.82,0.88
-20260526,71.3,71.9,70.8,70.8,17786937,72.39,-2.2,72.11,71.76,1.12
-20260527,70.8,71.2,70,70.2,21423701,72.21,-2.79,72.08,71.72,1.29
-20260528,70.8,71.5,70.4,70.8,22407549,72.09,-1.79,72.12,71.67,1.32
 20260529,71.6,73.1,70.8,71.8,38842511,72.07,-0.37,72.25,71.64,2.13
 20260601,72.1,74.3,72.1,73.7,26071384,72.2,2.07,72.45,71.67,1.38
 20260602,73.3,74.3,72,74.2,25835043,72.37,2.53,72.71,71.72,1.32
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,75.6,76,74.7,76,10987636,74.01,2.69,73.47,72.48,0.64
 20260618,76.3,76.4,74.5,74.5,28281863,74.05,0.61,73.54,72.56,1.57
 20260622,74.9,74.9,74,74.3,14851130,74.07,0.31,73.68,72.63,0.83
+20260623,74.6,75.5,73.9,75.1,17232592,74.16,1.27,73.88,72.71,0.96
+20260624,75,75.5,74.5,75.1,19340861,74.23,1.17,74.09,72.77,1.07
+20260625,75,76.4,74.6,75.6,17674455,74.35,1.68,74.36,72.83,0.99
+20260626,74.9,75.7,74.6,74.6,9813989,74.37,0.31,74.55,72.88,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 88.97
-- over_600_ratio: 87.69
-- over_800_ratio: 86.35
-- over_1000_ratio: 85.42
-- over_400_change_1w: 0.2
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 89.03
+- over_600_ratio: 87.71
+- over_800_ratio: 86.42
+- over_1000_ratio: 85.45
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,22 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,88.52,0.13,86.03,0.16,85.06,0.24,1,True,True
 20260612,88.77,0.25,86.19,0.16,85.25,0.19,2,True,True
 20260618,88.97,0.2,86.35,0.16,85.42,0.17,3,True,True
+20260626,89.03,0.06,86.42,0.07,85.45,0.03,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1216 | 統一 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:發放現金股利總金額為人民幣2.85億 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 1216 | 統一 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 使用權資產-不動產坐落於台中市西屯區工業區十三路八號 2.事實發生日:115/6/26~115/6/26 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量:租賃面積96坪 交易總金額:使用權資產金額約新台幣4,413,942元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人:發統企業股份有限公司 與公司之關係:發統企業股份有限公司為統清股份有限公司之母公司統一企業股份 有限公司之關聯企業 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因:基於業務上之整體規劃 前次移轉之所有人:台農有限公司 前次移轉之所有人與公司及交易相對人間相互之關係:無 前次移轉日期:114年08月01日 前次移轉金額:使用權資產新台幣145,503,618元 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款條件:依合約約定每月支付租金 付款期間:自民國115年8月1日至民國119年7月31日 契約限制條款及其他重要約定事項:無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式:依據市場行情進行議價 價格決定之參考依據:參考區域內出租價格 決策單位:董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 依公開發行公司取得或處分資產處理準則第十六條規定出具會計師合理性意見： 萬泰聯合會計師事務所 20.會計師姓名: 林勝結 21.會計師開業證書字號: 台省會證字第1556號 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 營業需求之倉辦使用 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年6月26日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:4,488,192元 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1216 | 統一 | 1 | 1 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 1216 | 統一 | 4 | 4 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1216 | 統一 | 10 | 0 | 141300.0 | 0.0 |  | no_signal |
+| 20260626 | 1216 | 統一 | 8 | 0 | 404850.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

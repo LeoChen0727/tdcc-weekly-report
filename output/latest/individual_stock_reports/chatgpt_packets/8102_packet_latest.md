@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8102 傑霖科技
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:56 Asia/Taipei
+- generated_at: 2026-06-28 22:27:41 Asia/Taipei
 - stock_id: 8102
 - stock_name: 傑霖科技
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 113
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 117
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 71.8
-- high: 72.1
-- low: 71.4
-- close: 72
-- volume: 45000
-- ma5: 71.02
-- ema23_primary: 70.95
-- distance_to_ema23_pct: 1.48
-- ma20: 71.74
-- ma60: 66.61
-- ma120: 61.71
-- return_5d: -0.14
-- return_20d: 10.94
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 0.36
-- distance_to_high_60_pct: -12.09
+- date: 20260626
+- open: 68
+- high: 69
+- low: 65
+- close: 69
+- volume: 19000
+- ma5: 70.48
+- ema23_primary: 70.68
+- distance_to_ema23_pct: -2.38
+- ma20: 73.04
+- ma60: 67.54
+- ma120: 61.99
+- return_5d: -4.03
+- return_20d: 11.29
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -5.53
+- distance_to_high_60_pct: -15.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,64.8,64.8,63.1,63.9,64000,64.74,-1.3,66.25,60.02,1.42
-20260526,63.1,64.9,62.8,64.9,64000,64.76,0.22,65.94,60.17,1.4
-20260527,64.9,65,62.1,63.6,63000,64.66,-1.64,65.63,60.32,1.34
-20260528,62.6,63,62,62,62000,64.44,-3.78,65.28,60.45,1.27
 20260529,62,67.4,61.7,67.1,64000,64.66,3.77,65.22,60.65,1.28
 20260601,71.2,73.7,71.2,73.4,73000,65.39,12.25,65.47,60.98,1.41
 20260602,73,80,71.5,80,75,66.61,20.11,66,61.43,0
@@ -155,17 +151,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,70,70,69.8,69.8,6000,70.76,-1.35,71.05,65.96,0.12
 20260618,69.1,72,69.1,71.9,41000,70.85,1.48,71.39,66.31,0.81
 20260622,71.8,72.1,71.4,72,45000,70.95,1.48,71.74,66.61,0.9
+20260623,72,72,70.8,71,11000,70.95,0.07,72.09,66.84,0.23
+20260624,70.1,71.4,70.1,70.2,10000,70.89,-0.97,72.36,67.06,0.22
+20260625,70.2,70.2,69.1,70.2,17000,70.83,-0.89,72.69,67.34,0.4
+20260626,68,69,65,69,19000,70.68,-2.38,73.04,67.54,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 40.13
-- over_600_ratio: 32.01
-- over_800_ratio: 25.66
-- over_1000_ratio: 25.66
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260626
+- over_400_ratio: 39.62
+- over_600_ratio: 31.5
+- over_800_ratio: 25.15
+- over_1000_ratio: 25.15
+- over_400_change_1w: -0.51
+- over_800_change_1w: -0.51
+- over_1000_change_1w: -0.51
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,40.13,-0.02,25.66,-0.02,25.66,-0.02,0,False,False
 20260612,40.13,0,25.66,0,25.66,0,0,False,False
 20260618,40.13,0,25.66,0,25.66,0,0,False,False
+20260626,39.62,-0.51,25.15,-0.51,25.15,-0.51,0,False,False
 ```
 
 ## Candidate Context

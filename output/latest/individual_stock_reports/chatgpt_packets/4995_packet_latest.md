@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4995 晶達
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:54 Asia/Taipei
 - stock_id: 4995
 - stock_name: 晶達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45.5
-- high: 45.95
-- low: 45.35
-- close: 45.55
-- volume: 16000
-- ma5: 45.4
-- ema23_primary: 45.34
-- distance_to_ema23_pct: 0.46
-- ma20: 45.78
-- ma60: 43.86
-- ma120: 42.43
-- return_5d: -0.44
-- return_20d: -6.56
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -0.5
-- distance_to_high_60_pct: -10.69
+- date: 20260626
+- open: 44.85
+- high: 45
+- low: 44
+- close: 44.6
+- volume: 38000
+- ma5: 45.33
+- ema23_primary: 45.31
+- distance_to_ema23_pct: -1.57
+- ma20: 45.48
+- ma60: 44.15
+- ma120: 42.58
+- return_5d: -1.98
+- return_20d: 0.68
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: -1.94
+- distance_to_high_60_pct: -12.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,49.15,50.9,49.15,50.2,50000,44.82,12,44.67,42.49,0.81
-20260526,51,51,47.65,47.65,49000,45.06,5.75,44.95,42.58,0.8
-20260527,46.05,46.4,44.9,44.9,46000,45.04,-0.32,45.09,42.61,0.73
-20260528,44.9,44.95,44.3,44.3,45000,44.98,-1.52,45.19,42.65,0.7
 20260529,45,45.3,44.8,45.2,45000,45,0.44,45.33,42.71,0.7
 20260601,45.1,47,44.5,45.9,46000,45.08,1.83,45.41,42.8,0.75
 20260602,46.3,46.45,45.95,46.2,46,45.17,2.28,45.52,42.89,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,45,45.9,45,45,24000,45.31,-0.68,45.97,43.72,0.59
 20260618,45.05,45.5,45.05,45.5,16000,45.32,0.39,45.94,43.79,0.41
 20260622,45.5,45.95,45.35,45.55,16000,45.34,0.46,45.78,43.86,0.42
+20260623,46,46,45.55,45.75,25000,45.38,0.82,45.56,43.94,0.69
+20260624,45.95,45.95,45.55,45.75,30000,45.41,0.75,45.46,44.02,0.84
+20260625,45.75,45.75,45,45,12000,45.37,-0.83,45.47,44.09,0.35
+20260626,44.85,45,44,44.6,38000,45.31,-1.57,45.48,44.15,1.14
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 66.42
 - over_600_ratio: 60.78
 - over_800_ratio: 59.18
 - over_1000_ratio: 51.31
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.08
+- over_400_change_1w: 0
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.29,0,59.09,0,51.3,0,0,False,False
 20260612,66.34,0.05,59.1,0.01,51.31,0.01,1,True,True
 20260618,66.42,0.08,59.18,0.08,51.31,0,2,False,True
+20260626,66.42,0,59.18,0,51.31,0,0,False,False
 ```
 
 ## Candidate Context

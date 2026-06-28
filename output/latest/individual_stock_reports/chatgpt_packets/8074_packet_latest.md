@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:54 Asia/Taipei
+- generated_at: 2026-06-28 22:27:40 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 75.1
-- high: 78.5
-- low: 74.2
-- close: 77.7
-- volume: 3237000
-- ma5: 75.14
-- ema23_primary: 74.5
-- distance_to_ema23_pct: 4.3
-- ma20: 74.5
-- ma60: 72.78
-- ma120: 65.85
-- return_5d: 10.21
-- return_20d: -1.4
-- volume_ratio: 2.56
-- distance_to_ma20_pct_auxiliary: 4.29
-- distance_to_high_60_pct: -19.31
+- date: 20260626
+- open: 69
+- high: 71
+- low: 65.8
+- close: 65.8
+- volume: 1904000
+- ma5: 71.28
+- ema23_primary: 73
+- distance_to_ema23_pct: -9.87
+- ma20: 72.72
+- ma60: 73.63
+- ma120: 66.73
+- return_5d: -10.96
+- return_20d: -12.85
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -9.51
+- distance_to_high_60_pct: -31.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,81.4,84.3,80.1,80.9,82000,76.8,5.34,79.12,69.11,0.02
-20260526,81.6,82.7,78.5,80,80000,77.07,3.81,79.6,69.33,0.02
-20260527,81.2,81.2,77.1,78.1,79000,77.15,1.23,79.9,69.47,0.02
-20260528,78,79.5,75,75.5,77000,77.02,-1.97,80.03,69.58,0.02
 20260529,77.2,77.7,74.7,74.7,76000,76.82,-2.76,79.75,69.72,0.02
 20260601,75.5,77.8,74.2,76.5,76000,76.8,-0.39,79.16,69.97,0.03
 20260602,77.2,77.4,72.1,74.2,74,76.58,-3.11,78.23,70.15,0
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,75.8,76.5,74,74.9,2069000,74.23,0.9,74.59,72.11,1.88
 20260618,75.2,75.8,73.7,73.9,1410000,74.2,-0.41,74.56,72.41,1.28
 20260622,75.1,78.5,74.2,77.7,3237000,74.5,4.3,74.5,72.78,2.56
+20260623,78.2,78.4,73,73,2094000,74.37,-1.84,74.11,73.02,1.54
+20260624,71.6,73,69.9,71,1185000,74.09,-4.17,73.66,73.26,0.84
+20260625,70.6,72,68.9,68.9,1386000,73.66,-6.46,73.2,73.46,0.93
+20260626,69,71,65.8,65.8,1904000,73,-9.87,72.72,73.63,1.21
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.79
-- over_600_ratio: 34.42
-- over_800_ratio: 31.04
-- over_1000_ratio: 29.96
-- over_400_change_1w: 0.76
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 39.34
+- over_600_ratio: 34.53
+- over_800_ratio: 31.37
+- over_1000_ratio: 29.47
+- over_400_change_1w: -0.45
+- over_800_change_1w: 0.33
+- over_1000_change_1w: -0.49
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,19 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,38.65,-1,31.1,-0.12,30.07,-0.09,0,False,False
 20260612,39.03,0.38,30.85,-0.25,29.85,-0.22,1,False,False
 20260618,39.79,0.76,31.04,0.19,29.96,0.11,2,False,True
+20260626,39.34,-0.45,31.37,0.33,29.47,-0.49,3,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8074 | 鉅橡 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 8074 | 鉅橡 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 8074 | 鉅橡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8074 | 鉅橡 | 1 | 1 | 1 | 2 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006204 永豐臺灣加權
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:27 Asia/Taipei
+- generated_at: 2026-06-28 22:25:41 Asia/Taipei
 - stock_id: 006204
 - stock_name: 永豐臺灣加權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 238.25
-- high: 239.3
-- low: 238.25
-- close: 239.3
-- volume: 16002
-- ma5: 230.93
-- ema23_primary: 223.78
-- distance_to_ema23_pct: 6.93
-- ma20: 224.79
-- ma60: 224.17
-- ma120: 224.17
-- return_5d: 7.82
-- return_20d: 13.06
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 6.45
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 223.25
+- high: 225.9
+- low: 222.2
+- close: 222.2
+- volume: 5266
+- ma5: 232.1
+- ema23_primary: 225.57
+- distance_to_ema23_pct: -1.5
+- ma20: 227.12
+- ma60: 225.15
+- ma120: 225.15
+- return_5d: -4.14
+- return_20d: 2.56
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -2.17
+- distance_to_high_60_pct: -7.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,217.75,218,217.6,218,35816,,,,,
-20260526,218.65,218.65,218.6,218.6,23336,,,,,
-20260527,221.4,221.45,220.35,221.35,25815,,,,,
-20260528,217.1,217.1,216.65,216.65,3868,213.7,1.38,217.25,217.25,0.16
 20260529,222.95,224.45,222.95,224.45,63464,214.6,4.59,218.45,218.45,2.06
 20260601,228.2,228.45,228,228.3,37377,215.74,5.82,219.86,219.86,1.18
 20260602,227.7,227.8,227.1,227.2,137183,216.69,4.85,220.78,220.78,3.05
@@ -154,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,226.85,228.8,226.85,228.8,4123,221.51,3.29,222.97,222.97,0.12
 20260618,230.75,231.8,230.75,231.8,3070,222.37,4.24,223.41,223.41,0.09
 20260622,238.25,239.3,238.25,239.3,16002,223.78,6.93,224.79,224.17,0.49
+20260623,238.9,239.4,235.85,235.85,20807,224.79,4.92,225.69,224.7,0.65
+20260624,234,234,229.85,230.25,12421,225.24,2.22,226.27,224.94,0.4
+20260625,232.55,232.9,232.55,232.9,4603,225.88,3.11,226.84,225.27,0.15
+20260626,223.25,225.9,222.2,222.2,5266,225.57,-1.5,227.12,225.15,0.17
 ```
 
 ## Latest TDCC Snapshot
@@ -179,12 +180,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6204 | 艾華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6204 | 艾華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6204 | 艾華 | 2 | 1 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 6204 | 艾華 | 5 | 1 | 5 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

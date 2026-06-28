@@ -1,6 +1,6 @@
 # Model Operation Readiness
 
-- generated_at: `2026-06-29 05:03:58 Asia/Taipei`
+- generated_at: `2026-06-29 05:37:26 Asia/Taipei`
 - purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries
 - rule: `approved_for_daily=True` requires an explicit approved operation artifact
 - rule: raw research evidence rows can remain research-only even after an operation module is approved

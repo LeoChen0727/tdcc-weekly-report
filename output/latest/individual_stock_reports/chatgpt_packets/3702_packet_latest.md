@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3702 大聯大
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:42 Asia/Taipei
+- generated_at: 2026-06-28 22:26:41 Asia/Taipei
 - stock_id: 3702
 - stock_name: 大聯大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,32 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 113.5
-- high: 114
-- low: 110.5
-- close: 112.5
-- volume: 8555913
-- ma5: 109.6
-- ema23_primary: 111.23
-- distance_to_ema23_pct: 1.14
-- ma20: 114
-- ma60: 105.56
-- ma120: 86.42
-- return_5d: 7.14
-- return_20d: -4.66
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -1.32
-- distance_to_high_60_pct: -11.76
+- date: 20260626
+- open: 106
+- high: 109
+- low: 105
+- close: 106.5
+- volume: 9602233
+- ma5: 108.1
+- ema23_primary: 109.97
+- distance_to_ema23_pct: -3.16
+- ma20: 111.05
+- ma60: 106.47
+- ma120: 88.01
+- return_5d: -4.91
+- return_20d: -12.35
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -4.1
+- distance_to_high_60_pct: -16.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,118.5,124.5,117,123.5,13828123,109.35,12.94,109.42,94.24,0.93
-20260526,123.5,126.5,121,121.5,10041144,110.36,10.1,110.72,95.12,0.67
-20260527,123,124,120,120.5,9296856,111.2,8.36,111.78,95.96,0.63
-20260528,120.5,125,120,121.5,10701493,112.06,8.42,112.75,96.86,0.74
 20260529,123,123,116.5,117.5,11002178,112.52,4.43,113.58,97.69,0.76
 20260601,117.5,120,116.5,118.5,9193934,113.01,4.85,114.28,98.55,0.64
 20260602,118.5,119.5,115.5,119,15652534,113.51,4.83,115.1,99.35,1.04
@@ -160,17 +157,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,107,107.5,104.5,107,10172545,111.03,-3.63,114.85,104.84,0.65
 20260618,107.5,113,106.5,112,20036329,111.11,0.8,114.28,105.19,1.38
 20260622,113.5,114,110.5,112.5,8555913,111.23,1.14,114,105.56,0.61
+20260623,112.5,113,108,108,6484321,110.96,-2.67,113.22,105.76,0.47
+20260624,107,108,105.5,106.5,3749385,110.59,-3.7,112.47,105.95,0.28
+20260625,107,109.5,106,107,10429116,110.29,-2.98,111.8,106.2,0.77
+20260626,106,109,105,106.5,9602233,109.97,-3.16,111.05,106.47,0.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 84.37
-- over_600_ratio: 82.55
-- over_800_ratio: 80.5
-- over_1000_ratio: 79.57
-- over_400_change_1w: -0.39
-- over_800_change_1w: -0.78
-- over_1000_change_1w: -0.57
+- as_of_date: 20260626
+- over_400_ratio: 84.2
+- over_600_ratio: 82.2
+- over_800_ratio: 80.34
+- over_1000_ratio: 79.22
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.16
+- over_1000_change_1w: -0.35
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,22 +188,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,84.99,-0.25,81.56,-0.29,80.31,-0.32,0,False,False
 20260612,84.76,-0.23,81.28,-0.28,80.14,-0.17,0,False,False
 20260618,84.37,-0.39,80.5,-0.78,79.57,-0.57,0,False,False
+20260626,84.2,-0.17,80.34,-0.16,79.22,-0.35,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/06/22 2.增資資金來源:盈餘轉增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): 發行總金額新臺幣236,737,000元及發行總股數23,673,700股 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:新台幣10元 8.發行價格:不適用 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例: 全數配發予唯一法人股東詮鼎科技(股)公司 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:與原發行股份相同 14.本次增資資金用途:充實營運資金 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項:無；calendar event: shareholder_meeting on 20260630; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_strong_inflow | stale_signal | 內容：依大聯大E1發行及交換辦法第十七條規定辦理。 發行公司於115年07月10日至115年08月08日行使債券贖回權，贖回權價格為債券面額之100.0000% 一、依據本公司國內第一次無擔保交換公司債(以下簡稱：本交換公司債)發行及交換辦法第17條第(一)項規定:本交換公司債於發行屆滿三個月之翌日(民國115年4月15日)起至發行期間屆滿前四十日(民國117年12月5日)止，若文曄普通股收盤價連續三十個營業日超過當時交換價格達百分之三十(含)時，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司寄發之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為本交換公司債之停止交換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本交換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本交換公司債之面額新台幣壹拾萬元整，以現金收回其全部債券，並函請櫃買中心公告。本公司執行收回請求，應於債券收回基準日後七個營業日內，按債券面額以現金發放贖回價款。 二、本轉換公司債收回相關事宜如下： (一)掛號寄發債券收回通知書日期：115年7月10日 (二)通知及受理交換公司債收回期間：115年7月10日至115年8月8日 (三)交換公司債收回基準日：115年8月8日 (四)交換公司債終止櫃檯買賣日期：115年8月10日 (五)收回價款發放日：115年8月18日 三、收回手續： (一)本交換債為無實體發行，債券持有人請攜帶(1)證券存摺、(2)集保帳戶印鑑，至原交易證券商提具『轉(交)換公司債帳簿劃撥轉(交)換/贖回/賣回申請書』（127表單，並註明『贖回』）辦理債券收回手續。交易證券商收件後，將向臺灣集中保管結算所提出申請；臺灣集中保管結算所接受申請後送交本公司股務代理機構，於送達時即發生收回效力，且不得申請撤銷。 (二)債權人得自債券收回之前一營業日至屆滿之前一營業日止(即自民國115年7月9日起至民國115年8月7日止)，由債券持有人向往來券商辦理贖回手續。 (三)若債券持有人於「債券收回通知書」所載債券收回基準日前，未以書面回覆本公司股務代理機構(於送達時即生效&#63882;，採郵寄者以郵戳日為憑)者，本公司於債券收回基準日後七個營業日(115年8月18日)以匯款方式給付至債權人留存於交易證券商之款項劃撥帳號，匯費自贖回價金中直接扣除。如因帳號錯誤(或不完全)致金融機構退匯者，將改以郵寄支票至股東登記之通訊地址，相關郵資將由贖回價金中逕予扣除。 (四)如債券持有人不欲公司行使贖回權，擬請求將本交換公司債交換為文曄普通股，最遲應於115年8月11日前至往來證券商辦理交換手續。 四、本公司股務代理機構：群益金鼎證券股份有限公司股務代理部 地址：台北市大安區敦化南路二段97號地下二樓 電話：（02）2702-3999 警語：請投資人注意，具有請求交換資格者，如未於115年8月11日前以書面請求交換，本公司將按面額計算以現金收回其全部債券。；calendar event: shareholder_meeting on 20260630; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3702 | 大聯大 | 15 | 1 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 3702 | 大聯大 | 18 | 4 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3702 | 大聯大 | 31 | 0 | 4624530.0 | 0.0 |  | call_inflow |
+| 20260626 | 3702 | 大聯大 | 30 | 0 | 3272370.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6230 尼得科超眾
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:19 Asia/Taipei
+- generated_at: 2026-06-28 22:27:10 Asia/Taipei
 - stock_id: 6230
 - stock_name: 尼得科超眾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 132.5
-- high: 135.5
-- low: 132.5
-- close: 135
-- volume: 65108
-- ma5: 134.7
-- ema23_primary: 137.54
-- distance_to_ema23_pct: -1.85
-- ma20: 137
-- ma60: 145.78
-- ma120: 140.31
-- return_5d: 1.5
-- return_20d: -2.53
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -1.46
-- distance_to_high_60_pct: -25
+- date: 20260626
+- open: 127.5
+- high: 127.5
+- low: 122
+- close: 122
+- volume: 112216
+- ma5: 130
+- ema23_primary: 134.84
+- distance_to_ema23_pct: -9.52
+- ma20: 135
+- ma60: 144.18
+- ma120: 140.73
+- return_5d: -7.92
+- return_20d: -8.96
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -9.63
+- distance_to_high_60_pct: -32.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,139,143,139,141.5,148369,144.96,-2.39,147.47,155.79,0.86
-20260526,141.5,146,139.5,142.5,196247,144.75,-1.56,146.47,155.78,1.32
-20260527,145.5,145.5,136.5,137,146160,144.11,-4.93,145.28,155.45,0.99
-20260528,137,139,132,134,125389,143.26,-6.47,143.93,154.9,0.87
 20260529,134,136,134,135.5,74455,142.62,-4.99,142.75,154.28,0.53
 20260601,140.5,144.5,137.5,141.5,186664,142.52,-0.72,142.05,153.95,1.29
 20260602,147,147,138.5,142,162702,142.48,-0.34,141.28,153.37,1.11
@@ -155,10 +150,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,133.5,135,132,135,29260,138.25,-2.35,137.25,146.57,0.26
 20260618,135,136,131.5,132.5,91127,137.77,-3.82,137.18,146.03,0.81
 20260622,132.5,135.5,132.5,135,65108,137.54,-1.85,137,145.78,0.58
+20260623,138,138,131,133,76365,137.16,-3.03,136.57,145.41,0.71
+20260624,134,134,130,131,45145,136.65,-4.13,136,144.99,0.45
+20260625,131,133.5,128.5,129,78343,136.01,-5.15,135.6,144.6,0.81
+20260626,127.5,127.5,122,122,112216,134.84,-9.52,135,144.18,1.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 87.81
 - over_600_ratio: 87.81
 - over_800_ratio: 87.81
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,87.81,0,87.81,0,87.81,0,0,False,False
 20260612,87.81,0,87.81,0,87.81,0,0,False,False
 20260618,87.81,0,87.81,0,87.81,0,0,False,False
+20260626,87.81,0,87.81,0,87.81,0,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6230 | 尼得科超眾 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 6230 | 尼得科超眾 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

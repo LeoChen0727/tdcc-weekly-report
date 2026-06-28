@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6534 正瀚-創
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:26 Asia/Taipei
+- generated_at: 2026-06-28 22:27:17 Asia/Taipei
 - stock_id: 6534
 - stock_name: 正瀚-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 287
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_price_date: 20260626
+- price_rows: 291
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 93
-- high: 93.1
-- low: 92
-- close: 92
-- volume: 40051
-- ma5: 91.94
-- ema23_primary: 92.34
-- distance_to_ema23_pct: -0.37
-- ma20: 92.25
-- ma60: 94.2
-- ma120: 90.24
-- return_5d: 2.56
-- return_20d: -5.15
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -11.54
+- date: 20260626
+- open: 91.1
+- high: 91.2
+- low: 89.6
+- close: 89.8
+- volume: 80926
+- ma5: 91.46
+- ema23_primary: 92.02
+- distance_to_ema23_pct: -2.41
+- ma20: 91.33
+- ma60: 94.37
+- ma120: 90.35
+- return_5d: -3.44
+- return_20d: -6.46
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -1.68
+- distance_to_high_60_pct: -13.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,96.5,98.4,94.2,97,283016,95.65,1.41,95.53,91.41,2.01
-20260526,95.5,96,93.8,95.9,311872,95.67,0.24,95.49,91.63,2.07
-20260527,94,94.9,93.3,94.9,202804,95.61,-0.74,95.44,91.87,1.36
-20260528,94,96.5,93.9,96,277468,95.64,0.38,95.57,92.11,1.76
 20260529,95,97.1,94.9,96,378786,95.67,0.34,95.75,92.39,2.18
 20260601,96.3,96.3,93,93,213784,95.45,-2.56,95.72,92.6,1.23
 20260602,93.1,94.5,93.1,93.3,73630,95.27,-2.07,95.75,92.78,0.42
@@ -155,26 +151,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,92.7,95.1,92.5,93.8,145082,92.32,1.61,92.7,94.1,0.9
 20260618,94,94.3,93,93,31452,92.37,0.68,92.5,94.19,0.2
 20260622,93,93.1,92,92,40051,92.34,-0.37,92.25,94.2,0.27
+20260623,91.8,93.6,91.8,92.2,60389,92.33,-0.14,92.02,94.18,0.44
+20260624,92.7,92.7,91.8,91.8,40215,92.29,-0.53,91.81,94.25,0.33
+20260625,91.8,92.1,91.2,91.5,25139,92.22,-0.78,91.64,94.33,0.22
+20260626,91.1,91.2,89.6,89.8,80926,92.02,-2.41,91.33,94.37,0.78
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.44
-- over_600_ratio: 79.46
-- over_800_ratio: 76.77
-- over_1000_ratio: 75.96
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 82.45
+- over_600_ratio: 79.47
+- over_800_ratio: 76.78
+- over_1000_ratio: 75.97
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,79.84,-0.32,73.64,-0.21,71.82,-1.16,0,False,False
 20260410,79.83,-0.01,73.58,-0.06,72.71,0.89,1,False,True
 20260417,80.18,0.35,74,0.42,73.13,0.42,2,False,True
 20260424,80.32,0.14,74.48,0.48,73.61,0.48,3,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,82.09,0.09,76.83,0.09,76.02,0.14,9,True,True
 20260612,82.46,0.37,76.79,-0.04,75.98,-0.04,10,False,False
 20260618,82.44,-0.02,76.77,-0.02,75.96,-0.02,0,False,False
+20260626,82.45,0.01,76.78,0.01,75.97,0.01,1,True,True
 ```
 
 ## Candidate Context

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00712 復華富時不動產
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:28 Asia/Taipei
+- generated_at: 2026-06-28 22:25:41 Asia/Taipei
 - stock_id: 00712
 - stock_name: 復華富時不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 8.6
-- high: 8.6
-- low: 8.56
-- close: 8.57
-- volume: 39183720
-- ma5: 8.71
-- ema23_primary: 8.73
-- distance_to_ema23_pct: -1.84
-- ma20: 8.74
-- ma60: 8.74
-- ma120: 8.74
-- return_5d: -2.61
-- return_20d: -2.28
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -1.9
-- distance_to_high_60_pct: -3.27
+- date: 20260626
+- open: 8.63
+- high: 8.67
+- low: 8.62
+- close: 8.63
+- volume: 44780678
+- ma5: 8.59
+- ema23_primary: 8.69
+- distance_to_ema23_pct: -0.7
+- ma20: 8.7
+- ma60: 8.71
+- ma120: 8.71
+- return_5d: 0.35
+- return_20d: -1.48
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -0.83
+- distance_to_high_60_pct: -2.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,8.77,8.78,8.73,8.75,27483785,,,,,
-20260526,8.75,8.77,8.75,8.75,19374071,,,,,
-20260527,8.77,8.77,8.75,8.77,20751574,,,,,
-20260528,8.77,8.83,8.76,8.76,27072106,8.77,-0.07,8.76,8.76,1.12
 20260529,8.76,8.78,8.76,8.78,14742078,8.77,0.14,8.76,8.76,0.65
 20260601,8.8,8.81,8.77,8.8,25159445,8.77,0.34,8.77,8.77,1.09
 20260602,8.73,8.77,8.7,8.76,49527463,8.77,-0.11,8.77,8.77,1.88
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,8.68,8.7,8.65,8.69,34660183,8.76,-0.79,8.75,8.75,0.87
 20260618,8.64,8.65,8.59,8.6,70456220,8.75,-1.66,8.75,8.75,1.7
 20260622,8.6,8.6,8.56,8.57,39183720,8.73,-1.84,8.74,8.74,0.93
+20260623,8.57,8.57,8.52,8.53,42656312,8.71,-2.11,8.72,8.73,1
+20260624,8.55,8.61,8.55,8.6,25232043,8.7,-1.2,8.72,8.72,0.59
+20260625,8.61,8.62,8.6,8.6,13782352,8.7,-1.1,8.71,8.72,0.32
+20260626,8.63,8.67,8.62,8.63,44780678,8.69,-0.7,8.7,8.71,1.03
 ```
 
 ## Latest TDCC Snapshot

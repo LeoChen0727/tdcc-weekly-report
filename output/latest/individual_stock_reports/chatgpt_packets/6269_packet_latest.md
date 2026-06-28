@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:20 Asia/Taipei
+- generated_at: 2026-06-28 22:27:12 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,8 +88,10 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +105,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 81
-- high: 87.5
-- low: 79
-- close: 87.5
-- volume: 16775499
-- ma5: 78.78
-- ema23_primary: 70.96
-- distance_to_ema23_pct: 23.31
-- ma20: 70.53
-- ma60: 65.16
-- ma120: 62.01
-- return_5d: 21.02
-- return_20d: 40.22
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: 24.05
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 74.9
+- high: 78.7
+- low: 71.6
+- close: 71.6
+- volume: 11263748
+- ma5: 79.56
+- ema23_primary: 72.78
+- distance_to_ema23_pct: -1.62
+- ma20: 73.42
+- ma60: 66.22
+- ma120: 62.73
+- return_5d: -10.05
+- return_20d: 17.76
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -2.49
+- distance_to_high_60_pct: -22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,63.2,66.4,63.1,64.7,4827940,61.25,5.63,61.87,61.21,1.15
-20260526,64.9,64.9,63.1,64.2,3010657,61.5,4.39,61.8,61.19,0.72
-20260527,64.3,65,62.2,62.8,3455027,61.61,1.94,61.72,61.16,0.82
-20260528,63,64,60.5,60.8,3752094,61.54,-1.2,61.58,61.13,0.88
 20260529,62.3,63,61.7,62.9,2807130,61.65,2.02,61.43,61.16,0.66
 20260601,69.1,69.1,69.1,69.1,3699567,62.27,10.96,61.49,61.38,0.91
 20260602,76,76,70.5,74.9,42564190,63.33,18.28,61.81,61.67,7.08
@@ -153,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,72.5,80.6,72.3,79.9,21371868,68.54,16.58,68.23,64.41,2.01
 20260618,80,81.8,77,79.6,18354410,69.46,14.6,69.28,64.69,1.6
 20260622,81,87.5,79,87.5,16775499,70.96,23.31,70.53,65.16,1.39
+20260623,91.8,91.8,81.5,83.8,29303648,72.03,16.34,71.49,65.53,2.21
+20260624,83,84.3,78.9,79,14911761,72.61,8.8,72.23,65.82,1.07
+20260625,80.3,82.9,75.3,75.9,12546226,72.89,4.14,72.89,66.03,0.88
+20260626,74.9,78.7,71.6,71.6,11263748,72.78,-1.62,73.42,66.22,0.77
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 37.4
-- over_600_ratio: 34.5
-- over_800_ratio: 31.77
-- over_1000_ratio: 30.13
-- over_400_change_1w: 4.08
-- over_800_change_1w: 3.72
-- over_1000_change_1w: 3.42
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 35.81
+- over_600_ratio: 32.77
+- over_800_ratio: 30.13
+- over_1000_ratio: 28.24
+- over_400_change_1w: -1.59
+- over_800_change_1w: -1.64
+- over_1000_change_1w: -1.89
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,33.97,1.12,28.27,0.04,27.18,0.07,3,True,True
 20260612,33.32,-0.65,28.05,-0.22,26.71,-0.47,0,False,False
 20260618,37.4,4.08,31.77,3.72,30.13,3.42,1,True,True
+20260626,35.81,-1.59,30.13,-1.64,28.24,-1.89,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6269 | 台郡 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6269 | 台郡 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6269 | 台郡 | 3 | 1 | 4 | 8 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 6269 | 台郡 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6269 | 台郡 | 40 | 0 | 13140030.0 | 0.0 |  | call_inflow |
+| 20260626 | 6269 | 台郡 | 46 | 0 | 9241790.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

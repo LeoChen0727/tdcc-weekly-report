@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7777 能率亞洲
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:51 Asia/Taipei
+- generated_at: 2026-06-28 22:27:37 Asia/Taipei
 - stock_id: 7777
 - stock_name: 能率亞洲
-- packet_status: standard_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 118
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- packet_status: standard_180d_window_packet
+- latest_price_date: 20260626
+- price_rows: 122
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial
+- notes:
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 42.75
-- high: 42.75
-- low: 40.7
-- close: 41
-- volume: 2791000
-- ma5: 41.95
-- ema23_primary: 38.63
-- distance_to_ema23_pct: 6.14
-- ma20: 39.65
-- ma60: 31.97
-- ma120: 31.03
-- return_5d: 2.5
-- return_20d: 19.01
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 3.4
-- distance_to_high_60_pct: -10.48
+- date: 20260626
+- open: 48.5
+- high: 48.5
+- low: 42
+- close: 42
+- volume: 15393000
+- ma5: 42.04
+- ema23_primary: 39.72
+- distance_to_ema23_pct: 5.74
+- ma20: 40.91
+- ma60: 33.02
+- ma120: 31.38
+- return_5d: -0.47
+- return_20d: 10.82
+- volume_ratio: 3.68
+- distance_to_ma20_pct_auxiliary: 2.66
+- distance_to_high_60_pct: -13.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,35.5,36.7,34.9,34.9,36000,31.15,12.05,30.85,28.52,0.01
-20260526,35.5,36,33.9,36,35000,31.55,14.1,31.3,28.57,0.01
-20260527,36,36.25,34.9,35.15,36000,31.85,10.36,31.66,28.6,0.01
-20260528,35.85,38.5,35.45,37.9,37000,32.35,17.14,32.18,28.7,0.01
 20260529,41.65,41.65,41.65,41.65,42000,33.13,25.72,32.88,28.9,0.01
 20260601,45.75,45.8,43,43.55,45000,34,28.1,33.69,29.15,0.02
 20260602,43.75,44.85,40,41.05,42,34.59,18.69,34.24,29.36,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,43.1,45.05,42,43.95,16464000,38.07,15.45,38.85,31.47,6.7
 20260618,44.55,44.55,42,42.2,6034000,38.41,9.86,39.32,31.73,2.26
 20260622,42.75,42.75,40.7,41,2791000,38.63,6.14,39.65,31.97,0.99
+20260623,41.1,41.95,40.1,41.5,2381000,38.87,6.77,39.98,32.21,0.81
+20260624,42.1,42.6,40.85,41.3,2493000,39.07,5.71,40.24,32.44,0.82
+20260625,44,44.4,43.1,44.4,7172000,39.51,12.37,40.71,32.75,2.1
+20260626,48.5,48.5,42,42,15393000,39.72,5.74,40.91,33.02,3.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 70.64
-- over_600_ratio: 70.15
-- over_800_ratio: 67.99
-- over_1000_ratio: 64.98
-- over_400_change_1w: -0.73
-- over_800_change_1w: -1.7
-- over_1000_change_1w: -1.2
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 71.47
+- over_600_ratio: 71
+- over_800_ratio: 69.26
+- over_1000_ratio: 66.26
+- over_400_change_1w: 0.83
+- over_800_change_1w: 1.27
+- over_1000_change_1w: 1.28
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,18 +182,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.18,-3.79,69.97,-2.76,66.46,-2.74,0,False,False
 20260612,71.37,-0.81,69.69,-0.28,66.18,-0.28,0,False,False
 20260618,70.64,-0.73,67.99,-1.7,64.98,-1.2,0,False,False
+20260626,71.47,0.83,69.26,1.27,66.26,1.28,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 7777 | 能率亞洲 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 7777 | 能率亞洲 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 7777 | 能率亞洲 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 7777 | 能率亞洲 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 7777 | 能率亞洲 | 2 | 1 | 2 | 3 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 7777 | 能率亞洲 | 5 | 4 | 5 | 5 | 13 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

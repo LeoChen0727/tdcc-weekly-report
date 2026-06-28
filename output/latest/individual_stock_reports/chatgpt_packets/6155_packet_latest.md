@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6155 鈞寶
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:14 Asia/Taipei
+- generated_at: 2026-06-28 22:27:06 Asia/Taipei
 - stock_id: 6155
 - stock_name: 鈞寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 99
-- high: 103
-- low: 96.1
-- close: 96.7
-- volume: 20715575
-- ma5: 92.52
-- ema23_primary: 76.97
-- distance_to_ema23_pct: 25.63
-- ma20: 76.88
-- ma60: 57.95
-- ma120: 53.62
-- return_5d: 17.93
-- return_20d: 58.01
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 25.79
-- distance_to_high_60_pct: -6.12
+- date: 20260626
+- open: 88.8
+- high: 92.6
+- low: 85.4
+- close: 86.1
+- volume: 9224845
+- ma5: 89.76
+- ema23_primary: 80.21
+- distance_to_ema23_pct: 7.34
+- ma20: 82.29
+- ma60: 60.88
+- ma120: 55.1
+- return_5d: -12.59
+- return_20d: 33.49
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 4.63
+- distance_to_high_60_pct: -16.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,62.3,64.7,61.1,61.2,11088750,52.39,16.82,51.62,48.23,1.52
-20260526,61.4,61.5,56.8,59.4,6620869,52.97,12.13,52.22,48.38,0.88
-20260527,59.4,61.1,57.7,58.7,6183054,53.45,9.82,52.68,48.47,0.82
-20260528,58.5,64.5,58.5,64.5,12195779,54.37,18.63,53.52,48.68,1.51
 20260529,70.6,70.8,61.9,62.8,17534330,55.07,14.03,54.35,48.9,1.97
 20260601,63,69,63,69,20681711,56.23,22.7,55.46,49.29,2.09
 20260602,69,75.9,64.5,75.9,29741511,57.87,31.15,56.84,49.77,2.63
@@ -153,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,88.2,91.5,87.4,89.6,19222493,73.06,22.64,73.14,56.16,0.82
 20260618,90.2,98.5,90.1,98.5,22494851,75.18,31.02,75.1,57.06,0.97
 20260622,99,103,96.1,96.7,20715575,76.97,25.63,76.88,57.95,0.9
+20260623,97.3,97.7,87.3,88.5,11200683,77.93,13.56,78.24,58.69,0.48
+20260624,87,91.8,84.8,87,10229702,78.69,10.56,79.62,59.42,0.44
+20260625,89.2,94.2,87.8,90.5,12579638,79.67,13.59,81.21,60.18,0.53
+20260626,88.8,92.6,85.4,86.1,9224845,80.21,7.34,82.29,60.88,0.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 59.12
-- over_600_ratio: 54.12
-- over_800_ratio: 52.5
-- over_1000_ratio: 49.57
-- over_400_change_1w: -3.29
-- over_800_change_1w: -4.62
-- over_1000_change_1w: -2.7
+- as_of_date: 20260626
+- over_400_ratio: 57.02
+- over_600_ratio: 53.77
+- over_800_ratio: 51.51
+- over_1000_ratio: 49.53
+- over_400_change_1w: -2.1
+- over_800_change_1w: -0.99
+- over_1000_change_1w: -0.04
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.28,-3.75,54.37,-6.31,53.4,-5.4,0,False,False
 20260612,62.41,1.13,57.12,2.75,52.27,-1.13,1,False,True
 20260618,59.12,-3.29,52.5,-4.62,49.57,-2.7,0,False,False
+20260626,57.02,-2.1,51.51,-0.99,49.53,-0.04,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 6155 | 鈞寶 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利分配總金額：新台幣70,419,190元，每股配發0.8元 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 現金股利預計於115年7月31日以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 6155 | 鈞寶 | 1 | 1 | 2 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

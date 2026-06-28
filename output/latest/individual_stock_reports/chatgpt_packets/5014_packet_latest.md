@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5014 建錩
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:55 Asia/Taipei
 - stock_id: 5014
 - stock_name: 建錩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 11.2
-- high: 11.2
-- low: 10.95
-- close: 11
-- volume: 354000
-- ma5: 11.09
+- date: 20260626
+- open: 11
+- high: 11
+- low: 10.7
+- close: 10.8
+- volume: 388000
+- ma5: 10.93
 - ema23_primary: 10.93
-- distance_to_ema23_pct: 0.6
-- ma20: 11.12
-- ma60: 10.44
-- ma120: 10.66
-- return_5d: -0.45
-- return_20d: 5.26
-- volume_ratio: 2.48
-- distance_to_ma20_pct_auxiliary: -1.03
-- distance_to_high_60_pct: -5.58
+- distance_to_ema23_pct: -1.15
+- ma20: 11.09
+- ma60: 10.47
+- ma120: 10.69
+- return_5d: -3.57
+- return_20d: -0.92
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: -2.64
+- distance_to_high_60_pct: -7.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,10.5,11.45,10.5,11.3,11000,10.22,10.6,10.04,10.32,0.03
-20260526,11.3,11.35,10.85,10.95,11000,10.28,6.54,10.09,10.32,0.03
-20260527,11.05,11.1,10.9,10.95,11000,10.33,5.96,10.15,10.32,0.03
-20260528,11.05,11.05,10.9,10.9,11000,10.38,5,10.2,10.31,0.04
 20260529,11,11.65,11,11.15,11000,10.45,6.75,10.27,10.32,0.04
 20260601,11.15,11.3,11.05,11.1,11000,10.5,5.72,10.34,10.33,0.04
 20260602,11.3,11.3,10.95,11.2,11,10.56,6.08,10.43,10.34,0
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,11.15,11.2,11.05,11.15,196000,10.9,2.26,11.04,10.43,1.61
 20260618,11.2,11.3,11.15,11.2,226000,10.93,2.49,11.09,10.43,1.8
 20260622,11.2,11.2,10.95,11,354000,10.93,0.6,11.12,10.44,2.48
+20260623,11.1,11.1,10.9,11,209000,10.94,0.55,11.1,10.45,1.37
+20260624,11,11.05,10.9,10.9,220000,10.94,-0.33,11.1,10.45,1.35
+20260625,10.9,10.95,10.85,10.95,300000,10.94,0.12,11.1,10.46,1.69
+20260626,11,11,10.7,10.8,388000,10.93,-1.15,11.09,10.47,1.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 37.4
-- over_600_ratio: 33.24
-- over_800_ratio: 30.6
-- over_1000_ratio: 26.7
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 37.45
+- over_600_ratio: 33.65
+- over_800_ratio: 30.67
+- over_1000_ratio: 26.73
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,37.03,-0.22,30.09,-0.44,26.68,0.56,3,False,True
 20260612,37.3,0.27,30.55,0.46,26.69,0.01,4,True,True
 20260618,37.4,0.1,30.6,0.05,26.7,0.01,5,True,True
+20260626,37.45,0.05,30.67,0.07,26.73,0.03,6,True,True
 ```
 
 ## Candidate Context

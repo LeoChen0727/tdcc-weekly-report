@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:21 Asia/Taipei
+- generated_at: 2026-06-28 22:26:23 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 283
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 287
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 11.75
-- high: 12
-- low: 11.75
+- date: 20260626
+- open: 12
+- high: 12.05
+- low: 11.85
 - close: 12
-- volume: 82498
-- ma5: 11.69
-- ema23_primary: 11.11
-- distance_to_ema23_pct: 8
-- ma20: 10.86
-- ma60: 10.82
-- ma120: 11.47
+- volume: 37412
+- ma5: 12.08
+- ema23_primary: 11.4
+- distance_to_ema23_pct: 5.26
+- ma20: 11.38
+- ma60: 10.84
+- ma120: 11.48
 - return_5d: 0.84
-- return_20d: 21.46
-- volume_ratio: 2.08
-- distance_to_ma20_pct_auxiliary: 10.5
+- return_20d: 28.34
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 5.44
 - distance_to_high_60_pct: -4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,9.28,9.49,9.27,9.49,39240,10.21,-7.09,10.2,11.39,1.23
-20260526,9.49,9.53,9.49,9.53,25990,10.16,-6.18,10.14,11.33,0.86
-20260527,9.51,9.6,9.5,9.6,19511,10.11,-5.05,10.09,11.27,0.66
-20260528,9.6,9.6,9.35,9.35,25016,10.05,-6.94,10.02,11.21,0.86
 20260529,9.42,9.81,9.42,9.42,21337,10,-5.76,9.96,11.15,0.73
 20260601,9.42,9.56,9.4,9.54,43556,9.96,-4.19,9.9,11.09,1.51
 20260602,9.54,9.54,9.42,9.42,32369,9.91,-4.97,9.84,11.02,1.12
@@ -154,10 +150,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,11.5,11.5,11.4,11.45,65991,10.95,4.56,10.63,10.83,1.97
 20260618,11.75,11.9,11.7,11.9,70348,11.03,7.89,10.75,10.82,1.96
 20260622,11.75,12,11.75,12,82498,11.11,8,10.86,10.82,2.08
+20260623,12,12,12,12,14510,11.18,7.29,10.98,10.82,0.38
+20260624,12,12.35,12,12.35,39178,11.28,9.47,11.13,10.83,1
+20260625,12.15,12.15,12,12.05,29405,11.35,6.2,11.25,10.83,0.74
+20260626,12,12.05,11.85,12,37412,11.4,5.26,11.38,10.84,0.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 64.28
 - over_600_ratio: 63.11
 - over_800_ratio: 62.19
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.28,0,62.19,0,62.19,0,0,False,False
 20260612,64.28,0,62.19,0,62.19,0,0,False,False
 20260618,64.28,0,62.19,0,62.19,0,0,False,False
+20260626,64.28,0,62.19,0,62.19,0,0,False,False
 ```
 
 ## Candidate Context

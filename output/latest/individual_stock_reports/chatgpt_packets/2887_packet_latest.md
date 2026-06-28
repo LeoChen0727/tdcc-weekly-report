@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:17 Asia/Taipei
+- generated_at: 2026-06-28 22:26:21 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -103,6 +102,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 32.6
-- high: 32.6
-- low: 31.95
-- close: 32.05
-- volume: 62139229
-- ma5: 32.2
-- ema23_primary: 28.46
-- distance_to_ema23_pct: 12.62
-- ma20: 27.94
-- ma60: 25.29
-- ma120: 24.07
-- return_5d: 6.13
-- return_20d: 34.66
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 14.7
-- distance_to_high_60_pct: -4.47
+- date: 20260626
+- open: 31.75
+- high: 32.15
+- low: 31.3
+- close: 31.9
+- volume: 52875362
+- ma5: 31.91
+- ema23_primary: 29.46
+- distance_to_ema23_pct: 8.28
+- ma20: 29.66
+- ma60: 25.81
+- ma120: 24.42
+- return_5d: -1.69
+- return_20d: 38.7
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 7.56
+- distance_to_high_60_pct: -4.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,23.9,23.9,23.3,23.3,149281651,23.72,-1.78,23.67,24.15,1.5
-20260526,23.4,24.1,23.4,23.6,157314234,23.71,-0.47,23.66,24.13,1.51
-20260527,23.7,23.8,23.3,23.3,170451126,23.68,-1.6,23.61,24.09,1.57
-20260528,23.4,23.55,23,23,171562778,23.62,-2.63,23.55,24.06,1.5
 20260529,23.25,23.45,23,23.35,225036097,23.6,-1.05,23.53,24.03,1.84
 20260601,23.35,24.7,23.25,24.6,184994112,23.68,3.88,23.59,24.04,1.45
 20260602,24.45,26.1,24.3,26.1,254723925,23.88,9.28,23.7,24.06,1.87
@@ -153,18 +149,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,31.95,33.55,31.8,32.6,102012360,27.74,17.52,27.1,25.02,0.65
 20260618,32.95,33.55,32.1,32.45,109574168,28.13,15.35,27.53,25.16,0.7
 20260622,32.6,32.6,31.95,32.05,62139229,28.46,12.62,27.94,25.29,0.4
+20260623,32,32.95,32,32.15,74148243,28.77,11.77,28.39,25.42,0.49
+20260624,32.05,32.15,31.6,31.6,59301672,29,8.96,28.79,25.54,0.4
+20260625,31.6,32.3,31.6,31.85,49495606,29.24,8.93,29.21,25.67,0.35
+20260626,31.75,32.15,31.3,31.9,52875362,29.46,8.28,29.66,25.81,0.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 74.37
-- over_600_ratio: 72.48
-- over_800_ratio: 71.18
-- over_1000_ratio: 70.19
-- over_400_change_1w: 0.44
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.52
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 74.41
+- over_600_ratio: 72.49
+- over_800_ratio: 71.2
+- over_1000_ratio: 70.21
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,22 +180,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.7,0.74,70.41,0.85,69.4,0.88,1,True,True
 20260612,73.93,0.23,70.68,0.27,69.67,0.27,2,True,True
 20260618,74.37,0.44,71.18,0.5,70.19,0.52,3,True,True
+20260626,74.41,0.04,71.2,0.02,70.21,0.02,4,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2887 | 台新新光金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：香港 4.法人說明會擇要訊息：公告本公司受邀赴香港於115年6月29日會晤當地投資機構，說明營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d |
+| 20260626 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：香港 4.法人說明會擇要訊息：公告本公司受邀赴香港於115年6月29日會晤當地投資機構，說明營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2887 | 台新新光金 | 3 | 2 | 3 | 5 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2887 | 台新新光金 | 24 | 0 | 2622290.0 | 0.0 |  | no_signal |
+| 20260626 | 2887 | 台新新光金 | 24 | 0 | 2227430.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -71,9 +71,31 @@ jobs:
           echo "All daily outputs are committed only after downstream freshness and consistency checks pass."
           git status --short
 
+      - name: Repair missing daily price source files
+        timeout-minutes: 12
+        run: |
+          python scripts/repair_missing_daily_price_files.py \
+            --max-repair-dates 3 \
+            --retries 2 \
+            --sleep-seconds 5
+
+      - name: Upload daily price source recovery evidence
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-price-source-recovery
+          path: |
+            output/latest/daily_price_source_recovery_latest.json
+            output/latest/daily_price_source_recovery_latest.md
+            output/latest/repair_daily_price_range_latest.*
+            output/latest/repair_daily_price_range_check_code_latest.csv
+          if-no-files-found: ignore
+          retention-days: 30
+
       - name: Build per-stock price history
         run: |
-          python scripts/build_stock_price_history.py --incremental-latest
+          python scripts/build_stock_price_history.py --incremental-latest --full-rebuild-if-source-recovered
 
       - name: Validate daily price history continuity
         run: |

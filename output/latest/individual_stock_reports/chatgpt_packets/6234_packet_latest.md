@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6234 高僑
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:19 Asia/Taipei
+- generated_at: 2026-06-28 22:27:10 Asia/Taipei
 - stock_id: 6234
 - stock_name: 高僑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 46
-- high: 47.35
-- low: 45.2
-- close: 46.8
-- volume: 1652000
-- ma5: 44
-- ema23_primary: 46.19
-- distance_to_ema23_pct: 1.32
-- ma20: 47.03
-- ma60: 43.56
-- ma120: 35.54
-- return_5d: 8.58
-- return_20d: -4.49
-- volume_ratio: 2.23
-- distance_to_ma20_pct_auxiliary: -0.49
-- distance_to_high_60_pct: -26.07
+- date: 20260626
+- open: 48.5
+- high: 50
+- low: 44.4
+- close: 44.6
+- volume: 2027000
+- ma5: 47.29
+- ema23_primary: 46.53
+- distance_to_ema23_pct: -4.15
+- ma20: 45.97
+- ma60: 44.81
+- ma120: 36.3
+- return_5d: -1.11
+- return_20d: -12.89
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: -2.97
+- distance_to_high_60_pct: -29.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,49.65,53.3,48.4,50.3,51000,48.45,3.82,52.52,37.36,0.01
-20260526,51.6,55.3,50.5,55.3,54000,49.02,12.81,53.04,37.81,0.02
-20260527,59.6,59.6,53.1,54.2,56000,49.45,9.6,53.56,38.25,0.02
-20260528,54.1,54.9,50,51.2,52000,49.6,3.23,53.72,38.64,0.02
 20260529,51.7,52.2,49.1,49.7,50000,49.6,0.19,53.56,39.03,0.02
 20260601,49.8,51.4,49,49.3,50000,49.58,-0.56,53.13,39.43,0.03
 20260602,49,49.3,46.55,47.25,47,49.39,-4.32,52.39,39.79,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,41.75,43.95,41,43.65,1186000,46.23,-5.58,47.23,42.99,1.68
 20260618,44.8,46.5,44,45.1,1730000,46.14,-2.25,47.14,43.26,2.62
 20260622,46,47.35,45.2,46.8,1652000,46.19,1.32,47.03,43.56,2.23
+20260623,46.85,47.5,45,45.9,1357000,46.17,-0.58,46.81,43.83,1.68
+20260624,45,50.4,45,50.4,3952000,46.52,8.34,46.57,44.2,3.95
+20260625,50.4,50.5,47.5,48.75,2707000,46.71,4.38,46.3,44.53,2.39
+20260626,48.5,50,44.4,44.6,2027000,46.53,-4.15,45.97,44.81,1.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 53.84
-- over_600_ratio: 51.45
-- over_800_ratio: 51.45
-- over_1000_ratio: 49.62
-- over_400_change_1w: 0.33
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 54.37
+- over_600_ratio: 51.5
+- over_800_ratio: 51.5
+- over_1000_ratio: 50.67
+- over_400_change_1w: 0.53
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 1.05
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,19 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.65,-0.88,51.45,0,49.62,0,1,False,False
 20260612,53.51,-0.14,51.45,0,49.62,0,0,False,False
 20260618,53.84,0.33,51.45,0,49.62,0,1,False,False
+20260626,54.37,0.53,51.5,0.05,50.67,1.05,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6234 | 高僑 | pullback_rebound | 回檔後短線轉強 | 67.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 6234 | 高僑 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 6234 | 高僑 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6234 | 高僑 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 獨立董事：趙淑佳 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職本公司董事職務期間 5.決議情形（請依公司法第209條說明表決結果）: 經主席徵詢全體出席股東無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6234 | 高僑 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260626 | 6234 | 高僑 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

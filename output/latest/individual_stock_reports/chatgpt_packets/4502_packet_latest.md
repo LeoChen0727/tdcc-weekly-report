@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4502 健信
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:49 Asia/Taipei
+- generated_at: 2026-06-28 22:26:46 Asia/Taipei
 - stock_id: 4502
 - stock_name: 健信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 15.8
-- high: 15.9
-- low: 15.75
+- date: 20260626
+- open: 15.7
+- high: 15.8
+- low: 15.55
 - close: 15.75
-- volume: 13000
+- volume: 21000
 - ma5: 15.78
-- ema23_primary: 15.81
-- distance_to_ema23_pct: -0.4
-- ma20: 15.82
+- ema23_primary: 15.8
+- distance_to_ema23_pct: -0.34
+- ma20: 15.81
 - ma60: 15.84
-- ma120: 15.86
+- ma120: 15.87
 - return_5d: -0.32
 - return_20d: 0.32
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -0.43
-- distance_to_high_60_pct: -6.8
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -0.36
+- distance_to_high_60_pct: -5.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,15.7,16,15.7,16,16000,15.87,0.85,15.9,15.83,0.43
-20260526,15.7,16.05,15.55,15.8,16000,15.86,-0.38,15.9,15.83,0.43
-20260527,15.7,15.9,15.5,15.85,16000,15.86,-0.06,15.9,15.83,0.43
-20260528,15.7,15.75,15.35,15.7,16000,15.85,-0.92,15.89,15.83,0.45
 20260529,15.7,15.85,15.3,15.85,16000,15.85,0.03,15.89,15.83,0.45
 20260601,15.75,15.95,15.6,15.7,16000,15.83,-0.85,15.88,15.83,0.46
 20260602,15.7,15.8,15.65,15.8,16,15.83,-0.2,15.88,15.83,0
@@ -155,17 +151,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,15.65,15.75,15.6,15.75,32000,15.82,-0.44,15.81,15.84,1.53
 20260618,15.75,15.85,15.65,15.8,34000,15.82,-0.12,15.81,15.84,1.61
 20260622,15.8,15.9,15.75,15.75,13000,15.81,-0.4,15.82,15.84,0.62
+20260623,15.75,15.85,15.7,15.85,9000,15.82,0.22,15.81,15.84,0.44
+20260624,15.85,15.85,15.55,15.8,25000,15.81,-0.09,15.81,15.84,1.19
+20260625,15.75,15.85,15.75,15.75,16000,15.81,-0.37,15.8,15.84,0.76
+20260626,15.7,15.8,15.55,15.75,21000,15.8,-0.34,15.81,15.84,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.56
-- over_600_ratio: 66.24
-- over_800_ratio: 62.58
-- over_1000_ratio: 58.08
-- over_400_change_1w: -0.12
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.08
+- as_of_date: 20260626
+- over_400_ratio: 69.52
+- over_600_ratio: 66.2
+- over_800_ratio: 62.54
+- over_1000_ratio: 56.32
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -1.76
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,69.68,0.06,62.66,0.06,58.16,0.06,1,True,True
 20260612,69.68,0,62.66,0,58.16,0,0,False,False
 20260618,69.56,-0.12,62.58,-0.08,58.08,-0.08,0,False,False
+20260626,69.52,-0.04,62.54,-0.04,56.32,-1.76,0,False,False
 ```
 
 ## Candidate Context

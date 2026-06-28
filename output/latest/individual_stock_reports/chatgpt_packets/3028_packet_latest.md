@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3028 增你強
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:21 Asia/Taipei
+- generated_at: 2026-06-28 22:26:24 Asia/Taipei
 - stock_id: 3028
 - stock_name: 增你強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 76.2
-- high: 82.5
-- low: 75.5
-- close: 82.5
-- volume: 7139869
-- ma5: 76.46
-- ema23_primary: 77.25
-- distance_to_ema23_pct: 6.8
-- ma20: 78.88
-- ma60: 70.54
-- ma120: 58.02
-- return_5d: 10
-- return_20d: 0.24
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: 4.59
-- distance_to_high_60_pct: -6.57
+- date: 20260626
+- open: 77.8
+- high: 84.7
+- low: 77.5
+- close: 80.9
+- volume: 7339302
+- ma5: 79.9
+- ema23_primary: 77.85
+- distance_to_ema23_pct: 3.91
+- ma20: 78.45
+- ma60: 72.28
+- ma120: 59.37
+- return_5d: 7.87
+- return_20d: -0.37
+- volume_ratio: 2.01
+- distance_to_ma20_pct_auxiliary: 3.12
+- distance_to_high_60_pct: -8.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,83,83.4,79.7,81.3,5431367,74.95,8.47,76.25,62.44,0.64
-20260526,81.5,83.3,80.9,81.6,3110682,75.51,8.07,76.9,62.89,0.38
-20260527,84.2,85.4,80.3,81.4,4861113,76,7.11,77.43,63.32,0.67
-20260528,82.1,84.1,80.8,81.2,4307286,76.43,6.24,77.96,63.8,0.64
 20260529,83.5,83.5,80.6,81.5,2980755,76.86,6.04,78.62,64.29,0.45
 20260601,81.5,82.2,80.5,81.1,2550572,77.21,5.04,79.2,64.78,0.39
 20260602,81.8,84,80.6,84,4333886,77.77,8,79.92,65.28,0.66
@@ -160,20 +156,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,70.8,74.3,70.1,74.3,3478886,76.93,-3.42,79.28,69.69,0.94
 20260618,75.8,76.5,73.8,75,3608619,76.77,-2.31,78.87,70.05,1
 20260622,76.2,82.5,75.5,82.5,7139869,77.25,6.8,78.88,70.54,1.94
+20260623,85,85,78.5,78.9,4981270,77.39,1.95,78.76,70.94,1.36
+20260624,78.2,81.5,77.5,79.4,2429132,77.56,2.38,78.65,71.37,0.67
+20260625,80.6,80.9,77.2,77.8,2267551,77.58,0.29,78.47,71.78,0.65
+20260626,77.8,84.7,77.5,80.9,7339302,77.85,3.91,78.45,72.28,2.01
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 43.92
-- over_600_ratio: 41.84
-- over_800_ratio: 40.95
-- over_1000_ratio: 39.08
-- over_400_change_1w: -1.25
-- over_800_change_1w: -1.5
-- over_1000_change_1w: -1.13
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 44.49
+- over_600_ratio: 42.65
+- over_800_ratio: 41.16
+- over_1000_ratio: 39.64
+- over_400_change_1w: 0.57
+- over_800_change_1w: 0.21
+- over_1000_change_1w: 0.56
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,24 +187,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.98,-0.11,43.06,0.21,41.6,0.68,1,False,True
 20260612,45.17,-0.81,42.45,-0.61,40.21,-1.39,0,False,False
 20260618,43.92,-1.25,40.95,-1.5,39.08,-1.13,0,False,False
+20260626,44.49,0.57,41.16,0.21,39.64,0.56,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3028 | 增你強 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 3028 | 增你強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 3028 | 增你強 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 3028 | 增你強 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/25 2.公司名稱:增你強股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定 辦理公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期:民國115年6月25日 (2)委託代收價款行庫名稱：台北富邦商業銀行敦南分行 (3)委託存儲價款行庫名稱：第一商業銀行城東分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 3028 | 增你強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/25 2.公司名稱:增你強股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定 辦理公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期:民國115年6月25日 (2)委託代收價款行庫名稱：台北富邦商業銀行敦南分行 (3)委託存儲價款行庫名稱：第一商業銀行城東分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3028 | 增你強 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/25 2.公司名稱:增你強股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定 辦理公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期:民國115年6月25日 (2)委託代收價款行庫名稱：台北富邦商業銀行敦南分行 (3)委託存儲價款行庫名稱：第一商業銀行城東分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3028 | 增你強 | 18 | 1 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 3028 | 增你強 | 21 | 4 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3028 | 增你強 | 27 | 0 | 3922250.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 3028 | 增你強 | 27 | 0 | 6078330.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

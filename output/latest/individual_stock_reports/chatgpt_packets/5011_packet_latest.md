@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5011 久陽
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:55 Asia/Taipei
 - stock_id: 5011
 - stock_name: 久陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,31 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: no_entry_now
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -88,8 +86,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 22.3
-- high: 23.3
-- low: 22
-- close: 23.05
-- volume: 2733000
-- ma5: 20.61
-- ema23_primary: 18.61
-- distance_to_ema23_pct: 23.86
-- ma20: 18.99
-- ma60: 15.88
-- ma120: 14.17
-- return_5d: 28.77
-- return_20d: 43.17
-- volume_ratio: 3.31
-- distance_to_ma20_pct_auxiliary: 21.4
-- distance_to_high_60_pct: -1.07
+- date: 20260626
+- open: 25.95
+- high: 27.3
+- low: 25.05
+- close: 25.7
+- volume: 2354000
+- ma5: 24.43
+- ema23_primary: 20.45
+- distance_to_ema23_pct: 25.65
+- ma20: 20.25
+- ma60: 16.61
+- ma120: 14.65
+- return_5d: 18.98
+- return_20d: 41.99
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 26.94
+- distance_to_high_60_pct: -5.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,16.1,17.7,15.85,17.7,17000,15.17,16.68,15.1,14.4,0.04
-20260526,18.1,19.45,17.9,19.45,19000,15.53,25.27,15.4,14.53,0.05
-20260527,19.65,20,18.6,18.7,19000,15.79,18.42,15.65,14.62,0.05
-20260528,18.7,18.9,18,18.1,18000,15.98,13.24,15.85,14.7,0.05
 20260529,18.1,19.9,18.1,18.7,19000,16.21,15.36,16.05,14.77,0.06
 20260601,18.7,20,18.55,19.35,19000,16.47,17.48,16.27,14.82,0.06
 20260602,19.15,19.15,18.35,18.8,19,16.67,12.81,16.45,14.86,0
@@ -155,19 +149,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,21.15,21.6,20.2,20.6,5254000,17.9,15.1,18.35,15.6,8.98
 20260618,20.2,22.1,20.15,21.6,2773000,18.21,18.65,18.64,15.72,4.02
 20260622,22.3,23.3,22,23.05,2733000,18.61,23.86,18.99,15.88,3.31
+20260623,23.05,23.25,22.2,22.6,1571000,18.94,19.31,19.23,16.02,1.74
+20260624,22.6,24.85,22.6,24.85,6595000,19.43,27.87,19.5,16.2,5.35
+20260625,25.9,26.3,25.4,25.95,4045000,19.98,29.9,19.86,16.41,2.82
+20260626,25.95,27.3,25.05,25.7,2354000,20.45,25.65,20.25,16.61,1.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.82
-- over_600_ratio: 42.86
-- over_800_ratio: 38.62
-- over_1000_ratio: 34.15
-- over_400_change_1w: 0.93
-- over_800_change_1w: 1.33
-- over_1000_change_1w: -0.47
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 49.08
+- over_600_ratio: 45.58
+- over_800_ratio: 39.86
+- over_1000_ratio: 37.19
+- over_400_change_1w: 2.26
+- over_800_change_1w: 1.24
+- over_1000_change_1w: 3.04
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,17 +180,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,46.46,0.64,37.28,-0.44,34.61,0.51,5,False,True
 20260612,45.89,-0.57,37.29,0.01,34.62,0.01,6,False,True
 20260618,46.82,0.93,38.62,1.33,34.15,-0.47,7,False,True
+20260626,49.08,2.26,39.86,1.24,37.19,3.04,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5011 | 久陽 | true_breakout | 嚴格突破 | 98.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 5011 | 久陽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 子公司台鋼能源股份有限公司普通股 2.事實發生日:115/6/26~115/6/26 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量: 2,300,000股 預計每單位價格: 27.17元 預計交易總金額:新台幣62,500,000 元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 授權董事長洽詢有意之投資人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依契約約定。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 決策單位 : 董事會 價格決定之參考依據 :依據鑑價公司出具股權之公平價值評價意見書 13.取得或處分有價證券標的公司每股淨值: 12.74元 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有本交易證券（含本次交易）之數量、金額: 0 股、0元 持股比例：0% 權利受限情形: 無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 佔最近期財務報表中總資產比率：27.80% 佔母公司業主之權益比率：77.86% 最近期財務報表營運資金數額：0仟元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 集團營運管理 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:是 20.監察人承認或審計委員會同意日期: 民國115年06月26日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:是 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5011 | 久陽 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260626 | 5011 | 久陽 | 4 | 1 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

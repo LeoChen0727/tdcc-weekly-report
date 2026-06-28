@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6204 艾華
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:17 Asia/Taipei
+- generated_at: 2026-06-28 22:27:09 Asia/Taipei
 - stock_id: 6204
 - stock_name: 艾華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 120
-- high: 121.5
-- low: 114.5
-- close: 115.5
-- volume: 1231000
-- ma5: 109.9
-- ema23_primary: 101.37
-- distance_to_ema23_pct: 13.94
-- ma20: 103.26
-- ma60: 80.77
-- ma120: 77.56
-- return_5d: 5.48
-- return_20d: 28.33
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 11.85
-- distance_to_high_60_pct: -5.71
+- date: 20260626
+- open: 125
+- high: 129
+- low: 114
+- close: 115
+- volume: 1200000
+- ma5: 119.2
+- ema23_primary: 106.85
+- distance_to_ema23_pct: 7.62
+- ma20: 109.47
+- ma60: 84.72
+- ma120: 79.01
+- return_5d: 0
+- return_20d: 25.68
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 5.05
+- distance_to_high_60_pct: -10.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,92.8,93.8,90,90.1,92000,78.2,15.21,77.84,68.26,0.2
-20260526,90,90.1,84,84.5,87000,78.73,7.33,78.9,68.48,0.19
-20260527,85.1,91,85,90.1,89000,79.68,13.08,79.93,68.81,0.2
-20260528,92,96.1,88.5,91.5,93000,80.66,13.44,81.03,69.19,0.21
 20260529,91.5,94.8,88.8,93,92000,81.69,13.84,82.11,69.61,0.21
 20260601,101.5,102,99.9,102,102000,83.38,22.33,83.61,70.24,0.25
 20260602,101.5,105,97.5,104.5,102,85.14,22.74,85.03,70.9,0
@@ -154,10 +150,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,100,110.5,100,106.5,741000,98.73,7.87,100.47,78.95,1.36
 20260618,106.5,116,106.5,115,1041000,100.08,14.91,101.98,79.85,1.82
 20260622,120,121.5,114.5,115.5,1231000,101.37,13.94,103.26,80.77,1.96
+20260623,114.5,121.5,109.5,118.5,1024000,102.79,15.28,104.68,81.72,1.52
+20260624,118.5,125.5,115.5,122,1503000,104.4,16.86,106.56,82.75,2.02
+20260625,123,125.5,120,125,1054000,106.11,17.8,108.3,83.81,1.33
+20260626,125,129,114,115,1200000,106.85,7.62,109.47,84.72,1.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 29.71
 - over_600_ratio: 29.71
 - over_800_ratio: 29.71
@@ -181,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,29.71,0,29.71,0,25.64,0,0,False,False
 20260612,29.71,0,29.71,0,25.64,0,0,False,False
 20260618,29.71,0,29.71,0,25.64,0,0,False,False
+20260626,29.71,0,29.71,0,25.64,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6204 | 艾華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6204 | 艾華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6204 | 艾華 | 2 | 1 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 6204 | 艾華 | 5 | 1 | 5 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

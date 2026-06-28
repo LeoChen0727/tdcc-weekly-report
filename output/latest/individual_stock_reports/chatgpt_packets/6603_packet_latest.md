@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6603 富強鑫
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:29 Asia/Taipei
+- generated_at: 2026-06-28 22:27:19 Asia/Taipei
 - stock_id: 6603
 - stock_name: 富強鑫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 25.75
-- high: 26.2
-- low: 25.2
-- close: 25.35
-- volume: 5920000
-- ma5: 23.23
-- ema23_primary: 23.22
-- distance_to_ema23_pct: 9.17
-- ma20: 23.27
-- ma60: 23.35
-- ma120: 25.02
-- return_5d: 14.19
-- return_20d: 13.17
-- volume_ratio: 7.17
-- distance_to_ma20_pct_auxiliary: 8.96
-- distance_to_high_60_pct: -15.64
+- date: 20260626
+- open: 23.45
+- high: 23.85
+- low: 22.7
+- close: 22.9
+- volume: 1093000
+- ma5: 24.03
+- ema23_primary: 23.35
+- distance_to_ema23_pct: -1.91
+- ma20: 23.4
+- ma60: 23.49
+- ma120: 24.88
+- return_5d: -5.37
+- return_20d: -6.72
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -2.14
+- distance_to_high_60_pct: -23.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,22.85,22.95,22.2,22.3,22000,23.23,-4,23.74,23.31,0.02
-20260526,23,23.3,22.1,22.9,23000,23.2,-1.3,23.55,23.28,0.02
-20260527,23.2,23.4,22.2,22.35,23000,23.13,-3.37,23.36,23.24,0.02
-20260528,22.4,24.55,22.4,24.55,24000,23.25,5.6,23.32,23.23,0.02
 20260529,25.25,26.5,25,25.55,26000,23.44,9,23.34,23.26,0.03
 20260601,25.5,26.15,24.75,24.9,25000,23.56,5.68,23.35,23.29,0.03
 20260602,25.2,25.25,23.6,23.8,24,23.58,0.93,23.27,23.29,0
@@ -160,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,22.2,22.35,21.85,22,670000,22.92,-4.02,23.02,23.26,1.96
 20260618,22.6,24.2,22.4,24.2,4523000,23.03,5.09,23.12,23.3,8.52
 20260622,25.75,26.2,25.2,25.35,5920000,23.22,9.17,23.27,23.35,7.17
+20260623,25.2,25.55,23.75,24.3,2391000,23.31,4.24,23.36,23.39,2.53
+20260624,24,24.6,23.9,24.2,1097000,23.39,3.48,23.43,23.43,1.1
+20260625,24.5,24.5,23.4,23.4,1141000,23.39,0.06,23.48,23.46,1.08
+20260626,23.45,23.85,22.7,22.9,1093000,23.35,-1.91,23.4,23.49,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.73
-- over_600_ratio: 44.55
-- over_800_ratio: 42.5
-- over_1000_ratio: 38.79
-- over_400_change_1w: -0.08
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 50.06
+- over_600_ratio: 44.49
+- over_800_ratio: 42
+- over_1000_ratio: 38.71
+- over_400_change_1w: -0.67
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,49.76,-0.69,41.94,0.93,38.75,-0.1,5,False,True
 20260612,50.81,1.05,42.42,0.48,38.73,-0.02,6,False,True
 20260618,50.73,-0.08,42.5,0.08,38.79,0.06,7,False,True
+20260626,50.06,-0.67,42,-0.5,38.71,-0.08,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6603 | 富強鑫 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_2_3d | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認民國一一四年度營業報告書及 財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 1.通過資本公積配發現金股利案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6603 | 富強鑫 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:13 Asia/Taipei
+- generated_at: 2026-06-28 22:27:05 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 36.2
-- high: 37.15
-- low: 35.35
-- close: 35.6
-- volume: 1365880
-- ma5: 35.28
-- ema23_primary: 35.3
-- distance_to_ema23_pct: 0.86
-- ma20: 37.13
-- ma60: 31.62
-- ma120: 22.7
-- return_5d: 11.08
-- return_20d: 4.71
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -4.11
-- distance_to_high_60_pct: -24.97
+- date: 20260626
+- open: 42.95
+- high: 42.95
+- low: 39
+- close: 39
+- volume: 1849591
+- ma5: 38.18
+- ema23_primary: 36.38
+- distance_to_ema23_pct: 7.21
+- ma20: 37.35
+- ma60: 32.74
+- ma120: 23.63
+- return_5d: 11.91
+- return_20d: -9.72
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 4.4
+- distance_to_high_60_pct: -17.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,34,34,31.6,32.5,3451519,31.43,3.4,32.57,25.9,1.49
-20260526,32.95,35.75,32.5,35.75,5123644,31.79,12.45,32.82,26.31,2.01
-20260527,39.25,39.3,37.55,39.3,6924233,32.42,21.23,33.21,26.75,2.41
-20260528,41.95,43.2,41.9,43.2,4189116,33.32,29.67,33.77,27.25,1.37
 20260529,44.2,47.45,42.2,46,10248368,34.37,33.83,34.45,27.77,2.89
 20260601,46.05,46.05,41.4,44.4,7282455,35.21,26.11,34.91,28.23,1.89
 20260602,42.1,42.45,40.05,40.35,3751674,35.64,13.23,35.1,28.6,0.94
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.25,36.4,33.55,35.1,1646820,35.31,-0.59,37.01,31.19,0.5
 20260618,35.1,35.5,34.2,34.85,1186671,35.27,-1.19,37.05,31.38,0.37
 20260622,36.2,37.15,35.35,35.6,1365880,35.3,0.86,37.13,31.62,0.44
+20260623,37.3,37.3,34.7,35.25,1221239,35.29,-0.12,37.27,31.83,0.41
+20260624,35,38.75,35,38.75,2709558,35.58,8.91,37.41,32.12,0.94
+20260625,41.45,42.6,39.3,42.3,7265860,36.14,17.04,37.56,32.45,2.5
+20260626,42.95,42.95,39,39,1849591,36.38,7.21,37.35,32.74,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.7
-- over_600_ratio: 45.87
-- over_800_ratio: 42.29
-- over_1000_ratio: 39.09
-- over_400_change_1w: -0.83
-- over_800_change_1w: -1.08
-- over_1000_change_1w: -0.2
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 51.5
+- over_600_ratio: 47.25
+- over_800_ratio: 44.35
+- over_1000_ratio: 40.21
+- over_400_change_1w: 1.8
+- over_800_change_1w: 2.06
+- over_1000_change_1w: 1.12
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,18 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,50.18,-5.11,43.43,-4.53,39.43,-3.75,0,False,False
 20260612,50.53,0.35,43.37,-0.06,39.29,-0.14,1,False,False
 20260618,49.7,-0.83,42.29,-1.08,39.09,-0.2,0,False,False
+20260626,51.5,1.8,44.35,2.06,40.21,1.12,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6141 | 柏承 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/17 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:NA 4.舊任者簡歷:NA 5.新任者職稱及姓名:顧成龍 6.新任者簡歷:柏承(南通)微電子科技有限公司/管理部經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:缺額補選 9.新任者選任時持股數:NA 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/03/10~117/03/10 11.新任生效日期:115/06/17 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:NA 14.同任期監察人變動比率:NA 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_3d |
-| 20260622 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/17 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:NA 4.舊任者簡歷:NA 5.新任者職稱及姓名:顧成龍 6.新任者簡歷:柏承(南通)微電子科技有限公司/管理部經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:缺額補選 9.新任者選任時持股數:NA 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/03/10~117/03/10 11.新任生效日期:115/06/17 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:NA 14.同任期監察人變動比率:NA 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/06/25 2.公司名稱:柏承科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:NA 5.發生緣由:本公司業經115年股東常會決議通過，辦理減資彌補虧損案 6.因應措施: (1)依公司法第二八一條準用同法第七十三條、第七十四條規定辦理。 (2)本公司為改善財務結構，辦理減資彌補虧損，本次減資金額為新台幣233,540,050元 整，銷除已發行股份23,354,005股，減資比率為20.6027%，每仟股減少206.02717股， 減資後流通在外股數為90,000,000股，每股面額新台幣10元，實收資本額新台幣 900,000,000元整。惟若本公司因其他情形影響流通在外股份數量，造成減資比例變動 者，則實際減資比例以變動後之實際比率為準。 (3)本公司債權人對於此次減資案如有異議，請於公告日起至民國115年07月31日之期間 內以書面檢附債權證明文件，向本公司提出，逾期未表示異議即視為同意減資案，特此 公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6141 | 柏承 | 4 | 4 | 4 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 6141 | 柏承 | 7 | 4 | 5 | 9 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

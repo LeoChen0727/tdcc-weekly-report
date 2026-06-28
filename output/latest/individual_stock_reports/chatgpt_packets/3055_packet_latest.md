@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3055 蔚華科
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:23 Asia/Taipei
+- generated_at: 2026-06-28 22:26:26 Asia/Taipei
 - stock_id: 3055
 - stock_name: 蔚華科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 94.5
-- high: 97.2
-- low: 91.5
-- close: 92
-- volume: 1818799
-- ma5: 87.62
-- ema23_primary: 93.02
-- distance_to_ema23_pct: -1.1
-- ma20: 96.77
-- ma60: 85.62
-- ma120: 77.31
-- return_5d: 15.14
-- return_20d: -22.03
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -4.92
-- distance_to_high_60_pct: -26.98
+- date: 20260626
+- open: 99
+- high: 103.5
+- low: 95.3
+- close: 96
+- volume: 2369515
+- ma5: 96.16
+- ema23_primary: 94.3
+- distance_to_ema23_pct: 1.8
+- ma20: 93.45
+- ma60: 88.2
+- ma120: 78.03
+- return_5d: 5.38
+- return_20d: -9
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 2.72
+- distance_to_high_60_pct: -23.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,120,126,117.5,118,6726058,98.8,19.44,98,74.82,1.31
-20260526,118,121.5,114,119,4118254,100.48,18.43,100.12,75.68,0.78
-20260527,122.5,122.5,111,112.5,4288094,101.48,10.86,101.86,76.41,0.79
-20260528,112.5,112.5,103.5,105.5,4319594,101.82,3.62,103.17,77,0.78
 20260529,108.5,110.5,105,108,2265445,102.33,5.54,104.66,77.69,0.41
 20260601,109,113.5,107,108.5,3392801,102.85,5.5,106.18,78.47,0.6
 20260602,107,107,98.2,102,3776567,102.78,-0.76,107.34,79.11,0.66
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,84.9,87.5,83.2,86.8,1068061,93.3,-6.96,99.33,84.49,0.36
 20260618,89.8,95,86.8,91.1,2907958,93.11,-2.16,98.06,85.04,1.06
 20260622,94.5,97.2,91.5,92,1818799,93.02,-1.1,96.77,85.62,0.7
+20260623,92.6,92.6,88.1,90.9,1294045,92.84,-2.09,95.41,86.12,0.55
+20260624,89.1,99.9,88.5,99.9,2932613,93.43,6.92,94.45,86.82,1.29
+20260625,104,104.5,95.4,102,6103663,94.15,8.34,93.93,87.55,2.58
+20260626,99,103.5,95.3,96,2369515,94.3,1.8,93.45,88.2,1.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.84
-- over_600_ratio: 63.53
-- over_800_ratio: 61.61
-- over_1000_ratio: 60.05
-- over_400_change_1w: -0.95
-- over_800_change_1w: -0.24
-- over_1000_change_1w: 0.53
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 66.1
+- over_600_ratio: 63.36
+- over_800_ratio: 62.1
+- over_1000_ratio: 59.82
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.49
+- over_1000_change_1w: -0.23
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.5,-1.27,61.22,-2.51,60.51,0.64,3,False,True
 20260612,66.79,-0.71,61.85,0.63,59.52,-0.99,4,False,True
 20260618,65.84,-0.95,61.61,-0.24,60.05,0.53,5,False,True
+20260626,66.1,0.26,62.1,0.49,59.82,-0.23,6,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3055 | 蔚華科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 3055 | 蔚華科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1. 董事會決議日期：115/06/24 2. 股利所屬年(季)度：114年 年度 3. 股利所屬期間：114/01/01 至 114/12/31 4. 股東配發內容： 　(1)盈餘分配之現金股利(元/股)：0 　(2)法定盈餘公積發放之現金(元/股)：0 　(3)資本公積發放之現金(元/股)：0.50000000 　(4)股東配發之現金(股利)總金額(元)：56,543,459 　(5)盈餘轉增資配股(元/股)：0 　(6)法定盈餘公積轉增資配股(元/股)：0 　(7)資本公積轉增資配股(元/股)：0 　(8)股東配股總股數(股)：0 5. 其他應敘明事項： 115/06/24股東常會議決通過以法定盈餘公積 新台幣297,623,847元彌補虧損後，同日董事會 議決通過自資本公積之股票發行溢價項下提撥 現&#12198;新台幣56,543,459元配發予股東。 6. 普通股每股面額欄位：新台幣10.0000元；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3055 | 蔚華科 | 2 | 2 | 2 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 3055 | 蔚華科 | 5 | 5 | 5 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3055 | 蔚華科 | 8 | 0 | 349470.0 | 0.0 |  | no_signal |
+| 20260626 | 3055 | 蔚華科 | 8 | 0 | 581970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

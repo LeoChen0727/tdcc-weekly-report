@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6101 寬魚國際
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:10 Asia/Taipei
+- generated_at: 2026-06-28 22:27:04 Asia/Taipei
 - stock_id: 6101
 - stock_name: 寬魚國際
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,27 +56,27 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可小量試單
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: starter_1_3
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -92,8 +92,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 42.05
-- high: 45.8
-- low: 41.65
-- close: 45.35
-- volume: 1477000
-- ma5: 41.74
-- ema23_primary: 40.61
-- distance_to_ema23_pct: 11.66
-- ma20: 40.76
-- ma60: 39.66
-- ma120: 38.66
-- return_5d: 14.96
-- return_20d: 19.19
-- volume_ratio: 7.44
-- distance_to_ma20_pct_auxiliary: 11.27
-- distance_to_high_60_pct: -0.98
+- date: 20260626
+- open: 46.7
+- high: 49.8
+- low: 45.85
+- close: 47.75
+- volume: 2371000
+- ma5: 46.06
+- ema23_primary: 42.29
+- distance_to_ema23_pct: 12.91
+- ma20: 41.83
+- ma60: 40.17
+- ma120: 38.96
+- return_5d: 14.65
+- return_20d: 20.58
+- volume_ratio: 4.74
+- distance_to_ma20_pct_auxiliary: 14.17
+- distance_to_high_60_pct: -4.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,38.1,41.85,37.55,41.85,41000,39.09,7.06,39.13,38.65,0.48
-20260526,39.55,41.85,38.8,41.5,40000,39.29,5.63,39.28,38.7,0.48
-20260527,41.45,41.5,39.8,40.6,40000,39.4,3.05,39.37,38.74,0.49
-20260528,40.6,40.6,38.8,39.6,40000,39.42,0.47,39.41,38.77,0.49
 20260529,39.6,39.6,37.7,38.35,38000,39.33,-2.48,39.31,38.79,0.52
 20260601,39.85,42.15,39.85,40.25,41000,39.4,2.15,39.31,38.85,0.58
 20260602,40.55,42.2,40.4,40.7,41,39.51,3.01,39.33,38.92,0
@@ -160,20 +156,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,40.4,40.9,40.2,40.5,150000,40.05,1.13,40.23,39.45,1.56
 20260618,40.5,42.6,40.05,41.65,703000,40.18,3.65,40.39,39.52,5.55
 20260622,42.05,45.8,41.65,45.35,1477000,40.61,11.66,40.76,39.66,7.44
+20260623,45.7,47.9,45,45.5,1139000,41.02,10.92,40.94,39.77,4.49
+20260624,45.7,46.25,43.6,45.5,927000,41.39,9.92,41.14,39.88,3.11
+20260625,46.4,48,45.65,46.2,1754000,41.79,10.54,41.42,40.01,4.57
+20260626,46.7,49.8,45.85,47.75,2371000,42.29,12.91,41.83,40.17,4.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 89.59
-- over_600_ratio: 87.35
-- over_800_ratio: 83.58
-- over_1000_ratio: 80.12
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0.51
-- over_1000_change_1w: 0.51
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 87.99
+- over_600_ratio: 86.2
+- over_800_ratio: 82.56
+- over_1000_ratio: 79.12
+- over_400_change_1w: -1.6
+- over_800_change_1w: -1.02
+- over_1000_change_1w: -1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,89.28,-0.68,83.14,-1.31,78.83,-1.41,0,False,False
 20260612,89.2,-0.08,83.07,-0.07,79.61,0.78,1,False,True
 20260618,89.59,0.39,83.58,0.51,80.12,0.51,2,False,True
+20260626,87.99,-1.6,82.56,-1.02,79.12,-1,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6101 | 寬魚國際 | true_breakout | 嚴格突破 | 136.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6101 | 寬魚國際 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   討論事項：   (1)通過修訂本公司「股東會議事規則」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6101 | 寬魚國際 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260626 | 6101 | 寬魚國際 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

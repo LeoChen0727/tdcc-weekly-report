@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3311 閎暉
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:31 Asia/Taipei
+- generated_at: 2026-06-28 22:26:31 Asia/Taipei
 - stock_id: 3311
 - stock_name: 閎暉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 39.6
-- high: 41.2
-- low: 39.1
-- close: 40.25
-- volume: 2254033
-- ma5: 39.93
-- ema23_primary: 37.5
-- distance_to_ema23_pct: 7.34
-- ma20: 38.01
-- ma60: 34.03
-- ma120: 33.11
-- return_5d: 7.19
-- return_20d: 18.91
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 5.9
-- distance_to_high_60_pct: -5.85
+- date: 20260626
+- open: 37.65
+- high: 38.75
+- low: 36.7
+- close: 36.95
+- volume: 618572
+- ma5: 38.54
+- ema23_primary: 37.65
+- distance_to_ema23_pct: -1.87
+- ma20: 38.59
+- ma60: 34.39
+- ma120: 33.35
+- return_5d: -4.65
+- return_20d: 1.37
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -4.26
+- distance_to_high_60_pct: -13.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,34.05,34.65,33.6,33.85,472417,32.11,5.41,31.71,32.2,1.86
-20260526,34,35.65,33.85,35.5,1812556,32.39,9.59,31.93,32.26,5.48
-20260527,36.9,37.25,34.05,34.9,1289529,32.6,7.05,32.12,32.27,3.3
-20260528,35,38.35,34.7,36.45,4396543,32.92,10.71,32.4,32.31,7.26
 20260529,36.7,37.1,35.3,35.8,1902327,33.16,7.95,32.65,32.35,2.77
 20260601,36.15,37.8,35.9,35.95,1070910,33.4,7.65,32.92,32.41,1.46
 20260602,35.9,37,35,36.75,1226942,33.68,9.13,33.23,32.48,1.55
@@ -154,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,39.6,40.75,39.2,39.4,988179,37.11,6.17,37.38,33.79,0.45
 20260618,39.65,40.4,38.6,38.75,836129,37.25,4.03,37.69,33.89,0.37
 20260622,39.6,41.2,39.1,40.25,2254033,37.5,7.34,38.01,34.03,0.97
+20260623,40.55,40.7,39.15,39.35,1016547,37.65,4.51,38.28,34.13,0.43
+20260624,38.8,39.15,38.15,38.4,664424,37.72,1.82,38.43,34.23,0.29
+20260625,38.45,38.6,37.6,37.75,1107770,37.72,0.08,38.57,34.31,0.48
+20260626,37.65,38.75,36.7,36.95,618572,37.65,-1.87,38.59,34.39,0.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.67
-- over_600_ratio: 53.64
+- as_of_date: 20260626
+- over_400_ratio: 56.84
+- over_600_ratio: 52.77
 - over_800_ratio: 50.72
-- over_1000_ratio: 48.88
-- over_400_change_1w: 0.05
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -1.05
-- tdcc_consecutive_up_weeks: 4
+- over_1000_ratio: 49.91
+- over_400_change_1w: 1.17
+- over_800_change_1w: 0
+- over_1000_change_1w: 1.03
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.3,-0.64,50.94,0.06,50.94,0.96,2,False,True
 20260612,55.62,-0.68,50.77,-0.17,49.93,-1.01,3,False,False
 20260618,55.67,0.05,50.72,-0.05,48.88,-1.05,4,False,False
+20260626,56.84,1.17,50.72,0,49.91,1.03,5,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3311 | 閎暉 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3311 | 閎暉 | 1 | 1 | 2 | 5 | 10 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

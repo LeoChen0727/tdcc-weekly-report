@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1210 大成
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:33 Asia/Taipei
+- generated_at: 2026-06-28 22:25:45 Asia/Taipei
 - stock_id: 1210
 - stock_name: 大成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 54.7
-- high: 55
-- low: 54.6
-- close: 54.7
-- volume: 1631362
-- ma5: 55.18
-- ema23_primary: 54.22
-- distance_to_ema23_pct: 0.89
-- ma20: 53.94
-- ma60: 53.73
-- ma120: 52.7
-- return_5d: -1.08
-- return_20d: 4.39
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 1.42
-- distance_to_high_60_pct: -2.32
+- date: 20260626
+- open: 55.7
+- high: 55.8
+- low: 55.1
+- close: 55.2
+- volume: 1718904
+- ma5: 55
+- ema23_primary: 54.48
+- distance_to_ema23_pct: 1.32
+- ma20: 54.56
+- ma60: 53.79
+- ma120: 52.84
+- return_5d: 0.91
+- return_20d: 6.56
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 1.16
+- distance_to_high_60_pct: -1.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,52.4,52.4,52,52.1,2601117,52.93,-1.57,52.8,53.17,1.29
-20260526,52.3,52.6,52,52.1,1760583,52.86,-1.44,52.72,53.19,0.88
-20260527,52.3,52.4,51.6,51.7,2773905,52.76,-2.01,52.6,53.2,1.34
-20260528,51.7,52,51.6,51.8,2413257,52.68,-1.68,52.51,53.21,1.13
 20260529,51.9,52.6,51.7,52.6,2674184,52.68,-0.14,52.47,53.23,1.23
 20260601,52.4,52.5,51.9,52.5,2907023,52.66,-0.31,52.46,53.27,1.34
 20260602,52.2,53.3,51.7,52.8,10328571,52.67,0.24,52.48,53.31,3.99
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,55.2,55.7,54.9,55.1,2517752,54.13,1.8,53.73,53.71,0.45
 20260618,55.1,55.7,54.7,54.7,3386112,54.18,0.97,53.82,53.72,0.59
 20260622,54.7,55,54.6,54.7,1631362,54.22,0.89,53.94,53.73,0.29
+20260623,55,55,54.5,54.6,2311671,54.25,0.64,54.06,53.74,0.41
+20260624,54.6,55.5,54.5,54.8,1691084,54.3,0.93,54.2,53.76,0.3
+20260625,55.2,56,54.9,55.7,3797127,54.41,2.36,54.4,53.78,0.67
+20260626,55.7,55.8,55.1,55.2,1718904,54.48,1.32,54.56,53.79,0.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.31
-- over_600_ratio: 62.27
-- over_800_ratio: 61.05
-- over_1000_ratio: 60.36
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.45
-- over_1000_change_1w: 0.65
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 64.48
+- over_600_ratio: 62.62
+- over_800_ratio: 61.27
+- over_1000_ratio: 60.56
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.02,0.37,59.68,-0.09,58.61,-0.07,1,False,False
 20260612,64.02,1,60.6,0.92,59.71,1.1,2,True,True
 20260618,64.31,0.29,61.05,0.45,60.36,0.65,3,True,True
+20260626,64.48,0.17,61.27,0.22,60.56,0.2,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1210 | 大成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 1210 | 大成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立非執行董事、非執行董事 3.舊任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 4.舊任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 5.新任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 6.新任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:董監事任期屆滿全面改選 9.新任者選任時持股數: 獨立非執行董事:夏立言 0股 非執行董事: 韓家宇 0股 非執行董事: 韓家宸 0股 非執行董事: 韓家寰 344,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）: 獨立非執行董事:夏立言 112/06/29~115年股東會結束 非執行董事: 韓家宇 113/06/28~116年股東會結束 非執行董事: 韓家宸 113/06/28~116年股東會結束 非執行董事: 韓家寰 113/06/28~116年股東會結束 11.新任生效日期:115/06/26 12.同任期董事變動比率:任期屆滿改選，故不適用。 13.同任期獨立董事變動比率:任期屆滿改選，故不適用。 14.同任期監察人變動比率:無監察人，故不適用。 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1210 | 大成 | 5 | 4 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 1210 | 大成 | 8 | 7 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1210 | 大成 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 1210 | 大成 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

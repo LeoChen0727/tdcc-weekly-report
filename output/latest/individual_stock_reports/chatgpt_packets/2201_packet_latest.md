@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:54 Asia/Taipei
+- generated_at: 2026-06-28 22:26:03 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 28.15
-- high: 28.4
-- low: 27.35
-- close: 27.6
-- volume: 5141703
-- ma5: 28.02
-- ema23_primary: 27.76
-- distance_to_ema23_pct: -0.59
-- ma20: 27.82
-- ma60: 27.43
-- ma120: 29.25
-- return_5d: -0.72
-- return_20d: 2.79
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: -0.78
-- distance_to_high_60_pct: -7.54
+- date: 20260626
+- open: 27
+- high: 27.05
+- low: 26.75
+- close: 26.8
+- volume: 2314856
+- ma5: 27.19
+- ema23_primary: 27.56
+- distance_to_ema23_pct: -2.76
+- ma20: 27.83
+- ma60: 27.36
+- ma120: 28.96
+- return_5d: -4.63
+- return_20d: -2.01
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -3.71
+- distance_to_high_60_pct: -10.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,27.2,27.65,27.2,27.45,4185013,27.16,1.06,27.15,27.66,1.48
-20260526,27.4,27.75,26.8,26.8,2873072,27.13,-1.23,27.14,27.59,1.01
-20260527,27,27,26.45,26.45,2793558,27.08,-2.31,27.1,27.52,0.97
-20260528,26.85,27.5,26.85,27.35,5240162,27.1,0.93,27.11,27.47,1.72
 20260529,27.4,27.6,27.15,27.45,3495015,27.13,1.19,27.13,27.43,1.13
 20260601,27.35,28.05,26.75,27.85,5791756,27.19,2.43,27.18,27.42,1.76
 20260602,27.8,28.2,27.55,28.15,4514327,27.27,3.23,27.23,27.4,1.33
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,28,28.35,28,28.15,1793308,27.75,1.44,27.71,27.41,0.5
 20260618,28.15,28.5,27.85,28.1,4397988,27.78,1.16,27.78,27.42,1.19
 20260622,28.15,28.4,27.35,27.6,5141703,27.76,-0.59,27.82,27.43,1.35
+20260623,27.6,27.65,27,27,3329440,27.7,-2.53,27.8,27.41,0.88
+20260624,27,27.5,26.8,27.4,2171967,27.68,-0.99,27.82,27.39,0.58
+20260625,27.4,27.55,27,27.15,2894573,27.63,-1.74,27.86,27.38,0.77
+20260626,27,27.05,26.75,26.8,2314856,27.56,-2.76,27.83,27.36,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 63.62
-- over_600_ratio: 62.07
-- over_800_ratio: 61.04
-- over_1000_ratio: 59.69
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.17
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 63.48
+- over_600_ratio: 61.99
+- over_800_ratio: 60.82
+- over_1000_ratio: 59.55
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.14
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.4,0.12,60.77,0.12,59.42,0.1,5,False,True
 20260612,63.5,0.1,60.87,0.1,59.6,0.18,6,True,True
 20260618,63.62,0.12,61.04,0.17,59.69,0.09,7,True,True
+20260626,63.48,-0.14,60.82,-0.22,59.55,-0.14,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2201 | 裕隆 | 5 | 0 | 63100.0 | 0.0 |  | no_signal |
+| 20260626 | 2201 | 裕隆 | 5 | 0 | 47140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

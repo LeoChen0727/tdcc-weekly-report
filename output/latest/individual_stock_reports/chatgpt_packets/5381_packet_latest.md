@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5381 光譜
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:04 Asia/Taipei
+- generated_at: 2026-06-28 22:26:58 Asia/Taipei
 - stock_id: 5381
 - stock_name: 光譜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 147
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 151
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 27.9
-- high: 29.45
-- low: 27.2
-- close: 29.2
-- volume: 2995000
-- ma5: 28.23
-- ema23_primary: 28.32
-- distance_to_ema23_pct: 3.12
-- ma20: 28.73
-- ma60: 25.82
-- ma120: 26.13
-- return_5d: 4.1
-- return_20d: 14.73
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 1.65
-- distance_to_high_60_pct: -17.75
+- date: 20260626
+- open: 29.3
+- high: 29.3
+- low: 28.1
+- close: 28.1
+- volume: 1555000
+- ma5: 29.08
+- ema23_primary: 28.53
+- distance_to_ema23_pct: -1.5
+- ma20: 29.3
+- ma60: 26.06
+- ma120: 26.32
+- return_5d: 1.08
+- return_20d: 11.51
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -4.1
+- distance_to_high_60_pct: -20.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,26,26.8,25.6,26.55,26000,24.95,6.41,24.63,24.94,0.02
-20260526,27.2,27.25,26.2,26.75,27000,25.1,6.57,24.83,24.96,0.03
-20260527,27.2,27.3,26.2,26.2,27000,25.19,4,24.98,24.98,0.03
-20260528,26.25,26.6,25.2,25.2,26000,25.19,0.03,25.05,24.99,0.03
 20260529,25.55,25.55,25.05,25.1,25000,25.18,-0.34,25.14,24.99,0.03
 20260601,25.7,27.4,25.65,26.55,27000,25.3,4.95,25.27,25.01,0.03
 20260602,26.85,26.85,26,26.6,26,25.41,4.7,25.41,25.03,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,28.1,28.1,27.2,27.6,1831000,28.28,-2.39,28.41,25.71,0.62
 20260618,27.8,28.35,27.7,27.8,1052000,28.24,-1.55,28.54,25.75,0.35
 20260622,27.9,29.45,27.2,29.2,2995000,28.32,3.12,28.73,25.82,0.96
+20260623,29.35,29.35,28.2,28.2,1909000,28.31,-0.38,28.81,25.86,0.59
+20260624,28,30.6,28,30.4,3971000,28.48,6.73,28.99,25.93,1.16
+20260625,30.4,30.5,29.5,29.5,1921000,28.57,3.27,29.16,26,0.55
+20260626,29.3,29.3,28.1,28.1,1555000,28.53,-1.5,29.3,26.06,0.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.03
-- over_600_ratio: 53.29
-- over_800_ratio: 50.64
-- over_1000_ratio: 48.14
-- over_400_change_1w: -0.45
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -0.76
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 55.21
+- over_600_ratio: 53.72
+- over_800_ratio: 51.05
+- over_1000_ratio: 48.13
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.41
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,54.4,-0.32,49.32,-0.85,47.67,-0.45,5,False,False
 20260612,55.48,1.08,51,1.68,48.9,1.23,6,True,True
 20260618,55.03,-0.45,50.64,-0.36,48.14,-0.76,0,False,False
+20260626,55.21,0.18,51.05,0.41,48.13,-0.01,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5381 | 光譜 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.主管機關核准減資日期:115/06/12 2.辦理資本變更登記完成日期:115/06/12 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)收回已發行之限制員工權利新股註銷減資前：    本公司實收資本額為新台幣2,078,350,620元，流通在外股數為207,835,062股    (已扣除本公司暨子公司持有之本公司庫藏股股數)，每股淨值為新台幣10.92元。 (2)本次註銷減資新台幣1,445,000元，註銷股份144,500股。 (3)收回已發行之限制員工權利新股註銷減資後：    本公司實收資本額為新台幣2,076,905,620元，流通在外股數為207,690,562股    (已扣除本公司暨子公司持有之本公司庫藏股股數)，每股淨值為新台幣10.93元。 4.預計換股作業計畫:不適用 5.預計減資新股上櫃後之上櫃普通股股數:不適用 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 8.其他應敘明事項: (1)本公司於115/06/17接獲主管機關變更登記核准函。 (2)以上每股淨值係依最近一期(115年第一季)會計師查核財務報告計算。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 5381 | 光譜 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:會計主管、財務主管、公司治理主管及代理發言人 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:阮昭彗/光譜電工股份有限公司財務長 4.新任者姓名、級職及簡歷:趙惠娟/三江電機企業股份有限公司行政處副總 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/06/26 8.其他應敘明事項:本案業經115/06/26董事會決議通過。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5381 | 光譜 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 5381 | 光譜 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8487 愛爾達-創
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:03 Asia/Taipei
+- generated_at: 2026-06-28 22:27:46 Asia/Taipei
 - stock_id: 8487
 - stock_name: 愛爾達-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 78.5
-- high: 79.1
-- low: 78
-- close: 79
-- volume: 48189
-- ma5: 79.22
-- ema23_primary: 79.8
-- distance_to_ema23_pct: -1.01
-- ma20: 80.29
-- ma60: 79.28
+- date: 20260626
+- open: 78.8
+- high: 78.8
+- low: 77.7
+- close: 77.7
+- volume: 33736
+- ma5: 78.62
+- ema23_primary: 79.42
+- distance_to_ema23_pct: -2.16
+- ma20: 79.74
+- ma60: 79.18
 - ma120: 79.82
-- return_5d: -3.66
-- return_20d: -1.74
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -1.61
-- distance_to_high_60_pct: -7.28
+- return_5d: -1.15
+- return_20d: -3.72
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -2.56
+- distance_to_high_60_pct: -8.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,80.4,81.7,80.4,81.1,72566,78.83,2.88,78.25,79.67,1.26
-20260526,81,81.9,81,81.7,52440,79.07,3.33,78.39,79.66,0.87
-20260527,81.7,82.8,81.6,81.6,89250,79.28,2.93,78.56,79.64,1.44
-20260528,81.6,81.6,80.5,80.7,61605,79.4,1.64,78.72,79.59,0.98
 20260529,81,81.9,80.5,80.7,65829,79.51,1.5,78.91,79.55,1.06
 20260601,82.2,82.2,81.1,82,101806,79.71,2.87,79.18,79.51,1.59
 20260602,78.9,79,77.4,78.5,78621,79.61,-1.4,79.3,79.42,1.18
@@ -155,10 +151,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,78.6,79.3,78.1,79.3,43608,79.99,-0.86,80.39,79.31,0.5
 20260618,79.5,79.9,78.6,78.6,25829,79.88,-1.6,80.36,79.3,0.29
 20260622,78.5,79.1,78,79,48189,79.8,-1.01,80.29,79.28,0.54
+20260623,78,78.8,77.6,78.8,56010,79.72,-1.15,80.17,79.27,0.63
+20260624,77.7,78.8,77.7,78.8,15745,79.64,-1.06,80.03,79.25,0.18
+20260625,78.8,78.8,78.3,78.8,18528,79.57,-0.97,79.89,79.22,0.22
+20260626,78.8,78.8,77.7,77.7,33736,79.42,-2.16,79.74,79.18,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 55.76
 - over_600_ratio: 52.09
 - over_800_ratio: 49.21
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,55.76,0,49.21,0,45.91,0,0,False,False
 20260612,55.76,0,49.21,0,45.91,0,0,False,False
 20260618,55.76,0,49.21,0,45.91,0,0,False,False
+20260626,55.76,0,49.21,0,45.91,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3390 旭軟
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:33 Asia/Taipei
+- generated_at: 2026-06-28 22:26:33 Asia/Taipei
 - stock_id: 3390
 - stock_name: 旭軟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 28.8
-- high: 29.85
-- low: 28.35
-- close: 29.4
-- volume: 2206000
-- ma5: 28.88
-- ema23_primary: 27.97
-- distance_to_ema23_pct: 5.1
-- ma20: 28.22
-- ma60: 26.12
-- ma120: 24.79
-- return_5d: 1.91
-- return_20d: 2.62
-- volume_ratio: 3.2
-- distance_to_ma20_pct_auxiliary: 4.17
-- distance_to_high_60_pct: -4.85
+- date: 20260626
+- open: 27.35
+- high: 28.65
+- low: 27.15
+- close: 27.35
+- volume: 951000
+- ma5: 28.61
+- ema23_primary: 28.07
+- distance_to_ema23_pct: -2.58
+- ma20: 28.13
+- ma60: 26.56
+- ma120: 25
+- return_5d: -4.04
+- return_20d: -4.04
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -2.78
+- distance_to_high_60_pct: -14.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,29,29.3,28.15,28.4,29000,26.72,6.27,27.02,24.43,0.01
-20260526,28.25,28.8,27.7,28.75,28000,26.89,6.9,27.06,24.5,0.01
-20260527,28.9,30.9,28.6,29.8,30000,27.14,9.82,27.27,24.58,0.02
-20260528,29.8,30.05,28.05,28.5,29000,27.25,4.59,27.41,24.64,0.02
 20260529,28.8,28.8,28,28.1,28000,27.32,2.85,27.55,24.69,0.02
 20260601,28.3,29.5,28.2,28.75,29000,27.44,4.78,27.73,24.78,0.02
 20260602,29.05,29.05,27.5,28.15,28,27.5,2.37,27.86,24.84,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,28.1,29,28.1,28.3,925000,27.78,1.86,28.18,25.88,1.34
 20260618,28.9,29.4,28.15,28.5,714000,27.84,2.36,28.18,25.99,1.23
 20260622,28.8,29.85,28.35,29.4,2206000,27.97,5.1,28.22,26.12,3.2
+20260623,30,31.9,29.55,29.95,5251000,28.14,6.44,28.3,26.25,5.53
+20260624,29.4,29.85,28.6,28.75,1388000,28.19,1.99,28.3,26.36,1.36
+20260625,28.7,28.8,27.6,27.6,1313000,28.14,-1.92,28.19,26.46,1.21
+20260626,27.35,28.65,27.15,27.35,951000,28.07,-2.58,28.13,26.56,0.84
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 32.44
-- over_600_ratio: 26.36
-- over_800_ratio: 21.74
+- as_of_date: 20260626
+- over_400_ratio: 30.92
+- over_600_ratio: 26.21
+- over_800_ratio: 20.61
 - over_1000_ratio: 19.49
-- over_400_change_1w: 3.21
-- over_800_change_1w: 0.03
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: -1.52
+- over_800_change_1w: -1.13
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,20 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,29.13,-0.44,21.66,0.02,19.51,0,1,False,True
 20260612,29.23,0.1,21.71,0.05,19.51,0,2,False,True
 20260618,32.44,3.21,21.74,0.03,19.49,-0.02,3,False,True
+20260626,30.92,-1.52,20.61,-1.13,19.49,0,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3390 | 旭軟 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 3390 | 旭軟 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 3390 | 旭軟 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 9.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 3390 | 旭軟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3390 | 旭軟 | 1 | 1 | 1 | 2 | 10 | repeated_but_no_breakout | 近 10 日上榜 2 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

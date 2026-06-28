@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:41 Asia/Taipei
+- generated_at: 2026-06-28 22:26:40 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 87.6
-- high: 91
-- low: 86.7
-- close: 88.5
-- volume: 30691658
-- ma5: 83.92
-- ema23_primary: 81.12
-- distance_to_ema23_pct: 9.1
-- ma20: 84.99
-- ma60: 68.18
-- ma120: 54.63
-- return_5d: 10.9
-- return_20d: 14.94
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.13
-- distance_to_high_60_pct: -10.52
+- date: 20260626
+- open: 81.1
+- high: 82
+- low: 76.3
+- close: 76.5
+- volume: 14505535
+- ma5: 82.54
+- ema23_primary: 81.04
+- distance_to_ema23_pct: -5.6
+- ma20: 84.41
+- ma60: 70.55
+- ma120: 55.95
+- return_5d: -11.25
+- return_20d: -5.56
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -9.37
+- distance_to_high_60_pct: -22.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,78.5,81.3,77.1,79.5,33370466,66.25,20,65.27,54.21,1.51
-20260526,85.2,87.4,85.2,87.4,26030149,68.01,28.51,66.67,54.97,1.13
-20260527,91.3,93,84.1,87.9,65003683,69.67,26.17,68.06,55.72,2.51
-20260528,89.6,90.3,80,81,41573738,70.61,14.71,69.1,56.38,1.52
 20260529,81.7,88.5,78.8,86.3,41007388,71.92,19.99,70.39,57.12,1.41
 20260601,87.5,94.9,87.4,89.5,48207223,73.39,21.96,71.8,57.97,1.55
 20260602,88,92.4,83.3,92,49966718,74.94,22.77,73.28,58.84,1.51
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,79.5,86.6,78.3,86.6,32111416,79.93,8.35,83.81,66.78,0.97
 20260618,88.5,88.6,85.4,86.2,32118735,80.45,7.15,84.42,67.46,0.99
 20260622,87.6,91,86.7,88.5,30691658,81.12,9.1,84.99,68.18,0.97
+20260623,88.6,90.9,80.8,82.2,24261168,81.21,1.22,85.12,68.81,0.78
+20260624,81.5,88.5,80.8,83.6,22043409,81.41,2.69,84.94,69.43,0.71
+20260625,84.3,84.7,80.8,81.9,12347195,81.45,0.55,84.64,70.02,0.43
+20260626,81.1,82,76.3,76.5,14505535,81.04,-5.6,84.41,70.55,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.53
-- over_600_ratio: 43.7
-- over_800_ratio: 42.16
-- over_1000_ratio: 39.96
-- over_400_change_1w: 1.06
-- over_800_change_1w: 2.81
-- over_1000_change_1w: 2.18
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 42.29
+- over_600_ratio: 39.35
+- over_800_ratio: 37.67
+- over_1000_ratio: 36.09
+- over_400_change_1w: -4.24
+- over_800_change_1w: -4.49
+- over_1000_change_1w: -3.87
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.94,-4.44,41.07,-5.1,39.1,-5.48,0,False,False
 20260612,45.47,-0.47,39.35,-1.72,37.78,-1.32,0,False,False
 20260618,46.53,1.06,42.16,2.81,39.96,2.18,1,True,True
+20260626,42.29,-4.24,37.67,-4.49,36.09,-3.87,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3673 | TPK-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3673 | TPK-KY | 6 | 6 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3673 | TPK-KY | 58 | 0 | 39910470.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 3673 | TPK-KY | 62 | 0 | 27705270.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

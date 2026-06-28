@@ -89,15 +89,21 @@ daily PDF artifact paths.
   ChatGPT-side daily report route.
 - `research_backtest`: research-only parameter studies, backtests, operation
   readiness evidence, and historical performance outputs.
-- `tdcc_weekly`: TDCC holder-flow, weekly candidate reports, and TDCC-specific
-  tracking artifacts.
+- `tdcc_weekly`: TDCC holder-flow, weekly candidate reports, TDCC-specific
+  tracking artifacts, and bounded TDCC history gap repair. The weekly report
+  workflow remains the report-production entrypoint; `scripts/repair_tdcc_monthly_history_gaps.py`
+  is the source-integrity entrypoint for current-month TDCC history repairs
+  before the current week.
 - `individual_stock`: single-stock packet/report generation and single-stock
   raw-data indexes.
 - `catalyst_event`: catalyst and event-calendar data builders and validators.
 - `market_risk`: market regime, sentiment, timing, and index-context surfaces.
 - `warrant`: warrant daily fetch, warrant flow, and warrant auxiliary outputs.
 - `official_price_data`: official TWSE/TPEx daily price fetch and price-history
-  maintenance.
+  maintenance. `scripts/repair_recent_daily_price_gaps.py` is the source
+  integrity entrypoint for proactive recent daily price gap repair before
+  report generation; workflow/Apps Script scheduling is handled separately by
+  the workflow automation lane.
 - `current_holdings`: current-holdings observation workflow.
 - `diagnostics`: manual diagnostic scripts and workflows.
 - `repo_infrastructure`: validators, source freshness gates, publish checks,
@@ -174,9 +180,11 @@ The repo-wide validator is run by:
 - `.github/workflows/research_backtest_pipeline.yml`
 - `.github/workflows/tdcc_weekly.yml`
 - `.github/workflows/tdcc_history_backfill.yml`
+- `.github/workflows/repair_tdcc_monthly_history_gaps.yml`
 - `.github/workflows/individual_stock_report.yml`
 - `.github/workflows/individual_stock_data_refresh.yml`
 - `.github/workflows/warrant_flow.yml`
+- `.github/workflows/repair_recent_daily_price_gaps.yml`
 
 Daily Full Pipeline remains the main production gate. The other workflow gates
 prevent lane-specific PRs or manual runs from reviving old shared paths.

@@ -54,6 +54,34 @@ def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check(
     assert 'run_raw_health_check: "false"' in body
 
 
+def test_apps_script_recent_daily_price_gap_repair_trigger_is_weekday_only() -> None:
+    body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "triggerDailyPriceGapRepair"
+    )
+
+    assert "dayOfWeek === 0 || dayOfWeek === 6" in body
+    assert 'dispatchWorkflow_("repair_recent_daily_price_gaps.yml", {' in body
+    assert 'lookback_days: "7"' in body
+    assert 'max_repair_dates: "5"' in body
+
+
+def test_apps_script_tdcc_history_gap_repair_trigger_is_tuesday_monthly_guard() -> None:
+    body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "triggerTdccHistoryGapRepair"
+    )
+    install_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "installTdccHistoryGapRepairTrigger_"
+    )
+
+    assert 'dispatchWorkflow_("repair_tdcc_monthly_history_gaps.yml", {' in body
+    assert 'universe: "chatgpt-top"' in body
+    assert 'max_stocks: "80"' in body
+    assert 'max_requests: "500"' in body
+    assert 'rebuild_max_dates: "4"' in body
+    assert "ScriptApp.WeekDay.TUESDAY" in install_body
+    assert ".atHour(9)" in install_body
+
+
 def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category() -> None:
     entrypoint = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
     entrypoint_text = entrypoint.read_text(encoding="utf-8", errors="replace")

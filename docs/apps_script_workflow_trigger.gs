@@ -192,6 +192,20 @@ function diagnoseDailyStockMonitorTrigger() {
   Logger.log("Daily stock monitor diagnostics OK. If the scheduled trigger still fails, run installDailyStockMonitorTrigger().");
 }
 
+function diagnoseDailyPriceGapRepairTrigger() {
+  testGithubTokenAndWorkflowAccess();
+  assertWorkflowAccessible_("repair_recent_daily_price_gaps.yml");
+  logLatestWorkflowRunsSafe_("repair_recent_daily_price_gaps.yml");
+  Logger.log("Daily price gap repair diagnostics OK. If the scheduled trigger still fails, run installDailyPriceGapRepairTrigger().");
+}
+
+function diagnoseTdccHistoryGapRepairTrigger() {
+  testGithubTokenAndWorkflowAccess();
+  assertWorkflowAccessible_("repair_tdcc_monthly_history_gaps.yml");
+  logLatestWorkflowRunsSafe_("repair_tdcc_monthly_history_gaps.yml");
+  Logger.log("TDCC monthly history gap repair diagnostics OK. If the scheduled trigger still fails, run installTdccHistoryGapRepairTrigger().");
+}
+
 function triggerDailyStockMonitor() {
   const dayOfWeek = new Date().getDay();
   if (dayOfWeek === 0 || dayOfWeek === 6) {
@@ -209,10 +223,35 @@ function triggerDailyFullPipeline() {
   triggerDailyStockMonitor();
 }
 
+function triggerDailyPriceGapRepair() {
+  const dayOfWeek = new Date().getDay();
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    Logger.log("Skip recent daily price gap repair on weekend.");
+    return;
+  }
+  dispatchWorkflow_("repair_recent_daily_price_gaps.yml", {
+    lookback_days: "7",
+    max_repair_dates: "5",
+  });
+  Utilities.sleep(5000);
+  logLatestWorkflowRunsSafe_("repair_recent_daily_price_gaps.yml");
+}
+
 function triggerTdccWeeklyReport() {
   dispatchWorkflow_("tdcc_weekly.yml");
   Utilities.sleep(5000);
   logLatestWorkflowRunsSafe_("tdcc_weekly.yml");
+}
+
+function triggerTdccHistoryGapRepair() {
+  dispatchWorkflow_("repair_tdcc_monthly_history_gaps.yml", {
+    universe: "chatgpt-top",
+    max_stocks: "80",
+    max_requests: "500",
+    rebuild_max_dates: "4",
+  });
+  Utilities.sleep(5000);
+  logLatestWorkflowRunsSafe_("repair_tdcc_monthly_history_gaps.yml");
 }
 
 function triggerEventCatalystUpdate() {
@@ -258,9 +297,33 @@ function installDailyStockMonitorTrigger() {
   listAllTriggers();
 }
 
+function installDailyPriceGapRepairTrigger() {
+  installDailyPriceGapRepairTrigger_();
+  Logger.log("Installed daily price gap repair trigger: daily 10:30 Asia/Taipei, self-skips weekends.");
+  listAllTriggers();
+}
+
+function installTdccHistoryGapRepairTrigger() {
+  installTdccHistoryGapRepairTrigger_();
+  Logger.log("Installed TDCC monthly history gap repair trigger: Tuesday 09:30 Asia/Taipei.");
+  listAllTriggers();
+}
+
 function removeDailyStockMonitorTrigger() {
   removeTriggersForFunction_("triggerDailyStockMonitor");
   Logger.log("Removed daily stock monitor triggers.");
+  listAllTriggers();
+}
+
+function removeDailyPriceGapRepairTrigger() {
+  removeTriggersForFunction_("triggerDailyPriceGapRepair");
+  Logger.log("Removed daily price gap repair triggers.");
+  listAllTriggers();
+}
+
+function removeTdccHistoryGapRepairTrigger() {
+  removeTriggersForFunction_("triggerTdccHistoryGapRepair");
+  Logger.log("Removed TDCC monthly history gap repair triggers.");
   listAllTriggers();
 }
 
@@ -270,16 +333,18 @@ function installBiweeklyResearchBacktestTrigger() {
     .timeBased()
     .everyWeeks(2)
     .onWeekDay(ScriptApp.WeekDay.SUNDAY)
-    .atHour(20)
-    .nearMinute(30)
+    .atHour(21)
+    .nearMinute(10)
     .inTimezone("Asia/Taipei")
     .create();
-  Logger.log("Installed biweekly research backtest trigger: Sunday 20:30 Asia/Taipei, every 2 weeks.");
+  Logger.log("Installed biweekly research backtest trigger: Sunday 21:10 Asia/Taipei, every 2 weeks.");
 }
 
 function installAllWorkflowTriggers() {
+  installDailyPriceGapRepairTrigger_();
   installDailyStockMonitorTrigger_();
   installIndividualStockDataRefreshTrigger_();
+  installTdccHistoryGapRepairTrigger_();
   installTdccWeeklyReportTrigger_();
   installEventCatalystUpdateTriggers_();
   installWeeklyThemeReviewTrigger_();
@@ -294,6 +359,17 @@ function installDailyStockMonitorTrigger_() {
     .timeBased()
     .everyDays(1)
     .atHour(19)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installDailyPriceGapRepairTrigger_() {
+  removeTriggersForFunction_("triggerDailyPriceGapRepair");
+  ScriptApp.newTrigger("triggerDailyPriceGapRepair")
+    .timeBased()
+    .everyDays(1)
+    .atHour(10)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();
@@ -316,6 +392,17 @@ function installTdccWeeklyReportTrigger_() {
     .timeBased()
     .onWeekDay(ScriptApp.WeekDay.SATURDAY)
     .atHour(15)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installTdccHistoryGapRepairTrigger_() {
+  removeTriggersForFunction_("triggerTdccHistoryGapRepair");
+  ScriptApp.newTrigger("triggerTdccHistoryGapRepair")
+    .timeBased()
+    .onWeekDay(ScriptApp.WeekDay.TUESDAY)
+    .atHour(9)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();
@@ -344,7 +431,7 @@ function installWeeklyThemeReviewTrigger_() {
   ScriptApp.newTrigger("triggerWeeklyThemeReview")
     .timeBased()
     .onWeekDay(ScriptApp.WeekDay.SUNDAY)
-    .atHour(18)
+    .atHour(19)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();

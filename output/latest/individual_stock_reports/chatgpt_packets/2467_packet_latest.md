@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:06 Asia/Taipei
+- generated_at: 2026-06-28 22:26:12 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: high
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,32 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 617
-- high: 644
-- low: 614
-- close: 630
-- volume: 1743491
-- ma5: 590.8
-- ema23_primary: 586.38
-- distance_to_ema23_pct: 7.44
-- ma20: 600
-- ma60: 553.12
-- ma120: 420.83
-- return_5d: 14.13
-- return_20d: 4.48
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 5
-- distance_to_high_60_pct: -8.96
+- date: 20260626
+- open: 579
+- high: 600
+- low: 560
+- close: 560
+- volume: 1422280
+- ma5: 588.6
+- ema23_primary: 583.78
+- distance_to_ema23_pct: -4.07
+- ma20: 585.4
+- ma60: 564.38
+- ma120: 432.53
+- return_5d: -6.51
+- return_20d: -9.24
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -4.34
+- distance_to_high_60_pct: -19.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,617,663,614,663,3970310,573.84,15.54,582.48,479.77,1.26
-20260526,670,692,661,668,4304760,581.68,14.84,591.1,486.03,1.29
-20260527,689,692,650,657,3140909,587.96,11.74,596.7,491.63,0.91
-20260528,655,660,614,617,2719603,590.38,4.51,599.85,496.03,0.82
 20260529,640,640,612,619,1559812,592.77,4.43,600.35,499.88,0.5
 20260601,634,647,625,637,1405177,596.45,6.8,603.2,504.42,0.5
 20260602,637,637,582,588,3530661,595.75,-1.3,604.05,507.55,1.26
@@ -155,20 +157,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,560,590,560,585,1257474,580.9,0.71,597.95,544.69,0.57
 20260618,585,605,576,599,1650001,582.41,2.85,598.65,548.75,0.75
 20260622,617,644,614,630,1743491,586.38,7.44,600,553.12,0.8
+20260623,624,624,578,580,2007305,585.85,-1,595.85,556.04,0.97
+20260624,576,594,573,588,956831,586.03,0.34,591.85,558.94,0.5
+20260625,600,601,581,585,941009,585.94,-0.16,588.25,561.78,0.52
+20260626,579,600,560,560,1422280,583.78,-4.07,585.4,564.38,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 68.36
-- over_600_ratio: 64.51
-- over_800_ratio: 61.06
-- over_1000_ratio: 58.43
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.86
-- over_1000_change_1w: 2.49
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 67.92
+- over_600_ratio: 64.28
+- over_800_ratio: 60.91
+- over_1000_ratio: 58.06
+- over_400_change_1w: -0.44
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.37
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,23 +188,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,68.33,-1.01,59.85,-2.55,57.19,-1.2,0,False,False
 20260612,68.26,-0.07,60.2,0.35,55.94,-1.25,1,False,True
 20260618,68.36,0.1,61.06,0.86,58.43,2.49,2,True,True
+20260626,67.92,-0.44,60.91,-0.15,58.06,-0.37,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2467 | 志聖 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.原公告申報日期:114/12/19 3.簡述原公告申報內容:子公司蘇州創峰光電智能科技有限公司建廠預算案，                     約人民幣1.77億。 4.變動緣由及主要內容:因配合當地政府規劃，調整地塊用地面積，                     經重新規劃及工程估價，建廠預算由人民幣1.77億元                     調整為3.46億元。 5.變動後對公司財務業務之影響:無。 6.其他應敘明事項: (1)本次公告係更新114/12/19重大訊息。 (2)蘇州創峰光電智能科技有限公司原先規劃購置之土地業經114/12/19董事會決議通過    ，並於115/06/26董事會決議通過購置新規劃之土地及預算。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2467 | 志聖 | 4 | 4 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2467 | 志聖 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2467 | 志聖 | 60 | 2 | 14099280.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 2467 | 志聖 | 61 | 0 | 5086510.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

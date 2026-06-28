@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6202 盛群
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:17 Asia/Taipei
+- generated_at: 2026-06-28 22:27:09 Asia/Taipei
 - stock_id: 6202
 - stock_name: 盛群
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,9 +88,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 71.7
-- high: 73.7
-- low: 71.6
-- close: 73.7
-- volume: 6668630
-- ma5: 66.66
-- ema23_primary: 59.93
-- distance_to_ema23_pct: 22.98
-- ma20: 59.46
-- ma60: 55.49
-- ma120: 51.36
-- return_5d: 24.07
-- return_20d: 21.22
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 23.95
-- distance_to_high_60_pct: 0
+- date: 20260626
+- open: 69
+- high: 70.7
+- low: 63.4
+- close: 63.9
+- volume: 9494178
+- ma5: 70.06
+- ema23_primary: 62.57
+- distance_to_ema23_pct: 2.13
+- ma20: 61.19
+- ma60: 56.74
+- ma120: 52.41
+- return_5d: -4.63
+- return_20d: 8.12
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 4.44
+- distance_to_high_60_pct: -21.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,62,62.3,60.5,61.1,7229956,56.01,9.09,56.1,54.5,1.75
-20260526,62.8,65.7,59.3,61.5,7317708,56.47,8.92,56.46,54.49,1.73
-20260527,62,62.6,59.8,60.4,5023479,56.79,6.35,56.73,54.45,1.15
-20260528,61.1,61.5,58.2,59.1,5027158,56.99,3.71,57,54.39,1.11
 20260529,60.2,60.2,57.9,58.7,3041013,57.13,2.75,57.23,54.38,0.67
 20260601,58.8,59.6,57.5,58.1,2781681,57.21,1.56,57.35,54.43,0.63
 20260602,58.6,59.2,56,57.7,2593954,57.25,0.79,57.38,54.42,0.59
@@ -153,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,61.7,66.5,61.3,65.4,13496757,57.92,12.92,58.41,54.85,2.21
 20260618,65.5,67.5,64.6,67,12412841,58.67,14.19,58.81,55.11,1.93
 20260622,71.7,73.7,71.6,73.7,6668630,59.93,22.98,59.46,55.49,1.06
+20260623,80.9,81,68,70.9,29388034,60.84,16.53,59.95,55.81,3.97
+20260624,71,73,68.5,71.4,11154215,61.72,15.68,60.45,56.16,1.47
+20260625,72.8,72.8,69.5,70.4,7458217,62.44,12.74,60.95,56.49,0.97
+20260626,69,70.7,63.4,63.9,9494178,62.57,2.13,61.19,56.74,1.19
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.44
-- over_600_ratio: 37.51
-- over_800_ratio: 35.42
-- over_1000_ratio: 33.94
-- over_400_change_1w: 3.47
-- over_800_change_1w: 3.28
-- over_1000_change_1w: 3.3
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 39.66
+- over_600_ratio: 36.5
+- over_800_ratio: 33.5
+- over_1000_ratio: 32.39
+- over_400_change_1w: 0.22
+- over_800_change_1w: -1.92
+- over_1000_change_1w: -1.55
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,22 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,36.9,-0.87,32.99,-0.21,32.23,-0.19,0,False,False
 20260612,35.97,-0.93,32.14,-0.85,30.64,-1.59,0,False,False
 20260618,39.44,3.47,35.42,3.28,33.94,3.3,1,True,True
+20260626,39.66,0.22,33.5,-1.92,32.39,-1.55,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6202 | 盛群 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6202 | 盛群 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間              (月)                    (季)                (最近四季累計) ----------------------------------------------------------------------------                 最近一月  與去年同期   最近一季    與去年同期  114年第2季  科目           115年4月    增減%     115年第1季     增減%     至115年第1季                合併自結數             合併核閱數               合併核閱數 ---------------------------------------------------------------------------- 營業收入(百萬)     319      6.9%         826         8.5%         3,122 稅前淨利(百萬)      45     56.9%          86        85.2%           199 歸屬母公司 業主淨利(百萬)      36     62.5%          68       (24.4%)          151 每股盈餘(元)      0.16     59.5%        0.30       (25.8%)         0.66 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6202 | 盛群 | 6 | 2 | 5 | 9 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 6202 | 盛群 | 9 | 1 | 5 | 9 | 18 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6202 | 盛群 | 12 | 0 | 1122910.0 | 0.0 |  | no_signal |
+| 20260626 | 6202 | 盛群 | 20 | 0 | 5777170.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

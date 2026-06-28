@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6901 鑽石投資
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:39 Asia/Taipei
+- generated_at: 2026-06-28 22:27:27 Asia/Taipei
 - stock_id: 6901
 - stock_name: 鑽石投資
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,41 +56,40 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: no_entry_now
+- thesis_state: high_level_distribution_risk
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,6 +103,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 17
-- high: 17.7
-- low: 16.8
-- close: 17.35
-- volume: 4672867
-- ma5: 16.32
-- ema23_primary: 15.14
-- distance_to_ema23_pct: 14.6
-- ma20: 14.71
-- ma60: 14.17
-- ma120: 15.29
-- return_5d: 7.1
-- return_20d: 23.93
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 17.95
-- distance_to_high_60_pct: -1.98
+- date: 20260626
+- open: 19.7
+- high: 20.6
+- low: 18.2
+- close: 18.3
+- volume: 16609805
+- ma5: 17.76
+- ema23_primary: 15.96
+- distance_to_ema23_pct: 14.68
+- ma20: 15.75
+- ma60: 14.43
+- ma120: 15.32
+- return_5d: 10.57
+- return_20d: 48.78
+- volume_ratio: 3.65
+- distance_to_ma20_pct_auxiliary: 16.19
+- distance_to_high_60_pct: -11.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,14,14,13.25,13.3,2531195,13.82,-3.76,13.7,14.31,1.5
-20260526,13.3,13.3,12.7,12.8,2695331,13.73,-6.81,13.65,14.23,1.5
-20260527,12.8,12.9,12.05,12.25,3427567,13.61,-10,13.57,14.15,1.76
-20260528,12.35,12.55,12.15,12.3,1374886,13.5,-8.9,13.5,14.07,0.69
 20260529,12.3,12.9,12.25,12.4,928729,13.41,-7.53,13.44,14,0.46
 20260601,12.55,13.15,12.4,13.15,1430649,13.39,-1.78,13.42,13.96,0.7
 20260602,13,13.25,12.8,13.2,1308644,13.37,-1.29,13.4,13.91,0.63
@@ -153,20 +149,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,15.55,16.3,15.35,16.15,2664418,14.79,9.18,14.42,14.07,0.78
 20260618,16.25,17.2,16.2,16.55,3578798,14.94,10.79,14.54,14.11,1.03
 20260622,17,17.7,16.8,17.35,4672867,15.14,14.6,14.71,14.17,1.29
+20260623,17.85,17.85,16.9,16.95,2854478,15.29,10.86,14.89,14.22,0.78
+20260624,17,17.4,16.65,17.25,2548661,15.45,11.63,15.12,14.27,0.7
+20260625,17.8,18.95,17.65,18.95,6532285,15.74,20.36,15.45,14.35,1.72
+20260626,19.7,20.6,18.2,18.3,16609805,15.96,14.68,15.75,14.43,3.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 84.85
-- over_600_ratio: 84.11
-- over_800_ratio: 83.72
-- over_1000_ratio: 83.08
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.13
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 84.71
+- over_600_ratio: 83.76
+- over_800_ratio: 83.36
+- over_1000_ratio: 82.82
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.26
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,17 +180,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,84.86,-0.03,84.03,0.12,83.6,0.02,1,False,True
 20260612,84.81,-0.05,83.59,-0.44,83.15,-0.45,0,False,False
 20260618,84.85,0.04,83.72,0.13,83.08,-0.07,1,False,True
+20260626,84.71,-0.14,83.36,-0.36,82.82,-0.26,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6901 | 鑽石投資 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：說明本公司營運概況及財務業務相關資訊。連結：https://reurl.cc/x3kqz4 5.其他應敘明事項：簡報資訊將依規定公告於公開資訊觀測站 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6901 | 鑽石投資 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：說明本公司營運概況及財務業務相關資訊。連結：https://reurl.cc/x3kqz4 5.其他應敘明事項：簡報資訊將依規定公告於公開資訊觀測站 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6901 | 鑽石投資 | 3 | 1 | 4 | 9 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 6901 | 鑽石投資 | 1 | 1 | 3 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

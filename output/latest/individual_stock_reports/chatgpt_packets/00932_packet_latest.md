@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00932 兆豐永續高息等權
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:31 Asia/Taipei
+- generated_at: 2026-06-28 22:25:43 Asia/Taipei
 - stock_id: 00932
 - stock_name: 兆豐永續高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 17.77
-- high: 17.89
-- low: 17.77
-- close: 17.87
-- volume: 1603012
-- ma5: 17.62
-- ema23_primary: 17.34
-- distance_to_ema23_pct: 3.03
-- ma20: 17.39
-- ma60: 17.35
-- ma120: 17.35
-- return_5d: 1.59
-- return_20d: 7.91
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2.79
-- distance_to_high_60_pct: -0.89
+- date: 20260626
+- open: 17.58
+- high: 17.58
+- low: 17.14
+- close: 17.15
+- volume: 486557
+- ma5: 17.59
+- ema23_primary: 17.39
+- distance_to_ema23_pct: -1.39
+- ma20: 17.56
+- ma60: 17.37
+- ma120: 17.37
+- return_5d: -3
+- return_20d: 3.19
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -2.33
+- distance_to_high_60_pct: -4.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,16.66,16.7,16.6,16.63,2499922,,,,,
-20260526,16.69,16.71,16.59,16.65,1543467,,,,,
-20260527,16.72,16.77,16.65,16.69,3403010,,,,,
-20260528,16.77,16.88,16.61,16.62,3292614,16.59,0.21,16.63,16.63,1.32
 20260529,16.85,16.95,16.85,16.94,2917979,16.62,1.95,16.68,16.68,1.13
 20260601,17,17.26,16.99,17.25,3703974,16.67,3.49,16.76,16.76,1.36
 20260602,17.27,17.56,17.2,17.56,4224268,16.74,4.88,16.86,16.86,1.45
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,17.44,17.54,17.32,17.54,1348348,17.26,1.61,17.3,17.3,0.66
 20260618,17.58,17.74,17.58,17.68,1011411,17.3,2.22,17.32,17.32,0.51
 20260622,17.77,17.89,17.77,17.87,1603012,17.34,3.03,17.39,17.35,0.81
+20260623,17.87,17.95,17.67,17.68,518651,17.37,1.77,17.44,17.36,0.28
+20260624,17.42,17.68,17.42,17.61,795641,17.39,1.25,17.49,17.37,0.43
+20260625,17.7,17.76,17.61,17.64,1115146,17.41,1.3,17.53,17.38,0.64
+20260626,17.58,17.58,17.14,17.15,486557,17.39,-1.39,17.56,17.37,0.31
 ```
 
 ## Latest TDCC Snapshot

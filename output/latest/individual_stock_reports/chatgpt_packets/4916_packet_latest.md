@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:56 Asia/Taipei
+- generated_at: 2026-06-28 22:26:52 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 10
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 107.5
-- high: 110
-- low: 104.5
-- close: 105
-- volume: 10090947
-- ma5: 101.14
-- ema23_primary: 102.2
-- distance_to_ema23_pct: 2.74
-- ma20: 109.56
-- ma60: 80.14
-- ma120: 70.66
-- return_5d: -2.33
-- return_20d: 6.82
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -4.16
-- distance_to_high_60_pct: -17.65
+- date: 20260626
+- open: 99
+- high: 100.5
+- low: 95.5
+- close: 95.7
+- volume: 4953365
+- ma5: 100.34
+- ema23_primary: 101.26
+- distance_to_ema23_pct: -5.49
+- ma20: 109.19
+- ma60: 82.83
+- ma120: 72.12
+- return_5d: -7.54
+- return_20d: -6.63
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -12.36
+- distance_to_high_60_pct: -24.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,100,105,99.2,101.5,25271124,75.59,34.28,72.26,64.59,1.97
-20260526,100,101,95,100.5,5515128,77.66,29.41,74.17,65.21,0.43
-20260527,102.5,102.5,98,99.4,3292175,79.47,25.07,76.03,65.8,0.26
-20260528,102,104.5,99.8,102.5,5999683,81.39,25.93,78.03,66.45,0.46
 20260529,108,112.5,104,112.5,6667076,83.98,33.95,80.58,67.33,0.51
 20260601,117,123.5,115.5,119,6365233,86.9,36.94,83.36,68.36,0.48
 20260602,116,116,110,114,4086731,89.16,27.86,85.81,69.24,0.31
@@ -161,17 +156,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,99.7,102.5,97.2,98.7,7385383,101.81,-3.05,108.98,78.69,0.58
 20260618,99,103.5,97.2,103.5,8356190,101.95,1.52,109.22,79.39,0.77
 20260622,107.5,110,104.5,105,10090947,102.2,2.74,109.56,80.14,1.13
+20260623,104,104,98.1,100,7663722,102.02,-1.98,109.48,80.81,0.96
+20260624,98.5,102.5,98.2,101.5,3951290,101.97,-0.47,109.53,81.54,0.5
+20260625,102.5,102.5,99.3,99.5,3232523,101.77,-2.23,109.53,82.22,0.41
+20260626,99,100.5,95.5,95.7,4953365,101.26,-5.49,109.19,82.83,0.63
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 38.93
-- over_600_ratio: 37.04
-- over_800_ratio: 35.27
-- over_1000_ratio: 35.27
-- over_400_change_1w: -4.71
-- over_800_change_1w: -4.95
-- over_1000_change_1w: -4.29
+- as_of_date: 20260626
+- over_400_ratio: 35.72
+- over_600_ratio: 33.42
+- over_800_ratio: 31.71
+- over_1000_ratio: 30.93
+- over_400_change_1w: -3.21
+- over_800_change_1w: -3.56
+- over_1000_change_1w: -4.34
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -190,22 +189,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.95,-0.05,41.33,0.88,39.94,0.2,1,False,True
 20260612,43.64,-1.31,40.22,-1.11,39.56,-0.38,0,False,False
 20260618,38.93,-4.71,35.27,-4.95,35.27,-4.29,0,False,False
+20260626,35.72,-3.21,31.71,-3.56,30.93,-4.34,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4916 | 事欣科 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 4916 | 事欣科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4916 | 事欣科 | 7 | 1 | 5 | 7 | 9 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 4916 | 事欣科 | 10 | 4 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 4916 | 事欣科 | 24 | 1 | 2708610.0 | 240.0 | 11285.88 | no_signal |
+| 20260626 | 4916 | 事欣科 | 23 | 0 | 848750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

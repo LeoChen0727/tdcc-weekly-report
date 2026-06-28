@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:01 Asia/Taipei
+- generated_at: 2026-06-28 22:26:08 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,8 +74,8 @@
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
 - position_sizing: half_position
 
 ### management_plan
@@ -117,32 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 83.5
-- high: 88.6
-- low: 81.4
-- close: 84.4
-- volume: 23091050
-- ma5: 75.98
-- ema23_primary: 73.43
-- distance_to_ema23_pct: 14.95
-- ma20: 73.11
-- ma60: 69.8
-- ma120: 60.75
-- return_5d: 27.69
-- return_20d: -4.09
-- volume_ratio: 2.17
-- distance_to_ma20_pct_auxiliary: 15.44
-- distance_to_high_60_pct: -7.56
+- date: 20260626
+- open: 75.4
+- high: 76.1
+- low: 70.8
+- close: 70.9
+- volume: 7548896
+- ma5: 77.86
+- ema23_primary: 74.16
+- distance_to_ema23_pct: -4.39
+- ma20: 72.73
+- ma60: 71.37
+- ma120: 61.4
+- return_5d: -12.9
+- return_20d: -4.7
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -2.52
+- distance_to_high_60_pct: -22.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,90.3,91.3,84.1,84.2,23364457,76.13,10.6,77.83,62.41,1.12
-20260526,84.6,84.9,77.1,78,21728417,76.29,2.25,77.99,62.89,1.05
-20260527,78.7,79.5,75.6,75.9,12942255,76.25,-0.46,78.08,63.31,0.63
-20260528,75.9,77.5,73.2,74.4,11139381,76.1,-2.23,78.22,63.72,0.54
 20260529,76.1,77.3,75.1,76.9,6298461,76.17,0.96,78.14,64.2,0.32
 20260601,77.4,77.5,74.6,74.8,8687478,76.05,-1.65,77.72,64.71,0.5
 20260602,75,78.5,74.7,75.4,11184383,76,-0.79,77.5,65.2,0.66
@@ -159,18 +155,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,68.3,75.2,67.7,75.2,9326444,71.61,5.01,73.52,68.85,0.77
 20260618,76.3,82.7,75.2,81.4,26511874,72.43,12.39,73.29,69.27,2.35
 20260622,83.5,88.6,81.4,84.4,23091050,73.43,14.95,73.11,69.8,2.17
+20260623,85.3,89.8,79.6,79.6,25638885,73.94,7.65,72.88,70.26,2.38
+20260624,78.8,81.5,76.9,78.6,11523445,74.33,5.75,72.91,70.7,1.12
+20260625,79,79.6,75.5,75.8,7594133,74.45,1.81,72.91,71.05,0.76
+20260626,75.4,76.1,70.8,70.9,7548896,74.16,-4.39,72.73,71.37,0.77
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 67.25
-- over_600_ratio: 66.09
-- over_800_ratio: 65.06
-- over_1000_ratio: 63.76
-- over_400_change_1w: 0.92
-- over_800_change_1w: 0.9
-- over_1000_change_1w: 1.24
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 68.89
+- over_600_ratio: 67.5
+- over_800_ratio: 66.34
+- over_1000_ratio: 64.91
+- over_400_change_1w: 1.64
+- over_800_change_1w: 1.28
+- over_1000_change_1w: 1.15
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,22 +186,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.71,-1.08,64.36,-1.23,62.72,-1.24,0,False,False
 20260612,66.33,-0.38,64.16,-0.2,62.52,-0.2,0,False,False
 20260618,67.25,0.92,65.06,0.9,63.76,1.24,1,True,True
+20260626,68.89,1.64,66.34,1.28,64.91,1.15,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2388 | 威盛 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度營業報告書及  財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認本公司114年度營業報告書及  財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2388 | 威盛 | 9 | 2 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2388 | 威盛 | 12 | 3 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2388 | 威盛 | 62 | 5 | 27651810.0 | 158730.0 | 174.21 | call_put_bullish |
+| 20260626 | 2388 | 威盛 | 67 | 0 | 15063890.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

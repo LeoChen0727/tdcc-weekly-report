@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1455 集盛
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:39 Asia/Taipei
+- generated_at: 2026-06-28 22:25:50 Asia/Taipei
 - stock_id: 1455
 - stock_name: 集盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 10.2
-- high: 10.25
-- low: 9.75
-- close: 9.76
-- volume: 2705798
-- ma5: 9.95
-- ema23_primary: 9.38
-- distance_to_ema23_pct: 4.03
-- ma20: 9.34
-- ma60: 8.77
-- ma120: 8.58
-- return_5d: -2.3
-- return_20d: 19.46
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 4.46
-- distance_to_high_60_pct: -5.7
+- date: 20260626
+- open: 9.55
+- high: 9.65
+- low: 9.43
+- close: 9.53
+- volume: 1151478
+- ma5: 9.56
+- ema23_primary: 9.42
+- distance_to_ema23_pct: 1.17
+- ma20: 9.6
+- ma60: 8.81
+- ma120: 8.64
+- return_5d: -6.57
+- return_20d: 10.69
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.77
+- distance_to_high_60_pct: -7.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,8.15,8.21,7.95,8.07,1091052,8.25,-2.17,8.15,8.57,1.72
-20260526,8.07,8.14,7.98,8.02,753383,8.23,-2.55,8.13,8.56,1.18
-20260527,8,8.13,7.99,8.12,795118,8.22,-1.22,8.12,8.56,1.2
-20260528,8.15,8.88,8.15,8.61,2101503,8.25,4.32,8.13,8.57,2.84
 20260529,8.69,8.69,8.45,8.61,1054624,8.28,3.95,8.15,8.57,1.41
 20260601,8.61,9.07,8.52,9.02,1419717,8.34,8.1,8.2,8.59,1.89
 20260602,9.07,9.35,8.99,9.2,1909630,8.42,9.32,8.25,8.6,2.32
@@ -155,26 +151,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,10,10,9.76,9.82,1760429,9.27,5.93,9.16,8.74,0.92
 20260618,9.82,10.35,9.7,10.2,4663539,9.35,9.12,9.26,8.75,2.2
 20260622,10.2,10.25,9.75,9.76,2705798,9.38,4.03,9.34,8.77,1.21
+20260623,9.76,9.83,9.4,9.4,2002663,9.38,0.18,9.41,8.78,0.88
+20260624,9.32,9.57,9.31,9.55,653147,9.4,1.63,9.49,8.79,0.29
+20260625,9.64,9.64,9.5,9.55,389401,9.41,1.49,9.56,8.8,0.17
+20260626,9.55,9.65,9.43,9.53,1151478,9.42,1.17,9.6,8.81,0.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 67.01
-- over_600_ratio: 64.91
-- over_800_ratio: 64.22
-- over_1000_ratio: 63.02
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.25
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 67.17
+- over_600_ratio: 65.48
+- over_800_ratio: 64.79
+- over_1000_ratio: 63.58
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.57
+- over_1000_change_1w: 0.56
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,65.67,0.07,62.9,0.2,61.73,0.04,6,True,True
 20260410,65.68,0.01,63.05,0.15,61.52,-0.21,7,False,True
 20260417,65.83,0.15,63.06,0.01,61.87,0.35,8,True,True
 20260424,66.06,0.23,63.25,0.19,62.06,0.19,9,True,True
@@ -186,17 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.73,0.36,64.14,0.31,62.96,0.48,5,True,True
 20260612,67.03,0.3,64.47,0.33,63.07,0.11,6,True,True
 20260618,67.01,-0.02,64.22,-0.25,63.02,-0.05,0,False,False
+20260626,67.17,0.16,64.79,0.57,63.58,0.56,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1455 | 集盛 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  ..........資本公積發放現金，新台幣85,070,140元 (每股配發0.16元) 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項:   (1) 本次資本公積發放現金基準日前，如因法令變更、主管機關要求或流通在外       股份數量異動，致使股東配發現金比率發生變動而需修正時，本公司董事會       授權董事長全權處理之。   (2) 每位股東發放計算至元為止，元以下無條件捨去，並將捨去金額計入本公司       之其他收入，匯費或掛號費（支票寄發）由股東負擔，自發放金額中扣除，       若配發金額不足匯費或郵資時，將以平信郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 1455 | 集盛 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  ..........資本公積發放現金，新台幣85,070,140元 (每股配發0.16元) 4.除權（息）交易日:115/07/03 5.最後過戶日:115/07/06 6.停止過戶起始日期:115/07/07 7.停止過戶截止日期:115/07/11 8.除權（息）基準日:115/07/11 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項:   (1) 本次資本公積發放現金基準日前，如因法令變更、主管機關要求或流通在外       股份數量異動，致使股東配發現金比率發生變動而需修正時，本公司董事會       授權董事長全權處理之。   (2) 每位股東發放計算至元為止，元以下無條件捨去，並將捨去金額計入本公司       之其他收入，匯費或掛號費（支票寄發）由股東負擔，自發放金額中扣除，       若配發金額不足匯費或郵資時，將以平信郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1455 | 集盛 | 1 | 1 | 2 | 5 | 7 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 1455 | 集盛 | 1 | 1 | 3 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

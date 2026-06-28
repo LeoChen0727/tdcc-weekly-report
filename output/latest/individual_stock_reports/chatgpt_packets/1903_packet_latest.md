@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1903 士紙
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:50 Asia/Taipei
+- generated_at: 2026-06-28 22:25:59 Asia/Taipei
 - stock_id: 1903
 - stock_name: 士紙
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 48
-- high: 48.05
-- low: 47.5
-- close: 48.05
-- volume: 234597
-- ma5: 47.98
-- ema23_primary: 48.42
-- distance_to_ema23_pct: -0.77
-- ma20: 48.67
-- ma60: 49.03
-- ma120: 51.59
-- return_5d: -0.41
-- return_20d: 0.21
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -1.28
-- distance_to_high_60_pct: -9
+- date: 20260626
+- open: 47.2
+- high: 47.2
+- low: 46.4
+- close: 46.45
+- volume: 439934
+- ma5: 47.27
+- ema23_primary: 48.02
+- distance_to_ema23_pct: -3.26
+- ma20: 48.17
+- ma60: 48.83
+- ma120: 51.31
+- return_5d: -3.43
+- return_20d: -5.2
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: -3.58
+- distance_to_high_60_pct: -12.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,48.95,50.5,48.55,50.2,606373,48.82,2.82,48.8,49.82,2.76
-20260526,50.6,52.6,49.75,49.9,441103,48.91,2.02,48.83,49.76,1.88
-20260527,50,50.5,48.8,49.25,424995,48.94,0.63,48.83,49.68,1.7
-20260528,49.25,50,49,49,324125,48.95,0.11,48.78,49.6,1.26
 20260529,49.05,49.4,48.85,49.2,197745,48.97,0.48,48.77,49.53,0.76
 20260601,49.2,49.4,48.6,49.4,227194,49,0.81,48.77,49.49,0.86
 20260602,49.1,49.3,48.5,48.95,245843,49,-0.1,48.74,49.43,0.92
@@ -155,19 +151,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,48,48.25,47.85,47.85,148893,48.49,-1.32,48.67,49.06,0.47
 20260618,48,48.5,47.85,48.1,134705,48.46,-0.73,48.67,49.05,0.42
 20260622,48,48.05,47.5,48.05,234597,48.42,-0.77,48.67,49.03,0.73
+20260623,48,48,47.35,47.35,189060,48.33,-2.03,48.53,49,0.63
+20260624,47.35,47.95,47,47.2,387811,48.24,-2.15,48.4,48.95,1.29
+20260625,47.45,47.7,47.2,47.3,121522,48.16,-1.79,48.3,48.9,0.43
+20260626,47.2,47.2,46.4,46.45,439934,48.02,-3.26,48.17,48.83,1.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 80.78
-- over_600_ratio: 78.59
-- over_800_ratio: 77.47
-- over_1000_ratio: 74.62
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.32
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 80.8
+- over_600_ratio: 78.61
+- over_800_ratio: 77.49
+- over_1000_ratio: 74.64
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,80.82,0.21,77.79,0.05,74.61,0.03,5,True,True
 20260612,80.83,0.01,77.79,0,74.61,0,6,False,False
 20260618,80.78,-0.05,77.47,-0.32,74.62,0.01,7,False,True
+20260626,80.8,0.02,77.49,0.02,74.64,0.02,8,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1903 | 士紙 | 3 | 0 | 1900.0 | 0.0 |  | no_signal |
+| 20260626 | 1903 | 士紙 | 3 | 0 | 2080.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

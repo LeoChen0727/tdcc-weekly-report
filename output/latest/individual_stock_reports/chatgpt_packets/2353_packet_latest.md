@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:06 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: True
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: high
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,32 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 34.65
-- high: 34.9
-- low: 34
-- close: 34
-- volume: 38386913
-- ma5: 36.15
-- ema23_primary: 35
-- distance_to_ema23_pct: -2.85
-- ma20: 36.4
-- ma60: 30.62
-- ma120: 28.64
-- return_5d: -7.36
-- return_20d: 15.06
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -6.59
-- distance_to_high_60_pct: -23.08
+- date: 20260626
+- open: 33.55
+- high: 33.55
+- low: 31.8
+- close: 31.9
+- volume: 44861106
+- ma5: 33.46
+- ema23_primary: 34.49
+- distance_to_ema23_pct: -7.51
+- ma20: 36.67
+- ma60: 31.03
+- ma120: 28.88
+- return_5d: -7.27
+- return_20d: -0.31
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -13.01
+- distance_to_high_60_pct: -27.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,31.8,32.5,30.85,32.5,95589396,28.36,14.59,28.17,27.66,3.31
-20260526,34.25,34.25,31.2,31.9,120325110,28.66,11.32,28.4,27.73,3.54
-20260527,32.1,32.4,31.2,31.4,61791194,28.89,8.71,28.61,27.8,1.7
-20260528,31.8,33.4,31.8,32,77812789,29.14,9.8,28.84,27.88,1.95
 20260529,33.8,35.2,33.55,35.2,75474874,29.65,18.72,29.22,28.02,1.77
 20260601,38.7,38.7,38.7,38.7,27395638,30.4,27.29,29.75,28.23,0.64
 20260602,42.55,42.55,41.6,42.55,217599445,31.42,35.44,30.5,28.5,4.13
@@ -155,17 +157,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,35.5,36,34.3,35,107840571,35.15,-0.42,35.88,30.38,1.16
 20260618,35.05,35.3,34.35,34.4,47935508,35.09,-1.96,36.17,30.51,0.51
 20260622,34.65,34.9,34,34,38386913,35,-2.85,36.4,30.62,0.42
+20260623,34.1,34.3,33.1,33.4,42937979,34.86,-4.2,36.44,30.73,0.48
+20260624,33.3,34.5,33.05,34.2,33899962,34.81,-1.75,36.56,30.84,0.4
+20260625,34.6,35.05,33.7,33.8,24787270,34.72,-2.66,36.68,30.95,0.3
+20260626,33.55,33.55,31.8,31.9,44861106,34.49,-7.51,36.67,31.03,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 38.98
-- over_600_ratio: 37.1
-- over_800_ratio: 35.96
-- over_1000_ratio: 35.06
-- over_400_change_1w: -1.69
-- over_800_change_1w: -1.67
-- over_1000_change_1w: -1.68
+- as_of_date: 20260626
+- over_400_ratio: 38.6
+- over_600_ratio: 36.69
+- over_800_ratio: 35.47
+- over_1000_ratio: 34.6
+- over_400_change_1w: -0.38
+- over_800_change_1w: -0.49
+- over_1000_change_1w: -0.46
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,23 +188,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.77,-1.09,36.94,-0.97,36.05,-0.88,0,False,False
 20260612,40.67,0.9,37.63,0.69,36.74,0.69,1,True,True
 20260618,38.98,-1.69,35.96,-1.67,35.06,-1.68,0,False,False
+20260626,38.6,-0.38,35.47,-0.49,34.6,-0.46,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2353 | 宏碁 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 通訊相關專利 2.事實發生日:115/6/22~115/6/22 3.董事會通過日期: 民國115年6月22日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 通訊相關專利一批，交易總金額達新台幣3億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: Celbridge 公司，非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 利益達新台幣3億元以上 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 簽約後於約定時間付款，雙方訂有保密協定 12.本次交易之決定方式、價格決定之參考依據及決策單位: 價格決定：議價 參考依據：獨立專家意見(中華資產鑑定中心股份有限公司出具之評價報告書)及 會計師交易價格合理性意見書 決策單位：本公司董事會 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 不適用 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 活化資產 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 民國115年6月22日 21.本次交易會計師出具非合理性意見:否 22.會計師事務所名稱: 誠昱會計師事務所 23.會計師姓名: 王惠貞 24.會計師開業證書字號: 金管會證字第8313號 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 2353 | 宏碁 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 通訊相關專利 2.事實發生日:115/6/22~115/6/22 3.董事會通過日期: 民國115年6月22日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 通訊相關專利一批，交易總金額達新台幣3億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: Celbridge 公司，非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 利益達新台幣3億元以上 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 簽約後於約定時間付款，雙方訂有保密協定 12.本次交易之決定方式、價格決定之參考依據及決策單位: 價格決定：議價 參考依據：獨立專家意見(中華資產鑑定中心股份有限公司出具之評價報告書)及 會計師交易價格合理性意見書 決策單位：本公司董事會 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 不適用 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 活化資產 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 民國115年6月22日 21.本次交易會計師出具非合理性意見:否 22.會計師事務所名稱: 誠昱會計師事務所 23.會計師姓名: 王惠貞 24.會計師開業證書字號: 金管會證字第8313號 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2353 | 宏碁 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/24 2.接受資金貸與之: (1)公司名稱:Acer America Corporation(AAC) (2)與資金貸與他人公司之關係: AAC為AAH 100%持股之孫公司 (3)資金貸與之限額(仟元):37,455,717 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):2,822,580 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):2,822,580 (8)本次新增資金貸與之原因: 因應AAC營運需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):7,306,548 (2)累積盈虧金額(仟元):47,670 5.計息方式: 3.85% 6.還款之: (1)條件: 借款期限十二個月 (2)日期: 民國116年5月20日 7.迄事實發生日為止，資金貸與餘額(仟元): 13,560,054 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 18.62 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2353 | 宏碁 | 3 | 2 | 3 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2353 | 宏碁 | 6 | 4 | 5 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2353 | 宏碁 | 65 | 6 | 3701580.0 | 226500.0 | 16.34 | no_signal |
+| 20260626 | 2353 | 宏碁 | 65 | 0 | 3831180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

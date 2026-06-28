@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6806 森崴能源
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:36 Asia/Taipei
+- generated_at: 2026-06-28 22:27:25 Asia/Taipei
 - stock_id: 6806
 - stock_name: 森崴能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260622
 - price_rows: 285
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.38
-- over_600_ratio: 60.02
-- over_800_ratio: 59.78
-- over_1000_ratio: 59.45
-- over_400_change_1w: 0.93
-- over_800_change_1w: 0.42
-- over_1000_change_1w: 0.42
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 59.93
+- over_600_ratio: 58.38
+- over_800_ratio: 58.14
+- over_1000_ratio: 58.14
+- over_400_change_1w: -1.45
+- over_800_change_1w: -1.64
+- over_1000_change_1w: -1.31
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.19,3.78,58.91,3.76,58.58,4.06,2,True,True
 20260612,60.45,0.26,59.36,0.45,59.03,0.45,3,True,True
 20260618,61.38,0.93,59.78,0.42,59.45,0.42,4,True,True
+20260626,59.93,-1.45,58.14,-1.64,58.14,-1.31,0,False,False
 ```
 
 ## Candidate Context

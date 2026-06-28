@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:00 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 41
-- high: 42
-- low: 40.85
-- close: 41.1
-- volume: 14737337
-- ma5: 41.83
-- ema23_primary: 41.87
-- distance_to_ema23_pct: -1.85
-- ma20: 42.6
-- ma60: 39.7
-- ma120: 38.23
-- return_5d: -5.63
-- return_20d: -2.03
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -3.53
-- distance_to_high_60_pct: -8.16
+- date: 20260626
+- open: 40
+- high: 40.45
+- low: 39.5
+- close: 39.9
+- volume: 16797163
+- ma5: 40.35
+- ema23_primary: 41.37
+- distance_to_ema23_pct: -3.55
+- ma20: 42.17
+- ma60: 39.93
+- ma120: 38.38
+- return_5d: -2.68
+- return_20d: -4.43
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -5.38
+- distance_to_high_60_pct: -10.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,42.5,44.35,42.5,43.8,37622473,39.72,10.28,39.46,37.93,1.19
-20260526,44.3,44.75,41.35,41.35,37127594,39.85,3.75,39.71,37.99,1.13
-20260527,41.5,43.25,41.05,42.45,27210094,40.07,5.94,39.93,38.08,0.84
-20260528,42.55,43.15,41.4,41.75,18913490,40.21,3.83,40.09,38.17,0.6
 20260529,42.15,42.5,41.6,41.65,17386615,40.33,3.27,40.29,38.25,0.56
 20260601,42.05,43.2,41.6,43.2,28077068,40.57,6.48,40.57,38.37,0.88
 20260602,43.6,43.65,42.05,43.65,33817082,40.83,6.92,40.86,38.49,1.02
@@ -160,17 +156,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,41.45,42,40.9,41.7,16814322,42.03,-0.79,42.71,39.55,0.64
 20260618,41.5,42.1,40.8,41,22472299,41.94,-2.25,42.65,39.62,0.87
 20260622,41,42,40.85,41.1,14737337,41.87,-1.85,42.6,39.7,0.58
+20260623,41.55,41.7,40,40,17997024,41.72,-4.12,42.41,39.75,0.74
+20260624,39.9,40.6,39.6,40.55,8623384,41.62,-2.57,42.37,39.81,0.38
+20260625,40.7,41.3,40.2,40.2,10687839,41.5,-3.14,42.26,39.88,0.49
+20260626,40,40.45,39.5,39.9,16797163,41.37,-3.55,42.17,39.93,0.77
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.93
-- over_600_ratio: 72.04
-- over_800_ratio: 70.84
-- over_1000_ratio: 69.9
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.08
+- as_of_date: 20260626
+- over_400_ratio: 73.77
+- over_600_ratio: 71.83
+- over_800_ratio: 70.65
+- over_1000_ratio: 69.75
+- over_400_change_1w: -0.16
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.15
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,22 +187,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.68,0.57,70.76,0.57,69.89,0.54,5,True,True
 20260612,74.01,0.33,70.96,0.2,69.98,0.09,6,True,True
 20260618,73.93,-0.08,70.84,-0.12,69.9,-0.08,0,False,False
+20260626,73.77,-0.16,70.65,-0.19,69.75,-0.15,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.股東會決議日:115/06/16 2.許可從事競業行為之董事姓名及職稱:   (1)威屹投資(股)公司代表人：謝麗雲 董事   (2)大英成投資(股)公司代表人：謝榮坤 董事   (3)蔡永裕 董事   (4)蔡朝進 董事   (5)立智投資有限公司代表人：歐怡蘭 董事   (6)謝薾亦 董事   (7)涂世賢 董事   (8)財團法人臺北市林芳瑾社會福利慈善事業基金會代表人：林美鳳 董事   (9)藍賢明 獨立董事   (10)梁基岩 獨立董事   (11)李佩玲 獨立董事   (12)方彥婷 獨立董事 3.許可從事競業行為之項目:與本公司營業範圍同類業務 4.許可從事競業行為之期間:派任期間 5.決議情形（請依公司法第209條說明表決結果）: 經股東會決議通過解除董事競業禁止之限制。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:   (1)威屹投資股份有限公司代表人：謝麗雲 董事長   (2)大英成投資(股)公司代表人：謝榮坤 董事 7.所擔任該大陸地區事業之公司名稱及職務:   (1)威屹投資股份有限公司代表人：謝麗雲董事長，兼任公司如下：      石家庄大成冀台機械有限公司董事長      大成鋼(香港)有限公司董事   (2)大英成投資(股)公司代表人：謝榮坤董事，兼任公司如下：      石家庄大成冀台機械有限公司董事兼總經理 8.所擔任該大陸地區事業地址:   石家庄大成冀台機械有限公司-中國河北省石家莊經濟技術開發區豐產路26號   大成鋼(香港)有限公司-RM 1902, 19/F LEE GARDEN ONE, 33 HYSAN AVENUE,   CAUSEWAY BAY, HONG KONG 9.所擔任該大陸地區事業營業項目:   石家庄大成冀台機械有限公司-生產和銷售不銹鋼閥門及不銹鋼精密鑄造產品   大成鋼(香港)有限公司-一般貿易業 10.對本公司財務業務之影響程度:無影響。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:   現金股利：每股新台幣1.5元，計3,876,390,923元。 4.除權（息）交易日:115/07/14 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:預計於115/08/13發放。 13.其他應敘明事項: 本次現金股利按分配比例計算至元為止(元以下捨去)，不足一元之畸零款合計數， 由小數點數字自大至小及戶號由前至後順序調整，至符合現金股利分配總額。匯費 及支票處理費由股東應發股利中扣除，現金股利總額不足以支付匯費或支票處理費 者，僅郵寄股利領取通知書，請股東逕洽本公司股務代理機構洽領。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2027 | 大成鋼 | 1 | 1 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2027 | 大成鋼 | 4 | 4 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2027 | 大成鋼 | 69 | 0 | 6390450.0 | 0.0 |  | no_signal |
+| 20260626 | 2027 | 大成鋼 | 68 | 0 | 3131210.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

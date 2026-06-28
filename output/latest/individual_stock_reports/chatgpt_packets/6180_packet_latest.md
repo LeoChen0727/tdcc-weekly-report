@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6180 橘子
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:15 Asia/Taipei
+- generated_at: 2026-06-28 22:27:07 Asia/Taipei
 - stock_id: 6180
 - stock_name: 橘子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,29 +56,35 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
+- action_rating_display_zh: 可分批買進
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
 - thesis_state: healthy_pullback
-- entry_style: pullback_to_support
-- position_sizing: observe_only
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -91,6 +97,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +110,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 50.3
-- high: 51.9
-- low: 49
-- close: 51.4
-- volume: 4738000
-- ma5: 48.87
-- ema23_primary: 44.76
-- distance_to_ema23_pct: 14.82
-- ma20: 44.19
-- ma60: 41.94
-- ma120: 46.26
-- return_5d: 15.25
-- return_20d: 30.29
-- volume_ratio: 3.19
-- distance_to_ma20_pct_auxiliary: 16.32
-- distance_to_high_60_pct: -1.15
+- date: 20260626
+- open: 47.5
+- high: 51
+- low: 47.5
+- close: 49
+- volume: 3793000
+- ma5: 49.43
+- ema23_primary: 45.97
+- distance_to_ema23_pct: 6.58
+- ma20: 46.02
+- ma60: 42.31
+- ma120: 46.16
+- return_5d: -2.58
+- return_20d: 24.52
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: 6.46
+- distance_to_high_60_pct: -5.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,39.6,40.2,38.55,39.05,39000,39.73,-1.71,39.11,42.86,0.1
-20260526,39.5,40.7,38.5,40.65,40000,39.81,2.12,39.18,42.65,0.11
-20260527,40.15,40.45,39.75,39.95,40000,39.82,0.33,39.21,42.43,0.11
-20260528,39.9,39.9,39.1,39.35,39000,39.78,-1.08,39.16,42.21,0.11
 20260529,39.5,41.4,39.45,40.8,41000,39.86,2.35,39.23,42.04,0.12
 20260601,41.8,42.1,40.9,42,42000,40.04,4.89,39.4,41.91,0.14
 20260602,42.3,44.25,41.95,44,43,40.37,8.99,39.66,41.8,0
@@ -153,26 +156,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,49.8,52,47.65,50.4,5070000,43.6,15.59,43.06,41.71,4.89
 20260618,49.95,51,47.75,50.3,4550000,44.16,13.9,43.59,41.81,3.63
 20260622,50.3,51.9,49,51.4,4738000,44.76,14.82,44.19,41.94,3.19
+20260623,51.4,51.7,49.5,50.3,2054000,45.23,11.22,44.75,42.05,1.29
+20260624,49.05,52.1,48.6,48.85,2695000,45.53,7.3,45.16,42.14,1.57
+20260625,49.5,49.55,47.25,47.6,1538000,45.7,4.16,45.54,42.21,0.86
+20260626,47.5,51,47.5,49,3793000,45.97,6.58,46.02,42.31,1.91
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.3
-- over_600_ratio: 49.71
-- over_800_ratio: 47.8
-- over_1000_ratio: 46.84
-- over_400_change_1w: -0.42
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 0.8
-- tdcc_consecutive_up_weeks: 13
+- as_of_date: 20260626
+- over_400_ratio: 49.54
+- over_600_ratio: 48.18
+- over_800_ratio: 46.59
+- over_1000_ratio: 45.56
+- over_400_change_1w: -0.76
+- over_800_change_1w: -1.21
+- over_1000_change_1w: -1.28
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,50.27,0.48,46.48,0.16,44.38,0.69,2,True,True
 20260410,50.09,-0.18,46.54,0.06,44.44,0.06,3,False,True
 20260417,50.15,0.06,46.5,-0.04,43.87,-0.57,4,False,False
 20260424,50.32,0.17,47.45,0.95,44.35,0.48,5,True,True
@@ -184,17 +190,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,50.33,-0.44,47.22,0.2,45.64,0.2,11,False,True
 20260612,50.72,0.39,47.48,0.26,46.04,0.4,12,True,True
 20260618,50.3,-0.42,47.8,0.32,46.84,0.8,13,False,True
+20260626,49.54,-0.76,46.59,-1.21,45.56,-1.28,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6180 | 橘子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 6180 | 橘子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過修訂本公司「取得或處分資產處理程序」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6180 | 橘子 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 6180 | 橘子 | 2 | 1 | 4 | 4 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

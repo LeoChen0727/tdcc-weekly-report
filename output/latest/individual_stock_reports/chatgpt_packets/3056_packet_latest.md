@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3056 富華新
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:24 Asia/Taipei
+- generated_at: 2026-06-28 22:26:26 Asia/Taipei
 - stock_id: 3056
 - stock_name: 富華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 15.25
-- high: 15.25
-- low: 14.65
-- close: 14.9
-- volume: 2481740
-- ma5: 15.15
-- ema23_primary: 14.46
-- distance_to_ema23_pct: 3.04
-- ma20: 14.26
+- date: 20260626
+- open: 14.55
+- high: 14.85
+- low: 14.5
+- close: 14.5
+- volume: 1117626
+- ma5: 14.8
+- ema23_primary: 14.55
+- distance_to_ema23_pct: -0.32
+- ma20: 14.55
 - ma60: 14.22
-- ma120: 15.61
-- return_5d: -1
-- return_20d: 9.56
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 4.49
-- distance_to_high_60_pct: -4.79
+- ma120: 15.5
+- return_5d: -4.92
+- return_20d: 9.85
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -0.36
+- distance_to_high_60_pct: -7.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,13.6,13.6,13.1,13.35,2678222,13.81,-3.34,13.64,14.69,1.81
-20260526,13.35,13.5,13.25,13.4,1258617,13.78,-2.73,13.61,14.63,0.87
-20260527,13.55,13.55,13.2,13.3,1352468,13.74,-3.18,13.57,14.57,0.93
-20260528,13.3,13.4,13.15,13.2,1401559,13.69,-3.59,13.54,14.5,0.94
 20260529,13.2,13.35,13.15,13.25,1391535,13.66,-2.97,13.5,14.44,0.93
 20260601,13.2,13.55,13.15,13.4,2169157,13.63,-1.72,13.48,14.39,1.41
 20260602,13.4,13.5,13.25,13.5,1413061,13.62,-0.9,13.48,14.33,0.94
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,15.05,15.3,15.05,15.2,1038176,14.35,5.96,14.13,14.21,0.49
 20260618,15.3,15.65,15.15,15.25,1640658,14.42,5.75,14.2,14.22,0.76
 20260622,15.25,15.25,14.65,14.9,2481740,14.46,3.04,14.26,14.22,1.13
+20260623,14.9,15.6,14.8,15.25,6575813,14.53,4.98,14.36,14.23,2.75
+20260624,15.2,15.2,14.65,14.65,2051371,14.54,0.78,14.42,14.23,0.84
+20260625,14.8,14.85,14.65,14.7,921419,14.55,1.03,14.49,14.22,0.38
+20260626,14.55,14.85,14.5,14.5,1117626,14.55,-0.32,14.55,14.22,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 32.71
-- over_600_ratio: 30.43
-- over_800_ratio: 28.97
-- over_1000_ratio: 27.12
-- over_400_change_1w: 0.28
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 33.06
+- over_600_ratio: 30.72
+- over_800_ratio: 29.1
+- over_1000_ratio: 27.28
+- over_400_change_1w: 0.35
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,32.24,0.35,28.4,0.33,26.34,-0.05,3,False,True
 20260612,32.43,0.19,28.75,0.35,26.89,0.55,4,True,True
 20260618,32.71,0.28,28.97,0.22,27.12,0.23,5,True,True
+20260626,33.06,0.35,29.1,0.13,27.28,0.16,6,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3056 | 富華新 | 3 | 0 | 109220.0 | 0.0 |  | no_signal |
+| 20260626 | 3056 | 富華新 | 3 | 0 | 149550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

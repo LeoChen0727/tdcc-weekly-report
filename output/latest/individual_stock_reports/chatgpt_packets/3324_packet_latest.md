@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3324 雙鴻
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:31 Asia/Taipei
+- generated_at: 2026-06-28 22:26:32 Asia/Taipei
 - stock_id: 3324
 - stock_name: 雙鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 1095
-- high: 1105
-- low: 1070
-- close: 1075
-- volume: 2124000
-- ma5: 1060
-- ema23_primary: 1068.78
-- distance_to_ema23_pct: 0.58
-- ma20: 1080.4
-- ma60: 1050.62
-- ma120: 1024
-- return_5d: 1.9
-- return_20d: 6.44
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -0.5
-- distance_to_high_60_pct: -17.62
+- date: 20260626
+- open: 1005
+- high: 1005
+- low: 968
+- close: 970
+- volume: 2442000
+- ma5: 1027
+- ema23_primary: 1052.28
+- distance_to_ema23_pct: -7.82
+- ma20: 1078.9
+- ma60: 1052.13
+- ma120: 1026.61
+- return_5d: -9.35
+- return_20d: -3.48
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: -10.09
+- distance_to_high_60_pct: -25.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,1035,1040,1010,1010,1022000,1035.55,-2.47,1066.85,1035.42,0.3
-20260526,1030,1045,1010,1040,1032000,1035.93,0.39,1059.85,1033.5,0.35
-20260527,1070,1080,1025,1035,1050000,1035.85,-0.08,1054.35,1031.5,0.38
-20260528,1050,1070,1000,1005,1035000,1033.28,-2.74,1046.6,1029.42,0.38
 20260529,1035,1080,1020,1065,1048000,1035.92,2.81,1042.85,1029.17,0.4
 20260601,1085,1165,1080,1145,1136000,1045.01,9.57,1040.6,1032.05,0.46
 20260602,1155,1220,1135,1165,1178,1055.01,10.43,1040.35,1035.17,0
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,1035,1065,1030,1050,1351000,1068.05,-1.69,1073.65,1048.37,0.8
 20260618,1065,1085,1055,1070,1311000,1068.21,0.17,1077.15,1049.45,0.81
 20260622,1095,1105,1070,1075,2124000,1068.78,0.58,1080.4,1050.62,1.26
+20260623,1075,1080,1025,1025,2171000,1065.13,-3.77,1081.15,1050.45,1.25
+20260624,1000,1065,995,1055,1971000,1064.28,-0.87,1081.9,1051.62,1.1
+20260625,1070,1075,1010,1010,2018000,1059.76,-4.7,1080.65,1051.9,1.1
+20260626,1005,1005,968,970,2442000,1052.28,-7.82,1078.9,1052.13,1.28
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.82
-- over_600_ratio: 41.95
-- over_800_ratio: 37.65
-- over_1000_ratio: 31.83
-- over_400_change_1w: -0.59
-- over_800_change_1w: -0.25
-- over_1000_change_1w: 0.83
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 45.51
+- over_600_ratio: 41.15
+- over_800_ratio: 35.34
+- over_1000_ratio: 28.65
+- over_400_change_1w: -1.31
+- over_800_change_1w: -2.31
+- over_1000_change_1w: -3.18
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,19 +181,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,50.67,4.41,39.14,4.3,32.34,4.52,1,True,True
 20260612,47.41,-3.26,37.9,-1.24,31,-1.34,0,False,False
 20260618,46.82,-0.59,37.65,-0.25,31.83,0.83,1,False,True
+20260626,45.51,-1.31,35.34,-2.31,28.65,-3.18,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3324 | 雙鴻 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 3324 | 雙鴻 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260622 | 3324 | 雙鴻 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 8.0 | A_優先追蹤 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3324 | 雙鴻 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3324 | 雙鴻 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 12.0 | A_優先追蹤 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3324 | 雙鴻 | 2 | 2 | 2 | 3 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 3324 | 雙鴻 | 5 | 4 | 5 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

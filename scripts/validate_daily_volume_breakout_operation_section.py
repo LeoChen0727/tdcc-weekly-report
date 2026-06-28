@@ -32,6 +32,7 @@ CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section
 
 MODEL_ID = "volume_range_breakout"
 LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
+REPORT_READY_BUCKETS = {"mainstream", "non_mainstream"}
 PDF_VIEWS = {"highlight", "full"}
 PDF_SECTIONS = {
     "confirmed_operation",
@@ -223,6 +224,10 @@ def normalize_date_text(value: object) -> str:
     return text if len(text) == 8 and text.isdigit() else ""
 
 
+def normalize_report_bucket(value: object) -> str:
+    return str(value).strip().replace("-", "_")
+
+
 def pct_display(value: object) -> str:
     num = pd.to_numeric(pd.Series([str(value).replace("%", "").replace("+", "").replace(",", "")]), errors="coerce").iloc[0]
     if pd.isna(num):
@@ -322,12 +327,15 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
         log["model_id"].astype(str).str.strip().eq(MODEL_ID)
         & log["signal_date"].map(normalize_date_text).eq(report_date)
     ].copy()
+    report_ready_log_volume = log_volume[
+        log_volume["report_bucket"].map(normalize_report_bucket).isin(REPORT_READY_BUCKETS)
+    ].copy()
 
     def keyset(frame: pd.DataFrame) -> set[tuple[str, str, str, str]]:
         return {
             (
                 normalize_date_text(row.get("signal_date")),
-                str(row.get("report_bucket", "")).strip(),
+                normalize_report_bucket(row.get("report_bucket", "")),
                 stock_id_text(row.get("stock_id")),
                 str(row.get("model_id", "")).strip(),
             )
@@ -335,7 +343,7 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
         }
 
     latest_keys = keyset(latest_volume)
-    log_keys = keyset(log_volume)
+    log_keys = keyset(report_ready_log_volume)
     missing = sorted(latest_keys - log_keys)
     extra = sorted(log_keys - latest_keys)
     if missing or extra:

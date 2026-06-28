@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6585 鼎基
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:28 Asia/Taipei
+- generated_at: 2026-06-28 22:27:18 Asia/Taipei
 - stock_id: 6585
 - stock_name: 鼎基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,10 +87,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -104,7 +104,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 151.5
-- high: 151.5
-- low: 145
-- close: 150.5
-- volume: 1663809
-- ma5: 139.9
-- ema23_primary: 119.36
-- distance_to_ema23_pct: 26.09
-- ma20: 116.84
-- ma60: 99.93
-- ma120: 94.39
-- return_5d: 10.66
-- return_20d: 57.92
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 28.81
-- distance_to_high_60_pct: -0.66
+- date: 20260626
+- open: 132.5
+- high: 133.5
+- low: 127
+- close: 129
+- volume: 618442
+- ma5: 139.7
+- ema23_primary: 124.37
+- distance_to_ema23_pct: 3.73
+- ma20: 125.08
+- ma60: 102.48
+- ma120: 95.95
+- return_5d: -6.52
+- return_20d: 32.72
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 3.13
+- distance_to_high_60_pct: -14.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,96.3,97.6,95.7,95.9,169564,91.57,4.73,89.86,89.97,0.93
-20260526,97.4,97.4,93.9,95.7,113529,91.91,4.12,90.49,90.08,0.64
-20260527,95.2,95.6,93.8,94.4,101523,92.12,2.48,91.02,90.14,0.56
-20260528,95.5,97.2,94.2,97.2,243863,92.54,5.03,91.62,90.21,1.27
 20260529,99.3,99.3,96.2,97.4,184600,92.95,4.79,92.28,90.32,0.93
 20260601,97.9,99.9,96.8,98,187882,93.37,4.96,92.97,90.5,0.91
 20260602,99.8,104.5,98.1,102,527922,94.09,8.41,93.83,90.75,2.3
@@ -155,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,138.5,140,135,136.5,587448,114.58,19.13,111.93,98.11,0.6
 20260618,139.5,140,135,138,743593,116.53,18.42,114.08,98.91,0.74
 20260622,151.5,151.5,145,150.5,1663809,119.36,26.09,116.84,99.93,1.54
+20260623,147.5,149.5,140,144.5,1173724,121.46,18.97,119.27,100.79,1.04
+20260624,141,145.5,139.5,142,1209809,123.17,15.29,121.58,101.45,1.02
+20260625,141.5,143.5,131,132.5,760556,123.95,6.9,123.49,102,0.63
+20260626,132.5,133.5,127,129,618442,124.37,3.73,125.08,102.48,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.39
-- over_600_ratio: 78.14
-- over_800_ratio: 76.21
-- over_1000_ratio: 72.78
-- over_400_change_1w: 0.12
-- over_800_change_1w: -0.09
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 79.56
+- over_600_ratio: 78.78
+- over_800_ratio: 77.81
+- over_1000_ratio: 74.4
+- over_400_change_1w: 0.17
+- over_800_change_1w: 1.6
+- over_1000_change_1w: 1.62
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,17 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.55,0.05,77.77,-0.06,74.21,-0.14,4,False,False
 20260612,79.27,-0.28,76.3,-1.47,72.78,-1.43,0,False,False
 20260618,79.39,0.12,76.21,-0.09,72.78,0,1,False,False
+20260626,79.56,0.17,77.81,1.6,74.4,1.62,2,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6585 | 鼎基 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | degraded calendar context only: ex_dividend on 20260625; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6585 | 鼎基 | 1 | 1 | 2 | 6 | 6 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

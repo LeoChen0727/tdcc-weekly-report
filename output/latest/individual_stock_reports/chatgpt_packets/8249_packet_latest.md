@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8249 菱光
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:58 Asia/Taipei
+- generated_at: 2026-06-28 22:27:43 Asia/Taipei
 - stock_id: 8249
 - stock_name: 菱光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 52.4
-- high: 52.6
-- low: 51.9
-- close: 52.2
-- volume: 611052
-- ma5: 52.36
-- ema23_primary: 52.29
-- distance_to_ema23_pct: -0.17
-- ma20: 53.37
-- ma60: 50.86
-- ma120: 52.88
-- return_5d: 4.61
-- return_20d: -1.14
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -2.19
-- distance_to_high_60_pct: -11.22
+- date: 20260626
+- open: 49.25
+- high: 49.25
+- low: 47.15
+- close: 47.55
+- volume: 721213
+- ma5: 50.05
+- ema23_primary: 51.43
+- distance_to_ema23_pct: -7.55
+- ma20: 52.14
+- ma60: 50.84
+- ma120: 52.85
+- return_5d: -8.73
+- return_20d: -13.23
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -8.81
+- distance_to_high_60_pct: -19.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,53.1,53.5,52.2,53,1886588,50.71,4.51,50.28,50.89,1.42
-20260526,53.5,58.3,51.5,58.3,9046165,51.35,13.54,50.81,50.86,5.15
-20260527,58.8,58.8,55.7,56.5,6028188,51.78,9.12,51.22,50.79,2.96
-20260528,56.5,57.4,54.6,54.8,1592426,52.03,5.33,51.52,50.72,0.76
 20260529,55.5,56.9,55.2,55.8,1503850,52.34,6.61,51.83,50.7,0.71
 20260601,56,56.5,55.7,55.8,1203218,52.63,6.02,52.1,50.73,0.56
 20260602,56.2,56.2,54,54.8,1137252,52.81,3.77,52.3,50.72,0.53
@@ -155,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,54,55.3,52.8,53,2019099,52.31,1.31,53.41,50.78,1.13
 20260618,53.5,53.5,51.9,52.1,686967,52.3,-0.37,53.4,50.81,0.39
 20260622,52.4,52.6,51.9,52.2,611052,52.29,-0.17,53.37,50.86,0.36
+20260623,52.2,52.3,51.1,51.4,537996,52.21,-1.56,53.29,50.88,0.33
+20260624,49.75,50.2,49.5,49.85,402743,52.02,-4.17,52.87,50.87,0.33
+20260625,50.1,50.3,49.25,49.25,358289,51.79,-4.9,52.51,50.85,0.38
+20260626,49.25,49.25,47.15,47.55,721213,51.43,-7.55,52.14,50.84,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.96
-- over_600_ratio: 56.53
-- over_800_ratio: 54.98
-- over_1000_ratio: 54.28
-- over_400_change_1w: 0.49
-- over_800_change_1w: 0.15
-- over_1000_change_1w: 0.74
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 57.32
+- over_600_ratio: 55.84
+- over_800_ratio: 54.91
+- over_1000_ratio: 53.54
+- over_400_change_1w: -0.64
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.74
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.71,0.67,54.82,-0.08,53.54,-0.02,1,False,False
 20260612,57.47,0.76,54.83,0.01,53.54,0,2,False,True
 20260618,57.96,0.49,54.98,0.15,54.28,0.74,3,True,True
+20260626,57.32,-0.64,54.91,-0.07,53.54,-0.74,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8249 | 菱光 | 3 | 0 | 560.0 | 0.0 |  | no_signal |
+| 20260626 | 8249 | 菱光 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

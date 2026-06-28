@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1795 美時
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:49 Asia/Taipei
+- generated_at: 2026-06-28 22:25:58 Asia/Taipei
 - stock_id: 1795
 - stock_name: 美時
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
+- action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 194.5
-- high: 194.5
-- low: 191
-- close: 191.5
-- volume: 1532359
-- ma5: 192.9
-- ema23_primary: 197.96
-- distance_to_ema23_pct: -3.26
-- ma20: 195.47
-- ma60: 209.94
-- ma120: 249.93
-- return_5d: -2.54
-- return_20d: -4.73
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -2.03
-- distance_to_high_60_pct: -20.87
+- date: 20260626
+- open: 188.5
+- high: 188.5
+- low: 183
+- close: 183
+- volume: 2533725
+- ma5: 189.5
+- ema23_primary: 195.24
+- distance_to_ema23_pct: -6.27
+- ma20: 194.72
+- ma60: 208.43
+- ma120: 246.78
+- return_5d: -5.18
+- return_20d: -3.17
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: -6.02
+- distance_to_high_60_pct: -24.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,202,204,196,197.5,2584268,210.07,-5.98,211.95,227.22,0.76
-20260526,198,199.5,193,193,2021251,208.65,-7.5,210.6,225.69,0.59
-20260527,195,195,190.5,191.5,1855759,207.22,-7.59,208.97,224.24,0.54
-20260528,192.5,193,189,189,1520412,205.7,-8.12,207.4,222.74,0.44
 20260529,190.5,198,190,195,2537339,204.81,-4.79,206.1,221.53,0.73
 20260601,196,199,193.5,198.5,1399862,204.28,-2.83,204.7,220.58,0.41
 20260602,198.5,198.5,194.5,196,1286683,203.59,-3.73,203.28,219.37,0.38
@@ -159,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,189.5,195,188.5,193.5,1402915,199.05,-2.79,196.22,210.35,0.68
 20260618,193,196,193,193,972613,198.54,-2.79,195.95,210.14,0.49
 20260622,194.5,194.5,191,191.5,1532359,197.96,-3.26,195.47,209.94,0.79
+20260623,192,194,189,190.5,1383337,197.34,-3.46,195.12,209.58,0.74
+20260624,189.5,194.5,189,193.5,1308810,197.02,-1.78,195.15,209.33,0.71
+20260625,194,195,189,189,1585537,196.35,-3.74,195.03,208.9,0.87
+20260626,188.5,188.5,183,183,2533725,195.24,-6.27,194.72,208.43,1.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.39
-- over_600_ratio: 55.52
-- over_800_ratio: 54.99
-- over_1000_ratio: 52.86
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.07
+- as_of_date: 20260626
+- over_400_ratio: 57.14
+- over_600_ratio: 55.25
+- over_800_ratio: 54.48
+- over_1000_ratio: 52.68
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.51
+- over_1000_change_1w: -0.18
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.45,0.11,54.58,0.37,53.15,0.03,2,True,True
 20260612,57.48,0.03,55.01,0.43,52.93,-0.22,3,False,True
 20260618,57.39,-0.09,54.99,-0.02,52.86,-0.07,0,False,False
+20260626,57.14,-0.25,54.48,-0.51,52.68,-0.18,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1795 | 美時 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂: 通過本公司「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表: 通過本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司盈餘轉增資發行新股案。 (2)通過本公司「資金貸與及背書保證處理程序」修訂案。 (3)通過本公司「取得或處分資產處理程序」修訂案。 (4)通過解除本公司董事競業禁止之限制案。 (5)通過擬以低於實際買回股份之平均價格轉讓予員工案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 1795 | 美時 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 本公司100%持股之韓國子公司Alvogen Korea Holdings Ltd.普通股 2.事實發生日:115/6/26~115/6/26 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易單位數量：154,779股 每單位價格：美金85.57元 交易總金額：美金13,245,033.11元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: Alvogen Korea Holdings Ltd.為本公司100%持有之子公司。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 不適用 12.本次交易之決定方式、價格決定之參考依據及決策單位: 交易價格參酌會計師出具之交易價格合理性意見書，經本公司董事會同意後執行。 13.取得或處分有價證券標的公司每股淨值: 2,735.18元 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持股：1,611,378股 累積金額：新台幣5,277,342,848元 持股比例：100% 權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：51.63% 占歸屬於母公司業主之權益之比例：110.08% 營運資金數額：6,168,243,683元 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 提升營運資金使用效率 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:是 20.監察人承認或審計委員會同意日期: 民國115年6月25日 21.本次交易會計師出具非合理性意見:否 22.會計師事務所名稱: 揚智聯合會計師事務所 23.會計師姓名: 胡湘寧 24.會計師開業證書字號: 中市會證字第0191號 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 1.本次增資總額係本公司資金貸與Alvogen Korea Holdings Ltd.之債權轉為增資款。 2.實際增資發行股數依增資基準日轉換股數為準。 3.本次交易金額係以民國115年6月22日臺灣銀行牌告匯率1美元對31.64元台幣計算之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1795 | 美時 | 1 | 1 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 1795 | 美時 | 4 | 4 | 4 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1795 | 美時 | 128 | 3 | 2787650.0 | 0.0 |  | no_signal |
+| 20260626 | 1795 | 美時 | 128 | 0 | 1960760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00886 永豐美國科技
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:29 Asia/Taipei
+- generated_at: 2026-06-28 22:25:42 Asia/Taipei
 - stock_id: 00886
 - stock_name: 永豐美國科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 20
+- latest_price_date: 20260626
+- price_rows: 24
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45
-- high: 45
-- low: 44.86
-- close: 44.95
-- volume: 15000
-- ma5: 44.69
-- ema23_primary: 44.04
-- distance_to_ema23_pct: 2.06
-- ma20: 44.15
-- ma60: 44.15
-- ma120: 44.15
-- return_5d: 3.1
-- return_20d:
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 1.82
-- distance_to_high_60_pct: -0.77
+- date: 20260626
+- open: 44.53
+- high: 44.53
+- low: 44.25
+- close: 44.25
+- volume: 43000
+- ma5: 44.49
+- ema23_primary: 44.13
+- distance_to_ema23_pct: 0.26
+- ma20: 44.26
+- ma60: 44.18
+- ma120: 44.18
+- return_5d: 0.48
+- return_20d: 0.36
+- volume_ratio: 2.05
+- distance_to_ma20_pct_auxiliary: -0.02
+- distance_to_high_60_pct: -2.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,43.13,43.25,43.11,43.25,43000,,,,,
-20260525,43.89,44,43.89,43.98,44000,,,,,
-20260526,43.89,43.89,43.78,43.89,44000,,,,,
-20260527,44.26,44.3,44.09,44.09,44000,,,,,
 20260528,43.8,43.8,43.55,43.57,44000,43.43,0.32,43.76,43.76,1
 20260529,44.38,44.64,44.36,44.64,44000,43.53,2.54,43.9,43.9,1
 20260601,44.92,45.02,44.92,45.02,45000,43.66,3.12,44.06,44.06,1.02
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,44.76,44.76,44.76,44.76,1000,43.95,1.84,44.11,44.11,0.04
 20260618,44.04,44.04,44.04,44.04,1000,43.96,0.19,44.1,44.1,0.04
 20260622,45,45,44.86,44.95,15000,44.04,2.06,44.15,44.15,0.59
+20260623,44.95,44.95,44.28,44.83,11000,44.11,1.64,44.22,44.18,0.46
+20260624,43.88,43.88,43.88,43.88,2000,44.09,-0.47,44.22,44.16,0.09
+20260625,44.43,44.53,44.43,44.53,32000,44.12,0.92,44.25,44.18,1.52
+20260626,44.53,44.53,44.25,44.25,43000,44.13,0.26,44.26,44.18,2.05
 ```
 
 ## Latest TDCC Snapshot

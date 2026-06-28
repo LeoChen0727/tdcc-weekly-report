@@ -40,10 +40,16 @@ Run these from the Apps Script editor when validating or repairing the trigger:
 
 ```text
 diagnoseDailyStockMonitorTrigger
+diagnoseDailyPriceGapRepairTrigger
+diagnoseTdccHistoryGapRepairTrigger
 installDailyStockMonitorTrigger
+installDailyPriceGapRepairTrigger
+installTdccHistoryGapRepairTrigger
 triggerDailyStockMonitor
 triggerDailyFullPipeline
+triggerDailyPriceGapRepair
 triggerTdccWeeklyReport
+triggerTdccHistoryGapRepair
 triggerIndividualStockDataRefresh
 triggerEventCatalystUpdate
 triggerWeeklyThemeReview
@@ -59,7 +65,19 @@ and is the function used by the scheduled daily stock monitor trigger.
 
 `triggerDailyFullPipeline` is the manual full daily pipeline dispatcher.
 
+`triggerDailyPriceGapRepair` dispatches
+`.github/workflows/repair_recent_daily_price_gaps.yml` with a 7 calendar-day
+lookback and a maximum of 5 automatic repair dates. The workflow excludes the
+current Asia/Taipei date and uses the repository non-trading-day calendar before
+attempting repairs.
+
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
+
+`triggerTdccHistoryGapRepair` dispatches
+`.github/workflows/repair_tdcc_monthly_history_gaps.yml`. The workflow checks
+official TDCC query-form dates in the current calendar month, excludes the
+current Asia/Taipei ISO week, and repairs missing TDCC history rows only for the
+bounded TDCC report universe.
 
 `triggerIndividualStockDataRefresh` dispatches
 `.github/workflows/individual_stock_data_refresh.yml`.
@@ -133,12 +151,19 @@ The canonical Apps Script source currently installs:
 
 | handler | cadence | workflow |
 |---|---|---|
-| `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Sunday in handler | `daily_full_pipeline.yml` |
+| `triggerDailyPriceGapRepair` | daily 10:30 Asia/Taipei, skips Saturday/Sunday in handler | `repair_recent_daily_price_gaps.yml` |
+| `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Saturday/Sunday in handler | `daily_full_pipeline.yml` |
 | `triggerIndividualStockDataRefresh` | daily 22:20 Asia/Taipei | `individual_stock_data_refresh.yml` |
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
+| `triggerTdccHistoryGapRepair` | Tuesday 09:30 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
 | `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |
-| `triggerWeeklyThemeReview` | Sunday 18:30 Asia/Taipei | `weekly_theme_review.yml` |
-| `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 20:30 Asia/Taipei | `research_backtest_pipeline.yml` |
+| `triggerWeeklyThemeReview` | Sunday 19:30 Asia/Taipei | `weekly_theme_review.yml` |
+| `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 21:10 Asia/Taipei | `research_backtest_pipeline.yml` |
+
+The trigger times are intentionally staggered. Workflows that may dispatch on
+the same day should have at least a 60-minute gap between their nominal trigger
+times. The daily stock monitor trigger still exists on weekends, but its handler
+self-skips before dispatching GitHub Actions.
 
 Research/backtest cadence is intentionally external to
 `research_backtest_pipeline.yml`. The GitHub workflow itself is

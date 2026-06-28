@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:17 Asia/Taipei
+- generated_at: 2026-06-28 22:26:20 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,9 +88,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 139.5
-- high: 141
-- low: 136
-- close: 138.5
-- volume: 24444307
-- ma5: 134.3
-- ema23_primary: 118.94
-- distance_to_ema23_pct: 16.44
-- ma20: 119.14
-- ma60: 100.08
-- ma120: 96.63
-- return_5d: 13.52
-- return_20d: 45.64
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 16.25
-- distance_to_high_60_pct: -1.77
+- date: 20260626
+- open: 136
+- high: 138
+- low: 133
+- close: 134
+- volume: 32487011
+- ma5: 136.1
+- ema23_primary: 123.78
+- distance_to_ema23_pct: 8.26
+- ma20: 125.17
+- ma60: 103.25
+- ma120: 97.9
+- return_5d: -2.9
+- return_20d: 21.82
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 7.05
+- distance_to_high_60_pct: -4.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,95.4,97.7,94.7,97.7,47023876,93.71,4.26,93.83,90.39,1.31
-20260526,97.8,103.5,97.8,103.5,103318900,94.53,9.49,94.61,90.56,2.59
-20260527,104.5,110,103,110,95547479,95.82,14.8,95.69,90.83,2.19
-20260528,110,112,107,110,83541343,97,13.4,96.62,91.11,1.82
 20260529,110.5,111,107,110,139031768,98.08,12.15,97.62,91.39,2.71
 20260601,109.5,112,107,110.5,87829038,99.12,11.49,98.59,91.73,1.65
 20260602,110.5,113.5,109,113.5,97486405,100.31,13.14,99.66,92.12,1.72
@@ -153,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,133,139,131.5,135.5,41041666,115.27,17.55,114.87,98.37,0.59
 20260618,137,141,135.5,138,45796330,117.17,17.78,116.97,99.22,0.65
 20260622,139.5,141,136,138.5,24444307,118.94,16.44,119.14,100.08,0.35
+20260623,137,141,137,137.5,24302781,120.49,14.12,121.12,100.89,0.36
+20260624,135.5,139,134.5,134.5,29965550,121.66,10.56,122.67,101.66,0.46
+20260625,133.5,138,133.5,136,21576751,122.85,10.7,123.97,102.46,0.35
+20260626,136,138,133,134,32487011,123.78,8.26,125.17,103.25,0.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 86.4
-- over_600_ratio: 85.47
-- over_800_ratio: 84.8
-- over_1000_ratio: 84.31
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
+- over_600_ratio: 85.48
+- over_800_ratio: 84.77
+- over_1000_ratio: 84.29
+- over_400_change_1w: 0
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,22 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,86.08,0.01,84.41,0,83.95,0,5,False,False
 20260612,86.41,0.33,84.82,0.41,84.32,0.37,6,True,True
 20260618,86.4,-0.01,84.8,-0.02,84.31,-0.01,0,False,False
+20260626,86.4,0,84.77,-0.03,84.29,-0.02,1,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2881 | 富邦金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信案授信資產 2.事實發生日:115/6/26~115/6/26 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依內部管理辦法規定辦理 民國115年06月26日 5.交易單位數量、每單位價格及交易總金額: 美金肆仟萬元整 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 彰化商業銀行股份有限公司、元大商業銀行股份有限公司， 均非實質關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 處分之債權附隨擔保品種類：船舶、帳戶、權益 處分債權並無屬對關係人債權者，故不適用 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依聯合授信合約相關規定辦理及一般聯合授信市場之慣例為之 12.本次交易之決定方式、價格決定之參考依據及決策單位: 為本行內部最終審核單位核定，相關條件依聯合授信合約及一般聯合授 信市場之慣例為之 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 授信資產配置之管理 18.本次交易表示異議董事之意見: 不適用 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 過去一年：115/04/28元大商業銀行美金46,363,636.37 元、115/05/14彰化商業銀行美金114,875,000元 未來一年：將視市場情況及本公司策略而定 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 填寫幣別為美金；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2881 | 富邦金 | 2 | 2 | 2 | 5 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2881 | 富邦金 | 29 | 0 | 9068820.0 | 0.0 |  | no_signal |
+| 20260626 | 2881 | 富邦金 | 33 | 0 | 5084240.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

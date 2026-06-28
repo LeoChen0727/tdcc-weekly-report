@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1326 台化
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:36 Asia/Taipei
+- generated_at: 2026-06-28 22:25:48 Asia/Taipei
 - stock_id: 1326
 - stock_name: 台化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 55
-- high: 57.2
-- low: 54.1
-- close: 56.2
-- volume: 33297275
-- ma5: 53.56
-- ema23_primary: 50.58
-- distance_to_ema23_pct: 11.1
-- ma20: 50.45
-- ma60: 48.8
-- ma120: 43.81
-- return_5d: 15.16
-- return_20d: 23.38
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 11.4
-- distance_to_high_60_pct: -4.75
+- date: 20260626
+- open: 58.3
+- high: 58.3
+- low: 53.8
+- close: 54.2
+- volume: 46433274
+- ma5: 56.14
+- ema23_primary: 52.23
+- distance_to_ema23_pct: 3.78
+- ma20: 52.66
+- ma60: 49.52
+- ma120: 44.61
+- return_5d: 0
+- return_20d: 19.38
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 2.93
+- distance_to_high_60_pct: -13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,45.55,45.55,44.25,44.95,17590321,46.94,-4.23,47.88,47.02,0.81
-20260526,44.75,45.75,44.2,44.5,15263951,46.73,-4.78,47.59,46.95,0.72
-20260527,45,45.85,44.75,45.45,20351059,46.63,-2.52,47.29,46.85,0.97
-20260528,46.8,46.85,45.05,45.4,29690137,46.52,-2.42,46.93,46.81,1.49
 20260529,45.95,49.9,45.8,49.9,67387982,46.81,6.61,46.81,46.86,3.09
 20260601,51.4,54.5,50,53.8,74407426,47.39,13.53,46.96,47.03,3.04
 20260602,54,56.9,52.8,54.4,93193844,47.97,13.4,47.09,47.2,3.32
@@ -153,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,52.1,55.2,51.1,53.7,33486429,49.7,8.05,49.48,48.39,0.93
 20260618,54.6,55.2,53.7,54.2,31267057,50.07,8.24,49.91,48.58,0.84
 20260622,55,57.2,54.1,56.2,33297275,50.58,11.1,50.45,48.8,0.87
+20260623,58.5,59.2,53,53.1,52379280,50.79,4.54,50.85,48.97,1.31
+20260624,52.5,57.7,51.3,57.7,67367428,51.37,12.33,51.52,49.18,1.58
+20260625,58.7,62.3,58.2,59.5,83820012,52.05,14.32,52.22,49.43,1.83
+20260626,58.3,58.3,53.8,54.2,46433274,52.23,3.78,52.66,49.52,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.4
-- over_600_ratio: 81.25
-- over_800_ratio: 80.48
-- over_1000_ratio: 79.83
-- over_400_change_1w: 0.6
-- over_800_change_1w: 0.6
-- over_1000_change_1w: 0.62
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 82.97
+- over_600_ratio: 81.9
+- over_800_ratio: 81.13
+- over_1000_ratio: 80.44
+- over_400_change_1w: 0.57
+- over_800_change_1w: 0.65
+- over_1000_change_1w: 0.61
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,82.37,1.04,80.47,1.01,79.79,1.05,1,True,True
 20260612,81.8,-0.57,79.88,-0.59,79.21,-0.58,0,False,False
 20260618,82.4,0.6,80.48,0.6,79.83,0.62,1,True,True
+20260626,82.97,0.57,81.13,0.65,80.44,0.61,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1326 | 台化 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | degraded calendar context only: ex_dividend on 20260624; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260626 | 1326 | 台化 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1326 | 台化 | 1 | 1 | 4 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 1326 | 台化 | 4 | 1 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1326 | 台化 | 103 | 6 | 15419440.0 | 12620.0 | 1221.83 | no_signal |
+| 20260626 | 1326 | 台化 | 104 | 0 | 15590310.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

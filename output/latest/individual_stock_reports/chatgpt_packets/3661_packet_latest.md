@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3661 世芯-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:41 Asia/Taipei
+- generated_at: 2026-06-28 22:26:39 Asia/Taipei
 - stock_id: 3661
 - stock_name: 世芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 4510
-- high: 4580
-- low: 4285
-- close: 4325
-- volume: 2381897
-- ma5: 4318
-- ema23_primary: 4343.87
-- distance_to_ema23_pct: -0.43
-- ma20: 4381
-- ma60: 4044.33
-- ma120: 3692.38
-- return_5d: 5.36
-- return_20d: -11.64
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: -1.28
-- distance_to_high_60_pct: -23.32
+- date: 20260626
+- open: 4135
+- high: 4170
+- low: 3870
+- close: 3870
+- volume: 2691066
+- ma5: 4226
+- ema23_primary: 4296.71
+- distance_to_ema23_pct: -9.93
+- ma20: 4304.25
+- ma60: 4124.33
+- ma120: 3725.67
+- return_5d: -11.64
+- return_20d: -10
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: -10.09
+- distance_to_high_60_pct: -31.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,5020,5050,4900,4900,1584407,4481.03,9.35,4608.5,3697.33,0.65
-20260526,4945,4955,4640,4640,1916456,4494.27,3.24,4632.5,3716.67,0.8
-20260527,4785,4845,4460,4500,2528669,4494.75,0.12,4657.5,3733.5,1.06
-20260528,4530,4575,4230,4300,2420551,4478.52,-3.99,4672.25,3747.83,1
 20260529,4470,4575,4315,4415,2199066,4473.23,-1.3,4686.25,3765.5,0.92
 20260601,4485,4855,4450,4855,2425118,4505.04,7.77,4716.5,3794.42,1.02
 20260602,4870,4870,4500,4575,2077361,4510.87,1.42,4737.75,3816.17,0.87
@@ -155,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,4265,4385,4195,4320,1603605,4342.46,-0.52,4435.75,4004.25,0.92
 20260618,4320,4530,4270,4380,2341823,4345.59,0.79,4409.5,4024.08,1.33
 20260622,4510,4580,4285,4325,2381897,4343.87,-0.43,4381,4044.33,1.32
+20260623,4410,4525,4215,4375,2239314,4346.47,0.66,4354.75,4064.75,1.22
+20260624,4315,4345,4220,4330,1230751,4345.09,-0.35,4339.25,4085.83,0.68
+20260625,4350,4460,4135,4230,2081103,4335.5,-2.43,4325.75,4105.67,1.17
+20260626,4135,4170,3870,3870,2691066,4296.71,-9.93,4304.25,4124.33,1.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 38.5
-- over_600_ratio: 27.69
-- over_800_ratio: 20.81
-- over_1000_ratio: 15.43
-- over_400_change_1w: -0.41
-- over_800_change_1w: -2.02
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 36.02
+- over_600_ratio: 27.24
+- over_800_ratio: 18.6
+- over_1000_ratio: 15.31
+- over_400_change_1w: -2.48
+- over_800_change_1w: -2.21
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,38.5,1.23,24.24,-0.31,15.28,-0.31,1,False,False
 20260612,38.91,0.41,22.83,-1.41,15.37,0.09,2,False,True
 20260618,38.5,-0.41,20.81,-2.02,15.43,0.06,3,False,True
+20260626,36.02,-2.48,18.6,-2.21,15.31,-0.12,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3661 | 世芯-KY | 366 | 18 | 59828580.0 | 757760.0 | 78.95 | no_signal |
+| 20260626 | 3661 | 世芯-KY | 356 | 0 | 37867140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009817 國泰日本不動產
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:32 Asia/Taipei
+- generated_at: 2026-06-28 22:25:44 Asia/Taipei
 - stock_id: 009817
 - stock_name: 國泰日本不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 8.65
-- high: 8.65
-- low: 8.57
-- close: 8.59
-- volume: 1774215
-- ma5: 8.7
-- ema23_primary: 8.74
-- distance_to_ema23_pct: -1.7
-- ma20: 8.72
-- ma60: 8.73
-- ma120: 8.73
-- return_5d: -2.94
-- return_20d: -3.27
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -1.55
-- distance_to_high_60_pct: -4.02
+- date: 20260626
+- open: 8.81
+- high: 8.95
+- low: 8.81
+- close: 8.92
+- volume: 5513934
+- ma5: 8.73
+- ema23_primary: 8.75
+- distance_to_ema23_pct: 1.96
+- ma20: 8.71
+- ma60: 8.74
+- ma120: 8.74
+- return_5d: 3.12
+- return_20d: 1.48
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 2.36
+- distance_to_high_60_pct: -0.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,8.88,8.88,8.83,8.84,4007160,,,,,
-20260526,8.81,8.85,8.81,8.84,6785798,,,,,
-20260527,8.82,8.86,8.8,8.8,6802270,,,,,
-20260528,8.81,8.81,8.77,8.79,3641833,8.86,-0.8,8.83,8.83,0.73
 20260529,8.83,8.95,8.83,8.92,5378932,8.87,0.61,8.85,8.85,1.07
 20260601,8.92,8.92,8.76,8.77,2777013,8.86,-0.99,8.83,8.83,0.59
 20260602,8.7,8.7,8.64,8.67,4401291,8.84,-1.95,8.81,8.81,0.94
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,8.69,8.71,8.67,8.7,1732387,8.76,-0.7,8.74,8.74,0.5
 20260618,8.7,8.7,8.63,8.65,1787382,8.75,-1.16,8.74,8.74,0.53
 20260622,8.65,8.65,8.57,8.59,1774215,8.74,-1.7,8.72,8.73,0.54
+20260623,8.6,8.64,8.59,8.61,2129268,8.73,-1.35,8.71,8.73,0.67
+20260624,8.63,8.72,8.63,8.71,1803230,8.73,-0.19,8.71,8.73,0.62
+20260625,8.72,8.84,8.72,8.81,2051648,8.73,0.88,8.71,8.73,0.76
+20260626,8.81,8.95,8.81,8.92,5513934,8.75,1.96,8.71,8.74,1.98
 ```
 
 ## Latest TDCC Snapshot

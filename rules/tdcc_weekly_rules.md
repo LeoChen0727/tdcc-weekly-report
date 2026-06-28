@@ -1,6 +1,6 @@
 # TDCC Weekly Report Rules
 
-Last updated: 2026-06-12
+Last updated: 2026-06-28
 
 This task is the TDCC weekly large-holder flow report. It is not the daily full-market stock recommendation report, holdings management, a single-stock report, market-opening analysis, or backtest tuning report.
 
@@ -73,18 +73,46 @@ The {signal_date} value must come only from the unique matching signal_date in t
 
 When reporting TDCC weekly PDF delivery completion to the user, include clickable links to the delivered PDF files when possible. At minimum, include a clickable link to `output/latest/published_reports/tdcc_weekly/` using the absolute local workspace path.
 
-PDF text and table content must use 標楷體 / DFKai-SB at 14 pt. Page count is not fixed; do not treat five pages as a rule.
+PDF text and table content must use the repo-controlled Traditional Chinese Kai
+font asset `assets/fonts/TW-Kai-98_1.ttf`, registered as `TW-Kai`, at 14 pt.
+Formal TDCC weekly production PDFs must not silently fall back to OS-installed
+fonts, ReportLab built-in CID fonts such as `STSong-Light`, or Noto Sans /
+generic sans-serif fonts. If the repo Kai font is missing, cannot be registered,
+or the final PDF does not contain a Kai font token, the builder or validator
+must fail closed. Page count is not fixed; do not treat five pages as a rule.
 
 TDCC ranking sections and daily-model cross sections must use different PDF table contracts:
 
 - TDCC ranking sections use: section rank, stock id, stock name, TDCC phase, risk bucket, TDCC score, selected reason, next confirmation, operation note.
-- Daily-model cross sections use the ranking columns plus daily model, model rank within TDCC list, and model score.
+- Daily-model cross sections use the ranking columns plus daily model, model rank within TDCC list, and model score. Within each model-cross section, the section rank and model rank within the TDCC list must be sorted by `model_score` descending, then daily model display rank ascending, then original TDCC rank ascending. The original TDCC rank remains a reference column, not the primary sort key for the model-cross table.
 
 Ranking fields must render as integers when they are whole numbers. Do not display ranks as `1.00`, `2.00`, or similar decimal strings.
 
 Score fields may use at most two decimals and must strip redundant trailing zeroes, for example `81.30` -> `81.3` and `74.00` -> `74`.
 
 PDF text must not print raw slug or snake_case fields. If a display value has no approved Chinese label, render `資料不足 / 暫用現有資料` instead of the raw token.
+
+## TDCC Data Quality Quarantine
+
+A single-stock TDCC holder distribution anomaly must not make the whole weekly
+report fail when the core source date and report-ready section contracts remain
+valid. Examples include placeholder-like distributions where one non-total TDCC
+level carries essentially 100% of holders and the total holder count is one.
+
+The program-side pipeline must quarantine these stocks before weekly ranking,
+report-ready CSV/MD generation, and PDF table rendering. Quarantined stocks must
+not appear in `weekly_increase`, `consecutive_accumulation`, model-cross
+sections, or full-report PDF tables.
+
+When quarantined TDCC holder distribution rows exist for the report
+`signal_date`, the highlight PDF must add a final-page data anomaly note listing
+the affected stock codes and the data-quality reason. This note is a data
+quality disclosure only; it must not create a buy/sell judgment, recommendation
+reason, ranking rule, scoring adjustment, or model judgment.
+
+The validator must check both sides of this contract: quarantined codes are not
+present in report-ready tables or the full PDF, and the highlight PDF final page
+contains the anomaly note and affected codes.
 
 ## Section Manifest Contract
 
@@ -102,6 +130,8 @@ These four sections are the current core manifest defaults, not a permanent four
 The previous week's PDF or any reference PDF is a visual style reference only. It must not override the current report-ready CSV structure, the section manifest, section membership, ordering, limits, ranking, or date.
 
 Each rendered table must correspond to exactly one `section_id`. The generator must filter with the section ID for each section and must not combine multiple `section_id` values into one table. The weekly-increase model-cross section and consecutive-accumulation model-cross section must remain separate sections; they must not be merged through a generic source column.
+
+Daily-model cross sections are intersection disclosures, not primary TDCC ranking gates. If an enabled `table_contract=model_cross` section has zero qualifying rows for the current week, the Markdown/PDF renderer and validator must keep the section visible and render an explicit empty-state message such as no qualifying names this week. This must not fail the weekly workflow, must not fabricate rows, and must not lower ranking/model thresholds. Core TDCC ranking sections such as `weekly_increase` and `consecutive_accumulation` remain fail-closed when empty.
 
 ## Ranking Lines
 

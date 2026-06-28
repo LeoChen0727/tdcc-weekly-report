@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6163 華電網
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:14 Asia/Taipei
+- generated_at: 2026-06-28 22:27:06 Asia/Taipei
 - stock_id: 6163
 - stock_name: 華電網
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 50.1
-- high: 51.4
-- low: 50.1
-- close: 51
-- volume: 1549000
-- ma5: 51.01
-- ema23_primary: 52.5
-- distance_to_ema23_pct: -2.85
-- ma20: 51.77
-- ma60: 57.47
-- ma120: 57.49
-- return_5d: -0.58
-- return_20d: -4.14
-- volume_ratio: 1.92
-- distance_to_ma20_pct_auxiliary: -1.49
-- distance_to_high_60_pct: -31.73
+- date: 20260626
+- open: 50
+- high: 50
+- low: 47.2
+- close: 47.4
+- volume: 1936000
+- ma5: 49.58
+- ema23_primary: 51.51
+- distance_to_ema23_pct: -7.98
+- ma20: 51.55
+- ma60: 56.53
+- ma120: 57.55
+- return_5d: -5.11
+- return_20d: -1.66
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: -8.06
+- distance_to_high_60_pct: -36.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,53.5,54.5,51.7,51.8,53000,56.62,-8.51,56.27,58.23,0.02
-20260526,51.5,52.3,50.4,51,51000,56.15,-9.18,55.92,58.21,0.02
-20260527,51,51,49.5,50.2,50000,55.66,-9.8,55.54,58.15,0.02
-20260528,50.2,50.9,48,48.2,49000,55.04,-12.42,55.1,58.03,0.02
 20260529,49,53,48.4,53,51000,54.87,-3.4,54.96,58.04,0.02
 20260601,53.4,53.9,51.9,53.4,53000,54.74,-2.45,54.71,58.08,0.02
 20260602,52.9,53.6,51.1,52.2,52,54.53,-4.28,54.38,58.09,0
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,51.3,51.4,50.1,50.7,1036000,52.87,-4.11,52.04,57.83,1.29
 20260618,50.9,51.6,49.9,49.95,1789000,52.63,-5.09,51.88,57.61,2.44
 20260622,50.1,51.4,50.1,51,1549000,52.5,-2.85,51.77,57.47,1.92
+20260623,51.8,51.8,48.95,49.3,1745000,52.23,-5.61,51.65,57.2,1.95
+20260624,49.55,52,49.55,50.4,3455000,52.08,-3.22,51.62,56.94,3.25
+20260625,50.6,50.8,49.7,49.8,941000,51.89,-4.02,51.59,56.73,0.85
+20260626,50,50,47.2,47.4,1936000,51.51,-7.98,51.55,56.53,1.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.68
-- over_600_ratio: 40.45
-- over_800_ratio: 38.39
-- over_1000_ratio: 37.78
-- over_400_change_1w: 0.68
-- over_800_change_1w: -0.56
-- over_1000_change_1w: -0.56
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 44.34
+- over_600_ratio: 40.46
+- over_800_ratio: 37.99
+- over_1000_ratio: 37.38
+- over_400_change_1w: -0.34
+- over_800_change_1w: -0.4
+- over_1000_change_1w: -0.4
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,18 +181,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.43,-0.04,39.4,-0.33,38.79,-0.94,1,False,False
 20260612,44,-0.43,38.95,-0.45,38.34,-0.45,0,False,False
 20260618,44.68,0.68,38.39,-0.56,37.78,-0.56,1,False,False
+20260626,44.34,-0.34,37.99,-0.4,37.38,-0.4,2,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6163 | 華電網 | pullback_rebound | 回檔後短線轉強 | 56.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 6163 | 華電網 | revenue_pullback | 營收成長股價回檔 | 56.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6163 | 華電網 | 1 | 1 | 1 | 2 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

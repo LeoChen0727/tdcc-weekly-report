@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4584 君帆
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:49 Asia/Taipei
 - stock_id: 4584
 - stock_name: 君帆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 128
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 131
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,31 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 40.25
-- high: 40.5
-- low: 40.2
-- close: 40.5
-- volume: 3000
-- ma5: 40.5
-- ema23_primary: 41.7
-- distance_to_ema23_pct: -2.87
-- ma20: 42.37
-- ma60: 42.07
-- ma120: 44.53
-- return_5d: -0.25
-- return_20d: -11.76
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -4.41
-- distance_to_high_60_pct: -13.83
+- date: 20260626
+- open: 40.05
+- high: 40.05
+- low: 40.05
+- close: 40.05
+- volume: 1000
+- ma5: 40.33
+- ema23_primary: 41.38
+- distance_to_ema23_pct: -3.21
+- ma20: 41.57
+- ma60: 41.91
+- ma120: 44.31
+- return_5d: -1.72
+- return_20d: -9.39
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -14.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260521,47,47,43.2,46.8,29000,42.42,10.32,41.8,43.12,2.13
-20260522,46.8,46.8,44.4,46,46000,42.72,7.67,42.07,43.1,2.95
-20260525,44.5,44.5,44.2,44.2,44000,42.84,3.16,42.23,43.04,2.61
 20260526,44.3,44.3,42.6,43.1,43000,42.87,0.55,42.3,42.99,2.38
 20260528,43.1,43.2,43.1,43.2,43000,42.89,0.71,42.38,42.94,2.15
 20260529,42.8,44.9,42.8,43.85,44000,42.97,2.04,42.49,42.91,2
@@ -155,10 +152,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,40.05,40.75,40.05,40.75,7000,41.95,-2.86,42.73,42.24,0.27
 20260618,40.15,40.2,40.1,40.2,4000,41.81,-3.84,42.64,42.13,0.16
 20260622,40.25,40.5,40.2,40.5,3000,41.7,-2.87,42.37,42.07,0.12
+20260623,40.15,40.45,40.05,40.45,4000,41.59,-2.75,42.05,42.01,0.17
+20260624,40.1,40.45,39.85,40.45,18000,41.5,-2.52,41.77,41.95,0.83
+20260626,40.05,40.05,40.05,40.05,1000,41.38,-3.21,41.57,41.91,0.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 80.09
 - over_600_ratio: 78.65
 - over_800_ratio: 78.65
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,80.09,0,78.65,0,69.26,0,0,False,False
 20260612,80.09,0,78.65,0,69.26,0,0,False,False
 20260618,80.09,0,78.65,0,69.26,0,0,False,False
+20260626,80.09,0,78.65,0,69.26,0,0,False,False
 ```
 
 ## Candidate Context

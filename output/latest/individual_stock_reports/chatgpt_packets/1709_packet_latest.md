@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1709 和益
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:46 Asia/Taipei
+- generated_at: 2026-06-28 22:25:56 Asia/Taipei
 - stock_id: 1709
 - stock_name: 和益
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 22.15
-- high: 22.15
-- low: 21.25
-- close: 21.5
-- volume: 1581613
-- ma5: 21.13
-- ema23_primary: 20.26
-- distance_to_ema23_pct: 6.14
-- ma20: 20.31
-- ma60: 19.1
-- ma120: 18.07
-- return_5d: 0.7
-- return_20d: 16.85
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 5.87
-- distance_to_high_60_pct: -2.93
+- date: 20260626
+- open: 21.2
+- high: 21.5
+- low: 21
+- close: 21.05
+- volume: 1229515
+- ma5: 21.28
+- ema23_primary: 20.54
+- distance_to_ema23_pct: 2.48
+- ma20: 20.69
+- ma60: 19.31
+- ma120: 18.22
+- return_5d: -0.94
+- return_20d: 7.4
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 1.73
+- distance_to_high_60_pct: -4.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,18.4,19.15,18.25,19.15,1670828,18.48,3.62,18.53,18.17,2.68
-20260526,19.15,19.3,18.85,19.25,985208,18.54,3.81,18.54,18.21,1.55
-20260527,19.25,19.7,19.15,19.2,2091120,18.6,3.23,18.55,18.25,2.93
-20260528,19.3,19.75,19.1,19.6,1363298,18.68,4.91,18.58,18.29,1.78
 20260529,19.8,19.8,19.25,19.4,739828,18.74,3.51,18.62,18.33,0.94
 20260601,19.25,19.7,19.15,19.5,1029105,18.81,3.69,18.66,18.39,1.26
 20260602,19.8,20,19.5,19.75,1622169,18.88,4.59,18.73,18.44,1.87
@@ -154,26 +151,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,20.8,20.95,20.65,20.95,972606,20.04,4.52,20.01,19,0.58
 20260618,21.2,21.55,20.95,21.25,1572279,20.14,5.49,20.15,19.05,0.91
 20260622,22.15,22.15,21.25,21.5,1581613,20.26,6.14,20.31,19.1,0.89
+20260623,21.5,21.5,20.9,21.15,841153,20.33,4.03,20.41,19.16,0.48
+20260624,20.85,21.45,20.85,21.3,669586,20.41,4.35,20.51,19.21,0.39
+20260625,21.2,21.7,21.2,21.4,1389364,20.49,4.42,20.62,19.27,0.82
+20260626,21.2,21.5,21,21.05,1229515,20.54,2.48,20.69,19.31,0.73
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 63.06
-- over_600_ratio: 59.63
-- over_800_ratio: 56.56
-- over_1000_ratio: 53.46
-- over_400_change_1w: 0.26
-- over_800_change_1w: 0.4
+- as_of_date: 20260626
+- over_400_ratio: 62.91
+- over_600_ratio: 59.3
+- over_800_ratio: 56.35
+- over_1000_ratio: 53.66
+- over_400_change_1w: -0.15
+- over_800_change_1w: -0.21
 - over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 17
-- all_thresholds_up: True
+- tdcc_consecutive_up_weeks: 18
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,61.21,0.11,54.77,0.01,52.09,0.02,6,True,True
 20260410,61.15,-0.06,54.79,0.02,52.11,0.02,7,False,True
 20260417,61.4,0.25,54.71,-0.08,52.2,0.09,8,False,True
 20260424,61.55,0.15,54.78,0.07,52.27,0.07,9,True,True
@@ -185,17 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,62.45,0.27,55.28,-0.08,52.77,0.09,15,False,True
 20260612,62.8,0.35,56.16,0.88,53.26,0.49,16,True,True
 20260618,63.06,0.26,56.56,0.4,53.46,0.2,17,True,True
+20260626,62.91,-0.15,56.35,-0.21,53.66,0.2,18,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1709 | 和益 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 1709 | 和益 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 1709 | 和益 | 2 | 2 | 2 | 4 | 9 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260626 | 1709 | 和益 | 1 | 1 | 3 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

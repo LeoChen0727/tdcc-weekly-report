@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:18 Asia/Taipei
+- generated_at: 2026-06-28 22:26:21 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
+- date: 20260626
 - open: 32.6
-- high: 32.75
-- low: 32.15
-- close: 32.3
-- volume: 46847145
-- ma5: 32.1
-- ema23_primary: 30.21
-- distance_to_ema23_pct: 6.93
-- ma20: 29.68
-- ma60: 29
-- ma120: 29.16
-- return_5d: 4.19
-- return_20d: 17.24
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 8.82
-- distance_to_high_60_pct: -1.52
+- high: 32.95
+- low: 32.45
+- close: 32.65
+- volume: 40645728
+- ma5: 32.46
+- ema23_primary: 30.89
+- distance_to_ema23_pct: 5.71
+- ma20: 30.68
+- ma60: 29.27
+- ma120: 29.25
+- return_5d: 0.15
+- return_20d: 19.82
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 6.44
+- distance_to_high_60_pct: -1.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,27.6,27.6,27.2,27.6,79808642,28.57,-3.39,28.69,28.77,1.59
-20260526,27.55,27.8,27.5,27.7,47398325,28.5,-2.8,28.66,28.73,0.93
-20260527,27.7,27.8,27.55,27.6,33694772,28.42,-2.89,28.62,28.7,0.65
-20260528,27.6,27.65,27.25,27.25,47996477,28.32,-3.79,28.55,28.66,0.9
 20260529,27.3,27.5,27.2,27.45,109953818,28.25,-2.84,28.48,28.62,2.01
 20260601,27.45,27.85,27.3,27.75,52244946,28.21,-1.63,28.46,28.6,0.95
 20260602,27.75,28.2,27.7,28.15,57901717,28.2,-0.19,28.45,28.59,1.02
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,31.8,32.75,31.7,32.5,65779573,29.78,9.12,29.2,28.87,1.01
 20260618,32.5,32.8,32.25,32.6,75198702,30.02,8.6,29.45,28.94,1.17
 20260622,32.6,32.75,32.15,32.3,46847145,30.21,6.93,29.68,29,0.75
+20260623,32.3,32.7,32,32.45,54543745,30.39,6.76,29.93,29.07,0.89
+20260624,32.25,32.65,32,32.05,38735886,30.53,4.97,30.14,29.12,0.64
+20260625,32.15,33.25,32.1,32.85,59094749,30.73,6.91,30.41,29.2,0.95
+20260626,32.6,32.95,32.45,32.65,40645728,30.89,5.71,30.68,29.27,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 70.73
-- over_600_ratio: 68.83
-- over_800_ratio: 67.65
-- over_1000_ratio: 66.78
-- over_400_change_1w: 0.38
-- over_800_change_1w: 0.41
-- over_1000_change_1w: 0.41
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 71
+- over_600_ratio: 69.12
+- over_800_ratio: 67.92
+- over_1000_ratio: 67.06
+- over_400_change_1w: 0.27
+- over_800_change_1w: 0.27
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,69.48,0.53,66.29,0.56,65.42,0.57,1,True,True
 20260612,70.35,0.87,67.24,0.95,66.37,0.95,2,True,True
 20260618,70.73,0.38,67.65,0.41,66.78,0.41,3,True,True
+20260626,71,0.27,67.92,0.27,67.06,0.28,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2892 | 第一金 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:第一商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:第一銀行董事會決議參與「企業投資美國融資保證機制推動方案」， 首期規劃出資美金5,000萬元整。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)配合政府政策，提供赴美投資企業相關金融服務，創造多元商機。 (2)參與「企業投資美國融資保證機制」，取得融資保證額度，並降低授信風險。 (3)實際內容依正式簽訂契約為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新臺幣 2,697,000,000元 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.其他應敘明事項: 本公司115/05/14董事會授權董事長訂定增資基準日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2892 | 第一金 | 18 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 2892 | 第一金 | 21 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2892 | 第一金 | 6 | 0 | 627210.0 | 0.0 |  | no_signal |
+| 20260626 | 2892 | 第一金 | 6 | 0 | 666070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

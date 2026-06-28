@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:22 Asia/Taipei
+- generated_at: 2026-06-28 22:26:24 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 50.4
-- high: 51.7
-- low: 50
-- close: 51.2
-- volume: 13382386
-- ma5: 49.6
-- ema23_primary: 48.77
-- distance_to_ema23_pct: 4.97
-- ma20: 49.85
-- ma60: 42.21
-- ma120: 36.67
-- return_5d: 3.23
-- return_20d: -5.01
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 2.71
-- distance_to_high_60_pct: -7.41
+- date: 20260626
+- open: 49.1
+- high: 51.3
+- low: 48.8
+- close: 49
+- volume: 11261112
+- ma5: 49.93
+- ema23_primary: 49.01
+- distance_to_ema23_pct: -0.01
+- ma20: 49.76
+- ma60: 43.33
+- ma120: 37.3
+- return_5d: -1.01
+- return_20d: -2.2
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -1.52
+- distance_to_high_60_pct: -11.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,54.6,54.6,48.85,49.2,43030553,44.32,11.01,43.96,36.45,1.8
-20260526,49.2,50.8,48.85,50.3,17247103,44.82,12.23,44.7,36.76,0.71
-20260527,51.4,51.9,49.55,50.7,17668494,45.31,11.9,45.42,37.07,0.72
-20260528,51.1,51.7,49.8,50.1,12249078,45.71,9.61,46.13,37.38,0.49
 20260529,50.8,50.9,49.55,50.3,10625441,46.09,9.13,46.86,37.7,0.42
 20260601,50.3,50.5,48.05,48.85,17868088,46.32,5.46,47.41,38.03,0.72
 20260602,48.85,49.7,48.45,49.7,7798189,46.6,6.65,47.97,38.36,0.32
@@ -155,19 +151,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,48.5,48.95,47.8,48.9,5305376,48.47,0.89,50.13,41.64,0.34
 20260618,49.05,49.75,48.75,49.5,5334905,48.55,1.95,49.98,41.91,0.36
 20260622,50.4,51.7,50,51.2,13382386,48.77,4.97,49.85,42.21,0.94
+20260623,52.3,52.4,49.7,50.2,12994139,48.89,2.67,49.9,42.49,1.03
+20260624,49.75,50.6,49.3,50,5438787,48.99,2.07,49.88,42.77,0.45
+20260625,50.7,50.9,49.2,49.25,4956433,49.01,0.49,49.81,43.05,0.43
+20260626,49.1,51.3,48.8,49,11261112,49.01,-0.01,49.76,43.33,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 41.08
-- over_600_ratio: 38.31
-- over_800_ratio: 36.24
-- over_1000_ratio: 34.35
-- over_400_change_1w: 0
-- over_800_change_1w: 0.43
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 41.31
+- over_600_ratio: 38.55
+- over_800_ratio: 36.33
+- over_1000_ratio: 34.79
+- over_400_change_1w: 0.23
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.44
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,23 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,41.74,-0.14,36.94,-0.04,35.04,-0.34,2,False,False
 20260612,41.08,-0.66,35.81,-1.13,34.26,-0.78,0,False,False
 20260618,41.08,0,36.24,0.43,34.35,0.09,1,False,True
+20260626,41.31,0.23,36.33,0.09,34.79,0.44,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3033 | 威健 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3033 | 威健 | 7 | 2 | 5 | 9 | 11 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 3033 | 威健 | 10 | 4 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3033 | 威健 | 32 | 0 | 12532440.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 3033 | 威健 | 32 | 0 | 4624580.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

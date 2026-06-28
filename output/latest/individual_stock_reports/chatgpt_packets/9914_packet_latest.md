@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:49 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,32 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 72.2
-- high: 76.6
-- low: 72.2
-- close: 73.4
-- volume: 2622121
-- ma5: 73.26
-- ema23_primary: 69.71
-- distance_to_ema23_pct: 5.29
-- ma20: 69.8
-- ma60: 64.63
-- ma120: 72.33
-- return_5d: 0
-- return_20d: 8.26
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 5.16
-- distance_to_high_60_pct: -4.18
+- date: 20260626
+- open: 73
+- high: 74.2
+- low: 72.6
+- close: 73.6
+- volume: 1971447
+- ma5: 72.68
+- ema23_primary: 70.55
+- distance_to_ema23_pct: 4.32
+- ma20: 70.98
+- ma60: 65.02
+- ma120: 71.91
+- return_5d: 2.08
+- return_20d: 11.52
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 3.69
+- distance_to_high_60_pct: -3.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,68.5,68.9,67.3,68.2,1424014,64.08,6.43,61.95,64.74,0.59
-20260526,68.2,68.2,66.1,67.3,1786005,64.35,4.59,62.46,64.59,0.74
-20260527,67.4,67.4,64.7,64.9,2068266,64.39,0.79,62.88,64.42,0.84
-20260528,65.2,66,63.8,66,1319080,64.53,2.28,63.28,64.29,0.53
 20260529,66.3,68.8,66,66.7,2757878,64.71,3.08,63.72,64.21,1.07
 20260601,67,68,66,68,1162826,64.98,4.64,64.22,64.17,0.45
 20260602,68.1,69.3,67.6,68.9,1614625,65.31,5.5,64.76,64.14,0.61
@@ -160,20 +156,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,74.1,74.4,72,73,2484021,69.13,5.6,69.42,64.48,1.21
 20260618,73,73.9,72.1,72.1,980872,69.38,3.93,69.52,64.54,0.5
 20260622,72.2,76.6,72.2,73.4,2622121,69.71,5.29,69.8,64.63,1.35
+20260623,74,74,71.3,72.1,1528347,69.91,3.13,70,64.71,0.78
+20260624,71.7,72.1,70.8,71.5,944575,70.04,2.08,70.2,64.77,0.5
+20260625,72.6,73.4,72.1,72.8,579868,70.27,3.6,70.6,64.89,0.32
+20260626,73,74.2,72.6,73.6,1971447,70.55,4.32,70.98,65.02,1.06
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.89
-- over_600_ratio: 63.72
-- over_800_ratio: 62.07
-- over_1000_ratio: 56.98
-- over_400_change_1w: -0.34
-- over_800_change_1w: -0.22
-- over_1000_change_1w: 0.42
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 66.13
+- over_600_ratio: 64.15
+- over_800_ratio: 61.79
+- over_1000_ratio: 56.97
+- over_400_change_1w: 0.24
+- over_800_change_1w: -0.28
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,22 +187,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,65.41,-0.17,61.64,0.3,56.26,0.01,1,False,True
 20260612,66.23,0.82,62.29,0.65,56.56,0.3,2,True,True
 20260618,65.89,-0.34,62.07,-0.22,56.98,0.42,3,False,True
+20260626,66.13,0.24,61.79,-0.28,56.97,-0.01,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9914 | 美利達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加兆豐證券舉辦投資人線上會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_3d |
+| 20260626 | 9914 | 美利達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加兆豐證券舉辦投資人線上會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9914 | 美利達 | 1 | 1 | 2 | 6 | 14 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260626 | 9914 | 美利達 | 1 | 1 | 3 | 5 | 15 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9914 | 美利達 | 7 | 0 | 330050.0 | 0.0 |  | no_signal |
+| 20260626 | 9914 | 美利達 | 7 | 0 | 280550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

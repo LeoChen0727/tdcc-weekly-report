@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9802 鈺齊-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:05 Asia/Taipei
+- generated_at: 2026-06-28 22:27:48 Asia/Taipei
 - stock_id: 9802
 - stock_name: 鈺齊-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 78
-- high: 78
-- low: 75.6
-- close: 75.8
-- volume: 699887
-- ma5: 77.26
-- ema23_primary: 77.84
-- distance_to_ema23_pct: -2.62
-- ma20: 77.5
-- ma60: 77.73
-- ma120: 86.55
-- return_5d: -4.29
-- return_20d: 0.93
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -2.2
-- distance_to_high_60_pct: -11.55
+- date: 20260626
+- open: 74.5
+- high: 74.5
+- low: 72.4
+- close: 72.5
+- volume: 1169234
+- ma5: 74.46
+- ema23_primary: 76.73
+- distance_to_ema23_pct: -5.51
+- ma20: 77.58
+- ma60: 77.34
+- ma120: 85.47
+- return_5d: -6.09
+- return_20d: -1.36
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -6.54
+- distance_to_high_60_pct: -15.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,75.9,75.9,73.1,73.8,1397987,77.44,-4.7,77.72,80.7,1.41
-20260526,73.9,75.2,72.9,74.4,661143,77.19,-3.61,77.75,80.36,0.7
-20260527,74.5,74.5,72.9,73.4,866111,76.87,-4.52,77.66,80.01,0.92
-20260528,74,74.4,72.4,73.5,1249537,76.59,-4.04,77.47,79.66,1.29
 20260529,73.7,74.6,73.4,73.6,3878184,76.34,-3.59,77.28,79.33,3.46
 20260601,74.5,77.8,73.7,77.7,1651501,76.46,1.63,77.14,79.11,1.46
 20260602,77.6,81.4,76.8,80.5,2900056,76.79,4.83,77.12,78.94,2.38
@@ -155,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,77,78.7,77,77.6,551003,78.1,-0.64,77.38,77.85,0.42
 20260618,78.2,78.6,76.7,77.2,854666,78.02,-1.06,77.47,77.8,0.66
 20260622,78,78,75.6,75.8,699887,77.84,-2.62,77.5,77.73,0.54
+20260623,76.5,76.5,74.6,74.6,501024,77.57,-3.83,77.55,77.64,0.4
+20260624,74,75,73.9,74.9,412078,77.35,-3.16,77.57,77.55,0.33
+20260625,75.7,75.8,74.4,74.5,476085,77.11,-3.38,77.62,77.44,0.39
+20260626,74.5,74.5,72.4,72.5,1169234,76.73,-5.51,77.58,77.34,0.96
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.09
-- over_600_ratio: 60
-- over_800_ratio: 58.62
-- over_1000_ratio: 56.88
-- over_400_change_1w: -0.81
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 65.07
+- over_600_ratio: 60.01
+- over_800_ratio: 58.63
+- over_1000_ratio: 56.89
+- over_400_change_1w: -0.02
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,65.65,0.27,59.01,0.42,56.85,0.87,3,True,True
 20260612,65.9,0.25,58.54,-0.47,56.8,-0.05,4,False,False
 20260618,65.09,-0.81,58.62,0.08,56.88,0.08,5,False,True
+20260626,65.07,-0.02,58.63,0.01,56.89,0.01,6,False,True
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9802 | 鈺齊-KY | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260626 | 9802 | 鈺齊-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

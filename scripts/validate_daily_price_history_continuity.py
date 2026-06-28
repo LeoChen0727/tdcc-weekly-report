@@ -44,10 +44,22 @@ def safe_str(value: object) -> str:
 
 
 def normalize_stock_id(value: object) -> str:
-    text = re.sub(r"[^0-9]", "", safe_str(value))
+    text = re.sub(r"\.0$", "", safe_str(value))
+    text = re.sub(r"[^0-9]", "", text)
     if not text:
         return ""
-    return text.zfill(4)[-4:]
+    if len(text) < 4:
+        return text.zfill(4)
+    return text
+
+
+def is_supported_security_id(value: object) -> bool:
+    text = normalize_stock_id(value)
+    if not text.isdigit():
+        return False
+    if len(text) == 4:
+        return True
+    return text.startswith("00") and 5 <= len(text) <= 6
 
 
 def parse_yyyymmdd(value: str) -> datetime:
@@ -134,6 +146,7 @@ def read_daily_price_for_date(root: Path, date_text: str) -> pd.DataFrame:
         df["_stock_id"] = df[stock_col].map(normalize_stock_id)
     else:
         df["_stock_id"] = ""
+    df["_is_supported_security"] = df["_stock_id"].map(is_supported_security_id)
     if "market" in df.columns:
         df["_market_norm"] = df["market"].map(normalize_market)
     else:
@@ -167,7 +180,11 @@ def validate_daily_price_files(
         df = read_daily_price_for_date(root, date_text)
         date_rows = df[df["_date_digits"].eq(date_text)].copy() if "_date_digits" in df.columns else pd.DataFrame()
         markets = sorted({normalize_market(value) for value in date_rows.get("_market_norm", pd.Series(dtype=str)) if safe_str(value)})
-        stock_count = int(date_rows["_stock_id"].astype(str).str.len().gt(0).sum()) if "_stock_id" in date_rows.columns else 0
+        stock_count = (
+            int(date_rows["_is_supported_security"].sum())
+            if "_is_supported_security" in date_rows.columns
+            else 0
+        )
         file_reports[date_text] = {
             "path": path.as_posix(),
             "exists": True,
@@ -199,7 +216,7 @@ def load_target_stock_ids(root: Path) -> set[str]:
         stock_col = "stock_id" if "stock_id" in df.columns else "ticker" if "ticker" in df.columns else ""
         if not stock_col:
             continue
-        result.update(normalize_stock_id(value) for value in df[stock_col])
+        result.update(normalize_stock_id(value) for value in df[stock_col] if is_supported_security_id(value))
     return {stock_id for stock_id in result if stock_id}
 
 
@@ -228,7 +245,8 @@ def validate_stock_history_coverage(
         daily = read_daily_price_for_date(root, date_text)
         if daily.empty or "_stock_id" not in daily.columns:
             continue
-        present = {stock_id for stock_id in daily["_stock_id"].astype(str) if stock_id in target_stock_ids}
+        supported_daily = daily[daily["_is_supported_security"]].copy()
+        present = {stock_id for stock_id in supported_daily["_stock_id"].astype(str) if stock_id in target_stock_ids}
         for stock_id in sorted(present):
             if stock_id not in history_cache:
                 history_cache[stock_id] = load_history_dates(root / STOCK_HISTORY_DIR / f"{stock_id}.csv")

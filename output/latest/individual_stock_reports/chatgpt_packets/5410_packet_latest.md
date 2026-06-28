@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5410 國眾
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:04 Asia/Taipei
+- generated_at: 2026-06-28 22:26:59 Asia/Taipei
 - stock_id: 5410
 - stock_name: 國眾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45.2
-- high: 45.45
-- low: 44.05
-- close: 44.75
-- volume: 1468000
-- ma5: 45.7
-- ema23_primary: 41.69
-- distance_to_ema23_pct: 7.35
-- ma20: 41.75
-- ma60: 36.16
-- ma120: 33.32
-- return_5d: -1.97
-- return_20d: 15.34
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 7.19
-- distance_to_high_60_pct: -10.14
+- date: 20260626
+- open: 44.45
+- high: 44.9
+- low: 44.1
+- close: 44.3
+- volume: 795000
+- ma5: 44.54
+- ema23_primary: 42.51
+- distance_to_ema23_pct: 4.22
+- ma20: 42.96
+- ma60: 37.11
+- ma120: 33.8
+- return_5d: -1.01
+- return_20d: 13.59
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 3.13
+- distance_to_high_60_pct: -11.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,39.05,39.4,38.05,38.7,39000,35.97,7.58,35.97,32.58,0.05
-20260526,38.2,38.45,37.75,37.75,38000,36.12,4.5,36.26,32.7,0.05
-20260527,38,38.75,37.7,38.35,38000,36.31,5.62,36.57,32.84,0.05
-20260528,38.15,39.25,38.15,39,39000,36.53,6.75,36.85,32.98,0.05
 20260529,39.85,39.95,38.8,39.95,39000,36.82,8.51,37.21,33.15,0.05
 20260601,41.65,42.15,41,41.75,42000,37.23,12.15,37.65,33.35,0.06
 20260602,41.75,41.75,40.65,41.25,41,37.56,9.81,38.02,33.53,0
@@ -154,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,45.95,46.6,44.55,44.8,2374000,41.1,9,41.15,35.68,1.68
 20260618,44.6,45,44.05,44.75,1288000,41.41,8.07,41.45,35.92,0.9
 20260622,45.2,45.45,44.05,44.75,1468000,41.69,7.35,41.75,36.16,0.98
+20260623,45.05,45.4,44.05,44.4,982000,41.91,5.94,42.03,36.4,0.64
+20260624,44.4,45.2,44.05,44.85,917000,42.16,6.39,42.39,36.64,0.58
+20260625,45,45.15,44.4,44.4,671000,42.34,4.86,42.69,36.87,0.41
+20260626,44.45,44.9,44.1,44.3,795000,42.51,4.22,42.96,37.11,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 36.77
-- over_600_ratio: 34.54
-- over_800_ratio: 31.55
-- over_1000_ratio: 27.61
-- over_400_change_1w: -0.85
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.36
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 37.54
+- over_600_ratio: 33.62
+- over_800_ratio: 31.52
+- over_1000_ratio: 27.69
+- over_400_change_1w: 0.77
+- over_800_change_1w: -0.03
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,18 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.45,-2.14,30.23,-2.09,26.33,-3.04,0,False,False
 20260612,37.62,3.17,31.9,1.67,27.97,1.64,1,True,True
 20260618,36.77,-0.85,31.55,-0.35,27.61,-0.36,0,False,False
+20260626,37.54,0.77,31.52,-0.03,27.69,0.08,1,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5410 | 國眾 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 5410 | 國眾 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5410 | 國眾 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

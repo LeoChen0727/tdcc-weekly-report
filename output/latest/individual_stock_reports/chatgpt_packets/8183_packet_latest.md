@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8183 精星
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:57 Asia/Taipei
+- generated_at: 2026-06-28 22:27:42 Asia/Taipei
 - stock_id: 8183
 - stock_name: 精星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 32.55
-- high: 33.55
-- low: 32.15
-- close: 33.1
-- volume: 871000
-- ma5: 32.85
-- ema23_primary: 32.28
-- distance_to_ema23_pct: 2.55
+- date: 20260626
+- open: 32
+- high: 34.15
+- low: 32
+- close: 32.3
+- volume: 1284000
+- ma5: 32.36
+- ema23_primary: 32.25
+- distance_to_ema23_pct: 0.16
 - ma20: 32.19
-- ma60: 33.13
-- ma120: 33.67
-- return_5d: 5.75
-- return_20d: 4.58
-- volume_ratio: 3.56
-- distance_to_ma20_pct_auxiliary: 2.83
-- distance_to_high_60_pct: -17.25
+- ma60: 33.02
+- ma120: 33.65
+- return_5d: -0.77
+- return_20d: 0.47
+- volume_ratio: 3.71
+- distance_to_ma20_pct_auxiliary: 0.34
+- distance_to_high_60_pct: -19.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,32,32.25,31.7,32,32000,32.37,-1.13,32.47,34.48,0.06
-20260526,32.4,32.8,31.65,32,32000,32.34,-1.04,32.22,34.39,0.06
-20260527,32.1,32.95,32.1,32.55,33000,32.35,0.61,31.99,34.25,0.07
-20260528,32.75,33.3,31.8,32.15,33000,32.34,-0.58,31.9,34.15,0.08
 20260529,32.35,32.45,31.9,32.15,32000,32.32,-0.53,31.85,34.04,0.08
 20260601,32.15,32.35,31.9,32.05,32000,32.3,-0.77,31.78,33.98,0.08
 20260602,32.4,32.4,31.7,32.4,32,32.31,0.29,31.68,33.9,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,32.6,32.85,32.3,32.75,144000,32.17,1.8,32.03,33.18,0.7
 20260618,32.75,32.95,32.55,32.55,319000,32.2,1.08,32.12,33.15,1.58
 20260622,32.55,33.55,32.15,33.1,871000,32.28,2.55,32.19,33.13,3.56
+20260623,33.2,33.45,31.9,32.35,514000,32.28,0.21,32.21,33.09,1.91
+20260624,32.2,32.5,31.75,31.95,202000,32.26,-0.95,32.2,33.06,0.73
+20260625,32.4,32.45,31.75,32.1,168000,32.24,-0.44,32.18,33.03,0.59
+20260626,32,34.15,32,32.3,1284000,32.25,0.16,32.19,33.02,3.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 48.23
-- over_600_ratio: 45.62
-- over_800_ratio: 44.47
-- over_1000_ratio: 43.75
-- over_400_change_1w: -0.04
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 47.82
+- over_600_ratio: 45.56
+- over_800_ratio: 44.41
+- over_1000_ratio: 43.69
+- over_400_change_1w: -0.41
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,17 +182,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,48.15,0.08,43.76,0.11,43.76,0.11,3,True,True
 20260612,48.27,0.12,44.45,0.69,43.73,-0.03,4,False,True
 20260618,48.23,-0.04,44.47,0.02,43.75,0.02,5,False,True
+20260626,47.82,-0.41,44.41,-0.06,43.69,-0.06,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 8183 | 精星 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 8183 | 精星 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8183 | 精星 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 8183 | 精星 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

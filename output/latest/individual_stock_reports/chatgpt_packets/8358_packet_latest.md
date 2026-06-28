@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:59 Asia/Taipei
+- generated_at: 2026-06-28 22:27:44 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,41 +56,43 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_support
+- thesis_state: unclear
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 705
-- high: 758
-- low: 683
-- close: 691
-- volume: 25308000
-- ma5: 657.4
-- ema23_primary: 581.72
-- distance_to_ema23_pct: 18.78
-- ma20: 601.1
-- ma60: 441.92
-- ma120: 351.46
-- return_5d: 20.38
-- return_20d: 32.38
-- volume_ratio: 9.58
-- distance_to_ma20_pct_auxiliary: 14.96
-- distance_to_high_60_pct: -8.84
+- date: 20260626
+- open: 628
+- high: 650
+- low: 570
+- close: 570
+- volume: 15194000
+- ma5: 637.2
+- ema23_primary: 593.21
+- distance_to_ema23_pct: -3.91
+- ma20: 616.3
+- ma60: 467.72
+- ma120: 364.12
+- return_5d: -18.57
+- return_20d: 3.07
+- volume_ratio: 3.01
+- distance_to_ma20_pct_auxiliary: -7.51
+- distance_to_high_60_pct: -24.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,558,558,541,545,550000,432.3,26.07,438.32,330.72,0.04
-20260526,546,546,517,533,525000,440.69,20.95,448.2,334.73,0.04
-20260527,540,566,540,560,553000,450.63,24.27,458.1,339.23,0.05
-20260528,555,578,550,553,559000,459.16,20.44,467.27,343.68,0.05
 20260529,579,608,565,608,596000,471.56,28.93,478.25,349.4,0.05
 20260601,637,668,636,668,659000,487.93,36.9,491.52,356.17,0.06
 20260602,662,687,613,627,652,499.52,25.52,501.23,362.39,0
@@ -153,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,628,640,625,640,1844000,560.13,14.26,582.55,426.13,1.34
 20260618,657,700,657,700,5038000,571.79,22.42,592.65,434.09,3.6
 20260622,705,758,683,691,25308000,581.72,18.78,601.1,441.92,9.58
+20260623,717,718,650,657,17152000,588,11.74,606.7,449.08,4.94
+20260624,632,640,616,638,9493000,592.16,7.74,611.95,455.56,2.42
+20260625,651,651,621,630,8573000,595.32,5.83,615.45,462.11,1.98
+20260626,628,650,570,570,15194000,593.21,-3.91,616.3,467.72,3.01
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.13
-- over_600_ratio: 54.82
-- over_800_ratio: 52.13
-- over_1000_ratio: 50.66
-- over_400_change_1w: 0.91
-- over_800_change_1w: 0.93
-- over_1000_change_1w: 0.93
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 55.98
+- over_600_ratio: 54.34
+- over_800_ratio: 51.68
+- over_1000_ratio: 48.76
+- over_400_change_1w: -1.15
+- over_800_change_1w: -0.45
+- over_1000_change_1w: -1.9
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.38,-4.29,51.35,-4.27,49.56,-3.86,0,False,False
 20260612,56.22,-0.16,51.2,-0.15,49.73,0.17,1,False,True
 20260618,57.13,0.91,52.13,0.93,50.66,0.93,2,True,True
+20260626,55.98,-1.15,51.68,-0.45,48.76,-1.9,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8358 | 金居 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 8358 | 金居 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                  最近一月單月     去年同月       與去年同期增減%                   (115年5月)    (114年5月) ----------------------------------------------------------------- 營業收入(百萬元)      942              666           41.4% 稅前淨利(百萬元)      226               56          303.6% 歸屬母公司業主 淨利(百萬元)          181               44          311.4% 每股盈餘 (元)        0.72             0.18          300.0% ================================================================= (2)單季                   最近一季單季    去年同期        與去年同期增減%                   (115第1季)      (114第1季) ----------------------------------------------------------------- 營業收入(百萬元)     2,532            1,728          46.5% 稅前淨利(百萬元)       649              330          96.7% 歸屬母公司業主 淨利(百萬元)           520              265          96.2% 每股盈餘 (元)         2.06             1.05          96.2% ================================================================= (3)最近四季累計                 (114年第2季至115年第1季) ----------------------------------------------------------------- 營業收入(百萬元)            8,684 稅前淨利(百萬元)            1,660 歸屬母公司業主 淨利(百萬元)                1,318 每股盈餘 (元)                5.22 公司每股面額:10元 ================================================================= 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製 之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8358 | 金居 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260626 | 8358 | 金居 | 5 | 3 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

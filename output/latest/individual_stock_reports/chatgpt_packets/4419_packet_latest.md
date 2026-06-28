@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4419 皇家美食
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:48 Asia/Taipei
+- generated_at: 2026-06-28 22:26:45 Asia/Taipei
 - stock_id: 4419
 - stock_name: 皇家美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 149
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 153
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 45.6
-- high: 46.15
-- low: 45.5
-- close: 45.85
-- volume: 31000
-- ma5: 45.88
-- ema23_primary: 45.89
-- distance_to_ema23_pct: -0.09
-- ma20: 45.81
-- ma60: 46.61
-- ma120: 46.81
-- return_5d: -1.19
-- return_20d: 1.66
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 0.09
-- distance_to_high_60_pct: -16.64
+- date: 20260626
+- open: 50.6
+- high: 50.7
+- low: 49.55
+- close: 50.3
+- volume: 44000
+- ma5: 48.23
+- ema23_primary: 46.8
+- distance_to_ema23_pct: 7.48
+- ma20: 46.48
+- ma60: 46.63
+- ma120: 46.85
+- return_5d: 8.87
+- return_20d: 9.23
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 8.22
+- distance_to_high_60_pct: -8.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,45.9,46.5,45.25,45.25,46000,46.07,-1.77,46.06,46.35,5.29
-20260526,45.5,45.65,45.25,45.25,45000,46,-1.63,46.03,46.35,4.13
-20260527,45.9,45.9,45.25,45.3,45000,45.94,-1.4,45.99,46.36,3.45
-20260528,45.5,46.5,45.5,46.05,46000,45.95,0.22,45.99,46.38,3.01
 20260529,46.1,46.1,46.05,46.1,46000,45.96,0.3,45.95,46.4,2.62
 20260601,46.1,46.8,45.8,46.8,46000,46.03,1.67,45.99,46.44,2.32
 20260602,46.55,46.8,46.35,46.5,47,46.07,0.93,46.02,46.49,0
@@ -155,10 +150,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,46.35,46.35,45.35,45.9,23000,45.87,0.07,45.77,46.61,0.62
 20260618,46.7,46.7,45.5,46.2,22000,45.9,0.66,45.77,46.62,0.58
 20260622,45.6,46.15,45.5,45.85,31000,45.89,-0.09,45.81,46.61,0.83
+20260623,45.7,46.45,45.05,46.45,26000,45.94,1.11,45.87,46.59,0.72
+20260624,45.65,47.95,45.4,47.95,14000,46.11,4,46,46.6,0.4
+20260625,48.8,50.6,48.8,50.6,48000,46.48,8.86,46.27,46.62,1.38
+20260626,50.6,50.7,49.55,50.3,44000,46.8,7.48,46.48,46.63,1.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 96.85
 - over_600_ratio: 96.85
 - over_800_ratio: 96.1
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,96.85,0,96.1,0,95.09,0,0,False,False
 20260612,96.85,0,96.1,0,95.09,0,0,False,False
 20260618,96.85,0,96.1,0,95.09,0,0,False,False
+20260626,96.85,0,96.1,0,95.09,0,0,False,False
 ```
 
 ## Candidate Context

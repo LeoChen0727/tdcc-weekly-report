@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:55 Asia/Taipei
+- generated_at: 2026-06-28 22:26:03 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 95.5
-- high: 95.5
-- low: 94.6
-- close: 94.8
-- volume: 504196
-- ma5: 95.18
-- ema23_primary: 94.43
-- distance_to_ema23_pct: 0.39
-- ma20: 93.67
-- ma60: 96.7
-- ma120: 99.12
-- return_5d: 0.42
-- return_20d: 3.04
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 1.2
-- distance_to_high_60_pct: -7.51
+- date: 20260626
+- open: 94.5
+- high: 94.7
+- low: 93.4
+- close: 93.6
+- volume: 508490
+- ma5: 94.42
+- ema23_primary: 94.39
+- distance_to_ema23_pct: -0.84
+- ma20: 94.13
+- ma60: 96.27
+- ma120: 98.82
+- return_5d: -1.99
+- return_20d: 2.41
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -0.56
+- distance_to_high_60_pct: -8.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,91.7,93.5,91.3,92.9,916635,95.81,-3.04,96.04,99.15,1.11
-20260526,93,93.1,92,92.2,617798,95.51,-3.47,95.78,98.98,0.82
-20260527,92.7,92.7,91.5,91.7,827571,95.19,-3.67,95.46,98.79,1.08
-20260528,92.4,92.9,91.4,91.4,601077,94.88,-3.67,95.08,98.59,0.79
 20260529,91.5,93.2,91.5,93.2,806736,94.74,-1.62,94.86,98.45,1.06
 20260601,92.9,93.9,92.4,93.9,1178645,94.67,-0.81,94.66,98.34,1.49
 20260602,93.1,93.8,91.6,93.8,2083272,94.6,-0.84,94.41,98.19,2.39
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,95.5,95.5,94.1,94.1,706880,94.3,-0.21,93.36,96.9,0.81
 20260618,94.3,95.5,94.3,95.5,571284,94.4,1.17,93.53,96.81,0.65
 20260622,95.5,95.5,94.6,94.8,504196,94.43,0.39,93.67,96.7,0.59
+20260623,95.1,95.3,94.3,94.3,326997,94.42,-0.13,93.75,96.57,0.39
+20260624,94.1,95.4,94,94.9,356735,94.46,0.46,93.88,96.46,0.44
+20260625,95,95.8,94.5,94.5,504365,94.46,0.04,94.02,96.35,0.63
+20260626,94.5,94.7,93.4,93.6,508490,94.39,-0.84,94.13,96.27,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.82
-- over_600_ratio: 81.16
-- over_800_ratio: 80.27
-- over_1000_ratio: 78.6
-- over_400_change_1w: 0.13
-- over_800_change_1w: -0.1
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 82.65
+- over_600_ratio: 81.21
+- over_800_ratio: 80.32
+- over_1000_ratio: 78.86
+- over_400_change_1w: -0.17
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.26
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,82.8,-0.02,80.15,-0.28,78.69,-0.08,0,False,False
 20260612,82.69,-0.11,80.37,0.22,78.44,-0.25,1,False,True
 20260618,82.82,0.13,80.27,-0.1,78.6,0.16,2,False,True
+20260626,82.65,-0.17,80.32,0.05,78.86,0.26,3,False,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2211 | 長榮鋼 | 5 | 0 | 43310.0 | 0.0 |  | no_signal |
+| 20260626 | 2211 | 長榮鋼 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

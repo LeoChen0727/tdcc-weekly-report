@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00917 中信特選金融
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:30 Asia/Taipei
+- generated_at: 2026-06-28 22:25:43 Asia/Taipei
 - stock_id: 00917
 - stock_name: 中信特選金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 22.61
-- high: 22.61
-- low: 22.32
-- close: 22.32
-- volume: 1000945
-- ma5: 22.49
-- ema23_primary: 22.03
-- distance_to_ema23_pct: 1.33
-- ma20: 21.95
-- ma60: 21.94
-- ma120: 21.94
-- return_5d: 1.59
-- return_20d: 2.76
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 1.7
-- distance_to_high_60_pct: -1.72
+- date: 20260626
+- open: 22.3
+- high: 22.3
+- low: 22.17
+- close: 22.2
+- volume: 407408
+- ma5: 22.32
+- ema23_primary: 22.11
+- distance_to_ema23_pct: 0.4
+- ma20: 22.06
+- ma60: 22
+- ma120: 22
+- return_5d: -1.81
+- return_20d: 2.87
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 0.62
+- distance_to_high_60_pct: -2.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,21.73,21.83,21.72,21.79,877484,,,,,
-20260526,21.8,21.88,21.8,21.86,571493,,,,,
-20260527,21.86,21.86,21.75,21.76,570826,,,,,
-20260528,21.76,21.76,21.57,21.58,899593,21.73,-0.67,21.74,21.74,1.02
 20260529,21.58,21.58,21.5,21.56,1010710,21.71,-0.7,21.71,21.71,1.12
 20260601,21.56,21.64,21.56,21.63,1037335,21.71,-0.35,21.7,21.7,1.13
 20260602,21.65,21.69,21.58,21.69,1367314,21.7,-0.06,21.7,21.7,1.4
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,22.64,22.71,22.64,22.67,766124,21.94,3.31,21.88,21.88,0.75
 20260618,22.67,22.67,22.6,22.61,536526,22,2.77,21.92,21.92,0.54
 20260622,22.61,22.61,22.32,22.32,1000945,22.03,1.33,21.95,21.94,1.03
+20260623,22.4,22.5,22.37,22.37,864081,22.06,1.43,21.98,21.96,0.89
+20260624,22.37,22.43,22.37,22.42,406193,22.09,1.51,22,21.98,0.42
+20260625,22.45,22.45,22.26,22.3,893339,22.1,0.89,22.03,21.99,0.91
+20260626,22.3,22.3,22.17,22.2,407408,22.11,0.4,22.06,22,0.43
 ```
 
 ## Latest TDCC Snapshot

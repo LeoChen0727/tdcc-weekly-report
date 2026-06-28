@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6890 來億-KY
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:39 Asia/Taipei
+- generated_at: 2026-06-28 22:27:27 Asia/Taipei
 - stock_id: 6890
 - stock_name: 來億-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 241
-- high: 241
-- low: 228
-- close: 230.5
-- volume: 262991
-- ma5: 230.9
-- ema23_primary: 219.31
-- distance_to_ema23_pct: 5.1
-- ma20: 219.72
-- ma60: 180.98
-- ma120: 199.45
-- return_5d: -9.96
-- return_20d: 36.39
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 4.9
-- distance_to_high_60_pct: -19.26
+- date: 20260626
+- open: 244.5
+- high: 248
+- low: 223.5
+- close: 223.5
+- volume: 450814
+- ma5: 236.1
+- ema23_primary: 224.53
+- distance_to_ema23_pct: -0.46
+- ma20: 233.3
+- ma60: 185.93
+- ma120: 199.03
+- return_5d: -6.09
+- return_20d: 31.86
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -4.2
+- distance_to_high_60_pct: -21.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,171,171,167,169.5,442515,164.01,3.35,161.4,166.67,0.82
-20260526,170.5,173,168,169,380486,164.42,2.78,162.07,166.19,0.7
-20260527,171.5,173,168.5,170.5,386391,164.93,3.38,162.62,165.65,0.71
-20260528,171.5,172.5,167,169.5,580646,165.31,2.53,163.25,165.22,1.04
 20260529,171,171,167,167.5,509764,165.49,1.21,163.8,164.84,0.9
 20260601,169,177,169,174.5,930807,166.24,4.97,164.68,164.72,1.56
 20260602,177.5,191.5,175.5,191.5,2485806,168.35,13.75,166.35,164.9,3.51
@@ -154,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,226,230,225,228,226745,216.5,5.31,213.05,178.97,0.11
 20260618,235,238,232.5,238,392199,218.29,9.03,216.65,179.92,0.19
 20260622,241,241,228,230.5,262991,219.31,5.1,219.72,180.98,0.13
+20260623,235.5,238,228,238,382109,220.87,7.76,223.15,182.21,0.19
+20260624,239,240.5,239,240.5,267900,222.5,8.09,226.72,183.46,0.13
+20260625,252,252,241.5,248,197916,224.63,10.4,230.6,184.83,0.1
+20260626,244.5,248,223.5,223.5,450814,224.53,-0.46,233.3,185.93,0.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 92.46
-- over_600_ratio: 92.46
-- over_800_ratio: 92.19
-- over_1000_ratio: 91.81
-- over_400_change_1w: -0.3
-- over_800_change_1w: -0.3
-- over_1000_change_1w: -0.3
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 92.63
+- over_600_ratio: 92.45
+- over_800_ratio: 92.18
+- over_1000_ratio: 91.8
+- over_400_change_1w: 0.17
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,89.72,0.64,89.03,0.98,88.3,0.97,2,True,True
 20260612,92.76,3.04,92.49,3.46,92.11,3.81,3,True,True
 20260618,92.46,-0.3,92.19,-0.3,91.81,-0.3,0,False,False
+20260626,92.63,0.17,92.18,-0.01,91.8,-0.01,1,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6890 | 來億-KY | 21 | 0 | 152160.0 | 0.0 |  | no_signal |
+| 20260626 | 6890 | 來億-KY | 15 | 0 | 112740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

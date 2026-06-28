@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:43 Asia/Taipei
+- generated_at: 2026-06-28 22:25:54 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,9 +88,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 69.4
-- high: 71
-- low: 65.2
-- close: 66.2
-- volume: 6624001
-- ma5: 65.06
-- ema23_primary: 59.83
-- distance_to_ema23_pct: 10.64
-- ma20: 62.25
-- ma60: 49.21
-- ma120: 47.13
-- return_5d: 10.15
-- return_20d: 43.76
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 6.35
-- distance_to_high_60_pct: -8.69
+- date: 20260626
+- open: 65
+- high: 66.6
+- low: 63.5
+- close: 64.4
+- volume: 1801181
+- ma5: 65.96
+- ema23_primary: 61.57
+- distance_to_ema23_pct: 4.6
+- ma20: 64.77
+- ma60: 50.85
+- ma120: 47.94
+- return_5d: -4.87
+- return_20d: 5.4
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -0.56
+- distance_to_high_60_pct: -11.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,46.05,46.35,45.45,46,808204,44.02,4.5,43.59,42.46,0.99
-20260526,50.6,50.6,50.6,50.6,1592814,44.57,13.54,44.08,42.58,1.84
-20260527,55.6,55.6,55.6,55.6,1389402,45.49,22.24,44.83,42.77,1.53
-20260528,61.1,61.1,61.1,61.1,4815581,46.79,30.59,45.81,43.07,4.31
 20260529,67.2,67.2,64,66.7,14824089,48.45,37.68,47.07,43.43,8.05
 20260601,65.6,72.5,60.7,69.9,7979932,50.23,39.15,48.5,43.88,3.6
 20260602,70,70,64.9,69.8,4931104,51.86,34.58,49.93,44.33,2.03
@@ -153,26 +151,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,61.8,63.7,59.9,61.6,2670969,58.48,5.33,60.14,48.31,1.01
 20260618,63.1,67.7,61,67.7,6707844,59.25,14.26,61.24,48.77,2.27
 20260622,69.4,71,65.2,66.2,6624001,59.83,10.64,62.25,49.21,2.04
+20260623,66,71.4,65.3,69.7,6547888,60.65,14.91,63.44,49.7,1.85
+20260624,69,69,64.7,64.8,4521637,61,6.23,64.14,50.11,1.23
+20260625,65.1,66.2,63.5,64.7,1699099,61.31,5.53,64.6,50.52,0.46
+20260626,65,66.6,63.5,64.4,1801181,61.57,4.6,64.77,50.85,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.69
-- over_600_ratio: 41.42
-- over_800_ratio: 37.18
-- over_1000_ratio: 34.09
-- over_400_change_1w: -0.34
-- over_800_change_1w: -0.64
-- over_1000_change_1w: -0.2
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 47.49
+- over_600_ratio: 41.97
+- over_800_ratio: 38.33
+- over_1000_ratio: 32.77
+- over_400_change_1w: 0.8
+- over_800_change_1w: 1.15
+- over_1000_change_1w: -1.32
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,41.91,0.09,34.96,0.19,32.26,0.56,18,False,True
 20260410,41.02,-0.89,33.65,-1.31,30.88,-1.38,0,False,False
 20260417,41.12,0.1,33.76,0.11,30.99,0.11,1,True,True
 20260424,41.07,-0.05,33.69,-0.07,30.56,-0.43,0,False,False
@@ -184,17 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,47.25,2.55,38.49,2.73,34.65,2.05,6,True,True
 20260612,47.03,-0.22,37.82,-0.67,34.29,-0.36,7,False,False
 20260618,46.69,-0.34,37.18,-0.64,34.09,-0.2,0,False,False
+20260626,47.49,0.8,38.33,1.15,32.77,-1.32,1,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 1563 | 巧新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。 共計現金股利434,176,280元，每股現金股利2元。 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/06 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 1563 | 巧新 | 1 | 1 | 3 | 3 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

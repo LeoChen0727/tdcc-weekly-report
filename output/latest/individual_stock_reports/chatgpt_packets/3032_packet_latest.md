@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3032 偉訓
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:22 Asia/Taipei
+- generated_at: 2026-06-28 22:26:24 Asia/Taipei
 - stock_id: 3032
 - stock_name: 偉訓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 287
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 291
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 86.7
-- high: 86.7
-- low: 85
-- close: 85
-- volume: 832832
-- ma5: 85
-- ema23_primary: 84.34
-- distance_to_ema23_pct: 0.78
-- ma20: 87.76
-- ma60: 74.47
-- ma120: 73.19
-- return_5d: 3.41
-- return_20d: -2.52
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -3.14
-- distance_to_high_60_pct: -11.64
+- date: 20260626
+- open: 80
+- high: 80
+- low: 74.8
+- close: 75.3
+- volume: 1502564
+- ma5: 80.76
+- ema23_primary: 82.91
+- distance_to_ema23_pct: -9.18
+- ma20: 85.61
+- ma60: 75.45
+- ma120: 73.28
+- return_5d: -12.34
+- return_20d: -16.61
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -12.04
+- distance_to_high_60_pct: -21.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,91.3,92.9,88.6,91,6343821,75.21,21,73.99,67.66,2.82
-20260526,91,92.4,89.5,90,2479750,76.44,17.74,75.33,67.95,1.06
-20260527,91.5,92.5,89.3,90.6,2768959,77.62,16.72,76.72,68.26,1.12
-20260528,90.6,93.6,88.5,90.3,2910710,78.68,14.77,78.12,68.59,1.12
 20260529,91,91.6,89.7,90.5,1292771,79.66,13.6,79.44,68.96,0.49
 20260601,91.1,92.4,90.3,91,1755295,80.61,12.89,80.81,69.42,0.66
 20260602,91.5,92.8,86.4,88,2840128,81.22,8.34,81.92,69.78,1.03
@@ -155,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,84,84.9,83.3,84.6,513277,84.13,0.55,87.54,73.76,0.24
 20260618,85.6,86.3,84.6,85.9,589687,84.28,1.92,87.87,74.11,0.27
 20260622,86.7,86.7,85,85,832832,84.34,0.78,87.76,74.47,0.44
+20260623,84.4,84.9,81,81.7,1007772,84.12,-2.88,87.3,74.75,0.61
+20260624,81,82.4,80,81.7,800197,83.92,-2.64,86.88,75.02,0.51
+20260625,82,82,80.1,80.1,489451,83.6,-4.19,86.36,75.26,0.34
+20260626,80,80,74.8,75.3,1502564,82.91,-9.18,85.61,75.45,1.09
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.34
-- over_600_ratio: 47.45
-- over_800_ratio: 45.74
-- over_1000_ratio: 44.9
-- over_400_change_1w: -1.18
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.17
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 51.54
+- over_600_ratio: 47.23
+- over_800_ratio: 44.79
+- over_1000_ratio: 43.95
+- over_400_change_1w: 0.2
+- over_800_change_1w: -0.95
+- over_1000_change_1w: -0.95
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.27,0.78,45.96,-1.13,45.12,-0.33,2,False,False
 20260612,52.52,-0.75,45.91,-0.05,45.07,-0.05,0,False,False
 20260618,51.34,-1.18,45.74,-0.17,44.9,-0.17,0,False,False
+20260626,51.54,0.2,44.79,-0.95,43.95,-0.95,1,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3032 | 偉訓 | 10 | 0 | 664310.0 | 0.0 |  | no_signal |
+| 20260626 | 3032 | 偉訓 | 10 | 0 | 236750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2105 正新
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:54 Asia/Taipei
+- generated_at: 2026-06-28 22:26:02 Asia/Taipei
 - stock_id: 2105
 - stock_name: 正新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 29.9
-- high: 30.1
-- low: 29.7
-- close: 30.05
-- volume: 20028178
-- ma5: 31.45
-- ema23_primary: 32.55
-- distance_to_ema23_pct: -7.67
-- ma20: 32.92
-- ma60: 32.17
-- ma120: 31.18
-- return_5d: -12.26
-- return_20d: -5.8
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -8.71
-- distance_to_high_60_pct: -14.87
+- date: 20260626
+- open: 29.6
+- high: 29.75
+- low: 29.2
+- close: 29.4
+- volume: 11418822
+- ma5: 29.52
+- ema23_primary: 31.62
+- distance_to_ema23_pct: -7.02
+- ma20: 32.45
+- ma60: 32.09
+- ma120: 31.15
+- return_5d: -0.84
+- return_20d: -7.84
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -9.39
+- distance_to_high_60_pct: -16.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,32,32.05,31.65,31.95,10133288,31.9,0.17,31.77,31.12,1
-20260526,31.9,32.35,31.5,31.6,10794038,31.87,-0.85,31.76,31.14,1.06
-20260527,31.55,31.95,31.5,31.55,9033724,31.84,-0.92,31.77,31.14,0.88
-20260528,31.8,32.3,31.7,31.9,11662682,31.85,0.16,31.79,31.17,1.12
 20260529,32.3,32.45,31.95,32.4,14014732,31.89,1.58,31.85,31.22,1.32
 20260601,32.4,33.05,32.2,33,14468628,31.99,3.17,31.95,31.28,1.33
 20260602,33,34.45,32.7,34,38313970,32.15,5.74,32.1,31.36,3.12
@@ -154,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,29.55,30.7,29.45,29.7,86620457,33.06,-10.16,33.15,32.17,3.37
 20260618,29.95,30.4,29.65,29.65,38482794,32.77,-9.53,33.01,32.17,1.42
 20260622,29.9,30.1,29.7,30.05,20028178,32.55,-7.67,32.92,32.17,0.73
+20260623,30.1,30.15,29.3,29.3,20681183,32.28,-9.22,32.78,32.16,0.74
+20260624,29.25,29.4,29.05,29.25,9980126,32.02,-8.66,32.67,32.14,0.36
+20260625,29.35,29.8,29.25,29.6,11620572,31.82,-6.98,32.57,32.12,0.41
+20260626,29.6,29.75,29.2,29.4,11418822,31.62,-7.02,32.45,32.09,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 80.43
-- over_600_ratio: 79.15
-- over_800_ratio: 78.48
-- over_1000_ratio: 77.93
-- over_400_change_1w: -1.54
-- over_800_change_1w: -1.76
-- over_1000_change_1w: -1.67
+- as_of_date: 20260626
+- over_400_ratio: 79.93
+- over_600_ratio: 78.65
+- over_800_ratio: 77.94
+- over_1000_ratio: 77.17
+- over_400_change_1w: -0.5
+- over_800_change_1w: -0.54
+- over_1000_change_1w: -0.76
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,81.69,0.65,79.82,0.7,79.3,0.72,4,True,True
 20260612,81.97,0.28,80.24,0.42,79.6,0.3,5,True,True
 20260618,80.43,-1.54,78.48,-1.76,77.93,-1.67,0,False,False
+20260626,79.93,-0.5,77.94,-0.54,77.17,-0.76,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2105 | 正新 | 10 | 0 | 68610.0 | 0.0 |  | no_signal |
+| 20260626 | 2105 | 正新 | 10 | 0 | 274290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

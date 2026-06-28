@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:04 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 36
-- high: 36.6
-- low: 35.65
-- close: 35.85
-- volume: 34183663
-- ma5: 35.28
-- ema23_primary: 35.2
-- distance_to_ema23_pct: 1.83
-- ma20: 37.49
-- ma60: 29.93
-- ma120: 27.54
-- return_5d: 2.58
-- return_20d: 8.31
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -4.37
-- distance_to_high_60_pct: -19.26
+- date: 20260626
+- open: 35.7
+- high: 35.9
+- low: 33.5
+- close: 33.5
+- volume: 50675917
+- ma5: 35.66
+- ema23_primary: 35.31
+- distance_to_ema23_pct: -5.12
+- ma20: 37.04
+- ma60: 30.78
+- ma120: 27.96
+- return_5d: -5.63
+- return_20d: -11.14
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -9.55
+- distance_to_high_60_pct: -24.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,36,36.4,35.5,36.4,66663284,28.88,26.04,29.14,25.52,1.17
-20260526,40,40,38.25,40,210267926,29.81,34.2,29.77,25.77,3.21
-20260527,38.85,38.85,36,37.35,165750495,30.44,22.72,30.13,25.96,2.48
-20260528,38,41.05,37.3,37.7,161629606,31.04,21.45,30.59,26.17,2.37
 20260529,39.55,39.7,37.8,38.95,102606028,31.7,22.87,31.16,26.42,1.45
 20260601,39.9,42,39.8,40.6,120797558,32.44,25.15,31.79,26.73,1.61
 20260602,40.95,43.5,38.85,41.3,135198121,33.18,24.47,32.45,27.03,1.69
@@ -155,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.25,35,33.7,34.85,23821787,35.11,-0.75,37.08,29.49,0.25
 20260618,35.35,36.15,34.9,35.5,24934619,35.15,1.01,37.35,29.7,0.27
 20260622,36,36.6,35.65,35.85,34183663,35.2,1.83,37.49,29.93,0.4
+20260623,35.8,35.8,33.75,34.55,34889165,35.15,-1.71,37.4,30.12,0.41
+20260624,35,38,34.95,38,152064892,35.39,7.38,37.3,30.37,1.86
+20260625,38.5,38.55,36.25,36.4,114832487,35.47,2.62,37.25,30.59,1.45
+20260626,35.7,35.9,33.5,33.5,50675917,35.31,-5.12,37.04,30.78,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.92
-- over_600_ratio: 48.06
-- over_800_ratio: 46.68
-- over_1000_ratio: 45.98
-- over_400_change_1w: -0.86
-- over_800_change_1w: -0.91
-- over_1000_change_1w: -0.74
+- as_of_date: 20260626
+- over_400_ratio: 47.87
+- over_600_ratio: 46.04
+- over_800_ratio: 44.83
+- over_1000_ratio: 43.78
+- over_400_change_1w: -2.05
+- over_800_change_1w: -1.85
+- over_1000_change_1w: -2.2
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.64,-1.1,48.35,-1.19,47.34,-1.07,0,False,False
 20260612,50.78,-0.86,47.59,-0.76,46.72,-0.62,0,False,False
 20260618,49.92,-0.86,46.68,-0.91,45.98,-0.74,0,False,False
+20260626,47.87,-2.05,44.83,-1.85,43.78,-2.2,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2312 | 金寶 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | degraded calendar context only: ex_dividend on 20260623; status=source_stale_cached; proximity=within_3d; model_effect_allowed=False; pdf_effect_allowed=False |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2312 | 金寶 | 6 | 6 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2312 | 金寶 | 97 | 2 | 10064960.0 | 7000.0 | 1437.85 | call_inflow |
+| 20260626 | 2312 | 金寶 | 93 | 0 | 9057100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

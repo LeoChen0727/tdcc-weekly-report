@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009813 貝萊德標普卓越50
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:32 Asia/Taipei
+- generated_at: 2026-06-28 22:25:44 Asia/Taipei
 - stock_id: 009813
 - stock_name: 貝萊德標普卓越50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 11.02
-- high: 11.03
-- low: 10.97
-- close: 10.99
-- volume: 4071179
-- ma5: 11.08
-- ema23_primary: 11.19
-- distance_to_ema23_pct: -1.75
-- ma20: 11.21
-- ma60: 11.22
-- ma120: 11.22
-- return_5d: -0.09
-- return_20d: -3.26
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -1.98
-- distance_to_high_60_pct: -4.18
+- date: 20260626
+- open: 10.8
+- high: 10.8
+- low: 10.65
+- close: 10.68
+- volume: 8879198
+- ma5: 10.84
+- ema23_primary: 11.07
+- distance_to_ema23_pct: -3.53
+- ma20: 11.11
+- ma60: 11.15
+- ma120: 11.15
+- return_5d: -3.09
+- return_20d: -5.15
+- volume_ratio: 2.34
+- distance_to_ma20_pct_auxiliary: -3.85
+- distance_to_high_60_pct: -6.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,11.4,11.41,11.36,11.37,4508463,,,,,
-20260526,11.37,11.38,11.35,11.37,3374493,,,,,
-20260527,11.35,11.35,11.29,11.3,2765153,,,,,
-20260528,11.32,11.33,11.25,11.26,5379808,11.35,-0.78,11.33,11.33,1.5
 20260529,11.3,11.41,11.3,11.4,3822909,11.35,0.42,11.34,11.34,1.05
 20260601,11.42,11.46,11.42,11.44,4072378,11.36,0.7,11.36,11.36,1.1
 20260602,11.42,11.46,11.39,11.45,2909591,11.37,0.73,11.37,11.37,0.81
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,11.14,11.14,11.1,11.13,1148912,11.22,-0.81,11.24,11.24,0.34
 20260618,11.08,11.08,11,11.02,2236368,11.2,-1.64,11.23,11.23,0.68
 20260622,11.02,11.03,10.97,10.99,4071179,11.19,-1.75,11.21,11.22,1.2
+20260623,10.98,10.98,10.85,10.85,3602731,11.16,-2.76,11.19,11.2,1.08
+20260624,10.75,10.8,10.75,10.8,7166848,11.13,-2.95,11.16,11.19,2.03
+20260625,10.81,10.87,10.77,10.87,4300032,11.11,-2.13,11.14,11.17,1.19
+20260626,10.8,10.8,10.65,10.68,8879198,11.07,-3.53,11.11,11.15,2.34
 ```
 
 ## Latest TDCC Snapshot

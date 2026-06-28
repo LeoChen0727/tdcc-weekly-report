@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:37 Asia/Taipei
+- generated_at: 2026-06-28 22:26:37 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,38 +56,38 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_support
+- thesis_state: high_level_consolidation
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 38.4
-- high: 39.7
-- low: 35.8
-- close: 35.9
-- volume: 20071272
-- ma5: 33.19
-- ema23_primary: 27
-- distance_to_ema23_pct: 32.96
-- ma20: 25.82
-- ma60: 21.94
-- ma120: 19.29
-- return_5d: 23.58
-- return_20d: 65.06
-- volume_ratio: 2.49
-- distance_to_ma20_pct_auxiliary: 39.01
-- distance_to_high_60_pct: -9.57
+- date: 20260626
+- open: 32.5
+- high: 34.3
+- low: 31.35
+- close: 31.4
+- volume: 6328052
+- ma5: 34.25
+- ema23_primary: 28.97
+- distance_to_ema23_pct: 8.4
+- ma20: 28.49
+- ma60: 22.98
+- ma120: 19.96
+- return_5d: -15.7
+- return_20d: 57
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 10.22
+- distance_to_high_60_pct: -20.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,22.5,22.5,21.15,21.5,2910581,20.68,3.98,20.92,19.37,0.7
-20260526,21.7,21.8,20.35,20.4,2269789,20.65,-1.23,21.02,19.41,0.54
-20260527,20.8,20.8,19.95,20.2,2097288,20.62,-2.02,21.09,19.44,0.49
-20260528,20.2,20.65,19.7,20,1869726,20.57,-2.75,21.05,19.47,0.45
 20260529,20.15,20.95,20,20.65,1500106,20.57,0.38,21.02,19.51,0.42
 20260601,20.95,22.3,20.85,21.45,4852543,20.65,3.9,21.02,19.59,1.35
 20260602,21.8,21.8,20.45,21,2600832,20.68,1.57,20.9,19.65,0.8
@@ -153,20 +149,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,32.95,33.9,32.05,33.9,4661591,25.19,34.59,24.3,21.33,0.65
 20260618,37.2,37.25,36.2,37.25,3088839,26.19,42.22,25.12,21.64,0.43
 20260622,38.4,39.7,35.8,35.9,20071272,27,32.96,25.82,21.94,2.49
+20260623,36.25,36.5,34.4,35,6297942,27.67,26.5,26.5,22.23,0.76
+20260624,35.3,38.5,34.8,36,17339769,28.36,26.93,27.28,22.54,1.93
+20260625,35.1,35.2,32.4,32.95,8769143,28.74,14.63,27.92,22.77,0.94
+20260626,32.5,34.3,31.35,31.4,6328052,28.97,8.4,28.49,22.98,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 53.97
-- over_600_ratio: 50.86
-- over_800_ratio: 48.84
-- over_1000_ratio: 44.56
-- over_400_change_1w: 3.42
-- over_800_change_1w: 2.37
-- over_1000_change_1w: 1.5
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 50.22
+- over_600_ratio: 44.47
+- over_800_ratio: 43.81
+- over_1000_ratio: 40.31
+- over_400_change_1w: -3.75
+- over_800_change_1w: -5.03
+- over_1000_change_1w: -4.25
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,17 +180,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,48.27,5.04,41.11,3.67,38.45,1.81,1,True,True
 20260612,50.55,2.28,46.47,5.36,43.06,4.61,2,True,True
 20260618,53.97,3.42,48.84,2.37,44.56,1.5,3,True,True
+20260626,50.22,-3.75,43.81,-5.03,40.31,-4.25,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3550 | 聯穎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.發生變動日期:115/06/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)獨立董事徐永珍先生 (2)獨立董事巫麗卿女士 (3)獨立董事黃詩易先生 4.舊任者簡歷: (1)獨立董事徐永珍先生：國立清華大學電機工程學系暨電子工程研究所教授 (2)獨立董事巫麗卿女士：本公司獨立董事 (3)獨立董事黃詩易先生：本公司獨立董事 5.新任者姓名:待董事會委任。 6.新任者簡歷:待董事會委任。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿。 8.異動原因:配合115年股東常會全面改選董事及獨立董事。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/09-115/06/29 10.新任生效日期:尚未委任。 11.其他應敘明事項:新任薪資報酬委員將於董事會委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3550 | 聯穎 | 18 | 1 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

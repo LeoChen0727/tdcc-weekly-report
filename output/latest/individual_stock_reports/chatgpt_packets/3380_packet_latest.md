@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:33 Asia/Taipei
+- generated_at: 2026-06-28 22:26:33 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 35.5
-- high: 36.3
-- low: 34.85
-- close: 35.8
-- volume: 4215799
-- ma5: 35.1
-- ema23_primary: 35.33
-- distance_to_ema23_pct: 1.32
-- ma20: 36.17
-- ma60: 35.85
-- ma120: 34.59
-- return_5d: 5.6
-- return_20d: 4.83
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.03
-- distance_to_high_60_pct: -18.54
+- date: 20260626
+- open: 33.65
+- high: 33.65
+- low: 31.5
+- close: 31.5
+- volume: 4566331
+- ma5: 33.93
+- ema23_primary: 34.75
+- distance_to_ema23_pct: -9.36
+- ma20: 35.73
+- ma60: 35.65
+- ma120: 34.65
+- return_5d: -9.87
+- return_20d: -12.74
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -11.83
+- distance_to_high_60_pct: -28.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,35.3,36.15,35.05,35.8,7177530,33.77,6.02,32.96,35.41,2.08
-20260526,36.2,36.2,34.7,35.4,4641382,33.9,4.41,32.97,35.46,1.34
-20260527,36,36.7,34.75,35.5,5336548,34.04,4.3,33,35.53,1.47
-20260528,35.7,38.05,35.7,36.1,9716466,34.21,5.53,33.1,35.56,2.42
 20260529,37,39.4,36.45,38.6,10992438,34.58,11.64,33.35,35.61,2.48
 20260601,39.1,39.65,38.1,38.8,7954792,34.93,11.09,33.61,35.72,1.69
 20260602,38.85,40.3,38.45,40.2,9176825,35.37,13.67,33.88,35.8,1.82
@@ -154,17 +150,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,34.1,35.8,34,35.4,2804350,35.32,0.22,35.98,35.8,0.51
 20260618,35.4,35.7,34.7,34.95,4011734,35.29,-0.97,36.09,35.81,0.72
 20260622,35.5,36.3,34.85,35.8,4215799,35.33,1.32,36.17,35.85,0.76
+20260623,36,36,33.95,34.2,4087117,35.24,-2.95,36.09,35.81,0.76
+20260624,33.8,34.85,33.8,34.5,2701768,35.18,-1.93,36.05,35.78,0.51
+20260625,34.9,34.9,33.5,33.65,2685981,35.05,-4,35.95,35.73,0.52
+20260626,33.65,33.65,31.5,31.5,4566331,34.75,-9.36,35.73,35.65,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 68.43
-- over_600_ratio: 66.74
-- over_800_ratio: 66.23
-- over_1000_ratio: 65.78
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.26
-- over_1000_change_1w: -0.25
+- as_of_date: 20260626
+- over_400_ratio: 67.57
+- over_600_ratio: 66.08
+- over_800_ratio: 65.57
+- over_1000_ratio: 65.12
+- over_400_change_1w: -0.86
+- over_800_change_1w: -0.66
+- over_1000_change_1w: -0.66
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,22 +181,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,68.88,1.05,66.9,1.04,66.09,0.56,3,True,True
 20260612,68.47,-0.41,66.49,-0.41,66.03,-0.06,0,False,False
 20260618,68.43,-0.04,66.23,-0.26,65.78,-0.25,0,False,False
+20260626,67.57,-0.86,65.57,-0.66,65.12,-0.66,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3380 | 明泰 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3380 | 明泰 | 1 | 1 | 2 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3380 | 明泰 | 18 | 0 | 302570.0 | 0.0 |  | no_signal |
+| 20260626 | 3380 | 明泰 | 18 | 0 | 419490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

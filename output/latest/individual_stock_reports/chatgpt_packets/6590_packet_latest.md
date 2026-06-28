@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6590 普鴻
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:29 Asia/Taipei
+- generated_at: 2026-06-28 22:27:18 Asia/Taipei
 - stock_id: 6590
 - stock_name: 普鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 150
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 153
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,31 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 68.7
-- high: 69.3
-- low: 68.3
-- close: 69.2
-- volume: 19000
-- ma5: 67.52
-- ema23_primary: 67.06
-- distance_to_ema23_pct: 3.19
-- ma20: 66.34
-- ma60: 68.78
-- ma120: 71.07
-- return_5d: 4.53
-- return_20d: 3.44
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 4.3
-- distance_to_high_60_pct: -7.61
+- date: 20260626
+- open: 67.5
+- high: 67.9
+- low: 66.6
+- close: 66.6
+- volume: 7000
+- ma5: 68
+- ema23_primary: 67.12
+- distance_to_ema23_pct: -0.77
+- ma20: 66.46
+- ma60: 68.48
+- ma120: 70.84
+- return_5d: 0
+- return_20d: 0.76
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 0.21
+- distance_to_high_60_pct: -9.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260522,66.9,67,66.8,67,67000,68.65,-2.41,68.8,70.57,4.65
-20260525,66.2,67.5,66.2,66.7,67000,68.49,-2.62,68.64,70.49,3.86
-20260526,66.5,66.5,66,66.1,66000,68.29,-3.21,68.44,70.41,3.21
 20260527,66,66,65,65.1,65000,68.03,-4.3,68.22,70.31,2.76
 20260528,65.8,65.8,65.3,65.3,66000,67.8,-3.69,67.97,70.22,2.51
 20260529,65.5,65.7,65,65,65000,67.57,-3.8,67.71,70.11,2.22
@@ -155,15 +152,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,66.5,66.6,66.5,66.6,6000,66.7,-0.14,66.14,68.94,0.16
 20260618,66.6,68.7,66.1,68.7,31000,66.86,2.75,66.23,68.86,0.8
 20260622,68.7,69.3,68.3,69.2,19000,67.06,3.19,66.34,68.78,0.49
+20260623,68.9,68.9,68,68,8000,67.14,1.29,66.39,68.69,0.22
+20260625,68,68,67.5,67.5,24000,67.17,0.5,66.44,68.59,0.71
+20260626,67.5,67.9,66.6,66.6,7000,67.12,-0.77,66.46,68.48,0.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57
-- over_600_ratio: 51.56
+- as_of_date: 20260626
+- over_400_ratio: 56.98
+- over_600_ratio: 51.54
 - over_800_ratio: 41.03
 - over_1000_ratio: 30.04
-- over_400_change_1w: 0
+- over_400_change_1w: -0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.95,0.07,41.03,0.05,30.04,0.05,4,True,True
 20260612,57,0.05,41.03,0,30.04,0,5,False,False
 20260618,57,0,41.03,0,30.04,0,0,False,False
+20260626,56.98,-0.02,41.03,0,30.04,0,0,False,False
 ```
 
 ## Candidate Context

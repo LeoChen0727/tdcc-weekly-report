@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3066 李洲
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:24 Asia/Taipei
+- generated_at: 2026-06-28 22:26:26 Asia/Taipei
 - stock_id: 3066
 - stock_name: 李洲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 21.5
-- high: 22.5
-- low: 21.3
-- close: 22.05
-- volume: 558000
-- ma5: 21
-- ema23_primary: 20.76
-- distance_to_ema23_pct: 6.23
-- ma20: 21.14
-- ma60: 19.95
-- ma120: 17.74
-- return_5d: 10.25
-- return_20d: 6.01
-- volume_ratio: 3.07
-- distance_to_ma20_pct_auxiliary: 4.32
-- distance_to_high_60_pct: -7.93
+- date: 20260626
+- open: 24
+- high: 24.25
+- low: 22
+- close: 22
+- volume: 1072000
+- ma5: 23.19
+- ema23_primary: 21.53
+- distance_to_ema23_pct: 2.16
+- ma20: 21.64
+- ma60: 20.2
+- ma120: 18.06
+- return_5d: 3.29
+- return_20d: 4.51
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 1.64
+- distance_to_high_60_pct: -13.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,20.8,21.2,20.55,21.2,21000,19.45,8.98,19.02,18.88,0.05
-20260526,21.4,21.4,20.7,20.85,21000,19.57,6.54,19.16,18.98,0.05
-20260527,21,21.2,20.55,20.65,21000,19.66,5.04,19.27,19.09,0.05
-20260528,20.9,22,20.9,21.05,21000,19.78,6.44,19.38,19.19,0.05
 20260529,21.55,22.4,21.15,21.45,22000,19.92,7.71,19.51,19.32,0.06
 20260601,21.45,22.2,21.15,21.35,22000,20.03,6.56,19.64,19.41,0.06
 20260602,21.3,21.95,20.75,21.75,21,20.18,7.79,19.8,19.52,0
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,20.25,20.7,20,20.7,212000,20.58,0.59,21.05,19.89,1
 20260618,21,21.7,20.9,21.3,463000,20.64,3.2,21.07,19.91,2.99
 20260622,21.5,22.5,21.3,22.05,558000,20.76,6.23,21.14,19.95,3.07
+20260623,22.4,24.25,21.8,24.25,1981000,21.05,15.21,21.29,20.02,7.08
+20260624,24.55,25.4,23.65,23.65,4112000,21.26,11.22,21.43,20.08,8.49
+20260625,23.65,25.4,23.65,24,1798000,21.49,11.67,21.6,20.15,3.14
+20260626,24,24.25,22,22,1072000,21.53,2.16,21.64,20.2,1.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 72.54
-- over_600_ratio: 70.84
-- over_800_ratio: 69.23
-- over_1000_ratio: 68.22
-- over_400_change_1w: 0.42
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 72.56
+- over_600_ratio: 71.4
+- over_800_ratio: 69.1
+- over_1000_ratio: 68.12
+- over_400_change_1w: 0.02
+- over_800_change_1w: -0.13
+- over_1000_change_1w: -0.1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,17 +182,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.05,0.67,70.29,0.99,68.25,-0.03,3,False,True
 20260612,72.12,-0.93,69.26,-1.03,68.25,0,0,False,False
 20260618,72.54,0.42,69.23,-0.03,68.22,-0.03,1,False,False
+20260626,72.56,0.02,69.1,-0.13,68.12,-0.1,2,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3066 | 李洲 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 3066 | 李洲 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3066 | 李洲 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 21.0 | B_可觀察 |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 3066 | 李洲 | 3 | 2 | 3 | 3 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

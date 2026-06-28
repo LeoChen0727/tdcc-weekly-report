@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3138 耀登
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:26 Asia/Taipei
+- generated_at: 2026-06-28 22:26:28 Asia/Taipei
 - stock_id: 3138
 - stock_name: 耀登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 140
-- high: 140.5
-- low: 136.5
-- close: 138
-- volume: 651912
-- ma5: 137.3
-- ema23_primary: 150.57
-- distance_to_ema23_pct: -8.35
-- ma20: 154.05
-- ma60: 163.42
-- ma120: 160.88
-- return_5d: -3.16
-- return_20d: -18.58
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -10.42
-- distance_to_high_60_pct: -34.29
+- date: 20260626
+- open: 122
+- high: 122.5
+- low: 115.5
+- close: 116
+- volume: 1107438
+- ma5: 127
+- ema23_primary: 142.69
+- distance_to_ema23_pct: -18.7
+- ma20: 145.15
+- ma60: 159.78
+- ma120: 161.47
+- return_5d: -15.02
+- return_20d: -27.73
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: -20.08
+- distance_to_high_60_pct: -44.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,174,183,173.5,176.5,3515566,164.32,7.41,159,173.7,1.79
-20260526,177,178,168,172.5,1796765,165,4.54,159.7,173.57,0.95
-20260527,175.5,176,164.5,165.5,1509067,165.05,0.28,160.1,173.03,0.79
-20260528,168,174,160,160.5,1533742,164.67,-2.53,160.47,172.08,0.8
 20260529,165,172,162.5,169,1345570,165.03,2.41,161.32,171.28,0.7
 20260601,169.5,171,166,167,1133365,165.19,1.09,161.93,170.81,0.6
 20260602,167.5,171.5,160,165,1079651,165.18,-0.11,162.18,170.52,0.57
@@ -154,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,135,138,133.5,135.5,615618,153.1,-11.49,157.07,164.53,0.49
 20260618,136,138,135.5,136.5,457945,151.71,-10.03,155.62,163.95,0.39
 20260622,140,140.5,136.5,138,651912,150.57,-8.35,154.05,163.42,0.58
+20260623,138.5,138.5,129.5,130,1067344,148.86,-12.67,151.72,162.66,1.07
+20260624,127,132.5,126,127.5,674290,147.08,-13.31,149.47,161.82,0.72
+20260625,130,130,123.5,123.5,626247,145.11,-14.89,147.38,160.81,0.7
+20260626,122,122.5,115.5,116,1107438,142.69,-18.7,145.15,159.78,1.26
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 27.59
-- over_600_ratio: 24.33
-- over_800_ratio: 20.48
+- as_of_date: 20260626
+- over_400_ratio: 26.86
+- over_600_ratio: 24.4
+- over_800_ratio: 21.91
 - over_1000_ratio: 18.99
-- over_400_change_1w: 0.66
-- over_800_change_1w: 0
+- over_400_change_1w: -0.73
+- over_800_change_1w: 1.43
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,27,-0.9,20.48,0,18.99,0,0,False,False
 20260612,26.93,-0.07,20.48,0,18.99,0,0,False,False
 20260618,27.59,0.66,20.48,0,18.99,0,1,False,False
+20260626,26.86,-0.73,21.91,1.43,18.99,0,2,False,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3138 | 耀登 | 5 | 0 | 675710.0 | 0.0 |  | no_signal |
+| 20260626 | 3138 | 耀登 | 5 | 0 | 136260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

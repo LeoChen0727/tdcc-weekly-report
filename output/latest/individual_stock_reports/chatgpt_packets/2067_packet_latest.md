@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2067 嘉鋼
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:02 Asia/Taipei
 - stock_id: 2067
 - stock_name: 嘉鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 6.6
-- high: 6.65
-- low: 6.6
-- close: 6.64
-- volume: 88000
-- ma5: 6.49
-- ema23_primary: 6.58
-- distance_to_ema23_pct: 0.9
-- ma20: 6.49
-- ma60: 7.01
-- ma120: 8.4
-- return_5d: 2.63
-- return_20d: -4.05
-- volume_ratio: 3.88
-- distance_to_ma20_pct_auxiliary: 2.3
-- distance_to_high_60_pct: -17.92
+- date: 20260626
+- open: 6.5
+- high: 6.57
+- low: 6.4
+- close: 6.4
+- volume: 8000
+- ma5: 6.56
+- ema23_primary: 6.57
+- distance_to_ema23_pct: -2.57
+- ma20: 6.46
+- ma60: 6.92
+- ma120: 8.29
+- return_5d: -3.03
+- return_20d: -3.03
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -1
+- distance_to_high_60_pct: -20.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,6.75,6.9,6.53,6.73,7000,7.07,-4.81,7.04,7.75,0.1
-20260526,6.73,6.78,6.55,6.7,7000,7.04,-4.82,7.04,7.69,0.1
-20260527,6.7,6.7,6.5,6.68,7000,7.01,-4.7,7.01,7.63,0.11
-20260528,6.84,6.84,6.52,6.6,7000,6.98,-5.38,6.94,7.57,0.15
 20260529,6.6,6.6,6.55,6.56,7000,6.94,-5.48,6.91,7.51,0.21
 20260601,6.5,6.7,6.42,6.5,6000,6.9,-5.85,6.89,7.46,0.22
 20260602,6.5,6.6,6.45,6.5,6,6.87,-5.39,6.86,7.41,0
@@ -155,10 +151,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,6.48,6.65,6.48,6.52,38000,6.57,-0.81,6.52,7.06,2.42
 20260618,6.67,6.67,6.5,6.6,69000,6.58,0.38,6.5,7.04,3.7
 20260622,6.6,6.65,6.6,6.64,88000,6.58,0.9,6.49,7.01,3.88
+20260623,6.64,6.64,6.52,6.52,39000,6.58,-0.85,6.48,6.99,1.6
+20260624,6.52,6.69,6.42,6.68,19000,6.58,1.45,6.48,6.97,0.76
+20260625,6.73,6.73,6.52,6.58,12000,6.58,-0.06,6.47,6.94,0.48
+20260626,6.5,6.57,6.4,6.4,8000,6.57,-2.57,6.46,6.92,0.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 56.5
 - over_600_ratio: 52.25
 - over_800_ratio: 49.07
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.5,0,49.07,0,49.07,0,0,False,False
 20260612,56.5,0,49.07,0,49.07,0,0,False,False
 20260618,56.5,0,49.07,0,49.07,0,0,False,False
+20260626,56.5,0,49.07,0,49.07,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:01 Asia/Taipei
+- generated_at: 2026-06-28 22:26:07 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 350
-- high: 351
-- low: 337.5
-- close: 339.5
-- volume: 13004047
-- ma5: 345.7
-- ema23_primary: 343.04
-- distance_to_ema23_pct: -1.03
-- ma20: 354.55
-- ma60: 304.09
-- ma120: 269.97
-- return_5d: -0.73
-- return_20d: 5.27
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -4.24
-- distance_to_high_60_pct: -15.55
+- date: 20260626
+- open: 330
+- high: 330.5
+- low: 318.5
+- close: 319.5
+- volume: 9847137
+- ma5: 332.5
+- ema23_primary: 339.3
+- distance_to_ema23_pct: -5.84
+- ma20: 353.57
+- ma60: 310.63
+- ma120: 273.1
+- return_5d: -7.12
+- return_20d: -5.33
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -9.64
+- distance_to_high_60_pct: -20.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,331.5,343,331,336.5,17128036,304.09,10.66,306.15,265.14,1.06
-20260526,340,340.5,330,336,11025246,306.75,9.54,308.7,266.82,0.67
-20260527,341,341,331,332.5,9035273,308.89,7.64,311.25,268.38,0.55
-20260528,336,350,331,337.5,17174957,311.28,8.42,314.5,270.06,1.01
 20260529,350.5,371,350,370,33434927,316.17,17.03,319.35,272.41,1.82
 20260601,385,396,376.5,387,38916483,322.07,20.16,324.75,275.29,1.94
 20260602,387.5,395,379.5,390.5,25610532,327.78,19.14,330.3,278.17,1.21
@@ -155,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,346,349.5,343,347.5,5752681,343.3,1.22,352.32,300.49,0.35
 20260618,348,353,344,344,8646604,343.36,0.19,353.7,302.35,0.54
 20260622,350,351,337.5,339.5,13004047,343.04,-1.03,354.55,304.09,0.82
+20260623,340,340,328.5,330.5,8905417,341.99,-3.36,354.25,305.7,0.57
+20260624,330,339,325,339,7343440,341.75,-0.8,354.4,307.46,0.48
+20260625,341,344,332,334,5870093,341.1,-2.08,354.48,309.11,0.39
+20260626,330,330.5,318.5,319.5,9847137,339.3,-5.84,353.57,310.63,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.67
-- over_600_ratio: 67
-- over_800_ratio: 63.75
-- over_1000_ratio: 62.82
-- over_400_change_1w: -0.15
-- over_800_change_1w: -0.26
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 68.68
+- over_600_ratio: 66.17
+- over_800_ratio: 63.25
+- over_1000_ratio: 61.78
+- over_400_change_1w: -0.99
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -1.04
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,69.98,0.05,64.58,-0.98,62.76,-0.78,2,False,False
 20260612,69.82,-0.16,64.01,-0.57,62.64,-0.12,0,False,False
 20260618,69.67,-0.15,63.75,-0.26,62.82,0.18,1,False,True
+20260626,68.68,-0.99,63.25,-0.5,61.78,-1.04,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 2376 | 技嘉 | 118 | 0 | 20959540.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 2376 | 技嘉 | 122 | 0 | 6727870.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

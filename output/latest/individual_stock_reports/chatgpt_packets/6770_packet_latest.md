@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:35 Asia/Taipei
+- generated_at: 2026-06-28 22:27:23 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 79.5
-- high: 81.6
-- low: 78.5
-- close: 81.6
-- volume: 133236652
-- ma5: 74.06
-- ema23_primary: 71.45
-- distance_to_ema23_pct: 14.2
-- ma20: 75.05
-- ma60: 63.06
-- ma120: 60.69
-- return_5d: 21.43
-- return_20d: 27.9
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 8.73
-- distance_to_high_60_pct: -13.65
+- date: 20260626
+- open: 83.2
+- high: 85.2
+- low: 78.1
+- close: 78.3
+- volume: 332913359
+- ma5: 81.48
+- ema23_primary: 74.38
+- distance_to_ema23_pct: 5.27
+- ma20: 76.64
+- ma60: 64.41
+- ma120: 62.18
+- return_5d: 5.53
+- return_20d: -2.97
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 2.16
+- distance_to_high_60_pct: -17.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,65,68.2,62.3,67.6,321963402,59.92,12.81,59.28,60.72,1.72
-20260526,69.9,73.6,68,70.8,354361201,60.83,16.39,60.1,60.62,1.8
-20260527,75.9,77,72.6,74.8,414941224,61.99,20.66,61.09,60.59,1.95
-20260528,75.6,82.2,73.5,80.7,742969935,63.55,26.98,62.45,60.69,3.01
 20260529,85.4,88.7,78.8,88.7,829646406,65.65,35.12,64.29,61.03,2.93
 20260601,93.2,94.5,87,87,770941542,67.43,29.03,65.98,61.46,2.43
 20260602,87,88.6,83.7,85.9,106203381,68.97,24.55,67.51,61.82,0.33
@@ -153,18 +150,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,70.1,72.5,69.4,70.2,187705638,70.2,0.01,73.41,62.66,0.74
 20260618,71.5,75.3,70.7,74.2,245700060,70.53,5.2,74.16,62.75,0.94
 20260622,79.5,81.6,78.5,81.6,133236652,71.45,14.2,75.05,63.06,0.52
+20260623,82.8,86.1,78.3,78.6,504938034,72.05,9.09,75.6,63.29,1.89
+20260624,78,85.7,77.2,85.7,476043030,73.19,17.1,76.34,63.67,1.74
+20260625,89.3,89.3,82.8,83.2,479667659,74.02,12.4,76.77,64.07,1.73
+20260626,83.2,85.2,78.1,78.3,332913359,74.38,5.27,76.64,64.41,1.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.64
-- over_600_ratio: 47.78
-- over_800_ratio: 46.58
-- over_1000_ratio: 46.01
-- over_400_change_1w: 1.18
-- over_800_change_1w: 1.29
-- over_1000_change_1w: 1.44
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 50.53
+- over_600_ratio: 48.61
+- over_800_ratio: 47.41
+- over_1000_ratio: 46.7
+- over_400_change_1w: 0.89
+- over_800_change_1w: 0.83
+- over_1000_change_1w: 0.69
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,23 +181,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.73,-3.71,48.5,-3.78,47.74,-3.9,0,False,False
 20260612,48.46,-3.27,45.29,-3.21,44.57,-3.17,0,False,False
 20260618,49.64,1.18,46.58,1.29,46.01,1.44,1,True,True
+20260626,50.53,0.89,47.41,0.83,46.7,0.69,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6770 | 力積電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 半導體產品生產製造設施及機器設備 2.事實發生日:114/7/30~115/6/18 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理 民國115年6月18日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批 每單位價格：依雙方約定 交易總金額：依雙方約定結果，新台幣1,091,639仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：TOKYO ELECTRON LIMITED 與公司之關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: (1)交付或付款條件：依雙方約定 (2)契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：比價及議價 價格決定之參考依據：依據原廠提供之報價單與其他廠商之報價單作比價、 　　　　　　　　　　議價後，由採購部及使用單位經核決權限後決定之。 決策單位：總經理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 供晶圓產品生產製造使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
-| 20260622 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 半導體產品生產製造設施及機器設備 2.事實發生日:114/7/30~115/6/18 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理 民國115年6月18日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批 每單位價格：依雙方約定 交易總金額：依雙方約定結果，新台幣1,091,639仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：TOKYO ELECTRON LIMITED 與公司之關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: (1)交付或付款條件：依雙方約定 (2)契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：比價及議價 價格決定之參考依據：依據原廠提供之報價單與其他廠商之報價單作比價、 　　　　　　　　　　議價後，由採購部及使用單位經核決權限後決定之。 決策單位：總經理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 供晶圓產品生產製造使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6770 | 力積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6770 | 力積電 | 8 | 6 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 6770 | 力積電 | 11 | 4 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 6770 | 力積電 | 179 | 33 | 31891370.0 | 101980.0 | 312.72 | no_signal |
+| 20260626 | 6770 | 力積電 | 168 | 0 | 45987530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

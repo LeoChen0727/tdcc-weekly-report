@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8454 富邦媒
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:02 Asia/Taipei
+- generated_at: 2026-06-28 22:27:45 Asia/Taipei
 - stock_id: 8454
 - stock_name: 富邦媒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,32 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 350
-- high: 354
-- low: 327.5
-- close: 335
-- volume: 971943
-- ma5: 326.6
-- ema23_primary: 303.71
-- distance_to_ema23_pct: 10.3
-- ma20: 306.52
-- ma60: 223.49
-- ma120: 208.46
-- return_5d: -6.03
-- return_20d: 74.93
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 9.29
-- distance_to_high_60_pct: -28.27
+- date: 20260626
+- open: 340
+- high: 346
+- low: 314.5
+- close: 325.5
+- volume: 3069658
+- ma5: 335.4
+- ema23_primary: 312.97
+- distance_to_ema23_pct: 4
+- ma20: 334.77
+- ma60: 233.83
+- ma120: 212.59
+- return_5d: -4.55
+- return_20d: 55
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -2.77
+- distance_to_high_60_pct: -30.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,194,194,187.5,188,747426,187.03,0.52,185.95,181.59,0.91
-20260526,188,190,188,188,378138,187.11,0.47,186.85,181.54,0.47
-20260527,190,191,186.5,191,603006,187.44,1.9,187.8,181.52,0.74
-20260528,193.5,210,193.5,210,2765166,189.32,10.92,189.68,181.83,2.99
 20260529,219,231,216,231,3691482,192.79,19.82,192.7,182.59,3.39
 20260601,240,254,236.5,241.5,6217906,196.85,22.68,195.97,183.64,4.58
 20260602,237,265.5,231,265.5,5770329,202.57,31.06,200.3,185.04,3.58
@@ -153,20 +150,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,321,328,315,315,848435,297.22,5.98,291.85,218.07,0.28
 20260618,321,346.5,321,341,1255820,300.86,13.34,299.35,220.86,0.41
 20260622,350,354,327.5,335,971943,303.71,10.3,306.52,223.49,0.32
+20260623,341,361.5,330,330,1215452,305.9,7.88,313.62,226,0.4
+20260624,330,348,330,348,872345,309.41,12.47,321.62,228.78,0.28
+20260625,351,380,338,338.5,7936289,311.83,8.55,329,231.43,2.3
+20260626,340,346,314.5,325.5,3069658,312.97,4,334.77,233.83,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.25
-- over_600_ratio: 81.29
-- over_800_ratio: 80.51
-- over_1000_ratio: 79.89
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0.27
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 81.7
+- over_600_ratio: 80.56
+- over_800_ratio: 80.07
+- over_1000_ratio: 79.74
+- over_400_change_1w: -0.55
+- over_800_change_1w: -0.44
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.74,0.17,77.23,0.63,76.93,1.33,5,True,True
 20260612,82.35,2.61,80.24,3.01,79.94,3.01,6,True,True
 20260618,82.25,-0.1,80.51,0.27,79.89,-0.05,7,False,True
+20260626,81.7,-0.55,80.07,-0.44,79.74,-0.15,0,False,False
 ```
 
 ## Candidate Context

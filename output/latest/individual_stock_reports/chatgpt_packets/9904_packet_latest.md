@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-06-23 22:25:05 Asia/Taipei
+- generated_at: 2026-06-28 22:27:48 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 26.35
-- high: 26.55
-- low: 26.1
-- close: 26.1
-- volume: 22724237
-- ma5: 26.31
-- ema23_primary: 26.23
-- distance_to_ema23_pct: -0.49
-- ma20: 26.09
-- ma60: 26.71
-- ma120: 28.59
-- return_5d: -2.06
-- return_20d: 1.16
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: 0.03
-- distance_to_high_60_pct: -10.31
+- date: 20260626
+- open: 25.95
+- high: 25.95
+- low: 25.3
+- close: 25.3
+- volume: 42079122
+- ma5: 25.86
+- ema23_primary: 26.1
+- distance_to_ema23_pct: -3.05
+- ma20: 26.16
+- ma60: 26.52
+- ma120: 28.42
+- return_5d: -3.25
+- return_20d: 0.4
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: -3.31
+- distance_to_high_60_pct: -12.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,25.85,25.85,25.55,25.65,13594173,26.24,-2.24,25.86,27.81,0.94
-20260526,25.7,25.85,25.5,25.55,11925417,26.18,-2.41,25.82,27.72,0.83
-20260527,25.6,25.6,25.35,25.35,16984480,26.11,-2.91,25.8,27.62,1.2
-20260528,25.35,25.5,25.1,25.2,16106218,26.04,-3.21,25.77,27.53,1.12
 20260529,25.25,25.55,25.2,25.45,12333549,25.99,-2.06,25.75,27.45,0.86
 20260601,25.5,25.8,25.4,25.8,22820802,25.97,-0.66,25.77,27.4,1.54
 20260602,25.75,26.35,25.65,26.1,23730546,25.98,0.46,25.79,27.33,1.53
@@ -155,17 +151,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,26.2,26.75,26.15,26.45,19911212,26.25,0.77,26.06,26.79,1.04
 20260618,26.5,26.75,26.15,26.15,43192125,26.24,-0.35,26.08,26.75,2.11
 20260622,26.35,26.55,26.1,26.1,22724237,26.23,-0.49,26.09,26.71,1.08
+20260623,26.2,26.25,26,26,21016732,26.21,-0.8,26.11,26.67,0.98
+20260624,26,26.05,25.85,25.95,18187408,26.19,-0.91,26.13,26.62,0.84
+20260625,25.9,26.2,25.9,25.95,28110376,26.17,-0.83,26.16,26.57,1.26
+20260626,25.95,25.95,25.3,25.3,42079122,26.1,-3.05,26.16,26.52,1.79
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.36
-- over_600_ratio: 71.61
-- over_800_ratio: 70.36
-- over_1000_ratio: 69.42
-- over_400_change_1w: -0.26
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.25
+- as_of_date: 20260626
+- over_400_ratio: 72.54
+- over_600_ratio: 70.75
+- over_800_ratio: 69.29
+- over_1000_ratio: 68.4
+- over_400_change_1w: -0.82
+- over_800_change_1w: -1.07
+- over_1000_change_1w: -1.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,74,-0.47,71.13,-0.49,70.14,-0.41,0,False,False
 20260612,73.62,-0.38,70.63,-0.5,69.67,-0.47,0,False,False
 20260618,73.36,-0.26,70.36,-0.27,69.42,-0.25,0,False,False
+20260626,72.54,-0.82,69.29,-1.07,68.4,-1.02,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 9904 | 寶成 | 10 | 0 | 445090.0 | 0.0 |  | no_signal |
+| 20260626 | 9904 | 寶成 | 10 | 0 | 494440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

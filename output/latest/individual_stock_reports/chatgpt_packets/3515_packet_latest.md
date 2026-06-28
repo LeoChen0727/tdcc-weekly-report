@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:36 Asia/Taipei
+- generated_at: 2026-06-28 22:26:35 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 252
-- high: 253
-- low: 245
-- close: 246
-- volume: 713844
-- ma5: 245.7
-- ema23_primary: 243.94
-- distance_to_ema23_pct: 0.85
-- ma20: 247.53
-- ma60: 232.25
-- ma120: 230.41
-- return_5d: -1.6
-- return_20d: 6.03
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.62
-- distance_to_high_60_pct: -10.05
+- date: 20260626
+- open: 243.5
+- high: 243.5
+- low: 232
+- close: 232
+- volume: 584244
+- ma5: 240.8
+- ema23_primary: 242.55
+- distance_to_ema23_pct: -4.35
+- ma20: 247.25
+- ma60: 233.93
+- ma120: 230.11
+- return_5d: -5.88
+- return_20d: -0.64
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -6.17
+- distance_to_high_60_pct: -15.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,237.5,246.5,233.5,245,1301237,229.62,6.7,233.38,222.76,1.15
-20260526,245.5,247.5,237,245,1070022,230.9,6.11,233.72,223.03,0.98
-20260527,245,246,239,240,722704,231.66,3.6,233.72,223.22,0.76
-20260528,240.5,246,232,233.5,638226,231.81,0.73,233.65,223.32,0.68
 20260529,237.5,245,236,242,1355728,232.66,4.01,233.97,223.63,1.39
 20260601,247,258,242.5,253.5,2588126,234.4,8.15,234.88,224.32,2.41
 20260602,255,273.5,252,273.5,4098455,237.65,15.08,236.68,225.14,3.27
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,243.5,250,241.5,247,986667,243.5,1.44,245.72,231.19,0.75
 20260618,248,248.5,245.5,246.5,443156,243.75,1.13,246.82,231.7,0.35
 20260622,252,253,245,246,713844,243.94,0.85,247.53,232.25,0.56
+20260623,248.5,248.5,241.5,241.5,466679,243.73,-0.92,247.35,232.64,0.38
+20260624,242.5,243,239,241,321463,243.5,-1.03,247.15,233.08,0.27
+20260625,244,247,241,243.5,477405,243.5,-0,247.32,233.55,0.4
+20260626,243.5,243.5,232,232,584244,242.55,-4.35,247.25,233.93,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.46
-- over_600_ratio: 69.46
+- as_of_date: 20260626
+- over_400_ratio: 72.24
+- over_600_ratio: 69.96
 - over_800_ratio: 68.42
 - over_1000_ratio: 66.15
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.81
-- over_1000_change_1w: 0.81
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0.78
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.18,1.12,65.95,0.1,63.68,0.84,2,True,True
 20260612,71.39,0.21,67.61,1.66,65.34,1.66,3,True,True
 20260618,71.46,0.07,68.42,0.81,66.15,0.81,4,True,True
+20260626,72.24,0.78,68.42,0,66.15,0,5,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 3515 | 華擎 | 22 | 3 | 5435480.0 | 26020.0 | 208.9 | call_put_bullish |
+| 20260626 | 3515 | 華擎 | 22 | 0 | 486740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

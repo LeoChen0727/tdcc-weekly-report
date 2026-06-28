@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5464 霖宏
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:05 Asia/Taipei
+- generated_at: 2026-06-28 22:27:00 Asia/Taipei
 - stock_id: 5464
 - stock_name: 霖宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,31 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
+- action_rating_display_zh: 等待回檔
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
-- entry_style: no_entry_now
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -113,32 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 73
-- high: 81
-- low: 73
-- close: 81
-- volume: 2723000
-- ma5: 73.92
-- ema23_primary: 68.83
-- distance_to_ema23_pct: 17.69
-- ma20: 72.38
-- ma60: 50.7
-- ma120: 38.47
-- return_5d: 12.81
-- return_20d: 14.08
-- volume_ratio: 3.65
-- distance_to_ma20_pct_auxiliary: 11.91
-- distance_to_high_60_pct: -10.99
+- date: 20260626
+- open: 107.5
+- high: 109
+- low: 98
+- close: 100
+- volume: 5840000
+- ma5: 95.12
+- ema23_primary: 77.72
+- distance_to_ema23_pct: 28.66
+- ma20: 77.52
+- ma60: 55.42
+- ma120: 40.91
+- return_5d: 35.69
+- return_20d: 32.45
+- volume_ratio: 4.41
+- distance_to_ma20_pct_auxiliary: 29
+- distance_to_high_60_pct: -8.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,71.5,75,71.5,73,73000,53.71,35.92,52.43,36.51,0.04
-20260526,73,73,69.8,72.2,71000,55.25,30.68,54.49,37.26,0.04
-20260527,73.1,73.1,71.1,71.1,72000,56.57,25.68,56.46,37.98,0.04
-20260528,70,78.2,69,75.5,77000,58.15,29.84,58.64,38.78,0.05
 20260529,77,83,75.6,83,82000,60.22,37.83,61.14,39.7,0.05
 20260601,88,91,74.9,80.5,82000,61.91,30.03,63.37,40.58,0.06
 20260602,78.9,80,72.5,76.3,74,63.11,20.9,65.22,41.41,0
@@ -155,19 +149,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,69,75.4,68,73.4,1489000,67.18,9.26,71.77,49.05,2.46
 20260618,74.4,75.1,73,73.7,871000,67.72,8.83,71.88,49.81,1.42
 20260622,73,81,73,81,2723000,68.83,17.69,72.38,50.7,3.65
+20260623,84.5,89.1,81.6,89.1,1803000,70.52,26.35,73.19,51.72,2.17
+20260624,98,98,94.9,98,2766000,72.81,34.6,74.47,52.89,2.86
+20260625,107.5,107.5,105.5,107.5,1464000,75.7,42.01,76.3,54.22,1.41
+20260626,107.5,109,98,100,5840000,77.72,28.66,77.52,55.42,4.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.09
-- over_600_ratio: 71.24
-- over_800_ratio: 65.46
-- over_1000_ratio: 57.66
-- over_400_change_1w: 1.04
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.5
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 72.45
+- over_600_ratio: 71.3
+- over_800_ratio: 67.21
+- over_1000_ratio: 61.8
+- over_400_change_1w: -0.64
+- over_800_change_1w: 1.75
+- over_1000_change_1w: 4.14
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,17 +180,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,70.86,-0.93,64.32,0.9,56.52,0.91,5,False,True
 20260612,72.05,1.19,64.96,0.64,57.16,0.64,6,True,True
 20260618,73.09,1.04,65.46,0.5,57.66,0.5,7,True,True
+20260626,72.45,-0.64,67.21,1.75,61.8,4.14,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5464 | 霖宏 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 1.發生變動日期:115/06/16 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、 自然人董事或自然人監察人）:自然人董事、獨立董事 3.舊任者職稱及姓名: 董事-張枋霖 董事-張鵬展 董事-張哲明 獨立董事-林惠芬 獨立董事-申元洪 獨立董事-侯翰 獨立董事-陳麗玲 4.舊任者簡歷: 董事-張枋霖 霖宏科技股份有限公司董事長 董事-張鵬展 霖宏科技股份有限公司副董事長 董事-張哲明 霖宏科技股份有限公司副總經理 獨立董事-林惠芬 維揚聯合會計師事務所執業會計師 獨立董事-申元洪 世新大學專任助理教授 獨立董事-侯  翰 實踐大學金融學系專任教授兼系主任 獨立董事-陳麗玲 大同技術學院餐飲管理系專任助理教授 5.新任者職稱及姓名: 董事-張枋霖 董事-張鵬展 董事-張哲明 獨立董事-侯翰 獨立董事-陳麗玲 獨立董事-林怡君 獨立董事-陳怡旭 6.新任者簡歷: 董事-張枋霖 霖宏科技股份有限公司董事長 董事-張鵬展 霖宏科技股份有限公司副董事長 董事-張哲明 霖宏科技股份有限公司副總經理 獨立董事-侯  翰 實踐大學金融學系專任教授兼系主任 獨立董事-陳麗玲 全達會計師事務所執業會計師 獨立董事-林怡君 立隆電子工業(股)公司財務部經理 獨立董事-陳怡旭 帝頡顧問管理股份有限公司 法務 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.新任者選任時持股數: 董事-張枋霖：9,178,112 董事-張鵬展：4,745,065 董事-張哲明：  951,237 獨立董事-侯翰：0 獨立董事-陳麗玲：0 獨立董事-林怡君：0 獨立董事-陳怡旭：0 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 11.新任生效日期:115/06/16 12.同任期董事變動比率:不適用(全面改選) 13.同任期獨立董事變動比率:不適用(全面改選) 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260626 | 5464 | 霖宏 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/06/25 2.發生緣由:依中華民國財團法人櫃買中心通知辦理。 3.財務業務資訊:霖宏二(54642)可轉債相關資訊 到期日期：118/05/25 實際發行總額：2.9億元 本月底發行餘額：290,000,000元(截至115/06/24) 最新轉(交)換價格：33.4 轉換標的收市價格(54642)：107.5(截至115/06/25) 轉換債收市價格(5464)：280(截至115/06/25) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5464 | 霖宏 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260626 | 5464 | 霖宏 | 4 | 1 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

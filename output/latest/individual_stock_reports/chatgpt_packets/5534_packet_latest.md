@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:08 Asia/Taipei
+- generated_at: 2026-06-28 22:27:02 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 288
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 292
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 82
-- high: 82
-- low: 77.9
-- close: 78.9
-- volume: 3495257
-- ma5: 82.4
-- ema23_primary: 79.28
-- distance_to_ema23_pct: -0.47
-- ma20: 78.14
-- ma60: 78.29
-- ma120: 79.01
-- return_5d: -5.4
-- return_20d: 4.5
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 0.97
-- distance_to_high_60_pct: -9.83
+- date: 20260626
+- open: 78.5
+- high: 79.1
+- low: 78.1
+- close: 78.7
+- volume: 893010
+- ma5: 78.9
+- ema23_primary: 79.16
+- distance_to_ema23_pct: -0.58
+- ma20: 78.94
+- ma60: 78.36
+- ma120: 78.86
+- return_5d: -5.41
+- return_20d: 5.5
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -0.3
+- distance_to_high_60_pct: -10.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,75.5,75.5,74.3,75,830751,77.04,-2.65,77.2,77.53,1.04
-20260526,74.9,75.2,74.5,75.1,730942,76.88,-2.32,77.07,77.51,0.91
-20260527,75.5,75.7,74.5,75.1,1237082,76.73,-2.13,76.94,77.5,1.49
-20260528,75,75.5,74.5,74.6,746301,76.55,-2.55,76.75,77.47,0.89
 20260529,74.8,74.8,74.1,74.1,1148559,76.35,-2.95,76.56,77.44,1.32
 20260601,74.3,74.8,73.7,74.7,1101614,76.21,-1.98,76.41,77.45,1.24
 20260602,74.7,74.7,73.5,73.7,2209390,76,-3.03,76.22,77.43,2.3
@@ -155,18 +151,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,82,85.4,82,85.2,2880870,78.96,7.91,77.61,78.12,1.35
 20260618,85.8,87.5,82.6,83.2,2506069,79.31,4.91,77.97,78.24,1.13
 20260622,82,82,77.9,78.9,3495257,79.28,-0.47,78.14,78.29,1.48
+20260623,79.5,79.7,78.7,78.9,947327,79.24,-0.43,78.34,78.32,0.4
+20260624,78.5,79.9,78.3,79.2,798321,79.24,-0.05,78.55,78.36,0.34
+20260625,79,79.4,78.2,78.8,776500,79.2,-0.51,78.73,78.35,0.33
+20260626,78.5,79.1,78.1,78.7,893010,79.16,-0.58,78.94,78.36,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.34
-- over_600_ratio: 66.47
-- over_800_ratio: 63.75
-- over_1000_ratio: 60.06
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 69.04
+- over_600_ratio: 66.1
+- over_800_ratio: 63.69
+- over_1000_ratio: 59.37
+- over_400_change_1w: -0.3
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.69
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,23 +182,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.96,-0.41,62.66,-0.29,58.67,-0.31,0,False,False
 20260612,69.44,1.48,64.1,1.44,60.12,1.45,1,True,True
 20260618,69.34,-0.1,63.75,-0.35,60.06,-0.06,2,False,False
+20260626,69.04,-0.3,63.69,-0.06,59.37,-0.69,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5534 | 長虹 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260622 | 5534 | 長虹 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 15.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5534 | 長虹 | 1 | 1 | 2 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 5534 | 長虹 | 4 | 0 | 48170.0 | 0.0 |  | no_signal |
+| 20260626 | 5534 | 長虹 | 4 | 0 | 800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

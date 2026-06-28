@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00940 元大台灣價值高息
 
 ## Metadata
-- generated_at: 2026-06-23 22:22:31 Asia/Taipei
+- generated_at: 2026-06-28 22:25:43 Asia/Taipei
 - stock_id: 00940
 - stock_name: 元大台灣價值高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260622
-- price_rows: 21
+- latest_price_date: 20260626
+- price_rows: 25
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 12.79
-- high: 12.88
-- low: 12.77
-- close: 12.83
-- volume: 27204830
-- ma5: 12.57
-- ema23_primary: 12.21
-- distance_to_ema23_pct: 5.06
-- ma20: 12.26
-- ma60: 12.22
-- ma120: 12.22
-- return_5d: 4.99
-- return_20d: 11.66
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 4.64
-- distance_to_high_60_pct: -0.39
+- date: 20260626
+- open: 12.65
+- high: 12.65
+- low: 12.34
+- close: 12.34
+- volume: 14322051
+- ma5: 12.66
+- ema23_primary: 12.33
+- distance_to_ema23_pct: 0.1
+- ma20: 12.43
+- ma60: 12.29
+- ma120: 12.29
+- return_5d: -2.83
+- return_20d: 5.2
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -0.72
+- distance_to_high_60_pct: -4.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,11.67,11.76,11.65,11.73,42866716,,,,,
-20260526,11.8,11.84,11.74,11.76,47280279,,,,,
-20260527,11.83,11.97,11.82,11.87,42044841,,,,,
-20260528,11.93,12,11.68,11.73,33013533,11.57,1.35,11.72,11.72,0.76
 20260529,11.91,11.99,11.88,11.98,34068893,11.61,3.21,11.76,11.76,0.82
 20260601,12.05,12.27,12.05,12.27,48765678,11.66,5.21,11.83,11.83,1.14
 20260602,12.33,12.49,12.25,12.49,65769164,11.73,6.47,11.91,11.91,1.44
@@ -155,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,12.3,12.53,12.3,12.53,23092081,12.11,3.5,12.17,12.17,0.66
 20260618,12.6,12.72,12.6,12.7,25220248,12.16,4.48,12.19,12.19,0.73
 20260622,12.79,12.88,12.77,12.83,27204830,12.21,5.06,12.26,12.22,0.82
+20260623,12.9,12.96,12.67,12.69,26545139,12.25,3.58,12.31,12.24,0.82
+20260624,12.58,12.74,12.5,12.66,15596643,12.29,3.05,12.35,12.26,0.51
+20260625,12.74,12.8,12.65,12.77,15673633,12.33,3.6,12.4,12.28,0.53
+20260626,12.65,12.65,12.34,12.34,14322051,12.33,0.1,12.43,12.29,0.5
 ```
 
 ## Latest TDCC Snapshot

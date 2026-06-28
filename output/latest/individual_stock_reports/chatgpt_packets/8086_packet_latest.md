@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8086 宏捷科
 
 ## Metadata
-- generated_at: 2026-06-23 22:24:55 Asia/Taipei
+- generated_at: 2026-06-28 22:27:40 Asia/Taipei
 - stock_id: 8086
 - stock_name: 宏捷科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 169
-- high: 171.5
-- low: 164
-- close: 165.5
-- volume: 5160000
-- ma5: 162
-- ema23_primary: 157.48
-- distance_to_ema23_pct: 5.09
-- ma20: 160.75
-- ma60: 148.95
-- ma120: 133.61
-- return_5d: 9.6
-- return_20d: 3.76
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 2.95
-- distance_to_high_60_pct: -9.56
+- date: 20260626
+- open: 151
+- high: 152
+- low: 141
+- close: 141
+- volume: 4587000
+- ma5: 154.2
+- ema23_primary: 155.49
+- distance_to_ema23_pct: -9.32
+- ma20: 156.97
+- ma60: 150.6
+- ma120: 135.14
+- return_5d: -15.06
+- return_20d: -14.8
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: -10.18
+- distance_to_high_60_pct: -22.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,166,171.5,161,163,166000,149.79,8.82,151.22,138.98,0.02
-20260526,166,179,158.5,179,170000,152.22,17.59,153.47,139.96,0.02
-20260527,182.5,183,170.5,173.5,175000,153.99,12.67,154.97,140.8,0.03
-20260528,174.5,175.5,161,165.5,168000,154.95,6.81,156.15,141.46,0.03
 20260529,168.5,170,164,169,167000,156.12,8.25,157.4,141.99,0.03
 20260601,171,171,165.5,166,167000,156.95,5.77,158.18,142.65,0.03
 20260602,168,173.5,163.5,168,168,157.87,6.42,158.88,143.37,0
@@ -155,20 +151,24 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,157.5,162.5,157,162.5,4668000,155.91,4.23,159.6,147.47,2.25
 20260618,162.5,170.5,161.5,166,7651000,156.75,5.9,160.45,148.21,3.36
 20260622,169,171.5,164,165.5,5160000,157.48,5.09,160.75,148.95,2.04
+20260623,166,167.5,159,159.5,4515000,157.65,1.18,160.57,149.5,1.65
+20260624,155,156.5,152.5,154.5,3672000,157.38,-1.83,159.35,149.99,1.26
+20260625,156.5,157,150,150.5,3138000,156.81,-4.02,158.2,150.34,1.02
+20260626,151,152,141,141,4587000,155.49,-9.32,156.97,150.6,1.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.59
-- over_600_ratio: 53.14
-- over_800_ratio: 51.43
-- over_1000_ratio: 50.45
-- over_400_change_1w: 0.79
-- over_800_change_1w: 0.8
-- over_1000_change_1w: 0.8
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 56.51
+- over_600_ratio: 52.3
+- over_800_ratio: 50.62
+- over_1000_ratio: 50.12
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.81
+- over_1000_change_1w: -0.33
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.58,-2.31,52.51,-2.57,50.59,-3.54,0,False,False
 20260612,55.8,-1.78,50.63,-1.88,49.65,-0.94,0,False,False
 20260618,56.59,0.79,51.43,0.8,50.45,0.8,1,True,True
+20260626,56.51,-0.08,50.62,-0.81,50.12,-0.33,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8086 | 宏捷科 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8086 | 宏捷科 | revenue_pullback | 營收成長股價回檔 | 59.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260622 | 8086 | 宏捷科 | 2 | 1 | 2 | 3 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260626 | 8086 | 宏捷科 | 5 | 4 | 5 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

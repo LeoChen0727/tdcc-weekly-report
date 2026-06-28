@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4416 三圓
 
 ## Metadata
-- generated_at: 2026-06-23 22:23:48 Asia/Taipei
+- generated_at: 2026-06-28 22:26:45 Asia/Taipei
 - stock_id: 4416
 - stock_name: 三圓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260622
-- price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_price_date: 20260626
+- price_rows: 157
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,11 +87,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,32 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260622
-- open: 9.98
-- high: 10.5
-- low: 9.76
-- close: 10
-- volume: 961000
-- ma5: 10.07
-- ema23_primary: 10.96
-- distance_to_ema23_pct: -8.76
-- ma20: 10.91
-- ma60: 12.3
-- ma120: 19.19
-- return_5d: -5.21
-- return_20d: -10.71
-- volume_ratio: 2.92
-- distance_to_ma20_pct_auxiliary: -8.31
-- distance_to_high_60_pct: -39.58
+- date: 20260626
+- open: 13.4
+- high: 13.4
+- low: 12.55
+- close: 13.05
+- volume: 4645000
+- ma5: 11.29
+- ema23_primary: 11.18
+- distance_to_ema23_pct: 16.69
+- ma20: 10.98
+- ma60: 12.16
+- ma120: 18.4
+- return_5d: 30.5
+- return_20d: 20.83
+- volume_ratio: 7.05
+- distance_to_ma20_pct_auxiliary: 18.84
+- distance_to_high_60_pct: -21.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260525,11.8,12.3,11.8,12.3,12000,12.47,-1.34,12.24,14.33,0.06
-20260526,12.15,12.15,11.1,11.1,11000,12.35,-10.14,12.15,14.1,0.07
-20260527,10.55,11.05,10.15,10.75,11000,12.22,-12.03,12.04,13.87,0.08
-20260528,10.8,11.25,10.8,10.8,11000,12.1,-10.75,11.94,13.65,0.09
 20260529,10.95,11.15,10.85,10.9,11000,12,-9.18,11.84,13.45,0.1
 20260601,10.9,11.5,10.9,11.45,11000,11.96,-4.23,11.78,13.3,0.13
 20260602,11.4,12.4,11.4,12.1,12,11.97,1.11,11.75,13.19,0
@@ -154,17 +151,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260617,10.25,10.25,9.27,9.33,1890000,11.14,-16.27,11.04,12.43,9.74
 20260618,10.25,10.25,9.55,10,1837000,11.05,-9.48,10.97,12.36,6.51
 20260622,9.98,10.5,9.76,10,961000,10.96,-8.76,10.91,12.3,2.92
+20260623,10,10.3,9.87,10.1,295000,10.89,-7.24,10.8,12.26,0.86
+20260624,10.15,11.1,10.15,11.1,739000,10.91,1.78,10.8,12.22,1.94
+20260625,12,12.2,12,12.2,950000,11.01,10.77,10.87,12.18,2.22
+20260626,13.4,13.4,12.55,13.05,4645000,11.18,16.69,10.98,12.16,7.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 78.41
-- over_600_ratio: 71.76
-- over_800_ratio: 67.94
-- over_1000_ratio: 63.99
-- over_400_change_1w: -0.87
-- over_800_change_1w: -1.83
-- over_1000_change_1w: -3.11
+- as_of_date: 20260626
+- over_400_ratio: 76.7
+- over_600_ratio: 69.99
+- over_800_ratio: 65.33
+- over_1000_ratio: 62.66
+- over_400_change_1w: -1.71
+- over_800_change_1w: -2.61
+- over_1000_change_1w: -1.33
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,17 +182,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.96,-0.26,69.77,-0.21,67.1,-0.21,0,False,False
 20260612,79.28,-0.68,69.77,0,67.1,0,0,False,False
 20260618,78.41,-0.87,67.94,-1.83,63.99,-3.11,0,False,False
+20260626,76.7,-1.71,65.33,-2.61,62.66,-1.33,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 4416 | 三圓 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 1.櫃買中心公告處置之日期:NA 2.公司名稱(或負責人姓名):王雅麟 3.與公司關係﹝請輸入本公司、本公司負責人、母公司或子公司﹞:本公司董事長 4.若為母公司或子公司，其相互持股比例:不適用 5.櫃買中心公告處置引用之業務規則條款及發生緣由: 第4條之1上櫃公司或其負責人發生存款不足之退票事由；董事長王雅麟先生 退票事由 6.處理結果(請輸入〝變更交易方法〞、〝停止買賣〞或〝終止上櫃〞):不適用 7.股票開始(併案)變更交易方法/停止買賣/終止上櫃之日期:NA 8.退票、拒絕往來之日期:115/06/25 9.退票張數及金額:1張，$1,500,000 10.退票之往來銀行:合作金庫 11.退票後之清償註記日期:NA 12.退票之清償方式(請輸入〝已實際償付票款〞或〝以換票方式遞延票據債務〞): 與持票人協商清償註記。 13.公告拒絕往來之票據交換所（拒絕往來時適用，否則請輸[不適用]）:不適用 14.因應及保全措施:無 15.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第1款所定對 股東權益或證券價格有重大影響之事項): (1)本公司於115/06/25日獲悉，董事長發生退票情事。 (2)截至本日共有7張支票尚未清償註記，金額共計新台幣87,145,000元，已與 持票人協商清償註記。 (3)該事件係法人董事之個別事務，與本公司營運及財務業務無涉，亦對本公司無 重大影響。 16.(風險警示)發生存款不足退票而致上櫃有價證券列為變更交易方法， 三個月內無法達成補正程序而致停止買賣， 有金融機構拒絕往來紀錄或前開停止買賣情事 六個月內無法達成補正程序並檢附相關書件證明者， 有價證券將有終止上櫃之虞， 提醒投資人審慎注意投資風險:不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 4416 | 三圓 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |
