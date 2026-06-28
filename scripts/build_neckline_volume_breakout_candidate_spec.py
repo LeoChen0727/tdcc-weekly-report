@@ -9,8 +9,11 @@ import math
 
 import pandas as pd
 
+from volume_breakout_operation_utils import load_market_regime_map
+
 
 ROOT = Path(".")
+PRICE_DIR = ROOT / "data" / "stock_price_history"
 RESEARCH_LATEST_DIR = ROOT / "output" / "latest" / "research_backtest"
 RESEARCH_HISTORY_DIR = ROOT / "output" / "history" / "research"
 
@@ -60,6 +63,11 @@ OUTPUT_COLUMNS = [
     "post_confirmation_count",
     "tdcc_any_age7_count",
     "second_arc_ratio_ge_1p5_count",
+    "price_feature_available_count",
+    "signal_quality_count",
+    "pre60_non_bearish_count",
+    "market_bull_count",
+    "low_position_le70_count",
     "a_evaluated_sample_size",
     "a_win_count",
     "a_loss_count",
@@ -151,6 +159,141 @@ def numeric_series(df: pd.DataFrame, column: str) -> pd.Series:
     return pd.to_numeric(df[column], errors="coerce")
 
 
+def read_price_file(stock_id: str) -> pd.DataFrame:
+    path = PRICE_DIR / f"{stock_id}.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        price = pd.read_csv(path, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+    if price.empty:
+        return price
+    price = price.copy()
+    price["date"] = price["date"].map(lambda value: "".join(ch for ch in safe_str(value) if ch.isdigit())[:8])
+    price = price[price["date"].astype(str).ne("")].sort_values("date").reset_index(drop=True)
+    for column in ["open", "high", "low", "close", "volume", "volume_ma20", "volume_ratio"]:
+        price[column] = pd.to_numeric(price.get(column, ""), errors="coerce")
+    if price["volume_ma20"].isna().all():
+        price["volume_ma20"] = price["volume"].rolling(20, min_periods=10).mean()
+    else:
+        price["volume_ma20"] = price["volume_ma20"].fillna(price["volume"].rolling(20, min_periods=10).mean())
+    calculated_ratio = price["volume"] / price["volume_ma20"].replace(0, pd.NA)
+    price["volume_ratio"] = price["volume_ratio"].fillna(calculated_ratio)
+    price["prev_close"] = price["close"].shift(1)
+    return price
+
+
+def pct_change(current: float, previous: float) -> float:
+    if math.isnan(current) or math.isnan(previous) or previous <= 0:
+        return math.nan
+    return (current / previous - 1.0) * 100.0
+
+
+def index_for_date(price: pd.DataFrame, date_text: Any) -> int | None:
+    date = safe_str(date_text)
+    if not date or price.empty:
+        return None
+    matches = price.index[price["date"].astype(str).eq(date)].tolist()
+    return int(matches[0]) if matches else None
+
+
+def breakout_feature_payload(price: pd.DataFrame, breakout_date: str, market_regimes: dict[str, str]) -> dict[str, Any]:
+    idx = index_for_date(price, breakout_date)
+    if idx is None:
+        return {
+            "price_feature_available": False,
+            "signal_quality": False,
+            "pre60_non_bearish": False,
+            "market_bull": False,
+            "low_position_le70": False,
+        }
+    row = price.iloc[idx]
+    open_price = safe_float(row.get("open"))
+    high = safe_float(row.get("high"))
+    low = safe_float(row.get("low"))
+    close = safe_float(row.get("close"))
+    prev_close = safe_float(row.get("prev_close"))
+    volume_ratio = safe_float(row.get("volume_ratio"))
+    candle_range = high - low if not any(math.isnan(value) for value in [high, low]) else math.nan
+    body_ratio = abs(close - open_price) / candle_range if candle_range and candle_range > 0 else math.nan
+    upper_shadow_ratio = (high - max(close, open_price)) / candle_range if candle_range and candle_range > 0 else math.nan
+    close_location = (close - low) / candle_range if candle_range and candle_range > 0 else math.nan
+    return_1d_pct = pct_change(close, prev_close)
+    locked_limit_up = (
+        not math.isnan(return_1d_pct)
+        and return_1d_pct >= 9.0
+        and not math.isnan(high)
+        and close >= high * 0.995
+    )
+    signal_quality = locked_limit_up or (
+        close > open_price
+        and not math.isnan(body_ratio)
+        and body_ratio >= 0.25
+        and not math.isnan(upper_shadow_ratio)
+        and upper_shadow_ratio <= 0.35
+        and not math.isnan(close_location)
+        and close_location >= 0.65
+    )
+
+    close_60 = safe_float(price.iloc[idx - 60].get("close")) if idx >= 60 else math.nan
+    close_30 = safe_float(price.iloc[idx - 30].get("close")) if idx >= 30 else math.nan
+    pre60_return_pct = pct_change(close, close_60)
+    pre30_return_pct = pct_change(close, close_30)
+    pre60_non_bearish = (
+        not math.isnan(pre60_return_pct)
+        and not math.isnan(pre30_return_pct)
+        and pre60_return_pct >= -12.0
+        and pre30_return_pct >= -8.0
+    )
+
+    prior_120 = price.iloc[max(0, idx - 120) : idx]
+    lows = pd.to_numeric(prior_120.get("low"), errors="coerce").dropna()
+    highs = pd.to_numeric(prior_120.get("high"), errors="coerce").dropna()
+    if len(lows) >= 80 and len(highs) >= 80 and float(highs.max()) > float(lows.min()):
+        low_position_120_pct = (close - float(lows.min())) / (float(highs.max()) - float(lows.min())) * 100.0
+    else:
+        low_position_120_pct = math.nan
+
+    market_regime = safe_str(market_regimes.get(breakout_date, "unknown"))
+    return {
+        "price_feature_available": True,
+        "signal_open": metric_text(open_price),
+        "signal_high": metric_text(high),
+        "signal_low": metric_text(low),
+        "signal_close": metric_text(close),
+        "signal_volume_ratio": metric_text(volume_ratio),
+        "signal_body_ratio": metric_text(body_ratio),
+        "signal_upper_shadow_ratio": metric_text(upper_shadow_ratio),
+        "signal_close_location": metric_text(close_location),
+        "signal_return_1d_pct": metric_text(return_1d_pct),
+        "locked_limit_up": locked_limit_up,
+        "signal_quality": signal_quality,
+        "pre60_return_pct": metric_text(pre60_return_pct),
+        "pre30_return_pct": metric_text(pre30_return_pct),
+        "pre60_non_bearish": pre60_non_bearish,
+        "market_regime": market_regime,
+        "market_bull": market_regime in {"strong_bull", "mild_bull"},
+        "low_position_120_pct": metric_text(low_position_120_pct),
+        "low_position_le70": not math.isnan(low_position_120_pct) and low_position_120_pct <= 70.0,
+    }
+
+
+def attach_breakout_day_features(sample: pd.DataFrame) -> pd.DataFrame:
+    market_regimes = load_market_regime_map()
+    price_cache: dict[str, pd.DataFrame] = {}
+    rows: list[dict[str, Any]] = []
+    for _, row in sample.iterrows():
+        stock_id = safe_str(row.get("stock_id"))
+        if stock_id not in price_cache:
+            price_cache[stock_id] = read_price_file(stock_id)
+        rows.append(breakout_feature_payload(price_cache[stock_id], safe_str(row.get("breakout_date")), market_regimes))
+    out = pd.concat([sample.reset_index(drop=True), pd.DataFrame(rows)], axis=1)
+    for column in ["price_feature_available", "signal_quality", "pre60_non_bearish", "market_bull", "low_position_le70"]:
+        out[column] = out[column].fillna(False).astype(bool)
+    return out
+
+
 def base_breakout_sample(events: pd.DataFrame) -> pd.DataFrame:
     required = {
         "model_id",
@@ -203,7 +346,7 @@ def base_breakout_sample(events: pd.DataFrame) -> pd.DataFrame:
     if sample.empty:
         raise SystemExit("ERROR: source breakout sample is empty")
     sample["second_arc_volume_ratio_num"] = numeric_series(sample, "second_arc_volume_ratio")
-    return sample
+    return attach_breakout_day_features(sample)
 
 
 def segments() -> list[SegmentSpec]:
@@ -266,6 +409,55 @@ def segments() -> list[SegmentSpec]:
             filter_fn=lambda df: df["second_arc_volume_ratio_num"].ge(1.5) & true_mask(df["tdcc_any_age7"]),
             future_leakage_warning="",
         ),
+        SegmentSpec(
+            segment_id="w_bottom_breakout_signal_quality_sym1p5",
+            candidate_status="tradable_breakout_day_filter_research_only",
+            segment_definition=(
+                "Same breakout sample, additionally requiring breakout-day candle quality: locked limit-up, or "
+                "close > open, body_ratio >= 0.25, upper_shadow_ratio <= 0.35, and close_location >= 0.65."
+            ),
+            filter_fn=lambda df: df["signal_quality"].astype(bool),
+            future_leakage_warning="",
+        ),
+        SegmentSpec(
+            segment_id="w_bottom_breakout_pre60_non_bearish_sym1p5",
+            candidate_status="tradable_breakout_day_filter_research_only",
+            segment_definition=(
+                "Same breakout sample, additionally requiring pre-breakout context not to be bearish: "
+                "60-session return >= -12% and 30-session return >= -8%."
+            ),
+            filter_fn=lambda df: df["pre60_non_bearish"].astype(bool),
+            future_leakage_warning="",
+        ),
+        SegmentSpec(
+            segment_id="w_bottom_breakout_market_bull_sym1p5",
+            candidate_status="tradable_breakout_day_filter_research_only",
+            segment_definition="Same breakout sample, additionally requiring market regime strong_bull or mild_bull.",
+            filter_fn=lambda df: df["market_bull"].astype(bool),
+            future_leakage_warning="",
+        ),
+        SegmentSpec(
+            segment_id="w_bottom_breakout_signal_quality_pre60_non_bearish_sym1p5",
+            candidate_status="tradable_breakout_day_filter_research_only",
+            segment_definition=(
+                "Same breakout sample, requiring both breakout-day candle quality and non-bearish 60/30-session "
+                "pre-breakout context."
+            ),
+            filter_fn=lambda df: df["signal_quality"].astype(bool) & df["pre60_non_bearish"].astype(bool),
+            future_leakage_warning="",
+        ),
+        SegmentSpec(
+            segment_id="w_bottom_breakout_signal_quality_pre60_non_bearish_lowpos70_sym1p5",
+            candidate_status="tradable_breakout_day_filter_research_only",
+            segment_definition=(
+                "Same breakout sample, requiring breakout-day candle quality, non-bearish context, and "
+                "120-session low-position <= 70."
+            ),
+            filter_fn=lambda df: df["signal_quality"].astype(bool)
+            & df["pre60_non_bearish"].astype(bool)
+            & df["low_position_le70"].astype(bool),
+            future_leakage_warning="",
+        ),
     ]
 
 
@@ -321,6 +513,11 @@ def build(generated_at: str) -> pd.DataFrame:
             "post_confirmation_count": str(int(sample["post_confirmation_trigger_id"].astype(str).ne("").sum())),
             "tdcc_any_age7_count": str(int(true_mask(sample["tdcc_any_age7"]).sum())),
             "second_arc_ratio_ge_1p5_count": str(int(sample["second_arc_volume_ratio_num"].ge(1.5).sum())),
+            "price_feature_available_count": str(int(sample["price_feature_available"].astype(bool).sum())),
+            "signal_quality_count": str(int(sample["signal_quality"].astype(bool).sum())),
+            "pre60_non_bearish_count": str(int(sample["pre60_non_bearish"].astype(bool).sum())),
+            "market_bull_count": str(int(sample["market_bull"].astype(bool).sum())),
+            "low_position_le70_count": str(int(sample["low_position_le70"].astype(bool).sum())),
             "evidence_summary": (
                 f"A-entry win_rate={a_rate}% over {a_metrics['a_evaluated_sample_size']} evaluated rows; "
                 f"C-entry win_rate={c_rate}% over {c_metrics['c_evaluated_sample_size']} evaluated rows."
@@ -354,6 +551,16 @@ def build(generated_at: str) -> pd.DataFrame:
 
 
 def write_markdown(spec: pd.DataFrame, generated_at: str) -> None:
+    tradable = spec[spec["candidate_status"].astype(str).eq("tradable_breakout_day_filter_research_only")].copy()
+    best_tradable = None
+    if not tradable.empty:
+        tradable["_a_win_rate_num"] = pd.to_numeric(tradable["a_win_rate_pct"], errors="coerce")
+        tradable["_a_median_return_num"] = pd.to_numeric(tradable["a_median_return_pct"], errors="coerce")
+        tradable["_sample_size_num"] = pd.to_numeric(tradable["sample_size"], errors="coerce")
+        best_tradable = tradable.sort_values(
+            ["_a_win_rate_num", "_a_median_return_num", "_sample_size_num"],
+            ascending=[False, False, False],
+        ).iloc[0]
     lines = [
         "# Neckline Volume Breakout Candidate Spec",
         "",
@@ -379,6 +586,23 @@ def write_markdown(spec: pd.DataFrame, generated_at: str) -> None:
         "## Current Conclusion",
         "",
         "The current replay does not yet support promotion to production. The all-breakout A-entry sample is tradable but weak, and the post-confirmation filter improves only the non-tradable A-entry view while the tradable C-entry view does not improve enough.",
+        "This version also tests breakout-day tradable filters such as signal candle quality, non-bearish pre-breakout context, market regime, and low-position context. These filters are still advisory unless a separate promotion PR approves a specific rule.",
+    ]
+    if best_tradable is not None:
+        lines.extend(
+            [
+                (
+                    "Best breakout-day tradable filter in this run is "
+                    f"`{safe_str(best_tradable['segment_id'])}` with A-entry win rate "
+                    f"`{safe_str(best_tradable['a_win_rate_pct'])}%`, average return "
+                    f"`{safe_str(best_tradable['a_avg_return_pct'])}%`, and median return "
+                    f"`{safe_str(best_tradable['a_median_return_pct'])}%`."
+                ),
+                "This is not strong enough for approved operation evidence because the win rate stays near 40% and the median return is not positive.",
+            ]
+        )
+    lines.extend(
+        [
         "",
         "## Buy / Sell / Evaluation",
         "",
@@ -386,12 +610,14 @@ def write_markdown(spec: pd.DataFrame, generated_at: str) -> None:
         "- C-entry: buy next open after selected post-confirmation date.",
         "- Exit: stop if signal-day low is broken; otherwise sell at the 10th trading-day close.",
         "- Win rate here means positive close/stop exit return over evaluated rows. It is not the early-entry +10%/+5% rule.",
+        "- Tradable breakout-day filters use only price/market data available on or before the breakout signal day.",
         "",
         "## Metrics",
         "",
         "| segment_id | status | sample | A evaluated | A win rate | A avg return | C evaluated | C win rate | C avg return | warning |",
         "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
-    ]
+        ]
+    )
     for _, row in spec.iterrows():
         warning = row["future_leakage_warning"] or ""
         lines.append(
@@ -417,7 +643,7 @@ def write_markdown(spec: pd.DataFrame, generated_at: str) -> None:
             "",
             "## Next Review",
             "",
-            "Next work should test tradable filters only: signal-day candle quality, false-breakout penalties, TDCC/revenue score inputs, and alternative sell rules. It should not promote this research variant into production baseline without a separate model-change PR.",
+            "Next work should move away from simple breakout-day filters and test alternative operation definitions: retest-hold-then-attack entry, close-based +10% / +5% neutral outcome, and better pre-breakout context classifiers. It should not promote this research variant into production baseline without a separate model-change PR.",
         ]
     )
     LATEST_MD.parent.mkdir(parents=True, exist_ok=True)
