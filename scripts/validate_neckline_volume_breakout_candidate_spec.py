@@ -131,12 +131,40 @@ def main() -> int:
         fail("expected post-confirmation A-entry observed view to exceed all-breakout A-entry")
     if not math.isfinite(float(post_row["c_win_rate_pct"])):
         fail("post-confirmation C-entry win rate must be finite")
+    expected_tradable_segments = {
+        "w_bottom_breakout_signal_quality_sym1p5",
+        "w_bottom_breakout_pre60_non_bearish_sym1p5",
+        "w_bottom_breakout_market_bull_sym1p5",
+        "w_bottom_breakout_signal_quality_pre60_non_bearish_sym1p5",
+        "w_bottom_breakout_signal_quality_pre60_non_bearish_lowpos70_sym1p5",
+    }
+    missing_tradable = sorted(expected_tradable_segments - set(latest["segment_id"].astype(str)))
+    if missing_tradable:
+        fail(f"missing tradable breakout-day filter segments: {missing_tradable}")
+    tradable = latest[latest["segment_id"].isin(expected_tradable_segments)].copy()
+    if tradable.empty:
+        fail("tradable breakout-day filter segment set is empty")
+    if not false_only(tradable["approved_for_daily"]):
+        fail("tradable breakout-day filter segments must remain approved_for_daily=false")
+    for column in [
+        "price_feature_available_count",
+        "signal_quality_count",
+        "pre60_non_bearish_count",
+        "market_bull_count",
+        "low_position_le70_count",
+    ]:
+        if column not in tradable.columns:
+            fail(f"tradable breakout-day filter output missing {column}")
+        if pd.to_numeric(tradable[column], errors="coerce").isna().any():
+            fail(f"tradable breakout-day filter output has non-numeric {column}")
 
     md_text = Path(LATEST_MD).read_text(encoding="utf-8", errors="replace")
     required_text = [
         "production impact: `none`",
         "future information",
         "does not yet support promotion to production",
+        "Best breakout-day tradable filter",
+        "not strong enough for approved operation evidence",
         "Win rate here means positive",
         "separate model-change PR",
     ]
