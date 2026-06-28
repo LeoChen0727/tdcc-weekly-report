@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6902 GOGOLOOK
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:34 Asia/Taipei
+- generated_at: 2026-06-28 22:27:27 Asia/Taipei
 - stock_id: 6902
 - stock_name: GOGOLOOK
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 290
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.74
-- over_600_ratio: 64.81
-- over_800_ratio: 61.08
-- over_1000_ratio: 58.48
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 71.4
+- over_600_ratio: 64.5
+- over_800_ratio: 60.79
+- over_1000_ratio: 58.2
+- over_400_change_1w: -0.34
+- over_800_change_1w: -0.29
+- over_1000_change_1w: -0.28
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.71,-0.03,61.05,0,58.48,0,0,False,False
 20260612,71.72,0.01,61.06,0.01,58.48,0,1,False,True
 20260618,71.74,0.02,61.08,0.02,58.48,0,2,False,True
+20260626,71.4,-0.34,60.79,-0.29,58.2,-0.28,0,False,False
 ```
 
 ## Candidate Context

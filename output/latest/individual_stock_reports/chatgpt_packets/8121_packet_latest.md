@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8121 越峰
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:50 Asia/Taipei
+- generated_at: 2026-06-28 22:27:41 Asia/Taipei
 - stock_id: 8121
 - stock_name: 越峰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.96
-- over_600_ratio: 60
-- over_800_ratio: 58.04
-- over_1000_ratio: 55.97
-- over_400_change_1w: 1.05
-- over_800_change_1w: 0.14
-- over_1000_change_1w: -0.34
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 61.99
+- over_600_ratio: 59.28
+- over_800_ratio: 57.68
+- over_1000_ratio: 56.02
+- over_400_change_1w: -0.97
+- over_800_change_1w: -0.36
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.33,0.28,57.16,0.39,55.17,0.86,5,True,True
 20260612,61.91,0.58,57.9,0.74,56.31,1.14,6,True,True
 20260618,62.96,1.05,58.04,0.14,55.97,-0.34,7,False,True
+20260626,61.99,-0.97,57.68,-0.36,56.02,0.05,8,False,True
 ```
 
 ## Candidate Context

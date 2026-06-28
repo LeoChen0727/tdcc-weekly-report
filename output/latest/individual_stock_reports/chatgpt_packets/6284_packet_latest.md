@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:17 Asia/Taipei
+- generated_at: 2026-06-28 22:27:12 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 53.37
-- over_600_ratio: 50.78
-- over_800_ratio: 49.42
-- over_1000_ratio: 47.7
-- over_400_change_1w: -2.72
-- over_800_change_1w: -2.62
-- over_1000_change_1w: -2.58
+- as_of_date: 20260626
+- over_400_ratio: 52.86
+- over_600_ratio: 50.04
+- over_800_ratio: 48.7
+- over_1000_ratio: 47.53
+- over_400_change_1w: -0.51
+- over_800_change_1w: -0.72
+- over_1000_change_1w: -0.17
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,58.42,-2.89,55.78,-1.81,53.97,-1.17,0,False,False
 20260612,56.09,-2.33,52.04,-3.74,50.28,-3.69,0,False,False
 20260618,53.37,-2.72,49.42,-2.62,47.7,-2.58,0,False,False
+20260626,52.86,-0.51,48.7,-0.72,47.53,-0.17,0,False,False
 ```
 
 ## Candidate Context

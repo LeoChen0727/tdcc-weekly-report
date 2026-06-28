@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2465 麗臺
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:05 Asia/Taipei
+- generated_at: 2026-06-28 22:26:12 Asia/Taipei
 - stock_id: 2465
 - stock_name: 麗臺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -164,17 +164,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 36.28
-- over_600_ratio: 33.26
-- over_800_ratio: 31.67
-- over_1000_ratio: 30.72
-- over_400_change_1w: 0.32
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 1.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 35.51
+- over_600_ratio: 32.8
+- over_800_ratio: 29.58
+- over_1000_ratio: 29.58
+- over_400_change_1w: -0.77
+- over_800_change_1w: -2.09
+- over_1000_change_1w: -1.14
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,36.47,-2.01,31.72,-0.39,30.8,-0.35,0,False,False
 20260612,35.96,-0.51,31.62,-0.1,29.58,-1.22,0,False,False
 20260618,36.28,0.32,31.67,0.05,30.72,1.14,1,False,True
+20260626,35.51,-0.77,29.58,-2.09,29.58,-1.14,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

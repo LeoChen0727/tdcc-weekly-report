@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6576 逸達
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:23 Asia/Taipei
+- generated_at: 2026-06-28 22:27:18 Asia/Taipei
 - stock_id: 6576
 - stock_name: 逸達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 66.36
-- over_600_ratio: 63.91
-- over_800_ratio: 60.82
-- over_1000_ratio: 58.96
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 66.38
+- over_600_ratio: 63.86
+- over_800_ratio: 60.78
+- over_1000_ratio: 58.92
+- over_400_change_1w: 0.02
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,65.11,-0.11,58.55,0.13,57.33,0.13,18,False,True
 20260410,65.19,0.08,58.64,0.09,57.42,0.09,19,True,True
 20260417,65.38,0.19,58.82,0.18,57.6,0.18,20,True,True
 20260424,65.56,0.18,59.84,1.02,57.98,0.38,21,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.71,0.39,60.82,0.12,58.96,0.12,27,True,True
 20260612,66.37,-0.34,60.82,0,58.96,0,28,False,False
 20260618,66.36,-0.01,60.82,0,58.96,0,0,False,False
+20260626,66.38,0.02,60.78,-0.04,58.92,-0.04,1,False,False
 ```
 
 ## Candidate Context

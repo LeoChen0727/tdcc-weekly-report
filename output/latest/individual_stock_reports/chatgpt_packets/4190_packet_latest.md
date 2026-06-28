@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4190 佐登-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:44 Asia/Taipei
+- generated_at: 2026-06-28 22:26:44 Asia/Taipei
 - stock_id: 4190
 - stock_name: 佐登-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 291
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.83
-- over_600_ratio: 65.83
-- over_800_ratio: 63.53
-- over_1000_ratio: 62.17
-- over_400_change_1w: 0.05
+- as_of_date: 20260626
+- over_400_ratio: 65.82
+- over_600_ratio: 65.82
+- over_800_ratio: 63.51
+- over_1000_ratio: 62.15
+- over_400_change_1w: -0.01
 - over_800_change_1w: -0.02
 - over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,65.78,0.07,63.55,0,62.19,0,3,False,False
 20260612,65.78,0,63.55,0,62.19,0,0,False,False
 20260618,65.83,0.05,63.53,-0.02,62.17,-0.02,1,False,False
+20260626,65.82,-0.01,63.51,-0.02,62.15,-0.02,0,False,False
 ```
 
 ## Candidate Context

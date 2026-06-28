@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:10 Asia/Taipei
+- generated_at: 2026-06-28 22:26:16 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.59
-- over_600_ratio: 54.39
-- over_800_ratio: 53.62
-- over_1000_ratio: 53
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.16
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 55.87
+- over_600_ratio: 54.55
+- over_800_ratio: 53.88
+- over_1000_ratio: 53.14
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.26
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.31,-0.25,55.4,-0.29,54.61,-0.26,0,False,False
 20260612,55.73,-1.58,53.78,-1.62,53.06,-1.55,0,False,False
 20260618,55.59,-0.14,53.62,-0.16,53,-0.06,0,False,False
+20260626,55.87,0.28,53.88,0.26,53.14,0.14,1,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2609 | 陽明 | 62 | 3 | 4396820.0 | 10000.0 | 439.68 | call_put_bullish |
+| 20260626 | 2609 | 陽明 | 62 | 0 | 4396820.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

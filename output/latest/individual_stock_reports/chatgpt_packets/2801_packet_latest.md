@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:14 Asia/Taipei
+- generated_at: 2026-06-28 22:26:19 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.13
-- over_600_ratio: 75.44
-- over_800_ratio: 74.24
-- over_1000_ratio: 73.38
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.15
+- as_of_date: 20260626
+- over_400_ratio: 77.32
+- over_600_ratio: 75.63
+- over_800_ratio: 74.47
+- over_1000_ratio: 73.56
+- over_400_change_1w: 0.19
+- over_800_change_1w: 0.23
 - over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,76.4,0.29,73.47,0.39,72.51,0.39,1,True,True
 20260612,77,0.6,74.09,0.62,73.2,0.69,2,True,True
 20260618,77.13,0.13,74.24,0.15,73.38,0.18,3,True,True
+20260626,77.32,0.19,74.47,0.23,73.56,0.18,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:林玉葉(彰化銀行副總經理) 4.新任者姓名、級職及簡歷:李明翰(將來商業銀行股份有限公司副總經理) 學歷:世新大學資訊管理學系碩士 主要經歷: 將來商業銀行股份有限公司副總經理(資訊長) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/7/1 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:林玉葉(彰化銀行副總經理) 4.新任者姓名、級職及簡歷:李明翰(將來商業銀行股份有限公司副總經理) 學歷:世新大學資訊管理學系碩士 主要經歷: 將來商業銀行股份有限公司副總經理(資訊長) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/7/1 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

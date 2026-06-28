@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6234 高僑
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:14 Asia/Taipei
+- generated_at: 2026-06-28 22:27:10 Asia/Taipei
 - stock_id: 6234
 - stock_name: 高僑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 53.84
-- over_600_ratio: 51.45
-- over_800_ratio: 51.45
-- over_1000_ratio: 49.62
-- over_400_change_1w: 0.33
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 54.37
+- over_600_ratio: 51.5
+- over_800_ratio: 51.5
+- over_1000_ratio: 50.67
+- over_400_change_1w: 0.53
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 1.05
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.65,-0.88,51.45,0,49.62,0,1,False,False
 20260612,53.51,-0.14,51.45,0,49.62,0,0,False,False
 20260618,53.84,0.33,51.45,0,49.62,0,1,False,False
+20260626,54.37,0.53,51.5,0.05,50.67,1.05,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6234 | 高僑 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 獨立董事：趙淑佳 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職本公司董事職務期間 5.決議情形（請依公司法第209條說明表決結果）: 經主席徵詢全體出席股東無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6234 | 高僑 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 獨立董事：趙淑佳 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職本公司董事職務期間 5.決議情形（請依公司法第209條說明表決結果）: 經主席徵詢全體出席股東無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

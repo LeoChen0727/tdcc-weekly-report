@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1210 大成
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:34 Asia/Taipei
+- generated_at: 2026-06-28 22:25:45 Asia/Taipei
 - stock_id: 1210
 - stock_name: 大成
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.31
-- over_600_ratio: 62.27
-- over_800_ratio: 61.05
-- over_1000_ratio: 60.36
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.45
-- over_1000_change_1w: 0.65
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 64.48
+- over_600_ratio: 62.62
+- over_800_ratio: 61.27
+- over_1000_ratio: 60.56
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.02,0.37,59.68,-0.09,58.61,-0.07,1,False,False
 20260612,64.02,1,60.6,0.92,59.71,1.1,2,True,True
 20260618,64.31,0.29,61.05,0.45,60.36,0.65,3,True,True
+20260626,64.48,0.17,61.27,0.22,60.56,0.2,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1210 | 大成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立非執行董事、非執行董事 3.舊任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 4.舊任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 5.新任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 6.新任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:董監事任期屆滿全面改選 9.新任者選任時持股數: 獨立非執行董事:夏立言 0股 非執行董事: 韓家宇 0股 非執行董事: 韓家宸 0股 非執行董事: 韓家寰 344,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）: 獨立非執行董事:夏立言 112/06/29~115年股東會結束 非執行董事: 韓家宇 113/06/28~116年股東會結束 非執行董事: 韓家宸 113/06/28~116年股東會結束 非執行董事: 韓家寰 113/06/28~116年股東會結束 11.新任生效日期:115/06/26 12.同任期董事變動比率:任期屆滿改選，故不適用。 13.同任期獨立董事變動比率:任期屆滿改選，故不適用。 14.同任期監察人變動比率:無監察人，故不適用。 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1210 | 大成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立非執行董事、非執行董事 3.舊任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 4.舊任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 5.新任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 6.新任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:董監事任期屆滿全面改選 9.新任者選任時持股數: 獨立非執行董事:夏立言 0股 非執行董事: 韓家宇 0股 非執行董事: 韓家宸 0股 非執行董事: 韓家寰 344,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）: 獨立非執行董事:夏立言 112/06/29~115年股東會結束 非執行董事: 韓家宇 113/06/28~116年股東會結束 非執行董事: 韓家宸 113/06/28~116年股東會結束 非執行董事: 韓家寰 113/06/28~116年股東會結束 11.新任生效日期:115/06/26 12.同任期董事變動比率:任期屆滿改選，故不適用。 13.同任期獨立董事變動比率:任期屆滿改選，故不適用。 14.同任期監察人變動比率:無監察人，故不適用。 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

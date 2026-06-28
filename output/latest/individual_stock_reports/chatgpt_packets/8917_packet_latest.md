@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8917 欣泰
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:56 Asia/Taipei
+- generated_at: 2026-06-28 22:27:47 Asia/Taipei
 - stock_id: 8917
 - stock_name: 欣泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 136
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.89
-- over_600_ratio: 75.86
-- over_800_ratio: 70.09
-- over_1000_ratio: 66.66
-- over_400_change_1w: -0.11
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 83
+- over_600_ratio: 75.69
+- over_800_ratio: 69.92
+- over_1000_ratio: 66.58
+- over_400_change_1w: 0.11
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,83.03,0.01,70.23,0.01,66.79,0,1,False,True
 20260612,83,-0.03,70.2,-0.03,66.76,-0.03,0,False,False
 20260618,82.89,-0.11,70.09,-0.11,66.66,-0.1,0,False,False
+20260626,83,0.11,69.92,-0.17,66.58,-0.08,1,False,False
 ```
 
 ## Candidate Context

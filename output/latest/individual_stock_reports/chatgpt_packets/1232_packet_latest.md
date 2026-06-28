@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1232 大統益
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:35 Asia/Taipei
+- generated_at: 2026-06-28 22:25:46 Asia/Taipei
 - stock_id: 1232
 - stock_name: 大統益
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.68
-- over_600_ratio: 73.07
-- over_800_ratio: 72.19
-- over_1000_ratio: 72.19
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
+- as_of_date: 20260626
+- over_400_ratio: 73.65
+- over_600_ratio: 73.04
+- over_800_ratio: 72.16
+- over_1000_ratio: 72.16
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.67,-0.03,72.23,-0.03,72.23,-0.03,0,False,False
 20260612,73.69,0.02,72.2,-0.03,72.2,-0.03,1,False,False
 20260618,73.68,-0.01,72.19,-0.01,72.19,-0.01,0,False,False
+20260626,73.65,-0.03,72.16,-0.03,72.16,-0.03,0,False,False
 ```
 
 ## Candidate Context

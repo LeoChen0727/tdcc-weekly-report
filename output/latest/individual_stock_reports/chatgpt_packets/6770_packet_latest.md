@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:30 Asia/Taipei
+- generated_at: 2026-06-28 22:27:23 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.64
-- over_600_ratio: 47.78
-- over_800_ratio: 46.58
-- over_1000_ratio: 46.01
-- over_400_change_1w: 1.18
-- over_800_change_1w: 1.29
-- over_1000_change_1w: 1.44
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 50.53
+- over_600_ratio: 48.61
+- over_800_ratio: 47.41
+- over_1000_ratio: 46.7
+- over_400_change_1w: 0.89
+- over_800_change_1w: 0.83
+- over_1000_change_1w: 0.69
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,13 +181,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.73,-3.71,48.5,-3.78,47.74,-3.9,0,False,False
 20260612,48.46,-3.27,45.29,-3.21,44.57,-3.17,0,False,False
 20260618,49.64,1.18,46.58,1.29,46.01,1.44,1,True,True
+20260626,50.53,0.89,47.41,0.83,46.7,0.69,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6770 | 力積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6770 | 力積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6770 | 力積電 | 168 | 22 | 45987530.0 | 1071490.0 | 42.92 | put_inflow |
+| 20260626 | 6770 | 力積電 | 168 | 0 | 45987530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

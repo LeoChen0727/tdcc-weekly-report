@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6208 日揚
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:12 Asia/Taipei
+- generated_at: 2026-06-28 22:27:09 Asia/Taipei
 - stock_id: 6208
 - stock_name: 日揚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.81
-- over_600_ratio: 60.58
-- over_800_ratio: 56.94
-- over_1000_ratio: 52.23
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260626
+- over_400_ratio: 63.6
+- over_600_ratio: 58.99
+- over_800_ratio: 54.66
+- over_1000_ratio: 50.87
+- over_400_change_1w: -2.21
+- over_800_change_1w: -2.28
+- over_1000_change_1w: -1.36
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,65.55,-0.22,57.38,-0.33,52.67,-0.33,0,False,False
 20260612,65.83,0.28,56.94,-0.44,52.23,-0.44,1,False,False
 20260618,65.81,-0.02,56.94,0,52.23,0,0,False,False
+20260626,63.6,-2.21,54.66,-2.28,50.87,-1.36,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6208 | 日揚 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6208 | 日揚 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

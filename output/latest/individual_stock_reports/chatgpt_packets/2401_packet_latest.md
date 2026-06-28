@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2401 凌陽
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:01 Asia/Taipei
+- generated_at: 2026-06-28 22:26:08 Asia/Taipei
 - stock_id: 2401
 - stock_name: 凌陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 41.91
-- over_600_ratio: 39.24
-- over_800_ratio: 37.5
-- over_1000_ratio: 35.5
-- over_400_change_1w: 2.48
-- over_800_change_1w: 2.43
-- over_1000_change_1w: 2.56
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 43.55
+- over_600_ratio: 41.02
+- over_800_ratio: 39.35
+- over_1000_ratio: 37.99
+- over_400_change_1w: 1.64
+- over_800_change_1w: 1.85
+- over_1000_change_1w: 2.49
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.17,-0.56,34.92,-0.21,33.23,-0.5,0,False,False
 20260612,39.43,0.26,35.07,0.15,32.94,-0.29,1,False,True
 20260618,41.91,2.48,37.5,2.43,35.5,2.56,2,True,True
+20260626,43.55,1.64,39.35,1.85,37.99,2.49,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2401 | 凌陽 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.股東會決議日:115/06/15 2.許可從事競業行為之董事姓名及職稱: (1)台灣樂菲(股)公司代表人詹文雄--董事 (2)蔡智杰--董事 (3)陳瑞琦--獨立董事 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第209條說明表決結果）:經代表已發行股份總數過半數股東之 出席，出席股東表決權三分之二以上同意，本案經表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2401 | 凌陽 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.股東會決議日:115/06/15 2.許可從事競業行為之董事姓名及職稱: (1)台灣樂菲(股)公司代表人詹文雄--董事 (2)蔡智杰--董事 (3)陳瑞琦--獨立董事 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第209條說明表決結果）:經代表已發行股份總數過半數股東之 出席，出席股東表決權三分之二以上同意，本案經表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

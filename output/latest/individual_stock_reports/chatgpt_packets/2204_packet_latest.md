@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2204 中華
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:55 Asia/Taipei
+- generated_at: 2026-06-28 22:26:03 Asia/Taipei
 - stock_id: 2204
 - stock_name: 中華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 74.47
-- over_600_ratio: 73.42
-- over_800_ratio: 71.91
-- over_1000_ratio: 71.57
-- over_400_change_1w: 0.19
-- over_800_change_1w: -0.15
-- over_1000_change_1w: 0.31
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 74.36
+- over_600_ratio: 73.39
+- over_800_ratio: 72.15
+- over_1000_ratio: 71.66
+- over_400_change_1w: -0.11
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.84,0.38,71.75,0.37,71.08,0.19,5,True,True
 20260612,74.28,0.44,72.06,0.31,71.26,0.18,6,True,True
 20260618,74.47,0.19,71.91,-0.15,71.57,0.31,7,False,True
+20260626,74.36,-0.11,72.15,0.24,71.66,0.09,8,False,True
 ```
 
 ## Candidate Context

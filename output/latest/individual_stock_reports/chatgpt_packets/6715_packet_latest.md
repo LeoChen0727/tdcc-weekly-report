@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6715 嘉基
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:28 Asia/Taipei
+- generated_at: 2026-06-28 22:27:22 Asia/Taipei
 - stock_id: 6715
 - stock_name: 嘉基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.12
-- over_600_ratio: 74.16
-- over_800_ratio: 72.2
-- over_1000_ratio: 67.07
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0.7
-- over_1000_change_1w: -0.7
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 81.09
+- over_600_ratio: 75.41
+- over_800_ratio: 73.45
+- over_1000_ratio: 69.76
+- over_400_change_1w: 1.97
+- over_800_change_1w: 1.25
+- over_1000_change_1w: 2.69
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.07,-0.63,73.48,-0.99,69.69,0.46,1,False,True
 20260612,78.73,-0.34,71.5,-1.98,67.77,-1.92,0,False,False
 20260618,79.12,0.39,72.2,0.7,67.07,-0.7,1,False,True
+20260626,81.09,1.97,73.45,1.25,69.76,2.69,2,True,True
 ```
 
 ## Candidate Context

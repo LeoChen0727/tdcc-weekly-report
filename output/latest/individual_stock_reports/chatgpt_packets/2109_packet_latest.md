@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2109 華豐
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:55 Asia/Taipei
+- generated_at: 2026-06-28 22:26:02 Asia/Taipei
 - stock_id: 2109
 - stock_name: 華豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 74.41
-- over_600_ratio: 70.99
+- as_of_date: 20260626
+- over_400_ratio: 74.47
+- over_600_ratio: 71.22
 - over_800_ratio: 69.24
 - over_1000_ratio: 66.65
-- over_400_change_1w: -0.18
-- over_800_change_1w: -0.29
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,74.68,0.05,69.54,-0.01,66.65,-0.01,2,False,False
 20260612,74.59,-0.09,69.53,-0.01,66.65,0,0,False,False
 20260618,74.41,-0.18,69.24,-0.29,66.65,0,0,False,False
+20260626,74.47,0.06,69.24,0,66.65,0,1,False,False
 ```
 
 ## Candidate Context

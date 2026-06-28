@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6133 金橋
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:08 Asia/Taipei
+- generated_at: 2026-06-28 22:27:05 Asia/Taipei
 - stock_id: 6133
 - stock_name: 金橋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 47.97
-- over_600_ratio: 45.44
-- over_800_ratio: 44.22
-- over_1000_ratio: 44.22
-- over_400_change_1w: 0.44
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 47.66
+- over_600_ratio: 45.63
+- over_800_ratio: 43.85
+- over_1000_ratio: 43.85
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.37
+- over_1000_change_1w: -0.37
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,47.6,0.73,44.65,0.33,44.65,0.33,5,True,True
 20260612,47.53,-0.07,44.17,-0.48,44.17,-0.48,0,False,False
 20260618,47.97,0.44,44.22,0.05,44.22,0.05,1,True,True
+20260626,47.66,-0.31,43.85,-0.37,43.85,-0.37,2,False,False
 ```
 
 ## Candidate Context

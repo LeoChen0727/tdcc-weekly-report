@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8068 全達
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:47 Asia/Taipei
+- generated_at: 2026-06-28 22:27:39 Asia/Taipei
 - stock_id: 8068
 - stock_name: 全達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 62.27
-- over_600_ratio: 61.11
-- over_800_ratio: 59.49
-- over_1000_ratio: 58.26
-- over_400_change_1w: -0.64
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.08
+- over_600_ratio: 61.09
+- over_800_ratio: 59.4
+- over_1000_ratio: 58.17
+- over_400_change_1w: 0
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.09
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.17,-0.65,59.64,-0.13,58.41,-0.13,1,False,False
 20260612,62.91,-0.26,59.57,-0.07,58.34,-0.07,0,False,False
 20260618,62.27,-0.64,59.49,-0.08,58.26,-0.08,0,False,False
+20260626,62.27,0,59.4,-0.09,58.17,-0.09,0,False,False
 ```
 
 ## Candidate Context

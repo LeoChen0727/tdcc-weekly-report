@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9105 泰金寶-DR
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:57 Asia/Taipei
+- generated_at: 2026-06-28 22:27:48 Asia/Taipei
 - stock_id: 9105
 - stock_name: 泰金寶-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 24.36
-- over_600_ratio: 19.45
-- over_800_ratio: 16.84
-- over_1000_ratio: 14.06
-- over_400_change_1w: -0.36
-- over_800_change_1w: -0.65
-- over_1000_change_1w: -0.95
+- as_of_date: 20260626
+- over_400_ratio: 23.37
+- over_600_ratio: 18.54
+- over_800_ratio: 15.73
+- over_1000_ratio: 13.22
+- over_400_change_1w: -0.99
+- over_800_change_1w: -1.11
+- over_1000_change_1w: -0.84
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,27.31,-0.79,19.24,-0.29,16.75,-0.01,0,False,False
 20260612,24.72,-2.59,17.49,-1.75,15.01,-1.74,0,False,False
 20260618,24.36,-0.36,16.84,-0.65,14.06,-0.95,0,False,False
+20260626,23.37,-0.99,15.73,-1.11,13.22,-0.84,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 9105 | 泰金寶-DR | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 9105 | 泰金寶-DR | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

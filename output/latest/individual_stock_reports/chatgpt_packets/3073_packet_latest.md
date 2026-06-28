@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3073 天方能源
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:22 Asia/Taipei
+- generated_at: 2026-06-28 22:26:26 Asia/Taipei
 - stock_id: 3073
 - stock_name: 天方能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 54.9
-- over_600_ratio: 52.48
-- over_800_ratio: 47.44
-- over_1000_ratio: 37.54
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 55.05
+- over_600_ratio: 52.63
+- over_800_ratio: 47.59
+- over_1000_ratio: 37.69
+- over_400_change_1w: 0.15
+- over_800_change_1w: 0.15
+- over_1000_change_1w: 0.15
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,54.71,-0.02,47.25,-0.02,37.35,-0.02,0,False,False
 20260612,54.84,0.13,47.38,0.13,37.48,0.13,1,True,True
 20260618,54.9,0.06,47.44,0.06,37.54,0.06,2,True,True
+20260626,55.05,0.15,47.59,0.15,37.69,0.15,3,True,True
 ```
 
 ## Candidate Context

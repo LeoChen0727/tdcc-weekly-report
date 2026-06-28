@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1423 利華
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:39 Asia/Taipei
+- generated_at: 2026-06-28 22:25:49 Asia/Taipei
 - stock_id: 1423
 - stock_name: 利華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 285
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.54
-- over_600_ratio: 81.03
-- over_800_ratio: 76.85
-- over_1000_ratio: 75.92
-- over_400_change_1w: 0.59
-- over_800_change_1w: -0.75
-- over_1000_change_1w: 1.01
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 83.02
+- over_600_ratio: 81.48
+- over_800_ratio: 77.19
+- over_1000_ratio: 76.26
+- over_400_change_1w: 0.48
+- over_800_change_1w: 0.34
+- over_1000_change_1w: 0.34
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,81.68,0.34,77.31,0.34,74.59,0.34,5,True,True
 20260612,81.95,0.27,77.6,0.29,74.91,0.32,6,True,True
 20260618,82.54,0.59,76.85,-0.75,75.92,1.01,7,False,True
+20260626,83.02,0.48,77.19,0.34,76.26,0.34,8,True,True
 ```
 
 ## Candidate Context

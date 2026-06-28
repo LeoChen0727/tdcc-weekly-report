@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6651 全宇昕
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:25 Asia/Taipei
+- generated_at: 2026-06-28 22:27:20 Asia/Taipei
 - stock_id: 6651
 - stock_name: 全宇昕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.61
-- over_600_ratio: 39.1
-- over_800_ratio: 35.17
-- over_1000_ratio: 32.85
-- over_400_change_1w: 0.21
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 49.45
+- over_600_ratio: 36.94
+- over_800_ratio: 35.05
+- over_1000_ratio: 32.72
+- over_400_change_1w: -2.16
+- over_800_change_1w: -0.12
+- over_1000_change_1w: -0.13
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.48,0.01,35.22,0,32.9,0,2,False,False
 20260612,51.4,-0.08,35.22,0,32.9,0,0,False,False
 20260618,51.61,0.21,35.17,-0.05,32.85,-0.05,1,False,False
+20260626,49.45,-2.16,35.05,-0.12,32.72,-0.13,0,False,False
 ```
 
 ## Candidate Context

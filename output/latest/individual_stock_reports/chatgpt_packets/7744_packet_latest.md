@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7744 崴寶
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:43 Asia/Taipei
+- generated_at: 2026-06-28 22:27:36 Asia/Taipei
 - stock_id: 7744
 - stock_name: 崴寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 139
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 78.65
-- over_600_ratio: 73.97
-- over_800_ratio: 67.36
+- as_of_date: 20260626
+- over_400_ratio: 78.82
+- over_600_ratio: 74.13
+- over_800_ratio: 67.34
 - over_1000_ratio: 58.75
-- over_400_change_1w: 0.08
+- over_400_change_1w: 0.17
 - over_800_change_1w: -0.02
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 2
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,78.03,-3.04,66.79,-0.16,58.09,-0.16,0,False,False
 20260612,78.57,0.54,67.38,0.59,58.78,0.69,1,True,True
 20260618,78.65,0.08,67.36,-0.02,58.75,-0.03,2,False,False
+20260626,78.82,0.17,67.34,-0.02,58.75,0,3,False,False
 ```
 
 ## Candidate Context

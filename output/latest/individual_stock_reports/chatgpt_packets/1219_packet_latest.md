@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1219 福壽
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:35 Asia/Taipei
+- generated_at: 2026-06-28 22:25:46 Asia/Taipei
 - stock_id: 1219
 - stock_name: 福壽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.94
-- over_600_ratio: 59.61
-- over_800_ratio: 58.45
-- over_1000_ratio: 56.96
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 61.91
+- over_600_ratio: 60.08
+- over_800_ratio: 58.74
+- over_1000_ratio: 57
+- over_400_change_1w: -0.03
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.91,0.2,58.28,-0.02,56.79,-0.02,5,False,False
 20260612,61.86,-0.05,58.4,0.12,56.91,0.12,6,False,True
 20260618,61.94,0.08,58.45,0.05,56.96,0.05,7,False,True
+20260626,61.91,-0.03,58.74,0.29,57,0.04,8,False,True
 ```
 
 ## Candidate Context

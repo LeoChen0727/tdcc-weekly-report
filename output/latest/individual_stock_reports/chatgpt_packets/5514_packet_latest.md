@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5514 三豐
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:03 Asia/Taipei
+- generated_at: 2026-06-28 22:27:01 Asia/Taipei
 - stock_id: 5514
 - stock_name: 三豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 129
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 92.41
 - over_600_ratio: 90.39
 - over_800_ratio: 88.66
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,92.45,-0.01,88.66,0,87.52,0,0,False,False
 20260612,92.41,-0.04,88.66,0,87.52,0,0,False,False
 20260618,92.41,0,88.66,0,87.52,0,0,False,False
+20260626,92.41,0,88.66,0,87.52,0,0,False,False
 ```
 
 ## Candidate Context

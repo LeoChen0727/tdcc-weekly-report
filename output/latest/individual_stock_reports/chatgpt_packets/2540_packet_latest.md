@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2540 愛山林
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:09 Asia/Taipei
+- generated_at: 2026-06-28 22:26:15 Asia/Taipei
 - stock_id: 2540
 - stock_name: 愛山林
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 91
-- over_600_ratio: 90.27
-- over_800_ratio: 89.69
-- over_1000_ratio: 89.02
+- as_of_date: 20260626
+- over_400_ratio: 91.01
+- over_600_ratio: 90.35
+- over_800_ratio: 89.62
+- over_1000_ratio: 88.95
 - over_400_change_1w: 0.01
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 6
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,90.97,0.11,89.8,0.09,88.84,-0.11,4,False,True
 20260612,90.99,0.02,89.64,-0.16,88.97,0.13,5,False,True
 20260618,91,0.01,89.69,0.05,89.02,0.05,6,False,True
+20260626,91.01,0.01,89.62,-0.07,88.95,-0.07,7,False,False
 ```
 
 ## Candidate Context

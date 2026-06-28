@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6146 耕興
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:09 Asia/Taipei
+- generated_at: 2026-06-28 22:27:06 Asia/Taipei
 - stock_id: 6146
 - stock_name: 耕興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.28
-- over_600_ratio: 51.95
-- over_800_ratio: 45.56
-- over_1000_ratio: 42.87
-- over_400_change_1w: -0.93
-- over_800_change_1w: -1.25
-- over_1000_change_1w: -1.25
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 56.47
+- over_600_ratio: 52.12
+- over_800_ratio: 45.58
+- over_1000_ratio: 42.89
+- over_400_change_1w: 0.19
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.86,-0.73,47.26,-1.6,44.55,0.25,1,False,True
 20260612,57.21,0.35,46.81,-0.45,44.12,-0.43,2,False,False
 20260618,56.28,-0.93,45.56,-1.25,42.87,-1.25,0,False,False
+20260626,56.47,0.19,45.58,0.02,42.89,0.02,1,True,True
 ```
 
 ## Candidate Context

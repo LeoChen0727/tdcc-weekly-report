@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:35 Asia/Taipei
+- generated_at: 2026-06-28 22:27:28 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.24
-- over_600_ratio: 56.85
-- over_800_ratio: 55.77
-- over_1000_ratio: 54.34
-- over_400_change_1w: -0.89
-- over_800_change_1w: 0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 62.3
+- over_600_ratio: 56.91
+- over_800_ratio: 55.83
+- over_1000_ratio: 54.56
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.22
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.03,0.22,56.03,-1.36,56.03,-0.08,3,False,False
 20260612,63.13,-0.9,55.76,-0.27,54.35,-1.68,0,False,False
 20260618,62.24,-0.89,55.77,0.01,54.34,-0.01,1,False,True
+20260626,62.3,0.06,55.83,0.06,54.56,0.22,2,True,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6937 | 天虹 | 43 | 1 | 548560.0 | 26000.0 | 21.1 | no_signal |
+| 20260626 | 6937 | 天虹 | 43 | 0 | 548560.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

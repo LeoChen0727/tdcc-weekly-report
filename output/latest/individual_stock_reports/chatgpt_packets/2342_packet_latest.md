@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2342 茂矽
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:58 Asia/Taipei
+- generated_at: 2026-06-28 22:26:05 Asia/Taipei
 - stock_id: 2342
 - stock_name: 茂矽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 42.94
-- over_600_ratio: 41.95
-- over_800_ratio: 39.83
-- over_1000_ratio: 36.48
-- over_400_change_1w: 2.9
-- over_800_change_1w: 1.97
-- over_1000_change_1w: 2.08
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 38.6
+- over_600_ratio: 37.01
+- over_800_ratio: 36.11
+- over_1000_ratio: 32.67
+- over_400_change_1w: -4.34
+- over_800_change_1w: -3.72
+- over_1000_change_1w: -3.81
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,43.06,2.15,41.11,3.2,37.87,1.66,3,True,True
 20260612,40.04,-3.02,37.86,-3.25,34.4,-3.47,0,False,False
 20260618,42.94,2.9,39.83,1.97,36.48,2.08,1,True,True
+20260626,38.6,-4.34,36.11,-3.72,32.67,-3.81,0,False,False
 ```
 
 ## Candidate Context

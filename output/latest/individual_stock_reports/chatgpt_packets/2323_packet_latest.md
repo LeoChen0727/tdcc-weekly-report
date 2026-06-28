@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2323 中環
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:05 Asia/Taipei
 - stock_id: 2323
 - stock_name: 中環
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.68
-- over_600_ratio: 41.13
-- over_800_ratio: 39.41
-- over_1000_ratio: 37.65
-- over_400_change_1w: 0.46
-- over_800_change_1w: 0.53
-- over_1000_change_1w: 0.38
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 45.5
+- over_600_ratio: 42.08
+- over_800_ratio: 40.37
+- over_1000_ratio: 38.85
+- over_400_change_1w: 0.82
+- over_800_change_1w: 0.96
+- over_1000_change_1w: 1.2
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.98,0.74,39.74,0.98,38.05,0.96,2,True,True
 20260612,44.22,-0.76,38.88,-0.86,37.27,-0.78,0,False,False
 20260618,44.68,0.46,39.41,0.53,37.65,0.38,1,True,True
+20260626,45.5,0.82,40.37,0.96,38.85,1.2,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2323 | 中環 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.證券名稱: 穩懋 普通股 2.交易日期:115/6/11~115/6/26 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年06月26日 5.交易數量、每單位價格及交易總金額: 交易數量(仟股):615 每單位價格(元):503.08 交易總金額(元):309,397,259 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益1,724,885元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:246,000股、金額:116,291,221元     持股比例:0.06%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:85.18%   占歸屬於母公司業主之權益比例:122.34%  營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/03/31授權有權交易人在115年第二季期間，得於集中交易市場進行有價證券交易；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2323 | 中環 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.證券名稱: 穩懋 普通股 2.交易日期:115/6/11~115/6/26 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年06月26日 5.交易數量、每單位價格及交易總金額: 交易數量(仟股):615 每單位價格(元):503.08 交易總金額(元):309,397,259 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益1,724,885元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:246,000股、金額:116,291,221元     持股比例:0.06%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:85.18%   占歸屬於母公司業主之權益比例:122.34%  營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/03/31授權有權交易人在115年第二季期間，得於集中交易市場進行有價證券交易；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

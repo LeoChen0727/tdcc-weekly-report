@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4416 三圓
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:45 Asia/Taipei
+- generated_at: 2026-06-28 22:26:45 Asia/Taipei
 - stock_id: 4416
 - stock_name: 三圓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 78.41
-- over_600_ratio: 71.76
-- over_800_ratio: 67.94
-- over_1000_ratio: 63.99
-- over_400_change_1w: -0.87
-- over_800_change_1w: -1.83
-- over_1000_change_1w: -3.11
+- as_of_date: 20260626
+- over_400_ratio: 76.7
+- over_600_ratio: 69.99
+- over_800_ratio: 65.33
+- over_1000_ratio: 62.66
+- over_400_change_1w: -1.71
+- over_800_change_1w: -2.61
+- over_1000_change_1w: -1.33
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.96,-0.26,69.77,-0.21,67.1,-0.21,0,False,False
 20260612,79.28,-0.68,69.77,0,67.1,0,0,False,False
 20260618,78.41,-0.87,67.94,-1.83,63.99,-3.11,0,False,False
+20260626,76.7,-1.71,65.33,-2.61,62.66,-1.33,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4416 | 三圓 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 1.櫃買中心公告處置之日期:NA 2.公司名稱(或負責人姓名):王雅麟 3.與公司關係﹝請輸入本公司、本公司負責人、母公司或子公司﹞:本公司董事長 4.若為母公司或子公司，其相互持股比例:不適用 5.櫃買中心公告處置引用之業務規則條款及發生緣由: 第4條之1上櫃公司或其負責人發生存款不足之退票事由；董事長王雅麟先生 退票事由 6.處理結果(請輸入〝變更交易方法〞、〝停止買賣〞或〝終止上櫃〞):不適用 7.股票開始(併案)變更交易方法/停止買賣/終止上櫃之日期:NA 8.退票、拒絕往來之日期:115/06/25 9.退票張數及金額:1張，$1,500,000 10.退票之往來銀行:合作金庫 11.退票後之清償註記日期:NA 12.退票之清償方式(請輸入〝已實際償付票款〞或〝以換票方式遞延票據債務〞): 與持票人協商清償註記。 13.公告拒絕往來之票據交換所（拒絕往來時適用，否則請輸[不適用]）:不適用 14.因應及保全措施:無 15.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第1款所定對 股東權益或證券價格有重大影響之事項): (1)本公司於115/06/25日獲悉，董事長發生退票情事。 (2)截至本日共有7張支票尚未清償註記，金額共計新台幣87,145,000元，已與 持票人協商清償註記。 (3)該事件係法人董事之個別事務，與本公司營運及財務業務無涉，亦對本公司無 重大影響。 16.(風險警示)發生存款不足退票而致上櫃有價證券列為變更交易方法， 三個月內無法達成補正程序而致停止買賣， 有金融機構拒絕往來紀錄或前開停止買賣情事 六個月內無法達成補正程序並檢附相關書件證明者， 有價證券將有終止上櫃之虞， 提醒投資人審慎注意投資風險:不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 4416 | 三圓 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 1.櫃買中心公告處置之日期:NA 2.公司名稱(或負責人姓名):王雅麟 3.與公司關係﹝請輸入本公司、本公司負責人、母公司或子公司﹞:本公司董事長 4.若為母公司或子公司，其相互持股比例:不適用 5.櫃買中心公告處置引用之業務規則條款及發生緣由: 第4條之1上櫃公司或其負責人發生存款不足之退票事由；董事長王雅麟先生 退票事由 6.處理結果(請輸入〝變更交易方法〞、〝停止買賣〞或〝終止上櫃〞):不適用 7.股票開始(併案)變更交易方法/停止買賣/終止上櫃之日期:NA 8.退票、拒絕往來之日期:115/06/25 9.退票張數及金額:1張，$1,500,000 10.退票之往來銀行:合作金庫 11.退票後之清償註記日期:NA 12.退票之清償方式(請輸入〝已實際償付票款〞或〝以換票方式遞延票據債務〞): 與持票人協商清償註記。 13.公告拒絕往來之票據交換所（拒絕往來時適用，否則請輸[不適用]）:不適用 14.因應及保全措施:無 15.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第1款所定對 股東權益或證券價格有重大影響之事項): (1)本公司於115/06/25日獲悉，董事長發生退票情事。 (2)截至本日共有7張支票尚未清償註記，金額共計新台幣87,145,000元，已與 持票人協商清償註記。 (3)該事件係法人董事之個別事務，與本公司營運及財務業務無涉，亦對本公司無 重大影響。 16.(風險警示)發生存款不足退票而致上櫃有價證券列為變更交易方法， 三個月內無法達成補正程序而致停止買賣， 有金融機構拒絕往來紀錄或前開停止買賣情事 六個月內無法達成補正程序並檢附相關書件證明者， 有價證券將有終止上櫃之虞， 提醒投資人審慎注意投資風險:不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

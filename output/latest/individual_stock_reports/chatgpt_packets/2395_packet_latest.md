@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:01 Asia/Taipei
+- generated_at: 2026-06-28 22:26:08 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 84.96
-- over_600_ratio: 81.61
-- over_800_ratio: 79.87
-- over_1000_ratio: 77.86
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 85.1
+- over_600_ratio: 81.43
+- over_800_ratio: 79.94
+- over_1000_ratio: 77.77
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.07
+- over_1000_change_1w: -0.09
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,85.23,-0.28,79.55,-0.68,77.65,-0.71,0,False,False
 20260612,85.03,-0.2,80,0.45,78,0.35,1,False,True
 20260618,84.96,-0.07,79.87,-0.13,77.86,-0.14,0,False,False
+20260626,85.1,0.14,79.94,0.07,77.77,-0.09,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放：普通股現金股利新台幣9,697,298,744元(每股預計配發11.2元，其中 盈餘分配每股9.2元、資本公積發放每股2元)。 (2)變更後：普通股現金股利新台幣9,697,298,744元(每股預計配發11.15855623元， 其中盈餘分配每股9.16595690元、資本公積發放每股1.99259933元)。 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項: 因本公司員工認股權之行使，致流通在外股數變動而調整配息率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放：普通股現金股利新台幣9,697,298,744元(每股預計配發11.2元，其中 盈餘分配每股9.2元、資本公積發放每股2元)。 (2)變更後：普通股現金股利新台幣9,697,298,744元(每股預計配發11.15855623元， 其中盈餘分配每股9.16595690元、資本公積發放每股1.99259933元)。 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項: 因本公司員工認股權之行使，致流通在外股數變動而調整配息率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

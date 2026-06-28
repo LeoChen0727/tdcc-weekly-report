@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4987 科誠
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:55 Asia/Taipei
+- generated_at: 2026-06-28 22:26:54 Asia/Taipei
 - stock_id: 4987
 - stock_name: 科誠
 - packet_status: standard_180d_window_packet

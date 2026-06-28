@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8021 尖點
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:46 Asia/Taipei
+- generated_at: 2026-06-28 22:27:38 Asia/Taipei
 - stock_id: 8021
 - stock_name: 尖點
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -164,17 +164,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.57
-- over_600_ratio: 42.94
-- over_800_ratio: 37.98
-- over_1000_ratio: 35.05
-- over_400_change_1w: -5.73
-- over_800_change_1w: -4.19
-- over_1000_change_1w: -3.45
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 47.84
+- over_600_ratio: 44.04
+- over_800_ratio: 40.38
+- over_1000_ratio: 37.38
+- over_400_change_1w: 1.27
+- over_800_change_1w: 2.4
+- over_1000_change_1w: 2.33
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,48.3,0.32,41.99,-0.8,38.39,-0.16,2,False,False
 20260612,52.3,4,42.17,0.18,38.5,0.11,3,True,True
 20260618,46.57,-5.73,37.98,-4.19,35.05,-3.45,0,False,False
+20260626,47.84,1.27,40.38,2.4,37.38,2.33,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8021 | 尖點 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8021 | 尖點 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

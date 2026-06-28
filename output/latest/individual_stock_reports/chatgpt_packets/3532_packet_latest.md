@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:34 Asia/Taipei
+- generated_at: 2026-06-28 22:26:36 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 91.57
-- over_600_ratio: 89.8
-- over_800_ratio: 89.29
-- over_1000_ratio: 88.78
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.34
-- over_1000_change_1w: 0.8
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 91.26
+- over_600_ratio: 89.87
+- over_800_ratio: 89.04
+- over_1000_ratio: 88.28
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.25
+- over_1000_change_1w: -0.5
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,91.26,-0.05,89.18,0,88.47,0.24,5,False,True
 20260612,91.36,0.1,88.95,-0.23,87.98,-0.49,6,False,False
 20260618,91.57,0.21,89.29,0.34,88.78,0.8,7,False,True
+20260626,91.26,-0.31,89.04,-0.25,88.28,-0.5,8,False,False
 ```
 
 ## Candidate Context

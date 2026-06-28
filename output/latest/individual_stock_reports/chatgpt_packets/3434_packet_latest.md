@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3434 哲固
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:31 Asia/Taipei
+- generated_at: 2026-06-28 22:26:34 Asia/Taipei
 - stock_id: 3434
 - stock_name: 哲固
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.29
-- over_600_ratio: 40.43
-- over_800_ratio: 32.45
+- as_of_date: 20260626
+- over_400_ratio: 45.4
+- over_600_ratio: 40.42
+- over_800_ratio: 30.2
 - over_1000_ratio: 30.2
-- over_400_change_1w: 0
-- over_800_change_1w: 0
+- over_400_change_1w: 1.11
+- over_800_change_1w: -2.25
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,43.35,0.35,30.22,0.33,27.96,0.33,18,True,True
 20260410,43.65,0.3,30.55,0.33,28.29,0.33,19,True,True
 20260417,44.83,1.18,31.79,1.24,29.53,1.24,20,True,True
 20260424,44.88,0.05,31.82,0.03,29.56,0.03,21,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.39,1.14,32.4,-0.01,30.15,0,27,False,False
 20260612,44.29,-1.1,32.45,0.05,30.2,0.05,28,False,True
 20260618,44.29,0,32.45,0,30.2,0,0,False,False
+20260626,45.4,1.11,30.2,-2.25,30.2,0,1,False,False
 ```
 
 ## Candidate Context

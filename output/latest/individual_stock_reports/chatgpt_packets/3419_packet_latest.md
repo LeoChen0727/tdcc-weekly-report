@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3419 譁裕
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:31 Asia/Taipei
+- generated_at: 2026-06-28 22:26:33 Asia/Taipei
 - stock_id: 3419
 - stock_name: 譁裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 31.16
+- as_of_date: 20260626
+- over_400_ratio: 31.57
 - over_600_ratio: 28.38
 - over_800_ratio: 25.54
 - over_1000_ratio: 23.37
-- over_400_change_1w: 0.04
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 2
+- over_400_change_1w: 0.41
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,30.98,-0.49,25.36,-0.04,23.21,-0.05,0,False,False
 20260612,31.12,0.14,25.55,0.19,23.4,0.19,1,True,True
 20260618,31.16,0.04,25.54,-0.01,23.37,-0.03,2,False,False
+20260626,31.57,0.41,25.54,0,23.37,0,3,False,False
 ```
 
 ## Candidate Context

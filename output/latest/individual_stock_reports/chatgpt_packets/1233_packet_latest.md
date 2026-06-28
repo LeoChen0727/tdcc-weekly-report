@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1233 天仁
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:35 Asia/Taipei
+- generated_at: 2026-06-28 22:25:46 Asia/Taipei
 - stock_id: 1233
 - stock_name: 天仁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 74.38
-- over_600_ratio: 70.23
-- over_800_ratio: 68.7
-- over_1000_ratio: 67.63
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260626
+- over_400_ratio: 74.46
+- over_600_ratio: 70.31
+- over_800_ratio: 68.78
+- over_1000_ratio: 67.71
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,73.14,0,67.47,0,66.4,0,0,False,False
 20260410,73.14,0,67.47,0,66.4,0,0,False,False
 20260417,73.74,0.6,68.07,0.6,67,0.6,1,True,True
 20260424,73.74,0,68.07,0,67,0,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,74.25,0.14,68.57,0.13,67.5,0.13,6,True,True
 20260612,74.31,0.06,68.63,0.06,67.56,0.06,7,True,True
 20260618,74.38,0.07,68.7,0.07,67.63,0.07,8,True,True
+20260626,74.46,0.08,68.78,0.08,67.71,0.08,9,True,True
 ```
 
 ## Candidate Context

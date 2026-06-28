@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6654 天正國際
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:25 Asia/Taipei
+- generated_at: 2026-06-28 22:27:20 Asia/Taipei
 - stock_id: 6654
 - stock_name: 天正國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 156
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.32
-- over_600_ratio: 73.31
-- over_800_ratio: 73.31
+- as_of_date: 20260626
+- over_400_ratio: 79.19
+- over_600_ratio: 73.27
+- over_800_ratio: 73.27
 - over_1000_ratio: 71.18
 - over_400_change_1w: -0.13
-- over_800_change_1w: 0.02
+- over_800_change_1w: -0.04
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 7
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.29,0.27,71.18,0,71.18,0,5,False,False
 20260612,79.45,0.16,73.29,2.11,71.18,0,6,False,True
 20260618,79.32,-0.13,73.31,0.02,71.18,0,7,False,True
+20260626,79.19,-0.13,73.27,-0.04,71.18,0,0,False,False
 ```
 
 ## Candidate Context

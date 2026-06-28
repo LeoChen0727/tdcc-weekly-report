@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:55 Asia/Taipei
+- generated_at: 2026-06-28 22:26:54 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 291
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 19.27
-- over_600_ratio: 16.98
-- over_800_ratio: 10.73
+- as_of_date: 20260626
+- over_400_ratio: 19.23
+- over_600_ratio: 17.48
+- over_800_ratio: 14.09
 - over_1000_ratio: 10.73
-- over_400_change_1w: 2.12
-- over_800_change_1w: -1.12
-- over_1000_change_1w: 2.03
-- tdcc_consecutive_up_weeks: 4
+- over_400_change_1w: -0.04
+- over_800_change_1w: 3.36
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,16.15,-0.66,11.79,3.09,8.7,0,2,False,True
 20260612,17.15,1,11.85,0.06,8.7,0,3,False,True
 20260618,19.27,2.12,10.73,-1.12,10.73,2.03,4,False,True
+20260626,19.23,-0.04,14.09,3.36,10.73,0,5,False,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4977 | 眾達-KY | 107 | 7 | 5359830.0 | 291460.0 | 18.39 | call_inflow |
+| 20260626 | 4977 | 眾達-KY | 107 | 0 | 5359830.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

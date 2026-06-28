@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4583 台灣精銳
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:49 Asia/Taipei
+- generated_at: 2026-06-28 22:26:49 Asia/Taipei
 - stock_id: 4583
 - stock_name: 台灣精銳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,13 +157,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 86.93
-- over_600_ratio: 85.09
-- over_800_ratio: 84.11
+- as_of_date: 20260626
+- over_400_ratio: 86.78
+- over_600_ratio: 84.96
+- over_800_ratio: 83.01
 - over_1000_ratio: 81.82
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.02
+- over_400_change_1w: -0.15
+- over_800_change_1w: -1.1
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,86.93,-1.02,84.12,-0.44,81.82,-0.45,0,False,False
 20260612,86.95,0.02,84.13,0.01,81.82,0,1,False,True
 20260618,86.93,-0.02,84.11,-0.02,81.82,0,0,False,False
+20260626,86.78,-0.15,83.01,-1.1,81.82,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2030 彰源
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:01 Asia/Taipei
 - stock_id: 2030
 - stock_name: 彰源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.89
-- over_600_ratio: 45.19
-- over_800_ratio: 44.46
-- over_1000_ratio: 43.17
-- over_400_change_1w: 0.32
-- over_800_change_1w: 0.66
-- over_1000_change_1w: 1.38
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 48.2
+- over_600_ratio: 46.51
+- over_800_ratio: 45.54
+- over_1000_ratio: 44.62
+- over_400_change_1w: 1.31
+- over_800_change_1w: 1.08
+- over_1000_change_1w: 1.45
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,46.58,0.1,44.07,-0.1,42.39,-0.48,5,False,False
 20260612,46.57,-0.01,43.8,-0.27,41.79,-0.6,0,False,False
 20260618,46.89,0.32,44.46,0.66,43.17,1.38,1,False,True
+20260626,48.2,1.31,45.54,1.08,44.62,1.45,2,True,True
 ```
 
 ## Candidate Context

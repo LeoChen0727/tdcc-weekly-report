@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6515 穎崴
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:21 Asia/Taipei
+- generated_at: 2026-06-28 22:27:16 Asia/Taipei
 - stock_id: 6515
 - stock_name: 穎崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.01
-- over_600_ratio: 47.57
-- over_800_ratio: 41.94
-- over_1000_ratio: 37.27
-- over_400_change_1w: -0.55
-- over_800_change_1w: 0.86
-- over_1000_change_1w: 0.86
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 49.54
+- over_600_ratio: 46.92
+- over_800_ratio: 41.33
+- over_1000_ratio: 36.66
+- over_400_change_1w: -0.47
+- over_800_change_1w: -0.61
+- over_1000_change_1w: -0.61
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.37,-0.76,40.68,-2.76,36.01,-0.45,0,False,False
 20260612,50.56,-0.81,41.08,0.4,36.41,0.4,1,False,True
 20260618,50.01,-0.55,41.94,0.86,37.27,0.86,2,False,True
+20260626,49.54,-0.47,41.33,-0.61,36.66,-0.61,0,False,False
 ```
 
 ## Candidate Context

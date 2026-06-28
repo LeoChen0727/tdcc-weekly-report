@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1337 再生-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:38 Asia/Taipei
+- generated_at: 2026-06-28 22:25:48 Asia/Taipei
 - stock_id: 1337
 - stock_name: 再生-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 48.26
-- over_600_ratio: 43.71
-- over_800_ratio: 40.67
-- over_1000_ratio: 38.33
-- over_400_change_1w: 0.11
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 48.13
+- over_600_ratio: 44.07
+- over_800_ratio: 41.82
+- over_1000_ratio: 39.17
+- over_400_change_1w: -0.13
+- over_800_change_1w: 1.15
+- over_1000_change_1w: 0.84
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,48.11,0.26,40.41,0.19,38.41,-0.12,5,False,True
 20260612,48.15,0.04,40.71,0.3,38.4,-0.01,6,False,True
 20260618,48.26,0.11,40.67,-0.04,38.33,-0.07,7,False,False
+20260626,48.13,-0.13,41.82,1.15,39.17,0.84,8,False,True
 ```
 
 ## Candidate Context

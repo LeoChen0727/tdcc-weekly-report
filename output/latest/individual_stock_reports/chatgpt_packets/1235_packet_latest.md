@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1235 興泰
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:36 Asia/Taipei
+- generated_at: 2026-06-28 22:25:46 Asia/Taipei
 - stock_id: 1235
 - stock_name: 興泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 287
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,9 +157,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 96.34
-- over_600_ratio: 95.54
+- as_of_date: 20260626
+- over_400_ratio: 96.33
+- over_600_ratio: 95.53
 - over_800_ratio: 95.13
 - over_1000_ratio: 95.13
 - over_400_change_1w: -0.01
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,96.53,0,94.99,0,94.99,0,0,False,False
 20260612,96.35,-0.18,95.13,0.14,95.13,0.14,1,False,True
 20260618,96.34,-0.01,95.13,0,95.13,0,0,False,False
+20260626,96.33,-0.01,95.13,0,95.13,0,0,False,False
 ```
 
 ## Candidate Context

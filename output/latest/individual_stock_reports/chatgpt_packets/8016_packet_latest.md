@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:46 Asia/Taipei
+- generated_at: 2026-06-28 22:27:38 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 43.15
-- over_600_ratio: 35.38
-- over_800_ratio: 33.65
-- over_1000_ratio: 27.73
-- over_400_change_1w: -1.27
-- over_800_change_1w: 2.22
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 44.34
+- over_600_ratio: 36.72
+- over_800_ratio: 33.14
+- over_1000_ratio: 28.62
+- over_400_change_1w: 1.19
+- over_800_change_1w: -0.51
+- over_1000_change_1w: 0.89
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,13 +182,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,42.97,-1.83,32.25,0.25,28.55,0.25,1,False,True
 20260612,44.42,1.45,31.43,-0.82,27.67,-0.88,2,False,False
 20260618,43.15,-1.27,33.65,2.22,27.73,0.06,3,False,True
+20260626,44.34,1.19,33.14,-0.51,28.62,0.89,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2727 王品
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:12 Asia/Taipei
+- generated_at: 2026-06-28 22:26:18 Asia/Taipei
 - stock_id: 2727
 - stock_name: 王品
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 35.58
-- over_600_ratio: 28.9
-- over_800_ratio: 25.36
-- over_1000_ratio: 17.73
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 36.85
+- over_600_ratio: 29.14
+- over_800_ratio: 25.59
+- over_1000_ratio: 19.17
+- over_400_change_1w: 1.27
+- over_800_change_1w: 0.23
+- over_1000_change_1w: 1.44
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.54,0.55,24.89,1.27,17.47,0.27,5,True,True
 20260612,35.4,0.86,25.24,0.35,17.66,0.19,6,True,True
 20260618,35.58,0.18,25.36,0.12,17.73,0.07,7,True,True
+20260626,36.85,1.27,25.59,0.23,19.17,1.44,8,True,True
 ```
 
 ## Candidate Context

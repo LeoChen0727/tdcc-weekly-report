@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4939 亞電
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:53 Asia/Taipei
 - stock_id: 4939
 - stock_name: 亞電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 33.99
-- over_600_ratio: 28.13
-- over_800_ratio: 27.41
-- over_1000_ratio: 25.75
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.34
-- over_1000_change_1w: 1.26
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 33.71
+- over_600_ratio: 29.07
+- over_800_ratio: 26.24
+- over_1000_ratio: 24.58
+- over_400_change_1w: -0.28
+- over_800_change_1w: -1.17
+- over_1000_change_1w: -1.17
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.32,5.45,27.97,7.12,25.34,6.97,4,True,True
 20260612,33.8,-0.52,27.07,-0.9,24.49,-0.85,0,False,False
 20260618,33.99,0.19,27.41,0.34,25.75,1.26,1,True,True
+20260626,33.71,-0.28,26.24,-1.17,24.58,-1.17,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4939 | 亞電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 4939 | 亞電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

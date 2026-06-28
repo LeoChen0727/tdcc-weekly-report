@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2032 新鋼
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:01 Asia/Taipei
 - stock_id: 2032
 - stock_name: 新鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 58.79
-- over_600_ratio: 53.91
-- over_800_ratio: 50.56
-- over_1000_ratio: 48.56
-- over_400_change_1w: 0.2
-- over_800_change_1w: -0.22
-- over_1000_change_1w: -0.21
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 58.95
+- over_600_ratio: 54.1
+- over_800_ratio: 51.31
+- over_1000_ratio: 48.51
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.75
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,58.84,1.1,50.82,0.77,48.71,-0.01,5,False,True
 20260612,58.59,-0.25,50.78,-0.04,48.77,0.06,6,False,True
 20260618,58.79,0.2,50.56,-0.22,48.56,-0.21,7,False,False
+20260626,58.95,0.16,51.31,0.75,48.51,-0.05,8,False,True
 ```
 
 ## Candidate Context

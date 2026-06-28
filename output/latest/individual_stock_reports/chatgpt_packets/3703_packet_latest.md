@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3703 欣陸
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:39 Asia/Taipei
+- generated_at: 2026-06-28 22:26:41 Asia/Taipei
 - stock_id: 3703
 - stock_name: 欣陸
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 72.59
-- over_600_ratio: 70.21
-- over_800_ratio: 69.45
-- over_1000_ratio: 68.68
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.27
-- over_1000_change_1w: 0.38
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 72.54
+- over_600_ratio: 70.04
+- over_800_ratio: 69.26
+- over_1000_ratio: 68.37
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.31
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.33,0.22,69.09,0.02,68.22,0.02,2,True,True
 20260612,72.49,0.16,69.18,0.09,68.3,0.08,3,True,True
 20260618,72.59,0.1,69.45,0.27,68.68,0.38,4,True,True
+20260626,72.54,-0.05,69.26,-0.19,68.37,-0.31,0,False,False
 ```
 
 ## Candidate Context

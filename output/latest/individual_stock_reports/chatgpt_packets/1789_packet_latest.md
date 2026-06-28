@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1789 神隆
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:50 Asia/Taipei
+- generated_at: 2026-06-28 22:25:58 Asia/Taipei
 - stock_id: 1789
 - stock_name: 神隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 76.97
-- over_600_ratio: 75.65
-- over_800_ratio: 75.02
-- over_1000_ratio: 74.69
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 76.91
+- over_600_ratio: 75.71
+- over_800_ratio: 75.01
+- over_1000_ratio: 74.8
+- over_400_change_1w: -0.06
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,76.93,0.12,74.9,0.05,74.69,0.05,2,True,True
 20260612,76.84,-0.09,74.96,0.06,74.64,-0.05,3,False,True
 20260618,76.97,0.13,75.02,0.06,74.69,0.05,4,True,True
+20260626,76.91,-0.06,75.01,-0.01,74.8,0.11,5,False,True
 ```
 
 ## Candidate Context

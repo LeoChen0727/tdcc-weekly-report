@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4426 利勤
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:45 Asia/Taipei
+- generated_at: 2026-06-28 22:26:45 Asia/Taipei
 - stock_id: 4426
 - stock_name: 利勤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.37
-- over_600_ratio: 58.74
-- over_800_ratio: 57.23
-- over_1000_ratio: 54.09
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 61.39
+- over_600_ratio: 58.76
+- over_800_ratio: 57.25
+- over_1000_ratio: 54.12
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.6,-0.39,57.12,0.15,53.96,0.15,5,False,True
 20260612,61.38,-0.22,57.24,0.12,54.08,0.12,6,False,True
 20260618,61.37,-0.01,57.23,-0.01,54.09,0.01,7,False,True
+20260626,61.39,0.02,57.25,0.02,54.12,0.03,8,True,True
 ```
 
 ## Candidate Context

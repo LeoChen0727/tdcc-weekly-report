@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2414 精技
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:02 Asia/Taipei
+- generated_at: 2026-06-28 22:26:09 Asia/Taipei
 - stock_id: 2414
 - stock_name: 精技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 59.3
-- over_600_ratio: 53.56
-- over_800_ratio: 50.88
-- over_1000_ratio: 48.54
-- over_400_change_1w: -0.06
+- as_of_date: 20260626
+- over_400_ratio: 59.74
+- over_600_ratio: 54.34
+- over_800_ratio: 50.87
+- over_1000_ratio: 48.53
+- over_400_change_1w: 0.44
 - over_800_change_1w: -0.01
 - over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,58.27,0.1,50.16,0.04,48.35,0.04,4,True,True
 20260410,58.29,0.02,50.17,0.01,48.36,0.01,5,True,True
 20260417,58.25,-0.04,50.2,0.03,48.39,0.03,6,False,True
 20260424,58.3,0.05,50.19,-0.01,48.38,-0.01,7,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,58.83,0.07,50.86,0,48.53,0,4,False,False
 20260612,59.36,0.53,50.89,0.03,48.55,0.02,5,True,True
 20260618,59.3,-0.06,50.88,-0.01,48.54,-0.01,0,False,False
+20260626,59.74,0.44,50.87,-0.01,48.53,-0.01,1,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5388 中磊
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:00 Asia/Taipei
+- generated_at: 2026-06-28 22:26:59 Asia/Taipei
 - stock_id: 5388
 - stock_name: 中磊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.36
-- over_600_ratio: 47.62
-- over_800_ratio: 43.7
-- over_1000_ratio: 42.3
-- over_400_change_1w: -0.78
-- over_800_change_1w: -0.6
-- over_1000_change_1w: -0.01
+- as_of_date: 20260626
+- over_400_ratio: 51.3
+- over_600_ratio: 46.37
+- over_800_ratio: 42.96
+- over_1000_ratio: 40.7
+- over_400_change_1w: -1.06
+- over_800_change_1w: -0.74
+- over_1000_change_1w: -1.6
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,12 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.05,-0.61,45.13,-0.37,42.86,-0.61,0,False,False
 20260612,53.14,0.09,44.3,-0.83,42.31,-0.55,1,False,False
 20260618,52.36,-0.78,43.7,-0.6,42.3,-0.01,0,False,False
+20260626,51.3,-1.06,42.96,-0.74,40.7,-1.6,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8383 千附
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:53 Asia/Taipei
+- generated_at: 2026-06-28 22:27:44 Asia/Taipei
 - stock_id: 8383
 - stock_name: 千附
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.1
-- over_600_ratio: 48.2
-- over_800_ratio: 46.3
-- over_1000_ratio: 44.72
-- over_400_change_1w: -0.26
-- over_800_change_1w: -0.26
-- over_1000_change_1w: -0.31
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 51.22
+- over_600_ratio: 48.36
+- over_800_ratio: 46.44
+- over_1000_ratio: 44.91
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.19
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,13 +181,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.12,-0.77,46.31,-0.36,44.73,-0.34,0,False,False
 20260612,51.36,0.24,46.56,0.25,45.03,0.3,1,True,True
 20260618,51.1,-0.26,46.3,-0.26,44.72,-0.31,0,False,False
+20260626,51.22,0.12,46.44,0.14,44.91,0.19,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8383 | 千附 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 8383 | 千附 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8383 | 千附 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 8383 | 千附 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:52 Asia/Taipei
+- generated_at: 2026-06-28 22:27:44 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.13
-- over_600_ratio: 54.82
-- over_800_ratio: 52.13
-- over_1000_ratio: 50.66
-- over_400_change_1w: 0.91
-- over_800_change_1w: 0.93
-- over_1000_change_1w: 0.93
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 55.98
+- over_600_ratio: 54.34
+- over_800_ratio: 51.68
+- over_1000_ratio: 48.76
+- over_400_change_1w: -1.15
+- over_800_change_1w: -0.45
+- over_1000_change_1w: -1.9
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.38,-4.29,51.35,-4.27,49.56,-3.86,0,False,False
 20260612,56.22,-0.16,51.2,-0.15,49.73,0.17,1,False,True
 20260618,57.13,0.91,52.13,0.93,50.66,0.93,2,True,True
+20260626,55.98,-1.15,51.68,-0.45,48.76,-1.9,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8358 | 金居 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                  最近一月單月     去年同月       與去年同期增減%                   (115年5月)    (114年5月) ----------------------------------------------------------------- 營業收入(百萬元)      942              666           41.4% 稅前淨利(百萬元)      226               56          303.6% 歸屬母公司業主 淨利(百萬元)          181               44          311.4% 每股盈餘 (元)        0.72             0.18          300.0% ================================================================= (2)單季                   最近一季單季    去年同期        與去年同期增減%                   (115第1季)      (114第1季) ----------------------------------------------------------------- 營業收入(百萬元)     2,532            1,728          46.5% 稅前淨利(百萬元)       649              330          96.7% 歸屬母公司業主 淨利(百萬元)           520              265          96.2% 每股盈餘 (元)         2.06             1.05          96.2% ================================================================= (3)最近四季累計                 (114年第2季至115年第1季) ----------------------------------------------------------------- 營業收入(百萬元)            8,684 稅前淨利(百萬元)            1,660 歸屬母公司業主 淨利(百萬元)                1,318 每股盈餘 (元)                5.22 公司每股面額:10元 ================================================================= 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製 之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8358 | 金居 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                  最近一月單月     去年同月       與去年同期增減%                   (115年5月)    (114年5月) ----------------------------------------------------------------- 營業收入(百萬元)      942              666           41.4% 稅前淨利(百萬元)      226               56          303.6% 歸屬母公司業主 淨利(百萬元)          181               44          311.4% 每股盈餘 (元)        0.72             0.18          300.0% ================================================================= (2)單季                   最近一季單季    去年同期        與去年同期增減%                   (115第1季)      (114第1季) ----------------------------------------------------------------- 營業收入(百萬元)     2,532            1,728          46.5% 稅前淨利(百萬元)       649              330          96.7% 歸屬母公司業主 淨利(百萬元)           520              265          96.2% 每股盈餘 (元)         2.06             1.05          96.2% ================================================================= (3)最近四季累計                 (114年第2季至115年第1季) ----------------------------------------------------------------- 營業收入(百萬元)            8,684 稅前淨利(百萬元)            1,660 歸屬母公司業主 淨利(百萬元)                1,318 每股盈餘 (元)                5.22 公司每股面額:10元 ================================================================= 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製 之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

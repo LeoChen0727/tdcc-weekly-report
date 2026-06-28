@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5347 世界
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:58 Asia/Taipei
 - stock_id: 5347
 - stock_name: 世界
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 85.82
-- over_600_ratio: 84.5
-- over_800_ratio: 83.62
-- over_1000_ratio: 82.47
-- over_400_change_1w: 0.73
-- over_800_change_1w: 0.84
-- over_1000_change_1w: 0.93
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 87.35
+- over_600_ratio: 85.88
+- over_800_ratio: 84.87
+- over_1000_ratio: 83.7
+- over_400_change_1w: 1.53
+- over_800_change_1w: 1.25
+- over_1000_change_1w: 1.23
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,85.26,-0.23,82.7,-0.17,81.76,-0.16,0,False,False
 20260612,85.09,-0.17,82.78,0.08,81.54,-0.22,1,False,True
 20260618,85.82,0.73,83.62,0.84,82.47,0.93,2,True,True
+20260626,87.35,1.53,84.87,1.25,83.7,1.23,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5347 | 世界 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會決議日期:115/06/24 2.增資資金來源:現金增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): 發行總金額:US$70,000,000 發行股數:70,000,000股 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:US$1 8.發行價格:US$1 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數): 全數由原股東認購 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:發行之新股權利義務與原已發行普通股股份相同 14.本次增資資金用途:公司營運需求 15.其他應敘明事項:VSMC於115/5/29股東會通過，授權董事會於次一年度股東常會前 辦理現金增資發行新股；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5347 | 世界 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會決議日期:115/06/24 2.增資資金來源:現金增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): 發行總金額:US$70,000,000 發行股數:70,000,000股 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:US$1 8.發行價格:US$1 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數): 全數由原股東認購 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:發行之新股權利義務與原已發行普通股股份相同 14.本次增資資金用途:公司營運需求 15.其他應敘明事項:VSMC於115/5/29股東會通過，授權董事會於次一年度股東常會前 辦理現金增資發行新股；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

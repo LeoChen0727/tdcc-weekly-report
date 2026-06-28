@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1603 華電
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:46 Asia/Taipei
+- generated_at: 2026-06-28 22:25:55 Asia/Taipei
 - stock_id: 1603
 - stock_name: 華電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 72.51
-- over_600_ratio: 71.62
-- over_800_ratio: 69.62
-- over_1000_ratio: 69.16
-- over_400_change_1w: 0.2
+- as_of_date: 20260626
+- over_400_ratio: 72.28
+- over_600_ratio: 71.61
+- over_800_ratio: 69.61
+- over_1000_ratio: 69.14
+- over_400_change_1w: -0.23
 - over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 4
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.09,-0.16,69.54,-0.38,69.08,0.05,2,False,True
 20260612,72.31,0.22,69.63,0.09,69.17,0.09,3,False,True
 20260618,72.51,0.2,69.62,-0.01,69.16,-0.01,4,False,False
+20260626,72.28,-0.23,69.61,-0.01,69.14,-0.02,0,False,False
 ```
 
 ## Candidate Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00850 元大臺灣ESG永續
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:31 Asia/Taipei
+- generated_at: 2026-06-28 22:25:42 Asia/Taipei
 - stock_id: 00850
 - stock_name: 元大臺灣ESG永續
 - packet_status: partial_rawdata_packet

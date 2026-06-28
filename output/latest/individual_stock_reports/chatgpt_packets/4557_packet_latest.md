@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4557 永新-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:48 Asia/Taipei
+- generated_at: 2026-06-28 22:26:48 Asia/Taipei
 - stock_id: 4557
 - stock_name: 永新-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.28
-- over_600_ratio: 38.63
-- over_800_ratio: 32.15
-- over_1000_ratio: 28.56
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260626
+- over_400_ratio: 44.02
+- over_600_ratio: 38.6
+- over_800_ratio: 32.12
+- over_1000_ratio: 28.53
+- over_400_change_1w: -0.26
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,43.56,-0.12,32.18,0.03,28.59,0.03,2,False,True
 20260612,44.29,0.73,32.15,-0.03,28.56,-0.03,3,False,False
 20260618,44.28,-0.01,32.15,0,28.56,0,0,False,False
+20260626,44.02,-0.26,32.12,-0.03,28.53,-0.03,0,False,False
 ```
 
 ## Candidate Context

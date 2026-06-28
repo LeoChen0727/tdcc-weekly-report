@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8476 台境*
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:55 Asia/Taipei
+- generated_at: 2026-06-28 22:27:46 Asia/Taipei
 - stock_id: 8476
 - stock_name: 台境*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,16 +156,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 67.87
-- over_600_ratio: 64.75
-- over_800_ratio: 60.67
-- over_1000_ratio: 58.49
-- over_400_change_1w: 1.19
-- over_800_change_1w: 0.49
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 69.82
+- over_600_ratio: 66.56
+- over_800_ratio: 63.66
+- over_1000_ratio: 61.46
+- over_400_change_1w: 1.95
+- over_800_change_1w: 2.99
+- over_1000_change_1w: 2.97
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.03,0.5,60.31,0.48,57.59,-0.07,5,False,True
 20260612,66.68,0.65,60.18,-0.13,58.58,0.99,6,False,True
 20260618,67.87,1.19,60.67,0.49,58.49,-0.09,7,False,True
+20260626,69.82,1.95,63.66,2.99,61.46,2.97,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8476 | 台境* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣0.2元，計新台幣 32,254,872元。 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:本公司於115/4/21發行國內第二次無擔保轉換公司債， 轉換期間為115/07/22~118/4/21。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8476 | 台境* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣0.2元，計新台幣 32,254,872元。 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:本公司於115/4/21發行國內第二次無擔保轉換公司債， 轉換期間為115/07/22~118/4/21。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

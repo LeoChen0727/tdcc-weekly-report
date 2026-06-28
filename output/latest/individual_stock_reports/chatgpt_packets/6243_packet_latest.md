@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:15 Asia/Taipei
+- generated_at: 2026-06-28 22:27:11 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 23.15
-- over_600_ratio: 17.7
-- over_800_ratio: 17.7
-- over_1000_ratio: 17.7
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 23.69
+- over_600_ratio: 19.26
+- over_800_ratio: 17.67
+- over_1000_ratio: 17.67
+- over_400_change_1w: 0.54
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,23.3,-0.98,17.7,0,17.7,0,0,False,False
 20260612,23.16,-0.14,17.7,0,17.7,0,0,False,False
 20260618,23.15,-0.01,17.7,0,17.7,0,0,False,False
+20260626,23.69,0.54,17.67,-0.03,17.67,-0.03,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6243 | 迅杰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 1.發生變動日期:115/06/24 2.功能性委員會名稱:審計委員會、薪酬委員會及永續發展委員會 3.舊任者姓名:石國揚 4.舊任者簡歷:迅杰科技(股)公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:個人規劃。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/04/15~117/04/14 10.新任生效日期:不適用 11.其他應敘明事項: (1)審計委員會之原任期為:114/04/15~117/04/14。 (2)薪酬委員會及永續發展委員會之原任期為:114/04/28~117/04/14。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6243 | 迅杰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 1.發生變動日期:115/06/24 2.功能性委員會名稱:審計委員會、薪酬委員會及永續發展委員會 3.舊任者姓名:石國揚 4.舊任者簡歷:迅杰科技(股)公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:個人規劃。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/04/15~117/04/14 10.新任生效日期:不適用 11.其他應敘明事項: (1)審計委員會之原任期為:114/04/15~117/04/14。 (2)薪酬委員會及永續發展委員會之原任期為:114/04/28~117/04/14。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

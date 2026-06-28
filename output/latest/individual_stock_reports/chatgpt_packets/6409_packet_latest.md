@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:17 Asia/Taipei
+- generated_at: 2026-06-28 22:27:13 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.84
-- over_600_ratio: 56.47
-- over_800_ratio: 49.44
-- over_1000_ratio: 46.25
-- over_400_change_1w: 0.86
-- over_800_change_1w: -0.45
-- over_1000_change_1w: 0.44
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 62.39
+- over_600_ratio: 57.55
+- over_800_ratio: 49.76
+- over_1000_ratio: 46.53
+- over_400_change_1w: -0.45
+- over_800_change_1w: 0.32
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,59.08,0.08,44.7,-1.75,39.62,2.6,5,False,True
 20260612,61.98,2.9,49.89,5.19,45.81,6.19,6,True,True
 20260618,62.84,0.86,49.44,-0.45,46.25,0.44,7,False,True
+20260626,62.39,-0.45,49.76,0.32,46.53,0.28,8,False,True
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6409 | 旭隼 | 75 | 2 | 10120630.0 | 17050.0 | 593.59 | call_put_bullish |
+| 20260626 | 6409 | 旭隼 | 75 | 0 | 10120630.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

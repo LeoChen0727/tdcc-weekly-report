@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1784 訊聯
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:49 Asia/Taipei
+- generated_at: 2026-06-28 22:25:58 Asia/Taipei
 - stock_id: 1784
 - stock_name: 訊聯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 28.38
-- over_600_ratio: 23.87
-- over_800_ratio: 22.53
-- over_1000_ratio: 15.79
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.09
+- as_of_date: 20260626
+- over_400_ratio: 28.51
+- over_600_ratio: 24
+- over_800_ratio: 22.66
+- over_1000_ratio: 15.89
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.13
 - over_1000_change_1w: 0.1
-- tdcc_consecutive_up_weeks: 5
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,28.91,-0.01,22.36,0.13,15.61,0.12,3,False,True
 20260612,28.3,-0.61,22.44,0.08,15.69,0.08,4,False,True
 20260618,28.38,0.08,22.53,0.09,15.79,0.1,5,True,True
+20260626,28.51,0.13,22.66,0.13,15.89,0.1,6,True,True
 ```
 
 ## Candidate Context

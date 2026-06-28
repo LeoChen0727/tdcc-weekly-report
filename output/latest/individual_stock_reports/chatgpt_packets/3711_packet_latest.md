@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:40 Asia/Taipei
+- generated_at: 2026-06-28 22:26:41 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 87.07
-- over_600_ratio: 84.86
-- over_800_ratio: 83.21
-- over_1000_ratio: 81.72
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 87.19
+- over_600_ratio: 84.96
+- over_800_ratio: 83.59
+- over_1000_ratio: 82.01
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.38
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,87.24,-0.5,83.48,-0.42,82.13,-0.43,0,False,False
 20260612,87.05,-0.19,83.24,-0.24,81.79,-0.34,0,False,False
 20260618,87.07,0.02,83.21,-0.03,81.72,-0.07,1,False,False
+20260626,87.19,0.12,83.59,0.38,82.01,0.29,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3711 | 日月光投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | mixed_flow | stale_signal | 1.董事會決議日期:115/06/25 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 日月光投資控股股份有限公司民國115年度海外第一次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:暫定以美金10億元為上限 5.每張面額:美金20萬元，或如超過美金20萬元， 為美金10萬元之整數倍數。 6.發行價格:依面額之100%發行 7.發行期間:暫定發行期間為5年 8.發行利率:暫定為年利率0% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:認購子公司日月光半導體製造股份 有限公司及矽品精密工業股份有限公司以現金增資方式發行之新股 11.承銷方式:本公司債將於中華民國境外地區發行，並將依照 銷售國家的法律與規範及國際市場慣例辦理。 所有本公司債將全數對外公開銷售。 12.公司債受託人:Citicorp International Limited 13.承銷或代銷機構: 國外主辦承銷商：DBS Bank Ltd., Goldman Sachs International, and The Hongkong and Shanghai Banking Corporation Limited 國內主辦承銷商：凱基證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:Citibank, N.A., London Branch 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法: 授權董事長或集團財務長視市場實際狀況決定 18.賣回條件: 授權董事長或集團財務長視市場實際狀況決定 19.買回條件: 授權董事長或集團財務長視市場實際狀況決定 20.附有轉換、交換或認股者，其換股基準日: 授權董事長或集團財務長視市場實際狀況決定 21.附有轉換、交換或認股者，對股權可能稀釋情形: 視實際發行時轉換溢價率而定 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: 一、本次發行之海外無擔保轉換公司債重要內容，包括發行辦法、 計畫項目、實際發行與募集金額、票面利率、預定進度及預計可 能產生效益等相關事項之議定及其他一切有關發行作業，授權董 事長或集團財務長視市場實際狀況決定； 並得依主管機關指示或基於營運評估或因客觀環境需要進行必要 之修正或調整。實際發行條件，將於海外無擔保轉換公司債完成 發行後向股東會報告。 二、為配合本次海外無擔保轉換公司債之發行，授權董事長或 集團財務長及/或其指定之人核可並代表本公司簽 署一切有關發行海外無擔保轉換公司債之契約、文件及辦理一 切相關事宜。 三、本次發行海外無擔保轉換公司債若有未盡事宜，授權董事長 或集團財務長依法全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3711 | 日月光投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | 1.董事會決議日期:115/06/25 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 日月光投資控股股份有限公司民國115年度海外第一次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:暫定以美金10億元為上限 5.每張面額:美金20萬元，或如超過美金20萬元， 為美金10萬元之整數倍數。 6.發行價格:依面額之100%發行 7.發行期間:暫定發行期間為5年 8.發行利率:暫定為年利率0% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:認購子公司日月光半導體製造股份 有限公司及矽品精密工業股份有限公司以現金增資方式發行之新股 11.承銷方式:本公司債將於中華民國境外地區發行，並將依照 銷售國家的法律與規範及國際市場慣例辦理。 所有本公司債將全數對外公開銷售。 12.公司債受託人:Citicorp International Limited 13.承銷或代銷機構: 國外主辦承銷商：DBS Bank Ltd., Goldman Sachs International, and The Hongkong and Shanghai Banking Corporation Limited 國內主辦承銷商：凱基證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:Citibank, N.A., London Branch 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法: 授權董事長或集團財務長視市場實際狀況決定 18.賣回條件: 授權董事長或集團財務長視市場實際狀況決定 19.買回條件: 授權董事長或集團財務長視市場實際狀況決定 20.附有轉換、交換或認股者，其換股基準日: 授權董事長或集團財務長視市場實際狀況決定 21.附有轉換、交換或認股者，對股權可能稀釋情形: 視實際發行時轉換溢價率而定 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: 一、本次發行之海外無擔保轉換公司債重要內容，包括發行辦法、 計畫項目、實際發行與募集金額、票面利率、預定進度及預計可 能產生效益等相關事項之議定及其他一切有關發行作業，授權董 事長或集團財務長視市場實際狀況決定； 並得依主管機關指示或基於營運評估或因客觀環境需要進行必要 之修正或調整。實際發行條件，將於海外無擔保轉換公司債完成 發行後向股東會報告。 二、為配合本次海外無擔保轉換公司債之發行，授權董事長或 集團財務長及/或其指定之人核可並代表本公司簽 署一切有關發行海外無擔保轉換公司債之契約、文件及辦理一 切相關事宜。 三、本次發行海外無擔保轉換公司債若有未盡事宜，授權董事長 或集團財務長依法全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3711 | 日月光投控 | 232 | 17 | 106569030.0 | 1205160.0 | 88.43 | mixed_flow |
+| 20260626 | 3711 | 日月光投控 | 232 | 0 | 106569030.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

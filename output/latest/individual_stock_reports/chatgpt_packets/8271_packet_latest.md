@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:52 Asia/Taipei
+- generated_at: 2026-06-28 22:27:43 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.12
-- over_600_ratio: 40.59
-- over_800_ratio: 37.9
-- over_1000_ratio: 37.9
-- over_400_change_1w: -0.74
-- over_800_change_1w: -0.32
-- over_1000_change_1w: -0.32
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 43.72
+- over_600_ratio: 41.01
+- over_800_ratio: 38.93
+- over_1000_ratio: 38.28
+- over_400_change_1w: -0.4
+- over_800_change_1w: 1.03
+- over_1000_change_1w: 0.38
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,48.27,-0.52,40.76,-0.22,40.09,-0.26,0,False,False
 20260612,44.86,-3.41,38.22,-2.54,38.22,-1.87,0,False,False
 20260618,44.12,-0.74,37.9,-0.32,37.9,-0.32,0,False,False
+20260626,43.72,-0.4,38.93,1.03,38.28,0.38,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.5元) (2)變更後發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.44844317元) 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/27 13.其他應敘明事項: 本公司因發行限制員工權利新股致參與配發之股數增加，依115年2月25日 董事會決議，授權董事長調整現金股利配息率。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.5元) (2)變更後發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.44844317元) 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/27 13.其他應敘明事項: 本公司因發行限制員工權利新股致參與配發之股數增加，依115年2月25日 董事會決議，授權董事長調整現金股利配息率。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8271 | 宇瞻 | 53 | 8 | 2832720.0 | 105000.0 | 26.98 | no_signal |
+| 20260626 | 8271 | 宇瞻 | 53 | 0 | 2832720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

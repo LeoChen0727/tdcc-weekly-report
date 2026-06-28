@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2867 三商壽
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:15 Asia/Taipei
+- generated_at: 2026-06-28 22:26:20 Asia/Taipei
 - stock_id: 2867
 - stock_name: 三商壽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 291
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 85.01
-- over_600_ratio: 83.22
-- over_800_ratio: 82.28
-- over_1000_ratio: 81.42
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 85.18
+- over_600_ratio: 83.45
+- over_800_ratio: 82.56
+- over_1000_ratio: 81.7
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.28
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,13 +182,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,84.37,0.58,81.53,0.59,80.66,0.61,5,True,True
 20260612,84.83,0.46,82.09,0.56,81.22,0.56,6,True,True
 20260618,85.01,0.18,82.28,0.19,81.42,0.2,7,True,True
+20260626,85.18,0.17,82.56,0.28,81.7,0.28,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2867 | 三商壽 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁肇喜 4.舊任者簡歷:三商美邦人壽保險股份有限公司董事長 5.新任者姓名:翁肇喜 6.新任者簡歷:三商美邦人壽保險股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會推選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁肇喜 4.舊任者簡歷:三商美邦人壽保險股份有限公司董事長 5.新任者姓名:翁肇喜 6.新任者簡歷:三商美邦人壽保險股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會推選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2867 | 三商壽 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁肇喜 4.舊任者簡歷:三商美邦人壽保險股份有限公司董事長 5.新任者姓名:翁肇喜 6.新任者簡歷:三商美邦人壽保險股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會推選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁肇喜 4.舊任者簡歷:三商美邦人壽保險股份有限公司董事長 5.新任者姓名:翁肇喜 6.新任者簡歷:三商美邦人壽保險股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會推選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2102 泰豐
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:54 Asia/Taipei
+- generated_at: 2026-06-28 22:26:02 Asia/Taipei
 - stock_id: 2102
 - stock_name: 泰豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 291
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 80.34
-- over_600_ratio: 78.54
-- over_800_ratio: 77.68
-- over_1000_ratio: 76.12
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.28
-- over_1000_change_1w: 0.29
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 80.38
+- over_600_ratio: 78.58
+- over_800_ratio: 77.55
+- over_1000_ratio: 75.96
+- over_400_change_1w: 0.04
+- over_800_change_1w: -0.13
+- over_1000_change_1w: -0.16
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,80.23,-0.04,77.41,-0.12,76.02,0.05,5,False,True
 20260612,80.15,-0.08,77.4,-0.01,75.83,-0.19,0,False,False
 20260618,80.34,0.19,77.68,0.28,76.12,0.29,1,True,True
+20260626,80.38,0.04,77.55,-0.13,75.96,-0.16,2,False,False
 ```
 
 ## Candidate Context

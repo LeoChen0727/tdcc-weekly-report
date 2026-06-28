@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:23 Asia/Taipei
+- generated_at: 2026-06-28 22:26:26 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.41
-- over_600_ratio: 40.96
-- over_800_ratio: 37.26
-- over_1000_ratio: 31.62
-- over_400_change_1w: 1.47
-- over_800_change_1w: 0.51
-- over_1000_change_1w: 1.57
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 45.25
+- over_600_ratio: 41.91
+- over_800_ratio: 36.79
+- over_1000_ratio: 32.02
+- over_400_change_1w: 0.84
+- over_800_change_1w: -0.47
+- over_1000_change_1w: 0.4
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,43.65,-0.8,36.09,0.65,31.4,0.72,4,False,True
 20260612,42.94,-0.71,36.75,0.66,30.05,-1.35,5,False,True
 20260618,44.41,1.47,37.26,0.51,31.62,1.57,6,True,True
+20260626,45.25,0.84,36.79,-0.47,32.02,0.4,7,False,True
 ```
 
 ## Candidate Context

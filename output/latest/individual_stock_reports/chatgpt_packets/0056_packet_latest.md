@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0056 元大高股息
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:29 Asia/Taipei
+- generated_at: 2026-06-28 22:25:40 Asia/Taipei
 - stock_id: 0056
 - stock_name: 元大高股息
 - packet_status: standard_180d_window_packet
@@ -180,7 +180,7 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 0056 | 元大高股息 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 0056 | 元大高股息 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

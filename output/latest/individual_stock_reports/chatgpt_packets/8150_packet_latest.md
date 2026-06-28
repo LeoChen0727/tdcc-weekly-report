@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:50 Asia/Taipei
+- generated_at: 2026-06-28 22:27:42 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 68.3
-- over_600_ratio: 66.56
-- over_800_ratio: 64.9
-- over_1000_ratio: 62.47
-- over_400_change_1w: -3.51
-- over_800_change_1w: -3.6
-- over_1000_change_1w: -3.08
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 68.99
+- over_600_ratio: 67.3
+- over_800_ratio: 65.51
+- over_1000_ratio: 63.62
+- over_400_change_1w: 0.69
+- over_800_change_1w: 0.61
+- over_1000_change_1w: 1.15
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,70.88,-3.59,67.53,-3.39,65.21,-3.66,0,False,False
 20260612,71.81,0.93,68.5,0.97,65.55,0.34,1,True,True
 20260618,68.3,-3.51,64.9,-3.6,62.47,-3.08,0,False,False
+20260626,68.99,0.69,65.51,0.61,63.62,1.15,1,True,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8150 | 南茂 | 152 | 2 | 22298990.0 | 0.0 |  | no_signal |
+| 20260626 | 8150 | 南茂 | 152 | 0 | 22298990.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

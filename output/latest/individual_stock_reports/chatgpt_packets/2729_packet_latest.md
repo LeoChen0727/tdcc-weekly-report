@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2729 瓦城
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:13 Asia/Taipei
+- generated_at: 2026-06-28 22:26:18 Asia/Taipei
 - stock_id: 2729
 - stock_name: 瓦城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.64
-- over_600_ratio: 60.74
+- as_of_date: 20260626
+- over_400_ratio: 65.92
+- over_600_ratio: 62.28
 - over_800_ratio: 59.23
 - over_1000_ratio: 57.11
-- over_400_change_1w: 0.26
+- over_400_change_1w: 0.28
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,65.38,0,59.23,0,57.11,0,0,False,False
 20260612,65.38,0,59.23,0,57.11,0,0,False,False
 20260618,65.64,0.26,59.23,0,57.11,0,1,False,False
+20260626,65.92,0.28,59.23,0,57.11,0,2,False,False
 ```
 
 ## Candidate Context

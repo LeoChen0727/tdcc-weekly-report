@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1708 東鹼
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:47 Asia/Taipei
+- generated_at: 2026-06-28 22:25:56 Asia/Taipei
 - stock_id: 1708
 - stock_name: 東鹼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 45.66
-- over_600_ratio: 43.57
-- over_800_ratio: 40.8
-- over_1000_ratio: 39.71
-- over_400_change_1w: -0.19
-- over_800_change_1w: -1.03
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 45.42
+- over_600_ratio: 43.78
+- over_800_ratio: 41.59
+- over_1000_ratio: 39.83
+- over_400_change_1w: -0.24
+- over_800_change_1w: 0.79
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,49.25,2.67,45.04,2.41,42.48,2.05,1,True,True
 20260612,45.85,-3.4,41.83,-3.21,39.63,-2.85,0,False,False
 20260618,45.66,-0.19,40.8,-1.03,39.71,0.08,1,False,True
+20260626,45.42,-0.24,41.59,0.79,39.83,0.12,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1708 | 東鹼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1708 | 東鹼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6504 南六
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:20 Asia/Taipei
+- generated_at: 2026-06-28 22:27:15 Asia/Taipei
 - stock_id: 6504
 - stock_name: 南六
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.81
-- over_600_ratio: 67.12
-- over_800_ratio: 65.42
-- over_1000_ratio: 64.32
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 69.83
+- over_600_ratio: 67.14
+- over_800_ratio: 65.44
+- over_1000_ratio: 64.34
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,69.84,0.02,65.45,0.02,64.35,0.02,5,True,True
 20260612,69.82,-0.02,65.43,-0.02,64.33,-0.02,0,False,False
 20260618,69.81,-0.01,65.42,-0.01,64.32,-0.01,0,False,False
+20260626,69.83,0.02,65.44,0.02,64.34,0.02,1,True,True
 ```
 
 ## Candidate Context

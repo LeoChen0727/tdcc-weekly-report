@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6679 鈺太
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:26 Asia/Taipei
+- generated_at: 2026-06-28 22:27:21 Asia/Taipei
 - stock_id: 6679
 - stock_name: 鈺太
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 58.97
-- over_600_ratio: 53.15
-- over_800_ratio: 50.41
-- over_1000_ratio: 48.92
-- over_400_change_1w: -0.87
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
+- as_of_date: 20260626
+- over_400_ratio: 58.79
+- over_600_ratio: 52.96
+- over_800_ratio: 50.19
+- over_1000_ratio: 48.71
+- over_400_change_1w: -0.18
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.21
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.02,0.04,50.54,-0.47,49.05,-0.47,1,False,False
 20260612,59.84,-0.18,50.45,-0.09,48.96,-0.09,0,False,False
 20260618,58.97,-0.87,50.41,-0.04,48.92,-0.04,0,False,False
+20260626,58.79,-0.18,50.19,-0.22,48.71,-0.21,0,False,False
 ```
 
 ## Candidate Context

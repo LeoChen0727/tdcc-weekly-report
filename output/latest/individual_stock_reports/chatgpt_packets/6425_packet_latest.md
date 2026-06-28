@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6425 易發
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:18 Asia/Taipei
+- generated_at: 2026-06-28 22:27:14 Asia/Taipei
 - stock_id: 6425
 - stock_name: 易發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 42.65
-- over_600_ratio: 38.85
-- over_800_ratio: 37.37
+- as_of_date: 20260626
+- over_400_ratio: 42.76
+- over_600_ratio: 38.93
+- over_800_ratio: 37.45
 - over_1000_ratio: 34.03
-- over_400_change_1w: -0.13
-- over_800_change_1w: 0
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.08
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,42.84,0.69,37.39,-0.03,34.03,-0.02,1,False,False
 20260612,42.78,-0.06,37.37,-0.02,34.03,0,0,False,False
 20260618,42.65,-0.13,37.37,0,34.03,0,0,False,False
+20260626,42.76,0.11,37.45,0.08,34.03,0,1,False,True
 ```
 
 ## Candidate Context

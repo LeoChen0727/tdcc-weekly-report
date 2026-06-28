@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:05 Asia/Taipei
+- generated_at: 2026-06-28 22:27:03 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,23 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 86.93
-- over_600_ratio: 84.39
-- over_800_ratio: 82.64
-- over_1000_ratio: 81.23
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 86.79
+- over_600_ratio: 84.26
+- over_800_ratio: 82.58
+- over_1000_ratio: 81.12
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,86.26,0.03,81.85,0,80.43,0.06,3,False,True
 20260410,86.28,0.02,81.85,0,80.49,0.06,4,False,True
 20260417,86.22,-0.06,81.86,0.01,80.41,-0.08,5,False,True
 20260424,86.23,0.01,81.9,0.04,80.49,0.08,6,False,True
@@ -191,12 +190,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,86.5,0.35,82.19,0.43,80.79,0.47,1,True,True
 20260612,86.88,0.38,82.61,0.42,81.21,0.42,2,True,True
 20260618,86.93,0.05,82.64,0.03,81.23,0.02,3,True,True
+20260626,86.79,-0.14,82.58,-0.06,81.12,-0.11,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5876 | 上海商銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.取得會計師「內部控制專案審查報告」日期:115/06/18 2.委請會計師出具內部控制專案審查報告日期:115/04/07 3.委請會計師出具內部控制專案審查報告之緣由:依據金融監督管理委員會114/12/31 金管銀國字第11402743121號函辦理。 4.申報公告「內部控制專案審查報告」內容之日期:115/06/18 5.意見類型:依據所執行之程序及所獲取之證據，未發現確信標的資訊之設計有效性 所有重大方面有因未遵循其相關辦法而無法允當表達之情事。 6.其他應敘明事項(內部控制專案審查報告全文請至公開資訊觀測站查閱，路徑為：公司 治理/內部控制專區/內部控制審查報告): https://mops.twse.com.tw/mops/#/web/t06hsg20；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5876 | 上海商銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.取得會計師「內部控制專案審查報告」日期:115/06/18 2.委請會計師出具內部控制專案審查報告日期:115/04/07 3.委請會計師出具內部控制專案審查報告之緣由:依據金融監督管理委員會114/12/31 金管銀國字第11402743121號函辦理。 4.申報公告「內部控制專案審查報告」內容之日期:115/06/18 5.意見類型:依據所執行之程序及所獲取之證據，未發現確信標的資訊之設計有效性 所有重大方面有因未遵循其相關辦法而無法允當表達之情事。 6.其他應敘明事項(內部控制專案審查報告全文請至公開資訊觀測站查閱，路徑為：公司 治理/內部控制專區/內部控制審查報告): https://mops.twse.com.tw/mops/#/web/t06hsg20；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

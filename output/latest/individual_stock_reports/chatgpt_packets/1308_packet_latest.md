@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1308 亞聚
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:37 Asia/Taipei
+- generated_at: 2026-06-28 22:25:47 Asia/Taipei
 - stock_id: 1308
 - stock_name: 亞聚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.84
-- over_600_ratio: 50.18
-- over_800_ratio: 49.07
-- over_1000_ratio: 48.45
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 10
+- as_of_date: 20260626
+- over_400_ratio: 52.13
+- over_600_ratio: 50.41
+- over_800_ratio: 49.54
+- over_1000_ratio: 48.95
+- over_400_change_1w: 0.29
+- over_800_change_1w: 0.47
+- over_1000_change_1w: 0.5
+- tdcc_consecutive_up_weeks: 11
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,51.2,-0.95,48.47,-0.91,47.72,-1.05,0,False,False
 20260410,50.34,-0.86,47.97,-0.5,47.37,-0.35,0,False,False
 20260417,50.41,0.07,47.92,-0.05,47.48,0.11,1,False,True
 20260424,50.25,-0.16,47.97,0.05,47.35,-0.13,2,False,True
@@ -186,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.58,0.19,48.89,0.27,48.12,-0.18,8,False,True
 20260612,51.82,0.24,49.05,0.16,48.28,0.16,9,False,True
 20260618,51.84,0.02,49.07,0.02,48.45,0.17,10,True,True
+20260626,52.13,0.29,49.54,0.47,48.95,0.5,11,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1308 | 亞聚 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1308 | 亞聚 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -201,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1308 | 亞聚 | 19 | 1 | 46490.0 | 8600.0 | 5.41 | no_signal |
+| 20260626 | 1308 | 亞聚 | 19 | 0 | 46490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8155 博智
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:50 Asia/Taipei
+- generated_at: 2026-06-28 22:27:42 Asia/Taipei
 - stock_id: 8155
 - stock_name: 博智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.99
-- over_600_ratio: 45.28
-- over_800_ratio: 41.77
-- over_1000_ratio: 35.87
-- over_400_change_1w: 2.33
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 48.49
+- over_600_ratio: 45.9
+- over_800_ratio: 44.81
+- over_1000_ratio: 37.48
+- over_400_change_1w: -1.5
+- over_800_change_1w: 3.04
+- over_1000_change_1w: 1.61
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,50.33,-1.27,41.92,-0.43,35.94,-1.98,0,False,False
 20260612,47.66,-2.67,41.86,-0.06,35.92,-0.02,0,False,False
 20260618,49.99,2.33,41.77,-0.09,35.87,-0.05,1,False,False
+20260626,48.49,-1.5,44.81,3.04,37.48,1.61,2,False,True
 ```
 
 ## Candidate Context

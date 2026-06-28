@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5519 隆大
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:03 Asia/Taipei
+- generated_at: 2026-06-28 22:27:01 Asia/Taipei
 - stock_id: 5519
 - stock_name: 隆大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 58.34
-- over_600_ratio: 55.6
-- over_800_ratio: 53.08
+- as_of_date: 20260626
+- over_400_ratio: 58.46
+- over_600_ratio: 55.51
+- over_800_ratio: 52.27
 - over_1000_ratio: 51.51
-- over_400_change_1w: 0.3
-- over_800_change_1w: 0.41
+- over_400_change_1w: 0.12
+- over_800_change_1w: -0.81
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 5
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.97,-0.2,52.25,0.4,51.51,0.02,3,False,True
 20260612,58.04,0.07,52.67,0.42,51.51,0,4,False,True
 20260618,58.34,0.3,53.08,0.41,51.51,0,5,False,True
+20260626,58.46,0.12,52.27,-0.81,51.51,0,6,False,False
 ```
 
 ## Candidate Context

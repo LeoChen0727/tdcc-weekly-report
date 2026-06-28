@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3003 健和興
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:18 Asia/Taipei
+- generated_at: 2026-06-28 22:26:22 Asia/Taipei
 - stock_id: 3003
 - stock_name: 健和興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.58
-- over_600_ratio: 54.46
-- over_800_ratio: 51.41
-- over_1000_ratio: 50.88
-- over_400_change_1w: 0.4
-- over_800_change_1w: -0.4
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 57.75
+- over_600_ratio: 55.65
+- over_800_ratio: 52.21
+- over_1000_ratio: 51.15
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.8
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,14 +182,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.21,0.21,52.08,0.01,50.91,-0.03,5,False,True
 20260612,57.18,-0.03,51.81,-0.27,50.76,-0.15,6,False,False
 20260618,57.58,0.4,51.41,-0.4,50.88,0.12,7,False,True
+20260626,57.75,0.17,52.21,0.8,51.15,0.27,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3003 | 健和興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 3003 | 健和興 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 9.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3003 | 健和興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3003 | 健和興 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 9.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年05月份自結營收及損益情形 05月營收：5.34億元，114年同期營收：3.49億元。 05月稅前損益：6,303萬元，114年同期稅前損益：-6,594萬元， 以實收資本額15.57億元計，單月稅前EPS為0.40元。 01-05月營收：22.77億元，114年同期營收：17.47億元。 01-05月稅前損益：23,524萬元，114年同期稅前損益：4,027萬元， 以實收資本額15.57億元計，累計稅前EPS為1.51元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

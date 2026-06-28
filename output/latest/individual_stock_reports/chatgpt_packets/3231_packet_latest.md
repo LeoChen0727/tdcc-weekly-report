@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:26 Asia/Taipei
+- generated_at: 2026-06-28 22:26:30 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.37
-- over_600_ratio: 62.35
-- over_800_ratio: 61.14
-- over_1000_ratio: 60.08
-- over_400_change_1w: -0.51
-- over_800_change_1w: -0.55
-- over_1000_change_1w: -0.56
+- as_of_date: 20260626
+- over_400_ratio: 63.2
+- over_600_ratio: 61.24
+- over_800_ratio: 59.96
+- over_1000_ratio: 58.83
+- over_400_change_1w: -1.17
+- over_800_change_1w: -1.18
+- over_1000_change_1w: -1.25
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.02,3.45,62.74,3.45,61.68,3.5,3,True,True
 20260612,64.88,-1.14,61.69,-1.05,60.64,-1.04,0,False,False
 20260618,64.37,-0.51,61.14,-0.55,60.08,-0.56,0,False,False
+20260626,63.2,-1.17,59.96,-1.18,58.83,-1.25,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/26 2.減資緣由:依發行辦法第五條無償收回並辦理註銷登記。 3.減資金額:新台幣3,600,000元 4.消除股份:360,000股 5.減資比率:0.01% 6.減資後股本:新台幣31,800,522,500元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/26 2.減資緣由:依發行辦法第五條無償收回並辦理註銷登記。 3.減資金額:新台幣3,600,000元 4.消除股份:360,000股 5.減資比率:0.01% 6.減資後股本:新台幣31,800,522,500元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3231 | 緯創 | 211 | 17 | 10341500.0 | 234500.0 | 44.1 | no_signal |
+| 20260626 | 3231 | 緯創 | 211 | 0 | 10341500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

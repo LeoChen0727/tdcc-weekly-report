@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6934 心誠鎂
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:35 Asia/Taipei
+- generated_at: 2026-06-28 22:27:28 Asia/Taipei
 - stock_id: 6934
 - stock_name: 心誠鎂
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
 - price_rows: 93
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.03
-- over_600_ratio: 64.03
+- as_of_date: 20260626
+- over_400_ratio: 64.23
+- over_600_ratio: 64.23
 - over_800_ratio: 60.1
 - over_1000_ratio: 55.26
-- over_400_change_1w: 0.04
+- over_400_change_1w: 0.2
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 5
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.1,0.17,60.9,0.18,58.37,2.87,3,True,True
 20260612,63.99,0.89,60.1,-0.8,55.26,-3.11,4,False,False
 20260618,64.03,0.04,60.1,0,55.26,0,5,False,False
+20260626,64.23,0.2,60.1,0,55.26,0,6,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8101 華冠
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:49 Asia/Taipei
+- generated_at: 2026-06-28 22:27:41 Asia/Taipei
 - stock_id: 8101
 - stock_name: 華冠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 280
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,12 +157,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.44
+- as_of_date: 20260626
+- over_400_ratio: 82.43
 - over_600_ratio: 80.45
 - over_800_ratio: 80.45
 - over_1000_ratio: 80.45
-- over_400_change_1w: 0
+- over_400_change_1w: -0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,82.45,0.93,80.45,1.06,80.45,1.06,1,True,True
 20260612,82.44,-0.01,80.45,0,80.45,0,0,False,False
 20260618,82.44,0,80.45,0,80.45,0,0,False,False
+20260626,82.43,-0.01,80.45,0,80.45,0,0,False,False
 ```
 
 ## Candidate Context

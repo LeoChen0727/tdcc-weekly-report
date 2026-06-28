@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1319 東陽
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:37 Asia/Taipei
+- generated_at: 2026-06-28 22:25:48 Asia/Taipei
 - stock_id: 1319
 - stock_name: 東陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,23 +157,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 86.52
-- over_600_ratio: 84.41
-- over_800_ratio: 83.49
-- over_1000_ratio: 83.07
-- over_400_change_1w: 0.89
-- over_800_change_1w: 0.75
-- over_1000_change_1w: 0.76
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 82.03
+- over_600_ratio: 79.58
+- over_800_ratio: 78.41
+- over_1000_ratio: 77.99
+- over_400_change_1w: -4.49
+- over_800_change_1w: -5.08
+- over_1000_change_1w: -5.08
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,84.5,0.09,81.15,-0.08,80.22,-0.08,2,False,False
 20260410,84.27,-0.23,80.97,-0.18,79.73,-0.49,0,False,False
 20260417,83.76,-0.51,80.31,-0.66,79.53,-0.2,0,False,False
 20260424,83.02,-0.74,79.91,-0.4,78.85,-0.68,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,84,1.18,80.64,1.02,80.34,1.17,1,True,True
 20260612,85.63,1.63,82.74,2.1,82.31,1.97,2,True,True
 20260618,86.52,0.89,83.49,0.75,83.07,0.76,3,True,True
+20260626,82.03,-4.49,78.41,-5.08,77.99,-5.08,0,False,False
 ```
 
 ## Candidate Context

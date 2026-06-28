@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:05 Asia/Taipei
+- generated_at: 2026-06-28 22:26:12 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,14 +163,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 87.58
-- over_600_ratio: 85.41
-- over_800_ratio: 84.23
-- over_1000_ratio: 83.18
-- over_400_change_1w: -0.05
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260626
+- over_400_ratio: 87.07
+- over_600_ratio: 85.28
+- over_800_ratio: 84.14
+- over_1000_ratio: 83.1
+- over_400_change_1w: -0.51
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.08
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,87.61,-0.03,84.26,-0.07,83.22,-0.07,0,False,False
 20260612,87.63,0.02,84.23,-0.03,83.18,-0.04,1,False,False
 20260618,87.58,-0.05,84.23,0,83.18,0,0,False,False
+20260626,87.07,-0.51,84.14,-0.09,83.1,-0.08,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2466 | 冠西電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分派案。 3.重要決議事項二、章程修訂: 通過「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)「股東會議事規則」修訂案。 (2)本公司擬辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2466 | 冠西電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分派案。 3.重要決議事項二、章程修訂: 通過「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)「股東會議事規則」修訂案。 (2)本公司擬辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

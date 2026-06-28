@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7823 奧義賽博-KY創
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:45 Asia/Taipei
+- generated_at: 2026-06-28 22:27:38 Asia/Taipei
 - stock_id: 7823
 - stock_name: 奧義賽博-KY創
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260626
 - price_rows: 90
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.69
-- over_600_ratio: 70.38
+- as_of_date: 20260626
+- over_400_ratio: 73.6
+- over_600_ratio: 68.51
 - over_800_ratio: 66.65
 - over_1000_ratio: 58.59
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.01
+- over_400_change_1w: -0.09
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 6
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.64,0.1,66.53,2.39,58.59,0,4,False,True
 20260612,73.71,0.07,66.64,0.11,58.59,0,5,False,True
 20260618,73.69,-0.02,66.65,0.01,58.59,0,6,False,True
+20260626,73.6,-0.09,66.65,0,58.59,0,0,False,False
 ```
 
 ## Candidate Context

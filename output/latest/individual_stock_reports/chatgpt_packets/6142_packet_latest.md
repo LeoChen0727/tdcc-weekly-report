@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6142 友勁
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:08 Asia/Taipei
+- generated_at: 2026-06-28 22:27:06 Asia/Taipei
 - stock_id: 6142
 - stock_name: 友勁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 59.32
-- over_600_ratio: 55.26
-- over_800_ratio: 52.34
-- over_1000_ratio: 50.67
-- over_400_change_1w: 0.24
-- over_800_change_1w: 0.03
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 58.75
+- over_600_ratio: 54.72
+- over_800_ratio: 52.18
+- over_1000_ratio: 50.8
+- over_400_change_1w: -0.57
+- over_800_change_1w: -0.16
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,59.09,0.58,52.23,0.17,50.85,0.44,5,True,True
 20260612,59.08,-0.01,52.31,0.08,50.93,0.08,6,False,True
 20260618,59.32,0.24,52.34,0.03,50.67,-0.26,7,False,True
+20260626,58.75,-0.57,52.18,-0.16,50.8,0.13,8,False,True
 ```
 
 ## Candidate Context

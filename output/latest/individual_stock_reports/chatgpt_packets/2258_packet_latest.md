@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2258 鴻華先進-創
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:56 Asia/Taipei
+- generated_at: 2026-06-28 22:26:04 Asia/Taipei
 - stock_id: 2258
 - stock_name: 鴻華先進-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 93.75
-- over_600_ratio: 93.4
-- over_800_ratio: 93.05
-- over_1000_ratio: 92.63
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 93.77
+- over_600_ratio: 93.46
+- over_800_ratio: 93.07
+- over_1000_ratio: 92.65
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,93.74,0.03,93.04,0,92.62,-0.05,2,False,False
 20260612,93.76,0.02,93.02,-0.02,92.6,-0.02,3,False,False
 20260618,93.75,-0.01,93.05,0.03,92.63,0.03,4,False,True
+20260626,93.77,0.02,93.07,0.02,92.65,0.02,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2258 | 鴻華先進-創 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2258 | 鴻華先進-創 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

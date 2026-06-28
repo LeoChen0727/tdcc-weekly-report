@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6538 倉和
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:22 Asia/Taipei
+- generated_at: 2026-06-28 22:27:17 Asia/Taipei
 - stock_id: 6538
 - stock_name: 倉和
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 29.86
-- over_600_ratio: 20.28
+- as_of_date: 20260626
+- over_400_ratio: 30.88
+- over_600_ratio: 23.93
 - over_800_ratio: 12.57
 - over_1000_ratio: 7.83
-- over_400_change_1w: 0.6
+- over_400_change_1w: 1.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,29.62,1.21,14.78,0,7.82,0,1,False,False
 20260612,29.26,-0.36,12.57,-2.21,7.83,0.01,2,False,True
 20260618,29.86,0.6,12.57,0,7.83,0,3,False,False
+20260626,30.88,1.02,12.57,0,7.83,0,4,False,False
 ```
 
 ## Candidate Context

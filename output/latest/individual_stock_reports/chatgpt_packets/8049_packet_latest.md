@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8049 晶采
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:47 Asia/Taipei
+- generated_at: 2026-06-28 22:27:39 Asia/Taipei
 - stock_id: 8049
 - stock_name: 晶采
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 32.57
-- over_600_ratio: 29.74
-- over_800_ratio: 27.94
-- over_1000_ratio: 27.1
-- over_400_change_1w: -0.35
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 32.59
+- over_600_ratio: 29.76
+- over_800_ratio: 27.96
+- over_1000_ratio: 27.12
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -186,12 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,32.57,0.02,27.94,0.02,27.1,0.02,3,True,True
 20260612,32.92,0.35,27.94,0,27.1,0,4,False,False
 20260618,32.57,-0.35,27.94,0,27.1,0,0,False,False
+20260626,32.59,0.02,27.96,0.02,27.12,0.02,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8049 | 晶采 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8049 | 晶采 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

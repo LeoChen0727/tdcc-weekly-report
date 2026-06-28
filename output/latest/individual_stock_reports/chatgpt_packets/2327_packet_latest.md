@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:05 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 285
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.87
-- over_600_ratio: 71.75
-- over_800_ratio: 70.2
-- over_1000_ratio: 68.78
-- over_400_change_1w: 0.4
-- over_800_change_1w: 0.4
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 74.34
+- over_600_ratio: 72.38
+- over_800_ratio: 70.82
+- over_1000_ratio: 69.45
+- over_400_change_1w: 0.47
+- over_800_change_1w: 0.62
+- over_1000_change_1w: 0.67
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,74.05,-0.73,70.49,-0.66,69.06,-0.54,0,False,False
 20260612,73.47,-0.58,69.8,-0.69,68.55,-0.51,0,False,False
 20260618,73.87,0.4,70.2,0.4,68.78,0.23,1,True,True
+20260626,74.34,0.47,70.82,0.62,69.45,0.67,2,True,True
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2327 | 國巨* | 254 | 34 | 49659670.0 | 734460.0 | 67.61 | no_signal |
+| 20260626 | 2327 | 國巨* | 254 | 0 | 49659670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:22 Asia/Taipei
+- generated_at: 2026-06-28 22:27:17 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.08
-- over_600_ratio: 75.77
-- over_800_ratio: 74.79
-- over_1000_ratio: 73.91
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.07
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 77.04
+- over_600_ratio: 75.72
+- over_800_ratio: 74.73
+- over_1000_ratio: 73.86
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,76.06,0.19,73.76,0.26,72.85,0.37,5,True,True
 20260612,77.15,1.09,74.86,1.1,73.88,1.03,6,True,True
 20260618,77.08,-0.07,74.79,-0.07,73.91,0.03,7,False,True
+20260626,77.04,-0.04,74.73,-0.06,73.86,-0.05,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2834 臺企銀
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:14 Asia/Taipei
+- generated_at: 2026-06-28 22:26:19 Asia/Taipei
 - stock_id: 2834
 - stock_name: 臺企銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.15
-- over_600_ratio: 58.51
-- over_800_ratio: 56.79
-- over_1000_ratio: 55.52
-- over_400_change_1w: 0.2
-- over_800_change_1w: 0.27
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 61.23
+- over_600_ratio: 58.6
+- over_800_ratio: 56.84
+- over_1000_ratio: 55.6
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.64,0.7,56.21,0.8,54.98,0.79,1,True,True
 20260612,60.95,0.31,56.52,0.31,55.34,0.36,2,True,True
 20260618,61.15,0.2,56.79,0.27,55.52,0.18,3,True,True
+20260626,61.23,0.08,56.84,0.05,55.6,0.08,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

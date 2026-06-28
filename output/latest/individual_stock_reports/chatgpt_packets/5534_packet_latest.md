@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:04 Asia/Taipei
+- generated_at: 2026-06-28 22:27:02 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.34
-- over_600_ratio: 66.47
-- over_800_ratio: 63.75
-- over_1000_ratio: 60.06
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 69.04
+- over_600_ratio: 66.1
+- over_800_ratio: 63.69
+- over_1000_ratio: 59.37
+- over_400_change_1w: -0.3
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.69
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.96,-0.41,62.66,-0.29,58.67,-0.31,0,False,False
 20260612,69.44,1.48,64.1,1.44,60.12,1.45,1,True,True
 20260618,69.34,-0.1,63.75,-0.35,60.06,-0.06,2,False,False
+20260626,69.04,-0.3,63.69,-0.06,59.37,-0.69,0,False,False
 ```
 
 ## Candidate Context

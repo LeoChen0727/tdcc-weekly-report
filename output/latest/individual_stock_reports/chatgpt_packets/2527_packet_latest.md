@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:08 Asia/Taipei
+- generated_at: 2026-06-28 22:26:14 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.43
-- over_600_ratio: 77.22
-- over_800_ratio: 75.72
-- over_1000_ratio: 74.45
-- over_400_change_1w: -0.39
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 79.82
+- over_600_ratio: 77.6
+- over_800_ratio: 75.85
+- over_1000_ratio: 74.89
+- over_400_change_1w: 0.39
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.44
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,80.04,-0.05,76.15,0.37,74.49,0.03,5,False,True
 20260612,79.82,-0.22,75.83,-0.32,74.49,0,0,False,False
 20260618,79.43,-0.39,75.72,-0.11,74.45,-0.04,0,False,False
+20260626,79.82,0.39,75.85,0.13,74.89,0.44,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、自然人董事、自然人監察人 3.舊任者職稱及姓名: (1)董事    A.宏璟建設(股)公司代表人：周家佩    B.宏璟建設(股)公司代表人：陳芳瑩    C.宏璟建設(股)公司代表人：蘇經洲    D.雷淑燕    E.龔?蓮 (2)監察人    A.姚筱薇    B.黃朝樑 4.舊任者簡歷: (1)董事    A.宏璟建設(股)公司代表人：周家佩-宏璟建設(股)公司總經理    B.宏璟建設(股)公司代表人：陳芳瑩-宏璟建設(股)公司財務處副總經理    C.宏璟建設(股)公司代表人：蘇經洲-宏璟建設(股)公司中壢工區副總經理    D.雷淑燕-宏璟建設(股)公司業務處經理    E.龔?蓮-宏璟建設(股)公司財務處經理 (2)監察人    A.姚筱薇-宏璟建設(股)公司業務處副總經理    B.黃朝樑-宏璟建設(股)公司竹北工區協理 5.新任者職稱及姓名: (1)董事    A.宏璟建設(股)公司代表人：周家佩    B.宏璟建設(股)公司代表人：陳芳瑩    C.宏璟建設(股)公司代表人：潘順完    D.雷淑燕    E.龔?蓮 (2)監察人    A.姚筱薇    B.黃朝樑 6.新任者簡歷: (1)董事    A.宏璟建設(股)公司代表人：周家佩-宏璟建設(股)公司總經理    B.宏璟建設(股)公司代表人：陳芳瑩-宏璟建設(股)公司財務處副總經理    C.宏璟建設(股)公司代表人：潘順完-宏璟建設(股)公司開發處副總經理    D.雷淑燕-宏璟建設(股)公司業務處經理    E.龔?蓮-宏璟建設(股)公司財務處經理 (2)監察人    A.姚筱薇-宏璟建設(股)公司業務處副總經理    B.黃朝樑-宏璟建設(股)公司竹北工區協理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:配合股東會召開時間，提前全面改選 9.新任者選任時持股數: (1)董事   A.宏璟建設(股)公司-208,853,490股     代表人：周家佩-0股   B.宏璟建設(股)公司-208,853,490股     代表人：陳芳瑩-0股   C.宏璟建設(股)公司-208,853,490股     代表人：潘順完-0股   D.雷淑燕-0股   E.龔?蓮-0股 (2)監察人   A.姚筱薇-0股   B.黃朝樑-0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/22-115/12/21 11.新任生效日期:115/06/26 12.同任期董事變動比率:不適用 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、自然人董事、自然人監察人 3.舊任者職稱及姓名: (1)董事    A.宏璟建設(股)公司代表人：周家佩    B.宏璟建設(股)公司代表人：陳芳瑩    C.宏璟建設(股)公司代表人：蘇經洲    D.雷淑燕    E.龔?蓮 (2)監察人    A.姚筱薇    B.黃朝樑 4.舊任者簡歷: (1)董事    A.宏璟建設(股)公司代表人：周家佩-宏璟建設(股)公司總經理    B.宏璟建設(股)公司代表人：陳芳瑩-宏璟建設(股)公司財務處副總經理    C.宏璟建設(股)公司代表人：蘇經洲-宏璟建設(股)公司中壢工區副總經理    D.雷淑燕-宏璟建設(股)公司業務處經理    E.龔?蓮-宏璟建設(股)公司財務處經理 (2)監察人    A.姚筱薇-宏璟建設(股)公司業務處副總經理    B.黃朝樑-宏璟建設(股)公司竹北工區協理 5.新任者職稱及姓名: (1)董事    A.宏璟建設(股)公司代表人：周家佩    B.宏璟建設(股)公司代表人：陳芳瑩    C.宏璟建設(股)公司代表人：潘順完    D.雷淑燕    E.龔?蓮 (2)監察人    A.姚筱薇    B.黃朝樑 6.新任者簡歷: (1)董事    A.宏璟建設(股)公司代表人：周家佩-宏璟建設(股)公司總經理    B.宏璟建設(股)公司代表人：陳芳瑩-宏璟建設(股)公司財務處副總經理    C.宏璟建設(股)公司代表人：潘順完-宏璟建設(股)公司開發處副總經理    D.雷淑燕-宏璟建設(股)公司業務處經理    E.龔?蓮-宏璟建設(股)公司財務處經理 (2)監察人    A.姚筱薇-宏璟建設(股)公司業務處副總經理    B.黃朝樑-宏璟建設(股)公司竹北工區協理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:配合股東會召開時間，提前全面改選 9.新任者選任時持股數: (1)董事   A.宏璟建設(股)公司-208,853,490股     代表人：周家佩-0股   B.宏璟建設(股)公司-208,853,490股     代表人：陳芳瑩-0股   C.宏璟建設(股)公司-208,853,490股     代表人：潘順完-0股   D.雷淑燕-0股   E.龔?蓮-0股 (2)監察人   A.姚筱薇-0股   B.黃朝樑-0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/22-115/12/21 11.新任生效日期:115/06/26 12.同任期董事變動比率:不適用 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6585 鼎基
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:23 Asia/Taipei
+- generated_at: 2026-06-28 22:27:18 Asia/Taipei
 - stock_id: 6585
 - stock_name: 鼎基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.39
-- over_600_ratio: 78.14
-- over_800_ratio: 76.21
-- over_1000_ratio: 72.78
-- over_400_change_1w: 0.12
-- over_800_change_1w: -0.09
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 79.56
+- over_600_ratio: 78.78
+- over_800_ratio: 77.81
+- over_1000_ratio: 74.4
+- over_400_change_1w: 0.17
+- over_800_change_1w: 1.6
+- over_1000_change_1w: 1.62
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.55,0.05,77.77,-0.06,74.21,-0.14,4,False,False
 20260612,79.27,-0.28,76.3,-1.47,72.78,-1.43,0,False,False
 20260618,79.39,0.12,76.21,-0.09,72.78,0,1,False,False
+20260626,79.56,0.17,77.81,1.6,74.4,1.62,2,True,True
 ```
 
 ## Candidate Context

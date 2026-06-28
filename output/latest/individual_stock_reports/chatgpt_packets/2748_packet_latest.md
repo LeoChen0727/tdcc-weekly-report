@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2748 雲品
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:13 Asia/Taipei
+- generated_at: 2026-06-28 22:26:18 Asia/Taipei
 - stock_id: 2748
 - stock_name: 雲品
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.29
+- as_of_date: 20260626
+- over_400_ratio: 61.31
 - over_600_ratio: 59.92
 - over_800_ratio: 59.29
 - over_1000_ratio: 58.44
-- over_400_change_1w: -0.06
+- over_400_change_1w: 0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.32,0.02,59.26,0,58.44,0,1,False,False
 20260612,61.35,0.03,59.29,0.03,58.44,0,2,False,True
 20260618,61.29,-0.06,59.29,0,58.44,0,0,False,False
+20260626,61.31,0.02,59.29,0,58.44,0,1,False,False
 ```
 
 ## Candidate Context

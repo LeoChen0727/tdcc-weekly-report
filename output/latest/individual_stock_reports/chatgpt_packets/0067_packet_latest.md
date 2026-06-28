@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0067 期元大S&P黃金反1(原名：元大S&P黃金反1)
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:30 Asia/Taipei
+- generated_at: 2026-06-28 22:25:41 Asia/Taipei
 - stock_id: 0067
 - stock_name: 期元大S&P黃金反1(原名：元大S&P黃金反1)
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 0067 | 期元大S&P黃金反1(原名：元大S&P黃金反1) | 61 | 15 | 3879130.0 | 1095340.0 | 3.54 | put_inflow |
+| 20260626 | 0067 | 期元大S&P黃金反1(原名：元大S&P黃金反1) | 61 | 0 | 3879130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

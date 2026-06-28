@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1305 華夏
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:36 Asia/Taipei
+- generated_at: 2026-06-28 22:25:47 Asia/Taipei
 - stock_id: 1305
 - stock_name: 華夏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.99
-- over_600_ratio: 50.17
-- over_800_ratio: 49.08
-- over_1000_ratio: 48.63
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.44
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260626
+- over_400_ratio: 52.23
+- over_600_ratio: 50.18
+- over_800_ratio: 49.19
+- over_1000_ratio: 49.19
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.56
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,50.66,-1.38,48.3,-1.45,47.37,-1.76,0,False,False
 20260410,50.15,-0.51,47.49,-0.81,46.73,-0.64,0,False,False
 20260417,50.95,0.8,48.44,0.95,47.8,1.07,1,True,True
 20260424,49.81,-1.14,47.32,-1.12,47.18,-0.62,0,False,False
@@ -186,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.64,0.51,48.66,0.32,48.51,0.33,6,True,True
 20260612,51.87,0.23,48.64,-0.02,48.49,-0.02,7,False,False
 20260618,51.99,0.12,49.08,0.44,48.63,0.14,8,True,True
+20260626,52.23,0.24,49.19,0.11,49.19,0.56,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1305 | 華夏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利：每股0.1元，計新台幣58,105,049元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用。 10.債券停止轉換起始日期:不適用。 11.債券停止轉換截止日期:不適用。 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 1305 | 華夏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利：每股0.1元，計新台幣58,105,049元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用。 10.債券停止轉換起始日期:不適用。 11.債券停止轉換截止日期:不適用。 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

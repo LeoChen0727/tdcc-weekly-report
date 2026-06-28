@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6180 橘子
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:11 Asia/Taipei
+- generated_at: 2026-06-28 22:27:07 Asia/Taipei
 - stock_id: 6180
 - stock_name: 橘子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,23 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.3
-- over_600_ratio: 49.71
-- over_800_ratio: 47.8
-- over_1000_ratio: 46.84
-- over_400_change_1w: -0.42
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 0.8
-- tdcc_consecutive_up_weeks: 13
+- as_of_date: 20260626
+- over_400_ratio: 49.54
+- over_600_ratio: 48.18
+- over_800_ratio: 46.59
+- over_1000_ratio: 45.56
+- over_400_change_1w: -0.76
+- over_800_change_1w: -1.21
+- over_1000_change_1w: -1.28
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,50.27,0.48,46.48,0.16,44.38,0.69,2,True,True
 20260410,50.09,-0.18,46.54,0.06,44.44,0.06,3,False,True
 20260417,50.15,0.06,46.5,-0.04,43.87,-0.57,4,False,False
 20260424,50.32,0.17,47.45,0.95,44.35,0.48,5,True,True
@@ -191,12 +190,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,50.33,-0.44,47.22,0.2,45.64,0.2,11,False,True
 20260612,50.72,0.39,47.48,0.26,46.04,0.4,12,True,True
 20260618,50.3,-0.42,47.8,0.32,46.84,0.8,13,False,True
+20260626,49.54,-0.76,46.59,-1.21,45.56,-1.28,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6180 | 橘子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過修訂本公司「取得或處分資產處理程序」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6180 | 橘子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過修訂本公司「取得或處分資產處理程序」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

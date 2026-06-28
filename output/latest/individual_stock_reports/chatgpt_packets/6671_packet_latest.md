@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6671 三能-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:26 Asia/Taipei
+- generated_at: 2026-06-28 22:27:21 Asia/Taipei
 - stock_id: 6671
 - stock_name: 三能-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 284
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 74.96
-- over_600_ratio: 64.32
-- over_800_ratio: 61.06
-- over_1000_ratio: 56.62
-- over_400_change_1w: -0.36
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -1.76
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 75.01
+- over_600_ratio: 64.34
+- over_800_ratio: 61.08
+- over_1000_ratio: 56.64
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,75.5,0.84,61.64,0.25,58.6,0.25,2,True,True
 20260612,75.32,-0.18,61.42,-0.22,58.38,-0.22,0,False,False
 20260618,74.96,-0.36,61.06,-0.36,56.62,-1.76,0,False,False
+20260626,75.01,0.05,61.08,0.02,56.64,0.02,1,True,True
 ```
 
 ## Candidate Context

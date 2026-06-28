@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4904 遠傳
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:51 Asia/Taipei
 - stock_id: 4904
 - stock_name: 遠傳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 93.69
-- over_600_ratio: 92.84
-- over_800_ratio: 91.96
-- over_1000_ratio: 91.19
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 93.72
+- over_600_ratio: 92.81
+- over_800_ratio: 91.91
+- over_1000_ratio: 91.04
+- over_400_change_1w: 0.03
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,93.57,0.23,91.87,0.31,91.2,0.26,1,True,True
 20260612,93.64,0.07,91.94,0.07,91.14,-0.06,2,False,True
 20260618,93.69,0.05,91.96,0.02,91.19,0.05,3,True,True
+20260626,93.72,0.03,91.91,-0.05,91.04,-0.15,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4904 | 遠傳 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/18 2.股東臨時會召開日期:115/07/17 3.股東臨時會召開地點:台北市內湖區民權東路六段18號6樓 4.召集事由一、報告事項:無 5.召集事由二、承認事項:無 6.召集事由三、討論事項:擬修訂「公司章程」部分條文案 7.召集事由四、選舉事項:無 8.召集事由五、其他議案:無 9.召集事由六、臨時動議:無 10.停止過戶起始日期:115/07/03 11.停止過戶截止日期:115/07/17 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 4904 | 遠傳 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/18 2.股東臨時會召開日期:115/07/17 3.股東臨時會召開地點:台北市內湖區民權東路六段18號6樓 4.召集事由一、報告事項:無 5.召集事由二、承認事項:無 6.召集事由三、討論事項:擬修訂「公司章程」部分條文案 7.召集事由四、選舉事項:無 8.召集事由五、其他議案:無 9.召集事由六、臨時動議:無 10.停止過戶起始日期:115/07/03 11.停止過戶截止日期:115/07/17 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

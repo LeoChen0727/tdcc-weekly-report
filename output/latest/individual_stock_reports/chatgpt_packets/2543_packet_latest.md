@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:09 Asia/Taipei
+- generated_at: 2026-06-28 22:26:15 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.84
-- over_600_ratio: 70.3
-- over_800_ratio: 68.19
-- over_1000_ratio: 67.7
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 71.38
+- over_600_ratio: 69.84
+- over_800_ratio: 67.87
+- over_1000_ratio: 67.03
+- over_400_change_1w: -0.46
+- over_800_change_1w: -0.32
+- over_1000_change_1w: -0.67
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.26,0.67,67.8,0.58,66.99,0.61,1,True,True
 20260612,71.72,0.46,68.1,0.3,67.62,0.63,2,True,True
 20260618,71.84,0.12,68.19,0.09,67.7,0.08,3,True,True
+20260626,71.38,-0.46,67.87,-0.32,67.03,-0.67,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:檢調單位至本公司進行搜索調查。 3.因應措施:本公司全力配合檢調單位調查 4.對公司財務業務之影響:本公司營運一切正常，對本公司財務業務無重大影響。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:檢調單位至本公司進行搜索調查。 3.因應措施:本公司全力配合檢調單位調查 4.對公司財務業務之影響:本公司營運一切正常，對本公司財務業務無重大影響。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

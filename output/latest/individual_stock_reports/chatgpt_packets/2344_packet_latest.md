@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:58 Asia/Taipei
+- generated_at: 2026-06-28 22:26:06 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 74.46
-- over_600_ratio: 73.13
-- over_800_ratio: 72.13
-- over_1000_ratio: 71.35
-- over_400_change_1w: 2.87
-- over_800_change_1w: 2.93
-- over_1000_change_1w: 2.78
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 73.41
+- over_600_ratio: 72.05
+- over_800_ratio: 71.04
+- over_1000_ratio: 70.33
+- over_400_change_1w: -1.05
+- over_800_change_1w: -1.09
+- over_1000_change_1w: -1.02
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.98,-0.05,71.71,-0.16,71.05,-0.08,0,False,False
 20260612,71.59,-2.39,69.2,-2.51,68.57,-2.48,0,False,False
 20260618,74.46,2.87,72.13,2.93,71.35,2.78,1,True,True
+20260626,73.41,-1.05,71.04,-1.09,70.33,-1.02,0,False,False
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2344 | 華邦電 | 257 | 27 | 92247130.0 | 1960920.0 | 47.04 | put_inflow |
+| 20260626 | 2344 | 華邦電 | 257 | 0 | 92247130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

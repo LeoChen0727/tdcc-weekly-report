@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6266 泰詠
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:16 Asia/Taipei
+- generated_at: 2026-06-28 22:27:12 Asia/Taipei
 - stock_id: 6266
 - stock_name: 泰詠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 38.99
+- as_of_date: 20260626
+- over_400_ratio: 38.79
 - over_600_ratio: 36.03
 - over_800_ratio: 32.84
 - over_1000_ratio: 31
-- over_400_change_1w: -0.03
+- over_400_change_1w: -0.2
 - over_800_change_1w: 0
-- over_1000_change_1w: -0.65
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.55,-0.11,32.84,-0.6,31.65,0,0,False,False
 20260612,39.02,-0.53,32.84,0,31.65,0,0,False,False
 20260618,38.99,-0.03,32.84,0,31,-0.65,0,False,False
+20260626,38.79,-0.2,32.84,0,31,0,0,False,False
 ```
 
 ## Candidate Context

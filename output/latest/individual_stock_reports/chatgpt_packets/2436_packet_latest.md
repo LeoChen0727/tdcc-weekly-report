@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2436 偉詮電
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:04 Asia/Taipei
+- generated_at: 2026-06-28 22:26:10 Asia/Taipei
 - stock_id: 2436
 - stock_name: 偉詮電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 25.27
-- over_600_ratio: 23.29
-- over_800_ratio: 19.73
-- over_1000_ratio: 18.38
-- over_400_change_1w: 0.64
-- over_800_change_1w: 0.34
-- over_1000_change_1w: 0.37
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 28.2
+- over_600_ratio: 25.26
+- over_800_ratio: 23.14
+- over_1000_ratio: 21.82
+- over_400_change_1w: 2.93
+- over_800_change_1w: 3.41
+- over_1000_change_1w: 3.44
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,6 +186,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,26.45,-0.9,21.28,-2.38,19.92,-1.83,0,False,False
 20260612,24.63,-1.82,19.39,-1.89,18.01,-1.91,0,False,False
 20260618,25.27,0.64,19.73,0.34,18.38,0.37,1,True,True
+20260626,28.2,2.93,23.14,3.41,21.82,3.44,2,True,True
 ```
 
 ## Candidate Context

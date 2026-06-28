@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4979 華星光
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:55 Asia/Taipei
+- generated_at: 2026-06-28 22:26:54 Asia/Taipei
 - stock_id: 4979
 - stock_name: 華星光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.74
-- over_600_ratio: 35.51
-- over_800_ratio: 32.7
-- over_1000_ratio: 27.66
-- over_400_change_1w: -0.57
-- over_800_change_1w: -0.89
-- over_1000_change_1w: -0.78
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 38.76
+- over_600_ratio: 33.44
+- over_800_ratio: 30.82
+- over_1000_ratio: 26.29
+- over_400_change_1w: -0.98
+- over_800_change_1w: -1.88
+- over_1000_change_1w: -1.37
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,41.49,1.05,34.06,1.26,30.83,-0.04,1,False,True
 20260612,40.31,-1.18,33.59,-0.47,28.44,-2.39,0,False,False
 20260618,39.74,-0.57,32.7,-0.89,27.66,-0.78,1,False,False
+20260626,38.76,-0.98,30.82,-1.88,26.29,-1.37,0,False,False
 ```
 
 ## Candidate Context

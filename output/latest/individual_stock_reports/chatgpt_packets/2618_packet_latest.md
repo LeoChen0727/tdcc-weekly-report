@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2618 長榮航
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:11 Asia/Taipei
+- generated_at: 2026-06-28 22:26:16 Asia/Taipei
 - stock_id: 2618
 - stock_name: 長榮航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.34
-- over_600_ratio: 76.09
-- over_800_ratio: 74.97
-- over_1000_ratio: 74.16
-- over_400_change_1w: 2.68
-- over_800_change_1w: 2.99
-- over_1000_change_1w: 3.12
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 78.83
+- over_600_ratio: 77.62
+- over_800_ratio: 76.51
+- over_1000_ratio: 75.77
+- over_400_change_1w: 1.49
+- over_800_change_1w: 1.54
+- over_1000_change_1w: 1.61
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -173,7 +173,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,73.16,0.09,70.36,0.14,69.56,0.04,3,True,True
 20260410,73.21,0.05,70.35,-0.01,69.68,0.12,4,False,True
 20260417,73.28,0.07,70.43,0.08,69.71,0.03,5,True,True
 20260424,72.8,-0.48,69.89,-0.54,69.1,-0.61,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,74.46,1.24,71.74,1.45,70.84,1.45,5,True,True
 20260612,74.66,0.2,71.98,0.24,71.04,0.2,6,True,True
 20260618,77.34,2.68,74.97,2.99,74.16,3.12,7,True,True
+20260626,78.83,1.49,76.51,1.54,75.77,1.61,8,True,True
 ```
 
 ## Candidate Context

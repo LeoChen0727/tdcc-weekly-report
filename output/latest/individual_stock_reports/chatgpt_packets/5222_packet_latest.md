@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5222 全訊
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:55 Asia/Taipei
 - stock_id: 5222
 - stock_name: 全訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 32.33
-- over_600_ratio: 27.6
-- over_800_ratio: 26.93
-- over_1000_ratio: 22.88
-- over_400_change_1w: -0.47
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 32.69
+- over_600_ratio: 27.46
+- over_800_ratio: 26.79
+- over_1000_ratio: 22.74
+- over_400_change_1w: 0.36
+- over_800_change_1w: -0.14
+- over_1000_change_1w: -0.14
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,32.81,0.56,26.96,0.06,22.91,0.06,1,True,True
 20260612,32.8,-0.01,26.93,-0.03,22.88,-0.03,0,False,False
 20260618,32.33,-0.47,26.93,0,22.88,0,0,False,False
+20260626,32.69,0.36,26.79,-0.14,22.74,-0.14,1,False,False
 ```
 
 ## Candidate Context

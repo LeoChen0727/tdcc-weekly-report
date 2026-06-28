@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:31 Asia/Taipei
+- generated_at: 2026-06-28 22:26:33 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 58.64
-- over_600_ratio: 51.31
-- over_800_ratio: 45.82
-- over_1000_ratio: 38.53
-- over_400_change_1w: -0.09
-- over_800_change_1w: -1.81
-- over_1000_change_1w: -1.77
+- as_of_date: 20260626
+- over_400_ratio: 57.68
+- over_600_ratio: 49.84
+- over_800_ratio: 44
+- over_1000_ratio: 37.47
+- over_400_change_1w: -0.96
+- over_800_change_1w: -1.82
+- over_1000_change_1w: -1.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.87,1.28,47.64,2.75,41.2,1.82,5,True,True
 20260612,58.73,0.86,47.63,-0.01,40.3,-0.9,6,False,False
 20260618,58.64,-0.09,45.82,-1.81,38.53,-1.77,0,False,False
+20260626,57.68,-0.96,44,-1.82,37.47,-1.06,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3406 | 玉晶光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3406 | 玉晶光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3406 | 玉晶光 | 82 | 4 | 15481460.0 | 60350.0 | 256.53 | call_inflow |
+| 20260626 | 3406 | 玉晶光 | 82 | 0 | 15481460.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1201 味全
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:34 Asia/Taipei
+- generated_at: 2026-06-28 22:25:45 Asia/Taipei
 - stock_id: 1201
 - stock_name: 味全
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.97
-- over_600_ratio: 61.33
-- over_800_ratio: 60.08
-- over_1000_ratio: 59.57
-- over_400_change_1w: -0.15
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 63.37
+- over_600_ratio: 61.37
+- over_800_ratio: 60.11
+- over_1000_ratio: 59.6
+- over_400_change_1w: 0.4
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.17,-0.09,59.89,-0.03,59.38,-0.03,0,False,False
 20260612,63.12,-0.05,60.09,0.2,59.42,0.04,1,False,True
 20260618,62.97,-0.15,60.08,-0.01,59.57,0.15,2,False,True
+20260626,63.37,0.4,60.11,0.03,59.6,0.03,3,True,True
 ```
 
 ## Candidate Context

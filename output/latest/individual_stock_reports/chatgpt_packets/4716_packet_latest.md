@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4716 大立
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:49 Asia/Taipei
+- generated_at: 2026-06-28 22:26:49 Asia/Taipei
 - stock_id: 4716
 - stock_name: 大立
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.13
-- over_600_ratio: 34.05
-- over_800_ratio: 27.58
-- over_1000_ratio: 25.62
-- over_400_change_1w: 0.67
-- over_800_change_1w: 0.81
-- over_1000_change_1w: -0.2
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 39.06
+- over_600_ratio: 32.97
+- over_800_ratio: 29.34
+- over_1000_ratio: 26.43
+- over_400_change_1w: -0.07
+- over_800_change_1w: 1.76
+- over_1000_change_1w: 0.81
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,38.05,0.96,26.38,0.46,24.37,1.26,5,True,True
 20260612,38.46,0.41,26.77,0.39,25.82,1.45,6,True,True
 20260618,39.13,0.67,27.58,0.81,25.62,-0.2,7,False,True
+20260626,39.06,-0.07,29.34,1.76,26.43,0.81,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4716 | 大立 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 4716 | 大立 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

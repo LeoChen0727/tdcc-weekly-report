@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:29 Asia/Taipei
+- generated_at: 2026-06-28 22:25:40 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
@@ -190,7 +190,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 0050 | 元大台灣50 | 240 | 191 | 94137510.0 | 11522950.0 | 8.17 | put_inflow |
+| 20260626 | 0050 | 元大台灣50 | 240 | 0 | 94137510.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

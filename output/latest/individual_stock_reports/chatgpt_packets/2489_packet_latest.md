@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2489 瑞軒
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:07 Asia/Taipei
+- generated_at: 2026-06-28 22:26:13 Asia/Taipei
 - stock_id: 2489
 - stock_name: 瑞軒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 286
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 35.56
-- over_600_ratio: 34.01
-- over_800_ratio: 32.65
-- over_1000_ratio: 32.03
-- over_400_change_1w: 2.99
-- over_800_change_1w: 3.13
-- over_1000_change_1w: 2.97
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 34.47
+- over_600_ratio: 32.72
+- over_800_ratio: 31.79
+- over_1000_ratio: 31.03
+- over_400_change_1w: -1.09
+- over_800_change_1w: -0.86
+- over_1000_change_1w: -1
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.76,-2.11,32.13,-1.66,31.52,-1.67,0,False,False
 20260612,32.57,-2.19,29.52,-2.61,29.06,-2.46,0,False,False
 20260618,35.56,2.99,32.65,3.13,32.03,2.97,1,True,True
+20260626,34.47,-1.09,31.79,-0.86,31.03,-1,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2489 | 瑞軒 | 15 | 2 | 1973090.0 | 10570.0 | 186.67 | no_signal |
+| 20260626 | 2489 | 瑞軒 | 15 | 0 | 1973090.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

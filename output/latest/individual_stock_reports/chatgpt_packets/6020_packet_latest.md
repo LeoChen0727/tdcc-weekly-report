@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6020 大展證
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:03 Asia/Taipei
 - stock_id: 6020
 - stock_name: 大展證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 96.58
-- over_600_ratio: 96.58
-- over_800_ratio: 96.58
-- over_1000_ratio: 95.93
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 96.6
+- over_600_ratio: 96.6
+- over_800_ratio: 96.6
+- over_1000_ratio: 95.95
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,96.71,-0.4,96.52,-0.39,95.87,-0.01,0,False,False
 20260612,96.59,-0.12,96.59,0.07,95.94,0.07,1,False,True
 20260618,96.58,-0.01,96.58,-0.01,95.93,-0.01,0,False,False
+20260626,96.6,0.02,96.6,0.02,95.95,0.02,1,True,True
 ```
 
 ## Candidate Context

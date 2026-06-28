@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:34 Asia/Taipei
+- generated_at: 2026-06-28 22:26:36 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 33.01
-- over_600_ratio: 30.36
-- over_800_ratio: 27.96
+- as_of_date: 20260626
+- over_400_ratio: 29.97
+- over_600_ratio: 27.59
+- over_800_ratio: 26.44
 - over_1000_ratio: 23.54
-- over_400_change_1w: -2.75
-- over_800_change_1w: -0.32
-- over_1000_change_1w: -1.82
+- over_400_change_1w: -3.04
+- over_800_change_1w: -1.52
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.27,-3.63,28.61,-3.52,25.67,-0.55,0,False,False
 20260612,35.76,1.49,28.28,-0.33,25.36,-0.31,1,False,False
 20260618,33.01,-2.75,27.96,-0.32,23.54,-1.82,0,False,False
+20260626,29.97,-3.04,26.44,-1.52,23.54,0,0,False,False
 ```
 
 ## Candidate Context

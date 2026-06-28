@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:44 Asia/Taipei
+- generated_at: 2026-06-28 22:25:54 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.69
-- over_600_ratio: 41.42
-- over_800_ratio: 37.18
-- over_1000_ratio: 34.09
-- over_400_change_1w: -0.34
-- over_800_change_1w: -0.64
-- over_1000_change_1w: -0.2
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 47.49
+- over_600_ratio: 41.97
+- over_800_ratio: 38.33
+- over_1000_ratio: 32.77
+- over_400_change_1w: 0.8
+- over_800_change_1w: 1.15
+- over_1000_change_1w: -1.32
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,41.91,0.09,34.96,0.19,32.26,0.56,18,False,True
 20260410,41.02,-0.89,33.65,-1.31,30.88,-1.38,0,False,False
 20260417,41.12,0.1,33.76,0.11,30.99,0.11,1,True,True
 20260424,41.07,-0.05,33.69,-0.07,30.56,-0.43,0,False,False
@@ -186,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,47.25,2.55,38.49,2.73,34.65,2.05,6,True,True
 20260612,47.03,-0.22,37.82,-0.67,34.29,-0.36,7,False,False
 20260618,46.69,-0.34,37.18,-0.64,34.09,-0.2,0,False,False
+20260626,47.49,0.8,38.33,1.15,32.77,-1.32,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1563 | 巧新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。 共計現金股利434,176,280元，每股現金股利2元。 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/06 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1563 | 巧新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。 共計現金股利434,176,280元，每股現金股利2元。 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/06 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

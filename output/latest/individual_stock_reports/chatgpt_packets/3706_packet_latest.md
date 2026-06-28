@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:39 Asia/Taipei
+- generated_at: 2026-06-28 22:26:41 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.76
-- over_600_ratio: 51.47
-- over_800_ratio: 50.62
-- over_1000_ratio: 49.65
-- over_400_change_1w: -1.32
-- over_800_change_1w: -1.17
-- over_1000_change_1w: -1.23
+- as_of_date: 20260626
+- over_400_ratio: 51.99
+- over_600_ratio: 50.65
+- over_800_ratio: 49.89
+- over_1000_ratio: 48.86
+- over_400_change_1w: -0.77
+- over_800_change_1w: -0.73
+- over_1000_change_1w: -0.79
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,55.61,3.3,53.52,3.35,52.48,3.06,3,True,True
 20260612,54.08,-1.53,51.79,-1.73,50.88,-1.6,0,False,False
 20260618,52.76,-1.32,50.62,-1.17,49.65,-1.23,0,False,False
+20260626,51.99,-0.77,49.89,-0.73,48.86,-0.79,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:獨立董事 管中閔 4.舊任者簡歷:神達控股股份有限公司 獨立董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:辭職 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/23~117/05/22 11.新任生效日期:不適用 12.同任期董事變動比率:1/9 13.同任期獨立董事變動比率:1/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:獨立董事 管中閔 4.舊任者簡歷:神達控股股份有限公司 獨立董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:辭職 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/23~117/05/22 11.新任生效日期:不適用 12.同任期董事變動比率:1/9 13.同任期獨立董事變動比率:1/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3706 | 神達 | 97 | 2 | 5240320.0 | 1790.0 | 2927.55 | no_signal |
+| 20260626 | 3706 | 神達 | 97 | 0 | 5240320.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6219 富旺
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:13 Asia/Taipei
+- generated_at: 2026-06-28 22:27:10 Asia/Taipei
 - stock_id: 6219
 - stock_name: 富旺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 68.79
-- over_600_ratio: 66.35
-- over_800_ratio: 65.34
-- over_1000_ratio: 64.65
-- over_400_change_1w: -0.19
-- over_800_change_1w: 0.69
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 68.83
+- over_600_ratio: 66.5
+- over_800_ratio: 65.37
+- over_1000_ratio: 64.64
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.03
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,68.55,0.14,64.65,0.02,64.65,0.02,5,True,True
 20260612,68.98,0.43,64.65,0,64.65,0,6,False,False
 20260618,68.79,-0.19,65.34,0.69,64.65,0,7,False,True
+20260626,68.83,0.04,65.37,0.03,64.64,-0.01,8,False,True
 ```
 
 ## Candidate Context

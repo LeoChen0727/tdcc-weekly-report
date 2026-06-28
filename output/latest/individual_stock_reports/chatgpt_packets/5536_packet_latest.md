@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5536 聖暉*
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:04 Asia/Taipei
+- generated_at: 2026-06-28 22:27:02 Asia/Taipei
 - stock_id: 5536
 - stock_name: 聖暉*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 59.67
-- over_600_ratio: 50.57
-- over_800_ratio: 40.22
-- over_1000_ratio: 37.23
-- over_400_change_1w: 0.12
-- over_800_change_1w: -0.67
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260626
+- over_400_ratio: 59.3
+- over_600_ratio: 48.78
+- over_800_ratio: 40.61
+- over_1000_ratio: 38.38
+- over_400_change_1w: -0.37
+- over_800_change_1w: 0.39
+- over_1000_change_1w: 1.15
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,58.88,-0.18,41.15,-0.56,38.28,0.13,2,False,True
 20260612,59.55,0.67,40.89,-0.26,37.24,-1.04,3,False,False
 20260618,59.67,0.12,40.22,-0.67,37.23,-0.01,4,False,False
+20260626,59.3,-0.37,40.61,0.39,38.38,1.15,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5536 | 聖暉* | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | 1.董事會決議日期:115/06/17 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 聖暉工程科技股份有限公司國內第二次無擔保轉換公司債 聖暉工程科技股份有限公司國內第三次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額: 第二次：發行總面額新臺幣15億元為上限 第三次：發行總面額新臺幣15億元為上限 5.每張面額: 第二次：新臺幣10萬元整 第三次：新臺幣10萬元整 6.發行價格: 第二次：依票面金額之101~103%發行　 第三次：採競價拍賣方式發行，底標以票面金額之102~103%發行，實際發行價格依競價 拍賣結果而定 7.發行期間: 第二次：3年 第三次：3年 8.發行利率: 第二次：票面利率0% 第三次：票面利率0% 9.擔保品之總類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:充實營運資金 11.承銷方式: 第二次：採詢價圈購方式辦理公開銷售 第三次：採競價拍賣方式辦理公開銷售 12.公司債受託人:未定 13.承銷或代銷機構:國票綜合證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:本公司股務代理機構 16.簽證機構:不適用 17.能轉換股份者，其轉換價格及轉換辦法: 相關轉換辦法將依有關法令規定辦理，並報奉相關主管機關核准後另行公告 18.賣回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 19.買回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 20.附有轉換、交換或認股者，其換股基準日: 將依有關法令辦理，俟報奉主管機關核准後另行公告 21.附有轉換、交換或認股者，對股權可能稀釋情形: 將依有關法令辦理，俟報奉主管機關核准後另行公告 22.其他應敘明事項: (1)本次可轉換公司債俟奉呈主管機關申報生效後，擬授權董事長另訂發行日，並將向 中華民國證券櫃檯買賣中心申請櫃檯買賣。 (2)本次公司債發行計畫之重要內容及發行相關事宜，如遇法令變更、經主管機關修正 或券商公會指示或要求，或因應客觀環境需要而須修正或調整時，擬授權董事長全權 處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5536 | 聖暉* | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | 1.董事會決議日期:115/06/17 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 聖暉工程科技股份有限公司國內第二次無擔保轉換公司債 聖暉工程科技股份有限公司國內第三次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額: 第二次：發行總面額新臺幣15億元為上限 第三次：發行總面額新臺幣15億元為上限 5.每張面額: 第二次：新臺幣10萬元整 第三次：新臺幣10萬元整 6.發行價格: 第二次：依票面金額之101~103%發行　 第三次：採競價拍賣方式發行，底標以票面金額之102~103%發行，實際發行價格依競價 拍賣結果而定 7.發行期間: 第二次：3年 第三次：3年 8.發行利率: 第二次：票面利率0% 第三次：票面利率0% 9.擔保品之總類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:充實營運資金 11.承銷方式: 第二次：採詢價圈購方式辦理公開銷售 第三次：採競價拍賣方式辦理公開銷售 12.公司債受託人:未定 13.承銷或代銷機構:國票綜合證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:本公司股務代理機構 16.簽證機構:不適用 17.能轉換股份者，其轉換價格及轉換辦法: 相關轉換辦法將依有關法令規定辦理，並報奉相關主管機關核准後另行公告 18.賣回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 19.買回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告 20.附有轉換、交換或認股者，其換股基準日: 將依有關法令辦理，俟報奉主管機關核准後另行公告 21.附有轉換、交換或認股者，對股權可能稀釋情形: 將依有關法令辦理，俟報奉主管機關核准後另行公告 22.其他應敘明事項: (1)本次可轉換公司債俟奉呈主管機關申報生效後，擬授權董事長另訂發行日，並將向 中華民國證券櫃檯買賣中心申請櫃檯買賣。 (2)本次公司債發行計畫之重要內容及發行相關事宜，如遇法令變更、經主管機關修正 或券商公會指示或要求，或因應客觀環境需要而須修正或調整時，擬授權董事長全權 處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

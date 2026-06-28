@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5907 大洋-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:03 Asia/Taipei
 - stock_id: 5907
 - stock_name: 大洋-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.22
-- over_600_ratio: 67.8
-- over_800_ratio: 65.17
-- over_1000_ratio: 65.17
-- over_400_change_1w: -0.35
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 69.36
+- over_600_ratio: 67.52
+- over_800_ratio: 65.2
+- over_1000_ratio: 65.2
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,69.81,-0.01,65.46,-0.15,64.96,-0.16,2,False,False
 20260612,69.57,-0.24,65.29,-0.17,65.29,0.33,3,False,True
 20260618,69.22,-0.35,65.17,-0.12,65.17,-0.12,0,False,False
+20260626,69.36,0.14,65.2,0.03,65.2,0.03,1,False,True
 ```
 
 ## Candidate Context

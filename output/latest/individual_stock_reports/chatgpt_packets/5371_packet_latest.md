@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5371 中光電
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:00 Asia/Taipei
+- generated_at: 2026-06-28 22:26:58 Asia/Taipei
 - stock_id: 5371
 - stock_name: 中光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 43.61
-- over_600_ratio: 41.58
-- over_800_ratio: 40.54
-- over_1000_ratio: 39.62
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.51
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 43.38
+- over_600_ratio: 41.23
+- over_800_ratio: 39.65
+- over_1000_ratio: 39.22
+- over_400_change_1w: -0.23
+- over_800_change_1w: -0.89
+- over_1000_change_1w: -0.4
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.24,0.61,40.6,0.81,39.01,-0.12,5,False,True
 20260612,43.57,-0.67,40.5,-0.1,39.11,0.1,6,False,True
 20260618,43.61,0.04,40.54,0.04,39.62,0.51,7,True,True
+20260626,43.38,-0.23,39.65,-0.89,39.22,-0.4,0,False,False
 ```
 
 ## Candidate Context

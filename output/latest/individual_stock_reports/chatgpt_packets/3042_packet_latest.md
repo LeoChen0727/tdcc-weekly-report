@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:21 Asia/Taipei
+- generated_at: 2026-06-28 22:26:25 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.26
-- over_600_ratio: 59.22
-- over_800_ratio: 56.29
-- over_1000_ratio: 54.7
-- over_400_change_1w: -4.38
-- over_800_change_1w: -5.26
-- over_1000_change_1w: -4.63
+- as_of_date: 20260626
+- over_400_ratio: 55.51
+- over_600_ratio: 51.87
+- over_800_ratio: 49.27
+- over_1000_ratio: 47.41
+- over_400_change_1w: -6.75
+- over_800_change_1w: -7.02
+- over_1000_change_1w: -7.29
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.51,-3.85,59.18,-3.06,56.73,-3.13,0,False,False
 20260612,66.64,2.13,61.55,2.37,59.33,2.6,1,True,True
 20260618,62.26,-4.38,56.29,-5.26,54.7,-4.63,0,False,False
+20260626,55.51,-6.75,49.27,-7.02,47.41,-7.29,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3042 | 晶技 | 53 | 1 | 19147690.0 | 63080.0 | 303.55 | no_signal |
+| 20260626 | 3042 | 晶技 | 53 | 0 | 19147690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

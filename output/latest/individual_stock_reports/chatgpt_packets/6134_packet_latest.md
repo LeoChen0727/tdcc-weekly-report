@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6134 萬旭
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:08 Asia/Taipei
+- generated_at: 2026-06-28 22:27:05 Asia/Taipei
 - stock_id: 6134
 - stock_name: 萬旭
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.77
-- over_600_ratio: 53.34
-- over_800_ratio: 49.92
-- over_1000_ratio: 46.71
-- over_400_change_1w: -1.35
-- over_800_change_1w: -2.45
-- over_1000_change_1w: -1.39
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 56.15
+- over_600_ratio: 52.64
+- over_800_ratio: 50.94
+- over_1000_ratio: 46.64
+- over_400_change_1w: -0.62
+- over_800_change_1w: 1.02
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,58.74,-0.7,52.79,-2.08,49.46,-3.22,0,False,False
 20260612,58.12,-0.62,52.37,-0.42,48.1,-1.36,0,False,False
 20260618,56.77,-1.35,49.92,-2.45,46.71,-1.39,0,False,False
+20260626,56.15,-0.62,50.94,1.02,46.64,-0.07,1,False,True
 ```
 
 ## Candidate Context

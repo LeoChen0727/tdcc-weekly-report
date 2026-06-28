@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:06 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 74.96
-- over_600_ratio: 71.74
-- over_800_ratio: 65.71
-- over_1000_ratio: 61.44
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.52
-- over_1000_change_1w: -0.38
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 71.54
+- over_600_ratio: 67.63
+- over_800_ratio: 61.97
+- over_1000_ratio: 59.62
+- over_400_change_1w: -3.42
+- over_800_change_1w: -3.74
+- over_1000_change_1w: -1.82
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,13 +182,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.72,-2.62,65.8,-3.07,62.52,-4.42,0,False,False
 20260612,74.87,1.15,65.19,-0.61,61.82,-0.7,1,False,False
 20260618,74.96,0.09,65.71,0.52,61.44,-0.38,2,False,True
+20260626,71.54,-3.42,61.97,-3.74,59.62,-1.82,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2351 | 順德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2351 | 順德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

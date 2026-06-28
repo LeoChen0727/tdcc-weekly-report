@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5706 鳳凰
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:05 Asia/Taipei
+- generated_at: 2026-06-28 22:27:02 Asia/Taipei
 - stock_id: 5706
 - stock_name: 鳳凰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.95
-- over_600_ratio: 36.82
+- as_of_date: 20260626
+- over_400_ratio: 39.23
+- over_600_ratio: 36.08
 - over_800_ratio: 35.26
 - over_1000_ratio: 35.26
-- over_400_change_1w: 0.03
+- over_400_change_1w: -0.72
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.84,-0.49,35.26,0,35.26,0,0,False,False
 20260612,39.92,0.08,35.26,0,35.26,0,1,False,False
 20260618,39.95,0.03,35.26,0,35.26,0,2,False,False
+20260626,39.23,-0.72,35.26,0,35.26,0,0,False,False
 ```
 
 ## Candidate Context

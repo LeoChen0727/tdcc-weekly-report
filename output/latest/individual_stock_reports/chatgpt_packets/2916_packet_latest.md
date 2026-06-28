@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2916 滿心
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:17 Asia/Taipei
+- generated_at: 2026-06-28 22:26:22 Asia/Taipei
 - stock_id: 2916
 - stock_name: 滿心
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 58.81
 - over_600_ratio: 57.4
 - over_800_ratio: 56.46
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,58.8,0.01,56.45,0.01,50.93,0,2,False,True
 20260612,58.81,0.01,56.46,0.01,50.93,0,3,False,True
 20260618,58.81,0,56.46,0,50.93,0,0,False,False
+20260626,58.81,0,56.46,0,50.93,0,0,False,False
 ```
 
 ## Candidate Context

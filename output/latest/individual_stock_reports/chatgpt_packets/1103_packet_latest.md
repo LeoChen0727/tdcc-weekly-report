@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1103 嘉泥
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:34 Asia/Taipei
+- generated_at: 2026-06-28 22:25:45 Asia/Taipei
 - stock_id: 1103
 - stock_name: 嘉泥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.28
-- over_600_ratio: 77.74
-- over_800_ratio: 76.34
-- over_1000_ratio: 75.57
-- over_400_change_1w: 0.06
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 79.3
+- over_600_ratio: 77.82
+- over_800_ratio: 76.41
+- over_1000_ratio: 75.64
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.2,0.12,76.36,0.1,75.47,-0.01,2,False,True
 20260612,79.22,0.02,76.36,0,75.59,0.12,3,False,True
 20260618,79.28,0.06,76.34,-0.02,75.57,-0.02,4,False,False
+20260626,79.3,0.02,76.41,0.07,75.64,0.07,5,True,True
 ```
 
 ## Candidate Context

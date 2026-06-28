@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:40 Asia/Taipei
+- generated_at: 2026-06-28 22:25:50 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.33
-- over_600_ratio: 69.38
-- over_800_ratio: 67.72
-- over_1000_ratio: 66.54
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 71.46
+- over_600_ratio: 69.56
+- over_800_ratio: 67.84
+- over_1000_ratio: 66.56
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,70.07,-0.05,66.58,-0.05,65.5,0.06,1,False,True
 20260410,70.09,0.02,66.54,-0.04,65.35,-0.15,2,False,False
 20260417,70.18,0.09,66.75,0.21,65.47,0.12,3,True,True
 20260424,70.14,-0.04,66.64,-0.11,65.36,-0.11,0,False,False
@@ -186,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.29,-0.21,67.74,-0.38,66.46,-0.37,0,False,False
 20260612,71.19,-0.1,67.65,-0.09,66.47,0.01,1,False,True
 20260618,71.33,0.14,67.72,0.07,66.54,0.07,2,True,True
+20260626,71.46,0.13,67.84,0.12,66.56,0.02,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1447 | 力鵬 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1447 | 力鵬 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

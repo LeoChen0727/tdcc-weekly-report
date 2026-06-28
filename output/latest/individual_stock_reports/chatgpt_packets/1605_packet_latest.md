@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1605 華新
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:46 Asia/Taipei
+- generated_at: 2026-06-28 22:25:55 Asia/Taipei
 - stock_id: 1605
 - stock_name: 華新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.67
-- over_600_ratio: 72.67
-- over_800_ratio: 72.15
-- over_1000_ratio: 71.4
-- over_400_change_1w: 0.75
-- over_800_change_1w: 0.73
-- over_1000_change_1w: 0.71
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 73.62
+- over_600_ratio: 72.52
+- over_800_ratio: 71.92
+- over_1000_ratio: 71.22
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.23
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,73.86,1.92,72.26,1.97,71.62,2.07,3,True,True
 20260612,72.92,-0.94,71.42,-0.84,70.69,-0.93,0,False,False
 20260618,73.67,0.75,72.15,0.73,71.4,0.71,1,True,True
+20260626,73.62,-0.05,71.92,-0.23,71.22,-0.18,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1605 | 華新 | 152 | 5 | 9369320.0 | 3790.0 | 2472.12 | no_signal |
+| 20260626 | 1605 | 華新 | 152 | 0 | 9369320.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

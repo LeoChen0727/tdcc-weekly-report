@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6290 良維
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:17 Asia/Taipei
+- generated_at: 2026-06-28 22:27:13 Asia/Taipei
 - stock_id: 6290
 - stock_name: 良維
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 45.7
-- over_600_ratio: 40.41
-- over_800_ratio: 38.4
-- over_1000_ratio: 34.12
-- over_400_change_1w: -0.91
-- over_800_change_1w: -1
-- over_1000_change_1w: -2.1
+- as_of_date: 20260626
+- over_400_ratio: 42.23
+- over_600_ratio: 37.96
+- over_800_ratio: 36.35
+- over_1000_ratio: 32.13
+- over_400_change_1w: -3.47
+- over_800_change_1w: -2.05
+- over_1000_change_1w: -1.99
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,49.39,-0.94,41.92,-1.05,38.17,-2.1,0,False,False
 20260612,46.61,-2.78,39.4,-2.52,36.22,-1.95,0,False,False
 20260618,45.7,-0.91,38.4,-1,34.12,-2.1,0,False,False
+20260626,42.23,-3.47,36.35,-2.05,32.13,-1.99,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6290 | 良維 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6290 | 良維 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

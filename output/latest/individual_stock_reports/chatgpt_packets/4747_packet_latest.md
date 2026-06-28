@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4747 強生製藥
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:51 Asia/Taipei
+- generated_at: 2026-06-28 22:26:50 Asia/Taipei
 - stock_id: 4747
 - stock_name: 強生製藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 155
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 66.14
-- over_600_ratio: 57.98
-- over_800_ratio: 50.31
-- over_1000_ratio: 50.31
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 66.19
+- over_600_ratio: 58.04
+- over_800_ratio: 50.34
+- over_1000_ratio: 50.34
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.05,0.11,50.21,0.12,50.21,0.12,5,True,True
 20260612,66.05,0,50.23,0.02,50.23,0.02,6,False,True
 20260618,66.14,0.09,50.31,0.08,50.31,0.08,7,True,True
+20260626,66.19,0.05,50.34,0.03,50.34,0.03,8,True,True
 ```
 
 ## Candidate Context

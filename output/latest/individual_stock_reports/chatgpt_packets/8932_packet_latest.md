@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8932 智通*
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:57 Asia/Taipei
+- generated_at: 2026-06-28 22:27:47 Asia/Taipei
 - stock_id: 8932
 - stock_name: 智通*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 150
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 80.28
-- over_600_ratio: 78.28
-- over_800_ratio: 75.66
-- over_1000_ratio: 74.16
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.52
-- over_1000_change_1w: 0.81
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 81.44
+- over_600_ratio: 79.16
+- over_800_ratio: 76.56
+- over_1000_ratio: 74.84
+- over_400_change_1w: 1.16
+- over_800_change_1w: 0.9
+- over_1000_change_1w: 0.68
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,80.03,0.11,74.84,-0.23,73.33,0.03,5,False,True
 20260612,80.17,0.14,75.14,0.3,73.35,0.02,6,False,True
 20260618,80.28,0.11,75.66,0.52,74.16,0.81,7,True,True
+20260626,81.44,1.16,76.56,0.9,74.84,0.68,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8932 | 智通* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋 (2)永讚開發投資(股)公司代表人：林俊儀 (3)永讚開發投資(股)公司代表人：TAN TIONG MING (4)宏達開發投資(股)公司代表人：黃偉特 (5)宏達開發投資(股)公司代表人：蔡焜煌 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng 獨立董事 (1)李天行　 (2)張居德 (3)劉慧儀 3.許可從事競業行為之項目: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋    永讚開發投資(股)公司 董事長    金銓富投資有限公司 董事長    富勛投資有限公司 董事長    智捷醫學科技股份有限公司 董事    雙都經貿股份有限公司 董事    龍邦國際興業股份有限公司 獨立董事    笙泉科技股份有限公司 董事長 (2)永讚開發投資(股)公司代表人：林俊儀    恆理致遠國際法律事務所 所長    宣德科技股份有限公司 獨立董事    金益鼎企業股份有限公司 獨立董事    新潤興業股份有限公司 獨立董事    台翰精密科技股份有限公司 獨立董事    台灣運動彩券股份有限公司 董事    笙泉科技股份有限公司 董事 (3)永讚開發投資(股)公司代表人：TAN TIONG MING    聯和科創股份有限公司 董事    沛聯(北京)科技有限公司 董事    GLOBAL LINE NETWORK SDN BHD – CEO    GLOBAL LINE NETWORK LTD. – Director    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director (4)宏達開發投資(股)公司代表人：黃偉特    易邦建設有限公司 董事    億邦開發股份有限公司 董事    蘭邦投資股份有限公司 董事長    暟富投資股份有限公司 董事長    巨興醫學科技股份有限公司 董事長    澳迪科技股份有限公司 董事長 (5)宏達開發投資(股)公司代表人：蔡焜煌    宏達開發投資(股)公司 董事長    金愛投資有限公司 董事    楚芬投資有限公司 董事    智捷醫學科技股份有限公司 董事    聯和科創股份有限公司 董事長    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director    華智數位娛樂股份有限公司 董事    HuaZhi Software Private Ltd. – Director    笙泉科技股份有限公司 董事 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng    Vincenology Solution – Founder    Vincenology (M) Sdn Bhd – Managing Director    A Plus Network – Managing Director    TG Agrosolutions Limited – Director    Binary Reliance Sdn Bhd – Director 獨立董事 (1)李天行　    勝德國際研發股份有限公司 董事 (2)張居德    張居德律師事務所 主持律師    坤悅開發股份有限公司 獨立董事    元檜投資有限公司 董事 (2)劉慧儀    台亞風能股份有限公司 法人董事代表人    台灣銘板股份有限公司 獨立董事    瀚軒股份有限公司 獨立董事    亞洲新能源(開曼)(股)公司 營運管理總監 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 贊成權數：217,011,081權 反對權數：141,485權 無效權數：0權 棄權與未投票權數：14,636,621權 贊成本案之表決權數占總表決權數93.62%，本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8932 | 智通* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋 (2)永讚開發投資(股)公司代表人：林俊儀 (3)永讚開發投資(股)公司代表人：TAN TIONG MING (4)宏達開發投資(股)公司代表人：黃偉特 (5)宏達開發投資(股)公司代表人：蔡焜煌 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng 獨立董事 (1)李天行　 (2)張居德 (3)劉慧儀 3.許可從事競業行為之項目: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋    永讚開發投資(股)公司 董事長    金銓富投資有限公司 董事長    富勛投資有限公司 董事長    智捷醫學科技股份有限公司 董事    雙都經貿股份有限公司 董事    龍邦國際興業股份有限公司 獨立董事    笙泉科技股份有限公司 董事長 (2)永讚開發投資(股)公司代表人：林俊儀    恆理致遠國際法律事務所 所長    宣德科技股份有限公司 獨立董事    金益鼎企業股份有限公司 獨立董事    新潤興業股份有限公司 獨立董事    台翰精密科技股份有限公司 獨立董事    台灣運動彩券股份有限公司 董事    笙泉科技股份有限公司 董事 (3)永讚開發投資(股)公司代表人：TAN TIONG MING    聯和科創股份有限公司 董事    沛聯(北京)科技有限公司 董事    GLOBAL LINE NETWORK SDN BHD – CEO    GLOBAL LINE NETWORK LTD. – Director    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director (4)宏達開發投資(股)公司代表人：黃偉特    易邦建設有限公司 董事    億邦開發股份有限公司 董事    蘭邦投資股份有限公司 董事長    暟富投資股份有限公司 董事長    巨興醫學科技股份有限公司 董事長    澳迪科技股份有限公司 董事長 (5)宏達開發投資(股)公司代表人：蔡焜煌    宏達開發投資(股)公司 董事長    金愛投資有限公司 董事    楚芬投資有限公司 董事    智捷醫學科技股份有限公司 董事    聯和科創股份有限公司 董事長    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director    華智數位娛樂股份有限公司 董事    HuaZhi Software Private Ltd. – Director    笙泉科技股份有限公司 董事 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng    Vincenology Solution – Founder    Vincenology (M) Sdn Bhd – Managing Director    A Plus Network – Managing Director    TG Agrosolutions Limited – Director    Binary Reliance Sdn Bhd – Director 獨立董事 (1)李天行　    勝德國際研發股份有限公司 董事 (2)張居德    張居德律師事務所 主持律師    坤悅開發股份有限公司 獨立董事    元檜投資有限公司 董事 (2)劉慧儀    台亞風能股份有限公司 法人董事代表人    台灣銘板股份有限公司 獨立董事    瀚軒股份有限公司 獨立董事    亞洲新能源(開曼)(股)公司 營運管理總監 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 贊成權數：217,011,081權 反對權數：141,485權 無效權數：0權 棄權與未投票權數：14,636,621權 贊成本案之表決權數占總表決權數93.62%，本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

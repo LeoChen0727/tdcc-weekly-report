@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:18 Asia/Taipei
+- generated_at: 2026-06-28 22:26:23 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.18
-- over_600_ratio: 49.21
-- over_800_ratio: 45.12
-- over_1000_ratio: 40.94
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.84
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260626
+- over_400_ratio: 55.6
+- over_600_ratio: 49.31
+- over_800_ratio: 44.16
+- over_1000_ratio: 39.25
+- over_400_change_1w: -0.58
+- over_800_change_1w: -0.96
+- over_1000_change_1w: -1.69
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.47,-0.17,44.39,0.85,41.68,2.25,4,False,True
 20260612,56.16,-0.31,45.26,0.87,41.78,0.1,5,False,True
 20260618,56.18,0.02,45.12,-0.14,40.94,-0.84,6,False,False
+20260626,55.6,-0.58,44.16,-0.96,39.25,-1.69,7,False,False
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3008 | 大立光 | 221 | 10 | 42904820.0 | 1170120.0 | 36.67 | mixed_flow |
+| 20260626 | 3008 | 大立光 | 221 | 0 | 42904820.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

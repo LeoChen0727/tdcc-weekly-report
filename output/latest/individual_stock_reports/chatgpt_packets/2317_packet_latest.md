@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:05 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 291
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,14 +163,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 70.47
-- over_600_ratio: 69.34
-- over_800_ratio: 68.56
-- over_1000_ratio: 67.82
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.02
+- as_of_date: 20260626
+- over_400_ratio: 69.93
+- over_600_ratio: 68.79
+- over_800_ratio: 67.96
+- over_1000_ratio: 67.22
+- over_400_change_1w: -0.54
+- over_800_change_1w: -0.6
+- over_1000_change_1w: -0.6
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,70.96,0.53,69.05,0.57,68.31,0.52,5,True,True
 20260612,70.52,-0.44,68.59,-0.46,67.84,-0.47,0,False,False
 20260618,70.47,-0.05,68.56,-0.03,67.82,-0.02,0,False,False
+20260626,69.93,-0.54,67.96,-0.6,67.22,-0.6,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | put_inflow | stale_signal | 1.發生變動日期:115/06/26 2.功能性委員會名稱:審計暨風險委員會、薪資報酬委員會、公司治理暨提名委員會 3.舊任者姓名:黃清苑 4.舊任者簡歷:本公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:因擔任本公司相關企業之職務，故辭任本公司功能性委員會職務。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/29~117/05/28 10.新任生效日期:不適用 11.其他應敘明事項: 本公司於115年6月26日接獲其辭任書，任職至115年6月26日止。 該獨立董事辭任獨立董事之職務並併同辭任董事會下之功能性委員會職務。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.功能性委員會名稱:審計暨風險委員會、薪資報酬委員會、公司治理暨提名委員會 3.舊任者姓名:黃清苑 4.舊任者簡歷:本公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:因擔任本公司相關企業之職務，故辭任本公司功能性委員會職務。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/29~117/05/28 10.新任生效日期:不適用 11.其他應敘明事項: 本公司於115年6月26日接獲其辭任書，任職至115年6月26日止。 該獨立董事辭任獨立董事之職務並併同辭任董事會下之功能性委員會職務。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -202,7 +203,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2317 | 鴻海 | 532 | 41 | 32213970.0 | 3441290.0 | 9.36 | put_inflow |
+| 20260626 | 2317 | 鴻海 | 532 | 0 | 32213970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

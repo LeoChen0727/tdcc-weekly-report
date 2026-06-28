@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6120 達運
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:07 Asia/Taipei
+- generated_at: 2026-06-28 22:27:04 Asia/Taipei
 - stock_id: 6120
 - stock_name: 達運
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 285
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.2
-- over_600_ratio: 59.03
-- over_800_ratio: 58.08
-- over_1000_ratio: 56.89
-- over_400_change_1w: 0.64
-- over_800_change_1w: 0.6
-- over_1000_change_1w: 0.44
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 61.26
+- over_600_ratio: 59.08
+- over_800_ratio: 58.13
+- over_1000_ratio: 56.61
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.05
+- over_1000_change_1w: -0.28
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.29,0.65,58.11,0.76,56.95,0.77,5,True,True
 20260612,60.56,-0.73,57.48,-0.63,56.45,-0.5,0,False,False
 20260618,61.2,0.64,58.08,0.6,56.89,0.44,1,True,True
+20260626,61.26,0.06,58.13,0.05,56.61,-0.28,2,False,True
 ```
 
 ## Candidate Context

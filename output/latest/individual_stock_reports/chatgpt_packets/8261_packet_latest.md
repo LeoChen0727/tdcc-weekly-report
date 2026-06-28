@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:51 Asia/Taipei
+- generated_at: 2026-06-28 22:27:43 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.33
-- over_600_ratio: 47.09
-- over_800_ratio: 46.57
-- over_1000_ratio: 42.12
-- over_400_change_1w: 8.69
-- over_800_change_1w: 7.97
-- over_1000_change_1w: 4.23
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 54.03
+- over_600_ratio: 51.4
+- over_800_ratio: 48.4
+- over_1000_ratio: 46.17
+- over_400_change_1w: 3.7
+- over_800_change_1w: 1.83
+- over_1000_change_1w: 4.05
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.71,-6.26,41.35,-6.23,38.26,-7.78,0,False,False
 20260612,41.64,-3.07,38.6,-2.75,37.89,-0.37,0,False,False
 20260618,50.33,8.69,46.57,7.97,42.12,4.23,1,True,True
+20260626,54.03,3.7,48.4,1.83,46.17,4.05,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8261 | 富鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣5.00元。 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/29 13.其他應敘明事項:除息基準日係115年02月25日董事會授權董事長訂定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8261 | 富鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣5.00元。 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/29 13.其他應敘明事項:除息基準日係115年02月25日董事會授權董事長訂定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

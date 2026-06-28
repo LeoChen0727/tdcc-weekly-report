@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6854 錼創科技-KY創
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:32 Asia/Taipei
+- generated_at: 2026-06-28 22:27:26 Asia/Taipei
 - stock_id: 6854
 - stock_name: 錼創科技-KY創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.2
-- over_600_ratio: 61.2
-- over_800_ratio: 57.83
+- as_of_date: 20260626
+- over_400_ratio: 65.08
+- over_600_ratio: 61.13
+- over_800_ratio: 57.1
 - over_1000_ratio: 54.19
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.73
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.73
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,65.52,-0.37,57.81,-0.15,54.19,-0.86,0,False,False
 20260612,65.11,-0.41,57.1,-0.71,54.19,0,0,False,False
 20260618,65.2,0.09,57.83,0.73,54.19,0,1,False,True
+20260626,65.08,-0.12,57.1,-0.73,54.19,0,0,False,False
 ```
 
 ## Candidate Context

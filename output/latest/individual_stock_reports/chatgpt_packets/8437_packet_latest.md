@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8437 大地-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:54 Asia/Taipei
+- generated_at: 2026-06-28 22:27:45 Asia/Taipei
 - stock_id: 8437
 - stock_name: 大地-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.74
-- over_600_ratio: 32.89
-- over_800_ratio: 29.85
-- over_1000_ratio: 27.84
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 40.74
+- over_600_ratio: 33.02
+- over_800_ratio: 29.96
+- over_1000_ratio: 27.95
+- over_400_change_1w: 1
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.57,0.19,29.68,0.16,27.67,2.26,5,True,True
 20260612,39.6,0.03,29.71,0.03,27.7,0.03,6,True,True
 20260618,39.74,0.14,29.85,0.14,27.84,0.14,7,True,True
+20260626,40.74,1,29.96,0.11,27.95,0.11,8,True,True
 ```
 
 ## Candidate Context

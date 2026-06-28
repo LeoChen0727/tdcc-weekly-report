@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8093 保銳
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:49 Asia/Taipei
+- generated_at: 2026-06-28 22:27:41 Asia/Taipei
 - stock_id: 8093
 - stock_name: 保銳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 147
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 67.55
 - over_600_ratio: 65.71
 - over_800_ratio: 65.71
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.55,17.76,65.71,18.76,64,19.69,1,True,True
 20260612,67.55,0,65.71,0,64,0,0,False,False
 20260618,67.55,0,65.71,0,64,0,0,False,False
+20260626,67.55,0,65.71,0,64,0,0,False,False
 ```
 
 ## Candidate Context

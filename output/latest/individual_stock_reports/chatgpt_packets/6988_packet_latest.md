@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6988 威力暘-創
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:36 Asia/Taipei
+- generated_at: 2026-06-28 22:27:29 Asia/Taipei
 - stock_id: 6988
 - stock_name: 威力暘-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 280
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.03
-- over_600_ratio: 77.09
-- over_800_ratio: 70.2
-- over_1000_ratio: 66.39
-- over_400_change_1w: 0.06
+- as_of_date: 20260626
+- over_400_ratio: 79.06
+- over_600_ratio: 77.15
+- over_800_ratio: 70.26
+- over_1000_ratio: 66.45
+- over_400_change_1w: 0.03
 - over_800_change_1w: 0.06
 - over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 7
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,78.84,0.02,70.01,0.02,66.2,0.02,5,True,True
 20260612,78.97,0.13,70.14,0.13,66.33,0.13,6,True,True
 20260618,79.03,0.06,70.2,0.06,66.39,0.06,7,True,True
+20260626,79.06,0.03,70.26,0.06,66.45,0.06,8,True,True
 ```
 
 ## Candidate Context

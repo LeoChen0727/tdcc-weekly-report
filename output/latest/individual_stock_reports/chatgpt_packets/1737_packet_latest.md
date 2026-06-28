@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1737 臺鹽
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:49 Asia/Taipei
+- generated_at: 2026-06-28 22:25:57 Asia/Taipei
 - stock_id: 1737
 - stock_name: 臺鹽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 63.73
-- over_600_ratio: 61.82
-- over_800_ratio: 59.68
-- over_1000_ratio: 59.25
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260626
+- over_400_ratio: 63.77
+- over_600_ratio: 61.86
+- over_800_ratio: 59.72
+- over_1000_ratio: 59.29
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,63.31,-0.01,59.12,0,58.27,0,0,False,False
 20260410,63.54,0.23,59.14,0.02,58.29,0.02,1,True,True
 20260417,63.54,0,59.15,0.01,58.3,0.01,2,False,True
 20260424,63.51,-0.03,59.15,0,58.3,0,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.61,0.08,59.56,0.3,59.13,0.3,6,True,True
 20260612,63.72,0.11,59.67,0.11,59.24,0.11,7,True,True
 20260618,63.73,0.01,59.68,0.01,59.25,0.01,8,True,True
+20260626,63.77,0.04,59.72,0.04,59.29,0.04,9,True,True
 ```
 
 ## Candidate Context

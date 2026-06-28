@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:46 Asia/Taipei
+- generated_at: 2026-06-28 22:27:38 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 27.21
-- over_600_ratio: 24.1
-- over_800_ratio: 22.31
-- over_1000_ratio: 20.7
-- over_400_change_1w: -0.37
-- over_800_change_1w: -0.31
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 28.57
+- over_600_ratio: 25.19
+- over_800_ratio: 23.18
+- over_1000_ratio: 20.6
+- over_400_change_1w: 1.36
+- over_800_change_1w: 0.87
+- over_1000_change_1w: -0.1
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,29.25,-2,22.19,-2.3,20.26,-2.33,0,False,False
 20260612,27.58,-1.67,22.62,0.43,20.45,0.19,1,False,True
 20260618,27.21,-0.37,22.31,-0.31,20.7,0.25,2,False,True
+20260626,28.57,1.36,23.18,0.87,20.6,-0.1,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8033 | 雷虎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8033 | 雷虎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

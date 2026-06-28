@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3015 全漢
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:19 Asia/Taipei
+- generated_at: 2026-06-28 22:26:23 Asia/Taipei
 - stock_id: 3015
 - stock_name: 全漢
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 62.5
-- over_600_ratio: 59.42
-- over_800_ratio: 58
-- over_1000_ratio: 55.5
-- over_400_change_1w: 0.26
-- over_800_change_1w: -0.5
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 62.92
+- over_600_ratio: 59.66
+- over_800_ratio: 57.85
+- over_1000_ratio: 55.35
+- over_400_change_1w: 0.42
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.36,-0.64,57.8,-1.7,55.82,-0.68,0,False,False
 20260612,62.24,-1.12,58.5,0.7,55.58,-0.24,1,False,True
 20260618,62.5,0.26,58,-0.5,55.5,-0.08,2,False,False
+20260626,62.92,0.42,57.85,-0.15,55.35,-0.15,3,False,False
 ```
 
 ## Candidate Context

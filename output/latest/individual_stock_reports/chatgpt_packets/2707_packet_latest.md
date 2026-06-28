@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2707 晶華
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:12 Asia/Taipei
+- generated_at: 2026-06-28 22:26:17 Asia/Taipei
 - stock_id: 2707
 - stock_name: 晶華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.87
-- over_600_ratio: 58.25
-- over_800_ratio: 56.03
+- as_of_date: 20260626
+- over_400_ratio: 60.89
+- over_600_ratio: 58.23
+- over_800_ratio: 56.01
 - over_1000_ratio: 54.75
-- over_400_change_1w: 0
-- over_800_change_1w: -0.01
+- over_400_change_1w: 0.02
+- over_800_change_1w: -0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.82,-0.11,55.4,-0.75,54.75,0,0,False,False
 20260612,60.87,0.05,56.04,0.64,54.75,0,1,False,True
 20260618,60.87,0,56.03,-0.01,54.75,0,0,False,False
+20260626,60.89,0.02,56.01,-0.02,54.75,0,1,False,False
 ```
 
 ## Candidate Context

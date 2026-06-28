@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:19 Asia/Taipei
+- generated_at: 2026-06-28 22:27:14 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.49
-- over_600_ratio: 51.18
-- over_800_ratio: 47.14
-- over_1000_ratio: 43.88
-- over_400_change_1w: 0.26
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 57.31
+- over_600_ratio: 51.97
+- over_800_ratio: 47.26
+- over_1000_ratio: 44.72
+- over_400_change_1w: 0.82
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.84
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.28,-0.14,46.94,-0.34,43.68,0.13,5,False,True
 20260612,56.23,-0.05,47.25,0.31,44.02,0.34,6,False,True
 20260618,56.49,0.26,47.14,-0.11,43.88,-0.14,7,False,False
+20260626,57.31,0.82,47.26,0.12,44.72,0.84,8,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2636 台驊控股
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:11 Asia/Taipei
+- generated_at: 2026-06-28 22:26:17 Asia/Taipei
 - stock_id: 2636
 - stock_name: 台驊控股
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 41.69
-- over_600_ratio: 38.88
-- over_800_ratio: 35.97
-- over_1000_ratio: 34.69
-- over_400_change_1w: 0
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 41.47
+- over_600_ratio: 38.32
+- over_800_ratio: 35.34
+- over_1000_ratio: 34.73
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.63
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,40.88,0.2,36.41,-0.24,34.61,-0.18,3,False,False
 20260612,41.69,0.81,35.88,-0.53,34.66,0.05,4,False,True
 20260618,41.69,0,35.97,0.09,34.69,0.03,5,False,True
+20260626,41.47,-0.22,35.34,-0.63,34.73,0.04,6,False,True
 ```
 
 ## Candidate Context

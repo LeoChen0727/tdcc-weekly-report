@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5457 宣德
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:01 Asia/Taipei
+- generated_at: 2026-06-28 22:26:59 Asia/Taipei
 - stock_id: 5457
 - stock_name: 宣德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 54.39
-- over_600_ratio: 52.83
-- over_800_ratio: 50.49
-- over_1000_ratio: 49.62
-- over_400_change_1w: -0.31
-- over_800_change_1w: -0.19
-- over_1000_change_1w: 0.33
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 53.73
+- over_600_ratio: 52.21
+- over_800_ratio: 50.17
+- over_1000_ratio: 48.86
+- over_400_change_1w: -0.66
+- over_800_change_1w: -0.32
+- over_1000_change_1w: -0.76
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,54.59,0.24,50.57,0.29,48.78,0.25,1,False,True
 20260612,54.7,0.11,50.68,0.11,49.29,0.51,2,True,True
 20260618,54.39,-0.31,50.49,-0.19,49.62,0.33,3,False,True
+20260626,53.73,-0.66,50.17,-0.32,48.86,-0.76,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5457 | 宣德 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:財務主管、會計主管及公司治理主管 2.發生變動日期:115/06/18 3.舊任者姓名、級職及簡歷:顏慈容、宣德科技股份有限公司財務主管、 會計主管及公司治理主管 4.新任者姓名、級職及簡歷:無 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/06/18 8.其他應敘明事項:新任財務主管、會計主管及公司治理主管，將待董事會通過委任 後再另行公告；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5457 | 宣德 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:財務主管、會計主管及公司治理主管 2.發生變動日期:115/06/18 3.舊任者姓名、級職及簡歷:顏慈容、宣德科技股份有限公司財務主管、 會計主管及公司治理主管 4.新任者姓名、級職及簡歷:無 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/06/18 8.其他應敘明事項:新任財務主管、會計主管及公司治理主管，將待董事會通過委任 後再另行公告；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

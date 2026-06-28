@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1582 信錦
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:45 Asia/Taipei
+- generated_at: 2026-06-28 22:25:54 Asia/Taipei
 - stock_id: 1582
 - stock_name: 信錦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,23 +157,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 31.03
-- over_600_ratio: 29.18
-- over_800_ratio: 26.74
-- over_1000_ratio: 26.74
-- over_400_change_1w: -1.45
-- over_800_change_1w: -1.31
-- over_1000_change_1w: -0.13
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 30.57
+- over_600_ratio: 29.02
+- over_800_ratio: 27.14
+- over_1000_ratio: 27.14
+- over_400_change_1w: -0.46
+- over_800_change_1w: 0.4
+- over_1000_change_1w: 0.4
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,38.88,2.24,30.88,3.3,27.32,2.77,7,True,True
 20260410,35.91,-2.97,29.78,-1.1,26.82,-0.5,0,False,False
 20260417,34.56,-1.35,29.56,-0.22,26.61,-0.21,0,False,False
 20260424,33.22,-1.34,27.62,-1.94,26.44,-0.17,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,36.25,-3.81,31.79,-1.71,30.49,-3.01,0,False,False
 20260612,32.48,-3.77,28.05,-3.74,26.87,-3.62,0,False,False
 20260618,31.03,-1.45,26.74,-1.31,26.74,-0.13,0,False,False
+20260626,30.57,-0.46,27.14,0.4,27.14,0.4,1,False,True
 ```
 
 ## Candidate Context
@@ -200,7 +200,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1582 | 信錦 | 39 | 1 | 1058830.0 | 13750.0 | 77.01 | no_signal |
+| 20260626 | 1582 | 信錦 | 39 | 0 | 1058830.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

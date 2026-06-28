@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:48 Asia/Taipei
+- generated_at: 2026-06-28 22:27:40 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 40.7
-- over_600_ratio: 34.69
-- over_800_ratio: 31.48
-- over_1000_ratio: 25.43
-- over_400_change_1w: 0.58
-- over_800_change_1w: -0.91
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 41.49
+- over_600_ratio: 34.78
+- over_800_ratio: 31.6
+- over_1000_ratio: 25.55
+- over_400_change_1w: 0.79
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.46,-0.11,31.31,0.67,25.36,0.67,2,False,True
 20260612,40.12,0.66,32.39,1.08,25.36,0,3,False,True
 20260618,40.7,0.58,31.48,-0.91,25.43,0.07,4,False,True
+20260626,41.49,0.79,31.6,0.12,25.55,0.12,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8081 | 致新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:吳錦川 4.舊任者簡歷:本公司董事長及總經理 5.新任者姓名:吳錦川 6.新任者簡歷:本公司董事長及總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無重大影響；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8081 | 致新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:吳錦川 4.舊任者簡歷:本公司董事長及總經理 5.新任者姓名:吳錦川 6.新任者簡歷:本公司董事長及總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無重大影響；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

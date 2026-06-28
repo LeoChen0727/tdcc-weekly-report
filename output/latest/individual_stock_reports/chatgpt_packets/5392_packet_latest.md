@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5392 能率
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:00 Asia/Taipei
+- generated_at: 2026-06-28 22:26:59 Asia/Taipei
 - stock_id: 5392
 - stock_name: 能率
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 34.51
-- over_600_ratio: 32.6
-- over_800_ratio: 31.85
+- as_of_date: 20260626
+- over_400_ratio: 33.96
+- over_600_ratio: 32.86
+- over_800_ratio: 31.3
 - over_1000_ratio: 29.25
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 6
+- over_400_change_1w: -0.55
+- over_800_change_1w: -0.55
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -186,12 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.56,0.66,31.23,-0.6,29.24,0,4,False,False
 20260612,34.5,-0.06,31.74,0.51,29.24,0,5,False,True
 20260618,34.51,0.01,31.85,0.11,29.25,0.01,6,False,True
+20260626,33.96,-0.55,31.3,-0.55,29.25,0,7,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5392 | 能率 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5392 | 能率 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

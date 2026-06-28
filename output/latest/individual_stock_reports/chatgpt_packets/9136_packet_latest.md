@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:58 Asia/Taipei
+- generated_at: 2026-06-28 22:27:48 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 275
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 66.32
-- over_600_ratio: 64.05
-- over_800_ratio: 62.62
-- over_1000_ratio: 61.33
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 0.33
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 66.89
+- over_600_ratio: 65.04
+- over_800_ratio: 63.15
+- over_1000_ratio: 61.8
+- over_400_change_1w: 0.57
+- over_800_change_1w: 0.53
+- over_1000_change_1w: 0.47
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.04,-2.04,60.44,-0.7,57.84,-2.07,0,False,False
 20260612,66.03,-0.01,62.3,1.86,61,3.16,1,False,True
 20260618,66.32,0.29,62.62,0.32,61.33,0.33,2,False,True
+20260626,66.89,0.57,63.15,0.53,61.8,0.47,3,True,True
 ```
 
 ## Candidate Context

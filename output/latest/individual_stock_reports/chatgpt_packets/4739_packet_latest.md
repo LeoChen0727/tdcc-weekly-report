@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4739 康普
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:50 Asia/Taipei
+- generated_at: 2026-06-28 22:26:50 Asia/Taipei
 - stock_id: 4739
 - stock_name: 康普
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -164,15 +164,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.33
-- over_600_ratio: 40.46
-- over_800_ratio: 36.66
-- over_1000_ratio: 35.15
-- over_400_change_1w: -1.62
-- over_800_change_1w: -0.93
-- over_1000_change_1w: -2.44
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 42.34
+- over_600_ratio: 37.83
+- over_800_ratio: 32.9
+- over_1000_ratio: 32.17
+- over_400_change_1w: -1.99
+- over_800_change_1w: -3.76
+- over_1000_change_1w: -2.98
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -188,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.83,1.87,38.52,4.16,36.3,4.06,5,True,True
 20260612,45.95,0.12,37.59,-0.93,37.59,1.29,6,False,True
 20260618,44.33,-1.62,36.66,-0.93,35.15,-2.44,7,False,False
+20260626,42.34,-1.99,32.9,-3.76,32.17,-2.98,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

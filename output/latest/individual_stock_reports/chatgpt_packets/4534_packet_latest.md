@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4534 慶騰
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:46 Asia/Taipei
+- generated_at: 2026-06-28 22:26:47 Asia/Taipei
 - stock_id: 4534
 - stock_name: 慶騰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.43
-- over_600_ratio: 33.4
-- over_800_ratio: 31.16
-- over_1000_ratio: 29.19
-- over_400_change_1w: 0.88
-- over_800_change_1w: 1.43
-- over_1000_change_1w: 1.43
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260626
+- over_400_ratio: 39.59
+- over_600_ratio: 33.73
+- over_800_ratio: 31.33
+- over_1000_ratio: 29.36
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,37.71,4.53,28.65,1.35,27.7,1.35,2,True,True
 20260612,38.55,0.84,29.73,1.08,27.76,0.06,3,True,True
 20260618,39.43,0.88,31.16,1.43,29.19,1.43,4,True,True
+20260626,39.59,0.16,31.33,0.17,29.36,0.17,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4534 | 慶騰 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/23 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:楊政學先生、連俊華先生、林舜天先生 4.舊任者簡歷: 楊政學先生/本公司獨立董事、明新科技大學企業管理系副教授。 連俊華先生/本公司獨立董事、尼得科超眾科技(股)公司獨立董事。 林舜天先生/本公司獨立董事、越峰電子材料股份有限公司獨立董事。 5.新任者姓名:連俊華先生、林舜天先生、蔡瑞哲先生 6.新任者簡歷: 連俊華先生/本公司獨立董事、尼得科超眾科技(股)公司獨立董事。 林舜天先生/本公司獨立董事、越峰電子材料股份有限公司獨立董事。 蔡瑞哲先生/本公司獨立董事、潤霈生技股份有限公司總經理兼研發長。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/15 ~ 115/06/14。 10.新任生效日期:115/06/23 ~ 118/06/22。 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 4534 | 慶騰 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/23 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:楊政學先生、連俊華先生、林舜天先生 4.舊任者簡歷: 楊政學先生/本公司獨立董事、明新科技大學企業管理系副教授。 連俊華先生/本公司獨立董事、尼得科超眾科技(股)公司獨立董事。 林舜天先生/本公司獨立董事、越峰電子材料股份有限公司獨立董事。 5.新任者姓名:連俊華先生、林舜天先生、蔡瑞哲先生 6.新任者簡歷: 連俊華先生/本公司獨立董事、尼得科超眾科技(股)公司獨立董事。 林舜天先生/本公司獨立董事、越峰電子材料股份有限公司獨立董事。 蔡瑞哲先生/本公司獨立董事、潤霈生技股份有限公司總經理兼研發長。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/15 ~ 115/06/14。 10.新任生效日期:115/06/23 ~ 118/06/22。 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

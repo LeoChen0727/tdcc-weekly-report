@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3218 大學光
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:26 Asia/Taipei
+- generated_at: 2026-06-28 22:26:29 Asia/Taipei
 - stock_id: 3218
 - stock_name: 大學光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.25
-- over_600_ratio: 53.25
-- over_800_ratio: 51.59
-- over_1000_ratio: 50.41
-- over_400_change_1w: -0.55
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260626
+- over_400_ratio: 56.73
+- over_600_ratio: 53.21
+- over_800_ratio: 51.55
+- over_1000_ratio: 50.37
+- over_400_change_1w: 0.48
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.82,0.61,51.55,0.02,50.37,0.02,2,True,True
 20260612,56.8,-0.02,51.57,0.02,50.39,0.02,3,False,True
 20260618,56.25,-0.55,51.59,0.02,50.41,0.02,4,False,True
+20260626,56.73,0.48,51.55,-0.04,50.37,-0.04,5,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2329 華泰
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:58 Asia/Taipei
+- generated_at: 2026-06-28 22:26:05 Asia/Taipei
 - stock_id: 2329
 - stock_name: 華泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 51.72
-- over_600_ratio: 50.28
-- over_800_ratio: 49.35
-- over_1000_ratio: 48.15
-- over_400_change_1w: 0.41
-- over_800_change_1w: 0.58
-- over_1000_change_1w: 0.28
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 52.49
+- over_600_ratio: 51.03
+- over_800_ratio: 49.9
+- over_1000_ratio: 48.86
+- over_400_change_1w: 0.77
+- over_800_change_1w: 0.55
+- over_1000_change_1w: 0.71
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.22,-0.47,50.82,-0.3,50.16,-0.32,0,False,False
 20260612,51.31,-1.91,48.77,-2.05,47.87,-2.29,0,False,False
 20260618,51.72,0.41,49.35,0.58,48.15,0.28,1,True,True
+20260626,52.49,0.77,49.9,0.55,48.86,0.71,2,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2329 | 華泰 | 133 | 4 | 3455210.0 | 100570.0 | 34.36 | no_signal |
+| 20260626 | 2329 | 華泰 | 133 | 0 | 3455210.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

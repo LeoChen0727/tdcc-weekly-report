@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4542 科嶠
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:47 Asia/Taipei
+- generated_at: 2026-06-28 22:26:47 Asia/Taipei
 - stock_id: 4542
 - stock_name: 科嶠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 56.35
-- over_600_ratio: 40.19
-- over_800_ratio: 32.47
-- over_1000_ratio: 27.06
-- over_400_change_1w: 1.41
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 56.03
+- over_600_ratio: 38.21
+- over_800_ratio: 32.44
+- over_1000_ratio: 27.04
+- over_400_change_1w: -0.32
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,53.31,-1.52,39.91,-0.1,31.73,-0.07,0,False,False
 20260612,54.94,1.63,32.51,-7.4,27.1,-4.63,1,False,False
 20260618,56.35,1.41,32.47,-0.04,27.06,-0.04,2,False,False
+20260626,56.03,-0.32,32.44,-0.03,27.04,-0.02,0,False,False
 ```
 
 ## Candidate Context

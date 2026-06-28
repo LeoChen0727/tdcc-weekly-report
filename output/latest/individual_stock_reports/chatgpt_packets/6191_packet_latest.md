@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:11 Asia/Taipei
+- generated_at: 2026-06-28 22:27:08 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.45
-- over_600_ratio: 54.31
-- over_800_ratio: 52.75
-- over_1000_ratio: 51.32
-- over_400_change_1w: 1.61
-- over_800_change_1w: 1.25
-- over_1000_change_1w: 1.43
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 55.34
+- over_600_ratio: 54.09
+- over_800_ratio: 52.62
+- over_1000_ratio: 51.18
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.13
+- over_1000_change_1w: -0.14
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,54.12,-0.37,52.13,-0.02,50.36,-0.72,0,False,False
 20260612,53.84,-0.28,51.5,-0.63,49.89,-0.47,0,False,False
 20260618,55.45,1.61,52.75,1.25,51.32,1.43,1,True,True
+20260626,55.34,-0.11,52.62,-0.13,51.18,-0.14,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6191 | 精成科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利總額新台幣1,298,187,800元，每股配發2.60元 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/29 13.其他應敘明事項:股利分派計算至新台幣元為止(元以下全捨)，不足一元之畸零款   合計數轉列公司其他收入。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6191 | 精成科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利總額新台幣1,298,187,800元，每股配發2.60元 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/29 13.其他應敘明事項:股利分派計算至新台幣元為止(元以下全捨)，不足一元之畸零款   合計數轉列公司其他收入。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6191 | 精成科 | 56 | 3 | 8337210.0 | 0.0 |  | call_strong_inflow |
+| 20260626 | 6191 | 精成科 | 56 | 0 | 8337210.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

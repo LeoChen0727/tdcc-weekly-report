@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:58 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 47.39
-- over_600_ratio: 45.98
-- over_800_ratio: 44
-- over_1000_ratio: 42.39
-- over_400_change_1w: 0.74
-- over_800_change_1w: 0.14
-- over_1000_change_1w: -0.44
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 49.55
+- over_600_ratio: 46.97
+- over_800_ratio: 44.65
+- over_1000_ratio: 43.59
+- over_400_change_1w: 2.16
+- over_800_change_1w: 0.65
+- over_1000_change_1w: 1.2
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,40.55,-4.56,36.98,-3.69,36.44,-3.18,0,False,False
 20260612,46.65,6.1,43.86,6.88,42.83,6.39,1,True,True
 20260618,47.39,0.74,44,0.14,42.39,-0.44,2,False,True
+20260626,49.55,2.16,44.65,0.65,43.59,1.2,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5328 | 華容 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5328 | 華容 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2514 龍邦
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:08 Asia/Taipei
+- generated_at: 2026-06-28 22:26:14 Asia/Taipei
 - stock_id: 2514
 - stock_name: 龍邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 88.05
-- over_600_ratio: 87.25
-- over_800_ratio: 85.31
-- over_1000_ratio: 84.65
-- over_400_change_1w: 0.07
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 87.93
+- over_600_ratio: 87.24
+- over_800_ratio: 85.68
+- over_1000_ratio: 84.81
+- over_400_change_1w: -0.12
+- over_800_change_1w: 0.37
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,88.12,-0.11,85.57,-0.3,84.68,-0.07,0,False,False
 20260612,87.98,-0.14,85.35,-0.22,84.69,0.01,1,False,True
 20260618,88.05,0.07,85.31,-0.04,84.65,-0.04,2,False,False
+20260626,87.93,-0.12,85.68,0.37,84.81,0.16,3,False,True
 ```
 
 ## Candidate Context

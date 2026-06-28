@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1503 士電
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:42 Asia/Taipei
+- generated_at: 2026-06-28 22:25:52 Asia/Taipei
 - stock_id: 1503
 - stock_name: 士電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.68
-- over_600_ratio: 72.28
-- over_800_ratio: 71.44
-- over_1000_ratio: 71.1
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.47
-- over_1000_change_1w: -0.47
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 73.31
+- over_600_ratio: 72.34
+- over_800_ratio: 71.52
+- over_1000_ratio: 71.18
+- over_400_change_1w: -0.37
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,75.52,1.58,73.77,1.77,73.43,1.77,1,True,True
 20260612,73.88,-1.64,71.91,-1.86,71.57,-1.86,0,False,False
 20260618,73.68,-0.2,71.44,-0.47,71.1,-0.47,0,False,False
+20260626,73.31,-0.37,71.52,0.08,71.18,0.08,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1503 | 士電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$2,604,861,115元(每股NT$5元) 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/25 6.停止過戶起始日期:115/07/26 7.停止過戶截止日期:115/07/30 8.除權（息）基準日:115/07/30 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1503 | 士電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$2,604,861,115元(每股NT$5元) 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/25 6.停止過戶起始日期:115/07/26 7.停止過戶截止日期:115/07/30 8.除權（息）基準日:115/07/30 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1503 | 士電 | 91 | 3 | 4653220.0 | 96000.0 | 48.47 | no_signal |
+| 20260626 | 1503 | 士電 | 91 | 0 | 4653220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

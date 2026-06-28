@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7750 新代
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:44 Asia/Taipei
+- generated_at: 2026-06-28 22:27:36 Asia/Taipei
 - stock_id: 7750
 - stock_name: 新代
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 183
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 76.19
-- over_600_ratio: 65.46
+- as_of_date: 20260626
+- over_400_ratio: 76.28
+- over_600_ratio: 65.45
 - over_800_ratio: 61.59
 - over_1000_ratio: 61.59
-- over_400_change_1w: -0.65
+- over_400_change_1w: 0.09
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,77.4,-0.52,61.59,-1.39,61.59,0,0,False,False
 20260612,76.84,-0.56,61.59,0,61.59,0,0,False,False
 20260618,76.19,-0.65,61.59,0,61.59,0,0,False,False
+20260626,76.28,0.09,61.59,0,61.59,0,1,False,False
 ```
 
 ## Candidate Context

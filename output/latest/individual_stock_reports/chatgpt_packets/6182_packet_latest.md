@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:11 Asia/Taipei
+- generated_at: 2026-06-28 22:27:07 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 43.47
-- over_600_ratio: 40.99
-- over_800_ratio: 39.87
-- over_1000_ratio: 38.39
-- over_400_change_1w: 3.26
-- over_800_change_1w: 2.95
-- over_1000_change_1w: 2.64
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 42.01
+- over_600_ratio: 40.26
+- over_800_ratio: 39.17
+- over_1000_ratio: 37.17
+- over_400_change_1w: -1.46
+- over_800_change_1w: -0.7
+- over_1000_change_1w: -1.22
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.65,1.29,35.96,0.21,34.86,0.98,3,True,True
 20260612,40.21,0.56,36.92,0.96,35.75,0.89,4,True,True
 20260618,43.47,3.26,39.87,2.95,38.39,2.64,5,True,True
+20260626,42.01,-1.46,39.17,-0.7,37.17,-1.22,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6182 | 合晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:   通過2025年度利潤分配方案的議案 3.重要決議事項二、章程修訂:   通過變更經營範圍、註冊資本、修訂《公司章程》並辦理工商變更登記的議案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:   通過補選公司第三屆董事會非獨立董事的議案 6.重要決議事項五、其他事項:   (1)通過2025年度董事會工作報告的議案   (2)通過確認2025年度日常關聯交易及2026年度日常關聯交易預計的議案   (3)通過續聘公司2026年度審計機構的議案   (4)通過修訂《上海合晶硅材料股份有限公司對外擔保管理制度》的議案   (5)通過2026年度董事長薪酬方案的議案   (6)通過符合向特定對象發行A股股票條件的議案   (7)通過2026年度向特定對象發行A股股票方案的議案   (8)通過2026年度向特定對象發行A股股票預案的議案   (9)通過2026年度向特定對象發行A股股票方案論證分析報告的議案   (10)通過2026年度向特定對象發行A股股票募集資金使用可行性分析報告的議案   (11)通過向特定對象發行A股股票攤薄即期回報和採取填補措施及相關主體承諾的       議案   (12)通過未來三年(2026年-2028年)股東回報規劃的議案   (13)通過前次募集資金使用情況報告的議案   (14)通過設立本次向特定對象發行A股股票募集資金專項帳戶並簽署監管協議的議案   (15)通過提請公司股東會授權董事會及其授權人士全權辦理2026年度向特定對象       發行A股股票相關事宜的議案   (16)通過本次向特定對象發行A股股票募集資金投向屬於科技創新領域說明的議案   (17)通過對外投資設立合資公司暨關聯交易的議案   (18)通過制定《董事和高級管理人員薪酬管理制度》的議案 7.其他應敘明事項:   報告事項:《2025年度獨立董事述職報告》和《2026年度高級管理人員薪酬方案》；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6182 | 合晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:   通過2025年度利潤分配方案的議案 3.重要決議事項二、章程修訂:   通過變更經營範圍、註冊資本、修訂《公司章程》並辦理工商變更登記的議案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:   通過補選公司第三屆董事會非獨立董事的議案 6.重要決議事項五、其他事項:   (1)通過2025年度董事會工作報告的議案   (2)通過確認2025年度日常關聯交易及2026年度日常關聯交易預計的議案   (3)通過續聘公司2026年度審計機構的議案   (4)通過修訂《上海合晶硅材料股份有限公司對外擔保管理制度》的議案   (5)通過2026年度董事長薪酬方案的議案   (6)通過符合向特定對象發行A股股票條件的議案   (7)通過2026年度向特定對象發行A股股票方案的議案   (8)通過2026年度向特定對象發行A股股票預案的議案   (9)通過2026年度向特定對象發行A股股票方案論證分析報告的議案   (10)通過2026年度向特定對象發行A股股票募集資金使用可行性分析報告的議案   (11)通過向特定對象發行A股股票攤薄即期回報和採取填補措施及相關主體承諾的       議案   (12)通過未來三年(2026年-2028年)股東回報規劃的議案   (13)通過前次募集資金使用情況報告的議案   (14)通過設立本次向特定對象發行A股股票募集資金專項帳戶並簽署監管協議的議案   (15)通過提請公司股東會授權董事會及其授權人士全權辦理2026年度向特定對象       發行A股股票相關事宜的議案   (16)通過本次向特定對象發行A股股票募集資金投向屬於科技創新領域說明的議案   (17)通過對外投資設立合資公司暨關聯交易的議案   (18)通過制定《董事和高級管理人員薪酬管理制度》的議案 7.其他應敘明事項:   報告事項:《2025年度獨立董事述職報告》和《2026年度高級管理人員薪酬方案》；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4540 全球傳動
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:47 Asia/Taipei
+- generated_at: 2026-06-28 22:26:47 Asia/Taipei
 - stock_id: 4540
 - stock_name: 全球傳動
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 32.04
-- over_600_ratio: 29.96
-- over_800_ratio: 28.18
-- over_1000_ratio: 26.45
-- over_400_change_1w: 0.15
-- over_800_change_1w: -0.86
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 31.78
+- over_600_ratio: 30
+- over_800_ratio: 28.89
+- over_1000_ratio: 26.46
+- over_400_change_1w: -0.26
+- over_800_change_1w: 0.71
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,33.03,-3.96,29.1,-3.9,27.37,-2.3,0,False,False
 20260612,31.89,-1.14,29.04,-0.06,26.45,-0.92,0,False,False
 20260618,32.04,0.15,28.18,-0.86,26.45,0,1,False,False
+20260626,31.78,-0.26,28.89,0.71,26.46,0.01,2,False,True
 ```
 
 ## Candidate Context

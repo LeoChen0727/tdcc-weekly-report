@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:49 Asia/Taipei
+- generated_at: 2026-06-28 22:27:41 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.49
-- over_600_ratio: 58.68
-- over_800_ratio: 57.9
-- over_1000_ratio: 57.48
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.28
-- over_1000_change_1w: -0.31
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 63.47
+- over_600_ratio: 61.78
+- over_800_ratio: 60.98
+- over_1000_ratio: 60.17
+- over_400_change_1w: 2.98
+- over_800_change_1w: 3.08
+- over_1000_change_1w: 2.69
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,63.13,-1.54,60.25,-1.42,60.05,-1.2,0,False,False
 20260612,60.63,-2.5,58.18,-2.07,57.79,-2.26,0,False,False
 20260618,60.49,-0.14,57.9,-0.28,57.48,-0.31,0,False,False
+20260626,63.47,2.98,60.98,3.08,60.17,2.69,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8105 | 凌巨 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:日商凸版控股株式會社代表人 田村隆幸 4.舊任者簡歷:凌巨科技(股)有限公司董事長 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:解任 8.異動原因:日商凸版控股株式會社轉讓凌巨私募股權 9.新任生效日期:不適用 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司法人董事日商凸版控股株式會社，出售凌巨私募股權，因轉讓持股超過選任當時 所持有之公司股份數額二分之一，依公司法197條其法人董事及四席代表人當然解任， 田村隆幸董事長併同解任。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 8105 | 凌巨 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:日商凸版控股株式會社代表人 田村隆幸 4.舊任者簡歷:凌巨科技(股)有限公司董事長 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:解任 8.異動原因:日商凸版控股株式會社轉讓凌巨私募股權 9.新任生效日期:不適用 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司法人董事日商凸版控股株式會社，出售凌巨私募股權，因轉讓持股超過選任當時 所持有之公司股份數額二分之一，依公司法197條其法人董事及四席代表人當然解任， 田村隆幸董事長併同解任。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

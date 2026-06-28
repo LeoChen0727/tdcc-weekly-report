@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:49 Asia/Taipei
+- generated_at: 2026-06-28 22:27:41 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 285
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.17
-- over_600_ratio: 39
-- over_800_ratio: 30.04
-- over_1000_ratio: 28.96
-- over_400_change_1w: -0.52
-- over_800_change_1w: 0.27
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 47.23
+- over_600_ratio: 39.01
+- over_800_ratio: 30.81
+- over_1000_ratio: 27.47
+- over_400_change_1w: 1.06
+- over_800_change_1w: 0.77
+- over_1000_change_1w: -1.49
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,46.89,-2.47,30.5,-1.95,29.42,-0.83,0,False,False
 20260612,46.69,-0.2,29.77,-0.73,28.69,-0.73,0,False,False
 20260618,46.17,-0.52,30.04,0.27,28.96,0.27,1,False,True
+20260626,47.23,1.06,30.81,0.77,27.47,-1.49,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:新台幣218,432,679元(每股2.8元) 4.除權（息）交易日:115/07/13 5.最後過戶日:115/07/14 6.停止過戶起始日期:115/07/15 7.停止過戶截止日期:115/07/19 8.除權（息）基準日:115/07/19 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:新台幣218,432,679元(每股2.8元) 4.除權（息）交易日:115/07/13 5.最後過戶日:115/07/14 6.停止過戶起始日期:115/07/15 7.停止過戶截止日期:115/07/19 8.除權（息）基準日:115/07/19 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

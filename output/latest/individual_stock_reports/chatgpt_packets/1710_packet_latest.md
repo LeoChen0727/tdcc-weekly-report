@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:47 Asia/Taipei
+- generated_at: 2026-06-28 22:25:56 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.36
-- over_600_ratio: 59.29
-- over_800_ratio: 57.78
-- over_1000_ratio: 55.95
-- over_400_change_1w: -0.03
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -0.18
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 61.57
+- over_600_ratio: 59.39
+- over_800_ratio: 57.87
+- over_1000_ratio: 56.36
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.41
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.78,0.35,58.17,0.31,56.15,0.42,5,True,True
 20260612,61.39,-0.39,57.84,-0.33,56.13,-0.02,0,False,False
 20260618,61.36,-0.03,57.78,-0.06,55.95,-0.18,0,False,False
+20260626,61.57,0.21,57.87,0.09,56.36,0.41,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1710 | 東聯 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：視訊會議 4.法人說明會擇要訊息：說明公司營運情形，相關訊息請參閱本公司網站。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1710 | 東聯 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：視訊會議 4.法人說明會擇要訊息：說明公司營運情形，相關訊息請參閱本公司網站。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

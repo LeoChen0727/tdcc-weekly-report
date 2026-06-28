@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4927 泰鼎-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:52 Asia/Taipei
 - stock_id: 4927
 - stock_name: 泰鼎-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 27.64
-- over_600_ratio: 23.59
-- over_800_ratio: 22.03
-- over_1000_ratio: 20.05
-- over_400_change_1w: 0.11
-- over_800_change_1w: -0.87
-- over_1000_change_1w: -0.85
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 26.64
+- over_600_ratio: 21.88
+- over_800_ratio: 20.3
+- over_1000_ratio: 18.31
+- over_400_change_1w: -1
+- over_800_change_1w: -1.73
+- over_1000_change_1w: -1.74
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,30.18,-3.43,25.16,-3.85,22.78,-3.87,0,False,False
 20260612,27.53,-2.65,22.9,-2.26,20.9,-1.88,0,False,False
 20260618,27.64,0.11,22.03,-0.87,20.05,-0.85,1,False,False
+20260626,26.64,-1,20.3,-1.73,18.31,-1.74,0,False,False
 ```
 
 ## Candidate Context

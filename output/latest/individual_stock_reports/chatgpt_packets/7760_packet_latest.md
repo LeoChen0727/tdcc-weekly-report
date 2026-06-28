@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7760 享溫馨
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:44 Asia/Taipei
+- generated_at: 2026-06-28 22:27:36 Asia/Taipei
 - stock_id: 7760
 - stock_name: 享溫馨
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
 - price_rows: 42
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.51
-- over_600_ratio: 50.07
-- over_800_ratio: 44.82
-- over_1000_ratio: 43.52
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 61.04
+- over_600_ratio: 50.55
+- over_800_ratio: 46.5
+- over_1000_ratio: 43.8
+- over_400_change_1w: 0.53
+- over_800_change_1w: 1.68
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.31,0.05,45.82,0.21,43.29,0.21,5,True,True
 20260612,60.42,0.11,44.73,-1.09,43.43,0.14,6,False,True
 20260618,60.51,0.09,44.82,0.09,43.52,0.09,7,True,True
+20260626,61.04,0.53,46.5,1.68,43.8,0.28,8,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2313 華通
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:04 Asia/Taipei
 - stock_id: 2313
 - stock_name: 華通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.09
-- over_600_ratio: 57.94
-- over_800_ratio: 56.3
-- over_1000_ratio: 54.62
-- over_400_change_1w: -1.93
-- over_800_change_1w: -1.98
-- over_1000_change_1w: -1.82
+- as_of_date: 20260626
+- over_400_ratio: 57.07
+- over_600_ratio: 55.34
+- over_800_ratio: 53.41
+- over_1000_ratio: 51.8
+- over_400_change_1w: -3.02
+- over_800_change_1w: -2.89
+- over_1000_change_1w: -2.82
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.86,-1.95,58.21,-1.77,56.33,-1.9,0,False,False
 20260612,62.02,0.16,58.28,0.07,56.44,0.11,1,False,True
 20260618,60.09,-1.93,56.3,-1.98,54.62,-1.82,0,False,False
+20260626,57.07,-3.02,53.41,-2.89,51.8,-2.82,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2313 | 華通 | 327 | 41 | 24675010.0 | 3834090.0 | 6.44 | put_inflow |
+| 20260626 | 2313 | 華通 | 327 | 0 | 24675010.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:36 Asia/Taipei
+- generated_at: 2026-06-28 22:27:29 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.33
-- over_600_ratio: 50.26
-- over_800_ratio: 48.53
-- over_1000_ratio: 46.7
-- over_400_change_1w: 0.84
-- over_800_change_1w: 1
-- over_1000_change_1w: 0.81
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 53.21
+- over_600_ratio: 51.25
+- over_800_ratio: 49.66
+- over_1000_ratio: 48.21
+- over_400_change_1w: 0.88
+- over_800_change_1w: 1.13
+- over_1000_change_1w: 1.51
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.68,-0.7,47.62,-0.63,46.15,-0.83,0,False,False
 20260612,51.49,-0.19,47.53,-0.09,45.89,-0.26,0,False,False
 20260618,52.33,0.84,48.53,1,46.7,0.81,1,True,True
+20260626,53.21,0.88,49.66,1.13,48.21,1.51,2,True,True
 ```
 
 ## Candidate Context

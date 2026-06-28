@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5381 光譜
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:00 Asia/Taipei
+- generated_at: 2026-06-28 22:26:58 Asia/Taipei
 - stock_id: 5381
 - stock_name: 光譜
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 151
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.03
-- over_600_ratio: 53.29
-- over_800_ratio: 50.64
-- over_1000_ratio: 48.14
-- over_400_change_1w: -0.45
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -0.76
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 55.21
+- over_600_ratio: 53.72
+- over_800_ratio: 51.05
+- over_1000_ratio: 48.13
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.41
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,54.4,-0.32,49.32,-0.85,47.67,-0.45,5,False,False
 20260612,55.48,1.08,51,1.68,48.9,1.23,6,True,True
 20260618,55.03,-0.45,50.64,-0.36,48.14,-0.76,0,False,False
+20260626,55.21,0.18,51.05,0.41,48.13,-0.01,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5381 | 光譜 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:會計主管、財務主管、公司治理主管及代理發言人 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:阮昭彗/光譜電工股份有限公司財務長 4.新任者姓名、級職及簡歷:趙惠娟/三江電機企業股份有限公司行政處副總 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/06/26 8.其他應敘明事項:本案業經115/06/26董事會決議通過。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 5381 | 光譜 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:會計主管、財務主管、公司治理主管及代理發言人 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:阮昭彗/光譜電工股份有限公司財務長 4.新任者姓名、級職及簡歷:趙惠娟/三江電機企業股份有限公司行政處副總 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/06/26 8.其他應敘明事項:本案業經115/06/26董事會決議通過。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

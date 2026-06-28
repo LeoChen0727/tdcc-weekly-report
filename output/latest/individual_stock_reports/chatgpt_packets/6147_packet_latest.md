@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6147 頎邦
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:09 Asia/Taipei
+- generated_at: 2026-06-28 22:27:06 Asia/Taipei
 - stock_id: 6147
 - stock_name: 頎邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 70.57
-- over_600_ratio: 68.41
-- over_800_ratio: 66.92
-- over_1000_ratio: 65.33
-- over_400_change_1w: -1.04
-- over_800_change_1w: -1.01
-- over_1000_change_1w: -1.03
+- as_of_date: 20260626
+- over_400_ratio: 69.1
+- over_600_ratio: 67.23
+- over_800_ratio: 65.4
+- over_1000_ratio: 63.96
+- over_400_change_1w: -1.47
+- over_800_change_1w: -1.52
+- over_1000_change_1w: -1.37
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.16,-3.56,68.14,-3.3,66.07,-3.49,0,False,False
 20260612,71.61,-0.55,67.93,-0.21,66.36,0.29,1,False,True
 20260618,70.57,-1.04,66.92,-1.01,65.33,-1.03,0,False,False
+20260626,69.1,-1.47,65.4,-1.52,63.96,-1.37,0,False,False
 ```
 
 ## Candidate Context

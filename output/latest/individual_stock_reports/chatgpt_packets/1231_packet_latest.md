@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1231 聯華食
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:35 Asia/Taipei
+- generated_at: 2026-06-28 22:25:46 Asia/Taipei
 - stock_id: 1231
 - stock_name: 聯華食
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.77
-- over_600_ratio: 63.72
-- over_800_ratio: 63.52
-- over_1000_ratio: 62.86
-- over_400_change_1w: 0.08
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 64.67
+- over_600_ratio: 63.75
+- over_800_ratio: 63.55
+- over_1000_ratio: 62.89
+- over_400_change_1w: -0.1
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.64,0,63.57,0,62.91,0,0,False,False
 20260612,64.69,0.05,63.62,0.05,62.96,0.05,1,True,True
 20260618,64.77,0.08,63.52,-0.1,62.86,-0.1,2,False,False
+20260626,64.67,-0.1,63.55,0.03,62.89,0.03,3,False,True
 ```
 
 ## Candidate Context

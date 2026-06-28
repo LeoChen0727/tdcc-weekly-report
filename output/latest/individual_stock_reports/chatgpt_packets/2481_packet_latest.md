@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2481 強茂
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:06 Asia/Taipei
+- generated_at: 2026-06-28 22:26:12 Asia/Taipei
 - stock_id: 2481
 - stock_name: 強茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.38
-- over_600_ratio: 62.54
-- over_800_ratio: 60.28
-- over_1000_ratio: 57.45
-- over_400_change_1w: -1.1
-- over_800_change_1w: -0.56
-- over_1000_change_1w: -1.26
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 66.68
+- over_600_ratio: 64.5
+- over_800_ratio: 62.23
+- over_1000_ratio: 60.77
+- over_400_change_1w: 2.3
+- over_800_change_1w: 1.95
+- over_1000_change_1w: 3.32
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.3,1.33,62.17,1.29,59.64,1.31,5,True,True
 20260612,65.48,-1.82,60.84,-1.33,58.71,-0.93,0,False,False
 20260618,64.38,-1.1,60.28,-0.56,57.45,-1.26,0,False,False
+20260626,66.68,2.3,62.23,1.95,60.77,3.32,1,True,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2481 | 強茂 | 169 | 2 | 11525120.0 | 0.0 |  | no_signal |
+| 20260626 | 2481 | 強茂 | 169 | 0 | 11525120.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:52 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.58
-- over_600_ratio: 42.18
-- over_800_ratio: 36.97
+- as_of_date: 20260626
+- over_400_ratio: 50.66
+- over_600_ratio: 42.24
+- over_800_ratio: 38.19
 - over_1000_ratio: 36.97
-- over_400_change_1w: -0.63
-- over_800_change_1w: 0
+- over_400_change_1w: 0.08
+- over_800_change_1w: 1.22
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.17,-3.16,38.16,-0.22,36.97,-0.05,0,False,False
 20260612,51.21,0.04,36.97,-1.19,36.97,0,1,False,False
 20260618,50.58,-0.63,36.97,0,36.97,0,0,False,False
+20260626,50.66,0.08,38.19,1.22,36.97,0,1,False,True
 ```
 
 ## Candidate Context

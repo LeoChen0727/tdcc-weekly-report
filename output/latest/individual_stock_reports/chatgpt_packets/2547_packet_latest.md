@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:09 Asia/Taipei
+- generated_at: 2026-06-28 22:26:15 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.56
-- over_600_ratio: 67.25
-- over_800_ratio: 64.92
-- over_1000_ratio: 62.9
-- over_400_change_1w: 0.44
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.41
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 69.55
+- over_600_ratio: 67.4
+- over_800_ratio: 64.94
+- over_1000_ratio: 62.83
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.02
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,14 +181,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,69.58,-0.02,64.53,0.24,62.77,0.24,2,False,True
 20260612,69.12,-0.46,64.42,-0.11,62.49,-0.28,0,False,False
 20260618,69.56,0.44,64.92,0.5,62.9,0.41,1,True,True
+20260626,69.55,-0.01,64.94,0.02,62.83,-0.07,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 承認寶鼎公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認寶鼎114年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 承認寶鼎公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認寶鼎114年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 22.0 | B_可觀察 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 承認寶鼎公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認寶鼎114年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 承認寶鼎公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認寶鼎114年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 承認寶鼎公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認寶鼎114年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 22.0 | B_可觀察 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 承認寶鼎公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認寶鼎114年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

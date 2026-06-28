@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:04 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.92
-- over_600_ratio: 48.06
-- over_800_ratio: 46.68
-- over_1000_ratio: 45.98
-- over_400_change_1w: -0.86
-- over_800_change_1w: -0.91
-- over_1000_change_1w: -0.74
+- as_of_date: 20260626
+- over_400_ratio: 47.87
+- over_600_ratio: 46.04
+- over_800_ratio: 44.83
+- over_1000_ratio: 43.78
+- over_400_change_1w: -2.05
+- over_800_change_1w: -1.85
+- over_1000_change_1w: -2.2
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.64,-1.1,48.35,-1.19,47.34,-1.07,0,False,False
 20260612,50.78,-0.86,47.59,-0.76,46.72,-0.62,0,False,False
 20260618,49.92,-0.86,46.68,-0.91,45.98,-0.74,0,False,False
+20260626,47.87,-2.05,44.83,-1.85,43.78,-2.2,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2312 | 金寶 | 93 | 2 | 9057100.0 | 141310.0 | 64.09 | no_signal |
+| 20260626 | 2312 | 金寶 | 93 | 0 | 9057100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3056 富華新
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:22 Asia/Taipei
+- generated_at: 2026-06-28 22:26:26 Asia/Taipei
 - stock_id: 3056
 - stock_name: 富華新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 32.71
-- over_600_ratio: 30.43
-- over_800_ratio: 28.97
-- over_1000_ratio: 27.12
-- over_400_change_1w: 0.28
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 33.06
+- over_600_ratio: 30.72
+- over_800_ratio: 29.1
+- over_1000_ratio: 27.28
+- over_400_change_1w: 0.35
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,32.24,0.35,28.4,0.33,26.34,-0.05,3,False,True
 20260612,32.43,0.19,28.75,0.35,26.89,0.55,4,True,True
 20260618,32.71,0.28,28.97,0.22,27.12,0.23,5,True,True
+20260626,33.06,0.35,29.1,0.13,27.28,0.16,6,True,True
 ```
 
 ## Candidate Context

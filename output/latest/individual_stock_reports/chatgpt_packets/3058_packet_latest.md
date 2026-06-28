@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3058 立德
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:22 Asia/Taipei
+- generated_at: 2026-06-28 22:26:26 Asia/Taipei
 - stock_id: 3058
 - stock_name: 立德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 22.6
-- over_600_ratio: 19.64
-- over_800_ratio: 18.32
-- over_1000_ratio: 16.97
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 22.52
+- over_600_ratio: 19.58
+- over_800_ratio: 18.26
+- over_1000_ratio: 16.91
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,22.82,0.13,18.23,0.16,16.88,0.55,3,True,True
 20260612,22.21,-0.61,18.21,-0.02,16.86,-0.02,0,False,False
 20260618,22.6,0.39,18.32,0.11,16.97,0.11,1,True,True
+20260626,22.52,-0.08,18.26,-0.06,16.91,-0.06,0,False,False
 ```
 
 ## Candidate Context

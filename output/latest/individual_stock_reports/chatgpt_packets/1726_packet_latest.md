@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1726 永記
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:48 Asia/Taipei
+- generated_at: 2026-06-28 22:25:57 Asia/Taipei
 - stock_id: 1726
 - stock_name: 永記
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 289
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 85.77
-- over_600_ratio: 84.95
-- over_800_ratio: 84.95
-- over_1000_ratio: 83.95
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
+- as_of_date: 20260626
+- over_400_ratio: 85.75
+- over_600_ratio: 84.93
+- over_800_ratio: 84.93
+- over_1000_ratio: 83.93
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,85.84,-0.03,85.02,0.46,84.03,-0.03,1,False,True
 20260612,85.78,-0.06,84.96,-0.06,83.96,-0.07,0,False,False
 20260618,85.77,-0.01,84.95,-0.01,83.95,-0.01,0,False,False
+20260626,85.75,-0.02,84.93,-0.02,83.93,-0.02,0,False,False
 ```
 
 ## Candidate Context

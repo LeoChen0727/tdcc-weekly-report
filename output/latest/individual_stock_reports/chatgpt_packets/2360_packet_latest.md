@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:06 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.2
-- over_600_ratio: 64.72
-- over_800_ratio: 60.15
-- over_1000_ratio: 55.73
-- over_400_change_1w: -0.13
-- over_800_change_1w: 0.36
-- over_1000_change_1w: 0.62
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260626
+- over_400_ratio: 71.36
+- over_600_ratio: 64.16
+- over_800_ratio: 59.57
+- over_1000_ratio: 55.12
+- over_400_change_1w: 0.16
+- over_800_change_1w: -0.58
+- over_1000_change_1w: -0.61
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -186,12 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.17,0,59.36,0.01,55.14,-0.03,4,False,True
 20260612,71.33,0.16,59.79,0.43,55.11,-0.03,5,False,True
 20260618,71.2,-0.13,60.15,0.36,55.73,0.62,6,False,True
+20260626,71.36,0.16,59.57,-0.58,55.12,-0.61,7,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事Cheng (Paul) Ying 4.舊任者簡歷:Chroma ATE (USA), Inc.董事 5.新任者職稱及姓名:董事David Y. Huang 6.新任者簡歷:致茂電子(股)公司法人董事代表人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:職務調整 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/01 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事Cheng (Paul) Ying 4.舊任者簡歷:Chroma ATE (USA), Inc.董事 5.新任者職稱及姓名:董事David Y. Huang 6.新任者簡歷:致茂電子(股)公司法人董事代表人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:職務調整 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/01 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -201,7 +202,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2360 | 致茂 | 50 | 2 | 1574020.0 | 450.0 | 3497.82 | no_signal |
+| 20260626 | 2360 | 致茂 | 50 | 0 | 1574020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

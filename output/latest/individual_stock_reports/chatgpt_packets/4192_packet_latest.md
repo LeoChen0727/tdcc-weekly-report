@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4192 杏國
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:44 Asia/Taipei
+- generated_at: 2026-06-28 22:26:44 Asia/Taipei
 - stock_id: 4192
 - stock_name: 杏國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 135
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 68.05
+- as_of_date: 20260626
+- over_400_ratio: 68.06
 - over_600_ratio: 66.6
 - over_800_ratio: 66.6
 - over_1000_ratio: 66.6
-- over_400_change_1w: 0.05
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.99,0.04,66.6,0,66.6,0,2,False,False
 20260612,68,0.01,66.6,0,66.6,0,3,False,False
 20260618,68.05,0.05,66.6,0,66.6,0,4,False,False
+20260626,68.06,0.01,66.6,0,66.6,0,5,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2415 錩新
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:02 Asia/Taipei
+- generated_at: 2026-06-28 22:26:09 Asia/Taipei
 - stock_id: 2415
 - stock_name: 錩新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.63
-- over_600_ratio: 61.48
-- over_800_ratio: 60
-- over_1000_ratio: 58.94
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.12
+- as_of_date: 20260626
+- over_400_ratio: 63.76
+- over_600_ratio: 61.08
+- over_800_ratio: 59.6
+- over_1000_ratio: 58.62
+- over_400_change_1w: -0.87
+- over_800_change_1w: -0.4
+- over_1000_change_1w: -0.32
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.37,-0.33,59.73,-0.41,58.67,-0.4,0,False,False
 20260612,64.72,0.35,60.12,0.39,59.06,0.39,1,True,True
 20260618,64.63,-0.09,60,-0.12,58.94,-0.12,0,False,False
+20260626,63.76,-0.87,59.6,-0.4,58.62,-0.32,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2415 | 錩新 | true_breakout | 嚴格突破 | 102.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2415 | 錩新 | true_breakout | 嚴格突破 | 102.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

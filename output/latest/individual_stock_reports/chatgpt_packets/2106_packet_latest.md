@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2106 建大
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:54 Asia/Taipei
+- generated_at: 2026-06-28 22:26:02 Asia/Taipei
 - stock_id: 2106
 - stock_name: 建大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.9
-- over_600_ratio: 77.57
-- over_800_ratio: 76.23
-- over_1000_ratio: 74.9
-- over_400_change_1w: 0.03
-- over_800_change_1w: -0.09
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260626
+- over_400_ratio: 79.79
+- over_600_ratio: 77.41
+- over_800_ratio: 75.99
+- over_1000_ratio: 74.83
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.24
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.93,0.21,76.37,0.43,74.95,0.06,2,True,True
 20260612,79.87,-0.06,76.32,-0.05,74.87,-0.08,3,False,False
 20260618,79.9,0.03,76.23,-0.09,74.9,0.03,4,False,True
+20260626,79.79,-0.11,75.99,-0.24,74.83,-0.07,0,False,False
 ```
 
 ## Candidate Context

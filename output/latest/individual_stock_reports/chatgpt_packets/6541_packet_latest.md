@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6541 泰福-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:22 Asia/Taipei
+- generated_at: 2026-06-28 22:27:17 Asia/Taipei
 - stock_id: 6541
 - stock_name: 泰福-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 72.15
-- over_600_ratio: 68.87
-- over_800_ratio: 67.04
-- over_1000_ratio: 65.72
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0.35
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260626
+- over_400_ratio: 71.87
+- over_600_ratio: 68.78
+- over_800_ratio: 66.93
+- over_1000_ratio: 65.61
+- over_400_change_1w: -0.28
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.08,0.16,67.03,-0.02,65.38,0,4,False,False
 20260612,72.16,0.08,67.05,0.02,65.37,-0.01,5,False,True
 20260618,72.15,-0.01,67.04,-0.01,65.72,0.35,6,False,True
+20260626,71.87,-0.28,66.93,-0.11,65.61,-0.11,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6541 | 泰福-KY | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | first_seen | 1.事實發生日:115/06/24 2.公司名稱:Tanvex BioPharma USA, Inc. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:本公司持股100%子公司。 5.發生緣由:Tanvex BioPharma USA, Inc.(本公司之子公司，以下簡稱「Tanvex US」) 於美國時間2026年6月23日接獲美國食品藥物管理局(FDA)針對其生物製劑查驗登記申請 (BLA) TX05 (Herceptin之生物相似藥)所發出之完整回覆信函(Complete Response Letter, CRL)。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1) 研發新藥名稱或代號：重組蛋白生物相似藥TX05 (Herceptin Biosimilar)。 (2) 用途：與參考藥Herceptin相同，目前除了主要適應症為乳癌外，還包括胃癌。 (3) 預計進行之所有研發階段：不適用。 (4) 目前進行中之研發階段：     A. 提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他影        響新藥研發之重大事件：        除需由下游製造商改善之事項外，FDA於本次CRL中未就Tanvex US所製造之原料        藥(drug substance)提出任何問題。     B. 未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計        上顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應        措施：Tanvex US目前正與下游製造廠商積極討論相關改善措施、預計將於7月              底前向FDA提交回覆。     C. 通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上顯        著意義或發生其他影響新藥研發之重大事件者，未來經營方向：不適用。     D. 已投入之累積研發費用：基於TX05產品未來國際合作可能性或因涉及營業機密                              考量，為保障公司及投資人權益，故不予公開揭露。 (5) 將再進行之下一研發階段：Tanvex US將持續與下游製造商合作，以完成BLA審查                             程序。     A. 預計完成時間：視主管機關審查時間而定。     B. 預計應負擔之義務：不適用。 (6) 巿場現況：根據國際醫藥專業統計機構IQVIA之資料，截至2026年3月，Herceptin及               其他生物相似藥產品，過去一年之美國市場銷售額約為10億美元，目前               有多種乳癌治療方式，其中以生物藥品治療者，有Perjeta、Enhertu及               Kadcyla等品牌。 (7) 藥物開發具有開發時程長、投入經費高、需經目的事業主管機關審核、且並未保證     一定能成功，此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6541 | 泰福-KY | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | first_seen | 1.事實發生日:115/06/24 2.公司名稱:Tanvex BioPharma USA, Inc. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:本公司持股100%子公司。 5.發生緣由:Tanvex BioPharma USA, Inc.(本公司之子公司，以下簡稱「Tanvex US」) 於美國時間2026年6月23日接獲美國食品藥物管理局(FDA)針對其生物製劑查驗登記申請 (BLA) TX05 (Herceptin之生物相似藥)所發出之完整回覆信函(Complete Response Letter, CRL)。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1) 研發新藥名稱或代號：重組蛋白生物相似藥TX05 (Herceptin Biosimilar)。 (2) 用途：與參考藥Herceptin相同，目前除了主要適應症為乳癌外，還包括胃癌。 (3) 預計進行之所有研發階段：不適用。 (4) 目前進行中之研發階段：     A. 提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他影        響新藥研發之重大事件：        除需由下游製造商改善之事項外，FDA於本次CRL中未就Tanvex US所製造之原料        藥(drug substance)提出任何問題。     B. 未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計        上顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應        措施：Tanvex US目前正與下游製造廠商積極討論相關改善措施、預計將於7月              底前向FDA提交回覆。     C. 通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上顯        著意義或發生其他影響新藥研發之重大事件者，未來經營方向：不適用。     D. 已投入之累積研發費用：基於TX05產品未來國際合作可能性或因涉及營業機密                              考量，為保障公司及投資人權益，故不予公開揭露。 (5) 將再進行之下一研發階段：Tanvex US將持續與下游製造商合作，以完成BLA審查                             程序。     A. 預計完成時間：視主管機關審查時間而定。     B. 預計應負擔之義務：不適用。 (6) 巿場現況：根據國際醫藥專業統計機構IQVIA之資料，截至2026年3月，Herceptin及               其他生物相似藥產品，過去一年之美國市場銷售額約為10億美元，目前               有多種乳癌治療方式，其中以生物藥品治療者，有Perjeta、Enhertu及               Kadcyla等品牌。 (7) 藥物開發具有開發時程長、投入經費高、需經目的事業主管機關審核、且並未保證     一定能成功，此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

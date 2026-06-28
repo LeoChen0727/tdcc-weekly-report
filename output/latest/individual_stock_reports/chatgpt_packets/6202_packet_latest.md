@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6202 盛群
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:12 Asia/Taipei
+- generated_at: 2026-06-28 22:27:09 Asia/Taipei
 - stock_id: 6202
 - stock_name: 盛群
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.44
-- over_600_ratio: 37.51
-- over_800_ratio: 35.42
-- over_1000_ratio: 33.94
-- over_400_change_1w: 3.47
-- over_800_change_1w: 3.28
-- over_1000_change_1w: 3.3
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 39.66
+- over_600_ratio: 36.5
+- over_800_ratio: 33.5
+- over_1000_ratio: 32.39
+- over_400_change_1w: 0.22
+- over_800_change_1w: -1.92
+- over_1000_change_1w: -1.55
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,36.9,-0.87,32.99,-0.21,32.23,-0.19,0,False,False
 20260612,35.97,-0.93,32.14,-0.85,30.64,-1.59,0,False,False
 20260618,39.44,3.47,35.42,3.28,33.94,3.3,1,True,True
+20260626,39.66,0.22,33.5,-1.92,32.39,-1.55,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6202 | 盛群 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間              (月)                    (季)                (最近四季累計) ----------------------------------------------------------------------------                 最近一月  與去年同期   最近一季    與去年同期  114年第2季  科目           115年4月    增減%     115年第1季     增減%     至115年第1季                合併自結數             合併核閱數               合併核閱數 ---------------------------------------------------------------------------- 營業收入(百萬)     319      6.9%         826         8.5%         3,122 稅前淨利(百萬)      45     56.9%          86        85.2%           199 歸屬母公司 業主淨利(百萬)      36     62.5%          68       (24.4%)          151 每股盈餘(元)      0.16     59.5%        0.30       (25.8%)         0.66 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6202 | 盛群 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間              (月)                    (季)                (最近四季累計) ----------------------------------------------------------------------------                 最近一月  與去年同期   最近一季    與去年同期  114年第2季  科目           115年4月    增減%     115年第1季     增減%     至115年第1季                合併自結數             合併核閱數               合併核閱數 ---------------------------------------------------------------------------- 營業收入(百萬)     319      6.9%         826         8.5%         3,122 稅前淨利(百萬)      45     56.9%          86        85.2%           199 歸屬母公司 業主淨利(百萬)      36     62.5%          68       (24.4%)          151 每股盈餘(元)      0.16     59.5%        0.30       (25.8%)         0.66 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

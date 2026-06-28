@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:28 Asia/Taipei
+- generated_at: 2026-06-28 22:27:22 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,16 +156,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.09
-- over_600_ratio: 48.63
-- over_800_ratio: 46.04
-- over_1000_ratio: 44.32
-- over_400_change_1w: -0.24
-- over_800_change_1w: 0.86
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 53.16
+- over_600_ratio: 50.62
+- over_800_ratio: 46.18
+- over_1000_ratio: 44.43
+- over_400_change_1w: 4.07
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,12 +180,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,49.7,-0.32,45.97,0.8,44.31,0,1,False,True
 20260612,49.33,-0.37,45.18,-0.79,44.32,0.01,2,False,True
 20260618,49.09,-0.24,46.04,0.86,44.32,0,3,False,True
+20260626,53.16,4.07,46.18,0.14,44.43,0.11,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6719 | 力智 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)現金股利新台幣485,203,349元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:115/06/30 10.債券停止轉換起始日期:115/07/02 11.債券停止轉換截止日期:115/07/27 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項: 本次除息未盡事宜如因股本變動致影響流通在外股數，股東配股配息率因此發生 變動時，授權董事長全權處理並公告之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6719 | 力智 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)現金股利新台幣485,203,349元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:115/06/30 10.債券停止轉換起始日期:115/07/02 11.債券停止轉換截止日期:115/07/27 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項: 本次除息未盡事宜如因股本變動致影響流通在外股數，股東配股配息率因此發生 變動時，授權董事長全權處理並公告之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6719 | 力智 | 31 | 1 | 16309220.0 | 0.0 |  | no_signal |
+| 20260626 | 6719 | 力智 | 31 | 0 | 16309220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

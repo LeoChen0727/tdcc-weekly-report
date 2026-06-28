@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2022 聚亨
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:00 Asia/Taipei
 - stock_id: 2022
 - stock_name: 聚亨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 39.93
-- over_600_ratio: 38.67
-- over_800_ratio: 37.23
-- over_1000_ratio: 36.43
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.27
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 39.82
+- over_600_ratio: 38.5
+- over_800_ratio: 37.25
+- over_1000_ratio: 36.44
+- over_400_change_1w: -0.11
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,39.69,0.48,36.78,0.04,36.51,0.04,5,True,True
 20260612,39.75,0.06,36.96,0.18,36.43,-0.08,6,False,True
 20260618,39.93,0.18,37.23,0.27,36.43,0,7,False,True
+20260626,39.82,-0.11,37.25,0.02,36.44,0.01,8,False,True
 ```
 
 ## Candidate Context

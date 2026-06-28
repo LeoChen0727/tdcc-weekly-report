@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6451 訊芯-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:19 Asia/Taipei
+- generated_at: 2026-06-28 22:27:14 Asia/Taipei
 - stock_id: 6451
 - stock_name: 訊芯-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 73.34
-- over_600_ratio: 70.09
-- over_800_ratio: 68.83
-- over_1000_ratio: 67.17
-- over_400_change_1w: -0.69
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.61
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 71.51
+- over_600_ratio: 69.78
+- over_800_ratio: 69.14
+- over_1000_ratio: 65.21
+- over_400_change_1w: -1.83
+- over_800_change_1w: 0.31
+- over_1000_change_1w: -1.96
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,76.67,0.88,72.01,1.14,69.57,-0.47,5,False,True
 20260612,74.03,-2.64,68.72,-3.29,66.56,-3.01,0,False,False
 20260618,73.34,-0.69,68.83,0.11,67.17,0.61,1,False,True
+20260626,71.51,-1.83,69.14,0.31,65.21,-1.96,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6451 | 訊芯-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.功能性委員會名稱:永續委員會 3.舊任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)莊章星 (5)戴淑惠 4.舊任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)莊章星，訊芯科技控股股份有限公司獨立董事 (5)戴淑惠，訊芯科技控股股份有限公司獨立董事 5.新任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)左大川 (5)張美玲 6.新任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)左大川，訊芯科技控股股份有限公司獨立董事 (5)張美玲，訊芯科技控股股份有限公司獨立董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/19-115/06/27 10.新任生效日期:115/06/26-118/06/25 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6451 | 訊芯-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.功能性委員會名稱:永續委員會 3.舊任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)莊章星 (5)戴淑惠 4.舊任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)莊章星，訊芯科技控股股份有限公司獨立董事 (5)戴淑惠，訊芯科技控股股份有限公司獨立董事 5.新任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)左大川 (5)張美玲 6.新任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)左大川，訊芯科技控股股份有限公司獨立董事 (5)張美玲，訊芯科技控股股份有限公司獨立董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/19-115/06/27 10.新任生效日期:115/06/26-118/06/25 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6451 | 訊芯-KY | 52 | 3 | 3629940.0 | 161380.0 | 22.49 | no_signal |
+| 20260626 | 6451 | 訊芯-KY | 52 | 0 | 3629940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

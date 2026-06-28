@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2611 志信
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:10 Asia/Taipei
+- generated_at: 2026-06-28 22:26:16 Asia/Taipei
 - stock_id: 2611
 - stock_name: 志信
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.39
-- over_600_ratio: 44.91
-- over_800_ratio: 43.5
-- over_1000_ratio: 43.06
-- over_400_change_1w: 0.31
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 46.5
+- over_600_ratio: 45.01
+- over_800_ratio: 43.6
+- over_1000_ratio: 43.11
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.71,0.28,42.47,0,42.47,0,3,False,False
 20260612,46.08,0.37,43,0.53,43,0.53,4,True,True
 20260618,46.39,0.31,43.5,0.5,43.06,0.06,5,True,True
+20260626,46.5,0.11,43.6,0.1,43.11,0.05,6,True,True
 ```
 
 ## Candidate Context

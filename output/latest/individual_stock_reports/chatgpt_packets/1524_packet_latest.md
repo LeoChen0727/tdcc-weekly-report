@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1524 耿鼎
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:43 Asia/Taipei
+- generated_at: 2026-06-28 22:25:52 Asia/Taipei
 - stock_id: 1524
 - stock_name: 耿鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 38.49
-- over_600_ratio: 36.71
-- over_800_ratio: 35.82
+- as_of_date: 20260626
+- over_400_ratio: 38.25
+- over_600_ratio: 36.47
+- over_800_ratio: 35.27
 - over_1000_ratio: 35.27
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.56
-- over_1000_change_1w: -0.61
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.55
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,38.67,-1.87,35.76,-2,35.28,-1.95,0,False,False
 20260612,38.82,0.15,36.38,0.62,35.88,0.6,1,True,True
 20260618,38.49,-0.33,35.82,-0.56,35.27,-0.61,0,False,False
+20260626,38.25,-0.24,35.27,-0.55,35.27,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5258 虹堡
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:56 Asia/Taipei
 - stock_id: 5258
 - stock_name: 虹堡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 49.79
-- over_600_ratio: 43.08
-- over_800_ratio: 40.17
-- over_1000_ratio: 36.1
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.73
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 50.3
+- over_600_ratio: 43.7
+- over_800_ratio: 40.2
+- over_1000_ratio: 36.05
+- over_400_change_1w: 0.51
+- over_800_change_1w: 0.03
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,49.33,-0.51,40.18,-0.1,36.17,0.07,1,False,True
 20260612,49.81,0.48,39.44,-0.74,36.16,-0.01,2,False,False
 20260618,49.79,-0.02,40.17,0.73,36.1,-0.06,3,False,True
+20260626,50.3,0.51,40.2,0.03,36.05,-0.05,4,False,True
 ```
 
 ## Candidate Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009821 野村稀土關鍵資源
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:34 Asia/Taipei
+- generated_at: 2026-06-28 22:25:44 Asia/Taipei
 - stock_id: 009821
 - stock_name: 野村稀土關鍵資源
 - packet_status: partial_rawdata_packet

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4968 立積
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:54 Asia/Taipei
+- generated_at: 2026-06-28 22:26:54 Asia/Taipei
 - stock_id: 4968
 - stock_name: 立積
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 17.32
-- over_600_ratio: 13.91
-- over_800_ratio: 10.22
-- over_1000_ratio: 10.22
-- over_400_change_1w: 0.72
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 19.38
+- over_600_ratio: 15.55
+- over_800_ratio: 10.44
+- over_1000_ratio: 10.44
+- over_400_change_1w: 2.06
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.22
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,17.5,0.61,9.9,-0.08,8.86,-1.12,4,False,False
 20260612,16.6,-0.9,9.99,0.09,9.99,1.13,5,False,True
 20260618,17.32,0.72,10.22,0.23,10.22,0.23,6,False,True
+20260626,19.38,2.06,10.44,0.22,10.44,0.22,7,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4968 | 立積 | 31 | 3 | 351980.0 | 0.0 |  | no_signal |
+| 20260626 | 4968 | 立積 | 31 | 0 | 351980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

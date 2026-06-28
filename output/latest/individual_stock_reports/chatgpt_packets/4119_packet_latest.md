@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4119 旭富
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:41 Asia/Taipei
+- generated_at: 2026-06-28 22:26:42 Asia/Taipei
 - stock_id: 4119
 - stock_name: 旭富
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.48
-- over_600_ratio: 45.25
-- over_800_ratio: 42.94
+- as_of_date: 20260626
+- over_400_ratio: 46.54
+- over_600_ratio: 45.35
+- over_800_ratio: 43.63
 - over_1000_ratio: 42.94
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.69
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 7
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.74,0.1,42.82,0.1,42.82,0.1,5,True,True
 20260612,46.44,0.7,42.94,0.12,42.94,0.12,6,True,True
 20260618,46.48,0.04,42.94,0,42.94,0,7,False,False
+20260626,46.54,0.06,43.63,0.69,42.94,0,8,False,True
 ```
 
 ## Candidate Context

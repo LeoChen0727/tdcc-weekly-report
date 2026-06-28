@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4807 日成-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:51 Asia/Taipei
 - stock_id: 4807
 - stock_name: 日成-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 290
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,13 +157,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 69.86
-- over_600_ratio: 67.82
-- over_800_ratio: 64.97
+- as_of_date: 20260626
+- over_400_ratio: 69.66
+- over_600_ratio: 67.74
+- over_800_ratio: 63.34
 - over_1000_ratio: 63.34
-- over_400_change_1w: -1.05
-- over_800_change_1w: -0.04
+- over_400_change_1w: -0.2
+- over_800_change_1w: -1.63
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.23,-1.25,65.05,-0.06,63.34,0,0,False,False
 20260612,70.91,-0.32,65.01,-0.04,63.34,0,0,False,False
 20260618,69.86,-1.05,64.97,-0.04,63.34,0,0,False,False
+20260626,69.66,-0.2,63.34,-1.63,63.34,0,0,False,False
 ```
 
 ## Candidate Context

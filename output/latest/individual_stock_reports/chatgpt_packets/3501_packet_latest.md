@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3501 維熹
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:33 Asia/Taipei
+- generated_at: 2026-06-28 22:26:35 Asia/Taipei
 - stock_id: 3501
 - stock_name: 維熹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.65
-- over_600_ratio: 48.72
-- over_800_ratio: 47.52
-- over_1000_ratio: 46.8
-- over_400_change_1w: -0.79
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.08
+- as_of_date: 20260626
+- over_400_ratio: 49.03
+- over_600_ratio: 46.25
+- over_800_ratio: 45.64
+- over_1000_ratio: 44.92
+- over_400_change_1w: -1.62
+- over_800_change_1w: -1.88
+- over_1000_change_1w: -1.88
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,51.15,-0.62,48.27,0.7,46.87,0.02,2,False,True
 20260612,51.44,0.29,47.6,-0.67,46.88,0.01,3,False,True
 20260618,50.65,-0.79,47.52,-0.08,46.8,-0.08,0,False,False
+20260626,49.03,-1.62,45.64,-1.88,44.92,-1.88,0,False,False
 ```
 
 ## Candidate Context

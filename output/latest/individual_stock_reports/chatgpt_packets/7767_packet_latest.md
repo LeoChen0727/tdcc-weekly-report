@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7767 仁大資訊
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:44 Asia/Taipei
+- generated_at: 2026-06-28 22:27:36 Asia/Taipei
 - stock_id: 7767
 - stock_name: 仁大資訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 129
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 72.37
-- over_600_ratio: 65.61
+- as_of_date: 20260626
+- over_400_ratio: 72.36
+- over_600_ratio: 65.6
 - over_800_ratio: 61.29
 - over_1000_ratio: 54.77
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.49,0.02,61.28,0.06,54.77,0.06,1,True,True
 20260612,72.36,-0.13,61.28,0,54.77,0,0,False,False
 20260618,72.37,0.01,61.29,0.01,54.77,0,1,False,True
+20260626,72.36,-0.01,61.29,0,54.77,0,0,False,False
 ```
 
 ## Candidate Context

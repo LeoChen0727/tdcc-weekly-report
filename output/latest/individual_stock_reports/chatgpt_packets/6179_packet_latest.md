@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6179 亞通
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:11 Asia/Taipei
+- generated_at: 2026-06-28 22:27:07 Asia/Taipei
 - stock_id: 6179
 - stock_name: 亞通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 40.11
-- over_600_ratio: 36.31
-- over_800_ratio: 32.07
-- over_1000_ratio: 29.54
-- over_400_change_1w: 1.87
-- over_800_change_1w: 1.43
-- over_1000_change_1w: 1
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260626
+- over_400_ratio: 41.79
+- over_600_ratio: 37.66
+- over_800_ratio: 33.76
+- over_1000_ratio: 30.65
+- over_400_change_1w: 1.68
+- over_800_change_1w: 1.69
+- over_1000_change_1w: 1.11
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,14 +182,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,38.67,-0.61,31.63,-0.59,28.55,-0.99,0,False,False
 20260612,38.24,-0.43,30.64,-0.99,28.54,-0.01,1,False,False
 20260618,40.11,1.87,32.07,1.43,29.54,1,2,True,True
+20260626,41.79,1.68,33.76,1.69,30.65,1.11,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6179 | 亞通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 6179 | 亞通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 6179 | 亞通 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 15.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6179 | 亞通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 6179 | 亞通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6179 | 亞通 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 15.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

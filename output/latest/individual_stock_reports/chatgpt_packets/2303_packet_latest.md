@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:57 Asia/Taipei
+- generated_at: 2026-06-28 22:26:04 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.08
-- over_600_ratio: 76.03
-- over_800_ratio: 75.13
-- over_1000_ratio: 74.45
-- over_400_change_1w: 0.56
-- over_800_change_1w: 0.51
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 77.62
+- over_600_ratio: 76.59
+- over_800_ratio: 75.72
+- over_1000_ratio: 75.02
+- over_400_change_1w: 0.54
+- over_800_change_1w: 0.59
+- over_1000_change_1w: 0.57
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,77.15,-1.55,75.24,-1.64,74.6,-1.63,0,False,False
 20260612,76.52,-0.63,74.62,-0.62,73.97,-0.63,0,False,False
 20260618,77.08,0.56,75.13,0.51,74.45,0.48,1,True,True
+20260626,77.62,0.54,75.72,0.59,75.02,0.57,2,True,True
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2303 | 聯電 | 332 | 28 | 128291290.0 | 2346910.0 | 54.66 | put_inflow |
+| 20260626 | 2303 | 聯電 | 332 | 0 | 128291290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

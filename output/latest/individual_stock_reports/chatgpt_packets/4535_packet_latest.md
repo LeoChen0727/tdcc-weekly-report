@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4535 至興
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:46 Asia/Taipei
+- generated_at: 2026-06-28 22:26:47 Asia/Taipei
 - stock_id: 4535
 - stock_name: 至興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 153
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.39
-- over_600_ratio: 74.58
-- over_800_ratio: 71.84
-- over_1000_ratio: 69.6
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 77.41
+- over_600_ratio: 74.6
+- over_800_ratio: 71.86
+- over_1000_ratio: 69.62
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,77.31,0.06,71.75,0.06,69.51,0.06,5,True,True
 20260612,77.36,0.05,71.81,0.06,69.57,0.06,6,True,True
 20260618,77.39,0.03,71.84,0.03,69.6,0.03,7,True,True
+20260626,77.41,0.02,71.86,0.02,69.62,0.02,8,True,True
 ```
 
 ## Candidate Context

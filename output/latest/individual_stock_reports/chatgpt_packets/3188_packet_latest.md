@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3188 鑫龍騰
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:25 Asia/Taipei
+- generated_at: 2026-06-28 22:26:29 Asia/Taipei
 - stock_id: 3188
 - stock_name: 鑫龍騰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 75.9
+- as_of_date: 20260626
+- over_400_ratio: 75.87
 - over_600_ratio: 71.91
 - over_800_ratio: 70.41
-- over_1000_ratio: 68.96
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.04
-- over_1000_change_1w: 0.49
-- tdcc_consecutive_up_weeks: 1
+- over_1000_ratio: 68.44
+- over_400_change_1w: -0.03
+- over_800_change_1w: 0
+- over_1000_change_1w: -0.52
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,76.08,0.09,70.89,-0.15,69.01,-0.12,1,False,False
 20260612,75.98,-0.1,70.45,-0.44,68.47,-0.54,0,False,False
 20260618,75.9,-0.08,70.41,-0.04,68.96,0.49,1,False,True
+20260626,75.87,-0.03,70.41,0,68.44,-0.52,0,False,False
 ```
 
 ## Candidate Context

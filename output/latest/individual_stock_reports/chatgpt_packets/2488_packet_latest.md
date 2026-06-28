@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2488 漢平
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:07 Asia/Taipei
+- generated_at: 2026-06-28 22:26:13 Asia/Taipei
 - stock_id: 2488
 - stock_name: 漢平
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.46
-- over_600_ratio: 47.34
-- over_800_ratio: 47.34
-- over_1000_ratio: 45.09
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.18
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 52.88
+- over_600_ratio: 47.28
+- over_800_ratio: 47.28
+- over_1000_ratio: 43.81
+- over_400_change_1w: 0.42
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -1.28
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,52.12,-0.46,46.28,-0.49,45.2,-0.49,0,False,False
 20260612,52.54,0.42,47.43,1.15,45.27,0.07,1,True,True
 20260618,52.46,-0.08,47.34,-0.09,45.09,-0.18,0,False,False
+20260626,52.88,0.42,47.28,-0.06,43.81,-1.28,1,False,False
 ```
 
 ## Candidate Context

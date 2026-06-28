@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2017 官田鋼
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:00 Asia/Taipei
 - stock_id: 2017
 - stock_name: 官田鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.93
-- over_600_ratio: 59.1
-- over_800_ratio: 58.17
-- over_1000_ratio: 57.53
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 62.1
+- over_600_ratio: 59.16
+- over_800_ratio: 58.23
+- over_1000_ratio: 58.01
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.48
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.82,0.48,57.63,0.49,57.22,0.52,5,True,True
 20260612,61.8,-0.02,57.94,0.31,57.5,0.28,6,False,True
 20260618,61.93,0.13,58.17,0.23,57.53,0.03,7,True,True
+20260626,62.1,0.17,58.23,0.06,58.01,0.48,8,True,True
 ```
 
 ## Candidate Context

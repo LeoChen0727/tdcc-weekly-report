@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2023 燁輝
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:52 Asia/Taipei
+- generated_at: 2026-06-28 22:26:00 Asia/Taipei
 - stock_id: 2023
 - stock_name: 燁輝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 78.67
-- over_600_ratio: 77.81
-- over_800_ratio: 77.3
+- as_of_date: 20260626
+- over_400_ratio: 78.58
+- over_600_ratio: 77.71
+- over_800_ratio: 77.16
 - over_1000_ratio: 76.88
-- over_400_change_1w: -0.24
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.23
+- over_400_change_1w: -0.09
+- over_800_change_1w: -0.14
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,78.86,0.23,77.47,0.27,77.11,0.29,2,True,True
 20260612,78.91,0.05,77.47,0,77.11,0,3,False,False
 20260618,78.67,-0.24,77.3,-0.17,76.88,-0.23,0,False,False
+20260626,78.58,-0.09,77.16,-0.14,76.88,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3141 晶宏
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:24 Asia/Taipei
+- generated_at: 2026-06-28 22:26:28 Asia/Taipei
 - stock_id: 3141
 - stock_name: 晶宏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 15.72
-- over_600_ratio: 8.57
-- over_800_ratio: 7.71
+- as_of_date: 20260626
+- over_400_ratio: 15.78
+- over_600_ratio: 9.52
+- over_800_ratio: 7.78
 - over_1000_ratio: 5.21
-- over_400_change_1w: 0.05
-- over_800_change_1w: -0.02
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.07
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,16.73,-1.52,7.78,0.01,5.21,0,1,False,True
 20260612,15.67,-1.06,7.73,-0.05,5.21,0,0,False,False
 20260618,15.72,0.05,7.71,-0.02,5.21,0,1,False,False
+20260626,15.78,0.06,7.78,0.07,5.21,0,2,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2908 特力
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:17 Asia/Taipei
+- generated_at: 2026-06-28 22:26:21 Asia/Taipei
 - stock_id: 2908
 - stock_name: 特力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 91.83
-- over_600_ratio: 90.74
-- over_800_ratio: 90.49
-- over_1000_ratio: 89.77
-- over_400_change_1w: -0.09
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 91.76
+- over_600_ratio: 90.84
+- over_800_ratio: 90.59
+- over_1000_ratio: 89.87
+- over_400_change_1w: -0.07
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,91.87,0.07,90.51,0.17,89.79,0.37,5,True,True
 20260612,91.92,0.05,90.48,-0.03,89.76,-0.03,6,False,False
 20260618,91.83,-0.09,90.49,0.01,89.77,0.01,7,False,True
+20260626,91.76,-0.07,90.59,0.1,89.87,0.1,8,False,True
 ```
 
 ## Candidate Context

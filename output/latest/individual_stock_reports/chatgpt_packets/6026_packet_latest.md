@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6026 福邦證
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:04 Asia/Taipei
 - stock_id: 6026
 - stock_name: 福邦證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 50.03
-- over_600_ratio: 45.86
-- over_800_ratio: 44.13
-- over_1000_ratio: 41.52
-- over_400_change_1w: -0.91
-- over_800_change_1w: -0.59
-- over_1000_change_1w: -1.05
+- as_of_date: 20260626
+- over_400_ratio: 48.43
+- over_600_ratio: 44.27
+- over_800_ratio: 42.2
+- over_1000_ratio: 39.57
+- over_400_change_1w: -1.6
+- over_800_change_1w: -1.93
+- over_1000_change_1w: -1.95
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,52.05,2.01,45.7,1.57,43.85,2.21,2,True,True
 20260612,50.94,-1.11,44.72,-0.98,42.57,-1.28,0,False,False
 20260618,50.03,-0.91,44.13,-0.59,41.52,-1.05,0,False,False
+20260626,48.43,-1.6,42.2,-1.93,39.57,-1.95,0,False,False
 ```
 
 ## Candidate Context

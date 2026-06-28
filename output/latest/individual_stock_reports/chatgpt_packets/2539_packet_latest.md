@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2539 櫻花建
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:09 Asia/Taipei
+- generated_at: 2026-06-28 22:26:15 Asia/Taipei
 - stock_id: 2539
 - stock_name: 櫻花建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 86.81
-- over_600_ratio: 85.68
-- over_800_ratio: 84.96
-- over_1000_ratio: 84.21
-- over_400_change_1w: -0.07
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 86.88
+- over_600_ratio: 85.59
+- over_800_ratio: 85.04
+- over_1000_ratio: 84.29
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,13 +181,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,87.03,-0.1,85.13,-0.08,84.22,-0.31,0,False,False
 20260612,86.88,-0.15,84.96,-0.17,84.21,-0.01,0,False,False
 20260618,86.81,-0.07,84.96,0,84.21,0,1,False,False
+20260626,86.88,0.07,85.04,0.08,84.29,0.08,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2539 | 櫻花建 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:櫻花建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報。 6.報導內容:「櫻花建全年營收有機會維持去年約140億元高水準。」...等內容。 7.發生緣由:澄清媒體報導。 8.因應措施:本公司對外並未公開揭露財務預測，該資訊純屬媒體推估，有關本公司 財務和業務資訊請依公開資訊觀測站公告為準，特此澄清。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260626 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 33.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:櫻花建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報。 6.報導內容:「櫻花建全年營收有機會維持去年約140億元高水準。」...等內容。 7.發生緣由:澄清媒體報導。 8.因應措施:本公司對外並未公開揭露財務預測，該資訊純屬媒體推估，有關本公司 財務和業務資訊請依公開資訊觀測站公告為準，特此澄清。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2539 | 櫻花建 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:櫻花建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報。 6.報導內容:「櫻花建全年營收有機會維持去年約140億元高水準。」...等內容。 7.發生緣由:澄清媒體報導。 8.因應措施:本公司對外並未公開揭露財務預測，該資訊純屬媒體推估，有關本公司 財務和業務資訊請依公開資訊觀測站公告為準，特此澄清。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 33.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:櫻花建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報。 6.報導內容:「櫻花建全年營收有機會維持去年約140億元高水準。」...等內容。 7.發生緣由:澄清媒體報導。 8.因應措施:本公司對外並未公開揭露財務預測，該資訊純屬媒體推估，有關本公司 財務和業務資訊請依公開資訊觀測站公告為準，特此澄清。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

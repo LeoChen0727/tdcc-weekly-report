@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3540 曜越
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:34 Asia/Taipei
+- generated_at: 2026-06-28 22:26:36 Asia/Taipei
 - stock_id: 3540
 - stock_name: 曜越
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 22.64
-- over_600_ratio: 22.06
-- over_800_ratio: 22.06
-- over_1000_ratio: 22.06
-- over_400_change_1w: -0.06
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.05
+- as_of_date: 20260626
+- over_400_ratio: 22.31
+- over_600_ratio: 21.71
+- over_800_ratio: 21.71
+- over_1000_ratio: 21.71
+- over_400_change_1w: -0.33
+- over_800_change_1w: -0.35
+- over_1000_change_1w: -0.35
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,22.79,-0.03,22.18,-0.06,22.18,-0.06,0,False,False
 20260612,22.7,-0.09,22.11,-0.07,22.11,-0.07,0,False,False
 20260618,22.64,-0.06,22.06,-0.05,22.06,-0.05,0,False,False
+20260626,22.31,-0.33,21.71,-0.35,21.71,-0.35,0,False,False
 ```
 
 ## Candidate Context

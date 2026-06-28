@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0071 期街口布蘭特正2
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:30 Asia/Taipei
+- generated_at: 2026-06-28 22:25:41 Asia/Taipei
 - stock_id: 0071
 - stock_name: 期街口布蘭特正2
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 0071 | 期街口布蘭特正2 | 100 | 22 | 1269810.0 | 104870.0 | 12.11 | call_inflow |
+| 20260626 | 0071 | 期街口布蘭特正2 | 100 | 0 | 1269810.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

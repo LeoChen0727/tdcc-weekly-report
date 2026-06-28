@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:31 Asia/Taipei
+- generated_at: 2026-06-28 22:27:24 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.58
-- over_600_ratio: 54.61
-- over_800_ratio: 49.46
-- over_1000_ratio: 45.69
-- over_400_change_1w: -1.23
-- over_800_change_1w: 1.2
-- over_1000_change_1w: -1.41
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 58.67
+- over_600_ratio: 54.92
+- over_800_ratio: 48.67
+- over_1000_ratio: 46.2
+- over_400_change_1w: 1.09
+- over_800_change_1w: -0.79
+- over_1000_change_1w: 0.51
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.42,3.51,50.01,2.86,48.81,5.8,2,True,True
 20260612,58.81,-1.61,48.26,-1.75,47.1,-1.71,0,False,False
 20260618,57.58,-1.23,49.46,1.2,45.69,-1.41,1,False,True
+20260626,58.67,1.09,48.67,-0.79,46.2,0.51,2,False,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6805 | 富世達 | 145 | 4 | 7626910.0 | 0.0 |  | no_signal |
+| 20260626 | 6805 | 富世達 | 145 | 0 | 7626910.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

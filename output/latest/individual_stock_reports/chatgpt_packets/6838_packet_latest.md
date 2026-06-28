@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6838 台新藥
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:32 Asia/Taipei
+- generated_at: 2026-06-28 22:27:25 Asia/Taipei
 - stock_id: 6838
 - stock_name: 台新藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.75
-- over_600_ratio: 57.91
-- over_800_ratio: 56.07
-- over_1000_ratio: 54.99
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260626
+- over_400_ratio: 61.71
+- over_600_ratio: 57.87
+- over_800_ratio: 55.53
+- over_1000_ratio: 55
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.54
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.73,0.01,56.07,0.01,54.99,0.01,2,True,True
 20260612,61.74,0.01,56.07,0,54.99,0,3,False,False
 20260618,61.75,0.01,56.07,0,54.99,0,4,False,False
+20260626,61.71,-0.04,55.53,-0.54,55,0.01,5,False,True
 ```
 
 ## Candidate Context

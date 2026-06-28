@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:46 Asia/Taipei
+- generated_at: 2026-06-28 22:27:38 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 29.59
-- over_600_ratio: 24.35
-- over_800_ratio: 19.99
-- over_1000_ratio: 17.54
-- over_400_change_1w: 0.75
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -1.18
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 28.61
+- over_600_ratio: 24.92
+- over_800_ratio: 20.42
+- over_1000_ratio: 18.02
+- over_400_change_1w: -0.98
+- over_800_change_1w: 0.43
+- over_1000_change_1w: 0.48
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,32.52,-0.41,22.75,-1.34,21.85,-0.61,0,False,False
 20260612,28.84,-3.68,20.34,-2.41,18.72,-3.13,0,False,False
 20260618,29.59,0.75,19.99,-0.35,17.54,-1.18,1,False,False
+20260626,28.61,-0.98,20.42,0.43,18.02,0.48,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:審計委員會 3.舊任者姓名: 呂植富 高坤勇 彭慎翔 4.舊任者簡歷: 呂植富/國巨股份有限公司品質長兼楠梓分公司負責人 高坤勇/有朮股份有限公司董事長 彭慎翔/漢民科技股份有限公司副總經理 5.新任者姓名: 彭慎翔 賴志煌 林子健 6.新任者簡歷: 彭慎翔/漢民科技股份有限公司副總經理 賴志煌/國立清華大學半導體研究學院副院長 林子健/南山人壽證券投資部副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/18 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:審計委員會 3.舊任者姓名: 呂植富 高坤勇 彭慎翔 4.舊任者簡歷: 呂植富/國巨股份有限公司品質長兼楠梓分公司負責人 高坤勇/有朮股份有限公司董事長 彭慎翔/漢民科技股份有限公司副總經理 5.新任者姓名: 彭慎翔 賴志煌 林子健 6.新任者簡歷: 彭慎翔/漢民科技股份有限公司副總經理 賴志煌/國立清華大學半導體研究學院副院長 林子健/南山人壽證券投資部副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/18 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

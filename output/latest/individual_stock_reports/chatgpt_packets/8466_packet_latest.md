@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8466 美吉吉-KY
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:55 Asia/Taipei
+- generated_at: 2026-06-28 22:27:46 Asia/Taipei
 - stock_id: 8466
 - stock_name: 美吉吉-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.02
-- over_600_ratio: 67.99
-- over_800_ratio: 67.99
-- over_1000_ratio: 66.98
-- over_400_change_1w: 0.51
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 77.09
+- over_600_ratio: 68.04
+- over_800_ratio: 68.04
+- over_1000_ratio: 67.02
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,76.49,-0.01,67.98,-0.01,66.97,-0.01,0,False,False
 20260612,76.51,0.02,68,0.02,66.98,0.01,1,True,True
 20260618,77.02,0.51,67.99,-0.01,66.98,0,2,False,False
+20260626,77.09,0.07,68.04,0.05,67.02,0.04,3,True,True
 ```
 
 ## Candidate Context

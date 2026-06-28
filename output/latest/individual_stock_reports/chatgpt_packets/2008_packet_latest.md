@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2008 高興昌
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:51 Asia/Taipei
+- generated_at: 2026-06-28 22:26:00 Asia/Taipei
 - stock_id: 2008
 - stock_name: 高興昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 289
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 92.25
-- over_600_ratio: 91.44
-- over_800_ratio: 91.44
-- over_1000_ratio: 90.92
+- as_of_date: 20260626
+- over_400_ratio: 92.26
+- over_600_ratio: 91.45
+- over_800_ratio: 91.45
+- over_1000_ratio: 90.93
 - over_400_change_1w: 0.01
 - over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 7
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,92.13,-0.22,91.32,0.07,90.8,0.07,5,False,True
 20260612,92.24,0.11,91.43,0.11,90.91,0.11,6,True,True
 20260618,92.25,0.01,91.44,0.01,90.92,0.01,7,True,True
+20260626,92.26,0.01,91.45,0.01,90.93,0.01,8,True,True
 ```
 
 ## Candidate Context

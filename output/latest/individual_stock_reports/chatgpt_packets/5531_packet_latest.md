@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5531 鄉林
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:03 Asia/Taipei
+- generated_at: 2026-06-28 22:27:01 Asia/Taipei
 - stock_id: 5531
 - stock_name: 鄉林
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 86.05
-- over_600_ratio: 84.66
-- over_800_ratio: 84.04
-- over_1000_ratio: 83.59
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 86.06
+- over_600_ratio: 84.68
+- over_800_ratio: 84.06
+- over_1000_ratio: 83.51
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.02
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,86.23,0.13,84.12,0.1,83.5,0.01,5,True,True
 20260612,86.07,-0.16,83.97,-0.15,83.43,-0.07,0,False,False
 20260618,86.05,-0.02,84.04,0.07,83.59,0.16,1,False,True
+20260626,86.06,0.01,84.06,0.02,83.51,-0.08,2,False,True
 ```
 
 ## Candidate Context

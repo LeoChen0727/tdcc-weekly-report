@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9917 中保科
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:59 Asia/Taipei
+- generated_at: 2026-06-28 22:27:49 Asia/Taipei
 - stock_id: 9917
 - stock_name: 中保科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.88
-- over_600_ratio: 75.89
-- over_800_ratio: 73.08
-- over_1000_ratio: 71.33
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.34
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 77.19
+- over_600_ratio: 74.85
+- over_800_ratio: 72.55
+- over_1000_ratio: 71.13
+- over_400_change_1w: -0.69
+- over_800_change_1w: -0.53
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,77.6,0.25,72.78,0.37,71.18,-0.04,5,False,True
 20260612,77.75,0.15,72.74,-0.04,71.34,0.16,6,False,True
 20260618,77.88,0.13,73.08,0.34,71.33,-0.01,7,False,True
+20260626,77.19,-0.69,72.55,-0.53,71.13,-0.2,0,False,False
 ```
 
 ## Candidate Context

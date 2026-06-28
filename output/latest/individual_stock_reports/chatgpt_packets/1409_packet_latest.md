@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1409 新纖
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:38 Asia/Taipei
+- generated_at: 2026-06-28 22:25:49 Asia/Taipei
 - stock_id: 1409
 - stock_name: 新纖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 67.2
-- over_600_ratio: 65.61
-- over_800_ratio: 64.8
-- over_1000_ratio: 64.07
-- over_400_change_1w: -0.27
-- over_800_change_1w: -0.3
-- over_1000_change_1w: -0.2
+- as_of_date: 20260626
+- over_400_ratio: 65.48
+- over_600_ratio: 63.89
+- over_800_ratio: 62.85
+- over_1000_ratio: 61.9
+- over_400_change_1w: -1.72
+- over_800_change_1w: -1.95
+- over_1000_change_1w: -2.17
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,65.94,-0.16,63.52,-0.03,62.67,0.09,1,False,True
 20260410,66.03,0.09,63.61,0.09,62.77,0.1,2,True,True
 20260417,66.81,0.78,64.25,0.64,63.42,0.65,3,True,True
 20260424,65.92,-0.89,63.35,-0.9,62.51,-0.91,0,False,False
@@ -186,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.55,-0.46,65.21,-0.22,64.26,-0.27,0,False,False
 20260612,67.47,-0.08,65.1,-0.11,64.27,0.01,1,False,True
 20260618,67.2,-0.27,64.8,-0.3,64.07,-0.2,0,False,False
+20260626,65.48,-1.72,62.85,-1.95,61.9,-2.17,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1409 | 新纖 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1409 | 新纖 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

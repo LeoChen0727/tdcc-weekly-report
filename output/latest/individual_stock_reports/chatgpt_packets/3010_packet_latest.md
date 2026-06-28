@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3010 華立
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:18 Asia/Taipei
+- generated_at: 2026-06-28 22:26:23 Asia/Taipei
 - stock_id: 3010
 - stock_name: 華立
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 63.79
-- over_600_ratio: 60.15
-- over_800_ratio: 55.64
-- over_1000_ratio: 53.52
-- over_400_change_1w: -0.68
-- over_800_change_1w: 0.16
-- over_1000_change_1w: -0.57
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 62.79
+- over_600_ratio: 59.1
+- over_800_ratio: 55.18
+- over_1000_ratio: 53.79
+- over_400_change_1w: -1
+- over_800_change_1w: -0.46
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.91,0.01,55.95,0.05,54.19,0.05,3,False,True
 20260612,64.47,-0.44,55.48,-0.47,54.09,-0.1,0,False,False
 20260618,63.79,-0.68,55.64,0.16,53.52,-0.57,1,False,True
+20260626,62.79,-1,55.18,-0.46,53.79,0.27,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3010 | 華立 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：臺北茹曦酒店-台北市敦化北路100號 4.法人說明會擇要訊息：本公司受邀參加群益證券所舉辦之「2026年第二季投資論壇」，就公司已公開之財務業務資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 3010 | 華立 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：臺北茹曦酒店-台北市敦化北路100號 4.法人說明會擇要訊息：本公司受邀參加群益證券所舉辦之「2026年第二季投資論壇」，就公司已公開之財務業務資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

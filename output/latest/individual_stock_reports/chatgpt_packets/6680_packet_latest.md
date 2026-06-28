@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6680 鑫創電子
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:27 Asia/Taipei
+- generated_at: 2026-06-28 22:27:21 Asia/Taipei
 - stock_id: 6680
 - stock_name: 鑫創電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 144
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 72.69
-- over_600_ratio: 70.72
-- over_800_ratio: 67.89
-- over_1000_ratio: 64.45
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 72.73
+- over_600_ratio: 70.76
+- over_800_ratio: 67.93
+- over_1000_ratio: 64.49
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -173,7 +173,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,72.53,0.06,67.73,0.08,64.29,0.08,2,True,True
 20260410,72.54,0.01,67.74,0.01,64.3,0.01,3,True,True
 20260417,72.62,0.08,67.77,0.03,64.33,0.03,4,True,True
 20260424,72.62,0,67.77,0,64.33,0,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,72.65,0.02,67.82,0.02,64.38,0.02,1,True,True
 20260612,72.64,-0.01,67.82,0,64.38,0,0,False,False
 20260618,72.69,0.05,67.89,0.07,64.45,0.07,1,True,True
+20260626,72.73,0.04,67.93,0.04,64.49,0.04,2,True,True
 ```
 
 ## Candidate Context

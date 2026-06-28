@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6505 台塑化
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:20 Asia/Taipei
+- generated_at: 2026-06-28 22:27:16 Asia/Taipei
 - stock_id: 6505
 - stock_name: 台塑化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 94.78
-- over_600_ratio: 94.53
-- over_800_ratio: 94.43
-- over_1000_ratio: 94.34
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 94.85
+- over_600_ratio: 94.61
+- over_800_ratio: 94.51
+- over_1000_ratio: 94.41
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,94.81,0.29,94.47,0.3,94.38,0.31,1,True,True
 20260612,94.75,-0.06,94.41,-0.06,94.31,-0.07,0,False,False
 20260618,94.78,0.03,94.43,0.02,94.34,0.03,1,True,True
+20260626,94.85,0.07,94.51,0.08,94.41,0.07,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6505 | 台塑化 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6505 | 台塑化 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6505 | 台塑化 | 41 | 1 | 3859490.0 | 0.0 |  | call_inflow |
+| 20260626 | 6505 | 台塑化 | 41 | 0 | 3859490.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2816 旺旺保
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:14 Asia/Taipei
+- generated_at: 2026-06-28 22:26:19 Asia/Taipei
 - stock_id: 2816
 - stock_name: 旺旺保
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 79.21
-- over_600_ratio: 76.69
-- over_800_ratio: 75.16
-- over_1000_ratio: 74.75
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.45
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 79.08
+- over_600_ratio: 76.75
+- over_800_ratio: 75.19
+- over_1000_ratio: 74.78
+- over_400_change_1w: -0.13
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,79.33,0.01,76.05,0.01,74.82,0.01,13,True,True
 20260410,79.16,-0.17,76.07,0.02,74.84,0.02,14,False,True
 20260417,79.14,-0.02,76.09,0.02,74.86,0.02,15,False,True
 20260424,79.22,0.08,76.16,0.07,74.93,0.07,16,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.54,-0.17,75.67,-0.25,74.89,-0.61,22,False,False
 20260612,79.67,0.13,75.61,-0.06,74.83,-0.06,23,False,False
 20260618,79.21,-0.46,75.16,-0.45,74.75,-0.08,0,False,False
+20260626,79.08,-0.13,75.19,0.03,74.78,0.03,1,False,True
 ```
 
 ## Candidate Context

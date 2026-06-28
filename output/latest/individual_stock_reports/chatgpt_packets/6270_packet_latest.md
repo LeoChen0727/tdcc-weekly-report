@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6270 倍微
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:16 Asia/Taipei
+- generated_at: 2026-06-28 22:27:12 Asia/Taipei
 - stock_id: 6270
 - stock_name: 倍微
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 43.43
-- over_600_ratio: 40.92
-- over_800_ratio: 38.99
-- over_1000_ratio: 36.56
-- over_400_change_1w: -1.26
-- over_800_change_1w: -1.47
-- over_1000_change_1w: -1.5
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 46.28
+- over_600_ratio: 43.22
+- over_800_ratio: 41.37
+- over_1000_ratio: 40.14
+- over_400_change_1w: 2.85
+- over_800_change_1w: 2.38
+- over_1000_change_1w: 3.58
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,44.15,1.64,37.88,-1.17,36.59,0,2,False,False
 20260612,44.69,0.54,40.46,2.58,38.06,1.47,3,True,True
 20260618,43.43,-1.26,38.99,-1.47,36.56,-1.5,0,False,False
+20260626,46.28,2.85,41.37,2.38,40.14,3.58,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6270 | 倍微 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6270 | 倍微 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3481 群創
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:32 Asia/Taipei
+- generated_at: 2026-06-28 22:26:35 Asia/Taipei
 - stock_id: 3481
 - stock_name: 群創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 45.84
-- over_600_ratio: 43.72
-- over_800_ratio: 42.37
-- over_1000_ratio: 41.48
-- over_400_change_1w: 1.25
-- over_800_change_1w: 1.23
-- over_1000_change_1w: 1.26
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 44.55
+- over_600_ratio: 42.49
+- over_800_ratio: 41.05
+- over_1000_ratio: 40.16
+- over_400_change_1w: -1.29
+- over_800_change_1w: -1.32
+- over_1000_change_1w: -1.32
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.65,1.36,42.09,1.42,41.17,1.61,1,True,True
 20260612,44.59,-1.06,41.14,-0.95,40.22,-0.95,0,False,False
 20260618,45.84,1.25,42.37,1.23,41.48,1.26,1,True,True
+20260626,44.55,-1.29,41.05,-1.32,40.16,-1.32,0,False,False
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3481 | 群創 | 131 | 18 | 102731860.0 | 459220.0 | 223.71 | no_signal |
+| 20260626 | 3481 | 群創 | 131 | 0 | 102731860.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

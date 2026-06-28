@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5522 遠雄
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:03 Asia/Taipei
+- generated_at: 2026-06-28 22:27:01 Asia/Taipei
 - stock_id: 5522
 - stock_name: 遠雄
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 89.66
-- over_600_ratio: 88.73
-- over_800_ratio: 88.03
-- over_1000_ratio: 87.26
-- over_400_change_1w: 0.12
-- over_800_change_1w: -0.18
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 88.72
+- over_600_ratio: 87.76
+- over_800_ratio: 87.15
+- over_1000_ratio: 86.61
+- over_400_change_1w: -0.94
+- over_800_change_1w: -0.88
+- over_1000_change_1w: -0.65
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,89.3,0.26,87.81,0.06,87.04,0.29,3,True,True
 20260612,89.54,0.24,88.21,0.4,87.21,0.17,4,True,True
 20260618,89.66,0.12,88.03,-0.18,87.26,0.05,5,False,True
+20260626,88.72,-0.94,87.15,-0.88,86.61,-0.65,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市松山區東興路8號3樓 4.法人說明會擇要訊息：本公司受邀參加統一證券舉辦之法說會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260626 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市松山區東興路8號3樓 4.法人說明會擇要訊息：本公司受邀參加統一證券舉辦之法說會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

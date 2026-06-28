@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7740 熙特爾-創
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:43 Asia/Taipei
+- generated_at: 2026-06-28 22:27:36 Asia/Taipei
 - stock_id: 7740
 - stock_name: 熙特爾-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 246
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 65.14
-- over_600_ratio: 59.72
-- over_800_ratio: 57.07
-- over_1000_ratio: 57.07
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.09
+- as_of_date: 20260626
+- over_400_ratio: 64.84
+- over_600_ratio: 59.44
+- over_800_ratio: 56.76
+- over_1000_ratio: 56.76
+- over_400_change_1w: -0.3
+- over_800_change_1w: -0.31
+- over_1000_change_1w: -0.31
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,66.11,0.36,57.26,-0.39,55.39,-0.41,3,False,False
 20260612,65.21,-0.9,57.16,-0.1,57.16,1.77,4,False,True
 20260618,65.14,-0.07,57.07,-0.09,57.07,-0.09,0,False,False
+20260626,64.84,-0.3,56.76,-0.31,56.76,-0.31,0,False,False
 ```
 
 ## Candidate Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:31 Asia/Taipei
+- generated_at: 2026-06-28 22:25:42 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet

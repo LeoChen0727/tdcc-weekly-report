@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:33 Asia/Taipei
+- generated_at: 2026-06-28 22:27:26 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.7
+- as_of_date: 20260626
+- over_400_ratio: 61.73
 - over_600_ratio: 57.01
-- over_800_ratio: 53.78
-- over_1000_ratio: 53.15
-- over_400_change_1w: -0.25
-- over_800_change_1w: -0.57
+- over_800_ratio: 53.79
+- over_1000_ratio: 53.16
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,62.39,0.77,54.88,1,53.6,0.35,5,True,True
 20260612,61.95,-0.44,54.35,-0.53,53.14,-0.46,0,False,False
 20260618,61.7,-0.25,53.78,-0.57,53.15,0.01,1,False,True
+20260626,61.73,0.03,53.79,0.01,53.16,0.01,2,False,True
 ```
 
 ## Candidate Context

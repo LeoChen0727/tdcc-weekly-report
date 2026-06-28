@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2607 榮運
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:10 Asia/Taipei
+- generated_at: 2026-06-28 22:26:16 Asia/Taipei
 - stock_id: 2607
 - stock_name: 榮運
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 286
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 77.28
-- over_600_ratio: 74.86
-- over_800_ratio: 73.12
-- over_1000_ratio: 70.41
-- over_400_change_1w: -0.26
-- over_800_change_1w: 0.09
-- over_1000_change_1w: -0.21
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 77.21
+- over_600_ratio: 74.74
+- over_800_ratio: 72.83
+- over_1000_ratio: 70.42
+- over_400_change_1w: -0.07
+- over_800_change_1w: -0.29
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,77.46,0.24,73.05,-0.06,70.47,-0.09,3,False,False
 20260612,77.54,0.08,73.03,-0.02,70.62,0.15,4,False,True
 20260618,77.28,-0.26,73.12,0.09,70.41,-0.21,5,False,True
+20260626,77.21,-0.07,72.83,-0.29,70.42,0.01,6,False,True
 ```
 
 ## Candidate Context

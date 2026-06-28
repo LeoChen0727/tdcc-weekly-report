@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3004 豐達科
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:18 Asia/Taipei
+- generated_at: 2026-06-28 22:26:23 Asia/Taipei
 - stock_id: 3004
 - stock_name: 豐達科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.74
-- over_600_ratio: 55.63
-- over_800_ratio: 50.46
-- over_1000_ratio: 47.9
-- over_400_change_1w: 2.02
-- over_800_change_1w: 0.54
-- over_1000_change_1w: 1.88
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 60.02
+- over_600_ratio: 54.72
+- over_800_ratio: 49.4
+- over_1000_ratio: 48.13
+- over_400_change_1w: -0.72
+- over_800_change_1w: -1.06
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,59.19,0.33,50.6,-0.66,47.93,-2.06,1,False,False
 20260612,58.72,-0.47,49.92,-0.68,46.02,-1.91,2,False,False
 20260618,60.74,2.02,50.46,0.54,47.9,1.88,3,True,True
+20260626,60.02,-0.72,49.4,-1.06,48.13,0.23,4,False,True
 ```
 
 ## Candidate Context

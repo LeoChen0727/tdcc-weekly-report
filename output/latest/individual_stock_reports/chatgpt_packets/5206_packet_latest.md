@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5206 坤悅
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:56 Asia/Taipei
+- generated_at: 2026-06-28 22:26:55 Asia/Taipei
 - stock_id: 5206
 - stock_name: 坤悅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 85.32
-- over_600_ratio: 82.8
+- as_of_date: 20260626
+- over_400_ratio: 85.6
+- over_600_ratio: 82.81
 - over_800_ratio: 81.3
 - over_1000_ratio: 80.32
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,85.26,-0.57,81.26,-0.57,80.28,0,0,False,False
 20260612,85.18,-0.08,81.16,-0.1,80.18,-0.1,0,False,False
 20260618,85.32,0.14,81.3,0.14,80.32,0.14,1,True,True
+20260626,85.6,0.28,81.3,0,80.32,0,2,False,False
 ```
 
 ## Candidate Context

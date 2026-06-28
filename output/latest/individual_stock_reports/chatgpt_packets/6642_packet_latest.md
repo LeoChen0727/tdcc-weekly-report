@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6642 富致
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:25 Asia/Taipei
+- generated_at: 2026-06-28 22:27:20 Asia/Taipei
 - stock_id: 6642
 - stock_name: 富致
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,12 +158,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.99
+- as_of_date: 20260626
+- over_400_ratio: 54.87
 - over_600_ratio: 54.87
 - over_800_ratio: 51.14
 - over_1000_ratio: 46.24
-- over_400_change_1w: -0.06
+- over_400_change_1w: -1.12
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.82,-5.67,51.14,-3.3,46.24,-3.3,0,False,False
 20260612,56.05,-1.77,51.14,0,46.24,0,0,False,False
 20260618,55.99,-0.06,51.14,0,46.24,0,0,False,False
+20260626,54.87,-1.12,51.14,0,46.24,0,0,False,False
 ```
 
 ## Candidate Context

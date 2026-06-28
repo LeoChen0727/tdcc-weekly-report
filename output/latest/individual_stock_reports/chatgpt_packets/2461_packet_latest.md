@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2461 光群雷
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:05 Asia/Taipei
+- generated_at: 2026-06-28 22:26:11 Asia/Taipei
 - stock_id: 2461
 - stock_name: 光群雷
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 46.99
-- over_600_ratio: 43.12
-- over_800_ratio: 39.16
-- over_1000_ratio: 36.61
-- over_400_change_1w: -0.42
-- over_800_change_1w: -0.44
-- over_1000_change_1w: -1.48
+- as_of_date: 20260626
+- over_400_ratio: 46.27
+- over_600_ratio: 42.08
+- over_800_ratio: 38.47
+- over_1000_ratio: 36.44
+- over_400_change_1w: -0.72
+- over_800_change_1w: -0.69
+- over_1000_change_1w: -0.17
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,47.93,0.61,38.77,-0.2,36.82,-0.68,1,False,False
 20260612,47.41,-0.52,39.6,0.83,38.09,1.27,2,False,True
 20260618,46.99,-0.42,39.16,-0.44,36.61,-1.48,0,False,False
+20260626,46.27,-0.72,38.47,-0.69,36.44,-0.17,0,False,False
 ```
 
 ## Candidate Context

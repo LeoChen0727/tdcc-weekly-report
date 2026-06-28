@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:21 Asia/Taipei
+- generated_at: 2026-06-28 22:26:25 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 92.5
-- over_600_ratio: 91.63
-- over_800_ratio: 90.95
-- over_1000_ratio: 90.32
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260626
+- over_400_ratio: 92.66
+- over_600_ratio: 91.76
+- over_800_ratio: 91.1
+- over_1000_ratio: 90.38
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.15
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,91.66,0.06,90.28,0.04,89.51,0.04,7,True,True
 20260410,91.68,0.02,90.26,-0.02,89.56,0.05,8,False,True
 20260417,91.69,0.01,90.25,-0.01,89.5,-0.06,9,False,False
 20260424,91.87,0.18,90.48,0.23,89.78,0.28,10,True,True
@@ -186,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,91.91,0.25,90.37,0.22,89.72,0.2,1,True,True
 20260612,92.37,0.46,90.83,0.46,90.11,0.39,2,True,True
 20260618,92.5,0.13,90.95,0.12,90.32,0.21,3,True,True
+20260626,92.66,0.16,91.1,0.15,90.38,0.06,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發4.8元(現金股利3.9834元、資本公積現金返還0.8166元)。 3.變更後發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發約4.74428元(現金股利3.93716元、資本公積現金返還0.80712元)。 4.變更原因:依115年股東常會決議，每股現金股利及資本公積現金返還金額依除息 基準日實際流通在外股數計算。 5.其他應敘明事項: 本公司股東台信電訊(股)公司、台固新創投資(股)公司及台灣固網(股)公司拋棄領取 所持股份之現金股利及資本公積資本公積現金返還，本公司並將其比例分派與其餘股 東。本公司流通在外股數3,723,431,015股，扣除上述三家公司拋棄領取現金股利及 資本公積現金返還之股數663,403,601股，以實際領取股數3,060,027,414股計算每股 配發金額。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發4.8元(現金股利3.9834元、資本公積現金返還0.8166元)。 3.變更後發放股利種類及金額: 現金股利新台幣12,047,833,971元及資本公積現金返還新台幣2,469,815,038元，每股 配發約4.74428元(現金股利3.93716元、資本公積現金返還0.80712元)。 4.變更原因:依115年股東常會決議，每股現金股利及資本公積現金返還金額依除息 基準日實際流通在外股數計算。 5.其他應敘明事項: 本公司股東台信電訊(股)公司、台固新創投資(股)公司及台灣固網(股)公司拋棄領取 所持股份之現金股利及資本公積資本公積現金返還，本公司並將其比例分派與其餘股 東。本公司流通在外股數3,723,431,015股，扣除上述三家公司拋棄領取現金股利及 資本公積現金返還之股數663,403,601股，以實際領取股數3,060,027,414股計算每股 配發金額。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

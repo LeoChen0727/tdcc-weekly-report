@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6187 萬潤
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:11 Asia/Taipei
+- generated_at: 2026-06-28 22:27:08 Asia/Taipei
 - stock_id: 6187
 - stock_name: 萬潤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.25
-- over_600_ratio: 42.9
-- over_800_ratio: 38.96
-- over_1000_ratio: 34.04
-- over_400_change_1w: -1.09
-- over_800_change_1w: -1.87
-- over_1000_change_1w: -2.06
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 51.27
+- over_600_ratio: 42.92
+- over_800_ratio: 37.89
+- over_1000_ratio: 32.98
+- over_400_change_1w: -0.98
+- over_800_change_1w: -1.07
+- over_1000_change_1w: -1.06
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,52,-6.16,40.7,-5.44,36.86,-5.39,0,False,False
 20260612,53.34,1.34,40.83,0.13,36.1,-0.76,1,False,True
 20260618,52.25,-1.09,38.96,-1.87,34.04,-2.06,0,False,False
+20260626,51.27,-0.98,37.89,-1.07,32.98,-1.06,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/26 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因高雄市政府已於115年6月26日凌晨宣布，依據氣象預報及預估雨量已達 停止上班及停止上課標準，公告115年6月26日停止上班及停止上課，爰發布本重大訊息 說明。 6.因應措施:本公司115年股東常會不受高雄市政府停止上班及停止上課公告影響，仍依 原訂日期、時間及地點照常舉行。股東常會將於115年6月26日上午9時整， 假高雄市路竹區路科五路23號（國際會議廳）召開，會議將依原訂議程照常進行。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/26 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因高雄市政府已於115年6月26日凌晨宣布，依據氣象預報及預估雨量已達 停止上班及停止上課標準，公告115年6月26日停止上班及停止上課，爰發布本重大訊息 說明。 6.因應措施:本公司115年股東常會不受高雄市政府停止上班及停止上課公告影響，仍依 原訂日期、時間及地點照常舉行。股東常會將於115年6月26日上午9時整， 假高雄市路竹區路科五路23號（國際會議廳）召開，會議將依原訂議程照常進行。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

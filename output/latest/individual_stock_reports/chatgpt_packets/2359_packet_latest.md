@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2359 所羅門
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:59 Asia/Taipei
+- generated_at: 2026-06-28 22:26:06 Asia/Taipei
 - stock_id: 2359
 - stock_name: 所羅門
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 44.84
-- over_600_ratio: 42.9
-- over_800_ratio: 41.65
-- over_1000_ratio: 38.02
-- over_400_change_1w: -0.74
-- over_800_change_1w: 0.25
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260626
+- over_400_ratio: 45.12
+- over_600_ratio: 43.74
+- over_800_ratio: 41.74
+- over_1000_ratio: 38.1
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,45.52,-0.37,41.32,0,38.16,0,3,False,False
 20260612,45.58,0.06,41.4,0.08,38.14,-0.02,4,False,True
 20260618,44.84,-0.74,41.65,0.25,38.02,-0.12,5,False,True
+20260626,45.12,0.28,41.74,0.09,38.1,0.08,6,True,True
 ```
 
 ## Candidate Context

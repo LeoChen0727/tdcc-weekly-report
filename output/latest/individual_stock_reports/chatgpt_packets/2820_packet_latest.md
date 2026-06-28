@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2820 華票
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:14 Asia/Taipei
+- generated_at: 2026-06-28 22:26:19 Asia/Taipei
 - stock_id: 2820
 - stock_name: 華票
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 66.56
-- over_600_ratio: 64.69
+- as_of_date: 20260626
+- over_400_ratio: 66.62
+- over_600_ratio: 64.76
 - over_800_ratio: 63.49
-- over_1000_ratio: 62.64
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.38
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- over_1000_ratio: 62.71
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -186,13 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,65.96,0.12,63.04,0.27,62.33,0.2,1,True,True
 20260612,66.35,0.39,63.11,0.07,62.47,0.14,2,True,True
 20260618,66.56,0.21,63.49,0.38,62.64,0.17,3,True,True
+20260626,66.62,0.06,63.49,0,62.71,0.07,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2820 | 華票 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北市信義區信義路五段7號台灣證券交易所1樓資訊展示中心(101辦公大樓) 4.法人說明會擇要訊息：2026年第一季營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
-| 20260626 | 2820 | 華票 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北市信義區信義路五段7號台灣證券交易所1樓資訊展示中心(101辦公大樓) 4.法人說明會擇要訊息：2026年第一季營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 2820 | 華票 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北市信義區信義路五段7號台灣證券交易所1樓資訊展示中心(101辦公大樓) 4.法人說明會擇要訊息：2026年第一季營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260626 | 2820 | 華票 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北市信義區信義路五段7號台灣證券交易所1樓資訊展示中心(101辦公大樓) 4.法人說明會擇要訊息：2026年第一季營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

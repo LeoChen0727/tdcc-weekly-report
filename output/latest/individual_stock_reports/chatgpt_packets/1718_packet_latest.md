@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1718 中纖
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:48 Asia/Taipei
+- generated_at: 2026-06-28 22:25:56 Asia/Taipei
 - stock_id: 1718
 - stock_name: 中纖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 54.91
-- over_600_ratio: 52.35
-- over_800_ratio: 50.91
-- over_1000_ratio: 49.8
-- over_400_change_1w: 0.25
-- over_800_change_1w: 0.29
-- over_1000_change_1w: 0.35
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 56.17
+- over_600_ratio: 53.65
+- over_800_ratio: 52.23
+- over_1000_ratio: 51.29
+- over_400_change_1w: 1.26
+- over_800_change_1w: 1.32
+- over_1000_change_1w: 1.49
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,57.16,1.3,52.67,1.46,51.38,1.62,2,True,True
 20260612,54.66,-2.5,50.62,-2.05,49.45,-1.93,0,False,False
 20260618,54.91,0.25,50.91,0.29,49.8,0.35,1,True,True
+20260626,56.17,1.26,52.23,1.32,51.29,1.49,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1718 | 中纖 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 1718 | 中纖 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

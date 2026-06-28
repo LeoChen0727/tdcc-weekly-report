@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6692 進能服
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:27 Asia/Taipei
+- generated_at: 2026-06-28 22:27:21 Asia/Taipei
 - stock_id: 6692
 - stock_name: 進能服
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 155
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 71.33
-- over_600_ratio: 65.39
-- over_800_ratio: 62.92
-- over_1000_ratio: 61.44
-- over_400_change_1w: 0.05
+- as_of_date: 20260626
+- over_400_ratio: 71.39
+- over_600_ratio: 65.45
+- over_800_ratio: 62.98
+- over_1000_ratio: 61.5
+- over_400_change_1w: 0.06
 - over_800_change_1w: 0.06
 - over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,71.28,0,62.86,0,61.38,0,0,False,False
 20260612,71.28,0,62.86,0,61.38,0,0,False,False
 20260618,71.33,0.05,62.92,0.06,61.44,0.06,1,True,True
+20260626,71.39,0.06,62.98,0.06,61.5,0.06,2,True,True
 ```
 
 ## Candidate Context

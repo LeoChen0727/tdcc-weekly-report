@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5512 力麒
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:03 Asia/Taipei
+- generated_at: 2026-06-28 22:27:01 Asia/Taipei
 - stock_id: 5512
 - stock_name: 力麒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.07
-- over_600_ratio: 58.48
-- over_800_ratio: 56.25
-- over_1000_ratio: 54.66
-- over_400_change_1w: 0.27
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 61.27
+- over_600_ratio: 58.68
+- over_800_ratio: 56.36
+- over_1000_ratio: 54.77
+- over_400_change_1w: 0.2
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.54,0.14,55.5,-0.12,54.13,0.11,5,False,True
 20260612,60.8,0.26,56.05,0.55,54.47,0.34,6,True,True
 20260618,61.07,0.27,56.25,0.2,54.66,0.19,7,True,True
+20260626,61.27,0.2,56.36,0.11,54.77,0.11,8,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1225 福懋油
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:35 Asia/Taipei
+- generated_at: 2026-06-28 22:25:46 Asia/Taipei
 - stock_id: 1225
 - stock_name: 福懋油
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 241
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 89.53
 - over_600_ratio: 88.55
 - over_800_ratio: 87.72
 - over_1000_ratio: 87.01
-- over_400_change_1w: 0.58
-- over_800_change_1w: 0.8
-- over_1000_change_1w: 0.8
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,89.26,0.17,86.87,-0.01,86.16,-0.01,1,False,False
 20260612,88.95,-0.31,86.92,0.05,86.21,0.05,2,False,True
 20260618,89.53,0.58,87.72,0.8,87.01,0.8,3,True,True
+20260626,89.53,0,87.72,0,87.01,0,0,False,False
 ```
 
 ## Candidate Context

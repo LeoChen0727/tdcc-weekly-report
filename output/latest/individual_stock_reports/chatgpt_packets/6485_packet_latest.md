@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6485 點序
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:20 Asia/Taipei
+- generated_at: 2026-06-28 22:27:15 Asia/Taipei
 - stock_id: 6485
 - stock_name: 點序
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 27.56
-- over_600_ratio: 24.66
-- over_800_ratio: 19.1
+- as_of_date: 20260626
+- over_400_ratio: 26.34
+- over_600_ratio: 23.48
+- over_800_ratio: 20.82
 - over_1000_ratio: 19.1
-- over_400_change_1w: -0.25
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: -1.22
+- over_800_change_1w: 1.72
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,36.56,2.05,28.04,5.53,22.52,3.89,4,True,True
 20260612,27.81,-8.75,19.06,-8.98,19.06,-3.46,0,False,False
 20260618,27.56,-0.25,19.1,0.04,19.1,0.04,1,False,True
+20260626,26.34,-1.22,20.82,1.72,19.1,0,2,False,True
 ```
 
 ## Candidate Context

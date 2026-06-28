@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:41 Asia/Taipei
+- generated_at: 2026-06-28 22:26:42 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 42.89
-- over_600_ratio: 39.83
-- over_800_ratio: 37.7
-- over_1000_ratio: 36.48
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 42.97
+- over_600_ratio: 39.5
+- over_800_ratio: 37.62
+- over_1000_ratio: 36.24
+- over_400_change_1w: 0.08
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -0.24
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,43.15,-0.16,37.91,-0.19,36.53,-0.2,0,False,False
 20260612,42.78,-0.37,37.64,-0.27,36.42,-0.11,0,False,False
 20260618,42.89,0.11,37.7,0.06,36.48,0.06,1,True,True
+20260626,42.97,0.08,37.62,-0.08,36.24,-0.24,2,False,False
 ```
 
 ## Candidate Context

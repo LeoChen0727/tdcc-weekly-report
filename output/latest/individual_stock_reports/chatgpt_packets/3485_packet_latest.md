@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3485 敘豐
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:32 Asia/Taipei
+- generated_at: 2026-06-28 22:26:35 Asia/Taipei
 - stock_id: 3485
 - stock_name: 敘豐
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260626
 - price_rows: 38
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,12 +157,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.45
+- as_of_date: 20260626
+- over_400_ratio: 52.36
 - over_600_ratio: 46.71
 - over_800_ratio: 37.98
 - over_1000_ratio: 33.55
-- over_400_change_1w: 0
+- over_400_change_1w: -0.09
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,52.48,-0.3,37.98,0,33.55,0,0,False,False
 20260612,52.45,-0.03,37.98,0,33.55,0,0,False,False
 20260618,52.45,0,37.98,0,33.55,0,0,False,False
+20260626,52.36,-0.09,37.98,0,33.55,0,0,False,False
 ```
 
 ## Candidate Context

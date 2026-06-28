@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1217 愛之味
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:35 Asia/Taipei
+- generated_at: 2026-06-28 22:25:45 Asia/Taipei
 - stock_id: 1217
 - stock_name: 愛之味
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 60.37
-- over_600_ratio: 57.53
-- over_800_ratio: 56.01
-- over_1000_ratio: 53.09
+- as_of_date: 20260626
+- over_400_ratio: 60.45
+- over_600_ratio: 57.39
+- over_800_ratio: 55.86
+- over_1000_ratio: 52.92
 - over_400_change_1w: 0.08
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 7
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,60.62,0.09,56.2,0.05,54.01,0.25,18,True,True
 20260410,60.46,-0.16,56.18,-0.02,54.17,0.16,19,False,True
 20260417,60.37,-0.09,55.98,-0.2,53.97,-0.2,0,False,False
 20260424,60.19,-0.18,55.89,-0.09,53.88,-0.09,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,60.18,0.19,55.63,-0.07,53.06,-0.25,5,False,False
 20260612,60.29,0.11,55.76,0.13,53.02,-0.04,6,False,True
 20260618,60.37,0.08,56.01,0.25,53.09,0.07,7,False,True
+20260626,60.45,0.08,55.86,-0.15,52.92,-0.17,8,False,False
 ```
 
 ## Candidate Context

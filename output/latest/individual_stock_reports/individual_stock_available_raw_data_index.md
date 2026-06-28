@@ -1,6 +1,6 @@
 # Individual Stock Available Raw Data Index
 
-- generated_at: 2026-06-27 22:25:59 Asia/Taipei
+- generated_at: 2026-06-28 22:28:50 Asia/Taipei
 - total_stocks: 2399
 - standard_rawdata_report: 1966
 - partial_rawdata_report: 410
@@ -198,26 +198,26 @@
 | 009823 | 群益S&P500 | 2 | 0 | 20260626 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 009824 | 群益美國科技巨頭 | 2 | 0 | 20260626 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 0200 | 兆豐半導體氣候N | 1 | 0 | 20250407 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 1101 | 台泥 | 291 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1102 | 亞泥 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1103 | 嘉泥 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1104 | 環泥 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1108 | 幸福 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1109 | 信大 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1110 | 東泥 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1201 | 味全 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1203 | 味王 | 291 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1210 | 大成 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1213 | 大飲 | 275 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1215 | 卜蜂 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1216 | 統一 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1217 | 愛之味 | 292 | 30 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1218 | 泰山 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1219 | 福壽 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1220 | 台榮 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1225 | 福懋油 | 241 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1227 | 佳格 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1229 | 聯華 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
-| 1231 | 聯華食 | 292 | 8 | 20260626 | 20260618 | False | False | standard_rawdata_report |  |
+| 1101 | 台泥 | 291 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1102 | 亞泥 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1103 | 嘉泥 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1104 | 環泥 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1108 | 幸福 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1109 | 信大 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1110 | 東泥 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1201 | 味全 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1203 | 味王 | 291 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1210 | 大成 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1213 | 大飲 | 275 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1215 | 卜蜂 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1216 | 統一 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1217 | 愛之味 | 292 | 31 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1218 | 泰山 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1219 | 福壽 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1220 | 台榮 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1225 | 福懋油 | 241 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1227 | 佳格 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1229 | 聯華 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
+| 1231 | 聯華食 | 292 | 9 | 20260626 | 20260626 | False | False | standard_rawdata_report |  |
 
 _Only first 200 rows shown. Use the CSV for the full index._

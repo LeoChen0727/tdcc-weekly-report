@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1760 寶齡富錦
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:49 Asia/Taipei
+- generated_at: 2026-06-28 22:25:58 Asia/Taipei
 - stock_id: 1760
 - stock_name: 寶齡富錦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 30
+- latest_tdcc_date: 20260626
+- tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 42.52
-- over_600_ratio: 37.54
-- over_800_ratio: 34.9
+- as_of_date: 20260626
+- over_400_ratio: 42.53
+- over_600_ratio: 37.55
+- over_800_ratio: 35.84
 - over_1000_ratio: 33.91
-- over_400_change_1w: -0.03
-- over_800_change_1w: -0.96
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.94
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260402,42.15,0.16,34.56,0.07,32.41,0,3,False,True
 20260410,42.11,-0.04,34.47,-0.09,32.4,-0.01,0,False,False
 20260417,42.23,0.12,34.53,0.06,32.39,-0.01,1,False,True
 20260424,42.8,0.57,35.56,1.03,32.39,0,2,False,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,42.56,0.02,35.87,0.02,33.89,0.09,8,True,True
 20260612,42.55,-0.01,35.86,-0.01,33.91,0.02,9,False,True
 20260618,42.52,-0.03,34.9,-0.96,33.91,0,0,False,False
+20260626,42.53,0.01,35.84,0.94,33.91,0,1,False,True
 ```
 
 ## Candidate Context

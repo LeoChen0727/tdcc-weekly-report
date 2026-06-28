@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8454 富邦媒
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:55 Asia/Taipei
+- generated_at: 2026-06-28 22:27:45 Asia/Taipei
 - stock_id: 8454
 - stock_name: 富邦媒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 82.25
-- over_600_ratio: 81.29
-- over_800_ratio: 80.51
-- over_1000_ratio: 79.89
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0.27
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 81.7
+- over_600_ratio: 80.56
+- over_800_ratio: 80.07
+- over_1000_ratio: 79.74
+- over_400_change_1w: -0.55
+- over_800_change_1w: -0.44
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,79.74,0.17,77.23,0.63,76.93,1.33,5,True,True
 20260612,82.35,2.61,80.24,3.01,79.94,3.01,6,True,True
 20260618,82.25,-0.1,80.51,0.27,79.89,-0.05,7,False,True
+20260626,81.7,-0.55,80.07,-0.44,79.74,-0.15,0,False,False
 ```
 
 ## Candidate Context

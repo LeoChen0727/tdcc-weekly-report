@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6217 中探針
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:13 Asia/Taipei
+- generated_at: 2026-06-28 22:27:09 Asia/Taipei
 - stock_id: 6217
 - stock_name: 中探針
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 32.23
-- over_600_ratio: 29.98
-- over_800_ratio: 25.24
-- over_1000_ratio: 22.33
-- over_400_change_1w: -1.18
-- over_800_change_1w: 1.25
-- over_1000_change_1w: 2.1
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 29.51
+- over_600_ratio: 27.16
+- over_800_ratio: 23.62
+- over_1000_ratio: 21.33
+- over_400_change_1w: -2.72
+- over_800_change_1w: -1.62
+- over_1000_change_1w: -1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.03,-2.51,26.92,-0.68,23.35,-1.29,0,False,False
 20260612,33.41,-0.62,23.99,-2.93,20.23,-3.12,0,False,False
 20260618,32.23,-1.18,25.24,1.25,22.33,2.1,1,False,True
+20260626,29.51,-2.72,23.62,-1.62,21.33,-1,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6217 | 中探針 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | continued_overheated | 1.股東常會日期:115/06/22 2.重要決議事項一、盈餘分配或盈虧撥補:票決通過承認114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:票決通過承認114年度營業報告書及 財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:票決通過擬修訂本公司背書保證辦法案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 6217 | 中探針 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | continued_overheated | 1.股東常會日期:115/06/22 2.重要決議事項一、盈餘分配或盈虧撥補:票決通過承認114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:票決通過承認114年度營業報告書及 財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:票決通過擬修訂本公司背書保證辦法案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

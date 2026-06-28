@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3030 德律
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:20 Asia/Taipei
+- generated_at: 2026-06-28 22:26:24 Asia/Taipei
 - stock_id: 3030
 - stock_name: 德律
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.79
-- over_600_ratio: 54.66
-- over_800_ratio: 53.25
-- over_1000_ratio: 51.01
-- over_400_change_1w: -0.5
-- over_800_change_1w: -0.37
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260626
+- over_400_ratio: 58.35
+- over_600_ratio: 54.79
+- over_800_ratio: 53.16
+- over_1000_ratio: 51.29
+- over_400_change_1w: 0.56
+- over_800_change_1w: -0.09
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,59.34,-2.06,54.95,-1.17,52.43,-1.9,0,False,False
 20260612,58.29,-1.05,53.62,-1.33,51.03,-1.4,0,False,False
 20260618,57.79,-0.5,53.25,-0.37,51.01,-0.02,0,False,False
+20260626,58.35,0.56,53.16,-0.09,51.29,0.28,1,False,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3030 | 德律 | 156 | 7 | 8229680.0 | 6180.0 | 1331.66 | no_signal |
+| 20260626 | 3030 | 德律 | 156 | 0 | 8229680.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

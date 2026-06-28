@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6982 大井泵浦
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:36 Asia/Taipei
+- generated_at: 2026-06-28 22:27:29 Asia/Taipei
 - stock_id: 6982
 - stock_name: 大井泵浦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 64.95
-- over_600_ratio: 57.06
-- over_800_ratio: 55.35
-- over_1000_ratio: 53.35
+- as_of_date: 20260626
+- over_400_ratio: 64.97
+- over_600_ratio: 57.08
+- over_800_ratio: 55.37
+- over_1000_ratio: 53.37
 - over_400_change_1w: 0.02
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,64.93,0,55.35,0,53.35,0,0,False,False
 20260612,64.93,0,55.35,0,53.35,0,0,False,False
 20260618,64.95,0.02,55.35,0,53.35,0,1,False,False
+20260626,64.97,0.02,55.37,0.02,53.37,0.02,2,True,True
 ```
 
 ## Candidate Context

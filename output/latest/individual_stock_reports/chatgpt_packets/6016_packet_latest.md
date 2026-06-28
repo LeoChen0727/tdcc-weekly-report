@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6016 康和證
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:03 Asia/Taipei
 - stock_id: 6016
 - stock_name: 康和證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 52.65
-- over_600_ratio: 48.88
-- over_800_ratio: 47.26
-- over_1000_ratio: 45.72
+- as_of_date: 20260626
+- over_400_ratio: 51.54
+- over_600_ratio: 47.74
+- over_800_ratio: 45.91
+- over_1000_ratio: 44.48
 - over_400_change_1w: -1.11
-- over_800_change_1w: -0.86
-- over_1000_change_1w: -1.22
+- over_800_change_1w: -1.35
+- over_1000_change_1w: -1.24
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.64,-1.93,50.91,-2.21,49.64,-2.32,0,False,False
 20260612,53.76,-2.88,48.12,-2.79,46.94,-2.7,0,False,False
 20260618,52.65,-1.11,47.26,-0.86,45.72,-1.22,0,False,False
+20260626,51.54,-1.11,45.91,-1.35,44.48,-1.24,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6016 | 康和證 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6016 | 康和證 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

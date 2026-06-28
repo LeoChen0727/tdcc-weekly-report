@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:58 Asia/Taipei
+- generated_at: 2026-06-28 22:26:56 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 55.55
+- as_of_date: 20260626
+- over_400_ratio: 55.56
 - over_600_ratio: 53.42
 - over_800_ratio: 51.61
 - over_1000_ratio: 51.61
-- over_400_change_1w: 0.06
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,55.79,0.85,51.61,0.43,51.61,0.43,2,True,True
 20260612,55.49,-0.3,51.61,0,51.61,0,3,False,False
 20260618,55.55,0.06,51.61,0,51.61,0,4,False,False
+20260626,55.56,0.01,51.61,0,51.61,0,5,False,False
 ```
 
 ## Candidate Context

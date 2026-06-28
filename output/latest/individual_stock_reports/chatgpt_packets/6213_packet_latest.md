@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:13 Asia/Taipei
+- generated_at: 2026-06-28 22:27:09 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 57.63
-- over_600_ratio: 56
-- over_800_ratio: 53.34
-- over_1000_ratio: 51.09
-- over_400_change_1w: 1.37
-- over_800_change_1w: 0.89
-- over_1000_change_1w: 0.41
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260626
+- over_400_ratio: 65.32
+- over_600_ratio: 63.51
+- over_800_ratio: 60.85
+- over_1000_ratio: 59.09
+- over_400_change_1w: 7.69
+- over_800_change_1w: 7.51
+- over_1000_change_1w: 8
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,56.62,0.13,52.59,0.08,51.35,0.59,3,True,True
 20260612,56.26,-0.36,52.45,-0.14,50.68,-0.67,4,False,False
 20260618,57.63,1.37,53.34,0.89,51.09,0.41,5,True,True
+20260626,65.32,7.69,60.85,7.51,59.09,8,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6213 | 聯茂 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:  一、本公司合併財務資訊：  科目　　 最近一月　　 與去年同期　　最近一季　　 與去年同期　最近四季累計  期間　　 115年05月　　增　　 減%　 115年第1季 　 增　　 減%　114年第2季至                                                               115年第1季              (自結數)               　(查核數)               (核閱或查核數)  ＝＝＝＝　 ＝＝＝＝　＝＝＝＝＝＝　＝＝＝＝＝＝ ＝＝＝＝＝＝ ＝＝＝＝＝＝＝  營業收入　　 3,803 　      29.31%　  　9,143 　　   20.62%　      34,661  (百萬)  稅前淨利       655        235.90%　      483　      -9.72%　　     2,315  (百萬)  本期淨利       438        265.00%　　    315　      -6.53%　　     1,488  (百萬)  每股盈餘　    1.21        266.67% 　    0.87　      -6.45%　        4.10  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d |
+| 20260626 | 6213 | 聯茂 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:  一、本公司合併財務資訊：  科目　　 最近一月　　 與去年同期　　最近一季　　 與去年同期　最近四季累計  期間　　 115年05月　　增　　 減%　 115年第1季 　 增　　 減%　114年第2季至                                                               115年第1季              (自結數)               　(查核數)               (核閱或查核數)  ＝＝＝＝　 ＝＝＝＝　＝＝＝＝＝＝　＝＝＝＝＝＝ ＝＝＝＝＝＝ ＝＝＝＝＝＝＝  營業收入　　 3,803 　      29.31%　  　9,143 　　   20.62%　      34,661  (百萬)  稅前淨利       655        235.90%　      483　      -9.72%　　     2,315  (百萬)  本期淨利       438        265.00%　　    315　      -6.53%　　     1,488  (百萬)  每股盈餘　    1.21        266.67% 　    0.87　      -6.45%　        4.10  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6213 | 聯茂 | 121 | 6 | 48877660.0 | 110220.0 | 443.46 | call_put_bullish |
+| 20260626 | 6213 | 聯茂 | 121 | 0 | 48877660.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

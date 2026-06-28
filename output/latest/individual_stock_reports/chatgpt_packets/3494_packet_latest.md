@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3494 誠研
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:33 Asia/Taipei
+- generated_at: 2026-06-28 22:26:35 Asia/Taipei
 - stock_id: 3494
 - stock_name: 誠研
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 61.21
-- over_600_ratio: 57.88
-- over_800_ratio: 57.17
-- over_1000_ratio: 56.32
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260626
+- over_400_ratio: 61.27
+- over_600_ratio: 57.9
+- over_800_ratio: 57.19
+- over_1000_ratio: 56.34
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,61.21,0,57.17,-0.01,56.32,-0.01,0,False,False
 20260612,61.17,-0.04,57.16,-0.01,56.31,-0.01,0,False,False
 20260618,61.21,0.04,57.17,0.01,56.32,0.01,1,True,True
+20260626,61.27,0.06,57.19,0.02,56.34,0.02,2,True,True
 ```
 
 ## Candidate Context

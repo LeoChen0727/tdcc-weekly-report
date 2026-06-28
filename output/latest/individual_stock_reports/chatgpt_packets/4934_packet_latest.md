@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4934 太極
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:52 Asia/Taipei
 - stock_id: 4934
 - stock_name: 太極
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,16 +163,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 35.08
-- over_600_ratio: 33.8
-- over_800_ratio: 31.97
-- over_1000_ratio: 29.53
-- over_400_change_1w: 1.11
-- over_800_change_1w: 2.19
-- over_1000_change_1w: 1.37
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260626
+- over_400_ratio: 35.32
+- over_600_ratio: 33.78
+- over_800_ratio: 32.23
+- over_1000_ratio: 30.55
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.26
+- over_1000_change_1w: 1.02
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -187,13 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,34.21,0.18,29.83,-0.31,28.24,0.07,4,False,True
 20260612,33.97,-0.24,29.78,-0.05,28.16,-0.08,0,False,False
 20260618,35.08,1.11,31.97,2.19,29.53,1.37,1,True,True
+20260626,35.32,0.24,32.23,0.26,30.55,1.02,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4934 | 太極 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 4934 | 太極 | revenue_breakout_low_response | 營收爆發低反應股 | 23.0 | 2.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 4934 | 太極 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260626 | 4934 | 太極 | revenue_breakout_low_response | 營收爆發低反應股 | 23.0 | 2.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:太極能源科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:子公司盛新材料115年度現金增資認股繳納期限已於115年6月22日下午  3時30分截止，惟仍有部份原股東及員工尚未繳納現金增資股款，故本公司特此  催告。 6.因應措施:  (1)依公司法第142條及第266條第3項規定，訂定股款催繳期間為民國115年6月23     日至115年7月23日下午3時30分止。  (2)尚未繳款之股東及員工，請於前述期限內，依原繳款書所載明之繳款方式辦     理繳款事宜，逾期未繳款者即喪失認股權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  若有任何疑問，請洽詢本公司股務代理機構：元大證券股份有限公司股務代理部，  地址：台北市敦化南路二段67號地下一樓，電話：02-25865859。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

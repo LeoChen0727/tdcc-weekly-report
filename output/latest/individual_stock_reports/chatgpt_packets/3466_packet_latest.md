@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3466 德晉
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:32 Asia/Taipei
+- generated_at: 2026-06-28 22:26:34 Asia/Taipei
 - stock_id: 3466
 - stock_name: 德晉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 47
-- over_600_ratio: 41.78
-- over_800_ratio: 36.77
-- over_1000_ratio: 34.51
-- over_400_change_1w: -0.57
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260626
+- over_400_ratio: 46.98
+- over_600_ratio: 41.75
+- over_800_ratio: 36.72
+- over_1000_ratio: 34.46
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.05
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,47.71,0.1,36.4,0.9,34.14,0.9,4,True,True
 20260612,47.57,-0.14,36.77,0.37,34.51,0.37,5,False,True
 20260618,47,-0.57,36.77,0,34.51,0,0,False,False
+20260626,46.98,-0.02,36.72,-0.05,34.46,-0.05,0,False,False
 ```
 
 ## Candidate Context

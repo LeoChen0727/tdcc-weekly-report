@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3259 鑫創
 
 ## Metadata
-- generated_at: 2026-06-27 22:23:27 Asia/Taipei
+- generated_at: 2026-06-28 22:26:30 Asia/Taipei
 - stock_id: 3259
 - stock_name: 鑫創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
+- as_of_date: 20260626
 - over_400_ratio: 70.46
 - over_600_ratio: 67.3
 - over_800_ratio: 66.44
 - over_1000_ratio: 62.8
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.02
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,70.48,0.04,66.46,0.04,62.82,0.01,4,True,True
 20260612,70.48,0,66.46,0,62.82,0,0,False,False
 20260618,70.46,-0.02,66.44,-0.02,62.8,-0.02,0,False,False
+20260626,70.46,0,66.44,0,62.8,0,0,False,False
 ```
 
 ## Candidate Context

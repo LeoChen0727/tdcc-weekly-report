@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6104 創惟
 
 ## Metadata
-- generated_at: 2026-06-27 22:24:06 Asia/Taipei
+- generated_at: 2026-06-28 22:27:04 Asia/Taipei
 - stock_id: 6104
 - stock_name: 創惟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 157
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 18.93
-- over_600_ratio: 16.9
-- over_800_ratio: 14.67
-- over_1000_ratio: 9.79
-- over_400_change_1w: -0.07
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 1.12
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260626
+- over_400_ratio: 20.85
+- over_600_ratio: 17.38
+- over_800_ratio: 14.43
+- over_1000_ratio: 12.48
+- over_400_change_1w: 1.92
+- over_800_change_1w: -0.24
+- over_1000_change_1w: 2.69
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,19.67,1.24,14.28,0.67,10.54,1.64,5,True,True
 20260612,19,-0.67,14.6,0.32,8.67,-1.87,6,False,True
 20260618,18.93,-0.07,14.67,0.07,9.79,1.12,7,False,True
+20260626,20.85,1.92,14.43,-0.24,12.48,2.69,8,False,True
 ```
 
 ## Candidate Context

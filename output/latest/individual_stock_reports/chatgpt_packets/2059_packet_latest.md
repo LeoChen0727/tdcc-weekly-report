@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2059 川湖
 
 ## Metadata
-- generated_at: 2026-06-27 22:22:53 Asia/Taipei
+- generated_at: 2026-06-28 22:26:01 Asia/Taipei
 - stock_id: 2059
 - stock_name: 川湖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260626
 - price_rows: 292
-- latest_tdcc_date: 20260618
-- tdcc_rows: 8
+- latest_tdcc_date: 20260626
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260618
-- over_400_ratio: 66.8
-- over_600_ratio: 61.35
-- over_800_ratio: 59.75
-- over_1000_ratio: 58.75
-- over_400_change_1w: -0.32
-- over_800_change_1w: -0.05
-- over_1000_change_1w: 0.98
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260626
+- over_400_ratio: 66.56
+- over_600_ratio: 62.32
+- over_800_ratio: 59.36
+- over_1000_ratio: 56.38
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.39
+- over_1000_change_1w: -2.37
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260605,67.44,-0.86,59.78,0.14,57.77,0.16,2,False,True
 20260612,67.12,-0.32,59.8,0.02,57.77,0,3,False,True
 20260618,66.8,-0.32,59.75,-0.05,58.75,0.98,4,False,True
+20260626,66.56,-0.24,59.36,-0.39,56.38,-2.37,5,False,False
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2059 | 川湖 | 165 | 17 | 36513700.0 | 211830.0 | 172.37 | call_put_bullish |
+| 20260626 | 2059 | 川湖 | 165 | 0 | 36513700.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
