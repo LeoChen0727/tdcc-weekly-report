@@ -92,6 +92,15 @@ OUTPUT_COLUMNS = [
     "support_touch_dates",
     "detection_window_start",
     "detection_window_end",
+    "visible_context_start",
+    "visible_context_end",
+    "visual_pre_signal_sessions",
+    "visual_pre_signal_return_pct",
+    "visual_pre_signal_range_pct",
+    "visual_pre_signal_context",
+    "base_age_sessions",
+    "support_pair_span_sessions",
+    "neckline_anchor_age_sessions",
     "base_width_pct",
     "low_position_120_pct",
     "entry_price",
@@ -264,7 +273,7 @@ def reconstruct_neckline_evidence(price: pd.DataFrame, signal_date: Any) -> Neck
     )
 
 
-def chart_window(price: pd.DataFrame, row: pd.Series, evidence: NecklineEvidence) -> pd.DataFrame:
+def chart_index_bounds(price: pd.DataFrame, row: pd.Series, evidence: NecklineEvidence) -> tuple[int, int]:
     indexes = [
         evidence.detection_start_idx,
         evidence.detection_end_idx,
@@ -280,7 +289,37 @@ def chart_window(price: pd.DataFrame, row: pd.Series, evidence: NecklineEvidence
     found = [idx for idx in indexes if idx is not None]
     start = max(0, min(found) - 5)
     end = min(len(price), max(found) + 16)
+    return start, end
+
+
+def chart_window(price: pd.DataFrame, row: pd.Series, evidence: NecklineEvidence) -> pd.DataFrame:
+    start, end = chart_index_bounds(price, row, evidence)
     return price.iloc[start:end].copy().reset_index(drop=True)
+
+
+def return_and_range(price: pd.DataFrame, start_idx: int, end_idx: int) -> tuple[float, float]:
+    if start_idx < 0 or end_idx < 0 or start_idx >= len(price) or end_idx >= len(price) or end_idx <= start_idx:
+        return math.nan, math.nan
+    start_close = safe_float(price.iloc[start_idx].get("close"))
+    end_close = safe_float(price.iloc[end_idx].get("close"))
+    frame = price.iloc[start_idx : end_idx + 1]
+    highest = pd.to_numeric(frame.get("high", ""), errors="coerce").max()
+    lowest = pd.to_numeric(frame.get("low", ""), errors="coerce").min()
+    return_pct = (end_close / start_close - 1.0) * 100.0 if start_close > 0 and not math.isnan(end_close) else math.nan
+    range_pct = (highest / lowest - 1.0) * 100.0 if lowest > 0 and not math.isnan(highest) else math.nan
+    return return_pct, range_pct
+
+
+def classify_visual_context(return_pct: float, range_pct: float) -> str:
+    if math.isnan(return_pct) or math.isnan(range_pct):
+        return "unknown"
+    if return_pct <= -12.0:
+        return "bearish"
+    if abs(return_pct) <= 8.0 and range_pct <= 35.0:
+        return "sideways_or_consolidation"
+    if return_pct >= 12.0:
+        return "bullish"
+    return "mixed"
 
 
 def local_index(window: pd.DataFrame, price: pd.DataFrame, absolute_idx: int) -> int | None:
@@ -435,6 +474,10 @@ def draw_evidence_chart(row: pd.Series, chart_path: Path) -> dict[str, str]:
     plt.close(fig)
 
     support_touch_dates = [normalize_date(price.iloc[idx].get("date")) for idx in evidence.support_touch_indexes]
+    signal_idx = index_for_date(price, row.get("signal_date"))
+    chart_start_idx, _ = chart_index_bounds(price, row, evidence)
+    visible_end_idx = (signal_idx - 1) if signal_idx is not None and signal_idx > 0 else evidence.detection_end_idx
+    visual_return, visual_range = return_and_range(price, chart_start_idx, visible_end_idx)
     return {
         "evidence_status": evidence.evidence_status,
         "reconstructed_neckline_price": metric_text(evidence.neckline_price),
@@ -449,6 +492,15 @@ def draw_evidence_chart(row: pd.Series, chart_path: Path) -> dict[str, str]:
         "support_touch_dates": ";".join(support_touch_dates),
         "detection_window_start": normalize_date(price.iloc[evidence.detection_start_idx].get("date")),
         "detection_window_end": normalize_date(price.iloc[evidence.detection_end_idx].get("date")),
+        "visible_context_start": normalize_date(price.iloc[chart_start_idx].get("date")),
+        "visible_context_end": normalize_date(price.iloc[visible_end_idx].get("date")),
+        "visual_pre_signal_sessions": str(visible_end_idx - chart_start_idx + 1),
+        "visual_pre_signal_return_pct": metric_text(visual_return),
+        "visual_pre_signal_range_pct": metric_text(visual_range),
+        "visual_pre_signal_context": classify_visual_context(visual_return, visual_range),
+        "base_age_sessions": str(signal_idx - evidence.left_idx) if signal_idx is not None else "",
+        "support_pair_span_sessions": str(evidence.right_idx - evidence.left_idx),
+        "neckline_anchor_age_sessions": str(signal_idx - evidence.neckline_idx) if signal_idx is not None else "",
     }
 
 
@@ -560,7 +612,14 @@ def write_markdown(index: pd.DataFrame, generated_at: str) -> None:
             unique_stocks=("stock_id", "nunique"),
             avg_support_gap_pct=("support_gap_pct", lambda values: metric_text(pd.to_numeric(values, errors="coerce").mean())),
             avg_base_width_pct=("base_width_pct", lambda values: metric_text(pd.to_numeric(values, errors="coerce").mean())),
+            avg_visual_pre_signal_return_pct=("visual_pre_signal_return_pct", lambda values: metric_text(pd.to_numeric(values, errors="coerce").mean())),
+            avg_base_age_sessions=("base_age_sessions", lambda values: metric_text(pd.to_numeric(values, errors="coerce").mean())),
         )
+        .reset_index()
+    )
+    visual_context_summary = (
+        index.groupby(["outcome_result", "visual_pre_signal_context"], dropna=False)
+        .agg(rows=("stock_id", "size"), unique_stocks=("stock_id", "nunique"))
         .reset_index()
     )
     review_index = index[
@@ -575,6 +634,10 @@ def write_markdown(index: pd.DataFrame, generated_at: str) -> None:
             "left_support_date",
             "right_support_date",
             "support_gap_pct",
+            "visible_context_start",
+            "visible_context_end",
+            "visual_pre_signal_context",
+            "base_age_sessions",
             "evidence_chart_path",
         ]
     ].copy()
@@ -600,10 +663,15 @@ def write_markdown(index: pd.DataFrame, generated_at: str) -> None:
         "- The structured-neckline proxy first finds two recent local support lows within 9% of each other.",
         "- It then sets the horizontal neckline to the maximum high after the left support low and before the signal date.",
         "- The signal date must close above that neckline after the volume-confirmed event has been detected upstream.",
+        "- `visual_pre_signal_context` uses the same chart span that the manual reviewer saw: from the evidence chart's left edge to the trading day before the signal date.",
         "",
         "## Summary",
         "",
         *markdown_table(summary, list(summary.columns), limit=20),
+        "",
+        "## Visual Pre-Signal Context Summary",
+        "",
+        *markdown_table(visual_context_summary, list(visual_context_summary.columns), limit=40),
         "",
         "## Review Index",
         "",

@@ -122,6 +122,12 @@ def main() -> int:
         "right_support_low",
         "support_price",
         "support_gap_pct",
+        "visual_pre_signal_sessions",
+        "visual_pre_signal_return_pct",
+        "visual_pre_signal_range_pct",
+        "base_age_sessions",
+        "support_pair_span_sessions",
+        "neckline_anchor_age_sessions",
     ]
     for column in numeric_checks:
         values = pd.to_numeric(latest[column], errors="coerce")
@@ -129,6 +135,8 @@ def main() -> int:
             fail(f"{column} contains non-numeric values")
         if column == "support_gap_pct" and (values > 9.0001).any():
             fail("support_gap_pct exceeds structured-neckline rule")
+        if column.endswith("_sessions") and (values < 0).any():
+            fail(f"{column} must not contain negative values")
     reference = pd.to_numeric(latest["reference_price"], errors="coerce")
     reconstructed = pd.to_numeric(latest["reconstructed_neckline_price"], errors="coerce")
     if ((reference - reconstructed).abs() > 0.011).any():
@@ -140,10 +148,19 @@ def main() -> int:
         "right_support_date",
         "detection_window_start",
         "detection_window_end",
+        "visible_context_start",
+        "visible_context_end",
     ]
     for column in date_columns:
         if latest[column].astype(str).str.len().ne(8).any():
             fail(f"{column} must contain YYYYMMDD dates")
+    allowed_context = {"bearish", "sideways_or_consolidation", "bullish", "mixed", "unknown"}
+    context_values = set(latest["visual_pre_signal_context"].astype(str))
+    unknown_context = context_values - allowed_context
+    if unknown_context:
+        fail(f"visual_pre_signal_context contains unexpected values: {sorted(unknown_context)}")
+    if context_values == {"unknown"}:
+        fail("visual_pre_signal_context should not be entirely unknown")
 
     png_paths = list(CHART_ROOT.rglob("*.png"))
     if len(png_paths) != len(latest):
@@ -162,6 +179,7 @@ def main() -> int:
         "90-session reference window",
         "left/right support lows",
         "high anchor",
+        "visual_pre_signal_context",
         "production impact: `none`",
         "not_production_ready_research_only",
     ]
