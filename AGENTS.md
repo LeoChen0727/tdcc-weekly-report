@@ -2,6 +2,20 @@
 
 精確.按照規則辦事
 
+## Traditional Chinese User-Facing Language Boundary
+
+All user-facing replies from this worktree must use Traditional Chinese by
+default, including explanations, status updates, validation summaries, PR
+summaries, blockers, handoffs, and final responses.
+
+Do not write user-facing prose in English or Simplified Chinese unless the user
+explicitly asks for that language in the current task.
+
+Preserve exact technical identifiers in their original form, including file
+paths, commands, branch names, workflow/check names, repository names,
+filenames, code symbols, quoted logs, validator names, and PR titles. Explain
+their meaning in Traditional Chinese around those identifiers.
+
 ## Default Engineering Rule
 
 All business-facing code in this repository defaults to independent ownership.
