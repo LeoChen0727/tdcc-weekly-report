@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-06-29 06:33:24 Asia/Taipei`
+- generated_at: `2026-06-29 07:50:33 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -17,14 +17,15 @@
 | --- | --- |
 | hard_fail_contract_drift | 0 |
 | missing_research_baseline | 0 |
-| ok | 1 |
-| warning_research_variant_only | 10 |
+| ok | 2 |
+| warning_research_variant_only | 9 |
 
 ## OK Models
 
 | model_id | production_contract_version | research_contract_version | d5_metric_available | d10_metric_available | d20_metric_available |
 | --- | --- | --- | --- | --- | --- |
 | volume_range_breakout | v1 | v1 | True | True | True |
+| w_bottom_right_side | v1 | v1 | True | True | True |
 
 ## Research Variant / Proxy Only
 
@@ -39,7 +40,6 @@
 | revenue_unreacted_range | research:production_current_proxy | True | historical revenue panel is incomplete; strong_revenue gate cannot be replayed point-in-time | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | tdcc_short_term_continuation_d5_d10 | research:production_current_proxy | True | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | tdcc_stealth_accumulation | research:production_current_proxy | True | tdcc_price_phase is not fully available historically for every signal date | research_variant_only_do_not_promote_without_explicit_promotion_pr |
-| w_bottom_right_side | research:production_current_proxy | True | full production W-bottom detector is row/context based; exact historical replay is too slow until an optimized batch detector exists | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 
 ## Missing Research Baseline
 

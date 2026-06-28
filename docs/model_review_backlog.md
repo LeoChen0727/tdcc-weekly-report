@@ -83,7 +83,7 @@ Low-priority / monitor:
 | `price_pullback_23ema` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Compare advisory research variant to production baseline. Do not tune production from advisory output without promotion evidence. |
 | `hot_theme_pullback` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Confirm whether theme-related research variants are true improvements or only exploratory alternatives. |
 | `revenue_unreacted_range` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first, then `daily_model_maintenance` if promotion is approved | high | Review revenue proxy width and data completeness. Current proxy is too broad for direct production tuning. |
-| `w_bottom_right_side` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `approved_operation_v1_proxy_baseline` | `daily_model_maintenance` owns approved operation v1; `research_backtest` owns future optimized batch replay parity | medium | Treat as the second approved daily operation model after `volume_range_breakout`. PDF title evidence may use the approved operation v1 statistics, but full historical production-condition parity remains proxy until the W detector has an optimized batch replay. |
+| `w_bottom_right_side` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `ok` | `daily_model_maintenance` owns approved operation v1; `research_backtest` only if new evidence proposes a future change | low | Treat as the second approved daily operation model after `volume_range_breakout`. PDF title evidence uses the approved operation v1 statistics; raw research variants remain advisory-only unless separately promoted. |
 | `neckline_volume_breakout_confirmation` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `pending_backtest_optimization` | `research_backtest` must add production baseline parity before this can be called parity-complete | high | New W-bottom neckline breakout confirmation surface. Production code/contract exists, but research baseline sync is still required. |
 | `near_high_neckline_challenge` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `daily_model_maintenance` for formal semantics decision; `research_backtest` for evidence after production intent is fixed | high | Blocker confirmed: condition currently accepts pressure distance `0..5`, while scoring rewards `-5..0`. Do not tune until a formal model-change PR decides the intended side of the pressure level. |
 | `platform_strengthening` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review whether platform-strengthening variants are materially different from production baseline. |
@@ -104,10 +104,11 @@ Low-priority / monitor:
    `research_backtest` so the new formal production model gets a matching
    production-baseline parity row and backtest evidence.
 3. `w_bottom_right_side`: keep as the W-bottom pre-breakout / second-bottom
-   formation model. Use
+   formation model. It is now the second approved daily operation model after
+   `volume_range_breakout`; use
    `docs/specs/w_bottom_right_side_early_entry_operation_spec.md` for the
    current early-entry buy point, win / neutral / loss definition, and PDF
-   evidence rule before any promotion PR changes production or daily PDFs.
+   evidence rule before any future production or daily PDF change.
 4. `revenue_unreacted_range`: narrow or validate the research proxy before any
    parameter discussion.
 5. `group_fund_rotation`: create a theme-level contract and backtest plan.
