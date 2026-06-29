@@ -126,7 +126,7 @@ The current review group is:
 |---|---|
 | `volume_range_breakout` | Keep as the current production baseline for bottom/base volume attack. Do not rewrite it as a shared pre-filter in the first change. It is the only current stock model with research parity status `ok`. |
 | `w_bottom_right_side` | Review as a low-position W-bottom structure model. If converted to confirmation behavior, its neckline breakout and volume confirmation must be explicit. |
-| `neckline_volume_breakout_confirmation` | Proposed new model. It should not be added to the formal registries until production code, contract, tests, and research parity handling exist. |
+| `neckline_volume_breakout_confirmation` | Current formal v1 model for W-bottom neckline volume breakout confirmation. It is not the generic neckline family, and it does not include inverse head-and-shoulders, triple bottom, or structured-bottom-other subtypes. |
 
 ### `volume_range_breakout` Meaning
 
@@ -166,9 +166,11 @@ Reason:
   ceiling is only the breakout threshold; it must not become the model
   definition.
 - `w_bottom_right_side` depends on a W-bottom neckline and low-position
-  structure.
-- `neckline_volume_breakout_confirmation` is intended to represent a
-  mid-to-high-position neckline confirmation surface.
+  structure, but remains the early-entry/right-side model before neckline
+  confirmation.
+- `neckline_volume_breakout_confirmation` v1 represents only W-bottom neckline
+  volume breakout confirmation. Other neckline families require separate
+  research, contract updates, and promotion evidence before production use.
 
 If all three models first pass through one fixed N-day-high breakout gate, the
 models will look different by name while actually sharing the same selection
@@ -218,8 +220,10 @@ The user intent for the current review is:
 
 - `volume_range_breakout` and `w_bottom_right_side` should generally be
   low-position or base breakout models.
-- `neckline_volume_breakout_confirmation` should generally be a mid-to-high
-  position neckline breakout confirmation model.
+- `neckline_volume_breakout_confirmation` v1 is the W-bottom confirmed-breakout
+  counterpart to `w_bottom_right_side`. It may occur after the base has moved
+  away from the right low, but it should not be reinterpreted as every possible
+  neckline breakout pattern.
 
 The implementation should calculate an explicit position metric before tuning
 thresholds. A likely feature is:
@@ -275,6 +279,8 @@ It is not enough for:
 4. Produce a formal `neckline_volume_breakout_confirmation` model-change spec
    before editing production code. The current spec is
    `docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md`.
+   The implemented v1 is scoped to W-bottom neckline volume breakout
+   confirmation only.
 5. Implement production model changes only in `daily_model_maintenance`.
 6. Update `config/stock_model_contract_registry.csv` and
    `config/model_surface_registry.csv` only when the formal production surface
@@ -284,10 +290,10 @@ It is not enough for:
 
 ## Forbidden Shortcuts
 
-- Do not deprecate `near_high_neckline_challenge` or `platform_strengthening`
+- Do not reactivate `near_high_neckline_challenge` or `platform_strengthening`
   without a formal model-change PR.
-- Do not add `neckline_volume_breakout_confirmation` to formal registries before
-  production code and tests exist.
+- Do not broaden `neckline_volume_breakout_confirmation` beyond the W-bottom
+  subtype without production code, tests, parity handling, and contract updates.
 - Do not rewrite `volume_range_breakout` into a shared pre-filter as the first
   step.
 - Do not copy research variants into the production baseline.

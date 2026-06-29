@@ -448,12 +448,12 @@ def production_baseline_specs() -> list[RuleSpec]:
             "neckline_volume_breakout_confirmation",
             "W底頸線帶量突破確認模型",
             NECKLINE_OPERATION_MODULE_ID,
-            "approved operation baseline: 45d non-bearish neckline signal, 90d score-only context, next-open entry and 20d operation-rule outcome",
+            "approved operation baseline: W-bottom neckline signal, 45d non-bearish context, 90d score-only context, next-open entry and 20d operation-rule outcome",
             "pdf_core_model",
             current_neckline_approved_operation_baseline,
             (
-                "Neckline volume breakout operation v1 is the formal daily baseline through "
-                "approved_operation_patterns_latest.csv; raw research candidate rows remain advisory-only."
+                "W-bottom neckline volume breakout operation v1 is the formal daily baseline through "
+                "approved_operation_patterns_latest.csv; other neckline subtypes remain outside this model."
             ),
             "production_baseline",
             "production_parity",

@@ -402,8 +402,8 @@ def build_model_operation_readiness(
                     "daily_adapter_data_row_count": 0,
                     "daily_adapter_sections": "model_header_evidence",
                     "status_note_zh": (
-                        "頸線帶量突破 v1 已由 approved_operation_patterns 批准；45日 context 是入選訊號，"
-                        "90日 context 只作分數與風險調整；此模型使用標題下方證據，不共用放量攻擊 operation section adapter。"
+                        "W底頸線帶量突破 v1 已由 approved_operation_patterns 批准；45日 context 是入選訊號，"
+                        "90日 context 只作分數與風險調整；此模型使用標題下方證據，不共用放量攻擊 operation section adapter，也不混入其他頸線型態。"
                     ),
                 }
             )
