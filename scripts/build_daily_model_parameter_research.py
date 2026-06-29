@@ -171,6 +171,13 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         out[f"range_breakout_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
         out[f"distance_to_range_high_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
 
+    for window in [20, 30, 60]:
+        high = out[f"range_high_{window}d_prev"]
+        low = out[f"range_low_{window}d_prev"]
+        out[f"prior_extension_ema23_{window}d_pct"] = (high / out["ema23"] - 1.0) * 100.0
+        out[f"prior_runup_{window}d_pct"] = (high / low - 1.0) * 100.0
+        out[f"pullback_from_high_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
+
     out["distance_to_ema23_pct"] = out["distance_ema23_pct"]
     out["distance_23ema_pct"] = out["distance_ema23_pct"]
     out["gap_ema23_pct"] = out["distance_ema23_pct"]
@@ -351,6 +358,20 @@ def current_price_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
 def price_pullback_red_k_entry_filter(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
     candle_col = "solid_red_candle" if solid else "bullish_attack_candle"
     return (numeric_column(d, "volume_ratio_prev20") >= volume_min) & trueish_column(d, candle_col)
+
+
+def price_pullback_prior_extension_filter(
+    d: pd.DataFrame,
+    window: int,
+    min_extension_pct: float,
+    min_runup_pct: float,
+    min_pullback_from_high_pct: float,
+) -> pd.Series:
+    return (
+        (numeric_column(d, f"prior_extension_ema23_{window}d_pct") >= min_extension_pct)
+        & (numeric_column(d, f"prior_runup_{window}d_pct") >= min_runup_pct)
+        & (numeric_column(d, f"pullback_from_high_{window}d_pct") <= -min_pullback_from_high_pct)
+    ).fillna(False)
 
 
 def price_pullback_volume_red_k_entry(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
@@ -1082,6 +1103,21 @@ PRICE_PULLBACK_ENTRY_FILTERS = [
         "entry_filter_id": "solid_volume_red_k_vol1.5",
         "entry_signal_rule": "solid red K with volume_ratio_prev20 >= 1.5",
         "condition": lambda d: price_pullback_red_k_entry_filter(d, 1.5, solid=True),
+    },
+    {
+        "entry_filter_id": "prior_ext20_ema10_runup20_pullback5",
+        "entry_signal_rule": "prior 20d high was >=10% above 23EMA, prior 20d range runup >=20%, and signal close is at least 5% below that high",
+        "condition": lambda d: price_pullback_prior_extension_filter(d, 20, 10.0, 20.0, 5.0),
+    },
+    {
+        "entry_filter_id": "prior_ext30_ema12_runup25_pullback8",
+        "entry_signal_rule": "prior 30d high was >=12% above 23EMA, prior 30d range runup >=25%, and signal close is at least 8% below that high",
+        "condition": lambda d: price_pullback_prior_extension_filter(d, 30, 12.0, 25.0, 8.0),
+    },
+    {
+        "entry_filter_id": "prior_ext60_ema15_runup35_pullback10",
+        "entry_signal_rule": "prior 60d high was >=15% above 23EMA, prior 60d range runup >=35%, and signal close is at least 10% below that high",
+        "condition": lambda d: price_pullback_prior_extension_filter(d, 60, 15.0, 35.0, 10.0),
     },
 ]
 

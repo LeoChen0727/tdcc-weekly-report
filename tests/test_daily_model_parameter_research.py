@@ -17,6 +17,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_operation_research,
     build_price_pullback_time_cost_backtest,
     current_price_pullback_baseline_proxy,
+    price_pullback_prior_extension_filter,
     rule_specs,
     sample_status,
 )
@@ -241,6 +242,20 @@ def test_price_pullback_has_research_only_volume_red_k_entry_variants() -> None:
     assert variants["volume_red_k_vol1.2"].condition(df).tolist() == [True, True]
     assert variants["solid_volume_red_k_vol1.2"].condition(df).tolist() == [False, True]
     assert variants["solid_volume_red_k_vol1.5"].condition(df).tolist() == [False, True]
+
+
+def test_price_pullback_prior_extension_filter_requires_extension_runup_and_pullback() -> None:
+    df = pd.DataFrame(
+        {
+            "prior_extension_ema23_20d_pct": [12.0, 9.9, 12.0, 12.0],
+            "prior_runup_20d_pct": [25.0, 25.0, 19.9, 25.0],
+            "pullback_from_high_20d_pct": [-6.0, -6.0, -6.0, -4.9],
+        }
+    )
+
+    mask = price_pullback_prior_extension_filter(df, 20, 10.0, 20.0, 5.0)
+
+    assert mask.tolist() == [True, False, False, False]
 
 
 def test_price_pullback_operation_research_stays_advisory_only() -> None:
