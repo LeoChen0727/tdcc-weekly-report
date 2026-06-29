@@ -439,11 +439,14 @@ def test_price_pullback_operation_module_prior_high_monthline_stop() -> None:
             "next_open_to_d20_close_return_pct": [2.0, -3.0, -3.0, 1.0],
         }
     )
+    future_cols = {}
     for day in range(1, 21):
-        df[f"next_open_to_d{day}_day_high_return_pct"] = [1.0, 1.0, 1.0, 1.0]
-        df[f"next_open_to_d{day}_day_low_return_pct"] = [-1.0, -1.0, -1.0, -1.0]
-        df[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, 1.0, 1.0]
-        df[f"future_d{day}_ma20"] = [100.0, 100.0, 100.0, 100.0]
+        future_cols[f"next_open_to_d{day}_day_high_return_pct"] = [1.0, 1.0, 1.0, 1.0]
+        future_cols[f"next_open_to_d{day}_day_low_return_pct"] = [-1.0, -1.0, -1.0, -1.0]
+        future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, 1.0, 1.0]
+        future_cols[f"future_d{day}_ma20"] = [100.0, 100.0, 100.0, 100.0]
+        future_cols[f"future_d{day}_ema23"] = [100.0, 100.0, 100.0, 100.0]
+    df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
 
     df.loc[0, "next_open_to_d2_day_high_return_pct"] = 5.5
     df.loc[1, "next_open_to_d2_day_close_return_pct"] = -2.0
@@ -466,6 +469,60 @@ def test_price_pullback_operation_module_prior_high_monthline_stop() -> None:
     assert prior_high["failure_count"] == 1
     assert prior_high["same_day_unresolved_count"] == 1
     assert prior_high["avg_days_to_failure"] == 3.0
+
+
+def test_price_pullback_operation_module_looser_lower_reference_stop_grid() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330"],
+            "next_open": [100.0],
+            "distance_ema23_pct": [1.0],
+            "platform_low": [100.0],
+            "short_platform_low": [100.0],
+            "previous_20d_low": [100.0],
+            "low_20": [100.0],
+            "range_low_20d_prev": [100.0],
+            "range_high_20d_prev": [110.0],
+            "close": [101.0],
+            "ema23": [100.0],
+            "ma20": [105.0],
+            "ema23_slope_pct": [1.0],
+            "ema23_slope_5d_pct": [1.0],
+            "ma5_turning_up_flag": [False],
+            "ma10_turning_up_flag": [False],
+            "volume_ratio_prev20": [1.0],
+            "bullish_attack_candle": [True],
+            "solid_red_candle": [False],
+            "next_open_to_d20_close_return_pct": [-4.5],
+        }
+    )
+    future_cols = {}
+    for day in range(1, 21):
+        future_cols[f"next_open_to_d{day}_day_high_return_pct"] = [1.0]
+        future_cols[f"next_open_to_d{day}_day_low_return_pct"] = [-5.0]
+        future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0]
+        future_cols[f"future_d{day}_ma20"] = [105.0]
+        future_cols[f"future_d{day}_ema23"] = [100.0]
+    df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
+    for day in range(1, 5):
+        df.loc[0, f"next_open_to_d{day}_day_close_return_pct"] = -4.5
+    df.loc[0, "next_open_to_d20_day_close_return_pct"] = -4.5
+
+    module = build_price_pullback_operation_module_research(df)
+    looser_stop = module[
+        module["entry_filter_id"].eq("baseline_replay")
+        & module["operation_module_candidate_id"].eq(
+            "next_open_prev20_high_breakout_lower_ma20_ema23_stop4pct_4d_d20_close_exit"
+        )
+    ].iloc[0]
+
+    assert looser_stop["stop_reference_id"] == "lower_ma20_ema23"
+    assert looser_stop["stop_buffer_pct"] == 4.0
+    assert looser_stop["stop_consecutive_days"] == 4
+    assert looser_stop["win_count"] == 0
+    assert looser_stop["neutral_count"] == 0
+    assert looser_stop["failure_count"] == 1
+    assert looser_stop["avg_days_to_failure"] == 4.0
 
 
 def test_hot_theme_pullback_uses_strict_historical_theme_gate() -> None:
