@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
 
+import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -42,8 +43,16 @@ PRICE_PULLBACK_OPERATION_MD = RESEARCH_LATEST_DIR / "price_pullback_23ema_operat
 PRICE_PULLBACK_OPERATION_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_operation_research.csv"
 DOCS_PRICE_PULLBACK_OPERATION_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_OPERATION_CSV.name
 DOCS_PRICE_PULLBACK_OPERATION_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_OPERATION_MD.name
+PRICE_PULLBACK_TIME_COST_CSV = RESEARCH_LATEST_DIR / "price_pullback_23ema_time_cost_backtest_latest.csv"
+PRICE_PULLBACK_TIME_COST_MD = RESEARCH_LATEST_DIR / "price_pullback_23ema_time_cost_backtest_latest.md"
+PRICE_PULLBACK_TIME_COST_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_time_cost_backtest.csv"
+DOCS_PRICE_PULLBACK_TIME_COST_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_TIME_COST_CSV.name
+DOCS_PRICE_PULLBACK_TIME_COST_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_TIME_COST_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
+TIME_COST_HORIZON_DAYS = 20
+TIME_COST_TARGET_PCT = 5.0
+TIME_COST_STOP_PCT = -5.0
 MIN_OK_SAMPLE = 100
 MIN_REVIEW_SAMPLE = 30
 
@@ -172,6 +181,12 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         & (out["close"] <= out["previous_20d_low"] * 1.08)
     )
     out["pullback_entry_zone_flag"] = between(out["distance_ema23_pct"], -2.5, 5.0) | support_zone
+
+    for day in range(1, TIME_COST_HORIZON_DAYS + 1):
+        future_high = groups["high"].shift(-day)
+        future_low = groups["low"].shift(-day)
+        out[f"next_open_to_d{day}_day_high_return_pct"] = (future_high / out["next_open"] - 1.0) * 100.0
+        out[f"next_open_to_d{day}_day_low_return_pct"] = (future_low / out["next_open"] - 1.0) * 100.0
 
     range_pct = (out["high"] - out["low"]) / out["previous_close"].replace(0, pd.NA) * 100.0
     out["locked_limit_up_breakout"] = (
@@ -1200,6 +1215,135 @@ def write_price_pullback_operation_research(operation: pd.DataFrame) -> None:
     )
 
 
+def _first_hit_day(hits: pd.DataFrame) -> pd.Series:
+    arr = hits.fillna(False).to_numpy(dtype=bool)
+    if arr.size == 0:
+        return pd.Series(dtype=float, index=hits.index)
+    any_hit = arr.any(axis=1)
+    first_idx = arr.argmax(axis=1) + 1
+    return pd.Series(np.where(any_hit, first_idx, math.nan), index=hits.index, dtype=float)
+
+
+def _mean_or_blank(series: pd.Series) -> float | str:
+    clean = pd.to_numeric(series, errors="coerce").dropna()
+    if clean.empty:
+        return ""
+    return round(float(clean.mean()), 2)
+
+
+def build_price_pullback_time_cost_backtest(df: pd.DataFrame) -> pd.DataFrame:
+    base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
+    high_cols = [f"next_open_to_d{day}_day_high_return_pct" for day in range(1, TIME_COST_HORIZON_DAYS + 1)]
+    low_cols = [f"next_open_to_d{day}_day_low_return_pct" for day in range(1, TIME_COST_HORIZON_DAYS + 1)]
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for entry_filter in PRICE_PULLBACK_ENTRY_FILTERS:
+        filter_mask = entry_filter["condition"](df).fillna(False)
+        picked = df[base_mask & filter_mask].copy()
+        valid = (
+            picked.dropna(subset=high_cols + low_cols).copy()
+            if all(col in picked.columns for col in high_cols + low_cols)
+            else picked.iloc[0:0].copy()
+        )
+        mature = len(valid)
+        if mature:
+            target_day = _first_hit_day(valid[high_cols] >= TIME_COST_TARGET_PCT)
+            stop_day = _first_hit_day(valid[low_cols] <= TIME_COST_STOP_PCT)
+            target_before_stop = target_day.notna() & (stop_day.isna() | (target_day < stop_day))
+            stop_before_target = stop_day.notna() & (target_day.isna() | (stop_day < target_day))
+            same_day = target_day.notna() & stop_day.notna() & target_day.eq(stop_day)
+            no_decision = target_day.isna() & stop_day.isna()
+            first_decision_day = pd.Series(TIME_COST_HORIZON_DAYS, index=valid.index, dtype=float)
+            first_decision_day = first_decision_day.mask(target_before_stop, target_day)
+            first_decision_day = first_decision_day.mask(stop_before_target, stop_day)
+            first_decision_day = first_decision_day.mask(same_day, target_day)
+        else:
+            target_day = stop_day = first_decision_day = pd.Series(dtype=float, index=valid.index)
+            target_before_stop = stop_before_target = same_day = no_decision = bool_series(valid)
+
+        target_before_count = int(target_before_stop.sum()) if mature else 0
+        stop_before_count = int(stop_before_target.sum()) if mature else 0
+        same_day_count = int(same_day.sum()) if mature else 0
+        no_decision_count = int(no_decision.sum()) if mature else 0
+        rows.append(
+            {
+                "generated_at": generated_at,
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "股價回檔模型",
+                "research_baseline_parameter_set_id": "production_current_proxy",
+                "research_baseline_status": "production_proxy",
+                "entry_filter_id": entry_filter["entry_filter_id"],
+                "entry_signal_rule": entry_filter["entry_signal_rule"],
+                "advisory_status": "not_production_ready_research_only",
+                "approved_for_daily": False,
+                "entry_basis": "signal_date_next_open",
+                "target_rule": f"first intraday high >= +{TIME_COST_TARGET_PCT:g}% through D+{TIME_COST_HORIZON_DAYS}",
+                "stop_rule": f"first intraday low <= {TIME_COST_STOP_PCT:g}% through D+{TIME_COST_HORIZON_DAYS}",
+                "same_day_rule": "if target and stop both hit on the same daily candle, order is unresolved",
+                "selected_stock_days": len(picked),
+                "selected_unique_stocks": picked["stock_id"].nunique() if not picked.empty else 0,
+                "mature_count": mature,
+                "target_before_stop_count": target_before_count,
+                "stop_before_target_count": stop_before_count,
+                "same_day_target_stop_count": same_day_count,
+                "no_decision_after_20d_count": no_decision_count,
+                "target_before_stop_rate_pct": _rate(target_before_count, mature),
+                "stop_before_target_rate_pct": _rate(stop_before_count, mature),
+                "same_day_target_stop_rate_pct": _rate(same_day_count, mature),
+                "no_decision_after_20d_rate_pct": _rate(no_decision_count, mature),
+                "avg_days_to_target_5pct": _mean_or_blank(target_day),
+                "avg_days_to_stop_5pct": _mean_or_blank(stop_day),
+                "avg_holding_days_if_win": _mean_or_blank(target_day[target_before_stop]) if mature else "",
+                "avg_holding_days_if_loss": _mean_or_blank(stop_day[stop_before_target]) if mature else "",
+                "avg_first_decision_or_20d_days": _mean_or_blank(first_decision_day),
+                "time_cost_interpretation": "lower no_decision and lower avg_first_decision_or_20d_days imply lower capital time cost",
+                "promotion_blocker": "requires exact daily candidate row parity plus validated buy/sell/stop operation module",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def write_price_pullback_time_cost_backtest(time_cost: pd.DataFrame) -> None:
+    write_csv(time_cost, PRICE_PULLBACK_TIME_COST_CSV)
+    write_csv(time_cost, PRICE_PULLBACK_TIME_COST_HISTORY_CSV)
+    write_csv(time_cost, DOCS_PRICE_PULLBACK_TIME_COST_CSV)
+    lines = [
+        "# Price Pullback 23EMA Time Cost Backtest",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- entry_basis: `signal_date_next_open`",
+        f"- target_rule: first intraday high >= `+{TIME_COST_TARGET_PCT:g}%` through `D+{TIME_COST_HORIZON_DAYS}`",
+        f"- stop_rule: first intraday low <= `{TIME_COST_STOP_PCT:g}%` through `D+{TIME_COST_HORIZON_DAYS}`",
+        "- same_day_rule: if daily high and low hit target/stop on the same day, order is unresolved",
+        "- scope: advisory time-cost research only; this does not approve daily production use",
+        "",
+        markdown_table(
+            time_cost,
+            [
+                "entry_filter_id",
+                "selected_stock_days",
+                "mature_count",
+                "target_before_stop_rate_pct",
+                "stop_before_target_rate_pct",
+                "same_day_target_stop_rate_pct",
+                "no_decision_after_20d_rate_pct",
+                "avg_holding_days_if_win",
+                "avg_holding_days_if_loss",
+                "avg_first_decision_or_20d_days",
+            ],
+            limit=50,
+        ),
+    ]
+    PRICE_PULLBACK_TIME_COST_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
+    DOCS_PRICE_PULLBACK_TIME_COST_MD.write_text(
+        PRICE_PULLBACK_TIME_COST_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def write_model_parity(parity: pd.DataFrame) -> None:
     write_csv(parity, OUT_PARITY_CSV)
     write_csv(parity, DOCS_PARITY_CSV)
@@ -1378,6 +1522,7 @@ def main() -> int:
     coverage = coverage_stats()
     parity_df = build_model_parity(summary_df)
     price_pullback_operation_df = build_price_pullback_operation_research(df)
+    price_pullback_time_cost_df = build_price_pullback_time_cost_backtest(df)
 
     write_csv(summary_df, OUT_CSV)
     write_csv(detail_df, OUT_DETAIL_CSV)
@@ -1389,11 +1534,13 @@ def main() -> int:
     write_markdown(summary_df, detail_df, coverage)
     write_model_parity(parity_df)
     write_price_pullback_operation_research(price_pullback_operation_df)
+    write_price_pullback_time_cost_backtest(price_pullback_time_cost_df)
 
     print(f"Saved {OUT_CSV} rows={len(summary_df)}")
     print(f"Saved {OUT_DETAIL_CSV} rows={len(detail_df)}")
     print(f"Saved {OUT_PARITY_CSV} rows={len(parity_df)}")
     print(f"Saved {PRICE_PULLBACK_OPERATION_CSV} rows={len(price_pullback_operation_df)}")
+    print(f"Saved {PRICE_PULLBACK_TIME_COST_CSV} rows={len(price_pullback_time_cost_df)}")
     print(f"Saved {OUT_MD}")
     return 0
 
