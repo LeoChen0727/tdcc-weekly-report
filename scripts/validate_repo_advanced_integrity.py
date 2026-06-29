@@ -15,6 +15,7 @@ LINEAGE_CSV = ROOT / "config" / "report_artifact_lineage.csv"
 RUNTIME_LINEAGE_CONTRACT = ROOT / "config" / "runtime_file_lineage_contract.csv"
 PDF_GOLDEN_CONTRACT = ROOT / "config" / "pdf_golden_regression_contract.csv"
 HISTORICAL_REPLAY_CONTRACT = ROOT / "config" / "historical_replay_semantic_contract.csv"
+STOCK_MODEL_CONTRACT_REGISTRY = ROOT / "config" / "stock_model_contract_registry.csv"
 MODEL_CONDITION_SPEC = ROOT / "config" / "daily_model_condition_spec.csv"
 EXTERNAL_SOURCE_CONTRACT = ROOT / "config" / "external_data_source_contract.csv"
 DAILY_MODEL_LAYER = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
@@ -23,6 +24,7 @@ ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 TRACER = ROOT / "scripts" / "trace_runtime_file_lineage.py"
 FRESHNESS_CSV = ROOT / "output" / "latest" / "data_freshness_latest.csv"
 MODEL_PARAMETERS_CSV = ROOT / "output" / "latest" / "daily_candidate_model_parameters_latest.csv"
+DAILY_MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 MODEL_PARITY_CSV = ROOT / "output" / "latest" / "research_backtest" / "daily_model_research_parity_latest.csv"
 MODEL_REGISTRY_CSV = ROOT / "output" / "latest" / "daily_report_model_registry_latest.csv"
 
@@ -31,6 +33,7 @@ REQUIRED_CONFIGS = {
     RUNTIME_LINEAGE_CONTRACT,
     PDF_GOLDEN_CONTRACT,
     HISTORICAL_REPLAY_CONTRACT,
+    STOCK_MODEL_CONTRACT_REGISTRY,
     MODEL_CONDITION_SPEC,
     EXTERNAL_SOURCE_CONTRACT,
 }
@@ -275,11 +278,62 @@ def latest_main_price_date() -> str:
     return rows[0].get("main_price_date", "").strip()
 
 
+def parse_contract_date(value: str) -> datetime | None:
+    text = str(value or "").strip()
+    if not text or text.lower() in {"none", "n/a", "na"}:
+        return None
+    for fmt in ("%Y-%m-%d", "%Y%m%d"):
+        try:
+            return datetime.strptime(text, fmt)
+        except ValueError:
+            continue
+    return None
+
+
+def model_contract_valid_on(row: dict[str, str], snapshot_dt: datetime) -> bool:
+    effective_from = parse_contract_date(row.get("effective_from", ""))
+    deprecated_after = parse_contract_date(row.get("deprecated_after", ""))
+    if effective_from and snapshot_dt < effective_from:
+        return False
+    if deprecated_after and snapshot_dt > deprecated_after:
+        return False
+    return True
+
+
+def historical_model_parameters_path(date_text: str) -> Path:
+    return DAILY_MODEL_SNAPSHOT_DIR / f"daily_candidate_model_parameters_{date_text}.csv"
+
+
+def known_historical_models_for_date(
+    date_text: str,
+    current_models: set[str],
+    contract_rows: list[dict[str, str]],
+) -> set[str]:
+    models: set[str] = set()
+    parameter_snapshot = historical_model_parameters_path(date_text)
+    models.update(
+        row.get("model_id", "").strip()
+        for row in read_csv_rows(parameter_snapshot)
+        if row.get("model_id", "").strip()
+    )
+    try:
+        snapshot_dt = datetime.strptime(date_text, "%Y%m%d")
+    except ValueError:
+        return models or current_models
+    models.update(
+        row.get("model_id", "").strip()
+        for row in contract_rows
+        if row.get("model_id", "").strip() and model_contract_valid_on(row, snapshot_dt)
+    )
+    return models or current_models
+
+
 def validate_historical_replay_semantics() -> list[str]:
     errors: list[str] = []
     contracts = read_csv_rows(HISTORICAL_REPLAY_CONTRACT)
     parameters = read_csv_rows(MODEL_PARAMETERS_CSV)
-    known_models = {row.get("model_id", "").strip() for row in parameters if row.get("model_id", "").strip()}
+    contract_rows = read_csv_rows(STOCK_MODEL_CONTRACT_REGISTRY)
+    current_models = {row.get("model_id", "").strip() for row in parameters if row.get("model_id", "").strip()}
     main_date = latest_main_price_date()
     if not main_date:
         errors.append("cannot validate historical replay: missing main_price_date")
@@ -321,6 +375,7 @@ def validate_historical_replay_semantics() -> list[str]:
             if not rows:
                 errors.append(f"historical replay snapshot is empty: {rel(path)}")
                 continue
+            known_models = known_historical_models_for_date(date_text, current_models, contract_rows)
             columns = set(rows[0])
             missing = sorted(required_columns - columns)
             if missing:

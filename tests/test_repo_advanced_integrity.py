@@ -189,6 +189,92 @@ def test_external_source_contract_runs_bounded_degradation_validator() -> None:
     assert "validate_degraded_external_source(source_id, data, str(observed_status))" in text
 
 
+def _write_minimal_historical_replay_repo(tmp_path: Path, model_id: str) -> None:
+    config_dir = tmp_path / "config"
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    config_dir.mkdir(parents=True, exist_ok=True)
+    latest_dir.mkdir(parents=True, exist_ok=True)
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+
+    (latest_dir / "data_freshness_latest.csv").write_text(
+        "main_price_date\n20260630\n",
+        encoding="utf-8",
+    )
+    (config_dir / "historical_replay_semantic_contract.csv").write_text(
+        "artifact_glob,window_days,min_snapshots,required_columns,forbidden_columns,allowed_report_lines,allowed_report_buckets,date_column,file_date_regex\n"
+        "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_*.csv,60,1,signal_date;stock_id;model_id;model_score;report_line;report_bucket;mainstream_report_eligible;non_mainstream_report_eligible,trade_decision,mainstream;non_mainstream,mainstream;non_mainstream,signal_date,daily_candidate_model_signals_for_report_(\\d{8})\\.csv\n",
+        encoding="utf-8",
+    )
+    (latest_dir / "daily_candidate_model_parameters_latest.csv").write_text(
+        "model_id\nneckline_volume_breakout_confirmation\n",
+        encoding="utf-8",
+    )
+    (config_dir / "stock_model_contract_registry.csv").write_text(
+        "model_id,effective_from,deprecated_after\n"
+        "near_high_neckline_challenge,2026-06-21,2026-06-29\n"
+        "platform_strengthening,2026-06-21,2026-06-29\n",
+        encoding="utf-8",
+    )
+    (snapshot_dir / "daily_candidate_model_parameters_20260624.csv").write_text(
+        "model_id\nnear_high_neckline_challenge\nplatform_strengthening\n",
+        encoding="utf-8",
+    )
+    (snapshot_dir / "daily_candidate_model_signals_for_report_20260624.csv").write_text(
+        "signal_date,stock_id,model_id,model_score,report_line,report_bucket,mainstream_report_eligible,non_mainstream_report_eligible\n"
+        f"20260624,2330,{model_id},80,mainstream,mainstream,True,False\n",
+        encoding="utf-8",
+    )
+
+
+def _patch_historical_replay_paths(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    monkeypatch.setattr(
+        validator,
+        "HISTORICAL_REPLAY_CONTRACT",
+        tmp_path / "config" / "historical_replay_semantic_contract.csv",
+    )
+    monkeypatch.setattr(
+        validator,
+        "STOCK_MODEL_CONTRACT_REGISTRY",
+        tmp_path / "config" / "stock_model_contract_registry.csv",
+    )
+    monkeypatch.setattr(
+        validator,
+        "MODEL_PARAMETERS_CSV",
+        tmp_path / "output" / "latest" / "daily_candidate_model_parameters_latest.csv",
+    )
+    monkeypatch.setattr(
+        validator,
+        "DAILY_MODEL_SNAPSHOT_DIR",
+        tmp_path / "output" / "history" / "daily_model_snapshots",
+    )
+    monkeypatch.setattr(
+        validator,
+        "FRESHNESS_CSV",
+        tmp_path / "output" / "latest" / "data_freshness_latest.csv",
+    )
+
+
+def test_historical_replay_accepts_dated_deprecated_model_ids(tmp_path: Path, monkeypatch) -> None:
+    _write_minimal_historical_replay_repo(tmp_path, "near_high_neckline_challenge")
+    _patch_historical_replay_paths(tmp_path, monkeypatch)
+
+    assert validator.validate_historical_replay_semantics() == []
+
+    _write_minimal_historical_replay_repo(tmp_path, "platform_strengthening")
+    assert validator.validate_historical_replay_semantics() == []
+
+
+def test_historical_replay_rejects_never_registered_model_id(tmp_path: Path, monkeypatch) -> None:
+    _write_minimal_historical_replay_repo(tmp_path, "not_a_registered_model")
+    _patch_historical_replay_paths(tmp_path, monkeypatch)
+
+    errors = validator.validate_historical_replay_semantics()
+
+    assert any("historical replay unknown model_id 'not_a_registered_model'" in error for error in errors)
+
+
 def test_advanced_integrity_contracts_exist() -> None:
     for path in validator.REQUIRED_CONFIGS:
         assert path.exists(), path
