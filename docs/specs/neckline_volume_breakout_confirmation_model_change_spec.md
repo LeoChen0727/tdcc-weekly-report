@@ -1,11 +1,22 @@
 # Neckline Volume Breakout Confirmation Model Change Spec
 
-This document defines the intended production model change for
+This document defines the production model-change contract for
 `neckline_volume_breakout_confirmation`.
 
-It does not change production model conditions, scoring, ranking, PDF layout,
-research baselines, or model contracts. It is the implementation spec that must
-be reviewed before a formal model-change PR edits production code.
+Implementation status as of the 2026-06-29 production sync:
+
+- `neckline_volume_breakout_confirmation` is promoted through
+  `neckline_strict_45_signal_90_score_v1`.
+- The formal condition requires 45-session non-bearish pre-signal context.
+- The 90-session context is score/risk adjustment only, not an entry exclusion.
+- The formal operation evidence is stored in
+  `output/latest/approved_operation_patterns_latest.csv`.
+- Raw research candidate rows remain advisory-only unless a later PR promotes a
+  new approval version.
+
+Earlier sections in this document still explain the review logic and rollout
+boundary that led to the production sync. Future changes should add a new
+approval version instead of mutating the meaning of this v1 silently.
 
 ## Purpose
 
@@ -366,7 +377,7 @@ register them in `config/stock_model_contract_registry.csv`.
 
 ## Contract Requirements
 
-When the production implementation is created, update:
+The production implementation owns these files together:
 
 ```text
 config/daily_model_condition_spec.csv
@@ -390,8 +401,9 @@ The contract must state:
 - `approved_for_individual_pdf`;
 - research parity status.
 
-Do not add `neckline_volume_breakout_confirmation` to formal registries until
-production code and tests exist in the same PR.
+Do not change `neckline_volume_breakout_confirmation` in formal registries
+without matching production code, tests, and research/parity handling in the
+same PR.
 
 ## Deprecation Plan For Existing Surfaces
 

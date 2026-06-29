@@ -112,3 +112,16 @@ def test_w_bottom_approved_operation_recommendation_is_added() -> None:
     assert row["best_close_win_rate_pct"] == "65.0000"
     assert row["best_avg_close_return_pct"] == "2.9504"
     assert "Inclusive success 77.4194" in row["model_revision_note"]
+
+
+def test_neckline_approved_operation_recommendation_is_added() -> None:
+    out = build_recommendations(pd.DataFrame([base_row()]), pd.DataFrame([detail_row()]))
+    row = out[out["model_id"].eq("neckline_volume_breakout_confirmation")].iloc[0]
+
+    assert row["recommended_usage"] == "promote_to_pdf_core"
+    assert row["recommendation_reason_code"] == "approved_neckline_strict_45_signal_90_score_operation_v1"
+    assert row["recommended_close_exit_horizon"] == "D+20"
+    assert row["best_close_win_rate_pct"] == "63.8889"
+    assert row["best_avg_close_return_pct"] == "4.3784"
+    assert "Inclusive success 74.5098" in row["model_revision_note"]
+    assert "90d bearish context remains eligible" in row["model_revision_note"]

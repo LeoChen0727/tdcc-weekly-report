@@ -11,6 +11,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
 from build_approved_operation_patterns import (  # noqa: E402
+    NECKLINE_APPROVAL_METRICS,
+    NECKLINE_APPROVAL_VERSION,
+    NECKLINE_BUY_FILTER_ID,
+    NECKLINE_MODEL_ID,
+    NECKLINE_OPERATION_MODULE_ID,
     W_BOTTOM_APPROVAL_METRICS,
     W_BOTTOM_APPROVAL_VERSION,
     W_BOTTOM_BUY_FILTER_ID,
@@ -173,6 +178,39 @@ def approved_w_bottom_operation_recommendation(generated_at: str) -> dict[str, A
     }
 
 
+def approved_neckline_operation_recommendation(generated_at: str) -> dict[str, Any]:
+    return {
+        "generated_at": generated_at,
+        "model_id": NECKLINE_MODEL_ID,
+        "model_name_zh": "W底頸線帶量突破確認模型",
+        "parameter_set_id": NECKLINE_OPERATION_MODULE_ID,
+        "parameter_summary": (
+            "Neckline volume breakout v1; 45d non-bearish context is the entry gate; "
+            "90d context is score-only adjustment; buy next open after +1% close confirmation within 3 sessions."
+        ),
+        "entry_basis": "confirmation_signal_next_open",
+        "recommended_usage": "promote_to_pdf_core",
+        "recommendation_reason_code": "approved_neckline_strict_45_signal_90_score_operation_v1",
+        "recommended_close_exit_horizon": "D+20",
+        "best_close_win_rate_pct": NECKLINE_APPROVAL_METRICS["pure_win_rate_pct"],
+        "best_avg_close_return_pct": NECKLINE_APPROVAL_METRICS["avg_return_pct"],
+        "recommended_high_exit_horizon": "",
+        "best_avg_high_return_pct": NECKLINE_APPROVAL_METRICS["avg_max_close_return_pct"],
+        "best_high_5pct_hit_rate_pct": "",
+        "selected_stock_days": NECKLINE_APPROVAL_METRICS["tradable_entry_count"],
+        "selected_unique_stocks": NECKLINE_APPROVAL_METRICS["unique_stock_count"],
+        "sample_status": "approved_operation_v1",
+        "pdf_visibility": "pdf_core_model",
+        "model_revision_note": (
+            f"Approved operation {NECKLINE_APPROVAL_VERSION}; pure win rate "
+            f"{NECKLINE_APPROVAL_METRICS['pure_win_rate_pct']} uses win/(win+loss). "
+            f"Inclusive success {NECKLINE_APPROVAL_METRICS['neutral_inclusive_success_rate_pct']} includes neutral rows "
+            "and must not be labeled as pure win rate. "
+            f"buy_filter_id={NECKLINE_BUY_FILTER_ID}; 90d bearish context remains eligible as score/risk adjustment."
+        ),
+    }
+
+
 def build_recommendations(research: pd.DataFrame, detail: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     generated_at = now_text()
@@ -203,6 +241,7 @@ def build_recommendations(research: pd.DataFrame, detail: pd.DataFrame) -> pd.Da
             }
         )
     rows.append(approved_w_bottom_operation_recommendation(generated_at))
+    rows.append(approved_neckline_operation_recommendation(generated_at))
     out = pd.DataFrame(rows)
     if out.empty:
         return out

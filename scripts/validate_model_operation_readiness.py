@@ -15,6 +15,7 @@ from build_model_operation_readiness import (  # noqa: E402
     OUT_CSV,
     OUT_MD,
     PARITY_CSV,
+    NECKLINE_MODEL_ID,
     VOLUME_MODEL_ID,
     W_BOTTOM_MODEL_ID,
 )
@@ -38,7 +39,7 @@ REQUIRED_COLUMNS = {
     "status_note_zh",
 }
 
-APPROVED_MODEL_IDS = {VOLUME_MODEL_ID, W_BOTTOM_MODEL_ID}
+APPROVED_MODEL_IDS = {VOLUME_MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID}
 
 
 def as_bool_text(series: pd.Series) -> pd.Series:
@@ -141,6 +142,29 @@ def validate_readiness_csv() -> list[str]:
         if str(row.get("approval_version", "")) != "w_bottom_early_entry_operation_v1_20260629":
             errors.append(f"{W_BOTTOM_MODEL_ID} approval_version must be w_bottom_early_entry_operation_v1_20260629")
 
+    neckline = df[df["model_id"].astype(str).eq(NECKLINE_MODEL_ID)]
+    if len(neckline) != 1:
+        errors.append(f"readiness must contain exactly one {NECKLINE_MODEL_ID} row")
+    else:
+        row = neckline.iloc[0]
+        expected = {
+            "operation_module_status": "approved_operation_v1",
+            "daily_adapter_status": "model_header_evidence_ready",
+            "approved_for_daily": "True",
+            "approval_status": "approved_for_daily_v1",
+            "presentation_allowed": "True",
+            "operation_directive_level": "approved_daily_operation_guidance",
+            "pdf_integration_status": "pdf_model_header_evidence_ready",
+            "packet_integration_status": "packet_model_header_evidence_ready",
+        }
+        for col, value in expected.items():
+            if str(row.get(col, "")) != value:
+                errors.append(f"{NECKLINE_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+        if str(row.get("operation_module_id", "")) != "neckline_strict_45_signal_90_score_v1":
+            errors.append(f"{NECKLINE_MODEL_ID} operation_module_id must be neckline_strict_45_signal_90_score_v1")
+        if str(row.get("approval_version", "")) != "neckline_strict_45_signal_90_score_v1_20260629":
+            errors.append(f"{NECKLINE_MODEL_ID} approval_version must be neckline_strict_45_signal_90_score_v1_20260629")
+
     others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS)]
     if not others.empty:
         bad_operation = others[~others["operation_module_status"].eq("baseline_only_no_validated_operation_module")]
@@ -237,6 +261,7 @@ def main() -> int:
     print(f"rows={len(df)}")
     print(f"volume_status={df.loc[df['model_id'].eq(VOLUME_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     print(f"w_bottom_status={df.loc[df['model_id'].eq(W_BOTTOM_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
+    print(f"neckline_status={df.loc[df['model_id'].eq(NECKLINE_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     return 0
 
 

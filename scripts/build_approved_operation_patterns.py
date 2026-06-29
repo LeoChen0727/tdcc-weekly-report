@@ -46,6 +46,19 @@ W_BOTTOM_MIN_MATURE_SAMPLE_SIZE = 20
 W_BOTTOM_MIN_PURE_WIN_RATE = 60.0
 W_BOTTOM_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE = 70.0
 
+NECKLINE_MODEL_ID = "neckline_volume_breakout_confirmation"
+NECKLINE_OPERATION_MODULE_ID = "neckline_strict_45_signal_90_score_v1"
+NECKLINE_APPROVAL_VERSION = "neckline_strict_45_signal_90_score_v1_20260629"
+NECKLINE_SOURCE_RESEARCH_ID = "neckline_strict_45_signal_90_score_operation_candidate"
+NECKLINE_ENTRY_RULE_ID = "close_ge_1pct_within_3_sessions_next_open"
+NECKLINE_STOP_LOSS_RULE_ID = "no_fixed_stop_loss_20d_operation_rule"
+NECKLINE_EXIT_RULE_ID = "tp10_close_win_5pct_pullback_neutral_else_20d_close_loss"
+NECKLINE_BUY_FILTER_ID = "broad_45_non_bearish_with_90_warning"
+NECKLINE_SPEC_SOURCE = Path("docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md")
+NECKLINE_MIN_MATURE_SAMPLE_SIZE = 30
+NECKLINE_MIN_PURE_WIN_RATE = 60.0
+NECKLINE_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE = 70.0
+
 W_BOTTOM_APPROVAL_METRICS = {
     "surface_id": "w_bottom_right_low_early_entry",
     "selected_segment_id": W_BOTTOM_BUY_FILTER_ID,
@@ -61,6 +74,28 @@ W_BOTTOM_APPROVAL_METRICS = {
     "avg_return_pct": "2.9504",
     "median_return_pct": "4.7478",
     "unique_stock_count": "44",
+}
+
+NECKLINE_APPROVAL_METRICS = {
+    "surface_id": "neckline_volume_breakout_confirmation",
+    "selected_segment_id": "low_position_le60_market_bull",
+    "source_candidate_count": "87",
+    "confirmation_candidate_count": "51",
+    "tradable_entry_count": "51",
+    "incomplete_count": "0",
+    "filter90_auto_bearish_source_count": "39",
+    "filter90_auto_bearish_confirmed_count": "19",
+    "score_adjustment_avg_points": "1.8627",
+    "win_count": "23",
+    "neutral_count": "15",
+    "loss_count": "13",
+    "pure_win_rate_pct": "63.8889",
+    "neutral_inclusive_success_rate_pct": "74.5098",
+    "avg_return_pct": "4.3784",
+    "median_return_pct": "4.4597",
+    "avg_max_close_return_pct": "8.5713",
+    "avg_min_close_return_pct": "-6.2885",
+    "unique_stock_count": "51",
 }
 
 
@@ -247,13 +282,99 @@ def w_bottom_approval_row(generated_at: str) -> dict[str, Any]:
     }
 
 
+def neckline_approval_row(generated_at: str) -> dict[str, Any]:
+    if not NECKLINE_SPEC_SOURCE.exists():
+        raise RuntimeError(f"missing neckline operation spec: {NECKLINE_SPEC_SOURCE}")
+
+    mature_sample = to_number(NECKLINE_APPROVAL_METRICS["tradable_entry_count"])
+    pure_win_rate = to_number(NECKLINE_APPROVAL_METRICS["pure_win_rate_pct"])
+    inclusive_success = to_number(NECKLINE_APPROVAL_METRICS["neutral_inclusive_success_rate_pct"])
+    if mature_sample < NECKLINE_MIN_MATURE_SAMPLE_SIZE:
+        raise RuntimeError("neckline approval evidence mature sample is below the v1 gate")
+    if pure_win_rate < NECKLINE_MIN_PURE_WIN_RATE:
+        raise RuntimeError("neckline approval evidence pure win rate is below the v1 gate")
+    if inclusive_success < NECKLINE_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE:
+        raise RuntimeError("neckline approval evidence inclusive success rate is below the v1 gate")
+
+    return {
+        "generated_at": generated_at,
+        "model_id": NECKLINE_MODEL_ID,
+        "operation_module_id": NECKLINE_OPERATION_MODULE_ID,
+        "approval_version": NECKLINE_APPROVAL_VERSION,
+        "approved_for_daily": "True",
+        "approval_status": "approved_for_daily_v1",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "source_research_id": NECKLINE_SOURCE_RESEARCH_ID,
+        "entry_rule_id": NECKLINE_ENTRY_RULE_ID,
+        "entry_rule_zh": "45日非空頭頸線候選成立後，3個交易日內收盤相對原始回測進場價達+1%，下一個交易日開盤買進。",
+        "stop_loss_rule_id": NECKLINE_STOP_LOSS_RULE_ID,
+        "stop_loss_rule_zh": "v1不升級固定收盤停損；以20個交易日操作規則判定勝、和、敗。",
+        "exit_rule_id": NECKLINE_EXIT_RULE_ID,
+        "exit_rule_zh": "20個交易日內收盤報酬先達+10%為勝；先達+5%後回落到<=+5%且未達+10%為和局；否則第20日收盤歸為操作規則敗。",
+        "buy_filter_id": NECKLINE_BUY_FILTER_ID,
+        "buy_filter_zh": "45日 context 必須為 auto_non_bearish；90日 context 只當 score adjustment / risk warning，不作入選排除。",
+        "pending_rule_zh": "純勝率與含和局成功率必須分開標示；正報酬但未達操作規則勝/和者仍可歸為操作規則敗。",
+        "min_sample_size": NECKLINE_MIN_MATURE_SAMPLE_SIZE,
+        "min_win_rate": NECKLINE_MIN_PURE_WIN_RATE,
+        "min_median_return": "",
+        "require_out_of_sample_pass": "False",
+        "min_research_score": "",
+        "evidence_summary_source": str(NECKLINE_SPEC_SOURCE).replace("\\", "/"),
+        "evidence_rank_source": str(NECKLINE_SPEC_SOURCE).replace("\\", "/"),
+        "evidence_source_kind": "neckline_strict_45_signal_90_score_operation_spec",
+        "evidence_total_rank_rows": 1,
+        "evidence_positive_rank_rows": 1,
+        "best_evidence_scope": NECKLINE_APPROVAL_METRICS["surface_id"],
+        "best_evidence_id": NECKLINE_APPROVAL_METRICS["selected_segment_id"],
+        "best_evidence_sample_size": NECKLINE_APPROVAL_METRICS["tradable_entry_count"],
+        "best_evidence_win_rate": NECKLINE_APPROVAL_METRICS["pure_win_rate_pct"],
+        "best_evidence_median_return": NECKLINE_APPROVAL_METRICS["median_return_pct"],
+        "best_evidence_confidence_status": "approved_from_promoted_operation_spec_v1",
+        "best_evidence_out_of_sample_pass": "not_applicable",
+        "neckline_source_candidate_count": NECKLINE_APPROVAL_METRICS["source_candidate_count"],
+        "neckline_confirmation_candidate_count": NECKLINE_APPROVAL_METRICS["confirmation_candidate_count"],
+        "neckline_tradable_entry_count": NECKLINE_APPROVAL_METRICS["tradable_entry_count"],
+        "neckline_filter90_auto_bearish_confirmed_count": NECKLINE_APPROVAL_METRICS[
+            "filter90_auto_bearish_confirmed_count"
+        ],
+        "neckline_win_count": NECKLINE_APPROVAL_METRICS["win_count"],
+        "neckline_neutral_count": NECKLINE_APPROVAL_METRICS["neutral_count"],
+        "neckline_loss_count": NECKLINE_APPROVAL_METRICS["loss_count"],
+        "neckline_pure_win_rate_pct": NECKLINE_APPROVAL_METRICS["pure_win_rate_pct"],
+        "neckline_neutral_inclusive_success_rate_pct": NECKLINE_APPROVAL_METRICS[
+            "neutral_inclusive_success_rate_pct"
+        ],
+        "neckline_avg_return_pct": NECKLINE_APPROVAL_METRICS["avg_return_pct"],
+        "neckline_avg_max_close_return_pct": NECKLINE_APPROVAL_METRICS["avg_max_close_return_pct"],
+        "neckline_avg_min_close_return_pct": NECKLINE_APPROVAL_METRICS["avg_min_close_return_pct"],
+        "neckline_unique_stock_count": NECKLINE_APPROVAL_METRICS["unique_stock_count"],
+        "data_start_date": "",
+        "data_end_date": "",
+        "out_of_sample_start_date": "",
+        "approval_note_zh": (
+            "頸線帶量突破 v1 正式批准為 daily operation guidance；45日 context 是入選訊號，"
+            "90日 context 只作分數與風險調整，原始 research candidate rows 仍維持 research-only。"
+        ),
+        "risk_notes_zh": (
+            "PDF標題下方必須標示操作規則勝率與含和局成功率；此 approval 不移除 "
+            "near_high_neckline_challenge 或 platform_strengthening。"
+        ),
+    }
+
+
 def build_approval(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str | None = None) -> pd.DataFrame:
     generated = generated_at or now_text()
     if summary.empty:
         raise RuntimeError(f"missing confirmed operation summary: {CONFIRMED_SUMMARY_CSV}")
     if rank.empty:
         raise RuntimeError(f"missing confirmed operation rank: {CONFIRMED_RANK_CSV}")
-    return pd.DataFrame([approval_row(summary, rank, generated), w_bottom_approval_row(generated)])
+    return pd.DataFrame(
+        [
+            approval_row(summary, rank, generated),
+            w_bottom_approval_row(generated),
+            neckline_approval_row(generated),
+        ]
+    )
 
 
 def write_markdown(df: pd.DataFrame) -> None:

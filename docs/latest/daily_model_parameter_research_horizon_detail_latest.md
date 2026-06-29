@@ -1,6 +1,6 @@
 # Daily Model Parameter Research - Horizon Detail
 
-- generated_at: `2026-06-29 05:37:11 Asia/Taipei`
+- generated_at: `2026-06-29 08:37:42 Asia/Taipei`
 - entry_basis: `signal_date_next_open`
 
 | model_id | parameter_set_id | horizon | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | avg_high_return_pct | high_5pct_hit_rate_pct |
@@ -45,26 +45,26 @@
 | revenue_unreacted_range | production_current_proxy | D+8 | 321512 | 44.24 | 0.53 | -0.38 | 5.45 | 33.71 |
 | revenue_unreacted_range | production_current_proxy | D+9 | 320042 | 44.38 | 0.63 | -0.4 | 5.89 | 36.03 |
 | revenue_unreacted_range | production_current_proxy | D+10 | 318440 | 44.41 | 0.72 | -0.42 | 6.31 | 38.05 |
-| w_bottom_right_side | production_current_proxy | D+1 | 90390 | 39.18 | -0.21 | -0.27 | 1.66 | 8.31 |
-| w_bottom_right_side | production_current_proxy | D+2 | 89800 | 41.62 | -0.1 | -0.35 | 2.74 | 17.15 |
-| w_bottom_right_side | production_current_proxy | D+3 | 89170 | 42.48 | 0.04 | -0.38 | 3.62 | 23.15 |
-| w_bottom_right_side | production_current_proxy | D+4 | 88570 | 42.97 | 0.17 | -0.42 | 4.38 | 27.9 |
-| w_bottom_right_side | production_current_proxy | D+5 | 87926 | 43.22 | 0.32 | -0.46 | 5.08 | 31.93 |
-| w_bottom_right_side | production_current_proxy | D+6 | 87259 | 43.52 | 0.49 | -0.49 | 5.75 | 35.21 |
-| w_bottom_right_side | production_current_proxy | D+7 | 86652 | 43.8 | 0.66 | -0.51 | 6.37 | 38.01 |
-| w_bottom_right_side | production_current_proxy | D+8 | 86058 | 44.22 | 0.83 | -0.51 | 6.96 | 40.47 |
-| w_bottom_right_side | production_current_proxy | D+9 | 85427 | 44.81 | 1.03 | -0.48 | 7.53 | 42.74 |
-| w_bottom_right_side | production_current_proxy | D+10 | 84857 | 45.18 | 1.26 | -0.46 | 8.1 | 44.73 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+1 | 8252 | 36.55 | -0.62 | -0.56 | 2.46 | 17.27 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+2 | 8230 | 39.91 | -0.46 | -0.93 | 4.25 | 32.31 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+3 | 8199 | 39.35 | -0.36 | -1.19 | 5.53 | 37.88 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+4 | 8161 | 39.53 | -0.24 | -1.49 | 6.54 | 41.92 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+5 | 8112 | 40.1 | -0.12 | -1.47 | 7.41 | 45.24 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+6 | 8070 | 40.33 | 0.06 | -1.49 | 8.18 | 47.98 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+7 | 8029 | 40.89 | 0.31 | -1.51 | 8.92 | 50.47 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+8 | 8006 | 41.53 | 0.51 | -1.54 | 9.6 | 52.39 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+9 | 7965 | 41.95 | 0.75 | -1.39 | 10.27 | 54.09 |
-| neckline_volume_breakout_confirmation | production_current_proxy | D+10 | 7932 | 42.36 | 1.0 | -1.38 | 10.88 | 55.51 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+1 | 90390 | 39.18 | -0.21 | -0.27 | 1.66 | 8.31 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+2 | 89800 | 41.62 | -0.1 | -0.35 | 2.74 | 17.15 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+3 | 89170 | 42.48 | 0.04 | -0.38 | 3.62 | 23.15 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+4 | 88570 | 42.97 | 0.17 | -0.42 | 4.38 | 27.9 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+5 | 87926 | 43.22 | 0.32 | -0.46 | 5.08 | 31.93 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+6 | 87259 | 43.52 | 0.49 | -0.49 | 5.75 | 35.21 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+7 | 86652 | 43.8 | 0.66 | -0.51 | 6.37 | 38.01 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+8 | 86058 | 44.22 | 0.83 | -0.51 | 6.96 | 40.47 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+9 | 85427 | 44.81 | 1.03 | -0.48 | 7.53 | 42.74 |
+| w_bottom_right_side | w_bottom_early_entry_operation_v1 | D+10 | 84857 | 45.18 | 1.26 | -0.46 | 8.1 | 44.73 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+1 | 8252 | 36.55 | -0.62 | -0.56 | 2.46 | 17.27 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+2 | 8230 | 39.91 | -0.46 | -0.93 | 4.25 | 32.31 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+3 | 8199 | 39.35 | -0.36 | -1.19 | 5.53 | 37.88 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+4 | 8161 | 39.53 | -0.24 | -1.49 | 6.54 | 41.92 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+5 | 8112 | 40.1 | -0.12 | -1.47 | 7.41 | 45.24 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+6 | 8070 | 40.33 | 0.06 | -1.49 | 8.18 | 47.98 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+7 | 8029 | 40.89 | 0.31 | -1.51 | 8.92 | 50.47 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+8 | 8006 | 41.53 | 0.51 | -1.54 | 9.6 | 52.39 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+9 | 7965 | 41.95 | 0.75 | -1.39 | 10.27 | 54.09 |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | D+10 | 7932 | 42.36 | 1.0 | -1.38 | 10.88 | 55.51 |
 | near_high_neckline_challenge | production_current_proxy | D+1 | 17814 | 39.39 | -0.22 | -0.23 | 1.78 | 10.18 |
 | near_high_neckline_challenge | production_current_proxy | D+2 | 17739 | 41.61 | -0.16 | -0.34 | 2.9 | 19.08 |
 | near_high_neckline_challenge | production_current_proxy | D+3 | 17660 | 41.52 | -0.08 | -0.4 | 3.75 | 24.47 |
