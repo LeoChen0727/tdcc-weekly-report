@@ -468,6 +468,9 @@ def test_price_pullback_operation_module_prior_high_monthline_stop() -> None:
     assert prior_high["neutral_count"] == 1
     assert prior_high["failure_count"] == 1
     assert prior_high["same_day_unresolved_count"] == 1
+    assert prior_high["avg_realized_return_pct"] == 1.33
+    assert prior_high["avg_win_realized_return_pct"] == 5.0
+    assert prior_high["avg_failure_realized_return_pct"] == -2.0
     assert prior_high["avg_days_to_failure"] == 3.0
 
 
@@ -522,6 +525,8 @@ def test_price_pullback_operation_module_looser_lower_reference_stop_grid() -> N
     assert looser_stop["win_count"] == 0
     assert looser_stop["neutral_count"] == 0
     assert looser_stop["failure_count"] == 1
+    assert looser_stop["avg_realized_return_pct"] == -4.5
+    assert looser_stop["avg_failure_realized_return_pct"] == -4.5
     assert looser_stop["avg_days_to_failure"] == 4.0
 
 
