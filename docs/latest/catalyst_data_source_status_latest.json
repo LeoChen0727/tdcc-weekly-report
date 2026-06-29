@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29 18:14:17 Asia/Taipei",
+  "generated_at": "2026-06-29 22:08:07 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -16,12 +16,12 @@
     "quarterly_catalyst": {
       "path": "data/fundamental_catalysts/quarterly_catalyst.csv",
       "exists": true,
-      "rows": 842
+      "rows": 851
     },
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
       "exists": true,
-      "rows": 1466
+      "rows": 1467
     }
   },
   "sources": {
@@ -31,8 +31,8 @@
       "rows": 1082,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 273,
-      "stored_rows": 273,
+      "matched_tracked_rows": 268,
+      "stored_rows": 268,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
@@ -41,8 +41,8 @@
       "rows": 890,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 118,
-      "stored_rows": 118,
+      "matched_tracked_rows": 121,
+      "stored_rows": 121,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
@@ -61,8 +61,8 @@
       "rows": 8,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "matched_tracked_rows": 1,
+      "stored_rows": 1,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }

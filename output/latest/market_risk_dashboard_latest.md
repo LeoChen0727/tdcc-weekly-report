@@ -1,7 +1,7 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-28 00:04:08 Asia/Taipei`
-- data_date: `20260626`
+- generated_at: `2026-06-29 22:13:42 Asia/Taipei`
+- data_date: `20260629`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
 - risk_score: `9`
@@ -13,48 +13,48 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260626 |
-| futures_contracts | ok | 66 | 20260626 |
-| options_call_put | ok | 30 | 20260626 |
-| put_call_ratio | ok | 22 | 20260626 |
-| taiwan_vix | ok | 81 | 20260626 |
+| institutional_fo | ok | 3 | 20260629 |
+| futures_contracts | ok | 66 | 20260629 |
+| options_call_put | ok | 30 | 20260629 |
+| put_call_ratio | ok | 20 | 20260629 |
+| taiwan_vix | ok | 82 | 20260629 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 44,571.76 | -4.07% | +2.14% | False | True | correction |
-| TPEx | 415.26 | -7.11% | -3.98% | False | True | correction |
+| TWSE | 44,999.90 | -5.74% | +0.60% | False | True | correction |
+| TPEx | 412.93 | -8.95% | -6.92% | False | True | correction |
 
 ## 期貨選擇權部位
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -76,391 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +4,641 |  |
-| Trust TX futures net OI | +61,247 |  |
-| Retail MTX net OI proxy | +7,062 | neutral |
-| Foreign TXO call net OI | -1,022 |  |
-| Foreign TXO put net OI | +4,512 |  |
-| TXO put/call OI ratio | 128.74% | neutral |
-| Taiwan VIX | 44.01 | panic_high |
+| Foreign TX futures net OI | -76,627 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +2,415 |  |
+| Trust TX futures net OI | +62,962 |  |
+| Retail MTX net OI proxy | +1,266 | neutral |
+| Foreign TXO call net OI | +9 |  |
+| Foreign TXO put net OI | +4,220 |  |
+| TXO put/call OI ratio | 123.92% | neutral |
+| Taiwan VIX | 39.98 | panic_high |
 
 ## 近期總經事件日曆
 
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=-2, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=-2, importance=high)
-- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=5, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=10, importance=medium)
-- 20260714 US_CPI: CPI release schedule: June 2026 (days=17, importance=high)
-- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=32, importance=high)
-- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=33, importance=medium)
-- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=33, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=-4, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=-4, importance=high)
+- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=3, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=8, importance=medium)
+- 20260714 US_CPI: CPI release schedule: June 2026 (days=15, importance=high)
+- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=30, importance=high)
+- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=31, importance=medium)
+- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=31, importance=high)
 
 ## 半年技術圖表
 
 PDF 固定納入半年圖表，包含指數趨勢、波動/期權指標、外資台指期部位與散戶小台 proxy。若資料不足，圖表或文字會明確標示限制。
 
-Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available with volume/turnover overlay.
+Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available; volume data is unavailable or partial.
 
 - chart: `output/latest/charts/market_regime/market_index_technical_6m.png`
 - chart: `output/latest/charts/market_regime/risk_indicators_6m.png`
@@ -63,13 +63,13 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: correction; close 44,571.76; 6M range 28,556.02-47,741.51; distance from 6M high -6.64%; above MA20=False, above MA60=True.
-- TPEx / OTC: correction; close 415.26; 6M range 271.50-453.50; distance from 6M high -8.43%; above MA20=False, above MA60=True.
+- TWSE / TAIEX: correction; close 44,999.90; 6M range 28,707.13-47,741.51; distance from 6M high -5.74%; above MA20=False, above MA60=True.
+- TPEx / OTC: correction; close 412.93; 6M range 272.82-453.50; distance from 6M high -8.95%; above MA20=False, above MA60=True.
 
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+7,062`
+- latest_proxy_value: `+1,266`
 - state: `neutral`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
@@ -90,17 +90,17 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `44.01`
-- 252D high / low / percentile: `44.01` / `25.68` / `100%`
+- Taiwan VIX latest: `39.98`
+- 252D high / low / percentile: `44.01` / `25.68` / `91.49%`
 - 504D percentile: `-`
-- z-score: `2.06`
-- vix_return_5d / 10d / 20d: `16.31%` / `0.99%` / `21.31%`
-- TWSE / TPEx position: TWSE dist 60D high `-6.64%`, TPEx dist 60D high `-8.43%`
+- z-score: `1.14`
+- vix_return_5d / 10d / 20d: `5.68%` / `-4.72%` / `11.46%`
+- TWSE / TPEx position: TWSE dist 60D high `-5.74%`, TPEx dist 60D high `-8.95%`
 - vix_index_interpretation: `possible_panic_contrarian_signal`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `7,062`
+- retail_mtx_net_oi_proxy latest: `1,266`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low / percentile: `-` / `-` / `-`
 - 504D percentile: `-`

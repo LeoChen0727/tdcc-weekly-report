@@ -1,18 +1,18 @@
 # Market Sentiment Context
 
-- generated_at: `2026-06-28 00:04:10 Asia/Taipei`
-- date: `20260626`
+- generated_at: `2026-06-29 22:13:45 Asia/Taipei`
+- date: `20260629`
 - sample_status: `insufficient_history`
 - data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ## VIX Historical Context
 
-- Taiwan VIX latest: `44.01`
+- Taiwan VIX latest: `39.98`
 - 252D high / low: `44.01` / `25.68`
-- 252D percentile: `100%`
+- 252D percentile: `91.49%`
 - 504D percentile: `-`
-- z-score 252D: `2.06`
-- vix_return_5d / 10d / 20d: `16.31%` / `0.99%` / `21.31%`
+- z-score 252D: `1.14`
+- vix_return_5d / 10d / 20d: `5.68%` / `-4.72%` / `11.46%`
 - vix_context_label: `extreme_fear_or_hedging`
 - vix_index_interpretation: `possible_panic_contrarian_signal`
 
@@ -20,7 +20,7 @@ VIX interpretation: VIX must be read with TWSE / TPEx position, market_regime, P
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `7,062`
+- retail_mtx_net_oi_proxy latest: `1,266`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low: `-` / `-`
 - 252D percentile: `-`
@@ -34,16 +34,16 @@ Retail MTX interpretation: retail positioning is a contrarian sentiment proxy on
 
 | index | close | dist 20D high | dist 60D high | dist 252D high | above MA20 | above MA60 |
 | --- | ---: | ---: | ---: | ---: | --- | --- |
-| TWSE | 44,572 | -6.64% | -6.64% | -6.64% | False | True |
-| TPEx | 415.26 | -8.43% | -8.43% | -8.43% | False | True |
+| TWSE | 45,000 | -5.74% | -5.74% | -5.74% | False | True |
+| TPEx | 412.93 | -8.95% | -8.95% | -8.95% | False | True |
 
 ## Combined Sentiment Interpretation
 
 - combined_sentiment_interpretation: `insufficient_history_observe_only`
 - sentiment_warning_level: `insufficient`
-- foreign_tx_futures_net_oi: `-76,391`
-- foreign_futures_net_oi: `-568,592` (whole futures exposure background only, not TX direction)
-- put_call_oi_ratio_pct: `128.74%`
+- foreign_tx_futures_net_oi: `-76,627`
+- foreign_futures_net_oi: `-533,450` (whole futures exposure background only, not TX direction)
+- put_call_oi_ratio_pct: `123.92%`
 
 資料不足 / 僅能觀察：目前 VIX / 散戶小台缺少足夠歷史分位資料，不可作為反指標結論。
 
