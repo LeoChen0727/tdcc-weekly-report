@@ -335,6 +335,7 @@ scripts/build_w_bottom_nearest_micro_anchor_chart_review_packet.py,python,resear
 scripts/build_w_bottom_combined_condition_backtest.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom combined condition backtest builder,,medium
 scripts/build_w_bottom_split_entry_outcome_backtest.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom split entry outcome backtest builder,,medium
 scripts/build_w_bottom_early_entry_parameter_grid.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry parameter grid builder,,medium
+scripts/build_w_bottom_early_entry_stop_loss_audit.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry stop-loss audit builder,,medium
 scripts/build_w_bottom_early_entry_outcome_diagnostics.py,python,research_backtest,active,,,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry outcome diagnostics builder,,medium
 scripts/build_w_bottom_early_entry_stability_audit.py,python,research_backtest,active,,scripts/build_w_bottom_market_regime_gated_review_packet.py,,docs/repo_production_inventory.md,,,research/backtest W-bottom early-entry period stability audit builder,,medium
 scripts/build_w_bottom_early_entry_candidate_spec.py,python,research_backtest,active,,scripts/validate_w_bottom_early_entry_candidate_spec.py,,,,,research/backtest W-bottom early-entry current candidate spec builder,,medium
@@ -386,6 +387,7 @@ scripts/validate_w_bottom_nearest_micro_anchor_chart_review_packet.py,python,res
 scripts/validate_w_bottom_combined_condition_backtest.py,python,research_backtest,active,,,,,,,research/backtest W-bottom combined condition backtest validator,,medium
 scripts/validate_w_bottom_split_entry_outcome_backtest.py,python,research_backtest,active,,,,,,,research/backtest W-bottom split entry outcome backtest validator,,medium
 scripts/validate_w_bottom_early_entry_parameter_grid.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry parameter grid validator,,medium
+scripts/validate_w_bottom_early_entry_stop_loss_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry stop-loss audit validator,,medium
 scripts/validate_w_bottom_early_entry_outcome_diagnostics.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry outcome diagnostics validator,,medium
 scripts/validate_w_bottom_early_entry_stability_audit.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry period stability audit validator,,medium
 scripts/validate_w_bottom_early_entry_candidate_spec.py,python,research_backtest,active,,,,,,,research/backtest W-bottom early-entry current candidate spec validator,,medium
