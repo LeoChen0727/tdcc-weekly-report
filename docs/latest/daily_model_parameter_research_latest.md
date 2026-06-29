@@ -1,6 +1,6 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-06-29 18:45:28 Asia/Taipei`
+- generated_at: `2026-06-29 21:11:25 Asia/Taipei`
 - price_history_files: `2376`
 - max_price_rows: `292`
 - data_range: `20250407` ~ `20260626`
@@ -86,6 +86,9 @@
 | price_pullback_23ema | ema-1.5_3_volmax1.2 | parameter_variant | variant_not_baseline | 58156 | 38.98 | 42.58 | 43.3 | 44.55 | 0.21 | 0.84 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1.2 |
 | price_pullback_23ema | ema-1.5_3_volmax1.5 | parameter_variant | variant_not_baseline | 64542 | 39.14 | 42.58 | 43.27 | 44.48 | 0.21 | 0.83 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1.5 |
 | price_pullback_23ema | production_current_proxy | production_baseline | production_proxy | 296964 | 38.95 | 42.83 | 43.68 | 44.59 | 0.22 | 0.7 | ok_first_pass | production baseline proxy replay: near 23EMA/support + MA/EMA trend proxy up |
+| price_pullback_23ema | volume_red_k_vol1.2 | parameter_variant | variant_not_baseline | 30326 | 39.19 | 41.4 | 42.05 | 42.67 | 0.14 | 0.39 | ok_first_pass | production proxy replay + 帶量紅K + 量比 >= 1.2 |
+| price_pullback_23ema | solid_volume_red_k_vol1.2 | parameter_variant | variant_not_baseline | 15893 | 40.14 | 41.83 | 42.27 | 42.86 | 0.1 | 0.39 | ok_first_pass | production proxy replay + 實體帶量紅K + 量比 >= 1.2 |
+| price_pullback_23ema | solid_volume_red_k_vol1.5 | parameter_variant | variant_not_baseline | 10223 | 39.61 | 41.04 | 41.67 | 42.37 | 0.02 | 0.27 | ok_first_pass | production proxy replay + 實體強量紅K + 量比 >= 1.5 |
 | pullback_short_reclaim | prior20up_reclaim_vol1.2 | parameter_variant | variant_not_baseline | 2090 | 37.42 | 43.27 | 45.69 | 48.0 | 1.02 | 1.96 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.2 |
 | pullback_short_reclaim | prior20up_reclaim_vol1.5 | parameter_variant | variant_not_baseline | 1303 | 38.22 | 42.83 | 44.9 | 46.43 | 1.01 | 1.95 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.5 |
 | pullback_short_reclaim | production_current_proxy | production_baseline | production_proxy | 85294 | 39.03 | 43.19 | 44.51 | 46.17 | 0.62 | 1.91 | ok_first_pass | production baseline proxy: 20d return >= 5%, pullback/reclaim proxy, EMA23 up |

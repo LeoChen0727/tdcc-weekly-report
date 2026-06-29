@@ -320,6 +320,15 @@ def current_price_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return price_pullback_near_ema23_or_support(d) & price_pullback_ema23_slope_proxy_up(d)
 
 
+def price_pullback_red_k_entry_filter(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
+    candle_col = "solid_red_candle" if solid else "bullish_attack_candle"
+    return (numeric_column(d, "volume_ratio_prev20") >= volume_min) & trueish_column(d, candle_col)
+
+
+def price_pullback_volume_red_k_entry(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
+    return current_price_pullback_baseline_proxy(d) & price_pullback_red_k_entry_filter(d, volume_min, solid)
+
+
 def current_hot_theme_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return (
         d["strict_theme_status_group"].isin({"mainstream_supported", "mainstream_overheated"})
@@ -618,6 +627,26 @@ def rule_specs() -> list[RuleSpec]:
                     "回檔模型不要求突破；主軸是結構支撐與量縮回檔。",
                 )
             )
+    for filter_id, volume_min, solid, label in [
+        ("volume_red_k_vol1.2", 1.2, False, "帶量紅K"),
+        ("solid_volume_red_k_vol1.2", 1.2, True, "實體帶量紅K"),
+        ("solid_volume_red_k_vol1.5", 1.5, True, "實體強量紅K"),
+    ]:
+        specs.append(
+            RuleSpec(
+                "price_pullback_23ema",
+                "股價回檔模型",
+                filter_id,
+                f"production proxy replay + {label} + 量比 >= {volume_min:g}",
+                "research_only_not_pdf_core",
+                lambda d, volume_min=volume_min, solid=solid: price_pullback_volume_red_k_entry(
+                    d,
+                    volume_min,
+                    solid,
+                ),
+                "研究買點濾網：回檔到23EMA/支撐後，用帶量紅K確認買盤承接；不要求突破，也不可寫回 production baseline。",
+            )
+        )
 
     hot_theme_groups = {
         "strict_mainstream_any": {"mainstream_supported", "mainstream_overheated"},
@@ -1005,6 +1034,30 @@ PRICE_PULLBACK_OPERATION_CANDIDATES = [
 ]
 
 
+PRICE_PULLBACK_ENTRY_FILTERS = [
+    {
+        "entry_filter_id": "baseline_replay",
+        "entry_signal_rule": "no extra candle/volume confirmation beyond production proxy replay",
+        "condition": lambda d: bool_series(d, True),
+    },
+    {
+        "entry_filter_id": "volume_red_k_vol1.2",
+        "entry_signal_rule": "bullish red K with volume_ratio_prev20 >= 1.2",
+        "condition": lambda d: price_pullback_red_k_entry_filter(d, 1.2, solid=False),
+    },
+    {
+        "entry_filter_id": "solid_volume_red_k_vol1.2",
+        "entry_signal_rule": "solid red K with volume_ratio_prev20 >= 1.2",
+        "condition": lambda d: price_pullback_red_k_entry_filter(d, 1.2, solid=True),
+    },
+    {
+        "entry_filter_id": "solid_volume_red_k_vol1.5",
+        "entry_signal_rule": "solid red K with volume_ratio_prev20 >= 1.5",
+        "condition": lambda d: price_pullback_red_k_entry_filter(d, 1.5, solid=True),
+    },
+]
+
+
 def _rate(count: int, total: int) -> float | str:
     if total <= 0:
         return ""
@@ -1012,89 +1065,97 @@ def _rate(count: int, total: int) -> float | str:
 
 
 def build_price_pullback_operation_research(df: pd.DataFrame) -> pd.DataFrame:
-    mask = current_price_pullback_baseline_proxy(df).fillna(False)
-    picked = df[mask].copy()
+    base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
     rows: list[dict[str, object]] = []
     generated_at = now_text()
-    for candidate in PRICE_PULLBACK_OPERATION_CANDIDATES:
-        h = int(candidate["holding_window_days"])
-        close_col = f"next_open_to_d{h}_close_return_pct"
-        high_col = f"next_open_to_d{h}_high_return_pct"
-        low_col = f"next_open_to_d{h}_low_return_pct"
-        required = [close_col]
-        if str(candidate["target_basis"]).startswith("max_"):
-            required.extend([high_col, low_col])
-        valid = picked.dropna(subset=required).copy() if all(col in picked.columns for col in required) else picked.iloc[0:0].copy()
-        mature = len(valid)
+    for entry_filter in PRICE_PULLBACK_ENTRY_FILTERS:
+        filter_mask = entry_filter["condition"](df).fillna(False)
+        picked = df[base_mask & filter_mask].copy()
+        for candidate in PRICE_PULLBACK_OPERATION_CANDIDATES:
+            h = int(candidate["holding_window_days"])
+            close_col = f"next_open_to_d{h}_close_return_pct"
+            high_col = f"next_open_to_d{h}_high_return_pct"
+            low_col = f"next_open_to_d{h}_low_return_pct"
+            required = [close_col]
+            if str(candidate["target_basis"]).startswith("max_"):
+                required.extend([high_col, low_col])
+            valid = (
+                picked.dropna(subset=required).copy()
+                if all(col in picked.columns for col in required)
+                else picked.iloc[0:0].copy()
+            )
+            mature = len(valid)
 
-        target = float(candidate["target_return_pct"])
-        stop = float(candidate["stop_return_pct"])
-        if mature and str(candidate["target_basis"]).startswith("max_"):
-            target_hit = valid[high_col] >= target
-            stop_hit = valid[low_col] <= stop
-            ambiguous = target_hit & stop_hit
-            win = target_hit & ~stop_hit
-            loss = stop_hit & ~target_hit
-            neutral = ~(win | loss | ambiguous)
-            avg_high = float(valid[high_col].mean())
-            high5_hit = float((valid[high_col] >= 5.0).mean() * 100.0)
-        elif mature:
-            win = valid[close_col] >= target
-            loss = valid[close_col] <= stop
-            ambiguous = bool_series(valid)
-            neutral = ~(win | loss)
-            avg_high = math.nan
-            high5_hit = math.nan
-        else:
-            win = loss = neutral = ambiguous = bool_series(valid)
-            avg_high = math.nan
-            high5_hit = math.nan
+            target = float(candidate["target_return_pct"])
+            stop = float(candidate["stop_return_pct"])
+            if mature and str(candidate["target_basis"]).startswith("max_"):
+                target_hit = valid[high_col] >= target
+                stop_hit = valid[low_col] <= stop
+                ambiguous = target_hit & stop_hit
+                win = target_hit & ~stop_hit
+                loss = stop_hit & ~target_hit
+                neutral = ~(win | loss | ambiguous)
+                avg_high = float(valid[high_col].mean())
+                high5_hit = float((valid[high_col] >= 5.0).mean() * 100.0)
+            elif mature:
+                win = valid[close_col] >= target
+                loss = valid[close_col] <= stop
+                ambiguous = bool_series(valid)
+                neutral = ~(win | loss)
+                avg_high = math.nan
+                high5_hit = math.nan
+            else:
+                win = loss = neutral = ambiguous = bool_series(valid)
+                avg_high = math.nan
+                high5_hit = math.nan
 
-        win_count = int(win.sum()) if mature else 0
-        loss_count = int(loss.sum()) if mature else 0
-        neutral_count = int(neutral.sum()) if mature else 0
-        ambiguous_count = int(ambiguous.sum()) if mature else 0
-        avg_close = float(valid[close_col].mean()) if mature else math.nan
-        median_close = float(valid[close_col].median()) if mature else math.nan
-        rows.append(
-            {
-                "generated_at": generated_at,
-                "model_id": "price_pullback_23ema",
-                "model_name_zh": "股價回檔模型",
-                "research_baseline_parameter_set_id": "production_current_proxy",
-                "research_baseline_status": "production_proxy",
-                "operation_candidate_id": candidate["operation_candidate_id"],
-                "advisory_status": "not_production_ready_research_only",
-                "approved_for_daily": False,
-                "entry_rule": candidate["entry_rule"],
-                "target_rule": f"{candidate['target_basis']} >= {target:g}%",
-                "stop_rule": f"{candidate['stop_basis']} <= {stop:g}%",
-                "exit_rule": candidate["exit_rule"],
-                "outcome_rule": "win/neutral/loss research labels only; not a validated trading module",
-                "holding_window_days": h,
-                "selected_stock_days": len(picked),
-                "selected_unique_stocks": picked["stock_id"].nunique() if not picked.empty else 0,
-                "mature_count": mature,
-                "win_count": win_count,
-                "neutral_count": neutral_count,
-                "loss_count": loss_count,
-                "ambiguous_order_count": ambiguous_count,
-                "win_rate_pct": _rate(win_count, mature),
-                "neutral_rate_pct": _rate(neutral_count, mature),
-                "loss_rate_pct": _rate(loss_count, mature),
-                "ambiguous_order_rate_pct": _rate(ambiguous_count, mature),
-                "avg_close_return_pct": round(avg_close, 2) if not math.isnan(avg_close) else "",
-                "median_close_return_pct": round(median_close, 2) if not math.isnan(median_close) else "",
-                "avg_high_return_pct": round(avg_high, 2) if not math.isnan(avg_high) else "",
-                "high_5pct_hit_rate_pct": round(high5_hit, 2) if not math.isnan(high5_hit) else "",
-                "path_order_limitation": (
-                    "high/low target-stop studies cannot determine whether target or stop happened first inside the holding window"
-                    if str(candidate["target_basis"]).startswith("max_")
-                    else "close-only study does not model intraday stop execution"
-                ),
-                "promotion_blocker": "requires exact daily candidate row parity plus validated buy/sell/stop operation module",
-            }
-        )
+            win_count = int(win.sum()) if mature else 0
+            loss_count = int(loss.sum()) if mature else 0
+            neutral_count = int(neutral.sum()) if mature else 0
+            ambiguous_count = int(ambiguous.sum()) if mature else 0
+            avg_close = float(valid[close_col].mean()) if mature else math.nan
+            median_close = float(valid[close_col].median()) if mature else math.nan
+            rows.append(
+                {
+                    "generated_at": generated_at,
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔模型",
+                    "research_baseline_parameter_set_id": "production_current_proxy",
+                    "research_baseline_status": "production_proxy",
+                    "entry_filter_id": entry_filter["entry_filter_id"],
+                    "entry_signal_rule": entry_filter["entry_signal_rule"],
+                    "operation_candidate_id": candidate["operation_candidate_id"],
+                    "advisory_status": "not_production_ready_research_only",
+                    "approved_for_daily": False,
+                    "entry_rule": f"{candidate['entry_rule']} + {entry_filter['entry_signal_rule']}",
+                    "target_rule": f"{candidate['target_basis']} >= {target:g}%",
+                    "stop_rule": f"{candidate['stop_basis']} <= {stop:g}%",
+                    "exit_rule": candidate["exit_rule"],
+                    "outcome_rule": "win/neutral/loss research labels only; not a validated trading module",
+                    "holding_window_days": h,
+                    "selected_stock_days": len(picked),
+                    "selected_unique_stocks": picked["stock_id"].nunique() if not picked.empty else 0,
+                    "mature_count": mature,
+                    "win_count": win_count,
+                    "neutral_count": neutral_count,
+                    "loss_count": loss_count,
+                    "ambiguous_order_count": ambiguous_count,
+                    "win_rate_pct": _rate(win_count, mature),
+                    "neutral_rate_pct": _rate(neutral_count, mature),
+                    "loss_rate_pct": _rate(loss_count, mature),
+                    "ambiguous_order_rate_pct": _rate(ambiguous_count, mature),
+                    "avg_close_return_pct": round(avg_close, 2) if not math.isnan(avg_close) else "",
+                    "median_close_return_pct": round(median_close, 2) if not math.isnan(median_close) else "",
+                    "avg_high_return_pct": round(avg_high, 2) if not math.isnan(avg_high) else "",
+                    "high_5pct_hit_rate_pct": round(high5_hit, 2) if not math.isnan(high5_hit) else "",
+                    "path_order_limitation": (
+                        "high/low target-stop studies cannot determine whether target or stop happened first inside the holding window"
+                        if str(candidate["target_basis"]).startswith("max_")
+                        else "close-only study does not model intraday stop execution"
+                    ),
+                    "promotion_blocker": "requires exact daily candidate row parity plus validated buy/sell/stop operation module",
+                }
+            )
     return pd.DataFrame(rows)
 
 
@@ -1115,7 +1176,9 @@ def write_price_pullback_operation_research(operation: pd.DataFrame) -> None:
         markdown_table(
             operation,
             [
+                "entry_filter_id",
                 "operation_candidate_id",
+                "selected_stock_days",
                 "mature_count",
                 "win_rate_pct",
                 "neutral_rate_pct",
