@@ -65,28 +65,6 @@ neckline_volume_breakout_confirmation,W底頸線帶量突破確認模型,necklin
 neckline_volume_breakout_confirmation,W底頸線帶量突破確認模型,neckline_strict_45_signal_90_score_v1,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,7965,41.95,0.75,-1.39,10.27,54.09
 neckline_volume_breakout_confirmation,W底頸線帶量突破確認模型,neckline_strict_45_signal_90_score_v1,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,7932,42.36,1.0,-1.38,10.88,55.51
 neckline_volume_breakout_confirmation,W底頸線帶量突破確認模型,neckline_strict_45_signal_90_score_v1,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,7310,46.39,3.86,-0.92,17.21,66.43
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,17814,39.39,-0.22,-0.23,1.78,10.18
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,17739,41.61,-0.16,-0.34,2.9,19.08
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,17660,41.52,-0.08,-0.4,3.75,24.47
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,17554,41.88,0.01,-0.45,4.47,28.51
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,17411,42.18,0.16,-0.5,5.15,32.22
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,17295,42.7,0.3,-0.53,5.75,35.17
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,17207,42.61,0.45,-0.54,6.3,37.46
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,17115,42.67,0.6,-0.61,6.81,39.62
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,17008,43.24,0.76,-0.59,7.33,41.49
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,16916,43.58,0.92,-0.58,7.82,43.23
-near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,15833,45.99,2.95,-0.5,12.69,55.02
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,11389,39.51,-0.13,-0.15,1.28,5.2
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,11368,41.75,-0.04,-0.26,2.1,10.94
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,11332,41.55,-0.03,-0.31,2.7,15.21
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,11312,41.5,-0.02,-0.39,3.19,18.59
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,11260,41.48,0.03,-0.42,3.63,21.75
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,11227,41.84,0.09,-0.45,4.04,24.54
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,11178,41.93,0.17,-0.47,4.42,27.21
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,11155,42.36,0.27,-0.47,4.82,29.5
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,11108,42.7,0.33,-0.48,5.19,31.36
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,11070,42.66,0.4,-0.55,5.54,33.13
-platform_strengthening,平台整理轉強模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,10230,43.2,1.16,-0.7,8.71,45.63
 pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,85294,39.03,-0.34,-0.45,2.25,14.08
 pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,84711,42.26,-0.12,-0.57,3.79,27.27
 pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,84108,43.19,0.12,-0.61,5.03,34.89

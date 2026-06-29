@@ -28,8 +28,6 @@ REQUIRED_PARAMETER_MODELS = {
     "revenue_unreacted_range",
     "w_bottom_right_side",
     "neckline_volume_breakout_confirmation",
-    "near_high_neckline_challenge",
-    "platform_strengthening",
     "pullback_short_reclaim",
     "tdcc_stealth_accumulation",
     "tdcc_short_term_continuation_d5_d10",

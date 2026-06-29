@@ -9,9 +9,10 @@ conditions, scoring, ranking, PDF layout, or research baselines.
 The breakout-related model review is now grouped by shared business meaning in
 `docs/specs/breakout_model_taxonomy_governance_handoff.md`. That handoff keeps
 `volume_range_breakout` as the current production baseline while
-`w_bottom_right_side`, `near_high_neckline_challenge`, `platform_strengthening`,
-and the formal `neckline_volume_breakout_confirmation` surface are reviewed as a
-model group instead of isolated model ids.
+`w_bottom_right_side` and the formal `neckline_volume_breakout_confirmation`
+surface remain active production review items. `near_high_neckline_challenge`
+and `platform_strengthening` are now deprecated daily production surfaces kept
+only for historical audit/research reference.
 
 ## How To Use This Backlog
 
@@ -33,13 +34,14 @@ an explicit promotion/sync PR.
 
 High-priority manual review:
 
-- Breakout model group: review `near_high_neckline_challenge`,
-  `platform_strengthening`, `w_bottom_right_side`, and `volume_range_breakout`
-  together before any further production tuning.
+- Breakout model group: review active models `neckline_volume_breakout_confirmation`,
+  `w_bottom_right_side`, and `volume_range_breakout` together before any further
+  production tuning.
 - `neckline_volume_breakout_confirmation`: formal production code, contract,
-  and tests exist. Research/backtest production baseline is not yet
-  synchronized, so this surface must not be treated as research-parity-complete
-  until a `research_backtest` sync/promotion PR lands.
+  tests, approved operation evidence, and research/backtest parity now exist.
+  It is the active confirmed-breakout surface replacing the deprecated
+  `near_high_neckline_challenge` and `platform_strengthening` daily production
+  entries.
 - `descending_resistance_volume_breakout`: keep as a separate future model
   family for descending swing-high resistance-line breakouts. Do not mix this
   with bottom-pattern neckline breakouts.
@@ -51,9 +53,6 @@ High-priority manual review:
   `docs/specs/w_bottom_right_side_early_entry_operation_spec.md`.
 - `revenue_unreacted_range`: research proxy is broad, so proxy stats must not be
   used directly for production tuning.
-- `near_high_neckline_challenge`: condition and scoring use opposite sides of
-  the pressure-distance sign convention; formal model-change review is required
-  before tuning.
 - `tdcc_short_term_continuation_d5_d10`: only TDCC-weekly-approved stock model,
   so consumer expansion requires independent review.
 - `tdcc_weekly_ranking_formula`: TDCC weekly ranking model, not a stock entry
@@ -66,7 +65,6 @@ Medium-priority manual review:
 - `price_pullback_23ema`
 - `hot_theme_pullback`
 - `w_bottom_right_side`
-- `platform_strengthening`
 - `pullback_short_reclaim`
 - `tdcc_stealth_accumulation`
 
@@ -84,9 +82,9 @@ Low-priority / monitor:
 | `hot_theme_pullback` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Confirm whether theme-related research variants are true improvements or only exploratory alternatives. |
 | `revenue_unreacted_range` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first, then `daily_model_maintenance` if promotion is approved | high | Review revenue proxy width and data completeness. Current proxy is too broad for direct production tuning. |
 | `w_bottom_right_side` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `ok` | `daily_model_maintenance` owns approved operation v2; `research_backtest` only if new evidence proposes a future change | low | Treat as the second approved daily operation model after `volume_range_breakout`. PDF title evidence uses the approved operation v2 D+20/D+40 structure-stop statistics; raw research variants remain advisory-only unless separately promoted. |
-| `neckline_volume_breakout_confirmation` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `pending_backtest_optimization` | `research_backtest` must add production baseline parity before this can be called parity-complete | high | New W-bottom neckline breakout confirmation surface. Production code/contract exists, but research baseline sync is still required. |
-| `near_high_neckline_challenge` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `daily_model_maintenance` for formal semantics decision; `research_backtest` for evidence after production intent is fixed | high | Blocker confirmed: condition currently accepts pressure distance `0..5`, while scoring rewards `-5..0`. Do not tune until a formal model-change PR decides the intended side of the pressure level. |
-| `platform_strengthening` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review whether platform-strengthening variants are materially different from production baseline. |
+| `neckline_volume_breakout_confirmation` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `ok` | `daily_model_maintenance` owns approved operation v1; `research_backtest` only if new evidence proposes a future change | low | Treat as the active confirmed-breakout daily operation model. 45-day context is the entry gate; 90-day context is score/risk adjustment only. |
+| `near_high_neckline_challenge` | `stock_entry_model` | `daily_model_maintenance` | deprecated for daily | no | `warning_research_variant_only` | no active tuning lane; historical audit only unless explicitly reactivated | low | Deprecated from daily production after `neckline_volume_breakout_confirmation` became the formal confirmed-breakout model. The old sign-semantics blocker remains historical context, not a tuning backlog item. |
+| `platform_strengthening` | `stock_entry_model` | `daily_model_maintenance` | deprecated for daily | no | `warning_research_variant_only` | no active tuning lane; historical audit only unless explicitly reactivated | low | Deprecated from daily production after `neckline_volume_breakout_confirmation` became the formal confirmed-breakout model. Keep for historical audit/research reference only. |
 | `pullback_short_reclaim` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review reclaim signal definitions and evidence before any production threshold change. |
 | `tdcc_stealth_accumulation` | `tdcc_stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Keep separate from TDCC weekly approval. Review only as a daily stock entry model unless consumer approval changes. |
 | `tdcc_short_term_continuation_d5_d10` | `tdcc_specialty_stock_model` | `daily_model_maintenance` | yes | yes | `warning_research_variant_only` | `daily_model_maintenance` for contract ownership; `research_backtest` for parity; `tdcc_weekly_report` for consumer impact | high | Keep as the only TDCC-weekly-approved stock model. Any expansion or scoring change needs contract and parity review. |
@@ -100,9 +98,9 @@ Low-priority / monitor:
    `docs/specs/breakout_model_taxonomy_governance_handoff.md` to define the
    taxonomy layer, breakout event feature layer, and stock-entry model layer
    before changing production code.
-2. `neckline_volume_breakout_confirmation`: route the next step to
-   `research_backtest` so the new formal production model gets a matching
-   production-baseline parity row and backtest evidence.
+2. `neckline_volume_breakout_confirmation`: keep as the active confirmed-breakout
+   model. Future work should tune only with new evidence and a formal
+   model-change PR.
 3. `w_bottom_right_side`: keep as the W-bottom pre-breakout / second-bottom
    formation model. It is now the second approved daily operation model after
    `volume_range_breakout`; use

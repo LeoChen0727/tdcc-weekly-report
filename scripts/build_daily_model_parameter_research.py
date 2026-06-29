@@ -461,32 +461,6 @@ def production_baseline_specs() -> list[RuleSpec]:
             "production_current",
         ),
         RuleSpec(
-            "near_high_neckline_challenge",
-            "接近前高 / 頸線挑戰模型",
-            "production_current_proxy",
-            "production baseline proxy: within 5% below 60d high + volume >= 1.2 + EMA23 up",
-            "pdf_core_model",
-            current_near_high_baseline_proxy,
-            "Research uses 60d-high distance as the neckline/prior-high proxy.",
-            "production_baseline",
-            "production_proxy",
-            "neckline-specific fields and already-confirmed-breakout flags are not fully backfilled",
-            "production_current",
-        ),
-        RuleSpec(
-            "platform_strengthening",
-            "平台整理轉強模型",
-            "production_current_proxy",
-            "production baseline proxy: 20d range width <= 18%, near upper edge, volume >= 1.2, solid red candle",
-            "pdf_core_model",
-            current_platform_strengthening_baseline_proxy,
-            "Research uses rolling range statistics instead of production platform flags.",
-            "production_baseline",
-            "production_proxy",
-            "platform_base_flag and platform width fields are not fully point-in-time backfilled",
-            "production_current",
-        ),
-        RuleSpec(
             "pullback_short_reclaim",
             "回檔後短線轉強模型",
             "production_current_proxy",
@@ -570,7 +544,7 @@ def rule_specs() -> list[RuleSpec]:
                     "股價回檔模型",
                     f"ema{low:g}_{high:g}_volmax{vol_max:g}",
                     f"距 23EMA {low:g}% 至 {high:g}% + 23EMA 向上 + 量比 <= {vol_max:g}",
-                    "pdf_core_model",
+                    "research_only_not_pdf_core",
                     lambda d, low=low, high=high, vol_max=vol_max: (
                         between(d["distance_ema23_pct"], low, high)
                         & (d["ema23_slope_5d_pct"] > 0)
@@ -647,7 +621,7 @@ def rule_specs() -> list[RuleSpec]:
                     "接近前高 / 頸線挑戰模型",
                     f"near{dist}_vol{vol:g}",
                     f"距 60 日高點下方 {dist}% 內 + 量比 >= {vol:g} + 23EMA 向上",
-                    "pdf_core_model",
+                    "research_only_not_pdf_core",
                     lambda d, dist=dist, vol=vol: (
                         between(d["near_60d_high_pct"], -dist, 0)
                         & (d["volume_ratio_prev20"] >= vol)
@@ -666,7 +640,7 @@ def rule_specs() -> list[RuleSpec]:
                         "平台整理轉強模型",
                         f"w{window}_near{near}_vol{vol:g}",
                         f"{window}日區間寬度 <= 18% + 距區間上緣 {near}% 內 + 量比 >= {vol:g} + 實體紅K",
-                        "pdf_core_model",
+                        "research_only_not_pdf_core",
                         lambda d, window=window, near=near, vol=vol: (
                             (d[f"range_width_{window}d_pct"] <= 18)
                             & between(d[f"distance_to_range_high_{window}d_pct"], -near, 1.5)

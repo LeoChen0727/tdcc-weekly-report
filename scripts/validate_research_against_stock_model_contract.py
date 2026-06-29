@@ -191,6 +191,16 @@ def load_research_metric_rows() -> dict[str, list[dict[str, str]]]:
     return by_model
 
 
+def is_active_contract_row(row: dict[str, str]) -> bool:
+    visibility = row.get("pdf_visibility", "").strip()
+    deprecated_after = row.get("deprecated_after", "").strip().lower()
+    if visibility == "deprecated_not_pdf_core":
+        return False
+    if deprecated_after and deprecated_after != "none":
+        return False
+    return True
+
+
 def metric_available(metric_rows: list[dict[str, str]], horizon: int, baseline_ids: list[str]) -> bool:
     if not metric_rows:
         return False
@@ -331,7 +341,12 @@ def build_parity_rows() -> tuple[list[dict[str, str]], dict[str, str], list[str]
     research_by_model = load_research_parity()
     metric_by_model = load_research_metric_rows()
 
-    model_ids = sorted(set(registry_by_model) | set(condition_by_model) | set(production_by_model))
+    active_registry_models = {
+        model_id
+        for model_id, row in registry_by_model.items()
+        if is_active_contract_row(row)
+    }
+    model_ids = sorted(active_registry_models | set(condition_by_model) | set(production_by_model))
     rows = [
         classify_row(
             model_id=model_id,
