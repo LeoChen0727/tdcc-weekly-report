@@ -311,7 +311,7 @@ def build_model_operation_readiness(
                 "proxy_only",
             }
             blocker = parity_blocker or (
-                "W-bottom early-entry operation approval is ready; pure win rate and inclusive success rate must be labeled separately"
+                "W-bottom early-entry operation v2 approval is ready; positive-return rate and average return must be labeled as D+20/D+40 operation metrics"
             )
             rows.append(
                 {
@@ -321,7 +321,7 @@ def build_model_operation_readiness(
                     "parity_status": parity_status,
                     "blocker": blocker,
                     "operation_module_status": (
-                        "approved_operation_v1" if w_bottom_approved else "baseline_only_no_validated_operation_module"
+                        "approved_operation_v2" if w_bottom_approved else "baseline_only_no_validated_operation_module"
                     ),
                     "daily_adapter_status": "model_header_evidence_ready" if w_bottom_approved else "not_started",
                     "approved_for_daily": w_bottom_approval["approved_for_daily"],
@@ -348,7 +348,7 @@ def build_model_operation_readiness(
                     "daily_adapter_data_row_count": 0,
                     "daily_adapter_sections": "model_header_evidence",
                     "status_note_zh": (
-                        "W底右低點早期進場 v1 已由 approved_operation_patterns 批准；"
+                        "W底右低點早期進場 v2 已由 approved_operation_patterns 批准；"
                         "此模型使用標題下方證據，不共用放量攻擊 operation section adapter。"
                     ),
                 }

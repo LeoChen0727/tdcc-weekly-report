@@ -66,7 +66,7 @@ docs/repo_production_inventory.md,guidance_doc,repo_infrastructure,active,,,,,,,
 docs/specs/daily_volume_breakout_operation_section_contract.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/specs/breakout_model_taxonomy_governance_handoff.md,guidance_doc,repo_infrastructure,active,,,,docs/model_review_backlog.md;docs/model_surface_registry_governance.md,,,breakout model taxonomy governance handoff; no production model change,,medium
 docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md,guidance_doc,repo_infrastructure,active,,,,docs/specs/breakout_model_taxonomy_governance_handoff.md,,,neckline volume breakout confirmation model-change spec; no production model change,,medium
-docs/specs/w_bottom_right_side_early_entry_operation_spec.md,guidance_doc,repo_infrastructure,active,,,,docs/model_review_backlog.md,,,W-bottom early-entry operation and PDF evidence spec; no production model change,,medium
+docs/specs/w_bottom_right_side_early_entry_operation_spec.md,guidance_doc,repo_infrastructure,active,,,,docs/model_review_backlog.md,,,W-bottom early-entry operation and PDF evidence spec,,medium
 docs/specs/volume_breakout_operation_scoring_work_objective_20260618.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/specs/volume_breakout_operation_pdf_table_spec.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 docs/tdcc_pre_move_accumulation.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
@@ -186,7 +186,7 @@ scripts/update_event_calendar_data.py,python,catalyst_event,active,.github/workf
 scripts/update_event_catalyst_data.py,python,catalyst_event,active,.github/workflows/daily_full_pipeline.yml;.github/workflows/event_catalyst_update.yml;.github/workflows/weekly_theme_review.yml,scripts/validate_catalyst_layer.py;tests/test_event_catalyst_source_parsers.py,tests/test_event_catalyst_source_parsers.py,,,,catalyst/event data script: update_event_catalyst_data,,medium
 scripts/update_market_index_history.py,python,market_risk,active,.github/workflows/daily_full_pipeline.yml;.github/workflows/research_backtest_pipeline.yml,,,,,,market risk/context script: update_market_index_history,,medium
 scripts/update_tdcc_normalized_signal_performance.py,python,tdcc_weekly,active,.github/workflows/research_backtest_pipeline.yml;.github/workflows/tdcc_history_backfill.yml;.github/workflows/repair_tdcc_monthly_history_gaps.yml,,,,,,TDCC normalized signal performance updater for TDCC history and research views,,medium
-scripts/validate_approved_operation_patterns.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,tests/test_repo_code_isolation_policy.py,,,,research/backtest script: validate_approved_operation_patterns,,medium
+scripts/validate_approved_operation_patterns.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,tests/test_repo_code_isolation_policy.py,docs/specs/w_bottom_right_side_early_entry_operation_spec.md,,,research/backtest script: validate_approved_operation_patterns,,medium
 scripts/validate_apps_script_workflow_triggers.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml;.github/workflows/repair_recent_daily_price_gaps.yml;.github/workflows/research_backtest_pipeline.yml;.github/workflows/repair_tdcc_monthly_history_gaps.yml,,tests/test_daily_production_boundaries.py,docs/thread_templates/research_backtest.md,,,Apps Script workflow trigger gate,,high
 scripts/validate_candidate_repeat_appearance.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,,,,,validator: validate_candidate_repeat_appearance,,high
 scripts/validate_catalyst_layer.py,python,catalyst_event,active,.github/workflows/daily_full_pipeline.yml;.github/workflows/event_catalyst_update.yml;.github/workflows/weekly_theme_review.yml,,tests/test_catalyst_pages_sync.py,docs/event_catalyst_overlay_governance.md;docs/fundamental_catalyst_layer.md,,,catalyst/event data script: validate_catalyst_layer,,medium
@@ -219,7 +219,7 @@ scripts/validate_individual_pdf_contract_consumers.py,python,individual_stock,ac
 scripts/validate_individual_stock_outputs.py,python,individual_stock,active,.github/workflows/individual_stock_data_refresh.yml;.github/workflows/individual_stock_report.yml,,,docs/individual_pdf_contract_consumer_governance.md;docs/individual_stock_artifact_relocation_plan_20260620.md;docs/pdf_production_inventory.md,,,individual stock report/data script: validate_individual_stock_outputs,,medium
 scripts/validate_market_regime_dashboard.py,python,market_risk,active,.github/workflows/daily_full_pipeline.yml,,,docs/pdf_production_inventory.md,,,market risk/context script: validate_market_regime_dashboard,,medium
 scripts/validate_market_sentiment_context.py,python,market_risk,active,.github/workflows/daily_full_pipeline.yml,,,,,,market risk/context script: validate_market_sentiment_context,,medium
-scripts/validate_model_operation_readiness.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,tests/test_repo_code_isolation_policy.py,,,,research operation readiness validator,,medium
+scripts/validate_model_operation_readiness.py,python,research_backtest,active,.github/workflows/research_backtest_pipeline.yml,,tests/test_repo_code_isolation_policy.py,docs/specs/w_bottom_right_side_early_entry_operation_spec.md,,,research operation readiness validator,,medium
 scripts/validate_no_conflict_markers.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml;.github/workflows/event_catalyst_update.yml;.github/workflows/weekly_theme_review.yml,,tests/test_no_conflict_markers.py,,,,merge-conflict marker gate,,high
 scripts/validate_pdf_facing_display_text.py,python,repo_infrastructure,active,.github/workflows/tdcc_weekly.yml,,,docs/pdf_production_inventory.md,,,validator: validate_pdf_facing_display_text,,high
 scripts/validate_pdf_production_inventory.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,tests/test_pdf_production_inventory.py,docs/pdf_production_inventory.md,,,PDF producer and publisher inventory gate,,high
@@ -258,7 +258,7 @@ tdcc_signal_tracker.py,python,tdcc_weekly,active,.github/workflows/tdcc_weekly.y
 tdcc_trend_utils.py,python,tdcc_weekly,active,.github/workflows/test_tdcc_trend.yml,build_revenue_breakout_low_response.py,,,,,TDCC weekly/holder-flow script: tdcc_trend_utils,,medium
 tests/conftest.py,test_python,repo_infrastructure,active,,,,,,,pytest shared fixture/configuration surface,,high
 tests/test_all_candidates_date_capping.py,test_python,daily_production,active,,,,,,,daily production test: test_all_candidates_date_capping,,high
-tests/test_approved_operation_patterns.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_approved_operation_patterns,,medium
+tests/test_approved_operation_patterns.py,test_python,research_backtest,active,,,,docs/specs/w_bottom_right_side_early_entry_operation_spec.md,,,research/backtest test: test_approved_operation_patterns,,medium
 tests/test_catalyst_pages_sync.py,test_python,catalyst_event,active,,,,,,,catalyst/event test: test_catalyst_pages_sync,,medium
 tests/test_event_catalyst_overlay_contract.py,test_python,catalyst_event,active,,,,,,,catalyst/event test: test_event_catalyst_overlay_contract,,medium
 tests/test_model_surface_registry.py,test_python,repo_infrastructure,active,,,,docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md,,,model surface registry test,,high
@@ -268,7 +268,7 @@ tests/test_chatgpt_side_pdf_contract.py,test_python,daily_production,active,,,,,
 tests/test_chatgpt_side_pdf_independent_layouts.py,test_python,daily_production,active,,,,,,,daily production test: test_chatgpt_side_pdf_independent_layouts,,high
 tests/test_chatgpt_side_pdf_pagebreaks.py,test_python,daily_production,active,,,,,,,daily production test: test_chatgpt_side_pdf_pagebreaks,,high
 tests/test_daily_candidate_model_layer.py,test_python,daily_production,active,,,,docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md,,,daily production test: test_daily_candidate_model_layer,,high
-tests/test_daily_model_parameter_recommendations.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_daily_model_parameter_recommendations,,medium
+tests/test_daily_model_parameter_recommendations.py,test_python,research_backtest,active,,,,docs/specs/w_bottom_right_side_early_entry_operation_spec.md,,,research/backtest test: test_daily_model_parameter_recommendations,,medium
 tests/test_daily_model_parameter_research.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_daily_model_parameter_research,,medium
 tests/test_daily_pdf_contract_consumers.py,test_python,daily_production,active,,,,docs/daily_pdf_contract_consumer_governance.md,,,daily PDF model/catalyst contract consumer validator test,,high
 tests/test_daily_production_boundaries.py,test_python,daily_production,active,,,,,,,daily production test: test_daily_production_boundaries,,high
@@ -289,7 +289,7 @@ tests/test_daily_price_history_continuity.py,test_python,official_price_data,act
 tests/test_historical_pattern_operation_registry.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_historical_pattern_operation_registry,,medium
 tests/test_volume_breakout_buy_signal_grid.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_volume_breakout_buy_signal_grid,,medium
 tests/test_volume_breakout_tdcc_buy_signal_grid.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_volume_breakout_tdcc_buy_signal_grid,,medium
-tests/test_model_operation_readiness.py,test_python,research_backtest,active,,,,,,,research/backtest test: test_model_operation_readiness,,medium
+tests/test_model_operation_readiness.py,test_python,research_backtest,active,,,,docs/specs/w_bottom_right_side_early_entry_operation_spec.md,,,research/backtest test: test_model_operation_readiness,,medium
 tests/test_no_conflict_markers.py,test_python,repo_infrastructure,active,,,,,,,repo infrastructure test: test_no_conflict_markers,,high
 tests/test_non_revenue_momentum_watch.py,test_python,daily_production,active,,,,,,,daily production test: test_non_revenue_momentum_watch,,high
 tests/test_pdf_production_inventory.py,test_python,repo_infrastructure,active,,,,,,,repo infrastructure test: test_pdf_production_inventory,,high

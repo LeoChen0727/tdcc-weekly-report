@@ -282,7 +282,7 @@ def current_w_bottom_baseline_proxy(d: pd.DataFrame) -> pd.Series:
 
 
 def current_w_bottom_approved_operation_baseline(d: pd.DataFrame) -> pd.Series:
-    """Anchor W-bottom parity to the approved operation v1 artifact.
+    """Anchor W-bottom parity to the approved operation artifact.
 
     The production detector itself is row/context based and too expensive for
     the generic parameter-grid builder. The formal daily operation contract is
@@ -417,11 +417,11 @@ def production_baseline_specs() -> list[RuleSpec]:
             "w_bottom_right_side",
             "W底右側模型",
             W_BOTTOM_OPERATION_MODULE_ID,
-            "approved operation baseline: right-low early entry next-open buy and D+40 win/neutral/loss rule",
+            "approved operation baseline: right-low early entry, W-structure-low stop, D+20 gain10 else D+40 close exit",
             "pdf_core_model",
             current_w_bottom_approved_operation_baseline,
             (
-                "W-bottom early-entry operation v1 is the formal daily baseline through "
+                f"{W_BOTTOM_OPERATION_MODULE_ID} is the formal daily baseline through "
                 "approved_operation_patterns_latest.csv; raw research candidate rows remain advisory-only."
             ),
             "production_baseline",

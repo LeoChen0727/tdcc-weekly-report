@@ -107,8 +107,9 @@ def test_w_bottom_approved_operation_recommendation_is_added() -> None:
     row = out[out["model_id"].eq("w_bottom_right_side")].iloc[0]
 
     assert row["recommended_usage"] == "promote_to_pdf_core"
-    assert row["recommendation_reason_code"] == "approved_w_bottom_early_entry_operation_v1"
-    assert row["recommended_close_exit_horizon"] == "D+40"
-    assert row["best_close_win_rate_pct"] == "65.0000"
-    assert row["best_avg_close_return_pct"] == "2.9504"
-    assert "Inclusive success 77.4194" in row["model_revision_note"]
+    assert row["recommendation_reason_code"] == "approved_w_bottom_early_entry_operation_v2"
+    assert row["recommended_close_exit_horizon"] == "D+20/D+40"
+    assert row["best_close_win_rate_pct"] == "58.0645"
+    assert row["best_avg_close_return_pct"] == "11.2532"
+    assert "positive-return rate 58.0645" in row["model_revision_note"]
+    assert "min return -12.7202" in row["model_revision_note"]

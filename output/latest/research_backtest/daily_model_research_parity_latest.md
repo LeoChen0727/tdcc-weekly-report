@@ -1,6 +1,6 @@
 # Daily Model Research Baseline Parity
 
-- generated_at: `2026-06-29 05:37:11 Asia/Taipei`
+- generated_at: `2026-06-29 10:16:00 Asia/Taipei`
 - purpose: verify that every daily production core model has a research production-baseline row before parameter variants are compared
 - production_parity: historical research fields can replay the production baseline directly
 - production_proxy / proxy_only: baseline exists, but one or more production fields are not fully available point-in-time in the research frame
@@ -22,7 +22,7 @@
 | price_pullback_23ema | production_proxy | production_current_proxy | 9 | 102216 | 1961 | support/platform entry flags are not fully backfilled in the historical research frame | usable_for_relative_research_only_until_blocker_resolved |
 | hot_theme_pullback | production_proxy | production_current_proxy | 6 | 3276 | 748 | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | usable_for_relative_research_only_until_blocker_resolved |
 | revenue_unreacted_range | proxy_only | production_current_proxy | 2 | 332024 | 1981 | historical revenue panel is incomplete; strong_revenue gate cannot be replayed point-in-time | usable_for_relative_research_only_until_blocker_resolved |
-| w_bottom_right_side | production_parity | w_bottom_early_entry_operation_v1 | 3 | 44 | 44 |  | usable_as_exact_baseline |
+| w_bottom_right_side | production_parity | w_bottom_early_entry_operation_v2 | 3 | 44 | 44 |  | usable_as_exact_baseline |
 | neckline_volume_breakout_confirmation | production_proxy | production_current_proxy | 0 | 8252 | 1695 | structured neckline production detector is row/context based and not yet optimized for historical batch replay | usable_for_relative_research_only_until_blocker_resolved |
 | near_high_neckline_challenge | production_proxy | production_current_proxy | 4 | 17814 | 1752 | neckline-specific fields and already-confirmed-breakout flags are not fully backfilled | usable_for_relative_research_only_until_blocker_resolved |
 | platform_strengthening | production_proxy | production_current_proxy | 8 | 11389 | 1721 | platform_base_flag and platform width fields are not fully point-in-time backfilled | usable_for_relative_research_only_until_blocker_resolved |

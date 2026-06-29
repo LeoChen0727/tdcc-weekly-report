@@ -148,26 +148,26 @@ def approved_w_bottom_operation_recommendation(generated_at: str) -> dict[str, A
         "parameter_set_id": W_BOTTOM_OPERATION_MODULE_ID,
         "parameter_summary": (
             "W-bottom right-low early entry; buy next open after the right-low observation signal; "
-            "evaluate by D+40 close with +10% win and +5% neutral rule."
+            "stop on W-structure-low close break; exit at D+20 close if return is >=10%, otherwise D+40 close."
         ),
         "entry_basis": "signal_date_next_open",
         "recommended_usage": "promote_to_pdf_core",
-        "recommendation_reason_code": "approved_w_bottom_early_entry_operation_v1",
-        "recommended_close_exit_horizon": "D+40",
-        "best_close_win_rate_pct": W_BOTTOM_APPROVAL_METRICS["pure_win_rate_pct"],
+        "recommendation_reason_code": "approved_w_bottom_early_entry_operation_v2",
+        "recommended_close_exit_horizon": "D+20/D+40",
+        "best_close_win_rate_pct": W_BOTTOM_APPROVAL_METRICS["positive_return_rate_pct"],
         "best_avg_close_return_pct": W_BOTTOM_APPROVAL_METRICS["avg_return_pct"],
         "recommended_high_exit_horizon": "",
         "best_avg_high_return_pct": "",
         "best_high_5pct_hit_rate_pct": "",
         "selected_stock_days": W_BOTTOM_APPROVAL_METRICS["sample_size"],
         "selected_unique_stocks": W_BOTTOM_APPROVAL_METRICS["unique_stock_count"],
-        "sample_status": "approved_operation_v1",
+        "sample_status": "approved_operation_v2",
         "pdf_visibility": "pdf_core_model",
         "model_revision_note": (
-            f"Approved operation {W_BOTTOM_APPROVAL_VERSION}; pure win rate "
-            f"{W_BOTTOM_APPROVAL_METRICS['pure_win_rate_pct']} uses win/(win+loss). "
-            f"Inclusive success {W_BOTTOM_APPROVAL_METRICS['neutral_inclusive_success_rate_pct']} includes neutral rows "
-            "and must not be labeled as pure win rate. "
+            f"Approved operation {W_BOTTOM_APPROVAL_VERSION}; positive-return rate "
+            f"{W_BOTTOM_APPROVAL_METRICS['positive_return_rate_pct']} uses positive exits over evaluated rows. "
+            f"Average return {W_BOTTOM_APPROVAL_METRICS['avg_return_pct']}; min return "
+            f"{W_BOTTOM_APPROVAL_METRICS['min_return_pct']} after W-structure-low close stop. "
             f"buy_filter_id={W_BOTTOM_BUY_FILTER_ID}."
         ),
     }
