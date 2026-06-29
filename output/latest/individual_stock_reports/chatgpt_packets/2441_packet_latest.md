@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:10 Asia/Taipei
+- generated_at: 2026-06-29 22:26:29 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 140.5
-- high: 146.5
-- low: 134.5
-- close: 134.5
-- volume: 15150689
-- ma5: 138.9
-- ema23_primary: 128.8
-- distance_to_ema23_pct: 4.42
-- ma20: 132.03
-- ma60: 109.29
-- ma120: 100.26
-- return_5d: -0.37
-- return_20d: -4.61
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: 1.87
-- distance_to_high_60_pct: -9.12
+- date: 20260629
+- open: 135
+- high: 135.5
+- low: 128
+- close: 129
+- volume: 8997312
+- ma5: 136.7
+- ema23_primary: 128.82
+- distance_to_ema23_pct: 0.14
+- ma20: 131.4
+- ma60: 110.03
+- ma120: 100.6
+- return_5d: -7.86
+- return_20d: -8.83
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.83
+- distance_to_high_60_pct: -12.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,143.5,146.5,139.5,141.5,15708457,112.06,26.27,108.58,95.77,0.85
 20260601,143,143,135,137.5,14977794,114.18,20.42,110.84,96.65,0.81
 20260602,136,137.5,129.5,134,11087947,115.83,15.68,112.84,97.42,0.61
 20260603,135.5,140,134,137,8526994,117.6,16.5,115.03,98.23,0.48
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,135,143,134.5,142.5,13061869,127.08,12.13,132.07,107.84,1.16
 20260625,144.5,146.5,139.5,141.5,12693485,128.28,10.3,132.35,108.61,1.17
 20260626,140.5,146.5,134.5,134.5,15150689,128.8,4.42,132.03,109.29,1.43
+20260629,135,135.5,128,129,8997312,128.82,0.14,131.4,110.03,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2441 | 超豐 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 2441 | 超豐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2441 | 超豐 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 2441 | 超豐 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2441 | 超豐 | 10 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2441 | 超豐 | 11 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2441 | 超豐 | 81 | 0 | 12154170.0 | 0.0 |  | no_signal |
+| 20260629 | 2441 | 超豐 | 81 | 0 | 5983060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

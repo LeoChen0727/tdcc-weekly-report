@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:01 Asia/Taipei
+- generated_at: 2026-06-29 22:26:18 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 328
-- high: 329.5
-- low: 305
-- close: 307
-- volume: 4271856
-- ma5: 331.2
-- ema23_primary: 338.41
-- distance_to_ema23_pct: -9.28
-- ma20: 341.2
-- ma60: 324.68
-- ma120: 275.18
-- return_5d: -8.36
-- return_20d: -20.88
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -10.02
-- distance_to_high_60_pct: -27.93
+- date: 20260629
+- open: 310
+- high: 324
+- low: 308
+- close: 318.5
+- volume: 2760770
+- ma5: 326.2
+- ema23_primary: 336.75
+- distance_to_ema23_pct: -5.42
+- ma20: 337.68
+- ma60: 326.18
+- ma120: 276.19
+- return_5d: -7.28
+- return_20d: -18.12
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -5.68
+- distance_to_high_60_pct: -25.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,402.5,406,384,389,7950787,359.59,8.18,364.85,291.38,0.91
 20260601,392.5,398.5,387,387.5,5578905,361.91,7.07,368.3,293.82,0.67
 20260602,391,393.5,354,364,10348396,362.09,0.53,370.45,295.89,1.2
 20260603,372.5,373.5,362.5,369,5201014,362.66,1.75,373.12,298.21,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,334,336,327,332,1763637,341.88,-2.89,348.98,322.02,0.36
 20260625,335,338,331.5,334.5,1508556,341.27,-1.98,345.25,323.68,0.33
 20260626,328,329.5,305,307,4271856,338.41,-9.28,341.2,324.68,0.99
+20260629,310,324,308,318.5,2760770,336.75,-5.42,337.68,326.18,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 52.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認2025年度營業報告書  暨財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過解除董事及其代表人競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認2025年度營業報告書  暨財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過解除董事及其代表人競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2049 | 上銀 | 16 | 4 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2049 | 上銀 | 17 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2049 | 上銀 | 118 | 0 | 3789460.0 | 0.0 |  | no_signal |
+| 20260629 | 2049 | 上銀 | 118 | 0 | 7147230.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

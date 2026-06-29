@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4919 新唐
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:52 Asia/Taipei
+- generated_at: 2026-06-29 22:27:17 Asia/Taipei
 - stock_id: 4919
 - stock_name: 新唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 176.5
-- high: 184
-- low: 167.5
-- close: 168.5
-- volume: 15584893
-- ma5: 188.5
-- ema23_primary: 182.91
-- distance_to_ema23_pct: -7.88
-- ma20: 186.5
-- ma60: 159.79
-- ma120: 114.35
-- return_5d: -14.25
-- return_20d: -10.61
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -9.65
-- distance_to_high_60_pct: -26.74
+- date: 20260629
+- open: 167
+- high: 174
+- low: 164
+- close: 170.5
+- volume: 9025551
+- ma5: 179.4
+- ema23_primary: 181.88
+- distance_to_ema23_pct: -6.25
+- ma20: 185.45
+- ma60: 161.15
+- ma120: 115.34
+- return_5d: -21.06
+- return_20d: -10.97
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -8.06
+- distance_to_high_60_pct: -25.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,197,197,184,191.5,5100080,172.82,10.81,176.95,129.32,0.16
 20260601,199.5,208,199.5,208,3780749,175.75,18.35,179.25,131.55,0.12
 20260602,214.5,214.5,200,211,3415532,178.69,18.08,181.55,133.85,0.11
 20260603,212.5,212.5,203,203,1696801,180.72,12.33,183.65,135.89,0.06
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,191.5,195,180.5,186,17298189,184.83,0.63,188.95,157.32,1.26
 20260625,188.5,189.5,176.5,177.5,15839683,184.22,-3.65,187.5,158.57,1.29
 20260626,176.5,184,167.5,168.5,15584893,182.91,-7.88,186.5,159.79,1.22
+20260629,167,174,164,170.5,9025551,181.88,-6.25,185.45,161.15,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4919 | 新唐 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長(代表取締役會長) 3.舊任者姓名:焦佑鈞 4.舊任者簡歷:華邦電子股份有限公司董事長及執行長 5.新任者姓名:焦佑鈞 6.新任者簡歷:華邦電子股份有限公司董事長及執行長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 4919 | 新唐 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長(代表取締役會長) 3.舊任者姓名:焦佑鈞 4.舊任者簡歷:華邦電子股份有限公司董事長及執行長 5.新任者姓名:焦佑鈞 6.新任者簡歷:華邦電子股份有限公司董事長及執行長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4919 | 新唐 | 1 | 1 | 3 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 4919 | 新唐 | 2 | 2 | 3 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4919 | 新唐 | 80 | 0 | 1539120.0 | 0.0 |  | no_signal |
+| 20260629 | 4919 | 新唐 | 80 | 0 | 7155840.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

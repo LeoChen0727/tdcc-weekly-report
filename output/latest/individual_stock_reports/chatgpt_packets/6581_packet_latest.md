@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6581 鋼聯
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:18 Asia/Taipei
+- generated_at: 2026-06-29 22:27:47 Asia/Taipei
 - stock_id: 6581
 - stock_name: 鋼聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 286
+- latest_price_date: 20260629
+- price_rows: 287
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
+- date: 20260629
 - open: 106.5
 - high: 107
 - low: 106
 - close: 106
-- volume: 47372
-- ma5: 107.5
-- ema23_primary: 108.15
-- distance_to_ema23_pct: -1.99
-- ma20: 108.85
-- ma60: 107.89
+- volume: 7567
+- ma5: 106.9
+- ema23_primary: 107.97
+- distance_to_ema23_pct: -1.82
+- ma20: 108.75
+- ma60: 107.88
 - ma120: 107.88
 - return_5d: -2.75
-- return_20d: -0.47
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -2.62
+- return_20d: -1.85
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -2.53
 - distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,106.5,108,106.5,108,32536,107.41,0.55,107.62,108.27,1.3
 20260601,110.5,115,110,113,242311,107.87,4.75,107.9,108.35,6.67
 20260602,113,113.5,112,112.5,35157,108.26,3.92,108.12,108.37,0.95
 20260603,113,113,111,111,20939,108.49,2.32,108.2,108.38,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,108.5,108.5,107,107,7838,108.47,-1.35,108.85,107.89,0.2
 20260625,108.5,108.5,107,107,7198,108.34,-1.24,108.88,107.9,0.19
 20260626,106.5,107,106,106,47372,108.15,-1.99,108.85,107.89,1.23
+20260629,106.5,107,106,106,7567,107.97,-1.82,108.75,107.88,0.2
 ```
 
 ## Latest TDCC Snapshot

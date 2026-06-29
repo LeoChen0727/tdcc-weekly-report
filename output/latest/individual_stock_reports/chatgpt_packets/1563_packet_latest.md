@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:54 Asia/Taipei
+- generated_at: 2026-06-29 22:26:09 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 65
-- high: 66.6
-- low: 63.5
-- close: 64.4
-- volume: 1801181
-- ma5: 65.96
-- ema23_primary: 61.57
-- distance_to_ema23_pct: 4.6
-- ma20: 64.77
-- ma60: 50.85
-- ma120: 47.94
-- return_5d: -4.87
-- return_20d: 5.4
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -0.56
-- distance_to_high_60_pct: -11.17
+- date: 20260629
+- open: 64.3
+- high: 65.1
+- low: 61.5
+- close: 62.6
+- volume: 1621271
+- ma5: 65.24
+- ema23_primary: 61.65
+- distance_to_ema23_pct: 1.54
+- ma20: 64.56
+- ma60: 51.2
+- ma120: 48.08
+- return_5d: -5.44
+- return_20d: -6.15
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -3.04
+- distance_to_high_60_pct: -13.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,67.2,67.2,64,66.7,14824089,48.45,37.68,47.07,43.43,8.05
 20260601,65.6,72.5,60.7,69.9,7979932,50.23,39.15,48.5,43.88,3.6
 20260602,70,70,64.9,69.8,4931104,51.86,34.58,49.93,44.33,2.03
 20260603,69,69.8,67.1,67.8,1597771,53.19,27.46,51.22,44.74,0.65
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,69,69,64.7,64.8,4521637,61,6.23,64.14,50.11,1.23
 20260625,65.1,66.2,63.5,64.7,1699099,61.31,5.53,64.6,50.52,0.46
 20260626,65,66.6,63.5,64.4,1801181,61.57,4.6,64.77,50.85,0.51
+20260629,64.3,65.1,61.5,62.6,1621271,61.65,1.54,64.56,51.2,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1563 | 巧新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。 共計現金股利434,176,280元，每股現金股利2元。 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/06 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 1563 | 巧新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。 共計現金股利434,176,280元，每股現金股利2元。 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/06 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1563 | 巧新 | 1 | 1 | 3 | 3 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 1563 | 巧新 | 2 | 2 | 3 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

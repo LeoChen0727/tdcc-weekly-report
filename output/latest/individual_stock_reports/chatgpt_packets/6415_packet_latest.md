@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:13 Asia/Taipei
+- generated_at: 2026-06-29 22:27:42 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 593
-- high: 616
-- low: 554
-- close: 572
-- volume: 3325683
-- ma5: 622
-- ema23_primary: 569.4
-- distance_to_ema23_pct: 0.46
-- ma20: 574.08
-- ma60: 471.06
-- ma120: 362.89
-- return_5d: -9.06
-- return_20d: -7.74
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -0.36
-- distance_to_high_60_pct: -17.58
+- date: 20260629
+- open: 572
+- high: 598
+- low: 572
+- close: 598
+- volume: 1332321
+- ma5: 607
+- ema23_primary: 571.79
+- distance_to_ema23_pct: 4.58
+- ma20: 573.98
+- ma60: 476.34
+- ma120: 366.25
+- return_5d: -11.14
+- return_20d: -0.33
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 4.19
+- distance_to_high_60_pct: -13.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,626,629,585,600,7824788,514.48,16.62,514.15,375.79,0.98
 20260601,600,636,593,606,7635267,522.11,16.07,522.7,381.93,0.93
 20260602,597,598,564,578,6658979,526.76,9.73,529.8,387.33,0.79
 20260603,594,603,584,599,3778452,532.78,12.43,538.55,393.11,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,615,619,584,605,4188750,565,7.08,578.98,460.92,0.59
 20260625,615,663,606,615,3552495,569.17,8.05,576.48,466.28,0.53
 20260626,593,616,554,572,3325683,569.4,0.46,574.08,471.06,0.53
+20260629,572,598,572,598,1332321,571.79,4.58,573.98,476.34,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6415 | 矽力*-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準， 故公布相關財務業務等重大訊息，以利投資人區別瞭解。 3.財務業務資訊: 期間        最近一月   與去年同期    最近一季      與去年同期  最近四季累積 科目       (2026年5月)    增減%     (2026年第一季)     增減%   (2025年第二季                                                              至2026年第一季)              自結數      自結數        查核數        查核數        查核數 ---------------------------------------------------------------------------- 營業收入     1,911         32%        4,860           19%          19,579 (百萬元) 稅前淨利       296         56%          787          107%           3,084 (百萬元) 歸屬本公司 本期淨利       278         47%          769          114%          2,888 (百萬元) 基本每股盈餘  0.72         49%         1.98          113%           7.45 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 6415 | 矽力*-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準， 故公布相關財務業務等重大訊息，以利投資人區別瞭解。 3.財務業務資訊: 期間        最近一月   與去年同期    最近一季      與去年同期  最近四季累積 科目       (2026年5月)    增減%     (2026年第一季)     增減%   (2025年第二季                                                              至2026年第一季)              自結數      自結數        查核數        查核數        查核數 ---------------------------------------------------------------------------- 營業收入     1,911         32%        4,860           19%          19,579 (百萬元) 稅前淨利       296         56%          787          107%           3,084 (百萬元) 歸屬本公司 本期淨利       278         47%          769          114%          2,888 (百萬元) 基本每股盈餘  0.72         49%         1.98          113%           7.45 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6415 | 矽力*-KY | 1 | 1 | 2 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6415 | 矽力*-KY | 2 | 2 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6415 | 矽力*-KY | 90 | 0 | 2541630.0 | 0.0 |  | no_signal |
+| 20260629 | 6415 | 矽力*-KY | 89 | 0 | 1149300.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

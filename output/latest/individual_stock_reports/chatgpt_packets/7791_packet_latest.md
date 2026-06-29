@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7791 皇家可口
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:37 Asia/Taipei
+- generated_at: 2026-06-29 22:28:09 Asia/Taipei
 - stock_id: 7791
 - stock_name: 皇家可口
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 160
+- latest_price_date: 20260629
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 61.8
-- high: 61.8
-- low: 61.1
-- close: 61.2
-- volume: 96525
-- ma5: 61.84
-- ema23_primary: 63.48
-- distance_to_ema23_pct: -3.59
-- ma20: 64.31
-- ma60: 64.67
-- ma120: 67.05
-- return_5d: -2.24
-- return_20d: -8.52
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -4.84
-- distance_to_high_60_pct: -12.07
+- date: 20260629
+- open: 61.3
+- high: 62.4
+- low: 61.2
+- close: 62.4
+- volume: 37124
+- ma5: 61.88
+- ema23_primary: 63.39
+- distance_to_ema23_pct: -1.56
+- ma20: 64.03
+- ma60: 64.64
+- ma120: 66.97
+- return_5d: 0.32
+- return_20d: -8.24
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -2.55
+- distance_to_high_60_pct: -10.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,66.9,68,66.8,68,99509,64.83,4.9,64.31,65.35,1.55
 20260601,68.4,68.4,67.5,68,66958,65.09,4.47,64.48,65.38,1
 20260602,68,68.2,67.5,67.5,60914,65.29,3.38,64.62,65.41,0.9
 20260603,67.5,67.9,67.1,67.2,302377,65.45,2.67,64.74,65.44,3.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,61.9,62.4,61.9,62,34370,63.85,-2.9,64.8,64.83,0.26
 20260625,61.9,62.1,61.9,61.9,53535,63.69,-2.81,64.59,64.75,0.41
 20260626,61.8,61.8,61.1,61.2,96525,63.48,-3.59,64.31,64.67,0.76
+20260629,61.3,62.4,61.2,62.4,37124,63.39,-1.56,64.03,64.64,0.3
 ```
 
 ## Latest TDCC Snapshot

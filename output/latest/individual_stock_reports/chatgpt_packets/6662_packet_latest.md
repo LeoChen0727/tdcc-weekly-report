@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6662 樂斯科
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:20 Asia/Taipei
+- generated_at: 2026-06-29 22:27:50 Asia/Taipei
 - stock_id: 6662
 - stock_name: 樂斯科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 153
+- latest_price_date: 20260629
+- price_rows: 154
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 29.2
+- date: 20260629
+- open: 29.9
 - high: 29.9
-- low: 29.1
+- low: 29.9
 - close: 29.9
-- volume: 5000
-- ma5: 29.62
-- ema23_primary: 29.66
-- distance_to_ema23_pct: 0.8
-- ma20: 29.62
-- ma60: 29.59
-- ma120: 29.84
-- return_5d: 0.34
-- return_20d: 4.73
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 0.93
+- volume: 1000
+- ma5: 29.69
+- ema23_primary: 29.68
+- distance_to_ema23_pct: 0.74
+- ma20: 29.69
+- ma60: 29.61
+- ma120: 29.83
+- return_5d: 1.18
+- return_20d: 4.55
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 0.71
 - distance_to_high_60_pct: -7.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,29,29,28.6,28.6,29000,29.3,-2.39,29.39,29.52,1.96
 20260601,29,29,28.8,28.8,29000,29.26,-1.57,29.38,29.5,1.82
 20260602,28.8,28.8,28.8,28.8,29,29.22,-1.44,29.33,29.48,0
 20260603,29.15,29.15,28.55,29.1,29000,29.21,-0.38,29.32,29.46,1.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,30.2,30.2,29.5,29.75,6000,29.66,0.3,29.55,29.58,0.44
 20260625,29.5,29.5,29.3,29.4,6000,29.64,-0.81,29.56,29.58,0.48
 20260626,29.2,29.9,29.1,29.9,5000,29.66,0.8,29.62,29.59,0.45
+20260629,29.9,29.9,29.9,29.9,1000,29.68,0.74,29.69,29.61,0.1
 ```
 
 ## Latest TDCC Snapshot

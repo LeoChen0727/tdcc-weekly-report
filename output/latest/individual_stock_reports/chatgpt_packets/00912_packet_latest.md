@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00912 中信臺灣智慧50
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:43 Asia/Taipei
+- generated_at: 2026-06-29 22:25:56 Asia/Taipei
 - stock_id: 00912
 - stock_name: 中信臺灣智慧50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 25
+- latest_price_date: 20260629
+- price_rows: 26
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 34.55
-- high: 34.55
-- low: 33.13
-- close: 33.18
-- volume: 1348280
-- ma5: 34.73
-- ema23_primary: 33.42
-- distance_to_ema23_pct: -0.72
-- ma20: 33.58
-- ma60: 33.19
-- ma120: 33.19
-- return_5d: -4.49
-- return_20d: 5.03
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -1.2
-- distance_to_high_60_pct: -8.34
+- date: 20260629
+- open: 33.35
+- high: 33.9
+- low: 33.35
+- close: 33.51
+- volume: 1599646
+- ma5: 34.27
+- ema23_primary: 33.43
+- distance_to_ema23_pct: 0.24
+- ma20: 33.63
+- ma60: 33.2
+- ma120: 33.2
+- return_5d: -6.45
+- return_20d: 2.79
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: -0.36
+- distance_to_high_60_pct: -7.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,32.15,32.65,32.15,32.6,1103288,31.27,4.25,31.79,31.79,1.06
 20260601,32.7,33.25,32.7,32.94,1151836,31.41,4.88,31.95,31.95,1.09
 20260602,33,33.1,32.57,33.1,1205484,31.55,4.91,32.1,32.1,1.12
 20260603,33.51,33.89,33.51,33.8,1033113,31.74,6.5,32.29,32.29,0.97
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,34.83,34.83,34.22,34.64,1593811,33.33,3.92,33.38,33.13,1.46
 20260625,34.64,34.91,34.45,34.66,1161181,33.44,3.64,33.5,33.19,1.05
 20260626,34.55,34.55,33.13,33.18,1348280,33.42,-0.72,33.58,33.19,1.26
+20260629,33.35,33.9,33.35,33.51,1599646,33.43,0.24,33.63,33.2,1.46
 ```
 
 ## Latest TDCC Snapshot

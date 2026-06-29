@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00892 富邦台灣半導體
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:42 Asia/Taipei
+- generated_at: 2026-06-29 22:25:56 Asia/Taipei
 - stock_id: 00892
 - stock_name: 富邦台灣半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 25
+- latest_price_date: 20260629
+- price_rows: 26
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 45.08
-- high: 45.11
-- low: 43.18
-- close: 43.26
-- volume: 3960310
-- ma5: 45.94
-- ema23_primary: 44.54
-- distance_to_ema23_pct: -2.87
-- ma20: 44.4
-- ma60: 44.39
-- ma120: 44.39
-- return_5d: -5.63
-- return_20d: -2.3
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -2.58
-- distance_to_high_60_pct: -10.82
+- date: 20260629
+- open: 43.23
+- high: 44.1
+- low: 42.95
+- close: 43.33
+- volume: 1946206
+- ma5: 45.11
+- ema23_primary: 44.44
+- distance_to_ema23_pct: -2.49
+- ma20: 44.34
+- ma60: 44.35
+- ma120: 44.35
+- return_5d: -8.76
+- return_20d: -2.85
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -2.28
+- distance_to_high_60_pct: -10.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,45,45.28,44.37,44.6,4021238,43.61,2.28,44.37,44.37,0.91
 20260601,44.8,45.1,44.25,44.52,4804173,43.68,1.92,44.39,44.39,1.08
 20260602,44.81,45,43.55,44.17,2410440,43.72,1.02,44.36,44.36,0.57
 20260603,45.31,45.35,44.7,44.95,3298908,43.83,2.56,44.43,44.43,0.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,45.43,46.14,45.23,46.13,2218056,44.54,3.58,44.42,44.37,0.74
 20260625,46.76,46.76,45.5,45.96,1463514,44.65,2.92,44.46,44.44,0.52
 20260626,45.08,45.11,43.18,43.26,3960310,44.54,-2.87,44.4,44.39,1.42
+20260629,43.23,44.1,42.95,43.33,1946206,44.44,-2.49,44.34,44.35,0.72
 ```
 
 ## Latest TDCC Snapshot

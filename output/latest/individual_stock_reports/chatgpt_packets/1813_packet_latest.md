@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1813 寶利徠
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:59 Asia/Taipei
+- generated_at: 2026-06-29 22:26:15 Asia/Taipei
 - stock_id: 1813
 - stock_name: 寶利徠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
+- date: 20260629
 - open: 11.9
 - high: 12
-- low: 11.8
+- low: 11.9
 - close: 12
 - volume: 18000
-- ma5: 11.96
-- ema23_primary: 11.99
+- ma5: 12.02
+- ema23_primary: 12
 - distance_to_ema23_pct: 0.04
 - ma20: 11.93
-- ma60: 12.43
+- ma60: 12.41
 - ma120: 12.88
-- return_5d: 1.27
-- return_20d: 0.42
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 0.59
+- return_5d: 2.56
+- return_20d: -0.83
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 0.63
 - distance_to_high_60_pct: -12.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,11.9,12.15,11.5,12.1,12000,12.3,-1.62,12.21,12.9,0.49
 20260601,12,12,11.9,11.9,12000,12.27,-2.99,12.2,12.88,0.53
 20260602,11.9,11.95,11.9,11.95,12,12.24,-2.37,12.17,12.86,0
 20260603,11.95,12.3,11.9,12.15,12000,12.23,-0.67,12.16,12.84,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,11.95,12.35,11.9,12.05,93000,11.98,0.55,11.92,12.47,2.75
 20260625,12.05,12.15,12,12.1,37000,11.99,0.88,11.93,12.45,1.05
 20260626,11.9,12,11.8,12,18000,11.99,0.04,11.93,12.43,0.51
+20260629,11.9,12,11.9,12,18000,12,0.04,11.93,12.41,0.5
 ```
 
 ## Latest TDCC Snapshot

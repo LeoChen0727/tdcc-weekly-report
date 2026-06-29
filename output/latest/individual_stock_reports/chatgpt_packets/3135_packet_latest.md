@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3135 凌航
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:28 Asia/Taipei
+- generated_at: 2026-06-29 22:26:49 Asia/Taipei
 - stock_id: 3135
 - stock_name: 凌航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 209
+- latest_price_date: 20260629
+- price_rows: 210
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 191
-- high: 197
-- low: 186
-- close: 186
-- volume: 2176094
-- ma5: 194
-- ema23_primary: 201.16
-- distance_to_ema23_pct: -7.54
-- ma20: 211.4
-- ma60: 176.78
-- ma120: 144.5
-- return_5d: -6.06
-- return_20d: -25.6
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -12.02
-- distance_to_high_60_pct: -30.08
+- date: 20260629
+- open: 188
+- high: 189
+- low: 177
+- close: 181
+- volume: 1889312
+- ma5: 188.8
+- ema23_primary: 199.48
+- distance_to_ema23_pct: -9.26
+- ma20: 207.43
+- ma60: 178.09
+- ma120: 145.48
+- return_5d: -12.56
+- return_20d: -30.52
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -12.74
+- distance_to_high_60_pct: -31.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,261,266,258,260.5,2472253,199.89,30.32,203.88,148.93,0.39
 20260601,259.5,266,250,250.5,6635677,204.1,22.73,208.62,151.3,1.09
 20260602,253,256.5,235,240,7240774,207.1,15.89,212.47,153.43,1.27
 20260603,245,247,230.5,238.5,5141348,209.71,13.73,215.78,155.43,0.96
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,188.5,194.5,188.5,192,1766012,203.58,-5.69,217.15,174.15,0.49
 20260625,198,199.5,190.5,191,1495202,202.54,-5.7,214.6,175.51,0.42
 20260626,191,197,186,186,2176094,201.16,-7.54,211.4,176.78,0.63
+20260629,188,189,177,181,1889312,199.48,-9.26,207.43,178.09,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3135 | 凌航 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:承認本公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認本公司114年度營業報告書及財務報告   案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: 1.更正本公司111、112及113年度盈餘分配表案：通過。 2.本公司114年度盈餘轉增資發行新股案：通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 3135 | 凌航 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:承認本公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認本公司114年度營業報告書及財務報告   案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: 1.更正本公司111、112及113年度盈餘分配表案：通過。 2.本公司114年度盈餘轉增資發行新股案：通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3135 | 凌航 | 4 | 4 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 3135 | 凌航 | 5 | 5 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

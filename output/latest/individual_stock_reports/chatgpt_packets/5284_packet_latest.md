@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5284 jpp-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:57 Asia/Taipei
+- generated_at: 2026-06-29 22:27:23 Asia/Taipei
 - stock_id: 5284
 - stock_name: jpp-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 372
-- high: 372
-- low: 351
-- close: 355
-- volume: 483606
-- ma5: 376.4
-- ema23_primary: 385.2
-- distance_to_ema23_pct: -7.84
-- ma20: 394.65
-- ma60: 364.72
-- ma120: 318.21
-- return_5d: -12.35
-- return_20d: -22.83
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -10.05
-- distance_to_high_60_pct: -26.04
+- date: 20260629
+- open: 361
+- high: 376.5
+- low: 353
+- close: 376.5
+- volume: 521906
+- ma5: 371.7
+- ema23_primary: 384.47
+- distance_to_ema23_pct: -2.07
+- ma20: 390.9
+- ma60: 366.6
+- ma120: 318.92
+- return_5d: -5.88
+- return_20d: -16.61
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -3.68
+- distance_to_high_60_pct: -21.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,478,478,442,451.5,1531179,387.98,16.37,388.95,327.04,0.72
 20260601,451,454.5,441,446.5,715774,392.85,13.66,394.05,330.29,0.34
 20260602,448,451.5,420,428,1016643,395.78,8.14,397.18,333.2,0.51
 20260603,430,442,425,426,661044,398.3,6.95,400.68,335.66,0.35
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,372.5,380,372,377.5,352384,389.25,-3.02,403.32,362.05,0.36
 20260625,382,383,371,373.5,288111,387.94,-3.72,399.9,363.44,0.32
 20260626,372,372,351,355,483606,385.2,-7.84,394.65,364.72,0.62
+20260629,361,376.5,353,376.5,521906,384.47,-2.07,390.9,366.6,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5284 | jpp-KY | 69 | 0 | 3162020.0 | 0.0 |  | call_inflow |
+| 20260629 | 5284 | jpp-KY | 69 | 0 | 2774110.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

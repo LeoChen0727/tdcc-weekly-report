@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1440 南紡
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:50 Asia/Taipei
+- generated_at: 2026-06-29 22:26:04 Asia/Taipei
 - stock_id: 1440
 - stock_name: 南紡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 13.2
-- high: 13.25
-- low: 12.95
-- close: 13
-- volume: 2921803
-- ma5: 13.3
-- ema23_primary: 13.16
-- distance_to_ema23_pct: -1.2
-- ma20: 13.5
-- ma60: 12.81
+- date: 20260629
+- open: 13.1
+- high: 13.35
+- low: 13
+- close: 13.25
+- volume: 1570751
+- ma5: 13.25
+- ema23_primary: 13.17
+- distance_to_ema23_pct: 0.64
+- ma20: 13.54
+- ma60: 12.82
 - ma120: 13.04
-- return_5d: -2.26
-- return_20d: 9.24
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -3.72
-- distance_to_high_60_pct: -17.98
+- return_5d: -1.85
+- return_20d: 5.58
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -2.12
+- distance_to_high_60_pct: -16.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,12,12.55,11.9,12.55,4968831,12.06,4.03,11.93,12.61,2.04
 20260601,12.45,13.3,12.15,12.95,7678964,12.14,6.7,11.95,12.61,2.81
 20260602,12.95,14.2,12.85,14.2,18715974,12.31,15.36,12.03,12.63,5.22
 20260603,15,15.6,14.8,15.6,21199239,12.58,23.97,12.18,12.68,4.63
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,13.35,13.45,13.15,13.3,2087283,13.16,1.06,13.38,12.8,0.32
 20260625,13.3,13.5,13.25,13.3,1931970,13.17,0.97,13.45,12.81,0.3
 20260626,13.2,13.25,12.95,13,2921803,13.16,-1.2,13.5,12.81,0.45
+20260629,13.1,13.35,13,13.25,1570751,13.17,0.64,13.54,12.82,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1440 | 南紡 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 1440 | 南紡 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1440 | 南紡 | 5 | 5 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 1440 | 南紡 | 6 | 6 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

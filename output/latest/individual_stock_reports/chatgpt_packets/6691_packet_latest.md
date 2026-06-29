@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:21 Asia/Taipei
+- generated_at: 2026-06-29 22:27:51 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 785
-- high: 816
-- low: 785
-- close: 793
-- volume: 1751555
-- ma5: 757.6
-- ema23_primary: 699.28
-- distance_to_ema23_pct: 13.4
-- ma20: 687.7
-- ma60: 651.97
-- ma120: 626.72
-- return_5d: 10.14
-- return_20d: 24.29
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 15.31
-- distance_to_high_60_pct: -2.82
+- date: 20260629
+- open: 811
+- high: 834
+- low: 795
+- close: 795
+- volume: 2340221
+- ma5: 771
+- ema23_primary: 707.26
+- distance_to_ema23_pct: 12.41
+- ma20: 694.95
+- ma60: 655.97
+- ma120: 628.49
+- return_5d: 9.2
+- return_20d: 22.31
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 14.4
+- distance_to_high_60_pct: -4.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,651,655,640,650,389388,639.81,1.59,640.9,627.75,0.73
 20260601,650,650,636,648,555393,640.49,1.17,641.25,628.28,1.02
 20260602,650,650,635,644,336750,640.78,0.5,641.5,628.18,0.62
 20260603,651,656,644,645,375518,641.13,0.6,639.9,628.35,0.74
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,701,764,694,758,1353116,681.11,11.29,673.8,644.98,1.42
 20260625,768,802,749,797,1758715,690.77,15.38,679.95,648.4,1.78
 20260626,785,816,785,793,1751555,699.28,13.4,687.7,651.97,1.69
+20260629,811,834,795,795,2340221,707.26,12.41,694.95,655.97,2.07
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6691 | 洋基工程 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6691 | 洋基工程 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6691 | 洋基工程 | 2 | 2 | 2 | 5 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260629 | 6691 | 洋基工程 | 3 | 3 | 3 | 6 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6691 | 洋基工程 | 58 | 0 | 14954020.0 | 0.0 |  | call_strong_inflow |
+| 20260629 | 6691 | 洋基工程 | 57 | 0 | 11560760.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

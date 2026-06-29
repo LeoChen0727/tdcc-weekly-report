@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6928 攸泰科技
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:28 Asia/Taipei
+- generated_at: 2026-06-29 22:27:59 Asia/Taipei
 - stock_id: 6928
 - stock_name: 攸泰科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 47.6
-- high: 49.25
-- low: 47.6
-- close: 48
-- volume: 162717
-- ma5: 48.92
-- ema23_primary: 47.33
-- distance_to_ema23_pct: 1.41
-- ma20: 46.94
-- ma60: 47.21
+- date: 20260629
+- open: 48
+- high: 52.8
+- low: 48
+- close: 51.7
+- volume: 976672
+- ma5: 49.36
+- ema23_primary: 47.7
+- distance_to_ema23_pct: 8.4
+- ma20: 47.17
+- ma60: 47.32
 - ma120: 49.2
-- return_5d: 0.1
-- return_20d: 3.45
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 2.26
-- distance_to_high_60_pct: -16.23
+- return_5d: 4.44
+- return_20d: 10
+- volume_ratio: 4.67
+- distance_to_ma20_pct_auxiliary: 9.6
+- distance_to_high_60_pct: -9.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,46.4,48.45,46.2,47,277171,47.12,-0.26,47.52,47.61,1.67
 20260601,47.7,49.55,47.1,48.2,325132,47.21,2.09,47.56,47.59,1.84
 20260602,48.15,48.15,47,47.75,165848,47.26,1.04,47.33,47.55,1.04
 20260603,47.75,47.95,47.1,47.8,174315,47.3,1.05,47.19,47.5,1.32
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,49.7,50.3,48.95,49.5,110349,47.17,4.94,46.78,47.17,0.64
 20260625,49.4,49.4,48.05,48.4,71371,47.27,2.39,46.86,47.19,0.42
 20260626,47.6,49.25,47.6,48,162717,47.33,1.41,46.94,47.21,0.93
+20260629,48,52.8,48,51.7,976672,47.7,8.4,47.17,47.32,4.67
 ```
 
 ## Latest TDCC Snapshot

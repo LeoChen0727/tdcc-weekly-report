@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4168 醣聯
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:44 Asia/Taipei
+- generated_at: 2026-06-29 22:27:08 Asia/Taipei
 - stock_id: 4168
 - stock_name: 醣聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 25.8
-- high: 25.8
-- low: 24.6
-- close: 24.6
-- volume: 266000
+- date: 20260629
+- open: 25
+- high: 26.4
+- low: 24.95
+- close: 25.5
+- volume: 358000
 - ma5: 25.34
 - ema23_primary: 25.52
-- distance_to_ema23_pct: -3.61
+- distance_to_ema23_pct: -0.07
 - ma20: 25.72
-- ma60: 24.58
+- ma60: 24.62
 - ma120: 25.35
-- return_5d: -2.77
-- return_20d: -10.55
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -4.35
-- distance_to_high_60_pct: -18
+- return_5d: 0
+- return_20d: 0
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -0.86
+- distance_to_high_60_pct: -15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,26.8,26.9,25,25.5,26000,25.21,1.14,24.74,24.11,0.09
 20260601,25.4,26.5,25.4,26.15,26000,25.29,3.4,24.88,24.14,0.1
 20260602,25.5,26.2,25.5,26.2,26,25.37,3.28,25,24.16,0
 20260603,25.55,26.45,25.4,26.2,26000,25.44,3,25.16,24.18,0.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,25.35,25.9,24.95,25.8,358000,25.59,0.84,25.99,24.55,0.81
 20260625,25.95,26.2,25.5,25.8,239000,25.6,0.77,25.86,24.57,0.53
 20260626,25.8,25.8,24.6,24.6,266000,25.52,-3.61,25.72,24.58,0.57
+20260629,25,26.4,24.95,25.5,358000,25.52,-0.07,25.72,24.62,0.74
 ```
 
 ## Latest TDCC Snapshot

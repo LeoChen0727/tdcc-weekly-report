@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6202 盛群
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:09 Asia/Taipei
+- generated_at: 2026-06-29 22:27:37 Asia/Taipei
 - stock_id: 6202
 - stock_name: 盛群
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 69
-- high: 70.7
-- low: 63.4
-- close: 63.9
-- volume: 9494178
-- ma5: 70.06
-- ema23_primary: 62.57
-- distance_to_ema23_pct: 2.13
-- ma20: 61.19
-- ma60: 56.74
-- ma120: 52.41
-- return_5d: -4.63
-- return_20d: 8.12
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 4.44
-- distance_to_high_60_pct: -21.11
+- date: 20260629
+- open: 65
+- high: 66.9
+- low: 62.8
+- close: 63
+- volume: 5212999
+- ma5: 67.92
+- ema23_primary: 62.6
+- distance_to_ema23_pct: 0.64
+- ma20: 61.4
+- ma60: 57.01
+- ma120: 52.62
+- return_5d: -14.52
+- return_20d: 7.33
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 2.61
+- distance_to_high_60_pct: -22.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,60.2,60.2,57.9,58.7,3041013,57.13,2.75,57.23,54.38,0.67
 20260601,58.8,59.6,57.5,58.1,2781681,57.21,1.56,57.35,54.43,0.63
 20260602,58.6,59.2,56,57.7,2593954,57.25,0.79,57.38,54.42,0.59
 20260603,58,59.2,56.8,58.4,2414461,57.35,1.84,57.45,54.41,0.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,71,73,68.5,71.4,11154215,61.72,15.68,60.45,56.16,1.47
 20260625,72.8,72.8,69.5,70.4,7458217,62.44,12.74,60.95,56.49,0.97
 20260626,69,70.7,63.4,63.9,9494178,62.57,2.13,61.19,56.74,1.19
+20260629,65,66.9,62.8,63,5212999,62.6,0.64,61.4,57.01,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6202 | 盛群 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間              (月)                    (季)                (最近四季累計) ----------------------------------------------------------------------------                 最近一月  與去年同期   最近一季    與去年同期  114年第2季  科目           115年4月    增減%     115年第1季     增減%     至115年第1季                合併自結數             合併核閱數               合併核閱數 ---------------------------------------------------------------------------- 營業收入(百萬)     319      6.9%         826         8.5%         3,122 稅前淨利(百萬)      45     56.9%          86        85.2%           199 歸屬母公司 業主淨利(百萬)      36     62.5%          68       (24.4%)          151 每股盈餘(元)      0.16     59.5%        0.30       (25.8%)         0.66 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6202 | 盛群 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間              (月)                    (季)                (最近四季累計) ----------------------------------------------------------------------------                 最近一月  與去年同期   最近一季    與去年同期  114年第2季  科目           115年4月    增減%     115年第1季     增減%     至115年第1季                合併自結數             合併核閱數               合併核閱數 ---------------------------------------------------------------------------- 營業收入(百萬)     319      6.9%         826         8.5%         3,122 稅前淨利(百萬)      45     56.9%          86        85.2%           199 歸屬母公司 業主淨利(百萬)      36     62.5%          68       (24.4%)          151 每股盈餘(元)      0.16     59.5%        0.30       (25.8%)         0.66 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6202 | 盛群 | 9 | 1 | 5 | 9 | 18 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 6202 | 盛群 | 10 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6202 | 盛群 | 20 | 0 | 5777170.0 | 0.0 |  | no_signal |
+| 20260629 | 6202 | 盛群 | 20 | 0 | 4274340.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

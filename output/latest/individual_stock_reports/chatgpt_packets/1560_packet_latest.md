@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1560 中砂
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:54 Asia/Taipei
+- generated_at: 2026-06-29 22:26:09 Asia/Taipei
 - stock_id: 1560
 - stock_name: 中砂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 731
-- high: 743
-- low: 701
-- close: 703
-- volume: 1257926
-- ma5: 720
-- ema23_primary: 686.4
-- distance_to_ema23_pct: 2.42
-- ma20: 692.25
-- ma60: 613.42
-- ma120: 525.3
-- return_5d: 0.43
-- return_20d: -1.95
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 1.55
-- distance_to_high_60_pct: -8.7
+- date: 20260629
+- open: 708
+- high: 754
+- low: 705
+- close: 738
+- volume: 1582209
+- ma5: 725
+- ema23_primary: 690.7
+- distance_to_ema23_pct: 6.85
+- ma20: 693.25
+- ma60: 618.63
+- ma120: 528.36
+- return_5d: 3.51
+- return_20d: 2.79
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 6.46
+- distance_to_high_60_pct: -4.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,726,731,707,718,1503335,644.37,11.43,647.95,541.27,0.52
 20260601,721,727,709,717,1098703,650.42,10.24,655.95,545.48,0.4
 20260602,711,715,688,697,3369946,654.3,6.53,662.2,549.12,1.19
 20260603,707,733,707,727,1623409,660.36,10.09,669.75,553.12,0.6
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,719,770,719,749,3155320,680.79,10.02,692.8,604.68,1.89
 20260625,758,760,730,730,1506751,684.89,6.59,692.95,609.19,0.92
 20260626,731,743,701,703,1257926,686.4,2.42,692.25,613.42,0.78
+20260629,708,754,705,738,1582209,690.7,6.85,693.25,618.63,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1560 | 中砂 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:中國砂輪企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:本公司 5.傳播媒體名稱:經濟日報 C04 版 6.報導內容:有關經濟日報報導：中砂（1560）鑽石碟與晶圓再生業務有擴產效應加持， ....下半年營運表現將優於上半年。法人樂觀估計，如果下半年成長動能格外強勁， 中砂有機會於今年提早叩關年度營收達百億元的目標，首度賺進超過一個股本。 7.發生緣由:澄清媒體報導 8.因應措施: 報導內容純屬法人預估，有關本公司之財務與業務資訊，請以本公司 於公開資訊觀測站公告為主 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 1560 | 中砂 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/24 2.公司名稱:中國砂輪企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:本公司 5.傳播媒體名稱:經濟日報 C04 版 6.報導內容:有關經濟日報報導：中砂（1560）鑽石碟與晶圓再生業務有擴產效應加持， ....下半年營運表現將優於上半年。法人樂觀估計，如果下半年成長動能格外強勁， 中砂有機會於今年提早叩關年度營收達百億元的目標，首度賺進超過一個股本。 7.發生緣由:澄清媒體報導 8.因應措施: 報導內容純屬法人預估，有關本公司之財務與業務資訊，請以本公司 於公開資訊觀測站公告為主 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1560 | 中砂 | 3 | 1 | 3 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 1560 | 中砂 | 4 | 2 | 4 | 7 | 9 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1560 | 中砂 | 130 | 0 | 8127760.0 | 0.0 |  | no_signal |
+| 20260629 | 1560 | 中砂 | 135 | 0 | 15849790.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

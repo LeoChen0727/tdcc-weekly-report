@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009820 元大納斯達克精選
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:44 Asia/Taipei
+- generated_at: 2026-06-29 22:25:58 Asia/Taipei
 - stock_id: 009820
 - stock_name: 元大納斯達克精選
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 25
+- latest_price_date: 20260629
+- price_rows: 26
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 9.91
-- high: 9.91
-- low: 9.68
-- close: 9.72
-- volume: 32175594
-- ma5: 9.92
-- ema23_primary: 10.12
-- distance_to_ema23_pct: -3.94
-- ma20: 10.21
-- ma60: 10.22
-- ma120: 10.22
-- return_5d: -3.95
-- return_20d: -4.33
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -4.85
-- distance_to_high_60_pct: -10.74
+- date: 20260629
+- open: 9.75
+- high: 9.81
+- low: 9.74
+- close: 9.79
+- volume: 5200928
+- ma5: 9.84
+- ema23_primary: 10.09
+- distance_to_ema23_pct: -2.99
+- ma20: 10.19
+- ma60: 10.21
+- ma120: 10.21
+- return_5d: -3.83
+- return_20d: -5.77
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -3.88
+- distance_to_high_60_pct: -10.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,10.33,10.4,10.33,10.39,35555476,10.24,1.43,10.28,10.28,1.02
 20260601,10.6,10.69,10.6,10.69,33966383,10.28,3.98,10.33,10.33,0.98
 20260602,10.75,10.85,10.75,10.84,57757795,10.33,4.97,10.4,10.4,1.54
 20260603,10.86,10.89,10.84,10.89,23979402,10.37,4.97,10.45,10.45,0.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,9.78,9.85,9.73,9.77,23529018,10.18,-4,10.25,10.26,0.94
 20260625,9.9,9.92,9.8,9.91,14111133,10.16,-2.41,10.24,10.24,0.6
 20260626,9.91,9.91,9.68,9.72,32175594,10.12,-3.94,10.21,10.22,1.37
+20260629,9.75,9.81,9.74,9.79,5200928,10.09,-2.99,10.19,10.21,0.24
 ```
 
 ## Latest TDCC Snapshot

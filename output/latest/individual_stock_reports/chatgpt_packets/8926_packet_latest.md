@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:47 Asia/Taipei
+- generated_at: 2026-06-29 22:28:20 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 78.1
-- high: 78.2
-- low: 75.5
-- close: 76.2
-- volume: 10265393
-- ma5: 79.48
-- ema23_primary: 72.85
-- distance_to_ema23_pct: 4.59
-- ma20: 74.19
-- ma60: 58.35
-- ma120: 51.19
-- return_5d: -3.54
-- return_20d: 13.22
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 2.72
-- distance_to_high_60_pct: -9.61
+- date: 20260629
+- open: 77.5
+- high: 78.8
+- low: 75.7
+- close: 76.9
+- volume: 6460899
+- ma5: 79.06
+- ema23_primary: 73.19
+- distance_to_ema23_pct: 5.07
+- ma20: 74.7
+- ma60: 58.91
+- ma120: 51.48
+- return_5d: -2.66
+- return_20d: 15.47
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 2.95
+- distance_to_high_60_pct: -8.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,68.8,69,65.2,66.6,13091315,58.14,14.55,57.41,49.29,1.09
 20260601,67,69.9,66,67.2,10988975,58.89,14.1,58.48,49.65,0.89
 20260602,67.3,68.2,66,67.4,7038284,59.6,13.08,59.47,50.01,0.56
 20260603,68,71.4,67.5,70.4,13702470,60.5,16.36,60.65,50.42,1.05
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,82.2,83.8,80.8,81.9,8481706,72.05,13.68,73.45,57.28,0.6
 20260625,82.2,82.2,77.9,78.1,12777391,72.55,7.65,73.74,57.81,0.95
 20260626,78.1,78.2,75.5,76.2,10265393,72.85,4.59,74.19,58.35,0.8
+20260629,77.5,78.8,75.7,76.9,6460899,73.19,5.07,74.7,58.91,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8926 | 台汽電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1) 原配發現金股利1,759,979,620元，每股配發2.41元。 (2) 調整後現金股利1,759,979,620元，每股配發2.11973717元。 4.除權（息）交易日:115/07/02 5.最後過戶日:115/07/03 6.停止過戶起始日期:115/07/04 7.停止過戶截止日期:115/07/08 8.除權（息）基準日:115/07/08 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/24 13.其他應敘明事項:本次盈餘分配因現金增資致流通在外股數增加，故調整配息比率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1) 原配發現金股利1,759,979,620元，每股配發2.41元。 (2) 調整後現金股利1,759,979,620元，每股配發2.11973717元。 4.除權（息）交易日:115/07/02 5.最後過戶日:115/07/03 6.停止過戶起始日期:115/07/04 7.停止過戶截止日期:115/07/08 8.除權（息）基準日:115/07/08 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/24 13.其他應敘明事項:本次盈餘分配因現金增資致流通在外股數增加，故調整配息比率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 8926 | 台汽電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1) 原配發現金股利1,759,979,620元，每股配發2.41元。 (2) 調整後現金股利1,759,979,620元，每股配發2.11973717元。 4.除權（息）交易日:115/07/02 5.最後過戶日:115/07/03 6.停止過戶起始日期:115/07/04 7.停止過戶截止日期:115/07/08 8.除權（息）基準日:115/07/08 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/24 13.其他應敘明事項:本次盈餘分配因現金增資致流通在外股數增加，故調整配息比率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1) 原配發現金股利1,759,979,620元，每股配發2.41元。 (2) 調整後現金股利1,759,979,620元，每股配發2.11973717元。 4.除權（息）交易日:115/07/02 5.最後過戶日:115/07/03 6.停止過戶起始日期:115/07/04 7.停止過戶截止日期:115/07/08 8.除權（息）基準日:115/07/08 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/24 13.其他應敘明事項:本次盈餘分配因現金增資致流通在外股數增加，故調整配息比率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8926 | 台汽電 | 4 | 2 | 4 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 8926 | 台汽電 | 5 | 3 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

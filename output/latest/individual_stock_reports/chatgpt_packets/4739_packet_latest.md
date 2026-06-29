@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4739 康普
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:50 Asia/Taipei
+- generated_at: 2026-06-29 22:27:15 Asia/Taipei
 - stock_id: 4739
 - stock_name: 康普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 112.5
-- high: 116
-- low: 105.5
-- close: 106
-- volume: 4208205
-- ma5: 118.1
-- ema23_primary: 114.81
-- distance_to_ema23_pct: -7.67
-- ma20: 118.47
-- ma60: 100.17
-- ma120: 86.73
-- return_5d: -14.17
-- return_20d: 7.94
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -10.53
-- distance_to_high_60_pct: -21.19
+- date: 20260629
+- open: 109.5
+- high: 110
+- low: 103
+- close: 105
+- volume: 2662442
+- ma5: 113.5
+- ema23_primary: 113.99
+- distance_to_ema23_pct: -7.89
+- ma20: 118.33
+- ma60: 100.62
+- ma120: 87.03
+- return_5d: -17.97
+- return_20d: -2.78
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -11.26
+- distance_to_high_60_pct: -21.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,101,108,100,108,6774903,96.89,11.47,97.09,87.3,1.27
 20260601,115,118.5,108,109,12940791,97.9,11.34,98.19,87.99,2.2
 20260602,112,113,104.5,107.5,4572117,98.7,8.92,98.97,88.59,0.77
 20260603,110,116.5,109,114.5,5037359,100.02,14.48,100.16,89.34,0.85
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,122,122,118.5,121,1843929,115.8,4.49,117.61,99.29,0.26
 20260625,121,122,113.5,113.5,4732629,115.61,-1.82,118.08,99.76,0.67
 20260626,112.5,116,105.5,106,4208205,114.81,-7.67,118.47,100.17,0.6
+20260629,109.5,110,103,105,2662442,113.99,-7.89,118.33,100.62,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4739 | 康普 | 4 | 4 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 4739 | 康普 | 5 | 5 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4739 | 康普 | 31 | 0 | 3396820.0 | 0.0 |  | call_strong_inflow |
+| 20260629 | 4739 | 康普 | 31 | 0 | 1421650.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

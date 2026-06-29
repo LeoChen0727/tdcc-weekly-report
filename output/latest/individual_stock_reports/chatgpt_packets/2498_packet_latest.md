@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:13 Asia/Taipei
+- generated_at: 2026-06-29 22:26:32 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 45.9
-- high: 45.9
+- date: 20260629
+- open: 43.3
+- high: 43.7
 - low: 42.9
-- close: 42.9
-- volume: 11224697
-- ma5: 46.55
-- ema23_primary: 45.25
-- distance_to_ema23_pct: -5.19
-- ma20: 45.69
-- ma60: 42.97
-- ma120: 43.94
-- return_5d: -7.54
-- return_20d: -2.28
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -6.11
-- distance_to_high_60_pct: -18.13
+- close: 43.2
+- volume: 5093698
+- ma5: 45.11
+- ema23_primary: 45.08
+- distance_to_ema23_pct: -4.16
+- ma20: 45.59
+- ma60: 43.04
+- ma120: 43.89
+- return_5d: -14.29
+- return_20d: -4.53
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -5.24
+- distance_to_high_60_pct: -17.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,44.85,45.8,44.45,45.25,11262791,43.45,4.14,43.23,41.66,0.62
 20260601,45.5,45.95,45.2,45.5,8946519,43.62,4.3,43.45,41.74,0.49
 20260602,46,50,45.9,50,37219368,44.16,13.24,43.9,41.88,1.87
 20260603,51.5,52.4,48.7,49.95,39697448,44.64,11.9,44.39,42,1.85
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,46.95,48,46.1,46.65,10887573,45.42,2.71,45.68,42.84,0.8
 20260625,47.7,47.8,45.9,45.9,8027517,45.46,0.97,45.74,42.92,0.6
 20260626,45.9,45.9,42.9,42.9,11224697,45.25,-5.19,45.69,42.97,0.83
+20260629,43.3,43.7,42.9,43.2,5093698,45.08,-4.16,45.59,43.04,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2498 | 宏達電 | 78 | 0 | 3963970.0 | 0.0 |  | no_signal |
+| 20260629 | 2498 | 宏達電 | 77 | 0 | 1519930.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

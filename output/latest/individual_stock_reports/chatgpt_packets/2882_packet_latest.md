@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:20 Asia/Taipei
+- generated_at: 2026-06-29 22:26:40 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 110.5
-- high: 111.5
-- low: 105
-- close: 106
-- volume: 57625079
-- ma5: 110.8
-- ema23_primary: 101.21
-- distance_to_ema23_pct: 4.73
-- ma20: 102.28
-- ma60: 85.05
-- ma120: 80.02
-- return_5d: -8.23
-- return_20d: 25
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 3.63
-- distance_to_high_60_pct: -9.79
+- date: 20260629
+- open: 105
+- high: 105.5
+- low: 100.5
+- close: 101.5
+- volume: 68446464
+- ma5: 108.5
+- ema23_primary: 101.24
+- distance_to_ema23_pct: 0.26
+- ma20: 103.08
+- ma60: 85.57
+- ma120: 80.22
+- return_5d: -10.18
+- return_20d: 18.44
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: -1.53
+- distance_to_high_60_pct: -13.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,85.6,85.8,84,85.7,71446779,79.6,7.67,79.46,75.14,1.72
 20260601,86.6,89.4,85.3,88.2,57818266,80.32,9.82,80.06,75.39,1.36
 20260602,88.5,89.2,86.6,89.2,57830132,81.06,10.05,80.66,75.64,1.31
 20260603,89.9,92.5,89.2,91.8,57367426,81.95,12.02,81.31,75.96,1.27
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,110.5,114,110,110,34364951,99.8,10.22,99.92,83.77,0.69
 20260625,110,113,109,111.5,29350842,100.78,10.64,101.22,84.45,0.61
 20260626,110.5,111.5,105,106,57625079,101.21,4.73,102.28,85.05,1.21
+20260629,105,105.5,100.5,101.5,68446464,101.24,0.26,103.08,85.57,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2882 | 國泰金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.事實發生日:115/06/26 2.公司名稱:國泰金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報等相關媒體 6.報導內容:誤踩利害關係人紅線，國泰投信補償金4.9億元 7.發生緣由:不適用 8.因應措施:本公司之子公司國泰投信為保障基金受益人權益，採取從優原則辦理受益人 補償，就影響之共同基金重新核算，補償金額約4.94億，另全權委託賠償金額約4.54億 ，合計約9.48億。 9.其他應敘明事項:無；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
-| 20260626 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | continued_2_3d | 1.事實發生日:115/06/26 2.公司名稱:國泰金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報等相關媒體 6.報導內容:誤踩利害關係人紅線，國泰投信補償金4.9億元 7.發生緣由:不適用 8.因應措施:本公司之子公司國泰投信為保障基金受益人權益，採取從優原則辦理受益人 補償，就影響之共同基金重新核算，補償金額約4.94億，另全權委託賠償金額約4.54億 ，合計約9.48億。 9.其他應敘明事項:無；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
+| 20260629 | 2882 | 國泰金 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/26 2.公司名稱:國泰金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報等相關媒體 6.報導內容:誤踩利害關係人紅線，國泰投信補償金4.9億元 7.發生緣由:不適用 8.因應措施:本公司之子公司國泰投信為保障基金受益人權益，採取從優原則辦理受益人 補償，就影響之共同基金重新核算，補償金額約4.94億，另全權委託賠償金額約4.54億 ，合計約9.48億。 9.其他應敘明事項:無；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
+| 20260629 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/26 2.公司名稱:國泰金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報等相關媒體 6.報導內容:誤踩利害關係人紅線，國泰投信補償金4.9億元 7.發生緣由:不適用 8.因應措施:本公司之子公司國泰投信為保障基金受益人權益，採取從優原則辦理受益人 補償，就影響之共同基金重新核算，補償金額約4.94億，另全權委託賠償金額約4.54億 ，合計約9.48億。 9.其他應敘明事項:無；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2882 | 國泰金 | 3 | 2 | 3 | 5 | 14 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260629 | 2882 | 國泰金 | 4 | 3 | 4 | 6 | 14 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2882 | 國泰金 | 41 | 0 | 9617800.0 | 0.0 |  | no_signal |
+| 20260629 | 2882 | 國泰金 | 41 | 0 | 8778530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

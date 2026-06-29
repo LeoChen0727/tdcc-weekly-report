@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:24 Asia/Taipei
+- generated_at: 2026-06-29 22:27:55 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 1750
-- high: 1775
-- low: 1630
-- close: 1640
-- volume: 1173962
-- ma5: 1756
-- ema23_primary: 1807.81
-- distance_to_ema23_pct: -9.28
-- ma20: 1857.25
-- ma60: 1870
-- ma120: 1729
-- return_5d: -6.55
-- return_20d: -7.08
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -11.7
-- distance_to_high_60_pct: -27.91
+- date: 20260629
+- open: 1660
+- high: 1690
+- low: 1610
+- close: 1625
+- volume: 587218
+- ma5: 1717
+- ema23_primary: 1792.57
+- distance_to_ema23_pct: -9.35
+- ma20: 1842
+- ma60: 1867.92
+- ma120: 1729.21
+- return_5d: -10.71
+- return_20d: -15.8
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -11.78
+- distance_to_high_60_pct: -28.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,1835,1940,1800,1930,4063304,1836.23,5.11,1848.75,1860.33,1.83
 20260601,2040,2120,2040,2120,2968078,1859.88,13.99,1844,1868.25,1.32
 20260602,2150,2245,2100,2190,4685723,1887.39,16.03,1853.75,1876.17,2.03
 20260603,2240,2260,2020,2085,3383927,1903.85,9.51,1864,1880.17,1.52
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,1750,1830,1730,1805,782503,1829.7,-1.35,1863,1875.75,0.41
 20260625,1820,1865,1750,1750,949885,1823.06,-4.01,1863.5,1873.17,0.5
 20260626,1750,1775,1630,1640,1173962,1807.81,-9.28,1857.25,1870,0.65
+20260629,1660,1690,1610,1625,587218,1792.57,-9.35,1842,1867.92,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6805 | 富世達 | 145 | 0 | 7626910.0 | 0.0 |  | no_signal |
+| 20260629 | 6805 | 富世達 | 145 | 0 | 5347280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

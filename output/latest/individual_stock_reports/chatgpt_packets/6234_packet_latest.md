@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6234 高僑
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:10 Asia/Taipei
+- generated_at: 2026-06-29 22:27:39 Asia/Taipei
 - stock_id: 6234
 - stock_name: 高僑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 48.5
-- high: 50
-- low: 44.4
-- close: 44.6
-- volume: 2027000
-- ma5: 47.29
-- ema23_primary: 46.53
-- distance_to_ema23_pct: -4.15
-- ma20: 45.97
-- ma60: 44.81
-- ma120: 36.3
-- return_5d: -1.11
-- return_20d: -12.89
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: -2.97
-- distance_to_high_60_pct: -29.54
+- date: 20260629
+- open: 45.05
+- high: 46.25
+- low: 44.65
+- close: 44.85
+- volume: 1043000
+- ma5: 46.9
+- ema23_primary: 46.39
+- distance_to_ema23_pct: -3.32
+- ma20: 45.72
+- ma60: 45.09
+- ma120: 36.46
+- return_5d: -4.17
+- return_20d: -9.76
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -1.91
+- distance_to_high_60_pct: -29.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,51.7,52.2,49.1,49.7,50000,49.6,0.19,53.56,39.03,0.02
 20260601,49.8,51.4,49,49.3,50000,49.58,-0.56,53.13,39.43,0.03
 20260602,49,49.3,46.55,47.25,47,49.39,-4.32,52.39,39.79,0
 20260603,48,48.9,47.2,47.65,48000,49.24,-3.23,51.88,40.15,0.03
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,45,50.4,45,50.4,3952000,46.52,8.34,46.57,44.2,3.95
 20260625,50.4,50.5,47.5,48.75,2707000,46.71,4.38,46.3,44.53,2.39
 20260626,48.5,50,44.4,44.6,2027000,46.53,-4.15,45.97,44.81,1.64
+20260629,45.05,46.25,44.65,44.85,1043000,46.39,-3.32,45.72,45.09,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6234 | 高僑 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 獨立董事：趙淑佳 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職本公司董事職務期間 5.決議情形（請依公司法第209條說明表決結果）: 經主席徵詢全體出席股東無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 6234 | 高僑 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 獨立董事：趙淑佳 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職本公司董事職務期間 5.決議情形（請依公司法第209條說明表決結果）: 經主席徵詢全體出席股東無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6234 | 高僑 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6234 | 高僑 | 5 | 2 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:41 Asia/Taipei
+- generated_at: 2026-06-29 22:27:05 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 650
-- high: 695
-- low: 630
-- close: 632
-- volume: 45022342
-- ma5: 652.4
-- ema23_primary: 599.3
-- distance_to_ema23_pct: 5.46
-- ma20: 601.2
-- ma60: 524.62
-- ma120: 419.23
-- return_5d: 3.1
-- return_20d: 0.8
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 5.12
-- distance_to_high_60_pct: -9.71
+- date: 20260629
+- open: 628
+- high: 632
+- low: 611
+- close: 627
+- volume: 17955704
+- ma5: 643
+- ema23_primary: 601.61
+- distance_to_ema23_pct: 4.22
+- ma20: 602
+- ma60: 529.6
+- ma120: 422.5
+- return_5d: -6.97
+- return_20d: 2.62
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 4.15
+- distance_to_high_60_pct: -10.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,642,644,608,611,43968378,543.14,12.49,549.85,442.88,1.53
 20260601,603,615,599,601,25834856,547.96,9.68,553.65,447.44,0.9
 20260602,600,608,577,590,27769330,551.46,6.99,557.15,451.38,0.99
 20260603,615,636,614,618,28543715,557.01,10.95,561.85,455.98,1.02
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,636,659,618,653,35911480,592.26,10.25,601,515.19,1.32
 20260625,679,679,625,641,31615796,596.33,7.49,600.95,519.98,1.16
 20260626,650,695,630,632,45022342,599.3,5.46,601.2,524.62,1.62
+20260629,628,632,611,627,17955704,601.61,4.22,602,529.6,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3711 | 日月光投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | 1.董事會決議日期:115/06/25 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 日月光投資控股股份有限公司民國115年度海外第一次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:暫定以美金10億元為上限 5.每張面額:美金20萬元，或如超過美金20萬元， 為美金10萬元之整數倍數。 6.發行價格:依面額之100%發行 7.發行期間:暫定發行期間為5年 8.發行利率:暫定為年利率0% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:認購子公司日月光半導體製造股份 有限公司及矽品精密工業股份有限公司以現金增資方式發行之新股 11.承銷方式:本公司債將於中華民國境外地區發行，並將依照 銷售國家的法律與規範及國際市場慣例辦理。 所有本公司債將全數對外公開銷售。 12.公司債受託人:Citicorp International Limited 13.承銷或代銷機構: 國外主辦承銷商：DBS Bank Ltd., Goldman Sachs International, and The Hongkong and Shanghai Banking Corporation Limited 國內主辦承銷商：凱基證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:Citibank, N.A., London Branch 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法: 授權董事長或集團財務長視市場實際狀況決定 18.賣回條件: 授權董事長或集團財務長視市場實際狀況決定 19.買回條件: 授權董事長或集團財務長視市場實際狀況決定 20.附有轉換、交換或認股者，其換股基準日: 授權董事長或集團財務長視市場實際狀況決定 21.附有轉換、交換或認股者，對股權可能稀釋情形: 視實際發行時轉換溢價率而定 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: 一、本次發行之海外無擔保轉換公司債重要內容，包括發行辦法、 計畫項目、實際發行與募集金額、票面利率、預定進度及預計可 能產生效益等相關事項之議定及其他一切有關發行作業，授權董 事長或集團財務長視市場實際狀況決定； 並得依主管機關指示或基於營運評估或因客觀環境需要進行必要 之修正或調整。實際發行條件，將於海外無擔保轉換公司債完成 發行後向股東會報告。 二、為配合本次海外無擔保轉換公司債之發行，授權董事長或 集團財務長及/或其指定之人核可並代表本公司簽 署一切有關發行海外無擔保轉換公司債之契約、文件及辦理一 切相關事宜。 三、本次發行海外無擔保轉換公司債若有未盡事宜，授權董事長 或集團財務長依法全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 3711 | 日月光投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:自民國115/6/26至民國115/6/26 2.本次新增（減少）投資方式: 擬於上海證券交易所透過大宗交易方式處分環旭電子(股)公司股份 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易單位數量、每單位價格及交易總金額: 交易數量：不超過47,778,700股 每單位價格及交易總金額：待交易執行後另行公告 6.大陸被投資公司之公司名稱: 環旭電子(股)公司 7.前開大陸被投資公司之實收資本額: 人民幣2,388,935,678元 8.前開大陸被投資公司本次擬新增資本額: 不適用 9.前開大陸被投資公司主要營業項目: 提供電子產品設計製造服務，生產及加工新型電子元器件、計算機高性能主機板、 無線網&#63799;通信元器件等 10.前開大陸被投資公司最近年度財務報表會計師意見型態: 無保留意見 11.前開大陸被投資公司最近年度財務報表權益總額: 人民幣 20,721,402,493.02元 12.前開大陸被投資公司最近年度財務報表損益金額: 人民幣 1,853,439,277.28元 13.迄目前為止，對前開大陸被投資公司之實際投資金額: 美金 1,012,920仟元 14.交易相對人及其與公司之關係: 不適用 15.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉 之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額: 不適用 16.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得 及處分日期、價格及交易當時與公司之關係: 不適用 17.處分利益（或損失）: 待交易執行後另行公告 18.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項: 經上海證券交易所確定交易成交後，買賣雙方履行清算交割義務後收款 19.本次交易之決定方式、價格決定之參考依據及決策單位: 依上海證券交易所交易成交當時之價格為準 20.經紀人: 無 21.取得或處分之具體目的: 集團營運策略 22.本次交易表示異議董事之意見: 無 23.本次交易為關係人交易:否 24.監察人承認或審計委員會同意日期: 不適用 25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）: 環電公司：美金1,027,734千元 26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 實收資本額之比率: 72.90% 27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 總資產之比率: 7.70% 28.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 歸屬於母公司業主之權益之比率: 9.25% 29.迄目前為止，實際赴大陸地區投資總額: 環電公司：美金1,027,734仟元 30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率: 72.90% 31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率: 7.70% 32.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率: 9.25% 33.最近三年度認列投資大陸損益金額: 環電公司： 112年度：新台幣9,934,494千元 113年度：新台幣8,811,909千元 114年度：新台幣8,879,141千元 34.最近三年度獲利匯回金額: 環電公司： 112年度：新台幣3,571,427千元 113年度：新台幣2,718,463千元 114年度：新台幣2,840,683千元 35.本次交易會計師出具非合理性意見:不適用 36.會計師事務所名稱: 不適用 37.會計師姓名: 不適用 38.會計師開業證書字號: 不適用 39.前已就同一件事件發布重大訊息日期: 不適用 40.其他敘明事項: 1.環誠科技有限公司目前持有環旭電子70.48%股份(1,683,749,126股)， 持有金額(採權益法之帳面金額)為美金2,317,808,298.22元，無權利受 限情形，待交易實行後另行公告持股比等相關資訊。 2.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬於 母公司業主之權益之比例暨最近期財務報表中營運資金數額：待交易執行 後另行公告。 3.預計處分執行期間: 115年7月21日至115年10月20日   4.環旭電子(股)公司依上海證券交易所規定應揭露之事項，可於上海證券 交易所網站查詢。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3711 | 日月光投控 | 1 | 1 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 3711 | 日月光投控 | 2 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3711 | 日月光投控 | 232 | 0 | 106569030.0 | 0.0 |  | call_strong_inflow |
+| 20260629 | 3711 | 日月光投控 | 233 | 0 | 40527070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:17 Asia/Taipei
+- generated_at: 2026-06-29 22:27:46 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 13.05
-- high: 13.15
+- date: 20260629
+- open: 12.5
+- high: 13.3
 - low: 12.5
-- close: 12.5
-- volume: 2171938
-- ma5: 13.08
-- ema23_primary: 13.8
-- distance_to_ema23_pct: -9.4
-- ma20: 13.21
-- ma60: 16.14
-- ma120: 22.55
-- return_5d: -8.42
-- return_20d: -11.97
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -5.39
-- distance_to_high_60_pct: -39.9
+- close: 13.25
+- volume: 1513600
+- ma5: 13.09
+- ema23_primary: 13.75
+- distance_to_ema23_pct: -3.64
+- ma20: 13.2
+- ma60: 16.04
+- ma120: 22.4
+- return_5d: 0.38
+- return_20d: -1.85
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -36.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,14.05,14.2,13.5,13.5,8254253,16.44,-17.88,16.43,19.57,3.57
 20260601,13.3,13.5,12.8,13.1,4636857,16.16,-18.95,16.21,19.3,1.84
 20260602,13,13.5,12.85,13.3,1924930,15.92,-16.48,15.99,19.01,0.74
 20260603,13.4,13.55,12.95,13.25,2220554,15.7,-15.61,15.76,18.72,0.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,13.05,13.6,12.9,13.55,1260121,13.99,-3.16,13.36,16.36,0.52
 20260625,13.6,13.6,13,13.05,1246733,13.91,-6.21,13.3,16.25,0.62
 20260626,13.05,13.15,12.5,12.5,2171938,13.8,-9.4,13.21,16.14,1.1
+20260629,12.5,13.3,12.5,13.25,1513600,13.75,-3.64,13.2,16.04,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6550 | 北極星藥業-KY | 4 | 4 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6550 | 北極星藥業-KY | 5 | 5 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

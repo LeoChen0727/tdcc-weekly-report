@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:54 Asia/Taipei
+- generated_at: 2026-06-29 22:27:19 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 42
-- high: 42.5
-- low: 38.15
-- close: 38.25
-- volume: 5665754
-- ma5: 39.91
-- ema23_primary: 36.43
-- distance_to_ema23_pct: 5.01
-- ma20: 36.17
-- ma60: 31.9
-- ma120: 31.14
-- return_5d: -12.87
-- return_20d: 24.39
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 5.74
-- distance_to_high_60_pct: -14.81
+- date: 20260629
+- open: 38.25
+- high: 39.95
+- low: 37.2
+- close: 37.6
+- volume: 2256755
+- ma5: 39.24
+- ema23_primary: 36.52
+- distance_to_ema23_pct: 2.94
+- ma20: 36.48
+- ma60: 32.07
+- ma120: 31.2
+- return_5d: -8.18
+- return_20d: 19.37
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 3.07
+- distance_to_high_60_pct: -16.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,31.05,31.55,30.75,31.5,788932,30.78,2.33,30.64,29.61,0.71
 20260601,31.5,32.45,31.3,32.3,1055416,30.91,4.5,30.82,29.67,0.93
 20260602,32.4,33.1,31.3,31.95,1015363,31,3.08,30.95,29.7,0.87
 20260603,32.05,34.95,31.95,34.65,3453416,31.3,10.7,31.25,29.78,2.64
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,38.8,40.2,38.6,38.85,3066105,35.71,8.8,35.23,31.5,0.6
 20260625,39.25,42.7,38.45,42.35,9937784,36.26,16.79,35.8,31.73,1.78
 20260626,42,42.5,38.15,38.25,5665754,36.43,5.01,36.17,31.9,0.97
+20260629,38.25,39.95,37.2,37.6,2256755,36.52,2.94,36.48,32.07,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4976 | 佳凌 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/22 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: (1)本公司基本資料公告如下：(單位:新台幣百萬元) 期間             最近一月   與去年    最近一季      與去年     最近四季累計                                                                114年第二季至  科目            115年5月  同期增減  115年第一季   同期增減    115年第一季                  自結數      (%)       核閱數        (%)       查(核)閱數 ==============  ========= =========== ============ ========= ============== 營業收入            84        -4.55        255         0.79      1,023 稅前純益           -20       -53.85        -69      -213.64       -310 本期淨利           -20       -53.85        -68      -209.09       -307 每股盈餘(元)     -0.15       -52.57      -0.49      -206.25      -2.21 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:不適用。 7.其他應敘明事項:115年05月為本公司自結數，未經會計師查核。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 4976 | 佳凌 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/22 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: (1)本公司基本資料公告如下：(單位:新台幣百萬元) 期間             最近一月   與去年    最近一季      與去年     最近四季累計                                                                114年第二季至  科目            115年5月  同期增減  115年第一季   同期增減    115年第一季                  自結數      (%)       核閱數        (%)       查(核)閱數 ==============  ========= =========== ============ ========= ============== 營業收入            84        -4.55        255         0.79      1,023 稅前純益           -20       -53.85        -69      -213.64       -310 本期淨利           -20       -53.85        -68      -209.09       -307 每股盈餘(元)     -0.15       -52.57      -0.49      -206.25      -2.21 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:不適用。 7.其他應敘明事項:115年05月為本公司自結數，未經會計師查核。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4976 | 佳凌 | 1 | 1 | 3 | 8 | 18 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 4976 | 佳凌 | 2 | 2 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

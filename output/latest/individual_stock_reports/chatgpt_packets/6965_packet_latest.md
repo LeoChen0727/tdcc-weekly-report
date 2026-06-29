@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6965 中傑-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:29 Asia/Taipei
+- generated_at: 2026-06-29 22:28:00 Asia/Taipei
 - stock_id: 6965
 - stock_name: 中傑-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 78.4
-- high: 80
-- low: 77
-- close: 78.6
-- volume: 78626
-- ma5: 79.36
-- ema23_primary: 80.4
-- distance_to_ema23_pct: -2.24
-- ma20: 80.67
-- ma60: 82.82
-- ma120: 83.46
-- return_5d: -4.15
-- return_20d: 0.77
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -2.57
-- distance_to_high_60_pct: -13.05
+- date: 20260629
+- open: 79.3
+- high: 79.3
+- low: 77.7
+- close: 78.2
+- volume: 10162
+- ma5: 79.44
+- ema23_primary: 80.22
+- distance_to_ema23_pct: -2.52
+- ma20: 80.69
+- ma60: 82.69
+- ma120: 83.43
+- return_5d: 0.51
+- return_20d: 0.39
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: -3.09
+- distance_to_high_60_pct: -13.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,79,79.5,76.8,77.9,78731,79.87,-2.47,79.94,83.44,1.15
 20260601,77.9,79.5,76,79.1,148404,79.81,-0.89,79.54,83.46,2.04
 20260602,79,81.5,79,81,149549,79.91,1.37,79.31,83.49,1.89
 20260603,82.4,82.4,80.3,81.8,138445,80.07,2.17,79.06,83.53,1.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,80.2,82,79.1,80.9,67275,80.7,0.25,80.49,83.06,0.91
 20260625,79.2,80.2,79.1,79.1,23091,80.57,-1.82,80.64,82.95,0.31
 20260626,78.4,80,77,78.6,78626,80.4,-2.24,80.67,82.82,1.1
+20260629,79.3,79.3,77.7,78.2,10162,80.22,-2.52,80.69,82.69,0.15
 ```
 
 ## Latest TDCC Snapshot

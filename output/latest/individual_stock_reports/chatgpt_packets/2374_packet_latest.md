@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:07 Asia/Taipei
+- generated_at: 2026-06-29 22:26:25 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 79
-- high: 80.8
-- low: 74.4
-- close: 74.8
-- volume: 11589059
-- ma5: 76.2
-- ema23_primary: 76.69
-- distance_to_ema23_pct: -2.47
-- ma20: 76.88
-- ma60: 76.2
-- ma120: 76.92
-- return_5d: -0.66
-- return_20d: -4.83
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -2.71
-- distance_to_high_60_pct: -13.43
+- date: 20260629
+- open: 74.5
+- high: 75.7
+- low: 73
+- close: 73
+- volume: 4656986
+- ma5: 75.88
+- ema23_primary: 76.38
+- distance_to_ema23_pct: -4.43
+- ma20: 76.37
+- ma60: 76.3
+- ma120: 76.89
+- return_5d: -2.14
+- return_20d: -12.26
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -4.41
+- distance_to_high_60_pct: -15.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,80,84.4,79.8,83.2,20794251,79.68,4.41,80.97,74.48,1.52
 20260601,84.2,86.4,83.3,84.7,21521256,80.1,5.74,81.1,74.72,1.6
 20260602,85.4,85.4,81.4,82.5,14325800,80.3,2.74,81.17,74.88,1.08
 20260603,82.5,82.9,81.5,81.6,7506823,80.41,1.48,81.3,75.04,0.57
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,76.6,76.6,74.7,75.5,5247577,76.63,-1.48,77.14,75.99,0.58
 20260625,79,81.8,77.7,79.4,17877633,76.86,3.3,77.07,76.11,1.88
 20260626,79,80.8,74.4,74.8,11589059,76.69,-2.47,76.88,76.2,1.2
+20260629,74.5,75.7,73,73,4656986,76.38,-4.43,76.37,76.3,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.股東會決議日:115/06/25 2.許可從事競業行為之董事姓名及職稱: 董事：董俊仁(佳美投資股份有限公司代表人) 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司。 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 表決時出席股東表決權數183,090,559權，贊成權數180,560,083權，占總權數98.61%； 本案依票決方式表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | no_signal | stale_signal | 1.股東會決議日:115/06/25 2.許可從事競業行為之董事姓名及職稱: 董事：董俊仁(佳美投資股份有限公司代表人) 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司。 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 表決時出席股東表決權數183,090,559權，贊成權數180,560,083權，占總權數98.61%； 本案依票決方式表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2374 | 佳能 | 4 | 4 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2374 | 佳能 | 5 | 5 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2374 | 佳能 | 79 | 0 | 11258590.0 | 0.0 |  | call_strong_inflow |
+| 20260629 | 2374 | 佳能 | 78 | 0 | 2315720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

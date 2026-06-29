@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4716 大立
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:49 Asia/Taipei
+- generated_at: 2026-06-29 22:27:14 Asia/Taipei
 - stock_id: 4716
 - stock_name: 大立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 24.8
-- high: 26.2
-- low: 23.3
-- close: 23.6
-- volume: 15597000
-- ma5: 22.38
-- ema23_primary: 18.53
-- distance_to_ema23_pct: 27.33
-- ma20: 18.08
-- ma60: 15.98
-- ma120: 15.63
-- return_5d: 29.32
-- return_20d: 60
-- volume_ratio: 6.75
-- distance_to_ma20_pct_auxiliary: 30.53
-- distance_to_high_60_pct: -9.92
+- date: 20260629
+- open: 23.35
+- high: 25.95
+- low: 22.85
+- close: 23.9
+- volume: 12551000
+- ma5: 23.15
+- ema23_primary: 18.98
+- distance_to_ema23_pct: 25.91
+- ma20: 18.54
+- ma60: 16.15
+- ma120: 15.7
+- return_5d: 19.2
+- return_20d: 62.03
+- volume_ratio: 4.27
+- distance_to_ma20_pct_auxiliary: 28.93
+- distance_to_high_60_pct: -8.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,14.8,14.9,14.45,14.75,15000,14.9,-1.01,14.9,14.76,0.04
 20260601,14.8,15.4,14.75,15.05,15000,14.91,0.92,14.91,14.77,0.04
 20260602,15.1,16.55,15.1,16.55,16,15.05,9.97,15.01,14.81,0
 20260603,16.75,17,16.4,16.65,17000,15.18,9.66,15.12,14.84,0.05
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,22.85,24,22,22,10900000,17.52,25.59,17.16,15.66,8.61
 20260625,22.75,24.2,22.45,24.2,5317000,18.07,33.89,17.64,15.82,3.47
 20260626,24.8,26.2,23.3,23.6,15597000,18.53,27.33,18.08,15.98,6.75
+20260629,23.35,25.95,22.85,23.9,12551000,18.98,25.91,18.54,16.15,4.27
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4716 | 大立 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 4716 | 大立 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4716 | 大立 | 2 | 2 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260629 | 4716 | 大立 | 3 | 3 | 4 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

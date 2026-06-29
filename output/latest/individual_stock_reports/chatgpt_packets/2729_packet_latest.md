@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2729 瓦城
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:18 Asia/Taipei
+- generated_at: 2026-06-29 22:26:38 Asia/Taipei
 - stock_id: 2729
 - stock_name: 瓦城
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 164
-- high: 166
-- low: 160
+- date: 20260629
+- open: 162
+- high: 164
+- low: 160.5
 - close: 161
-- volume: 90000
-- ma5: 163.4
-- ema23_primary: 161.81
-- distance_to_ema23_pct: -0.5
-- ma20: 160.47
-- ma60: 164.85
-- ma120: 168.53
+- volume: 59000
+- ma5: 162.8
+- ema23_primary: 161.74
+- distance_to_ema23_pct: -0.46
+- ma20: 160.57
+- ma60: 164.7
+- ma120: 168.4
 - return_5d: -1.83
 - return_20d: 1.26
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 0.33
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 0.26
 - distance_to_high_60_pct: -7.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,159,160,159,159,159000,163.04,-2.48,162.47,167.66,2.19
 20260601,159,159,157,158,158000,162.62,-2.84,162.12,167.53,2.02
 20260602,158,158.5,157.5,158.5,158,162.28,-2.33,161.85,167.42,0
 20260603,158.5,160,158,158,159000,161.92,-2.42,161.6,167.26,1.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,162.5,165.5,162,165,59000,161.74,2.02,160.25,165.2,0.63
 20260625,165.5,167,163.5,163.5,53000,161.88,1,160.38,165.03,0.6
 20260626,164,166,160,161,90000,161.81,-0.5,160.47,164.85,1.06
+20260629,162,164,160.5,161,59000,161.74,-0.46,160.57,164.7,0.74
 ```
 
 ## Latest TDCC Snapshot

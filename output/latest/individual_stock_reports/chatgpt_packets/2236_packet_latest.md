@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:03 Asia/Taipei
+- generated_at: 2026-06-29 22:26:20 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 135.5
-- high: 144.5
-- low: 135.5
-- close: 141.5
-- volume: 988133
-- ma5: 136.9
-- ema23_primary: 136.05
-- distance_to_ema23_pct: 4
-- ma20: 136.1
-- ma60: 132.64
-- ma120: 122.8
-- return_5d: 3.66
-- return_20d: 2.91
-- volume_ratio: 2.87
-- distance_to_ma20_pct_auxiliary: 3.97
-- distance_to_high_60_pct: -5.98
+- date: 20260629
+- open: 142.5
+- high: 150
+- low: 141.5
+- close: 147
+- volume: 864193
+- ma5: 138.9
+- ema23_primary: 136.97
+- distance_to_ema23_pct: 7.33
+- ma20: 136.62
+- ma60: 133.24
+- ma120: 123.07
+- return_5d: 7.3
+- return_20d: 7.69
+- volume_ratio: 2.34
+- distance_to_ma20_pct_auxiliary: 7.59
+- distance_to_high_60_pct: -2.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,138,138.5,135,136.5,383121,136.14,0.27,137.93,124.58,0.67
 20260601,140,141.5,136,140.5,378352,136.5,2.93,137.97,125.1,0.69
 20260602,140,144.5,137.5,139,359157,136.71,1.68,137.95,125.55,0.67
 20260603,140,140,136.5,138.5,261910,136.86,1.2,138.3,125.97,0.53
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,134,135.5,133,135.5,124553,135.56,-0.05,136.2,131.78,0.36
 20260625,136.5,136.5,134,135.5,118977,135.56,-0.04,135.9,132.14,0.36
 20260626,135.5,144.5,135.5,141.5,988133,136.05,4,136.1,132.64,2.87
+20260629,142.5,150,141.5,147,864193,136.97,7.33,136.62,133.24,2.34
 ```
 
 ## Latest TDCC Snapshot

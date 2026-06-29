@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:14 Asia/Taipei
+- generated_at: 2026-06-29 22:27:43 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 71.2
-- high: 72.2
-- low: 67.9
-- close: 68
-- volume: 5913891
-- ma5: 72.2
-- ema23_primary: 74.05
-- distance_to_ema23_pct: -8.17
-- ma20: 76.42
-- ma60: 71.93
-- ma120: 60.22
-- return_5d: -10.99
-- return_20d: -5.03
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -11.02
-- distance_to_high_60_pct: -28.5
+- date: 20260629
+- open: 68.7
+- high: 71.5
+- low: 67.3
+- close: 70.9
+- volume: 4398134
+- ma5: 71.16
+- ema23_primary: 73.78
+- distance_to_ema23_pct: -3.91
+- ma20: 76.14
+- ma60: 72.25
+- ma120: 60.44
+- return_5d: -6.83
+- return_20d: -7.32
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -6.89
+- distance_to_high_60_pct: -25.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,72,77.4,72,76.5,18360080,72.15,6.03,71.78,66.78,1.37
 20260601,78.4,84.1,78,83.9,36104373,73.13,14.73,72.08,67.31,2.39
 20260602,84,86.4,79.9,82.9,25276861,73.94,12.11,72.19,67.74,1.57
 20260603,88.9,91.1,88.9,91.1,7647761,75.37,20.86,73.11,68.22,0.49
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,70.6,75.2,70.3,73.7,6096264,74.88,-1.57,76.98,71.53,0.41
 20260625,74.5,75.9,71.5,71.5,4304322,74.6,-4.15,76.61,71.74,0.32
 20260626,71.2,72.2,67.9,68,5913891,74.05,-8.17,76.42,71.93,0.49
+20260629,68.7,71.5,67.3,70.9,4398134,73.78,-3.91,76.14,72.25,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6456 | GIS-KY | 52 | 0 | 1944670.0 | 0.0 |  | no_signal |
+| 20260629 | 6456 | GIS-KY | 52 | 0 | 2697590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

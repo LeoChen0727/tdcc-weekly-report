@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2460 建通
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:11 Asia/Taipei
+- generated_at: 2026-06-29 22:26:30 Asia/Taipei
 - stock_id: 2460
 - stock_name: 建通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 38.3
-- high: 38.35
-- low: 36
-- close: 36
-- volume: 3006424
-- ma5: 37.44
-- ema23_primary: 34.64
-- distance_to_ema23_pct: 3.94
-- ma20: 34.13
-- ma60: 33.52
-- ma120: 28.65
-- return_5d: 3.45
-- return_20d: 13.74
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: 5.49
-- distance_to_high_60_pct: -14.29
+- date: 20260629
+- open: 35.4
+- high: 36.75
+- low: 35
+- close: 35.3
+- volume: 1564948
+- ma5: 37.49
+- ema23_primary: 34.69
+- distance_to_ema23_pct: 1.76
+- ma20: 34.27
+- ma60: 33.69
+- ma120: 28.78
+- return_5d: 0.71
+- return_20d: 8.95
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 3
+- distance_to_high_60_pct: -15.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,32.65,32.7,31.9,32.4,447050,32.67,-0.84,32.66,30.55,0.4
 20260601,33.05,33.05,32.35,32.8,739399,32.68,0.36,32.55,30.68,0.7
 20260602,32.9,35.95,32.25,35.7,2635582,32.93,8.4,32.63,30.84,2.42
 20260603,35.7,35.95,33.8,34.6,1937200,33.07,4.62,32.72,30.98,1.77
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,36.4,40.45,35.7,40.45,7757539,34.11,18.58,33.56,33.1,4.53
 20260625,41.4,42,38.2,38.9,7093323,34.51,12.72,33.91,33.33,3.5
 20260626,38.3,38.35,36,36,3006424,34.64,3.94,34.13,33.52,1.41
+20260629,35.4,36.75,35,35.3,1564948,34.69,1.76,34.27,33.69,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2460 | 建通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及決算表冊。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 2460 | 建通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及決算表冊。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2460 | 建通 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及決算表冊。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 2460 | 建通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度虧損撥補案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及決算表冊。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2460 | 建通 | 8 | 1 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2460 | 建通 | 9 | 2 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

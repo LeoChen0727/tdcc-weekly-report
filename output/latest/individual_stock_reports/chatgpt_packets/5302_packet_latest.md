@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5302 太欣
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:57 Asia/Taipei
+- generated_at: 2026-06-29 22:27:23 Asia/Taipei
 - stock_id: 5302
 - stock_name: 太欣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 12.95
-- high: 13.25
-- low: 12.6
-- close: 12.65
-- volume: 1842000
-- ma5: 13.32
-- ema23_primary: 12.01
-- distance_to_ema23_pct: 5.34
-- ma20: 11.86
-- ma60: 11.21
-- ma120: 11.28
-- return_5d: 0.8
-- return_20d: 15.53
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 6.64
-- distance_to_high_60_pct: -14.24
+- date: 20260629
+- open: 12.7
+- high: 12.8
+- low: 12.25
+- close: 12.35
+- volume: 1261000
+- ma5: 13.27
+- ema23_primary: 12.04
+- distance_to_ema23_pct: 2.6
+- ma20: 11.94
+- ma60: 11.24
+- ma120: 11.31
+- return_5d: -1.98
+- return_20d: 14.35
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 3.43
+- distance_to_high_60_pct: -16.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,11.7,11.7,10.55,10.8,11000,10.62,1.68,10.66,11.08,0.02
 20260601,10.55,11.35,10.55,11,11000,10.65,3.26,10.66,11.07,0.02
 20260602,11.2,11.7,10.95,11.35,11,10.71,5.97,10.66,11.06,0
 20260603,11.4,11.9,11.25,11.65,12000,10.79,7.98,10.66,11.06,0.03
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,13.85,14.75,13.15,14.45,6658000,11.85,21.94,11.62,11.15,4.37
 20260625,13.6,13.9,13.05,13.05,3997000,11.95,9.2,11.78,11.18,2.32
 20260626,12.95,13.25,12.6,12.65,1842000,12.01,5.34,11.86,11.21,1.02
+20260629,12.7,12.8,12.25,12.35,1261000,12.04,2.6,11.94,11.24,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +188,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5302 | 太欣 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 5302 | 太欣 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 5302 | 太欣 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 5.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 5302 | 太欣 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 5302 | 太欣 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 5302 | 太欣 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 3.0 | A_優先追蹤 |  |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱:  董事:王國肇  董事:和毅(股)公司代表人:王秀珍  董事:和毅(股)公司代表人:吳士偉  董事:和毅(股)公司代表人:何映蕙  獨立董事:許?佳  獨立董事:詹志康 3.許可從事競業行為之項目:以無損於本公司之利益為限，投資或經營其他與 本公司營業範圍相同或類似之公司並擔任董事或經理人之行為。 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）:經投票表決結果已達法令規定標準， 本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5302 | 太欣 | 5 | 1 | 5 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 5302 | 太欣 | 6 | 2 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

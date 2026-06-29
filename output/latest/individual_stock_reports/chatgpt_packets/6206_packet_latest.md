@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6206 飛捷
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:09 Asia/Taipei
+- generated_at: 2026-06-29 22:27:37 Asia/Taipei
 - stock_id: 6206
 - stock_name: 飛捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 128.5
-- high: 129.5
-- low: 125
-- close: 125.5
-- volume: 753265
-- ma5: 130.4
-- ema23_primary: 131.67
-- distance_to_ema23_pct: -4.69
-- ma20: 134.32
-- ma60: 122.45
-- ma120: 108.66
-- return_5d: -4.56
-- return_20d: -9.39
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -6.57
-- distance_to_high_60_pct: -14.04
+- date: 20260629
+- open: 125
+- high: 128
+- low: 124
+- close: 124.5
+- volume: 511221
+- ma5: 128.4
+- ema23_primary: 131.07
+- distance_to_ema23_pct: -5.01
+- ma20: 133.68
+- ma60: 122.92
+- ma120: 108.92
+- return_5d: -7.43
+- return_20d: -9.45
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -6.86
+- distance_to_high_60_pct: -14.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,141,141,137,137.5,1778545,128.99,6.6,130.47,111.59,0.54
 20260601,136.5,145.5,136.5,141.5,3174026,130.03,8.82,132,112.47,0.94
 20260602,142.5,143.5,138,142,1912937,131.03,8.37,133.57,113.3,0.56
 20260603,144.5,145.5,140,141.5,2455369,131.9,7.28,135.12,114.08,0.7
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,131,132,129,130.5,675999,132.48,-1.49,135.43,121.55,0.4
 20260625,132,132.5,129.5,129.5,496307,132.23,-2.06,134.97,122.01,0.31
 20260626,128.5,129.5,125,125.5,753265,131.67,-4.69,134.32,122.45,0.5
+20260629,125,128,124,124.5,511221,131.07,-5.01,133.68,122.92,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6206 | 飛捷 | 14 | 0 | 293520.0 | 0.0 |  | no_signal |
+| 20260629 | 6206 | 飛捷 | 14 | 0 | 524680.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

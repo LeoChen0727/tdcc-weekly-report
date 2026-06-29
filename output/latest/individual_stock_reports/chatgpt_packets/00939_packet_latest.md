@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00939 統一台灣高息動能
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:43 Asia/Taipei
+- generated_at: 2026-06-29 22:25:57 Asia/Taipei
 - stock_id: 00939
 - stock_name: 統一台灣高息動能
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 25
+- latest_price_date: 20260629
+- price_rows: 26
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 21.66
-- high: 21.66
-- low: 21.24
-- close: 21.24
-- volume: 4948605
-- ma5: 21.65
-- ema23_primary: 20.93
-- distance_to_ema23_pct: 1.5
-- ma20: 21.11
-- ma60: 20.81
-- ma120: 20.81
-- return_5d: -3.23
-- return_20d: 7
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 0.59
-- distance_to_high_60_pct: -3.98
+- date: 20260629
+- open: 21.32
+- high: 21.52
+- low: 21.19
+- close: 21.26
+- volume: 4479601
+- ma5: 21.51
+- ema23_primary: 20.95
+- distance_to_ema23_pct: 1.46
+- ma20: 21.16
+- ma60: 20.82
+- ma120: 20.82
+- return_5d: -3.19
+- return_20d: 4.83
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 0.45
+- distance_to_high_60_pct: -3.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,20.23,20.3,20.1,20.28,6028567,19.19,5.68,19.7,19.7,0.73
 20260601,20.29,20.55,20.29,20.5,7074679,19.3,6.22,19.81,19.81,0.87
 20260602,20.48,20.5,20.17,20.5,8673714,19.4,5.67,19.9,19.9,1.06
 20260603,20.58,21.05,20.52,21,6836634,19.53,7.51,20.02,20.02,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,21.54,21.7,21.45,21.54,3804099,20.82,3.43,20.96,20.75,0.59
 20260625,21.55,21.8,21.46,21.69,2791670,20.9,3.79,21.05,20.79,0.47
 20260626,21.66,21.66,21.24,21.24,4948605,20.93,1.5,21.11,20.81,0.86
+20260629,21.32,21.52,21.19,21.26,4479601,20.95,1.46,21.16,20.82,0.79
 ```
 
 ## Latest TDCC Snapshot

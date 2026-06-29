@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5276 達輝-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:56 Asia/Taipei
+- generated_at: 2026-06-29 22:27:22 Asia/Taipei
 - stock_id: 5276
 - stock_name: 達輝-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 141
+- latest_price_date: 20260629
+- price_rows: 142
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 18
-- high: 18
-- low: 17.8
-- close: 17.8
-- volume: 6000
-- ma5: 18.33
+- date: 20260629
+- open: 18.2
+- high: 18.7
+- low: 17.9
+- close: 18.65
+- volume: 23000
+- ma5: 18.32
 - ema23_primary: 18.65
-- distance_to_ema23_pct: -4.56
-- ma20: 18.7
-- ma60: 18.4
-- ma120: 16.94
-- return_5d: -4.56
-- return_20d: -8.25
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -4.83
-- distance_to_high_60_pct: -19.82
+- distance_to_ema23_pct: -0.01
+- ma20: 18.68
+- ma60: 18.45
+- ma120: 16.97
+- return_5d: -0.27
+- return_20d: -2.86
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: -0.13
+- distance_to_high_60_pct: -15.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,19.2,20,19.1,19.2,19000,19.25,-0.25,19.88,17.39,0.33
 20260601,20.25,20.25,19.1,19.7,19000,19.29,2.15,19.86,17.45,0.38
 20260602,19.1,19.45,19,19.45,19,19.3,0.78,19.72,17.51,0
 20260603,19.2,19.7,19.1,19.1,19000,19.28,-0.95,19.61,17.57,0.52
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,18.25,18.55,18.2,18.55,9000,18.77,-1.18,18.86,18.3,0.57
 20260625,18.2,18.4,17.9,18.25,26000,18.73,-2.56,18.78,18.35,1.62
 20260626,18,18,17.8,17.8,6000,18.65,-4.56,18.7,18.4,0.39
+20260629,18.2,18.7,17.9,18.65,23000,18.65,-0.01,18.68,18.45,1.47
 ```
 
 ## Latest TDCC Snapshot

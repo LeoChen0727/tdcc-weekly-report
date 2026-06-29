@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00652 富邦印度
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:41 Asia/Taipei
+- generated_at: 2026-06-29 22:25:54 Asia/Taipei
 - stock_id: 00652
 - stock_name: 富邦印度
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 25
+- latest_price_date: 20260629
+- price_rows: 26
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 33.2
-- high: 33.23
-- low: 32.99
-- close: 33.04
-- volume: 504146
-- ma5: 33.03
-- ema23_primary: 32.48
-- distance_to_ema23_pct: 1.72
-- ma20: 32.25
-- ma60: 32.26
-- ma120: 32.26
-- return_5d: 0.33
-- return_20d: 3.8
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 2.45
-- distance_to_high_60_pct: -1.02
+- date: 20260629
+- open: 33.06
+- high: 33.34
+- low: 33.06
+- close: 33.3
+- volume: 594649
+- ma5: 33.09
+- ema23_primary: 32.55
+- distance_to_ema23_pct: 2.31
+- ma20: 32.3
+- ma60: 32.3
+- ma120: 32.3
+- return_5d: 0.91
+- return_20d: 2.84
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 3.11
+- distance_to_high_60_pct: -0.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,31.89,32.43,31.88,32.38,284249,32.3,0.25,32.32,32.32,0.76
 20260601,32.38,32.38,31.85,31.91,501178,32.27,-1.1,32.26,32.26,1.27
 20260602,31.78,31.78,31.53,31.71,532212,32.22,-1.58,32.2,32.2,1.29
 20260603,31.71,31.78,31.41,31.41,631614,32.15,-2.31,32.11,32.11,1.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,32.65,32.84,32.62,32.84,671964,32.35,1.53,32.14,32.18,1.49
 20260625,33,33.38,33,33.34,473944,32.43,2.81,32.19,32.23,1.05
 20260626,33.2,33.23,32.99,33.04,504146,32.48,1.72,32.25,32.26,1.11
+20260629,33.06,33.34,33.06,33.3,594649,32.55,2.31,32.3,32.3,1.27
 ```
 
 ## Latest TDCC Snapshot

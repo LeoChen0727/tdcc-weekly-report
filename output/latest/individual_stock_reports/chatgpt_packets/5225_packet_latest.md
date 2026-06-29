@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5225 東科-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:56 Asia/Taipei
+- generated_at: 2026-06-29 22:27:21 Asia/Taipei
 - stock_id: 5225
 - stock_name: 東科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 73.1
-- high: 73.4
-- low: 71.6
-- close: 71.6
-- volume: 303121
-- ma5: 72.88
-- ema23_primary: 73.07
-- distance_to_ema23_pct: -2.01
-- ma20: 73.19
-- ma60: 74.57
-- ma120: 86.31
-- return_5d: -3.24
-- return_20d: 1.99
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -2.17
-- distance_to_high_60_pct: -11.6
+- date: 20260629
+- open: 71.6
+- high: 72.8
+- low: 71.2
+- close: 71.7
+- volume: 125912
+- ma5: 72.44
+- ema23_primary: 72.96
+- distance_to_ema23_pct: -1.72
+- ma20: 73.22
+- ma60: 74.46
+- ma120: 86.05
+- return_5d: -2.98
+- return_20d: 1.13
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -2.08
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,70.2,71.1,70,70.9,312023,72.95,-2.81,72.44,80.27,0.94
 20260601,70.9,71.9,70.1,71.6,550787,72.84,-1.7,72.12,79.9,1.61
 20260602,71.7,71.7,70.8,71.5,307177,72.73,-1.69,71.81,79.53,0.89
 20260603,73,78.6,73,78.6,1608791,73.22,7.35,71.9,79.27,3.89
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,72.6,73.6,72.5,72.8,129954,73.22,-0.57,72.99,74.89,0.26
 20260625,73.3,74.8,73.1,73.1,220991,73.21,-0.14,73.11,74.72,0.46
 20260626,73.1,73.4,71.6,71.6,303121,73.07,-2.01,73.19,74.57,0.64
+20260629,71.6,72.8,71.2,71.7,125912,72.96,-1.72,73.22,74.46,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5225 | 東科-KY | 2 | 0 | 27280.0 | 0.0 |  | no_signal |
+| 20260629 | 5225 | 東科-KY | 1 | 0 | 40760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

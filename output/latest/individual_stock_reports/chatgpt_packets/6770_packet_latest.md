@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:23 Asia/Taipei
+- generated_at: 2026-06-29 22:27:54 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 83.2
-- high: 85.2
-- low: 78.1
-- close: 78.3
-- volume: 332913359
-- ma5: 81.48
-- ema23_primary: 74.38
-- distance_to_ema23_pct: 5.27
-- ma20: 76.64
-- ma60: 64.41
-- ma120: 62.18
-- return_5d: 5.53
-- return_20d: -2.97
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 2.16
-- distance_to_high_60_pct: -17.14
+- date: 20260629
+- open: 79.9
+- high: 82.3
+- low: 77.6
+- close: 78.9
+- volume: 220163758
+- ma5: 80.94
+- ema23_primary: 74.75
+- distance_to_ema23_pct: 5.55
+- ma20: 76.16
+- ma60: 64.84
+- ma120: 62.51
+- return_5d: -3.31
+- return_20d: -11.05
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 3.6
+- distance_to_high_60_pct: -16.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,85.4,88.7,78.8,88.7,829646406,65.65,35.12,64.29,61.03,2.93
 20260601,93.2,94.5,87,87,770941542,67.43,29.03,65.98,61.46,2.43
 20260602,87,88.6,83.7,85.9,106203381,68.97,24.55,67.51,61.82,0.33
 20260603,88,88,84.1,84.6,64659229,70.27,20.39,68.83,62.16,0.21
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,78,85.7,77.2,85.7,476043030,73.19,17.1,76.34,63.67,1.74
 20260625,89.3,89.3,82.8,83.2,479667659,74.02,12.4,76.77,64.07,1.73
 20260626,83.2,85.2,78.1,78.3,332913359,74.38,5.27,76.64,64.41,1.3
+20260629,79.9,82.3,77.6,78.9,220163758,74.75,5.55,76.16,64.84,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6770 | 力積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 6770 | 力積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：康和證券總公司智匯廳 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，就公司營運概況向投資機構做說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6770 | 力積電 | 11 | 4 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6770 | 力積電 | 12 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6770 | 力積電 | 168 | 0 | 45987530.0 | 0.0 |  | no_signal |
+| 20260629 | 6770 | 力積電 | 165 | 0 | 26076180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

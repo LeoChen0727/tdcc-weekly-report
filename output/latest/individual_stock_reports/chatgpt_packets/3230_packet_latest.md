@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3230 錦明
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:30 Asia/Taipei
+- generated_at: 2026-06-29 22:26:51 Asia/Taipei
 - stock_id: 3230
 - stock_name: 錦明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 36.6
-- high: 39.85
-- low: 36.5
-- close: 39.85
-- volume: 4478000
-- ma5: 35.84
-- ema23_primary: 32.6
-- distance_to_ema23_pct: 22.26
-- ma20: 31.32
-- ma60: 34.4
-- ma120: 35.96
-- return_5d: 33.28
-- return_20d: 31.09
-- volume_ratio: 3.72
-- distance_to_ma20_pct_auxiliary: 27.21
-- distance_to_high_60_pct: -15.66
+- date: 20260629
+- open: 43.4
+- high: 43.8
+- low: 41.5
+- close: 43.8
+- volume: 4177000
+- ma5: 38.33
+- ema23_primary: 33.53
+- distance_to_ema23_pct: 30.63
+- ma20: 32.01
+- ma60: 34.47
+- ma120: 36
+- return_5d: 39.71
+- return_20d: 45.03
+- volume_ratio: 2.96
+- distance_to_ma20_pct_auxiliary: 36.85
+- distance_to_high_60_pct: -7.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,30.6,31.4,29.85,30.2,30000,33.14,-8.88,32.63,37.39,0.08
 20260601,30.45,31.25,30.25,30.7,31000,32.94,-6.79,32.35,37.22,0.08
 20260602,31,31,30.1,30.7,30,32.75,-6.26,32.08,37.02,0
 20260603,31.25,31.55,30.2,30.85,31000,32.59,-5.35,31.89,36.81,0.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,33.9,37.3,33.2,37.3,5182000,31.54,18.25,30.56,34.52,6.03
 20260625,37.5,38.5,35.45,36.25,2493000,31.94,13.51,30.85,34.42,2.54
 20260626,36.6,39.85,36.5,39.85,4478000,32.6,22.26,31.32,34.4,3.72
+20260629,43.4,43.8,41.5,43.8,4177000,33.53,30.63,32.01,34.47,2.96
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3230 | 錦明 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長及副董事長 3.舊任者姓名: 蔡翔峰 簡豪廷 4.舊任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 5.新任者姓名: 蔡翔峰 簡豪廷 6.新任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 任期屆滿改選，股東常會全面改選董事，董事會推舉新任董事長及副董事長 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 3230 | 錦明 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長及副董事長 3.舊任者姓名: 蔡翔峰 簡豪廷 4.舊任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 5.新任者姓名: 蔡翔峰 簡豪廷 6.新任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 任期屆滿改選，股東常會全面改選董事，董事會推舉新任董事長及副董事長 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3230 | 錦明 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260629 | 3230 | 錦明 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

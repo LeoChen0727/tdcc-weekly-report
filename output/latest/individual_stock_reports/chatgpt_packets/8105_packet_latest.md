@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:41 Asia/Taipei
+- generated_at: 2026-06-29 22:28:13 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 24.65
-- high: 24.7
-- low: 22.65
-- close: 22.65
-- volume: 23344339
+- date: 20260629
+- open: 22.5
+- high: 23.7
+- low: 22.05
+- close: 22.9
+- volume: 14741046
 - ma5: 23.12
-- ema23_primary: 20.8
-- distance_to_ema23_pct: 8.91
-- ma20: 21.3
-- ma60: 16.75
-- ma120: 14.82
-- return_5d: 3.42
-- return_20d: 36.45
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 6.33
-- distance_to_high_60_pct: -12.04
+- ema23_primary: 20.97
+- distance_to_ema23_pct: 9.2
+- ma20: 21.57
+- ma60: 16.92
+- ma120: 14.91
+- return_5d: 0
+- return_20d: 30.48
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 6.17
+- distance_to_high_60_pct: -11.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,17.1,17.9,16.85,17.55,9756849,15.63,12.27,15.46,14.03,1.08
 20260601,17.8,19.3,17.4,19.3,20015423,15.94,21.1,15.77,14.15,2.01
 20260602,19.8,21.2,17.8,21.2,44124975,16.38,29.46,16.15,14.29,3.65
 20260603,21.2,21.85,20.4,20.6,40098908,16.73,23.15,16.51,14.42,2.86
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,21.15,23.5,21.1,23.5,36347839,20.22,16.24,20.58,16.38,1.58
 20260625,23.8,25.75,23.1,25.15,52260776,20.63,21.92,21,16.58,2.06
 20260626,24.65,24.7,22.65,22.65,23344339,20.8,8.91,21.3,16.75,0.89
+20260629,22.5,23.7,22.05,22.9,14741046,20.97,9.2,21.57,16.92,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8105 | 凌巨 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:日商凸版控股株式會社代表人 田村隆幸 4.舊任者簡歷:凌巨科技(股)有限公司董事長 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:解任 8.異動原因:日商凸版控股株式會社轉讓凌巨私募股權 9.新任生效日期:不適用 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司法人董事日商凸版控股株式會社，出售凌巨私募股權，因轉讓持股超過選任當時 所持有之公司股份數額二分之一，依公司法197條其法人董事及四席代表人當然解任， 田村隆幸董事長併同解任。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 8105 | 凌巨 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:日商凸版控股株式會社代表人 田村隆幸 4.舊任者簡歷:凌巨科技(股)有限公司董事長 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:解任 8.異動原因:日商凸版控股株式會社轉讓凌巨私募股權 9.新任生效日期:不適用 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司法人董事日商凸版控股株式會社，出售凌巨私募股權，因轉讓持股超過選任當時 所持有之公司股份數額二分之一，依公司法197條其法人董事及四席代表人當然解任， 田村隆幸董事長併同解任。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8105 | 凌巨 | 2 | 1 | 4 | 7 | 14 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260629 | 8105 | 凌巨 | 3 | 2 | 4 | 7 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

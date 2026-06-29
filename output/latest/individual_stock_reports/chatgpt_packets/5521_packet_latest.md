@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5521 工信
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:01 Asia/Taipei
+- generated_at: 2026-06-29 22:27:28 Asia/Taipei
 - stock_id: 5521
 - stock_name: 工信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 10.25
-- high: 10.3
+- date: 20260629
+- open: 10.15
+- high: 10.35
 - low: 10.1
-- close: 10.15
-- volume: 3136459
-- ma5: 10.34
-- ema23_primary: 10.54
-- distance_to_ema23_pct: -3.73
+- close: 10.2
+- volume: 2506946
+- ma5: 10.29
+- ema23_primary: 10.51
+- distance_to_ema23_pct: -2.99
 - ma20: 10.43
-- ma60: 11.18
-- ma120: 16.04
-- return_5d: -4.25
-- return_20d: 0
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -2.71
-- distance_to_high_60_pct: -22.81
+- ma60: 11.14
+- ma120: 15.93
+- return_5d: -2.39
+- return_20d: -1.45
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -2.16
+- distance_to_high_60_pct: -21.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,10.25,10.35,10.1,10.35,3640749,11,-5.91,10.92,12.81,0.62
 20260601,10.3,10.35,10.15,10.2,4238614,10.93,-6.71,10.87,12.58,0.72
 20260602,10.2,10.5,10.1,10.15,5272868,10.87,-6.61,10.79,12.36,0.88
 20260603,10.25,10.65,10.2,10.55,7501892,10.84,-2.69,10.71,12.19,1.28
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,10.25,10.5,10.25,10.4,2898901,10.6,-1.93,10.43,11.27,0.54
 20260625,10.35,10.45,10.25,10.3,1928107,10.58,-2.64,10.43,11.22,0.36
 20260626,10.25,10.3,10.1,10.15,3136459,10.54,-3.73,10.43,11.18,0.59
+20260629,10.15,10.35,10.1,10.2,2506946,10.51,-2.99,10.43,11.14,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5521 | 工信 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260629 | 5521 | 工信 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5521 | 工信 | 4 | 4 | 4 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 5521 | 工信 | 5 | 5 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

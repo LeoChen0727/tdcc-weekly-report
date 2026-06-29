@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009817 國泰日本不動產
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:44 Asia/Taipei
+- generated_at: 2026-06-29 22:25:58 Asia/Taipei
 - stock_id: 009817
 - stock_name: 國泰日本不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 25
+- latest_price_date: 20260629
+- price_rows: 26
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 8.81
-- high: 8.95
-- low: 8.81
-- close: 8.92
-- volume: 5513934
-- ma5: 8.73
-- ema23_primary: 8.75
-- distance_to_ema23_pct: 1.96
+- date: 20260629
+- open: 8.9
+- high: 8.96
+- low: 8.89
+- close: 8.94
+- volume: 2142991
+- ma5: 8.8
+- ema23_primary: 8.76
+- distance_to_ema23_pct: 2
 - ma20: 8.71
 - ma60: 8.74
 - ma120: 8.74
-- return_5d: 3.12
-- return_20d: 1.48
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: 2.36
-- distance_to_high_60_pct: -0.34
+- return_5d: 4.07
+- return_20d: 0.22
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 2.58
+- distance_to_high_60_pct: -0.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,8.83,8.95,8.83,8.92,5378932,8.87,0.61,8.85,8.85,1.07
 20260601,8.92,8.92,8.76,8.77,2777013,8.86,-0.99,8.83,8.83,0.59
 20260602,8.7,8.7,8.64,8.67,4401291,8.84,-1.95,8.81,8.81,0.94
 20260603,8.67,8.69,8.64,8.64,4218350,8.83,-2.1,8.79,8.79,0.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,8.63,8.72,8.63,8.71,1803230,8.73,-0.19,8.71,8.73,0.62
 20260625,8.72,8.84,8.72,8.81,2051648,8.73,0.88,8.71,8.73,0.76
 20260626,8.81,8.95,8.81,8.92,5513934,8.75,1.96,8.71,8.74,1.98
+20260629,8.9,8.96,8.89,8.94,2142991,8.76,2,8.71,8.74,0.82
 ```
 
 ## Latest TDCC Snapshot

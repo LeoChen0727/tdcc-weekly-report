@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7402 邑錡
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:34 Asia/Taipei
+- generated_at: 2026-06-29 22:28:05 Asia/Taipei
 - stock_id: 7402
 - stock_name: 邑錡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 99.8
-- high: 104
-- low: 97.2
-- close: 99.2
-- volume: 343000
-- ma5: 101.02
-- ema23_primary: 98.63
-- distance_to_ema23_pct: 0.58
-- ma20: 96.95
-- ma60: 108.53
-- ma120: 118.83
-- return_5d: 7.71
-- return_20d: 1.22
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 2.32
-- distance_to_high_60_pct: -27.85
+- date: 20260629
+- open: 102.5
+- high: 109
+- low: 102
+- close: 109
+- volume: 857000
+- ma5: 102.62
+- ema23_primary: 99.5
+- distance_to_ema23_pct: 9.55
+- ma20: 97.42
+- ma60: 108.4
+- ma120: 118.58
+- return_5d: 7.92
+- return_20d: 9.44
+- volume_ratio: 2.68
+- distance_to_ma20_pct_auxiliary: 11.88
+- distance_to_high_60_pct: -20.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,101,105.5,99.3,99.6,102000,105.51,-5.61,106.13,116.21,0.22
 20260601,102,108,102,104,105000,105.39,-1.32,105.2,115.81,0.23
 20260602,104.5,105.5,99.6,101,101,105.02,-3.83,103.98,115.33,0
 20260603,102.5,102.5,100.5,101,101000,104.69,-3.52,102.91,114.94,0.24
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,103,105,100.5,102,339000,98.46,3.6,96.78,109.28,1.28
 20260625,103,103,99.9,99.9,214000,98.58,1.34,96.89,108.92,0.79
 20260626,99.8,104,97.2,99.2,343000,98.63,0.58,96.95,108.53,1.21
+20260629,102.5,109,102,109,857000,99.5,9.55,97.42,108.4,2.68
 ```
 
 ## Latest TDCC Snapshot

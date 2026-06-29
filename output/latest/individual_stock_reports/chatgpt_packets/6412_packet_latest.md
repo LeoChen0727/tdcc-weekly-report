@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:13 Asia/Taipei
+- generated_at: 2026-06-29 22:27:42 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 92.7
-- high: 93
-- low: 88.5
-- close: 88.5
-- volume: 2468530
-- ma5: 92.7
-- ema23_primary: 93.38
-- distance_to_ema23_pct: -5.23
-- ma20: 95.19
-- ma60: 88.6
-- ma120: 87
-- return_5d: -3.38
-- return_20d: -10.43
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -7.03
-- distance_to_high_60_pct: -20.98
+- date: 20260629
+- open: 89.4
+- high: 92.7
+- low: 88.2
+- close: 92.3
+- volume: 1685713
+- ma5: 92.16
+- ema23_primary: 93.29
+- distance_to_ema23_pct: -1.06
+- ma20: 94.7
+- ma60: 88.93
+- ma120: 86.98
+- return_5d: -2.84
+- return_20d: -9.51
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -2.54
+- distance_to_high_60_pct: -17.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,102,103.5,100,102,2272632,93.32,9.3,94.23,84.28,0.55
 20260601,104.5,112,103.5,106,7794032,94.37,12.32,95.08,84.43,1.92
 20260602,106.5,108.5,101.5,104,6512002,95.18,9.27,95.76,84.61,1.65
 20260603,106.5,106.5,100.5,104.5,5816496,95.95,8.91,96.62,84.85,1.44
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,93.5,93.9,92.1,93.1,2428835,93.91,-0.86,96.06,88.1,0.54
 20260625,93.4,94.5,92.5,92.9,1419713,93.83,-0.99,95.7,88.36,0.32
 20260626,92.7,93,88.5,88.5,2468530,93.38,-5.23,95.19,88.6,0.56
+20260629,89.4,92.7,88.2,92.3,1685713,93.29,-1.06,94.7,88.93,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6412 | 群電 | 28 | 0 | 2207560.0 | 0.0 |  | no_signal |
+| 20260629 | 6412 | 群電 | 28 | 0 | 1189500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

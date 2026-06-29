@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:23 Asia/Taipei
+- generated_at: 2026-06-29 22:26:44 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 150
-- high: 150
-- low: 139.5
-- close: 139.5
-- volume: 6950782
-- ma5: 153
-- ema23_primary: 151.72
-- distance_to_ema23_pct: -8.05
-- ma20: 152.72
-- ma60: 143.11
-- ma120: 142.26
-- return_5d: -13.08
-- return_20d: -6.69
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -8.66
-- distance_to_high_60_pct: -17.46
+- date: 20260629
+- open: 140
+- high: 142
+- low: 137.5
+- close: 138
+- volume: 4055583
+- ma5: 148
+- ema23_primary: 150.57
+- distance_to_ema23_pct: -8.35
+- ma20: 151.93
+- ma60: 143.39
+- ma120: 142.25
+- return_5d: -15.34
+- return_20d: -10.39
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -9.17
+- distance_to_high_60_pct: -18.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,152,158.5,151.5,154,9863655,146.76,4.94,147.82,135.95,1.09
 20260601,155.5,156.5,153,155,6349794,147.44,5.13,148.43,136.32,0.7
 20260602,157.5,157.5,150,152.5,7761836,147.86,3.14,148.9,136.6,0.84
 20260603,153.5,155,151.5,151.5,4854354,148.17,2.25,149.32,136.9,0.53
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,151,155.5,149.5,155.5,5037781,153.09,1.58,153.2,142.46,0.42
 20260625,156,156.5,149,150,5694860,152.83,-1.85,153.22,142.84,0.48
 20260626,150,150,139.5,139.5,6950782,151.72,-8.05,152.72,143.11,0.6
+20260629,140,142,137.5,138,4055583,150.57,-8.35,151.93,143.39,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3019 | 亞光 | 103 | 0 | 4158590.0 | 0.0 |  | no_signal |
+| 20260629 | 3019 | 亞光 | 107 | 0 | 2450390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

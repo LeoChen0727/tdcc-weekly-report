@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7780 大研生醫*
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:37 Asia/Taipei
+- generated_at: 2026-06-29 22:28:08 Asia/Taipei
 - stock_id: 7780
 - stock_name: 大研生醫*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 180
+- latest_price_date: 20260629
+- price_rows: 181
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 18.05
-- high: 18.15
-- low: 17.85
-- close: 17.9
-- volume: 1984343
-- ma5: 18.24
-- ema23_primary: 18.46
-- distance_to_ema23_pct: -3.03
-- ma20: 18.33
-- ma60: 18.96
-- ma120: 42.03
-- return_5d: -6.77
-- return_20d: 1.7
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -2.36
-- distance_to_high_60_pct: -21.32
+- date: 20260629
+- open: 17.9
+- high: 18.2
+- low: 17.9
+- close: 18.05
+- volume: 1134267
+- ma5: 18.11
+- ema23_primary: 18.42
+- distance_to_ema23_pct: -2.03
+- ma20: 18.36
+- ma60: 18.93
+- ma120: 40.78
+- return_5d: -3.48
+- return_20d: 2.56
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -1.66
+- distance_to_high_60_pct: -20.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,17.6,17.65,17.45,17.6,1948799,18.54,-5.06,18.27,19.45,0.94
 20260601,17.65,17.9,17.55,17.6,1891580,18.46,-4.66,18.23,19.38,0.9
 20260602,17.6,17.7,17.5,17.55,1866974,18.38,-4.54,18.16,19.31,0.89
 20260603,17.5,17.9,17.5,17.8,2465125,18.34,-2.92,18.12,19.23,1.16
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,18.2,18.55,18.05,18.25,1115637,18.54,-1.58,18.3,19.07,0.48
 20260625,18.3,18.4,18.1,18.15,1130959,18.51,-1.94,18.32,19.01,0.49
 20260626,18.05,18.15,17.85,17.9,1984343,18.46,-3.03,18.33,18.96,0.88
+20260629,17.9,18.2,17.9,18.05,1134267,18.42,-2.03,18.36,18.93,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 7780 | 大研生醫* | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 7780 | 大研生醫* | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 7780 | 大研生醫* | 4 | 4 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 7780 | 大研生醫* | 5 | 5 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 7780 | 大研生醫* | 6 | 0 | 3590.0 | 0.0 |  | no_signal |
+| 20260629 | 7780 | 大研生醫* | 6 | 0 | 53070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

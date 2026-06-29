@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:59 Asia/Taipei
+- generated_at: 2026-06-29 22:27:25 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 538
-- high: 550
-- low: 518
-- close: 520
-- volume: 2197000
-- ma5: 518.2
-- ema23_primary: 507.31
-- distance_to_ema23_pct: 2.5
-- ma20: 522.7
-- ma60: 443.26
-- ma120: 309.47
-- return_5d: -0.19
-- return_20d: -9.57
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: -0.52
-- distance_to_high_60_pct: -17.2
+- date: 20260629
+- open: 521
+- high: 539
+- low: 506
+- close: 524
+- volume: 1035000
+- ma5: 517.2
+- ema23_primary: 508.7
+- distance_to_ema23_pct: 3.01
+- ma20: 519.25
+- ma60: 447.62
+- ma120: 313.21
+- return_5d: -0.95
+- return_20d: -11.64
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 0.91
+- distance_to_high_60_pct: -16.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,584,597,576,593,587000,473.7,25.19,478,379.79,0.51
 20260601,616,619,578,581,597000,482.64,20.38,487.15,385.89,0.58
 20260602,586,596,541,559,569,489,14.31,493.23,391.27,0
 20260603,560,562,537,547,549000,493.84,10.77,496.82,396.05,0.94
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,490,506,486,502,712000,503.26,-0.25,527.9,434.74,0.69
 20260625,519,548,511,538,2012000,506.15,6.29,525.45,439.37,1.83
 20260626,538,550,518,520,2197000,507.31,2.5,522.7,443.26,1.86
+20260629,521,539,506,524,1035000,508.7,3.01,519.25,447.62,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5386 | 青雲 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 5386 | 青雲 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5386 | 青雲 | 1 | 1 | 4 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 5386 | 青雲 | 2 | 2 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

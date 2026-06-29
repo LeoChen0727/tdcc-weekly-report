@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4305 世坤
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:45 Asia/Taipei
+- generated_at: 2026-06-29 22:27:09 Asia/Taipei
 - stock_id: 4305
 - stock_name: 世坤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 128
+- latest_price_date: 20260629
+- price_rows: 129
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 43.9
-- high: 43.95
-- low: 43.8
-- close: 43.9
-- volume: 12000
-- ma5: 44.01
-- ema23_primary: 44.02
-- distance_to_ema23_pct: -0.28
-- ma20: 44.02
-- ma60: 43.94
-- ma120: 43.16
-- return_5d: 0
-- return_20d: -0.45
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -2.44
+- date: 20260629
+- open: 44.5
+- high: 44.65
+- low: 44
+- close: 44.3
+- volume: 11000
+- ma5: 44.07
+- ema23_primary: 44.05
+- distance_to_ema23_pct: 0.57
+- ma20: 44.04
+- ma60: 43.96
+- ma120: 43.17
+- return_5d: 0.68
+- return_20d: 0.68
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.6
+- distance_to_high_60_pct: -1.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,44.2,44.2,44,44,44000,43.97,0.06,43.95,43.66,3.04
 20260529,44,44,44,44,44000,43.97,0.06,43.98,43.69,2.68
 20260601,43.9,44,43.9,43.95,44000,43.97,-0.05,44.01,43.71,2.39
 20260603,44.05,44.5,43.9,44,44000,43.97,0.06,44.02,43.74,2.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,44.05,44.05,43.9,44.05,8000,44.04,0.03,44.03,43.93,0.36
 20260625,44.15,44.15,44.05,44.05,2000,44.04,0.03,44.03,43.93,0.1
 20260626,43.9,43.95,43.8,43.9,12000,44.02,-0.28,44.02,43.94,0.64
+20260629,44.5,44.65,44,44.3,11000,44.05,0.57,44.04,43.96,0.65
 ```
 
 ## Latest TDCC Snapshot

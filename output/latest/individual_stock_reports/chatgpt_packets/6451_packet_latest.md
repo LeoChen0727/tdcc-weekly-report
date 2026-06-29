@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6451 訊芯-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:14 Asia/Taipei
+- generated_at: 2026-06-29 22:27:43 Asia/Taipei
 - stock_id: 6451
 - stock_name: 訊芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 609
-- high: 646
-- low: 553
-- close: 598
-- volume: 11870339
-- ma5: 611.2
-- ema23_primary: 576.15
-- distance_to_ema23_pct: 3.79
-- ma20: 596.58
-- ma60: 507.78
-- ma120: 350.89
-- return_5d: 6.6
-- return_20d: 5.1
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: 0.24
-- distance_to_high_60_pct: -20.9
+- date: 20260629
+- open: 597
+- high: 638
+- low: 563
+- close: 563
+- volume: 8465872
+- ma5: 600.4
+- ema23_primary: 575.06
+- distance_to_ema23_pct: -2.1
+- ma20: 596.23
+- ma60: 512.23
+- ma120: 354.2
+- return_5d: -8.75
+- return_20d: -1.23
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -5.57
+- distance_to_high_60_pct: -25.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,587,591,561,570,4136973,513,11.11,517.85,397.67,0.65
 20260601,573,627,573,627,5780775,522.5,20,525.5,405,0.88
 20260602,656,689,645,659,10771261,533.87,23.44,532.4,412.73,1.64
 20260603,702,724,702,724,3420114,549.72,31.7,544.73,421.63,0.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,589,643,589,631,7621375,570.55,10.6,594.52,499.14,1.19
 20260625,645,678,605,614,8931238,574.17,6.94,595.12,503.29,1.39
 20260626,609,646,553,598,11870339,576.15,3.79,596.58,507.78,1.75
+20260629,597,638,563,563,8465872,575.06,-2.1,596.23,512.23,1.21
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6451 | 訊芯-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.功能性委員會名稱:永續委員會 3.舊任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)莊章星 (5)戴淑惠 4.舊任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)莊章星，訊芯科技控股股份有限公司獨立董事 (5)戴淑惠，訊芯科技控股股份有限公司獨立董事 5.新任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)左大川 (5)張美玲 6.新任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)左大川，訊芯科技控股股份有限公司獨立董事 (5)張美玲，訊芯科技控股股份有限公司獨立董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/19-115/06/27 10.新任生效日期:115/06/26-118/06/25 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6451 | 訊芯-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.功能性委員會名稱:永續委員會 3.舊任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)莊章星 (5)戴淑惠 4.舊任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)莊章星，訊芯科技控股股份有限公司獨立董事 (5)戴淑惠，訊芯科技控股股份有限公司獨立董事 5.新任者姓名: (1)蔣尚義 (2)徐文一 (3)丁鴻勛 (4)左大川 (5)張美玲 6.新任者簡歷: (1)蔣尚義，訊芯科技控股股份有限公司董事長 (2)徐文一，訊芯科技控股股份有限公司董事暨總經理 (3)丁鴻勛，訊芯科技控股股份有限公司獨立董事 (4)左大川，訊芯科技控股股份有限公司獨立董事 (5)張美玲，訊芯科技控股股份有限公司獨立董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/12/19-115/06/27 10.新任生效日期:115/06/26-118/06/25 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6451 | 訊芯-KY | 6 | 1 | 5 | 7 | 17 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 6451 | 訊芯-KY | 7 | 2 | 5 | 8 | 17 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6451 | 訊芯-KY | 52 | 0 | 3629940.0 | 0.0 |  | no_signal |
+| 20260629 | 6451 | 訊芯-KY | 52 | 0 | 3906760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

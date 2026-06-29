@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:02 Asia/Taipei
+- generated_at: 2026-06-29 22:26:19 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 21.75
-- high: 21.75
+- date: 20260629
+- open: 20.25
+- high: 20.75
 - low: 20.1
-- close: 20.25
-- volume: 6076399
-- ma5: 21.24
-- ema23_primary: 21.08
-- distance_to_ema23_pct: -3.95
-- ma20: 21.25
-- ma60: 20.22
-- ma120: 18.79
-- return_5d: -5.37
-- return_20d: 6.86
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -4.72
-- distance_to_high_60_pct: -10.79
+- close: 20.65
+- volume: 2451973
+- ma5: 21.09
+- ema23_primary: 21.05
+- distance_to_ema23_pct: -1.88
+- ma20: 21.33
+- ma60: 20.25
+- ma120: 18.83
+- return_5d: -3.5
+- return_20d: 8.4
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -3.2
+- distance_to_high_60_pct: -9.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,18.95,19.15,18.9,19.05,2606780,19.79,-3.76,20.09,19.9,0.43
 20260601,19.05,19.55,18.85,19.45,3630300,19.77,-1.6,20.11,19.91,0.59
 20260602,19.55,20.25,19.4,20.25,5841615,19.81,2.24,20.14,19.93,0.93
 20260603,20.35,21.8,20.2,21.7,11281876,19.96,8.7,20.23,19.94,1.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,20.85,22.1,20.35,21.95,6880029,21.13,3.88,21.05,20.18,1.17
 20260625,22.05,22.1,21.4,21.45,4479656,21.16,1.38,21.19,20.22,0.78
 20260626,21.75,21.75,20.1,20.25,6076399,21.08,-3.95,21.25,20.22,1.03
+20260629,20.25,20.75,20.1,20.65,2451973,21.05,-1.88,21.33,20.25,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2103 | 台橡 | 6 | 0 | 1149980.0 | 0.0 |  | no_signal |
+| 20260629 | 2103 | 台橡 | 7 | 0 | 239580.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

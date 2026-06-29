@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2228 劍麟
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:03 Asia/Taipei
+- generated_at: 2026-06-29 22:26:20 Asia/Taipei
 - stock_id: 2228
 - stock_name: 劍麟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 86.1
-- high: 86.6
-- low: 84.1
-- close: 84.1
-- volume: 186190
-- ma5: 86.94
-- ema23_primary: 86.21
-- distance_to_ema23_pct: -2.44
-- ma20: 86.14
-- ma60: 86.94
-- ma120: 92.48
-- return_5d: -5.51
-- return_20d: -1.06
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -2.37
-- distance_to_high_60_pct: -10.72
+- date: 20260629
+- open: 85.3
+- high: 86.4
+- low: 84.6
+- close: 85.8
+- volume: 107006
+- ma5: 86.36
+- ema23_primary: 86.17
+- distance_to_ema23_pct: -0.43
+- ma20: 86.2
+- ma60: 86.93
+- ma120: 92.3
+- return_5d: -3.27
+- return_20d: 1.3
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -0.46
+- distance_to_high_60_pct: -8.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,85.9,86.5,84.5,84.7,312048,85.07,-0.43,84.96,88.12,1.17
 20260601,85.1,86,84.3,85.2,227842,85.08,0.14,84.79,88.03,0.85
 20260602,85.5,86.8,84.9,86.7,316435,85.21,1.75,84.67,87.92,1.14
 20260603,87.1,87.2,85.8,86.3,389965,85.3,1.17,84.54,87.82,1.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,86.3,88.3,86.3,87.7,64633,86.33,1.59,85.92,87.07,0.29
 20260625,88.2,89.2,87,87.2,143874,86.4,0.93,86.19,87.04,0.66
 20260626,86.1,86.6,84.1,84.1,186190,86.21,-2.44,86.14,86.94,0.96
+20260629,85.3,86.4,84.6,85.8,107006,86.17,-0.43,86.2,86.93,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2228 | 劍麟 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260629 | 2228 | 劍麟 | 3 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

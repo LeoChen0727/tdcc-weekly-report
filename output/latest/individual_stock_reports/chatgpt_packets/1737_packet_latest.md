@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1737 臺鹽
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:57 Asia/Taipei
+- generated_at: 2026-06-29 22:26:13 Asia/Taipei
 - stock_id: 1737
 - stock_name: 臺鹽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 31.9
+- date: 20260629
+- open: 31.8
 - high: 31.95
 - low: 31.7
 - close: 31.75
-- volume: 169992
+- volume: 140635
 - ma5: 31.84
 - ema23_primary: 31.73
-- distance_to_ema23_pct: 0.07
-- ma20: 31.72
+- distance_to_ema23_pct: 0.06
+- ma20: 31.73
 - ma60: 31.73
 - ma120: 31.67
-- return_5d: -0.16
-- return_20d: 0.95
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: 0.1
+- return_5d: 0
+- return_20d: 0.63
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 0.07
 - distance_to_high_60_pct: -1.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,31.45,31.7,31.4,31.55,165962,31.57,-0.08,31.52,31.69,1.28
 20260601,31.55,31.65,31.45,31.6,170201,31.58,0.07,31.52,31.69,1.33
 20260602,31.6,31.75,31.55,31.6,179696,31.58,0.07,31.52,31.69,1.37
 20260603,31.6,31.75,31.55,31.55,313027,31.58,-0.08,31.52,31.69,2.2
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,31.65,31.95,31.65,31.95,101106,31.71,0.77,31.68,31.73,0.67
 20260625,31.7,31.95,31.7,31.95,123386,31.73,0.7,31.7,31.73,0.81
 20260626,31.9,31.95,31.7,31.75,169992,31.73,0.07,31.72,31.73,1.17
+20260629,31.8,31.95,31.7,31.75,140635,31.73,0.06,31.73,31.73,0.98
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:51 Asia/Taipei
+- generated_at: 2026-06-29 22:28:25 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 116
-- high: 116
-- low: 112
+- date: 20260629
+- open: 111.5
+- high: 115
+- low: 111
 - close: 112
-- volume: 2162678
-- ma5: 116
-- ema23_primary: 112.27
-- distance_to_ema23_pct: -0.24
-- ma20: 112.75
+- volume: 2086274
+- ma5: 114.4
+- ema23_primary: 112.25
+- distance_to_ema23_pct: -0.22
+- ma20: 113.17
 - ma60: 107.52
-- ma120: 119.97
-- return_5d: -2.61
-- return_20d: 8.74
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -0.67
+- ma120: 119.74
+- return_5d: -6.67
+- return_20d: 8.21
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -1.04
 - distance_to_high_60_pct: -10.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,103.5,104.5,102,103.5,2199506,104.42,-0.88,103.67,111.08,1.01
 20260601,104,107,104,105,2195799,104.47,0.51,103.83,110.88,0.98
 20260602,106,106,101.5,102.5,2334822,104.3,-1.73,103.88,110.53,1.02
 20260603,103.5,109,103,107,4265291,104.53,2.37,104.15,110.26,1.75
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,115.5,117.5,114,115,1614299,111.87,2.8,111.55,107.67,0.4
 20260625,116,118.5,115,117,2942234,112.3,4.19,112.3,107.62,0.73
 20260626,116,116,112,112,2162678,112.27,-0.24,112.75,107.52,0.54
+20260629,111.5,115,111,112,2086274,112.25,-0.22,113.17,107.52,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 　現金股利新台幣1,111,034,993元，每股配發4.5元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:115/07/02 10.債券停止轉換起始日期:115/07/06 11.債券停止轉換截止日期:115/07/31 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 　 如因本公司可轉換公司債轉換等因素，致影響流通在外普通股數量， 　 股東配息率因此發生變動而需調整時，授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 　現金股利新台幣1,111,034,993元，每股配發4.5元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:115/07/02 10.債券停止轉換起始日期:115/07/06 11.債券停止轉換截止日期:115/07/31 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 　 如因本公司可轉換公司債轉換等因素，致影響流通在外普通股數量， 　 股東配息率因此發生變動而需調整時，授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 9958 | 世紀鋼 | 21 | 3 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 9958 | 世紀鋼 | 22 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 9958 | 世紀鋼 | 29 | 0 | 3233160.0 | 0.0 |  | call_strong_inflow |
+| 20260629 | 9958 | 世紀鋼 | 29 | 0 | 1635760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

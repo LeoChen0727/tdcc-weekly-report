@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8454 富邦媒
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:45 Asia/Taipei
+- generated_at: 2026-06-29 22:28:19 Asia/Taipei
 - stock_id: 8454
 - stock_name: 富邦媒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 340
-- high: 346
-- low: 314.5
-- close: 325.5
-- volume: 3069658
-- ma5: 335.4
-- ema23_primary: 312.97
-- distance_to_ema23_pct: 4
-- ma20: 334.77
-- ma60: 233.83
-- ma120: 212.59
-- return_5d: -4.55
-- return_20d: 55
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -2.77
-- distance_to_high_60_pct: -30.3
+- date: 20260629
+- open: 322
+- high: 325
+- low: 304
+- close: 304
+- volume: 2344639
+- ma5: 329.2
+- ema23_primary: 312.22
+- distance_to_ema23_pct: -2.63
+- ma20: 338.43
+- ma60: 235.95
+- ma120: 213.34
+- return_5d: -9.25
+- return_20d: 31.6
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -10.17
+- distance_to_high_60_pct: -34.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,219,231,216,231,3691482,192.79,19.82,192.7,182.59,3.39
 20260601,240,254,236.5,241.5,6217906,196.85,22.68,195.97,183.64,4.58
 20260602,237,265.5,231,265.5,5770329,202.57,31.06,200.3,185.04,3.58
 20260603,267,292,265,292,6858476,210.02,39.03,205.88,186.89,3.57
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,330,348,330,348,872345,309.41,12.47,321.62,228.78,0.28
 20260625,351,380,338,338.5,7936289,311.83,8.55,329,231.43,2.3
 20260626,340,346,314.5,325.5,3069658,312.97,4,334.77,233.83,0.88
+20260629,322,325,304,304,2344639,312.22,-2.63,338.43,235.95,0.69
 ```
 
 ## Latest TDCC Snapshot

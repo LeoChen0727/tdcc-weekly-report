@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:27 Asia/Taipei
+- generated_at: 2026-06-29 22:26:49 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 3510
-- high: 3565
-- low: 3300
-- close: 3310
-- volume: 302000
-- ma5: 3511
-- ema23_primary: 3291.69
-- distance_to_ema23_pct: 0.56
-- ma20: 3299.75
-- ma60: 3146.25
-- ma120: 2499
-- return_5d: -5.97
-- return_20d: -8.94
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 0.31
-- distance_to_high_60_pct: -14.36
+- date: 20260629
+- open: 3315
+- high: 3640
+- low: 3310
+- close: 3560
+- volume: 483000
+- ma5: 3506
+- ema23_primary: 3314.05
+- distance_to_ema23_pct: 7.42
+- ma20: 3305.25
+- ma60: 3159.75
+- ma120: 2516.08
+- return_5d: -0.7
+- return_20d: 3.19
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 7.71
+- distance_to_high_60_pct: -7.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,3820,3865,3450,3450,3682000,3047.64,13.2,3014.75,2804.75,2.55
 20260601,3420,3420,3235,3265,3300000,3065.75,6.5,3024.75,2830.33,2.1
 20260602,3200,3315,3125,3305,3235,3085.69,7.11,3044.5,2854.75,0
 20260603,3325,3400,3200,3200,3265000,3095.22,3.39,3044.5,2876.25,2.04
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,3475,3595,3410,3595,223000,3264.58,10.12,3308.75,3125.92,0.15
 20260625,3670,3680,3565,3570,276000,3290.03,8.51,3316,3138,0.21
 20260626,3510,3565,3300,3310,302000,3291.69,0.56,3299.75,3146.25,0.27
+20260629,3315,3640,3310,3560,483000,3314.05,7.42,3305.25,3159.75,0.5
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:26 Asia/Taipei
+- generated_at: 2026-06-29 22:26:48 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 2080
-- high: 2175
-- low: 1985
+- date: 20260629
+- open: 2020
+- high: 2040
+- low: 1950
 - close: 2035
-- volume: 2366000
-- ma5: 2194
-- ema23_primary: 2374.92
-- distance_to_ema23_pct: -14.31
-- ma20: 2390
-- ma60: 2506.17
-- ma120: 1785.18
-- return_5d: -16.6
-- return_20d: -23.21
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -14.85
+- volume: 2148000
+- ma5: 2126
+- ema23_primary: 2346.59
+- distance_to_ema23_pct: -13.28
+- ma20: 2361
+- ma60: 2513.83
+- ma120: 1797.18
+- return_5d: -14.32
+- return_20d: -22.18
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -13.81
 - distance_to_high_60_pct: -38.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,2680,2715,2590,2615,2639000,2685.28,-2.62,2752.25,2229.42,0.94
 20260601,2620,2740,2585,2685,2675000,2685.26,-0.01,2749.25,2251,0.97
 20260602,2795,2865,2525,2575,2672,2676.07,-3.78,2737.25,2271.17,0
 20260603,2790,2830,2785,2830,2820000,2688.9,5.25,2746,2293.33,1.1
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,2200,2245,2130,2155,1926000,2431.8,-11.38,2459,2494.08,0.8
 20260625,2200,2230,2100,2120,1709000,2405.82,-11.88,2420.75,2500.75,0.73
 20260626,2080,2175,1985,2035,2366000,2374.92,-14.31,2390,2506.17,1.01
+20260629,2020,2040,1950,2035,2148000,2346.59,-13.28,2361,2513.83,0.93
 ```
 
 ## Latest TDCC Snapshot

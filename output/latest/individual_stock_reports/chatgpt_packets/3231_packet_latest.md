@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:30 Asia/Taipei
+- generated_at: 2026-06-29 22:26:51 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 159
-- high: 159
-- low: 153
-- close: 153
-- volume: 43076438
-- ma5: 158.3
-- ema23_primary: 158.01
-- distance_to_ema23_pct: -3.17
-- ma20: 164.75
-- ma60: 147.03
-- ma120: 141.6
-- return_5d: -5.26
-- return_20d: 5.88
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -7.13
-- distance_to_high_60_pct: -23.88
+- date: 20260629
+- open: 154
+- high: 158
+- low: 153.5
+- close: 154.5
+- volume: 27017688
+- ma5: 156.7
+- ema23_primary: 157.72
+- distance_to_ema23_pct: -2.04
+- ma20: 164.55
+- ma60: 147.57
+- ma120: 141.68
+- return_5d: -4.92
+- return_20d: -2.52
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -6.11
+- distance_to_high_60_pct: -23.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,154,158.5,153,158.5,114139019,142.2,11.46,142.2,135.74,2.21
 20260601,174,174,172.5,174,94609409,144.85,20.12,143.88,136.56,1.71
 20260602,179,191,177,191,282187864,148.7,28.45,146.32,137.6,4.15
 20260603,193,201,188,194,175481303,152.47,27.23,148.7,138.66,2.4
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,156.5,159.5,155,157.5,30028729,158.32,-0.52,163.57,146.03,0.4
 20260625,159.5,162,156.5,160,42348647,158.46,0.97,164.32,146.57,0.56
 20260626,159,159,153,153,43076438,158.01,-3.17,164.75,147.03,0.57
+20260629,154,158,153.5,154.5,27017688,157.72,-2.04,164.55,147.57,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/26 2.減資緣由:依發行辦法第五條無償收回並辦理註銷登記。 3.減資金額:新台幣3,600,000元 4.消除股份:360,000股 5.減資比率:0.01% 6.減資後股本:新台幣31,800,522,500元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/26 2.減資緣由:依發行辦法第五條無償收回並辦理註銷登記。 3.減資金額:新台幣3,600,000元 4.消除股份:360,000股 5.減資比率:0.01% 6.減資後股本:新台幣31,800,522,500元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3231 | 緯創 | 21 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 3231 | 緯創 | 22 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3231 | 緯創 | 211 | 0 | 10341500.0 | 0.0 |  | no_signal |
+| 20260629 | 3231 | 緯創 | 211 | 0 | 9026590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

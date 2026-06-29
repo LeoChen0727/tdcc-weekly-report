@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9110 越南控-DR
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:48 Asia/Taipei
+- generated_at: 2026-06-29 22:28:22 Asia/Taipei
 - stock_id: 9110
 - stock_name: 越南控-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260625
-- price_rows: 265
+- latest_price_date: 20260629
+- price_rows: 266
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260625
-- open: 3.29
+- date: 20260629
+- open: 3.3
 - high: 3.3
-- low: 3.1
-- close: 3.3
-- volume: 31000
-- ma5: 3.34
+- low: 3.26
+- close: 3.26
+- volume: 9000
+- ma5: 3.29
 - ema23_primary: 3.3
-- distance_to_ema23_pct: -0.04
-- ma20: 3.38
+- distance_to_ema23_pct: -1.15
+- ma20: 3.41
 - ma60: 3.08
 - ma120: 3.1
-- return_5d: -5.71
-- return_20d: 27.91
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -2.48
-- distance_to_high_60_pct: -16.67
+- return_5d: -6.86
+- return_20d: 21.19
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: -4.47
+- distance_to_high_60_pct: -17.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,2.5,2.7,2.5,2.69,47000,2.77,-2.79,2.77,2.98,0.56
 20260528,2.92,2.92,2.7,2.71,112000,2.76,-1.9,2.75,2.97,1.31
 20260529,2.7,2.8,2.7,2.8,13001,2.77,1.24,2.75,2.97,0.15
 20260601,3,3.04,2.99,3.04,59100,2.79,9.02,2.75,2.97,0.7
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260622,3.2,3.5,3.2,3.2,37901,3.3,-3.08,3.31,3.07,0.36
 20260624,3.2,3.3,2.9,3.3,36000,3.3,-0.05,3.35,3.08,0.37
 20260625,3.29,3.3,3.1,3.3,31000,3.3,-0.04,3.38,3.08,0.33
+20260629,3.3,3.3,3.26,3.26,9000,3.3,-1.15,3.41,3.08,0.1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4534 慶騰
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:47 Asia/Taipei
+- generated_at: 2026-06-29 22:27:11 Asia/Taipei
 - stock_id: 4534
 - stock_name: 慶騰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 31
-- high: 31
-- low: 28.1
-- close: 29.7
-- volume: 1480000
-- ma5: 31.77
-- ema23_primary: 30.62
-- distance_to_ema23_pct: -2.99
-- ma20: 31.58
-- ma60: 26.9
-- ma120: 24.66
-- return_5d: -11.74
-- return_20d: 15.79
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -5.96
-- distance_to_high_60_pct: -18.18
+- date: 20260629
+- open: 29.65
+- high: 30.35
+- low: 29.1
+- close: 29.35
+- volume: 603000
+- ma5: 30.88
+- ema23_primary: 30.51
+- distance_to_ema23_pct: -3.8
+- ma20: 31.64
+- ma60: 27
+- ma120: 24.78
+- return_5d: -13.17
+- return_20d: 4.08
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -7.24
+- distance_to_high_60_pct: -19.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,26.85,28.2,26.5,28.2,28000,24.71,14.1,24.05,25.53,0.07
 20260601,29.2,29.85,27,27.45,28000,24.94,10.05,24.23,25.52,0.07
 20260602,27.35,27.45,26.5,27,27,25.11,7.51,24.36,25.49,0
 20260603,27.1,29.6,27,28.8,28000,25.42,13.29,24.61,25.48,0.09
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,31.65,32.65,31.3,31.85,900000,30.66,3.87,31.11,26.72,0.43
 20260625,32.1,32.1,31,31.1,774000,30.7,1.31,31.38,26.82,0.36
 20260626,31,31,28.1,29.7,1480000,30.62,-2.99,31.58,26.9,0.67
+20260629,29.65,30.35,29.1,29.35,603000,30.51,-3.8,31.64,27,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4534 | 慶騰 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/23 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:楊政學先生、連俊華先生、林舜天先生 4.舊任者簡歷: 楊政學先生/本公司獨立董事、明新科技大學企業管理系副教授。 連俊華先生/本公司獨立董事、尼得科超眾科技(股)公司獨立董事。 林舜天先生/本公司獨立董事、越峰電子材料股份有限公司獨立董事。 5.新任者姓名:連俊華先生、林舜天先生、蔡瑞哲先生 6.新任者簡歷: 連俊華先生/本公司獨立董事、尼得科超眾科技(股)公司獨立董事。 林舜天先生/本公司獨立董事、越峰電子材料股份有限公司獨立董事。 蔡瑞哲先生/本公司獨立董事、潤霈生技股份有限公司總經理兼研發長。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/15 ~ 115/06/14。 10.新任生效日期:115/06/23 ~ 118/06/22。 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 4534 | 慶騰 | 1 | 1 | 3 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

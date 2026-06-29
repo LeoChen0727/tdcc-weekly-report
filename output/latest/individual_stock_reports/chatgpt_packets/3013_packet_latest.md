@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:23 Asia/Taipei
+- generated_at: 2026-06-29 22:26:44 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 107.5
+- date: 20260629
+- open: 103
 - high: 107.5
-- low: 102.5
-- close: 103
-- volume: 2251463
-- ma5: 108.7
-- ema23_primary: 112.02
-- distance_to_ema23_pct: -8.06
-- ma20: 115.65
-- ma60: 110.14
-- ma120: 111.27
-- return_5d: -8.85
-- return_20d: -12.34
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -10.94
-- distance_to_high_60_pct: -24.26
+- low: 102
+- close: 104.5
+- volume: 1425747
+- ma5: 106.9
+- ema23_primary: 111.4
+- distance_to_ema23_pct: -6.19
+- ma20: 114.78
+- ma60: 110.27
+- ma120: 111.05
+- return_5d: -7.93
+- return_20d: -14.34
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -8.95
+- distance_to_high_60_pct: -23.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,119,124,118.5,122,5810970,110.89,10.02,109.33,104.74,1.2
 20260601,123.5,127,122,123.5,8444497,111.94,10.33,110.19,105.16,1.64
 20260602,129.5,135.5,129.5,133.5,27832864,113.74,17.38,111.44,105.68,4.35
 20260603,135,136,131,133.5,11378155,115.38,15.7,112.73,106.22,1.67
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,109.5,111,107.5,109.5,1702441,113.28,-3.34,116.95,110.13,0.3
 20260625,110.5,111,107.5,108,1906579,112.84,-4.29,116.38,110.16,0.35
 20260626,107.5,107.5,102.5,103,2251463,112.02,-8.06,115.65,110.14,0.43
+20260629,103,107.5,102,104.5,1425747,111.4,-6.19,114.78,110.27,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3013 | 晟銘電 | 73 | 0 | 1528250.0 | 0.0 |  | no_signal |
+| 20260629 | 3013 | 晟銘電 | 73 | 0 | 3655080.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:09 Asia/Taipei
+- generated_at: 2026-06-29 22:26:27 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 480
-- high: 498
-- low: 443
-- close: 449
-- volume: 143165163
-- ma5: 465.8
-- ema23_primary: 398.85
-- distance_to_ema23_pct: 12.57
-- ma20: 405
-- ma60: 303.99
-- ma120: 276.57
-- return_5d: -2.29
-- return_20d: 38.58
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 10.86
-- distance_to_high_60_pct: -11.09
+- date: 20260629
+- open: 456
+- high: 465
+- low: 440.5
+- close: 453
+- volume: 77020287
+- ma5: 455.4
+- ema23_primary: 403.36
+- distance_to_ema23_pct: 12.31
+- ma20: 410.3
+- ma60: 308.23
+- ma120: 278.88
+- return_5d: -10.3
+- return_20d: 30.55
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 10.41
+- distance_to_high_60_pct: -10.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,347.5,351.5,338.5,347,140975644,291.03,19.23,298.62,250.31,0.89
 20260601,362,381.5,359.5,381.5,129059908,298.57,27.78,305.85,252.76,0.82
 20260602,401,419.5,395,419.5,171631936,308.64,35.92,314,255.46,1.11
 20260603,430,430.5,400,401.5,151116427,316.38,26.9,319.98,258.27,0.97
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,440,457,435,443.5,125390124,386.77,14.67,390.5,295.89,0.92
 20260625,479,483,461.5,477,110549365,394.29,20.98,398.75,300.18,0.84
 20260626,480,498,443,449,143165163,398.85,12.57,405,303.99,1.12
+20260629,456,465,440.5,453,77020287,403.36,12.31,410.3,308.23,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2408 | 南亞科 | 1 | 1 | 3 | 6 | 15 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 2408 | 南亞科 | 2 | 2 | 3 | 6 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2408 | 南亞科 | 277 | 0 | 136986770.0 | 0.0 |  | no_signal |
+| 20260629 | 2408 | 南亞科 | 277 | 0 | 78631280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

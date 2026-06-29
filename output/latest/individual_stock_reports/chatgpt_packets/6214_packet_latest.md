@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6214 精誠
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:09 Asia/Taipei
+- generated_at: 2026-06-29 22:27:37 Asia/Taipei
 - stock_id: 6214
 - stock_name: 精誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 129.5
-- high: 131.5
-- low: 127.5
-- close: 128
-- volume: 1812744
-- ma5: 131.9
-- ema23_primary: 136.04
-- distance_to_ema23_pct: -5.91
-- ma20: 141.07
-- ma60: 128.12
-- ma120: 121.34
-- return_5d: -9.86
-- return_20d: -0.78
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -9.27
-- distance_to_high_60_pct: -20.99
+- date: 20260629
+- open: 129
+- high: 132
+- low: 129
+- close: 129
+- volume: 1218275
+- ma5: 129.5
+- ema23_primary: 135.45
+- distance_to_ema23_pct: -4.76
+- ma20: 140.97
+- ma60: 128.52
+- ma120: 121.35
+- return_5d: -8.51
+- return_20d: -1.53
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -8.49
+- distance_to_high_60_pct: -20.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,131,132.5,131,131,1623520,125.46,4.42,125.78,118.28,1.24
 20260601,137.5,144,137.5,144,4021531,127,13.38,126.9,118.88,2.73
 20260602,158,158,156.5,158,3889084,129.59,21.93,128.55,119.66,2.41
 20260603,162,162,149,153,9993570,131.54,16.32,129.93,120.34,4.9
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,129.5,131,127.5,131,1401287,137.43,-4.68,141.1,127.41,0.46
 20260625,131.5,131.5,129,129.5,889887,136.77,-5.31,141.12,127.76,0.3
 20260626,129.5,131.5,127.5,128,1812744,136.04,-5.91,141.07,128.12,0.61
+20260629,129,132,129,129,1218275,135.45,-4.76,140.97,128.52,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6214 | 精誠 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 6214 | 精誠 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6214 | 精誠 | 5 | 4 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6214 | 精誠 | 6 | 5 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6214 | 精誠 | 9 | 0 | 360720.0 | 0.0 |  | no_signal |
+| 20260629 | 6214 | 精誠 | 9 | 0 | 459010.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

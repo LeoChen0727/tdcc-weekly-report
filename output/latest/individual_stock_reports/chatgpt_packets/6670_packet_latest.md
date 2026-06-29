@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6670 復盛應用
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:21 Asia/Taipei
+- generated_at: 2026-06-29 22:27:50 Asia/Taipei
 - stock_id: 6670
 - stock_name: 復盛應用
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 243.5
-- high: 251
-- low: 242.5
-- close: 251
-- volume: 1015659
-- ma5: 263.7
-- ema23_primary: 271.54
-- distance_to_ema23_pct: -7.56
-- ma20: 276.4
-- ma60: 265.23
-- ma120: 267.41
-- return_5d: -12.7
-- return_20d: -2.71
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -9.19
-- distance_to_high_60_pct: -17.57
+- date: 20260629
+- open: 251.5
+- high: 251.5
+- low: 244
+- close: 249.5
+- volume: 1006511
+- ma5: 255.4
+- ema23_primary: 269.7
+- distance_to_ema23_pct: -7.49
+- ma20: 275.8
+- ma60: 265.11
+- ma120: 267.38
+- return_5d: -14.26
+- return_20d: -4.59
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -9.54
+- distance_to_high_60_pct: -18.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,257.5,266,257.5,261.5,693883,260.17,0.51,260.45,263.77,1.59
 20260601,262.5,274,261.5,272,592434,261.15,4.15,261.25,263.94,1.32
 20260602,273.5,278.5,269.5,278.5,689847,262.6,6.06,262.32,264.12,1.5
 20260603,275.5,282.5,275.5,281.5,660906,264.17,6.56,263.52,264.32,1.39
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,259,262.5,244,244,3689024,275.94,-11.58,277.57,265.76,3.82
 20260625,246,246,241.5,245.5,1292934,273.41,-10.21,276.75,265.38,1.3
 20260626,243.5,251,242.5,251,1015659,271.54,-7.56,276.4,265.23,1.01
+20260629,251.5,251.5,244,249.5,1006511,269.7,-7.49,275.8,265.11,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6670 | 復盛應用 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 6670 | 復盛應用 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6670 | 復盛應用 | 8 | 4 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6670 | 復盛應用 | 9 | 5 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6670 | 復盛應用 | 4 | 0 | 200900.0 | 0.0 |  | no_signal |
+| 20260629 | 6670 | 復盛應用 | 4 | 0 | 102730.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

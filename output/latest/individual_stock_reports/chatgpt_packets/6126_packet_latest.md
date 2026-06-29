@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6126 信音
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:05 Asia/Taipei
+- generated_at: 2026-06-29 22:27:32 Asia/Taipei
 - stock_id: 6126
 - stock_name: 信音
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 39.6
-- high: 39.6
-- low: 35.65
-- close: 35.75
-- volume: 4233000
-- ma5: 38.94
-- ema23_primary: 38.64
-- distance_to_ema23_pct: -7.47
-- ma20: 39.79
-- ma60: 35.06
-- ma120: 34.79
-- return_5d: -11.29
-- return_20d: 1.13
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -10.15
-- distance_to_high_60_pct: -19.66
+- date: 20260629
+- open: 35.8
+- high: 36.25
+- low: 34.3
+- close: 34.65
+- volume: 1869000
+- ma5: 37.84
+- ema23_primary: 38.31
+- distance_to_ema23_pct: -9.54
+- ma20: 39.75
+- ma60: 35.16
+- ma120: 34.81
+- return_5d: -13.7
+- return_20d: -2.39
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -12.82
+- distance_to_high_60_pct: -22.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,36,36.15,35.35,35.5,36000,34.12,4.05,34.08,32.52,0.03
 20260601,36.95,37.85,36.35,37.25,37000,34.38,8.35,34.26,32.62,0.03
 20260602,38.2,39.15,36.85,38.8,38,34.75,11.66,34.51,32.73,0
 20260603,38.8,42.65,37.8,42.65,42000,35.41,20.46,34.97,32.9,0.04
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,39,39.8,38.55,39.8,1430000,38.84,2.48,39.55,34.81,0.5
 20260625,40.05,41.1,39.5,39.6,2876000,38.9,1.8,39.77,34.96,0.95
 20260626,39.6,39.6,35.65,35.75,4233000,38.64,-7.47,39.79,35.06,1.31
+20260629,35.8,36.25,34.3,34.65,1869000,38.31,-9.54,39.75,35.16,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -194,13 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/23 2.發放股利種類及金額:現金股利美金2,213,292.41元 3.其他應敘明事項: (1)、信音(香港)國際控股有限公司分配予SINGATRON (BVI) ENTERPRISE CO.,LTD.，再由SINGATRON (BVI)ENTERPRISE CO.,LTD.分配予本公司。 (2)、信音(香港)國際控股有限公司及SINGATRON (BVI)ENTERPRISE CO.,LTD.為本公司100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 6126 | 信音 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 13.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.董事會決議日期:115/06/23 2.發放股利種類及金額:現金股利美金2,213,292.41元 3.其他應敘明事項: (1)、信音(香港)國際控股有限公司分配予SINGATRON (BVI) ENTERPRISE CO.,LTD.，再由SINGATRON (BVI)ENTERPRISE CO.,LTD.分配予本公司。 (2)、信音(香港)國際控股有限公司及SINGATRON (BVI)ENTERPRISE CO.,LTD.為本公司100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期:115/06/23 2.發放股利種類及金額:現金股利美金2,213,292.41元 3.其他應敘明事項: (1)、信音(香港)國際控股有限公司分配予SINGATRON (BVI) ENTERPRISE CO.,LTD.，再由SINGATRON (BVI)ENTERPRISE CO.,LTD.分配予本公司。 (2)、信音(香港)國際控股有限公司及SINGATRON (BVI)ENTERPRISE CO.,LTD.為本公司100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6126 | 信音 | 4 | 4 | 4 | 4 | 12 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 6126 | 信音 | 5 | 5 | 5 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

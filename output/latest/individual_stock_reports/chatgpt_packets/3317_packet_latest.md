@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3317 尼克森
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:32 Asia/Taipei
+- generated_at: 2026-06-29 22:26:54 Asia/Taipei
 - stock_id: 3317
 - stock_name: 尼克森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 91.8
-- high: 97
-- low: 90
-- close: 90
-- volume: 9095000
-- ma5: 93.04
-- ema23_primary: 83.03
-- distance_to_ema23_pct: 8.39
-- ma20: 83.22
-- ma60: 69.14
-- ma120: 58.47
-- return_5d: 1.93
-- return_20d: 8.7
-- volume_ratio: 2.09
-- distance_to_ma20_pct_auxiliary: 8.14
-- distance_to_high_60_pct: -13.04
+- date: 20260629
+- open: 88.8
+- high: 90.3
+- low: 85.7
+- close: 85.7
+- volume: 4059000
+- ma5: 90.76
+- ema23_primary: 83.25
+- distance_to_ema23_pct: 2.94
+- ma20: 83.32
+- ma60: 69.75
+- ma120: 58.81
+- return_5d: -11.74
+- return_20d: 2.27
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 2.86
+- distance_to_high_60_pct: -17.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,85.9,86.8,83.1,83.8,84000,72.37,15.8,73.06,57.69,0.01
 20260601,83.5,84,79.7,79.8,81000,72.99,9.33,74.11,58.26,0.01
 20260602,80.5,82.4,77.5,82.2,80,73.76,11.45,75.11,58.85,0
 20260603,83,84.9,81,81.5,83000,74.4,9.54,75.94,59.41,0.02
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,91.3,94.8,89,93.3,6389000,81.45,14.55,82.34,67.78,1.74
 20260625,93.6,93.6,90.8,92.8,4536000,82.4,12.62,82.86,68.49,1.16
 20260626,91.8,97,90,90,9095000,83.03,8.39,83.22,69.14,2.09
+20260629,88.8,90.3,85.7,85.7,4059000,83.25,2.94,83.32,69.75,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3317 | 尼克森 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 3317 | 尼克森 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3317 | 尼克森 | 5 | 1 | 5 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260629 | 3317 | 尼克森 | 6 | 2 | 5 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

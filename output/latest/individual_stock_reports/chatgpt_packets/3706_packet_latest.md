@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:41 Asia/Taipei
+- generated_at: 2026-06-29 22:27:04 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 85.1
-- high: 86.8
-- low: 83.5
-- close: 83.5
-- volume: 15508594
-- ma5: 85.72
-- ema23_primary: 86.6
-- distance_to_ema23_pct: -3.58
-- ma20: 88.64
-- ma60: 84.52
-- ma120: 83.35
-- return_5d: -3.91
-- return_20d: 0.48
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -5.79
-- distance_to_high_60_pct: -19.32
+- date: 20260629
+- open: 84.4
+- high: 89.2
+- low: 84.4
+- close: 86.4
+- volume: 32056963
+- ma5: 85.52
+- ema23_primary: 86.59
+- distance_to_ema23_pct: -0.21
+- ma20: 88.52
+- ma60: 84.73
+- ma120: 83.38
+- return_5d: -1.14
+- return_20d: -2.7
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -2.39
+- distance_to_high_60_pct: -16.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,84.6,90.5,84.6,88.8,61351414,84.13,5.55,84.44,82.03,2.91
 20260601,90.8,94.5,90.8,93.5,62080953,84.91,10.12,84.97,82.29,2.61
 20260602,94.5,97.3,91.6,95.2,68634143,85.77,11,85.52,82.52,2.6
 20260603,97.6,103.5,93.6,100,99764313,86.95,15,86.13,82.84,3.37
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,85,87.1,84.6,86.7,11316860,87.01,-0.36,88.55,84.3,0.35
 20260625,87,87.4,85.1,85.5,11993908,86.88,-1.59,88.61,84.42,0.38
 20260626,85.1,86.8,83.5,83.5,15508594,86.6,-3.58,88.64,84.52,0.49
+20260629,84.4,89.2,84.4,86.4,32056963,86.59,-0.21,88.52,84.73,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:獨立董事 管中閔 4.舊任者簡歷:神達控股股份有限公司 獨立董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:辭職 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/23~117/05/22 11.新任生效日期:不適用 12.同任期董事變動比率:1/9 13.同任期獨立董事變動比率:1/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:獨立董事 管中閔 4.舊任者簡歷:神達控股股份有限公司 獨立董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:辭職 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/23~117/05/22 11.新任生效日期:不適用 12.同任期董事變動比率:1/9 13.同任期獨立董事變動比率:1/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3706 | 神達 | 21 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 3706 | 神達 | 22 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3706 | 神達 | 97 | 0 | 5240320.0 | 0.0 |  | no_signal |
+| 20260629 | 3706 | 神達 | 97 | 0 | 10580680.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:01 Asia/Taipei
+- generated_at: 2026-06-29 22:27:27 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 61.6
-- high: 63.2
-- low: 57.7
-- close: 58
-- volume: 4723000
-- ma5: 63.56
-- ema23_primary: 64.95
-- distance_to_ema23_pct: -10.7
-- ma20: 64.17
-- ma60: 66.97
-- ma120: 62.84
-- return_5d: -13.56
-- return_20d: -11.72
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -9.62
-- distance_to_high_60_pct: -33.49
+- date: 20260629
+- open: 58.3
+- high: 59.8
+- low: 57.1
+- close: 58.2
+- volume: 1566000
+- ma5: 61.42
+- ema23_primary: 64.39
+- distance_to_ema23_pct: -9.61
+- ma20: 63.8
+- ma60: 67.07
+- ma120: 62.98
+- return_5d: -15.53
+- return_20d: -11.55
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -8.77
+- distance_to_high_60_pct: -33.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,66.8,67.8,65.4,65.8,66000,68.4,-3.8,69.89,65.5,0.01
 20260601,65.6,68,64.8,66,67000,68.2,-3.23,69.48,65.63,0.01
 20260602,66.5,66.9,62.3,63.4,64,67.8,-6.49,68.7,65.69,0
 20260603,63.9,64,61.6,62.4,63000,67.35,-7.35,68.08,65.71,0.01
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,63,64.9,62.5,63.8,2979000,65.9,-3.19,64.89,66.84,0.56
 20260625,65,65.1,62.1,62.1,3092000,65.58,-5.31,64.56,66.94,0.56
 20260626,61.6,63.2,57.7,58,4723000,64.95,-10.7,64.17,66.97,0.82
+20260629,58.3,59.8,57.1,58.2,1566000,64.39,-9.61,63.8,67.07,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表(含合併財務報表)決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表(含合併財務報表)決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5498 | 凱崴 | 5 | 4 | 5 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 5498 | 凱崴 | 6 | 5 | 5 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

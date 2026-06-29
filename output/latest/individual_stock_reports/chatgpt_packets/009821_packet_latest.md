@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009821 野村稀土關鍵資源
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:44 Asia/Taipei
+- generated_at: 2026-06-29 22:25:58 Asia/Taipei
 - stock_id: 009821
 - stock_name: 野村稀土關鍵資源
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 7
+- latest_price_date: 20260629
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 14.56
-- high: 14.56
-- low: 14.23
-- close: 14.23
-- volume: 58119455
-- ma5: 15.36
-- ema23_primary: 15.28
-- distance_to_ema23_pct: -6.87
-- ma20: 15.37
-- ma60: 15.37
-- ma120: 15.37
-- return_5d: -8.55
+- date: 20260629
+- open: 14.18
+- high: 14.37
+- low: 14.18
+- close: 14.24
+- volume: 20712613
+- ma5: 14.76
+- ema23_primary: 15.19
+- distance_to_ema23_pct: -6.27
+- ma20: 15.23
+- ma60: 15.23
+- ma120: 15.23
+- return_5d: -17.26
 - return_20d:
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -7.44
-- distance_to_high_60_pct: -21.73
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -6.52
+- distance_to_high_60_pct: -21.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -141,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,14.98,15.12,14.96,15.03,139949367,15.44,-2.68,15.76,15.76,1.33
 20260625,14.86,14.86,14.61,14.61,117852137,15.37,-4.97,15.56,15.56,1.1
 20260626,14.56,14.56,14.23,14.23,58119455,15.28,-6.87,15.37,15.37,0.58
+20260629,14.18,14.37,14.18,14.24,20712613,15.19,-6.27,15.23,15.23,0.23
 ```
 
 ## Latest TDCC Snapshot

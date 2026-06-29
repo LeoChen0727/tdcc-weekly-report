@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:19 Asia/Taipei
+- generated_at: 2026-06-29 22:26:39 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 23.4
-- high: 23.5
-- low: 23.2
-- close: 23.4
-- volume: 21399568
-- ma5: 23.17
-- ema23_primary: 22.22
-- distance_to_ema23_pct: 5.33
-- ma20: 22.15
-- ma60: 21.26
-- ma120: 20.93
-- return_5d: 2.41
-- return_20d: 16.71
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 5.66
-- distance_to_high_60_pct: -0.85
+- date: 20260629
+- open: 23.5
+- high: 23.6
+- low: 23.35
+- close: 23.55
+- volume: 21669772
+- ma5: 23.31
+- ema23_primary: 22.33
+- distance_to_ema23_pct: 5.48
+- ma20: 22.31
+- ma60: 21.31
+- ma120: 20.95
+- return_5d: 3.06
+- return_20d: 16.3
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 5.55
+- distance_to_high_60_pct: -0.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,20.2,20.4,20.05,20.25,52955720,20.48,-1.14,20.47,20.73,2.2
 20260601,20.3,20.55,20.15,20.45,26990622,20.48,-0.15,20.45,20.73,1.15
 20260602,20.4,20.65,20.3,20.6,36952646,20.49,0.53,20.45,20.73,1.49
 20260603,20.7,21.2,20.6,21.1,49122546,20.54,2.72,20.45,20.74,1.85
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,23.2,23.2,22.9,22.9,18305144,21.98,4.18,21.81,21.16,0.48
 20260625,23,23.6,22.9,23.5,30190232,22.11,6.29,21.98,21.21,0.79
 20260626,23.4,23.5,23.2,23.4,21399568,22.22,5.33,22.15,21.26,0.56
+20260629,23.5,23.6,23.35,23.55,21669772,22.33,5.48,22.31,21.31,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:林玉葉(彰化銀行副總經理) 4.新任者姓名、級職及簡歷:李明翰(將來商業銀行股份有限公司副總經理) 學歷:世新大學資訊管理學系碩士 主要經歷: 將來商業銀行股份有限公司副總經理(資訊長) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/7/1 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:林玉葉(彰化銀行副總經理) 4.新任者姓名、級職及簡歷:李明翰(將來商業銀行股份有限公司副總經理) 學歷:世新大學資訊管理學系碩士 主要經歷: 將來商業銀行股份有限公司副總經理(資訊長) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/7/1 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2801 | 彰銀 | 8 | 8 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2801 | 彰銀 | 9 | 9 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

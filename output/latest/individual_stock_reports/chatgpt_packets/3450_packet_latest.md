@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:34 Asia/Taipei
+- generated_at: 2026-06-29 22:26:57 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 586
-- high: 591
-- low: 529
-- close: 530
-- volume: 13681463
-- ma5: 573.2
-- ema23_primary: 513.9
-- distance_to_ema23_pct: 3.13
-- ma20: 522.58
-- ma60: 418.11
-- ma120: 342.18
-- return_5d: -6.19
-- return_20d: 10.19
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 1.42
-- distance_to_high_60_pct: -13.4
+- date: 20260629
+- open: 525
+- high: 525
+- low: 501
+- close: 505
+- volume: 8125227
+- ma5: 562.8
+- ema23_primary: 513.16
+- distance_to_ema23_pct: -1.59
+- ma20: 523.3
+- ma60: 422.49
+- ma120: 344.21
+- return_5d: -9.34
+- return_20d: 2.96
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -3.5
+- distance_to_high_60_pct: -17.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,498,499,477,490.5,9193909,426.73,14.94,430.2,339.09,0.66
 20260601,497.5,539,497,539,10680566,436.09,23.6,440.55,343.06,0.79
 20260602,555,592,540,548,29356562,445.42,23.03,449.7,347.41,2.17
 20260603,590,602,539,548,19256280,453.96,20.71,459.93,351.83,1.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,586,604,568,581,16201906,505.75,14.88,515.88,408.32,1.17
 20260625,595,607,564,586,15879660,512.44,14.36,520.12,413.57,1.16
 20260626,586,591,529,530,13681463,513.9,3.13,522.58,418.11,1
+20260629,525,525,501,505,8125227,513.16,-1.59,523.3,422.49,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3450 | 聯鈞 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:   董事長  -鄭祝良 4.舊任者簡歷:   董事長  -鄭祝良  聯鈞光電股份有限公司董事長                    捷敏股份有限公司董事長                    源傑科技股份有限公司董事長                    三菱電機捷敏功率半導體（合肥）有限公司副董事長 5.新任者姓名:   董事長  -鄭祝良 6.新任者簡歷:   董事長  -鄭祝良  聯鈞光電股份有限公司董事長                    捷敏股份有限公司董事長                    源傑科技股份有限公司董事長                    三菱電機捷敏功率半導體（合肥）有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事任期屆滿全面改選 9.新任生效日期:115/6/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 3450 | 聯鈞 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:   董事長  -鄭祝良 4.舊任者簡歷:   董事長  -鄭祝良  聯鈞光電股份有限公司董事長                    捷敏股份有限公司董事長                    源傑科技股份有限公司董事長                    三菱電機捷敏功率半導體（合肥）有限公司副董事長 5.新任者姓名:   董事長  -鄭祝良 6.新任者簡歷:   董事長  -鄭祝良  聯鈞光電股份有限公司董事長                    捷敏股份有限公司董事長                    源傑科技股份有限公司董事長                    三菱電機捷敏功率半導體（合肥）有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事任期屆滿全面改選 9.新任生效日期:115/6/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3450 | 聯鈞 | 1 | 1 | 3 | 6 | 9 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 3450 | 聯鈞 | 2 | 2 | 3 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3450 | 聯鈞 | 140 | 0 | 10284920.0 | 0.0 |  | no_signal |
+| 20260629 | 3450 | 聯鈞 | 140 | 0 | 4627820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

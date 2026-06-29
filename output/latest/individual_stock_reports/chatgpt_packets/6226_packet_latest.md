@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:10 Asia/Taipei
+- generated_at: 2026-06-29 22:27:38 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 17
-- high: 18.25
-- low: 16.45
-- close: 18.25
-- volume: 48788960
-- ma5: 15.24
-- ema23_primary: 13.67
-- distance_to_ema23_pct: 33.46
-- ma20: 13.45
-- ma60: 13.04
-- ma120: 11.21
-- return_5d: 47.18
-- return_20d: 39.85
-- volume_ratio: 10.3
-- distance_to_ma20_pct_auxiliary: 35.74
+- date: 20260629
+- open: 19.35
+- high: 20.05
+- low: 18.45
+- close: 20.05
+- volume: 28664751
+- ma5: 16.75
+- ema23_primary: 14.21
+- distance_to_ema23_pct: 41.14
+- ma20: 13.8
+- ma60: 13.16
+- ma120: 11.32
+- return_5d: 60.4
+- return_20d: 54.23
+- volume_ratio: 4.71
+- distance_to_ma20_pct_auxiliary: 45.32
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,13.2,13.3,12.9,13,1594907,12.78,1.75,12.6,12.33,0.89
 20260601,13.05,13.85,13.05,13.55,2778882,12.84,5.52,12.65,12.42,1.5
 20260602,13.8,13.95,12.85,13.55,3345282,12.9,5.04,12.69,12.5,1.72
 20260603,13.6,14.25,13.4,14,4999711,12.99,7.76,12.77,12.58,2.38
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,14.7,15.1,14.65,15.1,5224592,12.95,16.56,13.03,12.86,2.29
 20260625,16.6,16.6,16.6,16.6,5127705,13.26,25.2,13.19,12.93,2.11
 20260626,17,18.25,16.45,18.25,48788960,13.67,33.46,13.45,13.04,10.3
+20260629,19.35,20.05,18.45,20.05,28664751,14.21,41.14,13.8,13.16,4.71
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6226 | 光鼎 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/06/26 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準，故依「臺灣 證券交易所股份有限公司」通知公告辦理。 3.財務業務資訊:                   (月)                      (季)          (最近四季累計) --------------------------------------------------------------------------           最近一月    與去年       最近一季     與去年     (114年第2季 科目     (115年5月)  同期增減%   (115年第1季)  同期增減%   至115年第1季)           (自結數)                 (核閱數)                (查核/核閱數) ========================================================================== 營業收入       55      -2.14%           152      -3.63%           603 (百萬) 稅前淨利        4     419.41%             0          -             -2 (百萬) 歸屬母公司 業主淨利        4     419.41%             1     110.93%           -20 (百萬) 每股盈餘     0.03     400.00%          0.01     111.11%         -0.18 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6226 | 光鼎 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/06/26 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準，故依「臺灣 證券交易所股份有限公司」通知公告辦理。 3.財務業務資訊:                   (月)                      (季)          (最近四季累計) --------------------------------------------------------------------------           最近一月    與去年       最近一季     與去年     (114年第2季 科目     (115年5月)  同期增減%   (115年第1季)  同期增減%   至115年第1季)           (自結數)                 (核閱數)                (查核/核閱數) ========================================================================== 營業收入       55      -2.14%           152      -3.63%           603 (百萬) 稅前淨利        4     419.41%             0          -             -2 (百萬) 歸屬母公司 業主淨利        4     419.41%             1     110.93%           -20 (百萬) 每股盈餘     0.03     400.00%          0.01     111.11%         -0.18 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6226 | 光鼎 | 3 | 1 | 3 | 3 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260629 | 6226 | 光鼎 | 4 | 2 | 4 | 4 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

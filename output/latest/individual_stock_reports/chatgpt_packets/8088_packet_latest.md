@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8088 品安
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:40 Asia/Taipei
+- generated_at: 2026-06-29 22:28:13 Asia/Taipei
 - stock_id: 8088
 - stock_name: 品安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 66.9
-- high: 67.6
-- low: 62.7
-- close: 62.7
-- volume: 2051000
-- ma5: 66.5
-- ema23_primary: 62.8
-- distance_to_ema23_pct: -0.16
-- ma20: 63.55
-- ma60: 56.57
-- ma120: 55.51
-- return_5d: -9.39
-- return_20d: 3.81
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -1.33
-- distance_to_high_60_pct: -13.52
+- date: 20260629
+- open: 63.4
+- high: 64.3
+- low: 61.3
+- close: 62
+- volume: 1147000
+- ma5: 65.2
+- ema23_primary: 62.74
+- distance_to_ema23_pct: -1.17
+- ma20: 63.62
+- ma60: 56.8
+- ma120: 55.68
+- return_5d: -9.49
+- return_20d: 2.31
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -2.54
+- distance_to_high_60_pct: -14.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,61.2,62.2,60.5,60.6,61000,55.98,8.24,55.67,53.33,0.02
 20260601,60.7,61.9,59.7,59.7,61000,56.29,6.05,56.11,53.55,0.02
 20260602,60.1,65.6,60,65.6,64,57.07,14.95,56.76,53.85,0
 20260603,65,66.8,62.2,66.3,65000,57.84,14.63,57.37,54.16,0.02
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,66.9,68.5,66.2,66.6,2985000,62.48,6.6,63.16,56.14,0.89
 20260625,68.9,70.2,66.2,66.5,3155000,62.81,5.87,63.43,56.4,0.9
 20260626,66.9,67.6,62.7,62.7,2051000,62.8,-0.16,63.55,56.57,0.57
+20260629,63.4,64.3,61.3,62,1147000,62.74,-1.17,63.62,56.8,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8088 | 品安 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 8088 | 品安 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 8088 | 品安 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 11.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 8088 | 品安 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 8088 | 品安 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 8088 | 品安 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 8.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8088 | 品安 | 5 | 4 | 5 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 8088 | 品安 | 6 | 5 | 5 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

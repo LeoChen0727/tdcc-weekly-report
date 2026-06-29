@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8183 精星
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:42 Asia/Taipei
+- generated_at: 2026-06-29 22:28:15 Asia/Taipei
 - stock_id: 8183
 - stock_name: 精星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 32
-- high: 34.15
-- low: 32
-- close: 32.3
-- volume: 1284000
-- ma5: 32.36
-- ema23_primary: 32.25
-- distance_to_ema23_pct: 0.16
-- ma20: 32.19
-- ma60: 33.02
-- ma120: 33.65
-- return_5d: -0.77
-- return_20d: 0.47
-- volume_ratio: 3.71
-- distance_to_ma20_pct_auxiliary: 0.34
-- distance_to_high_60_pct: -19.25
+- date: 20260629
+- open: 33.7
+- high: 35.3
+- low: 33.35
+- close: 34.1
+- volume: 2574000
+- ma5: 32.56
+- ema23_primary: 32.4
+- distance_to_ema23_pct: 5.24
+- ma20: 32.29
+- ma60: 33.06
+- ma120: 33.66
+- return_5d: 3.02
+- return_20d: 6.07
+- volume_ratio: 5.44
+- distance_to_ma20_pct_auxiliary: 5.61
+- distance_to_high_60_pct: -14.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,32.35,32.45,31.9,32.15,32000,32.32,-0.53,31.85,34.04,0.08
 20260601,32.15,32.35,31.9,32.05,32000,32.3,-0.77,31.78,33.98,0.08
 20260602,32.4,32.4,31.7,32.4,32,32.31,0.29,31.68,33.9,0
 20260603,32.6,33.9,32.55,33.4,33000,32.4,3.09,31.66,33.84,0.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,32.2,32.5,31.75,31.95,202000,32.26,-0.95,32.2,33.06,0.73
 20260625,32.4,32.45,31.75,32.1,168000,32.24,-0.44,32.18,33.03,0.59
 20260626,32,34.15,32,32.3,1284000,32.25,0.16,32.19,33.02,3.71
+20260629,33.7,35.3,33.35,34.1,2574000,32.4,5.24,32.29,33.06,5.44
 ```
 
 ## Latest TDCC Snapshot
@@ -188,14 +188,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8183 | 精星 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 8183 | 精星 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 8183 | 精星 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 8183 | 精星 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 8183 | 精星 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 8183 | 精星 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8183 | 精星 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260629 | 8183 | 精星 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

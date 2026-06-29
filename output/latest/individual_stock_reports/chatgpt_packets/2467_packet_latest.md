@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:12 Asia/Taipei
+- generated_at: 2026-06-29 22:26:30 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 579
-- high: 600
-- low: 560
-- close: 560
-- volume: 1422280
-- ma5: 588.6
-- ema23_primary: 583.78
-- distance_to_ema23_pct: -4.07
-- ma20: 585.4
-- ma60: 564.38
-- ma120: 432.53
-- return_5d: -6.51
-- return_20d: -9.24
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -4.34
-- distance_to_high_60_pct: -19.08
+- date: 20260629
+- open: 565
+- high: 598
+- low: 556
+- close: 569
+- volume: 1182119
+- ma5: 576.4
+- ema23_primary: 582.55
+- distance_to_ema23_pct: -2.33
+- ma20: 582.9
+- ma60: 567.12
+- ma120: 435.32
+- return_5d: -9.68
+- return_20d: -8.08
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -2.38
+- distance_to_high_60_pct: -17.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,640,640,612,619,1559812,592.77,4.43,600.35,499.88,0.5
 20260601,634,647,625,637,1405177,596.45,6.8,603.2,504.42,0.5
 20260602,637,637,582,588,3530661,595.75,-1.3,604.05,507.55,1.26
 20260603,600,626,599,615,2340843,597.35,2.95,606.45,511.25,0.85
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,576,594,573,588,956831,586.03,0.34,591.85,558.94,0.5
 20260625,600,601,581,585,941009,585.94,-0.16,588.25,561.78,0.52
 20260626,579,600,560,560,1422280,583.78,-4.07,585.4,564.38,0.82
+20260629,565,598,556,569,1182119,582.55,-2.33,582.9,567.12,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.原公告申報日期:114/12/19 3.簡述原公告申報內容:子公司蘇州創峰光電智能科技有限公司建廠預算案，                     約人民幣1.77億。 4.變動緣由及主要內容:因配合當地政府規劃，調整地塊用地面積，                     經重新規劃及工程估價，建廠預算由人民幣1.77億元                     調整為3.46億元。 5.變動後對公司財務業務之影響:無。 6.其他應敘明事項: (1)本次公告係更新114/12/19重大訊息。 (2)蘇州創峰光電智能科技有限公司原先規劃購置之土地業經114/12/19董事會決議通過    ，並於115/06/26董事會決議通過購置新規劃之土地及預算。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.原公告申報日期:114/12/19 3.簡述原公告申報內容:子公司蘇州創峰光電智能科技有限公司建廠預算案，                     約人民幣1.77億。 4.變動緣由及主要內容:因配合當地政府規劃，調整地塊用地面積，                     經重新規劃及工程估價，建廠預算由人民幣1.77億元                     調整為3.46億元。 5.變動後對公司財務業務之影響:無。 6.其他應敘明事項: (1)本次公告係更新114/12/19重大訊息。 (2)蘇州創峰光電智能科技有限公司原先規劃購置之土地業經114/12/19董事會決議通過    ，並於115/06/26董事會決議通過購置新規劃之土地及預算。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2467 | 志聖 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2467 | 志聖 | 2 | 2 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2467 | 志聖 | 61 | 0 | 5086510.0 | 0.0 |  | no_signal |
+| 20260629 | 2467 | 志聖 | 60 | 0 | 5433540.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

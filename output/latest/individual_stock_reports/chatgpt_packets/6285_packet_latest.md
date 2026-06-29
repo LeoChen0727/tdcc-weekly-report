@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6285 啟碁
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:13 Asia/Taipei
+- generated_at: 2026-06-29 22:27:41 Asia/Taipei
 - stock_id: 6285
 - stock_name: 啟碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 253
-- high: 254.5
-- low: 236
+- date: 20260629
+- open: 238.5
+- high: 244
+- low: 233.5
 - close: 236
-- volume: 8935679
-- ma5: 253.9
-- ema23_primary: 269.01
-- distance_to_ema23_pct: -12.27
-- ma20: 277.98
-- ma60: 256.77
-- ma120: 204.11
-- return_5d: -13.87
-- return_20d: -22.37
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -15.1
+- volume: 5227168
+- ma5: 247.5
+- ema23_primary: 266.26
+- distance_to_ema23_pct: -11.36
+- ma20: 273.82
+- ma60: 257.87
+- ma120: 205.22
+- return_5d: -11.94
+- return_20d: -26.02
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -13.81
 - distance_to_high_60_pct: -29.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,316,331,307.5,319,26333214,274.47,16.22,275,223.11,0.79
 20260601,321,321,308.5,314,17008580,277.77,13.04,279.38,225.68,0.52
 20260602,315,320.5,303.5,306,13205587,280.12,9.24,283.02,228.04,0.41
 20260603,309,314,303,306,10693104,282.28,8.4,286.68,230.38,0.34
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,249,258.5,249,255,8925293,273.42,-6.74,284.12,254.68,0.5
 20260625,257,259.5,252,256.5,8162458,272.01,-5.7,281.38,255.82,0.49
 20260626,253,254.5,236,236,8935679,269.01,-12.27,277.98,256.77,0.57
+20260629,238.5,244,233.5,236,5227168,266.26,-11.36,273.82,257.87,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6285 | 啟碁 | 215 | 0 | 13148830.0 | 0.0 |  | no_signal |
+| 20260629 | 6285 | 啟碁 | 215 | 0 | 6779440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

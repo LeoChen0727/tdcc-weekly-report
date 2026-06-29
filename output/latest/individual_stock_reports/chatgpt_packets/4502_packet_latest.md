@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4502 健信
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:46 Asia/Taipei
+- generated_at: 2026-06-29 22:27:10 Asia/Taipei
 - stock_id: 4502
 - stock_name: 健信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
+- date: 20260629
 - open: 15.7
-- high: 15.8
-- low: 15.55
+- high: 15.75
+- low: 15.7
 - close: 15.75
-- volume: 21000
+- volume: 4000
 - ma5: 15.78
 - ema23_primary: 15.8
-- distance_to_ema23_pct: -0.34
-- ma20: 15.81
+- distance_to_ema23_pct: -0.32
+- ma20: 15.8
 - ma60: 15.84
 - ma120: 15.87
-- return_5d: -0.32
-- return_20d: 0.32
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -0.36
+- return_5d: 0
+- return_20d: -0.63
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: -0.33
 - distance_to_high_60_pct: -5.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,15.7,15.85,15.3,15.85,16000,15.85,0.03,15.89,15.83,0.45
 20260601,15.75,15.95,15.6,15.7,16000,15.83,-0.85,15.88,15.83,0.46
 20260602,15.7,15.8,15.65,15.8,16,15.83,-0.2,15.88,15.83,0
 20260603,15.8,16,15.4,15.9,16000,15.84,0.4,15.87,15.83,0.54
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,15.85,15.85,15.55,15.8,25000,15.81,-0.09,15.81,15.84,1.19
 20260625,15.75,15.85,15.75,15.75,16000,15.81,-0.37,15.8,15.84,0.76
 20260626,15.7,15.8,15.55,15.75,21000,15.8,-0.34,15.81,15.84,0.99
+20260629,15.7,15.75,15.7,15.75,4000,15.8,-0.32,15.8,15.84,0.19
 ```
 
 ## Latest TDCC Snapshot

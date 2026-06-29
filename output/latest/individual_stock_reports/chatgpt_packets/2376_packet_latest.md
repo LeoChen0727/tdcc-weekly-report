@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:07 Asia/Taipei
+- generated_at: 2026-06-29 22:26:25 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 330
-- high: 330.5
-- low: 318.5
-- close: 319.5
-- volume: 9847137
-- ma5: 332.5
-- ema23_primary: 339.3
-- distance_to_ema23_pct: -5.84
-- ma20: 353.57
-- ma60: 310.63
-- ma120: 273.1
-- return_5d: -7.12
-- return_20d: -5.33
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -9.64
-- distance_to_high_60_pct: -20.52
+- date: 20260629
+- open: 320
+- high: 330
+- low: 320
+- close: 325
+- volume: 4846763
+- ma5: 329.6
+- ema23_primary: 338.11
+- distance_to_ema23_pct: -3.88
+- ma20: 351.32
+- ma60: 312.34
+- ma120: 273.85
+- return_5d: -4.27
+- return_20d: -12.16
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -7.49
+- distance_to_high_60_pct: -19.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,350.5,371,350,370,33434927,316.17,17.03,319.35,272.41,1.82
 20260601,385,396,376.5,387,38916483,322.07,20.16,324.75,275.29,1.94
 20260602,387.5,395,379.5,390.5,25610532,327.78,19.14,330.3,278.17,1.21
 20260603,392,402,377,399,23444363,333.71,19.56,335.2,281.17,1.11
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,330,339,325,339,7343440,341.75,-0.8,354.4,307.46,0.48
 20260625,341,344,332,334,5870093,341.1,-2.08,354.48,309.11,0.39
 20260626,330,330.5,318.5,319.5,9847137,339.3,-5.84,353.57,310.63,0.66
+20260629,320,330,320,325,4846763,338.11,-3.88,351.32,312.34,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2376 | 技嘉 | 122 | 0 | 6727870.0 | 0.0 |  | no_signal |
+| 20260629 | 2376 | 技嘉 | 123 | 0 | 3561440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

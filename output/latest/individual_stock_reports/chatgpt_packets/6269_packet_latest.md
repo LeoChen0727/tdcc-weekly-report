@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:12 Asia/Taipei
+- generated_at: 2026-06-29 22:27:40 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 74.9
-- high: 78.7
-- low: 71.6
-- close: 71.6
-- volume: 11263748
-- ma5: 79.56
-- ema23_primary: 72.78
-- distance_to_ema23_pct: -1.62
-- ma20: 73.42
-- ma60: 66.22
-- ma120: 62.73
-- return_5d: -10.05
-- return_20d: 17.76
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -2.49
-- distance_to_high_60_pct: -22
+- date: 20260629
+- open: 71.6
+- high: 71.8
+- low: 67.5
+- close: 68.4
+- volume: 8996200
+- ma5: 75.74
+- ema23_primary: 72.41
+- distance_to_ema23_pct: -5.54
+- ma20: 73.7
+- ma60: 66.41
+- ma120: 62.82
+- return_5d: -21.83
+- return_20d: 8.74
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -7.19
+- distance_to_high_60_pct: -25.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,62.3,63,61.7,62.9,2807130,61.65,2.02,61.43,61.16,0.66
 20260601,69.1,69.1,69.1,69.1,3699567,62.27,10.96,61.49,61.38,0.91
 20260602,76,76,70.5,74.9,42564190,63.33,18.28,61.81,61.67,7.08
 20260603,75.2,80,72.2,77.5,24865302,64.51,20.14,62.28,61.97,3.56
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,83,84.3,78.9,79,14911761,72.61,8.8,72.23,65.82,1.07
 20260625,80.3,82.9,75.3,75.9,12546226,72.89,4.14,72.89,66.03,0.88
 20260626,74.9,78.7,71.6,71.6,11263748,72.78,-1.62,73.42,66.22,0.77
+20260629,71.6,71.8,67.5,68.4,8996200,72.41,-5.54,73.7,66.41,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6269 | 台郡 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6269 | 台郡 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6269 | 台郡 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6269 | 台郡 | 2 | 2 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6269 | 台郡 | 46 | 0 | 9241790.0 | 0.0 |  | no_signal |
+| 20260629 | 6269 | 台郡 | 47 | 0 | 6993450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

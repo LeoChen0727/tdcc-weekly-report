@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:11 Asia/Taipei
+- generated_at: 2026-06-29 22:26:30 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 167
-- high: 169
-- low: 155.5
-- close: 155.5
-- volume: 8991048
-- ma5: 168.9
+- date: 20260629
+- open: 158
+- high: 165.5
+- low: 154.5
+- close: 160
+- volume: 6753936
+- ma5: 166.3
 - ema23_primary: 159.97
-- distance_to_ema23_pct: -2.79
-- ma20: 167
-- ma60: 126.32
-- ma120: 97.82
-- return_5d: -9.59
-- return_20d: -7.44
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -6.89
-- distance_to_high_60_pct: -23.02
+- distance_to_ema23_pct: 0.02
+- ma20: 165.78
+- ma60: 127.86
+- ma120: 98.64
+- return_5d: -7.51
+- return_20d: -13.28
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -3.48
+- distance_to_high_60_pct: -20.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,175,184.5,173,184.5,14603817,135.8,35.86,135.22,96.47,0.57
 20260601,194.5,202,191.5,199,23206852,141.07,41.06,139.38,98.67,0.91
 20260602,200,200,182.5,185,17736318,144.73,27.82,142.97,100.61,0.7
 20260603,190,191,174.5,175.5,16188139,147.29,19.15,146.2,102.41,0.64
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,169,175,166.5,174.5,7179715,159.54,9.37,168,123.28,0.47
 20260625,175.5,175.5,167,169.5,8208934,160.37,5.69,167.62,124.91,0.58
 20260626,167,169,155.5,155.5,8991048,159.97,-2.79,167,126.32,0.65
+20260629,158,165.5,154.5,160,6753936,159.97,0.02,165.78,127.86,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.增資資金來源:現金增資發行普通股 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  本公司擬發行普通股不超過8,500仟股，發行總面額不超過新台幣1,000,000仟元。 5.採總括申報發行新股案件，本次發行金額及股數:不適用。 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 7.每股面額:新台幣10元。 8.發行價格:實際發行價格授權董事長俟本案向主管機關申報生效後，依相關法令規定  與主辦承銷商依當時市場狀況共同議定。 9.員工認購股數或配發金額:依公司法第267條規定，保留發行新股總額10%~15%，  由本公司員工認購。 10.公開銷售股數: 依證券交易法第28條之1規定，提撥發行新股總額10%對外公開銷售。 11.原股東認購或無償配發比例:其餘發行新股總數75%~80%，由原股東按認股基準日 股東名簿所載之持股比例認購。 12.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，得由股東自 停止過戶日起五日內自行至本公司股務代理機構辦理拼湊一整股認購，原股東、員工 放棄認購或拼湊不足一股之畸零股部分，授權董事長洽特定人按發行價格認購之。 13.本次發行新股之權利義務:與原已發行股份相同。 14.本次增資資金用途:償還銀行借款及充實營運資金。 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項: (1)本次計畫之重要內容，包括發行價格、資金來源、計畫項目、資金運用計畫及進    度、預計可能產生效益及其他相關發行事宜，如有因市場狀況或依主管機關指示    修正而需修正者，授權董事長全權處理。 (2)本次現金增資案俟呈主管機關申報生效後，有關認股基準日、增資基準日及其他    未盡事宜，授權董事長視實際情況依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2464 | 盟立 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.增資資金來源:現金增資發行普通股 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  本公司擬發行普通股不超過8,500仟股，發行總面額不超過新台幣1,000,000仟元。 5.採總括申報發行新股案件，本次發行金額及股數:不適用。 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 7.每股面額:新台幣10元。 8.發行價格:實際發行價格授權董事長俟本案向主管機關申報生效後，依相關法令規定  與主辦承銷商依當時市場狀況共同議定。 9.員工認購股數或配發金額:依公司法第267條規定，保留發行新股總額10%~15%，  由本公司員工認購。 10.公開銷售股數: 依證券交易法第28條之1規定，提撥發行新股總額10%對外公開銷售。 11.原股東認購或無償配發比例:其餘發行新股總數75%~80%，由原股東按認股基準日 股東名簿所載之持股比例認購。 12.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，得由股東自 停止過戶日起五日內自行至本公司股務代理機構辦理拼湊一整股認購，原股東、員工 放棄認購或拼湊不足一股之畸零股部分，授權董事長洽特定人按發行價格認購之。 13.本次發行新股之權利義務:與原已發行股份相同。 14.本次增資資金用途:償還銀行借款及充實營運資金。 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項: (1)本次計畫之重要內容，包括發行價格、資金來源、計畫項目、資金運用計畫及進    度、預計可能產生效益及其他相關發行事宜，如有因市場狀況或依主管機關指示    修正而需修正者，授權董事長全權處理。 (2)本次現金增資案俟呈主管機關申報生效後，有關認股基準日、增資基準日及其他    未盡事宜，授權董事長視實際情況依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.增資資金來源:現金增資發行普通股 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  本公司擬發行普通股不超過8,500仟股，發行總面額不超過新台幣1,000,000仟元。 5.採總括申報發行新股案件，本次發行金額及股數:不適用。 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 7.每股面額:新台幣10元。 8.發行價格:實際發行價格授權董事長俟本案向主管機關申報生效後，依相關法令規定  與主辦承銷商依當時市場狀況共同議定。 9.員工認購股數或配發金額:依公司法第267條規定，保留發行新股總額10%~15%，  由本公司員工認購。 10.公開銷售股數: 依證券交易法第28條之1規定，提撥發行新股總額10%對外公開銷售。 11.原股東認購或無償配發比例:其餘發行新股總數75%~80%，由原股東按認股基準日 股東名簿所載之持股比例認購。 12.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，得由股東自 停止過戶日起五日內自行至本公司股務代理機構辦理拼湊一整股認購，原股東、員工 放棄認購或拼湊不足一股之畸零股部分，授權董事長洽特定人按發行價格認購之。 13.本次發行新股之權利義務:與原已發行股份相同。 14.本次增資資金用途:償還銀行借款及充實營運資金。 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項: (1)本次計畫之重要內容，包括發行價格、資金來源、計畫項目、資金運用計畫及進    度、預計可能產生效益及其他相關發行事宜，如有因市場狀況或依主管機關指示    修正而需修正者，授權董事長全權處理。 (2)本次現金增資案俟呈主管機關申報生效後，有關認股基準日、增資基準日及其他    未盡事宜，授權董事長視實際情況依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2464 | 盟立 | 6 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2464 | 盟立 | 7 | 5 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2464 | 盟立 | 105 | 0 | 7111940.0 | 0.0 |  | no_signal |
+| 20260629 | 2464 | 盟立 | 104 | 0 | 9389560.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

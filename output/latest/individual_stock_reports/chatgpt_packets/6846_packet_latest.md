@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6846 綠茵
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:25 Asia/Taipei
+- generated_at: 2026-06-29 22:27:56 Asia/Taipei
 - stock_id: 6846
 - stock_name: 綠茵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 154
+- latest_price_date: 20260629
+- price_rows: 155
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 63
-- high: 63.8
-- low: 62.8
+- date: 20260629
+- open: 63.1
+- high: 63.7
+- low: 63.1
 - close: 63.7
-- volume: 18000
-- ma5: 65.56
-- ema23_primary: 67.15
-- distance_to_ema23_pct: -5.13
-- ma20: 67.18
-- ma60: 69.03
-- ma120: 70.99
-- return_5d: -5.35
-- return_20d: -4.21
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -5.18
+- volume: 9000
+- ma5: 65.14
+- ema23_primary: 66.86
+- distance_to_ema23_pct: -4.73
+- ma20: 67
+- ma60: 68.91
+- ma120: 70.91
+- return_5d: -3.19
+- return_20d: -5.21
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -4.93
 - distance_to_high_60_pct: -12.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,67,67.2,65.7,67.2,66000,69.01,-2.63,69.02,70.29,2.19
 20260601,67.4,68.5,66.7,67.3,67000,68.87,-2.28,68.91,70.22,2.05
 20260602,66.8,67.1,66.5,67.1,67,68.72,-2.36,68.77,70.15,0
 20260603,66.8,68.5,66.6,67.5,67000,68.62,-1.63,68.72,70.07,1.98
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,66.1,67.1,65.5,67,26000,67.78,-1.14,67.48,69.26,0.66
 20260625,65,65,64,64,28000,67.46,-5.13,67.32,69.14,0.75
 20260626,63,63.8,62.8,63.7,18000,67.15,-5.13,67.18,69.03,0.52
+20260629,63.1,63.7,63.1,63.7,9000,66.86,-4.73,67,68.91,0.28
 ```
 
 ## Latest TDCC Snapshot

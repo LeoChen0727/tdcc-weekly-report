@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2250 IKKA-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:04 Asia/Taipei
+- generated_at: 2026-06-29 22:26:21 Asia/Taipei
 - stock_id: 2250
 - stock_name: IKKA-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 64.1
-- high: 64.5
-- low: 60.8
-- close: 60.8
-- volume: 190002
-- ma5: 61.18
-- ema23_primary: 61.84
-- distance_to_ema23_pct: -1.69
-- ma20: 62.24
-- ma60: 62.53
-- ma120: 66.36
-- return_5d: -1.46
-- return_20d: -0.16
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: -2.31
-- distance_to_high_60_pct: -10.72
+- date: 20260629
+- open: 61
+- high: 62
+- low: 60.6
+- close: 60.7
+- volume: 103333
+- ma5: 61.06
+- ema23_primary: 61.75
+- distance_to_ema23_pct: -1.7
+- ma20: 62.02
+- ma60: 62.54
+- ma120: 66.27
+- return_5d: -0.98
+- return_20d: -6.62
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -2.14
+- distance_to_high_60_pct: -10.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,61.3,66.8,61.3,65,314920,62.69,3.69,62.95,63.28,3.01
 20260601,65.2,65.3,63.9,64.3,142103,62.82,2.35,62.94,63.28,1.32
 20260602,64.3,64.3,63.1,63.6,95768,62.89,1.13,62.78,63.26,0.96
 20260603,67.5,67.5,64.2,65.2,227869,63.08,3.36,62.82,63.24,2.17
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,60.5,61.1,60.3,60.7,26036,61.91,-1.96,62.17,62.56,0.24
 20260625,61.6,64.9,61.6,62.2,261873,61.94,0.42,62.24,62.55,2.25
 20260626,64.1,64.5,60.8,60.8,190002,61.84,-1.69,62.24,62.53,1.59
+20260629,61,62,60.6,60.7,103333,61.75,-1.7,62.02,62.54,0.95
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5523 豐謙
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:01 Asia/Taipei
+- generated_at: 2026-06-29 22:27:28 Asia/Taipei
 - stock_id: 5523
 - stock_name: 豐謙
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 153
+- latest_price_date: 20260629
+- price_rows: 154
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 30.3
+- date: 20260629
+- open: 30.25
 - high: 30.4
 - low: 30.2
 - close: 30.4
-- volume: 71000
-- ma5: 30.41
+- volume: 69000
+- ma5: 30.4
 - ema23_primary: 30.41
-- distance_to_ema23_pct: -0.04
-- ma20: 30.44
-- ma60: 30.29
+- distance_to_ema23_pct: -0.03
+- ma20: 30.43
+- ma60: 30.31
 - ma120: 30.28
 - return_5d: -0.16
-- return_20d: -0.16
-- volume_ratio: 3.55
-- distance_to_ma20_pct_auxiliary: -0.13
+- return_20d: -0.33
+- volume_ratio: 3.14
+- distance_to_ma20_pct_auxiliary: -0.12
 - distance_to_high_60_pct: -8.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,30.45,30.5,30.25,30.5,30000,30.34,0.52,30.34,30.19,0.27
 20260601,30.5,30.5,30.3,30.5,30000,30.35,0.48,30.34,30.19,0.27
 20260602,30.35,30.5,30.3,30.5,30,30.37,0.44,30.35,30.19,0
 20260603,30.5,30.7,30.4,30.45,30000,30.37,0.25,30.36,30.19,0.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,30.25,30.4,30.25,30.4,16000,30.41,-0.04,30.45,30.26,0.84
 20260625,30.3,30.4,30.3,30.4,8000,30.41,-0.04,30.44,30.27,0.45
 20260626,30.3,30.4,30.2,30.4,71000,30.41,-0.04,30.44,30.29,3.55
+20260629,30.25,30.4,30.2,30.4,69000,30.41,-0.03,30.43,30.31,3.14
 ```
 
 ## Latest TDCC Snapshot

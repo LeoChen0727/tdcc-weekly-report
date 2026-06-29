@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:36 Asia/Taipei
+- generated_at: 2026-06-29 22:26:59 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 119.5
-- high: 120.5
-- low: 112
+- date: 20260629
+- open: 113.5
+- high: 118
+- low: 111.5
 - close: 112
-- volume: 2368740
-- ma5: 121.1
-- ema23_primary: 125.92
-- distance_to_ema23_pct: -11.06
-- ma20: 127.92
-- ma60: 125.68
-- ma120: 117.31
-- return_5d: -16.42
-- return_20d: -7.05
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -12.45
+- volume: 1361073
+- ma5: 117.8
+- ema23_primary: 124.76
+- distance_to_ema23_pct: -10.23
+- ma20: 127.4
+- ma60: 125.83
+- ma120: 117.48
+- return_5d: -12.84
+- return_20d: -8.57
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -12.09
 - distance_to_high_60_pct: -25.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,124,124,122,122.5,1298172,125.44,-2.34,127.88,124.91,0.19
 20260601,124.5,134.5,123,134.5,6979303,126.19,6.58,127.55,125.02,1.08
 20260602,135,140,132.5,137.5,18882679,127.14,8.15,127.15,125.06,3.19
 20260603,137.5,145.5,132,135.5,13075665,127.83,6,127.1,124.84,2.38
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,120,125.5,119,122.5,1711188,127.8,-4.15,128.5,125.63,0.47
 20260625,124,124,120,120.5,1150649,127.19,-5.26,128.35,125.7,0.32
 20260626,119.5,120.5,112,112,2368740,125.92,-11.06,127.92,125.68,0.66
+20260629,113.5,118,111.5,112,1361073,124.76,-10.23,127.4,125.83,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3535 | 晶彩科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 3535 | 晶彩科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3535 | 晶彩科 | 4 | 4 | 4 | 5 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 3535 | 晶彩科 | 5 | 5 | 5 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3305 昇貿
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:31 Asia/Taipei
+- generated_at: 2026-06-29 22:26:53 Asia/Taipei
 - stock_id: 3305
 - stock_name: 昇貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 134
-- high: 137
-- low: 128.5
-- close: 129.5
-- volume: 3338157
-- ma5: 137.7
-- ema23_primary: 141.48
-- distance_to_ema23_pct: -8.47
-- ma20: 146.55
-- ma60: 130.27
-- ma120: 120.53
-- return_5d: -11.3
-- return_20d: -18.04
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -11.63
-- distance_to_high_60_pct: -23.6
+- date: 20260629
+- open: 130.5
+- high: 138
+- low: 129
+- close: 133.5
+- volume: 2620424
+- ma5: 135
+- ema23_primary: 140.81
+- distance_to_ema23_pct: -5.19
+- ma20: 145.35
+- ma60: 130.71
+- ma120: 120.72
+- return_5d: -9.18
+- return_20d: -15.24
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -8.15
+- distance_to_high_60_pct: -21.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,162.5,164,152.5,157.5,9574871,137.43,14.61,135.18,117.06,0.69
 20260601,160.5,167.5,154,167.5,12706781,139.93,19.7,138.15,118.12,0.88
 20260602,168,168,155,157.5,10982260,141.4,11.39,140.47,118.96,0.73
 20260603,158,167,156.5,163,8924483,143.2,13.83,142.82,119.92,0.6
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,135.5,138.5,135,138,1988362,143.26,-3.67,149.22,129.37,0.3
 20260625,140,140.5,135,135,1954494,142.57,-5.31,147.97,129.84,0.32
 20260626,134,137,128.5,129.5,3338157,141.48,-8.47,146.55,130.27,0.58
+20260629,130.5,138,129,133.5,2620424,140.81,-5.19,145.35,130.71,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/18 2.減資緣由:依證券交易法第28條之2第4項規定，本公司買回第七次庫藏股轉讓期限 屆滿需辦理註銷。 3.減資金額:新臺幣13,490,000元 4.消除股份:1,349,000股 5.減資比率::0.93% 6.減資後股本:1,432,866,690元 7.預定股東會日期:不適用。 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:115/06/18 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/18 2.減資緣由:依證券交易法第28條之2第4項規定，本公司買回第七次庫藏股轉讓期限 屆滿需辦理註銷。 3.減資金額:新臺幣13,490,000元 4.消除股份:1,349,000股 5.減資比率::0.93% 6.減資後股本:1,432,866,690元 7.預定股東會日期:不適用。 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:115/06/18 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 3305 | 昇貿 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 30.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/18 2.減資緣由:依證券交易法第28條之2第4項規定，本公司買回第七次庫藏股轉讓期限 屆滿需辦理註銷。 3.減資金額:新臺幣13,490,000元 4.消除股份:1,349,000股 5.減資比率::0.93% 6.減資後股本:1,432,866,690元 7.預定股東會日期:不適用。 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:115/06/18 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3305 | 昇貿 | 13 | 4 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 3305 | 昇貿 | 14 | 5 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 3305 | 昇貿 | 97 | 0 | 7593380.0 | 0.0 |  | no_signal |
+| 20260629 | 3305 | 昇貿 | 95 | 0 | 9071390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

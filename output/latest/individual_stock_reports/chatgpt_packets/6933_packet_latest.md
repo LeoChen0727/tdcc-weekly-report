@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6933 AMAX-KY
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:28 Asia/Taipei
+- generated_at: 2026-06-29 22:27:59 Asia/Taipei
 - stock_id: 6933
 - stock_name: AMAX-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 143
-- high: 143.5
-- low: 135.5
-- close: 137.5
-- volume: 235651
-- ma5: 148.3
-- ema23_primary: 156.42
-- distance_to_ema23_pct: -12.09
-- ma20: 159.8
-- ma60: 165.35
-- ma120: 152.22
-- return_5d: -12.42
-- return_20d: -12.42
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -13.95
-- distance_to_high_60_pct: -33.57
+- date: 20260629
+- open: 139
+- high: 142
+- low: 137.5
+- close: 139
+- volume: 79005
+- ma5: 144.8
+- ema23_primary: 154.97
+- distance_to_ema23_pct: -10.3
+- ma20: 158.12
+- ma60: 165.62
+- ma120: 152.12
+- return_5d: -11.18
+- return_20d: -19.42
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -12.09
+- distance_to_high_60_pct: -32.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,158.5,172.5,158.5,172.5,466925,165.44,4.27,166.35,156.13,1.46
 20260601,189,189.5,188.5,189.5,651087,167.45,13.17,167.35,157.16,1.94
 20260602,194.5,195,180,183,1542070,168.74,8.45,167.9,158.01,3.85
 20260603,185.5,195,183,186,745785,170.18,9.3,168.7,158.91,1.75
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,149,152,148.5,150,132252,159.33,-5.86,161.72,165.03,0.42
 20260625,152,152,144.5,145,230569,158.14,-8.31,160.78,165.22,0.74
 20260626,143,143.5,135.5,137.5,235651,156.42,-12.09,159.8,165.35,0.75
+20260629,139,142,137.5,139,79005,154.97,-10.3,158.12,165.62,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6933 | AMAX-KY | 1 | 0 | 1500.0 | 0.0 |  | no_signal |
+| 20260629 | 6933 | AMAX-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:03 Asia/Taipei
+- generated_at: 2026-06-29 22:27:30 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 18.05
-- high: 18.15
-- low: 17.4
-- close: 17.4
-- volume: 4657000
-- ma5: 18.27
-- ema23_primary: 18.25
-- distance_to_ema23_pct: -4.65
-- ma20: 19.34
-- ma60: 16.13
-- ma120: 14.57
-- return_5d: -5.18
-- return_20d: -3.33
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: -10.04
-- distance_to_high_60_pct: -27.5
+- date: 20260629
+- open: 17.55
+- high: 17.7
+- low: 17.15
+- close: 17.3
+- volume: 2127000
+- ma5: 17.93
+- ema23_primary: 18.17
+- distance_to_ema23_pct: -4.79
+- ma20: 19.24
+- ma60: 16.2
+- ma120: 14.62
+- return_5d: -8.95
+- return_20d: -10.36
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -10.09
+- distance_to_high_60_pct: -27.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,18.3,19.5,18.15,19.3,19000,15.83,21.95,15.88,14.29,0.01
 20260601,19.85,20.05,19.2,19.75,20000,16.15,22.27,16.14,14.4,0.01
 20260602,19.75,20.95,19.4,20.85,20,16.54,26.02,16.44,14.52,0
 20260603,21.3,22.9,20.9,22.9,22000,17.07,34.12,16.84,14.68,0.01
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,18.5,18.5,18,18.3,3343000,18.35,-0.28,19.37,15.99,1.04
 20260625,18.55,18.7,18,18.05,3802000,18.33,-1.5,19.37,16.07,1.12
 20260626,18.05,18.15,17.4,17.4,4657000,18.25,-4.65,19.34,16.13,1.28
+20260629,17.55,17.7,17.15,17.3,2127000,18.17,-4.79,19.24,16.2,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6015 | 宏遠證 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司舉辦線上法人說明會，說明本公司財務暨營運報告。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6015 | 宏遠證 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司舉辦線上法人說明會，說明本公司財務暨營運報告。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6015 | 宏遠證 | 5 | 4 | 5 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 6015 | 宏遠證 | 6 | 5 | 5 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

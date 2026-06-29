@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:44 Asia/Taipei
+- generated_at: 2026-06-29 22:28:17 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 285
+- latest_price_date: 20260629
+- price_rows: 286
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 28.2
-- high: 29.05
-- low: 28
-- close: 28.25
-- volume: 15937439
-- ma5: 28.62
-- ema23_primary: 28.3
-- distance_to_ema23_pct: -0.18
-- ma20: 28.39
-- ma60: 28.22
-- ma120: 31.32
-- return_5d: 0.53
-- return_20d: 5.81
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -0.51
-- distance_to_high_60_pct: -10.74
+- date: 20260629
+- open: 27
+- high: 27.95
+- low: 27
+- close: 27.65
+- volume: 7855017
+- ma5: 28.36
+- ema23_primary: 28.25
+- distance_to_ema23_pct: -2.11
+- ma20: 28.43
+- ma60: 28.19
+- ma120: 31.35
+- return_5d: -4.49
+- return_20d: 2.79
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -2.75
+- distance_to_high_60_pct: -12.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,27,27.3,26.7,26.9,7161633,27.31,-1.51,27.07,28.79,0.81
 20260601,27,28.4,27,27.7,15510946,27.34,1.3,27.06,28.73,1.67
 20260602,27.95,27.95,26.75,27.35,14062178,27.34,0.02,27.01,28.65,1.47
 20260603,27.4,28.3,27.1,28.1,19432395,27.41,2.53,27.02,28.58,1.93
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,28.8,29.15,28.55,28.65,8111930,28.31,1.2,28.27,28.25,0.47
 20260625,28.8,28.8,28.25,28.25,8848939,28.3,-0.19,28.32,28.23,0.51
 20260626,28.2,29.05,28,28.25,15937439,28.3,-0.18,28.39,28.22,0.9
+20260629,27,27.95,27,27.65,7855017,28.25,-2.11,28.43,28.19,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8422 | 可寧衛* | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：元大金融廣場（台北市大安區仁愛路三段157號3樓D廳） 4.法人說明會擇要訊息：本公司營運及財務業務狀況說明 5.其他應敘明事項：本公司受邀參加元大證券法&#12040;說明會 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260626 | 8422 | 可寧衛* | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 29.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：元大金融廣場（台北市大安區仁愛路三段157號3樓D廳） 4.法人說明會擇要訊息：本公司營運及財務業務狀況說明 5.其他應敘明事項：本公司受邀參加元大證券法&#12040;說明會 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 8422 | 可寧衛* | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：元大金融廣場（台北市大安區仁愛路三段157號3樓D廳） 4.法人說明會擇要訊息：本公司營運及財務業務狀況說明 5.其他應敘明事項：本公司受邀參加元大證券法&#12040;說明會 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 8422 | 可寧衛* | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 24.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：元大金融廣場（台北市大安區仁愛路三段157號3樓D廳） 4.法人說明會擇要訊息：本公司營運及財務業務狀況說明 5.其他應敘明事項：本公司受邀參加元大證券法&#12040;說明會 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8422 | 可寧衛* | 4 | 4 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 8422 | 可寧衛* | 5 | 5 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8422 | 可寧衛* | 85 | 0 | 2827050.0 | 0.0 |  | call_inflow |
+| 20260629 | 8422 | 可寧衛* | 84 | 0 | 2818750.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

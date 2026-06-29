@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009824 群益美國科技巨頭
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:45 Asia/Taipei
+- generated_at: 2026-06-29 22:25:58 Asia/Taipei
 - stock_id: 009824
 - stock_name: 群益美國科技巨頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 2
+- latest_price_date: 20260629
+- price_rows: 3
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,12 +112,12 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 9.95
-- high: 9.95
-- low: 9.8
-- close: 9.87
-- volume: 157200089
+- date: 20260629
+- open: 9.97
+- high: 9.97
+- low: 9.86
+- close: 9.88
+- volume: 47567193
 - ma5:
 - ema23_primary:
 - distance_to_ema23_pct:
@@ -136,6 +136,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260625,10.1,10.2,10.1,10.17,129506242,,,,,
 20260626,9.95,9.95,9.8,9.87,157200089,,,,,
+20260629,9.97,9.97,9.86,9.88,47567193,,,,,
 ```
 
 ## Latest TDCC Snapshot

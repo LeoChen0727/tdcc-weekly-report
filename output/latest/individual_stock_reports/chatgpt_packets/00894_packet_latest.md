@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00894 中信小資高價30
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:42 Asia/Taipei
+- generated_at: 2026-06-29 22:25:56 Asia/Taipei
 - stock_id: 00894
 - stock_name: 中信小資高價30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260626
-- price_rows: 25
+- latest_price_date: 20260629
+- price_rows: 26
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 48.52
-- high: 48.69
-- low: 46.6
-- close: 46.6
-- volume: 2467974
-- ma5: 49.46
-- ema23_primary: 48.89
-- distance_to_ema23_pct: -4.67
-- ma20: 49.14
-- ma60: 49.14
-- ma120: 49.14
-- return_5d: -6.99
-- return_20d: -4.57
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -5.17
-- distance_to_high_60_pct: -10.3
+- date: 20260629
+- open: 46.9
+- high: 47.68
+- low: 46.56
+- close: 47.06
+- volume: 3670588
+- ma5: 48.55
+- ema23_primary: 48.73
+- distance_to_ema23_pct: -3.43
+- ma20: 48.99
+- ma60: 49.06
+- ma120: 49.06
+- return_5d: -8.8
+- return_20d: -5.97
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: -3.94
+- distance_to_high_60_pct: -9.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,49.8,50.2,49.65,50.05,2549264,48.18,3.88,49.28,49.28,0.85
 20260601,50.1,51,50.1,50.55,2137695,48.38,4.49,49.46,49.46,0.75
 20260602,50.65,51,49.1,49.75,2685106,48.49,2.59,49.5,49.5,0.94
 20260603,50.5,51.2,50.5,50.75,1272388,48.68,4.25,49.64,49.64,0.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,49.5,49.63,48.59,49.53,2124330,49.1,0.88,49.33,49.25,1
 20260625,50,50.05,48.7,49.06,2425951,49.09,-0.07,49.25,49.24,1.16
 20260626,48.52,48.69,46.6,46.6,2467974,48.89,-4.67,49.14,49.14,1.21
+20260629,46.9,47.68,46.56,47.06,3670588,48.73,-3.43,48.99,49.06,1.75
 ```
 
 ## Latest TDCC Snapshot

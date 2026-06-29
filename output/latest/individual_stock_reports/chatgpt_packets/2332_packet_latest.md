@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:05 Asia/Taipei
+- generated_at: 2026-06-29 22:26:23 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 18
-- high: 18.25
-- low: 17.05
-- close: 17.15
-- volume: 9632005
-- ma5: 18.2
-- ema23_primary: 16.9
-- distance_to_ema23_pct: 1.5
-- ma20: 17
-- ma60: 15.44
-- ma120: 15.52
-- return_5d: -14.46
-- return_20d: 7.19
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.87
-- distance_to_high_60_pct: -17.55
+- date: 20260629
+- open: 17.35
+- high: 17.95
+- low: 17.1
+- close: 17.3
+- volume: 5898977
+- ma5: 17.87
+- ema23_primary: 16.93
+- distance_to_ema23_pct: 2.19
+- ma20: 17.02
+- ma60: 15.48
+- ma120: 15.53
+- return_5d: -8.71
+- return_20d: 2.06
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 1.65
+- distance_to_high_60_pct: -16.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,16.8,17.35,16.25,16.95,16845339,14.92,13.64,14.54,14.89,2.94
 20260601,17.1,17.1,16.55,16.7,6996956,15.06,10.86,14.69,14.93,1.18
 20260602,17,17.4,16.55,17.3,9919798,15.25,13.44,14.85,14.96,1.58
 20260603,17.6,17.6,16.75,16.85,13710836,15.38,9.53,14.98,14.98,2.03
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,18.1,18.8,18,18.45,10381947,16.76,10.07,16.82,15.36,0.78
 20260625,18.6,18.6,18.05,18.1,8060865,16.87,7.27,16.95,15.4,0.6
 20260626,18,18.25,17.05,17.15,9632005,16.9,1.5,17,15.44,0.73
+20260629,17.35,17.95,17.1,17.3,5898977,16.93,2.19,17.02,15.48,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2332 | 友訊 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2樓（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之第二季投資論壇，說明本公司營運展望與經營績效。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 2332 | 友訊 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2樓（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之第二季投資論壇，說明本公司營運展望與經營績效。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2332 | 友訊 | 1 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2332 | 友訊 | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2332 | 友訊 | 2 | 0 | 5500.0 | 0.0 |  | no_signal |
+| 20260629 | 2332 | 友訊 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

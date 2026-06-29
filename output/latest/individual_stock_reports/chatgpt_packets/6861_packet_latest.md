@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:26 Asia/Taipei
+- generated_at: 2026-06-29 22:27:56 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 320
-- high: 330
-- low: 302
-- close: 303
-- volume: 657949
-- ma5: 345.2
-- ema23_primary: 349.96
-- distance_to_ema23_pct: -13.42
-- ma20: 348.55
-- ma60: 313.7
-- ma120: 205.6
-- return_5d: -18.33
-- return_20d: -27.16
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -13.07
-- distance_to_high_60_pct: -38.16
+- date: 20260629
+- open: 303
+- high: 321
+- low: 299
+- close: 319.5
+- volume: 544387
+- ma5: 333.4
+- ema23_primary: 347.42
+- distance_to_ema23_pct: -8.04
+- ma20: 342.52
+- ma60: 316.93
+- ma120: 207.78
+- return_5d: -15.59
+- return_20d: -27.39
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -6.72
+- distance_to_high_60_pct: -34.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,419.5,452.5,417,440,1766201,388.79,13.17,419.38,253.03,1.59
 20260601,435,439,396,396,2244673,389.39,1.7,421.15,257.23,1.88
 20260602,390,395.5,356.5,370,3070621,387.77,-4.58,419.82,260.85,2.34
 20260603,368,384.5,359,359.5,1078687,385.42,-6.72,419,264.33,0.82
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,356,374.5,348.5,353,901819,356.11,-0.87,360.62,307.63,0.72
 20260625,366.5,366.5,327.5,333.5,716671,354.23,-5.85,354.2,310.89,0.62
 20260626,320,330,302,303,657949,349.96,-13.42,348.55,313.7,0.59
+20260629,303,321,299,319.5,544387,347.42,-8.04,342.52,316.93,0.52
 ```
 
 ## Latest TDCC Snapshot

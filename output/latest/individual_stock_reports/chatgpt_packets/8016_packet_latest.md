@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:38 Asia/Taipei
+- generated_at: 2026-06-29 22:28:10 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 326
-- high: 335
-- low: 310.5
-- close: 311
-- volume: 3270541
-- ma5: 318.4
-- ema23_primary: 297.74
-- distance_to_ema23_pct: 4.45
-- ma20: 300.57
-- ma60: 261.73
-- ma120: 226.61
-- return_5d: 3.49
-- return_20d: 3.67
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 3.47
-- distance_to_high_60_pct: -9.59
+- date: 20260629
+- open: 313
+- high: 328.5
+- low: 306.5
+- close: 317
+- volume: 3834179
+- ma5: 318.8
+- ema23_primary: 299.35
+- distance_to_ema23_pct: 5.9
+- ma20: 301.12
+- ma60: 263.83
+- ma120: 227.73
+- return_5d: 0.63
+- return_20d: 3.59
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 5.27
+- distance_to_high_60_pct: -7.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,304,306,298,306,4044659,273.33,11.95,277.25,228.88,1.29
 20260601,306,310,298,309,3666800,276.3,11.84,281.02,230.97,1.12
 20260602,309,309,296.5,302,2799664,278.44,8.46,284.4,232.83,0.83
 20260603,307,310,303.5,304,1975322,280.57,8.35,287.52,234.65,0.58
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,310,327,308,315,3079705,293.45,7.34,298.55,257.66,1.17
 20260625,318,344,318,330.5,4537703,296.54,11.45,300.02,259.86,1.73
 20260626,326,335,310.5,311,3270541,297.74,4.45,300.57,261.73,1.25
+20260629,313,328.5,306.5,317,3834179,299.35,5.9,301.12,263.83,1.47
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8016 | 矽創 | 4 | 1 | 4 | 9 | 12 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 8016 | 矽創 | 5 | 2 | 5 | 9 | 13 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 8016 | 矽創 | 30 | 0 | 9650040.0 | 0.0 |  | no_signal |
+| 20260629 | 8016 | 矽創 | 31 | 0 | 12766450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

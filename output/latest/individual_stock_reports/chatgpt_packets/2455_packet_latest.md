@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2455 全新
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:11 Asia/Taipei
+- generated_at: 2026-06-29 22:26:30 Asia/Taipei
 - stock_id: 2455
 - stock_name: 全新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 382.5
-- high: 382.5
-- low: 347.5
-- close: 348
-- volume: 2529904
-- ma5: 388.2
-- ema23_primary: 385.55
-- distance_to_ema23_pct: -9.74
-- ma20: 389.65
-- ma60: 357.49
-- ma120: 274.3
-- return_5d: -16.35
-- return_20d: -11.11
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -10.69
-- distance_to_high_60_pct: -24.35
+- date: 20260629
+- open: 339
+- high: 348
+- low: 333
+- close: 336
+- volume: 1920109
+- ma5: 373.5
+- ema23_primary: 381.42
+- distance_to_ema23_pct: -11.91
+- ma20: 385.35
+- ma60: 358.98
+- ma120: 275.82
+- return_5d: -17.95
+- return_20d: -20.38
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -12.81
+- distance_to_high_60_pct: -26.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,399,422,392,422,2092897,379.36,11.24,383.8,308.25,0.21
 20260601,428,428.5,410.5,415.5,1670842,382.37,8.66,386.82,311.4,0.2
 20260602,420,420,393.5,399,1385268,383.75,3.97,387.45,314.42,0.2
 20260603,413.5,422,413.5,414,1545220,386.27,7.18,390.75,317.7,0.23
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,385,397,368,397,1802349,389,2.06,393.32,354.28,0.24
 20260625,400,400,384.5,388.5,1095463,388.96,-0.12,391.82,356.25,0.15
 20260626,382.5,382.5,347.5,348,2529904,385.55,-9.74,389.65,357.49,0.34
+20260629,339,348,333,336,1920109,381.42,-11.91,385.35,358.98,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2455 | 全新 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/06/16 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:           最近一月  與去年同期   最近一季   與去年同期    最近四季累計 科目     115年04月    增減(%)   115年第1季     增減%       114年第2季                                                           至115年第1季                 (自結數)               (核閱數)           (核閱/查核數) --------------------------------------------------------------------------- 營業收入   318.60     37.75%       959.31     20.87%         3545.79 (百萬) 稅前淨利    89.68    100.63%       243.60     23.89%          714.33 (百萬) 本期淨利    71.74    100.62%       195.09     24.03%          585.74 (百萬) 每股盈餘     0.39    105.26%         1.06     24.71%            3.18 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260629 | 2455 | 全新 | revenue_pullback | 營收成長股價回檔 | 52.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/16 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:           最近一月  與去年同期   最近一季   與去年同期    最近四季累計 科目     115年04月    增減(%)   115年第1季     增減%       114年第2季                                                           至115年第1季                 (自結數)               (核閱數)           (核閱/查核數) --------------------------------------------------------------------------- 營業收入   318.60     37.75%       959.31     20.87%         3545.79 (百萬) 稅前淨利    89.68    100.63%       243.60     23.89%          714.33 (百萬) 本期淨利    71.74    100.62%       195.09     24.03%          585.74 (百萬) 每股盈餘     0.39    105.26%         1.06     24.71%            3.18 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2455 | 全新 | 11 | 4 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 2455 | 全新 | 12 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2455 | 全新 | 42 | 0 | 1391880.0 | 0.0 |  | call_inflow |
+| 20260629 | 2455 | 全新 | 40 | 0 | 799830.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

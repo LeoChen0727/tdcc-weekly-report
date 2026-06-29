@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6290 良維
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:13 Asia/Taipei
+- generated_at: 2026-06-29 22:27:41 Asia/Taipei
 - stock_id: 6290
 - stock_name: 良維
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 310.5
-- high: 313.5
-- low: 300
-- close: 300.5
-- volume: 4047000
-- ma5: 308.4
-- ema23_primary: 309.16
-- distance_to_ema23_pct: -2.8
-- ma20: 322.3
-- ma60: 283.18
-- ma120: 237.4
-- return_5d: -5.95
-- return_20d: -10.57
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: -6.76
-- distance_to_high_60_pct: -19.87
+- date: 20260629
+- open: 304
+- high: 304
+- low: 294
+- close: 297
+- volume: 2134000
+- ma5: 304.2
+- ema23_primary: 308.15
+- distance_to_ema23_pct: -3.62
+- ma20: 319.8
+- ma60: 284.94
+- ma120: 238.38
+- return_5d: -6.6
+- return_20d: -14.41
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -7.13
+- distance_to_high_60_pct: -20.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,347.5,347.5,321.5,347,336000,290.15,19.59,288.7,250.95,0.09
 20260601,360.5,375,358,367,367000,296.55,23.76,292.43,253.48,0.11
 20260602,367,368.5,350,362.5,358,302.05,20.01,296,255.59,0
 20260603,365.5,375,361.5,366.5,368000,307.42,19.22,300.3,257.71,0.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,302.5,308.5,298.5,306,4617000,309.81,-1.23,324.93,279.98,1.5
 20260625,310,312.5,306,311.5,3320000,309.95,0.5,324.07,281.61,1.03
 20260626,310.5,313.5,300,300.5,4047000,309.16,-2.8,322.3,283.18,1.19
+20260629,304,304,294,297,2134000,308.15,-3.62,319.8,284.94,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6290 | 良維 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 6290 | 良維 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 6290 | 良維 | 1 | 1 | 2 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260629 | 6290 | 良維 | 2 | 2 | 2 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

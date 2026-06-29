@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:03 Asia/Taipei
+- generated_at: 2026-06-29 22:27:30 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 24.95
+- date: 20260629
+- open: 24.9
 - high: 25.05
 - low: 24.7
-- close: 24.7
-- volume: 19431632
-- ma5: 24.64
-- ema23_primary: 24.02
-- distance_to_ema23_pct: 2.84
-- ma20: 23.97
-- ma60: 23.45
+- close: 24.85
+- volume: 17812295
+- ma5: 24.72
+- ema23_primary: 24.09
+- distance_to_ema23_pct: 3.16
+- ma20: 24.07
+- ma60: 23.48
 - ma120: 23.59
-- return_5d: -0.2
-- return_20d: 8.81
+- return_5d: 1.64
+- return_20d: 8.75
 - volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 3.06
-- distance_to_high_60_pct: -1.59
+- distance_to_ma20_pct_auxiliary: 3.25
+- distance_to_high_60_pct: -1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,22.7,22.85,22.6,22.85,71316116,22.88,-0.14,22.82,23.18,3.64
 20260601,22.85,22.95,22.6,22.85,29130456,22.88,-0.13,22.81,23.17,1.44
 20260602,22.8,23.1,22.7,23.05,31996097,22.89,0.68,22.82,23.16,1.51
 20260603,23.1,23.5,22.95,23.4,31552327,22.94,2.02,22.84,23.16,1.43
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,24.5,24.65,24.3,24.4,18131110,23.85,2.29,23.75,23.4,0.59
 20260625,24.4,25.1,24.35,25.1,47340824,23.96,4.77,23.87,23.43,1.47
 20260626,24.95,25.05,24.7,24.7,19431632,24.02,2.84,23.97,23.45,0.6
+20260629,24.9,25.05,24.7,24.85,17812295,24.09,3.16,24.07,23.48,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:通過公司章程修正案 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260626 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:通過公司章程修正案 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:通過公司章程修正案 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無。 3.重要決議事項二、章程修訂:通過公司章程修正案 4.重要決議事項三、營業報告書及財務報表:無。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5880 | 合庫金 | 21 | 11 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 5880 | 合庫金 | 22 | 12 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

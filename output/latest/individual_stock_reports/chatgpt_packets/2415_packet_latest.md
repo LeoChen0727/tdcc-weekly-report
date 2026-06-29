@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2415 錩新
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:09 Asia/Taipei
+- generated_at: 2026-06-29 22:26:27 Asia/Taipei
 - stock_id: 2415
 - stock_name: 錩新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 33.8
-- high: 36.4
-- low: 33.3
-- close: 34.55
-- volume: 3993414
-- ma5: 32.04
-- ema23_primary: 29.59
-- distance_to_ema23_pct: 16.78
-- ma20: 29.11
-- ma60: 28.24
-- ma120: 27.77
-- return_5d: 13.84
-- return_20d: 28.68
-- volume_ratio: 6.46
-- distance_to_ma20_pct_auxiliary: 18.69
-- distance_to_high_60_pct: -5.08
+- date: 20260629
+- open: 35
+- high: 37.9
+- low: 34.55
+- close: 37.45
+- volume: 3203957
+- ma5: 33.47
+- ema23_primary: 30.24
+- distance_to_ema23_pct: 23.84
+- ma20: 29.63
+- ma60: 28.39
+- ma120: 27.86
+- return_5d: 23.6
+- return_20d: 38.7
+- volume_ratio: 4.15
+- distance_to_ma20_pct_auxiliary: 26.38
+- distance_to_high_60_pct: -1.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,27,27.3,26.85,27,115128,27.12,-0.44,26.95,27.94,0.72
 20260601,27,27.35,26.85,27.15,222634,27.12,0.1,26.97,27.96,1.34
 20260602,27.25,27.75,26.9,27.6,219207,27.16,1.61,27,27.98,1.28
 20260603,27.7,28.2,27.7,27.95,202236,27.23,2.65,27.04,28.02,1.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,29.9,31.2,29.75,31.1,644029,28.69,8.41,28.36,28.09,2.16
 20260625,31.4,34.2,31.4,34.05,2733828,29.13,16.87,28.73,28.15,6.39
 20260626,33.8,36.4,33.3,34.55,3993414,29.59,16.78,29.11,28.24,6.46
+20260629,35,37.9,34.55,37.45,3203957,30.24,23.84,29.63,28.39,4.15
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2415 | 錩新 | true_breakout | 嚴格突破 | 102.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 2415 | 錩新 | true_breakout | 嚴格突破 | 88.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2415 | 錩新 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260629 | 2415 | 錩新 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

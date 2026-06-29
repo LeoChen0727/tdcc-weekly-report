@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5522 遠雄
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:01 Asia/Taipei
+- generated_at: 2026-06-29 22:27:28 Asia/Taipei
 - stock_id: 5522
 - stock_name: 遠雄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
+- date: 20260629
 - open: 65
-- high: 65.7
-- low: 64.1
-- close: 64.1
-- volume: 2329629
-- ma5: 69.52
-- ema23_primary: 72.84
-- distance_to_ema23_pct: -12
-- ma20: 74.6
-- ma60: 71.93
-- ma120: 70.81
-- return_5d: -13.84
-- return_20d: -10.97
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -14.08
-- distance_to_high_60_pct: -23.6
+- high: 65.5
+- low: 63.4
+- close: 63.9
+- volume: 1918011
+- ma5: 67.54
+- ema23_primary: 72.1
+- distance_to_ema23_pct: -11.37
+- ma20: 74.16
+- ma60: 71.82
+- ma120: 70.66
+- return_5d: -13.41
+- return_20d: -12.1
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -13.84
+- distance_to_high_60_pct: -23.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,72,72.7,71.5,72.7,1807328,70.68,2.86,70.56,69.96,1.93
 20260601,72.8,74.2,71.9,74.2,1485785,70.97,4.55,70.81,70.09,1.51
 20260602,74.1,75.1,73.7,75.1,1394974,71.31,5.31,71.11,70.23,1.35
 20260603,75.5,76.7,74,76.2,1886766,71.72,6.25,71.46,70.39,1.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,71.5,73,71.4,71.5,4387027,74.35,-3.83,75.27,72.13,2.15
 20260625,65.6,66.9,63.4,65.8,4365955,73.64,-10.64,75,72.03,1.95
 20260626,65,65.7,64.1,64.1,2329629,72.84,-12,74.6,71.93,1.02
+20260629,65,65.5,63.4,63.9,1918011,72.1,-11.37,74.16,71.82,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市松山區東興路8號3樓 4.法人說明會擇要訊息：本公司受邀參加統一證券舉辦之法說會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260629 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市松山區東興路8號3樓 4.法人說明會擇要訊息：本公司受邀參加統一證券舉辦之法說會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 5522 | 遠雄 | 4 | 4 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260629 | 5522 | 遠雄 | 5 | 5 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

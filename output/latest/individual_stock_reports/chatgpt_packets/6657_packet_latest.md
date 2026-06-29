@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6657 華安
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:20 Asia/Taipei
+- generated_at: 2026-06-29 22:27:50 Asia/Taipei
 - stock_id: 6657
 - stock_name: 華安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 35.6
-- high: 35.6
-- low: 34.8
-- close: 34.9
-- volume: 130572
-- ma5: 35.54
-- ema23_primary: 36.8
-- distance_to_ema23_pct: -5.16
-- ma20: 36.58
-- ma60: 39.85
-- ma120: 42.85
-- return_5d: -4.64
-- return_20d: -8.88
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -4.59
-- distance_to_high_60_pct: -29.71
+- date: 20260629
+- open: 34.9
+- high: 36.1
+- low: 34.9
+- close: 36.1
+- volume: 77022
+- ma5: 35.51
+- ema23_primary: 36.74
+- distance_to_ema23_pct: -1.74
+- ma20: 36.45
+- ma60: 39.77
+- ma120: 42.8
+- return_5d: -0.41
+- return_20d: -6.48
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -0.97
+- distance_to_high_60_pct: -27.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,39.6,39.6,38.1,38.6,130936,40.12,-3.79,39.83,42.79,0.61
 20260601,38.65,38.8,35.6,38.05,554700,39.95,-4.76,39.64,42.65,2.38
 20260602,39.9,39.9,37.8,38.55,326349,39.83,-3.22,39.48,42.5,1.37
 20260603,39.3,40.7,39,40.25,1138200,39.87,0.96,39.45,42.38,4.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,35.1,35.8,35.05,35.35,138329,37.06,-4.62,36.88,40.09,0.43
 20260625,35.35,36.2,35.35,35.95,100200,36.97,-2.76,36.75,39.97,0.32
 20260626,35.6,35.6,34.8,34.9,130572,36.8,-5.16,36.58,39.85,0.42
+20260629,34.9,36.1,34.9,36.1,77022,36.74,-1.74,36.45,39.77,0.25
 ```
 
 ## Latest TDCC Snapshot

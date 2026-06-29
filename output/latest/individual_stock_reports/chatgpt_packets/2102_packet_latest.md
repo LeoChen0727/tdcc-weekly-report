@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2102 泰豐
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:02 Asia/Taipei
+- generated_at: 2026-06-29 22:26:19 Asia/Taipei
 - stock_id: 2102
 - stock_name: 泰豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 291
+- latest_price_date: 20260629
+- price_rows: 292
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 17.9
-- high: 18.15
+- date: 20260629
+- open: 18
+- high: 18.1
 - low: 17.8
 - close: 17.9
-- volume: 227851
-- ma5: 18.08
-- ema23_primary: 18.19
-- distance_to_ema23_pct: -1.6
+- volume: 237770
+- ma5: 18.05
+- ema23_primary: 18.17
+- distance_to_ema23_pct: -1.47
 - ma20: 18.14
-- ma60: 18.67
-- ma120: 19.17
-- return_5d: -2.45
+- ma60: 18.64
+- ma120: 19.15
+- return_5d: -0.83
 - return_20d: 0
-- volume_ratio: 0.71
+- volume_ratio: 0.77
 - distance_to_ma20_pct_auxiliary: -1.32
 - distance_to_high_60_pct: -12.47
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,17.9,18.2,17.8,17.9,529683,18.37,-2.58,18.27,18.96,1.13
 20260601,18.05,18.05,17.75,17.95,447955,18.34,-2.12,18.24,18.95,0.96
 20260602,18,18.15,17.85,17.95,375310,18.31,-1.95,18.21,18.93,0.82
 20260603,17.8,18.85,17.8,18.55,663861,18.33,1.22,18.21,18.91,1.41
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,18.1,18.25,17.95,18.25,128112,18.23,0.12,18.14,18.71,0.36
 20260625,18.25,18.25,17.95,18.1,127797,18.22,-0.65,18.14,18.7,0.37
 20260626,17.9,18.15,17.8,17.9,227851,18.19,-1.6,18.14,18.67,0.71
+20260629,18,18.1,17.8,17.9,237770,18.17,-1.47,18.14,18.64,0.77
 ```
 
 ## Latest TDCC Snapshot

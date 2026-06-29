@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6612 奈米醫材
 
 ## Metadata
-- generated_at: 2026-06-28 22:27:19 Asia/Taipei
+- generated_at: 2026-06-29 22:27:49 Asia/Taipei
 - stock_id: 6612
 - stock_name: 奈米醫材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 72
-- high: 72
-- low: 70.7
-- close: 70.8
-- volume: 45000
-- ma5: 72
-- ema23_primary: 72.07
-- distance_to_ema23_pct: -1.76
-- ma20: 72.47
-- ma60: 70.43
-- ma120: 72.26
-- return_5d: -3.41
-- return_20d: -2.21
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -2.3
-- distance_to_high_60_pct: -9
+- date: 20260629
+- open: 71.1
+- high: 71.9
+- low: 71
+- close: 71.6
+- volume: 39000
+- ma5: 71.74
+- ema23_primary: 72.03
+- distance_to_ema23_pct: -0.59
+- ma20: 72.42
+- ma60: 70.48
+- ma120: 72.24
+- return_5d: -1.78
+- return_20d: -1.1
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -1.14
+- distance_to_high_60_pct: -7.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,72.4,72.5,72.2,72.4,72000,70.66,2.47,69.92,69.54,1.14
 20260601,71.9,72.5,70.7,72.5,72000,70.81,2.39,70.13,69.61,1.1
 20260602,73,73,72.3,72.3,73,70.93,1.93,70.33,69.66,0
 20260603,72.1,72.4,71.2,71.7,72000,71,0.99,70.54,69.71,1.08
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,71.5,72.3,71.4,72.3,15000,72.18,0.17,72.56,70.37,0.3
 20260625,72.3,73.5,71.8,72.2,45000,72.18,0.03,72.55,70.41,0.93
 20260626,72,72,70.7,70.8,45000,72.07,-1.76,72.47,70.43,0.96
+20260629,71.1,71.9,71,71.6,39000,72.03,-0.59,72.42,70.48,0.86
 ```
 
 ## Latest TDCC Snapshot

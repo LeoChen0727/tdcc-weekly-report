@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1409 新纖
 
 ## Metadata
-- generated_at: 2026-06-28 22:25:49 Asia/Taipei
+- generated_at: 2026-06-29 22:26:03 Asia/Taipei
 - stock_id: 1409
 - stock_name: 新纖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 292
+- latest_price_date: 20260629
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 26.9
-- high: 27.45
-- low: 26.05
-- close: 26.1
-- volume: 22657719
-- ma5: 27.56
-- ema23_primary: 25.04
-- distance_to_ema23_pct: 4.25
-- ma20: 26.41
-- ma60: 20.05
-- ma120: 17.7
-- return_5d: 1.95
-- return_20d: 25.78
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -1.16
-- distance_to_high_60_pct: -13.86
+- date: 20260629
+- open: 26.05
+- high: 26.9
+- low: 25.4
+- close: 25.9
+- volume: 25094132
+- ma5: 27.11
+- ema23_primary: 25.11
+- distance_to_ema23_pct: 3.16
+- ma20: 26.56
+- ma60: 20.23
+- ma120: 17.79
+- return_5d: -7.99
+- return_20d: 13.6
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -2.49
+- distance_to_high_60_pct: -14.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,22.8,22.8,22.8,22.8,18564858,17.85,27.71,17.56,16.62,1.23
 20260601,25.05,25.05,25.05,25.05,8617355,18.45,35.75,17.98,16.8,0.57
 20260602,27.55,27.55,27.55,27.55,25800849,19.21,43.41,18.5,17.01,1.63
 20260603,30.3,30.3,30.3,30.3,10278195,20.14,50.48,19.17,17.26,0.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,27.6,29.3,27.1,27.95,46179939,24.75,12.95,25.73,19.7,1.52
 20260625,28,29.2,27.05,27.05,46581442,24.94,8.47,26.14,19.88,1.56
 20260626,26.9,27.45,26.05,26.1,22657719,25.04,4.25,26.41,20.05,0.85
+20260629,26.05,26.9,25.4,25.9,25094132,25.11,3.16,26.56,20.23,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1409 | 新纖 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260629 | 1409 | 新纖 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1409 | 新纖 | 4 | 1 | 4 | 4 | 14 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260629 | 1409 | 新纖 | 5 | 2 | 5 | 5 | 14 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 1409 | 新纖 | 18 | 0 | 3777420.0 | 0.0 |  | no_signal |
+| 20260629 | 1409 | 新纖 | 18 | 0 | 1914060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4726 永昕
 
 ## Metadata
-- generated_at: 2026-06-28 22:26:50 Asia/Taipei
+- generated_at: 2026-06-29 22:27:14 Asia/Taipei
 - stock_id: 4726
 - stock_name: 永昕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260626
-- price_rows: 157
+- latest_price_date: 20260629
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260626
-- open: 24.6
-- high: 24.6
-- low: 23.95
-- close: 24
-- volume: 234000
-- ma5: 24.44
-- ema23_primary: 25.81
-- distance_to_ema23_pct: -7
-- ma20: 25.71
-- ma60: 28.11
-- ma120: 30.51
-- return_5d: -4.76
-- return_20d: -12.09
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -6.67
-- distance_to_high_60_pct: -23.81
+- date: 20260629
+- open: 24.45
+- high: 26.4
+- low: 24.45
+- close: 26
+- volume: 492000
+- ma5: 24.76
+- ema23_primary: 25.82
+- distance_to_ema23_pct: 0.69
+- ma20: 25.66
+- ma60: 28.02
+- ma120: 30.47
+- return_5d: 6.56
+- return_20d: -4.24
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: 1.33
+- distance_to_high_60_pct: -17.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,27.3,27.6,27.15,27.15,27000,28.48,-4.66,28.41,30.13,0.13
 20260601,27.2,27.65,26.15,27,27000,28.35,-4.77,28.32,30.03,0.13
 20260602,26.85,27,26.6,26.95,27,28.24,-4.55,28.2,29.93,0
 20260603,26.95,27.1,26.4,27,27000,28.13,-4.03,28.12,29.84,0.15
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260624,24.5,25.25,24.5,24.7,226000,26.1,-5.35,26.01,28.35,1.15
 20260625,24.9,24.9,24.35,24.6,249000,25.97,-5.28,25.88,28.23,1.2
 20260626,24.6,24.6,23.95,24,234000,25.81,-7,25.71,28.11,1.07
+20260629,24.45,26.4,24.45,26,492000,25.82,0.69,25.66,28.02,2.04
 ```
 
 ## Latest TDCC Snapshot
