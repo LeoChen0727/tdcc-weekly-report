@@ -3,7 +3,7 @@
 This document records the promoted v1 production operation rule and PDF evidence
 display rule for `w_bottom_right_side`.
 
-The promotion PR that owns this spec changes the formal W-bottom early-entry
+The promotion/sync path for this spec changes the formal W-bottom early-entry
 production surface: it tightens the W-bottom detector, adds the W-bottom
 arc-volume / red-candle / long-position fields to the contract, and registers
 `w_bottom_early_entry_operation_v1` as the model's operation contract. Raw
@@ -204,7 +204,16 @@ approved_operation_patterns_latest.csv
 model_operation_readiness_latest.csv
 ```
 
-The promotion/sync PR must:
+Current sync status:
+
+```text
+research_baseline_status: production_parity
+research_baseline_parameter_set_id: w_bottom_early_entry_operation_v1
+production usage: approved_operation_patterns_latest.csv only
+raw candidate rows: advisory-only
+```
+
+Any future promotion/sync PR must:
 
 1. Update the formal operation evidence registry or readiness artifact used by
    daily PDF consumers.

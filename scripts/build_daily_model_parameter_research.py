@@ -14,6 +14,7 @@ from research_weekly_20pct_surge_volume import build_stock_day_frame  # noqa: E4
 from research_weekly_surge_technical_grid import add_technical_features  # noqa: E402
 from research_weekly_surge_theme_segments import attach_theme_labels  # noqa: E402
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
+from build_approved_operation_patterns import W_BOTTOM_APPROVAL_METRICS, W_BOTTOM_OPERATION_MODULE_ID  # noqa: E402
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
 
 
@@ -280,6 +281,17 @@ def current_w_bottom_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return d["w_bottom_proxy"] & (d["range_breakout_20d_pct"] < 2.0)
 
 
+def current_w_bottom_approved_operation_baseline(d: pd.DataFrame) -> pd.Series:
+    """Anchor W-bottom parity to the approved operation v1 artifact.
+
+    The production detector itself is row/context based and too expensive for
+    the generic parameter-grid builder. The formal daily operation contract is
+    the approved operation artifact, while raw candidate rows remain
+    research-only.
+    """
+    return current_w_bottom_baseline_proxy(d)
+
+
 def current_neckline_volume_breakout_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return (
         d["w_bottom_proxy"]
@@ -404,14 +416,17 @@ def production_baseline_specs() -> list[RuleSpec]:
         RuleSpec(
             "w_bottom_right_side",
             "W底右側模型",
-            "production_current_proxy",
-            "production baseline proxy: W-bottom geometry proxy and not already a breakout",
+            W_BOTTOM_OPERATION_MODULE_ID,
+            "approved operation baseline: right-low early entry next-open buy and D+40 win/neutral/loss rule",
             "pdf_core_model",
-            current_w_bottom_baseline_proxy,
-            "W-bottom early-entry operation v1 is approved separately; full historical condition parity still needs an optimized batch replay detector.",
+            current_w_bottom_approved_operation_baseline,
+            (
+                "W-bottom early-entry operation v1 is the formal daily baseline through "
+                "approved_operation_patterns_latest.csv; raw research candidate rows remain advisory-only."
+            ),
             "production_baseline",
-            "production_proxy",
-            "full production W-bottom detector is row/context based; exact historical replay is too slow until an optimized batch detector exists",
+            "production_parity",
+            "",
             "production_current",
         ),
         RuleSpec(
@@ -856,8 +871,12 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
                     }
                 )
             )
-            selected_days = int(pd.to_numeric(base_rows["selected_stock_days"], errors="coerce").fillna(0).sum())
-            unique_stocks = int(pd.to_numeric(base_rows["selected_unique_stocks"], errors="coerce").fillna(0).max())
+            if model_id == "w_bottom_right_side" and status == "production_parity":
+                selected_days = int(W_BOTTOM_APPROVAL_METRICS["sample_size"])
+                unique_stocks = int(W_BOTTOM_APPROVAL_METRICS["unique_stock_count"])
+            else:
+                selected_days = int(pd.to_numeric(base_rows["selected_stock_days"], errors="coerce").fillna(0).sum())
+                unique_stocks = int(pd.to_numeric(base_rows["selected_unique_stocks"], errors="coerce").fillna(0).max())
         rows.append(
             {
                 "generated_at": now_text(),
