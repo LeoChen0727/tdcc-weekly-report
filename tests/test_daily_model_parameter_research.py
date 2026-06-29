@@ -201,6 +201,46 @@ def test_price_pullback_production_proxy_replay_accepts_trend_fallbacks() -> Non
     assert current_price_pullback_baseline_proxy(df).tolist() == [True, True, False]
 
 
+def test_price_pullback_has_research_only_volume_red_k_entry_variants() -> None:
+    variants = {
+        spec.parameter_set_id: spec
+        for spec in rule_specs()
+        if spec.model_id == "price_pullback_23ema" and "red_k" in spec.parameter_set_id
+    }
+
+    assert set(variants) == {
+        "volume_red_k_vol1.2",
+        "solid_volume_red_k_vol1.2",
+        "solid_volume_red_k_vol1.5",
+    }
+    assert {spec.pdf_visibility for spec in variants.values()} == {"research_only_not_pdf_core"}
+
+    df = pd.DataFrame(
+        {
+            "distance_ema23_pct": [1.0, 1.0],
+            "platform_low": [0.0, 0.0],
+            "short_platform_low": [0.0, 0.0],
+            "previous_20d_low": [0.0, 0.0],
+            "low_20": [0.0, 0.0],
+            "range_low_20d_prev": [0.0, 0.0],
+            "close": [101.0, 101.0],
+            "ema23": [100.0, 100.0],
+            "ma20": [100.0, 100.0],
+            "ema23_slope_pct": [-1.0, -1.0],
+            "ema23_slope_5d_pct": [-1.0, -1.0],
+            "ma5_turning_up_flag": [False, False],
+            "ma10_turning_up_flag": [False, False],
+            "volume_ratio_prev20": [1.3, 1.6],
+            "bullish_attack_candle": [True, True],
+            "solid_red_candle": [False, True],
+        }
+    )
+
+    assert variants["volume_red_k_vol1.2"].condition(df).tolist() == [True, True]
+    assert variants["solid_volume_red_k_vol1.2"].condition(df).tolist() == [False, True]
+    assert variants["solid_volume_red_k_vol1.5"].condition(df).tolist() == [False, True]
+
+
 def test_price_pullback_operation_research_stays_advisory_only() -> None:
     df = pd.DataFrame(
         {
@@ -218,6 +258,9 @@ def test_price_pullback_operation_research_stays_advisory_only() -> None:
             "ema23_slope_5d_pct": [1.0, 1.0, 1.0],
             "ma5_turning_up_flag": [False, False, False],
             "ma10_turning_up_flag": [False, False, False],
+            "volume_ratio_prev20": [1.3, 1.1, 1.6],
+            "bullish_attack_candle": [True, True, True],
+            "solid_red_candle": [True, False, True],
             "next_open_to_d10_close_return_pct": [6.0, -4.0, 1.0],
             "next_open_to_d20_close_return_pct": [6.0, -4.0, 1.0],
             "next_open_to_d20_high_return_pct": [6.0, 3.0, 9.0],
@@ -231,11 +274,28 @@ def test_price_pullback_operation_research_stays_advisory_only() -> None:
     assert research["advisory_status"].eq("not_production_ready_research_only").all()
 
     high_target = research[
-        research["operation_candidate_id"].eq("d20_high_target5_low_stop5_order_unresolved")
+        research["entry_filter_id"].eq("baseline_replay")
+        & research["operation_candidate_id"].eq("d20_high_target5_low_stop5_order_unresolved")
     ].iloc[0]
     assert high_target["win_count"] == 1
     assert high_target["loss_count"] == 1
     assert high_target["ambiguous_order_count"] == 1
+
+    volume_high_target = research[
+        research["entry_filter_id"].eq("volume_red_k_vol1.2")
+        & research["operation_candidate_id"].eq("d20_high_target5_low_stop5_order_unresolved")
+    ].iloc[0]
+    assert volume_high_target["selected_stock_days"] == 2
+    assert volume_high_target["win_count"] == 1
+    assert volume_high_target["loss_count"] == 0
+    assert volume_high_target["ambiguous_order_count"] == 1
+
+    solid_high_target = research[
+        research["entry_filter_id"].eq("solid_volume_red_k_vol1.5")
+        & research["operation_candidate_id"].eq("d20_high_target5_low_stop5_order_unresolved")
+    ].iloc[0]
+    assert solid_high_target["selected_stock_days"] == 1
+    assert solid_high_target["ambiguous_order_count"] == 1
 
 
 def test_hot_theme_pullback_uses_strict_historical_theme_gate() -> None:

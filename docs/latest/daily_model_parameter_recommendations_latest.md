@@ -1,6 +1,6 @@
 # DAILY MODEL PARAMETER RECOMMENDATIONS
 
-- generated_at: 2026-06-29 18:45:39 Asia/Taipei
+- generated_at: 2026-06-29 21:11:32 Asia/Taipei
 - purpose: convert parameter backtests into program-side reporting recommendations
 - entry_basis: signal date next trading day open
 - close_return: D+n close divided by next open minus 1
@@ -12,7 +12,7 @@
 | recommended_usage | count |
 | --- | --- |
 | intraday_target_watch | 54 |
-| research_only | 25 |
+| research_only | 28 |
 | promote_to_pdf_core | 2 |
 | pdf_secondary_watch | 2 |
 
@@ -67,11 +67,11 @@
 | explosive_volume_red_candle | vol3_solid_red | research_only | D+10 | 40.9 | 0.73 | D+20 | 63.85 | 8033 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w20_near5_vol1.5 | research_only | D+10 | 42.84 | 0.46 | D+20 | 46.98 | 7823 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w20_near5_vol1.2 | research_only | D+10 | 42.66 | 0.4 | D+20 | 45.63 | 11389 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
+| price_pullback_23ema | solid_volume_red_k_vol1.2 | research_only | D+10 | 42.86 | 0.39 | D+20 | 47.46 | 15893 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
+| price_pullback_23ema | volume_red_k_vol1.2 | research_only | D+10 | 42.67 | 0.39 | D+20 | 48.67 | 30326 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w20_near3_vol1.2 | research_only | D+10 | 42.62 | 0.36 | D+20 | 44.87 | 8630 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w20_near3_vol1.5 | research_only | D+10 | 42.35 | 0.36 | D+20 | 46.41 | 6126 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
+| price_pullback_23ema | solid_volume_red_k_vol1.5 | research_only | D+10 | 42.37 | 0.27 | D+20 | 47.26 | 10223 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | explosive_volume_red_candle | vol5_solid_red | research_only | D+10 | 39.67 | 0.24 | D+20 | 64.32 | 3341 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w30_near5_vol1.2 | research_only | D+10 | 41.92 | 0.23 | D+20 | 42.23 | 8089 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w30_near3_vol1.2 | research_only | D+10 | 41.74 | 0.23 | D+20 | 41.91 | 5834 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
-| platform_strengthening | w30_near5_vol1.5 | research_only | D+10 | 41.97 | 0.22 | D+20 | 43.58 | 5686 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
-| platform_strengthening | w30_near3_vol1.5 | research_only | D+10 | 41.91 | 0.2 | D+20 | 43.38 | 4193 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
-| explosive_volume_red_candle | vol10_solid_red | research_only | D+8 | 39.72 | -0.16 | D+20 | 64.57 | 830 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
