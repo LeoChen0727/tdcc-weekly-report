@@ -10,7 +10,10 @@ The breakout-related model review is now grouped by shared business meaning in
 `docs/specs/breakout_model_taxonomy_governance_handoff.md`. That handoff keeps
 `volume_range_breakout` as the current production baseline while
 `w_bottom_right_side` and the formal `neckline_volume_breakout_confirmation`
-surface remain active production review items. `near_high_neckline_challenge`
+surface remain active production review items. The current
+`neckline_volume_breakout_confirmation` v1 surface is explicitly the W-bottom
+neckline subtype only; inverse head-and-shoulders, triple bottom, and other
+structured neckline subtypes are not mixed into this model. `near_high_neckline_challenge`
 and `platform_strengthening` are now deprecated daily production surfaces kept
 only for historical audit/research reference.
 
@@ -39,9 +42,10 @@ High-priority manual review:
   production tuning.
 - `neckline_volume_breakout_confirmation`: formal production code, contract,
   tests, approved operation evidence, and research/backtest parity now exist.
-  It is the active confirmed-breakout surface replacing the deprecated
+  It is the active W-bottom confirmed-breakout surface replacing the deprecated
   `near_high_neckline_challenge` and `platform_strengthening` daily production
-  entries.
+  entries for this subtype only. Other neckline pattern families remain backlog
+  work and must not be silently added to this model.
 - `descending_resistance_volume_breakout`: keep as a separate future model
   family for descending swing-high resistance-line breakouts. Do not mix this
   with bottom-pattern neckline breakouts.
@@ -82,7 +86,7 @@ Low-priority / monitor:
 | `hot_theme_pullback` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Confirm whether theme-related research variants are true improvements or only exploratory alternatives. |
 | `revenue_unreacted_range` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first, then `daily_model_maintenance` if promotion is approved | high | Review revenue proxy width and data completeness. Current proxy is too broad for direct production tuning. |
 | `w_bottom_right_side` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `ok` | `daily_model_maintenance` owns approved operation v2; `research_backtest` only if new evidence proposes a future change | low | Treat as the second approved daily operation model after `volume_range_breakout`. PDF title evidence uses the approved operation v2 D+20/D+40 structure-stop statistics; raw research variants remain advisory-only unless separately promoted. |
-| `neckline_volume_breakout_confirmation` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `ok` | `daily_model_maintenance` owns approved operation v1; `research_backtest` only if new evidence proposes a future change | low | Treat as the active confirmed-breakout daily operation model. 45-day context is the entry gate; 90-day context is score/risk adjustment only. |
+| `neckline_volume_breakout_confirmation` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `ok` | `daily_model_maintenance` owns approved operation v1; `research_backtest` only if new evidence proposes a future change | low | Treat as the active W-bottom neckline confirmed-breakout daily operation model. 45-day context is the entry gate; 90-day context is score/risk adjustment only. It does not include inverse head-and-shoulders, triple bottom, or structured-bottom-other subtypes. |
 | `near_high_neckline_challenge` | `stock_entry_model` | `daily_model_maintenance` | deprecated for daily | no | `warning_research_variant_only` | no active tuning lane; historical audit only unless explicitly reactivated | low | Deprecated from daily production after `neckline_volume_breakout_confirmation` became the formal confirmed-breakout model. The old sign-semantics blocker remains historical context, not a tuning backlog item. |
 | `platform_strengthening` | `stock_entry_model` | `daily_model_maintenance` | deprecated for daily | no | `warning_research_variant_only` | no active tuning lane; historical audit only unless explicitly reactivated | low | Deprecated from daily production after `neckline_volume_breakout_confirmation` became the formal confirmed-breakout model. Keep for historical audit/research reference only. |
 | `pullback_short_reclaim` | `stock_entry_model` | `daily_model_maintenance` | yes | no | `warning_research_variant_only` | `research_backtest` first; `daily_model_maintenance` only for explicit promotion/sync PR | medium | Review reclaim signal definitions and evidence before any production threshold change. |
@@ -98,9 +102,10 @@ Low-priority / monitor:
    `docs/specs/breakout_model_taxonomy_governance_handoff.md` to define the
    taxonomy layer, breakout event feature layer, and stock-entry model layer
    before changing production code.
-2. `neckline_volume_breakout_confirmation`: keep as the active confirmed-breakout
-   model. Future work should tune only with new evidence and a formal
-   model-change PR.
+2. `neckline_volume_breakout_confirmation`: keep as the active W-bottom
+   neckline confirmed-breakout model. Future work should tune only with new
+   evidence and a formal model-change PR. Other neckline pattern families
+   require separate research and promotion before production use.
 3. `w_bottom_right_side`: keep as the W-bottom pre-breakout / second-bottom
    formation model. It is now the second approved daily operation model after
    `volume_range_breakout`; use

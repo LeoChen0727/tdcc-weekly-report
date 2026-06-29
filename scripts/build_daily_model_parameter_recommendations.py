@@ -185,8 +185,8 @@ def approved_neckline_operation_recommendation(generated_at: str) -> dict[str, A
         "model_name_zh": "W底頸線帶量突破確認模型",
         "parameter_set_id": NECKLINE_OPERATION_MODULE_ID,
         "parameter_summary": (
-            "Neckline volume breakout v1; 45d non-bearish context is the entry gate; "
-            "90d context is score-only adjustment; buy next open after +1% close confirmation within 3 sessions."
+            "W-bottom neckline volume breakout v1; 45d non-bearish context is the entry gate; "
+            "90d context is score-only adjustment; buy next open after W-bottom neckline confirmation."
         ),
         "entry_basis": "confirmation_signal_next_open",
         "recommended_usage": "promote_to_pdf_core",

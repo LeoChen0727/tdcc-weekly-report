@@ -7,12 +7,17 @@ Implementation status as of the 2026-06-29 production sync:
 
 - `neckline_volume_breakout_confirmation` is promoted through
   `neckline_strict_45_signal_90_score_v1`.
+- Production v1 is scoped to the W-bottom subtype only. It is not the complete
+  neckline breakout family.
 - The formal condition requires 45-session non-bearish pre-signal context.
 - The 90-session context is score/risk adjustment only, not an entry exclusion.
 - The formal operation evidence is stored in
   `output/latest/approved_operation_patterns_latest.csv`.
 - Raw research candidate rows remain advisory-only unless a later PR promotes a
   new approval version.
+- Inverse head-and-shoulders, triple bottom, and other structured-bottom
+  neckline breakouts remain backlog surfaces. They must not be silently mixed
+  into this v1 without separate research evidence and a promotion PR.
 
 Earlier sections in this document still explain the review logic and rollout
 boundary that led to the production sync. Future changes should add a new
@@ -20,20 +25,24 @@ approval version instead of mutating the meaning of this v1 silently.
 
 ## Purpose
 
-The intended model is a confirmed neckline breakout with volume expansion. It
-is not a generic previous-high breakout, not a near-pressure watch signal, and
-not a platform-inside strengthening signal.
+The production v1 model is a W-bottom neckline breakout with volume expansion.
+It is not a generic previous-high breakout, not a near-pressure watch signal,
+not a platform-inside strengthening signal, and not the full set of all
+possible neckline breakout patterns.
 
 The broader breakout review should be split into two model families:
 
 | model family | proposed model_id | meaning |
 |---|---|---|
 | descending resistance breakout | `descending_resistance_volume_breakout` | Price breaks above a descending resistance line drawn from audited swing highs. This is not a neckline model. |
-| bottom-pattern neckline breakout | `neckline_volume_breakout_confirmation` | Price breaks above the neckline of an audited bottoming pattern such as W-bottom, inverse head-and-shoulders, triple bottom, or another structured bottom. |
+| W-bottom neckline breakout | `neckline_volume_breakout_confirmation` v1 | Price breaks above the neckline of an audited W-bottom structure. |
+| other structured neckline breakout | future model ids or future approval versions | Inverse head-and-shoulders, triple bottom, or structured-bottom-other require separate detectors and promotion evidence. |
 
-This PR documents the neckline family. The descending-resistance family should
-be specified and implemented separately so swing-high resistance lines are not
-misclassified as necklines.
+This PR documents the W-bottom neckline subtype that is currently in
+production. The descending-resistance family and other structured neckline
+subtypes should be specified and implemented separately so swing-high
+resistance lines and unimplemented bottom patterns are not misclassified as
+this W-bottom model.
 
 The model should eventually replace or reduce the need for these currently
 blocked or overlapping production surfaces:
@@ -93,7 +102,7 @@ deleted or folded into the confirmed-breakout model as the first step.
 
 ```text
 model_id: neckline_volume_breakout_confirmation
-model_name: Neckline volume breakout confirmation
+model_name: W-bottom neckline volume breakout confirmation
 owner_lane: daily_model_maintenance
 selection_level: individual_stock
 surface_type: stock_entry_model
@@ -102,9 +111,10 @@ surface_type: stock_entry_model
 Business meaning:
 
 ```text
-The stock has closed above an auditable neckline reference with clear volume
-confirmation. Signal-day candle quality affects score and risk tags, not
-whether the neckline breakout exists.
+The stock has closed above an auditable W-bottom neckline reference with clear
+volume confirmation. Signal-day candle quality affects score and risk tags, not
+whether the W-bottom neckline breakout exists. Other neckline pattern families
+are not part of this v1.
 ```
 
 ## Neckline Reference Rule
@@ -112,15 +122,15 @@ whether the neckline breakout exists.
 Do not call the signal a neckline model if the implementation only uses a
 generic previous-N-day high or 60-day high.
 
-The neckline model should expose a `neckline_pattern_subtype` field. Initial
-subtypes:
+The broader neckline family may eventually expose a `neckline_pattern_subtype`
+field. Production v1 currently supports only the W-bottom subtype:
 
 | subtype | meaning | first implementation status |
 |---|---|---|
-| `w_bottom` | two qualifying troughs with the neckline at the rebound high between them | first implementation priority because current production code already has W-bottom geometry support |
+| `w_bottom` | two qualifying troughs with the neckline at the rebound high between them | production v1 |
 | `inverse_head_and_shoulders` | left shoulder, lower head, right shoulder, with neckline through the two rebound highs | backlog until a dedicated detector exists |
 | `triple_bottom` | three bottom attempts under a shared resistance or neckline zone | backlog until a dedicated detector exists |
-| `structured_bottom_other` | bottoming structure with an auditable neckline but not confidently classified into the above subtypes | allowed only with strict audit fields; must not become a generic previous-high breakout bucket |
+| `structured_bottom_other` | bottoming structure with an auditable neckline but not confidently classified into the above subtypes | backlog; must not become a generic previous-high breakout bucket |
 
 Allowed neckline references, in priority order:
 
@@ -309,9 +319,15 @@ confirmation path.
 
 ## Position-Level Rule
 
-This model is intended to represent a mid-to-high-position neckline
-confirmation. It should not require the same low-position rule as
-`volume_range_breakout` or `w_bottom_right_side`.
+This model is the confirmed-breakout counterpart of the W-bottom structure. It
+does not require the same low-position early-entry rule as
+`w_bottom_right_side`, because confirmation happens after the right side has
+already moved toward or above the W-bottom neckline.
+
+Position level is therefore a review, score, or risk-label feature in v1. It
+must not broaden this model into a generic neckline family and must not mix in
+inverse head-and-shoulders, triple bottom, or structured-bottom-other
+detectors.
 
 Recommended feature:
 
@@ -323,8 +339,8 @@ Initial interpretation:
 
 | price_position_120d | treatment |
 |---|---|
-| `< 0.35` | low-position; likely belongs to W-bottom or range breakout review |
-| `0.35..0.80` | preferred mid-position confirmation zone |
+| `< 0.35` | low-position W-bottom confirmation; eligible if the W-bottom neckline and volume rules pass |
+| `0.35..0.80` | normal W-bottom confirmation zone |
 | `> 0.80` | high-position; eligible, but should be labeled for review rather than automatically rejected or penalized |
 
 Do not block the first implementation solely because `price_position_120d` is
