@@ -11,7 +11,13 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
-from build_daily_model_parameter_research import build_model_parity, rule_specs, sample_status  # noqa: E402
+from build_daily_model_parameter_research import (  # noqa: E402
+    build_model_parity,
+    build_price_pullback_operation_research,
+    current_price_pullback_baseline_proxy,
+    rule_specs,
+    sample_status,
+)
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
 from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
@@ -171,6 +177,65 @@ def test_price_pullback_does_not_require_breakout() -> None:
         }
     )
     assert bool(spec.condition(df).iloc[0])
+
+
+def test_price_pullback_production_proxy_replay_accepts_trend_fallbacks() -> None:
+    df = pd.DataFrame(
+        {
+            "distance_ema23_pct": [1.0, 12.0, 12.0],
+            "platform_low": [0.0, 100.0, 80.0],
+            "short_platform_low": [0.0, 0.0, 0.0],
+            "previous_20d_low": [0.0, 100.0, 80.0],
+            "low_20": [0.0, 100.0, 80.0],
+            "range_low_20d_prev": [0.0, 100.0, 80.0],
+            "close": [101.0, 104.0, 120.0],
+            "ema23": [100.0, 90.0, 130.0],
+            "ma20": [120.0, 100.0, 140.0],
+            "ema23_slope_pct": [-1.0, -2.0, -2.0],
+            "ema23_slope_5d_pct": [-1.0, -2.0, -2.0],
+            "ma5_turning_up_flag": [False, False, False],
+            "ma10_turning_up_flag": [False, False, False],
+        }
+    )
+
+    assert current_price_pullback_baseline_proxy(df).tolist() == [True, True, False]
+
+
+def test_price_pullback_operation_research_stays_advisory_only() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2317", "2454"],
+            "distance_ema23_pct": [1.0, 1.0, 1.0],
+            "platform_low": [100.0, 100.0, 100.0],
+            "short_platform_low": [100.0, 100.0, 100.0],
+            "previous_20d_low": [100.0, 100.0, 100.0],
+            "low_20": [100.0, 100.0, 100.0],
+            "range_low_20d_prev": [100.0, 100.0, 100.0],
+            "close": [101.0, 101.0, 101.0],
+            "ema23": [100.0, 100.0, 100.0],
+            "ma20": [101.0, 101.0, 101.0],
+            "ema23_slope_pct": [1.0, 1.0, 1.0],
+            "ema23_slope_5d_pct": [1.0, 1.0, 1.0],
+            "ma5_turning_up_flag": [False, False, False],
+            "ma10_turning_up_flag": [False, False, False],
+            "next_open_to_d10_close_return_pct": [6.0, -4.0, 1.0],
+            "next_open_to_d20_close_return_pct": [6.0, -4.0, 1.0],
+            "next_open_to_d20_high_return_pct": [6.0, 3.0, 9.0],
+            "next_open_to_d20_low_return_pct": [-2.0, -6.0, -6.0],
+        }
+    )
+
+    research = build_price_pullback_operation_research(df)
+    assert not research.empty
+    assert research["approved_for_daily"].eq(False).all()
+    assert research["advisory_status"].eq("not_production_ready_research_only").all()
+
+    high_target = research[
+        research["operation_candidate_id"].eq("d20_high_target5_low_stop5_order_unresolved")
+    ].iloc[0]
+    assert high_target["win_count"] == 1
+    assert high_target["loss_count"] == 1
+    assert high_target["ambiguous_order_count"] == 1
 
 
 def test_hot_theme_pullback_uses_strict_historical_theme_gate() -> None:
