@@ -77,8 +77,6 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 "revenue_unreacted_range",
                 "w_bottom_right_side",
                 "neckline_volume_breakout_confirmation",
-                "near_high_neckline_challenge",
-                "platform_strengthening",
                 "pullback_short_reclaim",
                 "tdcc_stealth_accumulation",
                 "tdcc_short_term_continuation_d5_d10",
@@ -98,6 +96,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(params.loc["short_term_surge_d5_d10", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["explosive_volume_red_candle", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["disposition_attention_event_tag", "pdf_visibility"], "pdf_risk_tag_only")
+        self.assertNotIn("near_high_neckline_challenge", params.index)
+        self.assertNotIn("platform_strengthening", params.index)
 
     def test_formal_pdf_models_do_not_keep_legacy_common_scoring(self) -> None:
         source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
@@ -122,8 +122,6 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 "revenue_unreacted_range",
                 "w_bottom_right_side",
                 "neckline_volume_breakout_confirmation",
-                "near_high_neckline_challenge",
-                "platform_strengthening",
                 "pullback_short_reclaim",
                 "tdcc_stealth_accumulation",
             },

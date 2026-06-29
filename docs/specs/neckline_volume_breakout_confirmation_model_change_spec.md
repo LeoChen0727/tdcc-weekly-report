@@ -412,12 +412,15 @@ Do not delete old model ids as the first implementation step.
 Recommended rollout:
 
 1. Add `neckline_volume_breakout_confirmation` as a new independent model.
+   Completed.
 2. Validate selection counts and overlap against
    `near_high_neckline_challenge`, `platform_strengthening`,
    `w_bottom_right_side`, and `volume_range_breakout`.
+   Completed through the approved 45-day signal / 90-day score evidence.
 3. If the new model covers the intended confirmed-breakout surface, mark
    `near_high_neckline_challenge` and/or `platform_strengthening` as deprecated
    through contract fields in a separate explicit model-change step.
+   Completed for both old model ids on 2026-06-29.
 4. Only remove old code after contracts, tests, daily PDF consumers, and
    research/backtest parity no longer require those model ids.
 

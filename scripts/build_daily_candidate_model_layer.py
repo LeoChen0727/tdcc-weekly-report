@@ -125,6 +125,10 @@ CORE_AI_BUCKETS = {
 
 BULLISH_WARRANT = {"call_inflow", "call_strong_inflow", "call_put_bullish"}
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation"}
+DEPRECATED_DAILY_MODEL_IDS = {
+    "near_high_neckline_challenge",
+    "platform_strengthening",
+}
 
 
 CATEGORY_ZH = {
@@ -2565,7 +2569,7 @@ def cond_tdcc_stealth(row: pd.Series) -> bool:
 
 
 def build_specs() -> list[ModelSpec]:
-    return [
+    specs = [
         ModelSpec(
             "volume_range_breakout",
             "放量攻擊模型",
@@ -2687,6 +2691,7 @@ def build_specs() -> list[ModelSpec]:
             score_tdcc_stealth,
         ),
     ]
+    return [spec for spec in specs if spec.model_id not in DEPRECATED_DAILY_MODEL_IDS]
 
 def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []

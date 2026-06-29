@@ -358,8 +358,9 @@ def neckline_approval_row(generated_at: str) -> dict[str, Any]:
             "90日 context 只作分數與風險調整，原始 research candidate rows 仍維持 research-only。"
         ),
         "risk_notes_zh": (
-            "PDF標題下方必須標示操作規則勝率與含和局成功率；此 approval 不移除 "
-            "near_high_neckline_challenge 或 platform_strengthening。"
+            "PDF標題下方必須標示操作規則勝率與含和局成功率；"
+            "neckline_volume_breakout_confirmation 已接手正式 confirmed-breakout surface，"
+            "near_high_neckline_challenge 與 platform_strengthening 由 contract deprecation 停用。"
         ),
     }
 

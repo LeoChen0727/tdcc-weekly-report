@@ -13,6 +13,7 @@ if str(SCRIPTS) not in sys.path:
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
 from build_daily_model_parameter_research import build_model_parity, rule_specs, sample_status  # noqa: E402
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
+from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
 
 def test_sample_status_thresholds() -> None:
@@ -100,6 +101,16 @@ def test_model_parity_artifact_marks_proxy_blockers() -> None:
 
 def test_daily_model_research_parity_validator_rule_specs_pass() -> None:
     assert validate_rule_specs() == []
+
+
+def test_contract_parity_monitor_excludes_deprecated_registry_only_models() -> None:
+    rows, _, source_errors = build_parity_rows()
+    model_ids = {row["model_id"] for row in rows}
+
+    assert source_errors == []
+    assert "neckline_volume_breakout_confirmation" in model_ids
+    assert "near_high_neckline_challenge" not in model_ids
+    assert "platform_strengthening" not in model_ids
 
 
 def test_research_only_rule_not_pdf_core() -> None:

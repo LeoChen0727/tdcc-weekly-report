@@ -1,6 +1,6 @@
 # Model Operation Readiness
 
-- generated_at: `2026-06-29 11:32:55 Asia/Taipei`
+- generated_at: `2026-06-29 12:17:27 Asia/Taipei`
 - purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries
 - rule: `approved_for_daily=True` requires an explicit approved operation artifact
 - rule: raw research evidence rows can remain research-only even after an operation module is approved
@@ -10,7 +10,7 @@
 
 | operation_module_status | count |
 | --- | --- |
-| baseline_only_no_validated_operation_module | 8 |
+| baseline_only_no_validated_operation_module | 6 |
 | approved_operation_v1 | 2 |
 | approved_operation_v2 | 1 |
 
@@ -18,7 +18,7 @@
 
 | daily_adapter_status | count |
 | --- | --- |
-| not_started | 8 |
+| not_started | 6 |
 | model_header_evidence_ready | 2 |
 | ready_approved_operation_guidance | 1 |
 
@@ -26,14 +26,14 @@
 
 | approved_for_daily | count |
 | --- | --- |
-| False | 8 |
+| False | 6 |
 | True | 3 |
 
 ## presentation_allowed
 
 | presentation_allowed | count |
 | --- | --- |
-| False | 8 |
+| False | 6 |
 | True | 3 |
 
 ## Status Table
@@ -44,8 +44,6 @@
 | w_bottom_right_side | production_parity | approved_operation_v2 | model_header_evidence_ready | True | approved_for_daily_v2 | w_bottom_early_entry_operation_v2 | w_bottom_early_entry_operation_v2_20260629 | True | approved_daily_operation_guidance | pdf_model_header_evidence_ready | packet_model_header_evidence_ready | W-bottom early-entry operation v2 approval is ready; positive-return rate and average return must be labeled as D+20/D+40 operation metrics | W底右低點早期進場 v2 已由 approved_operation_patterns 批准；此模型使用標題下方證據，不共用放量攻擊 operation section adapter。 |
 | neckline_volume_breakout_confirmation | production_parity | approved_operation_v1 | model_header_evidence_ready | True | approved_for_daily_v1 | neckline_strict_45_signal_90_score_v1 | neckline_strict_45_signal_90_score_v1_20260629 | True | approved_daily_operation_guidance | pdf_model_header_evidence_ready | packet_model_header_evidence_ready | neckline strict 45 signal / 90 score operation approval is ready; operation-rule win rate and neutral-inclusive success rate must be labeled separately | 頸線帶量突破 v1 已由 approved_operation_patterns 批准；45日 context 是入選訊號，90日 context 只作分數與風險調整；此模型使用標題下方證據，不共用放量攻擊 operation section adapter。 |
 | hot_theme_pullback | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
-| near_high_neckline_challenge | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | neckline-specific fields and already-confirmed-breakout flags are not fully backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
-| platform_strengthening | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | platform_base_flag and platform width fields are not fully point-in-time backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | price_pullback_23ema | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | support/platform entry flags are not fully backfilled in the historical research frame | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | pullback_short_reclaim | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | revenue_unreacted_range | proxy_only | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | historical revenue panel is incomplete; strong_revenue gate cannot be replayed point-in-time | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
