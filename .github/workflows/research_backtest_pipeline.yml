@@ -221,6 +221,7 @@ jobs:
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
           git add output/latest/research_backtest/daily_model_research_parity_latest.csv output/latest/research_backtest/daily_model_research_parity_latest.md || true
+          git add output/latest/research_backtest/price_pullback_23ema_operation_research_latest.csv output/latest/research_backtest/price_pullback_23ema_operation_research_latest.md || true
           git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
           git add output/latest/approved_operation_patterns_latest.csv output/latest/approved_operation_patterns_latest.md || true
           git add output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.csv output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.md || true
@@ -231,6 +232,7 @@ jobs:
           git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
           git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
           git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true
+          git add docs/latest/price_pullback_23ema_operation_research_latest.csv docs/latest/price_pullback_23ema_operation_research_latest.md || true
           git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
           git add docs/latest/approved_operation_patterns_latest.csv docs/latest/approved_operation_patterns_latest.md || true
           git add docs/latest/daily_published_snapshot_ranking_backtest_latest.csv docs/latest/daily_published_snapshot_ranking_backtest_latest.md || true

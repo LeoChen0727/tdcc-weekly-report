@@ -1,6 +1,6 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-06-29 13:09:13 Asia/Taipei`
+- generated_at: `2026-06-29 18:45:28 Asia/Taipei`
 - price_history_files: `2376`
 - max_price_rows: `292`
 - data_range: `20250407` ~ `20260626`
@@ -82,10 +82,10 @@
 | price_pullback_23ema | ema-2.5_5_volmax1 | parameter_variant | variant_not_baseline | 65472 | 38.88 | 42.59 | 43.29 | 44.64 | 0.23 | 0.98 | ok_first_pass | 距 23EMA -2.5% 至 5% + 23EMA 向上 + 量比 <= 1 |
 | price_pullback_23ema | ema-2.5_5_volmax1.2 | parameter_variant | variant_not_baseline | 75188 | 39.03 | 42.73 | 43.47 | 44.71 | 0.24 | 0.97 | ok_first_pass | 距 23EMA -2.5% 至 5% + 23EMA 向上 + 量比 <= 1.2 |
 | price_pullback_23ema | ema-2.5_5_volmax1.5 | parameter_variant | variant_not_baseline | 84274 | 39.12 | 42.73 | 43.46 | 44.72 | 0.25 | 0.97 | ok_first_pass | 距 23EMA -2.5% 至 5% + 23EMA 向上 + 量比 <= 1.5 |
-| price_pullback_23ema | production_current_proxy | production_baseline | production_proxy | 102216 | 39.11 | 42.59 | 43.31 | 44.59 | 0.25 | 0.96 | ok_first_pass | production baseline proxy: near 23EMA/support + EMA23 slope proxy up |
 | price_pullback_23ema | ema-1.5_3_volmax1 | parameter_variant | variant_not_baseline | 51111 | 38.78 | 42.42 | 43.16 | 44.51 | 0.2 | 0.86 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1 |
 | price_pullback_23ema | ema-1.5_3_volmax1.2 | parameter_variant | variant_not_baseline | 58156 | 38.98 | 42.58 | 43.3 | 44.55 | 0.21 | 0.84 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1.2 |
 | price_pullback_23ema | ema-1.5_3_volmax1.5 | parameter_variant | variant_not_baseline | 64542 | 39.14 | 42.58 | 43.27 | 44.48 | 0.21 | 0.83 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1.5 |
+| price_pullback_23ema | production_current_proxy | production_baseline | production_proxy | 296964 | 38.95 | 42.83 | 43.68 | 44.59 | 0.22 | 0.7 | ok_first_pass | production baseline proxy replay: near 23EMA/support + MA/EMA trend proxy up |
 | pullback_short_reclaim | prior20up_reclaim_vol1.2 | parameter_variant | variant_not_baseline | 2090 | 37.42 | 43.27 | 45.69 | 48.0 | 1.02 | 1.96 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.2 |
 | pullback_short_reclaim | prior20up_reclaim_vol1.5 | parameter_variant | variant_not_baseline | 1303 | 38.22 | 42.83 | 44.9 | 46.43 | 1.01 | 1.95 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.5 |
 | pullback_short_reclaim | production_current_proxy | production_baseline | production_proxy | 85294 | 39.03 | 43.19 | 44.51 | 46.17 | 0.62 | 1.91 | ok_first_pass | production baseline proxy: 20d return >= 5%, pullback/reclaim proxy, EMA23 up |

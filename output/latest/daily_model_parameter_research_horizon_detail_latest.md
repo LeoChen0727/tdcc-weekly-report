@@ -1,6 +1,6 @@
 # Daily Model Parameter Research - Horizon Detail
 
-- generated_at: `2026-06-29 13:09:13 Asia/Taipei`
+- generated_at: `2026-06-29 18:45:28 Asia/Taipei`
 - entry_basis: `signal_date_next_open`
 
 | model_id | parameter_set_id | horizon | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | avg_high_return_pct | high_5pct_hit_rate_pct |
@@ -15,16 +15,16 @@
 | volume_range_breakout | production_current | D+8 | 4141 | 43.25 | 0.94 | -1.76 | 11.8 | 60.98 |
 | volume_range_breakout | production_current | D+9 | 4121 | 43.22 | 1.28 | -1.67 | 12.64 | 62.73 |
 | volume_range_breakout | production_current | D+10 | 4106 | 44.13 | 1.65 | -1.54 | 13.4 | 64.08 |
-| price_pullback_23ema | production_current_proxy | D+1 | 102216 | 39.11 | -0.18 | -0.22 | 1.4 | 5.44 |
-| price_pullback_23ema | production_current_proxy | D+2 | 101510 | 41.81 | -0.09 | -0.29 | 2.31 | 12.84 |
-| price_pullback_23ema | production_current_proxy | D+3 | 100784 | 42.59 | 0.01 | -0.32 | 3.04 | 18.51 |
-| price_pullback_23ema | production_current_proxy | D+4 | 100080 | 43.04 | 0.13 | -0.36 | 3.68 | 23.08 |
-| price_pullback_23ema | production_current_proxy | D+5 | 99435 | 43.31 | 0.25 | -0.39 | 4.29 | 27.09 |
-| price_pullback_23ema | production_current_proxy | D+6 | 98771 | 43.37 | 0.37 | -0.41 | 4.86 | 30.36 |
-| price_pullback_23ema | production_current_proxy | D+7 | 98139 | 43.69 | 0.49 | -0.43 | 5.39 | 33.2 |
-| price_pullback_23ema | production_current_proxy | D+8 | 97492 | 43.92 | 0.62 | -0.45 | 5.9 | 35.75 |
-| price_pullback_23ema | production_current_proxy | D+9 | 96871 | 44.38 | 0.79 | -0.44 | 6.4 | 38.16 |
-| price_pullback_23ema | production_current_proxy | D+10 | 96282 | 44.59 | 0.96 | -0.45 | 6.88 | 40.2 |
+| price_pullback_23ema | production_current_proxy | D+1 | 296964 | 38.95 | -0.15 | -0.18 | 1.27 | 4.36 |
+| price_pullback_23ema | production_current_proxy | D+2 | 295454 | 41.69 | -0.07 | -0.25 | 2.1 | 10.77 |
+| price_pullback_23ema | production_current_proxy | D+3 | 293968 | 42.83 | 0.03 | -0.27 | 2.77 | 16.01 |
+| price_pullback_23ema | production_current_proxy | D+4 | 292542 | 43.34 | 0.12 | -0.3 | 3.36 | 20.41 |
+| price_pullback_23ema | production_current_proxy | D+5 | 291161 | 43.68 | 0.22 | -0.32 | 3.91 | 24.28 |
+| price_pullback_23ema | production_current_proxy | D+6 | 289728 | 43.89 | 0.32 | -0.34 | 4.41 | 27.55 |
+| price_pullback_23ema | production_current_proxy | D+7 | 288304 | 44.17 | 0.42 | -0.36 | 4.89 | 30.45 |
+| price_pullback_23ema | production_current_proxy | D+8 | 286893 | 44.32 | 0.51 | -0.37 | 5.34 | 33.0 |
+| price_pullback_23ema | production_current_proxy | D+9 | 285486 | 44.54 | 0.6 | -0.38 | 5.77 | 35.3 |
+| price_pullback_23ema | production_current_proxy | D+10 | 284059 | 44.59 | 0.7 | -0.4 | 6.19 | 37.34 |
 | hot_theme_pullback | production_current_proxy | D+1 | 3276 | 45.05 | 0.04 | -0.11 | 2.17 | 11.2 |
 | hot_theme_pullback | production_current_proxy | D+2 | 3276 | 51.31 | 0.59 | 0.23 | 3.68 | 25.67 |
 | hot_theme_pullback | production_current_proxy | D+3 | 3033 | 48.27 | 0.54 | 0.0 | 4.92 | 35.11 |

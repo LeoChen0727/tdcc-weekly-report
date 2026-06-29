@@ -37,6 +37,11 @@ DOCS_DETAIL_CSV = DOCS_LATEST_DIR / OUT_DETAIL_CSV.name
 DOCS_DETAIL_MD = DOCS_LATEST_DIR / OUT_DETAIL_MD.name
 DOCS_PARITY_CSV = DOCS_LATEST_DIR / OUT_PARITY_CSV.name
 DOCS_PARITY_MD = DOCS_LATEST_DIR / OUT_PARITY_MD.name
+PRICE_PULLBACK_OPERATION_CSV = RESEARCH_LATEST_DIR / "price_pullback_23ema_operation_research_latest.csv"
+PRICE_PULLBACK_OPERATION_MD = RESEARCH_LATEST_DIR / "price_pullback_23ema_operation_research_latest.md"
+PRICE_PULLBACK_OPERATION_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_operation_research.csv"
+DOCS_PRICE_PULLBACK_OPERATION_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_OPERATION_CSV.name
+DOCS_PRICE_PULLBACK_OPERATION_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_OPERATION_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 MIN_OK_SAMPLE = 100
@@ -86,12 +91,31 @@ def trueish(series: pd.Series) -> pd.Series:
     return series.astype(str).str.lower().isin(["true", "1", "yes"])
 
 
+def numeric_column(df: pd.DataFrame, name: str) -> pd.Series:
+    if name not in df.columns:
+        return pd.Series(math.nan, index=df.index)
+    return pd.to_numeric(df[name], errors="coerce")
+
+
+def trueish_column(df: pd.DataFrame, name: str) -> pd.Series:
+    if name not in df.columns:
+        return bool_series(df)
+    return trueish(df[name])
+
+
 def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     out = df.sort_values(["stock_id", "date"]).copy()
     groups = out.groupby("stock_id", group_keys=False)
 
+    if "ma5" not in out.columns:
+        out["ma5"] = groups["close"].transform(lambda s: s.rolling(5, min_periods=3).mean())
+    if "ma10" not in out.columns:
+        out["ma10"] = groups["close"].transform(lambda s: s.rolling(10, min_periods=5).mean())
+    out["ma5_turning_up_flag"] = out["ma5"] > groups["ma5"].shift(1)
+    out["ma10_turning_up_flag"] = out["ma10"] > groups["ma10"].shift(1)
     out["ema23_prev5"] = groups["ema23"].shift(5)
     out["ema23_slope_5d_pct"] = (out["ema23"] / out["ema23_prev5"] - 1.0) * 100.0
+    out["ema23_slope_pct"] = out["ema23_slope_5d_pct"]
     out["previous_close"] = groups["close"].shift(1)
     out["signal_return_1d_pct"] = (out["close"] / out["previous_close"] - 1.0) * 100.0
     out["close_above_open"] = out["close"] > out["open"]
@@ -132,6 +156,22 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         out[f"range_width_{window}d_pct"] = (high / low - 1.0) * 100.0
         out[f"range_breakout_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
         out[f"distance_to_range_high_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
+
+    out["distance_to_ema23_pct"] = out["distance_ema23_pct"]
+    out["distance_23ema_pct"] = out["distance_ema23_pct"]
+    out["gap_ema23_pct"] = out["distance_ema23_pct"]
+    out["platform_high"] = out["range_high_20d_prev"]
+    out["platform_low"] = out["range_low_20d_prev"]
+    out["short_platform_high"] = out["range_high_10d_prev"]
+    out["short_platform_low"] = out["range_low_10d_prev"]
+    out["previous_20d_low"] = out["range_low_20d_prev"]
+    out["low_20"] = out["range_low_20d_prev"]
+    support_zone = (
+        (out["previous_20d_low"] > 0)
+        & (out["close"] >= out["previous_20d_low"] * 0.98)
+        & (out["close"] <= out["previous_20d_low"] * 1.08)
+    )
+    out["pullback_entry_zone_flag"] = between(out["distance_ema23_pct"], -2.5, 5.0) | support_zone
 
     range_pct = (out["high"] - out["low"]) / out["previous_close"].replace(0, pd.NA) * 100.0
     out["locked_limit_up_breakout"] = (
@@ -238,6 +278,34 @@ def support_retest_mask(d: pd.DataFrame, low_col: str = "range_low_20d_prev") ->
     )
 
 
+def price_pullback_near_ema23_or_support(d: pd.DataFrame) -> pd.Series:
+    distance = numeric_column(d, "distance_ema23_pct")
+    near_ema23 = between(distance, -2.5, 5.0)
+    support_cols = ["platform_low", "short_platform_low", "previous_20d_low", "low_20", "range_low_20d_prev"]
+    support = bool_series(d)
+    close = numeric_column(d, "close")
+    for col in support_cols:
+        low = numeric_column(d, col)
+        support = support | ((low > 0) & (close >= low * 0.98) & (close <= low * 1.08))
+    return (near_ema23 | support).fillna(False)
+
+
+def price_pullback_ema23_slope_proxy_up(d: pd.DataFrame) -> pd.Series:
+    close = numeric_column(d, "close")
+    ema23 = numeric_column(d, "ema23")
+    ma20 = numeric_column(d, "ma20")
+    slope = numeric_column(d, "ema23_slope_pct")
+    if slope.isna().all():
+        slope = numeric_column(d, "ema23_slope_5d_pct")
+    return (
+        trueish_column(d, "ma5_turning_up_flag")
+        | trueish_column(d, "ma10_turning_up_flag")
+        | (slope > 0)
+        | ((close > 0) & (ema23 > 0) & (close >= ema23))
+        | ((ema23 > 0) & (ma20 > 0) & (ema23 >= ma20 * 0.98))
+    ).fillna(False)
+
+
 def current_volume_range_breakout_baseline(d: pd.DataFrame) -> pd.Series:
     normal_volume = (
         (d["volume_ratio_prev20"] >= 2.0)
@@ -249,10 +317,7 @@ def current_volume_range_breakout_baseline(d: pd.DataFrame) -> pd.Series:
 
 
 def current_price_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
-    return (
-        (between(d["distance_ema23_pct"], -2.5, 5.0) | support_retest_mask(d))
-        & (d["ema23_slope_5d_pct"] > 0)
-    )
+    return price_pullback_near_ema23_or_support(d) & price_pullback_ema23_slope_proxy_up(d)
 
 
 def current_hot_theme_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
@@ -393,13 +458,13 @@ def production_baseline_specs() -> list[RuleSpec]:
             "price_pullback_23ema",
             "股價回檔模型",
             "production_current_proxy",
-            "production baseline proxy: near 23EMA/support + EMA23 slope proxy up",
+            "production baseline proxy replay: near 23EMA/support + MA/EMA trend proxy up",
             "pdf_core_model",
             current_price_pullback_baseline_proxy,
-            "Production uses support/platform flags when available; research approximates support from historical 20d range low.",
+            "Research replays production pullback support/EMA and MA/EMA trend proxy fields from point-in-time price history; operation rules remain advisory.",
             "production_baseline",
             "production_proxy",
-            "support/platform entry flags are not fully backfilled in the historical research frame",
+            "as-published daily candidate row parity and a validated operation module are still pending",
             "production_current",
         ),
         RuleSpec(
@@ -896,6 +961,182 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+PRICE_PULLBACK_OPERATION_CANDIDATES = [
+    {
+        "operation_candidate_id": "d10_close_target5_loss3",
+        "holding_window_days": 10,
+        "target_basis": "D+10_close",
+        "target_return_pct": 5.0,
+        "stop_basis": "D+10_close",
+        "stop_return_pct": -3.0,
+        "entry_rule": "signal_date_next_open after price_pullback_23ema production proxy replay",
+        "exit_rule": "research close-only target at D+10; no intraday path ordering",
+    },
+    {
+        "operation_candidate_id": "d20_close_target5_loss3",
+        "holding_window_days": 20,
+        "target_basis": "D+20_close",
+        "target_return_pct": 5.0,
+        "stop_basis": "D+20_close",
+        "stop_return_pct": -3.0,
+        "entry_rule": "signal_date_next_open after price_pullback_23ema production proxy replay",
+        "exit_rule": "research close-only target at D+20; no intraday path ordering",
+    },
+    {
+        "operation_candidate_id": "d20_high_target5_low_stop5_order_unresolved",
+        "holding_window_days": 20,
+        "target_basis": "max_D+20_intraday_high",
+        "target_return_pct": 5.0,
+        "stop_basis": "min_D+20_intraday_low",
+        "stop_return_pct": -5.0,
+        "entry_rule": "signal_date_next_open after price_pullback_23ema production proxy replay",
+        "exit_rule": "research high/low target-stop study; same-window hit order is unresolved",
+    },
+    {
+        "operation_candidate_id": "d20_high_target8_low_stop5_order_unresolved",
+        "holding_window_days": 20,
+        "target_basis": "max_D+20_intraday_high",
+        "target_return_pct": 8.0,
+        "stop_basis": "min_D+20_intraday_low",
+        "stop_return_pct": -5.0,
+        "entry_rule": "signal_date_next_open after price_pullback_23ema production proxy replay",
+        "exit_rule": "research high/low target-stop study; same-window hit order is unresolved",
+    },
+]
+
+
+def _rate(count: int, total: int) -> float | str:
+    if total <= 0:
+        return ""
+    return round(count / total * 100.0, 2)
+
+
+def build_price_pullback_operation_research(df: pd.DataFrame) -> pd.DataFrame:
+    mask = current_price_pullback_baseline_proxy(df).fillna(False)
+    picked = df[mask].copy()
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for candidate in PRICE_PULLBACK_OPERATION_CANDIDATES:
+        h = int(candidate["holding_window_days"])
+        close_col = f"next_open_to_d{h}_close_return_pct"
+        high_col = f"next_open_to_d{h}_high_return_pct"
+        low_col = f"next_open_to_d{h}_low_return_pct"
+        required = [close_col]
+        if str(candidate["target_basis"]).startswith("max_"):
+            required.extend([high_col, low_col])
+        valid = picked.dropna(subset=required).copy() if all(col in picked.columns for col in required) else picked.iloc[0:0].copy()
+        mature = len(valid)
+
+        target = float(candidate["target_return_pct"])
+        stop = float(candidate["stop_return_pct"])
+        if mature and str(candidate["target_basis"]).startswith("max_"):
+            target_hit = valid[high_col] >= target
+            stop_hit = valid[low_col] <= stop
+            ambiguous = target_hit & stop_hit
+            win = target_hit & ~stop_hit
+            loss = stop_hit & ~target_hit
+            neutral = ~(win | loss | ambiguous)
+            avg_high = float(valid[high_col].mean())
+            high5_hit = float((valid[high_col] >= 5.0).mean() * 100.0)
+        elif mature:
+            win = valid[close_col] >= target
+            loss = valid[close_col] <= stop
+            ambiguous = bool_series(valid)
+            neutral = ~(win | loss)
+            avg_high = math.nan
+            high5_hit = math.nan
+        else:
+            win = loss = neutral = ambiguous = bool_series(valid)
+            avg_high = math.nan
+            high5_hit = math.nan
+
+        win_count = int(win.sum()) if mature else 0
+        loss_count = int(loss.sum()) if mature else 0
+        neutral_count = int(neutral.sum()) if mature else 0
+        ambiguous_count = int(ambiguous.sum()) if mature else 0
+        avg_close = float(valid[close_col].mean()) if mature else math.nan
+        median_close = float(valid[close_col].median()) if mature else math.nan
+        rows.append(
+            {
+                "generated_at": generated_at,
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "股價回檔模型",
+                "research_baseline_parameter_set_id": "production_current_proxy",
+                "research_baseline_status": "production_proxy",
+                "operation_candidate_id": candidate["operation_candidate_id"],
+                "advisory_status": "not_production_ready_research_only",
+                "approved_for_daily": False,
+                "entry_rule": candidate["entry_rule"],
+                "target_rule": f"{candidate['target_basis']} >= {target:g}%",
+                "stop_rule": f"{candidate['stop_basis']} <= {stop:g}%",
+                "exit_rule": candidate["exit_rule"],
+                "outcome_rule": "win/neutral/loss research labels only; not a validated trading module",
+                "holding_window_days": h,
+                "selected_stock_days": len(picked),
+                "selected_unique_stocks": picked["stock_id"].nunique() if not picked.empty else 0,
+                "mature_count": mature,
+                "win_count": win_count,
+                "neutral_count": neutral_count,
+                "loss_count": loss_count,
+                "ambiguous_order_count": ambiguous_count,
+                "win_rate_pct": _rate(win_count, mature),
+                "neutral_rate_pct": _rate(neutral_count, mature),
+                "loss_rate_pct": _rate(loss_count, mature),
+                "ambiguous_order_rate_pct": _rate(ambiguous_count, mature),
+                "avg_close_return_pct": round(avg_close, 2) if not math.isnan(avg_close) else "",
+                "median_close_return_pct": round(median_close, 2) if not math.isnan(median_close) else "",
+                "avg_high_return_pct": round(avg_high, 2) if not math.isnan(avg_high) else "",
+                "high_5pct_hit_rate_pct": round(high5_hit, 2) if not math.isnan(high5_hit) else "",
+                "path_order_limitation": (
+                    "high/low target-stop studies cannot determine whether target or stop happened first inside the holding window"
+                    if str(candidate["target_basis"]).startswith("max_")
+                    else "close-only study does not model intraday stop execution"
+                ),
+                "promotion_blocker": "requires exact daily candidate row parity plus validated buy/sell/stop operation module",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def write_price_pullback_operation_research(operation: pd.DataFrame) -> None:
+    write_csv(operation, PRICE_PULLBACK_OPERATION_CSV)
+    write_csv(operation, PRICE_PULLBACK_OPERATION_HISTORY_CSV)
+    write_csv(operation, DOCS_PRICE_PULLBACK_OPERATION_CSV)
+    lines = [
+        "# Price Pullback 23EMA Operation Research",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- entry_basis: `signal_date_next_open` after production proxy replay",
+        "- scope: advisory operation candidates only; this does not approve daily production use",
+        "- blocker: exact daily candidate row parity and validated buy/sell/stop module are still required before promotion",
+        "",
+        markdown_table(
+            operation,
+            [
+                "operation_candidate_id",
+                "mature_count",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "loss_rate_pct",
+                "ambiguous_order_rate_pct",
+                "avg_close_return_pct",
+                "avg_high_return_pct",
+                "high_5pct_hit_rate_pct",
+                "promotion_blocker",
+            ],
+            limit=50,
+        ),
+    ]
+    PRICE_PULLBACK_OPERATION_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
+    DOCS_PRICE_PULLBACK_OPERATION_MD.write_text(
+        PRICE_PULLBACK_OPERATION_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def write_model_parity(parity: pd.DataFrame) -> None:
     write_csv(parity, OUT_PARITY_CSV)
     write_csv(parity, DOCS_PARITY_CSV)
@@ -1073,6 +1314,7 @@ def main() -> int:
     detail_df = pd.DataFrame(details)
     coverage = coverage_stats()
     parity_df = build_model_parity(summary_df)
+    price_pullback_operation_df = build_price_pullback_operation_research(df)
 
     write_csv(summary_df, OUT_CSV)
     write_csv(detail_df, OUT_DETAIL_CSV)
@@ -1083,10 +1325,12 @@ def main() -> int:
     write_csv(detail_df, DOCS_DETAIL_CSV)
     write_markdown(summary_df, detail_df, coverage)
     write_model_parity(parity_df)
+    write_price_pullback_operation_research(price_pullback_operation_df)
 
     print(f"Saved {OUT_CSV} rows={len(summary_df)}")
     print(f"Saved {OUT_DETAIL_CSV} rows={len(detail_df)}")
     print(f"Saved {OUT_PARITY_CSV} rows={len(parity_df)}")
+    print(f"Saved {PRICE_PULLBACK_OPERATION_CSV} rows={len(price_pullback_operation_df)}")
     print(f"Saved {OUT_MD}")
     return 0
 

@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-06-29 13:14:17 Asia/Taipei`
+- generated_at: `2026-06-29 18:47:46 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -33,7 +33,7 @@
 | model_id | research_contract_version | promotion_required | parity_blocker | recommended_action |
 | --- | --- | --- | --- | --- |
 | hot_theme_pullback | research:production_current_proxy | True | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | research_variant_only_do_not_promote_without_explicit_promotion_pr |
-| price_pullback_23ema | research:production_current_proxy | True | support/platform entry flags are not fully backfilled in the historical research frame | research_variant_only_do_not_promote_without_explicit_promotion_pr |
+| price_pullback_23ema | research:production_current_proxy | True | as-published daily candidate row parity and a validated operation module are still pending | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | pullback_short_reclaim | research:production_current_proxy | True | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | revenue_unreacted_range | research:production_current_proxy | True | historical revenue panel is incomplete; strong_revenue gate cannot be replayed point-in-time | research_variant_only_do_not_promote_without_explicit_promotion_pr |
 | tdcc_short_term_continuation_d5_d10 | research:production_current_proxy | True | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies | research_variant_only_do_not_promote_without_explicit_promotion_pr |
