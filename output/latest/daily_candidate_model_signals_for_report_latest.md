@@ -1,6 +1,6 @@
 # Daily Candidate Model Signals For Report
 
-- generated_at: `2026-06-29 10:17:06 Asia/Taipei`
+- generated_at: `2026-06-29 11:33:50 Asia/Taipei`
 
 - Use this table for PDF model sections.
 - Contract: one row per report bucket + displayed model + stock.

@@ -1465,6 +1465,17 @@ def score_neckline_volume_breakout_confirmation(row: pd.Series) -> tuple[float, 
     neckline_distance = w_bottom_neckline_distance_pct(row, context_for_use)
     second_arc_ratio = w_bottom_second_arc_volume_ratio(row, context_for_use)
     red_candle_bonus, red_candle_components = w_bottom_red_candle_ratio_bonus(row, context_for_use)
+    context45 = neckline_context_window(row, NECKLINE_CONTEXT_ENTRY_WINDOW_DAYS)
+    context90_score, context90_components, context90_risks = neckline_context_90_score_adjustment(row)
+
+    if safe_str(context45.get("filter")) == "auto_non_bearish":
+        comps.append("45d non-bearish neckline context gate")
+    else:
+        risks.append("neckline_45d_context_gate_not_confirmed")
+    if context90_score:
+        score += context90_score
+    comps.extend(context90_components)
+    risks.extend(context90_risks)
 
     if not math.isnan(second_arc_ratio):
         if second_arc_ratio >= 1.5:
@@ -1687,6 +1698,8 @@ W_BOTTOM_RIGHT_SIDE_REBOUND_MIN = 3.0
 W_BOTTOM_RIGHT_SIDE_REBOUND_MAX = 15.0
 W_BOTTOM_LONG_POSITION_LOOKBACK_DAYS = 252
 W_BOTTOM_LONG_POSITION_MIN_DAYS = 180
+NECKLINE_CONTEXT_ENTRY_WINDOW_DAYS = 45
+NECKLINE_CONTEXT_SCORE_WINDOW_DAYS = 90
 
 
 def context_num(context: dict[str, float | str | bool] | None, *names: str) -> float:
@@ -1811,6 +1824,171 @@ def w_bottom_long_price_position_metrics(
         "w_bottom_current_vs_long_median_pct": current_vs_median,
         "w_bottom_current_vs_long_mean_pct": current_vs_mean,
     }
+
+
+def neckline_context_pct_change(end_value: float, start_value: float) -> float:
+    if math.isnan(start_value) or math.isnan(end_value) or start_value <= 0:
+        return math.nan
+    return (end_value / start_value - 1.0) * 100.0
+
+
+def neckline_context_max_drawdown_pct(closes: list[float]) -> float:
+    peak = -math.inf
+    worst = 0.0
+    for close in closes:
+        if math.isnan(close):
+            continue
+        peak = max(peak, close)
+        if peak > 0:
+            worst = min(worst, (close / peak - 1.0) * 100.0)
+    return worst if peak > 0 else math.nan
+
+
+def neckline_context_slope_pct_per_20d(closes: list[float]) -> float:
+    values = [value for value in closes if not math.isnan(value)]
+    if len(values) < 10 or values[0] <= 0:
+        return math.nan
+    n = len(values)
+    mean_x = (n - 1) / 2.0
+    mean_y = sum(values) / n
+    denom = sum((idx - mean_x) ** 2 for idx in range(n))
+    if denom == 0:
+        return math.nan
+    slope = sum((idx - mean_x) * (value - mean_y) for idx, value in enumerate(values)) / denom
+    return slope * 20.0 / values[0] * 100.0
+
+
+def neckline_context_classify(return_pct: float, range_pct: float, slope20_pct: float, drawdown_pct: float) -> str:
+    if any(math.isnan(value) for value in [return_pct, range_pct, slope20_pct, drawdown_pct]):
+        return "unknown"
+    if return_pct <= -12.0 or (slope20_pct <= -4.0 and drawdown_pct <= -18.0):
+        return "bearish"
+    if abs(return_pct) <= 8.0 and range_pct <= 35.0 and drawdown_pct >= -22.0:
+        return "sideways_or_consolidation"
+    if return_pct >= 8.0 and slope20_pct >= 1.25:
+        return "slow_uptrend"
+    return "volatile_mixed"
+
+
+def neckline_context_filter_result(context: str) -> str:
+    if context == "unknown":
+        return "unknown"
+    return "auto_bearish" if context == "bearish" else "auto_non_bearish"
+
+
+def explicit_neckline_context(row: pd.Series, window_days: int) -> dict[str, float | str | bool] | None:
+    suffix = str(window_days)
+    filter_value = text(row, f"neckline_context_filter_{suffix}", f"filter_{suffix}")
+    context = text(row, f"neckline_context_{suffix}", f"context_{suffix}")
+    if not filter_value and not context:
+        return None
+
+    return {
+        "available": True,
+        "window_days": window_days,
+        "context": context or ("bearish" if filter_value == "auto_bearish" else "unknown"),
+        "filter": filter_value or neckline_context_filter_result(context),
+        "return_pct": num(row, f"neckline_context_return_{suffix}", f"return_{suffix}"),
+        "range_pct": num(row, f"neckline_context_range_{suffix}", f"range_{suffix}"),
+        "slope20_pct": num(row, f"neckline_context_slope20_{suffix}", f"slope20_{suffix}"),
+        "drawdown_pct": num(row, f"neckline_context_drawdown_{suffix}", f"drawdown_{suffix}"),
+        "sessions": num(row, f"neckline_context_sessions_{suffix}", f"context_sessions_{suffix}"),
+        "source": "row_fields",
+    }
+
+
+def neckline_context_window(row: pd.Series, window_days: int) -> dict[str, float | str | bool]:
+    explicit = explicit_neckline_context(row, window_days)
+    if explicit is not None:
+        return explicit
+
+    stock_id = text(row, "stock_id")
+    df = price_history_for_stock(stock_id)
+    if df.empty or "date" not in df.columns:
+        return {"available": False, "window_days": window_days, "filter": "unknown", "context": "unknown"}
+
+    signal_date = text(row, "signal_date", "as_of_date", "date")
+    if signal_date:
+        dated = df[df["date"].astype(str) <= signal_date].copy()
+        if dated.empty:
+            return {"available": False, "window_days": window_days, "filter": "unknown", "context": "unknown"}
+        df = dated.reset_index(drop=True)
+    else:
+        df = df.reset_index(drop=True)
+
+    signal_idx = len(df) - 1
+    if signal_idx <= 1:
+        return {"available": False, "window_days": window_days, "filter": "unknown", "context": "unknown"}
+
+    start_idx = max(0, signal_idx - window_days)
+    window = df.iloc[start_idx:signal_idx].copy()
+    if len(window) < 20:
+        return {
+            "available": True,
+            "window_days": window_days,
+            "filter": "unknown",
+            "context": "unknown",
+            "sessions": len(window),
+            "source": "price_history",
+        }
+
+    closes = pd.to_numeric(window["close"], errors="coerce").tolist()
+    highs = pd.to_numeric(window.get("high", pd.Series(dtype=float)), errors="coerce").dropna()
+    lows = pd.to_numeric(window.get("low", pd.Series(dtype=float)), errors="coerce").dropna()
+    return_pct = neckline_context_pct_change(float(closes[-1]), float(closes[0]))
+    range_pct = (
+        (float(highs.max()) / float(lows.min()) - 1.0) * 100.0
+        if len(highs) and len(lows) and float(lows.min()) > 0
+        else math.nan
+    )
+    slope20 = neckline_context_slope_pct_per_20d([float(value) for value in closes])
+    drawdown = neckline_context_max_drawdown_pct([float(value) for value in closes])
+    context = neckline_context_classify(return_pct, range_pct, slope20, drawdown)
+    return {
+        "available": True,
+        "window_days": window_days,
+        "context": context,
+        "filter": neckline_context_filter_result(context),
+        "return_pct": return_pct,
+        "range_pct": range_pct,
+        "slope20_pct": slope20,
+        "drawdown_pct": drawdown,
+        "sessions": len(window),
+        "source": "price_history",
+    }
+
+
+def neckline_context_45_entry_ok(row: pd.Series) -> bool:
+    context = neckline_context_window(row, NECKLINE_CONTEXT_ENTRY_WINDOW_DAYS)
+    return safe_str(context.get("filter")) == "auto_non_bearish"
+
+
+def neckline_context_90_score_adjustment(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    context = neckline_context_window(row, NECKLINE_CONTEXT_SCORE_WINDOW_DAYS)
+    filter_value = safe_str(context.get("filter"))
+    if filter_value == "auto_non_bearish":
+        return 2.0, ["90d non-bearish context +2"], []
+    if filter_value != "auto_bearish":
+        return 0.0, [], ["neckline_90d_context_unknown"]
+
+    points = 2.0
+    flags = ["long_90_bearish_base_risk"]
+    return_90 = float(context.get("return_pct", math.nan))
+    slope_90 = float(context.get("slope20_pct", math.nan))
+    drawdown_90 = float(context.get("drawdown_pct", math.nan))
+    if not math.isnan(return_90) and return_90 < -10.0:
+        points += 1.0
+        flags.append("return90_below_neg10")
+    if not math.isnan(return_90) and return_90 < -20.0:
+        points += 1.0
+        flags.append("return90_below_neg20")
+    if not math.isnan(drawdown_90) and drawdown_90 < -25.0:
+        points += 1.0
+        flags.append("drawdown90_below_neg25")
+    if not math.isnan(slope_90) and slope_90 < -2.0:
+        points += 1.0
+        flags.append("slope90_below_neg2")
+    return -points, [], [f"neckline_90d_context_penalty:{points:.1f}", *flags]
 
 
 def w_bottom_neckline_distance_pct(
@@ -2330,6 +2508,8 @@ def cond_w_bottom_right(row: pd.Series) -> bool:
 
 
 def cond_neckline_volume_breakout_confirmation(row: pd.Series) -> bool:
+    if not neckline_context_45_entry_ok(row):
+        return False
     price_context = detected_w_bottom_context(row)
     context_for_use = price_context if price_context.get("available") else None
     return w_bottom_neckline_breakout_confirmation_ok(row, context_for_use)

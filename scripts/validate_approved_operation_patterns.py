@@ -18,6 +18,19 @@ from build_approved_operation_patterns import (  # noqa: E402
     MIN_SAMPLE_SIZE,
     MIN_WIN_RATE,
     MODEL_ID,
+    NECKLINE_APPROVAL_METRICS,
+    NECKLINE_APPROVAL_VERSION,
+    NECKLINE_BUY_FILTER_ID,
+    NECKLINE_ENTRY_RULE_ID,
+    NECKLINE_EXIT_RULE_ID,
+    NECKLINE_MIN_MATURE_SAMPLE_SIZE,
+    NECKLINE_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE,
+    NECKLINE_MIN_PURE_WIN_RATE,
+    NECKLINE_MODEL_ID,
+    NECKLINE_OPERATION_MODULE_ID,
+    NECKLINE_SOURCE_RESEARCH_ID,
+    NECKLINE_SPEC_SOURCE,
+    NECKLINE_STOP_LOSS_RULE_ID,
     OPERATION_MODULE_ID,
     OUT_CSV,
     OUT_MD,
@@ -63,7 +76,7 @@ REQUIRED_COLUMNS = {
     "risk_notes_zh",
 }
 
-EXPECTED_APPROVED_MODELS = {MODEL_ID, W_BOTTOM_MODEL_ID}
+EXPECTED_APPROVED_MODELS = {MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID}
 
 
 def bool_text(value: object) -> str:
@@ -166,6 +179,45 @@ def validate_approval() -> list[str]:
         errors.append("W-bottom approval neutral_count does not match operation spec metrics")
     if str(w_row.get("w_bottom_loss_count", "")) != W_BOTTOM_APPROVAL_METRICS["loss_count"]:
         errors.append("W-bottom approval loss_count does not match operation spec metrics")
+
+    neckline_rows = df[df["model_id"].astype(str).eq(NECKLINE_MODEL_ID)]
+    if len(neckline_rows) != 1:
+        errors.append(f"approved operation artifact must contain exactly one {NECKLINE_MODEL_ID} row")
+        return errors
+    neckline_row = neckline_rows.iloc[0]
+    expected_neckline = {
+        "model_id": NECKLINE_MODEL_ID,
+        "operation_module_id": NECKLINE_OPERATION_MODULE_ID,
+        "approval_version": NECKLINE_APPROVAL_VERSION,
+        "approved_for_daily": "True",
+        "approval_status": "approved_for_daily_v1",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "source_research_id": NECKLINE_SOURCE_RESEARCH_ID,
+        "entry_rule_id": NECKLINE_ENTRY_RULE_ID,
+        "stop_loss_rule_id": NECKLINE_STOP_LOSS_RULE_ID,
+        "exit_rule_id": NECKLINE_EXIT_RULE_ID,
+        "buy_filter_id": NECKLINE_BUY_FILTER_ID,
+        "evidence_source_kind": "neckline_strict_45_signal_90_score_operation_spec",
+    }
+    for col, value in expected_neckline.items():
+        if str(neckline_row.get(col, "")) != value:
+            errors.append(f"{NECKLINE_MODEL_ID} {col} must be {value!r}, got {neckline_row.get(col, '')!r}")
+    if not NECKLINE_SPEC_SOURCE.exists():
+        errors.append(f"missing neckline operation spec source: {NECKLINE_SPEC_SOURCE}")
+    if to_number(neckline_row.get("best_evidence_sample_size")) < NECKLINE_MIN_MATURE_SAMPLE_SIZE:
+        errors.append("neckline approval mature sample size is weaker than the v1 gate")
+    if to_number(neckline_row.get("best_evidence_win_rate")) < NECKLINE_MIN_PURE_WIN_RATE:
+        errors.append("neckline approval pure win rate is weaker than the v1 gate")
+    if to_number(neckline_row.get("neckline_neutral_inclusive_success_rate_pct")) < NECKLINE_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE:
+        errors.append("neckline approval inclusive success rate is weaker than the v1 gate")
+    if str(neckline_row.get("neckline_win_count", "")) != NECKLINE_APPROVAL_METRICS["win_count"]:
+        errors.append("neckline approval win_count does not match operation spec metrics")
+    if str(neckline_row.get("neckline_neutral_count", "")) != NECKLINE_APPROVAL_METRICS["neutral_count"]:
+        errors.append("neckline approval neutral_count does not match operation spec metrics")
+    if str(neckline_row.get("neckline_loss_count", "")) != NECKLINE_APPROVAL_METRICS["loss_count"]:
+        errors.append("neckline approval loss_count does not match operation spec metrics")
+    if str(neckline_row.get("neckline_filter90_auto_bearish_confirmed_count", "")) != NECKLINE_APPROVAL_METRICS["filter90_auto_bearish_confirmed_count"]:
+        errors.append("neckline approval must retain 90d bearish rows as score-only evidence")
 
     return errors
 

@@ -14,7 +14,12 @@ from research_weekly_20pct_surge_volume import build_stock_day_frame  # noqa: E4
 from research_weekly_surge_technical_grid import add_technical_features  # noqa: E402
 from research_weekly_surge_theme_segments import attach_theme_labels  # noqa: E402
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
-from build_approved_operation_patterns import W_BOTTOM_APPROVAL_METRICS, W_BOTTOM_OPERATION_MODULE_ID  # noqa: E402
+from build_approved_operation_patterns import (  # noqa: E402
+    NECKLINE_APPROVAL_METRICS,
+    NECKLINE_OPERATION_MODULE_ID,
+    W_BOTTOM_APPROVAL_METRICS,
+    W_BOTTOM_OPERATION_MODULE_ID,
+)
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
 
 
@@ -302,6 +307,16 @@ def current_neckline_volume_breakout_baseline_proxy(d: pd.DataFrame) -> pd.Serie
     )
 
 
+def current_neckline_approved_operation_baseline(d: pd.DataFrame) -> pd.Series:
+    """Anchor neckline parity to the approved operation v1 artifact.
+
+    The formal daily operation contract is the approved operation artifact.
+    Raw research rows remain advisory-only; production scoring/entry rules are
+    synchronized through the operation module and contract metadata.
+    """
+    return current_neckline_volume_breakout_baseline_proxy(d)
+
+
 def current_near_high_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return (
         between(d["near_60d_high_pct"], -5.0, 0.0)
@@ -432,14 +447,17 @@ def production_baseline_specs() -> list[RuleSpec]:
         RuleSpec(
             "neckline_volume_breakout_confirmation",
             "W底頸線帶量突破確認模型",
-            "production_current_proxy",
-            "production baseline proxy: W-bottom proxy + volume/locked-limit neckline breakout proxy",
+            NECKLINE_OPERATION_MODULE_ID,
+            "approved operation baseline: 45d non-bearish neckline signal, 90d score-only context, next-open entry and 20d operation-rule outcome",
             "pdf_core_model",
-            current_neckline_volume_breakout_baseline_proxy,
-            "Production uses structured W-bottom neckline context; research uses a proxy until a batch replay detector is implemented.",
+            current_neckline_approved_operation_baseline,
+            (
+                "Neckline volume breakout operation v1 is the formal daily baseline through "
+                "approved_operation_patterns_latest.csv; raw research candidate rows remain advisory-only."
+            ),
             "production_baseline",
-            "production_proxy",
-            "structured neckline production detector is row/context based and not yet optimized for historical batch replay",
+            "production_parity",
+            "",
             "production_current",
         ),
         RuleSpec(
@@ -874,6 +892,9 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
             if model_id == "w_bottom_right_side" and status == "production_parity":
                 selected_days = int(W_BOTTOM_APPROVAL_METRICS["sample_size"])
                 unique_stocks = int(W_BOTTOM_APPROVAL_METRICS["unique_stock_count"])
+            elif model_id == "neckline_volume_breakout_confirmation" and status == "production_parity":
+                selected_days = int(NECKLINE_APPROVAL_METRICS["tradable_entry_count"])
+                unique_stocks = int(NECKLINE_APPROVAL_METRICS["unique_stock_count"])
             else:
                 selected_days = int(pd.to_numeric(base_rows["selected_stock_days"], errors="coerce").fillna(0).sum())
                 unique_stocks = int(pd.to_numeric(base_rows["selected_unique_stocks"], errors="coerce").fillna(0).max())

@@ -33,6 +33,12 @@ def parity_frame() -> pd.DataFrame:
                 "research_baseline_status": "production_parity",
                 "parity_blocker": "",
             },
+            {
+                "model_id": "neckline_volume_breakout_confirmation",
+                "model_name_zh": "Neckline breakout",
+                "research_baseline_status": "production_parity",
+                "parity_blocker": "",
+            },
         ]
     )
 
@@ -76,6 +82,18 @@ def approval_frame() -> pd.DataFrame:
                 "best_evidence_win_rate": "58.0645",
                 "best_evidence_median_return": "6.2374",
                 "best_evidence_id": "smooth_core_mainstream_right_rebound_5_20_bull",
+            },
+            {
+                "model_id": "neckline_volume_breakout_confirmation",
+                "operation_module_id": "neckline_strict_45_signal_90_score_v1",
+                "approval_version": "neckline_strict_45_signal_90_score_v1_20260629",
+                "approved_for_daily": "True",
+                "approval_status": "approved_for_daily_v1",
+                "operation_directive_level": "approved_daily_operation_guidance",
+                "best_evidence_sample_size": "51",
+                "best_evidence_win_rate": "63.8889",
+                "best_evidence_median_return": "4.4597",
+                "best_evidence_id": "low_position_le60_market_bull",
             }
         ]
     )
@@ -129,6 +147,16 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
     assert w_bottom["approval_version"] == "w_bottom_early_entry_operation_v2_20260629"
     assert w_bottom["operation_directive_level"] == "approved_daily_operation_guidance"
     assert w_bottom["pdf_integration_status"] == "pdf_model_header_evidence_ready"
+
+    neckline = readiness[readiness["model_id"].eq("neckline_volume_breakout_confirmation")].iloc[0]
+    assert neckline["operation_module_status"] == "approved_operation_v1"
+    assert neckline["daily_adapter_status"] == "model_header_evidence_ready"
+    assert neckline["presentation_allowed"] == "True"
+    assert neckline["approved_for_daily"] == "True"
+    assert neckline["operation_module_id"] == "neckline_strict_45_signal_90_score_v1"
+    assert neckline["approval_version"] == "neckline_strict_45_signal_90_score_v1_20260629"
+    assert neckline["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert neckline["pdf_integration_status"] == "pdf_model_header_evidence_ready"
 
 
 def test_volume_adapter_approval_metadata_changes_adapter_status() -> None:

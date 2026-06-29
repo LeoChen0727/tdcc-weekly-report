@@ -769,6 +769,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             second_arc_volume_ratio="1.35",
             first_arc_red_candle_ratio="0.40",
             second_arc_red_candle_ratio="0.58",
+            neckline_context_filter_45="auto_non_bearish",
+            neckline_context_filter_90="auto_non_bearish",
             volume_ratio="2.5",
             volume_ma20="2000",
         )
@@ -794,6 +796,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             second_low_gap_pct="1.5",
             w_bottom_base_width_pct="18",
             second_arc_volume_ratio="1.35",
+            neckline_context_filter_45="auto_non_bearish",
+            neckline_context_filter_90="auto_non_bearish",
             volume_ratio="",
             volume_ma20="",
         )
@@ -815,6 +819,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             second_low_gap_pct="1.5",
             w_bottom_base_width_pct="18",
             second_arc_volume_ratio="1.35",
+            neckline_context_filter_45="auto_non_bearish",
+            neckline_context_filter_90="auto_non_bearish",
             volume_ratio="2.5",
             volume_ma20="2000",
         )
@@ -822,6 +828,55 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         _score, _components, risks = model_layer.score_neckline_volume_breakout_confirmation(row)
 
         self.assertTrue(any(str(risk).startswith("long_upper_shadow_quality_penalty") for risk in risks))
+
+    def test_neckline_breakout_requires_45d_non_bearish_context(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="neckline_breakout",
+            close="105",
+            open="101",
+            high="106",
+            low="100",
+            previous_close="100",
+            neckline_price="100",
+            distance_to_neckline_pct="5.0",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            neckline_context_filter_45="auto_bearish",
+            neckline_context_filter_90="auto_non_bearish",
+            volume_ratio="2.5",
+            volume_ma20="2000",
+        )
+
+        self.assertFalse(cond_neckline_volume_breakout_confirmation(row))
+
+    def test_neckline_90d_bearish_context_is_score_penalty_not_entry_gate(self) -> None:
+        row = make_row(
+            category="pattern",
+            pattern_stage="neckline_breakout",
+            close="105",
+            open="101",
+            high="106",
+            low="100",
+            previous_close="100",
+            neckline_price="100",
+            distance_to_neckline_pct="5.0",
+            second_low_gap_pct="1.5",
+            w_bottom_base_width_pct="18",
+            second_arc_volume_ratio="1.35",
+            neckline_context_filter_45="auto_non_bearish",
+            neckline_context_filter_90="auto_bearish",
+            neckline_context_return_90="-15",
+            neckline_context_slope20_90="-3",
+            neckline_context_drawdown_90="-26",
+            volume_ratio="2.5",
+            volume_ma20="2000",
+        )
+
+        self.assertTrue(cond_neckline_volume_breakout_confirmation(row))
+        _score, _components, risks = model_layer.score_neckline_volume_breakout_confirmation(row)
+        self.assertTrue(any(str(risk).startswith("neckline_90d_context_penalty") for risk in risks))
 
     def test_risk_penalty_does_not_cancel_model_entry(self) -> None:
         row = make_row(

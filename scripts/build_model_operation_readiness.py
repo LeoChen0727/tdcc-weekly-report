@@ -23,6 +23,7 @@ DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 
 VOLUME_MODEL_ID = "volume_range_breakout"
 W_BOTTOM_MODEL_ID = "w_bottom_right_side"
+NECKLINE_MODEL_ID = "neckline_volume_breakout_confirmation"
 
 
 def truthy(value: Any) -> bool:
@@ -240,8 +241,10 @@ def build_model_operation_readiness(
     approval_frame = approval if approval is not None else pd.DataFrame()
     volume_approval = summarize_volume_approval(approval_frame)
     w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
+    neckline_approval = summarize_model_approval(approval_frame, NECKLINE_MODEL_ID)
     volume_approved = volume_approval["approved_for_daily"] == "True"
     w_bottom_approved = w_bottom_approval["approved_for_daily"] == "True"
+    neckline_approved = neckline_approval["approved_for_daily"] == "True"
     adapter_ready = volume_adapter["daily_adapter_status"] in {
         "ready_pending_approval_metadata",
         "ready_approved_operation_guidance",
@@ -355,6 +358,57 @@ def build_model_operation_readiness(
             )
             continue
 
+        if model_id == NECKLINE_MODEL_ID:
+            presentation_allowed = neckline_approved and parity_status in {
+                "production_parity",
+                "production_proxy",
+                "proxy_only",
+            }
+            blocker = parity_blocker or (
+                "neckline strict 45 signal / 90 score operation approval is ready; operation-rule win rate and neutral-inclusive success rate must be labeled separately"
+            )
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": model_name,
+                    "parity_status": parity_status,
+                    "blocker": blocker,
+                    "operation_module_status": (
+                        "approved_operation_v1" if neckline_approved else "baseline_only_no_validated_operation_module"
+                    ),
+                    "daily_adapter_status": "model_header_evidence_ready" if neckline_approved else "not_started",
+                    "approved_for_daily": neckline_approval["approved_for_daily"],
+                    "approval_status": neckline_approval["approval_status"],
+                    "operation_module_id": neckline_approval["operation_module_id"],
+                    "approval_version": neckline_approval["approval_version"],
+                    "presentation_allowed": "True" if presentation_allowed else "False",
+                    "operation_directive_level": (
+                        neckline_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive"
+                    ),
+                    "pdf_integration_status": (
+                        "pdf_model_header_evidence_ready" if presentation_allowed else "not_started"
+                    ),
+                    "packet_integration_status": (
+                        "packet_model_header_evidence_ready" if presentation_allowed else "not_started"
+                    ),
+                    "registry_pattern_count": 1 if neckline_approved else 0,
+                    "registry_current_model_pattern_count": 1 if neckline_approved else 0,
+                    "registry_best_pattern_id": neckline_approval.get("best_evidence_id", ""),
+                    "registry_best_sample_size": neckline_approval.get("best_evidence_sample_size", ""),
+                    "registry_best_win_rate": neckline_approval.get("best_evidence_win_rate", ""),
+                    "registry_best_median_return": neckline_approval.get("best_evidence_median_return", ""),
+                    "daily_adapter_row_count": 0,
+                    "daily_adapter_data_row_count": 0,
+                    "daily_adapter_sections": "model_header_evidence",
+                    "status_note_zh": (
+                        "頸線帶量突破 v1 已由 approved_operation_patterns 批准；45日 context 是入選訊號，"
+                        "90日 context 只作分數與風險調整；此模型使用標題下方證據，不共用放量攻擊 operation section adapter。"
+                    ),
+                }
+            )
+            continue
+
         blocker = parity_blocker or "operation module not validated yet"
         rows.append(
             {
@@ -389,7 +443,7 @@ def build_model_operation_readiness(
             }
         )
 
-    order = {VOLUME_MODEL_ID: 0, W_BOTTOM_MODEL_ID: 1}
+    order = {VOLUME_MODEL_ID: 0, W_BOTTOM_MODEL_ID: 1, NECKLINE_MODEL_ID: 2}
     out = pd.DataFrame(rows)
     out["_order"] = out["model_id"].map(order).fillna(9)
     out = out.sort_values(["_order", "model_id"]).drop(columns=["_order"]).reset_index(drop=True)

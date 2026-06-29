@@ -100,3 +100,17 @@ def test_build_approval_creates_versioned_daily_guidance() -> None:
     assert w_bottom["w_bottom_positive_return_rate_pct"] == "58.0645"
     assert w_bottom["w_bottom_avg_return_pct"] == "11.2532"
     assert w_bottom["w_bottom_min_return_pct"] == "-12.7202"
+
+    neckline = approval[approval["model_id"].eq("neckline_volume_breakout_confirmation")].iloc[0]
+    assert neckline["operation_module_id"] == "neckline_strict_45_signal_90_score_v1"
+    assert neckline["approval_version"] == "neckline_strict_45_signal_90_score_v1_20260629"
+    assert neckline["approved_for_daily"] == "True"
+    assert neckline["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert neckline["entry_rule_id"] == "close_ge_1pct_within_3_sessions_next_open"
+    assert neckline["stop_loss_rule_id"] == "no_fixed_stop_loss_20d_operation_rule"
+    assert neckline["exit_rule_id"] == "tp10_close_win_5pct_pullback_neutral_else_20d_close_loss"
+    assert neckline["buy_filter_id"] == "broad_45_non_bearish_with_90_warning"
+    assert neckline["best_evidence_sample_size"] == "51"
+    assert neckline["best_evidence_win_rate"] == "63.8889"
+    assert neckline["neckline_neutral_inclusive_success_rate_pct"] == "74.5098"
+    assert neckline["neckline_filter90_auto_bearish_confirmed_count"] == "19"

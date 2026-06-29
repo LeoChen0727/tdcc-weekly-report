@@ -1,6 +1,6 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-06-29 10:16:00 Asia/Taipei`
+- generated_at: `2026-06-29 11:32:47 Asia/Taipei`
 - price_history_files: `2376`
 - max_price_rows: `292`
 - data_range: `20250407` ~ `20260626`
@@ -68,7 +68,7 @@
 | near_high_neckline_challenge | near3_vol1.2 | parameter_variant | variant_not_baseline | 10979 | 39.66 | 41.69 | 42.04 | 43.36 | 0.13 | 0.93 | ok_first_pass | 距 60 日高點下方 3% 內 + 量比 >= 1.2 + 23EMA 向上 |
 | near_high_neckline_challenge | production_current_proxy | production_baseline | production_proxy | 17814 | 39.39 | 41.52 | 42.18 | 43.58 | 0.16 | 0.92 | ok_first_pass | production baseline proxy: within 5% below 60d high + volume >= 1.2 + EMA23 up |
 | near_high_neckline_challenge | near5_vol1.2 | parameter_variant | variant_not_baseline | 18626 | 39.39 | 41.42 | 42.05 | 43.35 | 0.15 | 0.9 | ok_first_pass | 距 60 日高點下方 5% 內 + 量比 >= 1.2 + 23EMA 向上 |
-| neckline_volume_breakout_confirmation | production_current_proxy | production_baseline | production_proxy | 8252 | 36.55 | 39.35 | 40.1 | 42.36 | -0.12 | 1.0 | ok_first_pass | production baseline proxy: W-bottom proxy + volume/locked-limit neckline breakout proxy |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | production_baseline | production_parity | 8252 | 36.55 | 39.35 | 40.1 | 42.36 | -0.12 | 1.0 | ok_first_pass | approved operation baseline: 45d non-bearish neckline signal, 90d score-only context, next-open entry and 20d operation-rule outcome |
 | platform_strengthening | w20_near5_vol1.5 | parameter_variant | variant_not_baseline | 7823 | 38.76 | 41.32 | 41.25 | 42.84 | 0.03 | 0.46 | ok_first_pass | 20日區間寬度 <= 18% + 距區間上緣 5% 內 + 量比 >= 1.5 + 實體紅K |
 | platform_strengthening | production_current_proxy | production_baseline | production_proxy | 11389 | 39.51 | 41.55 | 41.48 | 42.66 | 0.03 | 0.4 | ok_first_pass | production baseline proxy: 20d range width <= 18%, near upper edge, volume >= 1.2, solid red candle |
 | platform_strengthening | w20_near5_vol1.2 | parameter_variant | variant_not_baseline | 11389 | 39.51 | 41.55 | 41.48 | 42.66 | 0.03 | 0.4 | ok_first_pass | 20日區間寬度 <= 18% + 距區間上緣 5% 內 + 量比 >= 1.2 + 實體紅K |

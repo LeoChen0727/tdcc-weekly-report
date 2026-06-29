@@ -63,7 +63,7 @@ def test_research_baselines_are_labeled_as_parity_or_proxy() -> None:
     proxy = {spec.model_id for spec in baselines if spec.production_parity_status == "production_proxy"}
     parity = {spec.model_id for spec in baselines if spec.production_parity_status == "production_parity"}
     assert "w_bottom_right_side" in parity
-    assert "neckline_volume_breakout_confirmation" in proxy
+    assert "neckline_volume_breakout_confirmation" in parity
     assert all(spec.variant_of == "production_current" for spec in baselines)
     assert all(
         spec.parity_blocker

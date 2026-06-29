@@ -1,6 +1,6 @@
 # DAILY MODEL PARAMETER RECOMMENDATIONS
 
-- generated_at: 2026-06-29 10:16:09 Asia/Taipei
+- generated_at: 2026-06-29 11:32:56 Asia/Taipei
 - purpose: convert parameter backtests into program-side reporting recommendations
 - entry_basis: signal date next trading day open
 - close_return: D+n close divided by next open minus 1
@@ -13,14 +13,15 @@
 | --- | --- |
 | intraday_target_watch | 72 |
 | research_only | 9 |
+| promote_to_pdf_core | 2 |
 | pdf_secondary_watch | 2 |
-| promote_to_pdf_core | 1 |
 
 ## Top Recommendations
 
 | model_id | parameter_set_id | recommended_usage | recommended_close_exit_horizon | best_close_win_rate_pct | best_avg_close_return_pct | recommended_high_exit_horizon | best_high_5pct_hit_rate_pct | selected_stock_days | model_revision_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | w_bottom_right_side | w_bottom_early_entry_operation_v2 | promote_to_pdf_core | D+20/D+40 | 58.0645 | 11.2532 |  |  | 44 | Approved operation w_bottom_early_entry_operation_v2_20260629; positive-return rate 58.0645 uses positive exits over evaluated rows. Average return 11.2532; min return -12.7202 after W-structure-low close stop. buy_filter_id=smooth_core_mainstream_right_rebound_5_20_bull. |
+| neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | promote_to_pdf_core | D+20 | 63.8889 | 4.3784 |  |  | 51 | Approved operation neckline_strict_45_signal_90_score_v1_20260629; pure win rate 63.8889 uses win/(win+loss). Inclusive success 74.5098 includes neutral rows and must not be labeled as pure win rate. buy_filter_id=broad_45_non_bearish_with_90_warning; 90d bearish context remains eligible as score/risk adjustment. |
 | hot_theme_pullback | strict_mainstream_supported_ema-2.5_5_support8 | pdf_secondary_watch | D+10 | 59.08 | 2.09 | D+20 | 88.5 | 1150 | 收盤持有邊際優勢普通，可列次要觀察或加分項，不應作為單一主條件。 |
 | tdcc_stealth_accumulation | production_current_proxy | pdf_secondary_watch | D+10 | 52.88 | 2.0 | D+20 | 64.09 | 33728 | 收盤持有邊際優勢普通，可列次要觀察或加分項，不應作為單一主條件。 |
 | tdcc_short_term_continuation_d5_d10 | high_thresholds_ret5_10_30_ret10_20_50_kd | intraday_target_watch | D+10 | 51.84 | 4.53 | D+20 | 87.5 | 325 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
@@ -44,7 +45,6 @@
 | volume_range_breakout | prior20x1.02_vol2_minvol2000 | intraday_target_watch | D+10 | 43.74 | 1.54 | D+20 | 72.79 | 2984 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | hot_theme_pullback | strict_mainstream_overheated_ema-2.5_5_support8 | intraday_target_watch | D+6 | 53.21 | 1.53 | D+20 | 76.73 | 2126 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | volume_range_breakout | prior20x1.01_vol3_minvol2000 | intraday_target_watch | D+10 | 42.73 | 1.51 | D+20 | 69.93 | 2516 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
-| volume_range_breakout | prior20x1.03_vol2_minvol2000 | intraday_target_watch | D+10 | 43.56 | 1.5 | D+20 | 73.61 | 2444 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 
 ## Research Only / Not Yet Promoted
 
