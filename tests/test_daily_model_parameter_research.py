@@ -13,6 +13,7 @@ if str(SCRIPTS) not in sys.path:
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
 from build_daily_model_parameter_research import (  # noqa: E402
     build_model_parity,
+    build_price_pullback_operation_module_research,
     build_price_pullback_operation_research,
     build_price_pullback_time_cost_backtest,
     current_price_pullback_baseline_proxy,
@@ -350,6 +351,67 @@ def test_price_pullback_time_cost_backtest_tracks_first_target_stop_order() -> N
     assert volume["target_before_stop_count"] == 1
     assert volume["same_day_target_stop_count"] == 1
     assert volume["no_decision_after_20d_count"] == 0
+
+
+def test_price_pullback_operation_module_defines_win_neutral_failure() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2317", "2454", "2303", "2382"],
+            "next_open": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "distance_ema23_pct": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "platform_low": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "short_platform_low": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "previous_20d_low": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "low_20": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "range_low_20d_prev": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "close": [101.0, 101.0, 101.0, 101.0, 101.0],
+            "ema23": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "ma20": [101.0, 101.0, 101.0, 101.0, 101.0],
+            "ema23_slope_pct": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "ema23_slope_5d_pct": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "ma5_turning_up_flag": [False, False, False, False, False],
+            "ma10_turning_up_flag": [False, False, False, False, False],
+            "volume_ratio_prev20": [1.3, 1.1, 1.6, 0.9, 1.0],
+            "bullish_attack_candle": [True, True, True, False, True],
+            "solid_red_candle": [True, False, True, False, False],
+            "next_open_to_d20_close_return_pct": [6.0, -4.0, -2.0, -1.0, 1.0],
+        }
+    )
+    for day in range(1, 21):
+        df[f"next_open_to_d{day}_day_high_return_pct"] = [1.0, 1.0, 1.0, 1.0, 1.0]
+        df[f"next_open_to_d{day}_day_low_return_pct"] = [-1.0, -1.0, -1.0, -1.0, -1.0]
+        df[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, 1.0, 1.0, 1.0]
+
+    df.loc[0, "next_open_to_d2_day_high_return_pct"] = 6.0
+    df.loc[1, "next_open_to_d1_day_low_return_pct"] = -6.0
+    df.loc[1, "next_open_to_d1_day_close_return_pct"] = -3.0
+    df.loc[2, "next_open_to_d2_day_high_return_pct"] = 6.0
+    df.loc[2, "next_open_to_d2_day_low_return_pct"] = -6.0
+    df.loc[2, "next_open_to_d2_day_close_return_pct"] = -3.0
+    df.loc[3, "next_open_to_d20_day_close_return_pct"] = -1.0
+    df.loc[4, "next_open_to_d20_day_close_return_pct"] = 1.0
+
+    module = build_price_pullback_operation_module_research(df)
+    assert not module.empty
+    assert module["approved_for_daily"].eq(False).all()
+
+    intraday = module[
+        module["entry_filter_id"].eq("baseline_replay")
+        & module["operation_module_candidate_id"].eq("next_open_tp5_intraday_stop5_d20_close_exit")
+    ].iloc[0]
+    assert intraday["win_count"] == 1
+    assert intraday["neutral_count"] == 1
+    assert intraday["failure_count"] == 2
+    assert intraday["same_day_unresolved_count"] == 1
+
+    structure = module[
+        module["entry_filter_id"].eq("baseline_replay")
+        & module["operation_module_candidate_id"].eq("next_open_tp5_structure_stop_d20_close_exit")
+    ].iloc[0]
+    assert structure["win_count"] == 1
+    assert structure["neutral_count"] == 1
+    assert structure["failure_count"] == 2
+    assert structure["same_day_unresolved_count"] == 1
 
 
 def test_hot_theme_pullback_uses_strict_historical_theme_gate() -> None:
