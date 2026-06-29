@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Operation Module Research
 
-- generated_at: `2026-06-29 22:50:31 Asia/Taipei`
+- generated_at: `2026-06-29 23:01:51 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: advisory operation module candidates only; this does not approve daily production use
