@@ -197,6 +197,7 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         ) * 100.0
         future_return_cols[f"next_open_to_d{day}_day_high_return_pct"] = (future_high / out["next_open"] - 1.0) * 100.0
         future_return_cols[f"next_open_to_d{day}_day_low_return_pct"] = (future_low / out["next_open"] - 1.0) * 100.0
+        future_return_cols[f"future_d{day}_ma20"] = groups["ma20"].shift(-day)
     out = pd.concat([out, pd.DataFrame(future_return_cols, index=out.index)], axis=1)
 
     range_pct = (out["high"] - out["low"]) / out["previous_close"].replace(0, pd.NA) * 100.0
@@ -1087,6 +1088,7 @@ PRICE_PULLBACK_ENTRY_FILTERS = [
 PRICE_PULLBACK_OPERATION_MODULE_CANDIDATES = [
     {
         "operation_module_candidate_id": "next_open_tp5_intraday_stop5_d20_close_exit",
+        "target_rule_id": "intraday_return_pct",
         "target_return_pct": 5.0,
         "stop_rule_id": "intraday_low_stop5",
         "stop_return_pct": -5.0,
@@ -1098,6 +1100,7 @@ PRICE_PULLBACK_OPERATION_MODULE_CANDIDATES = [
     },
     {
         "operation_module_candidate_id": "next_open_tp5_structure_stop_d20_close_exit",
+        "target_rule_id": "intraday_return_pct",
         "target_return_pct": 5.0,
         "stop_rule_id": "close_below_23ema_or_support_2pct",
         "stop_return_pct": "",
@@ -1109,6 +1112,7 @@ PRICE_PULLBACK_OPERATION_MODULE_CANDIDATES = [
     },
     {
         "operation_module_candidate_id": "next_open_tp8_intraday_stop5_d20_close_exit",
+        "target_rule_id": "intraday_return_pct",
         "target_return_pct": 8.0,
         "stop_rule_id": "intraday_low_stop5",
         "stop_return_pct": -5.0,
@@ -1120,6 +1124,7 @@ PRICE_PULLBACK_OPERATION_MODULE_CANDIDATES = [
     },
     {
         "operation_module_candidate_id": "next_open_tp8_structure_stop_d20_close_exit",
+        "target_rule_id": "intraday_return_pct",
         "target_return_pct": 8.0,
         "stop_rule_id": "close_below_23ema_or_support_2pct",
         "stop_return_pct": "",
@@ -1128,6 +1133,62 @@ PRICE_PULLBACK_OPERATION_MODULE_CANDIDATES = [
         "buy_point_rule": "Buy next open after price_pullback_23ema signal date.",
         "stop_rule": "Failure stop when a close first falls below the higher of signal-day 23EMA/support references by 2%.",
         "exit_rule": "If no target or structure stop appears by D+20, exit at D+20 close.",
+    },
+    {
+        "operation_module_candidate_id": "next_open_prev20_high_breakout_monthline_stop1pct_2d_d20_close_exit",
+        "target_rule_id": "prev20_high_breakout",
+        "target_return_pct": "",
+        "stop_rule_id": "sustained_close_below_ma20_pct",
+        "monthline_stop_pct": 1.0,
+        "monthline_stop_consecutive_days": 2,
+        "stop_return_pct": "",
+        "holding_window_days": 20,
+        "entry_rule_id": "signal_date_next_open",
+        "buy_point_rule": "Buy next open after price_pullback_23ema signal date.",
+        "stop_rule": "Failure stop when close stays at least 1% below the current 20MA for 2 consecutive trading days.",
+        "exit_rule": "If no prior-high breakout or monthline stop appears by D+20, exit at D+20 close.",
+    },
+    {
+        "operation_module_candidate_id": "next_open_prev20_high_breakout_monthline_stop2pct_2d_d20_close_exit",
+        "target_rule_id": "prev20_high_breakout",
+        "target_return_pct": "",
+        "stop_rule_id": "sustained_close_below_ma20_pct",
+        "monthline_stop_pct": 2.0,
+        "monthline_stop_consecutive_days": 2,
+        "stop_return_pct": "",
+        "holding_window_days": 20,
+        "entry_rule_id": "signal_date_next_open",
+        "buy_point_rule": "Buy next open after price_pullback_23ema signal date.",
+        "stop_rule": "Failure stop when close stays at least 2% below the current 20MA for 2 consecutive trading days.",
+        "exit_rule": "If no prior-high breakout or monthline stop appears by D+20, exit at D+20 close.",
+    },
+    {
+        "operation_module_candidate_id": "next_open_prev20_high_breakout_monthline_stop1pct_3d_d20_close_exit",
+        "target_rule_id": "prev20_high_breakout",
+        "target_return_pct": "",
+        "stop_rule_id": "sustained_close_below_ma20_pct",
+        "monthline_stop_pct": 1.0,
+        "monthline_stop_consecutive_days": 3,
+        "stop_return_pct": "",
+        "holding_window_days": 20,
+        "entry_rule_id": "signal_date_next_open",
+        "buy_point_rule": "Buy next open after price_pullback_23ema signal date.",
+        "stop_rule": "Failure stop when close stays at least 1% below the current 20MA for 3 consecutive trading days.",
+        "exit_rule": "If no prior-high breakout or monthline stop appears by D+20, exit at D+20 close.",
+    },
+    {
+        "operation_module_candidate_id": "next_open_prev20_high_breakout_monthline_stop2pct_3d_d20_close_exit",
+        "target_rule_id": "prev20_high_breakout",
+        "target_return_pct": "",
+        "stop_rule_id": "sustained_close_below_ma20_pct",
+        "monthline_stop_pct": 2.0,
+        "monthline_stop_consecutive_days": 3,
+        "stop_return_pct": "",
+        "holding_window_days": 20,
+        "entry_rule_id": "signal_date_next_open",
+        "buy_point_rule": "Buy next open after price_pullback_23ema signal date.",
+        "stop_rule": "Failure stop when close stays at least 2% below the current 20MA for 3 consecutive trading days.",
+        "exit_rule": "If no prior-high breakout or monthline stop appears by D+20, exit at D+20 close.",
     },
 ]
 
@@ -1283,6 +1344,23 @@ def _first_hit_day(hits: pd.DataFrame) -> pd.Series:
     return pd.Series(np.where(any_hit, first_idx, math.nan), index=hits.index, dtype=float)
 
 
+def _first_consecutive_hit_day(hits: pd.DataFrame, consecutive_days: int) -> pd.Series:
+    if consecutive_days <= 1:
+        return _first_hit_day(hits)
+    arr = hits.fillna(False).to_numpy(dtype=bool)
+    if arr.size == 0:
+        return pd.Series(dtype=float, index=hits.index)
+    result = np.full(arr.shape[0], math.nan)
+    for row_idx, row in enumerate(arr):
+        streak = 0
+        for day_idx, hit in enumerate(row, start=1):
+            streak = streak + 1 if hit else 0
+            if streak >= consecutive_days:
+                result[row_idx] = day_idx
+                break
+    return pd.Series(result, index=hits.index, dtype=float)
+
+
 def _mean_or_blank(series: pd.Series) -> float | str:
     clean = pd.to_numeric(series, errors="coerce").dropna()
     if clean.empty:
@@ -1429,15 +1507,35 @@ def _operation_outcome_counts(
     low_cols = [f"next_open_to_d{day}_day_low_return_pct" for day in range(1, h + 1)]
     close_cols = [f"next_open_to_d{day}_day_close_return_pct" for day in range(1, h + 1)]
     final_close_col = f"next_open_to_d{h}_close_return_pct"
-    target_pct = float(candidate["target_return_pct"])
 
-    target_day = _first_hit_day(valid[high_cols] >= target_pct)
+    if candidate.get("target_rule_id") == "prev20_high_breakout":
+        entry_price = numeric_column(valid, "next_open")
+        target_price = numeric_column(valid, "range_high_20d_prev")
+        target_pct_series = (target_price / entry_price.replace(0, pd.NA) - 1.0) * 100.0
+        target_day = _first_hit_day(valid[high_cols].ge(target_pct_series, axis=0))
+    else:
+        target_pct = float(candidate["target_return_pct"])
+        target_day = _first_hit_day(valid[high_cols] >= target_pct)
+
     if candidate["stop_rule_id"] == "intraday_low_stop5":
         stop_pct = float(candidate["stop_return_pct"])
         stop_day = _first_hit_day(valid[low_cols] <= stop_pct)
-    else:
+    elif candidate["stop_rule_id"] == "close_below_23ema_or_support_2pct":
         stop_pct_series = _structure_stop_return_pct(valid)
         stop_day = _first_hit_day(valid[close_cols].le(stop_pct_series, axis=0))
+    elif candidate["stop_rule_id"] == "sustained_close_below_ma20_pct":
+        entry_price = numeric_column(valid, "next_open")
+        stop_pct = float(candidate["monthline_stop_pct"])
+        consecutive_days = int(candidate["monthline_stop_consecutive_days"])
+        ma20_cols = [f"future_d{day}_ma20" for day in range(1, h + 1)]
+        close_returns = valid[close_cols].apply(pd.to_numeric, errors="coerce")
+        ma20_refs = valid[ma20_cols].apply(pd.to_numeric, errors="coerce")
+        stop_threshold = (ma20_refs.mul(1.0 - stop_pct / 100.0).div(entry_price, axis=0) - 1.0) * 100.0
+        stop_threshold.columns = close_cols
+        stop_hits = close_returns.le(stop_threshold)
+        stop_day = _first_consecutive_hit_day(stop_hits, consecutive_days)
+    else:
+        raise ValueError(f"Unsupported stop_rule_id: {candidate['stop_rule_id']}")
 
     target_before_stop = target_day.notna() & (stop_day.isna() | (target_day < stop_day))
     stop_before_target = stop_day.notna() & (target_day.isna() | (stop_day < target_day))
@@ -1489,8 +1587,12 @@ def build_price_pullback_operation_module_research(df: pd.DataFrame) -> pd.DataF
             required.extend(f"next_open_to_d{day}_day_low_return_pct" for day in range(1, h + 1))
             required.extend(f"next_open_to_d{day}_day_close_return_pct" for day in range(1, h + 1))
             required.append(f"next_open_to_d{h}_close_return_pct")
+            if candidate.get("target_rule_id") == "prev20_high_breakout":
+                required.extend(["next_open", "range_high_20d_prev"])
             if candidate["stop_rule_id"] == "close_below_23ema_or_support_2pct":
                 required.extend(["next_open", "ema23"])
+            if candidate["stop_rule_id"] == "sustained_close_below_ma20_pct":
+                required.extend(["next_open", *[f"future_d{day}_ma20" for day in range(1, h + 1)]])
             valid = (
                 picked.dropna(subset=required).copy()
                 if all(col in picked.columns for col in required)
@@ -1524,7 +1626,11 @@ def build_price_pullback_operation_module_research(df: pd.DataFrame) -> pd.DataF
                     "entry_signal_rule": entry_filter["entry_signal_rule"],
                     "entry_rule_id": candidate["entry_rule_id"],
                     "buy_point_rule": f"{candidate['buy_point_rule']} Entry filter: {entry_filter['entry_signal_rule']}",
-                    "target_rule": f"Win if first intraday high reaches +{float(candidate['target_return_pct']):g}% before stop through D+{h}.",
+                    "target_rule": (
+                        f"Win if first intraday high breaks above signal-day previous 20-day high before stop through D+{h}."
+                        if candidate.get("target_rule_id") == "prev20_high_breakout"
+                        else f"Win if first intraday high reaches +{float(candidate['target_return_pct']):g}% before stop through D+{h}."
+                    ),
                     "stop_rule_id": candidate["stop_rule_id"],
                     "stop_rule": candidate["stop_rule"],
                     "exit_rule": candidate["exit_rule"],
