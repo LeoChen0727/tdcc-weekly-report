@@ -73,14 +73,14 @@ def approval_frame() -> pd.DataFrame:
             },
             {
                 "model_id": "w_bottom_right_side",
-                "operation_module_id": "w_bottom_early_entry_operation_v1",
-                "approval_version": "w_bottom_early_entry_operation_v1_20260629",
+                "operation_module_id": "w_bottom_early_entry_operation_v2",
+                "approval_version": "w_bottom_early_entry_operation_v2_20260629",
                 "approved_for_daily": "True",
-                "approval_status": "approved_for_daily_v1",
+                "approval_status": "approved_for_daily_v2",
                 "operation_directive_level": "approved_daily_operation_guidance",
-                "best_evidence_sample_size": "20",
-                "best_evidence_win_rate": "65.0000",
-                "best_evidence_median_return": "4.7478",
+                "best_evidence_sample_size": "31",
+                "best_evidence_win_rate": "58.0645",
+                "best_evidence_median_return": "6.2374",
                 "best_evidence_id": "smooth_core_mainstream_right_rebound_5_20_bull",
             },
             {
@@ -139,12 +139,12 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
     assert pullback["operation_directive_level"] == "no_operation_directive"
 
     w_bottom = readiness[readiness["model_id"].eq("w_bottom_right_side")].iloc[0]
-    assert w_bottom["operation_module_status"] == "approved_operation_v1"
+    assert w_bottom["operation_module_status"] == "approved_operation_v2"
     assert w_bottom["daily_adapter_status"] == "model_header_evidence_ready"
     assert w_bottom["presentation_allowed"] == "True"
     assert w_bottom["approved_for_daily"] == "True"
-    assert w_bottom["operation_module_id"] == "w_bottom_early_entry_operation_v1"
-    assert w_bottom["approval_version"] == "w_bottom_early_entry_operation_v1_20260629"
+    assert w_bottom["operation_module_id"] == "w_bottom_early_entry_operation_v2"
+    assert w_bottom["approval_version"] == "w_bottom_early_entry_operation_v2_20260629"
     assert w_bottom["operation_directive_level"] == "approved_daily_operation_guidance"
     assert w_bottom["pdf_integration_status"] == "pdf_model_header_evidence_ready"
 

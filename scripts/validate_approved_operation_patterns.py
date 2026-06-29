@@ -36,13 +36,13 @@ from build_approved_operation_patterns import (  # noqa: E402
     OUT_MD,
     STOP_LOSS_RULE_ID,
     W_BOTTOM_APPROVAL_METRICS,
+    W_BOTTOM_APPROVAL_STATUS,
     W_BOTTOM_APPROVAL_VERSION,
     W_BOTTOM_BUY_FILTER_ID,
     W_BOTTOM_ENTRY_RULE_ID,
     W_BOTTOM_EXIT_RULE_ID,
     W_BOTTOM_MIN_MATURE_SAMPLE_SIZE,
-    W_BOTTOM_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE,
-    W_BOTTOM_MIN_PURE_WIN_RATE,
+    W_BOTTOM_MIN_POSITIVE_RETURN_RATE,
     W_BOTTOM_MODEL_ID,
     W_BOTTOM_OPERATION_MODULE_ID,
     W_BOTTOM_SOURCE_RESEARCH_ID,
@@ -153,7 +153,7 @@ def validate_approval() -> list[str]:
         "operation_module_id": W_BOTTOM_OPERATION_MODULE_ID,
         "approval_version": W_BOTTOM_APPROVAL_VERSION,
         "approved_for_daily": "True",
-        "approval_status": "approved_for_daily_v1",
+        "approval_status": W_BOTTOM_APPROVAL_STATUS,
         "operation_directive_level": "approved_daily_operation_guidance",
         "source_research_id": W_BOTTOM_SOURCE_RESEARCH_ID,
         "entry_rule_id": W_BOTTOM_ENTRY_RULE_ID,
@@ -168,11 +168,11 @@ def validate_approval() -> list[str]:
     if not W_BOTTOM_SPEC_SOURCE.exists():
         errors.append(f"missing W-bottom operation spec source: {W_BOTTOM_SPEC_SOURCE}")
     if to_number(w_row.get("best_evidence_sample_size")) < W_BOTTOM_MIN_MATURE_SAMPLE_SIZE:
-        errors.append("W-bottom approval mature sample size is weaker than the v1 gate")
-    if to_number(w_row.get("best_evidence_win_rate")) < W_BOTTOM_MIN_PURE_WIN_RATE:
-        errors.append("W-bottom approval pure win rate is weaker than the v1 gate")
-    if to_number(w_row.get("w_bottom_neutral_inclusive_success_rate_pct")) < W_BOTTOM_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE:
-        errors.append("W-bottom approval inclusive success rate is weaker than the v1 gate")
+        errors.append("W-bottom approval mature sample size is weaker than the v2 gate")
+    if to_number(w_row.get("best_evidence_win_rate")) < W_BOTTOM_MIN_POSITIVE_RETURN_RATE:
+        errors.append("W-bottom approval positive-return rate is weaker than the v2 gate")
+    if str(w_row.get("w_bottom_positive_return_rate_pct", "")) != W_BOTTOM_APPROVAL_METRICS["positive_return_rate_pct"]:
+        errors.append("W-bottom approval positive_return_rate_pct does not match operation spec metrics")
     if str(w_row.get("w_bottom_win_count", "")) != W_BOTTOM_APPROVAL_METRICS["win_count"]:
         errors.append("W-bottom approval win_count does not match operation spec metrics")
     if str(w_row.get("w_bottom_neutral_count", "")) != W_BOTTOM_APPROVAL_METRICS["neutral_count"]:
