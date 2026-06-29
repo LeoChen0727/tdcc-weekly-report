@@ -1,6 +1,6 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-06-29 05:37:11 Asia/Taipei`
+- generated_at: `2026-06-29 10:16:00 Asia/Taipei`
 - price_history_files: `2376`
 - max_price_rows: `292`
 - data_range: `20250407` ~ `20260626`
@@ -134,5 +134,5 @@
 | volume_range_breakout | prior20x1.02_vol5_minvol2000 | parameter_variant | variant_not_baseline | 1097 | 37.56 | 39.71 | 37.26 | 36.76 | -0.53 | 0.05 | ok_first_pass | 收盤突破前20日高點 2% + 量比 >= 5 + 20日均量 >= 2000張 + 實體紅K |
 | w_bottom_right_side | wproxy_vol1 | parameter_variant | variant_not_baseline | 48156 | 38.79 | 41.62 | 42.61 | 44.63 | 0.26 | 1.29 | ok_first_pass | W底近似條件 + 右側結構墊高 + 量比 >= 1 |
 | w_bottom_right_side | wproxy_vol1.2 | parameter_variant | variant_not_baseline | 38834 | 38.47 | 41.11 | 42.03 | 44.27 | 0.21 | 1.28 | ok_first_pass | W底近似條件 + 右側結構墊高 + 量比 >= 1.2 |
-| w_bottom_right_side | production_current_proxy | production_baseline | production_proxy | 90390 | 39.18 | 42.48 | 43.22 | 45.18 | 0.32 | 1.26 | ok_first_pass | production baseline proxy: W-bottom geometry proxy and not already a breakout |
+| w_bottom_right_side | w_bottom_early_entry_operation_v2 | production_baseline | production_parity | 90390 | 39.18 | 42.48 | 43.22 | 45.18 | 0.32 | 1.26 | ok_first_pass | approved operation baseline: right-low early entry, W-structure-low stop, D+20 gain10 else D+40 close exit |
 | w_bottom_right_side | wproxy_vol1.5 | parameter_variant | variant_not_baseline | 29046 | 38.07 | 40.56 | 41.56 | 43.68 | 0.13 | 1.24 | ok_first_pass | W底近似條件 + 右側結構墊高 + 量比 >= 1.5 |

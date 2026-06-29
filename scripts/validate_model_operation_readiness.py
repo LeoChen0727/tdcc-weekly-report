@@ -124,10 +124,10 @@ def validate_readiness_csv() -> list[str]:
     else:
         row = w_bottom.iloc[0]
         expected = {
-            "operation_module_status": "approved_operation_v1",
+            "operation_module_status": "approved_operation_v2",
             "daily_adapter_status": "model_header_evidence_ready",
             "approved_for_daily": "True",
-            "approval_status": "approved_for_daily_v1",
+            "approval_status": "approved_for_daily_v2",
             "presentation_allowed": "True",
             "operation_directive_level": "approved_daily_operation_guidance",
             "pdf_integration_status": "pdf_model_header_evidence_ready",
@@ -136,10 +136,10 @@ def validate_readiness_csv() -> list[str]:
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
                 errors.append(f"{W_BOTTOM_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
-        if str(row.get("operation_module_id", "")) != "w_bottom_early_entry_operation_v1":
-            errors.append(f"{W_BOTTOM_MODEL_ID} operation_module_id must be w_bottom_early_entry_operation_v1")
-        if str(row.get("approval_version", "")) != "w_bottom_early_entry_operation_v1_20260629":
-            errors.append(f"{W_BOTTOM_MODEL_ID} approval_version must be w_bottom_early_entry_operation_v1_20260629")
+        if str(row.get("operation_module_id", "")) != "w_bottom_early_entry_operation_v2":
+            errors.append(f"{W_BOTTOM_MODEL_ID} operation_module_id must be w_bottom_early_entry_operation_v2")
+        if str(row.get("approval_version", "")) != "w_bottom_early_entry_operation_v2_20260629":
+            errors.append(f"{W_BOTTOM_MODEL_ID} approval_version must be w_bottom_early_entry_operation_v2_20260629")
 
     others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS)]
     if not others.empty:

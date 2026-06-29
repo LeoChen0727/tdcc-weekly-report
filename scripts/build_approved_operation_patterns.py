@@ -34,32 +34,34 @@ MIN_MEDIAN_RETURN = 0.0
 MIN_RESEARCH_SCORE = 0.0
 
 W_BOTTOM_MODEL_ID = "w_bottom_right_side"
-W_BOTTOM_OPERATION_MODULE_ID = "w_bottom_early_entry_operation_v1"
-W_BOTTOM_APPROVAL_VERSION = "w_bottom_early_entry_operation_v1_20260629"
-W_BOTTOM_SOURCE_RESEARCH_ID = "w_bottom_early_entry_candidate_spec"
+W_BOTTOM_OPERATION_MODULE_ID = "w_bottom_early_entry_operation_v2"
+W_BOTTOM_APPROVAL_VERSION = "w_bottom_early_entry_operation_v2_20260629"
+W_BOTTOM_APPROVAL_STATUS = "approved_for_daily_v2"
+W_BOTTOM_SOURCE_RESEARCH_ID = "w_bottom_early_entry_stop_loss_audit"
 W_BOTTOM_ENTRY_RULE_ID = "right_low_signal_next_open"
-W_BOTTOM_STOP_LOSS_RULE_ID = "no_fixed_stop_loss_d40_evaluation"
-W_BOTTOM_EXIT_RULE_ID = "take_profit_10pct_or_neutral_5pct_d40_close"
+W_BOTTOM_STOP_LOSS_RULE_ID = "w_structure_low_close_stop"
+W_BOTTOM_EXIT_RULE_ID = "d20_gain10_else_d40_close"
 W_BOTTOM_BUY_FILTER_ID = "smooth_core_mainstream_right_rebound_5_20_bull"
 W_BOTTOM_SPEC_SOURCE = Path("docs/specs/w_bottom_right_side_early_entry_operation_spec.md")
-W_BOTTOM_MIN_MATURE_SAMPLE_SIZE = 20
-W_BOTTOM_MIN_PURE_WIN_RATE = 60.0
-W_BOTTOM_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE = 70.0
+W_BOTTOM_MIN_MATURE_SAMPLE_SIZE = 30
+W_BOTTOM_MIN_POSITIVE_RETURN_RATE = 55.0
 
 W_BOTTOM_APPROVAL_METRICS = {
     "surface_id": "w_bottom_right_low_early_entry",
     "selected_segment_id": W_BOTTOM_BUY_FILTER_ID,
     "sample_size": "44",
     "evaluated_sample_size": "31",
-    "mature_sample_size": "20",
-    "win_count": "13",
-    "neutral_count": "11",
-    "loss_count": "7",
+    "mature_sample_size": "31",
+    "win_count": "18",
+    "neutral_count": "0",
+    "loss_count": "13",
     "incomplete_count": "13",
-    "pure_win_rate_pct": "65.0000",
-    "neutral_inclusive_success_rate_pct": "77.4194",
-    "avg_return_pct": "2.9504",
-    "median_return_pct": "4.7478",
+    "stop_count": "10",
+    "positive_return_rate_pct": "58.0645",
+    "neutral_inclusive_success_rate_pct": "58.0645",
+    "avg_return_pct": "11.2532",
+    "median_return_pct": "6.2374",
+    "min_return_pct": "-12.7202",
     "unique_stock_count": "44",
 }
 
@@ -176,14 +178,11 @@ def w_bottom_approval_row(generated_at: str) -> dict[str, Any]:
         raise RuntimeError(f"missing W-bottom operation spec: {W_BOTTOM_SPEC_SOURCE}")
 
     mature_sample = to_number(W_BOTTOM_APPROVAL_METRICS["mature_sample_size"])
-    pure_win_rate = to_number(W_BOTTOM_APPROVAL_METRICS["pure_win_rate_pct"])
-    inclusive_success = to_number(W_BOTTOM_APPROVAL_METRICS["neutral_inclusive_success_rate_pct"])
+    positive_return_rate = to_number(W_BOTTOM_APPROVAL_METRICS["positive_return_rate_pct"])
     if mature_sample < W_BOTTOM_MIN_MATURE_SAMPLE_SIZE:
-        raise RuntimeError("W-bottom approval evidence mature sample is below the v1 gate")
-    if pure_win_rate < W_BOTTOM_MIN_PURE_WIN_RATE:
-        raise RuntimeError("W-bottom approval evidence pure win rate is below the v1 gate")
-    if inclusive_success < W_BOTTOM_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE:
-        raise RuntimeError("W-bottom approval evidence inclusive success rate is below the v1 gate")
+        raise RuntimeError("W-bottom approval evidence mature sample is below the v2 gate")
+    if positive_return_rate < W_BOTTOM_MIN_POSITIVE_RETURN_RATE:
+        raise RuntimeError("W-bottom approval evidence positive-return rate is below the v2 gate")
 
     return {
         "generated_at": generated_at,
@@ -191,20 +190,20 @@ def w_bottom_approval_row(generated_at: str) -> dict[str, Any]:
         "operation_module_id": W_BOTTOM_OPERATION_MODULE_ID,
         "approval_version": W_BOTTOM_APPROVAL_VERSION,
         "approved_for_daily": "True",
-        "approval_status": "approved_for_daily_v1",
+        "approval_status": W_BOTTOM_APPROVAL_STATUS,
         "operation_directive_level": "approved_daily_operation_guidance",
         "source_research_id": W_BOTTOM_SOURCE_RESEARCH_ID,
         "entry_rule_id": W_BOTTOM_ENTRY_RULE_ID,
         "entry_rule_zh": "右低點觀察訊號成立後，下一個交易日開盤買進。",
         "stop_loss_rule_id": W_BOTTOM_STOP_LOSS_RULE_ID,
-        "stop_loss_rule_zh": "此 v1 operation 不升級固定收盤停損；以 D+40 評估規則區分勝、和、敗。",
+        "stop_loss_rule_zh": "收盤跌破 W 結構低點出場；W 結構低點為偵測到的左低點與右低點較低者。",
         "exit_rule_id": W_BOTTOM_EXIT_RULE_ID,
-        "exit_rule_zh": "40 個交易日內收盤報酬先達 +10% 為勝；先超過 +5% 後回到 <= +5% 且未達 +10% 記為和局；否則 D+40 收盤評估。",
+        "exit_rule_zh": "若 D+20 收盤報酬達 +10% 則 D+20 收盤出場；否則持有到 D+40 收盤，除非先觸發 W 結構低點收盤停損。",
         "buy_filter_id": W_BOTTOM_BUY_FILTER_ID,
-        "buy_filter_zh": "強或溫和多頭、核心主流、平滑廣義 W、訊號收盤價高於右低點 5% 到 20%。",
-        "pending_rule_zh": "和局與未成熟樣本必須揭露；不可把含和局成功率直接稱為勝率。",
+        "buy_filter_zh": "強勢或溫和多頭市場、核心主流族群、平滑圓弧 W 型態，且訊號收盤價已自右低點反彈 5% 到 20%。",
+        "pending_rule_zh": "未成熟樣本保留揭露，不納入 D+20/D+40 操作正報酬率分母。",
         "min_sample_size": W_BOTTOM_MIN_MATURE_SAMPLE_SIZE,
-        "min_win_rate": W_BOTTOM_MIN_PURE_WIN_RATE,
+        "min_win_rate": W_BOTTOM_MIN_POSITIVE_RETURN_RATE,
         "min_median_return": "",
         "require_out_of_sample_pass": "False",
         "min_research_score": "",
@@ -216,9 +215,9 @@ def w_bottom_approval_row(generated_at: str) -> dict[str, Any]:
         "best_evidence_scope": W_BOTTOM_APPROVAL_METRICS["surface_id"],
         "best_evidence_id": W_BOTTOM_APPROVAL_METRICS["selected_segment_id"],
         "best_evidence_sample_size": W_BOTTOM_APPROVAL_METRICS["mature_sample_size"],
-        "best_evidence_win_rate": W_BOTTOM_APPROVAL_METRICS["pure_win_rate_pct"],
+        "best_evidence_win_rate": W_BOTTOM_APPROVAL_METRICS["positive_return_rate_pct"],
         "best_evidence_median_return": W_BOTTOM_APPROVAL_METRICS["median_return_pct"],
-        "best_evidence_confidence_status": "approved_from_promoted_operation_spec_v1",
+        "best_evidence_confidence_status": "approved_from_promoted_operation_spec_v2",
         "best_evidence_out_of_sample_pass": "not_applicable",
         "w_bottom_sample_size": W_BOTTOM_APPROVAL_METRICS["sample_size"],
         "w_bottom_evaluated_sample_size": W_BOTTOM_APPROVAL_METRICS["evaluated_sample_size"],
@@ -227,22 +226,25 @@ def w_bottom_approval_row(generated_at: str) -> dict[str, Any]:
         "w_bottom_neutral_count": W_BOTTOM_APPROVAL_METRICS["neutral_count"],
         "w_bottom_loss_count": W_BOTTOM_APPROVAL_METRICS["loss_count"],
         "w_bottom_incomplete_count": W_BOTTOM_APPROVAL_METRICS["incomplete_count"],
-        "w_bottom_pure_win_rate_pct": W_BOTTOM_APPROVAL_METRICS["pure_win_rate_pct"],
+        "w_bottom_stop_count": W_BOTTOM_APPROVAL_METRICS["stop_count"],
+        "w_bottom_positive_return_rate_pct": W_BOTTOM_APPROVAL_METRICS["positive_return_rate_pct"],
+        "w_bottom_pure_win_rate_pct": W_BOTTOM_APPROVAL_METRICS["positive_return_rate_pct"],
         "w_bottom_neutral_inclusive_success_rate_pct": W_BOTTOM_APPROVAL_METRICS[
             "neutral_inclusive_success_rate_pct"
         ],
         "w_bottom_avg_return_pct": W_BOTTOM_APPROVAL_METRICS["avg_return_pct"],
+        "w_bottom_median_return_pct": W_BOTTOM_APPROVAL_METRICS["median_return_pct"],
+        "w_bottom_min_return_pct": W_BOTTOM_APPROVAL_METRICS["min_return_pct"],
         "w_bottom_unique_stock_count": W_BOTTOM_APPROVAL_METRICS["unique_stock_count"],
         "data_start_date": "",
         "data_end_date": "",
         "out_of_sample_start_date": "",
         "approval_note_zh": (
-            "W底右低點早期進場 v1 正式批准為 daily operation guidance；"
-            "原始 research candidate rows 仍維持 research-only，正式引用只走本 approval artifact。"
+            "W底右低點早期進場 v2 已批准為 daily operation guidance；"
+            "raw research candidate rows 仍維持 research-only，正式 production 使用只能讀 approval artifact。"
         ),
         "risk_notes_zh": (
-            "純勝率與含和局成功率必須分開標示；本模型不是頸線突破模型，"
-            "也不改 w_bottom_right_side 的 production condition/scoring/ranking。"
+            "v2 只更新操作停損/出場與 evidence 口徑；不修改 w_bottom_right_side 的 production condition、scoring 或 ranking。"
         ),
     }
 
