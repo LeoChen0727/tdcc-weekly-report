@@ -35,7 +35,7 @@ HIGHLIGHT_LAYOUT_TITLES = (
 )
 HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT = (
     "放量攻擊模型",
-    "已確認操作 / 可列買入排名",
+    "本日可買 / 已確認買入候選",
     "操作中",
 )
 HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT = (
