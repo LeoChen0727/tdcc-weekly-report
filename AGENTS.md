@@ -184,6 +184,19 @@ candidate-count, or PDF integration summary table to the PDF. This is a PDF
 presentation contract only; it must not create synthetic candidates or change
 model condition, scoring, ranking, buy/sell, or research/backtest behavior.
 
+Operation-oriented stock model blocks in digest / highlight PDFs must use two
+main tables only: `本日可買 / 已確認買入候選` first, then `操作中`. The first table
+uses `本日無股票推薦` as its empty-state row when there are no buyable confirmed
+candidates. The second table uses `目前無操作中追蹤列` as its empty-state row
+when there are no active operation rows. Digest / highlight blocks must not
+promote `待確認`, `已失效`, or `已出場` into main tables; `待確認` is full-list only
+when the model's formal adapter provides it, and `已失效` / `已出場` remain
+audit/lifecycle artifacts. `w_bottom_right_side`,
+`neckline_volume_breakout_confirmation`, and future operation-oriented models
+must follow this contract when their formal PDF operation adapters are wired;
+do not invent W-bottom operation lifecycle rows in the PDF layer before such an
+adapter exists.
+
 Full-list PDFs can be large. Page-count validation must define an explicit
 reasonable range instead of treating the current high page count as an implicit
 failure.

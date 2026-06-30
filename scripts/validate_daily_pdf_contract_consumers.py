@@ -79,17 +79,35 @@ FORBIDDEN_RESEARCH_RECOMMENDATION_COLUMNS = {
 
 DISPLAY_MODEL_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
 MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"
+OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"
+OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"
+OPERATION_ACTIVE_TABLE_TITLE = "操作中"
 FORBIDDEN_RENDERER_MODEL_STATUS_SUMMARY_TOKENS = (
     "append_model_status_table",
     "build_model_status_table",
     "模型狀態 / PDF整合",
     "本日表格狀態",
 )
+FORBIDDEN_OPERATION_HIGHLIGHT_EMPTY_STATE_TOKENS = (
+    "目前無已確認操作",
+    "DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY",
+    "should_render_highlight_confirmed_empty_table",
+)
 REQUIRED_RENDERER_MODEL_ORDER_TOKENS = (
     "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES",
     "VOLUME_BREAKOUT_MODEL_ID: 1.0",
     "W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1",
     "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2",
+)
+REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
+    "OPERATION_TABLE_MODEL_IDS",
+    "PENDING_OPERATION_TABLE_MODEL_IDS",
+    "OPERATION_HIGHLIGHT_TABLE_CONTRACT = \"confirmed_buy_then_active_only\"",
+    "OPERATION_CONFIRMED_BUY_TABLE_TITLE = \"本日可買 / 已確認買入候選\"",
+    "OPERATION_ACTIVE_TABLE_TITLE = \"操作中\"",
+    "OPERATION_ACTIVE_EMPTY_STATE_TEXT = \"目前無操作中追蹤列\"",
+    "W_BOTTOM_RIGHT_SIDE_MODEL_ID",
+    "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID",
 )
 
 
@@ -248,10 +266,22 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
                     "daily PDF renderer must not render technical model/PDF integration status summary tables: "
                     f"{forbidden} in {rel(path)}"
                 )
+        for forbidden in FORBIDDEN_OPERATION_HIGHLIGHT_EMPTY_STATE_TOKENS:
+            if forbidden in text:
+                errors.append(
+                    "daily PDF operation-oriented highlight tables must keep empty states inside the two main tables: "
+                    f"forbidden {forbidden} in {rel(path)}"
+                )
         for required in REQUIRED_RENDERER_MODEL_ORDER_TOKENS:
             if required not in text:
                 errors.append(
                     "daily PDF renderer must keep W-bottom model sections immediately after volume attack: "
+                    f"missing {required} in {rel(path)}"
+                )
+        for required in REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS:
+            if required not in text:
+                errors.append(
+                    "daily PDF renderer must keep operation-oriented model highlight tables as confirmed-buy then active only: "
                     f"missing {required} in {rel(path)}"
                 )
         if skip_re.search(text):

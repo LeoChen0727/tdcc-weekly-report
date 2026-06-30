@@ -128,11 +128,37 @@ def test_presentation_allowed_model_is_part_of_display_roster() -> None:
     assert validator.display_roster_model_ids(registry_rows, [], readiness_rows) == {"w_bottom_right_side"}
 
 
+def renderer_source_with_required_order() -> str:
+    return (
+        'VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"\n'
+        'W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"\n'
+        'W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"\n'
+        'MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"\n'
+        "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {\n"
+        "    VOLUME_BREAKOUT_MODEL_ID: 1.0,\n"
+        "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,\n"
+        "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,\n"
+        "}\n"
+    )
+
+
+def renderer_source_with_operation_contract() -> str:
+    return (
+        renderer_source_with_required_order()
+        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_MODEL_ID}\n"
+        + "PENDING_OPERATION_TABLE_MODEL_IDS = {W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
+        + 'OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"\n'
+        + 'OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"\n'
+        + 'OPERATION_ACTIVE_TABLE_TITLE = "操作中"\n'
+        + 'OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"\n'
+    )
+
+
 def test_renderer_fixed_model_table_contract_blocks_zero_row_section_skip(tmp_path: Path) -> None:
     renderer = tmp_path / "renderer.py"
     renderer.write_text(
-        "MODEL_EMPTY_STATE_TEXT = '本日無股票推薦'\n"
-        "if not ranked_rows:\n"
+        renderer_source_with_operation_contract()
+        + "if not ranked_rows:\n"
         "    continue\n",
         encoding="utf-8",
     )
@@ -154,9 +180,8 @@ def test_renderer_fixed_model_table_contract_requires_empty_state_text(tmp_path:
 def test_renderer_contract_blocks_technical_model_status_summary_table(tmp_path: Path) -> None:
     renderer = tmp_path / "renderer.py"
     renderer.write_text(
-        "MODEL_EMPTY_STATE_TEXT = '本日無股票推薦'\n"
-        "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {}\n"
-        "append_model_status_table(story, inputs, spec, 0, line_label)\n",
+        renderer_source_with_operation_contract()
+        + "append_model_status_table(story, inputs, spec, 0, line_label)\n",
         encoding="utf-8",
     )
 
@@ -172,6 +197,29 @@ def test_renderer_contract_requires_w_bottom_order_after_volume_attack(tmp_path:
     errors = validator.validate_renderer_fixed_model_table_contract([renderer])
 
     assert any("W-bottom model sections immediately after volume attack" in error for error in errors)
+
+
+def test_renderer_contract_requires_operation_oriented_highlight_tables(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(renderer_source_with_required_order(), encoding="utf-8")
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("operation-oriented model highlight tables" in error for error in errors)
+
+
+def test_renderer_contract_blocks_old_operation_empty_state_policy(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        renderer_source_with_operation_contract()
+        + "DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY = 'text_empty_state'\n"
+        + "story.append(para('目前無已確認操作。', BODY_SMALL))\n",
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("empty states inside the two main tables" in error for error in errors)
 
 
 def test_unapproved_event_field_is_rejected_even_for_disclosure() -> None:

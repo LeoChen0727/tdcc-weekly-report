@@ -77,11 +77,21 @@ VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
     "confirmed_operation": 10,
     "active_operation": 5,
 }
+OPERATION_TABLE_MODEL_IDS = {
+    VOLUME_BREAKOUT_MODEL_ID,
+}
+PENDING_OPERATION_TABLE_MODEL_IDS = {
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID,
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
+}
+OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"
 DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"
 DAILY_HIGHLIGHT_MODEL_ORDER_POLICY = "program_side_order"
 DAILY_HIGHLIGHT_DESCRIPTION_POLICY = "program_side_non_volume"
-DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY = "table_empty_state"
 MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"
+OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"
+OPERATION_ACTIVE_TABLE_TITLE = "操作中"
+OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"
 MODEL_PDF_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
 VOLUME_TRIGGER_LABELS = {
     "pullback_5ma_confirmed": "回測 5 日線後站回",
@@ -144,17 +154,6 @@ def should_render_highlight_model_description(model_id: str) -> bool:
     if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "none":
         return False
     raise ValueError(f"unsupported daily highlight description policy: {DAILY_HIGHLIGHT_DESCRIPTION_POLICY}")
-
-
-def should_render_highlight_confirmed_empty_table() -> bool:
-    if DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY == "table_empty_state":
-        return True
-    if DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY == "text_empty_state":
-        return False
-    raise ValueError(
-        "unsupported daily highlight confirmed-empty policy: "
-        f"{DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY}"
-    )
 
 
 def read_readme_value(key: str, default: str = "") -> str:
@@ -2043,7 +2042,7 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
         "排名原因",
     ]]
     if rows.empty:
-        data.append(["-", "-", "-", "-", "-", "-", "目前無已確認操作。", "-", "-", "-", "-", "-"])
+        data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
         data.append(
             [
@@ -2139,7 +2138,7 @@ def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
 def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
     data = [["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]]
     if rows.empty:
-        data.append(["目前無資料", "-", "-", "-", "-", "-", "-", "目前無操作中追蹤列。"])
+        data.append(["-", "-", "-", "-", "-", "-", "-", OPERATION_ACTIVE_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
         age = clean(row.get("operation_age_days"))
         planned = clean(row.get("planned_holding_days"))
@@ -2155,7 +2154,7 @@ def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
                 age_text,
                 volume_operation_exit_label(row),
                 volume_operation_score_label(row),
-                first_text(row.get("rank_reason_zh"), row.get("adapter_note_zh"), row.get("pdf_note_zh"), default="目前無操作中追蹤列。"),
+                first_text(row.get("rank_reason_zh"), row.get("adapter_note_zh"), row.get("pdf_note_zh"), default=OPERATION_ACTIVE_EMPTY_STATE_TEXT),
             ]
         )
     return build_table(
@@ -2222,11 +2221,8 @@ def render_volume_range_breakout_operation_section(
     active_rows = limit_volume_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
 
     story.append(Spacer(1, 6))
-    story.append(Paragraph("已確認操作 / 可列買入排名", H2))
-    if confirmed.empty and pdf_view == "highlight" and not should_render_highlight_confirmed_empty_table():
-        story.append(para(volume_operation_empty_text(confirmed_all, "目前無已確認操作。"), BODY_SMALL))
-    else:
-        story.append(build_volume_confirmed_operation_table(confirmed))
+    story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
+    story.append(build_volume_confirmed_operation_table(confirmed))
     story.append(Spacer(1, 5))
     if pdf_view == "full":
         story.append(Paragraph("已確認但未通過買入排名門檻", H2))
@@ -2239,9 +2235,7 @@ def render_volume_range_breakout_operation_section(
             story.append(para(volume_operation_empty_text(pending_all, "目前無待確認列。"), BODY_SMALL))
         story.append(build_volume_pending_operation_table(pending))
         story.append(Spacer(1, 5))
-    story.append(Paragraph("操作中", H2))
-    if active_rows.empty:
-        story.append(para("目前無操作中追蹤列。", BODY_SMALL))
+    story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
     story.append(build_volume_active_operation_table(active_rows))
 
 

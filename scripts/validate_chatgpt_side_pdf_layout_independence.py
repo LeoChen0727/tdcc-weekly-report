@@ -39,12 +39,17 @@ REPORT_SPECIFIC_LAYOUT_COMPONENTS = [
 REQUIRED_DAILY_HIGHLIGHT_LAYOUT_MARKERS = {
     'DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"': "daily highlight layout contract",
     'DAILY_HIGHLIGHT_MODEL_ORDER_POLICY = "program_side_order"': "daily highlight model order policy",
-    'DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY = "table_empty_state"': (
-        "daily highlight volume empty confirmed table policy"
+    'OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"': (
+        "daily operation-oriented highlight table contract"
+    ),
+    'OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"': (
+        "daily operation confirmed-buy table title"
+    ),
+    'OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"': (
+        "daily operation active table empty-state text"
     ),
     "def highlight_specs_in_layout_order(": "daily highlight layout-order helper",
     "def should_render_highlight_model_description(": "daily highlight description policy helper",
-    "def should_render_highlight_confirmed_empty_table(": "daily highlight volume empty-state policy helper",
 }
 
 OTHER_PDF_TEMPLATE_ENTRYPOINTS = {
