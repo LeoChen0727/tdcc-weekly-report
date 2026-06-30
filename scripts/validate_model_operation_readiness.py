@@ -179,23 +179,52 @@ def validate_readiness_csv() -> list[str]:
         errors.append(f"readiness must contain exactly one {PRICE_PULLBACK_MODEL_ID} row")
     else:
         row = price_pullback.iloc[0]
+        state = str(row.get("operation_module_status", ""))
+        allowed_state_expectations = {
+            "operation_candidate_v1_pending_exact_row_parity": {
+                "daily_adapter_status": "blocked_exact_daily_row_parity",
+                "approval_status": "pending_exact_daily_row_parity",
+                "pdf_integration_status": "blocked_exact_daily_row_parity",
+                "packet_integration_status": "blocked_exact_daily_row_parity",
+            },
+            "operation_candidate_v1_discussion_ready_pending_latest_research_frame": {
+                "daily_adapter_status": "blocked_latest_research_frame",
+                "approval_status": "pending_research_freshness_and_promotion_pr",
+                "pdf_integration_status": "blocked_latest_research_frame",
+                "packet_integration_status": "blocked_latest_research_frame",
+            },
+            "operation_candidate_v1_pending_promotion_pr": {
+                "daily_adapter_status": "blocked_explicit_promotion_pr_required",
+                "approval_status": "pending_explicit_promotion_pr",
+                "pdf_integration_status": "blocked_explicit_promotion_pr_required",
+                "packet_integration_status": "blocked_explicit_promotion_pr_required",
+            },
+        }
+        if state not in allowed_state_expectations:
+            errors.append(f"{PRICE_PULLBACK_MODEL_ID} readiness operation_module_status has invalid state: {state!r}")
+            expected = {}
+        else:
+            expected = allowed_state_expectations[state]
         expected = {
-            "operation_module_status": "operation_candidate_v1_pending_exact_row_parity",
-            "daily_adapter_status": "blocked_exact_daily_row_parity",
-            "approved_for_daily": "False",
-            "approval_status": "pending_exact_daily_row_parity",
+            **expected,
             "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
             "approval_version": PRICE_PULLBACK_CANDIDATE_VERSION,
+            "approved_for_daily": "False",
             "presentation_allowed": "False",
             "operation_directive_level": "no_operation_directive",
-            "pdf_integration_status": "blocked_exact_daily_row_parity",
-            "packet_integration_status": "blocked_exact_daily_row_parity",
             "registry_best_pattern_id": PRICE_PULLBACK_BUY_FILTER_ID,
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
                 errors.append(f"{PRICE_PULLBACK_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
-        if "daily row parity audit" not in str(row.get("blocker", "")):
+        blocker = str(row.get("blocker", ""))
+        if state == "operation_candidate_v1_discussion_ready_pending_latest_research_frame":
+            if "latest research frame freshness" not in blocker:
+                errors.append("price pullback discussion-ready blocker must cite latest research frame freshness")
+        elif state == "operation_candidate_v1_pending_promotion_pr":
+            if "promotion/sync PR" not in blocker and "promotion" not in blocker:
+                errors.append("price pullback promotion blocker must cite the required promotion PR")
+        elif "daily row parity audit" not in blocker:
             errors.append("price pullback readiness blocker must cite the daily row parity audit")
         if not PRICE_PULLBACK_SPEC_SOURCE.exists():
             errors.append(f"missing price pullback operation candidate spec source: {PRICE_PULLBACK_SPEC_SOURCE}")

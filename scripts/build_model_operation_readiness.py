@@ -155,6 +155,7 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
 def summarize_price_pullback_row_parity(row_parity: pd.DataFrame | None) -> dict[str, str]:
     if row_parity is None or row_parity.empty or "parity_status" not in row_parity.columns:
         return {
+            "row_parity_status": "missing_artifact",
             "row_parity_blocker": "exact daily candidate row parity audit artifact is missing",
             "row_parity_note_zh": "尚未建立 published snapshot 對 research proxy 的 daily row parity audit。",
         }
@@ -175,6 +176,11 @@ def summarize_price_pullback_row_parity(row_parity: pd.DataFrame | None) -> dict
     proxy_gap = int(data["proxy_not_published_rows"].sum())
     missing_dates = int(data["parity_status"].astype(str).eq("blocked_missing_research_frame_date").sum())
     snapshot_count = len(data)
+    candidate_replay_exact = False
+    if "candidate_universe_replay_status" in data.columns:
+        candidate_replay_exact = data["candidate_universe_replay_status"].astype(str).eq(
+            "candidate_universe_replay_exact_match"
+        ).all()
     if "parity_gap_driver" in data.columns:
         gap_drivers = ",".join(
             sorted(driver for driver in data["parity_gap_driver"].astype(str).unique().tolist() if driver)
@@ -184,11 +190,35 @@ def summarize_price_pullback_row_parity(row_parity: pd.DataFrame | None) -> dict
 
     if blocked.empty:
         return {
+            "row_parity_status": "exact_pass",
             "row_parity_blocker": "",
             "row_parity_note_zh": f"daily row parity audit 已通過 {snapshot_count} 個 published snapshots。",
         }
 
+    blocked_statuses = set(blocked["parity_status"].astype(str).tolist())
+    if (
+        published_gap == 0
+        and proxy_gap == 0
+        and missing_dates > 0
+        and candidate_replay_exact
+        and blocked_statuses <= {"blocked_missing_research_frame_date"}
+    ):
+        return {
+            "row_parity_status": "discussion_ready_pending_latest_research_frame",
+            "row_parity_blocker": (
+                "latest research frame freshness pending: "
+                f"snapshots={snapshot_count}, latest_snapshot={latest_date}, "
+                f"production_candidate_universe_replay_exact=True, missing_research_dates={missing_dates}"
+            ),
+            "row_parity_note_zh": (
+                f"daily production row replay 已用 dated all_candidates/source-row 通過 {snapshot_count} 個 "
+                f"published snapshots，published/proxy row gap=0；仍有 {missing_dates} 個 latest snapshot "
+                "缺 research frame 日期，所以不能 promotion 或產生 production 操作建議，但可以開始模型決策討論。"
+            ),
+        }
+
     return {
+        "row_parity_status": "blocked_row_gap",
         "row_parity_blocker": (
             "exact daily row parity audit failing: "
             f"snapshots={snapshot_count}, latest_snapshot={latest_date}, "
@@ -211,6 +241,7 @@ def summarize_price_pullback_candidate(
     row_parity: pd.DataFrame | None = None,
 ) -> dict[str, Any]:
     row_parity_summary = summarize_price_pullback_row_parity(row_parity)
+    row_parity_status = row_parity_summary["row_parity_status"]
     empty = {
         "candidate_ready": "False",
         "operation_module_status": "baseline_only_no_validated_operation_module",
@@ -246,11 +277,32 @@ def summarize_price_pullback_candidate(
     if truthy(row.get("approved_for_daily")):
         return empty
 
+    if row_parity_status == "exact_pass":
+        operation_module_status = "operation_candidate_v1_pending_promotion_pr"
+        daily_adapter_status = "blocked_explicit_promotion_pr_required"
+        approval_status = "pending_explicit_promotion_pr"
+        integration_status = "blocked_explicit_promotion_pr_required"
+        parity_phrase = "daily row parity 已通過；仍需要獨立 promotion/sync PR 才能進 production。"
+    elif row_parity_status == "discussion_ready_pending_latest_research_frame":
+        operation_module_status = "operation_candidate_v1_discussion_ready_pending_latest_research_frame"
+        daily_adapter_status = "blocked_latest_research_frame"
+        approval_status = "pending_research_freshness_and_promotion_pr"
+        integration_status = "blocked_latest_research_frame"
+        parity_phrase = "daily row replay 已足夠開始模型決策討論；仍需補 latest research frame freshness 與 promotion/sync PR。"
+    else:
+        operation_module_status = "operation_candidate_v1_pending_exact_row_parity"
+        daily_adapter_status = "blocked_exact_daily_row_parity"
+        approval_status = "pending_exact_daily_row_parity"
+        integration_status = "blocked_exact_daily_row_parity"
+        parity_phrase = "目前仍缺 exact daily candidate row parity。"
+
     return {
         "candidate_ready": "True",
-        "operation_module_status": "operation_candidate_v1_pending_exact_row_parity",
-        "daily_adapter_status": "blocked_exact_daily_row_parity",
-        "approval_status": "pending_exact_daily_row_parity",
+        "operation_module_status": operation_module_status,
+        "daily_adapter_status": daily_adapter_status,
+        "approval_status": approval_status,
+        "pdf_integration_status": integration_status,
+        "packet_integration_status": integration_status,
         "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
         "approval_version": PRICE_PULLBACK_CANDIDATE_VERSION,
         "registry_pattern_count": 1,
@@ -264,7 +316,7 @@ def summarize_price_pullback_candidate(
             "price_pullback_23ema 已選出 operation candidate v1：先有 production proxy 訊號，"
             "且同日符合大戶高門檻增加與 20 日漲幅 0% 到 25%；買點為次日開盤，"
             "勝利為 D+20 前盤中突破訊號日前 20 日高點，失敗為連續 4 日收盤低於 "
-            "MA20/EMA23 較低者 4%。目前仍缺 exact daily candidate row parity，"
+            f"MA20/EMA23 較低者 4%。{parity_phrase}"
             f"{row_parity_summary['row_parity_note_zh']}所以不得產生 production 買進、賣出、停損或排名操作建議。"
         ),
     }
@@ -564,8 +616,8 @@ def build_model_operation_readiness(
                     "approval_version": price_pullback_candidate["approval_version"],
                     "presentation_allowed": "False",
                     "operation_directive_level": "no_operation_directive",
-                    "pdf_integration_status": "blocked_exact_daily_row_parity",
-                    "packet_integration_status": "blocked_exact_daily_row_parity",
+                    "pdf_integration_status": price_pullback_candidate["pdf_integration_status"],
+                    "packet_integration_status": price_pullback_candidate["packet_integration_status"],
                     "registry_pattern_count": price_pullback_candidate["registry_pattern_count"],
                     "registry_current_model_pattern_count": price_pullback_candidate[
                         "registry_current_model_pattern_count"
