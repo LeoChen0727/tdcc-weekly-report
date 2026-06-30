@@ -127,6 +127,7 @@ def price_pullback_row_parity_frame() -> pd.DataFrame:
                 "proxy_not_published_rows": "0",
                 "published_unique_stock_count": "219",
                 "research_proxy_unique_stock_count": "0",
+                "parity_gap_driver": "missing_research_frame_date",
             },
             {
                 "model_id": "price_pullback_23ema",
@@ -136,6 +137,7 @@ def price_pullback_row_parity_frame() -> pd.DataFrame:
                 "proxy_not_published_rows": "1251",
                 "published_unique_stock_count": "217",
                 "research_proxy_unique_stock_count": "1459",
+                "parity_gap_driver": "research_full_universe_proxy_exceeds_daily_candidate_publication_scope",
             },
         ]
     )
@@ -244,6 +246,8 @@ def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None
     assert "daily row parity audit failing" in row["blocker"]
     assert "published_not_proxy=228" in row["blocker"]
     assert "proxy_not_published=1251" in row["blocker"]
+    assert "gap_drivers=missing_research_frame_date,research_full_universe_proxy_exceeds_daily_candidate_publication_scope" in row["blocker"]
+    assert "full-universe research proxy" in row["status_note_zh"]
 
 
 def test_missing_volume_adapter_blocks_presentation_even_when_approved() -> None:
