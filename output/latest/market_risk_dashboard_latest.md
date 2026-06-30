@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-29 22:13:42 Asia/Taipei`
+- generated_at: `2026-06-30 12:06:20 Asia/Taipei`
 - data_date: `20260629`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
@@ -41,20 +41,20 @@
 
 ## 近期總經事件日曆
 
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=-4, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=-4, importance=high)
-- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=3, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=8, importance=medium)
-- 20260714 US_CPI: CPI release schedule: June 2026 (days=15, importance=high)
-- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=30, importance=high)
-- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=31, importance=medium)
-- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=31, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=-5, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=-5, importance=high)
+- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=2, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=7, importance=medium)
+- 20260714 US_CPI: CPI release schedule: June 2026 (days=14, importance=high)
+- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=29, importance=high)
+- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=30, importance=medium)
+- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=30, importance=high)
 
 ## 半年技術圖表
 
 PDF 固定納入半年圖表，包含指數趨勢、波動/期權指標、外資台指期部位與散戶小台 proxy。若資料不足，圖表或文字會明確標示限制。
 
-Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available; volume data is unavailable or partial.
+Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available with volume/turnover overlay.
 
 - chart: `output/latest/charts/market_regime/market_index_technical_6m.png`
 - chart: `output/latest/charts/market_regime/risk_indicators_6m.png`
