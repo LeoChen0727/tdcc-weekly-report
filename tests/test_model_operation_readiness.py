@@ -99,6 +99,23 @@ def approval_frame() -> pd.DataFrame:
     )
 
 
+def price_pullback_feature_frame() -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "model_id": "price_pullback_23ema",
+                "feature_filter_id": "tdcc_high_thresholds_up_return20_0_25",
+                "feature_test_status": "tested_point_in_time",
+                "advisory_status": "not_production_ready_research_only",
+                "approved_for_daily": "False",
+                "mature_count": "5141",
+                "win_rate_pct": "66.58",
+                "median_d20_close_return_pct": "0.83",
+            }
+        ]
+    )
+
+
 def adapter_frame(with_approval_metadata: bool = False) -> pd.DataFrame:
     row = {
         "model_id": "volume_range_breakout",
@@ -172,6 +189,32 @@ def test_volume_adapter_approval_metadata_changes_adapter_status() -> None:
     assert row["daily_adapter_status"] == "ready_approved_operation_guidance"
     assert row["approved_for_daily"] == "True"
     assert row["operation_directive_level"] == "approved_daily_operation_guidance"
+
+
+def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None:
+    readiness = build_model_operation_readiness(
+        parity_frame(),
+        registry_frame(),
+        adapter_frame(with_approval_metadata=True),
+        approval_frame(),
+        price_pullback_feature_confirmation=price_pullback_feature_frame(),
+        generated_at="2026-06-30 00:00:00 Asia/Taipei",
+    )
+
+    row = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
+
+    assert row["operation_module_status"] == "operation_candidate_v1_pending_exact_row_parity"
+    assert row["daily_adapter_status"] == "blocked_exact_daily_row_parity"
+    assert row["approved_for_daily"] == "False"
+    assert row["approval_status"] == "pending_exact_daily_row_parity"
+    assert row["operation_module_id"] == "price_pullback_23ema_prev20_breakout_stop_v1"
+    assert row["approval_version"] == "price_pullback_23ema_operation_candidate_v1_20260630"
+    assert row["presentation_allowed"] == "False"
+    assert row["operation_directive_level"] == "no_operation_directive"
+    assert row["registry_best_pattern_id"] == "tdcc_high_thresholds_up_return20_0_25"
+    assert row["registry_best_sample_size"] == 5141
+    assert row["registry_best_win_rate"] == "66.58"
+    assert row["registry_best_median_return"] == "0.83"
 
 
 def test_missing_volume_adapter_blocks_presentation_even_when_approved() -> None:

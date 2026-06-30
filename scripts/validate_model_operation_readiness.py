@@ -16,6 +16,11 @@ from build_model_operation_readiness import (  # noqa: E402
     OUT_MD,
     PARITY_CSV,
     NECKLINE_MODEL_ID,
+    PRICE_PULLBACK_BUY_FILTER_ID,
+    PRICE_PULLBACK_CANDIDATE_VERSION,
+    PRICE_PULLBACK_MODEL_ID,
+    PRICE_PULLBACK_OPERATION_MODULE_ID,
+    PRICE_PULLBACK_SPEC_SOURCE,
     VOLUME_MODEL_ID,
     W_BOTTOM_MODEL_ID,
 )
@@ -40,6 +45,7 @@ REQUIRED_COLUMNS = {
 }
 
 APPROVED_MODEL_IDS = {VOLUME_MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID}
+PENDING_CANDIDATE_MODEL_IDS = {PRICE_PULLBACK_MODEL_ID}
 
 
 def as_bool_text(series: pd.Series) -> pd.Series:
@@ -165,7 +171,37 @@ def validate_readiness_csv() -> list[str]:
         if str(row.get("approval_version", "")) != "neckline_strict_45_signal_90_score_v1_20260629":
             errors.append(f"{NECKLINE_MODEL_ID} approval_version must be neckline_strict_45_signal_90_score_v1_20260629")
 
-    others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS)]
+    price_pullback = df[df["model_id"].astype(str).eq(PRICE_PULLBACK_MODEL_ID)]
+    if len(price_pullback) != 1:
+        errors.append(f"readiness must contain exactly one {PRICE_PULLBACK_MODEL_ID} row")
+    else:
+        row = price_pullback.iloc[0]
+        expected = {
+            "operation_module_status": "operation_candidate_v1_pending_exact_row_parity",
+            "daily_adapter_status": "blocked_exact_daily_row_parity",
+            "approved_for_daily": "False",
+            "approval_status": "pending_exact_daily_row_parity",
+            "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
+            "approval_version": PRICE_PULLBACK_CANDIDATE_VERSION,
+            "presentation_allowed": "False",
+            "operation_directive_level": "no_operation_directive",
+            "pdf_integration_status": "blocked_exact_daily_row_parity",
+            "packet_integration_status": "blocked_exact_daily_row_parity",
+            "registry_best_pattern_id": PRICE_PULLBACK_BUY_FILTER_ID,
+        }
+        for col, value in expected.items():
+            if str(row.get(col, "")) != value:
+                errors.append(f"{PRICE_PULLBACK_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+        if not PRICE_PULLBACK_SPEC_SOURCE.exists():
+            errors.append(f"missing price pullback operation candidate spec source: {PRICE_PULLBACK_SPEC_SOURCE}")
+        if int(float(row.get("registry_best_sample_size", 0) or 0)) < 5000:
+            errors.append("price pullback candidate mature sample size is weaker than the v1 candidate gate")
+        if float(row.get("registry_best_win_rate", 0) or 0) < 60.0:
+            errors.append("price pullback candidate win rate is weaker than the v1 candidate gate")
+        if float(row.get("registry_best_median_return", 0) or 0) <= 0.0:
+            errors.append("price pullback candidate median D+20 close return must stay positive")
+
+    others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS | PENDING_CANDIDATE_MODEL_IDS)]
     if not others.empty:
         bad_operation = others[~others["operation_module_status"].eq("baseline_only_no_validated_operation_module")]
         if not bad_operation.empty:
