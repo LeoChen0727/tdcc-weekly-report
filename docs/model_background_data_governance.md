@@ -43,6 +43,27 @@ The validator is:
 
 `python scripts/validate_daily_model_background_data_registry.py`
 
+## Cleanup Audit
+
+Before deleting or relocating a registered data family, run:
+
+```text
+python scripts/build_daily_model_background_data_cleanup_audit.py
+python scripts/validate_daily_model_background_data_cleanup_audit.py
+```
+
+The audit artifacts are:
+
+- `output/latest/research_backtest/daily_model_background_data_cleanup_audit_latest.csv`
+- `output/latest/research_backtest/daily_model_background_data_cleanup_audit_latest.md`
+- `docs/latest/daily_model_background_data_cleanup_audit_latest.csv`
+- `docs/latest/daily_model_background_data_cleanup_audit_latest.md`
+
+These files are a deletion gate, not deletion approval. A row can become a
+cleanup PR candidate only when `cleanup_status=deprecated_candidate` and the
+audit finds no active workflow, inventory, lineage, validator, replay, parity,
+or promotion dependency.
+
 ## Cleanup Policy
 
 Do not delete research, history, or latest artifacts just because they look
@@ -53,6 +74,7 @@ old. A data family can be deleted only after a separate cleanup PR proves:
 3. It is not historical replay evidence.
 4. It is not required for model parity, readiness, or promotion audit trail.
 5. The registry marks it `deprecated_candidate`.
+6. The cleanup audit marks `deletion_allowed=True`.
 
 This PR intentionally lists cleanup boundaries but does not delete historical
 snapshots or model research evidence.
