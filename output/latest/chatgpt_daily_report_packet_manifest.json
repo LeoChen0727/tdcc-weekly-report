@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-30 13:13:13 Asia/Taipei",
-  "main_price_date": "20260629",
+  "generated_at": "2026-06-30 14:44:57 Asia/Taipei",
+  "main_price_date": "20260630",
   "report_ready": "True",
-  "warrant_flow_date": "20260629",
+  "warrant_flow_date": "20260630",
   "warrant_ready": "True",
   "warrant_ready_note": "warrant_flow_date matches main_price_date",
   "warrant_source_status": "ok",
@@ -13,7 +13,7 @@
   "warrant_model_effect_allowed": "True",
   "warrant_pdf_effect_allowed": "True",
   "daily_pdf_ready": "True",
-  "daily_pdf_ready_note": "core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation table empty; no theme rows to validate",
+  "daily_pdf_ready_note": "core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display",
   "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
   "report_ready_is_not_chatgpt_pdf_done": true,
   "official_chatgpt_side_pdf_entrypoint": "python scripts/run_chatgpt_daily_report_entrypoint.py",
@@ -107,10 +107,10 @@
   "latest_packet_path": "output/latest/chatgpt_daily_report_packet_latest.txt",
   "latest_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
   "legacy_latest_packet_path": "output/latest/CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_path": "output/history/reports/20260629_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260629_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "dated_summary_md_path": "output/history/reports/20260629_daily_market_summary.md",
-  "dated_full_md_path": "output/history/reports/20260629_daily_market_full.md",
-  "dated_summary_pdf_path": "output/history/reports/20260629_daily_market_summary.pdf",
-  "dated_full_pdf_path": "output/history/reports/20260629_daily_market_full.pdf"
+  "history_packet_path": "output/history/reports/20260630_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260630_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "dated_summary_md_path": "output/history/reports/20260630_daily_market_summary.md",
+  "dated_full_md_path": "output/history/reports/20260630_daily_market_full.md",
+  "dated_summary_pdf_path": "output/history/reports/20260630_daily_market_summary.pdf",
+  "dated_full_pdf_path": "output/history/reports/20260630_daily_market_full.pdf"
 }

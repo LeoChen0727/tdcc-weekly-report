@@ -1,14 +1,14 @@
 # Event Calendar Validation
 
-- generated_at: `2026-06-30 13:13:15 Asia/Taipei`
+- generated_at: `2026-06-30 14:44:59 Asia/Taipei`
 - status: `pass`
 - schema_only: `False`
 
 | file | exists | rows | size_bytes |
 |---|---:|---:|---:|
-| company_event_calendar | True | 2854 | 1281700 |
+| company_event_calendar | True | 2866 | 1287304 |
 | macro_event_calendar | True | 52 | 17843 |
-| upcoming_company_calendar | True | 1333 | 584501 |
+| upcoming_company_calendar | True | 1345 | 590138 |
 | upcoming_macro_calendar | True | 17 | 5956 |
 | theme_event_calendar | True | 1 | 659 |
 | theme_event_watch_csv | True | 1 | 721 |

@@ -1,10 +1,10 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-30 13:12:18 Asia/Taipei`
-- data_date: `20260629`
+- generated_at: `2026-06-30 14:43:59 Asia/Taipei`
+- data_date: `20260630`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
-- risk_score: `9`
+- risk_score: `7`
 - futures_options_source_status: `ready`
 
 ## 資料狀態
@@ -23,8 +23,8 @@
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 44,999.90 | -5.74% | +0.60% | False | True | correction |
-| TPEx | 412.93 | -8.95% | -6.92% | False | True | correction |
+| TWSE | 46,125.91 | -2.07% | +1.74% | True | True | mild_bull |
+| TPEx | 426.97 | -3.14% | -4.27% | False | True | correction |
 
 ## 期貨選擇權部位
 
@@ -63,8 +63,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: correction; close 44,999.90; 6M range 28,707.13-47,741.51; distance from 6M high -5.74%; above MA20=False, above MA60=True.
-- TPEx / OTC: correction; close 412.93; 6M range 272.82-453.50; distance from 6M high -8.95%; above MA20=False, above MA60=True.
+- TWSE / TAIEX: mild_bull; close 46,125.91; 6M range 28,707.13-47,741.51; distance from 6M high -3.38%; above MA20=True, above MA60=True.
+- TPEx / OTC: correction; close 426.97; 6M range 274.54-453.50; distance from 6M high -5.85%; above MA20=False, above MA60=True.
 
 ## 散戶小台 proxy
 
@@ -76,7 +76,6 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 風險提醒
 
-- TWSE correction
 - TPEx correction
 - Taiwan VIX panic-high
 - Foreign TX futures heavy net short
@@ -91,12 +90,12 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `39.98`
-- 252D high / low / percentile: `44.01` / `25.68` / `91.49%`
+- 252D high / low / percentile: `44.01` / `25.68` / `91.58%`
 - 504D percentile: `-`
-- z-score: `1.14`
+- z-score: `1.13`
 - vix_return_5d / 10d / 20d: `5.68%` / `-4.72%` / `11.46%`
-- TWSE / TPEx position: TWSE dist 60D high `-5.74%`, TPEx dist 60D high `-8.95%`
-- vix_index_interpretation: `possible_panic_contrarian_signal`
+- TWSE / TPEx position: TWSE dist 60D high `-3.38%`, TPEx dist 60D high `-5.85%`
+- vix_index_interpretation: `vix_context_neutral_observe`
 
 ## Retail MTX Historical Context
 

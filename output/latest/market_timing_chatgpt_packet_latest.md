@@ -1,24 +1,24 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-06-30 13:12:19 Asia/Taipei
-- main_price_date: 20260629
+- generated_at: 2026-06-30 14:44:00 Asia/Taipei
+- main_price_date: 20260630
 - packet_source: daily_market_regime_dashboard
-- packet_status: ready
-- packet_status_note: all source rows aligned with main_price_date
+- packet_status: partial_market_context
+- packet_status_note: futures_options_date=20260629
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260629
-- futures_options_indicators_latest.csv: 20260629
-- TWSE market index: 20260629
-- TPEx market index: 20260629
+- market_regime_latest.csv: 20260630
+- futures_options_indicators_latest.csv: 20260629 (latest available at or before main_price_date=20260630)
+- TWSE market index: 20260630
+- TPEx market index: 20260630
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| TWSE | 20260629 | 45,000 | -5.74% | 0.6% | False | True | correction | very_high_risk |
-| TPEx | 20260629 | 412.93 | -8.95% | -6.92% | False | True | correction | very_high_risk |
+| TWSE | 20260630 | 46,126 | -2.07% | 1.74% | True | True | correction | very_high_risk |
+| TPEx | 20260630 | 426.97 | -3.14% | -4.27% | False | True | correction | very_high_risk |
 
 ## Futures Options Context
 | item | value | note |
@@ -42,11 +42,11 @@
 market_sentiment_context:
   taiwan_vix:
     latest: 39.98
-    percentile_252d: 91.4894
+    percentile_252d: 91.5789
     percentile_504d: 
     rank_label: top_decile
     context_label: extreme_fear_or_hedging
-    index_interpretation: possible_panic_contrarian_signal
+    index_interpretation: vix_context_neutral_observe
   retail_mtx:
     latest_proxy: 1266.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
@@ -62,7 +62,7 @@ market_sentiment_context:
     data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ChatGPT-friendly summary:
-- VIX context: extreme_fear_or_hedging / possible_panic_contrarian_signal
+- VIX context: extreme_fear_or_hedging / vix_context_neutral_observe
 - Retail MTX context: insufficient_history / insufficient_history_observe_only
 - Combined: insufficient_history_observe_only (warning=insufficient)
 - VIX / PutCall / retail MTX are auxiliary context only; cross-check market_regime and foreign_tx_futures_net_oi.

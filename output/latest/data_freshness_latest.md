@@ -1,8 +1,8 @@
 # Data Freshness Status
 
-- generated_at: `2026-06-30 13:12:42` Asia/Taipei
-- main_price_date: `20260629`
-- actual_stock_price_history_date: `20260629`
+- generated_at: `2026-06-30 14:44:23` Asia/Taipei
+- main_price_date: `20260630`
+- actual_stock_price_history_date: `20260630`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `True`
@@ -15,16 +15,16 @@
 - warrant_model_effect_allowed: `True`
 - warrant_pdf_effect_allowed: `True`
 - daily_pdf_ready: `True`
-- daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation table empty; no theme rows to validate
+- daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
 
 ## Component Dates
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20260629 | 20260629 | ready |
-| official_price_fetch_latest | 20260629 | 20260629 | ready |
-| stock_monitor_latest.md | 20260629 | 20260629 | ready |
-| warrant_flow_latest.csv | 20260629 | 20260629 | ready |
+| all_candidates_latest.csv | 20260630 | 20260630 | ready |
+| official_price_fetch_latest | 20260630 | 20260630 | ready |
+| stock_monitor_latest.md | 20260630 | 20260630 | ready |
+| warrant_flow_latest.csv | 20260630 | 20260630 | ready |
 
 ## Rule
 
