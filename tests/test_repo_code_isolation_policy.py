@@ -46,6 +46,18 @@ def test_research_pipeline_runs_model_operation_readiness_validator() -> None:
     assert "python scripts/validate_model_operation_readiness.py" in workflow_text
 
 
+def test_research_pipeline_stages_price_pullback_feature_confirmation_outputs() -> None:
+    workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.md" in workflow_text
+    assert "docs/latest/price_pullback_23ema_feature_confirmation_research_latest.csv" in workflow_text
+    assert "docs/latest/price_pullback_23ema_feature_confirmation_research_latest.md" in workflow_text
+    assert "output/history/research/price_pullback_23ema_feature_confirmation_research.csv" in workflow_text
+
+
 def test_research_pipeline_runs_approved_operation_validator() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"

@@ -12,6 +12,8 @@ if str(SCRIPTS) not in sys.path:
 
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
 from build_daily_model_parameter_research import (  # noqa: E402
+    add_price_structure_features,
+    build_price_pullback_feature_confirmation_research,
     build_model_parity,
     build_price_pullback_operation_module_research,
     build_price_pullback_operation_research,
@@ -256,6 +258,36 @@ def test_price_pullback_prior_extension_filter_requires_extension_runup_and_pull
     mask = price_pullback_prior_extension_filter(df, 20, 10.0, 20.0, 5.0)
 
     assert mask.tolist() == [True, False, False, False]
+
+
+def test_price_structure_features_add_45d_pattern_and_obv() -> None:
+    close = [100.0 + i for i in range(50)]
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330"] * 50,
+            "date": [f"202601{i + 1:02d}" for i in range(50)],
+            "open": [c - 0.5 for c in close],
+            "high": [c + 1.0 for c in close],
+            "low": [c - 1.0 for c in close],
+            "close": close,
+            "volume": [1000 + i * 10 for i in range(50)],
+            "ema23": [c * 0.97 for c in close],
+            "ma20": [c * 0.98 for c in close],
+            "distance_ema23_pct": [c / (c * 0.97) * 100.0 - 100.0 for c in close],
+            "start_day_volume_ratio_vs_prev20": [1.0] * 50,
+            "next_open": [c + 0.2 for c in close],
+        }
+    )
+
+    out = add_price_structure_features(df)
+    latest = out.iloc[-1]
+
+    assert "return_45d_pct" in out.columns
+    assert latest["return_45d_pct"] > 40.0
+    assert latest["range_width_45d_pct"] > 40.0
+    assert 0.0 <= latest["close_position_45d_pct"] <= 110.0
+    assert bool(latest["obv_above_ma20"])
+    assert latest["obv_slope_5d"] > 0
 
 
 def test_price_pullback_operation_research_stays_advisory_only() -> None:
@@ -543,6 +575,90 @@ def test_price_pullback_operation_module_looser_lower_reference_stop_grid() -> N
     assert looser_stop["avg_realized_return_pct"] == -4.5
     assert looser_stop["avg_failure_realized_return_pct"] == -4.5
     assert looser_stop["avg_days_to_failure"] == 4.0
+
+
+def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2317", "2454"],
+            "next_open": [100.0, 100.0, 100.0],
+            "distance_ema23_pct": [1.0, 1.0, 1.0],
+            "platform_low": [100.0, 100.0, 100.0],
+            "short_platform_low": [100.0, 100.0, 100.0],
+            "previous_20d_low": [100.0, 100.0, 100.0],
+            "low_20": [100.0, 100.0, 100.0],
+            "range_low_20d_prev": [100.0, 100.0, 100.0],
+            "range_high_20d_prev": [105.0, 105.0, 105.0],
+            "close": [101.0, 101.0, 101.0],
+            "ema23": [100.0, 100.0, 100.0],
+            "ma20": [101.0, 101.0, 101.0],
+            "ema23_slope_pct": [1.0, 1.0, 1.0],
+            "ema23_slope_5d_pct": [1.0, 1.0, 1.0],
+            "ma5_turning_up_flag": [False, False, False],
+            "ma10_turning_up_flag": [False, False, False],
+            "volume_ratio_prev20": [1.0, 1.0, 1.0],
+            "bullish_attack_candle": [True, True, True],
+            "solid_red_candle": [False, False, False],
+            "macd_hist_gt0": [True, False, True],
+            "kd_bullish_not_overheated": [True, True, False],
+            "rsi14": [55.0, 75.0, 45.0],
+            "bb_width_not_extreme": [True, False, True],
+            "obv_above_ma20": [True, False, True],
+            "tdcc_history_available": [True, True, False],
+            "tdcc_consecutive_up_weeks": [1.0, 0.0, 0.0],
+            "high_thresholds_up": [False, True, False],
+            "all_thresholds_up": [False, False, False],
+            "return_20d_pct": [10.0, 30.0, -5.0],
+            "return_45d_pct": [12.0, 4.0, 20.0],
+            "range_width_45d_pct": [20.0, 10.0, 25.0],
+            "close_position_45d_pct": [50.0, 50.0, 90.0],
+            "prior_extension_ema23_20d_pct": [12.0, 8.0, 15.0],
+            "prior_runup_20d_pct": [25.0, 22.0, 18.0],
+            "pullback_from_high_20d_pct": [-6.0, -6.0, -6.0],
+            "next_open_to_d20_close_return_pct": [2.0, -4.5, 1.0],
+        }
+    )
+    future_cols = {}
+    for day in range(1, 21):
+        future_cols[f"next_open_to_d{day}_day_high_return_pct"] = [1.0, 1.0, 1.0]
+        future_cols[f"next_open_to_d{day}_day_low_return_pct"] = [-1.0, -1.0, -1.0]
+        future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, 1.0]
+        future_cols[f"future_d{day}_ma20"] = [101.0, 100.0, 100.0]
+        future_cols[f"future_d{day}_ema23"] = [100.0, 100.0, 100.0]
+    df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
+    df.loc[0, "next_open_to_d2_day_high_return_pct"] = 6.0
+    for day in range(1, 5):
+        df.loc[1, f"next_open_to_d{day}_day_close_return_pct"] = -4.5
+    df.loc[1, "next_open_to_d20_day_close_return_pct"] = -4.5
+
+    feature = build_price_pullback_feature_confirmation_research(df)
+
+    assert not feature.empty
+    assert feature["approved_for_daily"].eq(False).all()
+    assert feature["advisory_status"].eq("not_production_ready_research_only").all()
+    assert set(feature["fixed_operation_module_candidate_id"]) == {
+        "next_open_prev20_high_breakout_lower_ma20_ema23_stop4pct_4d_d20_close_exit"
+    }
+
+    baseline = feature[feature["feature_filter_id"].eq("baseline_replay")].iloc[0]
+    assert baseline["mature_count"] == 3
+    assert baseline["win_count"] == 1
+    assert baseline["neutral_count"] == 1
+    assert baseline["failure_count"] == 1
+    assert baseline["win_rate_pct"] == 33.33
+
+    macd_kd = feature[feature["feature_filter_id"].eq("macd_kd_confirm")].iloc[0]
+    assert macd_kd["selected_stock_days"] == 1
+    assert macd_kd["win_count"] == 1
+    assert macd_kd["win_rate_pct"] == 100.0
+    assert macd_kd["delta_vs_baseline_win_rate_pct"] == 66.67
+
+    revenue = feature[feature["feature_filter_id"].eq("revenue_positive_or_strong")].iloc[0]
+    market = feature[feature["feature_filter_id"].eq("market_background_regime")].iloc[0]
+    assert revenue["feature_test_status"] == "blocked_data_panel_incomplete"
+    assert market["feature_test_status"] == "deferred_join_required"
+    assert revenue["mature_count"] == 0
+    assert revenue["selected_stock_days"] == ""
 
 
 def test_hot_theme_pullback_uses_strict_historical_theme_gate() -> None:
