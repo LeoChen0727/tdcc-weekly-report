@@ -177,11 +177,12 @@ approval fields.
 Daily stock model PDF sections and tables must be stable and complete. Each
 active PDF-eligible or presentation-allowed model for the applicable
 mainstream/non-mainstream report line must render a model block even when it has
-zero candidate rows that day. Zero-candidate model tables must show candidate
-count `0`, model readiness/status information, and the exact text
-`本日無股票推薦`. This is a PDF presentation contract only; it must not create
-synthetic candidates or change model condition, scoring, ranking, buy/sell, or
-research/backtest behavior.
+zero candidate rows that day. Zero-candidate model sections must use the
+existing business-facing candidate/operation table style and include the exact
+text `本日無股票推薦`. Do not add a separate technical model status, readiness,
+candidate-count, or PDF integration summary table to the PDF. This is a PDF
+presentation contract only; it must not create synthetic candidates or change
+model condition, scoring, ranking, buy/sell, or research/backtest behavior.
 
 Full-list PDFs can be large. Page-count validation must define an explicit
 reasonable range instead of treating the current high page count as an implicit

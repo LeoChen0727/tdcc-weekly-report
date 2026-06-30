@@ -59,9 +59,8 @@ consumer inputs:
 For every applicable mainstream or non-mainstream stock PDF, each active
 PDF-eligible or presentation-allowed model must render a fixed model block and
 table. If the model has zero candidate rows for that report line on the report
-date, the table must still be present, must show candidate count `0`, must show
-the model status/readiness information available to the PDF layer, and must
-include the exact text:
+date, the table must still be present using the existing business-facing
+candidate/operation table style and must include the exact text:
 
 ```text
 本日無股票推薦
@@ -71,6 +70,11 @@ This is a presentation and contract rule only. It must not create synthetic
 candidate rows, alter stock model conditions, change model scoring or ranking,
 promote research variants, or write research/backtest recommendations into the
 production baseline.
+
+The PDF must not add a separate technical model status, readiness,
+candidate-count, or PDF integration summary table. Registry/readiness fields are
+allowed as renderer inputs for deciding the stable roster, but not as standalone
+PDF-facing technical diagnostics.
 
 ## Event / Catalyst Contract Rule
 
