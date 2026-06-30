@@ -29,6 +29,7 @@ from tracking_utils import (  # noqa: E402
     normalize_code,
     normalize_date,
     now_text,
+    safe_str,
     write_csv,
 )
 
@@ -2287,6 +2288,52 @@ def _snapshot_date_from_path(path: Path) -> str:
     return normalize_date(path.stem.rsplit("_", 1)[-1])
 
 
+def _value_counts_summary(series: pd.Series, limit: int = 8) -> str:
+    if series.empty:
+        return ""
+    cleaned = series.map(lambda value: safe_str(value).strip() or "(blank)")
+    counts = cleaned.value_counts()
+    return ";".join(f"{key}:{int(count)}" for key, count in counts.head(limit).items())
+
+
+def _price_pullback_gap_driver(
+    *,
+    has_research_date: bool,
+    published_unique: int,
+    published_not_proxy_count: int,
+    proxy_not_published_count: int,
+) -> str:
+    if not has_research_date:
+        return "missing_research_frame_date"
+    if published_not_proxy_count == 0 and proxy_not_published_count == 0:
+        return "none_exact"
+    if proxy_not_published_count > max(published_unique, published_not_proxy_count):
+        return "research_full_universe_proxy_exceeds_daily_candidate_publication_scope"
+    if published_not_proxy_count and proxy_not_published_count:
+        return "bidirectional_proxy_and_publication_gap"
+    if published_not_proxy_count:
+        return "published_rows_not_reproduced_by_research_proxy"
+    return "research_proxy_rows_not_in_published_snapshot"
+
+
+def _published_not_proxy_interpretation(count: int) -> str:
+    if count <= 0:
+        return ""
+    return (
+        "published rows do not satisfy the current research proxy; inspect feature parity, "
+        "dated source columns, and snapshot lifecycle before promotion"
+    )
+
+
+def _proxy_not_published_interpretation(count: int) -> str:
+    if count <= 0:
+        return ""
+    return (
+        "research proxy runs on the full stock-day frame, while daily production starts from "
+        "all_candidates/source-row eligibility and then writes the published report surface"
+    )
+
+
 def build_price_pullback_daily_row_parity_audit(
     df: pd.DataFrame,
     snapshot_dir: Path = DAILY_SNAPSHOT_DIR,
@@ -2310,6 +2357,16 @@ def build_price_pullback_daily_row_parity_audit(
         "published_not_in_proxy_sample",
         "proxy_not_published_sample",
         "parity_scope",
+        "published_surface",
+        "research_proxy_scope",
+        "published_selection_semantics_values",
+        "published_source_category_counts",
+        "published_report_bucket_counts",
+        "candidate_universe_replay_status",
+        "parity_gap_driver",
+        "published_not_in_proxy_interpretation",
+        "proxy_not_published_interpretation",
+        "next_required_replay_artifact",
         "parity_status",
         "parity_blocker",
     ]
@@ -2358,6 +2415,16 @@ def build_price_pullback_daily_row_parity_audit(
                     "published_not_in_proxy_sample": "",
                     "proxy_not_published_sample": "",
                     "parity_scope": "signal_date_stock_id",
+                    "published_surface": "daily_candidate_model_signals_for_report",
+                    "research_proxy_scope": "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay",
+                    "published_selection_semantics_values": "",
+                    "published_source_category_counts": "",
+                    "published_report_bucket_counts": "",
+                    "candidate_universe_replay_status": "blocked_unreadable_snapshot",
+                    "parity_gap_driver": "unreadable_snapshot",
+                    "published_not_in_proxy_interpretation": "",
+                    "proxy_not_published_interpretation": "",
+                    "next_required_replay_artifact": "readable published snapshot before candidate-universe replay can be assessed",
                     "parity_status": "blocked_unreadable_snapshot",
                     "parity_blocker": f"failed to read published daily snapshot: {exc}",
                 }
@@ -2383,6 +2450,16 @@ def build_price_pullback_daily_row_parity_audit(
                     "published_not_in_proxy_sample": "",
                     "proxy_not_published_sample": "",
                     "parity_scope": "signal_date_stock_id",
+                    "published_surface": "daily_candidate_model_signals_for_report",
+                    "research_proxy_scope": "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay",
+                    "published_selection_semantics_values": "",
+                    "published_source_category_counts": "",
+                    "published_report_bucket_counts": "",
+                    "candidate_universe_replay_status": "blocked_invalid_snapshot_schema",
+                    "parity_gap_driver": "invalid_snapshot_schema",
+                    "published_not_in_proxy_interpretation": "",
+                    "proxy_not_published_interpretation": "",
+                    "next_required_replay_artifact": "valid published snapshot with model_id and stock_id",
                     "parity_status": "blocked_invalid_snapshot_schema",
                     "parity_blocker": "published daily snapshot missing model_id or stock_id",
                 }
@@ -2400,6 +2477,14 @@ def build_price_pullback_daily_row_parity_audit(
         published_unique = len(published_set)
         proxy_unique = len(proxy_set)
         has_research_date = report_date in research_dates
+        published_not_proxy_count = len(published_not_proxy)
+        proxy_not_published_count = len(proxy_not_published)
+        gap_driver = _price_pullback_gap_driver(
+            has_research_date=has_research_date,
+            published_unique=published_unique,
+            published_not_proxy_count=published_not_proxy_count,
+            proxy_not_published_count=proxy_not_published_count,
+        )
 
         if not has_research_date:
             parity_status = "blocked_missing_research_frame_date"
@@ -2408,7 +2493,7 @@ def build_price_pullback_daily_row_parity_audit(
             parity_status = "blocked_not_exact_daily_row_parity"
             parity_blocker = (
                 "research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; "
-                "daily selection/ranking/report eligibility must be reconciled before promotion"
+                "daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion"
             )
         else:
             parity_status = "exact_daily_row_parity_pass"
@@ -2425,8 +2510,8 @@ def build_price_pullback_daily_row_parity_audit(
                 "published_duplicate_stock_count": len(published_stock_ids) - published_unique,
                 "research_proxy_unique_stock_count": proxy_unique,
                 "overlap_stock_count": len(overlap),
-                "published_not_in_proxy_rows": len(published_not_proxy),
-                "proxy_not_published_rows": len(proxy_not_published),
+                "published_not_in_proxy_rows": published_not_proxy_count,
+                "proxy_not_published_rows": proxy_not_published_count,
                 "published_proxy_coverage_pct": (
                     round(len(overlap) / published_unique * 100.0, 2) if published_unique else ""
                 ),
@@ -2434,6 +2519,33 @@ def build_price_pullback_daily_row_parity_audit(
                 "published_not_in_proxy_sample": _stock_id_sample(published_not_proxy),
                 "proxy_not_published_sample": _stock_id_sample(proxy_not_published),
                 "parity_scope": "signal_date_stock_id",
+                "published_surface": "daily_candidate_model_signals_for_report",
+                "research_proxy_scope": "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay",
+                "published_selection_semantics_values": _value_counts_summary(
+                    published["selection_semantics"] if "selection_semantics" in published.columns else pd.Series(dtype=str)
+                ),
+                "published_source_category_counts": _value_counts_summary(
+                    published["original_category"] if "original_category" in published.columns else pd.Series(dtype=str)
+                ),
+                "published_report_bucket_counts": _value_counts_summary(
+                    published["report_bucket"] if "report_bucket" in published.columns else pd.Series(dtype=str)
+                ),
+                "candidate_universe_replay_status": (
+                    "blocked_missing_research_frame_date"
+                    if not has_research_date
+                    else "missing_historical_all_candidates_source_row_snapshot"
+                ),
+                "parity_gap_driver": gap_driver,
+                "published_not_in_proxy_interpretation": _published_not_proxy_interpretation(
+                    published_not_proxy_count
+                ),
+                "proxy_not_published_interpretation": _proxy_not_published_interpretation(
+                    proxy_not_published_count
+                ),
+                "next_required_replay_artifact": (
+                    "historical all_candidates/source-row snapshot with candidate_source_type, "
+                    "candidate_line, report eligibility, source_row_index, and the exact model input columns"
+                ),
                 "parity_status": parity_status,
                 "parity_blocker": parity_blocker,
             }
@@ -2459,6 +2571,7 @@ def write_price_pullback_daily_row_parity_audit(row_parity: pd.DataFrame) -> Non
         "- model_id: `price_pullback_23ema`",
         "- scope: compare as-published daily snapshot rows to the research production proxy at `signal_date + stock_id` level",
         "- rule: any missing or extra stock row keeps the model blocked from daily operation promotion",
+        "- gap interpretation: the research proxy currently runs on the full stock-day frame; exact parity still needs dated daily candidate-universe/source-row replay before promotion",
         "- note: this audit does not change production selection, scoring, ranking, or PDF output",
         "",
         "## Status Summary",
@@ -2479,6 +2592,8 @@ def write_price_pullback_daily_row_parity_audit(row_parity: pd.DataFrame) -> Non
                 "proxy_not_published_rows",
                 "published_proxy_coverage_pct",
                 "proxy_publish_precision_pct",
+                "parity_gap_driver",
+                "candidate_universe_replay_status",
                 "parity_status",
                 "parity_blocker",
             ],

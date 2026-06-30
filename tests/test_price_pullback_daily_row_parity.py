@@ -59,13 +59,40 @@ def research_frame() -> pd.DataFrame:
     )
 
 
+def parity_scope_fields() -> dict[str, str]:
+    return {
+        "published_surface": "daily_candidate_model_signals_for_report",
+        "research_proxy_scope": "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay",
+        "published_selection_semantics_values": "model_condition_met_rank_by_score_no_theme_veto:1",
+        "published_source_category_counts": "pattern:1",
+        "published_report_bucket_counts": "mainstream:1",
+        "candidate_universe_replay_status": "missing_historical_all_candidates_source_row_snapshot",
+        "parity_gap_driver": "research_full_universe_proxy_exceeds_daily_candidate_publication_scope",
+        "published_not_in_proxy_interpretation": "",
+        "proxy_not_published_interpretation": "research proxy runs on the full stock-day frame, while daily production starts from all_candidates/source-row eligibility and then writes the published report surface",
+        "next_required_replay_artifact": "historical all_candidates/source-row snapshot with candidate_source_type, candidate_line, report eligibility, source_row_index, and the exact model input columns",
+    }
+
+
 def test_price_pullback_daily_row_parity_audit_reports_bidirectional_gaps(tmp_path: Path) -> None:
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
     write_csv(
         snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
         [
-            {"model_id": "price_pullback_23ema", "stock_id": "1234"},
-            {"model_id": "price_pullback_23ema", "stock_id": "9999"},
+            {
+                "model_id": "price_pullback_23ema",
+                "stock_id": "1234",
+                "selection_semantics": "model_condition_met_rank_by_score_no_theme_veto",
+                "original_category": "pattern",
+                "report_bucket": "mainstream",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "stock_id": "9999",
+                "selection_semantics": "model_condition_met_rank_by_score_no_theme_veto",
+                "original_category": "revenue_pullback",
+                "report_bucket": "non_mainstream",
+            },
             {"model_id": "volume_range_breakout", "stock_id": "5678"},
         ],
     )
@@ -89,10 +116,19 @@ def test_price_pullback_daily_row_parity_audit_reports_bidirectional_gaps(tmp_pa
     assert first["parity_status"] == "blocked_not_exact_daily_row_parity"
     assert first["published_not_in_proxy_sample"] == "9999"
     assert first["proxy_not_published_sample"] == "5678"
+    assert first["published_selection_semantics_values"] == "model_condition_met_rank_by_score_no_theme_veto:2"
+    assert first["published_source_category_counts"] == "pattern:1;revenue_pullback:1"
+    assert first["published_report_bucket_counts"] == "mainstream:1;non_mainstream:1"
+    assert first["candidate_universe_replay_status"] == "missing_historical_all_candidates_source_row_snapshot"
+    assert first["parity_gap_driver"] == "bidirectional_proxy_and_publication_gap"
+    assert "feature parity" in first["published_not_in_proxy_interpretation"]
+    assert "full stock-day frame" in first["proxy_not_published_interpretation"]
+    assert "historical all_candidates/source-row snapshot" in first["next_required_replay_artifact"]
 
     second = audit[audit["snapshot_report_date"].eq("20260616")].iloc[0]
     assert second["research_frame_has_date"] == "False"
     assert second["parity_status"] == "blocked_missing_research_frame_date"
+    assert second["parity_gap_driver"] == "missing_research_frame_date"
 
     assert validate_row_parity_frame(audit) == []
 
@@ -117,6 +153,7 @@ def test_price_pullback_daily_row_parity_validator_rejects_inconsistent_pass() -
                 "published_not_in_proxy_sample": "",
                 "proxy_not_published_sample": "5678",
                 "parity_scope": "signal_date_stock_id",
+                **parity_scope_fields(),
                 "parity_status": "exact_daily_row_parity_pass",
                 "parity_blocker": "",
             }

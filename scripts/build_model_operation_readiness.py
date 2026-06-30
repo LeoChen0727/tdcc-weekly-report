@@ -175,6 +175,12 @@ def summarize_price_pullback_row_parity(row_parity: pd.DataFrame | None) -> dict
     proxy_gap = int(data["proxy_not_published_rows"].sum())
     missing_dates = int(data["parity_status"].astype(str).eq("blocked_missing_research_frame_date").sum())
     snapshot_count = len(data)
+    if "parity_gap_driver" in data.columns:
+        gap_drivers = ",".join(
+            sorted(driver for driver in data["parity_gap_driver"].astype(str).unique().tolist() if driver)
+        )
+    else:
+        gap_drivers = "not_classified"
 
     if blocked.empty:
         return {
@@ -187,13 +193,15 @@ def summarize_price_pullback_row_parity(row_parity: pd.DataFrame | None) -> dict
             "exact daily row parity audit failing: "
             f"snapshots={snapshot_count}, latest_snapshot={latest_date}, "
             f"published_not_proxy={published_gap}, proxy_not_published={proxy_gap}, "
-            f"missing_research_dates={missing_dates}"
+            f"missing_research_dates={missing_dates}, gap_drivers={gap_drivers}"
         ),
         "row_parity_note_zh": (
             f"daily row parity audit 仍未通過：共 {snapshot_count} 個 published snapshots，"
             f"published 不在 research proxy 的股票數合計 {published_gap}，"
             f"research proxy 未出現在 published snapshot 的股票數合計 {proxy_gap}，"
             f"缺 research frame 日期 {missing_dates} 個。"
+            "目前主要差異需用 dated all_candidates/source-row candidate universe replay 釐清，"
+            "不能把 full-universe research proxy 視為 production baseline。"
         ),
     }
 
