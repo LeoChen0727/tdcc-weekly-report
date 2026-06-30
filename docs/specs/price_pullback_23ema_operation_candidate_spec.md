@@ -6,6 +6,8 @@
 - operation_module_id: `price_pullback_23ema_prev20_breakout_stop_v1`
 - source_research_artifact: `output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.csv`
 - selected_filter_id: `tdcc_high_thresholds_up_return20_0_25`
+- production_scoring_policy_id: `price_pullback_loose_gate_tdcc_return20_score_v2_20260630`
+- production_scoring_status: `promoted_for_scoring_only`
 - discussion_status: `discussion_ready_pending_latest_research_frame`
 - production_status: not approved for daily operation guidance
 
@@ -90,15 +92,19 @@ Delta vs baseline:
 
 ## Governance Boundary
 
-This spec does not change:
+Scoring promotion v2 changes:
 
-- `scripts/build_daily_candidate_model_layer.py`
+- `scripts/build_daily_candidate_model_layer.py`: `score_pullback()` keeps the loose `cond_pullback` gate and adds price-pullback-only TDCC / 20-day-return scoring.
+- `config/stock_model_contract_registry.csv`: `price_pullback_23ema` contract_version moves to `v2` and records TDCC 400/1000 columns as scoring inputs.
+
+This spec still does not change:
+
 - production selection conditions
-- production scoring
-- production ranking
-- `config/stock_model_contract_registry.csv` input/output contract
+- PDF layout
+- other model scoring profiles
+- operation approval status
 
-This candidate remains blocked from daily operation guidance until latest research-frame freshness is complete and a separate explicit promotion/sync PR opens `approved_for_daily=True`.
+This candidate remains blocked from daily operation guidance until latest research-frame freshness is complete and a separate explicit promotion/sync PR opens `approved_for_daily=True`. The v2 scoring promotion only changes ranking order inside the existing loose `price_pullback_23ema` candidate universe.
 
 ## Daily Row Parity Audit
 

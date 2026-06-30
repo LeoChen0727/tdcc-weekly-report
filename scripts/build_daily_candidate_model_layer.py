@@ -175,6 +175,9 @@ WARRANT_SIGNAL_ZH = {
 }
 
 RISK_TAG_ZH = {
+    "price_pullback_tdcc_distribution_penalty": "回檔模型TDCC轉弱扣分",
+    "price_pullback_return20_over_25_no_bonus": "回檔模型20日漲幅過高未加分",
+    "price_pullback_return20_negative_no_bonus": "回檔模型20日報酬偏弱未加分",
     "false_breakout_risk": "漲幅過低",
     "false_breakout_risk_penalty": "漲幅過低扣分",
     "tdcc_distribution_penalty": "TDCC轉弱扣分",
@@ -229,6 +232,11 @@ STRUCTURAL_BUCKET_ZH = {
 }
 
 SCORE_COMPONENT_ZH_REPLACEMENTS = {
+    "price_pullback_tdcc_status:strong_accumulation": "回檔模型TDCC強吸籌",
+    "price_pullback_tdcc_status:mild_accumulation": "回檔模型TDCC溫和吸籌",
+    "price_pullback_strong_tdcc_accumulation": "回檔模型強TDCC加分",
+    "price_pullback_large_holder_tdcc_confirmation": "回檔模型大戶級距確認",
+    "price_pullback_return20_0_25": "回檔模型20日漲幅0到25%",
     "base=50": "基礎分=50",
     "base=35": "基礎分=35",
     "profile=volume_range_breakout": "參數=放量攻擊模型",
@@ -1348,7 +1356,48 @@ def score_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
     if num(row, "volume_ratio") < 1.2:
         score += 3
         comps.append("pullback not volume-chasing +3")
+    tdcc_signal = price_pullback_tdcc_signal_status(row)
+    if tdcc_signal in POSITIVE_TDCC and not tdcc_positive(row):
+        score += 8
+        comps.append(f"price_pullback_tdcc_status:{tdcc_signal} +8")
+    if tdcc_signal == "strong_accumulation":
+        score += 2
+        comps.append("price_pullback_strong_tdcc_accumulation +2")
+    if tdcc_signal == "distribution_warning" and not tdcc_distribution(row):
+        score -= 8
+        risks.append("price_pullback_tdcc_distribution_penalty:8")
+    if tdcc_signal != "distribution_warning" and price_pullback_large_holder_confirmation(row):
+        score += 4
+        comps.append("price_pullback_large_holder_tdcc_confirmation +4")
+    ret20 = num(row, "return_20d", "return_20d_pct")
+    if not math.isnan(ret20):
+        if 0 <= ret20 <= 25:
+            score += 6
+            comps.append("price_pullback_return20_0_25 +6")
+        elif ret20 > 25:
+            risks.append("price_pullback_return20_over_25_no_bonus")
+        elif ret20 < 0:
+            risks.append("price_pullback_return20_negative_no_bonus")
     return score, comps, risks
+
+
+def price_pullback_tdcc_signal_status(row: pd.Series) -> str:
+    return text(row, "tdcc_status", "tdcc_judgement", "tdcc_judge", "tdcc_accumulation_signal").lower()
+
+
+def price_pullback_large_holder_confirmation(row: pd.Series) -> bool:
+    up_400 = num(row, "tdcc_400_up_weeks")
+    up_1000 = num(row, "tdcc_1000_up_weeks")
+    change_400 = num(row, "tdcc_400_change_sum")
+    change_1000 = num(row, "tdcc_1000_change_sum")
+    weeks_confirmed = not math.isnan(up_400) and not math.isnan(up_1000) and up_400 >= 1 and up_1000 >= 1
+    changes_confirmed = (
+        not math.isnan(change_400)
+        and not math.isnan(change_1000)
+        and change_400 > 0
+        and change_1000 > 0
+    )
+    return weeks_confirmed or changes_confirmed
 
 
 def score_hot_theme_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
