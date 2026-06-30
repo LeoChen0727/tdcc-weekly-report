@@ -2,6 +2,42 @@
 
 精確.按照規則辦事
 
+## Code Change Completion Boundary
+
+For code conversations, do not call a task complete just because code was edited,
+debugged, committed, pushed, or a branch check passed.
+
+When the requested code change is intended to land in `main` or the configured
+primary branch, completion requires commit, push, PR/branch validation, merge to
+`main`, merge commit evidence, post-merge `main` workflow/tests/validators, and
+inspection of the final runtime behavior or user-facing artifacts when outputs
+are affected.
+
+If the requested scope stops before merge, report the narrower state such as
+`local_validated`, `committed`, `pr_open`, `branch_action_passed`, or
+`merged_pending_main_validation`. Do not use `complete`, `done`, `fixed`,
+`ready`, or equivalent wording unless the requested scope's real stop condition
+has been met.
+
+`Debug complete` means the relevant failure mode was reproduced or otherwise
+identified, the fix was verified against that failure mode, appropriate
+regression coverage or validator evidence exists, and any remaining unverified
+risk is reported instead of hidden.
+
+## Traditional Chinese User-Facing Language Boundary
+
+All user-facing replies from this worktree must use Traditional Chinese by
+default, including explanations, status updates, validation summaries, PR
+summaries, blockers, handoffs, and final responses.
+
+Do not write user-facing prose in English or Simplified Chinese unless the user
+explicitly asks for that language in the current task.
+
+Preserve exact technical identifiers in their original form, including file
+paths, commands, branch names, workflow/check names, repository names,
+filenames, code symbols, quoted logs, validator names, and PR titles. Explain
+their meaning in Traditional Chinese around those identifiers.
+
 ## Default Engineering Rule
 
 All business-facing code in this repository defaults to independent ownership.
@@ -137,6 +173,15 @@ official PDF/packet renderer integration is completed. When daily PDF rendering
 uses readiness data, buy ranking must be driven by `buy_rank_eligible=True`,
 not only by `approved_for_daily`, because pending rows can still contain module
 approval fields.
+
+Daily stock model PDF sections and tables must be stable and complete. Each
+active PDF-eligible or presentation-allowed model for the applicable
+mainstream/non-mainstream report line must render a model block even when it has
+zero candidate rows that day. Zero-candidate model tables must show candidate
+count `0`, model readiness/status information, and the exact text
+`本日無股票推薦`. This is a PDF presentation contract only; it must not create
+synthetic candidates or change model condition, scoring, ranking, buy/sell, or
+research/backtest behavior.
 
 Full-list PDFs can be large. Page-count validation must define an explicit
 reasonable range instead of treating the current high page count as an implicit

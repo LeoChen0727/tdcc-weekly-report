@@ -74,6 +74,8 @@ DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"
 DAILY_HIGHLIGHT_MODEL_ORDER_POLICY = "program_side_order"
 DAILY_HIGHLIGHT_DESCRIPTION_POLICY = "program_side_non_volume"
 DAILY_HIGHLIGHT_VOLUME_EMPTY_CONFIRMED_POLICY = "table_empty_state"
+MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"
+MODEL_PDF_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
 VOLUME_TRIGGER_LABELS = {
     "pullback_5ma_confirmed": "回測 5 日線後站回",
     "next_day_break_signal_high_confirmed": "隔日突破訊號高點",
@@ -1631,6 +1633,7 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "model_parameters": read_latest_csv("daily_candidate_model_parameters_latest.csv"),
         "model_signals": read_latest_csv("daily_candidate_model_signals_for_report_latest.csv"),
         "model_summary": read_latest_csv("daily_candidate_model_summary_for_report_latest.csv"),
+        "model_readiness": read_latest_csv("model_operation_readiness_latest.csv"),
         "volume_operation": read_latest_csv("daily_volume_breakout_operation_section_latest.csv"),
         "stock_theme_taxonomy": read_latest_csv("stock_theme_taxonomy_latest.csv"),
         "group_rotation": read_latest_csv("daily_candidate_group_rotation_latest.csv"),
@@ -1690,9 +1693,21 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
         registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
     if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
         registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
-        registry = registry[
-            registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])
-        ].copy()
+    readiness = inputs.get("model_readiness", pd.DataFrame()).copy()
+    if not readiness.empty and {"model_id", "presentation_allowed"}.issubset(readiness.columns):
+        registry = registry.merge(readiness[["model_id", "presentation_allowed"]], on="model_id", how="left")
+    visibility_mask = (
+        registry["pdf_visibility"].astype(str).isin(MODEL_PDF_VISIBILITIES)
+        if "pdf_visibility" in registry.columns
+        else pd.Series(False, index=registry.index)
+    )
+    presentation_mask = (
+        registry["presentation_allowed"].astype(str).str.lower().isin({"true", "1", "yes", "y"})
+        if "presentation_allowed" in registry.columns
+        else pd.Series(False, index=registry.index)
+    )
+    if "pdf_visibility" in registry.columns or "presentation_allowed" in registry.columns:
+        registry = registry[visibility_mask | presentation_mask].copy()
     if registry.empty:
         return []
     registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
@@ -1720,103 +1735,19 @@ def model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str, line: str 
 
 
 def mainstream_curated_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
-    line = "mainstream"
-    registry = inputs.get("model_registry", pd.DataFrame()).copy()
-    params = inputs.get("model_parameters", pd.DataFrame()).copy()
-    if registry.empty:
-        signals = inputs.get("model_signals", pd.DataFrame()).copy()
-        if signals.empty:
-            return []
-        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
-        registry["model_registry_order"] = range(1, len(registry) + 1)
-        registry["model_registry_active"] = True
-        registry["report_line_applicability"] = "both"
-    if "model_registry_active" in registry.columns:
-        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
-    if "report_line_applicability" in registry.columns:
-        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
-    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
-        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
-        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
-    if registry.empty:
-        return []
-    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
-    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+    return core_model_specs(inputs, "mainstream")
 
 
 def mainstream_full_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
-    line = "mainstream"
-    registry = inputs.get("model_registry", pd.DataFrame()).copy()
-    params = inputs.get("model_parameters", pd.DataFrame()).copy()
-    if registry.empty:
-        signals = inputs.get("model_signals", pd.DataFrame()).copy()
-        if signals.empty:
-            return []
-        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
-        registry["model_registry_order"] = range(1, len(registry) + 1)
-        registry["model_registry_active"] = True
-        registry["report_line_applicability"] = "both"
-    if "model_registry_active" in registry.columns:
-        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
-    if "report_line_applicability" in registry.columns:
-        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
-    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
-        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
-        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
-    if registry.empty:
-        return []
-    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
-    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+    return core_model_specs(inputs, "mainstream")
 
 
 def non_mainstream_curated_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
-    line = "non_mainstream"
-    registry = inputs.get("model_registry", pd.DataFrame()).copy()
-    params = inputs.get("model_parameters", pd.DataFrame()).copy()
-    if registry.empty:
-        signals = inputs.get("model_signals", pd.DataFrame()).copy()
-        if signals.empty:
-            return []
-        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
-        registry["model_registry_order"] = range(1, len(registry) + 1)
-        registry["model_registry_active"] = True
-        registry["report_line_applicability"] = "both"
-    if "model_registry_active" in registry.columns:
-        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
-    if "report_line_applicability" in registry.columns:
-        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
-    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
-        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
-        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
-    if registry.empty:
-        return []
-    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
-    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+    return core_model_specs(inputs, "non_mainstream")
 
 
 def non_mainstream_full_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
-    line = "non_mainstream"
-    registry = inputs.get("model_registry", pd.DataFrame()).copy()
-    params = inputs.get("model_parameters", pd.DataFrame()).copy()
-    if registry.empty:
-        signals = inputs.get("model_signals", pd.DataFrame()).copy()
-        if signals.empty:
-            return []
-        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
-        registry["model_registry_order"] = range(1, len(registry) + 1)
-        registry["model_registry_active"] = True
-        registry["report_line_applicability"] = "both"
-    if "model_registry_active" in registry.columns:
-        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
-    if "report_line_applicability" in registry.columns:
-        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
-    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
-        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
-        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
-    if registry.empty:
-        return []
-    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
-    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+    return core_model_specs(inputs, "non_mainstream")
 
 
 def mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
@@ -1893,6 +1824,69 @@ def non_mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model
 
 def is_true_text(value) -> bool:
     return clean(value).lower() in {"true", "1", "yes", "y"}
+
+
+def model_readiness_row(inputs: dict[str, pd.DataFrame], model_id: str) -> pd.Series:
+    readiness = inputs.get("model_readiness", pd.DataFrame()).copy()
+    if readiness.empty or "model_id" not in readiness.columns or not model_id:
+        return pd.Series(dtype=object)
+    matched = readiness[readiness["model_id"].astype(str).eq(model_id)].copy()
+    if matched.empty:
+        return pd.Series(dtype=object)
+    return matched.iloc[0]
+
+
+def model_status_text(inputs: dict[str, pd.DataFrame], spec: pd.Series) -> str:
+    model_id = clean(spec.get("model_id"))
+    readiness = model_readiness_row(inputs, model_id)
+    parts = []
+    for label, value in [
+        ("presentation", readiness.get("presentation_allowed")),
+        ("approval", readiness.get("approval_status")),
+        ("operation", readiness.get("operation_module_status")),
+        ("adapter", readiness.get("daily_adapter_status")),
+        ("pdf", readiness.get("pdf_integration_status")),
+        ("visibility", spec.get("pdf_visibility")),
+    ]:
+        text = clean(value)
+        if text:
+            parts.append(f"{label}={text}")
+    note = clean(readiness.get("status_note_zh"))
+    if note:
+        parts.append(short(note, 96))
+    return "；".join(parts) if parts else "模型狀態資料未提供"
+
+
+def build_model_status_table(
+    inputs: dict[str, pd.DataFrame],
+    spec: pd.Series,
+    candidate_count: int,
+    line_label: str,
+) -> Table:
+    model_id = clean(spec.get("model_id"))
+    model_name = clean(spec.get("model_name_zh"), model_id)
+    table_state = MODEL_EMPTY_STATE_TEXT if candidate_count == 0 else "本日有股票推薦"
+    rows = [
+        ["模型", "候選數", "本日表格狀態", "模型狀態 / PDF整合"],
+        [
+            f"{model_name}<br/>{model_id}<br/>{line_label}",
+            str(candidate_count),
+            table_state,
+            model_status_text(inputs, spec),
+        ],
+    ]
+    return build_table(rows, [54 * mm, 22 * mm, 42 * mm, 150 * mm], 12.0)
+
+
+def append_model_status_table(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    spec: pd.Series,
+    candidate_count: int,
+    line_label: str,
+) -> None:
+    story.append(build_model_status_table(inputs, spec, candidate_count, line_label))
+    story.append(Spacer(1, 4))
 
 
 def volume_operation_frame(
@@ -2379,7 +2373,12 @@ def build_mainstream_curated_model_table(
                 ]
             )
         if not matched:
-            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+            empty_text = (
+                f"{MODEL_EMPTY_STATE_TEXT}；本模型今日無{label}資料。"
+                if not selected_rows
+                else f"本模型今日無{label}資料。"
+            )
+            data.append(["-", "-", title, "-", "-", empty_text])
         story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
@@ -2420,7 +2419,12 @@ def build_mainstream_full_model_table(
                 ]
             )
         if not matched:
-            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+            empty_text = (
+                f"{MODEL_EMPTY_STATE_TEXT}；本模型今日無{label}資料。"
+                if not selected_rows
+                else f"本模型今日無{label}資料。"
+            )
+            data.append(["-", "-", title, "-", "-", empty_text])
         story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
@@ -2461,7 +2465,12 @@ def build_non_mainstream_curated_model_table(
                 ]
             )
         if not matched:
-            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+            empty_text = (
+                f"{MODEL_EMPTY_STATE_TEXT}；本模型今日無{label}資料。"
+                if not selected_rows
+                else f"本模型今日無{label}資料。"
+            )
+            data.append(["-", "-", title, "-", "-", empty_text])
         story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
@@ -2502,7 +2511,12 @@ def build_non_mainstream_full_model_table(
                 ]
             )
         if not matched:
-            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+            empty_text = (
+                f"{MODEL_EMPTY_STATE_TEXT}；本模型今日無{label}資料。"
+                if not selected_rows
+                else f"本模型今日無{label}資料。"
+            )
+            data.append(["-", "-", title, "-", "-", empty_text])
         story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
@@ -3425,12 +3439,11 @@ def build_mainstream_curated_pdf(
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         ranked_rows = mainstream_curated_model_signal_rows(inputs, model_id)
-        if not ranked_rows:
-            continue
         if started_model_sections:
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
+        append_model_status_table(story, inputs, spec, len(ranked_rows), MAINSTREAM_LINE_LABEL)
         desc = clean(spec.get("model_description_zh"))
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
@@ -3476,12 +3489,11 @@ def build_non_mainstream_curated_pdf(
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         ranked_rows = non_mainstream_curated_model_signal_rows(inputs, model_id)
-        if not ranked_rows:
-            continue
         if started_model_sections:
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
+        append_model_status_table(story, inputs, spec, len(ranked_rows), NON_MAINSTREAM_LINE_LABEL)
         desc = clean(spec.get("model_description_zh"))
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
@@ -3574,9 +3586,7 @@ def build_mainstream_full_candidate_pdf(
         line_rows = mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
-        if not line_rows:
-            story.append(para("無符合條件資料。", BODY))
-            continue
+        append_model_status_table(story, inputs, spec, len(line_rows), line_label)
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full", line)
             continue
@@ -3698,9 +3708,7 @@ def build_non_mainstream_full_candidate_pdf(
         line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
-        if not line_rows:
-            story.append(para("無符合條件資料。", BODY))
-            continue
+        append_model_status_table(story, inputs, spec, len(line_rows), line_label)
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full", line)
             continue
@@ -3978,7 +3986,31 @@ def build_market_risk_background_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
     return out
 
 
-def validate_outputs(paths: list[Path]) -> None:
+def stock_pdf_line_for_path(path: Path) -> str | None:
+    name = path.name
+    if NON_MAINSTREAM_CURATED_TITLE in name or NON_MAINSTREAM_FULL_TITLE in name:
+        return "non_mainstream"
+    if MAINSTREAM_CURATED_TITLE in name or MAINSTREAM_FULL_TITLE in name:
+        return "mainstream"
+    return None
+
+
+def required_stock_model_text_missing(inputs: dict[str, pd.DataFrame], line: str, text: str) -> list[str]:
+    missing: list[str] = []
+    zero_candidate_models = 0
+    for spec in core_model_specs(inputs, line):
+        model_id = clean(spec.get("model_id"))
+        model_name = clean(spec.get("model_name_zh"), model_id)
+        if model_name and model_name not in text:
+            missing.append(model_name)
+        if len(model_signal_rows(inputs, model_id, line)) == 0:
+            zero_candidate_models += 1
+    if zero_candidate_models and text.count(MODEL_EMPTY_STATE_TEXT) < zero_candidate_models:
+        missing.append(f"{MODEL_EMPTY_STATE_TEXT} x{zero_candidate_models}")
+    return missing
+
+
+def validate_outputs(paths: list[Path], inputs: dict[str, pd.DataFrame] | None = None) -> None:
     from pypdf import PdfReader
 
     forbidden = ["debug", "fallback", "ChatGPT 道歉", "流程重跑版", "版本字樣"]
@@ -3993,10 +4025,17 @@ def validate_outputs(paths: list[Path]) -> None:
         if "每日推薦分析" in path.name:
             required = ["模型", "族群", "風險"]
             required_missing = [term for term in required if term not in text]
+        model_required_missing: list[str] = []
+        if inputs is not None:
+            line = stock_pdf_line_for_path(path)
+            if line:
+                model_required_missing = required_stock_model_text_missing(inputs, line, text)
         if missing or hits or required_missing:
             validation_errors.append(
                 f"{path.name}: text_missing={missing}, forbidden_hits={hits}, required_missing={required_missing}"
             )
+        if model_required_missing:
+            validation_errors.append(f"{path.name}: model_required_missing={model_required_missing}")
         report_lines.append(
             {
                 "file": path.name,
@@ -4005,6 +4044,7 @@ def validate_outputs(paths: list[Path]) -> None:
                 "text_missing": missing,
                 "forbidden_hits": hits,
                 "required_missing": required_missing,
+                "model_required_missing": model_required_missing,
             }
         )
     pd.DataFrame(report_lines).to_csv(OUT / f"{REQUEST_DATE}_requested_repo{DATA_DATE}_pdf_validation.csv", index=False, encoding="utf-8-sig")
@@ -4075,7 +4115,7 @@ def main() -> None:
         build_warrant_market_auxiliary_pdf(inputs),
         build_market_risk_background_pdf(inputs),
     ]
-    validate_outputs(paths)
+    validate_outputs(paths, inputs)
     for path in paths:
         print(path)
 

@@ -9,6 +9,7 @@ def model_row(model_id: str = "volume_range_breakout", approved: str = "true") -
     return {
         "model_id": model_id,
         "approved_for_daily_pdf": approved,
+        "pdf_visibility": "pdf_core_model",
     }
 
 
@@ -62,6 +63,92 @@ def test_daily_pdf_model_ids_must_exist_and_be_approved() -> None:
     errors = validator.validate_model_ids(["known_but_not_daily", "missing_model"], rows)
     assert any("not approved_for_daily_pdf=true" in error for error in errors)
     assert any("not in stock model contract" in error for error in errors)
+
+
+def test_required_display_models_cannot_be_inferred_only_from_signal_rows() -> None:
+    model_rows = [
+        model_row("hot_theme_pullback"),
+        model_row("w_bottom_right_side"),
+        model_row("neckline_volume_breakout_confirmation"),
+    ]
+    registry_rows = [
+        {
+            "model_id": "hot_theme_pullback",
+            "model_registry_active": "True",
+            "report_line_applicability": "both",
+        },
+        {
+            "model_id": "w_bottom_right_side",
+            "model_registry_active": "True",
+            "report_line_applicability": "both",
+        },
+        {
+            "model_id": "neckline_volume_breakout_confirmation",
+            "model_registry_active": "True",
+            "report_line_applicability": "both",
+        },
+    ]
+    parameter_rows = [
+        {"model_id": "hot_theme_pullback", "pdf_visibility": "pdf_core_model"},
+        {"model_id": "w_bottom_right_side", "pdf_visibility": "pdf_core_model"},
+        {"model_id": "neckline_volume_breakout_confirmation", "pdf_visibility": "pdf_core_model"},
+    ]
+
+    errors = validator.validate_required_display_model_coverage(
+        {"hot_theme_pullback"},
+        model_rows,
+        registry_rows,
+        parameter_rows,
+        [],
+    )
+
+    assert any("w_bottom_right_side" in error for error in errors)
+    assert any("neckline_volume_breakout_confirmation" in error for error in errors)
+
+    errors = validator.validate_required_display_model_coverage(
+        {"hot_theme_pullback", "w_bottom_right_side", "neckline_volume_breakout_confirmation"},
+        model_rows,
+        registry_rows,
+        parameter_rows,
+        [],
+    )
+    assert errors == []
+
+
+def test_presentation_allowed_model_is_part_of_display_roster() -> None:
+    registry_rows = [
+        {
+            "model_id": "w_bottom_right_side",
+            "model_registry_active": "True",
+            "report_line_applicability": "both",
+        }
+    ]
+    readiness_rows = [{"model_id": "w_bottom_right_side", "presentation_allowed": "True"}]
+
+    assert validator.display_roster_model_ids(registry_rows, [], readiness_rows) == {"w_bottom_right_side"}
+
+
+def test_renderer_fixed_model_table_contract_blocks_zero_row_section_skip(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        "MODEL_EMPTY_STATE_TEXT = '本日無股票推薦'\n"
+        "if not ranked_rows:\n"
+        "    continue\n",
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("must not skip a model section" in error for error in errors)
+
+
+def test_renderer_fixed_model_table_contract_requires_empty_state_text(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text("def render():\n    return 'empty'\n", encoding="utf-8")
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("missing zero-candidate text" in error for error in errors)
 
 
 def test_unapproved_event_field_is_rejected_even_for_disclosure() -> None:
