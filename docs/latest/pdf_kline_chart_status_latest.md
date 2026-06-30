@@ -33,10 +33,10 @@
 | 5289 | 宜鼎 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/5289_宜鼎_revenue_pullback_126d.png` | `data/daily_price` |
 | 2101 | 南港 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2101_南港_revenue_pullback_126d.png` | `data/daily_price` |
 | 4714 | 永捷 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4714_永捷_pullback_rebound_126d.png` | `data/daily_price` |
+| 2360 | 致茂 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2360_致茂_pullback_rebound_126d.png` | `data/daily_price` |
 | 3324 | 雙鴻 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3324_雙鴻_pullback_rebound_126d.png` | `data/daily_price` |
 | 3702 | 大聯大 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3702_大聯大_pullback_rebound_126d.png` | `data/daily_price` |
 | 5284 | jpp-KY | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/5284_jpp-KY_pullback_rebound_126d.png` | `data/daily_price` |
-| 8358 | 金居 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8358_金居_pullback_rebound_126d.png` | `data/daily_price` |
 | 0052 | 富邦科技 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/0052_富邦科技_pattern_126d.png` | `data/daily_price` |
 | 0056 | 元大高股息 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/0056_元大高股息_pattern_126d.png` | `data/daily_price` |
 | 1210 | 大成 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1210_大成_pattern_126d.png` | `data/daily_price` |

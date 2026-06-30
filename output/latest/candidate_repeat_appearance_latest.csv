@@ -3,7 +3,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260630,1609,大亞,23,6,5,10,20,20260523,20260630,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260630,2337,旺宏,23,5,5,10,20,20260523,20260630,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260630,2347,聯強,23,6,5,10,20,20260523,20260630,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260630,2360,致茂,23,6,5,10,20,20260523,20260630,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260630,2360,致茂,23,6,5,10,20,20260523,20260630,pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260630,2363,矽統,23,6,5,10,20,20260523,20260630,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
 20260630,2368,金像電,23,6,5,10,20,20260523,20260630,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260630,2369,菱生,23,2,5,10,20,20260523,20260630,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。

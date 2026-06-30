@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Latest
 
-- generated_at: `2026-06-30 17:12:34 Asia/Taipei`
+- generated_at: `2026-06-30 18:58:16 Asia/Taipei`
 - signal_date: `20260630`
 - history_available_days: `23`
 - source_signal_log: `output/history/daily_signals/daily_candidate_signal_log.csv`
@@ -22,7 +22,7 @@
 |       1609 | 大亞           |                                     23 |                                       6 |                 5 |                 10 |                 20 | revenue_pullback                                                              | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2337 | 旺宏           |                                     23 |                                       5 |                 5 |                 10 |                 20 | pattern|revenue_pullback                                                      | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2347 | 聯強           |                                     23 |                                       6 |                 5 |                 10 |                 20 | revenue_breakout_low_response|revenue_pullback                                | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-|       2360 | 致茂           |                                     23 |                                       6 |                 5 |                 10 |                 20 | revenue_pullback                                                              | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+|       2360 | 致茂           |                                     23 |                                       6 |                 5 |                 10 |                 20 | pullback_rebound|revenue_pullback                                             | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2363 | 矽統           |                                     23 |                                       6 |                 5 |                 10 |                 20 | revenue_pullback                                                              | continued_overheated     | 連續上榜但短線過熱，需避免追高並等待量價重新確認。                     |
 |       2368 | 金像電          |                                     23 |                                       6 |                 5 |                 10 |                 20 | revenue_pullback                                                              | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2369 | 菱生           |                                     23 |                                       2 |                 5 |                 10 |                 20 | revenue_pullback                                                              | continued_overheated     | 連續上榜但短線過熱，需避免追高並等待量價重新確認。                     |

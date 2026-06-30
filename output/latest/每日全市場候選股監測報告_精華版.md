@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260630`
-- 產生時間：`2026-06-30 17:19:02 Asia/Taipei`
+- 產生時間：`2026-06-30 19:04:09 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260630`
@@ -22,7 +22,7 @@
 | 區間內轉強 / 挑戰前高觀察 | 106 |
 | 營收爆發低反應股 | 32 |
 | 營收成長股價回檔 | 185 |
-| 回檔後短線轉強 | 25 |
+| 回檔後短線轉強 | 26 |
 | 型態觀察 | 207 |
 
 ## 財報 / 事件催化觀察
@@ -36,12 +36,12 @@
 | 2101 南港 | 營收爆發低反應股 | score 28 / theme 12.4/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
 | 2476 鉅祥 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 8422 可寧衛* | 營收成長股價回檔 | score 28 / theme 6.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;investor_conference;neutral;monthly_re... | 大戶溫和增加 |
-| 3022 威強電 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;investor_conference;mainstream_growt... | 大戶同步增加 |
 | 4934 太極 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;光電業;monthly_rev... | 大戶溫和增加 |
+| 3022 威強電 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;investor_conference;mainstream_growt... | 大戶同步增加 |
 | 2353 宏碁 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;電腦及週邊設備業;monthl... | 大戶同步增加 |
 | 4934 太極 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶同步增加 |
-| 2347 聯強 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶同步增加 |
 | 8183 精星 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 2347 聯強 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶同步增加 |
 | 2347 聯強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
 
 ## 精華候選股
@@ -308,6 +308,18 @@
 - 完整原因：近幾週400張與1000張合計增加；量比1.35x；月營收YoY 80.9%；累計YoY 92.6%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
+### 2360 致茂
+- 族群：其他電子業
+- 分數 / 排名：82.0 / 
+- 優先級：
+- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pullback_rebound|revenue_pullback
+- TDCC：大戶轉弱
+- 權證：
+- 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;其他電子業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / material_informatio...
+- 摘要：回檔轉強 / pullback_rebound / 大戶轉弱
+- 完整原因：近幾週400張與1000張同步減少；no_signal；今日無可用權證成交金額；量比1.2x；月營收YoY 133.1%；累計YoY 94.4%；TDCC近幾週大戶籌碼轉弱
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+
 ### 3324 雙鴻
 - 族群：其他電子業
 - 分數 / 排名：82.0 / 
@@ -329,7 +341,7 @@
 - 權證：
 - 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;電子通路業;shareholder_meeting_calendar;calendar_shareholder_meeting / material_information;電子通路業 ...
 - 摘要：回檔轉強 / pullback_rebound / 大戶溫和增加
-- 完整原因：近幾週400張與1000張合計增加；量比1.23x；月營收YoY 82.9%；累計YoY 39.8%；TDCC近幾週大戶溫和增加
+- 完整原因：近幾週400張與1000張合計增加；量比1.24x；月營收YoY 82.9%；累計YoY 39.8%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 5284 jpp-KY
@@ -339,21 +351,9 @@
 - 連續上榜：訊號鈍化；近5日 1；近10日 1；多分類 pullback_rebound|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 90.8/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他 / monthly_revenue_calendar;calendar_monthly_re...
+- 財報 / 事件催化：score 0 / theme 90.9/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他 / monthly_revenue_calendar;calendar_monthly_re...
 - 摘要：回檔轉強 / pullback_rebound / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；no_signal；權證金流未見明顯高於近期平均的變化；量比1.48x；月營收YoY 43.3%；累計YoY 46.7%；TDCC近幾週大戶溫和增加
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
-### 8358 金居
-- 族群：電子零組件業
-- 分數 / 排名：74.0 / 
-- 優先級：
-- 連續上榜：訊號鈍化；近5日 5；近10日 7；多分類 pattern|pullback_rebound|revenue_pullback
-- TDCC：大戶溫和增加
-- 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;電子零組件業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / material_informati...
-- 摘要：回檔轉強 / pullback_rebound / 大戶溫和增加
-- 完整原因：近幾週400張與1000張合計增加；量比1.64x；月營收YoY 41.4%；累計YoY 43.1%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ## 型態觀察
@@ -403,7 +403,7 @@
 - 權證：
 - 財報 / 事件催化：score 0 / theme 12.1/5 / investor_conference;食品工業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / investor_conference;食品...
 - 摘要：pattern_watch / 大戶轉弱
-- 完整原因：近幾週400張與1000張同步減少；量比0.62x；月營收YoY -8.8%；累計YoY -8.8%；TDCC近幾週大戶籌碼轉弱
+- 完整原因：近幾週400張與1000張同步減少；量比0.64x；月營收YoY -8.8%；累計YoY -8.8%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 1304 台聚
