@@ -1,6 +1,6 @@
 # Daily Model Background Data Cleanup Audit
 
-- generated_at: `2026-06-30 21:23:26 Asia/Taipei`
+- generated_at: `2026-06-30 22:44:09 Asia/Taipei`
 - registry: `config/daily_model_background_data_registry.csv`
 - rows: `14`
 - deletion_allowed_rows: `0`
@@ -58,4 +58,4 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | price_pullback_23ema_research_outputs | 6 | 1 | 2 | 1 | 14 | 27 |
 | neckline_context_interpretation | 1 | 6 | 2 | 1 | 76 | 45 |
 | w_bottom_shape_interpretation | 1 | 5 | 2 | 1 | 74 | 46 |
-| volume_breakout_operation_research_outputs | 15 | 8 | 2 | 1 | 228 | 147 |
+| volume_breakout_operation_research_outputs | 15 | 8 | 2 | 1 | 229 | 147 |

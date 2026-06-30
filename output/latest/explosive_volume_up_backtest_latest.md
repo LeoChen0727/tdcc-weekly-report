@@ -1,6 +1,6 @@
 # Explosive Volume Up Backtest
 
-- generated_at: `2026-06-21 21:04:13 Asia/Taipei`
+- generated_at: `2026-06-30 22:38:04 Asia/Taipei`
 - signal_definition: signal day volume / previous 20 trading day average volume >= threshold, and signal day close-to-close return >= minimum return.
 - entry_basis: next trading day open.
 - close_return: next open to D+N close.
@@ -11,144 +11,149 @@
 
 ## Data Summary
 
-- total_event_rows: `29133`
-- unique_stock_days: `29133`
-- date_range: `20250422` to `20260617`
+- total_event_rows: `30140`
+- unique_stock_days: `30140`
+- date_range: `20250422` to `20260629`
 
 ## D+10 Highest +10% Hit Rate
 
 | rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | avg_mfe_pct | avg_mae_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+10 | 6998 | 6647 | 43.09 | 1.57 | -1.94 | 43.66 | 21.96 | 13.14 | -9.33 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+10 | 4956 | 4712 | 41.6 | 1.25 | -2.32 | 41.81 | 20.8 | 12.69 | -9.14 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+10 | 10243 | 9747 | 43.0 | 1.33 | -1.77 | 40.81 | 19.78 | 12.2 | -8.8 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+10 | 3580 | 3407 | 40.5 | 0.85 | -2.51 | 40.42 | 19.61 | 12.27 | -9.05 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+10 | 1220 | 1155 | 38.53 | 0.02 | -2.74 | 39.48 | 18.27 | 11.46 | -8.93 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+10 | 2656 | 2524 | 38.83 | 0.17 | -2.83 | 39.42 | 18.07 | 11.62 | -9.1 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+10 | 6972 | 6648 | 41.5 | 1.02 | -2.11 | 39.31 | 18.83 | 11.84 | -8.71 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+10 | 2021 | 1920 | 38.02 | -0.08 | -2.9 | 38.65 | 17.29 | 11.3 | -9.03 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+10 | 4875 | 4641 | 40.68 | 0.73 | -2.31 | 38.53 | 18.08 | 11.58 | -8.64 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+10 | 3507 | 3330 | 39.67 | 0.3 | -2.51 | 38.41 | 17.45 | 11.28 | -8.71 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+10 | 1537 | 1460 | 38.36 | -0.16 | -2.7 | 37.95 | 16.85 | 10.89 | -8.7 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+10 | 2648 | 2511 | 39.03 | 0.15 | -2.52 | 37.83 | 16.89 | 11.03 | -8.62 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+10 | 799 | 745 | 35.17 | -0.92 | -3.15 | 37.05 | 15.57 | 10.57 | -8.88 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+10 | 15608 | 14872 | 42.81 | 1.12 | -1.55 | 36.81 | 17.26 | 11.08 | -8.09 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+10 | 996 | 934 | 36.3 | -0.78 | -2.94 | 36.62 | 15.1 | 10.3 | -8.67 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+10 | 9745 | 9282 | 41.12 | 0.86 | -1.99 | 36.17 | 16.97 | 10.97 | -8.18 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+10 | 6490 | 6174 | 40.62 | 0.61 | -2.12 | 36.1 | 16.62 | 10.88 | -8.24 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+10 | 4556 | 4322 | 39.63 | 0.24 | -2.37 | 36.07 | 16.15 | 10.67 | -8.34 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+10 | 1940 | 1836 | 38.24 | -0.25 | -2.7 | 35.78 | 16.01 | 10.34 | -8.47 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+10 | 3360 | 3180 | 38.84 | 0.03 | -2.47 | 35.75 | 15.82 | 10.46 | -8.36 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+10 | 7322 | 6916 | 43.36 | 1.64 | -1.84 | 44.19 | 22.34 | 13.28 | -9.29 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+10 | 5174 | 4899 | 41.89 | 1.31 | -2.22 | 42.34 | 21.19 | 12.82 | -9.11 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+10 | 10673 | 10123 | 43.15 | 1.38 | -1.72 | 41.21 | 20.07 | 12.31 | -8.77 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+10 | 3734 | 3540 | 40.73 | 0.92 | -2.46 | 40.9 | 20.03 | 12.38 | -9.02 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+10 | 1271 | 1208 | 38.91 | 0.19 | -2.7 | 39.98 | 18.87 | 11.7 | -8.89 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+10 | 2768 | 2629 | 38.99 | 0.24 | -2.78 | 39.86 | 18.49 | 11.75 | -9.07 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+10 | 7256 | 6891 | 41.65 | 1.07 | -2.06 | 39.7 | 19.16 | 11.94 | -8.69 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+10 | 2107 | 2001 | 38.18 | -0.01 | -2.85 | 38.93 | 17.54 | 11.42 | -9.01 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+10 | 5071 | 4813 | 40.83 | 0.78 | -2.27 | 38.89 | 18.45 | 11.68 | -8.63 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+10 | 3649 | 3461 | 39.76 | 0.37 | -2.5 | 38.75 | 17.83 | 11.4 | -8.7 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+10 | 1603 | 1518 | 38.67 | 0.0 | -2.64 | 38.34 | 17.39 | 11.1 | -8.66 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+10 | 2755 | 2612 | 39.17 | 0.23 | -2.52 | 38.06 | 17.15 | 11.15 | -8.62 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+10 | 833 | 788 | 35.66 | -0.67 | -2.96 | 37.69 | 16.24 | 10.92 | -8.84 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+10 | 16187 | 15443 | 42.86 | 1.15 | -1.53 | 37.14 | 17.51 | 11.17 | -8.08 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+10 | 1039 | 980 | 36.53 | -0.6 | -2.9 | 37.04 | 15.61 | 10.56 | -8.64 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+10 | 10119 | 9632 | 41.18 | 0.89 | -1.97 | 36.46 | 17.23 | 11.05 | -8.17 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+10 | 6744 | 6409 | 40.65 | 0.65 | -2.11 | 36.36 | 16.93 | 10.96 | -8.23 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+10 | 4737 | 4497 | 39.63 | 0.3 | -2.34 | 36.31 | 16.5 | 10.77 | -8.32 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+10 | 2016 | 1914 | 38.35 | -0.17 | -2.68 | 35.95 | 16.41 | 10.48 | -8.45 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+10 | 3495 | 3313 | 38.88 | 0.1 | -2.47 | 35.89 | 16.09 | 10.55 | -8.35 | ok |
 
 ## D+20 Highest +10% Hit Rate
 
 | rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | avg_mfe_pct | avg_mae_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+20 | 6998 | 6256 | 45.33 | 4.65 | -1.69 | 55.88 | 34.51 | 20.61 | -11.35 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+20 | 4956 | 4473 | 43.57 | 3.83 | -2.23 | 53.48 | 32.37 | 19.58 | -11.16 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+20 | 10243 | 9177 | 45.45 | 4.19 | -1.47 | 53.29 | 32.23 | 19.19 | -10.79 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+20 | 3580 | 3248 | 42.3 | 3.19 | -2.66 | 52.03 | 30.48 | 18.76 | -11.12 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+20 | 6972 | 6306 | 43.8 | 3.38 | -2.07 | 51.51 | 30.24 | 18.3 | -10.71 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+20 | 1220 | 1122 | 40.29 | 1.88 | -2.91 | 51.16 | 28.34 | 17.07 | -10.84 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+20 | 2656 | 2421 | 40.6 | 2.37 | -2.99 | 50.56 | 28.87 | 17.71 | -11.17 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+20 | 4875 | 4426 | 42.63 | 2.9 | -2.43 | 50.36 | 28.74 | 17.68 | -10.66 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+20 | 2021 | 1847 | 40.01 | 2.13 | -3.04 | 49.92 | 28.37 | 17.31 | -10.98 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+20 | 15608 | 14025 | 45.33 | 3.71 | -1.3 | 49.62 | 28.92 | 17.47 | -10.01 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+20 | 3507 | 3193 | 40.96 | 2.29 | -2.87 | 49.55 | 28.12 | 17.1 | -10.76 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+20 | 2648 | 2420 | 40.66 | 2.12 | -2.88 | 49.21 | 27.69 | 16.79 | -10.6 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+20 | 1537 | 1418 | 39.63 | 1.36 | -3.04 | 49.08 | 26.59 | 16.14 | -10.71 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+20 | 9745 | 8819 | 43.92 | 3.12 | -1.79 | 48.78 | 27.85 | 17.03 | -10.12 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+20 | 799 | 725 | 36.97 | 0.57 | -3.76 | 48.69 | 25.52 | 15.42 | -10.78 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+20 | 996 | 912 | 37.17 | 0.52 | -3.58 | 48.03 | 24.67 | 15.05 | -10.6 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+20 | 6490 | 5895 | 42.46 | 2.66 | -2.3 | 48.02 | 26.92 | 16.66 | -10.23 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+20 | 1940 | 1782 | 39.56 | 1.23 | -3.23 | 47.31 | 25.76 | 15.61 | -10.54 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+20 | 4556 | 4150 | 40.94 | 2.05 | -2.69 | 47.23 | 26.31 | 16.21 | -10.37 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+20 | 3360 | 3070 | 40.26 | 1.8 | -2.89 | 47.17 | 26.12 | 15.97 | -10.37 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+20 | 7322 | 6510 | 44.96 | 4.52 | -1.82 | 55.81 | 34.35 | 20.52 | -11.46 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+20 | 5174 | 4615 | 43.23 | 3.72 | -2.36 | 53.56 | 32.24 | 19.52 | -11.22 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+20 | 10673 | 9550 | 45.17 | 4.07 | -1.58 | 53.31 | 32.12 | 19.11 | -10.9 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+20 | 3734 | 3333 | 41.94 | 3.09 | -2.75 | 51.88 | 30.24 | 18.67 | -11.17 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+20 | 7256 | 6510 | 43.5 | 3.28 | -2.15 | 51.61 | 30.14 | 18.24 | -10.78 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+20 | 1271 | 1136 | 40.05 | 1.76 | -2.96 | 50.97 | 28.17 | 17.0 | -10.91 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+20 | 2768 | 2474 | 40.3 | 2.27 | -3.12 | 50.53 | 28.78 | 17.68 | -11.2 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+20 | 5071 | 4544 | 42.3 | 2.79 | -2.55 | 50.33 | 28.57 | 17.61 | -10.72 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+20 | 2107 | 1882 | 39.8 | 2.06 | -3.12 | 49.84 | 28.32 | 17.3 | -11.01 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+20 | 16187 | 14587 | 45.13 | 3.6 | -1.39 | 49.76 | 28.89 | 17.42 | -10.1 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+20 | 3649 | 3267 | 40.71 | 2.21 | -2.93 | 49.59 | 28.04 | 17.08 | -10.8 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+20 | 2755 | 2466 | 40.39 | 2.03 | -2.95 | 49.19 | 27.58 | 16.75 | -10.63 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+20 | 1603 | 1438 | 39.36 | 1.24 | -3.17 | 49.03 | 26.43 | 16.08 | -10.76 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+20 | 10119 | 9100 | 43.73 | 3.03 | -1.86 | 48.93 | 27.82 | 16.99 | -10.17 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+20 | 833 | 733 | 36.97 | 0.52 | -3.8 | 48.7 | 25.51 | 15.44 | -10.83 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+20 | 6744 | 6056 | 42.22 | 2.57 | -2.36 | 48.07 | 26.8 | 16.62 | -10.28 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+20 | 1039 | 920 | 37.17 | 0.49 | -3.6 | 48.04 | 24.67 | 15.06 | -10.64 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+20 | 4737 | 4250 | 40.8 | 1.98 | -2.74 | 47.34 | 26.28 | 16.21 | -10.4 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+20 | 2016 | 1810 | 39.39 | 1.13 | -3.28 | 47.29 | 25.64 | 15.57 | -10.57 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+20 | 3495 | 3129 | 40.08 | 1.72 | -2.94 | 47.2 | 26.01 | 15.95 | -10.38 | ok |
 
 ## Threshold Matrix: D+10
 
 | rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | avg_mfe_pct | avg_mae_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| volume_ratio_prev20_ge_10x_signal_return_ge_0pct | D+10 | 1613 | 1512 | 37.9 | -0.44 | -2.36 | 32.28 | 13.69 | 9.41 | -7.92 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_3pct | D+10 | 1240 | 1160 | 37.07 | -0.67 | -2.75 | 34.91 | 14.74 | 9.92 | -8.41 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+10 | 996 | 934 | 36.3 | -0.78 | -2.94 | 36.62 | 15.1 | 10.3 | -8.67 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+10 | 799 | 745 | 35.17 | -0.92 | -3.15 | 37.05 | 15.57 | 10.57 | -8.88 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_0pct | D+10 | 2516 | 2376 | 38.72 | -0.15 | -2.25 | 33.38 | 14.73 | 9.75 | -7.98 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+10 | 1940 | 1836 | 38.24 | -0.25 | -2.7 | 35.78 | 16.01 | 10.34 | -8.47 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+10 | 1537 | 1460 | 38.36 | -0.16 | -2.7 | 37.95 | 16.85 | 10.89 | -8.7 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+10 | 1220 | 1155 | 38.53 | 0.02 | -2.74 | 39.48 | 18.27 | 11.46 | -8.93 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_0pct | D+10 | 4438 | 4193 | 39.18 | 0.06 | -2.05 | 33.08 | 14.48 | 9.75 | -7.84 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+10 | 3360 | 3180 | 38.84 | 0.03 | -2.47 | 35.75 | 15.82 | 10.46 | -8.36 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+10 | 2648 | 2511 | 39.03 | 0.15 | -2.52 | 37.83 | 16.89 | 11.03 | -8.62 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+10 | 2021 | 1920 | 38.02 | -0.08 | -2.9 | 38.65 | 17.29 | 11.3 | -9.03 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_0pct | D+10 | 6206 | 5865 | 39.91 | 0.3 | -1.91 | 33.03 | 14.71 | 9.89 | -7.74 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+10 | 4556 | 4322 | 39.63 | 0.24 | -2.37 | 36.07 | 16.15 | 10.67 | -8.34 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+10 | 3507 | 3330 | 39.67 | 0.3 | -2.51 | 38.41 | 17.45 | 11.28 | -8.71 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+10 | 2656 | 2524 | 38.83 | 0.17 | -2.83 | 39.42 | 18.07 | 11.62 | -9.1 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_0pct | D+10 | 9172 | 8688 | 40.54 | 0.55 | -1.71 | 32.3 | 14.59 | 9.87 | -7.57 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+10 | 6490 | 6174 | 40.62 | 0.61 | -2.12 | 36.1 | 16.62 | 10.88 | -8.24 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+10 | 4875 | 4641 | 40.68 | 0.73 | -2.31 | 38.53 | 18.08 | 11.58 | -8.64 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+10 | 3580 | 3407 | 40.5 | 0.85 | -2.51 | 40.42 | 19.61 | 12.27 | -9.05 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_0pct | D+10 | 14974 | 14208 | 41.32 | 0.77 | -1.42 | 31.36 | 14.31 | 9.67 | -7.28 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+10 | 9745 | 9282 | 41.12 | 0.86 | -1.99 | 36.17 | 16.97 | 10.97 | -8.18 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+10 | 6972 | 6648 | 41.5 | 1.02 | -2.11 | 39.31 | 18.83 | 11.84 | -8.71 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+10 | 4956 | 4712 | 41.6 | 1.25 | -2.32 | 41.81 | 20.8 | 12.69 | -9.14 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_0pct | D+10 | 29133 | 27667 | 42.67 | 0.89 | -0.99 | 29.69 | 13.06 | 9.16 | -6.75 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+10 | 15608 | 14872 | 42.81 | 1.12 | -1.55 | 36.81 | 17.26 | 11.08 | -8.09 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+10 | 10243 | 9747 | 43.0 | 1.33 | -1.77 | 40.81 | 19.78 | 12.2 | -8.8 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+10 | 6998 | 6647 | 43.09 | 1.57 | -1.94 | 43.66 | 21.96 | 13.14 | -9.33 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_0pct | D+10 | 1672 | 1588 | 37.78 | -0.4 | -2.36 | 32.3 | 13.98 | 9.55 | -7.94 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_3pct | D+10 | 1291 | 1220 | 37.05 | -0.58 | -2.73 | 35.0 | 15.08 | 10.09 | -8.39 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+10 | 1039 | 980 | 36.53 | -0.6 | -2.9 | 37.04 | 15.61 | 10.56 | -8.64 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+10 | 833 | 788 | 35.66 | -0.67 | -2.96 | 37.69 | 16.24 | 10.92 | -8.84 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_0pct | D+10 | 2606 | 2479 | 38.73 | -0.11 | -2.25 | 33.48 | 15.01 | 9.85 | -7.98 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+10 | 2016 | 1914 | 38.35 | -0.17 | -2.68 | 35.95 | 16.41 | 10.48 | -8.45 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+10 | 1603 | 1518 | 38.67 | 0.0 | -2.64 | 38.34 | 17.39 | 11.1 | -8.66 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+10 | 1271 | 1208 | 38.91 | 0.19 | -2.7 | 39.98 | 18.87 | 11.7 | -8.89 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_0pct | D+10 | 4608 | 4372 | 39.16 | 0.11 | -2.05 | 33.23 | 14.71 | 9.83 | -7.85 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+10 | 3495 | 3313 | 38.88 | 0.1 | -2.47 | 35.89 | 16.09 | 10.55 | -8.35 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+10 | 2755 | 2612 | 39.17 | 0.23 | -2.52 | 38.06 | 17.15 | 11.15 | -8.62 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+10 | 2107 | 2001 | 38.18 | -0.01 | -2.85 | 38.93 | 17.54 | 11.42 | -9.01 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_0pct | D+10 | 6437 | 6121 | 39.9 | 0.35 | -1.9 | 33.26 | 15.01 | 9.97 | -7.74 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+10 | 4737 | 4497 | 39.63 | 0.3 | -2.34 | 36.31 | 16.5 | 10.77 | -8.32 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+10 | 3649 | 3461 | 39.76 | 0.37 | -2.5 | 38.75 | 17.83 | 11.4 | -8.7 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+10 | 2768 | 2629 | 38.99 | 0.24 | -2.78 | 39.86 | 18.49 | 11.75 | -9.07 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_0pct | D+10 | 9516 | 9053 | 40.54 | 0.58 | -1.69 | 32.54 | 14.85 | 9.94 | -7.57 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+10 | 6744 | 6409 | 40.65 | 0.65 | -2.11 | 36.36 | 16.93 | 10.96 | -8.23 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+10 | 5071 | 4813 | 40.83 | 0.78 | -2.27 | 38.89 | 18.45 | 11.68 | -8.63 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+10 | 3734 | 3540 | 40.73 | 0.92 | -2.46 | 40.9 | 20.03 | 12.38 | -9.02 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_0pct | D+10 | 15541 | 14798 | 41.3 | 0.78 | -1.42 | 31.63 | 14.52 | 9.74 | -7.29 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+10 | 10119 | 9632 | 41.18 | 0.89 | -1.97 | 36.46 | 17.23 | 11.05 | -8.17 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+10 | 7256 | 6891 | 41.65 | 1.07 | -2.06 | 39.7 | 19.16 | 11.94 | -8.69 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+10 | 5174 | 4899 | 41.89 | 1.31 | -2.22 | 42.34 | 21.19 | 12.82 | -9.11 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_0pct | D+10 | 30140 | 28827 | 42.62 | 0.9 | -0.99 | 29.92 | 13.27 | 9.23 | -6.75 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+10 | 16187 | 15443 | 42.86 | 1.15 | -1.53 | 37.14 | 17.51 | 11.17 | -8.08 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+10 | 10673 | 10123 | 43.15 | 1.38 | -1.72 | 41.21 | 20.07 | 12.31 | -8.77 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+10 | 7322 | 6916 | 43.36 | 1.64 | -1.84 | 44.19 | 22.34 | 13.28 | -9.29 | ok |
 
 ## Threshold Matrix: D+20
 
 | rule_name | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | avg_mfe_pct | avg_mae_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| volume_ratio_prev20_ge_10x_signal_return_ge_0pct | D+20 | 1613 | 1463 | 38.96 | 1.01 | -2.71 | 44.36 | 22.83 | 14.24 | -9.78 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_3pct | D+20 | 1240 | 1131 | 37.93 | 0.78 | -3.53 | 46.86 | 24.49 | 14.9 | -10.36 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+20 | 996 | 912 | 37.17 | 0.52 | -3.58 | 48.03 | 24.67 | 15.05 | -10.6 | ok |
-| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+20 | 799 | 725 | 36.97 | 0.57 | -3.76 | 48.69 | 25.52 | 15.42 | -10.78 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_0pct | D+20 | 2516 | 2292 | 40.58 | 1.33 | -2.49 | 45.07 | 23.87 | 14.81 | -9.98 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+20 | 1940 | 1782 | 39.56 | 1.23 | -3.23 | 47.31 | 25.76 | 15.61 | -10.54 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+20 | 1537 | 1418 | 39.63 | 1.36 | -3.04 | 49.08 | 26.59 | 16.14 | -10.71 | ok |
-| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+20 | 1220 | 1122 | 40.29 | 1.88 | -2.91 | 51.16 | 28.34 | 17.07 | -10.84 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_0pct | D+20 | 4438 | 4029 | 41.18 | 1.74 | -2.19 | 44.75 | 23.93 | 14.91 | -9.75 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+20 | 3360 | 3070 | 40.26 | 1.8 | -2.89 | 47.17 | 26.12 | 15.97 | -10.37 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+20 | 2648 | 2420 | 40.66 | 2.12 | -2.88 | 49.21 | 27.69 | 16.79 | -10.6 | ok |
-| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+20 | 2021 | 1847 | 40.01 | 2.13 | -3.04 | 49.92 | 28.37 | 17.31 | -10.98 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_0pct | D+20 | 6206 | 5617 | 41.66 | 1.94 | -2.08 | 44.35 | 24.07 | 15.02 | -9.68 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+20 | 4556 | 4150 | 40.94 | 2.05 | -2.69 | 47.23 | 26.31 | 16.21 | -10.37 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+20 | 3507 | 3193 | 40.96 | 2.29 | -2.87 | 49.55 | 28.12 | 17.1 | -10.76 | ok |
-| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+20 | 2656 | 2421 | 40.6 | 2.37 | -2.99 | 50.56 | 28.87 | 17.71 | -11.17 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_0pct | D+20 | 9172 | 8277 | 42.81 | 2.37 | -1.71 | 44.35 | 24.36 | 15.23 | -9.48 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+20 | 6490 | 5895 | 42.46 | 2.66 | -2.3 | 48.02 | 26.92 | 16.66 | -10.23 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+20 | 4875 | 4426 | 42.63 | 2.9 | -2.43 | 50.36 | 28.74 | 17.68 | -10.66 | ok |
-| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+20 | 3580 | 3248 | 42.3 | 3.19 | -2.66 | 52.03 | 30.48 | 18.76 | -11.12 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_0pct | D+20 | 14974 | 13467 | 43.77 | 2.67 | -1.38 | 43.68 | 24.35 | 15.16 | -9.14 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+20 | 9745 | 8819 | 43.92 | 3.12 | -1.79 | 48.78 | 27.85 | 17.03 | -10.12 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+20 | 6972 | 6306 | 43.8 | 3.38 | -2.07 | 51.51 | 30.24 | 18.3 | -10.71 | ok |
-| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+20 | 4956 | 4473 | 43.57 | 3.83 | -2.23 | 53.48 | 32.37 | 19.58 | -11.16 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_0pct | D+20 | 29133 | 26011 | 44.83 | 2.87 | -0.99 | 42.01 | 23.05 | 14.55 | -8.57 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+20 | 15608 | 14025 | 45.33 | 3.71 | -1.3 | 49.62 | 28.92 | 17.47 | -10.01 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+20 | 10243 | 9177 | 45.45 | 4.19 | -1.47 | 53.29 | 32.23 | 19.19 | -10.79 | ok |
-| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+20 | 6998 | 6256 | 45.33 | 4.65 | -1.69 | 55.88 | 34.51 | 20.61 | -11.35 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_0pct | D+20 | 1672 | 1491 | 39.17 | 0.98 | -2.69 | 44.4 | 22.8 | 14.23 | -9.76 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_3pct | D+20 | 1291 | 1145 | 38.08 | 0.75 | -3.52 | 46.99 | 24.54 | 14.94 | -10.37 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_5pct | D+20 | 1039 | 920 | 37.17 | 0.49 | -3.6 | 48.04 | 24.67 | 15.06 | -10.64 | ok |
+| volume_ratio_prev20_ge_10x_signal_return_ge_7pct | D+20 | 833 | 733 | 36.97 | 0.52 | -3.8 | 48.7 | 25.51 | 15.44 | -10.83 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_0pct | D+20 | 2606 | 2342 | 40.52 | 1.26 | -2.5 | 44.96 | 23.74 | 14.75 | -9.98 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_3pct | D+20 | 2016 | 1810 | 39.39 | 1.13 | -3.28 | 47.29 | 25.64 | 15.57 | -10.57 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_5pct | D+20 | 1603 | 1438 | 39.36 | 1.24 | -3.17 | 49.03 | 26.43 | 16.08 | -10.76 | ok |
+| volume_ratio_prev20_ge_8x_signal_return_ge_7pct | D+20 | 1271 | 1136 | 40.05 | 1.76 | -2.96 | 50.97 | 28.17 | 17.0 | -10.91 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_0pct | D+20 | 4608 | 4126 | 41.06 | 1.67 | -2.21 | 44.67 | 23.8 | 14.85 | -9.75 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_3pct | D+20 | 3495 | 3129 | 40.08 | 1.72 | -2.94 | 47.2 | 26.01 | 15.95 | -10.38 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_5pct | D+20 | 2755 | 2466 | 40.39 | 2.03 | -2.95 | 49.19 | 27.58 | 16.75 | -10.63 | ok |
+| volume_ratio_prev20_ge_6x_signal_return_ge_7pct | D+20 | 2107 | 1882 | 39.8 | 2.06 | -3.12 | 49.84 | 28.32 | 17.3 | -11.01 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_0pct | D+20 | 6437 | 5772 | 41.65 | 1.87 | -2.08 | 44.3 | 23.98 | 14.97 | -9.69 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_3pct | D+20 | 4737 | 4250 | 40.8 | 1.98 | -2.74 | 47.34 | 26.28 | 16.21 | -10.4 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_5pct | D+20 | 3649 | 3267 | 40.71 | 2.21 | -2.93 | 49.59 | 28.04 | 17.08 | -10.8 | ok |
+| volume_ratio_prev20_ge_5x_signal_return_ge_7pct | D+20 | 2768 | 2474 | 40.3 | 2.27 | -3.12 | 50.53 | 28.78 | 17.68 | -11.2 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_0pct | D+20 | 9516 | 8526 | 42.79 | 2.3 | -1.7 | 44.3 | 24.18 | 15.16 | -9.51 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_3pct | D+20 | 6744 | 6056 | 42.22 | 2.57 | -2.36 | 48.07 | 26.8 | 16.62 | -10.28 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_5pct | D+20 | 5071 | 4544 | 42.3 | 2.79 | -2.55 | 50.33 | 28.57 | 17.61 | -10.72 | ok |
+| volume_ratio_prev20_ge_4x_signal_return_ge_7pct | D+20 | 3734 | 3333 | 41.94 | 3.09 | -2.75 | 51.88 | 30.24 | 18.67 | -11.17 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_0pct | D+20 | 15541 | 13935 | 43.8 | 2.59 | -1.38 | 43.71 | 24.21 | 15.09 | -9.17 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_3pct | D+20 | 10119 | 9100 | 43.73 | 3.03 | -1.86 | 48.93 | 27.82 | 16.99 | -10.17 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_5pct | D+20 | 7256 | 6510 | 43.5 | 3.28 | -2.15 | 51.61 | 30.14 | 18.24 | -10.78 | ok |
+| volume_ratio_prev20_ge_3x_signal_return_ge_7pct | D+20 | 5174 | 4615 | 43.23 | 3.72 | -2.36 | 53.56 | 32.24 | 19.52 | -11.22 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_0pct | D+20 | 30140 | 27107 | 44.9 | 2.79 | -0.98 | 42.1 | 22.92 | 14.49 | -8.61 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_3pct | D+20 | 16187 | 14587 | 45.13 | 3.6 | -1.39 | 49.76 | 28.89 | 17.42 | -10.1 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_5pct | D+20 | 10673 | 9550 | 45.17 | 4.07 | -1.58 | 53.31 | 32.12 | 19.11 | -10.9 | ok |
+| volume_ratio_prev20_ge_2x_signal_return_ge_7pct | D+20 | 7322 | 6510 | 44.96 | 4.52 | -1.82 | 55.81 | 34.35 | 20.52 | -11.46 | ok |
 
 ## Price Position Segments: D+10
 
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | volume_ratio_threshold | min_signal_return_pct | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| relaxed_red_small_upper_shadow | long_base_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | 5 | 3 | D+10 | 7 | 5 | 100.0 | 21.29 | 17.95 | 100.0 | 100.0 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 4 | 4 | 75.0 | 10.87 | 6.91 | 100.0 | 75.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 8 | 5 | 80.0 | 18.84 | 9.86 | 100.0 | 80.0 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 5 | 4 | 75.0 | 10.87 | 6.91 | 100.0 | 75.0 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 4 | 4 | 100.0 | 9.6 | 8.54 | 100.0 | 50.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 7 | 4 | 75.0 | 22.09 | 26.63 | 100.0 | 75.0 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 3 | 3 | 66.67 | 11.73 | 5.53 | 100.0 | 66.67 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 6 | 4 | 100.0 | 26.46 | 26.63 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+10 | 5 | 4 | 100.0 | 26.46 | 26.63 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+10 | 4 | 4 | 100.0 | 26.46 | 26.63 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+10 | 5 | 4 | 100.0 | 26.46 | 26.63 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 4 | 4 | 100.0 | 26.46 | 26.63 | 100.0 | 100.0 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 4 | 3 | 66.67 | 11.73 | 5.53 | 100.0 | 66.67 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+10 | 3 | 3 | 100.0 | 6.98 | 8.26 | 100.0 | 33.33 | insufficient_sample |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 3 | 3 | 100.0 | 7.21 | 5.21 | 100.0 | 66.67 | insufficient_sample |
 | red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+10 | 3 | 3 | 66.67 | 5.41 | 8.25 | 100.0 | 66.67 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+10 | 3 | 3 | 100.0 | 25.04 | 23.88 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 3 | 3 | 100.0 | 25.04 | 23.88 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 5 | 3 | 100.0 | 33.33 | 43.4 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+10 | 4 | 3 | 100.0 | 33.33 | 43.4 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+10 | 4 | 3 | 100.0 | 33.33 | 43.4 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+10 | 4 | 3 | 100.0 | 33.33 | 43.4 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 4 | 3 | 100.0 | 33.33 | 43.4 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+10 | 5 | 3 | 100.0 | 32.0 | 43.4 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+10 | 4 | 3 | 100.0 | 32.0 | 43.4 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+10 | 3 | 3 | 100.0 | 32.0 | 43.4 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 7 | D+10 | 3 | 3 | 100.0 | 20.82 | 9.86 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 7 | D+10 | 3 | 3 | 100.0 | 20.82 | 9.86 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | bottom_or_low_zone_volume_reversal | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 3 | 3 | 100.0 | 10.42 | 3.75 | 100.0 | 66.67 | insufficient_sample |
 | strict_red_close_near_high | bottom_or_low_zone_volume_reversal | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+10 | 3 | 3 | 100.0 | 10.42 | 3.75 | 100.0 | 66.67 | insufficient_sample |
 | strict_red_close_near_high | bottom_or_low_zone_volume_reversal | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 3 | 3 | 100.0 | 10.42 | 3.75 | 100.0 | 66.67 | insufficient_sample |
@@ -156,7 +161,6 @@
 | strict_red_close_near_high | high_zone_extension_or_chase | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 3 | 3 | 100.0 | 30.87 | 30.73 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+10 | 3 | 3 | 100.0 | 30.87 | 30.73 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+10 | 3 | 3 | 100.0 | 30.87 | 30.73 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | long_base_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | 10 | 7 | D+10 | 4 | 3 | 66.67 | 9.92 | 15.28 | 100.0 | 33.33 | insufficient_sample |
 | invalid_intraday_range | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 2 | 2 | 0.0 | -8.51 | -8.51 | 100.0 | 0.0 | insufficient_sample |
 | invalid_intraday_range | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+10 | 2 | 2 | 0.0 | -8.51 | -8.51 | 100.0 | 0.0 | insufficient_sample |
 | invalid_intraday_range | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 2 | 2 | 0.0 | -8.51 | -8.51 | 100.0 | 0.0 | insufficient_sample |
@@ -172,8 +176,12 @@
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 2 | 2 | 100.0 | 8.4 | 8.4 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+10 | 2 | 2 | 100.0 | 6.33 | 6.33 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+10 | 2 | 2 | 100.0 | 6.33 | 6.33 | 100.0 | 50.0 | insufficient_sample |
+| red_candle_but_not_strong_close | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+10 | 2 | 2 | 50.0 | 4.06 | 4.06 | 100.0 | 50.0 | insufficient_sample |
+| red_candle_but_not_strong_close | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+10 | 2 | 2 | 50.0 | 4.06 | 4.06 | 100.0 | 50.0 | insufficient_sample |
+| red_candle_but_not_strong_close | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 3 | 2 | 50.0 | 4.06 | 4.06 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | long_base_low_zone_volume_reversal | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 2 | 2 | 100.0 | 8.1 | 8.1 | 100.0 | 0.0 | insufficient_sample |
-| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 3 | 2 | 100.0 | 8.21 | 8.21 | 100.0 | 50.0 | insufficient_sample |
+| red_candle_but_not_strong_close | mid_range_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+10 | 2 | 2 | 100.0 | 29.32 | 29.32 | 100.0 | 100.0 | insufficient_sample |
+| red_candle_but_not_strong_close | mid_range_volume_attack | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+10 | 2 | 2 | 100.0 | 29.32 | 29.32 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+10 | 2 | 2 | 50.0 | 0.93 | 0.93 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+10 | 2 | 2 | 50.0 | 3.88 | 3.88 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 0 | D+10 | 2 | 2 | 100.0 | 25.62 | 25.62 | 100.0 | 100.0 | insufficient_sample |
@@ -183,11 +191,15 @@
 | red_candle_but_not_strong_close | near_high_volume_attack | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+10 | 2 | 2 | 100.0 | 15.29 | 15.29 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+10 | 2 | 2 | 100.0 | 15.29 | 15.29 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+10 | 2 | 2 | 100.0 | 20.41 | 20.41 | 100.0 | 50.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+10 | 4 | 2 | 100.0 | 45.07 | 45.07 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+10 | 3 | 2 | 100.0 | 45.07 | 45.07 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+10 | 3 | 2 | 100.0 | 45.07 | 45.07 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 7 | D+10 | 3 | 2 | 100.0 | 28.29 | 28.29 | 100.0 | 100.0 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 7 | D+10 | 3 | 2 | 100.0 | 28.29 | 28.29 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 0 | D+10 | 4 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 3 | D+10 | 3 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 5 | D+10 | 2 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 7 | D+10 | 2 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 0 | D+10 | 4 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 3 | D+10 | 3 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 5 | D+10 | 2 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 7 | D+10 | 2 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 7 | D+10 | 2 | 2 | 100.0 | 26.3 | 26.3 | 100.0 | 100.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+10 | 2 | 2 | 100.0 | 9.76 | 9.76 | 100.0 | 0.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+10 | 2 | 2 | 100.0 | 9.76 | 9.76 | 100.0 | 0.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+10 | 2 | 2 | 100.0 | 9.76 | 9.76 | 100.0 | 0.0 | insufficient_sample |
@@ -203,24 +215,13 @@
 | strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 0 | D+10 | 2 | 2 | 100.0 | 15.15 | 15.15 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 3 | D+10 | 2 | 2 | 100.0 | 15.15 | 15.15 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 5 | D+10 | 2 | 2 | 100.0 | 15.15 | 15.15 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+10 | 2 | 2 | 100.0 | 15.15 | 15.15 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+10 | 2 | 2 | 100.0 | 15.15 | 15.15 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+10 | 2 | 2 | 100.0 | 15.15 | 15.15 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+10 | 2 | 2 | 100.0 | 30.94 | 30.94 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+10 | 2 | 2 | 100.0 | 30.94 | 30.94 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+10 | 2 | 2 | 100.0 | 30.94 | 30.94 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 0 | D+10 | 2 | 2 | 100.0 | 11.18 | 11.18 | 100.0 | 0.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 3 | D+10 | 2 | 2 | 100.0 | 11.18 | 11.18 | 100.0 | 0.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 5 | D+10 | 2 | 2 | 100.0 | 11.18 | 11.18 | 100.0 | 0.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 7 | D+10 | 2 | 2 | 100.0 | 11.18 | 11.18 | 100.0 | 0.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+10 | 2 | 2 | 100.0 | 23.29 | 23.29 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+10 | 2 | 2 | 100.0 | 23.29 | 23.29 | 100.0 | 100.0 | insufficient_sample |
 
 ## Price Position Segments: D+20
 
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | structural_theme_bucket | theme_mainstream_label | theme_status_group | volume_ratio_threshold | min_signal_return_pct | horizon | selected_stock_days | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | hit_rate_high_ge_10pct | hit_rate_high_ge_20pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | relaxed_red_small_upper_shadow | long_base_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | 5 | 0 | D+20 | 9 | 7 | 100.0 | 24.12 | 22.74 | 100.0 | 85.71 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 8 | 6 | 83.33 | 28.84 | 33.73 | 100.0 | 83.33 | insufficient_sample |
 | red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 6 | 6 | 100.0 | 29.69 | 35.07 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 6 | 6 | 100.0 | 14.71 | 13.85 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 6 | 6 | 100.0 | 21.04 | 13.85 | 100.0 | 50.0 | insufficient_sample |
@@ -229,9 +230,10 @@
 | strict_red_close_near_high | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+20 | 6 | 6 | 100.0 | 51.71 | 56.53 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+20 | 6 | 6 | 100.0 | 51.71 | 56.53 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 7 | D+20 | 6 | 6 | 100.0 | 51.71 | 56.53 | 100.0 | 100.0 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 6 | 5 | 80.0 | 31.41 | 35.06 | 100.0 | 80.0 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 7 | 5 | 100.0 | 20.47 | 17.74 | 100.0 | 80.0 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 5 | 5 | 60.0 | 5.19 | 1.82 | 100.0 | 60.0 | insufficient_sample |
 | red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 5 | 5 | 100.0 | 29.37 | 22.39 | 100.0 | 80.0 | insufficient_sample |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 6 | 5 | 80.0 | 11.12 | 10.32 | 100.0 | 40.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 5 | 5 | 80.0 | 7.75 | 6.45 | 100.0 | 20.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | long_base_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | 5 | 3 | D+20 | 7 | 5 | 100.0 | 26.75 | 22.74 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 5 | 5 | 100.0 | 26.68 | 16.16 | 100.0 | 80.0 | insufficient_sample |
@@ -242,13 +244,15 @@
 | strict_red_close_near_high | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 7 | D+20 | 5 | 5 | 100.0 | 51.0 | 57.78 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+20 | 5 | 5 | 80.0 | 26.6 | 35.0 | 100.0 | 80.0 | insufficient_sample |
 | strict_red_close_near_high | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 7 | D+20 | 5 | 5 | 80.0 | 26.6 | 35.0 | 100.0 | 80.0 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 4 | 4 | 100.0 | 19.52 | 9.41 | 100.0 | 75.0 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 4 | 4 | 75.0 | 12.12 | 10.77 | 100.0 | 75.0 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 5 | 4 | 100.0 | 19.52 | 9.41 | 100.0 | 75.0 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 6 | 4 | 100.0 | 18.12 | 10.85 | 100.0 | 75.0 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 5 | 4 | 75.0 | 12.12 | 10.77 | 100.0 | 75.0 | insufficient_sample |
 | not_red_or_failed_close | low_to_mid_reclaim_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 4 | 4 | 100.0 | 30.83 | 25.7 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | network_communication_theme | structural_theme_bucket | core_mainstream_theme | network_communication_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 4 | 4 | 50.0 | 6.04 | 6.24 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | mid_range_volume_attack | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 4 | 4 | 100.0 | 7.53 | 8.12 | 100.0 | 50.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+20 | 4 | 4 | 100.0 | 17.07 | 15.49 | 100.0 | 50.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 4 | 4 | 100.0 | 26.28 | 21.74 | 100.0 | 50.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 8 | 4 | 100.0 | 59.41 | 63.39 | 100.0 | 75.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+20 | 4 | 4 | 75.0 | 8.08 | 10.08 | 100.0 | 25.0 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+20 | 4 | 4 | 100.0 | 22.98 | 16.03 | 100.0 | 75.0 | insufficient_sample |
 | strict_red_close_near_high | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 8 | 0 | D+20 | 4 | 4 | 100.0 | 37.18 | 36.35 | 100.0 | 100.0 | insufficient_sample |
@@ -263,9 +267,9 @@
 | strict_red_close_near_high | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 3 | D+20 | 4 | 4 | 100.0 | 37.18 | 36.35 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 5 | D+20 | 4 | 4 | 100.0 | 37.18 | 36.35 | 100.0 | 100.0 | insufficient_sample |
 | strict_red_close_near_high | near_high_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 7 | D+20 | 4 | 4 | 100.0 | 37.18 | 36.35 | 100.0 | 100.0 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 7 | 3 | 100.0 | 11.66 | 3.96 | 100.0 | 66.67 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 3 | 3 | 66.67 | 10.88 | 5.7 | 100.0 | 66.67 | insufficient_sample |
-| not_red_or_failed_close | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+20 | 3 | 3 | 66.67 | 24.75 | 35.06 | 100.0 | 66.67 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+20 | 4 | 3 | 100.0 | 33.83 | 35.06 | 100.0 | 100.0 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | pcb_ccl_theme | structural_theme_bucket | core_mainstream_theme | pcb_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 4 | 3 | 66.67 | 10.88 | 5.7 | 100.0 | 66.67 | insufficient_sample |
+| not_red_or_failed_close | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+20 | 4 | 3 | 66.67 | 24.75 | 35.06 | 100.0 | 66.67 | insufficient_sample |
 | not_red_or_failed_close | mid_range_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 4 | 3 | 66.67 | 9.91 | 6.97 | 100.0 | 33.33 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 0 | D+20 | 3 | 3 | 100.0 | 17.63 | 19.51 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | high_zone_extension_or_chase | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 6 | 3 | D+20 | 3 | 3 | 100.0 | 17.63 | 19.51 | 100.0 | 100.0 | insufficient_sample |
@@ -274,14 +278,19 @@
 | red_candle_but_not_strong_close | long_base_low_zone_volume_reversal | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 3 | 3 | 100.0 | 52.18 | 25.71 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 3 | 3 | 100.0 | 27.91 | 34.07 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | low_to_mid_reclaim_volume_attack | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | 10 | 7 | D+20 | 3 | 3 | 0.0 | -2.6 | -2.92 | 100.0 | 33.33 | insufficient_sample |
-| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 6 | 3 | 66.67 | 5.87 | 8.72 | 100.0 | 0.0 | insufficient_sample |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 3 | 3 | 100.0 | 16.1 | 14.78 | 100.0 | 66.67 | insufficient_sample |
+| red_candle_but_not_strong_close | mid_range_volume_attack | semiconductor_equipment_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_equipment_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 3 | 3 | 66.67 | 12.19 | 14.78 | 100.0 | 66.67 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+20 | 3 | 3 | 100.0 | 27.28 | 27.25 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 3 | 3 | 100.0 | 27.28 | 27.25 | 100.0 | 100.0 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+20 | 3 | 3 | 100.0 | 14.43 | 15.4 | 100.0 | 66.67 | insufficient_sample |
 | red_candle_but_not_strong_close | near_high_volume_attack | semiconductor_theme | structural_theme_bucket | core_mainstream_theme | semiconductor_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+20 | 3 | 3 | 100.0 | 40.23 | 38.99 | 100.0 | 100.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | bottom_or_low_zone_volume_reversal | theme_context_unavailable | unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | theme_context_unavailable | 10 | 3 | D+20 | 3 | 3 | 66.67 | 29.38 | 42.97 | 100.0 | 66.67 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+20 | 3 | 3 | 100.0 | 16.64 | 17.28 | 100.0 | 33.33 | insufficient_sample |
-| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 7 | 3 | 100.0 | 61.14 | 72.55 | 100.0 | 66.67 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 6 | 3 | 100.0 | 76.93 | 72.55 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+20 | 5 | 3 | 100.0 | 76.93 | 72.55 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+20 | 4 | 3 | 100.0 | 76.93 | 72.55 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 5 | 3 | 100.0 | 76.93 | 72.55 | 100.0 | 100.0 | insufficient_sample |
+| relaxed_red_small_upper_shadow | high_zone_extension_or_chase | passive_component_theme | structural_theme_bucket | core_mainstream_theme | passive_component_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 5 | D+20 | 4 | 3 | 100.0 | 76.93 | 72.55 | 100.0 | 100.0 | insufficient_sample |
 | relaxed_red_small_upper_shadow | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 7 | D+20 | 3 | 3 | 66.67 | 5.02 | 2.88 | 100.0 | 33.33 | insufficient_sample |
 | strict_red_close_near_high | bottom_or_low_zone_volume_reversal | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 0 | D+20 | 3 | 3 | 33.33 | -0.97 | -1.25 | 100.0 | 66.67 | insufficient_sample |
 | strict_red_close_near_high | bottom_or_low_zone_volume_reversal | low_earth_orbit_satellite_theme | structural_theme_bucket | core_mainstream_theme | low_earth_orbit_satellite_theme | mainstream_growth_theme | theme_context_unavailable | 2 | 3 | D+20 | 3 | 3 | 33.33 | -0.97 | -1.25 | 100.0 | 66.67 | insufficient_sample |
@@ -291,15 +300,6 @@
 | strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 3 | D+20 | 3 | 3 | 100.0 | 13.68 | 9.92 | 100.0 | 66.67 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | ai_server_theme | structural_theme_bucket | core_mainstream_theme | ai_server_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 5 | D+20 | 3 | 3 | 100.0 | 13.68 | 9.92 | 100.0 | 66.67 | insufficient_sample |
 | strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 0 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 3 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 5 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 5 | 7 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 0 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 3 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 5 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 4 | 7 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | glass_fiber_ccl_theme | structural_theme_bucket | core_mainstream_theme | glass_fiber_ccl_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 7 | D+20 | 3 | 3 | 100.0 | 27.96 | 16.16 | 100.0 | 100.0 | insufficient_sample |
-| strict_red_close_near_high | high_zone_extension_or_chase | consumer_electronics_theme | structural_theme_bucket | core_mainstream_theme | consumer_electronics_theme | mainstream_growth_theme | theme_context_unavailable | 3 | 0 | D+20 | 3 | 3 | 66.67 | 8.08 | 15.36 | 100.0 | 100.0 | insufficient_sample |
 
 ## Interpretation
 

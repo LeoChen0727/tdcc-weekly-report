@@ -2,8 +2,8 @@
 
 - model_id: `tdcc_weekly_ranking_formula`
 - ranking_model_version: `tdcc_weekly_ranking_formula_20260614`
-- generated_at: `2026-06-21 20:41:44 Asia/Taipei`
-- event_rows: `802`
+- generated_at: `2026-06-30 22:19:55 Asia/Taipei`
+- event_rows: `880`
 - scope: research only; this does not generate TDCC weekly PDFs and does not approve production buy signals.
 - theme_context: latest taxonomy is used for the +5 mainstream bonus; treat that as a first-pass research limitation.
 
@@ -11,24 +11,24 @@
 
 | tdcc_list_type | rank_bucket | horizon | event_count | win_rate | avg_return | median_return | out_of_sample_size | out_of_sample_pass | confidence_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| consecutive_accumulation | top_20 | D+20 | 28 | 60.71 | 12.5286 | 3.4616 | 20 | True | low |
-| consecutive_accumulation | top_50 | D+20 | 36 | 63.89 | 12.3028 | 5.8641 | 28 | True | low |
-| consecutive_accumulation | top_10 | D+20 | 18 | 50.0 | 10.7441 | 0.2838 | 10 | False | low |
-| consecutive_accumulation | top_20 | D+10 | 68 | 57.35 | 6.5138 | 3.3555 | 60 | True | medium |
-| weekly_increase | top_50 | D+20 | 350 | 48.29 | 4.9425 | -0.2273 | 127 | True | high |
-| consecutive_accumulation | top_50 | D+10 | 113 | 54.87 | 4.7749 | 1.3423 | 105 | True | medium |
-| consecutive_accumulation | top_10 | D+10 | 38 | 47.37 | 4.2467 | -1.6393 | 30 | True | low |
-| weekly_increase | top_50 | D+10 | 451 | 50.78 | 4.0476 | 0.2924 | 228 | True | high |
-| weekly_increase | top_20 | D+20 | 291 | 45.36 | 3.6916 | -0.6329 | 68 | True | high |
-| weekly_increase | top_10 | D+20 | 212 | 45.28 | 3.2633 | -0.6206 | 39 | True | high |
-| weekly_increase | top_20 | D+10 | 331 | 47.73 | 2.8806 | -0.346 | 108 | True | high |
-| weekly_increase | top_10 | D+10 | 232 | 47.84 | 2.4296 | -0.4163 | 59 | True | high |
-| consecutive_accumulation | top_20 | D+5 | 88 | 48.86 | 2.1714 | -0.4161 | 80 | True | medium |
-| weekly_increase | top_50 | D+5 | 501 | 46.51 | 1.6223 | -0.2639 | 278 | True | high |
-| consecutive_accumulation | top_50 | D+5 | 158 | 49.37 | 1.4981 | 0.0 | 150 | True | high |
-| consecutive_accumulation | top_10 | D+5 | 48 | 39.58 | 1.2852 | -2.964 | 40 | False | low |
-| weekly_increase | top_20 | D+5 | 351 | 46.72 | 1.1546 | -0.2183 | 128 | True | high |
-| weekly_increase | top_10 | D+5 | 242 | 44.63 | 1.085 | -0.3723 | 69 | True | high |
+| consecutive_accumulation | top_20 | D+20 | 68 | 52.94 | 9.5865 | 1.1372 | 60 | True | medium |
+| consecutive_accumulation | top_10 | D+20 | 38 | 47.37 | 6.8818 | -1.0173 | 30 | True | low |
+| consecutive_accumulation | top_50 | D+20 | 112 | 49.11 | 6.866 | -1.0173 | 104 | True | medium |
+| weekly_increase | top_50 | D+20 | 451 | 49.0 | 6.0499 | 0.0 | 210 | True | high |
+| weekly_increase | top_20 | D+20 | 331 | 46.22 | 5.0106 | -0.4886 | 90 | True | high |
+| weekly_increase | top_10 | D+20 | 232 | 46.12 | 4.4216 | -0.5484 | 49 | True | high |
+| consecutive_accumulation | top_50 | D+10 | 184 | 51.63 | 3.7627 | 0.2967 | 176 | True | high |
+| weekly_increase | top_50 | D+10 | 551 | 50.27 | 3.7382 | 0.1567 | 310 | True | high |
+| consecutive_accumulation | top_20 | D+10 | 108 | 51.85 | 3.4347 | 0.567 | 100 | True | medium |
+| weekly_increase | top_20 | D+10 | 371 | 48.79 | 2.8156 | -0.2398 | 130 | True | high |
+| weekly_increase | top_10 | D+10 | 252 | 49.6 | 2.706 | 0.0 | 69 | True | high |
+| consecutive_accumulation | top_10 | D+10 | 58 | 44.83 | 2.1794 | -1.6393 | 50 | False | medium |
+| weekly_increase | top_50 | D+5 | 601 | 45.26 | 1.6474 | -0.4706 | 360 | False | high |
+| consecutive_accumulation | top_20 | D+5 | 124 | 47.58 | 1.6011 | -0.552 | 116 | False | high |
+| consecutive_accumulation | top_10 | D+5 | 68 | 38.24 | 1.5126 | -3.4153 | 60 | False | medium |
+| consecutive_accumulation | top_50 | D+5 | 200 | 49.5 | 1.4631 | 0.0 | 192 | True | high |
+| weekly_increase | top_10 | D+5 | 262 | 44.66 | 1.3701 | -0.406 | 79 | True | high |
+| weekly_increase | top_20 | D+5 | 391 | 46.29 | 1.3581 | -0.2506 | 150 | True | high |
 
 ## Promotion Guardrail
 

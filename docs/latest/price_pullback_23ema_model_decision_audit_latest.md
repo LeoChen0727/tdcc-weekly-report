@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Model Decision Audit
 
-- generated_at: `2026-06-30 18:04:12 Asia/Taipei`
+- generated_at: `2026-06-30 22:43:07 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `discussion_ready_research_only`; this does not change production condition, scoring, ranking, or contract registry
 - fixed_operation_module_candidate_id: `next_open_prev20_high_breakout_lower_ma20_ema23_stop4pct_4d_d20_close_exit`
