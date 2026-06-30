@@ -17,11 +17,11 @@
 | 8222 | 寶一 | true_breakout | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8222_寶一_true_breakout_126d.png` | `data/daily_price` |
 | 4532 | 瑞智 | true_breakout | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4532_瑞智_true_breakout_126d.png` | `data/daily_price` |
 | 5371 | 中光電 | true_breakout | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/5371_中光電_true_breakout_126d.png` | `data/daily_price` |
+| 3037 | 欣興 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3037_欣興_range_rebound_126d.png` | `data/daily_price` |
 | 3583 | 辛耘 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3583_辛耘_range_rebound_126d.png` | `data/daily_price` |
 | 6781 | AES-KY | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6781_AES-KY_range_rebound_126d.png` | `data/daily_price` |
 | 3413 | 京鼎 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3413_京鼎_range_rebound_126d.png` | `data/daily_price` |
 | 3596 | 智易 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3596_智易_range_rebound_126d.png` | `data/daily_price` |
-| 6278 | 台表科 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6278_台表科_range_rebound_126d.png` | `data/daily_price` |
 | 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 4934 | 太極 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4934_太極_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 8054 | 安國 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8054_安國_revenue_breakout_low_response_126d.png` | `data/daily_price` |
