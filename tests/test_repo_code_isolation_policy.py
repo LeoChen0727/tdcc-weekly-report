@@ -35,6 +35,7 @@ def test_research_pipeline_runs_model_parity_validator() -> None:
     )
 
     assert "python scripts/validate_daily_model_research_parity.py" in workflow_text
+    assert "python scripts/validate_price_pullback_daily_row_parity.py" in workflow_text
 
 
 def test_research_pipeline_runs_model_operation_readiness_validator() -> None:
@@ -56,6 +57,11 @@ def test_research_pipeline_stages_price_pullback_feature_confirmation_outputs() 
     assert "docs/latest/price_pullback_23ema_feature_confirmation_research_latest.csv" in workflow_text
     assert "docs/latest/price_pullback_23ema_feature_confirmation_research_latest.md" in workflow_text
     assert "output/history/research/price_pullback_23ema_feature_confirmation_research.csv" in workflow_text
+    assert "output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.md" in workflow_text
+    assert "docs/latest/price_pullback_23ema_daily_row_parity_latest.csv" in workflow_text
+    assert "docs/latest/price_pullback_23ema_daily_row_parity_latest.md" in workflow_text
+    assert "output/history/research/price_pullback_23ema_daily_row_parity.csv" in workflow_text
 
 
 def test_research_pipeline_runs_approved_operation_validator() -> None:

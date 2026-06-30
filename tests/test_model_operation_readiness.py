@@ -116,6 +116,31 @@ def price_pullback_feature_frame() -> pd.DataFrame:
     )
 
 
+def price_pullback_row_parity_frame() -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "model_id": "price_pullback_23ema",
+                "snapshot_report_date": "20260629",
+                "parity_status": "blocked_missing_research_frame_date",
+                "published_not_in_proxy_rows": "219",
+                "proxy_not_published_rows": "0",
+                "published_unique_stock_count": "219",
+                "research_proxy_unique_stock_count": "0",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "snapshot_report_date": "20260626",
+                "parity_status": "blocked_not_exact_daily_row_parity",
+                "published_not_in_proxy_rows": "9",
+                "proxy_not_published_rows": "1251",
+                "published_unique_stock_count": "217",
+                "research_proxy_unique_stock_count": "1459",
+            },
+        ]
+    )
+
+
 def adapter_frame(with_approval_metadata: bool = False) -> pd.DataFrame:
     row = {
         "model_id": "volume_range_breakout",
@@ -198,6 +223,7 @@ def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None
         adapter_frame(with_approval_metadata=True),
         approval_frame(),
         price_pullback_feature_confirmation=price_pullback_feature_frame(),
+        price_pullback_daily_row_parity=price_pullback_row_parity_frame(),
         generated_at="2026-06-30 00:00:00 Asia/Taipei",
     )
 
@@ -215,6 +241,9 @@ def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None
     assert row["registry_best_sample_size"] == 5141
     assert row["registry_best_win_rate"] == "66.58"
     assert row["registry_best_median_return"] == "0.83"
+    assert "daily row parity audit failing" in row["blocker"]
+    assert "published_not_proxy=228" in row["blocker"]
+    assert "proxy_not_published=1251" in row["blocker"]
 
 
 def test_missing_volume_adapter_blocks_presentation_even_when_approved() -> None:

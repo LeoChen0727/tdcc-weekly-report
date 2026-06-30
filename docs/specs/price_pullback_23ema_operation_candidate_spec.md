@@ -91,3 +91,9 @@ This spec does not change:
 - `config/stock_model_contract_registry.csv` input/output contract
 
 This candidate remains blocked from daily operation guidance until exact daily candidate row parity is completed and a separate explicit promotion/sync PR opens `approved_for_daily=True`.
+
+## Daily Row Parity Audit
+
+The research pipeline writes `output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.csv` and validates it with `scripts/validate_price_pullback_daily_row_parity.py`.
+
+This audit compares published daily snapshots to the research production proxy at `signal_date + stock_id` level. Any missing published row, extra proxy row, or missing research-frame date keeps this candidate blocked from daily operation guidance.

@@ -21,10 +21,20 @@ from build_approved_operation_patterns import (  # noqa: E402
     W_BOTTOM_APPROVAL_METRICS,
     W_BOTTOM_OPERATION_MODULE_ID,
 )
-from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
+from tracking_utils import (  # noqa: E402
+    DOCS_LATEST_DIR,
+    LATEST_DIR,
+    RESEARCH_LATEST_DIR,
+    markdown_table,
+    normalize_code,
+    normalize_date,
+    now_text,
+    write_csv,
+)
 
 
 HISTORY_DIR = Path("output/history/research")
+DAILY_SNAPSHOT_DIR = Path("output/history/daily_model_snapshots")
 OUT_CSV = LATEST_DIR / "daily_model_parameter_research_latest.csv"
 OUT_MD = LATEST_DIR / "daily_model_parameter_research_latest.md"
 OUT_DETAIL_CSV = LATEST_DIR / "daily_model_parameter_research_horizon_detail_latest.csv"
@@ -62,6 +72,15 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_MD = (
 PRICE_PULLBACK_FEATURE_CONFIRMATION_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_feature_confirmation_research.csv"
 DOCS_PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV.name
 DOCS_PRICE_PULLBACK_FEATURE_CONFIRMATION_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_FEATURE_CONFIRMATION_MD.name
+PRICE_PULLBACK_DAILY_ROW_PARITY_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_daily_row_parity_latest.csv"
+)
+PRICE_PULLBACK_DAILY_ROW_PARITY_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_daily_row_parity_latest.md"
+)
+PRICE_PULLBACK_DAILY_ROW_PARITY_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_daily_row_parity.csv"
+DOCS_PRICE_PULLBACK_DAILY_ROW_PARITY_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_DAILY_ROW_PARITY_CSV.name
+DOCS_PRICE_PULLBACK_DAILY_ROW_PARITY_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_DAILY_ROW_PARITY_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -2260,6 +2279,224 @@ def write_price_pullback_feature_confirmation_research(feature_confirmation: pd.
     )
 
 
+def _stock_id_sample(values: set[str], limit: int = 12) -> str:
+    return ";".join(sorted(values)[:limit])
+
+
+def _snapshot_date_from_path(path: Path) -> str:
+    return normalize_date(path.stem.rsplit("_", 1)[-1])
+
+
+def build_price_pullback_daily_row_parity_audit(
+    df: pd.DataFrame,
+    snapshot_dir: Path = DAILY_SNAPSHOT_DIR,
+    generated_at: str | None = None,
+) -> pd.DataFrame:
+    generated = generated_at or now_text()
+    columns = [
+        "generated_at",
+        "model_id",
+        "snapshot_report_date",
+        "research_frame_has_date",
+        "published_row_count",
+        "published_unique_stock_count",
+        "published_duplicate_stock_count",
+        "research_proxy_unique_stock_count",
+        "overlap_stock_count",
+        "published_not_in_proxy_rows",
+        "proxy_not_published_rows",
+        "published_proxy_coverage_pct",
+        "proxy_publish_precision_pct",
+        "published_not_in_proxy_sample",
+        "proxy_not_published_sample",
+        "parity_scope",
+        "parity_status",
+        "parity_blocker",
+    ]
+    if df.empty:
+        return pd.DataFrame(columns=columns)
+
+    research = df.copy()
+    research["_row_parity_date"] = research["date"].map(normalize_date)
+    research["_row_parity_stock_id"] = research["stock_id"].map(normalize_code)
+    research_dates = set(research["_row_parity_date"].astype(str))
+    proxy_mask = current_price_pullback_baseline_proxy(research).fillna(False)
+    proxy_rows = research.loc[
+        proxy_mask
+        & research["_row_parity_date"].astype(str).ne("")
+        & research["_row_parity_stock_id"].astype(str).ne(""),
+        ["_row_parity_date", "_row_parity_stock_id"],
+    ].drop_duplicates()
+    proxy_by_date = {
+        date: set(part["_row_parity_stock_id"].astype(str))
+        for date, part in proxy_rows.groupby("_row_parity_date")
+    }
+
+    rows: list[dict[str, object]] = []
+    for snapshot_path in sorted(snapshot_dir.glob("daily_candidate_model_signals_for_report_*.csv")):
+        report_date = _snapshot_date_from_path(snapshot_path)
+        if not report_date:
+            continue
+        try:
+            snapshot = pd.read_csv(snapshot_path, dtype=str, keep_default_na=False)
+        except Exception as exc:
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": "price_pullback_23ema",
+                    "snapshot_report_date": report_date,
+                    "research_frame_has_date": "False",
+                    "published_row_count": 0,
+                    "published_unique_stock_count": 0,
+                    "published_duplicate_stock_count": 0,
+                    "research_proxy_unique_stock_count": 0,
+                    "overlap_stock_count": 0,
+                    "published_not_in_proxy_rows": 0,
+                    "proxy_not_published_rows": 0,
+                    "published_proxy_coverage_pct": "",
+                    "proxy_publish_precision_pct": "",
+                    "published_not_in_proxy_sample": "",
+                    "proxy_not_published_sample": "",
+                    "parity_scope": "signal_date_stock_id",
+                    "parity_status": "blocked_unreadable_snapshot",
+                    "parity_blocker": f"failed to read published daily snapshot: {exc}",
+                }
+            )
+            continue
+
+        if not {"model_id", "stock_id"}.issubset(snapshot.columns):
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": "price_pullback_23ema",
+                    "snapshot_report_date": report_date,
+                    "research_frame_has_date": "False",
+                    "published_row_count": 0,
+                    "published_unique_stock_count": 0,
+                    "published_duplicate_stock_count": 0,
+                    "research_proxy_unique_stock_count": 0,
+                    "overlap_stock_count": 0,
+                    "published_not_in_proxy_rows": 0,
+                    "proxy_not_published_rows": 0,
+                    "published_proxy_coverage_pct": "",
+                    "proxy_publish_precision_pct": "",
+                    "published_not_in_proxy_sample": "",
+                    "proxy_not_published_sample": "",
+                    "parity_scope": "signal_date_stock_id",
+                    "parity_status": "blocked_invalid_snapshot_schema",
+                    "parity_blocker": "published daily snapshot missing model_id or stock_id",
+                }
+            )
+            continue
+
+        published = snapshot[snapshot["model_id"].astype(str).eq("price_pullback_23ema")].copy()
+        published_stock_ids = [normalize_code(value) for value in published["stock_id"].tolist()]
+        published_stock_ids = [stock_id for stock_id in published_stock_ids if stock_id]
+        published_set = set(published_stock_ids)
+        proxy_set = proxy_by_date.get(report_date, set())
+        overlap = published_set & proxy_set
+        published_not_proxy = published_set - proxy_set
+        proxy_not_published = proxy_set - published_set
+        published_unique = len(published_set)
+        proxy_unique = len(proxy_set)
+        has_research_date = report_date in research_dates
+
+        if not has_research_date:
+            parity_status = "blocked_missing_research_frame_date"
+            parity_blocker = "research frame does not include this published snapshot date"
+        elif published_not_proxy or proxy_not_published:
+            parity_status = "blocked_not_exact_daily_row_parity"
+            parity_blocker = (
+                "research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; "
+                "daily selection/ranking/report eligibility must be reconciled before promotion"
+            )
+        else:
+            parity_status = "exact_daily_row_parity_pass"
+            parity_blocker = ""
+
+        rows.append(
+            {
+                "generated_at": generated,
+                "model_id": "price_pullback_23ema",
+                "snapshot_report_date": report_date,
+                "research_frame_has_date": "True" if has_research_date else "False",
+                "published_row_count": len(published),
+                "published_unique_stock_count": published_unique,
+                "published_duplicate_stock_count": len(published_stock_ids) - published_unique,
+                "research_proxy_unique_stock_count": proxy_unique,
+                "overlap_stock_count": len(overlap),
+                "published_not_in_proxy_rows": len(published_not_proxy),
+                "proxy_not_published_rows": len(proxy_not_published),
+                "published_proxy_coverage_pct": (
+                    round(len(overlap) / published_unique * 100.0, 2) if published_unique else ""
+                ),
+                "proxy_publish_precision_pct": round(len(overlap) / proxy_unique * 100.0, 2) if proxy_unique else "",
+                "published_not_in_proxy_sample": _stock_id_sample(published_not_proxy),
+                "proxy_not_published_sample": _stock_id_sample(proxy_not_published),
+                "parity_scope": "signal_date_stock_id",
+                "parity_status": parity_status,
+                "parity_blocker": parity_blocker,
+            }
+        )
+    return pd.DataFrame(rows, columns=columns)
+
+
+def write_price_pullback_daily_row_parity_audit(row_parity: pd.DataFrame) -> None:
+    write_csv(row_parity, PRICE_PULLBACK_DAILY_ROW_PARITY_CSV)
+    write_csv(row_parity, PRICE_PULLBACK_DAILY_ROW_PARITY_HISTORY_CSV)
+    write_csv(row_parity, DOCS_PRICE_PULLBACK_DAILY_ROW_PARITY_CSV)
+    counts = (
+        row_parity["parity_status"].value_counts().reset_index()
+        if not row_parity.empty and "parity_status" in row_parity.columns
+        else pd.DataFrame(columns=["parity_status", "count"])
+    )
+    if not counts.empty:
+        counts.columns = ["parity_status", "count"]
+    lines = [
+        "# Price Pullback 23EMA Daily Row Parity Audit",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- scope: compare as-published daily snapshot rows to the research production proxy at `signal_date + stock_id` level",
+        "- rule: any missing or extra stock row keeps the model blocked from daily operation promotion",
+        "- note: this audit does not change production selection, scoring, ranking, or PDF output",
+        "",
+        "## Status Summary",
+        "",
+        markdown_table(counts, counts.columns.tolist()) if not counts.empty else "No parity rows.",
+        "",
+        "## Snapshot Detail",
+        "",
+        markdown_table(
+            row_parity,
+            [
+                "snapshot_report_date",
+                "research_frame_has_date",
+                "published_unique_stock_count",
+                "research_proxy_unique_stock_count",
+                "overlap_stock_count",
+                "published_not_in_proxy_rows",
+                "proxy_not_published_rows",
+                "published_proxy_coverage_pct",
+                "proxy_publish_precision_pct",
+                "parity_status",
+                "parity_blocker",
+            ],
+            limit=120,
+        ),
+    ]
+    PRICE_PULLBACK_DAILY_ROW_PARITY_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_DAILY_ROW_PARITY_MD.write_text(
+        PRICE_PULLBACK_DAILY_ROW_PARITY_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def write_model_parity(parity: pd.DataFrame) -> None:
     write_csv(parity, OUT_PARITY_CSV)
     write_csv(parity, DOCS_PARITY_CSV)
@@ -2441,6 +2678,7 @@ def main() -> int:
     price_pullback_time_cost_df = build_price_pullback_time_cost_backtest(df)
     price_pullback_operation_module_df = build_price_pullback_operation_module_research(df)
     price_pullback_feature_confirmation_df = build_price_pullback_feature_confirmation_research(df)
+    price_pullback_daily_row_parity_df = build_price_pullback_daily_row_parity_audit(df)
 
     write_csv(summary_df, OUT_CSV)
     write_csv(detail_df, OUT_DETAIL_CSV)
@@ -2455,6 +2693,7 @@ def main() -> int:
     write_price_pullback_time_cost_backtest(price_pullback_time_cost_df)
     write_price_pullback_operation_module_research(price_pullback_operation_module_df)
     write_price_pullback_feature_confirmation_research(price_pullback_feature_confirmation_df)
+    write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
 
     print(f"Saved {OUT_CSV} rows={len(summary_df)}")
     print(f"Saved {OUT_DETAIL_CSV} rows={len(detail_df)}")
@@ -2463,6 +2702,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_TIME_COST_CSV} rows={len(price_pullback_time_cost_df)}")
     print(f"Saved {PRICE_PULLBACK_OPERATION_MODULE_CSV} rows={len(price_pullback_operation_module_df)}")
     print(f"Saved {PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV} rows={len(price_pullback_feature_confirmation_df)}")
+    print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
     print(f"Saved {OUT_MD}")
     return 0
 
