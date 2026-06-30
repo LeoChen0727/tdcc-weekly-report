@@ -82,6 +82,7 @@ jobs:
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
+          python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_research_production_boundaries.py
 
       - name: Install dependencies
@@ -134,6 +135,8 @@ jobs:
         if: ${{ github.event.inputs.run_model_parameter_research == 'true' }}
         run: |
           python scripts/build_daily_model_parameter_research.py
+          python scripts/build_daily_model_signal_background_features.py
+          python scripts/validate_daily_model_signal_background_features.py
           python scripts/validate_daily_model_research_parity.py
           python scripts/validate_price_pullback_daily_row_parity.py
           python scripts/build_daily_model_parameter_recommendations.py
@@ -220,6 +223,8 @@ jobs:
           git add docs/latest/tdcc_weekly_ranking_backtest_latest.csv docs/latest/tdcc_weekly_ranking_backtest_latest.md || true
           git add docs/latest/daily_short_term_specialty_packet_latest.md || true
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
+          git add output/latest/research_backtest/daily_model_signal_background_feature_panel_latest.csv output/latest/research_backtest/daily_model_signal_background_feature_panel_latest.md || true
+          git add output/latest/research_backtest/daily_model_background_feature_catalog_latest.csv output/latest/research_backtest/daily_model_background_feature_catalog_latest.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
           git add output/latest/research_backtest/daily_model_research_parity_latest.csv output/latest/research_backtest/daily_model_research_parity_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_operation_research_latest.csv output/latest/research_backtest/price_pullback_23ema_operation_research_latest.md || true
@@ -236,6 +241,8 @@ jobs:
           git add output/history/research/volume_breakout_confirmed_operation_backtest.csv output/history/research/volume_breakout_confirmed_operation_events.csv || true
           git add output/history/research/volume_breakout_formal_operation_events.csv || true
           git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
+          git add docs/latest/daily_model_signal_background_feature_panel_latest.csv docs/latest/daily_model_signal_background_feature_panel_latest.md || true
+          git add docs/latest/daily_model_background_feature_catalog_latest.csv docs/latest/daily_model_background_feature_catalog_latest.md || true
           git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
           git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true
           git add docs/latest/price_pullback_23ema_operation_research_latest.csv docs/latest/price_pullback_23ema_operation_research_latest.md || true
