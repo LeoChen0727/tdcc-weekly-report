@@ -402,6 +402,29 @@ def price_pullback_45d_bullish_pullback_filter(d: pd.DataFrame) -> pd.Series:
     ).fillna(False)
 
 
+def price_pullback_return20_balanced_filter(d: pd.DataFrame) -> pd.Series:
+    return between(numeric_column(d, "return_20d_pct"), 0.0, 25.0).fillna(False)
+
+
+def price_pullback_tdcc_high_thresholds_up_filter(d: pd.DataFrame) -> pd.Series:
+    return (trueish_column(d, "tdcc_history_available") & trueish_column(d, "high_thresholds_up")).fillna(False)
+
+
+def price_pullback_tdcc_consecutive_up_ge1_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        trueish_column(d, "tdcc_history_available")
+        & (numeric_column(d, "tdcc_consecutive_up_weeks") >= 1.0)
+    ).fillna(False)
+
+
+def price_pullback_macd_kd_confirm_filter(d: pd.DataFrame) -> pd.Series:
+    return (trueish_column(d, "macd_hist_gt0") & trueish_column(d, "kd_bullish_not_overheated")).fillna(False)
+
+
+def price_pullback_obv_above_ma20_filter(d: pd.DataFrame) -> pd.Series:
+    return trueish_column(d, "obv_above_ma20").fillna(False)
+
+
 def price_pullback_volume_red_k_entry(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
     return current_price_pullback_baseline_proxy(d) & price_pullback_red_k_entry_filter(d, volume_min, solid)
 
@@ -1308,7 +1331,7 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
         "feature_rule": "MACD histogram above zero and KD bullish-not-overheated both hold",
         "feature_test_status": "tested_point_in_time",
         "data_status": "available_point_in_time_research_frame",
-        "condition": lambda d: trueish_column(d, "macd_hist_gt0") & trueish_column(d, "kd_bullish_not_overheated"),
+        "condition": price_pullback_macd_kd_confirm_filter,
     },
     {
         "feature_filter_id": "rsi14_40_70",
@@ -1332,7 +1355,7 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
         "feature_rule": "OBV above OBV MA20 on signal date",
         "feature_test_status": "tested_point_in_time",
         "data_status": "computed_from_point_in_time_price_volume",
-        "condition": lambda d: trueish_column(d, "obv_above_ma20"),
+        "condition": price_pullback_obv_above_ma20_filter,
     },
     {
         "feature_filter_id": "tdcc_history_available",
@@ -1357,7 +1380,7 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
         "feature_rule": "large-holder TDCC high thresholds increased",
         "feature_test_status": "tested_point_in_time",
         "data_status": "available_point_in_time_research_frame",
-        "condition": lambda d: trueish_column(d, "tdcc_history_available") & trueish_column(d, "high_thresholds_up"),
+        "condition": price_pullback_tdcc_high_thresholds_up_filter,
     },
     {
         "feature_filter_id": "tdcc_all_thresholds_up",
@@ -1373,7 +1396,7 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
         "feature_rule": "20d return is between 0% and 25% to avoid deeply weak or excessively extended names",
         "feature_test_status": "tested_point_in_time",
         "data_status": "available_point_in_time_research_frame",
-        "condition": lambda d: between(numeric_column(d, "return_20d_pct"), 0.0, 25.0).fillna(False),
+        "condition": price_pullback_return20_balanced_filter,
     },
     {
         "feature_filter_id": "pattern45_bull_pullback",
@@ -1382,6 +1405,52 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
         "feature_test_status": "tested_point_in_time",
         "data_status": "computed_from_point_in_time_price_history",
         "condition": price_pullback_45d_bullish_pullback_filter,
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up_return20_0_25",
+        "feature_family": "combo_chip_risk_control",
+        "feature_rule": "large-holder TDCC high thresholds increased and 20d return is between 0% and 25%",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_return20_balanced_filter(d),
+    },
+    {
+        "feature_filter_id": "tdcc_consecutive_up_ge1_return20_0_25",
+        "feature_family": "combo_chip_risk_control",
+        "feature_rule": "TDCC consecutive up weeks >=1 and 20d return is between 0% and 25%",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: price_pullback_tdcc_consecutive_up_ge1_filter(d)
+        & price_pullback_return20_balanced_filter(d),
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up_obv_above_ma20",
+        "feature_family": "combo_chip_technical_volume",
+        "feature_rule": "large-holder TDCC high thresholds increased and OBV above OBV MA20",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_obv_above_ma20_filter(d),
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up_macd_kd_confirm",
+        "feature_family": "combo_chip_technical",
+        "feature_rule": "large-holder TDCC high thresholds increased plus MACD/KD confirmation",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_macd_kd_confirm_filter(d),
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20",
+        "feature_family": "combo_chip_risk_control_technical_volume",
+        "feature_rule": "large-holder TDCC high thresholds increased, 20d return is between 0% and 25%, and OBV above OBV MA20",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_return20_balanced_filter(d)
+        & price_pullback_obv_above_ma20_filter(d),
     },
     {
         "feature_filter_id": "revenue_positive_or_strong",

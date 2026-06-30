@@ -607,7 +607,7 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
             "obv_above_ma20": [True, False, True],
             "tdcc_history_available": [True, True, False],
             "tdcc_consecutive_up_weeks": [1.0, 0.0, 0.0],
-            "high_thresholds_up": [False, True, False],
+            "high_thresholds_up": [True, True, False],
             "all_thresholds_up": [False, False, False],
             "return_20d_pct": [10.0, 30.0, -5.0],
             "return_45d_pct": [12.0, 4.0, 20.0],
@@ -653,6 +653,21 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
     assert macd_kd["win_count"] == 1
     assert macd_kd["win_rate_pct"] == 100.0
     assert macd_kd["delta_vs_baseline_win_rate_pct"] == 66.67
+
+    combo_ids = {
+        "tdcc_high_thresholds_up_return20_0_25",
+        "tdcc_consecutive_up_ge1_return20_0_25",
+        "tdcc_high_thresholds_up_obv_above_ma20",
+        "tdcc_high_thresholds_up_macd_kd_confirm",
+        "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20",
+    }
+    assert combo_ids <= set(feature["feature_filter_id"])
+    for combo_id in combo_ids:
+        combo = feature[feature["feature_filter_id"].eq(combo_id)].iloc[0]
+        assert combo["selected_stock_days"] == 1
+        assert combo["win_count"] == 1
+        assert combo["win_rate_pct"] == 100.0
+        assert combo["advisory_status"] == "not_production_ready_research_only"
 
     revenue = feature[feature["feature_filter_id"].eq("revenue_positive_or_strong")].iloc[0]
     market = feature[feature["feature_filter_id"].eq("market_background_regime")].iloc[0]
