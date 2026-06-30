@@ -1,6 +1,6 @@
 # Daily Candidate Two-Line View
 
-- generated_at: `2026-06-30 23:22:53 Asia/Taipei`
+- generated_at: `2026-07-01 04:29:20 Asia/Taipei`
 - signal_date: `20260630`
 - rule: Do not mix mainstream-theme candidates and individual-quality candidates into one total ranking.
 - rule: two_line_overlap_flag is informational only; it does not create a separate ranking bucket, score change, or veto.

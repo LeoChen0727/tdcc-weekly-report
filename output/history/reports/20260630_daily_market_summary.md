@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260630`
-- 產生時間：`2026-06-30 23:28:22 Asia/Taipei`
+- 產生時間：`2026-07-01 04:34:27 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260630`
@@ -339,7 +339,7 @@
 - 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pullback_rebound|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;電子通路業;shareholder_meeting_calendar;calendar_shareholder_meeting / material_information;電子通路業 ...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;電子通路業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / material_informatio...
 - 摘要：回檔轉強 / pullback_rebound / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；no_signal；權證金流未見明顯高於近期平均的變化；量比1.24x；月營收YoY 82.9%；累計YoY 39.8%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）

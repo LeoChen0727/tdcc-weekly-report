@@ -23,7 +23,7 @@
   ],
   "daily_price_files": {
     "20260610": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260610.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260610.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2128,
@@ -35,7 +35,7 @@
       ]
     },
     "20260611": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260611.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260611.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2132,
@@ -47,7 +47,7 @@
       ]
     },
     "20260612": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260612.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260612.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2126,
@@ -59,7 +59,7 @@
       ]
     },
     "20260615": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260615.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260615.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2133,
@@ -71,7 +71,7 @@
       ]
     },
     "20260616": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260616.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260616.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2133,
@@ -83,7 +83,7 @@
       ]
     },
     "20260617": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260617.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260617.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2126,
@@ -95,7 +95,7 @@
       ]
     },
     "20260618": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260618.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260618.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2132,
@@ -107,7 +107,7 @@
       ]
     },
     "20260622": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260622.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260622.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2140,
@@ -119,7 +119,7 @@
       ]
     },
     "20260623": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260623.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260623.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2128,
@@ -131,7 +131,7 @@
       ]
     },
     "20260624": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260624.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260624.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2127,
@@ -143,7 +143,7 @@
       ]
     },
     "20260625": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260625.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260625.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2132,
@@ -155,7 +155,7 @@
       ]
     },
     "20260626": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260626.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260626.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2130,
@@ -167,7 +167,7 @@
       ]
     },
     "20260629": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260629.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260629.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2129,
@@ -179,7 +179,7 @@
       ]
     },
     "20260630": {
-      "path": "C:/Users/p4693/Documents/Codex/projects/taiwan-stock-recommendation/maintenance/daily-model-maintenance/data/daily_price/daily_price_20260630.csv",
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260630.csv",
       "exists": true,
       "legacy_exists": true,
       "rows": 2131,
