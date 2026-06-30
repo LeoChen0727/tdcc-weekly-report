@@ -143,6 +143,35 @@ def price_pullback_row_parity_frame() -> pd.DataFrame:
     )
 
 
+def price_pullback_discussion_ready_row_parity_frame() -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "model_id": "price_pullback_23ema",
+                "snapshot_report_date": "20260629",
+                "parity_status": "exact_daily_row_parity_pass",
+                "published_not_in_proxy_rows": "0",
+                "proxy_not_published_rows": "0",
+                "published_unique_stock_count": "219",
+                "research_proxy_unique_stock_count": "219",
+                "candidate_universe_replay_status": "candidate_universe_replay_exact_match",
+                "parity_gap_driver": "none_exact",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "snapshot_report_date": "20260630",
+                "parity_status": "blocked_missing_research_frame_date",
+                "published_not_in_proxy_rows": "0",
+                "proxy_not_published_rows": "0",
+                "published_unique_stock_count": "233",
+                "research_proxy_unique_stock_count": "233",
+                "candidate_universe_replay_status": "candidate_universe_replay_exact_match",
+                "parity_gap_driver": "missing_research_frame_date",
+            },
+        ]
+    )
+
+
 def adapter_frame(with_approval_metadata: bool = False) -> pd.DataFrame:
     row = {
         "model_id": "volume_range_breakout",
@@ -248,6 +277,31 @@ def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None
     assert "proxy_not_published=1251" in row["blocker"]
     assert "gap_drivers=missing_research_frame_date,research_full_universe_proxy_exceeds_daily_candidate_publication_scope" in row["blocker"]
     assert "full-universe research proxy" in row["status_note_zh"]
+
+
+def test_price_pullback_candidate_can_be_discussion_ready_without_production_approval() -> None:
+    readiness = build_model_operation_readiness(
+        parity_frame(),
+        registry_frame(),
+        adapter_frame(with_approval_metadata=True),
+        approval_frame(),
+        price_pullback_feature_confirmation=price_pullback_feature_frame(),
+        price_pullback_daily_row_parity=price_pullback_discussion_ready_row_parity_frame(),
+        generated_at="2026-06-30 00:00:00 Asia/Taipei",
+    )
+
+    row = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
+
+    assert row["operation_module_status"] == "operation_candidate_v1_discussion_ready_pending_latest_research_frame"
+    assert row["daily_adapter_status"] == "blocked_latest_research_frame"
+    assert row["approved_for_daily"] == "False"
+    assert row["approval_status"] == "pending_research_freshness_and_promotion_pr"
+    assert row["presentation_allowed"] == "False"
+    assert row["operation_directive_level"] == "no_operation_directive"
+    assert row["pdf_integration_status"] == "blocked_latest_research_frame"
+    assert row["packet_integration_status"] == "blocked_latest_research_frame"
+    assert "latest research frame freshness pending" in row["blocker"]
+    assert "可以開始模型決策討論" in row["status_note_zh"]
 
 
 def test_missing_volume_adapter_blocks_presentation_even_when_approved() -> None:
