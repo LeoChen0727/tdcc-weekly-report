@@ -151,6 +151,37 @@ def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "2026061
             }
         ],
     )
+    for name, model_id in [
+        ("daily_w_bottom_right_side_operation_section_latest.csv", "w_bottom_right_side"),
+        (
+            "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+            "neckline_volume_breakout_confirmation",
+        ),
+    ]:
+        write_csv(
+            latest_dir / name,
+            [
+                {
+                    "model_id": model_id,
+                    "pdf_view": "highlight",
+                    "pdf_section": "confirmed_operation",
+                    "row_type": "empty_state",
+                    "buy_rank_eligible": "False",
+                    "row_action_status": "empty_state",
+                    "entry_rule_id": "right_low_signal_next_open"
+                    if model_id == "w_bottom_right_side"
+                    else "close_ge_1pct_within_3_sessions_next_open",
+                    "stop_loss_rule_id": "w_structure_low_close_stop"
+                    if model_id == "w_bottom_right_side"
+                    else "no_fixed_stop_loss_20d_operation_rule",
+                    "stop_loss_price": "",
+                    "exit_rule_id": "d20_gain10_else_d40_close"
+                    if model_id == "w_bottom_right_side"
+                    else "tp10_close_win_5pct_pullback_neutral_else_20d_close_loss",
+                    "planned_holding_days": "40" if model_id == "w_bottom_right_side" else "20",
+                }
+            ],
+        )
 
 
 def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
@@ -176,7 +207,9 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
         "model_registry",
         "model_signals_for_report",
         "model_summary_for_report",
+        "neckline_volume_breakout_confirmation_operation_section",
         "volume_breakout_operation_section",
+        "w_bottom_right_side_operation_section",
     }
     assert set(manifest_rows["snapshot_report_date"]) == {"20260615"}
     assert (snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv").exists()
