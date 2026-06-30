@@ -46,7 +46,7 @@ def normalize_stock_id(value: object) -> str:
 
 
 def read_price(path: Path) -> pd.DataFrame:
-    required = ["date", "stock_id", "stock_name", "open", "high", "low", "close", "volume"]
+    required = ["date", "stock_id", "stock_name", "market", "open", "high", "low", "close", "volume"]
     try:
         df = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False, usecols=required)
     except (ValueError, OSError, pd.errors.ParserError):
