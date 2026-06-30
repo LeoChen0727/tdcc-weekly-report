@@ -24,6 +24,14 @@ DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 VOLUME_MODEL_ID = "volume_range_breakout"
 W_BOTTOM_MODEL_ID = "w_bottom_right_side"
 NECKLINE_MODEL_ID = "neckline_volume_breakout_confirmation"
+PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
+PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_feature_confirmation_research_latest.csv"
+)
+PRICE_PULLBACK_SPEC_SOURCE = Path("docs/specs/price_pullback_23ema_operation_candidate_spec.md")
+PRICE_PULLBACK_OPERATION_MODULE_ID = "price_pullback_23ema_prev20_breakout_stop_v1"
+PRICE_PULLBACK_CANDIDATE_VERSION = "price_pullback_23ema_operation_candidate_v1_20260630"
+PRICE_PULLBACK_BUY_FILTER_ID = "tdcc_high_thresholds_up_return20_0_25"
 
 
 def truthy(value: Any) -> bool:
@@ -141,6 +149,64 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
     }
 
 
+def summarize_price_pullback_candidate(feature_confirmation: pd.DataFrame) -> dict[str, Any]:
+    empty = {
+        "candidate_ready": "False",
+        "operation_module_status": "baseline_only_no_validated_operation_module",
+        "daily_adapter_status": "not_started",
+        "approval_status": "not_started",
+        "operation_module_id": "",
+        "approval_version": "",
+        "registry_pattern_count": 0,
+        "registry_current_model_pattern_count": 0,
+        "registry_best_pattern_id": "",
+        "registry_best_sample_size": 0,
+        "registry_best_win_rate": "",
+        "registry_best_median_return": "",
+        "status_note_zh": "目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。",
+    }
+    if feature_confirmation.empty or "model_id" not in feature_confirmation.columns:
+        return empty
+
+    rows = feature_confirmation[
+        feature_confirmation["model_id"].astype(str).eq(PRICE_PULLBACK_MODEL_ID)
+        & feature_confirmation.get("feature_filter_id", pd.Series(dtype=str))
+        .astype(str)
+        .eq(PRICE_PULLBACK_BUY_FILTER_ID)
+    ].copy()
+    if rows.empty:
+        return empty
+    row = rows.iloc[0]
+    if safe_str(row.get("feature_test_status")) != "tested_point_in_time":
+        return empty
+    if safe_str(row.get("advisory_status")) != "not_production_ready_research_only":
+        return empty
+    if truthy(row.get("approved_for_daily")):
+        return empty
+
+    return {
+        "candidate_ready": "True",
+        "operation_module_status": "operation_candidate_v1_pending_exact_row_parity",
+        "daily_adapter_status": "blocked_exact_daily_row_parity",
+        "approval_status": "pending_exact_daily_row_parity",
+        "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
+        "approval_version": PRICE_PULLBACK_CANDIDATE_VERSION,
+        "registry_pattern_count": 1,
+        "registry_current_model_pattern_count": 0,
+        "registry_best_pattern_id": safe_str(row.get("feature_filter_id")),
+        "registry_best_sample_size": int(float(row.get("mature_count", 0) or 0)),
+        "registry_best_win_rate": safe_str(row.get("win_rate_pct")),
+        "registry_best_median_return": safe_str(row.get("median_d20_close_return_pct")),
+        "status_note_zh": (
+            "price_pullback_23ema 已選出 operation candidate v1：先有 production proxy 訊號，"
+            "且同日符合大戶高門檻增加與 20 日漲幅 0% 到 25%；買點為次日開盤，"
+            "勝利為 D+20 前盤中突破訊號日前 20 日高點，失敗為連續 4 日收盤低於 "
+            "MA20/EMA23 較低者 4%。目前仍缺 exact daily candidate row parity，"
+            "所以不得產生 production 買進、賣出、停損或排名操作建議。"
+        ),
+    }
+
+
 def summarize_volume_approval(approval: pd.DataFrame) -> dict[str, Any]:
     if approval.empty or "model_id" not in approval.columns:
         return {
@@ -226,6 +292,7 @@ def build_model_operation_readiness(
     registry: pd.DataFrame,
     adapter: pd.DataFrame,
     approval: pd.DataFrame | None = None,
+    price_pullback_feature_confirmation: pd.DataFrame | None = None,
     generated_at: str | None = None,
 ) -> pd.DataFrame:
     if parity.empty:
@@ -242,6 +309,9 @@ def build_model_operation_readiness(
     volume_approval = summarize_volume_approval(approval_frame)
     w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
     neckline_approval = summarize_model_approval(approval_frame, NECKLINE_MODEL_ID)
+    price_pullback_candidate = summarize_price_pullback_candidate(
+        price_pullback_feature_confirmation if price_pullback_feature_confirmation is not None else pd.DataFrame()
+    )
     volume_approved = volume_approval["approved_for_daily"] == "True"
     w_bottom_approved = w_bottom_approval["approved_for_daily"] == "True"
     neckline_approved = neckline_approval["approved_for_daily"] == "True"
@@ -409,6 +479,43 @@ def build_model_operation_readiness(
             )
             continue
 
+        if model_id == PRICE_PULLBACK_MODEL_ID and price_pullback_candidate["candidate_ready"] == "True":
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": model_name,
+                    "parity_status": parity_status,
+                    "blocker": (
+                        "exact daily candidate row parity still pending; operation candidate evidence selected, "
+                        "but production operation guidance remains blocked"
+                    ),
+                    "operation_module_status": price_pullback_candidate["operation_module_status"],
+                    "daily_adapter_status": price_pullback_candidate["daily_adapter_status"],
+                    "approved_for_daily": "False",
+                    "approval_status": price_pullback_candidate["approval_status"],
+                    "operation_module_id": price_pullback_candidate["operation_module_id"],
+                    "approval_version": price_pullback_candidate["approval_version"],
+                    "presentation_allowed": "False",
+                    "operation_directive_level": "no_operation_directive",
+                    "pdf_integration_status": "blocked_exact_daily_row_parity",
+                    "packet_integration_status": "blocked_exact_daily_row_parity",
+                    "registry_pattern_count": price_pullback_candidate["registry_pattern_count"],
+                    "registry_current_model_pattern_count": price_pullback_candidate[
+                        "registry_current_model_pattern_count"
+                    ],
+                    "registry_best_pattern_id": price_pullback_candidate["registry_best_pattern_id"],
+                    "registry_best_sample_size": price_pullback_candidate["registry_best_sample_size"],
+                    "registry_best_win_rate": price_pullback_candidate["registry_best_win_rate"],
+                    "registry_best_median_return": price_pullback_candidate["registry_best_median_return"],
+                    "daily_adapter_row_count": 0,
+                    "daily_adapter_data_row_count": 0,
+                    "daily_adapter_sections": "",
+                    "status_note_zh": price_pullback_candidate["status_note_zh"],
+                }
+            )
+            continue
+
         blocker = parity_blocker or "operation module not validated yet"
         rows.append(
             {
@@ -443,7 +550,7 @@ def build_model_operation_readiness(
             }
         )
 
-    order = {VOLUME_MODEL_ID: 0, W_BOTTOM_MODEL_ID: 1, NECKLINE_MODEL_ID: 2}
+    order = {VOLUME_MODEL_ID: 0, W_BOTTOM_MODEL_ID: 1, NECKLINE_MODEL_ID: 2, PRICE_PULLBACK_MODEL_ID: 3}
     out = pd.DataFrame(rows)
     out["_order"] = out["model_id"].map(order).fillna(9)
     out = out.sort_values(["_order", "model_id"]).drop(columns=["_order"]).reset_index(drop=True)
@@ -500,7 +607,14 @@ def main() -> int:
     registry = read_csv(REGISTRY_CSV, dtype=str).fillna("")
     adapter = read_csv(DAILY_VOLUME_ADAPTER_CSV, dtype=str).fillna("")
     approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
-    readiness = build_model_operation_readiness(parity, registry, adapter, approval)
+    price_pullback_feature_confirmation = read_csv(PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV, dtype=str).fillna("")
+    readiness = build_model_operation_readiness(
+        parity,
+        registry,
+        adapter,
+        approval,
+        price_pullback_feature_confirmation=price_pullback_feature_confirmation,
+    )
     write_csv(readiness, OUT_CSV)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     write_csv(readiness, DOCS_CSV)
