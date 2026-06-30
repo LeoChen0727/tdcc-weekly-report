@@ -9,7 +9,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_model_operation_readiness import (  # noqa: E402
     APPROVAL_CSV,
+    DAILY_NECKLINE_ADAPTER_CSV,
     DAILY_VOLUME_ADAPTER_CSV,
+    DAILY_W_BOTTOM_ADAPTER_CSV,
     DOCS_CSV,
     DOCS_MD,
     OUT_CSV,
@@ -58,6 +60,9 @@ def validate_files() -> list[str]:
     for path in [OUT_CSV, OUT_MD, DOCS_CSV, DOCS_MD]:
         if not path.exists():
             errors.append(f"missing model operation readiness artifact: {path}")
+    for path in [DAILY_VOLUME_ADAPTER_CSV, DAILY_W_BOTTOM_ADAPTER_CSV, DAILY_NECKLINE_ADAPTER_CSV]:
+        if not path.exists():
+            errors.append(f"missing approved daily operation adapter artifact: {path}")
     if not PRICE_PULLBACK_DAILY_ROW_PARITY_CSV.exists():
         errors.append(f"missing price pullback daily row parity audit: {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV}")
     if OUT_CSV.exists() and DOCS_CSV.exists():
@@ -135,21 +140,32 @@ def validate_readiness_csv() -> list[str]:
         row = w_bottom.iloc[0]
         expected = {
             "operation_module_status": "approved_operation_v2",
-            "daily_adapter_status": "model_header_evidence_ready",
             "approved_for_daily": "True",
             "approval_status": "approved_for_daily_v2",
             "presentation_allowed": "True",
             "operation_directive_level": "approved_daily_operation_guidance",
-            "pdf_integration_status": "pdf_model_header_evidence_ready",
-            "packet_integration_status": "packet_model_header_evidence_ready",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "packet_integration_status": "packet_integrated_daily_adapter",
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
                 errors.append(f"{W_BOTTOM_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+        if str(row.get("daily_adapter_status", "")) not in {
+            "ready_approved_operation_guidance",
+            "ready_empty_no_operation_rows",
+        }:
+            errors.append(
+                f"{W_BOTTOM_MODEL_ID} daily_adapter_status must be ready approved or ready empty, "
+                f"got {row.get('daily_adapter_status', '')!r}"
+            )
         if str(row.get("operation_module_id", "")) != "w_bottom_early_entry_operation_v2":
             errors.append(f"{W_BOTTOM_MODEL_ID} operation_module_id must be w_bottom_early_entry_operation_v2")
         if str(row.get("approval_version", "")) != "w_bottom_early_entry_operation_v2_20260629":
             errors.append(f"{W_BOTTOM_MODEL_ID} approval_version must be w_bottom_early_entry_operation_v2_20260629")
+        if not {"confirmed_operation", "active_operation"}.issubset(
+            set(str(row.get("daily_adapter_sections", "")).split(","))
+        ):
+            errors.append(f"{W_BOTTOM_MODEL_ID} daily_adapter_sections must include confirmed_operation and active_operation")
 
     neckline = df[df["model_id"].astype(str).eq(NECKLINE_MODEL_ID)]
     if len(neckline) != 1:
@@ -158,21 +174,34 @@ def validate_readiness_csv() -> list[str]:
         row = neckline.iloc[0]
         expected = {
             "operation_module_status": "approved_operation_v1",
-            "daily_adapter_status": "model_header_evidence_ready",
             "approved_for_daily": "True",
             "approval_status": "approved_for_daily_v1",
             "presentation_allowed": "True",
             "operation_directive_level": "approved_daily_operation_guidance",
-            "pdf_integration_status": "pdf_model_header_evidence_ready",
-            "packet_integration_status": "packet_model_header_evidence_ready",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "packet_integration_status": "packet_integrated_daily_adapter",
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
                 errors.append(f"{NECKLINE_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+        if str(row.get("daily_adapter_status", "")) not in {
+            "ready_approved_operation_guidance",
+            "ready_empty_no_operation_rows",
+        }:
+            errors.append(
+                f"{NECKLINE_MODEL_ID} daily_adapter_status must be ready approved or ready empty, "
+                f"got {row.get('daily_adapter_status', '')!r}"
+            )
         if str(row.get("operation_module_id", "")) != "neckline_strict_45_signal_90_score_v1":
             errors.append(f"{NECKLINE_MODEL_ID} operation_module_id must be neckline_strict_45_signal_90_score_v1")
         if str(row.get("approval_version", "")) != "neckline_strict_45_signal_90_score_v1_20260629":
             errors.append(f"{NECKLINE_MODEL_ID} approval_version must be neckline_strict_45_signal_90_score_v1_20260629")
+        if not {"confirmed_operation", "active_operation"}.issubset(
+            set(str(row.get("daily_adapter_sections", "")).split(","))
+        ):
+            errors.append(
+                f"{NECKLINE_MODEL_ID} daily_adapter_sections must include confirmed_operation and active_operation"
+            )
 
     price_pullback = df[df["model_id"].astype(str).eq(PRICE_PULLBACK_MODEL_ID)]
     if len(price_pullback) != 1:

@@ -14,6 +14,8 @@ from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, RESEARCH_LATEST_DIR, mar
 PARITY_CSV = RESEARCH_LATEST_DIR / "daily_model_research_parity_latest.csv"
 REGISTRY_CSV = LATEST_DIR / "historical_pattern_operation_registry_latest.csv"
 DAILY_VOLUME_ADAPTER_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
+DAILY_W_BOTTOM_ADAPTER_CSV = LATEST_DIR / "daily_w_bottom_right_side_operation_section_latest.csv"
+DAILY_NECKLINE_ADAPTER_CSV = LATEST_DIR / "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 
 OUT_CSV = LATEST_DIR / "model_operation_readiness_latest.csv"
@@ -140,6 +142,51 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
         else:
             status = "ready_approved_operation_guidance"
     elif base_ready:
+        status = "ready_pending_approval_metadata"
+    else:
+        status = "blocked"
+
+    return {
+        "daily_adapter_status": status,
+        "daily_adapter_row_count": len(adapter),
+        "daily_adapter_data_row_count": data_rows,
+        "daily_adapter_sections": ",".join(section for section in sections if section),
+    }
+
+
+def summarize_w_bottom_daily_adapter(adapter: pd.DataFrame, model_id: str) -> dict[str, Any]:
+    if adapter.empty:
+        return {
+            "daily_adapter_status": "missing",
+            "daily_adapter_row_count": 0,
+            "daily_adapter_data_row_count": 0,
+            "daily_adapter_sections": "",
+        }
+    if "model_id" not in adapter.columns:
+        return {
+            "daily_adapter_status": "invalid_missing_model_id",
+            "daily_adapter_row_count": len(adapter),
+            "daily_adapter_data_row_count": 0,
+            "daily_adapter_sections": "",
+        }
+
+    models = sorted(set(adapter["model_id"].astype(str)))
+    row_type = adapter["row_type"].astype(str) if "row_type" in adapter.columns else pd.Series([""] * len(adapter))
+    data_rows = int(row_type.eq("data").sum())
+    sections = sorted(set(adapter.get("pdf_section", pd.Series(dtype=str)).astype(str)))
+    source_statuses = sorted(set(adapter.get("adapter_source_status", pd.Series(dtype=str)).astype(str)))
+    source_ready = models == [model_id] and set(sections) >= {"confirmed_operation", "active_operation"}
+    source_ready = source_ready and source_statuses == ["ready"]
+    approved_metadata_ready = False
+    if source_ready and {"approved_for_daily", "operation_directive_level"}.issubset(adapter.columns):
+        approved_metadata_ready = (
+            set(adapter["approved_for_daily"].astype(str)) == {"True"}
+            and set(adapter["operation_directive_level"].astype(str)) == {"approved_daily_operation_guidance"}
+        )
+
+    if approved_metadata_ready:
+        status = "ready_empty_no_operation_rows" if data_rows == 0 else "ready_approved_operation_guidance"
+    elif source_ready:
         status = "ready_pending_approval_metadata"
     else:
         status = "blocked"
@@ -407,6 +454,8 @@ def build_model_operation_readiness(
     registry: pd.DataFrame,
     adapter: pd.DataFrame,
     approval: pd.DataFrame | None = None,
+    w_bottom_adapter: pd.DataFrame | None = None,
+    neckline_adapter: pd.DataFrame | None = None,
     price_pullback_feature_confirmation: pd.DataFrame | None = None,
     price_pullback_daily_row_parity: pd.DataFrame | None = None,
     generated_at: str | None = None,
@@ -421,6 +470,14 @@ def build_model_operation_readiness(
     generated = generated_at or now_text()
     volume_registry = summarize_volume_registry(registry)
     volume_adapter = summarize_volume_daily_adapter(adapter)
+    w_bottom_adapter_summary = summarize_w_bottom_daily_adapter(
+        w_bottom_adapter if w_bottom_adapter is not None else pd.DataFrame(),
+        W_BOTTOM_MODEL_ID,
+    )
+    neckline_adapter_summary = summarize_w_bottom_daily_adapter(
+        neckline_adapter if neckline_adapter is not None else pd.DataFrame(),
+        NECKLINE_MODEL_ID,
+    )
     approval_frame = approval if approval is not None else pd.DataFrame()
     volume_approval = summarize_volume_approval(approval_frame)
     w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
@@ -495,13 +552,20 @@ def build_model_operation_readiness(
             continue
 
         if model_id == W_BOTTOM_MODEL_ID:
+            adapter_ready = w_bottom_adapter_summary["daily_adapter_status"] in {
+                "ready_pending_approval_metadata",
+                "ready_approved_operation_guidance",
+                "ready_empty_no_operation_rows",
+            }
             presentation_allowed = w_bottom_approved and parity_status in {
                 "production_parity",
                 "production_proxy",
                 "proxy_only",
-            }
+            } and adapter_ready
             blocker = parity_blocker or (
-                "W-bottom early-entry operation v2 approval is ready; positive-return rate and average return must be labeled as D+20/D+40 operation metrics"
+                "W-bottom early-entry operation v2 adapter is ready; positive-return rate and average return must be labeled as D+20/D+40 operation metrics"
+                if adapter_ready
+                else "W-bottom early-entry operation v2 approval exists, but daily operation section adapter is not ready"
             )
             rows.append(
                 {
@@ -513,7 +577,7 @@ def build_model_operation_readiness(
                     "operation_module_status": (
                         "approved_operation_v2" if w_bottom_approved else "baseline_only_no_validated_operation_module"
                     ),
-                    "daily_adapter_status": "model_header_evidence_ready" if w_bottom_approved else "not_started",
+                    "daily_adapter_status": w_bottom_adapter_summary["daily_adapter_status"] if w_bottom_approved else "not_started",
                     "approved_for_daily": w_bottom_approval["approved_for_daily"],
                     "approval_status": w_bottom_approval["approval_status"],
                     "operation_module_id": w_bottom_approval["operation_module_id"],
@@ -523,10 +587,10 @@ def build_model_operation_readiness(
                         w_bottom_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive"
                     ),
                     "pdf_integration_status": (
-                        "pdf_model_header_evidence_ready" if presentation_allowed else "not_started"
+                        "pdf_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter"
                     ),
                     "packet_integration_status": (
-                        "packet_model_header_evidence_ready" if presentation_allowed else "not_started"
+                        "packet_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter"
                     ),
                     "registry_pattern_count": 1 if w_bottom_approved else 0,
                     "registry_current_model_pattern_count": 1 if w_bottom_approved else 0,
@@ -534,9 +598,9 @@ def build_model_operation_readiness(
                     "registry_best_sample_size": w_bottom_approval.get("best_evidence_sample_size", ""),
                     "registry_best_win_rate": w_bottom_approval.get("best_evidence_win_rate", ""),
                     "registry_best_median_return": w_bottom_approval.get("best_evidence_median_return", ""),
-                    "daily_adapter_row_count": 0,
-                    "daily_adapter_data_row_count": 0,
-                    "daily_adapter_sections": "model_header_evidence",
+                    "daily_adapter_row_count": w_bottom_adapter_summary["daily_adapter_row_count"],
+                    "daily_adapter_data_row_count": w_bottom_adapter_summary["daily_adapter_data_row_count"],
+                    "daily_adapter_sections": w_bottom_adapter_summary["daily_adapter_sections"],
                     "status_note_zh": (
                         "W底右低點早期進場 v2 已由 approved_operation_patterns 批准；"
                         "此模型使用標題下方證據，不共用放量攻擊 operation section adapter。"
@@ -546,13 +610,20 @@ def build_model_operation_readiness(
             continue
 
         if model_id == NECKLINE_MODEL_ID:
+            adapter_ready = neckline_adapter_summary["daily_adapter_status"] in {
+                "ready_pending_approval_metadata",
+                "ready_approved_operation_guidance",
+                "ready_empty_no_operation_rows",
+            }
             presentation_allowed = neckline_approved and parity_status in {
                 "production_parity",
                 "production_proxy",
                 "proxy_only",
-            }
+            } and adapter_ready
             blocker = parity_blocker or (
-                "neckline strict 45 signal / 90 score operation approval is ready; operation-rule win rate and neutral-inclusive success rate must be labeled separately"
+                "neckline strict 45 signal / 90 score operation adapter is ready; operation-rule win rate and neutral-inclusive success rate must be labeled separately"
+                if adapter_ready
+                else "neckline strict 45 signal / 90 score operation approval exists, but daily operation section adapter is not ready"
             )
             rows.append(
                 {
@@ -564,7 +635,7 @@ def build_model_operation_readiness(
                     "operation_module_status": (
                         "approved_operation_v1" if neckline_approved else "baseline_only_no_validated_operation_module"
                     ),
-                    "daily_adapter_status": "model_header_evidence_ready" if neckline_approved else "not_started",
+                    "daily_adapter_status": neckline_adapter_summary["daily_adapter_status"] if neckline_approved else "not_started",
                     "approved_for_daily": neckline_approval["approved_for_daily"],
                     "approval_status": neckline_approval["approval_status"],
                     "operation_module_id": neckline_approval["operation_module_id"],
@@ -574,10 +645,10 @@ def build_model_operation_readiness(
                         neckline_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive"
                     ),
                     "pdf_integration_status": (
-                        "pdf_model_header_evidence_ready" if presentation_allowed else "not_started"
+                        "pdf_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter"
                     ),
                     "packet_integration_status": (
-                        "packet_model_header_evidence_ready" if presentation_allowed else "not_started"
+                        "packet_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter"
                     ),
                     "registry_pattern_count": 1 if neckline_approved else 0,
                     "registry_current_model_pattern_count": 1 if neckline_approved else 0,
@@ -585,9 +656,9 @@ def build_model_operation_readiness(
                     "registry_best_sample_size": neckline_approval.get("best_evidence_sample_size", ""),
                     "registry_best_win_rate": neckline_approval.get("best_evidence_win_rate", ""),
                     "registry_best_median_return": neckline_approval.get("best_evidence_median_return", ""),
-                    "daily_adapter_row_count": 0,
-                    "daily_adapter_data_row_count": 0,
-                    "daily_adapter_sections": "model_header_evidence",
+                    "daily_adapter_row_count": neckline_adapter_summary["daily_adapter_row_count"],
+                    "daily_adapter_data_row_count": neckline_adapter_summary["daily_adapter_data_row_count"],
+                    "daily_adapter_sections": neckline_adapter_summary["daily_adapter_sections"],
                     "status_note_zh": (
                         "W底頸線帶量突破 v1 已由 approved_operation_patterns 批准；45日 context 是入選訊號，"
                         "90日 context 只作分數與風險調整；此模型使用標題下方證據，不共用放量攻擊 operation section adapter，也不混入其他頸線型態。"
@@ -724,6 +795,8 @@ def main() -> int:
     parity = read_csv(PARITY_CSV, dtype=str).fillna("")
     registry = read_csv(REGISTRY_CSV, dtype=str).fillna("")
     adapter = read_csv(DAILY_VOLUME_ADAPTER_CSV, dtype=str).fillna("")
+    w_bottom_adapter = read_csv(DAILY_W_BOTTOM_ADAPTER_CSV, dtype=str).fillna("")
+    neckline_adapter = read_csv(DAILY_NECKLINE_ADAPTER_CSV, dtype=str).fillna("")
     approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
     price_pullback_feature_confirmation = read_csv(PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV, dtype=str).fillna("")
     price_pullback_daily_row_parity = read_csv(PRICE_PULLBACK_DAILY_ROW_PARITY_CSV, dtype=str).fillna("")
@@ -732,6 +805,8 @@ def main() -> int:
         registry,
         adapter,
         approval,
+        w_bottom_adapter=w_bottom_adapter,
+        neckline_adapter=neckline_adapter,
         price_pullback_feature_confirmation=price_pullback_feature_confirmation,
         price_pullback_daily_row_parity=price_pullback_daily_row_parity,
     )

@@ -142,6 +142,8 @@ jobs:
           python scripts/validate_daily_model_research_parity.py
           python scripts/validate_price_pullback_daily_row_parity.py
           python scripts/build_daily_model_parameter_recommendations.py
+          python scripts/build_daily_w_bottom_operation_sections.py
+          python scripts/validate_daily_w_bottom_operation_sections.py
           python scripts/build_model_operation_readiness.py
           python scripts/validate_model_operation_readiness.py
 
@@ -164,6 +166,8 @@ jobs:
           python scripts/validate_volume_breakout_confirmed_operation_backtest.py
           python scripts/build_approved_operation_patterns.py
           python scripts/validate_approved_operation_patterns.py
+          python scripts/build_daily_w_bottom_operation_sections.py
+          python scripts/validate_daily_w_bottom_operation_sections.py
           python scripts/build_model_operation_readiness.py
           python scripts/validate_model_operation_readiness.py
           python scripts/build_volume_breakout_operation_pdf_preview.py
@@ -237,6 +241,10 @@ jobs:
           git add output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.csv output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.csv output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.md || true
           git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
+          git add output/latest/daily_w_bottom_right_side_operation_section_latest.csv output/latest/daily_w_bottom_right_side_operation_section_latest.md || true
+          git add output/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.csv output/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.md || true
+          git add output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.md || true
+          git add output/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.csv output/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.md || true
           git add output/latest/approved_operation_patterns_latest.csv output/latest/approved_operation_patterns_latest.md || true
           git add output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.csv output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.md || true
           git add output/history/research/daily_published_snapshot_ranking_events.csv || true
@@ -256,6 +264,10 @@ jobs:
           git add docs/latest/price_pullback_23ema_daily_row_parity_latest.csv docs/latest/price_pullback_23ema_daily_row_parity_latest.md || true
           git add docs/latest/price_pullback_23ema_model_decision_audit_latest.csv docs/latest/price_pullback_23ema_model_decision_audit_latest.md || true
           git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
+          git add docs/latest/daily_w_bottom_right_side_operation_section_latest.csv docs/latest/daily_w_bottom_right_side_operation_section_latest.md || true
+          git add docs/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.csv docs/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.md || true
+          git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv docs/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.md || true
+          git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.csv docs/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.md || true
           git add docs/latest/approved_operation_patterns_latest.csv docs/latest/approved_operation_patterns_latest.md || true
           git add docs/latest/daily_published_snapshot_ranking_backtest_latest.csv docs/latest/daily_published_snapshot_ranking_backtest_latest.md || true
           git add output/history/research/daily_model_parameter_research.csv || true

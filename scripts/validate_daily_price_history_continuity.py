@@ -27,6 +27,8 @@ TARGET_STOCK_SOURCE_FILES = [
     Path("output/latest/daily_candidate_model_signals_latest.csv"),
     Path("output/latest/daily_candidate_model_signals_for_report_latest.csv"),
     Path("output/latest/daily_volume_breakout_operation_section_latest.csv"),
+    Path("output/latest/daily_w_bottom_right_side_operation_section_latest.csv"),
+    Path("output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"),
 ]
 
 

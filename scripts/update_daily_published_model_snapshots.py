@@ -152,6 +152,42 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
             "planned_holding_days",
         ),
     ),
+    SnapshotArtifact(
+        artifact_id="w_bottom_right_side_operation_section",
+        source_name="daily_w_bottom_right_side_operation_section_latest.csv",
+        snapshot_stem="daily_w_bottom_right_side_operation_section",
+        required_columns=(
+            "model_id",
+            "pdf_view",
+            "pdf_section",
+            "row_type",
+            "buy_rank_eligible",
+            "row_action_status",
+            "entry_rule_id",
+            "stop_loss_rule_id",
+            "stop_loss_price",
+            "exit_rule_id",
+            "planned_holding_days",
+        ),
+    ),
+    SnapshotArtifact(
+        artifact_id="neckline_volume_breakout_confirmation_operation_section",
+        source_name="daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+        snapshot_stem="daily_neckline_volume_breakout_confirmation_operation_section",
+        required_columns=(
+            "model_id",
+            "pdf_view",
+            "pdf_section",
+            "row_type",
+            "buy_rank_eligible",
+            "row_action_status",
+            "entry_rule_id",
+            "stop_loss_rule_id",
+            "stop_loss_price",
+            "exit_rule_id",
+            "planned_holding_days",
+        ),
+    ),
 )
 
 MANIFEST_COLUMNS = [

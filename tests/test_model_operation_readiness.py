@@ -185,12 +185,37 @@ def adapter_frame(with_approval_metadata: bool = False) -> pd.DataFrame:
     return pd.DataFrame([row])
 
 
+def w_bottom_adapter_frame(model_id: str) -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "model_id": model_id,
+                "row_type": "data",
+                "pdf_section": "confirmed_operation",
+                "adapter_source_status": "ready",
+                "approved_for_daily": "True",
+                "operation_directive_level": "approved_daily_operation_guidance",
+            },
+            {
+                "model_id": model_id,
+                "row_type": "empty_state",
+                "pdf_section": "active_operation",
+                "adapter_source_status": "ready",
+                "approved_for_daily": "True",
+                "operation_directive_level": "approved_daily_operation_guidance",
+            },
+        ]
+    )
+
+
 def test_volume_breakout_approval_promotes_only_volume_model() -> None:
     readiness = build_model_operation_readiness(
         parity_frame(),
         registry_frame(),
         adapter_frame(),
         approval_frame(),
+        w_bottom_adapter=w_bottom_adapter_frame("w_bottom_right_side"),
+        neckline_adapter=w_bottom_adapter_frame("neckline_volume_breakout_confirmation"),
         generated_at="2026-06-15 00:00:00 Asia/Taipei",
     )
 
@@ -213,23 +238,23 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
 
     w_bottom = readiness[readiness["model_id"].eq("w_bottom_right_side")].iloc[0]
     assert w_bottom["operation_module_status"] == "approved_operation_v2"
-    assert w_bottom["daily_adapter_status"] == "model_header_evidence_ready"
+    assert w_bottom["daily_adapter_status"] == "ready_approved_operation_guidance"
     assert w_bottom["presentation_allowed"] == "True"
     assert w_bottom["approved_for_daily"] == "True"
     assert w_bottom["operation_module_id"] == "w_bottom_early_entry_operation_v2"
     assert w_bottom["approval_version"] == "w_bottom_early_entry_operation_v2_20260629"
     assert w_bottom["operation_directive_level"] == "approved_daily_operation_guidance"
-    assert w_bottom["pdf_integration_status"] == "pdf_model_header_evidence_ready"
+    assert w_bottom["pdf_integration_status"] == "pdf_integrated_daily_adapter"
 
     neckline = readiness[readiness["model_id"].eq("neckline_volume_breakout_confirmation")].iloc[0]
     assert neckline["operation_module_status"] == "approved_operation_v1"
-    assert neckline["daily_adapter_status"] == "model_header_evidence_ready"
+    assert neckline["daily_adapter_status"] == "ready_approved_operation_guidance"
     assert neckline["presentation_allowed"] == "True"
     assert neckline["approved_for_daily"] == "True"
     assert neckline["operation_module_id"] == "neckline_strict_45_signal_90_score_v1"
     assert neckline["approval_version"] == "neckline_strict_45_signal_90_score_v1_20260629"
     assert neckline["operation_directive_level"] == "approved_daily_operation_guidance"
-    assert neckline["pdf_integration_status"] == "pdf_model_header_evidence_ready"
+    assert neckline["pdf_integration_status"] == "pdf_integrated_daily_adapter"
 
 
 def test_volume_adapter_approval_metadata_changes_adapter_status() -> None:
@@ -253,6 +278,8 @@ def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None
         registry_frame(),
         adapter_frame(with_approval_metadata=True),
         approval_frame(),
+        w_bottom_adapter=w_bottom_adapter_frame("w_bottom_right_side"),
+        neckline_adapter=w_bottom_adapter_frame("neckline_volume_breakout_confirmation"),
         price_pullback_feature_confirmation=price_pullback_feature_frame(),
         price_pullback_daily_row_parity=price_pullback_row_parity_frame(),
         generated_at="2026-06-30 00:00:00 Asia/Taipei",
@@ -285,6 +312,8 @@ def test_price_pullback_candidate_can_be_discussion_ready_without_production_app
         registry_frame(),
         adapter_frame(with_approval_metadata=True),
         approval_frame(),
+        w_bottom_adapter=w_bottom_adapter_frame("w_bottom_right_side"),
+        neckline_adapter=w_bottom_adapter_frame("neckline_volume_breakout_confirmation"),
         price_pullback_feature_confirmation=price_pullback_feature_frame(),
         price_pullback_daily_row_parity=price_pullback_discussion_ready_row_parity_frame(),
         generated_at="2026-06-30 00:00:00 Asia/Taipei",
@@ -302,6 +331,30 @@ def test_price_pullback_candidate_can_be_discussion_ready_without_production_app
     assert row["packet_integration_status"] == "blocked_latest_research_frame"
     assert "latest research frame freshness pending" in row["blocker"]
     assert "可以開始模型決策討論" in row["status_note_zh"]
+
+
+def test_w_bottom_models_require_daily_operation_adapter_for_pdf_integration() -> None:
+    readiness = build_model_operation_readiness(
+        parity_frame(),
+        registry_frame(),
+        adapter_frame(with_approval_metadata=True),
+        approval_frame(),
+        generated_at="2026-06-30 00:00:00 Asia/Taipei",
+    )
+
+    w_bottom = readiness[readiness["model_id"].eq("w_bottom_right_side")].iloc[0]
+    assert w_bottom["approved_for_daily"] == "True"
+    assert w_bottom["daily_adapter_status"] == "missing"
+    assert w_bottom["presentation_allowed"] == "False"
+    assert w_bottom["operation_directive_level"] == "no_operation_directive"
+    assert w_bottom["pdf_integration_status"] == "pending_daily_operation_adapter"
+
+    neckline = readiness[readiness["model_id"].eq("neckline_volume_breakout_confirmation")].iloc[0]
+    assert neckline["approved_for_daily"] == "True"
+    assert neckline["daily_adapter_status"] == "missing"
+    assert neckline["presentation_allowed"] == "False"
+    assert neckline["operation_directive_level"] == "no_operation_directive"
+    assert neckline["pdf_integration_status"] == "pending_daily_operation_adapter"
 
 
 def test_missing_volume_adapter_blocks_presentation_even_when_approved() -> None:
