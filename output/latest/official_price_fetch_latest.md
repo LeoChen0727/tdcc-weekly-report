@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-30 19:27:36 Asia/Taipei`
+- generated_at: `2026-06-30 20:01:40 Asia/Taipei`
 - target_date: `20260630`
 - saved_price_date: `20260630`
 - is_target_date: `True`
@@ -31,8 +31,7 @@
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1237
 - TWSE batch selected source=TWSE_RWD_JSON_MI_INDEX, rows=1237
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260630
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/30&type=EW&response=json -> status=200, chars=11371
-- TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/30&type=EW&response=json -> status=520, chars=960
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260630
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/30&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
