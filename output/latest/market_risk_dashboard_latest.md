@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-30 16:05:57 Asia/Taipei`
+- generated_at: `2026-06-30 17:18:36 Asia/Taipei`
 - data_date: `20260630`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
@@ -17,7 +17,7 @@
 | futures_contracts | ok | 66 | 20260629 |
 | options_call_put | ok | 30 | 20260629 |
 | put_call_ratio | ok | 20 | 20260629 |
-| taiwan_vix | ok | 82 | 20260629 |
+| taiwan_vix | ok | 83 | 20260630 |
 
 ## 大盤指數結構
 
