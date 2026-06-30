@@ -151,6 +151,29 @@ def test_renderer_fixed_model_table_contract_requires_empty_state_text(tmp_path:
     assert any("missing zero-candidate text" in error for error in errors)
 
 
+def test_renderer_contract_blocks_technical_model_status_summary_table(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        "MODEL_EMPTY_STATE_TEXT = '本日無股票推薦'\n"
+        "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {}\n"
+        "append_model_status_table(story, inputs, spec, 0, line_label)\n",
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("must not render technical model/PDF integration status summary tables" in error for error in errors)
+
+
+def test_renderer_contract_requires_w_bottom_order_after_volume_attack(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text("MODEL_EMPTY_STATE_TEXT = '本日無股票推薦'\n", encoding="utf-8")
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("W-bottom model sections immediately after volume attack" in error for error in errors)
+
+
 def test_unapproved_event_field_is_rejected_even_for_disclosure() -> None:
     usage = validator.EventFieldUsage("catalyst_summary", "output/latest/all_candidates_latest.csv", "csv_header")
 

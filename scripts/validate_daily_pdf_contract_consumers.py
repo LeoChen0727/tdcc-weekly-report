@@ -79,6 +79,18 @@ FORBIDDEN_RESEARCH_RECOMMENDATION_COLUMNS = {
 
 DISPLAY_MODEL_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
 MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"
+FORBIDDEN_RENDERER_MODEL_STATUS_SUMMARY_TOKENS = (
+    "append_model_status_table",
+    "build_model_status_table",
+    "模型狀態 / PDF整合",
+    "本日表格狀態",
+)
+REQUIRED_RENDERER_MODEL_ORDER_TOKENS = (
+    "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES",
+    "VOLUME_BREAKOUT_MODEL_ID: 1.0",
+    "W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1",
+    "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2",
+)
 
 
 @dataclass(frozen=True)
@@ -230,6 +242,18 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
         text = path.read_text(encoding="utf-8-sig", errors="replace")
         if MODEL_EMPTY_STATE_TEXT not in text:
             errors.append(f"daily PDF renderer missing zero-candidate text: {MODEL_EMPTY_STATE_TEXT}")
+        for forbidden in FORBIDDEN_RENDERER_MODEL_STATUS_SUMMARY_TOKENS:
+            if forbidden in text:
+                errors.append(
+                    "daily PDF renderer must not render technical model/PDF integration status summary tables: "
+                    f"{forbidden} in {rel(path)}"
+                )
+        for required in REQUIRED_RENDERER_MODEL_ORDER_TOKENS:
+            if required not in text:
+                errors.append(
+                    "daily PDF renderer must keep W-bottom model sections immediately after volume attack: "
+                    f"missing {required} in {rel(path)}"
+                )
         if skip_re.search(text):
             errors.append(
                 "daily PDF renderer must not skip a model section when a model has zero candidate rows: "

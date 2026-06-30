@@ -66,6 +66,13 @@ REMOTE_README: dict[str, str] = {}
 REMOTE_LATEST_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest"
 REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data"
 VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
+W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"
+W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"
+PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
+    VOLUME_BREAKOUT_MODEL_ID: 1.0,
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,
+}
 VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
     "confirmed_operation": 10,
     "active_operation": 5,
@@ -1711,8 +1718,12 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
     if registry.empty:
         return []
     registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
-    registry = registry.sort_values(["_order", "model_id"])
-    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.iterrows()]
+    registry["_pdf_order"] = registry.apply(
+        lambda row: PDF_PRESENTATION_MODEL_ORDER_OVERRIDES.get(clean(row.get("model_id")), row["_order"]),
+        axis=1,
+    )
+    registry = registry.sort_values(["_pdf_order", "_order", "model_id"])
+    return [row.drop(labels=["_order", "_pdf_order"], errors="ignore") for _, row in registry.iterrows()]
 
 
 def model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str, line: str | None = None) -> list[pd.Series]:
@@ -1824,69 +1835,6 @@ def non_mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model
 
 def is_true_text(value) -> bool:
     return clean(value).lower() in {"true", "1", "yes", "y"}
-
-
-def model_readiness_row(inputs: dict[str, pd.DataFrame], model_id: str) -> pd.Series:
-    readiness = inputs.get("model_readiness", pd.DataFrame()).copy()
-    if readiness.empty or "model_id" not in readiness.columns or not model_id:
-        return pd.Series(dtype=object)
-    matched = readiness[readiness["model_id"].astype(str).eq(model_id)].copy()
-    if matched.empty:
-        return pd.Series(dtype=object)
-    return matched.iloc[0]
-
-
-def model_status_text(inputs: dict[str, pd.DataFrame], spec: pd.Series) -> str:
-    model_id = clean(spec.get("model_id"))
-    readiness = model_readiness_row(inputs, model_id)
-    parts = []
-    for label, value in [
-        ("presentation", readiness.get("presentation_allowed")),
-        ("approval", readiness.get("approval_status")),
-        ("operation", readiness.get("operation_module_status")),
-        ("adapter", readiness.get("daily_adapter_status")),
-        ("pdf", readiness.get("pdf_integration_status")),
-        ("visibility", spec.get("pdf_visibility")),
-    ]:
-        text = clean(value)
-        if text:
-            parts.append(f"{label}={text}")
-    note = clean(readiness.get("status_note_zh"))
-    if note:
-        parts.append(short(note, 96))
-    return "；".join(parts) if parts else "模型狀態資料未提供"
-
-
-def build_model_status_table(
-    inputs: dict[str, pd.DataFrame],
-    spec: pd.Series,
-    candidate_count: int,
-    line_label: str,
-) -> Table:
-    model_id = clean(spec.get("model_id"))
-    model_name = clean(spec.get("model_name_zh"), model_id)
-    table_state = MODEL_EMPTY_STATE_TEXT if candidate_count == 0 else "本日有股票推薦"
-    rows = [
-        ["模型", "候選數", "本日表格狀態", "模型狀態 / PDF整合"],
-        [
-            f"{model_name}<br/>{model_id}<br/>{line_label}",
-            str(candidate_count),
-            table_state,
-            model_status_text(inputs, spec),
-        ],
-    ]
-    return build_table(rows, [54 * mm, 22 * mm, 42 * mm, 150 * mm], 12.0)
-
-
-def append_model_status_table(
-    story: list,
-    inputs: dict[str, pd.DataFrame],
-    spec: pd.Series,
-    candidate_count: int,
-    line_label: str,
-) -> None:
-    story.append(build_model_status_table(inputs, spec, candidate_count, line_label))
-    story.append(Spacer(1, 4))
 
 
 def volume_operation_frame(
@@ -3443,7 +3391,6 @@ def build_mainstream_curated_pdf(
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
-        append_model_status_table(story, inputs, spec, len(ranked_rows), MAINSTREAM_LINE_LABEL)
         desc = clean(spec.get("model_description_zh"))
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
@@ -3493,7 +3440,6 @@ def build_non_mainstream_curated_pdf(
             append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
-        append_model_status_table(story, inputs, spec, len(ranked_rows), NON_MAINSTREAM_LINE_LABEL)
         desc = clean(spec.get("model_description_zh"))
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
@@ -3586,7 +3532,6 @@ def build_mainstream_full_candidate_pdf(
         line_rows = mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
-        append_model_status_table(story, inputs, spec, len(line_rows), line_label)
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full", line)
             continue
@@ -3708,7 +3653,6 @@ def build_non_mainstream_full_candidate_pdf(
         line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
-        append_model_status_table(story, inputs, spec, len(line_rows), line_label)
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full", line)
             continue
