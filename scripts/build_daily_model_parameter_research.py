@@ -82,6 +82,13 @@ PRICE_PULLBACK_DAILY_ROW_PARITY_MD = (
 PRICE_PULLBACK_DAILY_ROW_PARITY_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_daily_row_parity.csv"
 DOCS_PRICE_PULLBACK_DAILY_ROW_PARITY_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_DAILY_ROW_PARITY_CSV.name
 DOCS_PRICE_PULLBACK_DAILY_ROW_PARITY_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_DAILY_ROW_PARITY_MD.name
+PRICE_PULLBACK_DECISION_AUDIT_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_model_decision_audit_latest.csv"
+)
+PRICE_PULLBACK_DECISION_AUDIT_MD = RESEARCH_LATEST_DIR / "price_pullback_23ema_model_decision_audit_latest.md"
+PRICE_PULLBACK_DECISION_AUDIT_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_model_decision_audit.csv"
+DOCS_PRICE_PULLBACK_DECISION_AUDIT_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_DECISION_AUDIT_CSV.name
+DOCS_PRICE_PULLBACK_DECISION_AUDIT_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_DECISION_AUDIT_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -2298,6 +2305,390 @@ def write_price_pullback_feature_confirmation_research(feature_confirmation: pd.
     )
 
 
+def _numeric_or_nan(value: object) -> float:
+    parsed = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
+    return float(parsed) if pd.notna(parsed) else math.nan
+
+
+def _delta_or_blank(value: object, baseline: object) -> float | str:
+    parsed = _numeric_or_nan(value)
+    base = _numeric_or_nan(baseline)
+    if math.isnan(parsed) or math.isnan(base):
+        return ""
+    return round(parsed - base, 2)
+
+
+def _share_pct_or_blank(value: object, baseline: object) -> float | str:
+    parsed = _numeric_or_nan(value)
+    base = _numeric_or_nan(baseline)
+    if math.isnan(parsed) or math.isnan(base) or base <= 0:
+        return ""
+    return round(parsed / base * 100.0, 2)
+
+
+def _price_pullback_parity_discussion_status(row_parity: pd.DataFrame) -> dict[str, object]:
+    if row_parity.empty or "parity_status" not in row_parity.columns:
+        return {
+            "daily_row_parity_status_summary": "missing_price_pullback_row_parity_audit",
+            "daily_row_parity_exact_pass_count": 0,
+            "daily_row_parity_blocked_count": 0,
+            "daily_row_parity_blocker_summary": "price_pullback daily row parity artifact is missing",
+        }
+    counts = row_parity["parity_status"].map(safe_str).value_counts()
+    blocked = row_parity[~row_parity["parity_status"].map(safe_str).eq("exact_daily_row_parity_pass")]
+    blocker_values = (
+        blocked["parity_blocker"].map(safe_str).replace("", pd.NA).dropna().unique().tolist()
+        if "parity_blocker" in blocked.columns
+        else []
+    )
+    return {
+        "daily_row_parity_status_summary": ";".join(f"{status}:{int(count)}" for status, count in counts.items()),
+        "daily_row_parity_exact_pass_count": int(counts.get("exact_daily_row_parity_pass", 0)),
+        "daily_row_parity_blocked_count": int(len(blocked)),
+        "daily_row_parity_blocker_summary": "; ".join(blocker_values[:3]),
+    }
+
+
+def _price_pullback_decision_status(row: dict[str, object]) -> tuple[str, str]:
+    item_id = safe_str(row.get("decision_item_id", ""))
+    test_status = safe_str(row.get("test_status", ""))
+    feature_family = safe_str(row.get("feature_family", ""))
+    mature = _numeric_or_nan(row.get("mature_count", ""))
+    win_delta = _numeric_or_nan(row.get("delta_vs_baseline_win_rate_pct", ""))
+    failure_delta = _numeric_or_nan(row.get("delta_vs_baseline_failure_rate_pct", ""))
+    avg_delta = _numeric_or_nan(row.get("delta_vs_baseline_avg_realized_return_pct", ""))
+
+    if item_id == "baseline:production_replay_operation_anchor":
+        return (
+            "baseline_anchor",
+            "作為比較基準；不是正式買賣模組，仍需 promotion PR 才能升格。",
+        )
+    if test_status != "tested_point_in_time":
+        if feature_family == "revenue":
+            return (
+                "blocked_data_gap_required_before_gate",
+                "營收可以當必要條件或加分討論，但目前缺 point-in-time 歷史營收 panel，不能先寫進 production。",
+            )
+        if feature_family == "market_background":
+            return (
+                "blocked_market_join_required",
+                "大盤背景方向合理，但需要把 market regime 依 signal_date 接到個股 research frame 後才能評估。",
+            )
+        return ("blocked_data_gap", "資料或 join 尚未完成，不能視為已回測條件。")
+    if math.isnan(mature) or mature < MIN_REVIEW_SAMPLE:
+        return ("insufficient_sample_review_only", "樣本不足，只能列為觀察，不能當必要條件。")
+    if not math.isnan(win_delta) and not math.isnan(failure_delta):
+        if win_delta >= 5.0 and failure_delta <= -3.0:
+            if not math.isnan(avg_delta) and avg_delta < 0:
+                return (
+                    "score_bonus_candidate_winrate_tradeoff",
+                    "勝率與失敗率改善，但平均實現報酬低於 baseline；較適合討論加分，不適合直接當硬 gate。",
+                )
+            return (
+                "score_bonus_candidate",
+                "相對 baseline 改善勝率與失敗率，可優先討論作為加分或 ranking 權重。",
+            )
+        if win_delta <= -3.0 and failure_delta >= 3.0:
+            return (
+                "reject_as_required_gate",
+                "相對 baseline 勝率下降且失敗率上升，不適合升成必要條件。",
+            )
+        if not math.isnan(avg_delta) and avg_delta > 0 and (win_delta < 0 or failure_delta > 0):
+            return (
+                "return_up_but_riskier_not_gate",
+                "平均報酬提高但勝率或失敗率變差，若保留只能當高波動加分候選，不適合硬篩。",
+            )
+        if win_delta > 0 or failure_delta < 0:
+            return (
+                "mixed_discussion_candidate",
+                "有部分指標優於 baseline，但改善不夠完整，適合進入討論而非直接升格。",
+            )
+    if not math.isnan(avg_delta) and avg_delta > 0:
+        return (
+            "return_only_discussion_candidate",
+            "平均報酬高於 baseline，但勝率/失敗率沒有同步改善，需人工判斷是否符合模型目標。",
+        )
+    return ("no_observed_improvement", "目前沒有相對 baseline 的明確優勢。")
+
+
+def _price_pullback_decision_row_from_metrics(
+    *,
+    generated_at: str,
+    source_artifact_id: str,
+    decision_axis: str,
+    decision_item_id: str,
+    feature_family: str,
+    condition_role: str,
+    rule_text: str,
+    test_status: str,
+    data_status: str,
+    row: pd.Series,
+    baseline: pd.Series,
+    parity: dict[str, object],
+) -> dict[str, object]:
+    out: dict[str, object] = {
+        "generated_at": generated_at,
+        "model_id": "price_pullback_23ema",
+        "model_name_zh": "股價回檔模型",
+        "research_artifact_id": "price_pullback_23ema_model_decision_audit",
+        "source_artifact_id": source_artifact_id,
+        "decision_axis": decision_axis,
+        "decision_item_id": decision_item_id,
+        "feature_family": feature_family,
+        "condition_role": condition_role,
+        "condition_rule": rule_text,
+        "test_status": test_status,
+        "data_status": data_status,
+        "fixed_operation_module_candidate_id": PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID,
+        "buy_point_rule": safe_str(row.get("buy_point_rule", baseline.get("buy_point_rule", ""))),
+        "target_rule": safe_str(row.get("target_rule", baseline.get("target_rule", ""))),
+        "stop_rule": safe_str(row.get("stop_rule", baseline.get("stop_rule", ""))),
+        "exit_rule": safe_str(row.get("exit_rule", baseline.get("exit_rule", ""))),
+        "win_definition": safe_str(row.get("win_definition", baseline.get("win_definition", ""))),
+        "neutral_definition": safe_str(row.get("neutral_definition", baseline.get("neutral_definition", ""))),
+        "failure_definition": safe_str(row.get("failure_definition", baseline.get("failure_definition", ""))),
+        "selected_stock_days": row.get("selected_stock_days", ""),
+        "selected_unique_stocks": row.get("selected_unique_stocks", ""),
+        "mature_count": row.get("mature_count", ""),
+        "selected_share_of_baseline_pct": _share_pct_or_blank(
+            row.get("selected_stock_days", ""),
+            baseline.get("selected_stock_days", ""),
+        ),
+        "mature_share_of_baseline_pct": _share_pct_or_blank(
+            row.get("mature_count", ""),
+            baseline.get("mature_count", ""),
+        ),
+        "win_rate_pct": row.get("win_rate_pct", ""),
+        "neutral_rate_pct": row.get("neutral_rate_pct", ""),
+        "failure_rate_pct": row.get("failure_rate_pct", ""),
+        "same_day_unresolved_rate_pct": row.get("same_day_unresolved_rate_pct", ""),
+        "avg_realized_return_pct": row.get("avg_realized_return_pct", ""),
+        "avg_d20_close_return_pct": row.get("avg_d20_close_return_pct", ""),
+        "avg_realized_or_d20_days": row.get("avg_realized_or_d20_days", ""),
+        "delta_vs_baseline_win_rate_pct": _delta_or_blank(row.get("win_rate_pct", ""), baseline.get("win_rate_pct", "")),
+        "delta_vs_baseline_failure_rate_pct": _delta_or_blank(
+            row.get("failure_rate_pct", ""), baseline.get("failure_rate_pct", "")
+        ),
+        "delta_vs_baseline_avg_realized_return_pct": _delta_or_blank(
+            row.get("avg_realized_return_pct", ""), baseline.get("avg_realized_return_pct", "")
+        ),
+        "delta_vs_baseline_avg_realized_or_d20_days": _delta_or_blank(
+            row.get("avg_realized_or_d20_days", ""), baseline.get("avg_realized_or_d20_days", "")
+        ),
+        "advisory_status": "not_production_ready_research_only",
+        "approved_for_daily": False,
+        "production_change": "none",
+        "promotion_blocker": "requires explicit model promotion PR with exact research parity, contract update, validators, and post-merge validation",
+        **parity,
+    }
+    if decision_item_id == "baseline:production_replay_operation_anchor":
+        out["selected_share_of_baseline_pct"] = 100.0
+        out["mature_share_of_baseline_pct"] = 100.0
+        for col in [
+            "delta_vs_baseline_win_rate_pct",
+            "delta_vs_baseline_failure_rate_pct",
+            "delta_vs_baseline_avg_realized_return_pct",
+            "delta_vs_baseline_avg_realized_or_d20_days",
+        ]:
+            out[col] = 0.0
+    status, conclusion = _price_pullback_decision_status(out)
+    out["decision_status"] = status
+    out["plain_conclusion_zh"] = conclusion
+    return out
+
+
+def build_price_pullback_model_decision_audit(
+    operation_module: pd.DataFrame,
+    feature_confirmation: pd.DataFrame,
+    row_parity: pd.DataFrame,
+) -> pd.DataFrame:
+    generated = now_text()
+    columns = [
+        "generated_at",
+        "model_id",
+        "model_name_zh",
+        "research_artifact_id",
+        "source_artifact_id",
+        "decision_axis",
+        "decision_item_id",
+        "feature_family",
+        "condition_role",
+        "condition_rule",
+        "test_status",
+        "data_status",
+        "fixed_operation_module_candidate_id",
+        "buy_point_rule",
+        "target_rule",
+        "stop_rule",
+        "exit_rule",
+        "win_definition",
+        "neutral_definition",
+        "failure_definition",
+        "selected_stock_days",
+        "selected_unique_stocks",
+        "mature_count",
+        "selected_share_of_baseline_pct",
+        "mature_share_of_baseline_pct",
+        "win_rate_pct",
+        "neutral_rate_pct",
+        "failure_rate_pct",
+        "same_day_unresolved_rate_pct",
+        "avg_realized_return_pct",
+        "avg_d20_close_return_pct",
+        "avg_realized_or_d20_days",
+        "delta_vs_baseline_win_rate_pct",
+        "delta_vs_baseline_failure_rate_pct",
+        "delta_vs_baseline_avg_realized_return_pct",
+        "delta_vs_baseline_avg_realized_or_d20_days",
+        "decision_status",
+        "plain_conclusion_zh",
+        "advisory_status",
+        "approved_for_daily",
+        "production_change",
+        "daily_row_parity_status_summary",
+        "daily_row_parity_exact_pass_count",
+        "daily_row_parity_blocked_count",
+        "daily_row_parity_blocker_summary",
+        "promotion_blocker",
+    ]
+    if operation_module.empty:
+        return pd.DataFrame(columns=columns)
+
+    op = operation_module[
+        operation_module["operation_module_candidate_id"].astype(str).eq(PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID)
+    ].copy()
+    if op.empty:
+        return pd.DataFrame(columns=columns)
+    baseline_rows = op[op["entry_filter_id"].astype(str).eq("baseline_replay")]
+    if baseline_rows.empty:
+        return pd.DataFrame(columns=columns)
+    baseline = baseline_rows.iloc[0]
+    parity = _price_pullback_parity_discussion_status(row_parity)
+
+    rows: list[dict[str, object]] = [
+        _price_pullback_decision_row_from_metrics(
+            generated_at=generated,
+            source_artifact_id="price_pullback_23ema_operation_module_research",
+            decision_axis="baseline_operation",
+            decision_item_id="baseline:production_replay_operation_anchor",
+            feature_family="baseline",
+            condition_role="comparison_anchor",
+            rule_text="current production proxy replay; no extra entry or feature filter",
+            test_status="tested_point_in_time",
+            data_status="available_point_in_time_research_frame",
+            row=baseline,
+            baseline=baseline,
+            parity=parity,
+        )
+    ]
+
+    for _, entry_row in op[~op["entry_filter_id"].astype(str).eq("baseline_replay")].iterrows():
+        rows.append(
+            _price_pullback_decision_row_from_metrics(
+                generated_at=generated,
+                source_artifact_id="price_pullback_23ema_operation_module_research",
+                decision_axis="entry_filter",
+                decision_item_id=f"entry_filter:{safe_str(entry_row.get('entry_filter_id', ''))}",
+                feature_family="entry_filter",
+                condition_role="possible_buy_gate_or_score_bonus",
+                rule_text=safe_str(entry_row.get("entry_signal_rule", "")),
+                test_status="tested_point_in_time",
+                data_status="available_point_in_time_research_frame",
+                row=entry_row,
+                baseline=baseline,
+                parity=parity,
+            )
+        )
+
+    if not feature_confirmation.empty:
+        features = feature_confirmation[
+            ~feature_confirmation["feature_filter_id"].astype(str).eq("baseline_replay")
+        ].copy()
+        for _, feature_row in features.iterrows():
+            status = safe_str(feature_row.get("feature_test_status", ""))
+            rows.append(
+                _price_pullback_decision_row_from_metrics(
+                    generated_at=generated,
+                    source_artifact_id="price_pullback_23ema_feature_confirmation_research",
+                    decision_axis="feature_filter",
+                    decision_item_id=f"feature_filter:{safe_str(feature_row.get('feature_filter_id', ''))}",
+                    feature_family=safe_str(feature_row.get("feature_family", "")),
+                    condition_role="possible_required_gate_or_score_bonus",
+                    rule_text=safe_str(feature_row.get("feature_rule", "")),
+                    test_status=status,
+                    data_status=safe_str(feature_row.get("data_status", "")),
+                    row=feature_row,
+                    baseline=baseline,
+                    parity=parity,
+                )
+            )
+
+    return pd.DataFrame(rows, columns=columns)
+
+
+def write_price_pullback_model_decision_audit(decision: pd.DataFrame) -> None:
+    write_csv(decision, PRICE_PULLBACK_DECISION_AUDIT_CSV)
+    write_csv(decision, PRICE_PULLBACK_DECISION_AUDIT_HISTORY_CSV)
+    write_csv(decision, DOCS_PRICE_PULLBACK_DECISION_AUDIT_CSV)
+    status_counts = (
+        decision["decision_status"].value_counts().reset_index()
+        if not decision.empty and "decision_status" in decision.columns
+        else pd.DataFrame(columns=["decision_status", "count"])
+    )
+    if not status_counts.empty:
+        status_counts.columns = ["decision_status", "count"]
+    lines = [
+        "# Price Pullback 23EMA Model Decision Audit",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `discussion_ready_research_only`; this does not change production condition, scoring, ranking, or contract registry",
+        f"- fixed_operation_module_candidate_id: `{PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID}`",
+        "- buy_point: current production proxy signal plus the tested entry/feature filter on signal date; buy next open only after both hold",
+        "- sell_point: first intraday breakout above signal-day previous 20-day high before stop through D+20",
+        "- stop: close stays at least 4% below the lower of 20MA and 23EMA for 4 consecutive trading days",
+        "- model_decision_use: compare baseline, volume red K, prior extension, chip, technical, 45d structure, revenue gap, and market-background gap in one table",
+        "- rule: rows marked `reject_as_required_gate` must not become production gates without new evidence; blocked rows require data joins before scoring",
+        "",
+        "## Decision Status Counts",
+        "",
+        markdown_table(status_counts, status_counts.columns.tolist()) if not status_counts.empty else "No decision rows.",
+        "",
+        "## Decision Rows",
+        "",
+        markdown_table(
+            decision,
+            [
+                "decision_axis",
+                "decision_item_id",
+                "feature_family",
+                "selected_share_of_baseline_pct",
+                "mature_count",
+                "win_rate_pct",
+                "delta_vs_baseline_win_rate_pct",
+                "failure_rate_pct",
+                "delta_vs_baseline_failure_rate_pct",
+                "avg_realized_return_pct",
+                "delta_vs_baseline_avg_realized_return_pct",
+                "avg_realized_or_d20_days",
+                "decision_status",
+                "plain_conclusion_zh",
+            ],
+            limit=120,
+        ),
+    ]
+    PRICE_PULLBACK_DECISION_AUDIT_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_DECISION_AUDIT_MD.write_text(
+        PRICE_PULLBACK_DECISION_AUDIT_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def _stock_id_sample(values: set[str], limit: int = 12) -> str:
     return ";".join(sorted(values)[:limit])
 
@@ -2933,6 +3324,11 @@ def main() -> int:
     price_pullback_operation_module_df = build_price_pullback_operation_module_research(df)
     price_pullback_feature_confirmation_df = build_price_pullback_feature_confirmation_research(df)
     price_pullback_daily_row_parity_df = build_price_pullback_daily_row_parity_audit(df)
+    price_pullback_decision_audit_df = build_price_pullback_model_decision_audit(
+        price_pullback_operation_module_df,
+        price_pullback_feature_confirmation_df,
+        price_pullback_daily_row_parity_df,
+    )
 
     write_csv(summary_df, OUT_CSV)
     write_csv(detail_df, OUT_DETAIL_CSV)
@@ -2948,6 +3344,7 @@ def main() -> int:
     write_price_pullback_operation_module_research(price_pullback_operation_module_df)
     write_price_pullback_feature_confirmation_research(price_pullback_feature_confirmation_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
+    write_price_pullback_model_decision_audit(price_pullback_decision_audit_df)
 
     print(f"Saved {OUT_CSV} rows={len(summary_df)}")
     print(f"Saved {OUT_DETAIL_CSV} rows={len(detail_df)}")
@@ -2957,6 +3354,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_OPERATION_MODULE_CSV} rows={len(price_pullback_operation_module_df)}")
     print(f"Saved {PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV} rows={len(price_pullback_feature_confirmation_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
+    print(f"Saved {PRICE_PULLBACK_DECISION_AUDIT_CSV} rows={len(price_pullback_decision_audit_df)}")
     print(f"Saved {OUT_MD}")
     return 0
 
