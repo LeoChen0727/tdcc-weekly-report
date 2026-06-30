@@ -1,6 +1,6 @@
 # Warrant Source Status
 
-- generated_at: `2026-06-30 12:00:30 Asia/Taipei`
+- generated_at: `2026-06-30 13:05:27 Asia/Taipei`
 - status: `ok`
 - requested_date: `20260629`
 - data_date: `20260629`
@@ -12,6 +12,6 @@
 - model_effect_allowed: `True`
 - pdf_effect_allowed: `True`
 - final_rows: `26566`
-- mapping_rows: `0`
-- quote_rows: `26566`
+- mapping_rows: `28950`
+- quote_rows: `0`
 - note: preserved existing same-date usable raw snapshot from output/latest/warrant_daily_raw_latest.csv
