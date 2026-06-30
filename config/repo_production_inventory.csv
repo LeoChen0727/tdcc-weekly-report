@@ -196,6 +196,7 @@ tests/test_daily_model_background_data_cleanup_audit.py,test_python,research_bac
 tests/test_daily_model_background_data_registry.py,test_python,repo_infrastructure,active,daily model background data registry test,,
 tests/test_daily_model_signal_background_features.py,test_python,research_backtest,active,research/backtest test: daily model signal background features,,
 tests/test_price_pullback_daily_row_parity.py,test_python,research_backtest,active,research/backtest test: price_pullback_23ema daily row parity audit,,
+tests/test_research_weekly_20pct_surge_volume.py,test_python,research_backtest,active,research/backtest test: weekly 20pct surge volume price schema,,
 tests/test_daily_pdf_contract_consumers.py,test_python,daily_production,active,daily PDF model/catalyst contract consumer validator test,,
 tests/test_daily_production_boundaries.py,test_python,daily_production,active,daily production test: test_daily_production_boundaries,,
 tests/test_daily_publish_freshness_gate.py,test_python,daily_production,active,daily production test: test_daily_publish_freshness_gate,,
