@@ -2037,7 +2037,7 @@ def _add_feature_confirmation_deltas(result: pd.DataFrame) -> pd.DataFrame:
         "avg_realized_or_d20_days": "delta_vs_baseline_avg_realized_or_d20_days",
     }
     for col in [*delta_map.values(), "selected_share_of_baseline_pct", "mature_share_of_baseline_pct"]:
-        out[col] = ""
+        out[col] = np.nan
 
     baseline = out[out["feature_filter_id"].eq("baseline_replay")]
     if baseline.empty:

@@ -12,6 +12,7 @@ if str(SCRIPTS) not in sys.path:
 
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
 from build_daily_model_parameter_research import (  # noqa: E402
+    _add_feature_confirmation_deltas,
     add_price_structure_features,
     build_price_pullback_feature_confirmation_research,
     build_model_parity,
@@ -659,6 +660,42 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
     assert market["feature_test_status"] == "deferred_join_required"
     assert revenue["mature_count"] == 0
     assert revenue["selected_stock_days"] == ""
+
+
+def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
+    rows = [
+        {
+            "feature_filter_id": "baseline_replay",
+            "feature_test_status": "tested_point_in_time",
+            "selected_stock_days": 100,
+            "mature_count": 80,
+            "win_rate_pct": 40.0,
+            "failure_rate_pct": 45.0,
+            "avg_realized_return_pct": 0.5,
+            "avg_realized_or_d20_days": 12.0,
+        },
+        {
+            "feature_filter_id": "macd_hist_gt0",
+            "feature_test_status": "tested_point_in_time",
+            "selected_stock_days": 50,
+            "mature_count": 40,
+            "win_rate_pct": 55.0,
+            "failure_rate_pct": 35.0,
+            "avg_realized_return_pct": 0.8,
+            "avg_realized_or_d20_days": 10.0,
+        },
+    ]
+
+    with pd.option_context("future.infer_string", True):
+        result = _add_feature_confirmation_deltas(pd.DataFrame(rows))
+
+    macd = result[result["feature_filter_id"].eq("macd_hist_gt0")].iloc[0]
+    assert macd["selected_share_of_baseline_pct"] == 50.0
+    assert macd["mature_share_of_baseline_pct"] == 50.0
+    assert macd["delta_vs_baseline_win_rate_pct"] == 15.0
+    assert macd["delta_vs_baseline_failure_rate_pct"] == -10.0
+    assert macd["delta_vs_baseline_avg_realized_return_pct"] == 0.3
+    assert macd["delta_vs_baseline_avg_realized_or_d20_days"] == -2.0
 
 
 def test_hot_theme_pullback_uses_strict_historical_theme_gate() -> None:
