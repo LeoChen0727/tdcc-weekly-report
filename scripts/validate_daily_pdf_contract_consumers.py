@@ -17,9 +17,14 @@ ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 MODEL_LAYER = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
 CHATGPT_OUTPUT_ROOT = ROOT / "chatgpt_side_outputs_official"
 
+DAILY_MODEL_SIGNALS = ROOT / "output/latest/daily_candidate_model_signals_for_report_latest.csv"
+DAILY_MODEL_REGISTRY = ROOT / "output/latest/daily_report_model_registry_latest.csv"
+DAILY_MODEL_PARAMETERS = ROOT / "output/latest/daily_candidate_model_parameters_latest.csv"
+DAILY_MODEL_READINESS = ROOT / "output/latest/model_operation_readiness_latest.csv"
+
 DAILY_MODEL_OUTPUTS = (
-    ROOT / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
-    ROOT / "output/latest/daily_report_model_registry_latest.csv",
+    DAILY_MODEL_SIGNALS,
+    DAILY_MODEL_REGISTRY,
 )
 
 DAILY_EVENT_OUTPUTS = (
@@ -71,6 +76,9 @@ FORBIDDEN_RESEARCH_RECOMMENDATION_COLUMNS = {
     "model_registry_active",
     "report_line_applicability",
 }
+
+DISPLAY_MODEL_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
+MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"
 
 
 @dataclass(frozen=True)
@@ -147,6 +155,87 @@ def model_ids_from_report_outputs(paths: Iterable[Path] = DAILY_MODEL_OUTPUTS) -
                 if model_id:
                     model_ids.add(model_id)
     return model_ids
+
+
+def rows_by_model_id(rows: Iterable[dict[str, str]]) -> dict[str, dict[str, str]]:
+    return {row.get("model_id", ""): row for row in rows if row.get("model_id", "")}
+
+
+def approved_pdf_contract_model_ids(model_rows: Iterable[dict[str, str]]) -> set[str]:
+    return {
+        row.get("model_id", "")
+        for row in model_rows
+        if row.get("model_id", "")
+        and bool_value(row, "approved_for_daily_pdf")
+        and row.get("pdf_visibility", "") in DISPLAY_MODEL_VISIBILITIES
+    }
+
+
+def display_roster_model_ids(
+    registry_rows: Iterable[dict[str, str]],
+    parameter_rows: Iterable[dict[str, str]],
+    readiness_rows: Iterable[dict[str, str]],
+) -> set[str]:
+    parameters = rows_by_model_id(parameter_rows)
+    readiness = rows_by_model_id(readiness_rows)
+    model_ids: set[str] = set()
+    for row in registry_rows:
+        model_id = row.get("model_id", "")
+        if not model_id:
+            continue
+        active_text = row.get("model_registry_active", "true").strip().lower()
+        if active_text not in {"true", "1", "yes", "y"}:
+            continue
+        applicability = row.get("report_line_applicability", "both")
+        if applicability not in {"both", "mainstream", "non_mainstream"}:
+            continue
+        parameter = parameters.get(model_id, {})
+        readiness_row = readiness.get(model_id, {})
+        visibility = parameter.get("pdf_visibility") or row.get("pdf_visibility", "")
+        presentation_allowed = (
+            readiness_row.get("presentation_allowed", "").strip().lower() in {"true", "1", "yes", "y"}
+        )
+        if visibility in DISPLAY_MODEL_VISIBILITIES or presentation_allowed:
+            model_ids.add(model_id)
+    return model_ids
+
+
+def validate_required_display_model_coverage(
+    available_model_ids: Iterable[str],
+    model_rows: Iterable[dict[str, str]],
+    registry_rows: Iterable[dict[str, str]],
+    parameter_rows: Iterable[dict[str, str]],
+    readiness_rows: Iterable[dict[str, str]],
+) -> list[str]:
+    errors: list[str] = []
+    available = set(available_model_ids)
+    contract_required = approved_pdf_contract_model_ids(model_rows)
+    roster_required = display_roster_model_ids(registry_rows, parameter_rows, readiness_rows)
+    required = contract_required | roster_required
+    if not required:
+        errors.append("Daily PDF has no contract-approved display model roster")
+        return errors
+    for model_id in sorted(required - available):
+        errors.append(f"Daily PDF display roster missing required model_id: {model_id}")
+    return errors
+
+
+def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = (RENDERER,)) -> list[str]:
+    errors: list[str] = []
+    skip_re = re.compile(r"if\s+not\s+(?:ranked_rows|line_rows)\s*:\s*\n\s*continue")
+    for path in source_paths:
+        if not path.exists():
+            errors.append(f"missing daily PDF renderer path: {rel(path)}")
+            continue
+        text = path.read_text(encoding="utf-8-sig", errors="replace")
+        if MODEL_EMPTY_STATE_TEXT not in text:
+            errors.append(f"daily PDF renderer missing zero-candidate text: {MODEL_EMPTY_STATE_TEXT}")
+        if skip_re.search(text):
+            errors.append(
+                "daily PDF renderer must not skip a model section when a model has zero candidate rows: "
+                f"{rel(path)}"
+            )
+    return errors
 
 
 def event_rows_by_field(event_rows: Iterable[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
@@ -335,25 +424,49 @@ def validate_research_recommendations_not_direct_pdf_inputs() -> list[str]:
     return errors
 
 
-def validate() -> tuple[list[str], set[str], list[EventFieldUsage], list[dict[str, str]], list[dict[str, str]]]:
+def validate() -> tuple[
+    list[str],
+    set[str],
+    set[str],
+    list[EventFieldUsage],
+    list[dict[str, str]],
+    list[dict[str, str]],
+]:
     errors = validate_required_contracts()
     if errors:
-        return errors, set(), [], [], []
+        return errors, set(), set(), [], [], []
 
     model_rows = load_csv_rows(STOCK_MODEL_CONTRACT)
     event_rows = load_csv_rows(EVENT_CATALYST_CONTRACT)
+    registry_rows = load_csv_rows(DAILY_MODEL_REGISTRY)
+    parameter_rows = load_csv_rows(DAILY_MODEL_PARAMETERS)
+    readiness_rows = load_csv_rows(DAILY_MODEL_READINESS)
     used_model_ids = model_ids_from_report_outputs()
+    required_display_model_ids = (
+        approved_pdf_contract_model_ids(model_rows)
+        | display_roster_model_ids(registry_rows, parameter_rows, readiness_rows)
+    )
     event_usages = discover_event_field_usages(event_rows)
 
     errors.extend(validate_model_ids(used_model_ids, model_rows))
+    errors.extend(
+        validate_required_display_model_coverage(
+            used_model_ids,
+            model_rows,
+            registry_rows,
+            parameter_rows,
+            readiness_rows,
+        )
+    )
     errors.extend(validate_event_field_usages(event_usages, event_rows))
     errors.extend(validate_private_pdf_rules())
+    errors.extend(validate_renderer_fixed_model_table_contract())
     errors.extend(validate_research_recommendations_not_direct_pdf_inputs())
-    return errors, used_model_ids, event_usages, model_rows, event_rows
+    return errors, used_model_ids, required_display_model_ids, event_usages, model_rows, event_rows
 
 
 def main() -> int:
-    errors, used_model_ids, event_usages, model_rows, event_rows = validate()
+    errors, used_model_ids, required_display_model_ids, event_usages, model_rows, event_rows = validate()
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
@@ -368,6 +481,10 @@ def main() -> int:
     print(f"stock_model_contract={rel(STOCK_MODEL_CONTRACT)}")
     print(f"event_catalyst_contract={rel(EVENT_CATALYST_CONTRACT)}")
     print("daily_contract_approved_model_ids=" + ";".join(approved_daily_models))
+    print(
+        "daily_required_display_model_ids="
+        + (";".join(sorted(required_display_model_ids)) if required_display_model_ids else "none")
+    )
     print("daily_used_model_ids=" + (";".join(sorted(used_model_ids)) if used_model_ids else "none"))
     print(f"daily_event_contract_approved_rows={len(approved_event_rows)}")
     print("daily_used_event_fields=" + (";".join(used_event_fields) if used_event_fields else "none"))

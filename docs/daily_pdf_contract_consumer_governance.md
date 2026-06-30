@@ -37,6 +37,41 @@ The daily PDF renderer may display program-side fields such as `model_score`,
 allowlist, scoring function, ranking formula, buy/sell judgment, or selection
 reason that bypasses the registry.
 
+## Stable Daily Stock Model Table Rule
+
+Daily stock model sections in the mainstream and non-mainstream recommendation
+PDFs must use a stable, complete model roster from report-ready registry and
+readiness sources, not only the models that have candidate rows on the current
+report date.
+
+The renderer must treat `output/latest/daily_report_model_registry_latest.csv`,
+`config/stock_model_contract_registry.csv`,
+`output/latest/model_operation_readiness_latest.csv`, and
+`output/latest/daily_candidate_model_signals_for_report_latest.csv` as separate
+consumer inputs:
+
+- registry / contract / readiness sources decide which PDF-eligible or
+  presentation-allowed models must be displayed;
+- `daily_candidate_model_signals_for_report_latest.csv` supplies candidate
+  rows only;
+- an empty candidate set must not remove a model section from the PDF.
+
+For every applicable mainstream or non-mainstream stock PDF, each active
+PDF-eligible or presentation-allowed model must render a fixed model block and
+table. If the model has zero candidate rows for that report line on the report
+date, the table must still be present, must show candidate count `0`, must show
+the model status/readiness information available to the PDF layer, and must
+include the exact text:
+
+```text
+本日無股票推薦
+```
+
+This is a presentation and contract rule only. It must not create synthetic
+candidate rows, alter stock model conditions, change model scoring or ranking,
+promote research variants, or write research/backtest recommendations into the
+production baseline.
+
 ## Event / Catalyst Contract Rule
 
 Every event or catalyst field consumed from daily report sources must exist in
