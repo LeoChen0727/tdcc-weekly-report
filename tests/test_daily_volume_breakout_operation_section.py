@@ -1131,7 +1131,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     assert confirmed[1][11] == "正式分數理由"
     assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)
     assert active[0] == ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
-    assert active[1][0] == "目前無資料"
+    assert active[1][7] == "目前無操作中追蹤列"
 
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "2222 測試B" not in visible
@@ -1278,14 +1278,14 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
     assert confirmed[0][:2] == ["排名", "股票"]
-    assert confirmed[1][6] == "目前無已確認操作。"
+    assert confirmed[1][11] == "本日無股票推薦"
     assert active[0][:2] == ["股票", "確認方式"]
     story_text = "\n".join(
         flowable.getPlainText()
         for flowable in story
         if hasattr(flowable, "getPlainText")
     )
-    assert "已確認操作 / 可列買入排名" in story_text
+    assert "本日可買 / 已確認買入候選" in story_text
     assert "操作中" in story_text
     assert "待確認" not in story_text
     assert "今日沒有可顯示的放量攻擊操作列。" not in story_text

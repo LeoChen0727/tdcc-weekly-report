@@ -76,6 +76,26 @@ candidate-count, or PDF integration summary table. Registry/readiness fields are
 allowed as renderer inputs for deciding the stable roster, but not as standalone
 PDF-facing technical diagnostics.
 
+For operation-oriented daily stock models, the digest / highlight PDF model
+block must use the same two-table presentation contract as the
+`volume_range_breakout` operation section:
+
+1. The first main table is `本日可買 / 已確認買入候選`.
+2. The second main table is `操作中`.
+3. The first table must contain the `本日無股票推薦` empty-state row when the
+   model has no buyable / confirmed buy candidates for that report line.
+4. The second table must contain `目前無操作中追蹤列` when there are no active
+   operation rows.
+5. Digest / highlight model blocks must not use `待確認`, `已失效`, or `已出場`
+   as main tables. `待確認` may appear only in the full-list PDF when the model's
+   formal adapter provides that state. `已失效` and `已出場` stay in
+   audit/lifecycle artifacts and must not be promoted into PDF main tables.
+
+`w_bottom_right_side`, `neckline_volume_breakout_confirmation`, and any future
+operation-oriented stock model must follow this presentation contract when a
+formal operation adapter is connected to the PDF renderer. Until such an adapter
+exists, the PDF layer must not invent W-bottom operation lifecycle rows.
+
 ## Event / Catalyst Contract Rule
 
 Every event or catalyst field consumed from daily report sources must exist in
