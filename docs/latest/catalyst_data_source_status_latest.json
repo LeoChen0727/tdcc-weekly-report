@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29 22:08:07 Asia/Taipei",
+  "generated_at": "2026-06-30 08:16:28 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -21,7 +21,7 @@
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
       "exists": true,
-      "rows": 1467
+      "rows": 1536
     }
   },
   "sources": {
@@ -48,11 +48,11 @@
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
       "status": "ok",
-      "rows": 2,
+      "rows": 176,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 1,
-      "stored_rows": 1,
+      "matched_tracked_rows": 71,
+      "stored_rows": 71,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     },
     "TPEX material information OpenAPI": {
