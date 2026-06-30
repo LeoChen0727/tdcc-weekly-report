@@ -154,11 +154,11 @@ def test_replay_runtime_manifest_rejects_wrong_date(tmp_path: Path) -> None:
 def test_replay_highlight_layout_contract_accepts_legacy_volume_first() -> None:
     pages = {
         "主流股每日推薦精華": [
-            "主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+            "主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
             "股價回檔模型\n新上榜\n重複上榜",
         ],
         "非主流股每日推薦精華": [
-            "非主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+            "非主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
             "股價回檔模型\n新上榜\n重複上榜",
         ],
     }
@@ -174,10 +174,10 @@ def test_replay_highlight_layout_contract_rejects_reordered_first_page() -> None
     pages = {
         "主流股每日推薦精華": [
             "主流股每日推薦精華\n股價回檔模型\n新上榜\n重複上榜",
-            "放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+            "放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
         ],
         "非主流股每日推薦精華": [
-            "非主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+            "非主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
         ],
     }
 
@@ -190,10 +190,10 @@ def test_replay_highlight_layout_contract_rejects_reordered_first_page() -> None
 def test_replay_highlight_layout_contract_rejects_pending_operation_text() -> None:
     pages = {
         "主流股每日推薦精華": [
-            "主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中\n待確認",
+            "主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中\n待確認",
         ],
         "非主流股每日推薦精華": [
-            "非主流股每日推薦精華\n放量攻擊模型\n已確認操作 / 可列買入排名\n操作中",
+            "非主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
         ],
     }
 
