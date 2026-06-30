@@ -53,6 +53,15 @@ PRICE_PULLBACK_OPERATION_MODULE_MD = RESEARCH_LATEST_DIR / "price_pullback_23ema
 PRICE_PULLBACK_OPERATION_MODULE_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_operation_module_research.csv"
 DOCS_PRICE_PULLBACK_OPERATION_MODULE_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_OPERATION_MODULE_CSV.name
 DOCS_PRICE_PULLBACK_OPERATION_MODULE_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_OPERATION_MODULE_MD.name
+PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_feature_confirmation_research_latest.csv"
+)
+PRICE_PULLBACK_FEATURE_CONFIRMATION_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_feature_confirmation_research_latest.md"
+)
+PRICE_PULLBACK_FEATURE_CONFIRMATION_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_feature_confirmation_research.csv"
+DOCS_PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV.name
+DOCS_PRICE_PULLBACK_FEATURE_CONFIRMATION_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_FEATURE_CONFIRMATION_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -132,6 +141,7 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     out["ema23_slope_pct"] = out["ema23_slope_5d_pct"]
     out["previous_close"] = groups["close"].shift(1)
     out["signal_return_1d_pct"] = (out["close"] / out["previous_close"] - 1.0) * 100.0
+    out["return_45d_pct"] = groups["close"].pct_change(45) * 100.0
     out["close_above_open"] = out["close"] > out["open"]
     out["bullish_attack_candle"] = (out["close"] > out["open"]) | (
         out["close"].eq(out["open"]) & (out["close"] > out["previous_close"])
@@ -161,8 +171,15 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     # Some sources store raw shares, others store lots. Normalize only clearly
     # share-denominated values so the liquidity rule remains stable.
     out["volume_ma20_lots"] = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
+    obv_direction = np.sign(out["close"] - out["previous_close"]).fillna(0.0)
+    obv_flow = obv_direction * pd.to_numeric(out["volume"], errors="coerce").fillna(0.0)
+    out["obv"] = obv_flow.groupby(out["stock_id"]).cumsum()
+    obv_groups = out.groupby("stock_id", group_keys=False)
+    out["obv_ma20"] = obv_groups["obv"].transform(lambda s: s.rolling(20, min_periods=10).mean())
+    out["obv_above_ma20"] = out["obv"] > out["obv_ma20"]
+    out["obv_slope_5d"] = out["obv"] - obv_groups["obv"].shift(5)
 
-    for window in [10, 20, 23, 30, 60]:
+    for window in [10, 20, 23, 30, 45, 60]:
         high = groups["high"].shift(1).rolling(window, min_periods=max(5, min(window, 20))).max().reset_index(level=0, drop=True)
         low = groups["low"].shift(1).rolling(window, min_periods=max(5, min(window, 20))).min().reset_index(level=0, drop=True)
         out[f"range_high_{window}d_prev"] = high
@@ -170,6 +187,9 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         out[f"range_width_{window}d_pct"] = (high / low - 1.0) * 100.0
         out[f"range_breakout_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
         out[f"distance_to_range_high_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
+
+    range_45d = (out["range_high_45d_prev"] - out["range_low_45d_prev"]).replace(0, pd.NA)
+    out["close_position_45d_pct"] = (out["close"] - out["range_low_45d_prev"]) / range_45d * 100.0
 
     for window in [20, 30, 60]:
         high = out[f"range_high_{window}d_prev"]
@@ -371,6 +391,14 @@ def price_pullback_prior_extension_filter(
         (numeric_column(d, f"prior_extension_ema23_{window}d_pct") >= min_extension_pct)
         & (numeric_column(d, f"prior_runup_{window}d_pct") >= min_runup_pct)
         & (numeric_column(d, f"pullback_from_high_{window}d_pct") <= -min_pullback_from_high_pct)
+    ).fillna(False)
+
+
+def price_pullback_45d_bullish_pullback_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        (numeric_column(d, "return_45d_pct") >= 8.0)
+        & (numeric_column(d, "range_width_45d_pct") >= 18.0)
+        & between(numeric_column(d, "close_position_45d_pct"), 35.0, 80.0)
     ).fillna(False)
 
 
@@ -1237,6 +1265,143 @@ PRICE_PULLBACK_OPERATION_MODULE_CANDIDATES = [
 ]
 
 
+PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID = (
+    "next_open_prev20_high_breakout_lower_ma20_ema23_stop4pct_4d_d20_close_exit"
+)
+
+PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
+    {
+        "feature_filter_id": "baseline_replay",
+        "feature_family": "baseline",
+        "feature_rule": "no extra feature confirmation beyond production proxy replay",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: bool_series(d, True),
+    },
+    {
+        "feature_filter_id": "prior_ext20_ema10_runup20_pullback5",
+        "feature_family": "prior_extension",
+        "feature_rule": "prior 20d high was >=10% above 23EMA, prior 20d range runup >=20%, signal close at least 5% below that high",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: price_pullback_prior_extension_filter(d, 20, 10.0, 20.0, 5.0),
+    },
+    {
+        "feature_filter_id": "macd_hist_gt0",
+        "feature_family": "technical",
+        "feature_rule": "MACD histogram above zero on signal date",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "macd_hist_gt0"),
+    },
+    {
+        "feature_filter_id": "kd_bullish_not_overheated",
+        "feature_family": "technical",
+        "feature_rule": "KD bullish but not overheated on signal date",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "kd_bullish_not_overheated"),
+    },
+    {
+        "feature_filter_id": "macd_kd_confirm",
+        "feature_family": "technical",
+        "feature_rule": "MACD histogram above zero and KD bullish-not-overheated both hold",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "macd_hist_gt0") & trueish_column(d, "kd_bullish_not_overheated"),
+    },
+    {
+        "feature_filter_id": "rsi14_40_70",
+        "feature_family": "technical",
+        "feature_rule": "RSI14 between 40 and 70 on signal date",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: between(numeric_column(d, "rsi14"), 40.0, 70.0).fillna(False),
+    },
+    {
+        "feature_filter_id": "bb_width_not_extreme",
+        "feature_family": "technical",
+        "feature_rule": "Bollinger bandwidth percentile is not extreme",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "bb_width_not_extreme"),
+    },
+    {
+        "feature_filter_id": "obv_above_ma20",
+        "feature_family": "technical_volume",
+        "feature_rule": "OBV above OBV MA20 on signal date",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "computed_from_point_in_time_price_volume",
+        "condition": lambda d: trueish_column(d, "obv_above_ma20"),
+    },
+    {
+        "feature_filter_id": "tdcc_history_available",
+        "feature_family": "chip",
+        "feature_rule": "TDCC history is available for point-in-time join",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available"),
+    },
+    {
+        "feature_filter_id": "tdcc_consecutive_up_weeks_ge1",
+        "feature_family": "chip",
+        "feature_rule": "TDCC consecutive up weeks >= 1",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available")
+        & (numeric_column(d, "tdcc_consecutive_up_weeks") >= 1.0),
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up",
+        "feature_family": "chip",
+        "feature_rule": "large-holder TDCC high thresholds increased",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available") & trueish_column(d, "high_thresholds_up"),
+    },
+    {
+        "feature_filter_id": "tdcc_all_thresholds_up",
+        "feature_family": "chip",
+        "feature_rule": "all TDCC holder thresholds increased together",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available") & trueish_column(d, "all_thresholds_up"),
+    },
+    {
+        "feature_filter_id": "return20_0_25",
+        "feature_family": "risk_control",
+        "feature_rule": "20d return is between 0% and 25% to avoid deeply weak or excessively extended names",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: between(numeric_column(d, "return_20d_pct"), 0.0, 25.0).fillna(False),
+    },
+    {
+        "feature_filter_id": "pattern45_bull_pullback",
+        "feature_family": "price_structure",
+        "feature_rule": "45d return >=8%, 45d range width >=18%, and signal close sits in the 35%-80% zone of the prior 45d range",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "computed_from_point_in_time_price_history",
+        "condition": price_pullback_45d_bullish_pullback_filter,
+    },
+    {
+        "feature_filter_id": "revenue_positive_or_strong",
+        "feature_family": "revenue",
+        "feature_rule": "candidate revenue should be positive/strong as gate or add-score candidate",
+        "feature_test_status": "blocked_data_panel_incomplete",
+        "data_status": "historical revenue panel is not complete enough for point-in-time replay in this research frame",
+        "condition": None,
+    },
+    {
+        "feature_filter_id": "market_background_regime",
+        "feature_family": "market_background",
+        "feature_rule": "market regime/risk background filter requires dated market feature join by signal date and market/index mapping",
+        "feature_test_status": "deferred_join_required",
+        "data_status": "market feature panel exists, but this artifact does not yet join it into stock-day rows",
+        "condition": None,
+    },
+]
+
+
 def _rate(count: int, total: int) -> float | str:
     if total <= 0:
         return ""
@@ -1575,6 +1740,50 @@ def _value_at_day(values: pd.DataFrame, day: pd.Series) -> pd.Series:
     return result
 
 
+def _blank_operation_outcome() -> dict[str, object]:
+    return {
+        "mature_count": 0,
+        "win_count": 0,
+        "neutral_count": 0,
+        "failure_count": 0,
+        "same_day_unresolved_count": 0,
+        "win_rate_pct": "",
+        "neutral_rate_pct": "",
+        "failure_rate_pct": "",
+        "same_day_unresolved_rate_pct": "",
+        "avg_d20_close_return_pct": "",
+        "median_d20_close_return_pct": "",
+        "avg_realized_return_pct": "",
+        "avg_win_realized_return_pct": "",
+        "avg_failure_realized_return_pct": "",
+        "avg_neutral_realized_return_pct": "",
+        "avg_realized_or_d20_days": "",
+        "avg_days_to_win": "",
+        "avg_days_to_failure": "",
+    }
+
+
+def _operation_required_columns(candidate: dict[str, object]) -> list[str]:
+    h = int(candidate["holding_window_days"])
+    required = [f"next_open_to_d{day}_day_high_return_pct" for day in range(1, h + 1)]
+    required.extend(f"next_open_to_d{day}_day_low_return_pct" for day in range(1, h + 1))
+    required.extend(f"next_open_to_d{day}_day_close_return_pct" for day in range(1, h + 1))
+    required.append(f"next_open_to_d{h}_close_return_pct")
+    if candidate.get("target_rule_id") in {"prev20_high_breakout", "prior_high_breakout"}:
+        target_lookback_days = int(candidate.get("target_lookback_days", 20))
+        required.extend(["next_open", f"range_high_{target_lookback_days}d_prev"])
+    if candidate["stop_rule_id"] == "close_below_23ema_or_support_2pct":
+        required.extend(["next_open", "ema23"])
+    if candidate["stop_rule_id"] in {"sustained_close_below_ma20_pct", "sustained_close_below_reference_pct"}:
+        required.append("next_open")
+        reference_id = str(candidate.get("stop_reference_id", "ma20"))
+        if reference_id in {"ma20", "lower_ma20_ema23"}:
+            required.extend(f"future_d{day}_ma20" for day in range(1, h + 1))
+        if reference_id in {"ema23", "lower_ma20_ema23"}:
+            required.extend(f"future_d{day}_ema23" for day in range(1, h + 1))
+    return required
+
+
 def _operation_outcome_counts(
     valid: pd.DataFrame,
     candidate: dict[str, object],
@@ -1810,6 +2019,178 @@ def write_price_pullback_operation_module_research(module: pd.DataFrame) -> None
     )
 
 
+def _price_pullback_feature_confirmation_operation_candidate() -> dict[str, object]:
+    for candidate in PRICE_PULLBACK_OPERATION_MODULE_CANDIDATES:
+        if candidate["operation_module_candidate_id"] == PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID:
+            return candidate
+    raise RuntimeError(f"Missing price_pullback feature confirmation operation: {PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID}")
+
+
+def _add_feature_confirmation_deltas(result: pd.DataFrame) -> pd.DataFrame:
+    if result.empty or "feature_filter_id" not in result.columns:
+        return result
+    out = result.copy()
+    delta_map = {
+        "win_rate_pct": "delta_vs_baseline_win_rate_pct",
+        "failure_rate_pct": "delta_vs_baseline_failure_rate_pct",
+        "avg_realized_return_pct": "delta_vs_baseline_avg_realized_return_pct",
+        "avg_realized_or_d20_days": "delta_vs_baseline_avg_realized_or_d20_days",
+    }
+    for col in [*delta_map.values(), "selected_share_of_baseline_pct", "mature_share_of_baseline_pct"]:
+        out[col] = ""
+
+    baseline = out[out["feature_filter_id"].eq("baseline_replay")]
+    if baseline.empty:
+        return out
+    baseline_row = baseline.iloc[0]
+    baseline_values = {metric: pd.to_numeric(pd.Series([baseline_row.get(metric, "")]), errors="coerce").iloc[0] for metric in delta_map}
+    baseline_selected = pd.to_numeric(pd.Series([baseline_row.get("selected_stock_days", "")]), errors="coerce").iloc[0]
+    baseline_mature = pd.to_numeric(pd.Series([baseline_row.get("mature_count", "")]), errors="coerce").iloc[0]
+
+    tested = out["feature_test_status"].eq("tested_point_in_time")
+    for idx, row in out[tested].iterrows():
+        selected = pd.to_numeric(pd.Series([row.get("selected_stock_days", "")]), errors="coerce").iloc[0]
+        mature = pd.to_numeric(pd.Series([row.get("mature_count", "")]), errors="coerce").iloc[0]
+        if pd.notna(selected) and pd.notna(baseline_selected) and baseline_selected > 0:
+            out.at[idx, "selected_share_of_baseline_pct"] = round(float(selected / baseline_selected * 100.0), 2)
+        if pd.notna(mature) and pd.notna(baseline_mature) and baseline_mature > 0:
+            out.at[idx, "mature_share_of_baseline_pct"] = round(float(mature / baseline_mature * 100.0), 2)
+        for metric, delta_col in delta_map.items():
+            value = pd.to_numeric(pd.Series([row.get(metric, "")]), errors="coerce").iloc[0]
+            baseline_value = baseline_values[metric]
+            if pd.notna(value) and pd.notna(baseline_value):
+                out.at[idx, delta_col] = round(float(value - baseline_value), 2)
+    return out
+
+
+def build_price_pullback_feature_confirmation_research(df: pd.DataFrame) -> pd.DataFrame:
+    base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
+    candidate = _price_pullback_feature_confirmation_operation_candidate()
+    required = _operation_required_columns(candidate)
+    h = int(candidate["holding_window_days"])
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for feature_filter in PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS:
+        status = str(feature_filter["feature_test_status"])
+        condition = feature_filter.get("condition")
+        if status == "tested_point_in_time" and condition is not None:
+            filter_mask = condition(df).fillna(False)
+            picked = df[base_mask & filter_mask].copy()
+            valid = (
+                picked.dropna(subset=required).copy()
+                if all(col in picked.columns for col in required)
+                else picked.iloc[0:0].copy()
+            )
+            outcome = _operation_outcome_counts(valid, candidate) if not valid.empty else _blank_operation_outcome()
+            selected_stock_days: int | str = len(picked)
+            selected_unique_stocks: int | str = picked["stock_id"].nunique() if not picked.empty else 0
+        else:
+            picked = df.iloc[0:0].copy()
+            outcome = _blank_operation_outcome()
+            selected_stock_days = ""
+            selected_unique_stocks = ""
+
+        target_lookback_days = candidate.get("target_lookback_days", "")
+        rows.append(
+            {
+                "generated_at": generated_at,
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "股價回檔模型",
+                "research_artifact_id": "price_pullback_23ema_feature_confirmation_research",
+                "research_baseline_parameter_set_id": "production_current_proxy",
+                "research_baseline_status": "production_proxy",
+                "fixed_operation_module_candidate_id": PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID,
+                "feature_filter_id": feature_filter["feature_filter_id"],
+                "feature_family": feature_filter["feature_family"],
+                "feature_rule": feature_filter["feature_rule"],
+                "feature_test_status": status,
+                "data_status": feature_filter["data_status"],
+                "entry_rule_id": candidate["entry_rule_id"],
+                "buy_point_rule": candidate["buy_point_rule"],
+                "target_rule": (
+                    f"Win if first intraday high breaks above signal-day previous {target_lookback_days}-day high before stop through D+{h}."
+                ),
+                "target_lookback_days": target_lookback_days,
+                "stop_rule_id": candidate["stop_rule_id"],
+                "stop_reference_id": candidate.get("stop_reference_id", ""),
+                "stop_reference_name": candidate.get("stop_reference_name", ""),
+                "stop_buffer_pct": candidate.get("stop_buffer_pct", ""),
+                "stop_consecutive_days": candidate.get("stop_consecutive_days", ""),
+                "stop_rule": candidate["stop_rule"],
+                "exit_rule": candidate["exit_rule"],
+                "win_definition": "target hit before stop",
+                "neutral_definition": "no target/stop by D+20 and D+20 close return >= 0%",
+                "failure_definition": "stop hit before target, or no target/stop by D+20 and D+20 close return < 0%",
+                "same_day_rule": "if target and stop are first seen on the same daily candle, classify as same_day_unresolved",
+                "holding_window_days": h,
+                "selected_stock_days": selected_stock_days,
+                "selected_unique_stocks": selected_unique_stocks,
+                "advisory_status": "not_production_ready_research_only",
+                "approved_for_daily": False,
+                "promotion_readiness": "blocked_exact_daily_row_parity_and_operation_approval_required",
+                "promotion_blocker": "requires exact daily candidate row parity plus explicit promotion/sync PR before production use",
+                **outcome,
+            }
+        )
+    return _add_feature_confirmation_deltas(pd.DataFrame(rows))
+
+
+def write_price_pullback_feature_confirmation_research(feature_confirmation: pd.DataFrame) -> None:
+    write_csv(feature_confirmation, PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV)
+    write_csv(feature_confirmation, PRICE_PULLBACK_FEATURE_CONFIRMATION_HISTORY_CSV)
+    write_csv(feature_confirmation, DOCS_PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV)
+    lines = [
+        "# Price Pullback 23EMA Feature Confirmation Research",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- scope: advisory feature confirmation only; this does not approve daily production use",
+        f"- fixed_operation_module_candidate_id: `{PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID}`",
+        "- entry_basis: `signal_date_next_open` after production proxy replay plus the feature filter under test",
+        "- target: previous 20-day high breakout before stop through D+20",
+        "- stop: close stays at least 4% below lower of MA20 and EMA23 for 4 consecutive trading days",
+        "- blocked rows: revenue and market background are documented as data/join gaps, not scored as backtest results",
+        "- blocker: exact daily candidate row parity and explicit promotion/sync PR are still required before production use",
+        "",
+        markdown_table(
+            feature_confirmation,
+            [
+                "feature_filter_id",
+                "feature_family",
+                "feature_test_status",
+                "data_status",
+                "selected_stock_days",
+                "selected_share_of_baseline_pct",
+                "mature_count",
+                "mature_share_of_baseline_pct",
+                "win_rate_pct",
+                "delta_vs_baseline_win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "delta_vs_baseline_failure_rate_pct",
+                "same_day_unresolved_rate_pct",
+                "avg_realized_return_pct",
+                "delta_vs_baseline_avg_realized_return_pct",
+                "avg_realized_or_d20_days",
+                "delta_vs_baseline_avg_realized_or_d20_days",
+                "promotion_readiness",
+            ],
+            limit=80,
+        ),
+    ]
+    PRICE_PULLBACK_FEATURE_CONFIRMATION_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_FEATURE_CONFIRMATION_MD.write_text(
+        PRICE_PULLBACK_FEATURE_CONFIRMATION_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def write_model_parity(parity: pd.DataFrame) -> None:
     write_csv(parity, OUT_PARITY_CSV)
     write_csv(parity, DOCS_PARITY_CSV)
@@ -1990,6 +2371,7 @@ def main() -> int:
     price_pullback_operation_df = build_price_pullback_operation_research(df)
     price_pullback_time_cost_df = build_price_pullback_time_cost_backtest(df)
     price_pullback_operation_module_df = build_price_pullback_operation_module_research(df)
+    price_pullback_feature_confirmation_df = build_price_pullback_feature_confirmation_research(df)
 
     write_csv(summary_df, OUT_CSV)
     write_csv(detail_df, OUT_DETAIL_CSV)
@@ -2003,6 +2385,7 @@ def main() -> int:
     write_price_pullback_operation_research(price_pullback_operation_df)
     write_price_pullback_time_cost_backtest(price_pullback_time_cost_df)
     write_price_pullback_operation_module_research(price_pullback_operation_module_df)
+    write_price_pullback_feature_confirmation_research(price_pullback_feature_confirmation_df)
 
     print(f"Saved {OUT_CSV} rows={len(summary_df)}")
     print(f"Saved {OUT_DETAIL_CSV} rows={len(detail_df)}")
@@ -2010,6 +2393,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_OPERATION_CSV} rows={len(price_pullback_operation_df)}")
     print(f"Saved {PRICE_PULLBACK_TIME_COST_CSV} rows={len(price_pullback_time_cost_df)}")
     print(f"Saved {PRICE_PULLBACK_OPERATION_MODULE_CSV} rows={len(price_pullback_operation_module_df)}")
+    print(f"Saved {PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV} rows={len(price_pullback_feature_confirmation_df)}")
     print(f"Saved {OUT_MD}")
     return 0
 
