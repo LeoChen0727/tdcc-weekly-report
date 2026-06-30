@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:56 Asia/Taipei
+- generated_at: 2026-06-30 22:26:08 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 48.4
-- high: 49.15
-- low: 48.38
-- close: 49.11
-- volume: 1567776
-- ma5: 49.51
-- ema23_primary: 49.67
-- distance_to_ema23_pct: -1.13
-- ma20: 49.82
-- ma60: 49.82
-- ma120: 49.82
-- return_5d: -4.27
-- return_20d: -5.56
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -1.43
-- distance_to_high_60_pct: -5.92
+- date: 20260630
+- open: 49.64
+- high: 49.64
+- low: 48.84
+- close: 49.1
+- volume: 1015000
+- ma5: 49.25
+- ema23_primary: 49.62
+- distance_to_ema23_pct: -1.06
+- ma20: 49.69
+- ma60: 49.8
+- ma120: 49.8
+- return_5d: -2.58
+- return_20d: -5.12
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -1.18
+- distance_to_high_60_pct: -5.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,51.7,51.8,51.65,51.75,1653559,49.58,4.38,50.11,50.11,0.5
 20260602,51.6,52.2,51.6,52.15,2336583,49.79,4.74,50.37,50.37,0.73
 20260603,51.75,51.75,51.35,51.5,3402622,49.93,3.14,50.49,50.49,1.06
 20260604,50,50.45,49.75,50.05,4668520,49.94,0.21,50.45,50.45,1.39
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,50.35,50.35,49.71,49.87,922645,49.92,-0.1,50.06,49.95,0.41
 20260626,48.54,48.54,47.38,47.56,2364587,49.72,-4.35,49.96,49.85,1.11
 20260629,48.4,49.15,48.38,49.11,1567776,49.67,-1.13,49.82,49.82,0.79
+20260630,49.64,49.64,48.84,49.1,1015000,49.62,-1.06,49.69,49.8,0.52
 ```
 
 ## Latest TDCC Snapshot

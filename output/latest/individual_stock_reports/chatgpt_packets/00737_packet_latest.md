@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00737 國泰AI機器人
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:55 Asia/Taipei
+- generated_at: 2026-06-30 22:26:07 Asia/Taipei
 - stock_id: 00737
 - stock_name: 國泰AI機器人
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 36.92
-- high: 37.9
-- low: 36.92
-- close: 37.81
-- volume: 159760
-- ma5: 37.34
-- ema23_primary: 38.19
-- distance_to_ema23_pct: -1
-- ma20: 38.66
+- date: 20260630
+- open: 37.9
+- high: 38.74
+- low: 37.9
+- close: 38.73
+- volume: 233000
+- ma5: 37.62
+- ema23_primary: 38.24
+- distance_to_ema23_pct: 1.29
+- ma20: 38.57
 - ma60: 38.67
 - ma120: 38.67
-- return_5d: -0.89
-- return_20d: -3.62
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -2.19
-- distance_to_high_60_pct: -8.65
+- return_5d: 3.81
+- return_20d: -4.16
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 0.4
+- distance_to_high_60_pct: -6.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,39.6,40.43,39.6,40.41,446991,38.45,5.1,38.95,38.95,1.63
 20260602,40.7,41.15,40.61,41.15,321084,38.67,6.4,39.22,39.22,1.15
 20260603,41.15,41.39,41.15,41.32,196358,38.89,6.24,39.46,39.46,0.73
 20260604,40.99,40.99,40.19,40.27,548922,39.01,3.23,39.54,39.54,1.84
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,37.2,37.48,37.2,37.45,64222,38.34,-2.33,38.8,38.78,0.27
 20260626,37.35,37.35,36.91,36.91,139153,38.23,-3.44,38.73,38.7,0.59
 20260629,36.92,37.9,36.92,37.81,159760,38.19,-1,38.66,38.67,0.7
+20260630,37.9,38.74,37.9,38.73,233000,38.24,1.29,38.57,38.67,1.06
 ```
 
 ## Latest TDCC Snapshot

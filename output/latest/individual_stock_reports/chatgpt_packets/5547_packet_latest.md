@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5547 久舜
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:29 Asia/Taipei
+- generated_at: 2026-06-30 22:27:44 Asia/Taipei
 - stock_id: 5547
 - stock_name: 久舜
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 94
+- latest_price_date: 20260630
+- price_rows: 95
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 22.7
-- high: 22.8
-- low: 22.4
+- date: 20260630
+- open: 22.65
+- high: 22.95
+- low: 22.65
 - close: 22.8
-- volume: 91000
-- ma5: 22.58
-- ema23_primary: 22.15
-- distance_to_ema23_pct: 2.95
-- ma20: 22.14
-- ma60: 21.85
+- volume: 35000
+- ma5: 22.68
+- ema23_primary: 22.2
+- distance_to_ema23_pct: 2.7
+- ma20: 22.19
+- ma60: 21.86
 - ma120: 22.14
-- return_5d: 3.17
-- return_20d: 4.59
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: 2.96
+- return_5d: 2.24
+- return_20d: 4.35
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 2.74
 - distance_to_high_60_pct: -1.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,21.85,21.85,21.75,21.85,22000,21.64,0.95,21.61,22.01,0.74
 20260602,21.8,22.5,21.8,22.2,22,21.69,2.35,21.64,22.01,0
 20260603,21.9,22.25,21.9,22.2,22000,21.73,2.15,21.67,22,0.81
 20260604,22.4,22.5,22.15,22.2,22000,21.77,1.97,21.68,22,0.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,23.1,23.1,22.55,22.75,66000,22.03,3.28,22.05,21.84,1.59
 20260626,22.6,22.75,22.5,22.75,36000,22.09,3,22.09,21.84,0.85
 20260629,22.7,22.8,22.4,22.8,91000,22.15,2.95,22.14,21.85,2
+20260630,22.65,22.95,22.65,22.8,35000,22.2,2.7,22.19,21.86,0.76
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:40 Asia/Taipei
+- generated_at: 2026-06-30 22:26:53 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,41 +56,43 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_support
+- thesis_state: unclear
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 30.1
-- high: 30.8
-- low: 29.55
-- close: 29.65
-- volume: 94167607
-- ma5: 29.99
-- ema23_primary: 27.8
-- distance_to_ema23_pct: 6.64
-- ma20: 28.29
-- ma60: 23.69
-- ma120: 21.31
-- return_5d: -2.31
-- return_20d: 31.78
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 4.83
-- distance_to_high_60_pct: -4.97
+- date: 20260630
+- open: 28.7
+- high: 29.05
+- low: 27.85
+- close: 28.7
+- volume: 141996000
+- ma5: 29.71
+- ema23_primary: 27.88
+- distance_to_ema23_pct: 2.94
+- ma20: 28.59
+- ma60: 23.84
+- ma120: 21.4
+- return_5d: -4.65
+- return_20d: 26.71
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 0.39
+- distance_to_high_60_pct: -8.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,22.45,22.9,22.3,22.65,82690695,21.8,3.89,22.01,20.98,1.23
 20260602,22.55,23.45,22.3,23.4,212718010,21.93,6.68,22.09,21.03,2.83
 20260603,24.45,25.7,24.35,25.7,121759780,22.25,15.52,22.26,21.12,1.57
 20260604,26.9,28.15,26,27.4,526935732,22.68,20.83,22.51,21.25,5.25
@@ -153,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,29.85,30.6,29.75,30.5,58722878,27.43,11.19,27.54,23.34,0.36
 20260626,30.45,30.75,29.85,29.9,71859690,27.64,8.19,27.93,23.51,0.44
 20260629,30.1,30.8,29.55,29.65,94167607,27.8,6.64,28.29,23.69,0.58
+20260630,28.7,29.05,27.85,28.7,141996000,27.88,2.94,28.59,23.84,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2883 | 凱基金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | continued_overheated | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件， 如股息率等）: 「台灣全球智慧製造創業投資有限合夥Taiwan Smart Manufacturing Global  Limited Partnership」(名稱暫定，以下稱「台灣全球智慧製造基金」 或「TSMG基金」)之有限合夥權益。 2.事實發生日:115/06/25 3.交易單位數量、每單位價格及交易總金額: 標的物為有限合夥權益，無交易數量及每單位價格；交易金額於首輪關帳，中華開發創業 投資股份有限公司(以下稱「開發創投」)以基金規模19.5%(含)或5.85億元(含)孰低者為 上限參與投資。 4.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司 之關係人者，得免揭露其姓名）: 交易相對人：擬新設立之「TSMG基金」； 與公司之關係：該基金設立後為財報關係人。 5.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及 前次移轉之所有人、前次移轉之所有人與公司及交易相對人間相互之 關係、前次移轉日期及移轉金額: 無前次移轉。 6.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告 關係人之取得及處分日期、價格及交易當時與公司之關係: 不適用。 7.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分 債權如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人 之債權帳面金額: 不適用。 8.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表 說明認列情形）: 不適用。 9.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要 約定事項: 依基金相關協議之約定。 10.本次交易之決定方式、價格決定之參考依據及決策單位: 本次交易之決定方式、價格決定之參考依據:依基金相關協議之約定；決策單位： 董事會。 11.取得或處分有價證券標的公司每股淨值:不適用 12.有價證券標的公司私募參考價格與每股交易金額差距達20%以上:不適用 13.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、 持股比例及權利受限情形（如質押情形）: 標的為有限合夥權益，故無交易數量；累積持有本交易證券(含本次交易)之金額及出資 比例：開發創投以基金規模19.5%(含)或5.85億元(含)孰低者為上限；權利受限情形： 無。 14.迄目前為止，私募有價證券投資（含本次交易）占公司最近期財 務報表中總資產及歸屬於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 占總資產比例：0.80%；占母公司業主之權益比例：0.95%；最近期財務報告營運資 金：不適用。 15.經理人及經紀費用: 不適用。 16.取得或處分之具體目的或用途: 投資業務發展需要。 17.本次交易表示異議董事之意見: 無。 18.本次交易為關係人交易: 是 19.董事會通過日期: 115/06/25 20.監察人承認或審計委員會同意日期: 不適用，依金融控股公司法第45條程序辦理。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.其他敘明事項: 開發資本集團擬與他方合作對外籌集及設立台灣全球智慧製造基金(TSMG基金)，基金規模 暫定為不低於新臺幣30億元。；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
+| 20260630 | 2883 | 凱基金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 臺北市松山區敦化北路135號地下平面式停車位 2.事實發生日:115/6/29~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:執行副總經理 民國115年6月29日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易數量：地下三層及地下四層之平面式停車位共39個。 每單位價格： 115年7月1日至120年6月30日每個車位每月租金新臺幣9,000元(含稅)。 交易總金額： (1)115年7月1日至120年6月30日每月租金總額新臺幣351,000元(含稅)。 (2)使用權資產金額：新臺幣20,136,540元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人: 凱基人壽保險股份有限公司。 與公司之關係：關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因: 綜合維運穩定、成本考量及交通便利等因素，辦理續租綜效較佳。 前次移轉之所有人：不適用 前次移轉之所有人與公司之關係：不適用 前次移轉之所有人與交易相對人間相互之關係：不適用 前次移轉日期：不適用 移轉金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 租期：115年7月1日至120年6月30日止 交付或付款條件:每個月為一期支付。 契約限制條款及其他重要約定事項:無。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式：議價 價格決定之參考依據：參考專業估價機構估價資料。 決策單位: 依內部概括授權核決權限 12.專業估價者事務所或公司名稱及其估價金額: 專業估價者事務所或公司名稱: 展茂不動產估價師聯合事務所 估價金額(租金) : 新臺幣9,200元(含稅)/個/月 13.專業估價師姓名: 許春寶 14.專業估價師開業證書字號: (112)北市估字第000325號 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 業務需要 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
+| 20260630 | 2883 | 凱基金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 臺北市松山區敦化北路135號地下平面式停車位 2.事實發生日:115/6/29~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:執行副總經理 民國115年6月29日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易數量：地下三層及地下四層之平面式停車位共39個。 每單位價格： 115年7月1日至120年6月30日每個車位每月租金新臺幣9,000元(含稅)。 交易總金額： (1)115年7月1日至120年6月30日每月租金總額新臺幣351,000元(含稅)。 (2)使用權資產金額：新臺幣20,136,540元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人: 凱基人壽保險股份有限公司。 與公司之關係：關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因: 綜合維運穩定、成本考量及交通便利等因素，辦理續租綜效較佳。 前次移轉之所有人：不適用 前次移轉之所有人與公司之關係：不適用 前次移轉之所有人與交易相對人間相互之關係：不適用 前次移轉日期：不適用 移轉金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 租期：115年7月1日至120年6月30日止 交付或付款條件:每個月為一期支付。 契約限制條款及其他重要約定事項:無。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式：議價 價格決定之參考依據：參考專業估價機構估價資料。 決策單位: 依內部概括授權核決權限 12.專業估價者事務所或公司名稱及其估價金額: 專業估價者事務所或公司名稱: 展茂不動產估價師聯合事務所 估價金額(租金) : 新臺幣9,200元(含稅)/個/月 13.專業估價師姓名: 許春寶 14.專業估價師開業證書字號: (112)北市估字第000325號 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 業務需要 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2883 | 凱基金 | 3 | 3 | 3 | 4 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260630 | 2883 | 凱基金 | 4 | 4 | 4 | 5 | 13 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2883 | 凱基金 | 25 | 0 | 4452170.0 | 0.0 |  | no_signal |
+| 20260630 | 2883 | 凱基金 | 25 | 0 | 6037750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

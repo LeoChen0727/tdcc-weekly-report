@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1101 台泥
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:58 Asia/Taipei
+- generated_at: 2026-06-30 22:26:10 Asia/Taipei
 - stock_id: 1101
 - stock_name: 台泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 292
+- latest_price_date: 20260630
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 24.7
-- high: 24.7
-- low: 24.1
-- close: 24.15
-- volume: 25608721
-- ma5: 24.25
-- ema23_primary: 24.34
-- distance_to_ema23_pct: -0.78
-- ma20: 24.37
-- ma60: 24.49
-- ma120: 24.6
-- return_5d: -0.82
-- return_20d: -1.02
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -0.9
-- distance_to_high_60_pct: -8.52
+- date: 20260630
+- open: 24.3
+- high: 24.35
+- low: 24.05
+- close: 24.05
+- volume: 37128000
+- ma5: 24.23
+- ema23_primary: 24.31
+- distance_to_ema23_pct: -1.09
+- ma20: 24.34
+- ma60: 24.5
+- ma120: 24.61
+- return_5d: -0.41
+- return_20d: -2.04
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -1.21
+- distance_to_high_60_pct: -8.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,24.4,24.7,24.2,24.55,35557711,24.34,0.88,24.44,24.34,1.15
 20260602,24.55,24.8,24.4,24.65,33068326,24.36,1.18,24.46,24.34,1.06
 20260603,24.65,25.2,24.45,24.85,45323366,24.4,1.83,24.45,24.33,1.45
 20260604,24.9,24.95,24.45,24.45,37205139,24.41,0.18,24.4,24.33,1.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,24.25,25.15,24.2,24.6,37491440,24.37,0.93,24.36,24.44,1.05
 20260626,24.6,24.75,24.15,24.15,34476565,24.36,-0.85,24.38,24.47,0.97
 20260629,24.7,24.7,24.1,24.15,25608721,24.34,-0.78,24.37,24.49,0.75
+20260630,24.3,24.35,24.05,24.05,37128000,24.31,-1.09,24.34,24.5,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1101 | 台泥 | 33 | 0 | 249870.0 | 0.0 |  | no_signal |
+| 20260630 | 1101 | 台泥 | 35 | 0 | 225890.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6464 台數科
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:43 Asia/Taipei
+- generated_at: 2026-06-30 22:28:00 Asia/Taipei
 - stock_id: 6464
 - stock_name: 台數科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 291
+- latest_price_date: 20260630
+- price_rows: 292
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 78
+- date: 20260630
+- open: 77.5
 - high: 78
-- low: 77.6
+- low: 77.5
 - close: 78
-- volume: 41200
+- volume: 18000
 - ma5: 77.78
-- ema23_primary: 77.81
-- distance_to_ema23_pct: 0.25
+- ema23_primary: 77.82
+- distance_to_ema23_pct: 0.23
 - ma20: 77.95
-- ma60: 77.16
-- ma120: 76.95
+- ma60: 77.19
+- ma120: 76.97
 - return_5d: 0
 - return_20d: 0
-- volume_ratio: 0.55
+- volume_ratio: 0.24
 - distance_to_ma20_pct_auxiliary: 0.06
 - distance_to_high_60_pct: -2.5
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,77.4,78.2,77.4,78,39747,77.37,0.81,77.31,76.7,0.63
 20260602,78,78,77.9,78,5020,77.43,0.74,77.39,76.69,0.08
 20260603,77.9,80,77.9,78.1,71320,77.48,0.8,77.48,76.69,1.15
 20260604,78,78,77.7,78,20358,77.53,0.61,77.57,76.71,0.33
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,77.5,77.5,77.4,77.4,21089,77.79,-0.5,77.97,77.11,0.26
 20260626,76.7,78,76.7,77.8,56547,77.79,0.01,77.95,77.14,0.69
 20260629,78,78,77.6,78,41200,77.81,0.25,77.95,77.16,0.55
+20260630,77.5,78,77.5,78,18000,77.82,0.23,77.95,77.19,0.24
 ```
 
 ## Latest TDCC Snapshot

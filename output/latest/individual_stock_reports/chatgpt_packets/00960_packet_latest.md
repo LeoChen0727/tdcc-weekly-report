@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00960 野村全球航運龍頭
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:57 Asia/Taipei
+- generated_at: 2026-06-30 22:26:09 Asia/Taipei
 - stock_id: 00960
 - stock_name: 野村全球航運龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 17.17
-- high: 17.17
-- low: 16.79
+- date: 20260630
+- open: 16.94
+- high: 16.96
+- low: 16.88
 - close: 16.94
-- volume: 1647052
-- ma5: 17.31
-- ema23_primary: 17.48
-- distance_to_ema23_pct: -3.11
+- volume: 148000
+- ma5: 17.22
+- ema23_primary: 17.44
+- distance_to_ema23_pct: -2.86
 - ma20: 17.49
-- ma60: 17.46
-- ma120: 17.46
-- return_5d: -2.59
-- return_20d: -0.24
-- volume_ratio: 2.19
-- distance_to_ma20_pct_auxiliary: -3.16
+- ma60: 17.45
+- ma120: 17.45
+- return_5d: -2.7
+- return_20d: -0.65
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -3.13
 - distance_to_high_60_pct: -7.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,16.98,17.07,16.98,17.05,684635,17.54,-2.8,17.32,17.32,1.18
 20260602,17.15,17.31,17.15,17.31,1058796,17.52,-1.21,17.32,17.32,1.66
 20260603,17.32,17.32,17.18,17.25,416949,17.5,-1.43,17.31,17.31,0.68
 20260604,17.22,17.38,17.22,17.32,718265,17.48,-0.94,17.32,17.32,1.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,17.43,17.45,17.4,17.4,410435,17.57,-0.95,17.5,17.5,0.57
 20260626,17.33,17.33,17.17,17.17,569424,17.53,-2.08,17.5,17.49,0.8
 20260629,17.17,17.17,16.79,16.94,1647052,17.48,-3.11,17.49,17.46,2.19
+20260630,16.94,16.96,16.88,16.94,148000,17.44,-2.86,17.49,17.45,0.2
 ```
 
 ## Latest TDCC Snapshot

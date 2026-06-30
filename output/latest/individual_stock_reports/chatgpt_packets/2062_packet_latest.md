@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2062 橋椿
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:18 Asia/Taipei
+- generated_at: 2026-06-30 22:26:30 Asia/Taipei
 - stock_id: 2062
 - stock_name: 橋椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 18.8
-- high: 19
-- low: 18.8
+- date: 20260630
+- open: 19
+- high: 19.05
+- low: 18.95
 - close: 19
-- volume: 139029
-- ma5: 18.99
-- ema23_primary: 19.11
-- distance_to_ema23_pct: -0.57
-- ma20: 19.06
-- ma60: 20.02
-- ma120: 20.64
-- return_5d: -0.26
-- return_20d: 1.6
+- volume: 134000
+- ma5: 18.97
+- ema23_primary: 19.1
+- distance_to_ema23_pct: -0.52
+- ma20: 19.07
+- ma60: 20
+- ma120: 20.62
+- return_5d: -0.52
+- return_20d: 0.8
 - volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -0.33
+- distance_to_ma20_pct_auxiliary: -0.37
 - distance_to_high_60_pct: -17.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,18.7,18.85,18.4,18.85,337807,19.38,-2.73,19.32,20.45,0.61
 20260602,18.85,19.1,18.65,19,405451,19.35,-1.79,19.21,20.42,0.74
 20260603,19.35,19.5,19.15,19.25,551453,19.34,-0.46,19.12,20.39,1
 20260604,19.45,19.85,19.25,19.65,642268,19.36,1.47,19.07,20.38,1.13
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,19.2,19.3,19,19.1,234523,19.15,-0.27,19.03,20.08,0.66
 20260626,19,19.05,18.7,18.75,326923,19.12,-1.93,19.05,20.05,0.96
 20260629,18.8,19,18.8,19,139029,19.11,-0.57,19.06,20.02,0.43
+20260630,19,19.05,18.95,19,134000,19.1,-0.52,19.07,20,0.43
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7026 高技凱基57購02
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:01 Asia/Taipei
+- generated_at: 2026-06-30 22:28:18 Asia/Taipei
 - stock_id: 7026
 - stock_name: 高技凱基57購02
 - packet_status: partial_rawdata_packet

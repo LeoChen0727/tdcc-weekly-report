@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:33 Asia/Taipei
+- generated_at: 2026-06-30 22:27:48 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 38.35
-- high: 40
+- date: 20260630
+- open: 38
+- high: 38.6
 - low: 38
-- close: 38.25
-- volume: 777632
-- ma5: 38.71
-- ema23_primary: 36.53
-- distance_to_ema23_pct: 4.69
-- ma20: 36.97
-- ma60: 33.05
-- ma120: 23.85
-- return_5d: 7.44
-- return_20d: -16.85
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: 3.47
-- distance_to_high_60_pct: -19.39
+- close: 38.6
+- volume: 515000
+- ma5: 39.38
+- ema23_primary: 36.71
+- distance_to_ema23_pct: 5.16
+- ma20: 36.68
+- ma60: 33.34
+- ma120: 24.08
+- return_5d: 9.5
+- return_20d: -13.06
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 5.24
+- distance_to_high_60_pct: -18.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,46.05,46.05,41.4,44.4,7282455,35.21,26.11,34.91,28.23,1.89
 20260602,42.1,42.45,40.05,40.35,3751674,35.64,13.23,35.1,28.6,0.94
 20260603,40.35,41.7,39.75,40,2592120,36,11.11,35.31,28.97,0.64
 20260604,40,40.2,39.2,39.4,1470292,36.28,8.59,35.46,29.35,0.37
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,41.45,42.6,39.3,42.3,7265860,36.14,17.04,37.56,32.45,2.5
 20260626,42.95,42.95,39,39,1849591,36.38,7.21,37.35,32.74,0.66
 20260629,38.35,40,38,38.25,777632,36.53,4.69,36.97,33.05,0.34
+20260630,38,38.6,38,38.6,515000,36.71,5.16,36.68,33.34,0.26
 ```
 
 ## Latest TDCC Snapshot

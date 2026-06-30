@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9960 邁達康
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:25 Asia/Taipei
+- generated_at: 2026-06-30 22:28:43 Asia/Taipei
 - stock_id: 9960
 - stock_name: 邁達康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 150
+- latest_price_date: 20260630
+- price_rows: 151
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 31.9
-- high: 35.2
-- low: 31.9
-- close: 33.9
-- volume: 296000
-- ma5: 32.36
-- ema23_primary: 31.93
-- distance_to_ema23_pct: 6.16
-- ma20: 31.89
-- ma60: 30.62
-- ma120: 26.62
-- return_5d: 5.28
-- return_20d: 13
-- volume_ratio: 6.65
-- distance_to_ma20_pct_auxiliary: 6.29
-- distance_to_high_60_pct: -5.83
+- date: 20260630
+- open: 35.1
+- high: 35.1
+- low: 33.05
+- close: 33.25
+- volume: 119000
+- ma5: 32.62
+- ema23_primary: 32.04
+- distance_to_ema23_pct: 3.77
+- ma20: 32.04
+- ma60: 30.77
+- ma120: 26.73
+- return_5d: 4.07
+- return_20d: 9.38
+- volume_ratio: 2.43
+- distance_to_ma20_pct_auxiliary: 3.78
+- distance_to_high_60_pct: -7.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,30,30.7,30,30.4,30000,31.09,-2.22,32.7,27.75,0.2
 20260602,30.1,30.7,30,30.7,30,31.06,-1.16,32.49,27.9,0
 20260603,31.5,32.5,31.4,32.3,32000,31.16,3.65,32.37,28.06,0.38
 20260604,31.7,32.2,31.7,32.05,32000,31.24,2.6,32.24,28.22,0.43
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,31.9,32,31.9,32,36000,31.73,0.85,31.62,30.32,1.24
 20260626,32,32.4,31.9,32,73000,31.75,0.78,31.7,30.46,2.34
 20260629,31.9,35.2,31.9,33.9,296000,31.93,6.16,31.89,30.62,6.65
+20260630,35.1,35.1,33.05,33.25,119000,32.04,3.77,32.04,30.77,2.43
 ```
 
 ## Latest TDCC Snapshot

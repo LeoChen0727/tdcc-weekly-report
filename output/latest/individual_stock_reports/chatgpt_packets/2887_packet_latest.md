@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:41 Asia/Taipei
+- generated_at: 2026-06-30 22:26:54 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 32.4
-- high: 33.3
-- low: 32.1
-- close: 33
-- volume: 84652109
-- ma5: 32.1
-- ema23_primary: 29.76
-- distance_to_ema23_pct: 10.9
-- ma20: 30.14
-- ma60: 25.97
-- ma120: 24.52
-- return_5d: 2.96
-- return_20d: 41.33
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 9.49
-- distance_to_high_60_pct: -1.64
+- date: 20260630
+- open: 33.45
+- high: 33.5
+- low: 32.8
+- close: 33.25
+- volume: 77961000
+- ma5: 32.32
+- ema23_primary: 30.05
+- distance_to_ema23_pct: 10.66
+- ma20: 30.57
+- ma60: 26.13
+- ma120: 24.63
+- return_5d: 3.42
+- return_20d: 35.16
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 8.76
+- distance_to_high_60_pct: -0.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,23.35,24.7,23.25,24.6,184994112,23.68,3.88,23.59,24.04,1.45
 20260602,24.45,26.1,24.3,26.1,254723925,23.88,9.28,23.7,24.06,1.87
 20260603,26,28.35,25.65,28.3,303603092,24.25,16.69,23.92,24.13,2.11
 20260604,28.3,29.4,28,28.55,246346373,24.61,16.01,24.15,24.2,1.62
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,31.6,32.3,31.6,31.85,49495606,29.24,8.93,29.21,25.67,0.35
 20260626,31.75,32.15,31.3,31.9,52875362,29.46,8.28,29.66,25.81,0.39
 20260629,32.4,33.3,32.1,33,84652109,29.76,10.9,30.14,25.97,0.66
+20260630,33.45,33.5,32.8,33.25,77961000,30.05,10.66,30.57,26.13,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：香港 4.法人說明會擇要訊息：公告本公司受邀赴香港於115年6月29日會晤當地投資機構，說明營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d |
+| 20260630 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_overheated | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 臺北市松山區南京東路五段161號6F部分房屋 2.事實發生日:115/6/29~115/6/29 3.董事會通過日期: 民國115年6月29日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: (1)交易單位數量:33.00坪 (2)每單位價格: 115/07/01至115/10/31，共計4個月份為裝潢免租期 115/11/01至117/06/30 租金約新臺幣2,487元/坪/月(含稅) 總金額新臺幣82,071元/月(含稅) 117/07/01至119/06/30 租金約新臺幣2,562元/坪/月(含稅) 總金額新臺幣84,533元/月(含稅) 119/07/01至120/06/30 租金約新臺幣2,639元/坪/月(含稅) 總金額新臺幣87,069元/月(含稅) (3)交易總金額:新臺幣4,961,253元 (含稅) (4)使用權資產總金額:新臺幣4,526,462元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人:新光人壽保險股份有限公司 與公司之關係:關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因:為與母公司台新證券於同棟大樓辦公 前次移轉之所有人:不適用 前次移轉之所有人與公司及交易相對人間相互之關係:不適用 前次移轉日期:不適用 前次移轉金額:不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: (1)租賃期間:115/07/01~120/06/30 (2)付款條件:月付 115/07/01~115/10/31為免租裝潢期 115/11/01至117/06/30，按月支付新臺幣82,071元(含稅) 117/07/01至119/06/30，按月支付新臺幣84,533元(含稅) 119/07/01至120/06/30，按月支付新臺幣87,069元(含稅) (2)契約限制條款及其他重要約定事項: 租期未滿1年，承租人除合計第1年租賃年度租金仍照付外，並須付給 出租人相當3個月租金之違約金。 租期滿1年後，承租人如要求中途終止租約，應於終止日3個月前以書 面通知出租人，並須付給出租人相當3個月租金之違約金。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 本次交易之決定方式:雙方議價 價格決定之參考依據:鄰近區域辦公大樓出租價格 決策單位:董事會 12.專業估價者事務所或公司名稱及其估價金額: (1)專業估價者事務所：不適用 (2)估價金額：不適用 (3)不動產使用權資產總金額︰不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 本案取得使用權資產，供本公司辦公場所使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產: 是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2887 | 台新新光金 | 4 | 3 | 4 | 6 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260630 | 2887 | 台新新光金 | 5 | 4 | 5 | 6 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2887 | 台新新光金 | 24 | 0 | 7398440.0 | 0.0 |  | call_strong_inflow |
+| 20260630 | 2887 | 台新新光金 | 25 | 0 | 5365340.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

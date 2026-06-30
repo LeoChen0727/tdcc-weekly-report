@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6807 峰源-KY
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:55 Asia/Taipei
+- generated_at: 2026-06-30 22:28:12 Asia/Taipei
 - stock_id: 6807
 - stock_name: 峰源-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 287
+- latest_price_date: 20260630
+- price_rows: 288
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 33.65
-- high: 33.7
-- low: 32.8
+- date: 20260630
+- open: 33.5
+- high: 33.5
+- low: 32.75
 - close: 33.45
-- volume: 14005
-- ma5: 33.29
-- ema23_primary: 33.63
-- distance_to_ema23_pct: -0.54
+- volume: 10000
+- ma5: 33.34
+- ema23_primary: 33.62
+- distance_to_ema23_pct: -0.5
 - ma20: 33.47
-- ma60: 35.64
-- ma120: 40.34
-- return_5d: 0.15
-- return_20d: 1.52
-- volume_ratio: 0.79
+- ma60: 35.49
+- ma120: 40.24
+- return_5d: 0.75
+- return_20d: 0
+- volume_ratio: 0.6
 - distance_to_ma20_pct_auxiliary: -0.07
 - distance_to_high_60_pct: -22.21
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,32.8,33.55,32.8,33.45,31651,34.54,-3.15,34.02,38.84,1.86
 20260602,33.05,33.5,33,33.45,12488,34.45,-2.9,33.86,38.63,0.72
 20260603,33.8,33.85,33.1,33.5,9736,34.37,-2.53,33.73,38.43,0.59
 20260604,34,34,33.5,33.85,14056,34.33,-1.38,33.62,38.27,0.84
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,33.55,33.55,33,33.2,4003,33.73,-1.56,33.46,35.96,0.23
 20260626,33.55,33.85,32.7,32.8,23031,33.65,-2.52,33.45,35.79,1.26
 20260629,33.65,33.7,32.8,33.45,14005,33.63,-0.54,33.47,35.64,0.79
+20260630,33.5,33.5,32.75,33.45,10000,33.62,-0.5,33.47,35.49,0.6
 ```
 
 ## Latest TDCC Snapshot

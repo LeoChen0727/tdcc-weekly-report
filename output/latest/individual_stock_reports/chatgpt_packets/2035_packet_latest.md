@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2035 唐榮公司
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:18 Asia/Taipei
+- generated_at: 2026-06-30 22:26:30 Asia/Taipei
 - stock_id: 2035
 - stock_name: 唐榮公司
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260625
-- price_rows: 135
+- latest_price_date: 20260630
+- price_rows: 136
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260625
+- date: 20260630
 - open: 27.4
 - high: 27.4
 - low: 27.4
 - close: 27.4
-- volume: 2000
-- ma5: 27.92
-- ema23_primary: 27.93
-- distance_to_ema23_pct: -1.88
-- ma20: 27.91
-- ma60: 28.04
-- ma120: 28.25
-- return_5d: -1.79
-- return_20d: -3.18
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -1.83
+- volume: 1000
+- ma5: 27.76
+- ema23_primary: 27.88
+- distance_to_ema23_pct: -1.73
+- ma20: 27.87
+- ma60: 28.03
+- ma120: 28.24
+- return_5d: -2.84
+- return_20d: -3.01
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: -1.68
 - distance_to_high_60_pct: -4.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,28.25,28.25,28.25,28.25,28000,28.18,0.23,28.17,28.25,1.11
 20260529,27.65,28,27.65,28,28000,28.17,-0.6,28.15,28.24,1.08
 20260601,27.95,28,27.95,28,28000,28.16,-0.55,28.14,28.21,1.03
 20260602,27.65,28,27.65,28,28,28.14,-0.51,28.12,28.19,0
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260623,27.4,28.25,27.4,28.25,17000,27.98,0.96,27.97,28.07,0.9
 20260624,27.9,28,27.9,27.9,16000,27.97,-0.27,27.95,28.06,0.87
 20260625,27.4,27.4,27.4,27.4,2000,27.93,-1.88,27.91,28.04,0.12
+20260630,27.4,27.4,27.4,27.4,1000,27.88,-1.73,27.87,28.03,0.06
 ```
 
 ## Latest TDCC Snapshot

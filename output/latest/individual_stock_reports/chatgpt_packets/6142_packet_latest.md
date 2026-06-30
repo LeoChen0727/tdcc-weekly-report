@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6142 友勁
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:33 Asia/Taipei
+- generated_at: 2026-06-30 22:27:49 Asia/Taipei
 - stock_id: 6142
 - stock_name: 友勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 9.29
-- high: 9.39
-- low: 9.13
-- close: 9.2
-- volume: 367814
-- ma5: 9.19
-- ema23_primary: 8.89
-- distance_to_ema23_pct: 3.52
-- ma20: 8.86
-- ma60: 8.8
+- date: 20260630
+- open: 9.37
+- high: 9.45
+- low: 9.2
+- close: 9.4
+- volume: 452000
+- ma5: 9.23
+- ema23_primary: 8.93
+- distance_to_ema23_pct: 5.27
+- ma20: 8.9
+- ma60: 8.79
 - ma120: 9.26
-- return_5d: -3.66
-- return_20d: 11.25
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 3.86
-- distance_to_high_60_pct: -7.07
+- return_5d: 2.17
+- return_20d: 10.33
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 5.59
+- distance_to_high_60_pct: -5.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,8.39,8.79,8.27,8.52,1213144,8.41,1.36,8.32,9.09,1.56
 20260602,8.59,8.73,8.3,8.72,1133383,8.43,3.42,8.3,9.08,1.47
 20260603,8.66,8.97,8.66,8.92,716727,8.47,5.28,8.3,9.06,0.92
 20260604,8.88,8.97,8.79,8.8,598792,8.5,3.53,8.3,9.05,0.78
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,9.51,9.51,9.18,9.27,454361,8.84,4.87,8.77,8.81,0.49
 20260626,9.2,9.32,9.06,9.07,664348,8.86,2.39,8.81,8.8,0.73
 20260629,9.29,9.39,9.13,9.2,367814,8.89,3.52,8.86,8.8,0.4
+20260630,9.37,9.45,9.2,9.4,452000,8.93,5.27,8.9,8.79,0.52
 ```
 
 ## Latest TDCC Snapshot

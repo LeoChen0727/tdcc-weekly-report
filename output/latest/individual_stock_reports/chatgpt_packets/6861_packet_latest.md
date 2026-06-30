@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:56 Asia/Taipei
+- generated_at: 2026-06-30 22:28:13 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 303
-- high: 321
-- low: 299
-- close: 319.5
-- volume: 544387
-- ma5: 333.4
-- ema23_primary: 347.42
-- distance_to_ema23_pct: -8.04
-- ma20: 342.52
-- ma60: 316.93
-- ma120: 207.78
-- return_5d: -15.59
-- return_20d: -27.39
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -6.72
-- distance_to_high_60_pct: -34.8
+- date: 20260630
+- open: 328.5
+- high: 335
+- low: 320.5
+- close: 333
+- volume: 420000
+- ma5: 328.4
+- ema23_primary: 346.22
+- distance_to_ema23_pct: -3.82
+- ma20: 339.38
+- ma60: 320.27
+- ma120: 210.07
+- return_5d: -6.98
+- return_20d: -15.91
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -1.88
+- distance_to_high_60_pct: -32.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,435,439,396,396,2244673,389.39,1.7,421.15,257.23,1.88
 20260602,390,395.5,356.5,370,3070621,387.77,-4.58,419.82,260.85,2.34
 20260603,368,384.5,359,359.5,1078687,385.42,-6.72,419,264.33,0.82
 20260604,349.5,363,348,348.5,675728,382.34,-8.85,416.18,267.88,0.51
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,366.5,366.5,327.5,333.5,716671,354.23,-5.85,354.2,310.89,0.62
 20260626,320,330,302,303,657949,349.96,-13.42,348.55,313.7,0.59
 20260629,303,321,299,319.5,544387,347.42,-8.04,342.52,316.93,0.52
+20260630,328.5,335,320.5,333,420000,346.22,-3.82,339.38,320.27,0.44
 ```
 
 ## Latest TDCC Snapshot

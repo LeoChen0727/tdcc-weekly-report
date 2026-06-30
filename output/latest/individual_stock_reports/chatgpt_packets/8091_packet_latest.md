@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8091 翔名
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:13 Asia/Taipei
+- generated_at: 2026-06-30 22:28:30 Asia/Taipei
 - stock_id: 8091
 - stock_name: 翔名
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 258
-- high: 271.5
-- low: 253.5
-- close: 263
-- volume: 1394000
-- ma5: 269.7
-- ema23_primary: 255.2
-- distance_to_ema23_pct: 3.06
-- ma20: 256.02
-- ma60: 221.96
-- ma120: 177.54
-- return_5d: -3.49
-- return_20d: 0.96
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 2.72
-- distance_to_high_60_pct: -9.62
+- date: 20260630
+- open: 273
+- high: 278
+- low: 269.5
+- close: 271.5
+- volume: 1783000
+- ma5: 267.9
+- ema23_primary: 256.55
+- distance_to_ema23_pct: 5.83
+- ma20: 256.32
+- ma60: 223.86
+- ma120: 178.87
+- return_5d: -3.21
+- return_20d: 2.26
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 5.92
+- distance_to_high_60_pct: -6.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,263,269,262.5,265.5,266000,235.18,12.89,234.32,185.42,0.2
 20260602,264,264,248,252,254,236.58,6.52,237.38,187.34,0
 20260603,252,260,246,256,251000,238.2,7.47,240.68,189.35,0.2
 20260604,250,262.5,248.5,254.5,256000,239.55,6.24,243.93,191.42,0.2
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,287.5,288,263.5,264,3008000,254.44,3.76,256.05,218.18,2.59
 20260626,260,271.5,252,255,1504000,254.49,0.2,255.9,219.97,1.23
 20260629,258,271.5,253.5,263,1394000,255.2,3.06,256.02,221.96,1.09
+20260630,273,278,269.5,271.5,1783000,256.55,5.83,256.32,223.86,1.31
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8091 | 翔名 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260629 | 8091 | 翔名 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 8091 | 翔名 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 8091 | 翔名 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8091 | 翔名 | 6 | 5 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260630 | 8091 | 翔名 | 7 | 6 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

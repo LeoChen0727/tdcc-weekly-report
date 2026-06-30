@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:13 Asia/Taipei
+- generated_at: 2026-06-30 22:26:25 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 89
-- high: 92
-- low: 87.5
-- close: 88
-- volume: 2925687
-- ma5: 92.22
-- ema23_primary: 90.62
-- distance_to_ema23_pct: -2.9
-- ma20: 91.75
-- ma60: 79.73
-- ma120: 63.62
-- return_5d: -13.73
-- return_20d: -6.38
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -4.08
-- distance_to_high_60_pct: -21.43
+- date: 20260630
+- open: 90.8
+- high: 91.5
+- low: 88.4
+- close: 89.8
+- volume: 2319000
+- ma5: 90.88
+- ema23_primary: 90.56
+- distance_to_ema23_pct: -0.83
+- ma20: 91.47
+- ma60: 80.41
+- ma120: 64
+- return_5d: -6.94
+- return_20d: -5.87
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -1.82
+- distance_to_high_60_pct: -19.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,94.5,99.3,93.8,95.4,8641811,86.33,10.5,87.34,67.06,0.58
 20260602,96.2,98.5,93.5,95.5,7341333,87.1,9.65,88.11,67.85,0.5
 20260603,97,97,94.2,94.2,4758291,87.69,7.42,88.92,68.63,0.33
 20260604,94.4,95.8,91,91,5186256,87.97,3.45,89.56,69.39,0.37
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,98,98,93,93.6,5326310,91.12,2.72,92.36,78.42,0.74
 20260626,93.6,94.5,88,88,3046266,90.86,-3.15,92.05,79.07,0.44
 20260629,89,92,87.5,88,2925687,90.62,-2.9,91.75,79.73,0.44
+20260630,90.8,91.5,88.4,89.8,2319000,90.56,-0.83,91.47,80.41,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1727 | 中華化 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
-| 20260629 | 1727 | 中華化 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 1727 | 中華化 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
+| 20260630 | 1727 | 中華化 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1727 | 中華化 | 5 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 1727 | 中華化 | 6 | 5 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

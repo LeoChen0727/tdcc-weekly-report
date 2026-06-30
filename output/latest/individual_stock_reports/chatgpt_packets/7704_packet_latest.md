@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7704 明遠精密
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:06 Asia/Taipei
+- generated_at: 2026-06-30 22:28:23 Asia/Taipei
 - stock_id: 7704
 - stock_name: 明遠精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 61.2
-- high: 63.3
-- low: 61
+- date: 20260630
+- open: 62
+- high: 63.2
+- low: 61.8
 - close: 62.4
-- volume: 54000
-- ma5: 63.44
-- ema23_primary: 61.65
-- distance_to_ema23_pct: 1.21
+- volume: 32000
+- ma5: 63.18
+- ema23_primary: 61.72
+- distance_to_ema23_pct: 1.11
 - ma20: 61.18
-- ma60: 61.24
-- ma120: 53.54
-- return_5d: 3.65
-- return_20d: 3.83
-- volume_ratio: 0.59
+- ma60: 61.53
+- ma120: 53.67
+- return_5d: -2.04
+- return_20d: 0
+- volume_ratio: 0.35
 - distance_to_ma20_pct_auxiliary: 1.99
 - distance_to_high_60_pct: -17.46
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,59.8,62.4,59.8,62.4,61000,62.55,-0.24,63.15,56.08,0.26
 20260602,62.4,62.4,60.3,61.5,61,62.46,-1.54,63.01,56.37,0
 20260603,62.4,62.4,61.5,62,62000,62.42,-0.68,63.04,56.66,0.28
 20260604,61.7,63,61.3,61.4,62000,62.34,-1.5,63.19,56.97,0.29
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,66.5,66.5,63,64.5,183000,61.51,4.86,60.95,60.65,2.04
 20260626,64.5,64.8,62.4,62.4,111000,61.59,1.32,61.06,60.94,1.2
 20260629,61.2,63.3,61,62.4,54000,61.65,1.21,61.18,61.24,0.59
+20260630,62,63.2,61.8,62.4,32000,61.72,1.11,61.18,61.53,0.35
 ```
 
 ## Latest TDCC Snapshot

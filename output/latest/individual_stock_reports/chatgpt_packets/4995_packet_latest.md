@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4995 晶達
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:20 Asia/Taipei
+- generated_at: 2026-06-30 22:27:35 Asia/Taipei
 - stock_id: 4995
 - stock_name: 晶達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 44.6
-- high: 45
+- date: 20260630
+- open: 45.1
+- high: 45.1
 - low: 44.6
-- close: 44.7
-- volume: 7000
-- ma5: 45.16
-- ema23_primary: 45.26
-- distance_to_ema23_pct: -1.24
-- ma20: 45.46
-- ma60: 44.22
-- ma120: 42.61
-- return_5d: -1.87
-- return_20d: -1.11
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -1.67
-- distance_to_high_60_pct: -12.35
+- close: 44.8
+- volume: 13000
+- ma5: 44.97
+- ema23_primary: 45.22
+- distance_to_ema23_pct: -0.93
+- ma20: 45.4
+- ma60: 44.29
+- ma120: 42.64
+- return_5d: -2.08
+- return_20d: -2.4
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -1.33
+- distance_to_high_60_pct: -12.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,45.1,47,44.5,45.9,46000,45.08,1.83,45.41,42.8,0.75
 20260602,46.3,46.45,45.95,46.2,46,45.17,2.28,45.52,42.89,0
 20260603,46.8,46.8,46.2,46.75,47000,45.3,3.2,45.61,42.98,0.87
 20260604,46.6,46.6,45.45,45.6,46000,45.33,0.61,45.62,43.07,0.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,45.75,45.75,45,45,12000,45.37,-0.83,45.47,44.09,0.35
 20260626,44.85,45,44,44.6,38000,45.31,-1.57,45.48,44.15,1.14
 20260629,44.6,45,44.6,44.7,7000,45.26,-1.24,45.46,44.22,0.22
+20260630,45.1,45.1,44.6,44.8,13000,45.22,-0.93,45.4,44.29,0.43
 ```
 
 ## Latest TDCC Snapshot

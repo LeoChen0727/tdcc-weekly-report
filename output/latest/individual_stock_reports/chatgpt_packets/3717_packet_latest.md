@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:05 Asia/Taipei
+- generated_at: 2026-06-30 22:27:19 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 203
+- latest_price_date: 20260630
+- price_rows: 204
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 25.9
-- high: 25.95
-- low: 25.1
-- close: 25.95
-- volume: 20834636
-- ma5: 23.3
-- ema23_primary: 22.49
-- distance_to_ema23_pct: 15.37
-- ma20: 22.21
-- ma60: 22.2
-- ma120: 20.24
-- return_5d: 16.89
-- return_20d: 14.82
-- volume_ratio: 4.24
-- distance_to_ma20_pct_auxiliary: 16.84
-- distance_to_high_60_pct: 0
+- date: 20260630
+- open: 25.95
+- high: 27.65
+- low: 25.45
+- close: 27.45
+- volume: 31834000
+- ma5: 24.36
+- ema23_primary: 22.91
+- distance_to_ema23_pct: 19.84
+- ma20: 22.46
+- ma60: 22.28
+- ma120: 20.33
+- return_5d: 23.93
+- return_20d: 22.54
+- volume_ratio: 4.97
+- distance_to_ma20_pct_auxiliary: 22.2
+- distance_to_high_60_pct: -0.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,22.85,23.15,22.05,22.4,2246659,22.39,0.06,22.82,21.41,0.71
 20260602,22.45,22.65,21.9,22.4,1655102,22.39,0.06,22.84,21.48,0.52
 20260603,22.45,23.6,22.45,23.35,3678953,22.47,3.93,22.86,21.57,1.24
 20260604,23.5,23.55,22.65,22.85,1973673,22.5,1.56,22.79,21.66,0.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,22.5,22.9,22.1,22.35,3009933,22.05,1.37,21.94,22.1,0.84
 20260626,22.2,24.55,22.2,23.6,11385294,22.18,6.41,22.04,22.13,2.88
 20260629,25.9,25.95,25.1,25.95,20834636,22.49,15.37,22.21,22.2,4.24
+20260630,25.95,27.65,25.45,27.45,31834000,22.91,19.84,22.46,22.28,4.97
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3717 | 聯嘉投控 | true_breakout | 嚴格突破 | 131.0 |  |  | breakout_confirmed |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北巿新生南路一段50號3樓 4.法人說明會擇要訊息：德信綜合證券舉辦之法人說明會，向投資人說明財務成果及本年度營運概況暨業務相關資訊。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 3717 | 聯嘉投控 | true_breakout | 嚴格突破 | 101.0 |  |  | breakout_confirmed |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北巿新生南路一段50號3樓 4.法人說明會擇要訊息：德信綜合證券舉辦之法人說明會，向投資人說明財務成果及本年度營運概況暨業務相關資訊。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3717 | 聯嘉投控 | 3 | 1 | 3 | 6 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260630 | 3717 | 聯嘉投控 | 4 | 2 | 4 | 7 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

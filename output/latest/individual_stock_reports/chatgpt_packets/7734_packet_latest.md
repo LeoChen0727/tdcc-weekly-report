@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7734 印能科技
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:07 Asia/Taipei
+- generated_at: 2026-06-30 22:28:25 Asia/Taipei
 - stock_id: 7734
 - stock_name: 印能科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
+- date: 20260630
 - open: 2990
-- high: 3050
-- low: 2910
-- close: 2930
-- volume: 79000
-- ma5: 3200
-- ema23_primary: 3263.75
-- distance_to_ema23_pct: -10.23
-- ma20: 3205.75
-- ma60: 3236.67
-- ma120: 2302.38
-- return_5d: -17.7
-- return_20d: -20.27
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -8.6
-- distance_to_high_60_pct: -36.79
+- high: 3060
+- low: 2990
+- close: 3035
+- volume: 46000
+- ma5: 3129
+- ema23_primary: 3244.69
+- distance_to_ema23_pct: -6.46
+- ma20: 3186.75
+- ma60: 3248.42
+- ma120: 2320.43
+- return_5d: -10.47
+- return_20d: -11.13
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: -4.76
+- distance_to_high_60_pct: -34.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,3595,3675,3400,3415,3516000,3498.04,-2.37,3681.25,2786.83,2.32
 20260602,3425,3425,3230,3230,3295,3475.71,-7.07,3658.25,2813.33,0
 20260603,3300,3405,3200,3240,3291000,3456.06,-6.25,3626,2839.25,1.97
 20260604,3280,3280,3110,3110,3148000,3427.22,-9.26,3598,2865.08,1.73
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,3525,3525,3295,3380,154000,3316.74,1.91,3274.25,3206.67,0.13
 20260626,3380,3380,3045,3045,185000,3294.09,-7.56,3243,3223.67,0.18
 20260629,2990,3050,2910,2930,79000,3263.75,-10.23,3205.75,3236.67,0.09
+20260630,2990,3060,2990,3035,46000,3244.69,-6.46,3186.75,3248.42,0.07
 ```
 
 ## Latest TDCC Snapshot

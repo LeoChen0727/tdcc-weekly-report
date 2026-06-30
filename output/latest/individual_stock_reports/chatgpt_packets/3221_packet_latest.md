@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:51 Asia/Taipei
+- generated_at: 2026-06-30 22:27:04 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 59
-- high: 60.6
-- low: 55.1
-- close: 57.9
-- volume: 13022000
-- ma5: 56.68
-- ema23_primary: 56.94
-- distance_to_ema23_pct: 1.68
-- ma20: 58.61
-- ma60: 49.81
-- ma120: 39
-- return_5d: -2.03
-- return_20d: -3.5
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -1.21
-- distance_to_high_60_pct: -14.73
+- date: 20260630
+- open: 57.5
+- high: 60
+- low: 57.1
+- close: 58.6
+- volume: 6643000
+- ma5: 57.28
+- ema23_primary: 57.08
+- distance_to_ema23_pct: 2.66
+- ma20: 58.66
+- ma60: 50.14
+- ma120: 39.31
+- return_5d: 5.4
+- return_20d: 1.91
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -0.11
+- distance_to_high_60_pct: -13.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,60,60.8,57,57.5,59000,50.66,13.5,49.65,41.35,0.01
 20260602,57,57.9,54.7,57.3,56,51.22,11.88,50.29,41.8,0
 20260603,60,63,58.2,58.3,61000,51.81,12.53,51.01,42.27,0.01
 20260604,58.3,61,55,55.3,57000,52.1,6.15,51.37,42.73,0.01
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,57.5,57.8,55.2,55.4,2999000,56.76,-2.39,58.83,49.09,0.29
 20260626,55.4,60.6,55.4,57.9,18981000,56.85,1.84,58.72,49.44,1.68
 20260629,59,60.6,55.1,57.9,13022000,56.94,1.68,58.61,49.81,1.09
+20260630,57.5,60,57.1,58.6,6643000,57.08,2.66,58.66,50.14,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3221 | 台嘉碩 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 3221 | 台嘉碩 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3221 | 台嘉碩 | 1 | 1 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 3221 | 台嘉碩 | 2 | 2 | 4 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

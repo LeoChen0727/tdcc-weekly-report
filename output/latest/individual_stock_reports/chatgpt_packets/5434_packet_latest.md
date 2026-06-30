@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:25 Asia/Taipei
+- generated_at: 2026-06-30 22:27:41 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 507
-- high: 539
-- low: 504
-- close: 539
-- volume: 3535837
-- ma5: 502.9
-- ema23_primary: 474.51
-- distance_to_ema23_pct: 13.59
-- ma20: 474.48
-- ma60: 433.53
-- ma120: 377.22
-- return_5d: 6.52
-- return_20d: 18.98
-- volume_ratio: 2.93
-- distance_to_ma20_pct_auxiliary: 13.6
-- distance_to_high_60_pct: 0
+- date: 20260630
+- open: 531
+- high: 587
+- low: 519
+- close: 549
+- volume: 5110000
+- ma5: 514.4
+- ema23_primary: 480.72
+- distance_to_ema23_pct: 14.2
+- ma20: 479.27
+- ma60: 437.31
+- ma120: 379.33
+- return_5d: 11.7
+- return_20d: 21.19
+- volume_ratio: 3.58
+- distance_to_ma20_pct_auxiliary: 14.55
+- distance_to_high_60_pct: -6.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,456,456,448.5,453,672845,431.48,4.99,430.85,385.48,0.75
 20260602,459,467,449.5,466,1067700,434.36,7.28,433.57,387.77,1.14
 20260603,476,491,472,473,1100577,437.58,8.09,435.98,390.18,1.15
 20260604,479.5,484,461.5,464.5,838752,439.82,5.61,438.27,392.72,0.87
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,498,505,490,505,1462340,466.71,8.2,468.2,426.64,1.42
 20260626,505,513,490,490,1862175,468.65,4.56,470.18,429.62,1.75
 20260629,507,539,504,539,3535837,474.51,13.59,474.48,433.53,2.93
+20260630,531,587,519,549,5110000,480.72,14.2,479.27,437.31,3.58
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5434 | 崇越 | true_breakout | 嚴格突破 | 121.0 |  |  | breakout_confirmed |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 5434 | 崇越 | true_breakout | 嚴格突破 | 112.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5434 | 崇越 | 2 | 1 | 4 | 6 | 9 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260630 | 5434 | 崇越 | 3 | 2 | 4 | 6 | 10 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5434 | 崇越 | 10 | 0 | 901120.0 | 0.0 |  | no_signal |
+| 20260630 | 5434 | 崇越 | 10 | 0 | 728000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

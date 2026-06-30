@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:45 Asia/Taipei
+- generated_at: 2026-06-30 22:26:58 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 204.5
-- high: 213
-- low: 200
-- close: 210.5
-- volume: 7268934
-- ma5: 221.9
-- ema23_primary: 205.56
-- distance_to_ema23_pct: 2.4
+- date: 20260630
+- open: 216.5
+- high: 216.5
+- low: 210.5
+- close: 211
+- volume: 6954000
+- ma5: 217.5
+- ema23_primary: 206.01
+- distance_to_ema23_pct: 2.42
 - ma20: 202.93
-- ma60: 186.58
-- ma120: 174.83
-- return_5d: -8.28
-- return_20d: 1.69
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 3.73
-- distance_to_high_60_pct: -14.08
+- ma60: 187.69
+- ma120: 175.22
+- return_5d: -9.44
+- return_20d: 0
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 3.98
+- distance_to_high_60_pct: -13.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,209.5,214,205,211,11475001,195.44,7.96,197.47,170.83,0.62
 20260602,212,217,201,209.5,14574649,196.62,6.55,199.1,171.68,0.78
 20260603,211.5,212,203,203,9487831,197.15,2.97,200.18,172.42,0.52
 20260604,200.5,201,191.5,191.5,12281381,196.68,-2.63,200.7,173.21,0.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,237,245,224,229,16967764,204.99,11.72,202.85,184.43,1.45
 20260626,225.5,225.5,206.5,206.5,14764389,205.11,0.68,202.75,185.43,1.26
 20260629,204.5,213,200,210.5,7268934,205.56,2.4,202.93,186.58,0.64
+20260630,216.5,216.5,210.5,211,6954000,206.01,2.42,202.93,187.69,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3035 | 智原 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 3035 | 智原 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3035 | 智原 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 3035 | 智原 | 3 | 3 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3035 | 智原 | 136 | 0 | 14145320.0 | 0.0 |  | no_signal |
+| 20260630 | 3035 | 智原 | 136 | 0 | 13140200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

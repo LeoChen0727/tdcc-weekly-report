@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00830 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:55 Asia/Taipei
+- generated_at: 2026-06-30 22:26:07 Asia/Taipei
 - stock_id: 00830
 - stock_name: 國泰費城半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 93.8
-- high: 94.6
-- low: 93.45
-- close: 94.6
-- volume: 12387589
-- ma5: 97.11
-- ema23_primary: 93.82
-- distance_to_ema23_pct: 0.83
-- ma20: 94.49
-- ma60: 92.96
-- ma120: 92.96
-- return_5d: -5.96
-- return_20d: 5.23
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 0.11
-- distance_to_high_60_pct: -7.44
+- date: 20260630
+- open: 97.05
+- high: 97.85
+- low: 96.35
+- close: 97.8
+- volume: 9822000
+- ma5: 96.81
+- ema23_primary: 94.15
+- distance_to_ema23_pct: 3.87
+- ma20: 94.86
+- ma60: 93.14
+- ma120: 93.14
+- return_5d: -1.51
+- return_20d: 8.19
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 3.1
+- distance_to_high_60_pct: -4.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,90.85,90.85,90.25,90.4,6859422,86.19,4.89,88.22,88.22,0.73
 20260602,90.25,90.65,89.5,90.55,8963566,86.55,4.62,88.51,88.51,0.96
 20260603,96.25,97,96.1,97,11019276,87.42,10.96,89.46,89.46,1.16
 20260604,95.9,96.2,95,95.6,12281718,88.1,8.51,90.07,90.07,1.25
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,98.4,99.25,97.9,99.25,7195167,93.58,6.06,93.85,92.78,0.54
 20260626,97.6,97.65,95,95.7,14912232,93.75,2.08,94.26,92.9,1.14
 20260629,93.8,94.6,93.45,94.6,12387589,93.82,0.83,94.49,92.96,0.93
+20260630,97.05,97.85,96.35,97.8,9822000,94.15,3.87,94.86,93.14,0.73
 ```
 
 ## Latest TDCC Snapshot

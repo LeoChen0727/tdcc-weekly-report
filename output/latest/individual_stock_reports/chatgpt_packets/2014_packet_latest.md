@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2014 中鴻
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:16 Asia/Taipei
+- generated_at: 2026-06-30 22:26:29 Asia/Taipei
 - stock_id: 2014
 - stock_name: 中鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
+- date: 20260630
 - open: 17.5
-- high: 17.6
-- low: 17.35
-- close: 17.4
-- volume: 2126393
-- ma5: 17.64
-- ema23_primary: 17.8
-- distance_to_ema23_pct: -2.27
-- ma20: 17.93
-- ma60: 17.96
-- ma120: 17.73
-- return_5d: -2.25
-- return_20d: -5.18
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -2.96
-- distance_to_high_60_pct: -11.22
+- high: 17.5
+- low: 17.2
+- close: 17.25
+- volume: 3947000
+- ma5: 17.55
+- ema23_primary: 17.76
+- distance_to_ema23_pct: -2.87
+- ma20: 17.87
+- ma60: 17.94
+- ma120: 17.74
+- return_5d: -2.54
+- return_20d: -6.76
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -3.46
+- distance_to_high_60_pct: -11.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,18.45,18.75,18.15,18.5,9125101,17.89,3.42,17.8,18,1.12
 20260602,18.5,18.5,17.9,18.2,8707217,17.91,1.6,17.84,18.01,1.04
 20260603,18.4,19.2,18.1,18.8,18215992,17.99,4.51,17.87,18.03,2.04
 20260604,18.65,19.15,18.5,18.7,9118141,18.05,3.62,17.9,18.05,1.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,17.9,18,17.75,17.8,2852353,17.87,-0.41,18,17.98,0.39
 20260626,17.7,17.8,17.35,17.5,4108375,17.84,-1.92,17.98,17.97,0.58
 20260629,17.5,17.6,17.35,17.4,2126393,17.8,-2.27,17.93,17.96,0.31
+20260630,17.5,17.5,17.2,17.25,3947000,17.76,-2.87,17.87,17.94,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2014 | 中鴻 | 1 | 0 | 5280.0 | 0.0 |  | no_signal |
+| 20260630 | 2014 | 中鴻 | 1 | 0 | 980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

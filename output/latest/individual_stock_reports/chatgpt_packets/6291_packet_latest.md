@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:41 Asia/Taipei
+- generated_at: 2026-06-30 22:27:57 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 630
-- high: 637
-- low: 588
-- close: 588
-- volume: 1801000
-- ma5: 588.2
-- ema23_primary: 563.14
-- distance_to_ema23_pct: 4.42
-- ma20: 571.6
-- ma60: 500.98
-- ma120: 376.34
-- return_5d: -0.51
-- return_20d: -13.4
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: 2.87
-- distance_to_high_60_pct: -18.11
+- date: 20260630
+- open: 615
+- high: 615
+- low: 539
+- close: 575
+- volume: 2495000
+- ma5: 594.6
+- ema23_primary: 564.12
+- distance_to_ema23_pct: 1.93
+- ma20: 567.95
+- ma60: 504.38
+- ma120: 379.55
+- return_5d: 5.89
+- return_20d: -11.27
+- volume_ratio: 2.45
+- distance_to_ma20_pct_auxiliary: 1.24
+- distance_to_high_60_pct: -19.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,662,666,647,648,653000,532.05,21.79,524.88,424.33,0.42
 20260602,650,657,591,620,611,539.38,14.95,533.4,430.14,0
 20260603,629,650,614,615,632000,545.68,12.7,542.23,435.97,0.47
 20260604,603,603,588,590,592000,549.38,7.39,547.62,441.66,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,581,603,570,594,1602000,552.5,7.51,576.2,492.14,2
 20260626,604,653,602,653,2021000,560.88,16.43,576.15,496.91,2.32
 20260629,630,637,588,588,1801000,563.14,4.42,571.6,500.98,1.94
+20260630,615,615,539,575,2495000,564.12,1.93,567.95,504.38,2.45
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6291 | 沛亨 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 6291 | 沛亨 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6291 | 沛亨 | 2 | 1 | 3 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 6291 | 沛亨 | 3 | 2 | 3 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

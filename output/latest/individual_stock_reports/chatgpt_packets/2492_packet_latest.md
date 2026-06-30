@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2492 華新科
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:32 Asia/Taipei
+- generated_at: 2026-06-30 22:26:44 Asia/Taipei
 - stock_id: 2492
 - stock_name: 華新科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 534
-- high: 540
-- low: 487
-- close: 514
-- volume: 4254951
-- ma5: 564
-- ema23_primary: 466.81
-- distance_to_ema23_pct: 10.11
-- ma20: 483.02
-- ma60: 285.1
-- ma120: 208.71
-- return_5d: -16.69
-- return_20d: 30.46
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 6.41
-- distance_to_high_60_pct: -20.31
+- date: 20260630
+- open: 529
+- high: 565
+- low: 529
+- close: 565
+- volume: 1920000
+- ma5: 561.6
+- ema23_primary: 474.99
+- distance_to_ema23_pct: 18.95
+- ma20: 490.48
+- ma60: 292.55
+- ma120: 212.46
+- return_5d: -2.08
+- return_20d: 35.82
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 15.19
+- distance_to_high_60_pct: -12.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,408,433,408,416,4963186,266.28,56.22,252.32,171.97,0.26
 20260602,391,456,374.5,456,8894706,282.09,61.65,267.7,177.38,0.48
 20260603,446,450.5,422,423,3424096,293.84,43.96,281.5,182.2,0.2
 20260604,392,405,392,392,3097523,302.02,29.79,293.1,186.68,0.2
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,605,605,580,599,2300664,455.47,31.51,469.52,271.56,0.22
 20260626,579,585,540,540,3367708,462.52,16.75,477.02,278.48,0.33
 20260629,534,540,487,514,4254951,466.81,10.11,483.02,285.1,0.42
+20260630,529,565,529,565,1920000,474.99,18.95,490.48,292.55,0.19
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2492 | 華新科 | 102 | 0 | 2195510.0 | 0.0 |  | no_signal |
+| 20260630 | 2492 | 華新科 | 102 | 0 | 3893040.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

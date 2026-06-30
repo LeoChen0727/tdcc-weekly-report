@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009801 中信美國創新科技
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:58 Asia/Taipei
+- generated_at: 2026-06-30 22:26:09 Asia/Taipei
 - stock_id: 009801
 - stock_name: 中信美國創新科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 11.88
-- high: 12.1
-- low: 11.88
-- close: 12.08
-- volume: 755834
-- ma5: 12.23
+- date: 20260630
+- open: 12.14
+- high: 12.31
+- low: 12.14
+- close: 12.29
+- volume: 902000
+- ma5: 12.21
 - ema23_primary: 12.3
-- distance_to_ema23_pct: -1.78
-- ma20: 12.36
+- distance_to_ema23_pct: -0.07
+- ma20: 12.34
 - ma60: 12.35
 - ma120: 12.35
-- return_5d: -4.28
-- return_20d: -3.75
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -2.25
-- distance_to_high_60_pct: -6.36
+- return_5d: -0.89
+- return_20d: -2.61
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -0.42
+- distance_to_high_60_pct: -4.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,12.55,12.63,12.55,12.62,1328648,12.27,2.85,12.36,12.36,1.25
 20260602,12.63,12.7,12.6,12.7,1127558,12.31,3.2,12.41,12.41,1.05
 20260603,12.82,12.9,12.82,12.9,1518223,12.36,4.41,12.46,12.46,1.35
 20260604,12.75,12.75,12.64,12.67,654216,12.38,2.33,12.48,12.48,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,12.26,12.39,12.26,12.39,1573015,12.34,0.38,12.39,12.37,1.11
 20260626,12.19,12.19,11.97,12.05,1506399,12.32,-2.18,12.38,12.36,1.06
 20260629,11.88,12.1,11.88,12.08,755834,12.3,-1.78,12.36,12.35,0.54
+20260630,12.14,12.31,12.14,12.29,902000,12.3,-0.07,12.34,12.35,0.65
 ```
 
 ## Latest TDCC Snapshot

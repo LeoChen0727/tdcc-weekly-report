@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1587 吉茂
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:10 Asia/Taipei
+- generated_at: 2026-06-30 22:26:22 Asia/Taipei
 - stock_id: 1587
 - stock_name: 吉茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 26.7
-- high: 27.65
-- low: 26.65
-- close: 27.4
-- volume: 248332
-- ma5: 27.32
-- ema23_primary: 28.43
-- distance_to_ema23_pct: -3.62
-- ma20: 28.41
-- ma60: 31.05
-- ma120: 37.89
-- return_5d: -1.79
-- return_20d: -14.38
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -3.56
-- distance_to_high_60_pct: -27.32
+- date: 20260630
+- open: 27.75
+- high: 27.75
+- low: 27.05
+- close: 27.2
+- volume: 183000
+- ma5: 27.24
+- ema23_primary: 28.33
+- distance_to_ema23_pct: -3.98
+- ma20: 28.24
+- ma60: 30.9
+- ma120: 37.68
+- return_5d: -1.45
+- return_20d: -11.26
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -3.67
+- distance_to_high_60_pct: -27.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,31.45,31.45,30.3,30.65,1429368,30.64,0.04,29.99,33.67,1.89
 20260602,30.75,30.75,29.55,29.9,672058,30.58,-2.21,29.84,33.51,0.87
 20260603,30.2,30.75,29.9,30.45,658487,30.57,-0.38,29.71,33.36,0.84
 20260604,30.45,30.45,29.75,30.05,341450,30.52,-1.55,29.59,33.23,0.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,27.2,27.7,27.2,27.5,234991,28.69,-4.15,28.91,31.3,0.31
 20260626,27.65,27.65,26.6,26.7,352143,28.52,-6.39,28.64,31.17,0.52
 20260629,26.7,27.65,26.65,27.4,248332,28.43,-3.62,28.41,31.05,0.52
+20260630,27.75,27.75,27.05,27.2,183000,28.33,-3.98,28.24,30.9,0.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:01 Asia/Taipei
+- generated_at: 2026-06-30 22:28:18 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 354
-- high: 354
-- low: 350
-- close: 350
-- volume: 22000
-- ma5: 362.8
-- ema23_primary: 363.73
-- distance_to_ema23_pct: -3.78
-- ma20: 357.48
-- ma60: 368.63
-- ma120: 368.63
-- return_5d: -5.79
-- return_20d: -8.26
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -2.09
-- distance_to_high_60_pct: -32.69
+- date: 20260630
+- open: 351
+- high: 355.5
+- low: 351
+- close: 354.5
+- volume: 15000
+- ma5: 357.5
+- ema23_primary: 362.96
+- distance_to_ema23_pct: -2.33
+- ma20: 356.68
+- ma60: 368.11
+- ma120: 368.11
+- return_5d: -6.96
+- return_20d: -4.32
+- volume_ratio: 0.13
+- distance_to_ma20_pct_auxiliary: -0.61
+- distance_to_high_60_pct: -31.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,380,398,361.5,370.5,374000,389.46,-4.87,400.79,400.79,1.02
 20260602,370.5,370.5,345.5,355,356,386.58,-8.17,395.06,395.06,0
 20260603,360,375,356,366,363000,384.87,-4.9,391.83,391.83,1.12
 20260604,360,360,354.5,356,357000,382.46,-6.92,388.25,388.25,1.09
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,365.5,371.5,362,367,35000,366.34,0.18,360.8,370.19,0.21
 20260626,370.5,370.5,350,350,101000,364.98,-4.11,359.05,369.38,0.67
 20260629,354,354,350,350,22000,363.73,-3.78,357.48,368.63,0.17
+20260630,351,355.5,351,354.5,15000,362.96,-2.33,356.68,368.11,0.13
 ```
 
 ## Latest TDCC Snapshot

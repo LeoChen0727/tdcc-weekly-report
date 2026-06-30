@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7819 精誠金融
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:09 Asia/Taipei
+- generated_at: 2026-06-30 22:28:27 Asia/Taipei
 - stock_id: 7819
 - stock_name: 精誠金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 24
+- latest_price_date: 20260630
+- price_rows: 25
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 39.4
-- high: 39.95
-- low: 39.4
-- close: 39.5
-- volume: 32000
-- ma5: 40.6
-- ema23_primary: 43.91
-- distance_to_ema23_pct: -10.03
-- ma20: 45.02
-- ma60: 45.13
-- ma120: 45.13
-- return_5d: -6.18
-- return_20d: -13.19
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -12.26
-- distance_to_high_60_pct: -21.63
+- date: 20260630
+- open: 39.65
+- high: 40
+- low: 39.55
+- close: 39.75
+- volume: 40000
+- ma5: 40.27
+- ema23_primary: 43.56
+- distance_to_ema23_pct: -8.75
+- ma20: 44.72
+- ma60: 44.91
+- ma120: 44.91
+- return_5d: -3.99
+- return_20d: -13.11
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -11.11
+- distance_to_high_60_pct: -21.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,45.65,46,45.4,45.75,46000,45.57,0.39,45.7,45.7,0.48
 20260602,45.95,49.95,45.95,48.65,48,45.83,6.16,46.19,46.19,0
 20260603,49.2,49.4,47.5,48.1,48000,46.02,4.53,46.46,46.46,0.63
 20260604,48.5,49.6,47.9,49.05,49000,46.27,6.01,46.79,46.79,0.68
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,41.6,41.6,41.1,41.1,30000,44.75,-8.15,45.64,45.64,0.45
 20260626,40.8,40.9,39.35,39.45,151000,44.31,-10.96,45.32,45.37,2.1
 20260629,39.4,39.95,39.4,39.5,32000,43.91,-10.03,45.02,45.13,0.45
+20260630,39.65,40,39.55,39.75,40000,43.56,-8.75,44.72,44.91,0.56
 ```
 
 ## Latest TDCC Snapshot

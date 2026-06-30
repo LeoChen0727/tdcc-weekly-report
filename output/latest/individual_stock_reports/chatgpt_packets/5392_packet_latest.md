@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5392 能率
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:25 Asia/Taipei
+- generated_at: 2026-06-30 22:27:40 Asia/Taipei
 - stock_id: 5392
 - stock_name: 能率
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 47.9
-- high: 48
-- low: 44.65
-- close: 45
-- volume: 8349000
-- ma5: 44.8
-- ema23_primary: 43.99
-- distance_to_ema23_pct: 2.29
-- ma20: 44.64
-- ma60: 41.54
-- ma120: 42.91
-- return_5d: 4.65
-- return_20d: 1.01
-- volume_ratio: 1.63
-- distance_to_ma20_pct_auxiliary: 0.81
-- distance_to_high_60_pct: -9.82
+- date: 20260630
+- open: 45
+- high: 47.2
+- low: 44.5
+- close: 45.75
+- volume: 3854000
+- ma5: 45.28
+- ema23_primary: 44.14
+- distance_to_ema23_pct: 3.65
+- ma20: 44.48
+- ma60: 41.7
+- ma120: 42.9
+- return_5d: 5.54
+- return_20d: -6.44
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 2.86
+- distance_to_high_60_pct: -8.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,46.4,49,44.8,48.9,47000,42.26,15.71,42.52,39.81,0.01
 20260602,49,49.8,46,47.1,48,42.67,10.39,42.67,39.91,0
 20260603,47.45,47.45,45.7,45.9,46000,42.94,6.91,42.87,39.99,0.02
 20260604,45.55,47,43.6,46.95,45000,43.27,8.51,43.13,40.13,0.02
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,44.8,46.6,44.65,45.75,14727000,43.57,5,44.27,41.21,4.34
 20260626,47.6,49.9,46.9,47.5,26234000,43.9,8.2,44.62,41.39,5.58
 20260629,47.9,48,44.65,45,8349000,43.99,2.29,44.64,41.54,1.63
+20260630,45,47.2,44.5,45.75,3854000,44.14,3.65,44.48,41.7,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5392 | 能率 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 5392 | 能率 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5392 | 能率 | 2 | 1 | 2 | 2 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 5392 | 能率 | 3 | 2 | 3 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

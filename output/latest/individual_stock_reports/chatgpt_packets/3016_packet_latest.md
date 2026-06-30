@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:44 Asia/Taipei
+- generated_at: 2026-06-30 22:26:57 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 129.5
-- high: 129.5
-- low: 119
-- close: 121.5
-- volume: 19713887
-- ma5: 133.9
-- ema23_primary: 122.42
-- distance_to_ema23_pct: -0.75
-- ma20: 120.88
-- ma60: 101.32
-- ma120: 80.42
-- return_5d: -12.59
-- return_20d: -11.96
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: 0.52
-- distance_to_high_60_pct: -20.59
+- date: 20260630
+- open: 128.5
+- high: 133.5
+- low: 127
+- close: 133.5
+- volume: 12409000
+- ma5: 130.1
+- ema23_primary: 123.34
+- distance_to_ema23_pct: 8.24
+- ma20: 121.25
+- ma60: 102.67
+- ma120: 81.1
+- return_5d: -12.46
+- return_20d: 5.95
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 10.1
+- distance_to_high_60_pct: -12.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,138.5,141,125,126,15785863,113.47,11.05,120.08,81.9,2.1
 20260602,124.5,126.5,118.5,118.5,7910814,113.89,4.05,120.6,82.93,1.04
 20260603,120.5,122,112.5,115.5,9013879,114.02,1.3,120.65,83.91,1.3
 20260604,113.5,114.5,109,110.5,4569912,113.73,-2.84,120.25,84.84,0.66
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,141.5,141.5,129.5,133.5,12052983,122.32,9.14,122.2,98.99,1.09
 20260626,132.5,139,124.5,124.5,8914307,122.5,1.63,121.7,100.16,0.84
 20260629,129.5,129.5,119,121.5,19713887,122.42,-0.75,120.88,101.32,1.88
+20260630,128.5,133.5,127,133.5,12409000,123.34,8.24,121.25,102.67,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3016 | 嘉晶 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理 3.財務業務資訊: 期間　　　　　　　月　　　　　　　　　　　  季　　　　　  最近四季累計 ＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝ 　　　　　 最近一月　　與去年　　　最近一季　　與去年　　　114年第2季 　科目　　 115年5月　 同期增減%　 115年第1季　同期增減%　 至115年第1季 　　　　　  (合併報表自結數)　　　　(合併財報核閱數)　　 (合併財報核閱數) ＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝＝ 營業收入　　  434　　　   37%　　　　 1,059　  　　  18%　　　　 4,054  (百萬) 稅前淨利　　　 72 　　　 312%　　　　   126　  　  3050%　　　　   151  (百萬) 本期淨利　　   59　　　  319%　　　　   101　  　　3267%　　　　   118  (百萬) 每股盈餘　　 0.21　　　  333%　　　　  0.35 　　　 3400%　　　　  0.41   (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 3016 | 嘉晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理 3.財務業務資訊: 期間　　　　　　　月　　　　　　　　　　　  季　　　　　  最近四季累計 ＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝ 　　　　　 最近一月　　與去年　　　最近一季　　與去年　　　114年第2季 　科目　　 115年5月　 同期增減%　 115年第1季　同期增減%　 至115年第1季 　　　　　  (合併報表自結數)　　　　(合併財報核閱數)　　 (合併財報核閱數) ＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝　＝＝＝＝＝＝ 營業收入　　  434　　　   37%　　　　 1,059　  　　  18%　　　　 4,054  (百萬) 稅前淨利　　　 72 　　　 312%　　　　   126　  　  3050%　　　　   151  (百萬) 本期淨利　　   59　　　  319%　　　　   101　  　　3267%　　　　   118  (百萬) 每股盈餘　　 0.21　　　  333%　　　　  0.35 　　　 3400%　　　　  0.41   (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3016 | 嘉晶 | 4 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 3016 | 嘉晶 | 5 | 1 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3016 | 嘉晶 | 42 | 0 | 1230920.0 | 0.0 |  | no_signal |
+| 20260630 | 3016 | 嘉晶 | 42 | 0 | 967590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

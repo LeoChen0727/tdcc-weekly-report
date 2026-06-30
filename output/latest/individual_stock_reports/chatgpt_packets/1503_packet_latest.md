@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1503 士電
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:07 Asia/Taipei
+- generated_at: 2026-06-30 22:26:19 Asia/Taipei
 - stock_id: 1503
 - stock_name: 士電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 235
-- high: 247
-- low: 234.5
-- close: 237.5
-- volume: 4823942
-- ma5: 240.9
-- ema23_primary: 229.56
-- distance_to_ema23_pct: 3.46
-- ma20: 234.25
-- ma60: 208.02
-- ma120: 205.18
-- return_5d: -3.06
-- return_20d: 8.45
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.39
-- distance_to_high_60_pct: -11.87
+- date: 20260630
+- open: 240.5
+- high: 241
+- low: 238
+- close: 239.5
+- volume: 1903000
+- ma5: 240.4
+- ema23_primary: 230.39
+- distance_to_ema23_pct: 3.96
+- ma20: 235.2
+- ma60: 208.97
+- ma120: 205.75
+- return_5d: -1.03
+- return_20d: 8.62
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_high_60_pct: -11.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,220.5,225,218,220.5,5753159,201.98,9.17,200.65,196.86,1.07
 20260602,220.5,222.5,214,222,6460112,203.65,9.01,201.85,197.11,1.15
 20260603,231,244,225.5,244,14885711,207.01,17.87,204.22,197.53,2.39
 20260604,268,268,268,268,5616758,212.1,26.36,207.65,198.61,0.88
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,244,246,242.5,243.5,4568864,228.41,6.61,232.45,206.22,0.52
 20260626,240.5,240.5,232.5,233.5,4751867,228.84,2.04,233.32,207.03,0.6
 20260629,235,247,234.5,237.5,4823942,229.56,3.46,234.25,208.02,0.62
+20260630,240.5,241,238,239.5,1903000,230.39,3.96,235.2,208.97,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1503 | 士電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$2,604,861,115元(每股NT$5元) 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/25 6.停止過戶起始日期:115/07/26 7.停止過戶截止日期:115/07/30 8.除權（息）基準日:115/07/30 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 1503 | 士電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$2,604,861,115元(每股NT$5元) 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/25 6.停止過戶起始日期:115/07/26 7.停止過戶截止日期:115/07/30 8.除權（息）基準日:115/07/30 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1503 | 士電 | 4 | 2 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 1503 | 士電 | 5 | 3 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1503 | 士電 | 91 | 0 | 5239770.0 | 0.0 |  | no_signal |
+| 20260630 | 1503 | 士電 | 91 | 0 | 4597150.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

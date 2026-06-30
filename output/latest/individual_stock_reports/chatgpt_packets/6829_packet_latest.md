@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6829 千附精密
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:55 Asia/Taipei
+- generated_at: 2026-06-30 22:28:12 Asia/Taipei
 - stock_id: 6829
 - stock_name: 千附精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 218
-- high: 226.5
-- low: 212
-- close: 224.5
-- volume: 1478000
-- ma5: 219.1
-- ema23_primary: 211.19
-- distance_to_ema23_pct: 6.3
-- ma20: 210.25
-- ma60: 205.7
-- ma120: 158.38
-- return_5d: 8.19
-- return_20d: 0.45
-- volume_ratio: 1.55
-- distance_to_ma20_pct_auxiliary: 6.78
-- distance_to_high_60_pct: -21.91
+- date: 20260630
+- open: 224.5
+- high: 230
+- low: 222
+- close: 222.5
+- volume: 1335000
+- ma5: 222.4
+- ema23_primary: 212.13
+- distance_to_ema23_pct: 4.89
+- ma20: 209.1
+- ma60: 207.43
+- ma120: 159.32
+- return_5d: 8.01
+- return_20d: -9.37
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 6.41
+- distance_to_high_60_pct: -22.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,230,245.5,225.5,245.5,239000,213.92,14.76,220.8,175.07,0.24
 20260602,249,250,221,225,230,214.84,4.73,218.4,177.03,0
 20260603,226,238.5,219.5,220.5,225000,215.31,2.41,216.18,178.83,0.24
 20260604,214,219.5,206,207.5,210000,214.66,-3.34,212.65,180.53,0.23
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,239,241,220,224,3151000,209.57,6.88,210.28,202.4,3.88
 20260626,221.5,231,210.5,214.5,1852000,209.98,2.15,210.2,203.92,2.07
 20260629,218,226.5,212,224.5,1478000,211.19,6.3,210.25,205.7,1.55
+20260630,224.5,230,222,222.5,1335000,212.13,4.89,209.1,207.43,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6829 | 千附精密 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260629 | 6829 | 千附精密 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260629 | 6829 | 千附精密 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 6829 | 千附精密 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 6829 | 千附精密 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6829 | 千附精密 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 6829 | 千附精密 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

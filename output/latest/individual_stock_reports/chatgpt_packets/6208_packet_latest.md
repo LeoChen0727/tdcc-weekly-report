@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6208 日揚
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:37 Asia/Taipei
+- generated_at: 2026-06-30 22:27:53 Asia/Taipei
 - stock_id: 6208
 - stock_name: 日揚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 98.7
-- high: 102.5
-- low: 96
-- close: 96
-- volume: 2720000
-- ma5: 100.76
-- ema23_primary: 93.67
-- distance_to_ema23_pct: 2.48
-- ma20: 91.69
-- ma60: 84.16
-- ma120: 64.83
-- return_5d: -9.43
-- return_20d: 0.95
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 4.71
-- distance_to_high_60_pct: -11.52
+- date: 20260630
+- open: 96.5
+- high: 100.5
+- low: 96.5
+- close: 97
+- volume: 1654000
+- ma5: 100.06
+- ema23_primary: 93.95
+- distance_to_ema23_pct: 3.24
+- ma20: 91.89
+- ma60: 84.98
+- ma120: 65.27
+- return_5d: -3.48
+- return_20d: 4.53
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 5.56
+- distance_to_high_60_pct: -10.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,96.1,96.4,92.7,92.8,94000,90.04,3.06,91.83,70.06,0.05
 20260602,93.9,93.9,89.9,91.5,91,90.16,1.48,92.25,70.82,0
 20260603,92.8,92.8,90,90.6,91000,90.2,0.44,93.02,71.56,0.05
 20260604,90.6,90.6,85.7,86.7,87000,89.91,-3.57,93.53,72.25,0.05
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,104.5,105.5,102.5,105,3483000,93.11,12.76,91.43,82.52,2.26
 20260626,105,105,97.3,97.3,2805000,93.46,4.11,91.64,83.35,1.67
 20260629,98.7,102.5,96,96,2720000,93.67,2.48,91.69,84.16,1.51
+20260630,96.5,100.5,96.5,97,1654000,93.95,3.24,91.89,84.98,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6208 | 日揚 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 6208 | 日揚 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6208 | 日揚 | 6 | 2 | 5 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260630 | 6208 | 日揚 | 7 | 3 | 5 | 7 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

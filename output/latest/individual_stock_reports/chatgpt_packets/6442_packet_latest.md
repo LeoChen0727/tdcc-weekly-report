@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6442 光聖
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:43 Asia/Taipei
+- generated_at: 2026-06-30 22:27:59 Asia/Taipei
 - stock_id: 6442
 - stock_name: 光聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 1630
-- high: 1645
-- low: 1575
-- close: 1600
-- volume: 2624601
-- ma5: 1812
-- ema23_primary: 1893.65
-- distance_to_ema23_pct: -15.51
-- ma20: 1919.25
-- ma60: 1983.25
-- ma120: 1834.25
-- return_5d: -23.26
-- return_20d: -13.28
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -16.63
-- distance_to_high_60_pct: -34.96
+- date: 20260630
+- open: 1640
+- high: 1660
+- low: 1590
+- close: 1640
+- volume: 1687000
+- ma5: 1744
+- ema23_primary: 1872.51
+- distance_to_ema23_pct: -12.42
+- ma20: 1907
+- ma60: 1976.75
+- ma120: 1837.12
+- return_5d: -17.17
+- return_20d: -13
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -14
+- distance_to_high_60_pct: -33.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,1855,1930,1835,1885,1936621,1941.45,-2.91,1920.5,1972.33,0.58
 20260602,1925,1960,1860,1880,2488564,1936.33,-2.91,1911.5,1970.58,0.73
 20260603,1985,2065,1985,2065,2930375,1947.05,6.06,1911.75,1973.42,0.84
 20260604,1950,2200,1950,2145,5777112,1963.55,9.24,1914.25,1980.67,1.59
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,1980,1995,1825,1865,2385233,1942.2,-3.97,1942.25,1995.42,1.08
 20260626,1830,1950,1680,1680,3965471,1920.35,-12.52,1931.5,1988.25,1.82
 20260629,1630,1645,1575,1600,2624601,1893.65,-15.51,1919.25,1983.25,1.22
+20260630,1640,1660,1590,1640,1687000,1872.51,-12.42,1907,1976.75,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6442 | 光聖 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 6442 | 光聖 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6442 | 光聖 | 1 | 1 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 6442 | 光聖 | 2 | 2 | 4 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6442 | 光聖 | 4 | 0 | 473200.0 | 0.0 |  | no_signal |
+| 20260630 | 6442 | 光聖 | 4 | 0 | 261780.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:57 Asia/Taipei
+- generated_at: 2026-06-30 22:27:11 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 1260
-- high: 1345
-- low: 1245
-- close: 1310
-- volume: 1519000
-- ma5: 1333
-- ema23_primary: 1590.74
-- distance_to_ema23_pct: -17.65
-- ma20: 1655.5
-- ma60: 1715.58
-- ma120: 1444.09
-- return_5d: -10.88
-- return_20d: -40.45
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -20.87
-- distance_to_high_60_pct: -40.45
+- date: 20260630
+- open: 1360
+- high: 1370
+- low: 1320
+- close: 1335
+- volume: 1246000
+- ma5: 1329
+- ema23_primary: 1569.43
+- distance_to_ema23_pct: -14.94
+- ma20: 1614
+- ma60: 1712.92
+- ma120: 1449.49
+- return_5d: -1.48
+- return_20d: -38.34
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -17.29
+- distance_to_high_60_pct: -39.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,2180,2200,2085,2165,2141000,1876.94,15.35,1848.75,1637.58,0.9
 20260602,2150,2175,2000,2070,2071,1893.03,9.35,1867.5,1649.08,0
 20260603,2030,2095,2005,2020,2034000,1903.61,6.11,1887.5,1660.92,0.9
 20260604,1900,1970,1900,1950,1940000,1907.47,2.23,1904,1673.75,0.84
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,1450,1450,1340,1340,1619000,1651.38,-18.86,1738.5,1723.33,0.77
 20260626,1310,1320,1230,1230,2042000,1616.26,-23.9,1700,1717.5,0.97
 20260629,1260,1345,1245,1310,1519000,1590.74,-17.65,1655.5,1715.58,0.73
+20260630,1360,1370,1320,1335,1246000,1569.43,-14.94,1614,1712.92,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3491 | 昇達科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: (1)單月： 　　　　　　　　 最近一個月單月　　 去年同月　　　　　與去年同期 　　　　　　　　　　 　115/5　　　　　114/5　　　　　　增減％ 營業收入（百萬元）　　　296　　　　　　 188　　　　　　　 57% 稅前淨利（百萬元）　　　116　　　　　　  19　　　　　　  511% 歸屬母公司 業主淨利（百萬元）　　　111　　　　　    15　　　　　　  640% 每股盈餘（元）　　　　 1.62　　　　　  0.23　　　　　　  604% －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ (2)單季：                       最近一季單季      去年同期       與去年同期                       115年第一季     114年第一季        增減％ 營業收入（百萬元）     1,020             620　　　　　　  65% 稅前淨利（百萬元）       318             183               74% 歸屬母公司                  　 業主淨利（百萬元）  　   253             143               77% 每股盈餘（元）           3.68            2.22              66% －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ (3)最近四季累計：                          114年第二季至115年第一季 營業收入（百萬元）     　       2,852 稅前淨利（百萬元）                776 歸屬母公司　　　　 業主淨利（百萬元）     　         628 每股盈餘（元）                   9.29 公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採 IFRS會計準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，係經會計師查核(閱)。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 3491 | 昇達科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: (1)單月： 　　　　　　　　 最近一個月單月　　 去年同月　　　　　與去年同期 　　　　　　　　　　 　115/5　　　　　114/5　　　　　　增減％ 營業收入（百萬元）　　　296　　　　　　 188　　　　　　　 57% 稅前淨利（百萬元）　　　116　　　　　　  19　　　　　　  511% 歸屬母公司 業主淨利（百萬元）　　　111　　　　　    15　　　　　　  640% 每股盈餘（元）　　　　 1.62　　　　　  0.23　　　　　　  604% －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ (2)單季：                       最近一季單季      去年同期       與去年同期                       115年第一季     114年第一季        增減％ 營業收入（百萬元）     1,020             620　　　　　　  65% 稅前淨利（百萬元）       318             183               74% 歸屬母公司                  　 業主淨利（百萬元）  　   253             143               77% 每股盈餘（元）           3.68            2.22              66% －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ (3)最近四季累計：                          114年第二季至115年第一季 營業收入（百萬元）     　       2,852 稅前淨利（百萬元）                776 歸屬母公司　　　　 業主淨利（百萬元）     　         628 每股盈餘（元）                   9.29 公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採 IFRS會計準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，係經會計師查核(閱)。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3491 | 昇達科 | 5 | 5 | 5 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 3491 | 昇達科 | 6 | 6 | 5 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

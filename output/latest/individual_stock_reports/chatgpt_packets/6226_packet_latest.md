@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:38 Asia/Taipei
+- generated_at: 2026-06-30 22:27:54 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
+- action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,8 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -113,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 19.35
-- high: 20.05
-- low: 18.45
-- close: 20.05
-- volume: 28664751
-- ma5: 16.75
-- ema23_primary: 14.21
-- distance_to_ema23_pct: 41.14
-- ma20: 13.8
-- ma60: 13.16
-- ma120: 11.32
-- return_5d: 60.4
-- return_20d: 54.23
-- volume_ratio: 4.71
-- distance_to_ma20_pct_auxiliary: 45.32
+- date: 20260630
+- open: 22
+- high: 22.05
+- low: 21.95
+- close: 22.05
+- volume: 8893000
+- ma5: 18.41
+- ema23_primary: 14.86
+- distance_to_ema23_pct: 48.39
+- ma20: 14.22
+- ma60: 13.32
+- ma120: 11.44
+- return_5d: 60.36
+- return_20d: 62.73
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 55.04
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,13.05,13.85,13.05,13.55,2778882,12.84,5.52,12.65,12.42,1.5
 20260602,13.8,13.95,12.85,13.55,3345282,12.9,5.04,12.69,12.5,1.72
 20260603,13.6,14.25,13.4,14,4999711,12.99,7.76,12.77,12.58,2.38
 20260604,14,14,13.3,13.6,2304639,13.04,4.28,12.82,12.67,1.09
@@ -155,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,16.6,16.6,16.6,16.6,5127705,13.26,25.2,13.19,12.93,2.11
 20260626,17,18.25,16.45,18.25,48788960,13.67,33.46,13.45,13.04,10.3
 20260629,19.35,20.05,18.45,20.05,28664751,14.21,41.14,13.8,13.16,4.71
+20260630,22,22.05,21.95,22.05,8893000,14.86,48.39,14.22,13.32,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6226 | 光鼎 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/06/26 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準，故依「臺灣 證券交易所股份有限公司」通知公告辦理。 3.財務業務資訊:                   (月)                      (季)          (最近四季累計) --------------------------------------------------------------------------           最近一月    與去年       最近一季     與去年     (114年第2季 科目     (115年5月)  同期增減%   (115年第1季)  同期增減%   至115年第1季)           (自結數)                 (核閱數)                (查核/核閱數) ========================================================================== 營業收入       55      -2.14%           152      -3.63%           603 (百萬) 稅前淨利        4     419.41%             0          -             -2 (百萬) 歸屬母公司 業主淨利        4     419.41%             1     110.93%           -20 (百萬) 每股盈餘     0.03     400.00%          0.01     111.11%         -0.18 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 6226 | 光鼎 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/06/26 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準，故依「臺灣 證券交易所股份有限公司」通知公告辦理。 3.財務業務資訊:                   (月)                      (季)          (最近四季累計) --------------------------------------------------------------------------           最近一月    與去年       最近一季     與去年     (114年第2季 科目     (115年5月)  同期增減%   (115年第1季)  同期增減%   至115年第1季)           (自結數)                 (核閱數)                (查核/核閱數) ========================================================================== 營業收入       55      -2.14%           152      -3.63%           603 (百萬) 稅前淨利        4     419.41%             0          -             -2 (百萬) 歸屬母公司 業主淨利        4     419.41%             1     110.93%           -20 (百萬) 每股盈餘     0.03     400.00%          0.01     111.11%         -0.18 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6226 | 光鼎 | 4 | 2 | 4 | 4 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260630 | 6226 | 光鼎 | 5 | 3 | 5 | 5 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:22 Asia/Taipei
+- generated_at: 2026-06-30 22:26:34 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 292
+- latest_price_date: 20260630
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 250
-- high: 252
-- low: 246
-- close: 246.5
-- volume: 49210311
-- ma5: 253.6
-- ema23_primary: 261.81
-- distance_to_ema23_pct: -5.85
-- ma20: 271.2
-- ma60: 244.26
-- ma120: 232.55
-- return_5d: -8.19
-- return_20d: -14.71
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -9.11
-- distance_to_high_60_pct: -21.5
+- date: 20260630
+- open: 251.5
+- high: 255.5
+- low: 249
+- close: 251
+- volume: 51113000
+- ma5: 251.9
+- ema23_primary: 260.91
+- distance_to_ema23_pct: -3.8
+- ma20: 269.07
+- ma60: 245.16
+- ma120: 232.77
+- return_5d: -3.28
+- return_20d: -14.48
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -6.72
+- distance_to_high_60_pct: -20.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,302,304.5,293,293.5,205766647,252.37,16.3,255.07,224.32,1.87
 20260602,297.5,302,293,301.5,113076476,256.46,17.56,258.18,225.61,1.05
 20260603,306,314,299,309,149620933,260.84,18.46,261.02,227.04,1.46
 20260604,309,309,293,293,110760779,263.52,11.19,263,228.42,1.09
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,260.5,262.5,257.5,257.5,43578494,264.54,-2.66,274.05,242.37,0.44
 20260626,255.5,255.5,248,248.5,80450955,263.2,-5.58,273.32,243.28,0.81
 20260629,250,252,246,246.5,49210311,261.81,-5.85,271.2,244.26,0.57
+20260630,251.5,255.5,249,251,51113000,260.91,-3.8,269.07,245.16,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/26 2.功能性委員會名稱:審計暨風險委員會、薪資報酬委員會、公司治理暨提名委員會 3.舊任者姓名:黃清苑 4.舊任者簡歷:本公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:因擔任本公司相關企業之職務，故辭任本公司功能性委員會職務。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/29~117/05/28 10.新任生效日期:不適用 11.其他應敘明事項: 本公司於115年6月26日接獲其辭任書，任職至115年6月26日止。 該獨立董事辭任獨立董事之職務並併同辭任董事會下之功能性委員會職務。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.發生變動日期:115/06/26 2.功能性委員會名稱:審計暨風險委員會、薪資報酬委員會、公司治理暨提名委員會 3.舊任者姓名:黃清苑 4.舊任者簡歷:本公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:因擔任本公司相關企業之職務，故辭任本公司功能性委員會職務。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/29~117/05/28 10.新任生效日期:不適用 11.其他應敘明事項: 本公司於115年6月26日接獲其辭任書，任職至115年6月26日止。 該獨立董事辭任獨立董事之職務並併同辭任董事會下之功能性委員會職務。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2317 | 鴻海 | 11 | 5 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 2317 | 鴻海 | 12 | 6 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2317 | 鴻海 | 527 | 0 | 16194780.0 | 0.0 |  | no_signal |
+| 20260630 | 2317 | 鴻海 | 524 | 0 | 39687960.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

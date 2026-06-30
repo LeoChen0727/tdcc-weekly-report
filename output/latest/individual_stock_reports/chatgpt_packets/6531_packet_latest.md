@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:46 Asia/Taipei
+- generated_at: 2026-06-30 22:28:02 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 975
-- high: 1005
-- low: 954
-- close: 980
-- volume: 3044513
-- ma5: 1038
-- ema23_primary: 1000.37
-- distance_to_ema23_pct: -2.04
-- ma20: 1003.55
-- ma60: 886.23
-- ma120: 673.31
-- return_5d: -12.11
-- return_20d: -17.65
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -2.35
-- distance_to_high_60_pct: -24.9
+- date: 20260630
+- open: 1010
+- high: 1030
+- low: 972
+- close: 998
+- volume: 3326000
+- ma5: 1027.6
+- ema23_primary: 1000.17
+- distance_to_ema23_pct: -0.22
+- ma20: 997.2
+- ma60: 895.2
+- ma120: 678.15
+- return_5d: -4.95
+- return_20d: -11.29
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 0.08
+- distance_to_high_60_pct: -23.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,1240,1305,1115,1125,11967569,986.52,14.04,1024.2,727.56,1.47
 20260602,1140,1155,1045,1075,6639528,993.9,8.16,1031.2,738.13,0.79
 20260603,1110,1165,1090,1100,5331477,1002.74,9.7,1037.95,749.23,0.63
 20260604,1060,1150,1055,1055,4002822,1007.09,4.76,1044.45,760.09,0.47
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,1105,1175,1080,1100,6587069,1003.34,9.63,1019.3,868.85,1.06
 20260626,1070,1080,990,990,4499042,1002.22,-1.22,1014.05,877.27,0.79
 20260629,975,1005,954,980,3044513,1000.37,-2.04,1003.55,886.23,0.59
+20260630,1010,1030,972,998,3326000,1000.17,-0.22,997.2,895.2,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6531 | 愛普* | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260629 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 6531 | 愛普* | pattern | 型態觀察 | 50.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6531 | 愛普* | 13 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 6531 | 愛普* | 14 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6531 | 愛普* | 81 | 0 | 2262030.0 | 0.0 |  | no_signal |
+| 20260630 | 6531 | 愛普* | 81 | 0 | 1984650.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:37 Asia/Taipei
+- generated_at: 2026-06-30 22:27:53 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 81.3
-- high: 82.1
-- low: 78
-- close: 79.2
-- volume: 7199275
-- ma5: 85.84
-- ema23_primary: 84.83
-- distance_to_ema23_pct: -6.63
-- ma20: 86.44
-- ma60: 73.28
-- ma120: 66.61
-- return_5d: -18.52
-- return_20d: -3.06
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -8.38
-- distance_to_high_60_pct: -24.21
+- date: 20260630
+- open: 80.1
+- high: 81.5
+- low: 79.1
+- close: 80.7
+- volume: 4398000
+- ma5: 83.92
+- ema23_primary: 84.48
+- distance_to_ema23_pct: -4.48
+- ma20: 86.25
+- ma60: 73.79
+- ma120: 66.74
+- return_5d: -10.63
+- return_20d: -4.5
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -6.43
+- distance_to_high_60_pct: -22.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,83.9,86.4,83.4,84.5,16659551,74.76,13.03,74.58,62.85,0.93
 20260602,84.5,84.6,77.6,79.2,12333284,75.13,5.42,75.1,63.24,0.69
 20260603,79,82.4,78.2,80.6,7477921,75.59,6.63,75.72,63.64,0.42
 20260604,80,87.5,79.8,84.7,16433881,76.34,10.94,76.34,64.19,0.94
@@ -160,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,89.7,94.8,88.1,89.4,16787960,85.7,4.31,86.53,72.25,0.67
 20260626,88.7,88.8,80.6,81.3,12553033,85.34,-4.73,86.56,72.78,0.5
 20260629,81.3,82.1,78,79.2,7199275,84.83,-6.63,86.44,73.28,0.29
+20260630,80.1,81.5,79.1,80.7,4398000,84.48,-4.48,86.25,73.79,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額:現金股利美金4,174仟元 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額:現金股利美金4,174仟元 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6209 | 今國光 | 4 | 4 | 4 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 6209 | 今國光 | 5 | 5 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6209 | 今國光 | 56 | 0 | 6594840.0 | 0.0 |  | no_signal |
+| 20260630 | 6209 | 今國光 | 56 | 0 | 4668360.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0056 元大高股息
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:54 Asia/Taipei
+- generated_at: 2026-06-30 22:26:05 Asia/Taipei
 - stock_id: 0056
 - stock_name: 元大高股息
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 157
+- latest_price_date: 20260630
+- price_rows: 158
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 51.75
-- high: 52.35
-- low: 51.6
-- close: 51.8
-- volume: 36288209
-- ma5: 52.64
-- ema23_primary: 50.94
-- distance_to_ema23_pct: 1.68
-- ma20: 51.93
-- ma60: 45.95
-- ma120: 42.03
-- return_5d: -4.16
-- return_20d: 3.19
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -0.24
-- distance_to_high_60_pct: -5.65
+- date: 20260630
+- open: 52.6
+- high: 53.25
+- low: 52.15
+- close: 53.25
+- volume: 41346000
+- ma5: 52.57
+- ema23_primary: 51.14
+- distance_to_ema23_pct: 4.13
+- ma20: 51.99
+- ma60: 46.2
+- ma120: 42.17
+- return_5d: -0.65
+- return_20d: 2.6
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 2.42
+- distance_to_high_60_pct: -3.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,50.5,51.9,50.5,51.9,58919831,46.06,12.69,46.19,41.67,0.91
 20260602,52.2,52.8,51.45,52.8,69462828,46.62,13.26,46.7,41.9,1.1
 20260603,53.4,53.8,52.75,53.8,48338648,47.22,13.95,47.19,42.16,0.8
 20260604,53.3,53.3,52.5,52.65,66916789,47.67,10.45,47.59,42.41,1.12
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,53.7,53.8,52.95,53.2,29133924,50.81,4.7,51.71,45.48,0.52
 20260626,52.8,52.95,51.35,51.45,75502054,50.87,1.15,51.85,45.7,1.34
 20260629,51.75,52.35,51.6,51.8,36288209,50.94,1.68,51.93,45.95,0.66
+20260630,52.6,53.25,52.15,53.25,41346000,51.14,4.13,51.99,46.2,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -180,17 +180,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 0056 | 元大高股息 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 0056 | 元大高股息 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 0056 | 元大高股息 | 7 | 7 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 0056 | 元大高股息 | 8 | 8 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 0056 | 元大高股息 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260630 | 0056 | 元大高股息 | 2 | 0 | 156580.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

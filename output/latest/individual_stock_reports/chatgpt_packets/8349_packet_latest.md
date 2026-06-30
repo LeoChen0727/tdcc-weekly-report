@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8349 恒耀國際
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:16 Asia/Taipei
+- generated_at: 2026-06-30 22:28:34 Asia/Taipei
 - stock_id: 8349
 - stock_name: 恒耀國際
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 39.2
-- high: 39.5
-- low: 38.75
-- close: 39
-- volume: 136000
-- ma5: 40.17
-- ema23_primary: 41.16
-- distance_to_ema23_pct: -5.25
-- ma20: 41.38
-- ma60: 42.52
-- ma120: 42.59
-- return_5d: -4.29
-- return_20d: -6.02
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -5.75
-- distance_to_high_60_pct: -17.63
+- date: 20260630
+- open: 40.35
+- high: 40.5
+- low: 39.3
+- close: 40.1
+- volume: 107000
+- ma5: 40
+- ema23_primary: 41.07
+- distance_to_ema23_pct: -2.37
+- ma20: 41.3
+- ma60: 42.51
+- ma120: 42.56
+- return_5d: -2.08
+- return_20d: -3.84
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -2.91
+- distance_to_high_60_pct: -15.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,41.7,41.8,41.4,41.7,42000,42.07,-0.89,42.04,42.58,0.3
 20260602,41.7,42,41.45,41.85,42,42.06,-0.49,41.91,42.62,0
 20260603,41.85,42.3,41.6,42.05,42000,42.06,-0.01,41.83,42.65,0.34
 20260604,42.05,42.65,41.95,42.65,42000,42.1,1.29,41.72,42.72,0.39
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,41.15,41.3,39.95,40.6,276000,41.56,-2.31,41.59,42.59,1.79
 20260626,39.5,40.9,38.6,39.15,231000,41.36,-5.34,41.51,42.55,1.41
 20260629,39.2,39.5,38.75,39,136000,41.16,-5.25,41.38,42.52,0.81
+20260630,40.35,40.5,39.3,40.1,107000,41.07,-2.37,41.3,42.51,0.62
 ```
 
 ## Latest TDCC Snapshot

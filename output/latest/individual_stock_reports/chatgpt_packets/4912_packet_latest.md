@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:17 Asia/Taipei
+- generated_at: 2026-06-30 22:27:32 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 83.9
-- high: 85
-- low: 83.6
-- close: 84.9
-- volume: 203500
-- ma5: 86.44
-- ema23_primary: 91.75
-- distance_to_ema23_pct: -7.46
-- ma20: 92.21
-- ma60: 93.2
-- ma120: 92.86
-- return_5d: -5.56
-- return_20d: -26.17
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -7.93
-- distance_to_high_60_pct: -27.44
+- date: 20260630
+- open: 86.7
+- high: 86.7
+- low: 85.3
+- close: 86.5
+- volume: 306000
+- ma5: 86.12
+- ema23_primary: 91.31
+- distance_to_ema23_pct: -5.27
+- ma20: 90.86
+- ma60: 93.13
+- ma120: 92.9
+- return_5d: -1.82
+- return_20d: -23.79
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -4.8
+- distance_to_high_60_pct: -26.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,116.5,117,111.5,113.5,3213005,102.11,11.16,101.86,92.62,1.96
 20260602,112.5,112.5,101.5,102.5,3103914,102.14,0.35,102.89,92.82,1.74
 20260603,102.5,102.5,99.5,100.5,1663907,102,-1.47,103.77,92.99,0.9
 20260604,99.9,100.5,95.2,95.3,976587,101.45,-6.06,103.96,93.19,0.53
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,88.5,88.5,86.6,87,322936,93.16,-6.61,94.83,93.44,0.3
 20260626,86.3,86.6,83.5,83.7,506804,92.37,-9.38,93.72,93.27,0.5
 20260629,83.9,85,83.6,84.9,203500,91.75,-7.46,92.21,93.2,0.23
+20260630,86.7,86.7,85.3,86.5,306000,91.31,-5.27,90.86,93.13,0.41
 ```
 
 ## Latest TDCC Snapshot

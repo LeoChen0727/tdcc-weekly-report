@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6230 尼得科超眾
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:38 Asia/Taipei
+- generated_at: 2026-06-30 22:27:54 Asia/Taipei
 - stock_id: 6230
 - stock_name: 尼得科超眾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 123
-- high: 125
-- low: 121
-- close: 121
-- volume: 40550
-- ma5: 127.2
-- ema23_primary: 133.69
-- distance_to_ema23_pct: -9.49
-- ma20: 134.28
-- ma60: 143.88
-- ma120: 140.75
-- return_5d: -10.37
-- return_20d: -10.7
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -9.89
-- distance_to_high_60_pct: -32.78
+- date: 20260630
+- open: 126
+- high: 126
+- low: 123
+- close: 124
+- volume: 45000
+- ma5: 125.4
+- ema23_primary: 132.88
+- distance_to_ema23_pct: -6.68
+- ma20: 133.4
+- ma60: 143.55
+- ma120: 140.8
+- return_5d: -6.77
+- return_20d: -12.37
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -7.05
+- distance_to_high_60_pct: -31.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,140.5,144.5,137.5,141.5,186664,142.52,-0.72,142.05,153.95,1.29
 20260602,147,147,138.5,142,162702,142.48,-0.34,141.28,153.37,1.11
 20260603,143,148,143,143,178076,142.52,0.33,140.55,152.71,1.19
 20260604,143.5,147,140.5,142.5,99844,142.52,-0.02,139.93,152.22,0.69
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,131,133.5,128.5,129,78343,136.01,-5.15,135.6,144.6,0.81
 20260626,127.5,127.5,122,122,112216,134.84,-9.52,135,144.18,1.16
 20260629,123,125,121,121,40550,133.69,-9.49,134.28,143.88,0.43
+20260630,126,126,123,124,45000,132.88,-6.68,133.4,143.55,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6230 | 尼得科超眾 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260630 | 6230 | 尼得科超眾 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

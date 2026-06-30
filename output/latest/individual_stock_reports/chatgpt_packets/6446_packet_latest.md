@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:43 Asia/Taipei
+- generated_at: 2026-06-30 22:27:59 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,31 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
+- action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
-- confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: pullback_to_support
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -110,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 1205
-- high: 1270
-- low: 1205
-- close: 1270
-- volume: 2907656
-- ma5: 1175
-- ema23_primary: 1018.81
-- distance_to_ema23_pct: 24.66
-- ma20: 1020.3
-- ma60: 812.53
-- ma120: 721.42
-- return_5d: 15.98
-- return_20d: 36.56
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 24.47
-- distance_to_high_60_pct: 0
+- date: 20260630
+- open: 1295
+- high: 1380
+- low: 1285
+- close: 1340
+- volume: 4933000
+- ma5: 1224
+- ema23_primary: 1045.58
+- distance_to_ema23_pct: 28.16
+- ma20: 1039.2
+- ma60: 824.28
+- ma120: 728.5
+- return_5d: 22.37
+- return_20d: 39.29
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 28.95
+- distance_to_high_60_pct: -2.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,958,978,930,962,3934830,798.05,20.54,792,694.33,1.05
 20260602,962,965,900,902,4137928,806.71,11.81,804.75,697.88,1.06
 20260603,903,906,883,899,2256658,814.4,10.39,816.95,701.23,0.58
 20260604,892,945,885,938,2644650,824.7,13.74,830.9,705.75,0.67
@@ -152,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,1165,1215,1145,1195,2772540,981.52,21.75,988.65,792.37,0.87
 20260626,1185,1215,1145,1155,2826807,995.97,15.97,1003.3,801.37,0.89
 20260629,1205,1270,1205,1270,2907656,1018.81,24.66,1020.3,812.53,0.95
+20260630,1295,1380,1285,1340,4933000,1045.58,28.16,1039.2,824.28,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6446 | 藥華藥 | true_breakout | 嚴格突破 | 71.0 |  |  | platform_right_side |  |  | first_seen | 1.事實發生日:115/06/18 2.公司名稱:藥華醫藥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:115年6月18日工商時報報導： 「法人預估全年營收有機會突破 200 億元再創新高， 獲利將大賺逾二股本，有機會登上生技獲利王。」 7.發生緣由:媒體報導說明 8.因應措施:本公司並未發布任何預測性財務及業務資訊， 針對工商時報本次有關本公司之財務預測性報導，純屬媒體及法人推估。 本公司財務及業務相關資訊，請依「公開資訊觀測站」揭露為主。 9.其他應敘明事項:新藥開發時程長、投入經費高且並未保證能一定成功， 此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 6446 | 藥華藥 | true_breakout | 嚴格突破 | 77.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/18 2.公司名稱:藥華醫藥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:115年6月18日工商時報報導： 「法人預估全年營收有機會突破 200 億元再創新高， 獲利將大賺逾二股本，有機會登上生技獲利王。」 7.發生緣由:媒體報導說明 8.因應措施:本公司並未發布任何預測性財務及業務資訊， 針對工商時報本次有關本公司之財務預測性報導，純屬媒體及法人推估。 本公司財務及業務相關資訊，請依「公開資訊觀測站」揭露為主。 9.其他應敘明事項:新藥開發時程長、投入經費高且並未保證能一定成功， 此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6446 | 藥華藥 | 1 | 1 | 3 | 8 | 18 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260630 | 6446 | 藥華藥 | 2 | 2 | 3 | 8 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

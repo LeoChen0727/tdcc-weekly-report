@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5340 建榮
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:24 Asia/Taipei
+- generated_at: 2026-06-30 22:27:39 Asia/Taipei
 - stock_id: 5340
 - stock_name: 建榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 88.2
-- high: 91.8
-- low: 87.4
-- close: 89.8
-- volume: 1210000
-- ma5: 93.28
-- ema23_primary: 95.03
-- distance_to_ema23_pct: -5.5
-- ma20: 93.38
-- ma60: 105.31
-- ma120: 100.58
-- return_5d: -9.29
-- return_20d: -11.53
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -3.83
-- distance_to_high_60_pct: -34.45
+- date: 20260630
+- open: 92.3
+- high: 97.2
+- low: 90.8
+- close: 95.7
+- volume: 3060000
+- ma5: 93.22
+- ema23_primary: 95.08
+- distance_to_ema23_pct: 0.65
+- ma20: 92.92
+- ma60: 105.22
+- ma120: 100.84
+- return_5d: -0.31
+- return_20d: -8.86
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 3
+- distance_to_high_60_pct: -30.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,102.5,107,101.5,105,105000,106.71,-1.6,107.19,110.64,0.05
 20260602,105,107,100.5,102,103,106.32,-4.06,105.96,110.52,0
 20260603,102.5,103.5,100,101,101000,105.88,-4.61,105.08,110.31,0.06
 20260604,101,101.5,99,99.5,100000,105.34,-5.55,104.23,110.21,0.08
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,99.2,100.5,95,95.5,1504000,96.28,-0.81,94.62,105.77,1.03
 20260626,95.5,95.5,86.9,86.9,1776000,95.5,-9.01,93.97,105.42,1.15
 20260629,88.2,91.8,87.4,89.8,1210000,95.03,-5.5,93.38,105.31,0.76
+20260630,92.3,97.2,90.8,95.7,3060000,95.08,0.65,92.92,105.22,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5340 | 建榮 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 5340 | 建榮 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 5340 | 建榮 | pullback_rebound | 回檔後短線轉強 | 67.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 5340 | 建榮 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5340 | 建榮 | 1 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 5340 | 建榮 | 2 | 2 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

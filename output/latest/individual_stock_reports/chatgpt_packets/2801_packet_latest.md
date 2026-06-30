@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:39 Asia/Taipei
+- generated_at: 2026-06-30 22:26:52 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
@@ -111,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 23.5
-- high: 23.6
-- low: 23.35
-- close: 23.55
-- volume: 21669772
-- ma5: 23.31
-- ema23_primary: 22.33
-- distance_to_ema23_pct: 5.48
-- ma20: 22.31
-- ma60: 21.31
-- ma120: 20.95
-- return_5d: 3.06
-- return_20d: 16.3
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 5.55
-- distance_to_high_60_pct: -0.21
+- date: 20260630
+- open: 23.65
+- high: 24
+- low: 23.4
+- close: 24
+- volume: 70658000
+- ma5: 23.47
+- ema23_primary: 22.47
+- distance_to_ema23_pct: 6.83
+- ma20: 22.49
+- ma60: 21.37
+- ma120: 20.98
+- return_5d: 3.45
+- return_20d: 17.36
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 6.71
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,20.3,20.55,20.15,20.45,26990622,20.48,-0.15,20.45,20.73,1.15
 20260602,20.4,20.65,20.3,20.6,36952646,20.49,0.53,20.45,20.73,1.49
 20260603,20.7,21.2,20.6,21.1,49122546,20.54,2.72,20.45,20.74,1.85
 20260604,21,21.6,20.95,21.4,53337581,20.61,3.82,20.48,20.75,1.89
@@ -153,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,23,23.6,22.9,23.5,30190232,22.11,6.29,21.98,21.21,0.79
 20260626,23.4,23.5,23.2,23.4,21399568,22.22,5.33,22.15,21.26,0.56
 20260629,23.5,23.6,23.35,23.55,21669772,22.33,5.48,22.31,21.31,0.6
+20260630,23.65,24,23.4,24,70658000,22.47,6.83,22.49,21.37,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷:林玉葉(彰化銀行副總經理) 4.新任者姓名、級職及簡歷:李明翰(將來商業銀行股份有限公司副總經理) 學歷:世新大學資訊管理學系碩士 主要經歷: 將來商業銀行股份有限公司副總經理(資訊長) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/7/1 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 2801 | 彰銀 | true_breakout | 嚴格突破 | 141.0 |  |  | breakout_confirmed |  |  | continued_many_days | 1.發生變動日期:115/06/29 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名: (1)獨立董事吳雨學 (2)獨立董事林軒竹 (3)獨立董事李淑華 (4)獨立董事黃照貴 (5)獨立董事周有熙 6.新任者簡歷: (1)獨立董事吳雨學-晉詣法律事務所主持律師 (2)獨立董事林軒竹-國立成功大學會計學系暨財務金融研究所系主任兼所長 (3)獨立董事李淑華-國立臺北大學商學院副院長暨會計學系教授兼系主任 (4)獨立董事黃照貴-國立高雄科技大學資訊管理系教授 (5)獨立董事周有熙-國立臺灣師範大學公民教育與活動領導學系教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:董事會委任新任委員 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 10.新任生效日期:115/06/29 11.其他應敘明事項:第7屆「薪資報酬委員會」委員任期為115/06/29~118/06/18；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2801 | 彰銀 | 9 | 9 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 2801 | 彰銀 | 10 | 1 | 5 | 10 | 15 | continued_many_days | 連續 10 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

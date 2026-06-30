@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6173 信昌電
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:35 Asia/Taipei
+- generated_at: 2026-06-30 22:27:50 Asia/Taipei
 - stock_id: 6173
 - stock_name: 信昌電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 276
-- high: 286
-- low: 267
-- close: 282.5
-- volume: 853000
-- ma5: 291
-- ema23_primary: 258.03
-- distance_to_ema23_pct: 9.48
-- ma20: 265.12
-- ma60: 167.95
-- ma120: 117.62
-- return_5d: -7.53
-- return_20d: 19.2
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 6.55
-- distance_to_high_60_pct: -11.16
+- date: 20260630
+- open: 294
+- high: 310.5
+- low: 294
+- close: 310.5
+- volume: 1132000
+- ma5: 296.1
+- ema23_primary: 262.4
+- distance_to_ema23_pct: 18.33
+- ma20: 268.8
+- ma60: 172.13
+- ma120: 119.66
+- return_5d: 8.95
+- return_20d: 31.01
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 15.51
+- distance_to_high_60_pct: -2.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,237,256.5,237,237,245000,170.78,38.77,170.09,103.39,0.04
 20260602,225,231.5,214.5,231.5,220,175.84,31.65,177.05,106.17,0
 20260603,227,233,220.5,230.5,228000,180.4,27.77,183.53,108.94,0.06
 20260604,225,225,215,215.5,219000,183.32,17.55,188.75,111.55,0.06
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,306.5,313,295,306.5,773000,253.97,20.68,260.02,160.64,0.13
 20260626,297.5,297.5,276,276,1595000,255.81,7.89,262.85,164.22,0.27
 20260629,276,286,267,282.5,853000,258.03,9.48,265.12,167.95,0.15
+20260630,294,310.5,294,310.5,1132000,262.4,18.33,268.8,172.13,0.19
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260630 | 6173 | 信昌電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | first_seen | 1.事實發生日:115/06/17 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 科目     最近   去年   與去    最近   去年   與去   最近          一月   同月   年同    一季   同期   年同   四季          單月          期增    單季          期增   累計         (115年 (114年  減%   (115年 (114年   減%  (114年           5月)   5月)         第1季) 第1季)        第2季                                                      至                                                    115年                                                    第1季)          ----- -----  ------ ------ ------ ------ ------- 營業收入  458　 365     25%  1,017    944      8%  4,128 （百萬元） 稅前淨利　108   -21    614%　  258    153     69%    815 （百萬元） 歸屬母公司 85   -17    600%    205    120     71%    643 業主淨利 （百萬元） 每股盈餘 0.50 -0.10    600%   1.19   0.70     70%   3.75 （元） 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之      合併自結數，未經會計師核閱，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，且係本公司採IFRS下編製之合併數，      業經會計師核閱，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經      會計師查核(閱)，僅供投資人參考。 註4：本公司115年5月及114年5月合併自結數分別認列外幣兌換損失9百萬元及      81百萬元。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260630 | 6173 | 信昌電 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

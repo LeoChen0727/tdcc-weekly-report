@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1268 漢來美食
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:01 Asia/Taipei
+- generated_at: 2026-06-30 22:26:12 Asia/Taipei
 - stock_id: 1268
 - stock_name: 漢來美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
+- date: 20260630
 - open: 168.5
-- high: 168.5
-- low: 167.5
-- close: 168.5
-- volume: 5000
-- ma5: 169.3
-- ema23_primary: 168.15
-- distance_to_ema23_pct: 0.21
+- high: 169
+- low: 168.5
+- close: 169
+- volume: 14000
+- ma5: 169.2
+- ema23_primary: 168.22
+- distance_to_ema23_pct: 0.46
 - ma20: 169.25
-- ma60: 162.73
-- ma120: 161.22
-- return_5d: -0.88
+- ma60: 162.93
+- ma120: 161.3
+- return_5d: -0.29
 - return_20d: 0
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -0.44
-- distance_to_high_60_pct: -3.44
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -0.15
+- distance_to_high_60_pct: -3.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,168.5,171,168.5,169,170000,163.65,3.27,162.75,159.19,1.21
 20260602,169,169.5,168.5,169,169,164.1,2.99,163.47,159.35,0
 20260603,169,170.5,169,170.5,170000,164.63,3.57,164.28,159.5,1.16
 20260604,171,171.5,169.5,170.5,170000,165.12,3.26,165.05,159.71,1.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,171,171,169,170,67000,168.18,1.08,169.28,162.34,0.94
 20260626,170,170,167,167.5,40000,168.12,-0.37,169.25,162.53,0.61
 20260629,168.5,168.5,167.5,168.5,5000,168.15,0.21,169.25,162.73,0.09
+20260630,168.5,169,168.5,169,14000,168.22,0.46,169.25,162.93,0.28
 ```
 
 ## Latest TDCC Snapshot

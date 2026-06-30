@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8499 鼎炫-KY
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:20 Asia/Taipei
+- generated_at: 2026-06-30 22:28:38 Asia/Taipei
 - stock_id: 8499
 - stock_name: 鼎炫-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 301.5
-- high: 312.5
-- low: 296
-- close: 309
-- volume: 102084
+- date: 20260630
+- open: 307
+- high: 312
+- low: 303
+- close: 312
+- volume: 26000
 - ma5: 306.3
-- ema23_primary: 299.32
-- distance_to_ema23_pct: 3.23
-- ma20: 296.73
-- ma60: 286.17
-- ma120: 290.79
-- return_5d: -4.63
-- return_20d: -3.74
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 4.14
-- distance_to_high_60_pct: -9.12
+- ema23_primary: 300.38
+- distance_to_ema23_pct: 3.87
+- ma20: 297.25
+- ma60: 287.03
+- ma120: 290.07
+- return_5d: 0
+- return_20d: 3.48
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 4.96
+- distance_to_high_60_pct: -8.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,321.5,322,299,301.5,175542,296.03,1.85,294.98,275.57,0.68
 20260602,301,301.5,292.5,298.5,76496,296.24,0.76,296.95,275.99,0.29
 20260603,297.5,300,292.5,296.5,116534,296.26,0.08,298.68,276.51,0.45
 20260604,296,300,295,297,47098,296.32,0.23,299.12,277.29,0.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,314.5,314.5,305.5,305.5,70158,298.3,2.41,298.02,284.14,0.71
 20260626,309,309,292,300,130494,298.44,0.52,297.32,285.04,1.33
 20260629,301.5,312.5,296,309,102084,299.32,3.23,296.73,286.17,1.05
+20260630,307,312,303,312,26000,300.38,3.87,297.25,287.03,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8499 | 鼎炫-KY | 14 | 0 | 37180.0 | 0.0 |  | no_signal |
+| 20260630 | 8499 | 鼎炫-KY | 14 | 0 | 2160.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

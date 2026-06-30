@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3005 神基
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:43 Asia/Taipei
+- generated_at: 2026-06-30 22:26:56 Asia/Taipei
 - stock_id: 3005
 - stock_name: 神基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 96.1
-- high: 98.7
-- low: 95.8
-- close: 98.5
-- volume: 3285673
-- ma5: 98.44
-- ema23_primary: 101.7
-- distance_to_ema23_pct: -3.15
-- ma20: 103.56
-- ma60: 100.97
-- ma120: 109.5
-- return_5d: -1.99
-- return_20d: -5.29
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -4.89
-- distance_to_high_60_pct: -12.44
+- date: 20260630
+- open: 99.5
+- high: 102.5
+- low: 98
+- close: 101
+- volume: 6791000
+- ma5: 98.64
+- ema23_primary: 101.64
+- distance_to_ema23_pct: -0.63
+- ma20: 103.26
+- ma60: 101.03
+- ma120: 109.36
+- return_5d: 1
+- return_20d: -5.61
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -2.19
+- distance_to_high_60_pct: -10.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,104.5,108,104.5,107,6783063,102.05,4.85,100.97,107.5,1.21
 20260602,108,109.5,106.5,108.5,10565260,102.59,5.76,101.48,107.25,1.76
 20260603,112,112.5,109,110.5,8390622,103.25,7.03,102.13,107.05,1.34
 20260604,109,111,108,110,5924569,103.81,5.96,102.67,106.8,0.92
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,100,101,98.2,98.2,5246966,102.54,-4.23,104.19,101.02,0.95
 20260626,98.5,98.5,95.8,96,7252143,101.99,-5.88,103.83,100.96,1.28
 20260629,96.1,98.7,95.8,98.5,3285673,101.7,-3.15,103.56,100.97,0.59
+20260630,99.5,102.5,98,101,6791000,101.64,-0.63,103.26,101.03,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3005 | 神基 | 31 | 0 | 668990.0 | 0.0 |  | no_signal |
+| 20260630 | 3005 | 神基 | 31 | 0 | 3170060.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

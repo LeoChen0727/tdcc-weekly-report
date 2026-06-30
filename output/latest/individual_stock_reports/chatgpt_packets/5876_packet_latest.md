@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:30 Asia/Taipei
+- generated_at: 2026-06-30 22:27:45 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 42.4
+- date: 20260630
+- open: 42.75
 - high: 42.8
-- low: 41.85
-- close: 42.8
-- volume: 12920496
-- ma5: 42.11
-- ema23_primary: 41.59
-- distance_to_ema23_pct: 2.91
-- ma20: 41.76
-- ma60: 40.3
-- ma120: 40.01
-- return_5d: 3.26
-- return_20d: 7.67
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 2.48
-- distance_to_high_60_pct: -1.61
+- low: 42.2
+- close: 42.7
+- volume: 14039000
+- ma5: 42.29
+- ema23_primary: 41.68
+- distance_to_ema23_pct: 2.44
+- ma20: 41.91
+- ma60: 40.35
+- ma120: 40.02
+- return_5d: 2.15
+- return_20d: 7.29
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 1.89
+- distance_to_high_60_pct: -1.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,39.5,40,39.2,39.8,13437766,39.63,0.43,39.63,39.44,1.12
 20260602,39.8,41,39.75,41,22267405,39.74,3.16,39.76,39.49,1.74
 20260603,41,41.2,40.65,40.8,13663316,39.83,2.43,39.88,39.52,1.04
 20260604,40.85,41.65,40.75,40.75,13002719,39.91,2.11,39.98,39.55,0.97
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,41.55,42.25,41.35,42,13447252,41.4,1.46,41.42,40.18,0.86
 20260626,41.6,42.4,41.4,42.4,16227765,41.48,2.22,41.61,40.23,1.04
 20260629,42.4,42.8,41.85,42.8,12920496,41.59,2.91,41.76,40.3,0.86
+20260630,42.75,42.8,42.2,42.7,14039000,41.68,2.44,41.91,40.35,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.取得會計師「內部控制專案審查報告」日期:115/06/18 2.委請會計師出具內部控制專案審查報告日期:115/04/07 3.委請會計師出具內部控制專案審查報告之緣由:依據金融監督管理委員會114/12/31 金管銀國字第11402743121號函辦理。 4.申報公告「內部控制專案審查報告」內容之日期:115/06/18 5.意見類型:依據所執行之程序及所獲取之證據，未發現確信標的資訊之設計有效性 所有重大方面有因未遵循其相關辦法而無法允當表達之情事。 6.其他應敘明事項(內部控制專案審查報告全文請至公開資訊觀測站查閱，路徑為：公司 治理/內部控制專區/內部控制審查報告): https://mops.twse.com.tw/mops/#/web/t06hsg20；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | 1.取得會計師「內部控制專案審查報告」日期:115/06/18 2.委請會計師出具內部控制專案審查報告日期:115/04/07 3.委請會計師出具內部控制專案審查報告之緣由:依據金融監督管理委員會114/12/31 金管銀國字第11402743121號函辦理。 4.申報公告「內部控制專案審查報告」內容之日期:115/06/18 5.意見類型:依據所執行之程序及所獲取之證據，未發現確信標的資訊之設計有效性 所有重大方面有因未遵循其相關辦法而無法允當表達之情事。 6.其他應敘明事項(內部控制專案審查報告全文請至公開資訊觀測站查閱，路徑為：公司 治理/內部控制專區/內部控制審查報告): https://mops.twse.com.tw/mops/#/web/t06hsg20；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5876 | 上海商銀 | 2 | 1 | 3 | 8 | 14 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260630 | 5876 | 上海商銀 | 3 | 2 | 4 | 8 | 15 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

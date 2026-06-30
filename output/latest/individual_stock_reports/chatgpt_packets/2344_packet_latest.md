@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:23 Asia/Taipei
+- generated_at: 2026-06-30 22:26:35 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
+- date: 20260630
 - open: 209
-- high: 212.5
-- low: 201
-- close: 203
-- volume: 149900066
-- ma5: 209.1
-- ema23_primary: 182.65
-- distance_to_ema23_pct: 11.14
-- ma20: 186.53
-- ma60: 133.88
-- ma120: 119.97
-- return_5d: -8.56
-- return_20d: 28.48
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 8.83
-- distance_to_high_60_pct: -13.06
+- high: 210.5
+- low: 197.5
+- close: 207.5
+- volume: 214412000
+- ma5: 208.3
+- ema23_primary: 184.72
+- distance_to_ema23_pct: 12.33
+- ma20: 188.5
+- ma60: 135.79
+- ma120: 121.06
+- return_5d: -1.89
+- return_20d: 23.51
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 10.08
+- distance_to_high_60_pct: -11.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,168,173.5,166,168,295190831,127.8,31.45,127.49,108.41,1.11
 20260602,174,184.5,171.5,184.5,270430116,132.53,39.21,131.78,109.62,1.01
 20260603,188,193,177,177.5,332157125,136.28,30.25,135.22,110.8,1.21
 20260604,175,188,175,179.5,227016133,139.88,28.33,138.5,112.11,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,219.5,222.5,211,219.5,227328719,178.47,22.99,181.15,130.11,0.86
 20260626,220,225,203,206.5,254263166,180.8,14.21,184.28,132,0.98
 20260629,209,212.5,201,203,149900066,182.65,11.14,186.53,133.88,0.59
+20260630,209,210.5,197.5,207.5,214412000,184.72,12.33,188.5,135.79,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2344 | 華邦電 | 1 | 1 | 1 | 2 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 2344 | 華邦電 | 2 | 2 | 2 | 3 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2344 | 華邦電 | 257 | 0 | 67629530.0 | 0.0 |  | no_signal |
+| 20260630 | 2344 | 華邦電 | 256 | 0 | 62326740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

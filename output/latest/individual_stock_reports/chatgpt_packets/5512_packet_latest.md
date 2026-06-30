@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5512 力麒
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:27 Asia/Taipei
+- generated_at: 2026-06-30 22:27:43 Asia/Taipei
 - stock_id: 5512
 - stock_name: 力麒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 7.89
-- high: 8.1
-- low: 7.89
-- close: 8.05
-- volume: 1737000
-- ma5: 7.95
-- ema23_primary: 7.76
-- distance_to_ema23_pct: 3.72
-- ma20: 7.86
-- ma60: 7.51
-- ma120: 7.73
-- return_5d: 0.62
-- return_20d: 14.84
-- volume_ratio: 1.66
-- distance_to_ma20_pct_auxiliary: 2.44
-- distance_to_high_60_pct: -3.01
+- date: 20260630
+- open: 8.18
+- high: 8.29
+- low: 8.07
+- close: 8.14
+- volume: 2350000
+- ma5: 7.99
+- ema23_primary: 7.79
+- distance_to_ema23_pct: 4.46
+- ma20: 7.9
+- ma60: 7.52
+- ma120: 7.74
+- return_5d: 2.78
+- return_20d: 10.3
+- volume_ratio: 2.01
+- distance_to_ma20_pct_auxiliary: 3.09
+- distance_to_high_60_pct: -1.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,7.05,7.39,6.98,7.38,7000,7.09,4.03,6.95,7.55,0.01
 20260602,7.38,7.46,7.25,7.38,7,7.12,3.68,6.96,7.54,0
 20260603,7.39,7.71,7.33,7.69,8000,7.17,7.32,7,7.53,0.01
 20260604,7.73,7.96,7.65,7.82,8000,7.22,8.31,7.03,7.53,0.01
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,7.97,8.02,7.88,7.94,951000,7.72,2.85,7.76,7.51,1.04
 20260626,7.94,7.99,7.9,7.9,954000,7.73,2.14,7.81,7.51,0.99
 20260629,7.89,8.1,7.89,8.05,1737000,7.76,3.72,7.86,7.51,1.66
+20260630,8.18,8.29,8.07,8.14,2350000,7.79,4.46,7.9,7.52,2.01
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5512 | 力麒 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.契約種類:自地委建契約 2.事實發生日:115/6/17~115/6/17 3.董事會通過日期: 民國115年6月17日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人：木生雲朵室內裝修設計股份有限公司 與公司關係：本公司之關係人 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: (1)契約總金額：新台幣柒仟壹佰肆拾捌萬伍仟貳佰元整(含稅) (2)預計參與投入之金額：新台幣柒仟壹佰肆拾捌萬伍仟貳佰元整(含稅) (3)契約起迄日期：自簽約日起至完工保固期滿止 (4)限制條款：無 (5)其他重要約定事項：無 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 興建商業大樓出租、出售 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年6月17日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 5512 | 力麒 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.契約種類:自地委建契約 2.事實發生日:115/6/17~115/6/17 3.董事會通過日期: 民國115年6月17日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人：木生雲朵室內裝修設計股份有限公司 與公司關係：本公司之關係人 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: (1)契約總金額：新台幣柒仟壹佰肆拾捌萬伍仟貳佰元整(含稅) (2)預計參與投入之金額：新台幣柒仟壹佰肆拾捌萬伍仟貳佰元整(含稅) (3)契約起迄日期：自簽約日起至完工保固期滿止 (4)限制條款：無 (5)其他重要約定事項：無 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 興建商業大樓出租、出售 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年6月17日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 5512 | 力麒 | 1 | 1 | 2 | 3 | 4 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260630 | 5512 | 力麒 | 2 | 2 | 2 | 4 | 5 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

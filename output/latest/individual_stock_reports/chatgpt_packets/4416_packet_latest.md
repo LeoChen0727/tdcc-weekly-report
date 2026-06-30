@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4416 三圓
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:09 Asia/Taipei
+- generated_at: 2026-06-30 22:27:24 Asia/Taipei
 - stock_id: 4416
 - stock_name: 三圓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 12.35
-- high: 12.45
-- low: 11.75
-- close: 11.75
-- volume: 1496000
-- ma5: 11.64
-- ema23_primary: 11.23
-- distance_to_ema23_pct: 4.62
-- ma20: 11.02
-- ma60: 12.13
-- ma120: 18.23
-- return_5d: 17.5
-- return_20d: 7.8
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 6.59
-- distance_to_high_60_pct: -29
+- date: 20260630
+- open: 11.4
+- high: 12.8
+- low: 11.3
+- close: 11.55
+- volume: 1280000
+- ma5: 11.93
+- ema23_primary: 11.26
+- distance_to_ema23_pct: 2.6
+- ma20: 11.03
+- ma60: 12.09
+- ma120: 18.06
+- return_5d: 14.36
+- return_20d: 0.87
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: 4.72
+- distance_to_high_60_pct: -30.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,10.9,11.5,10.9,11.45,11000,11.96,-4.23,11.78,13.3,0.13
 20260602,11.4,12.4,11.4,12.1,12,11.97,1.11,11.75,13.19,0
 20260603,12.2,12.2,11.7,11.7,12000,11.95,-2.05,11.71,13.11,0.16
 20260604,11.7,12,11.6,11.6,12000,11.92,-2.65,11.66,13.05,0.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,12,12.2,12,12.2,950000,11.01,10.77,10.87,12.18,2.22
 20260626,13.4,13.4,12.55,13.05,4645000,11.18,16.69,10.98,12.16,7.05
 20260629,12.35,12.45,11.75,11.75,1496000,11.23,4.62,11.02,12.13,2.04
+20260630,11.4,12.8,11.3,11.55,1280000,11.26,2.6,11.03,12.09,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4416 | 三圓 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.櫃買中心公告處置之日期:NA 2.公司名稱(或負責人姓名):王雅麟 3.與公司關係﹝請輸入本公司、本公司負責人、母公司或子公司﹞:本公司董事長 4.若為母公司或子公司，其相互持股比例:不適用 5.櫃買中心公告處置引用之業務規則條款及發生緣由: 第4條之1上櫃公司或其負責人發生存款不足之退票事由；董事長王雅麟先生 退票事由 6.處理結果(請輸入〝變更交易方法〞、〝停止買賣〞或〝終止上櫃〞):不適用 7.股票開始(併案)變更交易方法/停止買賣/終止上櫃之日期:NA 8.退票、拒絕往來之日期:115/06/25 9.退票張數及金額:1張，$1,500,000 10.退票之往來銀行:合作金庫 11.退票後之清償註記日期:NA 12.退票之清償方式(請輸入〝已實際償付票款〞或〝以換票方式遞延票據債務〞): 與持票人協商清償註記。 13.公告拒絕往來之票據交換所（拒絕往來時適用，否則請輸[不適用]）:不適用 14.因應及保全措施:無 15.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第1款所定對 股東權益或證券價格有重大影響之事項): (1)本公司於115/06/25日獲悉，董事長發生退票情事。 (2)截至本日共有7張支票尚未清償註記，金額共計新台幣87,145,000元，已與 持票人協商清償註記。 (3)該事件係法人董事之個別事務，與本公司營運及財務業務無涉，亦對本公司無 重大影響。 16.(風險警示)發生存款不足退票而致上櫃有價證券列為變更交易方法， 三個月內無法達成補正程序而致停止買賣， 有金融機構拒絕往來紀錄或前開停止買賣情事 六個月內無法達成補正程序並檢附相關書件證明者， 有價證券將有終止上櫃之虞， 提醒投資人審慎注意投資風險:不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 4416 | 三圓 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:三圓建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依115年01月15日證櫃監字第1140203169號函規定辦理說明 (1)本週到期應付票據:113,678元 (2)本週應償還借款及利息:23,841,409元 (3)本週應付薪資:1,766,146元 (4)銀行可使用融資情形: 已取得之融資額度$12,087,600,000；已使用之融資額度$12,005,400,000 未使用之融資額度$82,200,000；尚可使用融資額度$0。 (5)115/06/29期初餘額$570,796。 預估未來3個月現金流入:$1,320,216,591， 預估未來3個月現金流出:$1,315,602,841， 期末餘額$5,184,546 (6)資金缺口:無 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4416 | 三圓 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260630 | 4416 | 三圓 | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

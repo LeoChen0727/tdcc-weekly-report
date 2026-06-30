@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3257 虹冠電
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:52 Asia/Taipei
+- generated_at: 2026-06-30 22:27:05 Asia/Taipei
 - stock_id: 3257
 - stock_name: 虹冠電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 63.4
-- high: 64.7
-- low: 62.1
-- close: 62.7
-- volume: 841268
-- ma5: 68.2
-- ema23_primary: 61.59
-- distance_to_ema23_pct: 1.8
-- ma20: 61.2
-- ma60: 57.1
-- ma120: 59.83
-- return_5d: -6.7
-- return_20d: -8.87
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 2.45
-- distance_to_high_60_pct: -15.16
+- date: 20260630
+- open: 63
+- high: 68.8
+- low: 63
+- close: 67.7
+- volume: 1392000
+- ma5: 66.96
+- ema23_primary: 62.1
+- distance_to_ema23_pct: 9.02
+- ma20: 61.25
+- ma60: 57.34
+- ma120: 59.81
+- return_5d: -8.39
+- return_20d: 1.5
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 10.53
+- distance_to_high_60_pct: -8.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,67.1,67.9,66.1,66.7,1940952,58.09,14.82,57.04,55.38,1.3
 20260602,66.1,66.2,61.3,63.1,1701509,58.51,7.84,57.42,55.47,1.09
 20260603,63.5,64.7,61.8,62.1,987003,58.81,5.6,57.79,55.54,0.62
 20260604,61.5,63.2,61.4,62.3,471434,59.1,5.41,58.2,55.68,0.3
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,71.5,72.1,67.6,68,2753300,61.15,11.21,61.52,56.73,1.25
 20260626,66.9,70.3,64.4,65.3,2362474,61.49,6.19,61.51,56.92,1.15
 20260629,63.4,64.7,62.1,62.7,841268,61.59,1.8,61.2,57.1,0.46
+20260630,63,68.8,63,67.7,1392000,62.1,9.02,61.25,57.34,0.77
 ```
 
 ## Latest TDCC Snapshot

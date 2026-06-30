@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4991 環宇-KY
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:20 Asia/Taipei
+- generated_at: 2026-06-30 22:27:35 Asia/Taipei
 - stock_id: 4991
 - stock_name: 環宇-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 503
-- high: 520
-- low: 465.5
-- close: 482.5
-- volume: 783000
-- ma5: 530.1
-- ema23_primary: 589.56
-- distance_to_ema23_pct: -18.16
-- ma20: 590.42
-- ma60: 635.9
-- ma120: 460.3
-- return_5d: -14.45
-- return_20d: -33.9
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -18.28
-- distance_to_high_60_pct: -46.09
+- date: 20260630
+- open: 504
+- high: 530
+- low: 501
+- close: 530
+- volume: 558000
+- ma5: 528.9
+- ema23_primary: 584.6
+- distance_to_ema23_pct: -9.34
+- ma20: 580.17
+- ma60: 637.73
+- ma120: 462.78
+- return_5d: -1.12
+- return_20d: -27.89
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -8.65
+- distance_to_high_60_pct: -40.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,730,754,709,735,736000,712.72,3.13,728.05,568.91,0.34
 20260602,756,773,677,702,718,711.83,-1.38,725.95,575.06,0
 20260603,730,763,714,731,738000,713.43,2.46,726.25,581.52,0.54
 20260604,702,708,680,682,693000,710.81,-4.05,725.85,587.74,0.65
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,575,575,557,562,472000,607.68,-7.52,612.7,633.08,0.17
 20260626,560,560,506,507,774000,599.29,-15.4,602.8,634.36,0.28
 20260629,503,520,465.5,482.5,783000,589.56,-18.16,590.42,635.9,0.28
+20260630,504,530,501,530,558000,584.6,-9.34,580.17,637.73,0.2
 ```
 
 ## Latest TDCC Snapshot

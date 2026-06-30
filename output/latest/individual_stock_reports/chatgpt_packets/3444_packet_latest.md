@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3444 利機
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:56 Asia/Taipei
+- generated_at: 2026-06-30 22:27:10 Asia/Taipei
 - stock_id: 3444
 - stock_name: 利機
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 91.8
-- high: 91.9
-- low: 89.1
-- close: 89.1
-- volume: 233000
-- ma5: 91.32
-- ema23_primary: 94.31
-- distance_to_ema23_pct: -5.53
-- ma20: 95.68
-- ma60: 90.89
-- ma120: 79.02
-- return_5d: -6.8
-- return_20d: -15.14
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -6.88
-- distance_to_high_60_pct: -28.15
+- date: 20260630
+- open: 89.3
+- high: 91.2
+- low: 89.3
+- close: 90.9
+- volume: 162000
+- ma5: 91.14
+- ema23_primary: 94.03
+- distance_to_ema23_pct: -3.33
+- ma20: 95
+- ma60: 91.37
+- ma120: 79.26
+- return_5d: -0.98
+- return_20d: -13.01
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -4.32
+- distance_to_high_60_pct: -26.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,107,110.5,102,104.5,106000,97.48,7.2,97.83,80.15,0.22
 20260602,103.5,106,100,105,103,98.11,7.03,98.38,80.87,0
 20260603,104.5,107,101,101,103000,98.35,2.7,98.77,81.53,0.26
 20260604,101,105.5,95,104,101000,98.82,5.24,99.44,82.31,0.27
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,93.8,94.8,91.9,93.4,397000,95.32,-2.01,97.81,89.98,0.91
 20260626,93.4,93.4,88,88.9,372000,94.79,-6.21,96.47,90.41,0.83
 20260629,91.8,91.9,89.1,89.1,233000,94.31,-5.53,95.68,90.89,0.51
+20260630,89.3,91.2,89.3,90.9,162000,94.03,-3.33,95,91.37,0.35
 ```
 
 ## Latest TDCC Snapshot

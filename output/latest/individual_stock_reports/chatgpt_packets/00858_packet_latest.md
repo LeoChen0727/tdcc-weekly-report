@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:55 Asia/Taipei
+- generated_at: 2026-06-30 22:26:07 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 35.55
-- high: 35.9
-- low: 35.55
-- close: 35.87
-- volume: 600000
-- ma5: 35.79
-- ema23_primary: 35.84
-- distance_to_ema23_pct: 0.08
-- ma20: 35.84
-- ma60: 35.85
-- ma120: 35.85
-- return_5d: -0.86
-- return_20d: -0.5
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 0.08
-- distance_to_high_60_pct: -1.32
+- date: 20260630
+- open: 36.06
+- high: 36.28
+- low: 36.06
+- close: 36.27
+- volume: 534000
+- ma5: 35.88
+- ema23_primary: 35.88
+- distance_to_ema23_pct: 1.1
+- ma20: 35.85
+- ma60: 35.87
+- ma120: 35.87
+- return_5d: 1.2
+- return_20d: 0.47
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 1.17
+- distance_to_high_60_pct: -0.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,36.05,36.1,36.01,36.1,36000,35.86,0.67,35.92,35.92,1
 20260602,35.91,36.05,35.91,36.05,36,35.87,0.49,35.93,35.93,0
 20260603,36.21,36.23,36.16,36.19,36000,35.9,0.81,35.96,35.96,1.12
 20260604,36.12,36.14,36,36.03,36000,35.91,0.33,35.97,35.97,1.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,35.77,35.96,35.77,35.96,296000,35.87,0.26,35.86,35.87,0.71
 20260626,35.75,35.75,35.43,35.51,667000,35.84,-0.91,35.85,35.85,1.49
 20260629,35.55,35.9,35.55,35.87,600000,35.84,0.08,35.84,35.85,1.26
+20260630,36.06,36.28,36.06,36.27,534000,35.88,1.1,35.85,35.87,1.06
 ```
 
 ## Latest TDCC Snapshot

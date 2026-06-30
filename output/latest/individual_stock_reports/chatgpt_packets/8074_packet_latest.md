@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:12 Asia/Taipei
+- generated_at: 2026-06-30 22:28:30 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 66
-- high: 70.6
-- low: 65
-- close: 68.8
-- volume: 1582000
-- ma5: 69.5
-- ema23_primary: 72.65
-- distance_to_ema23_pct: -5.3
-- ma20: 72.42
-- ma60: 73.9
-- ma120: 66.92
-- return_5d: -11.45
-- return_20d: -7.9
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -5
-- distance_to_high_60_pct: -28.56
+- date: 20260630
+- open: 70.2
+- high: 71.5
+- low: 69.6
+- close: 70.3
+- volume: 1179000
+- ma5: 68.96
+- ema23_primary: 72.46
+- distance_to_ema23_pct: -2.98
+- ma20: 72.11
+- ma60: 74.14
+- ma120: 67.12
+- return_5d: -3.7
+- return_20d: -8.1
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -2.51
+- distance_to_high_60_pct: -27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,75.5,77.8,74.2,76.5,76000,76.8,-0.39,79.16,69.97,0.03
 20260602,77.2,77.4,72.1,74.2,74,76.58,-3.11,78.23,70.15,0
 20260603,74.8,77.3,72.6,75.2,75000,76.46,-1.65,77.77,70.33,0.04
 20260604,75.2,75.3,72.3,73,73000,76.18,-4.17,77.36,70.58,0.04
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,70.6,72,68.9,68.9,1386000,73.66,-6.46,73.2,73.46,0.93
 20260626,69,71,65.8,65.8,1904000,73,-9.87,72.72,73.63,1.21
 20260629,66,70.6,65,68.8,1582000,72.65,-5.3,72.42,73.9,0.96
+20260630,70.2,71.5,69.6,70.3,1179000,72.46,-2.98,72.11,74.14,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8074 | 鉅橡 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/23 2.公司名稱:鉅橡企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)依據「發行人募集與發行有價證券處理準則」第九條規定辦理。 (2)本公司辦理115年現金增資發行普通股6,000,000股，每股發行價格新台幣50元， 實收股款總額新台幣300,000,000元，業已全數收足，並訂定115年06月23日為 增資基準日。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 預定股款繳納憑證上櫃日期為115年6月26日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 8074 | 鉅橡 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/23 2.公司名稱:鉅橡企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)依據「發行人募集與發行有價證券處理準則」第九條規定辦理。 (2)本公司辦理115年現金增資發行普通股6,000,000股，每股發行價格新台幣50元， 實收股款總額新台幣300,000,000元，業已全數收足，並訂定115年06月23日為 增資基準日。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 預定股款繳納憑證上櫃日期為115年6月26日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8074 | 鉅橡 | 1 | 1 | 4 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 8074 | 鉅橡 | 2 | 2 | 4 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

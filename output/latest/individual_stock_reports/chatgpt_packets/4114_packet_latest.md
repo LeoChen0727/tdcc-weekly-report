@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:06 Asia/Taipei
+- generated_at: 2026-06-30 22:27:20 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 30.8
-- high: 31.2
-- low: 30.75
-- close: 31.15
-- volume: 1337000
-- ma5: 30.87
-- ema23_primary: 30.71
-- distance_to_ema23_pct: 1.43
-- ma20: 30.61
+- date: 20260630
+- open: 31.3
+- high: 31.45
+- low: 31.05
+- close: 31.35
+- volume: 1148000
+- ma5: 30.96
+- ema23_primary: 30.77
+- distance_to_ema23_pct: 1.9
+- ma20: 30.67
 - ma60: 30.87
-- ma120: 31.48
-- return_5d: 0.65
-- return_20d: 3.32
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: 1.76
-- distance_to_high_60_pct: -3.26
+- ma120: 31.47
+- return_5d: 1.46
+- return_20d: 4.15
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 2.21
+- distance_to_high_60_pct: -2.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,30.05,30.15,29.9,30.1,30000,30.65,-1.78,30.66,31.03,0.05
 20260602,30.1,30.4,30.05,30.2,30,30.61,-1.34,30.64,31.01,0
 20260603,30.4,30.45,30.1,30.35,30000,30.59,-0.78,30.61,30.99,0.06
 20260604,30.4,30.65,30.35,30.5,31000,30.58,-0.26,30.58,30.98,0.07
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,31.1,31.25,30.9,30.9,877000,30.71,0.63,30.55,30.88,1.51
 20260626,30.9,30.9,30.3,30.3,1321000,30.67,-1.21,30.56,30.86,2.05
 20260629,30.8,31.2,30.75,31.15,1337000,30.71,1.43,30.61,30.87,1.88
+20260630,31.3,31.45,31.05,31.35,1148000,30.77,1.9,30.67,30.87,1.5
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4114 | 健喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 4114 | 健喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4114 | 健喬 | 1 | 1 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 4114 | 健喬 | 2 | 2 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1537 廣隆
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:08 Asia/Taipei
+- generated_at: 2026-06-30 22:26:20 Asia/Taipei
 - stock_id: 1537
 - stock_name: 廣隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
+- date: 20260630
 - open: 125
 - high: 126
 - low: 125
-- close: 125
-- volume: 34394
+- close: 125.5
+- volume: 46000
 - ma5: 125.6
-- ema23_primary: 126.13
-- distance_to_ema23_pct: -0.9
-- ma20: 126.62
-- ma60: 125.08
+- ema23_primary: 126.08
+- distance_to_ema23_pct: -0.46
+- ma20: 126.6
+- ma60: 125.1
 - ma120: 124.47
-- return_5d: -1.57
+- return_5d: 0
 - return_20d: -0.4
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -1.28
-- distance_to_high_60_pct: -3.85
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -0.87
+- distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,126,126,125,126,162667,124.98,0.82,124.97,124.13,1.56
 20260602,125,126,125,126,103181,125.07,0.75,125.17,124.18,0.98
 20260603,126,126.5,125.5,126.5,110026,125.19,1.05,125.35,124.22,1.02
 20260604,126.5,128.5,126,128.5,200747,125.46,2.42,125.62,124.33,1.76
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,126,126.5,126,126.5,47874,126.35,0.12,126.67,125.03,0.51
 20260626,126,126.5,125,125,79932,126.24,-0.98,126.65,125.05,0.85
 20260629,125,126,125,125,34394,126.13,-0.9,126.62,125.08,0.38
+20260630,125,126,125,125.5,46000,126.08,-0.46,126.6,125.1,0.54
 ```
 
 ## Latest TDCC Snapshot

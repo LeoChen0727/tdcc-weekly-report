@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:58 Asia/Taipei
+- generated_at: 2026-06-30 22:27:12 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 235
-- high: 237
-- low: 231
-- close: 232
-- volume: 576190
-- ma5: 238
-- ema23_primary: 241.67
-- distance_to_ema23_pct: -4
-- ma20: 246.75
-- ma60: 234.43
-- ma120: 229.95
-- return_5d: -5.69
-- return_20d: -4.13
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -5.98
-- distance_to_high_60_pct: -15.17
+- date: 20260630
+- open: 234.5
+- high: 236.5
+- low: 232
+- close: 234
+- volume: 736000
+- ma5: 236.5
+- ema23_primary: 241.03
+- distance_to_ema23_pct: -2.92
+- ma20: 245.78
+- ma60: 234.88
+- ma120: 229.84
+- return_5d: -3.11
+- return_20d: -7.69
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -4.79
+- distance_to_high_60_pct: -14.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,247,258,242.5,253.5,2588126,234.4,8.15,234.88,224.32,2.41
 20260602,255,273.5,252,273.5,4098455,237.65,15.08,236.68,225.14,3.27
 20260603,273.5,273.5,257.5,259,3851236,239.43,8.17,237.43,225.74,2.85
 20260604,256.5,258,249,249,1203229,240.23,3.65,237.55,226.37,0.93
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,244,247,241,243.5,477405,243.5,-0,247.32,233.55,0.4
 20260626,243.5,243.5,232,232,584244,242.55,-4.35,247.25,233.93,0.49
 20260629,235,237,231,232,576190,241.67,-4,246.75,234.43,0.5
+20260630,234.5,236.5,232,234,736000,241.03,-2.92,245.78,234.88,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3515 | 華擎 | 21 | 0 | 387880.0 | 0.0 |  | no_signal |
+| 20260630 | 3515 | 華擎 | 21 | 0 | 916930.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

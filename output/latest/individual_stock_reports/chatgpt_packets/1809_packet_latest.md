@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1809 中釉
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:15 Asia/Taipei
+- generated_at: 2026-06-30 22:26:27 Asia/Taipei
 - stock_id: 1809
 - stock_name: 中釉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 47.85
-- high: 51
-- low: 47.3
-- close: 50.3
-- volume: 3832027
-- ma5: 51.65
-- ema23_primary: 49.67
-- distance_to_ema23_pct: 1.28
-- ma20: 52.53
-- ma60: 39.33
-- ma120: 31.75
-- return_5d: -10.97
-- return_20d: 15.5
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -4.24
-- distance_to_high_60_pct: -18.61
+- date: 20260630
+- open: 51.9
+- high: 55.3
+- low: 51.8
+- close: 54.2
+- volume: 12027000
+- ma5: 51.71
+- ema23_primary: 50.04
+- distance_to_ema23_pct: 8.31
+- ma20: 52.84
+- ma60: 39.8
+- ma120: 32.06
+- return_5d: 0.56
+- return_20d: 13.15
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 2.57
+- distance_to_high_60_pct: -12.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,43.55,47.9,42.65,47.9,13633772,39.15,22.34,40.01,31.19,1.19
 20260602,49.9,52.6,49.9,52.6,7761848,40.27,30.6,41.09,31.64,0.71
 20260603,57.8,57.8,49.85,56.2,44368140,41.6,35.09,42.19,32.15,3.62
 20260604,56.5,61.8,56.3,58.5,36365243,43.01,36.01,43.39,32.73,3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,54.3,55.1,51.8,51.9,5402514,49.77,4.28,51.88,38.57,0.36
 20260626,51,51.4,47.2,47.85,6022710,49.61,-3.54,52.19,38.92,0.41
 20260629,47.85,51,47.3,50.3,3832027,49.67,1.28,52.53,39.33,0.27
+20260630,51.9,55.3,51.8,54.2,12027000,50.04,8.31,52.84,39.8,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1809 | 中釉 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加福邦證券所舉辦之線上法人說明會，說明本公司公司簡介及營運報告。 5.其他應敘明事項：報名網址: https://forms.gle/UJMryww5vwMJ3vYu9 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 1809 | 中釉 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加福邦證券所舉辦之線上法人說明會，說明本公司公司簡介及營運報告。 5.其他應敘明事項：報名網址: https://forms.gle/UJMryww5vwMJ3vYu9 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 1809 | 中釉 | 1 | 1 | 2 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 1809 | 中釉 | 2 | 2 | 3 | 4 | 9 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

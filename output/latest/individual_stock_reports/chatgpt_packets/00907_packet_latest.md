@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00907 永豐優息存股
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:56 Asia/Taipei
+- generated_at: 2026-06-30 22:26:08 Asia/Taipei
 - stock_id: 00907
 - stock_name: 永豐優息存股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 16.22
-- high: 16.34
-- low: 16.14
-- close: 16.15
-- volume: 1074890
-- ma5: 16.32
-- ema23_primary: 16.07
-- distance_to_ema23_pct: 0.5
-- ma20: 16.26
-- ma60: 15.97
-- ma120: 15.97
-- return_5d: -2.89
-- return_20d: 5.21
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -0.67
-- distance_to_high_60_pct: -3.41
+- date: 20260630
+- open: 16.15
+- high: 16.26
+- low: 16.11
+- close: 16.21
+- volume: 941000
+- ma5: 16.24
+- ema23_primary: 16.08
+- distance_to_ema23_pct: 0.8
+- ma20: 16.29
+- ma60: 15.98
+- ma120: 15.98
+- return_5d: -2.41
+- return_20d: 3.64
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -0.48
+- distance_to_high_60_pct: -3.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,15.35,15.66,15.35,15.64,3139466,15,4.27,15.11,15.11,1.32
 20260602,15.64,15.8,15.53,15.8,4075735,15.07,4.87,15.2,15.2,1.57
 20260603,15.89,16.44,15.88,16.43,6932947,15.18,8.24,15.33,15.33,2.26
 20260604,16.4,16.52,16.37,16.4,4934602,15.28,7.32,15.44,15.44,1.51
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,16.35,16.52,16.32,16.39,1926869,16.06,2.08,16.17,15.96,0.75
 20260626,16.37,16.37,16.13,16.13,1329017,16.06,0.42,16.22,15.97,0.53
 20260629,16.22,16.34,16.14,16.15,1074890,16.07,0.5,16.26,15.97,0.44
+20260630,16.15,16.26,16.11,16.21,941000,16.08,0.8,16.29,15.98,0.4
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6712 長聖
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:52 Asia/Taipei
+- generated_at: 2026-06-30 22:28:08 Asia/Taipei
 - stock_id: 6712
 - stock_name: 長聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,27 +56,27 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可小量試單
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: starter_1_3
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -92,8 +92,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 156.5
-- high: 162
-- low: 154.5
-- close: 158
-- volume: 3082000
-- ma5: 150.5
-- ema23_primary: 142.05
-- distance_to_ema23_pct: 11.23
-- ma20: 141.15
-- ma60: 137.76
-- ma120: 145.26
-- return_5d: 10.88
-- return_20d: 17.91
-- volume_ratio: 5.49
-- distance_to_ma20_pct_auxiliary: 11.94
-- distance_to_high_60_pct: -2.47
+- date: 20260630
+- open: 162.5
+- high: 165
+- low: 158
+- close: 158.5
+- volume: 1431000
+- ma5: 153.9
+- ema23_primary: 143.42
+- distance_to_ema23_pct: 10.51
+- ma20: 142.28
+- ma60: 138.03
+- ma120: 145.2
+- return_5d: 12.01
+- return_20d: 16.54
+- volume_ratio: 2.29
+- distance_to_ma20_pct_auxiliary: 11.4
+- distance_to_high_60_pct: -3.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,133.5,136.5,133,136,135000,134.31,1.26,134.62,137.86,0.61
 20260602,140,140.5,137.5,138,139,134.61,2.51,134.55,137.73,0
 20260603,140,140,136.5,137.5,138000,134.86,1.96,134.6,137.62,0.74
 20260604,138.5,143,138,139.5,140000,135.24,3.15,134.65,137.57,0.76
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,152.5,154.5,149.5,153,1156000,139.97,9.31,139.15,137.32,2.91
 20260626,152.5,152.5,147.5,147.5,475000,140.6,4.91,139.95,137.44,1.15
 20260629,156.5,162,154.5,158,3082000,142.05,11.23,141.15,137.76,5.49
+20260630,162.5,165,158,158.5,1431000,143.42,10.51,142.28,138.03,2.29
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6712 | 長聖 | true_breakout | 嚴格突破 | 127.0 |  |  | platform_breakout |  |  | first_seen | 1.事實發生日:115/06/28 2.研發新藥名稱或代號:嵌合抗原受體T細胞(CAR001) 3.用途:治療復發/難治性實體腫瘤；台灣藥品臨床試驗資訊網連結網址：   https://e-sub.fda.gov.tw/ClinicalTrialInfo/case-search/ES-CCAR01-A3301 4.預計進行之所有研發階段:Phase Ⅰ/Ⅱa 臨床試驗/Phase Ⅱb臨床試驗/Phase Ⅲ臨床   試驗/新藥查驗登記審核 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/不通過核准 ，若未通過者，請說明公司所面臨之風險及因應措施；另請說明未來經營方向及已投 入累積研發費用):   (1)提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他影響新      藥研發之重大事件：本公司已完成 CAR001 用於治療復發／難治性實體腫瘤之美國      FDA及台灣TFDA核准之Phase I/IIa臨床試驗中 Phase I 劑量遞增（Dose      Escalation）部分。經安全性監測委員會（SMC）完成審查後，並獲台灣 TFDA 同      意依原核准之臨床試驗計畫啟動 Phase IIa 劑量擴展（Dose Expansion）收案。      A.臨床試驗設計介紹：        a.計畫名稱：一項臨床一／二a期、單組、劑量遞增及劑量擴展之開放性試驗，          評估同種異體嵌合抗原受體（CAR）Gamma-Delta T細胞 CAR001 用於治療復          發／難治性實體腫瘤患者之可行性、安全性及有效性。        b.試驗目的：          (i)Phase I主要目的：評估 CAR001 於受試者之安全性及耐受性，並確認最             大耐受劑量（Maximum Tolerated Dose, MTD）。          (ii)Phase IIa主要目的：評估 CAR001 於復發／難治性實體腫瘤受試者之              初步療效，包括客觀反應率（Objective Response Rate, ORR）等療效              指標，並持續評估其安全性。        c.試驗階段分級：Phase I/IIa臨床試驗。        d.藥品名稱：CAR001。        e.宣稱適應症：復發/難治性實體腫瘤。        f.評估指標：          (i)主要評估指標：             **Phase I：**確認 CAR001 於受試者之最大耐受劑量（Maximum                        Tolerated Dose, MTD）。             **Phase IIa：**客觀反應率（Objective Response Rate, ORR）。          (ii)次要評估指標：不良事件（AE）及嚴重不良事件（SAE）發生率、生命              徵象、實驗室檢查、心電圖及理學檢查等安全性評估，以及其他療效評              估指標。        g.試驗計畫受試者收納人數：Phase Ⅰ受試者15人。      B.主要及次要評估指標之統計結果及統計上之意義：本試驗已完成 Phase I 劑        量遞增試驗，其主要目的為評估 CAR001 之安全性及確認最大耐受劑量（MTD）        。截至目前臨床試驗結果，未觀察到劑量限制性毒性（Dose Limiting        Toxicity, DLT），且未發生與 CAR001 相關之嚴重安全性不良反應，經安全性        監測委員會（SMC）審查後，支持依原核准之臨床試驗計畫推進至 Phase IIa        劑量擴展試驗。      C.單一臨床試驗結果，並不足以充分反映未來新藥開發上市之成敗，投資人應審慎        判斷謹慎投資。   (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計上顯      著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應措施：不      適用。   (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上著意      義或發生其他影響新藥研發之重大事件者，未來經營方向：本公司將持續依美國      FDA 及台灣 TFDA 核准之 Phase I/IIa 臨床試驗計畫推進 Phase IIa 臨床試驗，      並依臨床試驗執行進度、安全性及療效結果，規劃後續 Phase IIb、Phase III 臨      床開發、法規申請及國際授權合作，以推動 CAR001 全球產品開發。   (4)已投入之累積研發費用：因涉及未來授權談判資訊及保護商業競爭機密，以保障公      司及投資人權益，故不予揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):   (1)預計完成時間：實際時程將依臨床執行進度而定。   (2)預計應負擔之義務：將依專屬授權契約書約定支付授權金，及臨床試驗相關研發費      用、行政規費等。 7.市場現況:2024年CAR-T市場規模估計103.8億美元，至2033年將可達1079.2億美元，   2024-2033年複合年成長率(CAGR)為30%。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 6712 | 長聖 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.事實發生日:115/06/28 2.研發新藥名稱或代號:嵌合抗原受體T細胞(CAR001) 3.用途:治療復發/難治性實體腫瘤；台灣藥品臨床試驗資訊網連結網址：   https://e-sub.fda.gov.tw/ClinicalTrialInfo/case-search/ES-CCAR01-A3301 4.預計進行之所有研發階段:Phase Ⅰ/Ⅱa 臨床試驗/Phase Ⅱb臨床試驗/Phase Ⅲ臨床   試驗/新藥查驗登記審核 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/不通過核准 ，若未通過者，請說明公司所面臨之風險及因應措施；另請說明未來經營方向及已投 入累積研發費用):   (1)提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他影響新      藥研發之重大事件：本公司已完成 CAR001 用於治療復發／難治性實體腫瘤之美國      FDA及台灣TFDA核准之Phase I/IIa臨床試驗中 Phase I 劑量遞增（Dose      Escalation）部分。經安全性監測委員會（SMC）完成審查後，並獲台灣 TFDA 同      意依原核准之臨床試驗計畫啟動 Phase IIa 劑量擴展（Dose Expansion）收案。      A.臨床試驗設計介紹：        a.計畫名稱：一項臨床一／二a期、單組、劑量遞增及劑量擴展之開放性試驗，          評估同種異體嵌合抗原受體（CAR）Gamma-Delta T細胞 CAR001 用於治療復          發／難治性實體腫瘤患者之可行性、安全性及有效性。        b.試驗目的：          (i)Phase I主要目的：評估 CAR001 於受試者之安全性及耐受性，並確認最             大耐受劑量（Maximum Tolerated Dose, MTD）。          (ii)Phase IIa主要目的：評估 CAR001 於復發／難治性實體腫瘤受試者之              初步療效，包括客觀反應率（Objective Response Rate, ORR）等療效              指標，並持續評估其安全性。        c.試驗階段分級：Phase I/IIa臨床試驗。        d.藥品名稱：CAR001。        e.宣稱適應症：復發/難治性實體腫瘤。        f.評估指標：          (i)主要評估指標：             **Phase I：**確認 CAR001 於受試者之最大耐受劑量（Maximum                        Tolerated Dose, MTD）。             **Phase IIa：**客觀反應率（Objective Response Rate, ORR）。          (ii)次要評估指標：不良事件（AE）及嚴重不良事件（SAE）發生率、生命              徵象、實驗室檢查、心電圖及理學檢查等安全性評估，以及其他療效評              估指標。        g.試驗計畫受試者收納人數：Phase Ⅰ受試者15人。      B.主要及次要評估指標之統計結果及統計上之意義：本試驗已完成 Phase I 劑        量遞增試驗，其主要目的為評估 CAR001 之安全性及確認最大耐受劑量（MTD）        。截至目前臨床試驗結果，未觀察到劑量限制性毒性（Dose Limiting        Toxicity, DLT），且未發生與 CAR001 相關之嚴重安全性不良反應，經安全性        監測委員會（SMC）審查後，支持依原核准之臨床試驗計畫推進至 Phase IIa        劑量擴展試驗。      C.單一臨床試驗結果，並不足以充分反映未來新藥開發上市之成敗，投資人應審慎        判斷謹慎投資。   (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計上顯      著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應措施：不      適用。   (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上著意      義或發生其他影響新藥研發之重大事件者，未來經營方向：本公司將持續依美國      FDA 及台灣 TFDA 核准之 Phase I/IIa 臨床試驗計畫推進 Phase IIa 臨床試驗，      並依臨床試驗執行進度、安全性及療效結果，規劃後續 Phase IIb、Phase III 臨      床開發、法規申請及國際授權合作，以推動 CAR001 全球產品開發。   (4)已投入之累積研發費用：因涉及未來授權談判資訊及保護商業競爭機密，以保障公      司及投資人權益，故不予揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):   (1)預計完成時間：實際時程將依臨床執行進度而定。   (2)預計應負擔之義務：將依專屬授權契約書約定支付授權金，及臨床試驗相關研發費      用、行政規費等。 7.市場現況:2024年CAR-T市場規模估計103.8億美元，至2033年將可達1079.2億美元，   2024-2033年複合年成長率(CAGR)為30%。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6712 | 長聖 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260630 | 6712 | 長聖 | 2 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

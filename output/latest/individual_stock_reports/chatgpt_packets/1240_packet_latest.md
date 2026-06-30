@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1240 茂生農經
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:00 Asia/Taipei
+- generated_at: 2026-06-30 22:26:12 Asia/Taipei
 - stock_id: 1240
 - stock_name: 茂生農經
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 57.6
-- high: 57.8
+- date: 20260630
+- open: 57.5
+- high: 57.5
 - low: 57.5
 - close: 57.5
-- volume: 5000
-- ma5: 57.94
-- ema23_primary: 57.97
-- distance_to_ema23_pct: -0.81
-- ma20: 57.83
-- ma60: 58.44
-- ma120: 59.06
-- return_5d: -1.37
+- volume: 1000
+- ma5: 57.76
+- ema23_primary: 57.93
+- distance_to_ema23_pct: -0.75
+- ma20: 57.84
+- ma60: 58.41
+- ma120: 59.05
+- return_5d: -1.54
 - return_20d: 0.35
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -0.56
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: -0.58
 - distance_to_high_60_pct: -4.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,57.3,57.7,57.3,57.3,57000,58.13,-1.43,58.14,58.9,1.49
 20260602,57,57.2,56.9,57.2,57,58.05,-1.47,58.05,58.88,0
 20260603,57.5,57.5,57.1,57.2,57000,57.98,-1.35,57.97,58.85,1.51
 20260604,57.3,57.5,57.3,57.4,57000,57.93,-0.92,57.88,58.83,1.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,58.1,58.1,57.1,57.8,33000,58.04,-0.42,57.8,58.49,1.28
 20260626,58,58,57.7,57.7,6000,58.02,-0.54,57.81,58.47,0.26
 20260629,57.6,57.8,57.5,57.5,5000,57.97,-0.81,57.83,58.44,0.24
+20260630,57.5,57.5,57.5,57.5,1000,57.93,-0.75,57.84,58.41,0.06
 ```
 
 ## Latest TDCC Snapshot

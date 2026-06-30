@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:26 Asia/Taipei
+- generated_at: 2026-06-30 22:26:38 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 5255
-- high: 5450
+- date: 20260630
+- open: 5375
+- high: 5440
 - low: 5255
-- close: 5450
-- volume: 953667
-- ma5: 5521
-- ema23_primary: 5205.01
-- distance_to_ema23_pct: 4.71
-- ma20: 5177.75
-- ma60: 4610.08
-- ma120: 3352.21
-- return_5d: -6.44
-- return_20d: 6.45
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 5.26
-- distance_to_high_60_pct: -9.84
+- close: 5390
+- volume: 1102000
+- ma5: 5459
+- ema23_primary: 5220.43
+- distance_to_ema23_pct: 3.25
+- ma20: 5193.75
+- ma60: 4652.25
+- ma120: 3383.04
+- return_5d: -5.44
+- return_20d: 6.31
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 3.78
+- distance_to_high_60_pct: -10.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,5130,5280,4985,5070,2273627,4775.85,6.16,4906,3806.67,0.88
 20260602,5060,5075,4820,4860,2172811,4782.87,1.61,4912.5,3848.25,0.84
 20260603,4910,5010,4820,4830,2199236,4786.79,0.9,4906.5,3889.42,0.88
 20260604,4880,4885,4740,4830,1722407,4790.39,0.83,4900,3933.67,0.7
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,5700,5700,5500,5640,1253427,5176.17,8.96,5151.25,4521.42,0.52
 20260626,5640,5640,5220,5255,1391599,5182.74,1.39,5161.25,4562.58,0.59
 20260629,5255,5450,5255,5450,953667,5205.01,4.71,5177.75,4610.08,0.43
+20260630,5375,5440,5255,5390,1102000,5220.43,3.25,5193.75,4652.25,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +186,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260630 | 2383 | 台光電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.公司名稱:台光電子材料股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 更補正本公司115年第一季合併財務報告附註揭露-資金貸與他人部份資訊 中文財報(P37) / 英文財報(P48) 6.更正資訊項目/報表名稱: 更補正本公司115年第一季合併財務報告附註揭露-資金貸與他人部份資訊 中文財報(P37) / 英文財報(P48) 7.更正前金額/內容/頁次: 更正前金額:新台幣946,561仟元 更正前內容:中山台光電子材料有限公司貸與台光電子材料(黃石)有限公司 本期最高金額 更正前頁次:中文財報(P37) / 英文財報(P48) 8.更正後金額/內容/頁次: 因114年額度已到期，故刪除此筆資金貸與資訊 更正後頁次:中文財報(P37) / 英文財報(P48) 9.因應措施:更正後上傳於公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.公司名稱:台光電子材料股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 更補正本公司115年第一季合併財務報告附註揭露-資金貸與他人部份資訊 中文財報(P37) / 英文財報(P48) 6.更正資訊項目/報表名稱: 更補正本公司115年第一季合併財務報告附註揭露-資金貸與他人部份資訊 中文財報(P37) / 英文財報(P48) 7.更正前金額/內容/頁次: 更正前金額:新台幣946,561仟元 更正前內容:中山台光電子材料有限公司貸與台光電子材料(黃石)有限公司 本期最高金額 更正前頁次:中文財報(P37) / 英文財報(P48) 8.更正後金額/內容/頁次: 因114年額度已到期，故刪除此筆資金貸與資訊 更正後頁次:中文財報(P37) / 英文財報(P48) 9.因應措施:更正後上傳於公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260630 | 2383 | 台光電 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2383 | 台光電 | 105 | 0 | 2782770.0 | 0.0 |  | no_signal |
+| 20260630 | 2383 | 台光電 | 105 | 0 | 683380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

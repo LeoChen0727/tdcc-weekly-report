@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4560 強信-KY
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:12 Asia/Taipei
+- generated_at: 2026-06-30 22:27:27 Asia/Taipei
 - stock_id: 4560
 - stock_name: 強信-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 32.4
-- high: 32.95
-- low: 32.4
-- close: 32.75
-- volume: 271001
-- ma5: 32.63
-- ema23_primary: 32.76
-- distance_to_ema23_pct: -0.04
-- ma20: 32.54
-- ma60: 33.47
+- date: 20260630
+- open: 33
+- high: 33.3
+- low: 32.9
+- close: 33.2
+- volume: 157000
+- ma5: 32.78
+- ema23_primary: 32.8
+- distance_to_ema23_pct: 1.22
+- ma20: 32.58
+- ma60: 33.48
 - ma120: 33.07
-- return_5d: 0
-- return_20d: 2.34
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 0.65
-- distance_to_high_60_pct: -12.67
+- return_5d: 2.31
+- return_20d: 2.63
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 1.9
+- distance_to_high_60_pct: -11.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,32,32.45,31.85,32.35,143000,33.39,-3.1,33.78,33.58,0.54
 20260602,32.35,33,32,32.1,296071,33.28,-3.54,33.6,33.57,1.1
 20260603,32.35,32.5,32,32.2,192045,33.19,-2.98,33.46,33.53,0.72
 20260604,32.35,33.1,32,32.95,474813,33.17,-0.66,33.32,33.53,1.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,32.7,33,32.4,32.95,230021,32.8,0.46,32.5,33.47,0.85
 20260626,32.6,32.9,32.3,32.4,153000,32.77,-1.12,32.5,33.47,0.56
 20260629,32.4,32.95,32.4,32.75,271001,32.76,-0.04,32.54,33.47,1.01
+20260630,33,33.3,32.9,33.2,157000,32.8,1.22,32.58,33.48,0.58
 ```
 
 ## Latest TDCC Snapshot

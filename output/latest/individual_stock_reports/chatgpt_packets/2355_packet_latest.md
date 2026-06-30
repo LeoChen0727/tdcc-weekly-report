@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2355 敬鵬
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:24 Asia/Taipei
+- generated_at: 2026-06-30 22:26:36 Asia/Taipei
 - stock_id: 2355
 - stock_name: 敬鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 51.8
-- high: 54
-- low: 51.2
-- close: 52.8
-- volume: 5579348
-- ma5: 54.3
-- ema23_primary: 56.61
-- distance_to_ema23_pct: -6.73
-- ma20: 56.8
-- ma60: 55.58
-- ma120: 47.39
-- return_5d: -10.05
-- return_20d: -19.14
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -7.05
-- distance_to_high_60_pct: -25.63
+- date: 20260630
+- open: 53.9
+- high: 54.7
+- low: 53.2
+- close: 54.2
+- volume: 3907000
+- ma5: 53.92
+- ema23_primary: 56.41
+- distance_to_ema23_pct: -3.92
+- ma20: 56.51
+- ma60: 55.6
+- ma120: 47.58
+- return_5d: -3.39
+- return_20d: -9.97
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -4.08
+- distance_to_high_60_pct: -23.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,63,63,60,60.2,38150885,58.7,2.56,58.13,51.94,1.22
 20260602,60.5,61.8,58.7,60.1,16675611,58.82,2.18,58.53,52.25,0.52
 20260603,60.4,61.2,59.3,59.3,12154840,58.86,0.75,58.91,52.51,0.38
 20260604,59,59.5,56,56.4,16584900,58.65,-3.84,59.09,52.78,0.53
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,56.4,56.4,55,55,4715134,57.44,-4.24,57.93,55.54,0.27
 20260626,54,55.3,51.6,51.7,8097190,56.96,-9.23,57.43,55.55,0.48
 20260629,51.8,54,51.2,52.8,5579348,56.61,-6.73,56.8,55.58,0.35
+20260630,53.9,54.7,53.2,54.2,3907000,56.41,-3.92,56.51,55.6,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2355 | 敬鵬 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.股東會決議日:115/06/24 2.許可從事競業行為之董事姓名及職稱: 董事/林丕吉 董事/曾劉玉枝 董事/童小紅 3.許可從事競業行為之項目:本公司所營事業 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第209條說明表決結果）: 依公司法第209條之規定，經本公司115年6月24日股東常會通過，在無損及本公司 利益之前提下，解除董事競業禁止之限制。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 董事/林丕吉 董事/曾劉玉枝 董事/童小紅 7.所擔任該大陸地區事業之公司名稱及職務: 董事/林丕吉    擔任 敬鵬(常熟)電子有限公司 董事 董事/曾劉玉枝  擔任 敬鵬(常熟)電子有限公司 董事 董事/曾劉玉枝  擔任 蘇州豪康進出口有限公司 董事 董事/童小紅    擔任 敬鵬(常熟)電子有限公司 董事 8.所擔任該大陸地區事業地址: 敬鵬(常熟)電子有限公司 江蘇省常熟高新技術產業開發區黃浦江路98號 蘇州豪康進出口有限公司 江蘇省常熟高新技術產業開發區黃浦江路98號二樓201室 9.所擔任該大陸地區事業營業項目: 敬鵬(常熟)電子有限公司 印刷電路板 蘇州豪康進出口有限公司 進出口貿易 10.對本公司財務業務之影響程度:無。因該公司為本公司100%間接持有之子公司 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 2355 | 敬鵬 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東會決議日:115/06/24 2.許可從事競業行為之董事姓名及職稱: 董事/林丕吉 董事/曾劉玉枝 董事/童小紅 3.許可從事競業行為之項目:本公司所營事業 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第209條說明表決結果）: 依公司法第209條之規定，經本公司115年6月24日股東常會通過，在無損及本公司 利益之前提下，解除董事競業禁止之限制。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: 董事/林丕吉 董事/曾劉玉枝 董事/童小紅 7.所擔任該大陸地區事業之公司名稱及職務: 董事/林丕吉    擔任 敬鵬(常熟)電子有限公司 董事 董事/曾劉玉枝  擔任 敬鵬(常熟)電子有限公司 董事 董事/曾劉玉枝  擔任 蘇州豪康進出口有限公司 董事 董事/童小紅    擔任 敬鵬(常熟)電子有限公司 董事 8.所擔任該大陸地區事業地址: 敬鵬(常熟)電子有限公司 江蘇省常熟高新技術產業開發區黃浦江路98號 蘇州豪康進出口有限公司 江蘇省常熟高新技術產業開發區黃浦江路98號二樓201室 9.所擔任該大陸地區事業營業項目: 敬鵬(常熟)電子有限公司 印刷電路板 蘇州豪康進出口有限公司 進出口貿易 10.對本公司財務業務之影響程度:無。因該公司為本公司100%間接持有之子公司 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2355 | 敬鵬 | 1 | 1 | 2 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 2355 | 敬鵬 | 2 | 2 | 2 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 2355 | 敬鵬 | 80 | 0 | 4058310.0 | 0.0 |  | call_strong_inflow |
+| 20260630 | 2355 | 敬鵬 | 80 | 0 | 4615200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4162 智擎
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:08 Asia/Taipei
+- generated_at: 2026-06-30 22:27:22 Asia/Taipei
 - stock_id: 4162
 - stock_name: 智擎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 58.4
-- high: 60.6
-- low: 58.4
-- close: 59.5
-- volume: 1058000
-- ma5: 58.66
-- ema23_primary: 57.17
-- distance_to_ema23_pct: 4.08
-- ma20: 56.95
-- ma60: 56.62
-- ma120: 60.87
-- return_5d: 5.68
-- return_20d: 11.01
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: 4.47
-- distance_to_high_60_pct: -1.82
+- date: 20260630
+- open: 60.3
+- high: 62.1
+- low: 59.8
+- close: 61
+- volume: 2612000
+- ma5: 59.34
+- ema23_primary: 57.49
+- distance_to_ema23_pct: 6.11
+- ma20: 57.29
+- ma60: 56.66
+- ma120: 60.78
+- return_5d: 5.9
+- return_20d: 12.34
+- volume_ratio: 3.97
+- distance_to_ma20_pct_auxiliary: 6.48
+- distance_to_high_60_pct: -1.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,53.9,54.9,53.1,54.3,54000,55.48,-2.13,55.68,56.98,0.19
 20260602,54.5,55,54.1,54.9,54,55.43,-0.96,55.59,56.86,0
 20260603,55.5,55.8,54.3,55.6,55000,55.45,0.28,55.52,56.77,0.22
 20260604,55.7,56.5,55.1,55.7,56000,55.47,0.42,55.41,56.73,0.25
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,59.5,59.7,58.5,59,492000,56.87,3.75,56.41,56.58,1.08
 20260626,58.6,59.1,57.3,57.9,522000,56.95,1.66,56.66,56.59,1.09
 20260629,58.4,60.6,58.4,59.5,1058000,57.17,4.08,56.95,56.62,2
+20260630,60.3,62.1,59.8,61,2612000,57.49,6.11,57.29,56.66,3.97
 ```
 
 ## Latest TDCC Snapshot
@@ -188,14 +188,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4162 | 智擎 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260629 | 4162 | 智擎 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260629 | 4162 | 智擎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 4162 | 智擎 | pullback_rebound | 回檔後短線轉強 | 56.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 4162 | 智擎 | revenue_pullback | 營收成長股價回檔 | 56.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 4162 | 智擎 | true_breakout | 嚴格突破 | 151.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4162 | 智擎 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260630 | 4162 | 智擎 | 2 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

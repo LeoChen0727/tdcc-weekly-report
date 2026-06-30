@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8215 明基材
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:15 Asia/Taipei
+- generated_at: 2026-06-30 22:28:33 Asia/Taipei
 - stock_id: 8215
 - stock_name: 明基材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 28.5
-- high: 29.55
-- low: 28.15
-- close: 28.9
-- volume: 1266733
-- ma5: 29.37
-- ema23_primary: 29.48
-- distance_to_ema23_pct: -1.96
-- ma20: 30.02
-- ma60: 27.96
-- ma120: 24.46
-- return_5d: -7.67
-- return_20d: -1.87
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -3.71
-- distance_to_high_60_pct: -13.47
+- date: 20260630
+- open: 29.1
+- high: 30.5
+- low: 29.05
+- close: 30.35
+- volume: 2097000
+- ma5: 29.44
+- ema23_primary: 29.55
+- distance_to_ema23_pct: 2.7
+- ma20: 29.91
+- ma60: 28.07
+- ma120: 24.56
+- return_5d: 1.17
+- return_20d: -6.18
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 1.45
+- distance_to_high_60_pct: -9.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,29.2,32.35,29.2,32.35,18534621,28.21,14.67,28.46,25.6,3.33
 20260602,32.5,32.55,30.15,31.45,9361391,28.48,10.42,28.61,25.8,1.7
 20260603,31.5,33.4,31.3,32.6,8734341,28.82,13.1,28.68,26.01,1.59
 20260604,32.5,32.5,30.5,30.5,3843774,28.96,5.3,28.73,26.2,0.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,30.9,30.9,29.5,29.55,2151034,29.66,-0.36,30.07,27.75,0.38
 20260626,29.55,29.6,28.1,28.15,2189634,29.53,-4.68,30.04,27.84,0.39
 20260629,28.5,29.55,28.15,28.9,1266733,29.48,-1.96,30.02,27.96,0.23
+20260630,29.1,30.5,29.05,30.35,2097000,29.55,2.7,29.91,28.07,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8215 | 明基材 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 8215 | 明基材 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8215 | 明基材 | 1 | 1 | 3 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 8215 | 明基材 | 2 | 2 | 4 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8215 | 明基材 | 5 | 0 | 248200.0 | 0.0 |  | no_signal |
+| 20260630 | 8215 | 明基材 | 5 | 0 | 343940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:42 Asia/Taipei
+- generated_at: 2026-06-30 22:27:58 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 361.5
-- high: 370
-- low: 358
-- close: 360
-- volume: 1203232
-- ma5: 368.7
-- ema23_primary: 369.39
-- distance_to_ema23_pct: -2.54
-- ma20: 378.75
-- ma60: 341.78
-- ma120: 311.84
-- return_5d: -5.51
-- return_20d: -0.14
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -4.95
-- distance_to_high_60_pct: -12.62
+- date: 20260630
+- open: 365
+- high: 372.5
+- low: 365
+- close: 369.5
+- volume: 1337000
+- ma5: 367.1
+- ema23_primary: 369.4
+- distance_to_ema23_pct: 0.03
+- ma20: 378.45
+- ma60: 343.37
+- ma120: 312.44
+- return_5d: -2.12
+- return_20d: -1.6
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -2.36
+- distance_to_high_60_pct: -10.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,364,379.5,362,375.5,2648961,343.45,9.33,349.02,307.54,1.25
 20260602,382.5,393,375,383,2793598,346.74,10.46,350.93,309.43,1.3
 20260603,387.5,389,378,385,1355521,349.93,10.02,352.75,311.29,0.64
 20260604,382.5,389.5,378.5,389.5,1790343,353.23,10.27,354.65,313.37,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,374.5,380,370,373.5,1489768,371.04,0.66,378.32,338.76,0.74
 20260626,370,375,360.5,361.5,1606254,370.24,-2.36,378.77,340.3,0.79
 20260629,361.5,370,358,360,1203232,369.39,-2.54,378.75,341.78,0.6
+20260630,365,372.5,365,369.5,1337000,369.4,0.03,378.45,343.37,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6414 | 樺漢 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 6414 | 樺漢 | 3 | 3 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 6414 | 樺漢 | 32 | 0 | 2296820.0 | 0.0 |  | call_inflow |
+| 20260630 | 6414 | 樺漢 | 31 | 0 | 2824760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

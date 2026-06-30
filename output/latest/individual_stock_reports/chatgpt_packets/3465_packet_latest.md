@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:57 Asia/Taipei
+- generated_at: 2026-06-30 22:27:10 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
+- date: 20260630
 - open: 36.5
-- high: 36.5
-- low: 35
+- high: 37.5
+- low: 34.55
 - close: 35.7
-- volume: 104000
-- ma5: 37.85
-- ema23_primary: 33.99
-- distance_to_ema23_pct: 5.04
-- ma20: 33.82
-- ma60: 32.18
-- ma120: 38.96
-- return_5d: -10.53
-- return_20d: 24.83
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 5.57
+- volume: 179000
+- ma5: 36.99
+- ema23_primary: 34.13
+- distance_to_ema23_pct: 4.6
+- ma20: 34.11
+- ma60: 32.15
+- ma120: 38.87
+- return_5d: -10.75
+- return_20d: 19.8
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: 4.65
 - distance_to_high_60_pct: -18.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,28.65,29.8,28.65,29.8,29000,29.14,2.25,27.82,34.69,0.66
 20260602,30.5,32.75,30.5,32,32,29.38,8.91,27.94,34.5,0
 20260603,32,33.95,30.75,32.1,32000,29.61,8.42,28.14,34.32,0.82
 20260604,33.05,33.5,31.8,31.9,32000,29.8,7.05,28.38,34.14,0.97
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,40,42,38.6,38.6,227000,33.68,14.62,33.08,32.22,2.13
 20260626,37.45,38.3,35.55,35.55,143000,33.83,5.08,33.46,32.19,1.27
 20260629,36.5,36.5,35,35.7,104000,33.99,5.04,33.82,32.18,0.9
+20260630,36.5,37.5,34.55,35.7,179000,34.13,4.6,34.11,32.15,1.45
 ```
 
 ## Latest TDCC Snapshot

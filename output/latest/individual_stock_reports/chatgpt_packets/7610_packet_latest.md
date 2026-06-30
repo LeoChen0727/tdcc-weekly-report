@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7610 聯友金屬-創
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:06 Asia/Taipei
+- generated_at: 2026-06-30 22:28:23 Asia/Taipei
 - stock_id: 7610
 - stock_name: 聯友金屬-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 187
+- latest_price_date: 20260630
+- price_rows: 188
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 2220
-- high: 2220
-- low: 2050
-- close: 2100
-- volume: 196749
-- ma5: 2230
-- ema23_primary: 1864.18
-- distance_to_ema23_pct: 12.65
-- ma20: 1937
-- ma60: 1169.55
-- ma120: 707.33
-- return_5d: -16.17
-- return_20d: 42.37
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 8.42
-- distance_to_high_60_pct: -17.49
+- date: 20260630
+- open: 2195
+- high: 2230
+- low: 2110
+- close: 2230
+- volume: 174000
+- ma5: 2193
+- ema23_primary: 1894.66
+- distance_to_ema23_pct: 17.7
+- ma20: 1967.75
+- ma60: 1200.61
+- ma120: 724.88
+- return_5d: -7.66
+- return_20d: 38.08
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 13.33
+- distance_to_high_60_pct: -12.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,1580,1620,1515,1615,343996,1070.57,50.85,1054.8,655.19,0.36
 20260602,1635,1730,1635,1685,323349,1121.78,50.21,1102.6,678.47,0.36
 20260603,1705,1705,1660,1660,300781,1166.63,42.29,1151.1,701.33,0.37
 20260604,1665,1810,1665,1730,220826,1213.58,42.55,1199.65,725.4,0.28
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,2440,2440,2125,2250,223895,1826.17,23.21,1871.75,1112.72,0.49
 20260626,2220,2220,2025,2025,407268,1842.74,9.89,1905.75,1140.4,0.88
 20260629,2220,2220,2050,2100,196749,1864.18,12.65,1937,1169.55,0.43
+20260630,2195,2230,2110,2230,174000,1894.66,17.7,1967.75,1200.61,0.39
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5212 凌網
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:21 Asia/Taipei
+- generated_at: 2026-06-30 22:27:36 Asia/Taipei
 - stock_id: 5212
 - stock_name: 凌網
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 155
+- latest_price_date: 20260630
+- price_rows: 156
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 46.9
+- date: 20260630
+- open: 46.7
 - high: 47
 - low: 46.7
 - close: 47
-- volume: 17000
-- ma5: 46.17
-- ema23_primary: 46.68
-- distance_to_ema23_pct: 0.69
-- ma20: 46.54
-- ma60: 48
-- ma120: 50.44
+- volume: 7000
+- ma5: 46.36
+- ema23_primary: 46.7
+- distance_to_ema23_pct: 0.64
+- ma20: 46.59
+- ma60: 47.9
+- ma120: 50.39
 - return_5d: 2.06
-- return_20d: 1.84
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.98
+- return_20d: 2.17
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 0.87
 - distance_to_high_60_pct: -18.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,46.2,46.5,44.55,46,46000,47.28,-2.7,46.94,50.11,2.56
 20260528,45.2,46.8,45.1,46.6,46000,47.22,-1.31,46.9,50.03,2.31
 20260529,46.6,46.6,45.25,45.85,46000,47.11,-2.67,46.82,49.94,2.12
 20260601,47.45,47.5,46.25,46.75,47000,47.08,-0.69,46.82,49.84,2.07
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,45.8,45.8,45.7,45.7,6000,46.71,-2.15,46.51,48.25,0.23
 20260626,45.75,46,45.35,46,11000,46.65,-1.39,46.5,48.11,0.44
 20260629,46.9,47,46.7,47,17000,46.68,0.69,46.54,48,0.73
+20260630,46.7,47,46.7,47,7000,46.7,0.64,46.59,47.9,0.33
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3605 宏致
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:01 Asia/Taipei
+- generated_at: 2026-06-30 22:27:15 Asia/Taipei
 - stock_id: 3605
 - stock_name: 宏致
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 73.9
-- high: 80.6
-- low: 73.7
-- close: 78
-- volume: 4664251
-- ma5: 77.02
-- ema23_primary: 76.59
-- distance_to_ema23_pct: 1.84
-- ma20: 75.71
-- ma60: 75.7
-- ma120: 68.91
-- return_5d: -2.74
-- return_20d: -1.52
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: 3.02
-- distance_to_high_60_pct: -15.03
+- date: 20260630
+- open: 78.4
+- high: 79.5
+- low: 77.5
+- close: 77.9
+- volume: 2391000
+- ma5: 76.8
+- ema23_primary: 76.7
+- distance_to_ema23_pct: 1.56
+- ma20: 75.64
+- ma60: 76.06
+- ma120: 69.06
+- return_5d: -1.39
+- return_20d: -1.64
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 2.98
+- distance_to_high_60_pct: -15.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,79.8,80.8,79.2,79.2,2859275,78.85,0.45,81.17,70.75,0.45
 20260602,79.9,79.9,76.1,77.5,3043927,78.73,-1.57,80.48,70.98,0.54
 20260603,78.5,78.5,76.7,77.3,1945273,78.62,-1.67,79.97,71.21,0.38
 20260604,77.3,78,76.3,76.3,1479562,78.42,-2.71,79.42,71.49,0.32
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,77.5,77.6,74.5,77.5,1997514,76.69,1.06,75.98,75.02,0.73
 20260626,77.1,78.1,73.9,74,1971504,76.46,-3.22,75.77,75.31,0.77
 20260629,73.9,80.6,73.7,78,4664251,76.59,1.84,75.71,75.7,1.75
+20260630,78.4,79.5,77.5,77.9,2391000,76.7,1.56,75.64,76.06,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3605 | 宏致 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:通過修正「公司章程」案。 4.重要決議事項三、營業報告書及財務報表:   通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   (1)通過修訂「民國113年度限制員工權利新股發行辦法」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 3605 | 宏致 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:通過修正「公司章程」案。 4.重要決議事項三、營業報告書及財務報表:   通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   (1)通過修訂「民國113年度限制員工權利新股發行辦法」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3605 | 宏致 | 1 | 1 | 2 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 3605 | 宏致 | 2 | 2 | 3 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3605 | 宏致 | 24 | 0 | 4424130.0 | 0.0 |  | call_inflow |
+| 20260630 | 3605 | 宏致 | 25 | 0 | 4549140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

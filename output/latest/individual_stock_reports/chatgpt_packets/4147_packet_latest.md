@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4147 中裕
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:07 Asia/Taipei
+- generated_at: 2026-06-30 22:27:21 Asia/Taipei
 - stock_id: 4147
 - stock_name: 中裕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 61.5
-- high: 64
+- date: 20260630
+- open: 63
+- high: 66.4
 - low: 61.5
-- close: 63.8
-- volume: 1801000
-- ma5: 62.96
-- ema23_primary: 57.6
-- distance_to_ema23_pct: 10.77
-- ma20: 57.91
-- ma60: 53.24
-- ma120: 54.61
-- return_5d: 10.57
-- return_20d: 29.54
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 10.18
-- distance_to_high_60_pct: -4.35
+- close: 65
+- volume: 2416000
+- ma5: 63.28
+- ema23_primary: 58.21
+- distance_to_ema23_pct: 11.66
+- ma20: 58.49
+- ma60: 53.39
+- ma120: 54.63
+- return_5d: 2.52
+- return_20d: 22.18
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 11.12
+- distance_to_high_60_pct: -2.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,50.1,54.1,48.85,53.2,53000,49.93,6.55,49.7,51.31,0.07
 20260602,52.9,55.2,51.9,52.7,53,50.16,5.06,49.84,51.28,0
 20260603,52.9,56.2,52.3,55.8,55000,50.63,10.21,50.16,51.32,0.08
 20260604,55.1,59,54.3,58.6,57000,51.29,14.24,50.65,51.45,0.09
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,64.9,65.7,62.6,63,2055000,56.75,11.01,56.53,52.93,1.44
 20260626,62.9,63.2,59.6,60.1,1727000,57.03,5.38,57.18,53.03,1.14
 20260629,61.5,64,61.5,63.8,1801000,57.6,10.77,57.91,53.24,1.13
+20260630,63,66.4,61.5,65,2416000,58.21,11.66,58.49,53.39,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4147 | 中裕 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/22 2.契約或承諾相對人:Samsung Biologics Co., Ltd. 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:115/06/22 5.主要內容（解除者不適用）:本公司與Samsung Biologics Co., Ltd.簽訂TMB-365 商業產品藥物原料之產品專屬協議（Product Specific Agreement–Commercial Product Drug Substance） 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:無 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:本公司與Samsung Biologics Co., Ltd.達成深度合作， 全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的 全球市場上市供應。 10.具體目的:本公司與Samsung Biologics Co., Ltd.達成深度合作，全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的全球市場 上市供應。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260630 | 4147 | 中裕 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/22 2.契約或承諾相對人:Samsung Biologics Co., Ltd. 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:115/06/22 5.主要內容（解除者不適用）:本公司與Samsung Biologics Co., Ltd.簽訂TMB-365 商業產品藥物原料之產品專屬協議（Product Specific Agreement–Commercial Product Drug Substance） 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:無 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:本公司與Samsung Biologics Co., Ltd.達成深度合作， 全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的 全球市場上市供應。 10.具體目的:本公司與Samsung Biologics Co., Ltd.達成深度合作，全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的全球市場 上市供應。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 4147 | 中裕 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260630 | 4147 | 中裕 | 5 | 2 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2724 藝舍-KY
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:37 Asia/Taipei
+- generated_at: 2026-06-30 22:26:50 Asia/Taipei
 - stock_id: 2724
 - stock_name: 藝舍-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 132
+- latest_price_date: 20260630
+- price_rows: 133
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 12.15
-- high: 12.15
-- low: 12.15
-- close: 12.15
-- volume: 1000
-- ma5: 12.03
-- ema23_primary: 12.81
-- distance_to_ema23_pct: -5.18
-- ma20: 12.54
-- ma60: 15.04
-- ma120: 17.38
-- return_5d: -0.41
-- return_20d: -11.96
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -3.15
-- distance_to_high_60_pct: -39.4
+- date: 20260630
+- open: 12.05
+- high: 12.05
+- low: 12
+- close: 12.05
+- volume: 7000
+- ma5: 12.05
+- ema23_primary: 12.75
+- distance_to_ema23_pct: -5.49
+- ma20: 12.49
+- ma60: 14.92
+- ma120: 17.33
+- return_5d: 0.84
+- return_20d: -8.02
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -3.54
+- distance_to_high_60_pct: -39.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,13.1,13.1,13.1,13.1,13000,14.75,-11.2,14.36,17.26,0.62
 20260601,13.05,13.05,13,13.05,13000,14.61,-10.68,14.22,17.14,0.63
 20260603,12.2,13.5,12.2,13.5,12000,14.52,-7.01,14.1,17.04,0.57
 20260604,13.3,13.3,12.5,13,13000,14.39,-9.67,13.96,16.93,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,12.1,12.1,11.7,12.1,20000,12.97,-6.69,12.72,15.31,1.27
 20260626,11.7,11.85,11.5,11.85,3000,12.87,-7.96,12.63,15.17,0.2
 20260629,12.15,12.15,12.15,12.15,1000,12.81,-5.18,12.54,15.04,0.07
+20260630,12.05,12.05,12,12.05,7000,12.75,-5.49,12.49,14.92,0.49
 ```
 
 ## Latest TDCC Snapshot

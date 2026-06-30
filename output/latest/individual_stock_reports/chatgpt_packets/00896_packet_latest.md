@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00896 中信綠能及電動車
 
 ## Metadata
-- generated_at: 2026-06-29 22:25:56 Asia/Taipei
+- generated_at: 2026-06-30 22:26:08 Asia/Taipei
 - stock_id: 00896
 - stock_name: 中信綠能及電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260629
-- price_rows: 26
+- latest_price_date: 20260630
+- price_rows: 27
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 26.62
-- high: 27.18
-- low: 26.62
-- close: 26.96
-- volume: 4639839
-- ma5: 27.52
+- date: 20260630
+- open: 27.38
+- high: 27.86
+- low: 27.33
+- close: 27.86
+- volume: 3929000
+- ma5: 27.47
 - ema23_primary: 27.85
-- distance_to_ema23_pct: -3.21
-- ma20: 28.28
-- ma60: 28.21
-- ma120: 28.21
-- return_5d: -5.57
-- return_20d: -6.39
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -4.68
-- distance_to_high_60_pct: -12.61
+- distance_to_ema23_pct: 0.02
+- ma20: 28.21
+- ma60: 28.2
+- ma120: 28.2
+- return_5d: -0.89
+- return_20d: -5.14
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -1.23
+- distance_to_high_60_pct: -9.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,29.15,29.55,29.15,29.37,3261429,27.48,6.87,28.18,28.18,0.93
 20260602,30.85,30.85,29.02,29.54,32108727,27.65,6.82,28.35,28.35,4.53
 20260603,29.87,30.12,29.8,30.08,16001175,27.86,7.99,28.54,28.54,1.98
 20260604,30,30.17,29.6,29.6,18788988,28,5.71,28.65,28.65,2.05
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,28.15,28.31,27.7,27.82,5201412,28.06,-0.84,28.44,28.33,0.39
 20260626,27.74,27.78,26.59,26.61,10121195,27.93,-4.74,28.38,28.26,0.76
 20260629,26.62,27.18,26.62,26.96,4639839,27.85,-3.21,28.28,28.21,0.35
+20260630,27.38,27.86,27.33,27.86,3929000,27.85,0.02,28.21,28.2,0.29
 ```
 
 ## Latest TDCC Snapshot

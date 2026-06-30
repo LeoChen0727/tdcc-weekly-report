@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:05 Asia/Taipei
+- generated_at: 2026-06-30 22:27:19 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 628
-- high: 632
-- low: 611
-- close: 627
-- volume: 17955704
-- ma5: 643
-- ema23_primary: 601.61
-- distance_to_ema23_pct: 4.22
-- ma20: 602
-- ma60: 529.6
-- ma120: 422.5
-- return_5d: -6.97
-- return_20d: 2.62
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 4.15
-- distance_to_high_60_pct: -10.43
+- date: 20260630
+- open: 653
+- high: 687
+- low: 650
+- close: 680
+- volume: 23341000
+- ma5: 646.6
+- ema23_primary: 608.14
+- distance_to_ema23_pct: 11.82
+- ma20: 605.95
+- ma60: 534.92
+- ma120: 426.21
+- return_5d: 2.72
+- return_20d: 13.14
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 12.22
+- distance_to_high_60_pct: -2.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,603,615,599,601,25834856,547.96,9.68,553.65,447.44,0.9
 20260602,600,608,577,590,27769330,551.46,6.99,557.15,451.38,0.99
 20260603,615,636,614,618,28543715,557.01,10.95,561.85,455.98,1.02
 20260604,617,622,593,593,21218144,560.01,5.89,564.5,460.53,0.77
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,679,679,625,641,31615796,596.33,7.49,600.95,519.98,1.16
 20260626,650,695,630,632,45022342,599.3,5.46,601.2,524.62,1.62
 20260629,628,632,611,627,17955704,601.61,4.22,602,529.6,0.68
+20260630,653,687,650,680,23341000,608.14,11.82,605.95,534.92,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3711 | 日月光投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:自民國115/6/26至民國115/6/26 2.本次新增（減少）投資方式: 擬於上海證券交易所透過大宗交易方式處分環旭電子(股)公司股份 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易單位數量、每單位價格及交易總金額: 交易數量：不超過47,778,700股 每單位價格及交易總金額：待交易執行後另行公告 6.大陸被投資公司之公司名稱: 環旭電子(股)公司 7.前開大陸被投資公司之實收資本額: 人民幣2,388,935,678元 8.前開大陸被投資公司本次擬新增資本額: 不適用 9.前開大陸被投資公司主要營業項目: 提供電子產品設計製造服務，生產及加工新型電子元器件、計算機高性能主機板、 無線網&#63799;通信元器件等 10.前開大陸被投資公司最近年度財務報表會計師意見型態: 無保留意見 11.前開大陸被投資公司最近年度財務報表權益總額: 人民幣 20,721,402,493.02元 12.前開大陸被投資公司最近年度財務報表損益金額: 人民幣 1,853,439,277.28元 13.迄目前為止，對前開大陸被投資公司之實際投資金額: 美金 1,012,920仟元 14.交易相對人及其與公司之關係: 不適用 15.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉 之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額: 不適用 16.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得 及處分日期、價格及交易當時與公司之關係: 不適用 17.處分利益（或損失）: 待交易執行後另行公告 18.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項: 經上海證券交易所確定交易成交後，買賣雙方履行清算交割義務後收款 19.本次交易之決定方式、價格決定之參考依據及決策單位: 依上海證券交易所交易成交當時之價格為準 20.經紀人: 無 21.取得或處分之具體目的: 集團營運策略 22.本次交易表示異議董事之意見: 無 23.本次交易為關係人交易:否 24.監察人承認或審計委員會同意日期: 不適用 25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）: 環電公司：美金1,027,734千元 26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 實收資本額之比率: 72.90% 27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 總資產之比率: 7.70% 28.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 歸屬於母公司業主之權益之比率: 9.25% 29.迄目前為止，實際赴大陸地區投資總額: 環電公司：美金1,027,734仟元 30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率: 72.90% 31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率: 7.70% 32.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率: 9.25% 33.最近三年度認列投資大陸損益金額: 環電公司： 112年度：新台幣9,934,494千元 113年度：新台幣8,811,909千元 114年度：新台幣8,879,141千元 34.最近三年度獲利匯回金額: 環電公司： 112年度：新台幣3,571,427千元 113年度：新台幣2,718,463千元 114年度：新台幣2,840,683千元 35.本次交易會計師出具非合理性意見:不適用 36.會計師事務所名稱: 不適用 37.會計師姓名: 不適用 38.會計師開業證書字號: 不適用 39.前已就同一件事件發布重大訊息日期: 不適用 40.其他敘明事項: 1.環誠科技有限公司目前持有環旭電子70.48%股份(1,683,749,126股)， 持有金額(採權益法之帳面金額)為美金2,317,808,298.22元，無權利受 限情形，待交易實行後另行公告持股比等相關資訊。 2.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬於 母公司業主之權益之比例暨最近期財務報表中營運資金數額：待交易執行 後另行公告。 3.預計處分執行期間: 115年7月21日至115年10月20日   4.環旭電子(股)公司依上海證券交易所規定應揭露之事項，可於上海證券 交易所網站查詢。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 3711 | 日月光投控 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.契約種類:廠務工程 2.事實發生日:115/3/2~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理核決 民國115年6月29日 5.契約相對人及其與公司之關係: 康呈科技工程股份有限公司， 與公司關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 總金額：NTD 522,090,000； 契約起迄日期：115年3月2日至118年12月31日； 限制條款及其他重要約定事項：無 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運用 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3711 | 日月光投控 | 2 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 3711 | 日月光投控 | 3 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3711 | 日月光投控 | 233 | 0 | 40527070.0 | 0.0 |  | no_signal |
+| 20260630 | 3711 | 日月光投控 | 234 | 0 | 59999260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

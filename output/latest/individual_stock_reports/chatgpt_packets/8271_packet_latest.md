@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-06-29 22:28:16 Asia/Taipei
+- generated_at: 2026-06-30 22:28:33 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 293
+- latest_price_date: 20260630
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 200.5
-- high: 200.5
-- low: 192.5
-- close: 193.5
-- volume: 1977678
-- ma5: 201
-- ema23_primary: 212.18
-- distance_to_ema23_pct: -8.8
-- ma20: 215.3
-- ma60: 212.01
-- ma120: 170.84
-- return_5d: -10.21
-- return_20d: -21.18
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -10.13
-- distance_to_high_60_pct: -28.6
+- date: 20260630
+- open: 196
+- high: 197.5
+- low: 191
+- close: 194.5
+- volume: 1765000
+- ma5: 198.8
+- ema23_primary: 210.71
+- distance_to_ema23_pct: -7.69
+- ma20: 212.6
+- ma60: 212.87
+- ma120: 171.62
+- return_5d: -5.35
+- return_20d: -21.73
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -8.51
+- distance_to_high_60_pct: -28.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,248.5,256,245.5,248.5,6612524,228.94,8.54,238.5,194.22,1.41
 20260602,251,264.5,248,257.5,11768701,231.32,11.32,239.78,196.58,2.24
 20260603,260,261,247,250,5735954,232.88,7.35,240.12,198.73,1.05
 20260604,245,257.5,244.5,245,5076536,233.89,4.75,239.97,200.78,0.9
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,206.5,210,204,204.5,2537560,215.32,-5.03,219.85,210.05,0.59
 20260626,204.5,211,197.5,198,2773043,213.88,-7.42,217.9,210.95,0.68
 20260629,200.5,200.5,192.5,193.5,1977678,212.18,-8.8,215.3,212.01,0.51
+20260630,196,197.5,191,194.5,1765000,210.71,-7.69,212.6,212.87,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 8271 | 宇瞻 | 53 | 0 | 2182430.0 | 0.0 |  | no_signal |
+| 20260630 | 8271 | 宇瞻 | 53 | 0 | 14291670.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

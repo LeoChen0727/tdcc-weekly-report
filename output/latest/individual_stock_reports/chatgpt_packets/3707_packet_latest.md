@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3707 漢磊
 
 ## Metadata
-- generated_at: 2026-06-29 22:27:04 Asia/Taipei
+- generated_at: 2026-06-30 22:27:18 Asia/Taipei
 - stock_id: 3707
 - stock_name: 漢磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 158
+- latest_price_date: 20260630
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 82
-- high: 82
-- low: 77.7
-- close: 79
-- volume: 15418000
-- ma5: 87.48
-- ema23_primary: 81.78
-- distance_to_ema23_pct: -3.4
-- ma20: 81.32
-- ma60: 71.78
-- ma120: 64.35
-- return_5d: -13.66
-- return_20d: -11.53
+- date: 20260630
+- open: 82.2
+- high: 86.9
+- low: 81.4
+- close: 86.9
+- volume: 16261000
+- ma5: 84.76
+- ema23_primary: 82.21
+- distance_to_ema23_pct: 5.71
+- ma20: 81.5
+- ma60: 72.4
+- ma120: 64.65
+- return_5d: -13.53
+- return_20d: 4.32
 - volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -2.85
-- distance_to_high_60_pct: -21.39
+- distance_to_ma20_pct_auxiliary: 6.63
+- distance_to_high_60_pct: -13.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,90,90.9,83,83.3,85000,77.44,7.57,79.26,63.97,0
 20260602,83.2,84.8,80,81.9,82,77.81,5.25,79.58,64.41,0
 20260603,83,84.7,80.5,84.3,83000,78.35,7.59,80.14,64.87,0.01
 20260604,82.6,83.6,77.5,77.5,80000,78.28,-1,80.28,65.29,0.01
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,91,91,85.2,85.8,24363000,82.08,4.54,82.11,70.78,1.97
 20260626,85.1,88.8,81.6,81.6,24788000,82.04,-0.53,81.83,71.27,1.82
 20260629,82,82,77.7,79,15418000,81.78,-3.4,81.32,71.78,1.07
+20260630,82.2,86.9,81.4,86.9,16261000,82.21,5.71,81.5,72.4,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3707 | 漢磊 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.證券名稱: 嘉晶電子股份有限公司普通股 2.交易日期:115/6/26~115/6/26 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量: 不超過14,500,000股;  預計交易價格: 6月26日收盤價NT$124.5元(暫定)之上下10%區間內; 預計交易總金額: NT$1,624佰萬元至NT$1,985佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分交易金額扣除成本後之差額約NT$1,550佰萬元，認列科目為資本公積， 尚待會計師查核相關程序及文件後確認。 7.與交易標的公司之關係: 本公司之子公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 152,461,680股；帳面價值NT$2,593佰萬元；52.8%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 13.4%；24.2%；NT$4,316佰萬元。 10.取得或處分之具體目的: 透過處分部分持股來活化資產，以因應未來產業波動或擴充核心業務的資金需求。 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 1.民國115年6月26日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: (1)依內部人持股轉讓相關規定，實際交易日預計將介於6月29日至7月28日。 (2)公告內容係以交易最大股數14,500,000股及6月26日收盤價NT$124.5元(暫定)估算，    實際交易總金額、處分利益及處分後持有股數等，將依實際交易數量及交易價格為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260629 | 3707 | 漢磊 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.證券名稱: 嘉晶電子股份有限公司普通股 2.交易日期:115/6/26~115/6/26 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量: 不超過14,500,000股;  預計交易價格: 6月26日收盤價NT$124.5元(暫定)之上下10%區間內; 預計交易總金額: NT$1,624佰萬元至NT$1,985佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分交易金額扣除成本後之差額約NT$1,550佰萬元，認列科目為資本公積， 尚待會計師查核相關程序及文件後確認。 7.與交易標的公司之關係: 本公司之子公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 152,461,680股；帳面價值NT$2,593佰萬元；52.8%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 13.4%；24.2%；NT$4,316佰萬元。 10.取得或處分之具體目的: 透過處分部分持股來活化資產，以因應未來產業波動或擴充核心業務的資金需求。 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 1.民國115年6月26日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: (1)依內部人持股轉讓相關規定，實際交易日預計將介於6月29日至7月28日。 (2)公告內容係以交易最大股數14,500,000股及6月26日收盤價NT$124.5元(暫定)估算，    實際交易總金額、處分利益及處分後持有股數等，將依實際交易數量及交易價格為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260630 | 3707 | 漢磊 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.證券名稱: 嘉晶電子股份有限公司普通股 2.交易日期:115/6/29~115/6/29 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 14,500,000股; NT$115.5;NT$1,675佰萬元 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分交易金額扣除成本後之差額約NT$1,420佰萬元，認列科目為資本公積， 尚待會計師查核相關程序及文件後確認。 7.與交易標的公司之關係: 本公司之子公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 152,461,680股；帳面價值NT$2,682佰萬元；52.8%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 12.9%；23.3%；NT$4,316佰萬元。 10.取得或處分之具體目的: 透過處分部分持股來活化資產，以因應未來產業波動或擴充核心業務的資金需求。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 民國115年6月26日 15.前已就同一件事件發布重大訊息日期: 115年6月26日 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260629 | 3707 | 漢磊 | 6 | 2 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260630 | 3707 | 漢磊 | 7 | 2 | 5 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

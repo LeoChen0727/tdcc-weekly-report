@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1796 金穎生技
 
 ## Metadata
-- generated_at: 2026-06-29 22:26:15 Asia/Taipei
+- generated_at: 2026-06-30 22:26:27 Asia/Taipei
 - stock_id: 1796
 - stock_name: 金穎生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 156
+- latest_price_date: 20260630
+- price_rows: 157
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 32.1
-- high: 32.25
-- low: 31.95
-- close: 31.95
-- volume: 23000
-- ma5: 32.74
-- ema23_primary: 34.35
-- distance_to_ema23_pct: -6.99
-- ma20: 34.4
-- ma60: 36.91
-- ma120: 39.98
-- return_5d: -5.19
-- return_20d: -11
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -7.12
-- distance_to_high_60_pct: -28.2
+- date: 20260630
+- open: 31.95
+- high: 31.95
+- low: 31.55
+- close: 31.85
+- volume: 21000
+- ma5: 32.41
+- ema23_primary: 34.14
+- distance_to_ema23_pct: -6.71
+- ma20: 34.22
+- ma60: 36.82
+- ma120: 39.84
+- return_5d: -4.93
+- return_20d: -10.28
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -6.91
+- distance_to_high_60_pct: -28.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,35.5,35.85,35,35.5,35000,36.89,-3.76,36.67,38.13,0.97
 20260602,35.5,36.4,35.5,36.15,36,36.83,-1.84,36.59,38.04,0
 20260603,36.4,37.2,36.4,36.6,37000,36.81,-0.57,36.55,37.95,1
 20260604,37.4,37.4,36.65,36.65,37000,36.8,-0.39,36.46,37.9,1.04
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,32.8,33.4,32.8,33,20000,34.78,-5.12,34.78,36.99,0.98
 20260626,33,33,32.25,32.25,7000,34.57,-6.71,34.59,36.93,0.37
 20260629,32.1,32.25,31.95,31.95,23000,34.35,-6.99,34.4,36.91,1.26
+20260630,31.95,31.95,31.55,31.85,21000,34.14,-6.71,34.22,36.82,1.19
 ```
 
 ## Latest TDCC Snapshot
