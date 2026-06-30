@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Feature Confirmation Research
 
-- generated_at: `2026-06-30 10:05:05 Asia/Taipei`
+- generated_at: `2026-06-30 11:05:58 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: advisory feature confirmation only; this does not approve daily production use
@@ -27,5 +27,10 @@
 | tdcc_all_thresholds_up | chip | tested_point_in_time | available_point_in_time_research_frame | 13502 | 4.52 | 7136 | 2.73 | 52.02 | 10.7 | 11.49 | 36.49 | -9.32 | 0.0 | 1.39 | 1.01 | 11.22 | -1.27 | blocked_exact_daily_row_parity_and_operation_approval_required |
 | return20_0_25 | risk_control | tested_point_in_time | available_point_in_time_research_frame | 117181 | 39.27 | 102047 | 38.99 | 57.14 | 15.82 | 7.39 | 35.47 | -10.34 | 0.0 | 0.4 | 0.02 | 10.92 | -1.57 | blocked_exact_daily_row_parity_and_operation_approval_required |
 | pattern45_bull_pullback | price_structure | tested_point_in_time | computed_from_point_in_time_price_history | 31573 | 10.58 | 25799 | 9.86 | 44.24 | 2.92 | 10.22 | 45.54 | -0.27 | 0.0 | 1.31 | 0.93 | 12.31 | -0.18 | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25 | combo_chip_risk_control | tested_point_in_time | available_point_in_time_research_frame | 11606 | 3.89 | 5141 | 1.96 | 66.58 | 25.26 | 5.58 | 27.84 | -17.97 | 0.0 | 1.28 | 0.9 | 9.82 | -2.67 | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_consecutive_up_ge1_return20_0_25 | combo_chip_risk_control | tested_point_in_time | available_point_in_time_research_frame | 15215 | 5.1 | 6601 | 2.52 | 65.75 | 24.43 | 5.76 | 28.5 | -17.31 | 0.0 | 1.28 | 0.9 | 9.84 | -2.65 | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_obv_above_ma20 | combo_chip_technical_volume | tested_point_in_time | available_point_in_time_research_frame | 11478 | 3.85 | 5281 | 2.02 | 64.27 | 22.95 | 5.68 | 30.05 | -15.76 | 0.0 | 1.2 | 0.82 | 10.02 | -2.47 | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_macd_kd_confirm | combo_chip_technical | tested_point_in_time | available_point_in_time_research_frame | 6502 | 2.18 | 3325 | 1.27 | 65.41 | 24.09 | 6.59 | 28.0 | -17.81 | 0.0 | 1.16 | 0.78 | 9.95 | -2.54 | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | combo_chip_risk_control_technical_volume | tested_point_in_time | available_point_in_time_research_frame | 8122 | 2.72 | 3645 | 1.39 | 69.36 | 28.04 | 4.5 | 26.15 | -19.66 | 0.0 | 1.13 | 0.75 | 9.27 | -3.22 | blocked_exact_daily_row_parity_and_operation_approval_required |
 | revenue_positive_or_strong | revenue | blocked_data_panel_incomplete | historical revenue panel is not complete enough for point-in-time replay in this research frame |  |  | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
 | market_background_regime | market_background | deferred_join_required | market feature panel exists, but this artifact does not yet join it into stock-day rows |  |  | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
