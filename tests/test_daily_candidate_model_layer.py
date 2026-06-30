@@ -358,6 +358,42 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         )
         self.assertTrue(cond_pullback(row))
 
+    def test_pullback_scoring_keeps_loose_gate_and_adds_tdcc_technical_bonus(self) -> None:
+        positive = make_row(
+            tdcc_judgement="",
+            tdcc_accumulation_signal="mild_accumulation",
+            tdcc_400_up_weeks="1",
+            tdcc_1000_up_weeks="1",
+            tdcc_400_change_sum="0.4",
+            tdcc_1000_change_sum="0.2",
+            return_20d="12",
+            return_20d_pct="12",
+        )
+        distribution = make_row(
+            tdcc_judgement="",
+            tdcc_accumulation_signal="distribution_warning",
+            tdcc_400_up_weeks="0",
+            tdcc_1000_up_weeks="0",
+            tdcc_400_change_sum="-0.4",
+            tdcc_1000_change_sum="-0.2",
+            return_20d="38",
+            return_20d_pct="38",
+        )
+
+        self.assertTrue(cond_pullback(positive))
+        self.assertTrue(cond_pullback(distribution))
+
+        positive_score, positive_components, positive_risks = score_pullback(positive)
+        distribution_score, _, distribution_risks = score_pullback(distribution)
+
+        self.assertGreater(positive_score, distribution_score)
+        self.assertIn("price_pullback_tdcc_status:mild_accumulation +8", positive_components)
+        self.assertIn("price_pullback_large_holder_tdcc_confirmation +4", positive_components)
+        self.assertIn("price_pullback_return20_0_25 +6", positive_components)
+        self.assertNotIn("price_pullback_return20_over_25_no_bonus", positive_risks)
+        self.assertIn("price_pullback_tdcc_distribution_penalty:8", distribution_risks)
+        self.assertIn("price_pullback_return20_over_25_no_bonus", distribution_risks)
+
     def test_pre_breakout_models_exclude_confirmed_breakouts(self) -> None:
         breakout = make_row(
             category="true_breakout",
