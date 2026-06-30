@@ -61,6 +61,43 @@ def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "2026061
         ],
     )
     write_csv(
+        latest_dir / "all_candidates_latest.csv",
+        [
+            {
+                "date": report_date,
+                "signal_date": report_date,
+                "main_price_date": report_date,
+                "stock_id": "6153",
+                "stock_name": "test stock",
+                "category": "pattern",
+                "candidate_source_type": "individual_quality_candidate",
+                "candidate_line": "pattern_watch",
+                "candidate_line_group": "individual_pattern_watch",
+                "source_row_index": "0",
+                "close": "101",
+                "ema23": "100",
+                "ma20": "100",
+                "distance_to_ema23_pct": "1.0",
+                "gap_ema23_pct": "1.0",
+                "platform_low": "95",
+                "short_platform_low": "96",
+                "previous_20d_low": "94",
+                "low_20": "94",
+                "ma5_turning_up_flag": "False",
+                "ma10_turning_up_flag": "False",
+                "volume_ratio": "1.2",
+                "return_20d": "5.0",
+                "latest_revenue_yoy": "10.0",
+                "cumulative_revenue_yoy": "8.0",
+                "off_60d_low_pct": "12.0",
+                "tdcc_judgement": "mild_accumulation",
+                "tdcc_accumulation_signal": "True",
+                "warrant_flow_signal": "neutral",
+                "false_breakout_risk": "False",
+            }
+        ],
+    )
+    write_csv(
         latest_dir / "daily_candidate_model_summary_for_report_latest.csv",
         [
             {
@@ -133,6 +170,7 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
     )
 
     assert set(manifest_rows["artifact_id"]) == {
+        "all_candidates_source_rows",
         "data_freshness",
         "model_parameters",
         "model_registry",
@@ -142,6 +180,7 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
     }
     assert set(manifest_rows["snapshot_report_date"]) == {"20260615"}
     assert (snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv").exists()
+    assert (snapshot_dir / "all_candidates_20260615.csv").exists()
     assert validate_snapshots.validate_current_report_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,

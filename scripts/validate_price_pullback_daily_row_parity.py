@@ -34,6 +34,11 @@ REQUIRED_COLUMNS = {
     "parity_scope",
     "published_surface",
     "research_proxy_scope",
+    "comparison_basis",
+    "candidate_universe_snapshot_path",
+    "candidate_universe_source_row_count",
+    "candidate_universe_condition_stock_count",
+    "candidate_universe_missing_required_columns",
     "published_selection_semantics_values",
     "published_source_category_counts",
     "published_report_bucket_counts",
@@ -91,6 +96,7 @@ def validate_row_parity_frame(df: pd.DataFrame) -> list[str]:
         gap_driver = str(row.get("parity_gap_driver", "")).strip()
         candidate_replay_status = str(row.get("candidate_universe_replay_status", "")).strip()
         next_replay_artifact = str(row.get("next_required_replay_artifact", "")).strip()
+        comparison_basis = str(row.get("comparison_basis", "")).strip()
 
         if status.startswith("blocked_") and not blocker:
             errors.append(f"row {idx} blocked parity status must include parity_blocker")
@@ -115,9 +121,30 @@ def validate_row_parity_frame(df: pd.DataFrame) -> list[str]:
             errors.append(f"row {idx} blocked parity status cannot use parity_gap_driver=none_exact")
         if not candidate_replay_status:
             errors.append(f"row {idx} candidate_universe_replay_status must be populated")
+        if comparison_basis not in {
+            "full_research_frame_proxy",
+            "production_all_candidates_source_row_replay",
+            "unavailable_published_snapshot",
+        }:
+            errors.append(f"row {idx} comparison_basis has invalid value: {comparison_basis}")
+        if comparison_basis == "production_all_candidates_source_row_replay":
+            if not str(row.get("candidate_universe_snapshot_path", "")).strip():
+                errors.append(f"row {idx} production replay must include candidate_universe_snapshot_path")
+            if candidate_replay_status == "candidate_universe_replay_exact_match" and (
+                published_gap != 0 or proxy_gap != 0
+            ):
+                errors.append(f"row {idx} exact candidate-universe replay status is inconsistent with row gaps")
+            if candidate_replay_status == "candidate_universe_replay_row_gap" and (
+                published_gap == 0 and proxy_gap == 0
+            ):
+                errors.append(f"row {idx} row-gap candidate-universe replay status must have row gaps")
         if status == "blocked_not_exact_daily_row_parity" and not next_replay_artifact:
             errors.append(f"row {idx} not-exact status must name next_required_replay_artifact")
-        if proxy_gap > published and gap_driver != "research_full_universe_proxy_exceeds_daily_candidate_publication_scope":
+        if (
+            comparison_basis == "full_research_frame_proxy"
+            and proxy_gap > published
+            and gap_driver != "research_full_universe_proxy_exceeds_daily_candidate_publication_scope"
+        ):
             errors.append(f"row {idx} full-universe proxy gap must use the candidate-publication gap driver")
 
     return errors

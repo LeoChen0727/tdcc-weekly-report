@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_weekly_20pct_surge_volume import build_stock_day_frame  # noqa: E402
 from research_weekly_surge_technical_grid import add_technical_features  # noqa: E402
 from research_weekly_surge_theme_segments import attach_theme_labels  # noqa: E402
-from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
+from build_daily_candidate_model_layer import build_parameter_table, build_specs, cond_pullback  # noqa: E402
 from build_approved_operation_patterns import (  # noqa: E402
     NECKLINE_APPROVAL_METRICS,
     NECKLINE_OPERATION_MODULE_ID,
@@ -89,6 +89,24 @@ TIME_COST_TARGET_PCT = 5.0
 TIME_COST_STOP_PCT = -5.0
 MIN_OK_SAMPLE = 100
 MIN_REVIEW_SAMPLE = 30
+PRICE_PULLBACK_CANDIDATE_REPLAY_REQUIRED_COLUMNS = {
+    "stock_id",
+    "candidate_source_type",
+    "candidate_line",
+    "candidate_line_group",
+    "source_row_index",
+    "close",
+    "ema23",
+    "ma20",
+    "distance_to_ema23_pct",
+    "gap_ema23_pct",
+    "platform_low",
+    "short_platform_low",
+    "previous_20d_low",
+    "low_20",
+    "ma5_turning_up_flag",
+    "ma10_turning_up_flag",
+}
 
 
 @dataclass(frozen=True)
@@ -2296,9 +2314,74 @@ def _value_counts_summary(series: pd.Series, limit: int = 8) -> str:
     return ";".join(f"{key}:{int(count)}" for key, count in counts.head(limit).items())
 
 
+def _all_candidates_snapshot_path(snapshot_dir: Path, report_date: str) -> Path:
+    return snapshot_dir / f"all_candidates_{report_date}.csv"
+
+
+def _price_pullback_candidate_universe_replay(
+    snapshot_dir: Path,
+    report_date: str,
+) -> dict[str, object]:
+    path = _all_candidates_snapshot_path(snapshot_dir, report_date)
+    if not path.exists():
+        return {
+            "comparison_basis": "full_research_frame_proxy",
+            "comparison_stock_ids": None,
+            "candidate_universe_replay_status": "missing_historical_all_candidates_source_row_snapshot",
+            "candidate_universe_snapshot_path": "",
+            "candidate_universe_source_row_count": "",
+            "candidate_universe_condition_stock_count": "",
+            "candidate_universe_missing_required_columns": "",
+            "replay_error": "",
+        }
+
+    try:
+        candidates = pd.read_csv(path, dtype=str, keep_default_na=False).fillna("")
+    except Exception as exc:
+        return {
+            "comparison_basis": "production_all_candidates_source_row_replay",
+            "comparison_stock_ids": set(),
+            "candidate_universe_replay_status": "blocked_unreadable_all_candidates_source_row_snapshot",
+            "candidate_universe_snapshot_path": path.as_posix(),
+            "candidate_universe_source_row_count": "",
+            "candidate_universe_condition_stock_count": "",
+            "candidate_universe_missing_required_columns": "",
+            "replay_error": str(exc),
+        }
+
+    missing = sorted(PRICE_PULLBACK_CANDIDATE_REPLAY_REQUIRED_COLUMNS - set(candidates.columns))
+    if missing:
+        return {
+            "comparison_basis": "production_all_candidates_source_row_replay",
+            "comparison_stock_ids": set(),
+            "candidate_universe_replay_status": "blocked_invalid_all_candidates_source_row_schema",
+            "candidate_universe_snapshot_path": path.as_posix(),
+            "candidate_universe_source_row_count": len(candidates),
+            "candidate_universe_condition_stock_count": "",
+            "candidate_universe_missing_required_columns": ";".join(missing),
+            "replay_error": "",
+        }
+
+    mask = candidates.apply(cond_pullback, axis=1).fillna(False)
+    matched = candidates.loc[mask].copy()
+    stock_ids = {normalize_code(value) for value in matched["stock_id"].tolist()}
+    stock_ids.discard("")
+    return {
+        "comparison_basis": "production_all_candidates_source_row_replay",
+        "comparison_stock_ids": stock_ids,
+        "candidate_universe_replay_status": "candidate_universe_replay_available",
+        "candidate_universe_snapshot_path": path.as_posix(),
+        "candidate_universe_source_row_count": len(candidates),
+        "candidate_universe_condition_stock_count": len(stock_ids),
+        "candidate_universe_missing_required_columns": "",
+        "replay_error": "",
+    }
+
+
 def _price_pullback_gap_driver(
     *,
     has_research_date: bool,
+    comparison_basis: str,
     published_unique: int,
     published_not_proxy_count: int,
     proxy_not_published_count: int,
@@ -2307,6 +2390,12 @@ def _price_pullback_gap_driver(
         return "missing_research_frame_date"
     if published_not_proxy_count == 0 and proxy_not_published_count == 0:
         return "none_exact"
+    if comparison_basis == "production_all_candidates_source_row_replay":
+        if published_not_proxy_count and proxy_not_published_count:
+            return "production_candidate_universe_bidirectional_row_gap"
+        if published_not_proxy_count:
+            return "published_rows_not_reproduced_by_production_candidate_universe_replay"
+        return "production_candidate_universe_rows_not_in_published_snapshot"
     if proxy_not_published_count > max(published_unique, published_not_proxy_count):
         return "research_full_universe_proxy_exceeds_daily_candidate_publication_scope"
     if published_not_proxy_count and proxy_not_published_count:
@@ -2316,18 +2405,28 @@ def _price_pullback_gap_driver(
     return "research_proxy_rows_not_in_published_snapshot"
 
 
-def _published_not_proxy_interpretation(count: int) -> str:
+def _published_not_proxy_interpretation(count: int, comparison_basis: str) -> str:
     if count <= 0:
         return ""
+    if comparison_basis == "production_all_candidates_source_row_replay":
+        return (
+            "published rows do not satisfy the production all_candidates cond_pullback replay; "
+            "inspect dated source-row schema, merge keys, and condition drift before promotion"
+        )
     return (
         "published rows do not satisfy the current research proxy; inspect feature parity, "
         "dated source columns, and snapshot lifecycle before promotion"
     )
 
 
-def _proxy_not_published_interpretation(count: int) -> str:
+def _proxy_not_published_interpretation(count: int, comparison_basis: str) -> str:
     if count <= 0:
         return ""
+    if comparison_basis == "production_all_candidates_source_row_replay":
+        return (
+            "production all_candidates cond_pullback replay found stocks not on the published report surface; "
+            "inspect report publication scope, duplicate merge, and dated snapshot alignment"
+        )
     return (
         "research proxy runs on the full stock-day frame, while daily production starts from "
         "all_candidates/source-row eligibility and then writes the published report surface"
@@ -2359,6 +2458,11 @@ def build_price_pullback_daily_row_parity_audit(
         "parity_scope",
         "published_surface",
         "research_proxy_scope",
+        "comparison_basis",
+        "candidate_universe_snapshot_path",
+        "candidate_universe_source_row_count",
+        "candidate_universe_condition_stock_count",
+        "candidate_universe_missing_required_columns",
         "published_selection_semantics_values",
         "published_source_category_counts",
         "published_report_bucket_counts",
@@ -2417,6 +2521,11 @@ def build_price_pullback_daily_row_parity_audit(
                     "parity_scope": "signal_date_stock_id",
                     "published_surface": "daily_candidate_model_signals_for_report",
                     "research_proxy_scope": "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay",
+                    "comparison_basis": "unavailable_published_snapshot",
+                    "candidate_universe_snapshot_path": "",
+                    "candidate_universe_source_row_count": "",
+                    "candidate_universe_condition_stock_count": "",
+                    "candidate_universe_missing_required_columns": "",
                     "published_selection_semantics_values": "",
                     "published_source_category_counts": "",
                     "published_report_bucket_counts": "",
@@ -2452,6 +2561,11 @@ def build_price_pullback_daily_row_parity_audit(
                     "parity_scope": "signal_date_stock_id",
                     "published_surface": "daily_candidate_model_signals_for_report",
                     "research_proxy_scope": "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay",
+                    "comparison_basis": "unavailable_published_snapshot",
+                    "candidate_universe_snapshot_path": "",
+                    "candidate_universe_source_row_count": "",
+                    "candidate_universe_condition_stock_count": "",
+                    "candidate_universe_missing_required_columns": "",
                     "published_selection_semantics_values": "",
                     "published_source_category_counts": "",
                     "published_report_bucket_counts": "",
@@ -2470,7 +2584,13 @@ def build_price_pullback_daily_row_parity_audit(
         published_stock_ids = [normalize_code(value) for value in published["stock_id"].tolist()]
         published_stock_ids = [stock_id for stock_id in published_stock_ids if stock_id]
         published_set = set(published_stock_ids)
-        proxy_set = proxy_by_date.get(report_date, set())
+        candidate_replay = _price_pullback_candidate_universe_replay(snapshot_dir, report_date)
+        comparison_basis = safe_str(candidate_replay.get("comparison_basis", "")) or "full_research_frame_proxy"
+        candidate_replay_set = candidate_replay.get("comparison_stock_ids")
+        if isinstance(candidate_replay_set, set):
+            proxy_set = candidate_replay_set
+        else:
+            proxy_set = proxy_by_date.get(report_date, set())
         overlap = published_set & proxy_set
         published_not_proxy = published_set - proxy_set
         proxy_not_published = proxy_set - published_set
@@ -2481,10 +2601,18 @@ def build_price_pullback_daily_row_parity_audit(
         proxy_not_published_count = len(proxy_not_published)
         gap_driver = _price_pullback_gap_driver(
             has_research_date=has_research_date,
+            comparison_basis=comparison_basis,
             published_unique=published_unique,
             published_not_proxy_count=published_not_proxy_count,
             proxy_not_published_count=proxy_not_published_count,
         )
+        candidate_replay_status = safe_str(candidate_replay.get("candidate_universe_replay_status", ""))
+        if comparison_basis == "production_all_candidates_source_row_replay" and candidate_replay_status == "candidate_universe_replay_available":
+            candidate_replay_status = (
+                "candidate_universe_replay_exact_match"
+                if not published_not_proxy and not proxy_not_published
+                else "candidate_universe_replay_row_gap"
+            )
 
         if not has_research_date:
             parity_status = "blocked_missing_research_frame_date"
@@ -2520,7 +2648,20 @@ def build_price_pullback_daily_row_parity_audit(
                 "proxy_not_published_sample": _stock_id_sample(proxy_not_published),
                 "parity_scope": "signal_date_stock_id",
                 "published_surface": "daily_candidate_model_signals_for_report",
-                "research_proxy_scope": "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay",
+                "research_proxy_scope": (
+                    "production_all_candidates_source_row_cond_pullback_replay"
+                    if comparison_basis == "production_all_candidates_source_row_replay"
+                    else "full_stock_day_frame_current_price_pullback_baseline_proxy_without_daily_candidate_universe_replay"
+                ),
+                "comparison_basis": comparison_basis,
+                "candidate_universe_snapshot_path": candidate_replay.get("candidate_universe_snapshot_path", ""),
+                "candidate_universe_source_row_count": candidate_replay.get("candidate_universe_source_row_count", ""),
+                "candidate_universe_condition_stock_count": candidate_replay.get(
+                    "candidate_universe_condition_stock_count", ""
+                ),
+                "candidate_universe_missing_required_columns": candidate_replay.get(
+                    "candidate_universe_missing_required_columns", ""
+                ),
                 "published_selection_semantics_values": _value_counts_summary(
                     published["selection_semantics"] if "selection_semantics" in published.columns else pd.Series(dtype=str)
                 ),
@@ -2530,17 +2671,13 @@ def build_price_pullback_daily_row_parity_audit(
                 "published_report_bucket_counts": _value_counts_summary(
                     published["report_bucket"] if "report_bucket" in published.columns else pd.Series(dtype=str)
                 ),
-                "candidate_universe_replay_status": (
-                    "blocked_missing_research_frame_date"
-                    if not has_research_date
-                    else "missing_historical_all_candidates_source_row_snapshot"
-                ),
+                "candidate_universe_replay_status": candidate_replay_status,
                 "parity_gap_driver": gap_driver,
                 "published_not_in_proxy_interpretation": _published_not_proxy_interpretation(
-                    published_not_proxy_count
+                    published_not_proxy_count, comparison_basis
                 ),
                 "proxy_not_published_interpretation": _proxy_not_published_interpretation(
-                    proxy_not_published_count
+                    proxy_not_published_count, comparison_basis
                 ),
                 "next_required_replay_artifact": (
                     "historical all_candidates/source-row snapshot with candidate_source_type, "
@@ -2593,6 +2730,8 @@ def write_price_pullback_daily_row_parity_audit(row_parity: pd.DataFrame) -> Non
                 "published_proxy_coverage_pct",
                 "proxy_publish_precision_pct",
                 "parity_gap_driver",
+                "comparison_basis",
+                "candidate_universe_condition_stock_count",
                 "candidate_universe_replay_status",
                 "parity_status",
                 "parity_blocker",
