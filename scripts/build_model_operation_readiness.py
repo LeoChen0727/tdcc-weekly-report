@@ -28,6 +28,9 @@ PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
 PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV = (
     RESEARCH_LATEST_DIR / "price_pullback_23ema_feature_confirmation_research_latest.csv"
 )
+PRICE_PULLBACK_DAILY_ROW_PARITY_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_daily_row_parity_latest.csv"
+)
 PRICE_PULLBACK_SPEC_SOURCE = Path("docs/specs/price_pullback_23ema_operation_candidate_spec.md")
 PRICE_PULLBACK_OPERATION_MODULE_ID = "price_pullback_23ema_prev20_breakout_stop_v1"
 PRICE_PULLBACK_CANDIDATE_VERSION = "price_pullback_23ema_operation_candidate_v1_20260630"
@@ -149,7 +152,57 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
     }
 
 
-def summarize_price_pullback_candidate(feature_confirmation: pd.DataFrame) -> dict[str, Any]:
+def summarize_price_pullback_row_parity(row_parity: pd.DataFrame | None) -> dict[str, str]:
+    if row_parity is None or row_parity.empty or "parity_status" not in row_parity.columns:
+        return {
+            "row_parity_blocker": "exact daily candidate row parity audit artifact is missing",
+            "row_parity_note_zh": "尚未建立 published snapshot 對 research proxy 的 daily row parity audit。",
+        }
+
+    data = row_parity.copy()
+    for col in [
+        "published_not_in_proxy_rows",
+        "proxy_not_published_rows",
+        "published_unique_stock_count",
+        "research_proxy_unique_stock_count",
+    ]:
+        series = data[col] if col in data.columns else pd.Series([0] * len(data), index=data.index)
+        data[col] = pd.to_numeric(series, errors="coerce").fillna(0).astype(int)
+
+    blocked = data[~data["parity_status"].astype(str).eq("exact_daily_row_parity_pass")]
+    latest_date = safe_str(data["snapshot_report_date"].astype(str).max()) if "snapshot_report_date" in data.columns else ""
+    published_gap = int(data["published_not_in_proxy_rows"].sum())
+    proxy_gap = int(data["proxy_not_published_rows"].sum())
+    missing_dates = int(data["parity_status"].astype(str).eq("blocked_missing_research_frame_date").sum())
+    snapshot_count = len(data)
+
+    if blocked.empty:
+        return {
+            "row_parity_blocker": "",
+            "row_parity_note_zh": f"daily row parity audit 已通過 {snapshot_count} 個 published snapshots。",
+        }
+
+    return {
+        "row_parity_blocker": (
+            "exact daily row parity audit failing: "
+            f"snapshots={snapshot_count}, latest_snapshot={latest_date}, "
+            f"published_not_proxy={published_gap}, proxy_not_published={proxy_gap}, "
+            f"missing_research_dates={missing_dates}"
+        ),
+        "row_parity_note_zh": (
+            f"daily row parity audit 仍未通過：共 {snapshot_count} 個 published snapshots，"
+            f"published 不在 research proxy 的股票數合計 {published_gap}，"
+            f"research proxy 未出現在 published snapshot 的股票數合計 {proxy_gap}，"
+            f"缺 research frame 日期 {missing_dates} 個。"
+        ),
+    }
+
+
+def summarize_price_pullback_candidate(
+    feature_confirmation: pd.DataFrame,
+    row_parity: pd.DataFrame | None = None,
+) -> dict[str, Any]:
+    row_parity_summary = summarize_price_pullback_row_parity(row_parity)
     empty = {
         "candidate_ready": "False",
         "operation_module_status": "baseline_only_no_validated_operation_module",
@@ -163,6 +216,7 @@ def summarize_price_pullback_candidate(feature_confirmation: pd.DataFrame) -> di
         "registry_best_sample_size": 0,
         "registry_best_win_rate": "",
         "registry_best_median_return": "",
+        "row_parity_blocker": row_parity_summary["row_parity_blocker"],
         "status_note_zh": "目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。",
     }
     if feature_confirmation.empty or "model_id" not in feature_confirmation.columns:
@@ -197,12 +251,13 @@ def summarize_price_pullback_candidate(feature_confirmation: pd.DataFrame) -> di
         "registry_best_sample_size": int(float(row.get("mature_count", 0) or 0)),
         "registry_best_win_rate": safe_str(row.get("win_rate_pct")),
         "registry_best_median_return": safe_str(row.get("median_d20_close_return_pct")),
+        "row_parity_blocker": row_parity_summary["row_parity_blocker"],
         "status_note_zh": (
             "price_pullback_23ema 已選出 operation candidate v1：先有 production proxy 訊號，"
             "且同日符合大戶高門檻增加與 20 日漲幅 0% 到 25%；買點為次日開盤，"
             "勝利為 D+20 前盤中突破訊號日前 20 日高點，失敗為連續 4 日收盤低於 "
             "MA20/EMA23 較低者 4%。目前仍缺 exact daily candidate row parity，"
-            "所以不得產生 production 買進、賣出、停損或排名操作建議。"
+            f"{row_parity_summary['row_parity_note_zh']}所以不得產生 production 買進、賣出、停損或排名操作建議。"
         ),
     }
 
@@ -293,6 +348,7 @@ def build_model_operation_readiness(
     adapter: pd.DataFrame,
     approval: pd.DataFrame | None = None,
     price_pullback_feature_confirmation: pd.DataFrame | None = None,
+    price_pullback_daily_row_parity: pd.DataFrame | None = None,
     generated_at: str | None = None,
 ) -> pd.DataFrame:
     if parity.empty:
@@ -310,7 +366,8 @@ def build_model_operation_readiness(
     w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
     neckline_approval = summarize_model_approval(approval_frame, NECKLINE_MODEL_ID)
     price_pullback_candidate = summarize_price_pullback_candidate(
-        price_pullback_feature_confirmation if price_pullback_feature_confirmation is not None else pd.DataFrame()
+        price_pullback_feature_confirmation if price_pullback_feature_confirmation is not None else pd.DataFrame(),
+        price_pullback_daily_row_parity,
     )
     volume_approved = volume_approval["approved_for_daily"] == "True"
     w_bottom_approved = w_bottom_approval["approved_for_daily"] == "True"
@@ -486,9 +543,10 @@ def build_model_operation_readiness(
                     "model_id": model_id,
                     "model_name_zh": model_name,
                     "parity_status": parity_status,
-                    "blocker": (
-                        "exact daily candidate row parity still pending; operation candidate evidence selected, "
-                        "but production operation guidance remains blocked"
+                    "blocker": price_pullback_candidate["row_parity_blocker"]
+                    or (
+                        "daily row parity audit has no failing rows, but an explicit promotion/sync PR is still "
+                        "required before production operation guidance"
                     ),
                     "operation_module_status": price_pullback_candidate["operation_module_status"],
                     "daily_adapter_status": price_pullback_candidate["daily_adapter_status"],
@@ -608,12 +666,14 @@ def main() -> int:
     adapter = read_csv(DAILY_VOLUME_ADAPTER_CSV, dtype=str).fillna("")
     approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
     price_pullback_feature_confirmation = read_csv(PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV, dtype=str).fillna("")
+    price_pullback_daily_row_parity = read_csv(PRICE_PULLBACK_DAILY_ROW_PARITY_CSV, dtype=str).fillna("")
     readiness = build_model_operation_readiness(
         parity,
         registry,
         adapter,
         approval,
         price_pullback_feature_confirmation=price_pullback_feature_confirmation,
+        price_pullback_daily_row_parity=price_pullback_daily_row_parity,
     )
     write_csv(readiness, OUT_CSV)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)

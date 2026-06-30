@@ -18,6 +18,7 @@ from build_model_operation_readiness import (  # noqa: E402
     NECKLINE_MODEL_ID,
     PRICE_PULLBACK_BUY_FILTER_ID,
     PRICE_PULLBACK_CANDIDATE_VERSION,
+    PRICE_PULLBACK_DAILY_ROW_PARITY_CSV,
     PRICE_PULLBACK_MODEL_ID,
     PRICE_PULLBACK_OPERATION_MODULE_ID,
     PRICE_PULLBACK_SPEC_SOURCE,
@@ -57,6 +58,8 @@ def validate_files() -> list[str]:
     for path in [OUT_CSV, OUT_MD, DOCS_CSV, DOCS_MD]:
         if not path.exists():
             errors.append(f"missing model operation readiness artifact: {path}")
+    if not PRICE_PULLBACK_DAILY_ROW_PARITY_CSV.exists():
+        errors.append(f"missing price pullback daily row parity audit: {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV}")
     if OUT_CSV.exists() and DOCS_CSV.exists():
         if OUT_CSV.read_text(encoding="utf-8") != DOCS_CSV.read_text(encoding="utf-8"):
             errors.append("docs/latest CSV copy does not match output/latest readiness CSV")
@@ -192,6 +195,8 @@ def validate_readiness_csv() -> list[str]:
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
                 errors.append(f"{PRICE_PULLBACK_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+        if "daily row parity audit" not in str(row.get("blocker", "")):
+            errors.append("price pullback readiness blocker must cite the daily row parity audit")
         if not PRICE_PULLBACK_SPEC_SOURCE.exists():
             errors.append(f"missing price pullback operation candidate spec source: {PRICE_PULLBACK_SPEC_SOURCE}")
         if int(float(row.get("registry_best_sample_size", 0) or 0)) < 5000:
