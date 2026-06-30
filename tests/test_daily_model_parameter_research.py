@@ -16,6 +16,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     add_price_structure_features,
     build_price_pullback_feature_confirmation_research,
     build_model_parity,
+    build_price_pullback_model_decision_audit,
     build_price_pullback_operation_module_research,
     build_price_pullback_operation_research,
     build_price_pullback_time_cost_backtest,
@@ -675,6 +676,39 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
     assert market["feature_test_status"] == "deferred_join_required"
     assert revenue["mature_count"] == 0
     assert revenue["selected_stock_days"] == ""
+
+    module = build_price_pullback_operation_module_research(df)
+    decision = build_price_pullback_model_decision_audit(
+        module,
+        feature,
+        pd.DataFrame(
+            [
+                {
+                    "parity_status": "exact_daily_row_parity_pass",
+                    "parity_blocker": "",
+                }
+            ]
+        ),
+    )
+
+    assert not decision.empty
+    assert decision["approved_for_daily"].eq(False).all()
+    assert decision["production_change"].eq("none").all()
+    assert "baseline:production_replay_operation_anchor" in set(decision["decision_item_id"])
+    assert "entry_filter:solid_volume_red_k_vol1.5" in set(decision["decision_item_id"])
+    assert "feature_filter:revenue_positive_or_strong" in set(decision["decision_item_id"])
+    assert "feature_filter:market_background_regime" in set(decision["decision_item_id"])
+
+    baseline_decision = decision[
+        decision["decision_item_id"].eq("baseline:production_replay_operation_anchor")
+    ].iloc[0]
+    assert baseline_decision["decision_status"] == "baseline_anchor"
+    assert baseline_decision["selected_share_of_baseline_pct"] == 100.0
+
+    revenue_decision = decision[decision["decision_item_id"].eq("feature_filter:revenue_positive_or_strong")].iloc[0]
+    market_decision = decision[decision["decision_item_id"].eq("feature_filter:market_background_regime")].iloc[0]
+    assert revenue_decision["decision_status"] == "blocked_data_gap_required_before_gate"
+    assert market_decision["decision_status"] == "blocked_market_join_required"
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:

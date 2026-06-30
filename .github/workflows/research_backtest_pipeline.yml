@@ -227,6 +227,7 @@ jobs:
           git add output/latest/research_backtest/price_pullback_23ema_operation_module_research_latest.csv output/latest/research_backtest/price_pullback_23ema_operation_module_research_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.csv output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.csv output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.md || true
+          git add output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.csv output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.md || true
           git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
           git add output/latest/approved_operation_patterns_latest.csv output/latest/approved_operation_patterns_latest.md || true
           git add output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.csv output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.md || true
@@ -242,6 +243,7 @@ jobs:
           git add docs/latest/price_pullback_23ema_operation_module_research_latest.csv docs/latest/price_pullback_23ema_operation_module_research_latest.md || true
           git add docs/latest/price_pullback_23ema_feature_confirmation_research_latest.csv docs/latest/price_pullback_23ema_feature_confirmation_research_latest.md || true
           git add docs/latest/price_pullback_23ema_daily_row_parity_latest.csv docs/latest/price_pullback_23ema_daily_row_parity_latest.md || true
+          git add docs/latest/price_pullback_23ema_model_decision_audit_latest.csv docs/latest/price_pullback_23ema_model_decision_audit_latest.md || true
           git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
           git add docs/latest/approved_operation_patterns_latest.csv docs/latest/approved_operation_patterns_latest.md || true
           git add docs/latest/daily_published_snapshot_ranking_backtest_latest.csv docs/latest/daily_published_snapshot_ranking_backtest_latest.md || true
@@ -249,6 +251,7 @@ jobs:
           git add output/history/research/price_pullback_23ema_operation_module_research.csv || true
           git add output/history/research/price_pullback_23ema_feature_confirmation_research.csv || true
           git add output/history/research/price_pullback_23ema_daily_row_parity.csv || true
+          git add output/history/research/price_pullback_23ema_model_decision_audit.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true
           git add output/latest/historical_pattern_operation_*.csv output/latest/historical_pattern_operation_*.md || true
