@@ -1,16 +1,16 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-01 17:50:24 Asia/Taipei
+- generated_at: 2026-07-01 19:38:27 Asia/Taipei
 - main_price_date: 20260701
 - packet_source: daily_market_regime_dashboard
-- packet_status: partial_market_context
-- packet_status_note: futures_options_date=20260630
+- packet_status: ready
+- packet_status_note: all source rows aligned with main_price_date
 - tuning_status: not_ready
 
 ## Source Dates
 - market_regime_latest.csv: 20260701
-- futures_options_indicators_latest.csv: 20260630 (latest available at or before main_price_date=20260701)
+- futures_options_indicators_latest.csv: 20260701
 - TWSE market index: 20260701
 - TPEx market index: 20260701
 
@@ -23,11 +23,11 @@
 ## Futures Options Context
 | item | value | note |
 | --- | ---: | --- |
-| foreign_tx_futures_net_oi | -83,063 | TX futures direction anchor |
-| foreign_futures_net_oi | -552,599 | broad futures exposure only, not TX direction |
-| put_call_oi_ratio_pct | 134.93% | hedging background only |
-| taiwan_vix | 38.54 | volatility / hedging context only |
-| retail_mtx_net_oi_proxy | 2,849 | contrarian sentiment proxy only |
+| foreign_tx_futures_net_oi | -84,168 | TX futures direction anchor |
+| foreign_futures_net_oi | -576,307 | broad futures exposure only, not TX direction |
+| put_call_oi_ratio_pct | 142.03% | hedging background only |
+| taiwan_vix | 38.14 | volatility / hedging context only |
+| retail_mtx_net_oi_proxy | 3,513 | contrarian sentiment proxy only |
 | retail_mtx_proxy_method | negative_sum_of_three_institution_mtx_net_oi | source method |
 
 ## Usage Boundary
@@ -41,14 +41,14 @@
 
 market_sentiment_context:
   taiwan_vix:
-    latest: 38.54
-    percentile_252d: 80.2083
+    latest: 38.14
+    percentile_252d: 75.0
     percentile_504d: 
     rank_label: upper_quartile
     context_label: elevated_hedging
     index_interpretation: index_strong_but_hedging_elevated
   retail_mtx:
-    latest_proxy: 2849.0
+    latest_proxy: 3513.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
     percentile_252d: 
     percentile_504d: 

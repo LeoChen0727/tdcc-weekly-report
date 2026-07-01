@@ -1,7 +1,7 @@
 # VOLUME ATTACK CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-07-01 17:46:50 Asia/Taipei`
+- generated_at: `2026-07-01 19:34:01 Asia/Taipei`
 - main_price_date: `20260701`
 - watch_rows: `21`
 - bottom_volume_attack_count: `21`
