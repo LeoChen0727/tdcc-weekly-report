@@ -1,15 +1,18 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-07-01 04:47:10 Asia/Taipei`
+- generated_at: `2026-07-01 12:02:45 Asia/Taipei`
 - target_date: `20260701`
 - saved_price_date: `20260630`
 - is_target_date: `False`
 - result: `failed_no_target_data`
 - reason: 目標日官方來源與 fallback 都沒有取得任何可用日線資料；latest 保留上一個有效交易日。
-- twse_rows: `1240`
+- twse_rows: `0`
 - tpex_rows: `0`
-- total_rows: `1240`
+- total_rows: `0`
 - full_market_ok: `False`
+- data_quality_note: partial_market_stale_rejected: TWSE matched previous trading day file daily_price_20260630.csv
+- stale_markets: `TWSE`
+- stale_market_rows: `1238`
 
 ## Output Paths
 
@@ -18,7 +21,7 @@
 
 ## Fetch Attempts
 
-- 20260701: TWSE=1240 / TPEx=0 / Total=1240 / full_market_ok=False
+- 20260701: TWSE=0 / TPEx=0 / Total=0 / full_market_ok=False
 
 ## Fetch Logs
 
@@ -34,9 +37,9 @@
 - GET https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260701&type=ALLBUT0999 -> status=200, chars=45
 - TWSE_LEGACY_JSON_MI_INDEX: parsed TWSE rows=0
 - Trying TWSE batch source=TWSE_OPENAPI_STOCK_DAY_ALL date=20260701
-- GET https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL -> status=200, chars=308615
-- TWSE_OPENAPI_STOCK_DAY_ALL: parsed TWSE OpenAPI rows=1240
-- TWSE batch selected source=TWSE_OPENAPI_STOCK_DAY_ALL, rows=1240
+- GET https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL -> status=200, chars=308707
+- TWSE_OPENAPI_STOCK_DAY_ALL: parsed TWSE OpenAPI rows=1238
+- TWSE batch selected source=TWSE_OPENAPI_STOCK_DAY_ALL, rows=1238
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260701
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/07/01&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
@@ -53,11 +56,11 @@
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/07/01&s=0,asc,0 -> status=200, chars=1402296
 - TPEX_OLD_DAILY_JSON: rejected response dates ['20260630']; target date is 20260701
 - Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260701
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/07/01&s=0,asc,0 -> status=200, chars=1391789
-- TPEX_OLD_DAILY_CSV: rejected response date 20260630; target date is 20260701
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/07/01&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
 - Trying TPEx batch source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES date=20260701
 - GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes -> status=200, chars=3806745
 - TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES: rejected response dates ['20260630']; target date is 20260701
 - TPEx batch best rows=0
-- date=20260701 twse_rows=1240 tpex_rows=0 total_rows=1240 full_market_ok=False
+- date=20260701 twse_rows=1238 tpex_rows=0 total_rows=1238 full_market_ok=False
+- Reject stale TWSE target-date rows: 100.0% match previous file daily_price_20260630.csv
 - Published previous valid daily price file as latest: data/daily_price/daily_price_20260630.csv
