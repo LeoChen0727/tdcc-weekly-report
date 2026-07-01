@@ -15,6 +15,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     _add_feature_confirmation_deltas,
     add_price_structure_features,
     attach_signal_background_features,
+    add_price_pullback_research_score_columns,
     build_price_pullback_continuation_win_profile,
     build_price_pullback_exit_rule_comparison,
     build_price_pullback_feature_confirmation_research,
@@ -22,6 +23,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_model_decision_audit,
     build_price_pullback_operation_module_research,
     build_price_pullback_operation_research,
+    build_price_pullback_research_score_bucket,
     build_price_pullback_time_cost_backtest,
     current_price_pullback_baseline_proxy,
     price_pullback_prior_extension_filter,
@@ -913,6 +915,19 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
         "close_prev20_break_then_tp8_or_5ma_next_open",
         "close_prev20_break_then_tp10_or_5ma_next_open",
     }
+
+    scored = add_price_pullback_research_score_columns(df)
+    assert scored.loc[0, "price_pullback_research_score"] >= 6
+    assert scored.loc[0, "price_pullback_research_score_bucket"] == "score_6_plus"
+    assert "obv_above_ma20" in scored.loc[0, "price_pullback_research_score_components"]
+
+    score_bucket = build_price_pullback_research_score_bucket(df)
+    assert not score_bucket.empty
+    assert score_bucket["approved_for_daily"].eq(False).all()
+    assert score_bucket["production_change"].eq("none").all()
+    assert "research_only_not_production_score" in set(score_bucket["score_use"])
+    assert "score_6_plus" in set(score_bucket["score_bucket"])
+    assert "close_prev20_high_break_next_open" in set(score_bucket["exit_rule_id"])
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
