@@ -5,6 +5,7 @@
 - candidate_version: `price_pullback_23ema_operation_candidate_v1_20260630`
 - operation_module_id: `price_pullback_23ema_prev20_breakout_stop_v1`
 - source_research_artifact: `output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.csv`
+- exit_rule_research_artifact: `output/latest/research_backtest/price_pullback_23ema_exit_rule_comparison_latest.csv`
 - selected_filter_id: `tdcc_high_thresholds_up_return20_0_25`
 - discussion_status: `discussion_ready_research_only`
 - production_status: `not approved for daily operation guidance`
@@ -12,20 +13,48 @@
 ## Formal Price Confirmation Boundary
 
 This spec is research-only and does not approve production operation guidance.
-Formal operation buy/sell/stop/profit-taking rules must be close-confirmed by
-default. The existing previous-high touch evidence for `price_pullback_23ema`
-uses intraday high observation and must not be promoted as a formal entry, exit,
-stop, profit-taking, win, failure, or realized-return rule.
+Formal operation buy/sell/stop/profit-taking rules must use observable open or
+close execution prices. Intraday high/low observations must not be used as
+realized execution prices.
 
 Future `price_pullback_23ema` promotion discussion must restate the target and
-exit with close-confirmed semantics, such as:
+exit with one of the following explicit price-confirmation semantics:
 
-- close breaks the previous 20-day high, then sell at the same-day close; or
-- close breaks the previous 20-day high, then sell at the next trading day open.
+- intraday high touches the signal-day previous 20-day high, then sell at the
+  same-day close. This remains `research_only_intraday_trigger` until explicitly
+  approved because the trigger uses intraday high observation.
+- close breaks the signal-day previous 20-day high, then sell at the next
+  trading day open. `close_prev20_high_break_same_day_close` is invalid because
+  the close-confirmed breakout is known only after that close.
+- after a close-confirmed previous-high breakout, continuation targets such as
+  `+5%`, `+8%`, or `+10%` must also be close-confirmed and exit at the next
+  trading day open. A close below 5MA exit follows the same next-open rule.
 
 Intraday high/low may remain in this model only as research-only observation,
 MFE/MAE, risk audit, liquidity/slippage diagnostics, candle-quality features, or
 non-operation watch statistics.
+
+## PDF Presentation Boundary Addendum
+
+If `price_pullback_23ema` is promoted into a formal operation-oriented daily
+stock model and receives an approved operation-row adapter, its digest/highlight
+PDF block must follow the same operation presentation contract as other formal
+operation models:
+
+- the model block must render even when there are zero candidates;
+- the first main table is `本日可買 / 已確認買入候選`;
+- when the first table has no buyable confirmed candidates, it shows
+  `本日無股票推薦` inside that table, not as a separate section;
+- the second main table is `操作中`;
+- when there are no active operation rows, it shows `目前無操作中追蹤列` inside
+  that table;
+- digest/highlight PDFs must not promote `待確認`, `已失效`, or `已出場` into main
+  tables. `待確認` is full-list only when the formal adapter provides it, and
+  `已失效` / `已出場` remain audit/lifecycle artifacts.
+
+The PDF renderer must not infer `price_pullback_23ema` buy, active, pending, or
+exit rows directly from candidate signals before a formal operation-row producer
+and validator exist.
 
 ## 白話定義
 

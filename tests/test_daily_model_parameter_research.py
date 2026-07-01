@@ -14,6 +14,7 @@ from build_daily_candidate_model_layer import build_parameter_table, build_specs
 from build_daily_model_parameter_research import (  # noqa: E402
     _add_feature_confirmation_deltas,
     add_price_structure_features,
+    build_price_pullback_exit_rule_comparison,
     build_price_pullback_feature_confirmation_research,
     build_model_parity,
     build_price_pullback_model_decision_audit,
@@ -709,6 +710,109 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
     market_decision = decision[decision["decision_item_id"].eq("feature_filter:market_background_regime")].iloc[0]
     assert revenue_decision["decision_status"] == "blocked_data_gap_required_before_gate"
     assert market_decision["decision_status"] == "blocked_market_join_required"
+
+
+def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confirmed_exits() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2317", "2454", "2303", "2382"],
+            "next_open": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "distance_ema23_pct": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "platform_low": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "short_platform_low": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "previous_20d_low": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "low_20": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "range_low_20d_prev": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "range_high_20d_prev": [105.0, 105.0, 103.0, 103.0, 105.0],
+            "close": [101.0, 101.0, 101.0, 101.0, 101.0],
+            "ema23": [100.0, 100.0, 100.0, 100.0, 100.0],
+            "ma20": [101.0, 101.0, 101.0, 101.0, 101.0],
+            "ema23_slope_pct": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "ema23_slope_5d_pct": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "ma5_turning_up_flag": [False, False, False, False, False],
+            "ma10_turning_up_flag": [False, False, False, False, False],
+            "volume_ratio_prev20": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "bullish_attack_candle": [True, True, True, True, True],
+            "solid_red_candle": [False, False, False, False, False],
+            "macd_hist_gt0": [True, True, True, True, True],
+            "kd_bullish_not_overheated": [True, True, True, True, True],
+            "obv_above_ma20": [True, True, True, True, True],
+            "tdcc_history_available": [True, True, True, True, True],
+            "high_thresholds_up": [True, True, True, True, True],
+            "return_20d_pct": [10.0, 10.0, 10.0, 10.0, 10.0],
+            "next_open_to_d20_close_return_pct": [1.0, 6.0, 11.0, 2.5, -4.5],
+        }
+    )
+    future_cols = {}
+    for day in range(1, 21):
+        future_cols[f"next_open_to_d{day}_day_high_return_pct"] = [1.0, 1.0, 1.0, 1.0, 1.0]
+        future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, 1.0, 1.0, 1.0]
+        future_cols[f"future_d{day}_ma20"] = [100.0, 100.0, 100.0, 100.0, 100.0]
+        future_cols[f"future_d{day}_ema23"] = [100.0, 100.0, 100.0, 100.0, 100.0]
+        future_cols[f"future_d{day}_ma5"] = [90.0, 90.0, 90.0, 90.0, 90.0]
+    for day in range(1, 22):
+        future_cols[f"future_d{day}_open"] = [100.0, 100.0, 100.0, 100.0, 100.0]
+    df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
+
+    df.loc[0, "next_open_to_d2_day_high_return_pct"] = 6.0
+    df.loc[0, "next_open_to_d2_day_close_return_pct"] = 2.0
+    df.loc[1, "next_open_to_d2_day_high_return_pct"] = 6.0
+    df.loc[1, "next_open_to_d2_day_close_return_pct"] = 6.0
+    df.loc[1, "future_d3_open"] = 107.0
+    df.loc[2, "next_open_to_d1_day_high_return_pct"] = 4.0
+    df.loc[2, "next_open_to_d1_day_close_return_pct"] = 4.0
+    df.loc[2, "future_d2_open"] = 104.0
+    df.loc[2, "next_open_to_d4_day_high_return_pct"] = 8.0
+    df.loc[2, "next_open_to_d4_day_close_return_pct"] = 8.0
+    df.loc[2, "future_d5_open"] = 109.0
+    df.loc[2, "next_open_to_d6_day_high_return_pct"] = 11.0
+    df.loc[2, "next_open_to_d6_day_close_return_pct"] = 11.0
+    df.loc[2, "future_d7_open"] = 112.0
+    df.loc[3, "next_open_to_d1_day_high_return_pct"] = 4.0
+    df.loc[3, "next_open_to_d1_day_close_return_pct"] = 4.0
+    df.loc[3, "future_d2_open"] = 104.5
+    df.loc[3, "next_open_to_d2_day_close_return_pct"] = 2.5
+    df.loc[3, "future_d2_ma5"] = 103.0
+    df.loc[3, "future_d3_open"] = 103.5
+    for day in range(1, 5):
+        df.loc[4, f"next_open_to_d{day}_day_close_return_pct"] = -4.5
+
+    comparison = build_price_pullback_exit_rule_comparison(df)
+
+    assert not comparison.empty
+    assert comparison["approved_for_daily"].eq(False).all()
+    assert comparison["advisory_status"].eq("not_production_ready_research_only").all()
+    assert "close_prev20_high_break_same_day_close" not in set(comparison["exit_rule_id"])
+
+    intraday = comparison[
+        comparison["entry_filter_id"].eq("baseline_replay")
+        & comparison["exit_rule_id"].eq("intraday_prev20_high_touch_same_day_close")
+    ].iloc[0]
+    close_confirmed = comparison[
+        comparison["entry_filter_id"].eq("baseline_replay")
+        & comparison["exit_rule_id"].eq("close_prev20_high_break_next_open")
+    ].iloc[0]
+    tp8 = comparison[
+        comparison["entry_filter_id"].eq("baseline_replay")
+        & comparison["exit_rule_id"].eq("close_prev20_break_then_tp8_or_5ma_next_open")
+    ].iloc[0]
+
+    assert intraday["formal_price_rule_status"] == "research_only_intraday_trigger"
+    assert intraday["win_count"] == 4
+    assert intraday["failure_count"] == 1
+    assert intraday["avg_realized_return_pct"] == 2.3
+
+    assert close_confirmed["formal_price_rule_status"] == "close_confirmed_candidate"
+    assert close_confirmed["win_count"] == 3
+    assert close_confirmed["neutral_count"] == 1
+    assert close_confirmed["failure_count"] == 1
+    assert close_confirmed["avg_realized_return_pct"] == 2.4
+
+    assert tp8["win_count"] == 1
+    assert tp8["neutral_count"] == 3
+    assert tp8["failure_count"] == 1
+    assert tp8["ma5_exit_count"] == 1
+    assert tp8["hard_stop_count"] == 1
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:

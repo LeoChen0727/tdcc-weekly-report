@@ -89,6 +89,15 @@ PRICE_PULLBACK_DECISION_AUDIT_MD = RESEARCH_LATEST_DIR / "price_pullback_23ema_m
 PRICE_PULLBACK_DECISION_AUDIT_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_model_decision_audit.csv"
 DOCS_PRICE_PULLBACK_DECISION_AUDIT_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_DECISION_AUDIT_CSV.name
 DOCS_PRICE_PULLBACK_DECISION_AUDIT_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_DECISION_AUDIT_MD.name
+PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_exit_rule_comparison_latest.csv"
+)
+PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_exit_rule_comparison_latest.md"
+)
+PRICE_PULLBACK_EXIT_RULE_COMPARISON_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_exit_rule_comparison.csv"
+DOCS_PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV.name
+DOCS_PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -260,7 +269,14 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     out["pullback_entry_zone_flag"] = between(out["distance_ema23_pct"], -2.5, 5.0) | support_zone
 
     future_return_cols: dict[str, pd.Series] = {}
-    for day in range(1, TIME_COST_HORIZON_DAYS + 1):
+    for day in range(1, TIME_COST_HORIZON_DAYS + 2):
+        future_open = groups["open"].shift(-day)
+        future_return_cols[f"future_d{day}_open"] = future_open
+        future_return_cols[f"next_open_to_d{day}_day_open_return_pct"] = (
+            future_open / out["next_open"] - 1.0
+        ) * 100.0
+        if day > TIME_COST_HORIZON_DAYS:
+            continue
         future_close = groups["close"].shift(-day)
         future_high = groups["high"].shift(-day)
         future_low = groups["low"].shift(-day)
@@ -269,6 +285,7 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         ) * 100.0
         future_return_cols[f"next_open_to_d{day}_day_high_return_pct"] = (future_high / out["next_open"] - 1.0) * 100.0
         future_return_cols[f"next_open_to_d{day}_day_low_return_pct"] = (future_low / out["next_open"] - 1.0) * 100.0
+        future_return_cols[f"future_d{day}_ma5"] = groups["ma5"].shift(-day)
         future_return_cols[f"future_d{day}_ma20"] = groups["ma20"].shift(-day)
         future_return_cols[f"future_d{day}_ema23"] = groups["ema23"].shift(-day)
     out = pd.concat([out, pd.DataFrame(future_return_cols, index=out.index)], axis=1)
@@ -1516,6 +1533,59 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
 ]
 
 
+PRICE_PULLBACK_EXIT_RULE_FILTER_IDS = [
+    "baseline_replay",
+    "return20_0_25",
+    "macd_kd_confirm",
+    "obv_above_ma20",
+    "tdcc_high_thresholds_up_return20_0_25",
+    "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20",
+]
+
+PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES = [
+    {
+        "exit_rule_id": "intraday_prev20_high_touch_same_day_close",
+        "formal_price_rule_status": "research_only_intraday_trigger",
+        "target_rule_id": "intraday_prev20_high_touch",
+        "profit_target_pct": "",
+        "exit_price_rule": "same_day_close_after_intraday_previous_20d_high_touch",
+        "exit_rule_zh": "盤中高點觸及訊號日前20日高點，當日收盤賣出。",
+    },
+    {
+        "exit_rule_id": "close_prev20_high_break_next_open",
+        "formal_price_rule_status": "close_confirmed_candidate",
+        "target_rule_id": "close_prev20_high_break",
+        "profit_target_pct": "",
+        "exit_price_rule": "next_open_after_close_breaks_previous_20d_high",
+        "exit_rule_zh": "收盤突破訊號日前20日高點，下一個交易日開盤賣出。",
+    },
+    {
+        "exit_rule_id": "close_prev20_break_then_tp5_or_5ma_next_open",
+        "formal_price_rule_status": "close_confirmed_candidate",
+        "target_rule_id": "close_prev20_break_then_close_profit_target",
+        "profit_target_pct": 5.0,
+        "exit_price_rule": "next_open_after_profit_target_or_5ma_close_exit",
+        "exit_rule_zh": "收盤突破訊號日前20日高點後續抱；收盤報酬達+5%或收盤跌破5MA，下一個交易日開盤賣出。",
+    },
+    {
+        "exit_rule_id": "close_prev20_break_then_tp8_or_5ma_next_open",
+        "formal_price_rule_status": "close_confirmed_candidate",
+        "target_rule_id": "close_prev20_break_then_close_profit_target",
+        "profit_target_pct": 8.0,
+        "exit_price_rule": "next_open_after_profit_target_or_5ma_close_exit",
+        "exit_rule_zh": "收盤突破訊號日前20日高點後續抱；收盤報酬達+8%或收盤跌破5MA，下一個交易日開盤賣出。",
+    },
+    {
+        "exit_rule_id": "close_prev20_break_then_tp10_or_5ma_next_open",
+        "formal_price_rule_status": "close_confirmed_candidate",
+        "target_rule_id": "close_prev20_break_then_close_profit_target",
+        "profit_target_pct": 10.0,
+        "exit_price_rule": "next_open_after_profit_target_or_5ma_close_exit",
+        "exit_rule_zh": "收盤突破訊號日前20日高點後續抱；收盤報酬達+10%或收盤跌破5MA，下一個交易日開盤賣出。",
+    },
+]
+
+
 def _rate(count: int, total: int) -> float | str:
     if total <= 0:
         return ""
@@ -2300,6 +2370,282 @@ def write_price_pullback_feature_confirmation_research(feature_confirmation: pd.
     )
     DOCS_PRICE_PULLBACK_FEATURE_CONFIRMATION_MD.write_text(
         PRICE_PULLBACK_FEATURE_CONFIRMATION_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def _price_pullback_exit_rule_filters() -> list[dict[str, object]]:
+    wanted = set(PRICE_PULLBACK_EXIT_RULE_FILTER_IDS)
+    return [
+        feature_filter
+        for feature_filter in PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS
+        if feature_filter["feature_filter_id"] in wanted
+    ]
+
+
+def _future_open_return_frame(valid: pd.DataFrame, h: int) -> pd.DataFrame:
+    entry_price = numeric_column(valid, "next_open").replace(0, pd.NA)
+    cols = [f"future_d{day + 1}_open" for day in range(1, h + 1)]
+    returns = valid[cols].apply(pd.to_numeric, errors="coerce").div(entry_price, axis=0)
+    returns = (returns - 1.0) * 100.0
+    returns.columns = [f"next_open_exit_after_d{day}_close_return_pct" for day in range(1, h + 1)]
+    return returns
+
+
+def _price_pullback_exit_required_columns(candidate: dict[str, object]) -> list[str]:
+    h = TIME_COST_HORIZON_DAYS
+    required = ["next_open", "range_high_20d_prev", f"next_open_to_d{h}_close_return_pct"]
+    required.extend(f"next_open_to_d{day}_day_close_return_pct" for day in range(1, h + 1))
+    required.extend(f"future_d{day}_ma20" for day in range(1, h + 1))
+    required.extend(f"future_d{day}_ema23" for day in range(1, h + 1))
+    if candidate["target_rule_id"] == "intraday_prev20_high_touch":
+        required.extend(f"next_open_to_d{day}_day_high_return_pct" for day in range(1, h + 1))
+    else:
+        required.extend(f"future_d{day + 1}_open" for day in range(1, h + 1))
+    if candidate["target_rule_id"] == "close_prev20_break_then_close_profit_target":
+        required.extend(f"future_d{day}_ma5" for day in range(1, h + 1))
+    return required
+
+
+def _price_pullback_exit_rule_outcome_counts(
+    valid: pd.DataFrame,
+    candidate: dict[str, object],
+) -> dict[str, object]:
+    h = TIME_COST_HORIZON_DAYS
+    close_cols = [f"next_open_to_d{day}_day_close_return_pct" for day in range(1, h + 1)]
+    high_cols = [f"next_open_to_d{day}_day_high_return_pct" for day in range(1, h + 1)]
+    final_close_col = f"next_open_to_d{h}_close_return_pct"
+    close_returns = valid[close_cols].apply(pd.to_numeric, errors="coerce")
+    final_close_return = pd.to_numeric(valid[final_close_col], errors="coerce")
+    entry_price = numeric_column(valid, "next_open")
+    target_price = numeric_column(valid, "range_high_20d_prev")
+    prev20_target_pct = (target_price / entry_price.replace(0, pd.NA) - 1.0) * 100.0
+
+    refs = _future_reference_frame(valid, h, "lower_ma20_ema23", close_cols)
+    hard_stop_threshold = (refs.mul(0.96).div(entry_price.replace(0, pd.NA), axis=0) - 1.0) * 100.0
+    hard_stop_day = _first_consecutive_hit_day(close_returns.le(hard_stop_threshold), 4)
+    hard_stop_return = _value_at_day(close_returns, hard_stop_day)
+
+    target_rule_id = str(candidate["target_rule_id"])
+    trail_day = pd.Series(math.nan, index=valid.index, dtype=float)
+    if target_rule_id == "intraday_prev20_high_touch":
+        high_returns = valid[high_cols].apply(pd.to_numeric, errors="coerce")
+        target_day = _first_hit_day(high_returns.ge(prev20_target_pct, axis=0))
+        target_return_at_hit = _value_at_day(close_returns, target_day)
+    elif target_rule_id == "close_prev20_high_break":
+        target_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
+        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+    elif target_rule_id == "close_prev20_break_then_close_profit_target":
+        breakout_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
+        day_numbers = np.arange(1, h + 1)
+        breakout_arr = breakout_day.to_numpy(dtype=float)[:, None]
+        after_breakout = pd.DataFrame(
+            np.isfinite(breakout_arr) & (day_numbers >= breakout_arr),
+            index=valid.index,
+            columns=close_cols,
+        )
+        profit_target_pct = float(candidate["profit_target_pct"])
+        target_day = _first_hit_day(close_returns.ge(profit_target_pct) & after_breakout)
+        close_prices = close_returns.div(100.0).add(1.0).mul(entry_price, axis=0)
+        ma5_cols = [f"future_d{day}_ma5" for day in range(1, h + 1)]
+        ma5_refs = valid[ma5_cols].apply(pd.to_numeric, errors="coerce")
+        ma5_refs.columns = close_cols
+        trail_day = _first_hit_day(close_prices.lt(ma5_refs) & after_breakout)
+        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+    else:
+        raise ValueError(f"Unsupported exit target_rule_id: {target_rule_id}")
+
+    same_day_unresolved = target_day.notna() & (
+        (hard_stop_day.notna() & target_day.eq(hard_stop_day))
+        | (trail_day.notna() & target_day.eq(trail_day))
+    )
+    target_before_stop = (
+        target_day.notna()
+        & ~same_day_unresolved
+        & (hard_stop_day.isna() | (target_day < hard_stop_day))
+        & (trail_day.isna() | (target_day < trail_day))
+    )
+    hard_stop_failure = (
+        hard_stop_day.notna()
+        & ~same_day_unresolved
+        & (target_day.isna() | (hard_stop_day < target_day))
+        & (trail_day.isna() | (hard_stop_day <= trail_day))
+    )
+    trail_exit = (
+        trail_day.notna()
+        & ~same_day_unresolved
+        & (target_day.isna() | (trail_day < target_day))
+        & (hard_stop_day.isna() | (trail_day < hard_stop_day))
+    )
+
+    realized_days = pd.Series(h, index=valid.index, dtype=float)
+    realized_days = realized_days.mask(target_before_stop, target_day)
+    realized_days = realized_days.mask(hard_stop_failure, hard_stop_day)
+    realized_days = realized_days.mask(trail_exit, trail_day)
+    realized_days = realized_days.mask(same_day_unresolved, target_day)
+
+    open_exit_returns = _future_open_return_frame(valid, h)
+    trail_return = _value_at_day(open_exit_returns, trail_day)
+    realized_return = pd.Series(math.nan, index=valid.index, dtype=float)
+    realized_return = realized_return.mask(target_before_stop, target_return_at_hit)
+    realized_return = realized_return.mask(hard_stop_failure, hard_stop_return)
+    realized_return = realized_return.mask(trail_exit, trail_return)
+
+    any_exit = target_before_stop | hard_stop_failure | trail_exit | same_day_unresolved
+    no_exit = ~any_exit
+    realized_return = realized_return.mask(no_exit, final_close_return)
+
+    trail_neutral = trail_exit & realized_return.ge(0)
+    trail_failure = trail_exit & realized_return.lt(0)
+    late_neutral = no_exit & final_close_return.ge(0)
+    late_failure = no_exit & final_close_return.lt(0)
+    failure = hard_stop_failure | trail_failure | late_failure
+    neutral = trail_neutral | late_neutral
+
+    win_count = int(target_before_stop.sum())
+    neutral_count = int(neutral.sum())
+    failure_count = int(failure.sum())
+    same_day_count = int(same_day_unresolved.sum())
+    hard_stop_count = int(hard_stop_failure.sum())
+    trail_exit_count = int(trail_exit.sum())
+    mature = len(valid)
+    return {
+        "mature_count": mature,
+        "win_count": win_count,
+        "neutral_count": neutral_count,
+        "failure_count": failure_count,
+        "same_day_unresolved_count": same_day_count,
+        "hard_stop_count": hard_stop_count,
+        "ma5_exit_count": trail_exit_count,
+        "win_rate_pct": _rate(win_count, mature),
+        "neutral_rate_pct": _rate(neutral_count, mature),
+        "failure_rate_pct": _rate(failure_count, mature),
+        "same_day_unresolved_rate_pct": _rate(same_day_count, mature),
+        "hard_stop_rate_pct": _rate(hard_stop_count, mature),
+        "ma5_exit_rate_pct": _rate(trail_exit_count, mature),
+        "avg_d20_close_return_pct": round(float(final_close_return.mean()), 2) if mature else "",
+        "median_d20_close_return_pct": round(float(final_close_return.median()), 2) if mature else "",
+        "avg_realized_return_pct": _mean_or_blank(realized_return),
+        "avg_win_realized_return_pct": _mean_or_blank(realized_return[target_before_stop]) if mature else "",
+        "avg_failure_realized_return_pct": _mean_or_blank(realized_return[failure]) if mature else "",
+        "avg_neutral_realized_return_pct": _mean_or_blank(realized_return[neutral]) if mature else "",
+        "avg_realized_or_d20_days": _mean_or_blank(realized_days),
+        "avg_days_to_win": _mean_or_blank(target_day[target_before_stop]) if mature else "",
+        "avg_days_to_failure": _mean_or_blank(realized_days[failure]) if mature else "",
+    }
+
+
+def build_price_pullback_exit_rule_comparison(df: pd.DataFrame) -> pd.DataFrame:
+    base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for entry_filter in _price_pullback_exit_rule_filters():
+        condition = entry_filter.get("condition")
+        if condition is None:
+            continue
+        filter_mask = condition(df).fillna(False)
+        picked = df[base_mask & filter_mask].copy()
+        for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES:
+            required = _price_pullback_exit_required_columns(candidate)
+            valid = (
+                picked.dropna(subset=required).copy()
+                if all(col in picked.columns for col in required)
+                else picked.iloc[0:0].copy()
+            )
+            outcome = (
+                _price_pullback_exit_rule_outcome_counts(valid, candidate)
+                if not valid.empty
+                else {
+                    **_blank_operation_outcome(),
+                    "hard_stop_count": 0,
+                    "ma5_exit_count": 0,
+                    "hard_stop_rate_pct": "",
+                    "ma5_exit_rate_pct": "",
+                }
+            )
+            rows.append(
+                {
+                    "generated_at": generated_at,
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔模型",
+                    "research_artifact_id": "price_pullback_23ema_exit_rule_comparison",
+                    "entry_filter_id": entry_filter["feature_filter_id"],
+                    "entry_filter_family": entry_filter["feature_family"],
+                    "entry_filter_rule": entry_filter["feature_rule"],
+                    "exit_rule_id": candidate["exit_rule_id"],
+                    "formal_price_rule_status": candidate["formal_price_rule_status"],
+                    "target_rule_id": candidate["target_rule_id"],
+                    "profit_target_pct": candidate["profit_target_pct"],
+                    "exit_price_rule": candidate["exit_price_rule"],
+                    "exit_rule_zh": candidate["exit_rule_zh"],
+                    "entry_rule_id": "signal_date_next_open",
+                    "buy_point_rule": "Buy next open only when the price_pullback_23ema signal and the entry filter both hold on signal date.",
+                    "stop_rule_id": "sustained_close_below_lower_ma20_ema23_4pct_4d",
+                    "stop_rule": "Failure stop when close stays at least 4% below the lower of current 20MA and 23EMA for 4 consecutive trading days.",
+                    "holding_window_days": TIME_COST_HORIZON_DAYS,
+                    "selected_stock_days": len(picked),
+                    "selected_unique_stocks": picked["stock_id"].nunique() if not picked.empty else 0,
+                    "advisory_status": "not_production_ready_research_only",
+                    "approved_for_daily": False,
+                    "promotion_readiness": "blocked_exact_daily_row_parity_and_operation_approval_required",
+                    "promotion_blocker": "requires close-confirmed exact operation parity plus explicit promotion/sync PR before production use",
+                    **outcome,
+                }
+            )
+    return pd.DataFrame(rows)
+
+
+def write_price_pullback_exit_rule_comparison(exit_comparison: pd.DataFrame) -> None:
+    write_csv(exit_comparison, PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV)
+    write_csv(exit_comparison, PRICE_PULLBACK_EXIT_RULE_COMPARISON_HISTORY_CSV)
+    write_csv(exit_comparison, DOCS_PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV)
+    lines = [
+        "# Price Pullback 23EMA Exit Rule Comparison",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- scope: advisory exit-rule comparison only; this does not approve daily production use",
+        "- entry_basis: `signal_date_next_open` after production proxy replay plus the entry filter under test",
+        "- invalid_rule_excluded: `close_prev20_high_break_same_day_close` is excluded because the close break is known only after the close.",
+        "- short_exit_rules: `intraday_prev20_high_touch_same_day_close` and `close_prev20_high_break_next_open`",
+        "- continuation_exit_rules: after close-confirmed previous-20-day-high breakout, keep holding until +5%/+8%/+10% close target or close below 5MA, then exit next open.",
+        "- hard_stop: close stays at least 4% below the lower of MA20 and EMA23 for 4 consecutive trading days.",
+        "- blocker: exact daily candidate row parity and explicit promotion/sync PR are still required before production use",
+        "",
+        markdown_table(
+            exit_comparison,
+            [
+                "entry_filter_id",
+                "exit_rule_id",
+                "formal_price_rule_status",
+                "profit_target_pct",
+                "selected_stock_days",
+                "mature_count",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "same_day_unresolved_rate_pct",
+                "hard_stop_rate_pct",
+                "ma5_exit_rate_pct",
+                "avg_realized_return_pct",
+                "avg_win_realized_return_pct",
+                "avg_failure_realized_return_pct",
+                "avg_d20_close_return_pct",
+                "avg_realized_or_d20_days",
+                "promotion_readiness",
+            ],
+            limit=80,
+        ),
+    ]
+    PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD.write_text(
+        PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD.read_text(encoding="utf-8"),
         encoding="utf-8",
         newline="\n",
     )
@@ -3351,6 +3697,7 @@ def main() -> int:
     price_pullback_time_cost_df = build_price_pullback_time_cost_backtest(df)
     price_pullback_operation_module_df = build_price_pullback_operation_module_research(df)
     price_pullback_feature_confirmation_df = build_price_pullback_feature_confirmation_research(df)
+    price_pullback_exit_rule_comparison_df = build_price_pullback_exit_rule_comparison(df)
     price_pullback_daily_row_parity_df = build_price_pullback_daily_row_parity_audit(df)
     price_pullback_decision_audit_df = build_price_pullback_model_decision_audit(
         price_pullback_operation_module_df,
@@ -3371,6 +3718,7 @@ def main() -> int:
     write_price_pullback_time_cost_backtest(price_pullback_time_cost_df)
     write_price_pullback_operation_module_research(price_pullback_operation_module_df)
     write_price_pullback_feature_confirmation_research(price_pullback_feature_confirmation_df)
+    write_price_pullback_exit_rule_comparison(price_pullback_exit_rule_comparison_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
     write_price_pullback_model_decision_audit(price_pullback_decision_audit_df)
 
@@ -3381,6 +3729,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_TIME_COST_CSV} rows={len(price_pullback_time_cost_df)}")
     print(f"Saved {PRICE_PULLBACK_OPERATION_MODULE_CSV} rows={len(price_pullback_operation_module_df)}")
     print(f"Saved {PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV} rows={len(price_pullback_feature_confirmation_df)}")
+    print(f"Saved {PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV} rows={len(price_pullback_exit_rule_comparison_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
     print(f"Saved {PRICE_PULLBACK_DECISION_AUDIT_CSV} rows={len(price_pullback_decision_audit_df)}")
     print(f"Saved {OUT_MD}")
