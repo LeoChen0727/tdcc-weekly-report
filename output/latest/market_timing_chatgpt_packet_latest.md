@@ -1,24 +1,24 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-01 13:48:41 Asia/Taipei
-- main_price_date: 20260630
+- generated_at: 2026-07-01 14:27:43 Asia/Taipei
+- main_price_date: 20260701
 - packet_source: daily_market_regime_dashboard
-- packet_status: ready
-- packet_status_note: all source rows aligned with main_price_date
+- packet_status: partial_market_context
+- packet_status_note: futures_options_date=20260630
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260630
-- futures_options_indicators_latest.csv: 20260630
-- TWSE market index: 20260630
-- TPEx market index: 20260630
+- market_regime_latest.csv: 20260701
+- futures_options_indicators_latest.csv: 20260630 (latest available at or before main_price_date=20260701)
+- TWSE market index: 20260701
+- TPEx market index: 20260701
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| TWSE | 20260630 | 46,126 | -2.07% | 1.74% | True | True | correction | very_high_risk |
-| TPEx | 20260630 | 426.97 | -3.14% | -4.27% | False | True | correction | very_high_risk |
+| TWSE | 20260701 | 47,019 | 2.12% | 3.21% | True | True | mild_bull | high_risk |
+| TPEx | 20260701 | 431.23 | -2.46% | -2.14% | True | True | mild_bull | high_risk |
 
 ## Futures Options Context
 | item | value | note |
@@ -42,11 +42,11 @@
 market_sentiment_context:
   taiwan_vix:
     latest: 38.54
-    percentile_252d: 80.0
+    percentile_252d: 80.2083
     percentile_504d: 
     rank_label: upper_quartile
     context_label: elevated_hedging
-    index_interpretation: vix_context_neutral_observe
+    index_interpretation: index_strong_but_hedging_elevated
   retail_mtx:
     latest_proxy: 2849.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
@@ -62,7 +62,7 @@ market_sentiment_context:
     data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ChatGPT-friendly summary:
-- VIX context: elevated_hedging / vix_context_neutral_observe
+- VIX context: elevated_hedging / index_strong_but_hedging_elevated
 - Retail MTX context: insufficient_history / insufficient_history_observe_only
 - Combined: insufficient_history_observe_only (warning=insufficient)
 - VIX / PutCall / retail MTX are auxiliary context only; cross-check market_regime and foreign_tx_futures_net_oi.

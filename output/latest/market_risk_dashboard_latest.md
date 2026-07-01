@@ -1,10 +1,10 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-07-01 13:48:40 Asia/Taipei`
-- data_date: `20260630`
-- market_regime: `correction`
-- risk_level: `very_high_risk`
-- risk_score: `7`
+- generated_at: `2026-07-01 14:27:42 Asia/Taipei`
+- data_date: `20260701`
+- market_regime: `mild_bull`
+- risk_level: `high_risk`
+- risk_score: `5`
 - futures_options_source_status: `ready`
 
 ## 資料狀態
@@ -23,8 +23,8 @@
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 46,125.91 | -2.07% | +1.74% | True | True | mild_bull |
-| TPEx | 426.97 | -3.14% | -4.27% | False | True | correction |
+| TWSE | 47,018.99 | +2.12% | +3.21% | True | True | mild_bull |
+| TPEx | 431.23 | -2.46% | -2.14% | True | True | mild_bull |
 
 ## 期貨選擇權部位
 
@@ -54,7 +54,7 @@
 
 PDF 固定納入半年圖表，包含指數趨勢、波動/期權指標、外資台指期部位與散戶小台 proxy。若資料不足，圖表或文字會明確標示限制。
 
-Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available with volume/turnover overlay.
+Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available; volume data is unavailable or partial.
 
 - chart: `output/latest/charts/market_regime/market_index_technical_6m.png`
 - chart: `output/latest/charts/market_regime/risk_indicators_6m.png`
@@ -63,8 +63,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: mild_bull; close 46,125.91; 6M range 28,707.13-47,741.51; distance from 6M high -3.38%; above MA20=True, above MA60=True.
-- TPEx / OTC: correction; close 426.97; 6M range 274.54-453.50; distance from 6M high -5.85%; above MA20=False, above MA60=True.
+- TWSE / TAIEX: mild_bull; close 47,018.99; 6M range 29,349.81-47,741.51; distance from 6M high -1.51%; above MA20=True, above MA60=True.
+- TPEx / OTC: mild_bull; close 431.23; 6M range 275.66-453.50; distance from 6M high -4.91%; above MA20=True, above MA60=True.
 
 ## 散戶小台 proxy
 
@@ -76,7 +76,6 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 風險提醒
 
-- TPEx correction
 - Taiwan VIX panic-high
 - Foreign TX futures heavy net short
 
@@ -90,12 +89,12 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `38.54`
-- 252D high / low / percentile: `44.01` / `25.68` / `80%`
+- 252D high / low / percentile: `44.01` / `25.68` / `80.21%`
 - 504D percentile: `-`
-- z-score: `0.81`
+- z-score: `0.8`
 - vix_return_5d / 10d / 20d: `-1.98%` / `-3.6%` / `5.53%`
-- TWSE / TPEx position: TWSE dist 60D high `-3.38%`, TPEx dist 60D high `-5.85%`
-- vix_index_interpretation: `vix_context_neutral_observe`
+- TWSE / TPEx position: TWSE dist 60D high `-1.51%`, TPEx dist 60D high `-4.91%`
+- vix_index_interpretation: `index_strong_but_hedging_elevated`
 
 ## Retail MTX Historical Context
 
