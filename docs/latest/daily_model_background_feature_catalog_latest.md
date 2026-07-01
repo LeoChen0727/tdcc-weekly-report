@@ -1,6 +1,6 @@
 # Daily Model Background Feature Catalog
 
-- generated_at: `2026-06-30 22:44:07 Asia/Taipei`
+- generated_at: `2026-07-01 20:13:41 Asia/Taipei`
 - scope: documents which columns are shared objective background data and which ideas are explicitly model-specific.
 - rule: shared objective data can be reused; model-specific interpretations require separate research evidence and promotion.
 
@@ -96,17 +96,33 @@
 | tdcc_over_1000_ratio | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_over_1000_change_1w | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_over_1000_change_3w | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_as_of_date | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_rows_as_of | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_future_rows_ignored | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_data_status | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_name | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_final_status | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_status_group | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_source_type | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_line_group | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_line | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_two_line_overlap | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_priority | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_tdcc_status | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_warrant_flow_signal | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_volume_ratio | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_return_20d_pct | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_repeat_label | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_volume_breakout_type | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_volume_bucket | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_volume_attack_status | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_volume_attack_selected | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_volume_attack_watch | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_volume_attack_failed | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| theme_context_source_artifact | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | market_index_as_of_date | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | twse_close | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | twse_return_5d_pct | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | twse_return_20d_pct | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | twse_above_ma20 | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | twse_above_ma60 | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| tpex_close | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| tpex_return_5d_pct | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| tpex_return_20d_pct | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| tpex_above_ma20 | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| tpex_above_ma60 | market_index | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| monthly_revenue_point_in_time_panel | revenue | missing_shared_data_family | not_available_for_required_model_gate_until_panel_and_validator_exist |  | must use revenue release date on or before signal_date |
-| price_pullback_23ema_operation_filter | model_specific_interpretation | model_specific_not_in_shared_panel | price_pullback_23ema_only_after_explicit_research_and_promotion | price_pullback_23ema | must consume shared objective columns without rewriting shared semantics |
-| neckline_45d_non_bearish_filter | model_specific_interpretation | model_specific_not_in_shared_panel | neckline_volume_breakout_confirmation_only | neckline_volume_breakout_confirmation | must not be reused as a price_pullback_23ema gate |

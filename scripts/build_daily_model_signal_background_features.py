@@ -21,6 +21,11 @@ PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 TDCC_HISTORY_DIR = ROOT / "data" / "tdcc_stock_history"
 MARKET_INDEX_HISTORY_CSV = ROOT / "data" / "market_index_history.csv"
 RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
+THEME_STATUS_HISTORY_CSVS = (
+    LATEST_DIR / "daily_theme_status_history_latest.csv",
+    ROOT / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv",
+    ROOT / "output" / "history" / "daily_candidates" / "daily_theme_status_history.csv",
+)
 
 PANEL_CSV = RESEARCH_LATEST_DIR / "daily_model_signal_background_feature_panel_latest.csv"
 PANEL_MD = RESEARCH_LATEST_DIR / "daily_model_signal_background_feature_panel_latest.md"
@@ -276,6 +281,50 @@ def load_market_index_history(path_text: str = str(MARKET_INDEX_HISTORY_CSV)) ->
     return out[out["date"] != ""].sort_values(["index_code", "date"]).reset_index(drop=True)
 
 
+def _bool_value(value: Any) -> bool | str:
+    text = str(value).strip().lower()
+    if text in {"true", "1", "yes"}:
+        return True
+    if text in {"false", "0", "no"}:
+        return False
+    return ""
+
+
+def load_theme_status_history(paths: tuple[Path, ...] = THEME_STATUS_HISTORY_CSVS) -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+    for order, path in enumerate(paths):
+        df = read_csv_safely(path, dtype=str, keep_default_na=False)
+        if df.empty or not {"stock_id", "signal_date"}.issubset(df.columns):
+            continue
+        frame = df.copy()
+        frame["theme_context_source_artifact"] = rel_to_root(path)
+        frame["theme_context_source_order"] = order
+        frames.append(frame)
+    if not frames:
+        return pd.DataFrame()
+
+    out = pd.concat(frames, ignore_index=True).fillna("")
+    out["stock_id"] = out["stock_id"].map(normalize_stock_id)
+    out["signal_date"] = out["signal_date"].map(normalize_date)
+    out = out[(out["stock_id"] != "") & (out["signal_date"] != "")]
+    for col in ["presentation_priority", "volume_ratio", "return_20d"]:
+        if col in out.columns:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+    for col in [
+        "two_line_overlap_flag",
+        "is_volume_attack_selected",
+        "is_volume_attack_watch",
+        "is_volume_attack_failed",
+    ]:
+        if col in out.columns:
+            out[col] = out[col].map(_bool_value)
+    return (
+        out.sort_values(["stock_id", "signal_date", "theme_context_source_order"])
+        .drop_duplicates(["stock_id", "signal_date"], keep="last")
+        .reset_index(drop=True)
+    )
+
+
 def asof_market_features(signal_date: str, market_df: pd.DataFrame | None = None) -> dict[str, Any]:
     market = load_market_index_history() if market_df is None else market_df
     features: dict[str, Any] = {
@@ -497,6 +546,82 @@ def tdcc_background_features(stock_id: str, signal_date: str, tdcc_dir: Path = T
     return features
 
 
+def theme_background_features(stock_id: str, signal_date: str, theme_history: pd.DataFrame | None = None) -> dict[str, Any]:
+    history = load_theme_status_history() if theme_history is None else theme_history
+    features: dict[str, Any] = {
+        "theme_context_as_of_date": "",
+        "theme_context_rows_as_of": 0,
+        "theme_context_future_rows_ignored": 0,
+        "theme_context_data_status": "missing_theme_status_history",
+        "theme_context_name": "",
+        "theme_context_final_status": "",
+        "theme_context_status_group": "",
+        "theme_context_source_type": "",
+        "theme_context_line_group": "",
+        "theme_context_line": "",
+        "theme_context_two_line_overlap": "",
+        "theme_context_priority": "",
+        "theme_context_tdcc_status": "",
+        "theme_context_warrant_flow_signal": "",
+        "theme_context_volume_ratio": "",
+        "theme_context_return_20d_pct": "",
+        "theme_context_repeat_label": "",
+        "theme_context_volume_breakout_type": "",
+        "theme_context_volume_bucket": "",
+        "theme_context_volume_attack_status": "",
+        "theme_context_volume_attack_selected": "",
+        "theme_context_volume_attack_watch": "",
+        "theme_context_volume_attack_failed": "",
+        "theme_context_source_artifact": "",
+    }
+    if history is None or history.empty:
+        return features
+
+    stock_rows = history[history["stock_id"].astype(str).eq(normalize_stock_id(stock_id))].copy()
+    if stock_rows.empty:
+        features["theme_context_data_status"] = "no_theme_on_or_before_signal"
+        return features
+
+    features["theme_context_future_rows_ignored"] = int((stock_rows["signal_date"].astype(str) > signal_date).sum())
+    asof = stock_rows[stock_rows["signal_date"].astype(str) <= signal_date].copy()
+    if asof.empty:
+        features["theme_context_data_status"] = "no_theme_on_or_before_signal"
+        return features
+
+    row = asof.iloc[-1]
+    asof_date = str(row.get("signal_date", ""))
+    features.update(
+        {
+            "theme_context_as_of_date": asof_date,
+            "theme_context_rows_as_of": len(asof),
+            "theme_context_data_status": "ready_exact_signal_date"
+            if asof_date == signal_date
+            else "ready_previous_signal_date",
+            "theme_context_name": row.get("theme_name", ""),
+            "theme_context_final_status": row.get("theme_final_status", ""),
+            "theme_context_status_group": row.get("theme_status_group", ""),
+            "theme_context_source_type": row.get("candidate_source_type", ""),
+            "theme_context_line_group": row.get("candidate_line_group", ""),
+            "theme_context_line": row.get("candidate_line", ""),
+            "theme_context_two_line_overlap": _bool_value(row.get("two_line_overlap_flag", "")),
+            "theme_context_priority": blank_if_nan(to_float(row.get("presentation_priority"))),
+            "theme_context_tdcc_status": row.get("tdcc_status", ""),
+            "theme_context_warrant_flow_signal": row.get("warrant_flow_signal", ""),
+            "theme_context_volume_ratio": blank_if_nan(to_float(row.get("volume_ratio"))),
+            "theme_context_return_20d_pct": blank_if_nan(to_float(row.get("return_20d"))),
+            "theme_context_repeat_label": row.get("repeat_appear_label", ""),
+            "theme_context_volume_breakout_type": row.get("volume_breakout_type", ""),
+            "theme_context_volume_bucket": row.get("volume_attack_bucket", ""),
+            "theme_context_volume_attack_status": row.get("theme_volume_attack_status", ""),
+            "theme_context_volume_attack_selected": _bool_value(row.get("is_volume_attack_selected", "")),
+            "theme_context_volume_attack_watch": _bool_value(row.get("is_volume_attack_watch", "")),
+            "theme_context_volume_attack_failed": _bool_value(row.get("is_volume_attack_failed", "")),
+            "theme_context_source_artifact": row.get("theme_context_source_artifact", ""),
+        }
+    )
+    return features
+
+
 def build_feature_panel(signals: pd.DataFrame | None = None) -> pd.DataFrame:
     signal_rows = load_signal_universe() if signals is None else signals.copy()
     if signal_rows.empty:
@@ -505,6 +630,7 @@ def build_feature_panel(signals: pd.DataFrame | None = None) -> pd.DataFrame:
     generated_at = now_text()
     rows: list[dict[str, Any]] = []
     market_cache: dict[str, dict[str, Any]] = {}
+    theme_history = load_theme_status_history()
     for _, signal in signal_rows.iterrows():
         stock_id = normalize_stock_id(signal.get("stock_id"))
         signal_date = normalize_date(signal.get("signal_date"))
@@ -523,6 +649,7 @@ def build_feature_panel(signals: pd.DataFrame | None = None) -> pd.DataFrame:
         }
         row.update(price_background_features(stock_id, signal_date))
         row.update(tdcc_background_features(stock_id, signal_date))
+        row.update(theme_background_features(stock_id, signal_date, theme_history))
         row.update(market_cache[signal_date])
         rows.append({key: blank_if_nan(value) for key, value in row.items()})
 
@@ -555,6 +682,7 @@ def feature_catalog(panel: pd.DataFrame) -> pd.DataFrame:
         "obv": "technical_indicator",
         "bb": "technical_indicator",
         "tdcc": "holder_flow",
+        "theme_context": "theme_status_history",
         "twse": "market_index",
         "tpex": "market_index",
         "market_index": "market_index",
@@ -639,6 +767,14 @@ def write_markdown(panel: pd.DataFrame, catalog: pd.DataFrame) -> None:
         if not panel.empty and "tdcc_data_status" in panel.columns
         else pd.DataFrame(columns=["tdcc_data_status", "rows"])
     )
+    theme_counts = (
+        panel.groupby("theme_context_data_status", dropna=False)
+        .size()
+        .reset_index(name="rows")
+        .sort_values(["theme_context_data_status"])
+        if not panel.empty and "theme_context_data_status" in panel.columns
+        else pd.DataFrame(columns=["theme_context_data_status", "rows"])
+    )
     family_counts = (
         catalog.groupby(["feature_scope", "feature_family"], dropna=False)
         .size()
@@ -664,6 +800,10 @@ def write_markdown(panel: pd.DataFrame, catalog: pd.DataFrame) -> None:
         "",
         markdown_table(tdcc_counts, ["tdcc_data_status", "rows"]) if not tdcc_counts.empty else "No TDCC coverage rows.",
         "",
+        markdown_table(theme_counts, ["theme_context_data_status", "rows"])
+        if not theme_counts.empty
+        else "No theme context coverage rows.",
+        "",
         "## Feature Families",
         "",
         markdown_table(family_counts, ["feature_scope", "feature_family", "columns"]) if not family_counts.empty else "No catalog rows.",
@@ -687,6 +827,9 @@ def write_markdown(panel: pd.DataFrame, catalog: pd.DataFrame) -> None:
                 "rsi14",
                 "tdcc_as_of_date",
                 "tdcc_over_400_change_1w",
+                "theme_context_as_of_date",
+                "theme_context_status_group",
+                "theme_context_volume_attack_status",
                 "twse_return_20d_pct",
             ],
             limit=30,

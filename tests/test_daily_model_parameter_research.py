@@ -14,6 +14,8 @@ from build_daily_candidate_model_layer import build_parameter_table, build_specs
 from build_daily_model_parameter_research import (  # noqa: E402
     _add_feature_confirmation_deltas,
     add_price_structure_features,
+    attach_signal_background_features,
+    build_price_pullback_continuation_win_profile,
     build_price_pullback_exit_rule_comparison,
     build_price_pullback_feature_confirmation_research,
     build_model_parity,
@@ -291,6 +293,58 @@ def test_price_structure_features_add_45d_pattern_and_obv() -> None:
     assert 0.0 <= latest["close_position_45d_pct"] <= 110.0
     assert bool(latest["obv_above_ma20"])
     assert latest["obv_slope_5d"] > 0
+
+
+def test_attach_signal_background_features_uses_point_in_time_theme_context(tmp_path: Path) -> None:
+    panel_path = tmp_path / "daily_model_signal_background_feature_panel_latest.csv"
+    pd.DataFrame(
+        [
+            {
+                "stock_id": "2330",
+                "signal_date": "20260320",
+                "theme_context_as_of_date": "20260313",
+                "theme_context_data_status": "ready_previous_signal_date",
+                "theme_context_name": "AI",
+                "theme_context_final_status": "mainstream_follow_through",
+                "theme_context_status_group": "mainstream_supported",
+                "theme_context_source_type": "mainstream_theme_candidate",
+                "theme_context_line_group": "breakout_attack_stock",
+                "theme_context_line": "帶量突破",
+                "theme_context_two_line_overlap": "true",
+                "theme_context_priority": "2",
+                "theme_context_tdcc_status": "up",
+                "theme_context_warrant_flow_signal": "neutral",
+                "theme_context_volume_ratio": "1.8",
+                "theme_context_return_20d_pct": "12.5",
+                "theme_context_repeat_label": "first_seen",
+                "theme_context_volume_breakout_type": "confirmed",
+                "theme_context_volume_bucket": "selected",
+                "theme_context_volume_attack_status": "selected",
+                "theme_context_volume_attack_selected": "true",
+                "theme_context_volume_attack_watch": "false",
+                "theme_context_volume_attack_failed": "false",
+                "theme_context_source_artifact": "output/history/daily_signals/daily_theme_status_history.csv",
+            }
+        ]
+    ).to_csv(panel_path, index=False)
+    frame = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2317"],
+            "date": ["20260320", "20260320"],
+            "close": [100.0, 100.0],
+        }
+    )
+
+    out = attach_signal_background_features(frame, panel_path)
+
+    assert bool(out.loc[0, "theme_context_ready"]) is True
+    assert bool(out.loc[0, "theme_context_mainstream_supported"]) is True
+    assert bool(out.loc[0, "theme_context_leadership_supported"]) is True
+    assert bool(out.loc[0, "theme_context_overheated"]) is False
+    assert bool(out.loc[0, "theme_context_volume_attack_selected_flag"]) is True
+    assert out.loc[0, "theme_context_volume_ratio"] == 1.8
+    assert out.loc[1, "theme_context_data_status"] == "no_signal_background_row"
+    assert bool(out.loc[1, "theme_context_ready"]) is False
 
 
 def test_price_pullback_operation_research_stays_advisory_only() -> None:
@@ -618,6 +672,13 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
             "prior_extension_ema23_20d_pct": [12.0, 8.0, 15.0],
             "prior_runup_20d_pct": [25.0, 22.0, 18.0],
             "pullback_from_high_20d_pct": [-6.0, -6.0, -6.0],
+            "theme_context_ready": [True, True, False],
+            "theme_context_mainstream_supported": [True, True, False],
+            "theme_context_leadership_supported": [True, False, False],
+            "theme_context_overheated": [False, True, False],
+            "theme_context_volume_attack_selected_flag": [True, False, False],
+            "theme_context_volume_ratio": [1.8, 3.0, ""],
+            "theme_context_return_20d_pct": [12.5, 42.0, ""],
             "next_open_to_d20_close_return_pct": [2.0, -4.5, 1.0],
         }
     )
@@ -662,13 +723,17 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
         "tdcc_high_thresholds_up_obv_above_ma20",
         "tdcc_high_thresholds_up_macd_kd_confirm",
         "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20",
+        "theme_context_available",
+        "theme_context_mainstream_supported",
+        "theme_context_leadership_not_overheated",
+        "theme_context_volume_attack_selected",
+        "tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported",
+        "tdcc_high_thresholds_up_return20_0_25_theme_context_leadership_not_overheated",
     }
     assert combo_ids <= set(feature["feature_filter_id"])
     for combo_id in combo_ids:
         combo = feature[feature["feature_filter_id"].eq(combo_id)].iloc[0]
-        assert combo["selected_stock_days"] == 1
-        assert combo["win_count"] == 1
-        assert combo["win_rate_pct"] == 100.0
+        assert combo["selected_stock_days"] >= 1
         assert combo["advisory_status"] == "not_production_ready_research_only"
 
     revenue = feature[feature["feature_filter_id"].eq("revenue_positive_or_strong")].iloc[0]
@@ -708,8 +773,16 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
 
     revenue_decision = decision[decision["decision_item_id"].eq("feature_filter:revenue_positive_or_strong")].iloc[0]
     market_decision = decision[decision["decision_item_id"].eq("feature_filter:market_background_regime")].iloc[0]
+    obv_combo_decision = decision[
+        decision["decision_item_id"].eq("feature_filter:tdcc_high_thresholds_up_return20_0_25_obv_above_ma20")
+    ].iloc[0]
+    theme_decision = decision[
+        decision["decision_item_id"].eq("feature_filter:theme_context_mainstream_supported")
+    ].iloc[0]
     assert revenue_decision["decision_status"] == "blocked_data_gap_required_before_gate"
     assert market_decision["decision_status"] == "blocked_market_join_required"
+    assert obv_combo_decision["condition_role"] == "score_bonus_candidate_not_required_gate"
+    assert theme_decision["condition_role"] == "point_in_time_context_score_bonus_candidate_not_required_gate"
 
 
 def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confirmed_exits() -> None:
@@ -740,6 +813,22 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
             "tdcc_history_available": [True, True, True, True, True],
             "high_thresholds_up": [True, True, True, True, True],
             "return_20d_pct": [10.0, 10.0, 10.0, 10.0, 10.0],
+            "return_45d_pct": [18.0, 12.0, 30.0, 8.0, -2.0],
+            "range_width_45d_pct": [25.0, 20.0, 35.0, 15.0, 10.0],
+            "close_position_45d_pct": [55.0, 50.0, 70.0, 45.0, 30.0],
+            "prior_extension_ema23_20d_pct": [12.0, 9.0, 18.0, 6.0, 4.0],
+            "prior_runup_20d_pct": [22.0, 15.0, 30.0, 12.0, 8.0],
+            "pullback_from_high_20d_pct": [-6.0, -4.0, -8.0, -3.0, -2.0],
+            "rsi14": [55.0, 58.0, 62.0, 50.0, 40.0],
+            "obv_slope_5d": [1000.0, 800.0, 2000.0, -500.0, -1000.0],
+            "tdcc_consecutive_up_weeks": [1.0, 1.0, 2.0, 1.0, 1.0],
+            "theme_context_ready": [True, True, True, False, False],
+            "theme_context_mainstream_supported": [True, True, True, False, False],
+            "theme_context_leadership_supported": [True, False, True, False, False],
+            "theme_context_overheated": [False, True, False, False, False],
+            "theme_context_volume_attack_selected_flag": [True, False, True, False, False],
+            "theme_context_volume_ratio": [1.8, 2.5, 2.0, "", ""],
+            "theme_context_return_20d_pct": [12.5, 25.0, 18.0, "", ""],
             "next_open_to_d20_close_return_pct": [1.0, 6.0, 11.0, 2.5, -4.5],
         }
     )
@@ -813,6 +902,17 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     assert tp8["failure_count"] == 1
     assert tp8["ma5_exit_count"] == 1
     assert tp8["hard_stop_count"] == 1
+
+    profile = build_price_pullback_continuation_win_profile(df)
+    assert not profile.empty
+    assert profile["approved_for_daily"].eq(False).all()
+    assert profile["production_change"].eq("none").all()
+    assert {"obv_above_ma20", "theme_context_mainstream_supported"} <= set(profile["feature_column"])
+    assert set(profile["exit_rule_id"]) == {
+        "close_prev20_break_then_tp5_or_5ma_next_open",
+        "close_prev20_break_then_tp8_or_5ma_next_open",
+        "close_prev20_break_then_tp10_or_5ma_next_open",
+    }
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:

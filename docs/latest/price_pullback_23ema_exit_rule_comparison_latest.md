@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Exit Rule Comparison
 
-- generated_at: `2026-07-01 17:21:45 Asia/Taipei`
+- generated_at: `2026-07-01 20:26:39 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: advisory exit-rule comparison only; this does not approve daily production use
@@ -43,3 +43,13 @@
 | tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 8472 | 3827 | 37.31 | 22.92 | 39.77 | 0.0 | 8.34 | 22.71 | 2.71 | 11.68 | -5.27 | 3.19 | 12.05 | blocked_exact_daily_row_parity_and_operation_approval_required |
 | tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 8472 | 3827 | 27.04 | 31.96 | 41.0 | 0.0 | 8.34 | 32.17 | 2.64 | 14.81 | -5.19 | 3.19 | 12.47 | blocked_exact_daily_row_parity_and_operation_approval_required |
 | tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 8472 | 3827 | 21.64 | 36.87 | 41.49 | 0.0 | 8.34 | 37.1 | 2.57 | 17.03 | -5.16 | 3.19 | 12.66 | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | intraday_prev20_high_touch_same_day_close | research_only_intraday_trigger |  | 2118 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_high_break_next_open | close_confirmed_candidate |  | 2118 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 2118 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 2118 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 2118 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | intraday_prev20_high_touch_same_day_close | research_only_intraday_trigger |  | 812 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_high_break_next_open | close_confirmed_candidate |  | 812 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 812 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 812 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 812 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |

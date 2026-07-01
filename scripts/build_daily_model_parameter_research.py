@@ -98,6 +98,24 @@ PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD = (
 PRICE_PULLBACK_EXIT_RULE_COMPARISON_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_exit_rule_comparison.csv"
 DOCS_PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV.name
 DOCS_PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD.name
+DAILY_SIGNAL_BACKGROUND_FEATURE_PANEL_CSV = (
+    RESEARCH_LATEST_DIR / "daily_model_signal_background_feature_panel_latest.csv"
+)
+PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_continuation_win_profile_latest.csv"
+)
+PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_continuation_win_profile_latest.md"
+)
+PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_HISTORY_CSV = (
+    HISTORY_DIR / "price_pullback_23ema_continuation_win_profile.csv"
+)
+DOCS_PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV = (
+    DOCS_LATEST_DIR / PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV.name
+)
+DOCS_PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD = (
+    DOCS_LATEST_DIR / PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD.name
+)
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -376,6 +394,91 @@ def attach_tdcc_features(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+THEME_CONTEXT_JOIN_COLUMNS = [
+    "theme_context_as_of_date",
+    "theme_context_data_status",
+    "theme_context_name",
+    "theme_context_final_status",
+    "theme_context_status_group",
+    "theme_context_source_type",
+    "theme_context_line_group",
+    "theme_context_line",
+    "theme_context_two_line_overlap",
+    "theme_context_priority",
+    "theme_context_tdcc_status",
+    "theme_context_warrant_flow_signal",
+    "theme_context_volume_ratio",
+    "theme_context_return_20d_pct",
+    "theme_context_repeat_label",
+    "theme_context_volume_breakout_type",
+    "theme_context_volume_bucket",
+    "theme_context_volume_attack_status",
+    "theme_context_volume_attack_selected",
+    "theme_context_volume_attack_watch",
+    "theme_context_volume_attack_failed",
+    "theme_context_source_artifact",
+]
+
+
+def attach_signal_background_features(
+    df: pd.DataFrame,
+    panel_path: Path = DAILY_SIGNAL_BACKGROUND_FEATURE_PANEL_CSV,
+) -> pd.DataFrame:
+    out = df.copy()
+    if not panel_path.exists():
+        out["theme_context_data_status"] = "missing_signal_background_panel"
+        out["theme_context_ready"] = False
+        out["theme_context_mainstream_supported"] = False
+        out["theme_context_leadership_supported"] = False
+        out["theme_context_overheated"] = False
+        out["theme_context_volume_attack_selected_flag"] = False
+        return out
+
+    panel = pd.read_csv(panel_path, dtype=str, keep_default_na=False)
+    if panel.empty or not {"stock_id", "signal_date"}.issubset(panel.columns):
+        out["theme_context_data_status"] = "missing_signal_background_panel"
+        out["theme_context_ready"] = False
+        out["theme_context_mainstream_supported"] = False
+        out["theme_context_leadership_supported"] = False
+        out["theme_context_overheated"] = False
+        out["theme_context_volume_attack_selected_flag"] = False
+        return out
+
+    keep = ["stock_id", "signal_date", *[col for col in THEME_CONTEXT_JOIN_COLUMNS if col in panel.columns]]
+    theme = panel[keep].copy()
+    theme["stock_id"] = theme["stock_id"].map(normalize_code)
+    theme["date"] = theme["signal_date"].map(normalize_date)
+    theme = theme.drop(columns=["signal_date"]).drop_duplicates(["stock_id", "date"], keep="last")
+    for col in ["theme_context_priority", "theme_context_volume_ratio", "theme_context_return_20d_pct"]:
+        if col in theme.columns:
+            theme[col] = pd.to_numeric(theme[col], errors="coerce")
+
+    left = out.copy()
+    left["stock_id"] = left["stock_id"].map(normalize_code)
+    left["date"] = left["date"].map(normalize_date)
+    merged = left.merge(theme, on=["stock_id", "date"], how="left")
+    merged["theme_context_data_status"] = merged["theme_context_data_status"].fillna("no_signal_background_row")
+    for col in THEME_CONTEXT_JOIN_COLUMNS:
+        if col not in merged.columns:
+            merged[col] = ""
+    ready_statuses = {"ready_exact_signal_date", "ready_previous_signal_date"}
+    merged["theme_context_ready"] = merged["theme_context_data_status"].astype(str).isin(ready_statuses)
+    merged["theme_context_mainstream_supported"] = merged["theme_context_ready"] & merged[
+        "theme_context_status_group"
+    ].astype(str).isin({"mainstream_supported", "mainstream_overheated"})
+    merged["theme_context_leadership_supported"] = merged["theme_context_ready"] & merged[
+        "theme_context_final_status"
+    ].astype(str).isin({"mainstream_leader", "mainstream_follow_through", "emerging_theme"})
+    merged["theme_context_overheated"] = merged["theme_context_ready"] & merged[
+        "theme_context_status_group"
+    ].astype(str).eq("mainstream_overheated")
+    merged["theme_context_volume_attack_selected_flag"] = trueish_column(
+        merged,
+        "theme_context_volume_attack_selected",
+    )
+    return merged
+
+
 def build_research_frame() -> pd.DataFrame:
     df = build_stock_day_frame()
     if df.empty:
@@ -384,6 +487,7 @@ def build_research_frame() -> pd.DataFrame:
     df = add_price_structure_features(df)
     df = attach_theme_labels(df)
     df = attach_tdcc_features(df)
+    df = attach_signal_background_features(df)
     return df
 
 
@@ -485,6 +589,25 @@ def price_pullback_macd_kd_confirm_filter(d: pd.DataFrame) -> pd.Series:
 
 def price_pullback_obv_above_ma20_filter(d: pd.DataFrame) -> pd.Series:
     return trueish_column(d, "obv_above_ma20").fillna(False)
+
+
+def price_pullback_theme_context_ready_filter(d: pd.DataFrame) -> pd.Series:
+    return trueish_column(d, "theme_context_ready").fillna(False)
+
+
+def price_pullback_theme_context_mainstream_filter(d: pd.DataFrame) -> pd.Series:
+    return trueish_column(d, "theme_context_mainstream_supported").fillna(False)
+
+
+def price_pullback_theme_context_leadership_not_overheated_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        trueish_column(d, "theme_context_leadership_supported")
+        & ~trueish_column(d, "theme_context_overheated")
+    ).fillna(False)
+
+
+def price_pullback_theme_context_volume_attack_selected_filter(d: pd.DataFrame) -> pd.Series:
+    return trueish_column(d, "theme_context_volume_attack_selected_flag").fillna(False)
 
 
 def price_pullback_volume_red_k_entry(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
@@ -1515,6 +1638,58 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
         & price_pullback_obv_above_ma20_filter(d),
     },
     {
+        "feature_filter_id": "theme_context_available",
+        "feature_family": "theme_context",
+        "feature_rule": "signal-date point-in-time daily theme context row is available from the background panel",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_daily_model_signal_background_feature_panel_coverage_limited",
+        "condition": price_pullback_theme_context_ready_filter,
+    },
+    {
+        "feature_filter_id": "theme_context_mainstream_supported",
+        "feature_family": "theme_context",
+        "feature_rule": "signal-date theme status group is mainstream_supported or mainstream_overheated",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_daily_model_signal_background_feature_panel_coverage_limited",
+        "condition": price_pullback_theme_context_mainstream_filter,
+    },
+    {
+        "feature_filter_id": "theme_context_leadership_not_overheated",
+        "feature_family": "theme_context",
+        "feature_rule": "signal-date theme final status is mainstream_leader, mainstream_follow_through, or emerging_theme, and the status group is not overheated",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_daily_model_signal_background_feature_panel_coverage_limited",
+        "condition": price_pullback_theme_context_leadership_not_overheated_filter,
+    },
+    {
+        "feature_filter_id": "theme_context_volume_attack_selected",
+        "feature_family": "theme_context",
+        "feature_rule": "signal-date theme context marks the stock as selected in volume-attack theme status history",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_daily_model_signal_background_feature_panel_coverage_limited",
+        "condition": price_pullback_theme_context_volume_attack_selected_filter,
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported",
+        "feature_family": "combo_chip_risk_control_theme_context",
+        "feature_rule": "large-holder TDCC high thresholds increased, 20d return is between 0% and 25%, and signal-date theme context is mainstream-supported or overheated",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_daily_model_signal_background_feature_panel_coverage_limited",
+        "condition": lambda d: price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_return20_balanced_filter(d)
+        & price_pullback_theme_context_mainstream_filter(d),
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up_return20_0_25_theme_context_leadership_not_overheated",
+        "feature_family": "combo_chip_risk_control_theme_context",
+        "feature_rule": "large-holder TDCC high thresholds increased, 20d return is between 0% and 25%, and signal-date theme leadership is supported without overheated status",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_daily_model_signal_background_feature_panel_coverage_limited",
+        "condition": lambda d: price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_return20_balanced_filter(d)
+        & price_pullback_theme_context_leadership_not_overheated_filter(d),
+    },
+    {
         "feature_filter_id": "revenue_positive_or_strong",
         "feature_family": "revenue",
         "feature_rule": "candidate revenue should be positive/strong as gate or add-score candidate",
@@ -1540,6 +1715,8 @@ PRICE_PULLBACK_EXIT_RULE_FILTER_IDS = [
     "obv_above_ma20",
     "tdcc_high_thresholds_up_return20_0_25",
     "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20",
+    "theme_context_mainstream_supported",
+    "tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported",
 ]
 
 PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES = [
@@ -1583,6 +1760,44 @@ PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES = [
         "exit_price_rule": "next_open_after_profit_target_or_5ma_close_exit",
         "exit_rule_zh": "收盤突破訊號日前20日高點後續抱；收盤報酬達+10%或收盤跌破5MA，下一個交易日開盤賣出。",
     },
+]
+
+PRICE_PULLBACK_CONTINUATION_PROFILE_ENTRY_FILTER_IDS = [
+    "baseline_replay",
+    "tdcc_high_thresholds_up_return20_0_25",
+    "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20",
+]
+PRICE_PULLBACK_CONTINUATION_PROFILE_EXIT_RULE_IDS = [
+    "close_prev20_break_then_tp5_or_5ma_next_open",
+    "close_prev20_break_then_tp8_or_5ma_next_open",
+    "close_prev20_break_then_tp10_or_5ma_next_open",
+]
+PRICE_PULLBACK_SUCCESS_NUMERIC_FEATURES = [
+    ("volume_ratio_prev20", "technical_volume", "signal volume ratio vs previous 20 trading days"),
+    ("return_20d_pct", "price_structure", "signal-date prior 20d return"),
+    ("return_45d_pct", "price_structure", "signal-date prior 45d return"),
+    ("range_width_45d_pct", "price_structure", "prior 45d range width"),
+    ("close_position_45d_pct", "price_structure", "signal close position inside prior 45d range"),
+    ("prior_extension_ema23_20d_pct", "price_structure", "prior 20d high extension above 23EMA"),
+    ("prior_runup_20d_pct", "price_structure", "prior 20d range runup"),
+    ("pullback_from_high_20d_pct", "price_structure", "signal close pullback from prior 20d high"),
+    ("rsi14", "technical", "RSI14 on signal date"),
+    ("obv_slope_5d", "technical_volume", "OBV 5d slope on signal date"),
+    ("tdcc_consecutive_up_weeks", "chip", "TDCC consecutive up weeks"),
+    ("theme_context_volume_ratio", "theme_context", "point-in-time theme context volume ratio"),
+    ("theme_context_return_20d_pct", "theme_context", "point-in-time theme context 20d return"),
+]
+PRICE_PULLBACK_SUCCESS_BOOL_FEATURES = [
+    ("macd_hist_gt0", "technical", "MACD histogram above zero"),
+    ("kd_bullish_not_overheated", "technical", "KD bullish and not overheated"),
+    ("obv_above_ma20", "technical_volume", "OBV above OBV MA20"),
+    ("tdcc_history_available", "chip", "TDCC history available"),
+    ("high_thresholds_up", "chip", "large-holder TDCC high thresholds increased"),
+    ("theme_context_ready", "theme_context", "point-in-time theme context row available"),
+    ("theme_context_mainstream_supported", "theme_context", "theme context mainstream-supported or overheated"),
+    ("theme_context_leadership_supported", "theme_context", "theme context leadership supported"),
+    ("theme_context_overheated", "theme_context", "theme context overheated"),
+    ("theme_context_volume_attack_selected_flag", "theme_context", "theme context volume-attack selected"),
 ]
 
 
@@ -2334,6 +2549,8 @@ def write_price_pullback_feature_confirmation_research(feature_confirmation: pd.
         "- entry_basis: `signal_date_next_open` after production proxy replay plus the feature filter under test",
         "- target: previous 20-day high breakout before stop through D+20",
         "- stop: close stays at least 4% below lower of MA20 and EMA23 for 4 consecutive trading days",
+        "- theme_context_rows: signal-date/as-of theme status history is joined from the shared background panel; latest-only taxonomy is not used for historical labels",
+        "- obv_rule: OBV above MA20 is retained as an add-score discussion candidate, not as a required gate",
         "- blocked rows: revenue and market background are documented as data/join gaps, not scored as backtest results",
         "- blocker: exact daily candidate row parity and explicit promotion/sync PR are still required before production use",
         "",
@@ -2536,6 +2753,121 @@ def _price_pullback_exit_rule_outcome_counts(
     }
 
 
+def _price_pullback_exit_rule_outcome_rows(valid: pd.DataFrame, candidate: dict[str, object]) -> pd.DataFrame:
+    h = TIME_COST_HORIZON_DAYS
+    close_cols = [f"next_open_to_d{day}_day_close_return_pct" for day in range(1, h + 1)]
+    high_cols = [f"next_open_to_d{day}_day_high_return_pct" for day in range(1, h + 1)]
+    final_close_col = f"next_open_to_d{h}_close_return_pct"
+    close_returns = valid[close_cols].apply(pd.to_numeric, errors="coerce")
+    final_close_return = pd.to_numeric(valid[final_close_col], errors="coerce")
+    entry_price = numeric_column(valid, "next_open")
+    target_price = numeric_column(valid, "range_high_20d_prev")
+    prev20_target_pct = (target_price / entry_price.replace(0, pd.NA) - 1.0) * 100.0
+
+    refs = _future_reference_frame(valid, h, "lower_ma20_ema23", close_cols)
+    hard_stop_threshold = (refs.mul(0.96).div(entry_price.replace(0, pd.NA), axis=0) - 1.0) * 100.0
+    hard_stop_day = _first_consecutive_hit_day(close_returns.le(hard_stop_threshold), 4)
+    hard_stop_return = _value_at_day(close_returns, hard_stop_day)
+
+    target_rule_id = str(candidate["target_rule_id"])
+    trail_day = pd.Series(math.nan, index=valid.index, dtype=float)
+    if target_rule_id == "intraday_prev20_high_touch":
+        high_returns = valid[high_cols].apply(pd.to_numeric, errors="coerce")
+        target_day = _first_hit_day(high_returns.ge(prev20_target_pct, axis=0))
+        target_return_at_hit = _value_at_day(close_returns, target_day)
+    elif target_rule_id == "close_prev20_high_break":
+        target_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
+        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+    elif target_rule_id == "close_prev20_break_then_close_profit_target":
+        breakout_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
+        day_numbers = np.arange(1, h + 1)
+        breakout_arr = breakout_day.to_numpy(dtype=float)[:, None]
+        after_breakout = pd.DataFrame(
+            np.isfinite(breakout_arr) & (day_numbers >= breakout_arr),
+            index=valid.index,
+            columns=close_cols,
+        )
+        profit_target_pct = float(candidate["profit_target_pct"])
+        target_day = _first_hit_day(close_returns.ge(profit_target_pct) & after_breakout)
+        close_prices = close_returns.div(100.0).add(1.0).mul(entry_price, axis=0)
+        ma5_cols = [f"future_d{day}_ma5" for day in range(1, h + 1)]
+        ma5_refs = valid[ma5_cols].apply(pd.to_numeric, errors="coerce")
+        ma5_refs.columns = close_cols
+        trail_day = _first_hit_day(close_prices.lt(ma5_refs) & after_breakout)
+        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+    else:
+        raise ValueError(f"Unsupported exit target_rule_id: {target_rule_id}")
+
+    same_day_unresolved = target_day.notna() & (
+        (hard_stop_day.notna() & target_day.eq(hard_stop_day))
+        | (trail_day.notna() & target_day.eq(trail_day))
+    )
+    target_before_stop = (
+        target_day.notna()
+        & ~same_day_unresolved
+        & (hard_stop_day.isna() | (target_day < hard_stop_day))
+        & (trail_day.isna() | (target_day < trail_day))
+    )
+    hard_stop_failure = (
+        hard_stop_day.notna()
+        & ~same_day_unresolved
+        & (target_day.isna() | (hard_stop_day < target_day))
+        & (trail_day.isna() | (hard_stop_day <= trail_day))
+    )
+    trail_exit = (
+        trail_day.notna()
+        & ~same_day_unresolved
+        & (target_day.isna() | (trail_day < target_day))
+        & (hard_stop_day.isna() | (trail_day < hard_stop_day))
+    )
+
+    realized_days = pd.Series(h, index=valid.index, dtype=float)
+    realized_days = realized_days.mask(target_before_stop, target_day)
+    realized_days = realized_days.mask(hard_stop_failure, hard_stop_day)
+    realized_days = realized_days.mask(trail_exit, trail_day)
+    realized_days = realized_days.mask(same_day_unresolved, target_day)
+
+    open_exit_returns = _future_open_return_frame(valid, h)
+    trail_return = _value_at_day(open_exit_returns, trail_day)
+    realized_return = pd.Series(math.nan, index=valid.index, dtype=float)
+    realized_return = realized_return.mask(target_before_stop, target_return_at_hit)
+    realized_return = realized_return.mask(hard_stop_failure, hard_stop_return)
+    realized_return = realized_return.mask(trail_exit, trail_return)
+
+    any_exit = target_before_stop | hard_stop_failure | trail_exit | same_day_unresolved
+    no_exit = ~any_exit
+    realized_return = realized_return.mask(no_exit, final_close_return)
+
+    trail_neutral = trail_exit & realized_return.ge(0)
+    trail_failure = trail_exit & realized_return.lt(0)
+    late_neutral = no_exit & final_close_return.ge(0)
+    late_failure = no_exit & final_close_return.lt(0)
+    failure = hard_stop_failure | trail_failure | late_failure
+    neutral = trail_neutral | late_neutral
+    bucket = pd.Series("same_day_unresolved", index=valid.index, dtype=object)
+    bucket = bucket.mask(target_before_stop, "win")
+    bucket = bucket.mask(neutral, "neutral")
+    bucket = bucket.mask(failure, "failure")
+
+    return pd.DataFrame(
+        {
+            "outcome_bucket": bucket,
+            "target_day": target_day,
+            "hard_stop_day": hard_stop_day,
+            "ma5_exit_day": trail_day,
+            "realized_days": realized_days,
+            "realized_return_pct": realized_return,
+            "final_d20_close_return_pct": final_close_return,
+            "prev20_target_return_pct": prev20_target_pct,
+            "target_before_stop": target_before_stop,
+            "hard_stop_failure": hard_stop_failure,
+            "ma5_exit": trail_exit,
+            "same_day_unresolved": same_day_unresolved,
+        },
+        index=valid.index,
+    )
+
+
 def build_price_pullback_exit_rule_comparison(df: pd.DataFrame) -> pd.DataFrame:
     base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
     rows: list[dict[str, object]] = []
@@ -2672,6 +3004,240 @@ def _share_pct_or_blank(value: object, baseline: object) -> float | str:
     return round(parsed / base * 100.0, 2)
 
 
+def _median_or_blank(series: pd.Series) -> float | str:
+    clean = pd.to_numeric(series, errors="coerce").dropna()
+    if clean.empty:
+        return ""
+    return round(float(clean.median()), 2)
+
+
+def _bool_share_pct(series: pd.Series) -> float | str:
+    if series.empty:
+        return ""
+    return _rate(int(trueish(series).sum()), len(series))
+
+
+def _profile_delta(value: object, baseline: object) -> float | str:
+    return _delta_or_blank(value, baseline)
+
+
+def _profile_interpretation(delta: object, feature_type: str) -> str:
+    parsed = _numeric_or_nan(delta)
+    if math.isnan(parsed):
+        return "insufficient_feature_coverage"
+    threshold = 10.0 if feature_type == "boolean_share" else 1.0
+    if parsed >= threshold:
+        return "higher_in_success_rows"
+    if parsed <= -threshold:
+        return "lower_in_success_rows"
+    return "similar_between_success_and_non_success"
+
+
+def build_price_pullback_continuation_win_profile(df: pd.DataFrame) -> pd.DataFrame:
+    base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
+    entry_filters = {
+        str(entry_filter["feature_filter_id"]): entry_filter
+        for entry_filter in _price_pullback_exit_rule_filters()
+        if str(entry_filter["feature_filter_id"]) in PRICE_PULLBACK_CONTINUATION_PROFILE_ENTRY_FILTER_IDS
+    }
+    exit_candidates = {
+        str(candidate["exit_rule_id"]): candidate
+        for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES
+        if str(candidate["exit_rule_id"]) in PRICE_PULLBACK_CONTINUATION_PROFILE_EXIT_RULE_IDS
+    }
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for entry_filter_id, entry_filter in entry_filters.items():
+        condition = entry_filter.get("condition")
+        if condition is None:
+            continue
+        filter_mask = condition(df).fillna(False)
+        picked = df[base_mask & filter_mask].copy()
+        for exit_rule_id, candidate in exit_candidates.items():
+            required = _price_pullback_exit_required_columns(candidate)
+            valid = (
+                picked.dropna(subset=required).copy()
+                if all(col in picked.columns for col in required)
+                else picked.iloc[0:0].copy()
+            )
+            if valid.empty:
+                continue
+            outcome = _price_pullback_exit_rule_outcome_rows(valid, candidate)
+            enriched = valid.join(outcome)
+            wins = enriched[enriched["outcome_bucket"].eq("win")]
+            non_wins = enriched[~enriched["outcome_bucket"].eq("win")]
+            for feature_column, feature_family, feature_rule in PRICE_PULLBACK_SUCCESS_NUMERIC_FEATURES:
+                if feature_column not in enriched.columns:
+                    continue
+                win_values = pd.to_numeric(wins[feature_column], errors="coerce").dropna()
+                non_win_values = pd.to_numeric(non_wins[feature_column], errors="coerce").dropna()
+                win_mean = _mean_or_blank(win_values)
+                non_win_mean = _mean_or_blank(non_win_values)
+                delta = _profile_delta(win_mean, non_win_mean)
+                rows.append(
+                    {
+                        "generated_at": generated_at,
+                        "model_id": "price_pullback_23ema",
+                        "model_name_zh": "股價回檔模型",
+                        "research_artifact_id": "price_pullback_23ema_continuation_win_profile",
+                        "entry_filter_id": entry_filter_id,
+                        "entry_filter_rule": entry_filter["feature_rule"],
+                        "exit_rule_id": exit_rule_id,
+                        "profit_target_pct": candidate["profit_target_pct"],
+                        "feature_column": feature_column,
+                        "feature_family": feature_family,
+                        "feature_type": "numeric",
+                        "feature_rule": feature_rule,
+                        "win_count": len(wins),
+                        "non_win_count": len(non_wins),
+                        "win_feature_value_count": len(win_values),
+                        "non_win_feature_value_count": len(non_win_values),
+                        "win_mean": win_mean,
+                        "non_win_mean": non_win_mean,
+                        "delta_win_minus_non_win": delta,
+                        "win_median": _median_or_blank(win_values),
+                        "non_win_median": _median_or_blank(non_win_values),
+                        "win_share_pct": "",
+                        "non_win_share_pct": "",
+                        "delta_share_pct": "",
+                        "interpretation_status": _profile_interpretation(delta, "numeric"),
+                        "data_status": "point_in_time_theme_context_coverage_limited"
+                        if feature_family == "theme_context"
+                        else "available_point_in_time_research_frame",
+                        "advisory_status": "not_production_ready_research_only",
+                        "approved_for_daily": False,
+                        "production_change": "none",
+                    }
+                )
+            for feature_column, feature_family, feature_rule in PRICE_PULLBACK_SUCCESS_BOOL_FEATURES:
+                if feature_column not in enriched.columns:
+                    continue
+                win_share = _bool_share_pct(wins[feature_column])
+                non_win_share = _bool_share_pct(non_wins[feature_column])
+                delta = _profile_delta(win_share, non_win_share)
+                rows.append(
+                    {
+                        "generated_at": generated_at,
+                        "model_id": "price_pullback_23ema",
+                        "model_name_zh": "股價回檔模型",
+                        "research_artifact_id": "price_pullback_23ema_continuation_win_profile",
+                        "entry_filter_id": entry_filter_id,
+                        "entry_filter_rule": entry_filter["feature_rule"],
+                        "exit_rule_id": exit_rule_id,
+                        "profit_target_pct": candidate["profit_target_pct"],
+                        "feature_column": feature_column,
+                        "feature_family": feature_family,
+                        "feature_type": "boolean_share",
+                        "feature_rule": feature_rule,
+                        "win_count": len(wins),
+                        "non_win_count": len(non_wins),
+                        "win_feature_value_count": len(wins),
+                        "non_win_feature_value_count": len(non_wins),
+                        "win_mean": "",
+                        "non_win_mean": "",
+                        "delta_win_minus_non_win": "",
+                        "win_median": "",
+                        "non_win_median": "",
+                        "win_share_pct": win_share,
+                        "non_win_share_pct": non_win_share,
+                        "delta_share_pct": delta,
+                        "interpretation_status": _profile_interpretation(delta, "boolean_share"),
+                        "data_status": "point_in_time_theme_context_coverage_limited"
+                        if feature_family == "theme_context"
+                        else "available_point_in_time_research_frame",
+                        "advisory_status": "not_production_ready_research_only",
+                        "approved_for_daily": False,
+                        "production_change": "none",
+                    }
+                )
+    return pd.DataFrame(rows)
+
+
+def write_price_pullback_continuation_win_profile(profile: pd.DataFrame) -> None:
+    write_csv(profile, PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV)
+    write_csv(profile, PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_HISTORY_CSV)
+    write_csv(profile, DOCS_PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV)
+    top_positive = (
+        profile[profile["interpretation_status"].eq("higher_in_success_rows")]
+        .copy()
+        .sort_values(["entry_filter_id", "exit_rule_id", "feature_family", "feature_column"])
+        if not profile.empty and "interpretation_status" in profile.columns
+        else pd.DataFrame()
+    )
+    lines = [
+        "# Price Pullback 23EMA Continuation Win Profile",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- scope: row-level success-characteristics profile for continuation exit rules; this does not approve production use",
+        "- entry_basis: production proxy replay plus selected entry filters",
+        "- exit_basis: close-confirmed previous-20-day-high breakout, then hold until +5%/+8%/+10% close target or 5MA close exit, with next-open execution.",
+        "- theme_context_rule: uses signal-date/as-of `daily_model_signal_background_feature_panel`; latest-only theme taxonomy is not used for historical labels.",
+        "- blocker: exact operation parity and explicit promotion PR are still required before production use",
+        "",
+        "## Higher In Success Rows",
+        "",
+        markdown_table(
+            top_positive,
+            [
+                "entry_filter_id",
+                "exit_rule_id",
+                "feature_column",
+                "feature_family",
+                "win_count",
+                "non_win_count",
+                "win_mean",
+                "non_win_mean",
+                "delta_win_minus_non_win",
+                "win_share_pct",
+                "non_win_share_pct",
+                "delta_share_pct",
+                "data_status",
+            ],
+            limit=80,
+        )
+        if not top_positive.empty
+        else "No feature was materially higher in success rows.",
+        "",
+        "## Full Profile",
+        "",
+        markdown_table(
+            profile,
+            [
+                "entry_filter_id",
+                "exit_rule_id",
+                "feature_column",
+                "feature_family",
+                "feature_type",
+                "win_count",
+                "non_win_count",
+                "win_mean",
+                "non_win_mean",
+                "delta_win_minus_non_win",
+                "win_share_pct",
+                "non_win_share_pct",
+                "delta_share_pct",
+                "interpretation_status",
+                "data_status",
+            ],
+            limit=120,
+        )
+        if not profile.empty
+        else "No continuation profile rows.",
+    ]
+    PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD.write_text(
+        PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def _price_pullback_parity_discussion_status(row_parity: pd.DataFrame) -> dict[str, object]:
     if row_parity.empty or "parity_status" not in row_parity.columns:
         return {
@@ -2723,6 +3289,16 @@ def _price_pullback_decision_status(row: dict[str, object]) -> tuple[str, str]:
         return ("blocked_data_gap", "資料或 join 尚未完成，不能視為已回測條件。")
     if math.isnan(mature) or mature < MIN_REVIEW_SAMPLE:
         return ("insufficient_sample_review_only", "樣本不足，只能列為觀察，不能當必要條件。")
+    if "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20" in item_id:
+        if (
+            (not math.isnan(win_delta) and win_delta > 0)
+            or (not math.isnan(failure_delta) and failure_delta < 0)
+            or (not math.isnan(avg_delta) and avg_delta > 0)
+        ):
+            return (
+                "score_bonus_candidate_not_required_gate",
+                "OBV above MA20 對已篩出的 TDCC/20日報酬條件有加分討論價值，但目前定位是加分項，不是必要條件。",
+            )
     if not math.isnan(win_delta) and not math.isnan(failure_delta):
         if win_delta >= 5.0 and failure_delta <= -3.0:
             if not math.isnan(avg_delta) and avg_delta < 0:
@@ -2755,6 +3331,16 @@ def _price_pullback_decision_status(row: dict[str, object]) -> tuple[str, str]:
             "平均報酬高於 baseline，但勝率/失敗率沒有同步改善，需人工判斷是否符合模型目標。",
         )
     return ("no_observed_improvement", "目前沒有相對 baseline 的明確優勢。")
+
+
+def _price_pullback_feature_condition_role(feature_row: pd.Series) -> str:
+    feature_id = safe_str(feature_row.get("feature_filter_id", ""))
+    family = safe_str(feature_row.get("feature_family", ""))
+    if feature_id == "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20":
+        return "score_bonus_candidate_not_required_gate"
+    if "theme_context" in feature_id or "theme_context" in family:
+        return "point_in_time_context_score_bonus_candidate_not_required_gate"
+    return "possible_required_gate_or_score_bonus"
 
 
 def _price_pullback_decision_row_from_metrics(
@@ -2959,7 +3545,7 @@ def build_price_pullback_model_decision_audit(
                     decision_axis="feature_filter",
                     decision_item_id=f"feature_filter:{safe_str(feature_row.get('feature_filter_id', ''))}",
                     feature_family=safe_str(feature_row.get("feature_family", "")),
-                    condition_role="possible_required_gate_or_score_bonus",
+                    condition_role=_price_pullback_feature_condition_role(feature_row),
                     rule_text=safe_str(feature_row.get("feature_rule", "")),
                     test_status=status,
                     data_status=safe_str(feature_row.get("data_status", "")),
@@ -2993,7 +3579,9 @@ def write_price_pullback_model_decision_audit(decision: pd.DataFrame) -> None:
         "- buy_point: current production proxy signal plus the tested entry/feature filter on signal date; buy next open only after both hold",
         "- sell_point: first intraday breakout above signal-day previous 20-day high before stop through D+20",
         "- stop: close stays at least 4% below the lower of 20MA and 23EMA for 4 consecutive trading days",
-        "- model_decision_use: compare baseline, volume red K, prior extension, chip, technical, 45d structure, revenue gap, and market-background gap in one table",
+        "- model_decision_use: compare baseline, volume red K, prior extension, chip, technical, theme context, 45d structure, revenue gap, and market-background gap in one table",
+        "- obv_scope: OBV combo rows are score-bonus candidates, not required gates.",
+        "- theme_context_scope: theme context rows are point-in-time coverage-limited score-bonus discussion candidates, not production gates.",
         "- rule: rows marked `reject_as_required_gate` must not become production gates without new evidence; blocked rows require data joins before scoring",
         "",
         "## Decision Status Counts",
@@ -3698,6 +4286,7 @@ def main() -> int:
     price_pullback_operation_module_df = build_price_pullback_operation_module_research(df)
     price_pullback_feature_confirmation_df = build_price_pullback_feature_confirmation_research(df)
     price_pullback_exit_rule_comparison_df = build_price_pullback_exit_rule_comparison(df)
+    price_pullback_continuation_win_profile_df = build_price_pullback_continuation_win_profile(df)
     price_pullback_daily_row_parity_df = build_price_pullback_daily_row_parity_audit(df)
     price_pullback_decision_audit_df = build_price_pullback_model_decision_audit(
         price_pullback_operation_module_df,
@@ -3719,6 +4308,7 @@ def main() -> int:
     write_price_pullback_operation_module_research(price_pullback_operation_module_df)
     write_price_pullback_feature_confirmation_research(price_pullback_feature_confirmation_df)
     write_price_pullback_exit_rule_comparison(price_pullback_exit_rule_comparison_df)
+    write_price_pullback_continuation_win_profile(price_pullback_continuation_win_profile_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
     write_price_pullback_model_decision_audit(price_pullback_decision_audit_df)
 
@@ -3730,6 +4320,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_OPERATION_MODULE_CSV} rows={len(price_pullback_operation_module_df)}")
     print(f"Saved {PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV} rows={len(price_pullback_feature_confirmation_df)}")
     print(f"Saved {PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV} rows={len(price_pullback_exit_rule_comparison_df)}")
+    print(f"Saved {PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV} rows={len(price_pullback_continuation_win_profile_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
     print(f"Saved {PRICE_PULLBACK_DECISION_AUDIT_CSV} rows={len(price_pullback_decision_audit_df)}")
     print(f"Saved {OUT_MD}")

@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Time Cost Backtest
 
-- generated_at: `2026-07-01 13:13:02 Asia/Taipei`
+- generated_at: `2026-07-01 20:26:39 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - entry_basis: `signal_date_next_open`
@@ -11,10 +11,10 @@
 
 | entry_filter_id | selected_stock_days | mature_count | target_before_stop_rate_pct | stop_before_target_rate_pct | same_day_target_stop_rate_pct | no_decision_after_20d_rate_pct | avg_holding_days_if_win | avg_holding_days_if_loss | avg_first_decision_or_20d_days |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| baseline_replay | 299969 | 271499 | 41.12 | 39.47 | 0.11 | 19.3 | 6.43 | 7.15 | 9.33 |
-| volume_red_k_vol1.2 | 30465 | 26974 | 39.58 | 40.25 | 0.12 | 20.05 | 6.27 | 6.96 | 9.3 |
-| solid_volume_red_k_vol1.2 | 15962 | 14070 | 39.07 | 39.32 | 0.14 | 21.48 | 6.31 | 6.97 | 9.5 |
-| solid_volume_red_k_vol1.5 | 10276 | 8971 | 38.57 | 40.54 | 0.11 | 20.78 | 6.17 | 6.78 | 9.29 |
-| prior_ext20_ema10_runup20_pullback5 | 59068 | 49225 | 48.67 | 48.36 | 0.37 | 2.6 | 4.07 | 4.68 | 4.78 |
-| prior_ext30_ema12_runup25_pullback8 | 64894 | 55332 | 47.73 | 48.03 | 0.33 | 3.91 | 4.3 | 4.93 | 5.21 |
-| prior_ext60_ema15_runup35_pullback10 | 91226 | 81559 | 45.84 | 45.19 | 0.27 | 8.69 | 5.18 | 5.64 | 6.67 |
+| baseline_replay | 301487 | 272784 | 41.15 | 39.45 | 0.12 | 19.28 | 6.42 | 7.14 | 9.32 |
+| volume_red_k_vol1.2 | 30593 | 27289 | 39.74 | 40.06 | 0.12 | 20.08 | 6.24 | 6.97 | 9.29 |
+| solid_volume_red_k_vol1.2 | 16032 | 14280 | 39.32 | 39.08 | 0.13 | 21.47 | 6.28 | 6.98 | 9.5 |
+| solid_volume_red_k_vol1.5 | 10317 | 9107 | 38.73 | 40.38 | 0.11 | 20.79 | 6.16 | 6.81 | 9.3 |
+| prior_ext20_ema10_runup20_pullback5 | 59634 | 49559 | 48.6 | 48.44 | 0.37 | 2.59 | 4.06 | 4.67 | 4.76 |
+| prior_ext30_ema12_runup25_pullback8 | 65409 | 55679 | 47.68 | 48.09 | 0.34 | 3.89 | 4.28 | 4.91 | 5.19 |
+| prior_ext60_ema15_runup35_pullback10 | 91764 | 81897 | 45.83 | 45.24 | 0.27 | 8.66 | 5.17 | 5.63 | 6.66 |

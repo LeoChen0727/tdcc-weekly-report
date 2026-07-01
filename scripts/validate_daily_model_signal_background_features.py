@@ -47,6 +47,10 @@ REQUIRED_PANEL_COLUMNS = {
     "tdcc_data_status",
     "tdcc_over_400_change_1w",
     "tdcc_over_1000_change_1w",
+    "theme_context_as_of_date",
+    "theme_context_data_status",
+    "theme_context_status_group",
+    "theme_context_source_artifact",
     "market_index_as_of_date",
     "twse_return_20d_pct",
     "tpex_return_20d_pct",
@@ -68,6 +72,12 @@ ALLOWED_POINT_IN_TIME_STATUS = {
     "used_previous_trading_day",
     "missing_price_history",
     "no_price_on_or_before_signal",
+}
+ALLOWED_THEME_CONTEXT_STATUS = {
+    "ready_exact_signal_date",
+    "ready_previous_signal_date",
+    "missing_theme_status_history",
+    "no_theme_on_or_before_signal",
 }
 
 
@@ -138,6 +148,22 @@ def validate_panel(panel: pd.DataFrame) -> list[str]:
     future_tdcc = dated_tdcc[dated_tdcc["tdcc_as_of_date"].astype(str) > dated_tdcc["signal_date"].astype(str)]
     if not future_tdcc.empty:
         errors.append("tdcc_as_of_date must not be after signal_date")
+
+    theme_statuses = set(panel["theme_context_data_status"].astype(str))
+    if theme_statuses - ALLOWED_THEME_CONTEXT_STATUS:
+        errors.append(f"unexpected theme_context_data_status values: {sorted(theme_statuses - ALLOWED_THEME_CONTEXT_STATUS)}")
+
+    dated_theme = panel[panel["theme_context_as_of_date"].astype(str).ne("")]
+    future_theme = dated_theme[
+        dated_theme["theme_context_as_of_date"].astype(str) > dated_theme["signal_date"].astype(str)
+    ]
+    if not future_theme.empty:
+        errors.append("theme_context_as_of_date must not be after signal_date")
+
+    ready_theme = panel[panel["theme_context_data_status"].isin(["ready_exact_signal_date", "ready_previous_signal_date"])]
+    ready_without_artifact = ready_theme[ready_theme["theme_context_source_artifact"].astype(str).eq("")]
+    if not ready_without_artifact.empty:
+        errors.append("theme_context_source_artifact is required when theme context is ready")
 
     dated_market = panel[panel["market_index_as_of_date"].astype(str).ne("")]
     future_market = dated_market[dated_market["market_index_as_of_date"].astype(str) > dated_market["signal_date"].astype(str)]
