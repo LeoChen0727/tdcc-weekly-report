@@ -134,6 +134,12 @@ MODEL_OPERATION_PRICE_CONFIRMATION_RULE_LITERALS = {
         "price_pullback_23ema": (
             "AGENTS Formal Daily Model Change Rule must explicitly protect the 23EMA research variant from promotion by intraday touch"
         ),
+        "research_only_intraday_trigger": (
+            "AGENTS Formal Daily Model Change Rule must label 23EMA intraday previous-high touch as research-only"
+        ),
+        "close_prev20_high_break_same_day_close": (
+            "AGENTS Formal Daily Model Change Rule must forbid same-day close exit after close-confirmed 23EMA previous-high breakout"
+        ),
     },
     STOCK_MODEL_CONTRACT_GOVERNANCE: {
         "Formal operation buy/sell/stop/profit-taking rules": (
@@ -160,22 +166,37 @@ MODEL_OPERATION_PRICE_CONFIRMATION_RULE_LITERALS = {
         "price_pullback_23ema": (
             "stock model contract governance must explicitly protect the 23EMA research variant from promotion by intraday touch"
         ),
+        "research_only_intraday_trigger": (
+            "stock model contract governance must label 23EMA intraday previous-high touch as research-only"
+        ),
+        "close_prev20_high_break_same_day_close": (
+            "stock model contract governance must forbid same-day close exit after close-confirmed 23EMA previous-high breakout"
+        ),
     },
     ROOT / "docs" / "specs" / "price_pullback_23ema_operation_candidate_spec.md": {
         "Formal Price Confirmation Boundary": (
             "price_pullback_23ema operation candidate spec must state the formal price-confirmation boundary"
         ),
-        "must not be promoted as a formal entry, exit,": (
-            "price_pullback_23ema operation candidate spec must keep the intraday high evidence research-only"
+        "Intraday high/low observations must not be used as": (
+            "price_pullback_23ema operation candidate spec must forbid intraday high/low as realized execution prices"
         ),
-        "stop, profit-taking, win, failure, or realized-return rule": (
-            "price_pullback_23ema operation candidate spec must keep the intraday high evidence research-only"
+        "realized execution prices": (
+            "price_pullback_23ema operation candidate spec must forbid intraday high/low as realized execution prices"
         ),
-        "close breaks the previous 20-day high, then sell at the same-day close": (
-            "price_pullback_23ema operation candidate spec must list the same-day close-confirmed exit option"
+        "intraday high touches the signal-day previous 20-day high": (
+            "price_pullback_23ema operation candidate spec must list the intraday-trigger same-day close research option"
         ),
-        "close breaks the previous 20-day high, then sell at the next trading day open": (
+        "research_only_intraday_trigger": (
+            "price_pullback_23ema operation candidate spec must label intraday-trigger same-day close as research-only"
+        ),
+        "close breaks the signal-day previous 20-day high, then sell at the next": (
             "price_pullback_23ema operation candidate spec must list the next-open after close-confirmed exit option"
+        ),
+        "close_prev20_high_break_same_day_close": (
+            "price_pullback_23ema operation candidate spec must forbid same-day close exit after close-confirmed breakout"
+        ),
+        "known only after that close": (
+            "price_pullback_23ema operation candidate spec must explain why same-day close after close confirmation is invalid"
         ),
     },
 }
