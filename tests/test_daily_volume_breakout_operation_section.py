@@ -1416,6 +1416,52 @@ def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> Non
     assert "重複上榜" not in story_text
 
 
+def test_w_bottom_pdf_renderer_sanitizes_pending_entry_price_text(monkeypatch) -> None:
+    captured_tables: list[list[list[str]]] = []
+
+    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+        captured_tables.append(rows)
+        return rows
+
+    monkeypatch.setattr(pdf_generator, "build_table", capture_table)
+    model_id = pdf_generator.W_BOTTOM_RIGHT_SIDE_MODEL_ID
+    confirmed = w_bottom_operation_row(model_id, "confirmed_operation")
+    confirmed.update(
+        {
+            "entry_basis_zh": "",
+            "entry_rule_id": "",
+            "entry_price_status_zh": "下一個交易日開盤價待確認",
+            "entry_date": "",
+            "entry_price": "",
+        }
+    )
+    active_empty = w_bottom_operation_row(
+        model_id,
+        "active_operation",
+        row_type="empty_state",
+        stock_id="",
+        stock_display=pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT,
+        report_line="both",
+        row_action_status="empty_state",
+        buy_rank_eligible="False",
+    )
+
+    pdf_generator.render_w_bottom_operation_section(
+        [],
+        {
+            "model_readiness": w_bottom_readiness(model_id),
+            "w_bottom_right_side_operation": pd.DataFrame([confirmed, active_empty]),
+        },
+        model_id,
+        "highlight",
+        "mainstream",
+    )
+
+    visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
+    assert "待確認" not in visible
+    assert "確認價未定" in visible
+
+
 def test_w_bottom_pdf_renderer_fails_closed_without_integrated_readiness() -> None:
     model_id = pdf_generator.W_BOTTOM_RIGHT_SIDE_MODEL_ID
     operation_rows = pd.DataFrame([w_bottom_operation_row(model_id, "confirmed_operation")])

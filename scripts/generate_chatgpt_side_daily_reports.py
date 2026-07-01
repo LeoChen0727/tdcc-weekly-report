@@ -2148,7 +2148,7 @@ def volume_operation_exit_label(row: pd.Series) -> str:
 
 
 def w_bottom_operation_signal_label(row: pd.Series) -> str:
-    return short(
+    return w_bottom_pdf_safe_text(
         first_text(
             row.get("operation_status_zh"),
             row.get("quality_status_zh"),
@@ -2164,6 +2164,14 @@ def w_bottom_operation_signal_date_label(row: pd.Series) -> str:
     return volume_operation_date_label(first_text(row.get("confirmation_date"), row.get("signal_date")))
 
 
+def w_bottom_pdf_safe_text(value, limit: int) -> str:
+    text = clean(value)
+    if not text:
+        return "-"
+    text = text.replace("待確認", "確認價未定")
+    return short(text, limit)
+
+
 def w_bottom_operation_entry_label(row: pd.Series) -> str:
     entry_date = clean(row.get("entry_date"))
     entry_price = clean(row.get("entry_price"))
@@ -2171,19 +2179,22 @@ def w_bottom_operation_entry_label(row: pd.Series) -> str:
         date = date_slash(entry_date) if entry_date else "進場日未定"
         price = entry_price if entry_price else "進場價未定"
         return f"{date} / {price}"
-    return short(first_text(row.get("entry_price_status_zh"), row.get("entry_basis_zh"), row.get("entry_rule_id"), default="-"), 40)
+    return w_bottom_pdf_safe_text(
+        first_text(row.get("entry_basis_zh"), row.get("entry_rule_id"), row.get("entry_price_status_zh"), default="-"),
+        40,
+    )
 
 
 def w_bottom_operation_stop_label(row: pd.Series) -> str:
     label = first_text(row.get("stop_loss_label_zh"), row.get("stop_basis_zh"), row.get("stop_loss_rule_id"))
     price = clean(row.get("stop_loss_price"))
     if label and price:
-        return short(f"{label} {price}", 38)
-    return short(label or price or "-", 38)
+        return w_bottom_pdf_safe_text(f"{label} {price}", 38)
+    return w_bottom_pdf_safe_text(label or price or "-", 38)
 
 
 def w_bottom_operation_exit_label(row: pd.Series) -> str:
-    return short(first_text(row.get("exit_rule_zh"), row.get("exit_rule_id"), default="-"), 48)
+    return w_bottom_pdf_safe_text(first_text(row.get("exit_rule_zh"), row.get("exit_rule_id"), default="-"), 48)
 
 
 def w_bottom_operation_age_label(row: pd.Series) -> str:
@@ -2204,7 +2215,7 @@ def w_bottom_operation_score_label(row: pd.Series) -> str:
 
 
 def w_bottom_operation_note_label(row: pd.Series) -> str:
-    return short(
+    return w_bottom_pdf_safe_text(
         first_text(
             row.get("rank_reason_zh"),
             row.get("risk_tags_zh"),
