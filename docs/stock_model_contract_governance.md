@@ -22,6 +22,9 @@ The registry records ownership and consumer approval. It does not define model c
 - Research/backtest may compare against this registry, but must not write research recommendations into production baseline tables without an explicit promotion PR.
 - Research/backtest contract parity validation reads this registry directly as the source of truth. It does not require or recreate `output/latest/stock_model_contract_snapshot_latest.json`.
 - Changing a model condition, score function, score profile, or approval flag requires a reviewed PR and validation evidence.
+- A model promotion that changes daily PDF visibility or operation-oriented PDF presentation must define a model-owned daily operation-row adapter contract before PDF use. Required scope includes artifact path, schema, lifecycle section semantics, empty-state rows, readiness fields, validators, and PDF-safe consumer fields.
+- `approved_for_daily_pdf=true` or a registry approval flag is not sufficient to invent PDF operation rows. The promotion must keep `presentation_allowed=False` until `model_operation_readiness_latest.csv` reports `pdf_integration_status=pdf_integrated_daily_adapter` for the model or an explicitly approved equivalent.
+- The daily PDF renderer must not infer buyable, active, pending, exit, or stop-loss lifecycle rows from candidate signal rows, research/backtest variants, or advisory recommendation artifacts.
 
 ## Validation
 

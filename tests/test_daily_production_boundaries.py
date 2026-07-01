@@ -390,6 +390,26 @@ def test_repo_agent_rules_default_to_independent_business_surfaces() -> None:
     assert "Business-facing code defaults to independent ownership." in workflow_text
 
 
+def test_formal_model_change_rules_include_pdf_operation_adapter_gate() -> None:
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    model_contract = (ROOT / "docs" / "stock_model_contract_governance.md").read_text(
+        encoding="utf-8"
+    )
+    pdf_contract = (ROOT / "docs" / "daily_pdf_contract_consumer_governance.md").read_text(
+        encoding="utf-8"
+    )
+
+    for text in (agents, model_contract):
+        assert "operation-row adapter" in text
+        assert "model_operation_readiness_latest.csv" in text
+        assert "pdf_integration_status=pdf_integrated_daily_adapter" in text
+
+    assert "presentation_allowed=False" in agents
+    assert "PDF renderer must not convert candidate signal rows" in agents
+    assert "daily PDF renderer must not infer buyable, active, pending, exit, or stop-loss lifecycle rows" in model_contract
+    assert "Registry approval alone does not authorize the PDF renderer to infer lifecycle" in pdf_contract
+
+
 def test_daily_staged_path_validator_accepts_current_staged_set() -> None:
     result = subprocess.run(
         ["python", "scripts/validate_daily_staged_paths.py"],

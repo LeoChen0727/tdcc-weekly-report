@@ -37,6 +37,18 @@ The daily PDF renderer may display program-side fields such as `model_score`,
 allowlist, scoring function, ranking formula, buy/sell judgment, or selection
 reason that bypasses the registry.
 
+Model promotions that make an operation-oriented model visible in the daily PDF
+must satisfy the model-change rule in `AGENTS.md` and
+`docs/stock_model_contract_governance.md`: the model lane must provide a formal
+daily operation-row adapter contract or approved equivalent before the PDF layer
+can render buyable or active lifecycle rows. Registry approval alone does not
+authorize the PDF renderer to infer lifecycle rows from candidate signal rows,
+research/backtest variants, or advisory recommendation artifacts.
+The formal daily operation-row adapter contract is required before rendering.
+Registry approval alone does not authorize the PDF renderer to infer lifecycle
+rows from candidate signal rows, research/backtest variants, or advisory
+recommendation artifacts.
+
 ## Stable Daily Stock Model Table Rule
 
 Daily stock model sections in the mainstream and non-mainstream recommendation

@@ -17,6 +17,9 @@ DAILY_REPORT_SOURCE_RESOLVER = ROOT / "scripts" / "resolve_daily_report_source_s
 STAGED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_staged_paths.py"
 THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
 CHATGPT_DAILY_REPORT_USAGE_PROMPT = ROOT / "docs" / "CHATGPT_DAILY_REPORT_USAGE_PROMPT.md"
+AGENTS_DOC = ROOT / "AGENTS.md"
+STOCK_MODEL_CONTRACT_GOVERNANCE = ROOT / "docs" / "stock_model_contract_governance.md"
+DAILY_PDF_CONSUMER_GOVERNANCE = ROOT / "docs" / "daily_pdf_contract_consumer_governance.md"
 RULES_DAILY = ROOT / "rules" / "daily_stock_candidate_rules.md"
 DOCS_RULES_DAILY = ROOT / "docs" / "rules" / "daily_stock_candidate_rules.md"
 RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
@@ -382,6 +385,59 @@ def main() -> int:
 
     if read_text(RULES_MASTER) != read_text(DOCS_RULES_MASTER):
         errors.append("docs/rules/master_priority_rules.md must match rules/master_priority_rules.md")
+
+    model_change_pdf_rule_literals = {
+        AGENTS_DOC: {
+            "formal daily operation-row adapter": (
+                "AGENTS Formal Daily Model Change Rule must require model-owned operation-row adapters"
+            ),
+            "model_operation_readiness_latest.csv": (
+                "AGENTS Formal Daily Model Change Rule must bind PDF presentation to model readiness"
+            ),
+            "pdf_integration_status=pdf_integrated_daily_adapter": (
+                "AGENTS Formal Daily Model Change Rule must require integrated PDF adapter readiness"
+            ),
+            "presentation_allowed=False": (
+                "AGENTS Formal Daily Model Change Rule must keep unintegrated models hidden from PDF presentation"
+            ),
+            "PDF renderer must not convert candidate signal rows": (
+                "AGENTS Formal Daily Model Change Rule must forbid PDF-side lifecycle inference"
+            ),
+        },
+        STOCK_MODEL_CONTRACT_GOVERNANCE: {
+            "model-owned daily operation-row adapter contract": (
+                "stock model contract governance must require model-owned PDF operation adapter contracts"
+            ),
+            "approved_for_daily_pdf=true": (
+                "stock model contract governance must say registry approval alone is not lifecycle approval"
+            ),
+            "model_operation_readiness_latest.csv": (
+                "stock model contract governance must bind operation PDF use to readiness artifacts"
+            ),
+            "pdf_integration_status=pdf_integrated_daily_adapter": (
+                "stock model contract governance must require integrated PDF adapter readiness"
+            ),
+            "daily PDF renderer must not infer buyable, active, pending, exit, or stop-loss lifecycle rows": (
+                "stock model contract governance must forbid PDF-side lifecycle inference"
+            ),
+        },
+        DAILY_PDF_CONSUMER_GOVERNANCE: {
+            "Model promotions that make an operation-oriented model visible in the daily PDF": (
+                "daily PDF consumer governance must point operation-model visibility back to model promotion rules"
+            ),
+            "formal daily operation-row adapter contract": (
+                "daily PDF consumer governance must require a model-owned operation adapter before rendering"
+            ),
+            "Registry approval alone does not authorize the PDF renderer to infer lifecycle": (
+                "daily PDF consumer governance must forbid lifecycle inference from registry approval alone"
+            ),
+        },
+    }
+    for path, literals in model_change_pdf_rule_literals.items():
+        text = read_text(path)
+        for literal, message in literals.items():
+            if literal not in text:
+                errors.append(f"{message}: missing {literal!r} in {path.relative_to(ROOT).as_posix()}")
 
     if errors:
         for error in errors:
