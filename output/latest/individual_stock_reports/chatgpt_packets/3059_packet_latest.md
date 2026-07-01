@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3059 華晶科
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:00 Asia/Taipei
+- generated_at: 2026-07-01 22:27:31 Asia/Taipei
 - stock_id: 3059
 - stock_name: 華晶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 49
-- high: 50.2
-- low: 48.75
-- close: 49.9
-- volume: 6935000
-- ma5: 48.65
-- ema23_primary: 47.19
-- distance_to_ema23_pct: 5.74
-- ma20: 48.34
-- ma60: 42.6
-- ma120: 40.89
-- return_5d: 5.39
-- return_20d: 7.43
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.24
-- distance_to_high_60_pct: -8.44
+- date: 20260701
+- open: 50.9
+- high: 51
+- low: 48.25
+- close: 48.35
+- volume: 7705000
+- ma5: 48.78
+- ema23_primary: 47.29
+- distance_to_ema23_pct: 2.24
+- ma20: 48.2
+- ma60: 42.81
+- ma120: 40.96
+- return_5d: 1.36
+- return_20d: -5.2
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 0.31
+- distance_to_high_60_pct: -11.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,51,51,50.8,51,14608606,42.4,20.28,42.19,39.14,1.57
 20260603,54,54.5,50.2,50.6,45397127,43.08,17.45,42.71,39.35,3.99
 20260604,50.1,51.7,48.05,50.8,22028045,43.73,16.18,43.23,39.59,1.79
 20260605,51,53.5,48.85,48.9,25945120,44.16,10.74,43.71,39.78,1.94
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,49.4,50.3,48.2,48.35,20833763,46.81,3.28,47.86,42.15,1.41
 20260629,48.5,50.8,47.8,48.4,10071152,46.95,3.1,48.16,42.37,0.67
 20260630,49,50.2,48.75,49.9,6935000,47.19,5.74,48.34,42.6,0.49
+20260701,50.9,51,48.25,48.35,7705000,47.29,2.24,48.2,42.81,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3059 | 華晶科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 4.舊任者簡歷:夏汝文/本公司董事長 5.新任者姓名:夏汝文 6.新任者簡歷:夏汝文/本公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選後之選任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3059 | 華晶科 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/23 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 4.舊任者簡歷:夏汝文/本公司董事長 5.新任者姓名:夏汝文 6.新任者簡歷:夏汝文/本公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選後之選任。 9.新任生效日期:115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3059 | 華晶科 | 8 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 3059 | 華晶科 | 9 | 8 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3059 | 華晶科 | 37 | 0 | 6431120.0 | 0.0 |  | no_signal |
+| 20260701 | 3059 | 華晶科 | 37 | 1 | 4742930.0 | 19200.0 | 247.03 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

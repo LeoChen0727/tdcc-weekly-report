@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7631 聚賢研發-創
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:23 Asia/Taipei
+- generated_at: 2026-07-01 22:28:49 Asia/Taipei
 - stock_id: 7631
 - stock_name: 聚賢研發-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 282
+- latest_price_date: 20260701
+- price_rows: 283
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 173
-- high: 173
-- low: 159.5
-- close: 160
-- volume: 669000
-- ma5: 162.7
-- ema23_primary: 141.06
-- distance_to_ema23_pct: 13.43
-- ma20: 137.3
-- ma60: 128.97
-- ma120: 125.67
-- return_5d: 16.36
-- return_20d: 28
-- volume_ratio: 3.24
-- distance_to_ma20_pct_auxiliary: 16.53
-- distance_to_high_60_pct: -10.36
+- date: 20260701
+- open: 162
+- high: 162
+- low: 151
+- close: 159.5
+- volume: 233000
+- ma5: 164.6
+- ema23_primary: 142.6
+- distance_to_ema23_pct: 11.85
+- ma20: 139.03
+- ma60: 129.78
+- ma120: 125.91
+- return_5d: 6.33
+- return_20d: 27.6
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 14.73
+- distance_to_high_60_pct: -10.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,126,127.5,125,125,20894,125.23,-0.18,125.4,121.73,0.4
 20260602,125,126.5,124,125,15500,125.21,-0.17,125.3,121.93,0.31
 20260603,122.5,128.5,122.5,127,19114,125.36,1.31,125.28,122.21,0.41
 20260605,127,127,124,126.5,18315,125.46,0.83,125.2,122.48,0.42
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,169,169,153.5,164,635519,135.92,20.66,132.82,127.09,5.77
 20260629,175,178.5,167,177,1311212,139.34,27.03,135.55,128.16,7.52
 20260630,173,173,159.5,160,669000,141.06,13.43,137.3,128.97,3.24
+20260701,162,162,151,159.5,233000,142.6,11.85,139.03,129.78,1.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:58 Asia/Taipei
+- generated_at: 2026-07-01 22:28:25 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 1045
-- high: 1120
-- low: 1035
-- close: 1085
-- volume: 2265000
-- ma5: 999
-- ema23_primary: 906.03
-- distance_to_ema23_pct: 19.75
-- ma20: 913.7
-- ma60: 800.27
-- ma120: 845.41
-- return_5d: 18.97
-- return_20d: 52.17
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 18.75
-- distance_to_high_60_pct: -3.12
+- date: 20260701
+- open: 1090
+- high: 1185
+- low: 1090
+- close: 1130
+- volume: 2209000
+- ma5: 1042.4
+- ema23_primary: 924.69
+- distance_to_ema23_pct: 22.2
+- ma20: 933.1
+- ma60: 806.78
+- ma120: 847.01
+- return_5d: 23.77
+- return_20d: 52.29
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 21.1
+- distance_to_high_60_pct: -4.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,712,759,702,742,1760234,725.07,2.34,725.1,753.35,1.47
 20260603,746,790,727,768,2053146,728.65,5.4,723.6,751.73,1.67
 20260604,778,844,777,844,1705028,738.26,14.32,726.3,752.07,1.34
 20260605,882,928,875,928,2102654,754.07,23.07,731.65,753.88,1.63
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,1005,1025,977,977,1801286,877.92,11.29,879.55,790.22,1.1
 20260629,999,1070,991,1020,1906119,889.76,14.64,895.1,795.15,1.14
 20260630,1045,1120,1035,1085,2265000,906.03,19.75,913.7,800.27,1.3
+20260701,1090,1185,1090,1130,2209000,924.69,22.2,933.1,806.78,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6409 | 旭隼 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 6409 | 旭隼 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6409 | 旭隼 | 2 | 1 | 2 | 2 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260701 | 6409 | 旭隼 | 3 | 2 | 3 | 3 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6409 | 旭隼 | 77 | 0 | 17974800.0 | 0.0 |  | call_strong_inflow |
+| 20260701 | 6409 | 旭隼 | 79 | 2 | 33288820.0 | 37750.0 | 881.82 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

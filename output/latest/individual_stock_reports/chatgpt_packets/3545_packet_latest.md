@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3545 敦泰
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:13 Asia/Taipei
+- generated_at: 2026-07-01 22:27:43 Asia/Taipei
 - stock_id: 3545
 - stock_name: 敦泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 293
+- latest_price_date: 20260701
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 56.3
-- high: 56.3
-- low: 54.7
-- close: 55.6
-- volume: 925000
-- ma5: 56.68
-- ema23_primary: 56.72
-- distance_to_ema23_pct: -1.97
-- ma20: 56.45
-- ma60: 54.83
-- ma120: 52.57
-- return_5d: -6.55
-- return_20d: -6.71
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.51
-- distance_to_high_60_pct: -12.44
+- date: 20260701
+- open: 57
+- high: 57.8
+- low: 55.8
+- close: 55.9
+- volume: 1558000
+- ma5: 55.84
+- ema23_primary: 56.65
+- distance_to_ema23_pct: -1.32
+- ma20: 56.27
+- ma60: 54.97
+- ma120: 52.62
+- return_5d: -6.99
+- return_20d: -6.05
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -0.67
+- distance_to_high_60_pct: -11.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,59.6,60.7,57.8,59.5,2575492,57.28,3.88,58,51.1,0.78
 20260603,60,60.1,59,59.1,1711319,57.43,2.91,58.3,51.33,0.52
 20260604,59,59,56.2,56.2,2276605,57.33,-1.97,58.42,51.55,0.68
 20260605,56,56.6,54.4,55.9,1489775,57.21,-2.29,58.38,51.77,0.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,59.7,59.7,54.5,54.5,1956651,57.01,-4.41,56.9,54.59,1.01
 20260629,55.1,56,54.7,54.7,879714,56.82,-3.73,56.66,54.72,0.48
 20260630,56.3,56.3,54.7,55.6,925000,56.72,-1.97,56.45,54.83,0.53
+20260701,57,57.8,55.8,55.9,1558000,56.65,-1.32,56.27,54.97,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +186,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260701 | 3545 | 敦泰 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.主管機關核准減資日期:115/06/22 2.辦理資本變更登記完成日期:115/06/22 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:  (1)本次註銷限制員工權利新股81,999股，     每股面額新台幣10元，共計減少資本819,990元。  (2)股份註銷減資前：本公司實收資本額為新台幣2,211,512,150元，     流通在外股數為221,151,215股，每股淨值新台幣 40.27元。  (3)股份註銷減資後：本公司實收資本額為新台幣2,210,692,160元，     流通在外股數為221,069,216股，每股淨值新台幣 40.28元。  以上每股淨值依最近一期(115年第1季)會計師核閱財務報告，依證券發行人財務報告  編製準則規定之資產負債表歸屬於母公司業主之權益。 4.預計換股作業計畫:不適用 5.預計減資新股上市後之上市普通股股數:不適用 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項:  本次變更登記包含發行限制員工權利新股1,386,800股，變更登記後，  股份總數為222,456,016股。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260701 | 3545 | 敦泰 | 1 | 1 | 2 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3545 | 敦泰 | 14 | 0 | 56900.0 | 0.0 |  | no_signal |
+| 20260701 | 3545 | 敦泰 | 14 | 0 | 120020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

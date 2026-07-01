@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2429 銘旺科
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:41 Asia/Taipei
+- generated_at: 2026-07-01 22:27:13 Asia/Taipei
 - stock_id: 2429
 - stock_name: 銘旺科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 41
-- high: 44.9
-- low: 40.1
-- close: 44.9
-- volume: 1892000
-- ma5: 40.7
-- ema23_primary: 42.14
-- distance_to_ema23_pct: 6.54
-- ma20: 40.98
-- ma60: 45.65
-- ma120: 53.31
-- return_5d: 13.53
-- return_20d: -8.09
-- volume_ratio: 2.61
-- distance_to_ma20_pct_auxiliary: 9.58
-- distance_to_high_60_pct: -26.27
+- date: 20260701
+- open: 47.55
+- high: 48.5
+- low: 44.5
+- close: 48
+- volume: 2623000
+- ma5: 42.2
+- ema23_primary: 42.63
+- distance_to_ema23_pct: 12.59
+- ma20: 41.08
+- ma60: 45.8
+- ma120: 53.07
+- return_5d: 18.52
+- return_20d: 4.58
+- volume_ratio: 3.28
+- distance_to_ma20_pct_auxiliary: 16.85
+- distance_to_high_60_pct: -21.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,49.1,49.1,45.4,45.9,1157881,48.96,-6.24,49.94,47.48,1.66
 20260603,45.4,45.4,44.25,44.85,569865,48.61,-7.74,49.53,47.37,0.81
 20260604,44.9,44.9,44.05,44.2,324336,48.25,-8.39,49.06,47.34,0.46
 20260605,45.3,45.4,43.7,44.7,270648,47.95,-6.78,48.61,47.31,0.39
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,39.5,39.7,37.9,37.9,509133,41.99,-9.74,41.5,45.55,0.8
 20260629,37.9,41.6,37.9,40.85,908978,41.89,-2.49,41.17,45.57,1.36
 20260630,41,44.9,40.1,44.9,1892000,42.14,6.54,40.98,45.65,2.61
+20260701,47.55,48.5,44.5,48,2623000,42.63,12.59,41.08,45.8,3.28
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2429 | 銘旺科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 2429 | 銘旺科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2429 | 銘旺科 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260701 | 2429 | 銘旺科 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5484 慧友
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:42 Asia/Taipei
+- generated_at: 2026-07-01 22:28:10 Asia/Taipei
 - stock_id: 5484
 - stock_name: 慧友
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 46.4
-- high: 46.4
-- low: 45.15
-- close: 45.7
-- volume: 289000
-- ma5: 45.53
-- ema23_primary: 47.14
-- distance_to_ema23_pct: -3.06
-- ma20: 49.54
-- ma60: 43.91
-- ma120: 41.84
-- return_5d: 0.44
-- return_20d: -14.74
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -7.76
-- distance_to_high_60_pct: -22.41
+- date: 20260701
+- open: 46.9
+- high: 46.9
+- low: 44.8
+- close: 44.95
+- volume: 241000
+- ma5: 45.08
+- ema23_primary: 46.96
+- distance_to_ema23_pct: -4.28
+- ma20: 48.92
+- ma60: 43.94
+- ma120: 41.89
+- return_5d: -4.77
+- return_20d: -21.69
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -8.12
+- distance_to_high_60_pct: -23.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,58.5,58.9,54.2,57.4,5970637,45.06,27.38,43.62,41.01,3.61
 20260603,57.4,57.7,54.5,54.5,3010886,45.85,18.87,44.42,41.32,1.69
 20260604,54.5,56,52.6,54.1,1298158,46.54,16.25,45.2,41.67,0.71
 20260605,54.1,58.6,52.2,57.9,2629335,47.48,21.94,46.2,42.02,1.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,45.25,46,43.9,43.9,510302,47.43,-7.43,50.09,43.81,0.35
 20260629,45.1,46.9,43.8,45.6,525847,47.27,-3.54,49.94,43.9,0.37
 20260630,46.4,46.4,45.15,45.7,289000,47.14,-3.06,49.54,43.91,0.22
+20260701,46.9,46.9,44.8,44.95,241000,46.96,-4.28,48.92,43.94,0.23
 ```
 
 ## Latest TDCC Snapshot

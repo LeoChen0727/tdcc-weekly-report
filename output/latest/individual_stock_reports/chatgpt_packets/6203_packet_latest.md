@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6203 海韻電
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:52 Asia/Taipei
+- generated_at: 2026-07-01 22:28:20 Asia/Taipei
 - stock_id: 6203
 - stock_name: 海韻電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 65.5
+- date: 20260701
+- open: 66.5
 - high: 66.7
-- low: 65.2
+- low: 65.7
 - close: 66.5
-- volume: 144000
-- ma5: 66.42
-- ema23_primary: 67.95
-- distance_to_ema23_pct: -2.14
-- ma20: 68.28
+- volume: 81000
+- ma5: 66.26
+- ema23_primary: 67.83
+- distance_to_ema23_pct: -1.97
+- ma20: 68
 - ma60: 68.32
-- ma120: 67.47
-- return_5d: -2.21
-- return_20d: -7.64
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -2.61
+- ma120: 67.46
+- return_5d: -1.19
+- return_20d: -7.77
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -2.21
 - distance_to_high_60_pct: -14.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,72.3,72.8,71.5,72.1,72,70.2,2.71,70.93,67.5,0
 20260603,72.6,73.3,72,72.5,72000,70.39,3,70.79,67.59,0.19
 20260604,72.5,72.8,71.7,72,72000,70.52,2.09,70.83,67.77,0.25
 20260605,72,72,70.6,71.1,71000,70.57,0.75,70.94,67.9,0.27
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,66.9,66.9,65.5,65.5,261000,68.3,-4.1,68.81,68.3,1.84
 20260629,65.3,66,65,65.7,115000,68.09,-3.51,68.56,68.32,0.8
 20260630,65.5,66.7,65.2,66.5,144000,67.95,-2.14,68.28,68.32,0.97
+20260701,66.5,66.7,65.7,66.5,81000,67.83,-1.97,68,68.32,0.53
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5289 宜鼎
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:38 Asia/Taipei
+- generated_at: 2026-07-01 22:28:07 Asia/Taipei
 - stock_id: 5289
 - stock_name: 宜鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 1625
-- high: 1665
-- low: 1575
-- close: 1615
-- volume: 2655000
-- ma5: 1670
-- ema23_primary: 1758.94
-- distance_to_ema23_pct: -8.18
-- ma20: 1820
-- ma60: 1554.5
-- ma120: 1180.86
-- return_5d: -14.32
-- return_20d: -15.22
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -11.26
-- distance_to_high_60_pct: -20.25
+- date: 20260701
+- open: 1645
+- high: 1645
+- low: 1485
+- close: 1575
+- volume: 5789000
+- ma5: 1626
+- ema23_primary: 1743.61
+- distance_to_ema23_pct: -9.67
+- ma20: 1805
+- ma60: 1564.8
+- ma120: 1189.73
+- return_5d: -12.26
+- return_20d: -16
+- volume_ratio: 1.68
+- distance_to_ma20_pct_auxiliary: -12.74
+- distance_to_high_60_pct: -22.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,1930,1935,1820,1875,1883,1651.83,13.51,1733.25,1300.6,0
 20260603,1920,1980,1850,1890,1918000,1671.67,13.06,1754,1318.68,0.54
 20260604,1865,1945,1845,1905,1896000,1691.12,12.65,1770.5,1336.72,0.59
 20260605,1860,1860,1715,1755,1776000,1696.44,3.45,1778.25,1350.88,0.6
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,1715,1755,1595,1605,3153000,1788.12,-10.24,1845.25,1530.63,1.03
 20260629,1605,1615,1550,1595,2957000,1772.02,-9.99,1834.5,1543.1,0.95
 20260630,1625,1665,1575,1615,2655000,1758.94,-8.18,1820,1554.5,0.84
+20260701,1645,1645,1485,1575,5789000,1743.61,-9.67,1805,1564.8,1.68
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:宜鼎國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款之規定， 公司發行國內第二次無擔保轉換公司債案至公告日止，債款代收銀行業 已收足所有應募款項並匯撥至存儲專戶銀行，共計新台幣3,770,570,320元整， 特此公告。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 5289 | 宜鼎 | 7 | 6 | 5 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 5289 | 宜鼎 | 8 | 7 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

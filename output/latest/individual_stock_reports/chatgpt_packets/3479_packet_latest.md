@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3479 安勤
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:10 Asia/Taipei
+- generated_at: 2026-07-01 22:27:41 Asia/Taipei
 - stock_id: 3479
 - stock_name: 安勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 141
-- high: 143
-- low: 140
-- close: 142
-- volume: 1430000
-- ma5: 140.5
-- ema23_primary: 131.69
-- distance_to_ema23_pct: 7.83
-- ma20: 133.15
-- ma60: 112
-- ma120: 101.06
-- return_5d: 6.77
-- return_20d: 7.58
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 6.65
-- distance_to_high_60_pct: -5.65
+- date: 20260701
+- open: 143.5
+- high: 143.5
+- low: 139.5
+- close: 139.5
+- volume: 1280000
+- ma5: 141.3
+- ema23_primary: 132.34
+- distance_to_ema23_pct: 5.41
+- ma20: 133.53
+- ma60: 112.9
+- ma120: 101.46
+- return_5d: 2.95
+- return_20d: 5.68
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 4.47
+- distance_to_high_60_pct: -7.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,132,134,130.5,132,132,116.03,13.76,113.94,97.59,0
 20260603,133,134.5,131,132,132000,117.36,12.47,115.72,98.28,0.17
 20260604,128.5,130,127,129,128000,118.33,9.02,117.32,98.97,0.16
 20260605,127,130,125,129,127000,119.22,8.2,118.96,99.64,0.17
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,142.5,150.5,142.5,142.5,5855000,130.05,9.57,132.47,110.14,3.48
 20260629,143.5,145,137.5,138.5,1936000,130.76,5.92,132.65,111.06,1.09
 20260630,141,143,140,142,1430000,131.69,7.83,133.15,112,0.78
+20260701,143.5,143.5,139.5,139.5,1280000,132.34,5.41,133.53,112.9,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3479 | 安勤 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.原預定買回股份總金額上限(元):2,206,127,929 2.原預定買回之期間:115/05/04~115/06/29 3.原預定買回之數量(股):500,000 4.原預定買回區間價格(元):70.00~115.00 5.本次實際買回期間:115/05/04~115/05/13 6.本次已買回股份數量(股):364,000 7.本次已買回股份總金額(元):34,728,764 8.本次平均每股買回價格(元):95.41 9.累積已持有自己公司股份數量(股):364,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.50 11.本次未執行完畢之原因: 本公司於規定價格區間內分批買回庫藏股，執行率72.80%。考量不影響市場量價及維護股東權益，故未全數執行完畢。 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3479 | 安勤 | 4 | 2 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1785 光洋科
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:26 Asia/Taipei
+- generated_at: 2026-07-01 22:27:00 Asia/Taipei
 - stock_id: 1785
 - stock_name: 光洋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 146
-- high: 148
-- low: 143
-- close: 144.5
-- volume: 12299000
-- ma5: 141.7
-- ema23_primary: 143.63
-- distance_to_ema23_pct: 0.61
-- ma20: 141.68
-- ma60: 144.63
-- ma120: 107.63
-- return_5d: -3.34
-- return_20d: -7.96
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 1.99
-- distance_to_high_60_pct: -21.89
+- high: 146.5
+- low: 140
+- close: 142
+- volume: 9950000
+- ma5: 141.3
+- ema23_primary: 143.49
+- distance_to_ema23_pct: -1.04
+- ma20: 141.57
+- ma60: 145.53
+- ma120: 108.26
+- return_5d: -1.39
+- return_20d: -1.39
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 0.3
+- distance_to_high_60_pct: -23.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,155.5,155.5,141.5,144,147,148.39,-2.96,152.62,127.34,0
 20260603,145,145.5,140.5,142,143000,147.85,-3.96,151.3,128.6,0.01
 20260604,140,144.5,138.5,139.5,141000,147.16,-5.2,149.03,129.8,0.01
 20260605,137,140,132.5,136.5,137000,146.27,-6.68,147.5,130.84,0.01
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,143,146,137,137,17627000,143.82,-4.74,143.2,142.91,1.34
 20260629,137.5,143.5,134,140.5,9928000,143.55,-2.12,142.3,143.75,0.73
 20260630,146,148,143,144.5,12299000,143.63,0.61,141.68,144.63,0.87
+20260701,146,146.5,140,142,9950000,143.49,-1.04,141.57,145.53,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1785 | 光洋科 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260630 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 1785 | 光洋科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利每股配發2.0元，共計新臺幣1,191,960,486元。 3.變更後發放股利種類及金額: 現金股利每股配發2.000099元，共計新臺幣1,191,960,486元。 4.變更原因:因本公司執行限制員工權利新股，致影響本公司流通在外股數，爰依 民國115年5月25日股東會決議，授權董事長調整配股配息率。 5.其他應敘明事項: 1.本公司於除息交易日前，如因發行或收回限制員工權利新股及其他因法令等因素 致影響本公司流通在外股份總數，而需配合變更股東配息率時，將另行公告。 2.本次股利發放通知，另委託集保結算所辦理以電子化通知。請股東於除權（息）停止 過戶起始日一營業日前(即115年07月17日前)，逕登入集保結算所「股東e服務」 (網址https://stockservices.tdcc.com.tw)之股務電子通知(eNotice)平台登記同意 接收電子通知，即可以留存之email接收股利發放通知，環保減碳愛地球！ (115年07月17日以後同意者，適用下次股利發放電子通知)；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利每股配發2.0元，共計新臺幣1,191,960,486元。 3.變更後發放股利種類及金額: 現金股利每股配發2.000099元，共計新臺幣1,191,960,486元。 4.變更原因:因本公司執行限制員工權利新股，致影響本公司流通在外股數，爰依 民國115年5月25日股東會決議，授權董事長調整配股配息率。 5.其他應敘明事項: 1.本公司於除息交易日前，如因發行或收回限制員工權利新股及其他因法令等因素 致影響本公司流通在外股份總數，而需配合變更股東配息率時，將另行公告。 2.本次股利發放通知，另委託集保結算所辦理以電子化通知。請股東於除權（息）停止 過戶起始日一營業日前(即115年07月17日前)，逕登入集保結算所「股東e服務」 (網址https://stockservices.tdcc.com.tw)之股務電子通知(eNotice)平台登記同意 接收電子通知，即可以留存之email接收股利發放通知，環保減碳愛地球！ (115年07月17日以後同意者，適用下次股利發放電子通知)；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1785 | 光洋科 | 7 | 6 | 5 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 1785 | 光洋科 | 8 | 7 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6130 上亞科技
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:48 Asia/Taipei
+- generated_at: 2026-07-01 22:28:16 Asia/Taipei
 - stock_id: 6130
 - stock_name: 上亞科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 23.95
-- high: 24.25
-- low: 23.7
+- date: 20260701
+- open: 24.45
+- high: 25.2
+- low: 23.75
 - close: 23.75
-- volume: 130000
-- ma5: 24.02
+- volume: 192000
+- ma5: 23.87
 - ema23_primary: 23.76
 - distance_to_ema23_pct: -0.04
-- ma20: 23.71
-- ma60: 24.04
-- ma120: 31
-- return_5d: 3.49
-- return_20d: 2.15
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 0.15
+- ma20: 23.75
+- ma60: 23.98
+- ma120: 30.82
+- return_5d: -3.06
+- return_20d: 3.49
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -0.02
 - distance_to_high_60_pct: -18.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,23.25,23.9,22.75,22.95,23,23.22,-1.16,22.71,26.1,0
 20260603,23.2,23.35,22.65,22.8,23000,23.18,-1.66,22.66,25.85,0.26
 20260604,23.2,23.2,22.25,22.25,22000,23.11,-3.71,22.59,25.65,0.28
 20260605,22.25,22.6,21.85,22.1,22000,23.02,-4.01,22.51,25.49,0.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,23.65,24.65,23.35,23.85,254000,23.76,0.39,23.6,24.11,1.43
 20260629,23.85,24.5,23.55,23.8,83000,23.76,0.17,23.69,24.06,0.46
 20260630,23.95,24.25,23.7,23.75,130000,23.76,-0.04,23.71,24.04,0.7
+20260701,24.45,25.2,23.75,23.75,192000,23.76,-0.04,23.75,23.98,0.98
 ```
 
 ## Latest TDCC Snapshot

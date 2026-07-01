@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1229 聯華
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:12 Asia/Taipei
+- generated_at: 2026-07-01 22:26:46 Asia/Taipei
 - stock_id: 1229
 - stock_name: 聯華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 42.75
-- high: 43.2
-- low: 42.75
+- date: 20260701
+- open: 43.5
+- high: 43.5
+- low: 42.4
 - close: 42.95
-- volume: 2729000
-- ma5: 42.73
-- ema23_primary: 41.89
-- distance_to_ema23_pct: 2.54
-- ma20: 42.16
-- ma60: 41.86
-- ma120: 43.68
-- return_5d: 3
-- return_20d: 6.31
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 1.87
+- volume: 3513000
+- ma5: 42.87
+- ema23_primary: 41.98
+- distance_to_ema23_pct: 2.32
+- ma20: 42.15
+- ma60: 41.83
+- ma120: 43.64
+- return_5d: 1.66
+- return_20d: -0.58
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 1.9
 - distance_to_high_60_pct: -5.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,40.4,43.9,40.05,43.2,14802260,40.56,6.5,40.05,42.58,3.37
 20260603,43.45,44.9,42.05,43.95,13653840,40.84,7.6,40.18,42.56,2.77
 20260604,43.4,43.4,42.35,43,5090184,41.02,4.82,40.25,42.55,1.01
 20260605,42.55,42.6,41.85,42,4034663,41.11,2.18,40.24,42.51,0.8
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,43.2,43.6,42.45,42.45,4333881,41.71,1.78,41.89,41.93,0.96
 20260629,42.9,43.1,42.6,42.7,2779577,41.79,2.18,42.03,41.89,0.62
 20260630,42.75,43.2,42.75,42.95,2729000,41.89,2.54,42.16,41.86,0.61
+20260701,43.5,43.5,42.4,42.95,3513000,41.98,2.32,42.15,41.83,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1229 | 聯華 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司受邀參加統一證券線上法人說明會，會中就本公司已公開發佈之財務數字及經營績效等相關資訊做說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 1229 | 聯華 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司受邀參加統一證券線上法人說明會，會中就本公司已公開發佈之財務數字及經營績效等相關資訊做說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1229 | 聯華 | 5 | 3 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 1229 | 聯華 | 6 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

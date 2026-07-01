@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:53 Asia/Taipei
+- generated_at: 2026-07-01 22:28:21 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 80.1
-- high: 81.5
-- low: 79.1
-- close: 80.7
-- volume: 4398000
-- ma5: 83.92
-- ema23_primary: 84.48
-- distance_to_ema23_pct: -4.48
+- date: 20260701
+- open: 81.1
+- high: 83.5
+- low: 79
+- close: 79.2
+- volume: 6208000
+- ma5: 81.96
+- ema23_primary: 84.04
+- distance_to_ema23_pct: -5.76
 - ma20: 86.25
-- ma60: 73.79
-- ma120: 66.74
-- return_5d: -10.63
-- return_20d: -4.5
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -6.43
-- distance_to_high_60_pct: -22.78
+- ma60: 74.27
+- ma120: 66.83
+- return_5d: -11.01
+- return_20d: 0
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -8.17
+- distance_to_high_60_pct: -24.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,84.5,84.6,77.6,79.2,12333284,75.13,5.42,75.1,63.24,0.69
 20260603,79,82.4,78.2,80.6,7477921,75.59,6.63,75.72,63.64,0.42
 20260604,80,87.5,79.8,84.7,16433881,76.34,10.94,76.34,64.19,0.94
 20260605,85,89,82.2,87.9,38454348,77.31,13.7,77.44,64.79,2.07
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,88.7,88.8,80.6,81.3,12553033,85.34,-4.73,86.56,72.78,0.5
 20260629,81.3,82.1,78,79.2,7199275,84.83,-6.63,86.44,73.28,0.29
 20260630,80.1,81.5,79.1,80.7,4398000,84.48,-4.48,86.25,73.79,0.18
+20260701,81.1,83.5,79,79.2,6208000,84.04,-5.76,86.25,74.27,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額:現金股利美金4,174仟元 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額:現金股利美金4,174仟元 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6209 | 今國光 | 5 | 5 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 6209 | 今國光 | 6 | 6 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6209 | 今國光 | 56 | 0 | 4668360.0 | 0.0 |  | no_signal |
+| 20260701 | 6209 | 今國光 | 56 | 0 | 7443740.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

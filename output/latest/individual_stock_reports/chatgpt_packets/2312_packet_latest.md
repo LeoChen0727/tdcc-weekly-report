@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:34 Asia/Taipei
+- generated_at: 2026-07-01 22:27:07 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 34.5
-- high: 35.3
-- low: 33.95
-- close: 35.15
-- volume: 23198000
-- ma5: 35.33
-- ema23_primary: 35.16
-- distance_to_ema23_pct: -0.04
-- ma20: 36.5
-- ma60: 31.2
-- ma120: 28.15
-- return_5d: 1.74
-- return_20d: -13.42
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -3.69
-- distance_to_high_60_pct: -20.83
+- date: 20260701
+- open: 36.3
+- high: 38.45
+- low: 34.8
+- close: 34.8
+- volume: 68801000
+- ma5: 34.69
+- ema23_primary: 35.13
+- distance_to_ema23_pct: -0.95
+- ma20: 36.17
+- ma60: 31.41
+- ma120: 28.25
+- return_5d: -8.42
+- return_20d: -15.74
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -3.79
+- distance_to_high_60_pct: -21.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,40.95,43.5,38.85,41.3,135198121,33.18,24.47,32.45,27.03,1.69
 20260603,41.7,44.4,40.7,43.4,167087498,34.03,27.53,33.22,27.36,1.93
 20260604,42.15,44.1,40.65,41.05,111914355,34.62,18.58,33.85,27.67,1.24
 20260605,40,40.7,37.5,39.3,67007859,35.01,12.26,34.41,27.94,0.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,35.7,35.9,33.5,33.5,50675917,35.31,-5.12,37.04,30.78,0.69
 20260629,33.6,34.45,33.05,33.6,23171845,35.16,-4.45,36.77,30.98,0.33
 20260630,34.5,35.3,33.95,35.15,23198000,35.16,-0.04,36.5,31.2,0.36
+20260701,36.3,38.45,34.8,34.8,68801000,35.13,-0.95,36.17,31.41,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2312 | 金寶 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：Webex線上會議 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之線上法人說明會，說明2026年第一季營運成果及未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 2312 | 金寶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：Webex線上會議 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之線上法人說明會，說明2026年第一季營運成果及未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2312 | 金寶 | 1 | 1 | 2 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 2312 | 金寶 | 2 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2312 | 金寶 | 96 | 0 | 6303350.0 | 0.0 |  | no_signal |
+| 20260701 | 2312 | 金寶 | 96 | 2 | 20141340.0 | 1680.0 | 11988.89 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

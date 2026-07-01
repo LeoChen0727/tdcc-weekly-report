@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4523 永彰
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:25 Asia/Taipei
+- generated_at: 2026-07-01 22:27:55 Asia/Taipei
 - stock_id: 4523
 - stock_name: 永彰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 30.65
-- high: 30.65
-- low: 29.9
-- close: 30.1
-- volume: 408000
-- ma5: 29.87
-- ema23_primary: 29.67
-- distance_to_ema23_pct: 1.44
-- ma20: 29.65
-- ma60: 29.78
-- ma120: 30.16
-- return_5d: 0.67
-- return_20d: -0.33
-- volume_ratio: 2.74
-- distance_to_ma20_pct_auxiliary: 1.52
-- distance_to_high_60_pct: -4.6
+- date: 20260701
+- open: 27.5
+- high: 27.6
+- low: 27
+- close: 27.25
+- volume: 369000
+- ma5: 29.35
+- ema23_primary: 29.47
+- distance_to_ema23_pct: -7.54
+- ma20: 29.52
+- ma60: 29.74
+- ma120: 30.14
+- return_5d: -8.71
+- return_20d: -8.86
+- volume_ratio: 2.21
+- distance_to_ma20_pct_auxiliary: -7.68
+- distance_to_high_60_pct: -13.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,30.2,30.3,29.4,29.9,30,29.46,1.51,29.29,30.27,0
 20260603,30.2,30.6,29.75,30.15,30000,29.51,2.16,29.27,30.21,0.25
 20260604,30.1,30.55,29.95,30.2,30000,29.57,2.13,29.23,30.17,0.27
 20260605,30.3,30.3,29.7,30.1,30000,29.61,1.64,29.18,30.09,0.28
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,29.75,30.15,29.05,29.85,161000,29.62,0.76,29.66,29.76,1.27
 20260629,29.8,29.9,29.5,29.75,95000,29.63,0.39,29.66,29.77,0.73
 20260630,30.65,30.65,29.9,30.1,408000,29.67,1.44,29.65,29.78,2.74
+20260701,27.5,27.6,27,27.25,369000,29.47,-7.54,29.52,29.74,2.21
 ```
 
 ## Latest TDCC Snapshot

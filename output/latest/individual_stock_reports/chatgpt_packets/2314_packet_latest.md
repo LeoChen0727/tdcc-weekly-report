@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2314 台揚
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:34 Asia/Taipei
+- generated_at: 2026-07-01 22:27:07 Asia/Taipei
 - stock_id: 2314
 - stock_name: 台揚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 289
+- latest_price_date: 20260701
+- price_rows: 290
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 14.6
-- high: 15.75
-- low: 14.6
-- close: 15.45
-- volume: 337000
-- ma5: 14.4
-- ema23_primary: 14.95
-- distance_to_ema23_pct: 3.33
-- ma20: 15.26
-- ma60: 14.74
-- ma120: 17.62
-- return_5d: 9.96
-- return_20d: -4.33
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 1.28
-- distance_to_high_60_pct: -13.69
+- date: 20260701
+- open: 14
+- high: 15.2
+- low: 14
+- close: 14.45
+- volume: 227000
+- ma5: 14.43
+- ema23_primary: 14.91
+- distance_to_ema23_pct: -3.09
+- ma20: 15.16
+- ma60: 14.7
+- ma120: 17.55
+- return_5d: 1.05
+- return_20d: -11.35
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -4.7
+- distance_to_high_60_pct: -19.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,16.5,16.55,16.15,16.3,498288,15.07,8.19,14.37,15.79,0.73
 20260603,16.45,16.6,16.45,16.6,528359,15.19,9.25,14.51,15.75,0.77
 20260604,16.5,17,16.5,16.75,467562,15.32,9.31,14.7,15.73,0.7
 20260605,16.65,16.65,15.2,15.8,336446,15.36,2.84,14.84,15.7,0.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,14.25,14.25,13.8,13.8,213624,14.95,-7.71,15.36,14.88,0.63
 20260629,13.85,14.4,13.85,14.4,249175,14.91,-3.4,15.29,14.79,0.74
 20260630,14.6,15.75,14.6,15.45,337000,14.95,3.33,15.26,14.74,1.05
+20260701,14,15.2,14,14.45,227000,14.91,-3.09,15.16,14.7,0.74
 ```
 
 ## Latest TDCC Snapshot

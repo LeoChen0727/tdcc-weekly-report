@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2101 南港
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:31 Asia/Taipei
+- generated_at: 2026-07-01 22:27:04 Asia/Taipei
 - stock_id: 2101
 - stock_name: 南港
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 289
+- latest_price_date: 20260701
+- price_rows: 290
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 31.85
-- high: 32.05
-- low: 31.2
-- close: 31.4
-- volume: 1959000
-- ma5: 31.48
-- ema23_primary: 32.05
-- distance_to_ema23_pct: -2.02
-- ma20: 32.31
-- ma60: 33.08
-- ma120: 34.33
-- return_5d: 0.16
-- return_20d: -1.88
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -2.82
-- distance_to_high_60_pct: -18.12
+- date: 20260701
+- open: 31.4
+- high: 31.55
+- low: 31
+- close: 31.2
+- volume: 1584000
+- ma5: 31.44
+- ema23_primary: 31.98
+- distance_to_ema23_pct: -2.43
+- ma20: 32.26
+- ma60: 32.97
+- ma120: 34.27
+- return_5d: -0.64
+- return_20d: -3.11
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -3.29
+- distance_to_high_60_pct: -17.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,32,32.55,31.7,32.2,3982058,31.78,1.31,31.66,33.61,1.49
 20260603,32.2,32.85,31.95,32.85,3397993,31.87,3.06,31.62,33.57,1.22
 20260604,32.7,33,32,32.45,2386347,31.92,1.66,31.51,33.55,0.85
 20260605,32.3,32.4,31.75,31.9,1434145,31.92,-0.06,31.38,33.53,0.51
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,31.35,31.5,30.95,31.15,1172352,32.13,-3.05,32.25,33.21,0.35
 20260629,31.15,32.2,31.15,31.85,3579344,32.11,-0.8,32.34,33.16,1.04
 20260630,31.85,32.05,31.2,31.4,1959000,32.05,-2.02,32.31,33.08,0.62
+20260701,31.4,31.55,31,31.2,1584000,31.98,-2.43,32.26,32.97,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +194,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260630 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 14.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 19.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2101 | 南港 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 2101 | 南港 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2101 | 南港 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260701 | 2101 | 南港 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

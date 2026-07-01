@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4533 協易機
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:25 Asia/Taipei
+- generated_at: 2026-07-01 22:27:55 Asia/Taipei
 - stock_id: 4533
 - stock_name: 協易機
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 28.25
-- high: 28.5
+- date: 20260701
+- open: 28.55
+- high: 28.65
 - low: 27.95
-- close: 28.25
-- volume: 647000
-- ma5: 28.16
-- ema23_primary: 29.86
-- distance_to_ema23_pct: -5.4
-- ma20: 29.93
-- ma60: 30.9
-- ma120: 31
-- return_5d: -3.75
-- return_20d: -13.61
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -5.61
-- distance_to_high_60_pct: -19.97
+- close: 28.4
+- volume: 740000
+- ma5: 28.03
+- ema23_primary: 29.74
+- distance_to_ema23_pct: -4.51
+- ma20: 29.78
+- ma60: 30.87
+- ma120: 31.05
+- return_5d: -2.24
+- return_20d: -9.55
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -4.63
+- distance_to_high_60_pct: -19.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,33.05,33.05,30.5,31.4,32,32.04,-1.99,32.02,31.79,0
 20260603,31.55,32.45,31,31.9,32000,32.03,-0.39,32.03,31.74,0.02
 20260604,31.75,31.85,31.2,31.8,32000,32.01,-0.65,32.05,31.74,0.02
 20260605,32.5,33.25,30.65,31,32000,31.92,-2.89,32.07,31.72,0.03
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,28.55,28.6,27.15,27.3,1643000,30.23,-9.68,30.38,31,1.75
 20260629,27.35,28.15,27.35,27.65,542000,30.01,-7.87,30.15,30.95,0.56
 20260630,28.25,28.5,27.95,28.25,647000,29.86,-5.4,29.93,30.9,0.65
+20260701,28.55,28.65,27.95,28.4,740000,29.74,-4.51,29.78,30.87,0.72
 ```
 
 ## Latest TDCC Snapshot

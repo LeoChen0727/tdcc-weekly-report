@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6715 嘉基
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:08 Asia/Taipei
+- generated_at: 2026-07-01 22:28:35 Asia/Taipei
 - stock_id: 6715
 - stock_name: 嘉基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 426
-- high: 440
-- low: 426
-- close: 435.5
-- volume: 188000
-- ma5: 461.5
-- ema23_primary: 454.67
-- distance_to_ema23_pct: -4.22
-- ma20: 447.95
-- ma60: 439.47
-- ma120: 311.3
-- return_5d: -23.46
-- return_20d: -3.86
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -2.78
-- distance_to_high_60_pct: -23.46
+- date: 20260701
+- open: 440
+- high: 447
+- low: 430.5
+- close: 443.5
+- volume: 158000
+- ma5: 447.6
+- ema23_primary: 453.74
+- distance_to_ema23_pct: -2.26
+- ma20: 448.25
+- ma60: 441.66
+- ma120: 314.14
+- return_5d: -13.55
+- return_20d: 1.37
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -1.06
+- distance_to_high_60_pct: -22.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,443.5,453,431,437.5,265878,449.35,-2.64,467.1,393.64,0.25
 20260603,453,481,453,481,1055544,451.98,6.42,469.4,398.12,1.03
 20260604,476,501,451,455,836234,452.24,0.61,468.8,401.81,0.85
 20260605,444.5,447,425,434,264198,450.72,-3.71,468.25,404.77,0.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,485,506,455,455,209632,459.36,-0.95,449.43,435.79,0.31
 20260629,470,470,422,424,280420,456.41,-7.1,448.82,437.7,0.42
 20260630,426,440,426,435.5,188000,454.67,-4.22,447.95,439.47,0.28
+20260701,440,447,430.5,443.5,158000,453.74,-2.26,448.25,441.66,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6715 | 嘉基 | 10 | 0 | 38060.0 | 0.0 |  | no_signal |
+| 20260701 | 6715 | 嘉基 | 10 | 0 | 133110.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

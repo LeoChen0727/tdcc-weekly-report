@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:57 Asia/Taipei
+- generated_at: 2026-07-01 22:27:28 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 140.5
-- high: 142.5
-- low: 139.5
-- close: 142.5
-- volume: 3010000
-- ma5: 145.1
-- ema23_primary: 149.9
-- distance_to_ema23_pct: -4.94
-- ma20: 151.3
-- ma60: 143.72
-- ma120: 142.28
-- return_5d: -9.24
-- return_20d: -8.06
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -5.82
-- distance_to_high_60_pct: -15.68
+- date: 20260701
+- open: 143.5
+- high: 144.5
+- low: 140
+- close: 140
+- volume: 3314000
+- ma5: 142
+- ema23_primary: 149.08
+- distance_to_ema23_pct: -6.09
+- ma20: 150.68
+- ma60: 144.04
+- ma120: 142.29
+- return_5d: -9.97
+- return_20d: -8.2
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -7.08
+- distance_to_high_60_pct: -17.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,157.5,157.5,150,152.5,7761836,147.86,3.14,148.9,136.6,0.84
 20260603,153.5,155,151.5,151.5,4854354,148.17,2.25,149.32,136.9,0.53
 20260604,151,155,145.5,152,9312585,148.49,2.37,149.78,137.38,0.99
 20260605,153.5,159.5,151,152.5,23499834,148.82,2.47,150.2,137.82,2.32
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,150,150,139.5,139.5,6950782,151.72,-8.05,152.72,143.11,0.6
 20260629,140,142,137.5,138,4055583,150.57,-8.35,151.93,143.39,0.36
 20260630,140.5,142.5,139.5,142.5,3010000,149.9,-4.94,151.3,143.72,0.27
+20260701,143.5,144.5,140,140,3314000,149.08,-6.09,150.68,144.04,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3019 | 亞光 | 107 | 0 | 1585370.0 | 0.0 |  | no_signal |
+| 20260701 | 3019 | 亞光 | 107 | 0 | 2521880.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3703 欣陸
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:18 Asia/Taipei
+- generated_at: 2026-07-01 22:27:48 Asia/Taipei
 - stock_id: 3703
 - stock_name: 欣陸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 21.5
+- date: 20260701
+- open: 21.6
 - high: 21.65
 - low: 21.4
-- close: 21.65
-- volume: 1071000
-- ma5: 21.42
+- close: 21.45
+- volume: 1702000
+- ma5: 21.46
 - ema23_primary: 21.36
-- distance_to_ema23_pct: 1.38
-- ma20: 21.54
-- ma60: 21.15
-- ma120: 21.92
-- return_5d: 1.41
-- return_20d: 6.13
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 0.53
-- distance_to_high_60_pct: -3.56
+- distance_to_ema23_pct: 0.4
+- ma20: 21.57
+- ma60: 21.13
+- ma120: 21.9
+- return_5d: 0.94
+- return_20d: 3.62
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -0.57
+- distance_to_high_60_pct: -4.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,20.45,20.85,20.35,20.7,936098,20.49,1,20.33,21.41,0.66
 20260603,21,21.55,20.9,21.4,2374503,20.57,4.04,20.37,21.4,1.6
 20260604,21.3,21.65,21.25,21.5,1879099,20.65,4.13,20.4,21.39,1.23
 20260605,21.45,21.75,21.2,21.55,1350407,20.72,3.99,20.45,21.38,0.88
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,21.3,21.5,21.3,21.35,1288138,21.32,0.15,21.41,21.17,0.82
 20260629,21.55,21.7,21.3,21.45,629067,21.33,0.56,21.47,21.16,0.41
 20260630,21.5,21.65,21.4,21.65,1071000,21.36,1.38,21.54,21.15,0.71
+20260701,21.6,21.65,21.4,21.45,1702000,21.36,0.4,21.57,21.13,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3703 | 欣陸 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/23 2.被背書保證之: (1)公司名稱:大陸工程股份有限公司 (2)與提供背書保證公司之關係: 子公司 (3)背書保證之限額(仟元):109,224,836 (4)原背書保證之餘額(仟元):11,950,806 (5)本次新增背書保證之金額(仟元):2,600,000 (6)迄事實發生日止背書保證餘額(仟元):14,550,806 (7)被背書保證公司實際動支金額(仟元):7,088,813 (8)本次新增背書保證之原因: 為大陸工程股份有限公司之銀行授信額度擔任連帶保證人 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):5,020,621 (2)累積盈虧金額(仟元):901,476 5.解除背書保證責任之: (1)條件: 到期解除保證責任 (2)日期: 到期解除保證責任 6.背書保證之總限額(仟元): 163,837,254 7.迄事實發生日為止，背書保證餘額(仟元): 54,558,883 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 199.80 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 83.59 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3703 | 欣陸 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | 1.發生變動日期:115/06/30 2.法人名稱:漢德建設股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動原因:不適用 8.原任期（例xx/xx/xx至xx/xx/xx）:不適用 9.新任生效日期:不適用 10.其他應敘明事項: 本公司於115年6月30日接獲通知，法人董事「漢德建設股份有限公司」 已更名為「吉劭股份有限公司」，該公司已於115年6月25日核准變更登記完成。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3703 | 欣陸 | 1 | 1 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 3703 | 欣陸 | 2 | 2 | 2 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

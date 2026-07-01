@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6821 聯寶
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:12 Asia/Taipei
+- generated_at: 2026-07-01 22:28:39 Asia/Taipei
 - stock_id: 6821
 - stock_name: 聯寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 62.6
-- high: 66.8
-- low: 61.3
-- close: 64.5
-- volume: 1993000
-- ma5: 61.98
-- ema23_primary: 63.57
-- distance_to_ema23_pct: 1.46
-- ma20: 65.28
-- ma60: 60.78
-- ma120: 49.87
-- return_5d: -0.62
-- return_20d: -6.52
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: -1.2
-- distance_to_high_60_pct: -15.47
+- date: 20260701
+- open: 64.2
+- high: 65.2
+- low: 62
+- close: 64.1
+- volume: 1205000
+- ma5: 62.16
+- ema23_primary: 63.61
+- distance_to_ema23_pct: 0.76
+- ma20: 65
+- ma60: 60.91
+- ma120: 50.1
+- return_5d: 1.42
+- return_20d: -8.3
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -1.38
+- distance_to_high_60_pct: -15.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,69,71.8,68.9,69.9,70,60.83,14.91,57.98,53.73,0
 20260603,71,71,68.9,69.4,70000,61.54,12.76,58.76,54.27,0.18
 20260604,68.8,69.2,67.5,67.5,68000,62.04,8.8,59.49,54.79,0.2
 20260605,67.5,68,60.9,68,65000,62.54,8.74,60.34,55.31,0.21
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,61,64.4,59.3,59.4,1495000,63.64,-6.66,65.92,60.58,1.27
 20260629,60.1,64,58.7,61.8,1480000,63.49,-2.66,65.51,60.69,1.18
 20260630,62.6,66.8,61.3,64.5,1993000,63.57,1.46,65.28,60.78,1.48
+20260701,64.2,65.2,62,64.1,1205000,63.61,0.76,65,60.91,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6821 | 聯寶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 6821 | 聯寶 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6821 | 聯寶 | 1 | 1 | 1 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 6821 | 聯寶 | 2 | 2 | 2 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

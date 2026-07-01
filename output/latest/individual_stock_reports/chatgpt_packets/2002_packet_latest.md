@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2002 中鋼
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:28 Asia/Taipei
+- generated_at: 2026-07-01 22:27:01 Asia/Taipei
 - stock_id: 2002
 - stock_name: 中鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 19.15
-- high: 19.15
-- low: 18.8
-- close: 18.8
-- volume: 72624000
-- ma5: 19.05
-- ema23_primary: 18.98
-- distance_to_ema23_pct: -0.97
-- ma20: 19
-- ma60: 19.07
-- ma120: 19.35
-- return_5d: -2.08
-- return_20d: -1.57
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -1.03
-- distance_to_high_60_pct: -10.48
+- date: 20260701
+- open: 18.9
+- high: 18.95
+- low: 18.6
+- close: 18.65
+- volume: 44196000
+- ma5: 18.91
+- ema23_primary: 18.96
+- distance_to_ema23_pct: -1.62
+- ma20: 18.98
+- ma60: 19.06
+- ma120: 19.34
+- return_5d: -3.62
+- return_20d: -1.58
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.74
+- distance_to_high_60_pct: -11.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,19.1,19.1,18.8,18.95,70796205,18.88,0.36,18.69,19.17,1.01
 20260603,19.1,19.5,19.05,19.4,111692995,18.93,2.51,18.72,19.16,1.53
 20260604,19.45,19.6,19.2,19.25,75211768,18.95,1.57,18.74,19.16,1.01
 20260605,19.35,19.4,19.1,19.3,52447615,18.98,1.68,18.77,19.16,0.7
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,19,19.2,18.9,19,57535587,19,0.02,19.01,19.08,0.67
 20260629,19.2,19.25,19,19.05,29363026,19,0.26,19.01,19.09,0.35
 20260630,19.15,19.15,18.8,18.8,72624000,18.98,-0.97,19,19.07,0.87
+20260701,18.9,18.95,18.6,18.65,44196000,18.96,-1.62,18.98,19.06,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2002 | 中鋼 | 46 | 0 | 1364730.0 | 0.0 |  | call_inflow |
+| 20260701 | 2002 | 中鋼 | 46 | 0 | 726980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

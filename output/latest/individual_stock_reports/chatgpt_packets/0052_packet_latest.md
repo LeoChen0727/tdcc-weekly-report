@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0052 富邦科技
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:05 Asia/Taipei
+- generated_at: 2026-07-01 22:26:40 Asia/Taipei
 - stock_id: 0052
 - stock_name: 富邦科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 153
+- latest_price_date: 20260701
+- price_rows: 154
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 62.95
-- high: 63.7
-- low: 62.85
-- close: 63.35
-- volume: 27417000
-- ma5: 62.27
-- ema23_primary: 61.14
-- distance_to_ema23_pct: 3.62
-- ma20: 61.71
-- ma60: 56.41
-- ma120: 49.93
-- return_5d: -1.94
-- return_20d: 2.1
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 2.66
-- distance_to_high_60_pct: -4.02
+- date: 20260701
+- open: 64.65
+- high: 64.8
+- low: 63.9
+- close: 64.4
+- volume: 25460000
+- ma5: 62.54
+- ema23_primary: 61.41
+- distance_to_ema23_pct: 4.87
+- ma20: 61.8
+- ma60: 56.76
+- ma120: 50.16
+- return_5d: 2.14
+- return_20d: 2.71
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 4.22
+- distance_to_high_60_pct: -2.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,62.85,62.9,61.6,62.7,38707885,57.4,9.24,57.87,51.1,1.1
 20260603,63.55,63.75,63.2,63.6,23456486,57.91,9.82,58.24,51.4,0.68
 20260604,63,63.1,62.3,62.3,37835752,58.28,6.9,58.48,51.72,1.1
 20260605,61.6,61.85,60.3,61,47085844,58.51,4.26,58.68,51.99,1.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,62,62.3,60.5,60.6,51417349,60.9,-0.49,61.65,55.79,1.42
 20260629,60.85,61.9,60.75,61.35,24098322,60.94,0.68,61.65,56.1,0.67
 20260630,62.95,63.7,62.85,63.35,27417000,61.14,3.62,61.71,56.41,0.77
+20260701,64.65,64.8,63.9,64.4,25460000,61.41,4.87,61.8,56.76,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -180,17 +180,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 0052 | 富邦科技 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 0052 | 富邦科技 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 0052 | 富邦科技 | 1 | 1 | 2 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 0052 | 富邦科技 | 2 | 2 | 2 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 0052 | 富邦科技 | 20 | 0 | 10354790.0 | 0.0 |  | no_signal |
+| 20260701 | 0052 | 富邦科技 | 20 | 3 | 7451360.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

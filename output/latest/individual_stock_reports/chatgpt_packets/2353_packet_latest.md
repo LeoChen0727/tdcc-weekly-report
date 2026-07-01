@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:36 Asia/Taipei
+- generated_at: 2026-07-01 22:27:09 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 32.6
-- high: 33.4
-- low: 32.2
-- close: 33.1
-- volume: 38570000
-- ma5: 33.04
-- ema23_primary: 34.2
-- distance_to_ema23_pct: -3.21
-- ma20: 36.24
-- ma60: 31.21
-- ma120: 29
-- return_5d: -0.9
-- return_20d: -14.47
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -8.67
-- distance_to_high_60_pct: -25.11
+- date: 20260701
+- open: 33.5
+- high: 34.1
+- low: 32
+- close: 32.1
+- volume: 37990000
+- ma5: 32.62
+- ema23_primary: 34.02
+- distance_to_ema23_pct: -5.65
+- ma20: 35.72
+- ma60: 31.29
+- ma120: 29.06
+- return_5d: -6.14
+- return_20d: -24.56
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -10.13
+- distance_to_high_60_pct: -27.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,42.55,42.55,41.6,42.55,217599445,31.42,35.44,30.5,28.5,4.13
 20260603,44,44.2,41.8,43.4,302713693,32.41,33.89,31.26,28.77,4.55
 20260604,42.4,42.6,39.1,39.1,196654912,32.97,18.59,31.81,28.99,2.61
 20260605,38.1,38.7,37.05,38.4,87069286,33.42,14.89,32.34,29.19,1.11
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,33.55,33.55,31.8,31.9,44861106,34.49,-7.51,36.67,31.03,0.55
 20260629,32.65,33.25,31.75,32.2,31206797,34.3,-6.12,36.52,31.11,0.39
 20260630,32.6,33.4,32.2,33.1,38570000,34.2,-3.21,36.24,31.21,0.48
+20260701,33.5,34.1,32,32.1,37990000,34.02,-5.65,35.72,31.29,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2353 | 宏碁 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/06/24 2.接受資金貸與之: (1)公司名稱:Acer America Corporation(AAC) (2)與資金貸與他人公司之關係: AAC為AAH 100%持股之孫公司 (3)資金貸與之限額(仟元):37,455,717 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):2,822,580 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):2,822,580 (8)本次新增資金貸與之原因: 因應AAC營運需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):7,306,548 (2)累積盈虧金額(仟元):47,670 5.計息方式: 3.85% 6.還款之: (1)條件: 借款期限十二個月 (2)日期: 民國116年5月20日 7.迄事實發生日為止，資金貸與餘額(仟元): 13,560,054 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 18.62 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 2353 | 宏碁 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/06/24 2.接受資金貸與之: (1)公司名稱:Acer America Corporation(AAC) (2)與資金貸與他人公司之關係: AAC為AAH 100%持股之孫公司 (3)資金貸與之限額(仟元):37,455,717 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):2,822,580 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):2,822,580 (8)本次新增資金貸與之原因: 因應AAC營運需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):7,306,548 (2)累積盈虧金額(仟元):47,670 5.計息方式: 3.85% 6.還款之: (1)條件: 借款期限十二個月 (2)日期: 民國116年5月20日 7.迄事實發生日為止，資金貸與餘額(仟元): 13,560,054 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 18.62 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2353 | 宏碁 | 8 | 6 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 2353 | 宏碁 | 9 | 7 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2353 | 宏碁 | 66 | 0 | 4725620.0 | 0.0 |  | call_strong_inflow |
+| 20260701 | 2353 | 宏碁 | 66 | 6 | 5055380.0 | 9110.0 | 554.93 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

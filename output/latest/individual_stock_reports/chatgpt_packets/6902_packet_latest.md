@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6902 GOGOLOOK
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:15 Asia/Taipei
+- generated_at: 2026-07-01 22:28:41 Asia/Taipei
 - stock_id: 6902
 - stock_name: GOGOLOOK
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 292
+- latest_price_date: 20260701
+- price_rows: 293
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 125.5
-- high: 130
-- low: 124.5
-- close: 128.5
-- volume: 93000
-- ma5: 132.3
-- ema23_primary: 131.93
-- distance_to_ema23_pct: -2.6
-- ma20: 136.05
-- ma60: 116.93
-- ma120: 96.93
-- return_5d: -6.88
-- return_20d: -12.59
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: -5.55
-- distance_to_high_60_pct: -16.01
+- date: 20260701
+- open: 129.5
+- high: 134
+- low: 128
+- close: 133
+- volume: 107000
+- ma5: 131.3
+- ema23_primary: 132.02
+- distance_to_ema23_pct: 0.75
+- ma20: 135.62
+- ma60: 117.91
+- ma120: 97.4
+- return_5d: -3.62
+- return_20d: -6.01
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -1.94
+- distance_to_high_60_pct: -13.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,147,147,137,141.5,262805,123.77,14.33,122.08,98.18,0.66
 20260603,146,149,143,147,233704,125.7,16.94,124.17,99.31,0.58
 20260604,145,146,140,144,267823,127.23,13.18,126.25,100.42,0.66
 20260605,146,146,140.5,143,138801,128.54,11.25,128.25,101.52,0.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,138,138,132,134,123814,132.81,0.9,137.82,115.16,0.27
 20260629,132,132,126,126,155362,132.24,-4.72,136.97,116.03,0.35
 20260630,125.5,130,124.5,128.5,93000,131.93,-2.6,136.05,116.93,0.21
+20260701,129.5,134,128,133,107000,132.02,0.75,135.62,117.91,0.25
 ```
 
 ## Latest TDCC Snapshot

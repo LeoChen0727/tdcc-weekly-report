@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009813 貝萊德標普卓越50
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:10 Asia/Taipei
+- generated_at: 2026-07-01 22:26:44 Asia/Taipei
 - stock_id: 009813
 - stock_name: 貝萊德標普卓越50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 10.9
-- high: 10.97
-- low: 10.88
-- close: 10.95
-- volume: 2179000
-- ma5: 10.82
+- date: 20260701
+- open: 11
+- high: 11.05
+- low: 10.99
+- close: 11.02
+- volume: 3315000
+- ma5: 10.86
 - ema23_primary: 11.04
-- distance_to_ema23_pct: -0.82
-- ma20: 11.05
+- distance_to_ema23_pct: -0.17
+- ma20: 11.03
 - ma60: 11.13
 - ma120: 11.13
-- return_5d: 0.92
-- return_20d: -4.28
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -0.93
-- distance_to_high_60_pct: -4.53
+- return_5d: 2.04
+- return_20d: -3.76
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -0.1
+- distance_to_high_60_pct: -3.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,11.42,11.46,11.39,11.45,2909591,11.37,0.73,11.37,11.37,0.81
 20260603,11.46,11.47,11.43,11.44,2582706,11.37,0.58,11.38,11.38,0.74
 20260604,11.34,11.34,11.25,11.26,2709414,11.36,-0.92,11.37,11.37,0.8
 20260605,11.28,11.32,11.28,11.31,3027137,11.36,-0.44,11.36,11.36,0.9
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,10.8,10.8,10.65,10.68,8879198,11.07,-3.53,11.11,11.15,2.34
 20260629,10.68,10.83,10.68,10.8,2737946,11.05,-2.25,11.08,11.14,0.73
 20260630,10.9,10.97,10.88,10.95,2179000,11.04,-0.82,11.05,11.13,0.6
+20260701,11,11.05,10.99,11.02,3315000,11.04,-0.17,11.03,11.13,0.91
 ```
 
 ## Latest TDCC Snapshot

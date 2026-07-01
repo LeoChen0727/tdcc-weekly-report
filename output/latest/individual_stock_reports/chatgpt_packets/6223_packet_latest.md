@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:54 Asia/Taipei
+- generated_at: 2026-07-01 22:28:22 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 6080
-- high: 6205
-- low: 5950
-- close: 6090
-- volume: 971000
-- ma5: 6546
-- ema23_primary: 6219.15
-- distance_to_ema23_pct: -2.08
-- ma20: 6227.25
-- ma60: 5542.92
-- ma120: 4190.5
-- return_5d: -8.83
-- return_20d: 7.22
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -2.2
-- distance_to_high_60_pct: -16
+- date: 20260701
+- open: 6400
+- high: 6695
+- low: 6400
+- close: 6695
+- volume: 651000
+- ma5: 6450
+- ema23_primary: 6258.8
+- distance_to_ema23_pct: 6.97
+- ma20: 6286.25
+- ma60: 5591.75
+- ma120: 4226.62
+- return_5d: -6.69
+- return_20d: 21.4
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 6.5
+- distance_to_high_60_pct: -7.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,5630,5695,5435,5515,5545,5612.63,-1.74,5725.25,4680.08,0
 20260603,5760,6060,5750,5900,5917000,5636.57,4.67,5772.75,4729,1.83
 20260604,5925,6070,5835,6070,5996000,5672.69,7,5824.75,4784.83,1.71
 20260605,6050,6050,5540,5765,5793000,5680.38,1.49,5861.75,4831.08,1.56
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,6800,6905,6355,6500,673000,6246.42,4.06,6201.75,5466.17,0.31
 20260629,6580,6680,5980,6060,958000,6230.89,-2.74,6206.75,5507.25,0.49
 20260630,6080,6205,5950,6090,971000,6219.15,-2.08,6227.25,5542.92,0.57
+20260701,6400,6695,6400,6695,651000,6258.8,6.97,6286.25,5591.75,0.37
 ```
 
 ## Latest TDCC Snapshot

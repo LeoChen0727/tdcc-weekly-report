@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8255 朋程
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:33 Asia/Taipei
+- generated_at: 2026-07-01 22:28:59 Asia/Taipei
 - stock_id: 8255
 - stock_name: 朋程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 181.5
-- high: 186
-- low: 178
-- close: 184
-- volume: 1353000
-- ma5: 183.8
-- ema23_primary: 178.91
-- distance_to_ema23_pct: 2.84
-- ma20: 180.2
-- ma60: 156.13
-- ma120: 140.68
-- return_5d: -7.77
-- return_20d: -1.08
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 2.11
-- distance_to_high_60_pct: -21.03
+- date: 20260701
+- open: 189.5
+- high: 194
+- low: 181.5
+- close: 181.5
+- volume: 1465000
+- ma5: 180.9
+- ema23_primary: 179.13
+- distance_to_ema23_pct: 1.32
+- ma20: 180.25
+- ma60: 157.2
+- ma120: 141.2
+- return_5d: -7.4
+- return_20d: 0.55
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.69
+- distance_to_high_60_pct: -22.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,185,185.5,177,180.5,180,162.68,10.96,160.97,138.86,0
 20260603,186,189.5,180,183.5,185000,164.41,11.61,163,139.9,0.19
 20260604,182,186.5,180,180,183000,165.71,8.62,164.7,140.96,0.19
 20260605,177,180,172.5,175,176000,166.49,5.11,166.18,141.89,0.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,185,190.5,175,175,2124000,178.63,-2.03,181.45,154.07,1.03
 20260629,175,180.5,173,176.5,1399000,178.45,-1.09,180.3,155.03,0.66
 20260630,181.5,186,178,184,1353000,178.91,2.84,180.2,156.13,0.62
+20260701,189.5,194,181.5,181.5,1465000,179.13,1.32,180.25,157.2,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8255 | 朋程 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 8255 | 朋程 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8255 | 朋程 | 2 | 2 | 4 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 8255 | 朋程 | 3 | 3 | 4 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

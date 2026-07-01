@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6470 宇智
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:00 Asia/Taipei
+- generated_at: 2026-07-01 22:28:27 Asia/Taipei
 - stock_id: 6470
 - stock_name: 宇智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 48.6
-- high: 48.9
-- low: 48.4
-- close: 48.9
-- volume: 24000
-- ma5: 49.33
-- ema23_primary: 49.14
-- distance_to_ema23_pct: -0.48
-- ma20: 49.47
-- ma60: 48.12
-- ma120: 48.72
-- return_5d: -1.81
-- return_20d: -0.1
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -1.15
-- distance_to_high_60_pct: -4.31
+- date: 20260701
+- open: 48.75
+- high: 48.75
+- low: 48.25
+- close: 48.35
+- volume: 43000
+- ma5: 49.08
+- ema23_primary: 49.07
+- distance_to_ema23_pct: -1.47
+- ma20: 49.41
+- ma60: 48.15
+- ma120: 48.77
+- return_5d: -2.52
+- return_20d: -2.42
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -2.15
+- distance_to_high_60_pct: -5.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,49.2,49.8,48.5,49.55,49,47.95,3.33,47.69,48.49,0
 20260603,49.5,50,49.05,50,49000,48.12,3.9,47.81,48.43,0.86
 20260604,50.3,50.9,49.75,50.8,50000,48.34,5.08,47.92,48.38,1
 20260605,50.8,50.9,50,50.4,50000,48.52,3.88,48.05,48.33,1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,49.25,50.5,48.5,49.15,93000,49.17,-0.05,49.44,48.09,1.37
 20260629,49.5,49.5,48.55,49,55000,49.16,-0.32,49.47,48.1,0.81
 20260630,48.6,48.9,48.4,48.9,24000,49.14,-0.48,49.47,48.12,0.36
+20260701,48.75,48.75,48.25,48.35,43000,49.07,-1.47,49.41,48.15,0.62
 ```
 
 ## Latest TDCC Snapshot

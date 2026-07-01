@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1605 華新
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:23 Asia/Taipei
+- generated_at: 2026-07-01 22:26:56 Asia/Taipei
 - stock_id: 1605
 - stock_name: 華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 35.95
-- high: 37.85
-- low: 35.95
-- close: 37.2
-- volume: 26577000
-- ma5: 36.77
-- ema23_primary: 37.33
-- distance_to_ema23_pct: -0.36
-- ma20: 38.13
-- ma60: 35
-- ma120: 35.37
-- return_5d: -1.59
-- return_20d: -6.3
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -2.45
-- distance_to_high_60_pct: -15.45
+- date: 20260701
+- open: 37.7
+- high: 37.7
+- low: 35.75
+- close: 35.75
+- volume: 21849000
+- ma5: 36.29
+- ema23_primary: 37.2
+- distance_to_ema23_pct: -3.9
+- ma20: 37.9
+- ma60: 35.1
+- ma120: 35.39
+- return_5d: -6.29
+- return_20d: -11.62
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -5.67
+- distance_to_high_60_pct: -18.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,39.7,40.9,38.7,40.45,81787873,35.85,12.85,35.91,33.01,1.3
 20260603,41.55,43.4,40.7,42.7,148415791,36.42,17.25,36.41,33.18,2.16
 20260604,42.3,44,41.6,41.6,112532724,36.85,12.89,36.7,33.36,1.63
 20260605,41.3,41.3,38.25,39.55,70754422,37.07,6.68,36.99,33.5,1.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,37.6,37.6,35.35,35.4,43243213,37.52,-5.66,38.42,34.81,0.62
 20260629,35.7,36.1,35.1,35.4,17681140,37.35,-5.21,38.26,34.9,0.27
 20260630,35.95,37.85,35.95,37.2,26577000,37.33,-0.36,38.13,35,0.44
+20260701,37.7,37.7,35.75,35.75,21849000,37.2,-3.9,37.9,35.1,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1605 | 華新 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:重要營運主管 2.發生變動日期:115/06/29 3.舊任者姓名、級職及簡歷:  數位智能發展組織總經理:吳明機(職務調整)  歐洲區域執行長:不適用 4.新任者姓名、級職及簡歷:  數位智能發展組織總經理:不適用  歐洲區域執行長:Massimiliano Burelli / Cogne Acciai Speciali S.p.A.董事兼 執行長 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:公司組織調整 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 1605 | 華新 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:重要營運主管 2.發生變動日期:115/06/29 3.舊任者姓名、級職及簡歷:  數位智能發展組織總經理:吳明機(職務調整)  歐洲區域執行長:不適用 4.新任者姓名、級職及簡歷:  數位智能發展組織總經理:不適用  歐洲區域執行長:Massimiliano Burelli / Cogne Acciai Speciali S.p.A.董事兼 執行長 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:公司組織調整 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1605 | 華新 | 2 | 2 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 1605 | 華新 | 3 | 3 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1605 | 華新 | 147 | 0 | 9555010.0 | 0.0 |  | call_inflow |
+| 20260701 | 1605 | 華新 | 148 | 5 | 7379220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

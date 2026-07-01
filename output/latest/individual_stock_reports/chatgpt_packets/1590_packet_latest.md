@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:22 Asia/Taipei
+- generated_at: 2026-07-01 22:26:55 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 1335
-- high: 1385
-- low: 1335
-- close: 1335
-- volume: 683000
-- ma5: 1365
-- ema23_primary: 1353.06
-- distance_to_ema23_pct: -1.33
-- ma20: 1330.25
-- ma60: 1342.93
-- ma120: 1196.12
-- return_5d: -2.91
-- return_20d: -1.11
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 0.36
-- distance_to_high_60_pct: -16.56
+- date: 20260701
+- open: 1350
+- high: 1395
+- low: 1350
+- close: 1375
+- volume: 486000
+- ma5: 1363
+- ema23_primary: 1354.89
+- distance_to_ema23_pct: 1.48
+- ma20: 1335
+- ma60: 1349.25
+- ma120: 1199.76
+- return_5d: -0.72
+- return_20d: 7.42
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 3
+- distance_to_high_60_pct: -14.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,1330,1340,1245,1280,1141184,1393.3,-8.13,1440.5,1237.75,1.02
 20260603,1350,1380,1325,1370,1346872,1391.36,-1.54,1437.25,1243.25,1.19
 20260604,1325,1335,1290,1310,643509,1384.58,-5.39,1428.25,1248.93,0.59
 20260605,1280,1330,1260,1320,469080,1379.2,-4.29,1419,1254.77,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,1390,1405,1335,1360,835503,1354.67,0.39,1333.25,1331.73,0.96
 20260629,1360,1420,1345,1355,1074562,1354.7,0.02,1331,1337.77,1.27
 20260630,1335,1385,1335,1335,683000,1353.06,-1.33,1330.25,1342.93,0.84
+20260701,1350,1395,1350,1375,486000,1354.89,1.48,1335,1349.25,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1590 | 亞德客-KY | 42 | 0 | 3034400.0 | 0.0 |  | no_signal |
+| 20260701 | 1590 | 亞德客-KY | 42 | 0 | 5354780.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

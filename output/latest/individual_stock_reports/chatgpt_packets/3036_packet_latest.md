@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:58 Asia/Taipei
+- generated_at: 2026-07-01 22:27:30 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 293
+- latest_price_date: 20260701
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 213.5
-- high: 215.5
-- low: 209
-- close: 214
-- volume: 6586000
-- ma5: 215
-- ema23_primary: 234.69
-- distance_to_ema23_pct: -8.82
-- ma20: 237.93
-- ma60: 241.9
-- ma120: 211.75
-- return_5d: -2.95
-- return_20d: -25.57
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -10.06
-- distance_to_high_60_pct: -30.52
+- date: 20260701
+- open: 217
+- high: 219
+- low: 210
+- close: 211
+- volume: 17813000
+- ma5: 213.4
+- ema23_primary: 232.72
+- distance_to_ema23_pct: -9.33
+- ma20: 233.95
+- ma60: 241.68
+- ma120: 212.34
+- return_5d: -3.65
+- return_20d: -27.37
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -9.81
+- distance_to_high_60_pct: -31.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,296.5,301,285,290.5,18458785,269.95,7.61,273.7,241.26,1.2
 20260603,296,298.5,288,292.5,15503677,271.83,7.6,277.62,242.54,1
 20260604,290,291.5,277.5,282,14366028,272.68,3.42,280.77,243.65,0.94
 20260605,283,284.5,273,281,15071106,273.37,2.79,282.8,244.63,0.96
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,217.5,218,211,215.5,10427756,239.08,-9.86,245.57,242.22,0.72
 20260629,216,216,207,209,11053112,236.58,-11.66,241.6,242.08,0.75
 20260630,213.5,215.5,209,214,6586000,234.69,-8.82,237.93,241.9,0.45
+20260701,217,219,210,211,17813000,232.72,-9.33,233.95,241.68,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3036 | 文曄 | 80 | 0 | 1214040.0 | 0.0 |  | no_signal |
+| 20260701 | 3036 | 文曄 | 80 | 1 | 2732740.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

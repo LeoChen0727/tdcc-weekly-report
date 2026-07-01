@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1341 富林-KY
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:14 Asia/Taipei
+- generated_at: 2026-07-01 22:26:49 Asia/Taipei
 - stock_id: 1341
 - stock_name: 富林-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 289
+- latest_price_date: 20260701
+- price_rows: 290
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 58
-- high: 58
-- low: 57.3
-- close: 57.7
-- volume: 10000
-- ma5: 57.54
-- ema23_primary: 60.29
-- distance_to_ema23_pct: -4.29
-- ma20: 61.08
-- ma60: 60.96
-- ma120: 59.92
-- return_5d: -2.2
-- return_20d: -6.94
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -5.53
-- distance_to_high_60_pct: -9.42
+- high: 60.4
+- low: 58
+- close: 60.4
+- volume: 8000
+- ma5: 57.98
+- ema23_primary: 60.3
+- distance_to_ema23_pct: 0.17
+- ma20: 60.98
+- ma60: 60.97
+- ma120: 59.94
+- return_5d: 3.78
+- return_20d: -2.89
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -0.96
+- distance_to_high_60_pct: -5.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,61.3,62.2,61.2,62.2,6493,61.34,1.4,61.48,60.21,0.62
 20260603,62.7,63,62.7,62.8,12245,61.46,2.18,61.53,60.25,1.19
 20260604,62.8,63.7,62.8,63.5,18087,61.63,3.03,61.62,60.34,1.7
 20260605,63.5,63.5,63,63.5,5043,61.79,2.77,61.69,60.4,0.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,57.3,57.5,57.2,57.5,7158,60.84,-5.49,61.48,60.98,0.46
 20260629,57.8,58,57,57,4012,60.52,-5.82,61.29,60.96,0.27
 20260630,58,58,57.3,57.7,10000,60.29,-4.29,61.08,60.96,0.72
+20260701,58,60.4,58,60.4,8000,60.3,0.17,60.98,60.97,0.57
 ```
 
 ## Latest TDCC Snapshot

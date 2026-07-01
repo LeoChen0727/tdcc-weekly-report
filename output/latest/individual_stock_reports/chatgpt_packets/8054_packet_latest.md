@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:29 Asia/Taipei
+- generated_at: 2026-07-01 22:28:55 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 117
-- high: 119.5
-- low: 115
-- close: 119
-- volume: 3219000
-- ma5: 124.7
-- ema23_primary: 111.78
-- distance_to_ema23_pct: 6.46
-- ma20: 108.67
-- ma60: 106.23
-- ma120: 111.44
-- return_5d: -4.42
-- return_20d: 16.67
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 9.51
-- distance_to_high_60_pct: -14.08
+- date: 20260701
+- open: 121
+- high: 124
+- low: 118
+- close: 118.5
+- volume: 3560000
+- ma5: 121.1
+- ema23_primary: 112.34
+- distance_to_ema23_pct: 5.49
+- ma20: 109.52
+- ma60: 106.67
+- ma120: 111.23
+- return_5d: -13.19
+- return_20d: 16.75
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 8.2
+- distance_to_high_60_pct: -14.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,102.5,105,101,101.5,102,105.67,-3.94,105.72,103.05,0
 20260603,103.5,104,101,101.5,102000,105.32,-3.63,105.22,102.98,0.06
 20260604,101.5,102,100,100.5,101000,104.92,-4.21,104.9,103.05,0.07
 20260605,101.5,102.5,99.4,100.5,101000,104.55,-3.87,104.6,103.06,0.08
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,127,131.5,123.5,124,7555000,110.86,11.85,107.24,105.44,1.98
 20260629,125,126,113.5,114,5607000,111.12,2.59,107.81,105.82,1.37
 20260630,117,119.5,115,119,3219000,111.78,6.46,108.67,106.23,0.76
+20260701,121,124,118,118.5,3560000,112.34,5.49,109.52,106.67,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8054 | 安國 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:安國國際科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款  規定，公告本公司發行國內第一次有擔保轉換公司債之委託代收價款行庫及  存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  (1)訂約日期：115/6/29  (2)委託代收價款行庫：國泰世華商業銀行新生分行  (3)委託存儲專戶行庫：中國信託商業銀行承德分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260630 | 8054 | 安國 | revenue_breakout_low_response | 營收爆發低反應股 | 23.0 | 3.0 | A_優先追蹤 |  |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:安國國際科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款  規定，公告本公司發行國內第一次有擔保轉換公司債之委託代收價款行庫及  存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  (1)訂約日期：115/6/29  (2)委託代收價款行庫：國泰世華商業銀行新生分行  (3)委託存儲專戶行庫：中國信託商業銀行承德分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 8054 | 安國 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:安國國際科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款  規定，公告本公司發行國內第一次有擔保轉換公司債之委託代收價款行庫及  存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  (1)訂約日期：115/6/29  (2)委託代收價款行庫：國泰世華商業銀行新生分行  (3)委託存儲專戶行庫：中國信託商業銀行承德分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 8054 | 安國 | revenue_breakout_low_response | 營收爆發低反應股 | 23.0 | 2.0 | A_優先追蹤 |  |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:安國國際科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款  規定，公告本公司發行國內第一次有擔保轉換公司債之委託代收價款行庫及  存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  (1)訂約日期：115/6/29  (2)委託代收價款行庫：國泰世華商業銀行新生分行  (3)委託存儲專戶行庫：中國信託商業銀行承德分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8054 | 安國 | 7 | 2 | 5 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260701 | 8054 | 安國 | 8 | 3 | 5 | 8 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

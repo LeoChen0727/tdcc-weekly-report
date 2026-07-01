@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1307 三芳
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:13 Asia/Taipei
+- generated_at: 2026-07-01 22:26:47 Asia/Taipei
 - stock_id: 1307
 - stock_name: 三芳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 34.7
-- high: 34.7
-- low: 33.85
+- date: 20260701
+- open: 34.55
+- high: 34.6
+- low: 34.05
 - close: 34.3
-- volume: 1258000
-- ma5: 34.87
-- ema23_primary: 34.64
-- distance_to_ema23_pct: -0.99
-- ma20: 35.24
-- ma60: 32.83
-- ma120: 32.84
-- return_5d: -2.14
-- return_20d: 5.54
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -2.66
+- volume: 1009000
+- ma5: 34.56
+- ema23_primary: 34.61
+- distance_to_ema23_pct: -0.91
+- ma20: 35.3
+- ma60: 32.87
+- ma120: 32.86
+- return_5d: -4.32
+- return_20d: 3.47
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -2.82
 - distance_to_high_60_pct: -10.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,32.55,33.2,32.15,33.15,1556981,31.7,4.58,31.66,32.38,1.6
 20260603,33.2,34.2,32.95,34,2710334,31.89,6.62,31.8,32.35,2.56
 20260604,34,34.95,33.85,34.45,2304355,32.1,7.31,31.95,32.38,2.03
 20260605,34.45,34.95,33.5,34.3,2012802,32.29,6.24,32.05,32.38,1.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,35.05,35.2,34.25,34.35,1138703,34.68,-0.94,34.97,32.76,0.66
 20260629,34.35,34.9,34.3,34.65,688766,34.67,-0.07,35.15,32.8,0.4
 20260630,34.7,34.7,33.85,34.3,1258000,34.64,-0.99,35.24,32.83,0.75
+20260701,34.55,34.6,34.05,34.3,1009000,34.61,-0.91,35.3,32.87,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1307 | 三芳 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 1307 | 三芳 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1307 | 三芳 | 1 | 1 | 3 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 1307 | 三芳 | 2 | 2 | 3 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1307 | 三芳 | 10 | 0 | 44650.0 | 0.0 |  | no_signal |
+| 20260701 | 1307 | 三芳 | 11 | 0 | 42500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

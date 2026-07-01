@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7747 昕奇雲端
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:25 Asia/Taipei
+- generated_at: 2026-07-01 22:28:51 Asia/Taipei
 - stock_id: 7747
 - stock_name: 昕奇雲端
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 157
+- latest_price_date: 20260701
+- price_rows: 158
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 129
+- date: 20260701
+- open: 127
 - high: 129
 - low: 127
 - close: 129
-- volume: 9000
-- ma5: 126.9
-- ema23_primary: 127.36
-- distance_to_ema23_pct: 1.29
-- ma20: 127.35
-- ma60: 127.05
-- ma120: 122.95
+- volume: 2000
+- ma5: 127.5
+- ema23_primary: 127.5
+- distance_to_ema23_pct: 1.18
+- ma20: 127.38
+- ma60: 127.28
+- ma120: 123.02
 - return_5d: 2.38
 - return_20d: 0.39
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 1.3
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: 1.28
 - distance_to_high_60_pct: -6.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,128,128.5,128,128.5,128,128.14,0.28,129.15,124.22,0
 20260603,126.5,126.5,126.5,126.5,126000,128,-1.18,128.8,124.36,2.3
 20260604,128.5,128.5,126,127,127000,127.92,-0.72,128.53,124.51,2.08
 20260605,129,129,129,129,129000,128.01,0.77,128.38,124.69,1.92
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,125,125,125,125,1000,127.14,-1.68,127.38,126.7,0.02
 20260629,128.5,128.5,128,128,2000,127.21,0.62,127.33,126.88,0.04
 20260630,129,129,127,129,9000,127.36,1.29,127.35,127.05,0.21
+20260701,127,129,127,129,2000,127.5,1.18,127.38,127.28,0.05
 ```
 
 ## Latest TDCC Snapshot

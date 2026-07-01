@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00714 群益道瓊美國地產
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:06 Asia/Taipei
+- generated_at: 2026-07-01 22:26:41 Asia/Taipei
 - stock_id: 00714
 - stock_name: 群益道瓊美國地產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 22.39
-- high: 22.39
-- low: 22.13
-- close: 22.2
-- volume: 23000
-- ma5: 22.07
+- date: 20260701
+- open: 21.78
+- high: 21.78
+- low: 21.73
+- close: 21.75
+- volume: 396000
+- ma5: 22.04
 - ema23_primary: 21.76
-- distance_to_ema23_pct: 2.03
-- ma20: 21.68
+- distance_to_ema23_pct: -0.03
+- ma20: 21.71
 - ma60: 21.64
 - ma120: 21.64
-- return_5d: 3.26
-- return_20d: 4.23
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: 2.42
-- distance_to_high_60_pct: -0.85
+- return_5d: -0.68
+- return_20d: 3.03
+- volume_ratio: 1.81
+- distance_to_ma20_pct_auxiliary: 0.2
+- distance_to_high_60_pct: -2.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,21.01,21.13,21.01,21.11,436986,21.52,-1.9,21.48,21.48,2.14
 20260603,21.11,21.11,21.05,21.05,143535,21.48,-2,21.43,21.43,0.73
 20260604,21.05,21.12,21.05,21.07,180603,21.45,-1.75,21.39,21.39,0.92
 20260605,21.27,21.46,21.27,21.44,115986,21.44,-0.02,21.4,21.4,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,22,22.13,22,22.1,466801,21.67,2.01,21.59,21.59,1.94
 20260629,22.18,22.35,22.18,22.3,23390,21.72,2.68,21.63,21.62,0.1
 20260630,22.39,22.39,22.13,22.2,23000,21.76,2.03,21.68,21.64,0.1
+20260701,21.78,21.78,21.73,21.75,396000,21.76,-0.03,21.71,21.64,1.81
 ```
 
 ## Latest TDCC Snapshot

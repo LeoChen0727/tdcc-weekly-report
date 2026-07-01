@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009823 群益S&P500
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:10 Asia/Taipei
+- generated_at: 2026-07-01 22:26:44 Asia/Taipei
 - stock_id: 009823
 - stock_name: 群益S&P500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 4
+- latest_price_date: 20260701
+- price_rows: 5
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 10.16
-- high: 10.18
-- low: 10.13
-- close: 10.17
-- volume: 13249000
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
+- date: 20260701
+- open: 10.19
+- high: 10.2
+- low: 10.17
+- close: 10.19
+- volume: 13730000
+- ma5: 10.12
+- ema23_primary: 10.12
+- distance_to_ema23_pct: 0.69
+- ma20: 10.12
+- ma60: 10.12
+- ma120: 10.12
 - return_5d:
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 0.73
+- distance_to_high_60_pct: -0.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -138,6 +139,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,10.04,10.05,9.97,9.99,59908000,,,,,
 20260629,10.05,10.12,10.05,10.11,16637000,,,,,
 20260630,10.16,10.18,10.13,10.17,13249000,,,,,
+20260701,10.19,10.2,10.17,10.19,13730000,10.12,0.69,10.12,10.12,0.37
 ```
 
 ## Latest TDCC Snapshot

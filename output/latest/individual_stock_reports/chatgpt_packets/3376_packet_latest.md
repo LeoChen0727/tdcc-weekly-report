@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3376 新日興
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:09 Asia/Taipei
+- generated_at: 2026-07-01 22:27:39 Asia/Taipei
 - stock_id: 3376
 - stock_name: 新日興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 199
-- high: 202
-- low: 196
-- close: 199
-- volume: 2714000
-- ma5: 197.9
-- ema23_primary: 205.2
-- distance_to_ema23_pct: -3.02
-- ma20: 209.2
-- ma60: 207.07
-- ma120: 208.69
-- return_5d: -1.73
-- return_20d: -7.44
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -4.88
-- distance_to_high_60_pct: -20.24
+- date: 20260701
+- open: 202
+- high: 203
+- low: 195
+- close: 195
+- volume: 4033000
+- ma5: 196.7
+- ema23_primary: 204.35
+- distance_to_ema23_pct: -4.57
+- ma20: 208.38
+- ma60: 207.2
+- ma120: 208.63
+- return_5d: -2.99
+- return_20d: -7.8
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -6.42
+- distance_to_high_60_pct: -21.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,215,217,206.5,211.5,3929312,208.09,1.64,206.97,206.45,0.68
 20260603,211.5,231.5,210,226.5,14199219,209.62,8.05,208.05,206.97,2.27
 20260604,227.5,227.5,213.5,215.5,6456769,210.11,2.56,208.07,207.4,1.04
 20260605,215,237,212.5,237,15188148,212.35,11.61,209.8,208.06,2.29
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,200.5,201.5,194.5,194.5,6437961,206.78,-5.94,210.4,206.97,0.62
 20260629,196.5,201,194,194.5,3470247,205.76,-5.47,210,207.03,0.34
 20260630,199,202,196,199,2714000,205.2,-3.02,209.2,207.07,0.27
+20260701,202,203,195,195,4033000,204.35,-4.57,208.38,207.2,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3376 | 新日興 | 112 | 0 | 5460570.0 | 0.0 |  | no_signal |
+| 20260701 | 3376 | 新日興 | 115 | 5 | 5290020.0 | 179800.0 | 29.42 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

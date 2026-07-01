@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3022 威強電
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:57 Asia/Taipei
+- generated_at: 2026-07-01 22:27:28 Asia/Taipei
 - stock_id: 3022
 - stock_name: 威強電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 83
-- high: 83.9
-- low: 81.7
-- close: 83.8
-- volume: 1175000
-- ma5: 82.56
-- ema23_primary: 80.76
-- distance_to_ema23_pct: 3.76
-- ma20: 82.32
-- ma60: 73.83
-- ma120: 68.64
-- return_5d: 2.32
-- return_20d: 10.41
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 1.8
-- distance_to_high_60_pct: -5.84
+- date: 20260701
+- open: 84.2
+- high: 85.1
+- low: 82.7
+- close: 82.9
+- volume: 1027000
+- ma5: 82.58
+- ema23_primary: 80.94
+- distance_to_ema23_pct: 2.42
+- ma20: 82.58
+- ma60: 74.17
+- ma120: 68.79
+- return_5d: 0.12
+- return_20d: 6.69
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 0.39
+- distance_to_high_60_pct: -6.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,76.8,77.7,75.6,77.7,1782442,71.83,8.18,71.68,67.41,1.53
 20260603,78.6,78.6,76.7,77.1,1057878,72.27,6.69,71.83,67.71,0.93
 20260604,76.8,76.9,75.6,76,762008,72.58,4.72,71.87,68,0.69
 20260605,76.3,77.5,75.3,77.4,1446772,72.98,6.06,72.06,68.27,1.29
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,84.4,85.2,80.6,81.3,4832687,80.32,1.22,81.55,73.09,1.78
 20260629,81.3,83.8,81,82.3,1718920,80.49,2.25,81.92,73.45,0.63
 20260630,83,83.9,81.7,83.8,1175000,80.76,3.76,82.32,73.83,0.43
+20260701,84.2,85.1,82.7,82.9,1027000,80.94,2.42,82.58,74.17,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3022 | 威強電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：元大金控大樓6樓(台北市敦化南路一段66號) 4.法人說明會擇要訊息：本公司受邀參加元大證券舉辦之法人說明會，會中將說明本公司115年第一季營運成果及未來展望。 5.其他應敘明事項：本次法人說明會參加人員以元大證券邀約對象為主。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260630 | 3022 | 威強電 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 6.0 | A_優先追蹤 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：元大金控大樓6樓(台北市敦化南路一段66號) 4.法人說明會擇要訊息：本公司受邀參加元大證券舉辦之法人說明會，會中將說明本公司115年第一季營運成果及未來展望。 5.其他應敘明事項：本次法人說明會參加人員以元大證券邀約對象為主。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 3022 | 威強電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:杜俊穎 本公司機構系統研發處及品質處副總經理 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/06/30 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3022 | 威強電 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 6.0 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:杜俊穎 本公司機構系統研發處及品質處副總經理 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/06/30 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3022 | 威強電 | 13 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 3022 | 威強電 | 14 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3022 | 威強電 | 12 | 0 | 638270.0 | 0.0 |  | no_signal |
+| 20260701 | 3022 | 威強電 | 12 | 0 | 342800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

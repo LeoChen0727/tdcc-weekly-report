@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8086 宏捷科
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:30 Asia/Taipei
+- generated_at: 2026-07-01 22:28:56 Asia/Taipei
 - stock_id: 8086
 - stock_name: 宏捷科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 145
-- high: 151
-- low: 143.5
-- close: 149.5
-- volume: 2672000
-- ma5: 147.5
-- ema23_primary: 153.96
-- distance_to_ema23_pct: -2.9
-- ma20: 154.8
-- ma60: 151.44
-- ma120: 135.65
-- return_5d: -6.27
-- return_20d: -9.94
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -3.42
-- distance_to_high_60_pct: -18.31
+- date: 20260701
+- open: 153
+- high: 154
+- low: 143
+- close: 143.5
+- volume: 3991000
+- ma5: 145.3
+- ema23_primary: 153.09
+- distance_to_ema23_pct: -6.27
+- ma20: 153.57
+- ma60: 151.74
+- ma120: 135.9
+- return_5d: -7.12
+- return_20d: -14.58
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -6.56
+- distance_to_high_60_pct: -21.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,168,173.5,163.5,168,168,157.87,6.42,158.88,143.37,0
 20260603,170.5,174.5,163,164.5,167000,158.42,3.84,159.3,144.01,0.03
 20260604,163,165,159,159,160000,158.47,0.34,159.5,144.56,0.04
 20260605,159,161,152,156,155000,158.26,-1.43,159.32,145.01,0.05
@@ -160,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,151,152,141,141,4587000,155.49,-9.32,156.97,150.6,1.4
 20260629,142.5,145.5,137.5,142,2244000,154.37,-8.01,155.62,151,0.66
 20260630,145,151,143.5,149.5,2672000,153.96,-2.9,154.8,151.44,0.76
+20260701,153,154,143,143.5,3991000,153.09,-6.27,153.57,151.74,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8086 | 宏捷科 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 8086 | 宏捷科 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8086 | 宏捷科 | 7 | 6 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 8086 | 宏捷科 | 8 | 7 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

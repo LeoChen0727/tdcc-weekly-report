@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:17 Asia/Taipei
+- generated_at: 2026-07-01 22:27:47 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 293
+- latest_price_date: 20260701
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 1900
-- high: 1950
-- low: 1885
-- close: 1915
-- volume: 1165000
-- ma5: 1915
-- ema23_primary: 2081.68
-- distance_to_ema23_pct: -8.01
-- ma20: 2091.75
-- ma60: 2288.92
-- ma120: 1902.29
-- return_5d: -4.25
-- return_20d: -8.15
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -8.45
-- distance_to_high_60_pct: -36.38
+- date: 20260701
+- open: 1965
+- high: 2040
+- low: 1950
+- close: 2010
+- volume: 1995000
+- ma5: 1916
+- ema23_primary: 2075.71
+- distance_to_ema23_pct: -3.17
+- ma20: 2086.25
+- ma60: 2290.58
+- ma120: 1906.12
+- return_5d: 0.25
+- return_20d: -5.19
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -33.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,2150,2180,2095,2120,1512799,2278.38,-6.95,2356,2172.92,0.47
 20260602,2110,2200,2095,2195,1907710,2271.43,-3.36,2322,2180.75,0.59
 20260603,2345,2385,2265,2305,4884440,2274.23,1.35,2300,2189.67,1.54
 20260604,2265,2275,2130,2155,3373217,2264.29,-4.83,2268.75,2199,1.05
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,1900,1960,1850,1855,2960359,2116.54,-12.36,2112,2286,0.86
 20260629,1855,1915,1820,1880,1592882,2096.83,-10.34,2100.25,2286,0.47
 20260630,1900,1950,1885,1915,1165000,2081.68,-8.01,2091.75,2288.92,0.35
+20260701,1965,2040,1950,2010,1995000,2075.71,-3.17,2086.25,2290.58,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3665 | 貿聯-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/29 2.原發放股利種類及金額: 普通股現金股利美金93,006,394.31元，每股配發新台幣15元。 上述股利分配比例係依115年3月2日本公司流通在外股數195,003,405股計算， USD:NTD以115年3月2日臺灣銀行之即期買入及賣出之均價31.45估算。  3.變更後發放股利種類及金額: 普通股現金股利美金93,006,394.31元，每股配發新台幣15.18493889元。 上述股利分配比例係依本公司截至115年6月25日流通在外股數195,078,405股計算， USD:NTD匯率以停止轉換日前一日115年6月25日臺灣銀行之即期買入及賣出之均價 31.85估算。 實際發放現金股利之匯率係以股務代理機構以美金兌換新台幣之匯率換算約當新台幣 現金股利金額為準。  4.變更原因: 本公司因海外無擔保可轉換公司債轉換及員工認股權憑證執行，致影響流通在外股份 總數，依本公司115年3月6日董事會決議授權董事長辦理股東配息率調整事宜。  5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3665 | 貿聯-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | mixed_flow | stale_signal | 1.董事會或股東會決議日期:115/06/29 2.原發放股利種類及金額: 普通股現金股利美金93,006,394.31元，每股配發新台幣15元。 上述股利分配比例係依115年3月2日本公司流通在外股數195,003,405股計算， USD:NTD以115年3月2日臺灣銀行之即期買入及賣出之均價31.45估算。  3.變更後發放股利種類及金額: 普通股現金股利美金93,006,394.31元，每股配發新台幣15.18493889元。 上述股利分配比例係依本公司截至115年6月25日流通在外股數195,078,405股計算， USD:NTD匯率以停止轉換日前一日115年6月25日臺灣銀行之即期買入及賣出之均價 31.85估算。 實際發放現金股利之匯率係以股務代理機構以美金兌換新台幣之匯率換算約當新台幣 現金股利金額為準。  4.變更原因: 本公司因海外無擔保可轉換公司債轉換及員工認股權憑證執行，致影響流通在外股份 總數，依本公司115年3月6日董事會決議授權董事長辦理股東配息率調整事宜。  5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3665 | 貿聯-KY | 1 | 1 | 1 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 3665 | 貿聯-KY | 2 | 2 | 2 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3665 | 貿聯-KY | 209 | 0 | 15829080.0 | 0.0 |  | no_signal |
+| 20260701 | 3665 | 貿聯-KY | 208 | 10 | 31439540.0 | 1124270.0 | 27.96 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

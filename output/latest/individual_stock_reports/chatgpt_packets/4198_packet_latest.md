@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4198 欣大健康
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:23 Asia/Taipei
+- generated_at: 2026-07-01 22:27:53 Asia/Taipei
 - stock_id: 4198
 - stock_name: 欣大健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 147
+- latest_price_date: 20260701
+- price_rows: 148
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 38.2
+- date: 20260701
+- open: 38.9
 - high: 39.2
-- low: 38.2
+- low: 38.3
 - close: 39.2
-- volume: 9000
-- ma5: 38.3
-- ema23_primary: 38.13
-- distance_to_ema23_pct: 2.8
-- ma20: 37.98
-- ma60: 38.49
-- ma120: 36.99
-- return_5d: 4.53
-- return_20d: 4.53
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 3.23
+- volume: 13000
+- ma5: 38.76
+- ema23_primary: 38.22
+- distance_to_ema23_pct: 2.56
+- ma20: 38
+- ma60: 38.5
+- ma120: 37.01
+- return_5d: 6.23
+- return_20d: 1.42
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 3.15
 - distance_to_high_60_pct: -6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260601,38,39.15,37,38.65,38000,38.51,0.36,38.56,38.8,2.15
 20260602,38.8,39.2,37.45,38.75,38,38.53,0.57,38.56,38.78,0
 20260603,38.45,38.65,38.45,38.65,39000,38.54,0.28,38.53,38.75,2.05
 20260604,37.4,38.4,36.65,37.8,37000,38.48,-1.77,38.4,38.74,1.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,40.8,40.8,38,38,26000,38.11,-0.29,37.88,38.47,1.06
 20260629,38.9,38.9,37.2,37.2,6000,38.04,-2.2,37.89,38.47,0.26
 20260630,38.2,39.2,38.2,39.2,9000,38.13,2.8,37.98,38.49,0.42
+20260701,38.9,39.2,38.3,39.2,13000,38.22,2.56,38,38.5,0.64
 ```
 
 ## Latest TDCC Snapshot

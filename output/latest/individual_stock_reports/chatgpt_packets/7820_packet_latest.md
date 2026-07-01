@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7820 立盈
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:27 Asia/Taipei
+- generated_at: 2026-07-01 22:28:53 Asia/Taipei
 - stock_id: 7820
 - stock_name: 立盈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 46
+- latest_price_date: 20260701
+- price_rows: 47
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 111.5
-- high: 112
-- low: 110
-- close: 111.5
-- volume: 21000
-- ma5: 112.9
-- ema23_primary: 119.23
-- distance_to_ema23_pct: -6.48
-- ma20: 117.88
-- ma60: 129.11
-- ma120: 129.11
-- return_5d: -3.04
-- return_20d: -12.55
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -5.41
-- distance_to_high_60_pct: -30.31
+- date: 20260701
+- open: 109.5
+- high: 114.5
+- low: 109.5
+- close: 114.5
+- volume: 60000
+- ma5: 112.8
+- ema23_primary: 118.84
+- distance_to_ema23_pct: -3.65
+- ma20: 117.47
+- ma60: 128.8
+- ma120: 128.8
+- return_5d: -0.43
+- return_20d: -6.53
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: -2.53
+- distance_to_high_60_pct: -28.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,126,126,121.5,122.5,123,132.46,-7.52,135.55,137.19,0
 20260603,126.5,126.5,120,123,122000,131.67,-6.59,134.55,136.68,1.08
 20260604,120.5,123.5,120.5,123.5,122000,130.99,-5.72,133.62,136.22,1.1
 20260605,121,123,119,121.5,121000,130.2,-6.68,132.65,135.73,1.09
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,112.5,114.5,110.5,111.5,54000,120.75,-7.66,119.33,129.92,0.98
 20260629,112.5,114,111,111,8000,119.93,-7.45,118.67,129.5,0.16
 20260630,111.5,112,110,111.5,21000,119.23,-6.48,117.88,129.11,0.47
+20260701,109.5,114.5,109.5,114.5,60000,118.84,-3.65,117.47,128.8,1.27
 ```
 
 ## Latest TDCC Snapshot

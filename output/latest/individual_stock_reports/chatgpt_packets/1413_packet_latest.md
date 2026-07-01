@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1413 宏洲
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:15 Asia/Taipei
+- generated_at: 2026-07-01 22:26:49 Asia/Taipei
 - stock_id: 1413
 - stock_name: 宏洲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 291
+- latest_price_date: 20260701
+- price_rows: 292
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 9.21
-- high: 9.35
-- low: 9.21
-- close: 9.35
-- volume: 14000
-- ma5: 9.36
+- date: 20260701
+- open: 9.35
+- high: 9.36
+- low: 9.15
+- close: 9.34
+- volume: 32000
+- ma5: 9.35
 - ema23_primary: 9.43
-- distance_to_ema23_pct: -0.88
-- ma20: 9.46
-- ma60: 9.57
+- distance_to_ema23_pct: -0.9
+- ma20: 9.45
+- ma60: 9.56
 - ma120: 9.72
-- return_5d: 0
-- return_20d: -0.74
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -1.16
-- distance_to_high_60_pct: -5.84
+- return_5d: -0.43
+- return_20d: -1.58
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -1.18
+- distance_to_high_60_pct: -5.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,9.63,9.69,9.36,9.49,35367,9.49,0.01,9.48,9.65,1.05
 20260603,9.79,9.79,9.47,9.69,69450,9.51,1.94,9.48,9.65,2.01
 20260604,9.84,9.84,9.57,9.68,27059,9.52,1.68,9.48,9.64,0.76
 20260605,9.68,9.72,9.47,9.5,28768,9.52,-0.2,9.47,9.64,0.79
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,9.05,9.37,9.05,9.31,19836,9.45,-1.45,9.46,9.58,0.64
 20260629,9.31,9.4,9.31,9.37,24216,9.44,-0.75,9.46,9.58,0.82
 20260630,9.21,9.35,9.21,9.35,14000,9.43,-0.88,9.46,9.57,0.52
+20260701,9.35,9.36,9.15,9.34,32000,9.43,-0.9,9.45,9.56,1.21
 ```
 
 ## Latest TDCC Snapshot

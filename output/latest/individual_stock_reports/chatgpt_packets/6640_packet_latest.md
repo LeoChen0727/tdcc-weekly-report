@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6640 均華
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:06 Asia/Taipei
+- generated_at: 2026-07-01 22:28:33 Asia/Taipei
 - stock_id: 6640
 - stock_name: 均華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 1040
-- high: 1075
-- low: 1025
-- close: 1025
-- volume: 154000
-- ma5: 1028
-- ema23_primary: 1129.21
-- distance_to_ema23_pct: -9.23
-- ma20: 1101.25
-- ma60: 1340.08
-- ma120: 1101.9
-- return_5d: -2.38
-- return_20d: -22.05
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -6.92
-- distance_to_high_60_pct: -44.89
+- high: 1125
+- low: 1030
+- close: 1125
+- volume: 231000
+- ma5: 1041
+- ema23_primary: 1128.86
+- distance_to_ema23_pct: -0.34
+- ma20: 1093.25
+- ma60: 1335.92
+- ma120: 1106.28
+- return_5d: 6.13
+- return_20d: -12.45
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 2.9
+- distance_to_high_60_pct: -39.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,1315,1315,1265,1285,1280,1381.74,-7,1379.25,1347.72,0
 20260603,1330,1330,1265,1265,1284000,1372.01,-7.8,1371.25,1353.95,1.68
 20260604,1250,1250,1190,1200,1209000,1357.68,-11.61,1361.75,1360.43,1.49
 20260605,1230,1230,1170,1190,1194000,1343.71,-11.44,1351.5,1365.4,1.38
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,1040,1040,980,980,176000,1148.11,-14.64,1132.25,1351.25,0.37
 20260629,986,1075,986,1035,223000,1138.68,-9.11,1115.75,1346.17,0.53
 20260630,1040,1075,1025,1025,154000,1129.21,-9.23,1101.25,1340.08,0.43
+20260701,1040,1125,1030,1125,231000,1128.86,-0.34,1093.25,1335.92,0.62
 ```
 
 ## Latest TDCC Snapshot

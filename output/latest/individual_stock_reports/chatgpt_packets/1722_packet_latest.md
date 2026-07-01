@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1722 台肥
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:24 Asia/Taipei
+- generated_at: 2026-07-01 22:26:58 Asia/Taipei
 - stock_id: 1722
 - stock_name: 台肥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 47.9
 - high: 47.9
-- low: 47.3
+- low: 47.2
 - close: 47.45
-- volume: 1290000
-- ma5: 47.58
-- ema23_primary: 47.58
-- distance_to_ema23_pct: -0.27
-- ma20: 47.9
-- ma60: 46.77
+- volume: 1207000
+- ma5: 47.53
+- ema23_primary: 47.57
+- distance_to_ema23_pct: -0.24
+- ma20: 47.92
+- ma60: 46.8
 - ma120: 46.73
-- return_5d: -0.32
+- return_5d: -0.52
 - return_20d: 0.85
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -0.93
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -0.98
 - distance_to_high_60_pct: -8.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,47,47.3,46.8,47.05,2691603,46.34,1.54,46.35,46.34,0.78
 20260603,47.25,48.4,46.9,47.95,6745933,46.47,3.18,46.4,46.35,1.92
 20260604,47.85,48.35,47.75,48.05,4792909,46.6,3.11,46.47,46.36,1.36
 20260605,48.6,48.65,47.6,48.25,5612069,46.74,3.23,46.55,46.38,1.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,47.5,47.6,46.95,47.2,2020969,47.58,-0.8,47.82,46.71,0.61
 20260629,47.8,47.8,47.25,47.7,1268476,47.59,0.23,47.88,46.75,0.39
 20260630,47.9,47.9,47.3,47.45,1290000,47.58,-0.27,47.9,46.77,0.42
+20260701,47.9,47.9,47.2,47.45,1207000,47.57,-0.24,47.92,46.8,0.4
 ```
 
 ## Latest TDCC Snapshot

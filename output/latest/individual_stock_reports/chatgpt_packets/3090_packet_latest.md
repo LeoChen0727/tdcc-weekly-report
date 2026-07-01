@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3090 日電貿
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:01 Asia/Taipei
+- generated_at: 2026-07-01 22:27:32 Asia/Taipei
 - stock_id: 3090
 - stock_name: 日電貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 293
+- latest_price_date: 20260701
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 315
-- high: 333.5
-- low: 314
-- close: 322.5
-- volume: 865000
-- ma5: 312.1
-- ema23_primary: 268.74
-- distance_to_ema23_pct: 20
-- ma20: 270.32
-- ma60: 179.59
-- ma120: 138.01
-- return_5d: 6.61
-- return_20d: 38.12
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: 19.3
-- distance_to_high_60_pct: -11.64
+- date: 20260701
+- open: 323
+- high: 335
+- low: 316
+- close: 316
+- volume: 1335000
+- ma5: 314.7
+- ema23_primary: 272.68
+- distance_to_ema23_pct: 15.89
+- ma20: 275.12
+- ma60: 183.35
+- ma120: 139.86
+- return_5d: 4.29
+- return_20d: 43.64
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: 14.86
+- distance_to_high_60_pct: -13.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,233,233,215,220,2465213,177.83,23.71,172.82,122.79,0.15
 20260603,216,220,212.5,214,1671944,180.84,18.33,178.25,124.81,0.1
 20260604,210,221,208.5,221,2284892,184.19,19.98,183.5,127.03,0.15
 20260605,206,221.5,200,221,1832010,187.26,18.02,188.88,129.19,0.13
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,307,318.5,299,310,1558622,260.21,19.14,262.12,172.2,0.13
 20260629,308,316.5,298,304,906138,263.86,15.21,265.88,175.76,0.08
 20260630,315,333.5,314,322.5,865000,268.74,20,270.32,179.59,0.07
+20260701,323,335,316,316,1335000,272.68,15.89,275.12,183.35,0.11
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3090 | 日電貿 | 63 | 0 | 2527930.0 | 0.0 |  | no_signal |
+| 20260701 | 3090 | 日電貿 | 63 | 0 | 993620.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

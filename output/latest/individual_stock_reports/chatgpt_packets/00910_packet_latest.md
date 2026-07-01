@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00910 第一金太空衛星
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:08 Asia/Taipei
+- generated_at: 2026-07-01 22:26:42 Asia/Taipei
 - stock_id: 00910
 - stock_name: 第一金太空衛星
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 62.8
-- high: 64.15
-- low: 62.8
-- close: 64.15
-- volume: 2631000
-- ma5: 60.68
-- ema23_primary: 68.39
-- distance_to_ema23_pct: -6.2
-- ma20: 68.35
-- ma60: 72.6
-- ma120: 72.6
-- return_5d: 2.97
-- return_20d: -24.48
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -6.14
-- distance_to_high_60_pct: -27.14
+- date: 20260701
+- open: 65.7
+- high: 66.05
+- low: 65.05
+- close: 65.35
+- volume: 2182000
+- ma5: 61.21
+- ema23_primary: 68.14
+- distance_to_ema23_pct: -4.09
+- ma20: 67.62
+- ma60: 72.34
+- ma120: 72.34
+- return_5d: 4.23
+- return_20d: -18.16
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -3.36
+- distance_to_high_60_pct: -25.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,78.9,79.85,78,79.85,13086850,81.16,-1.61,84.12,84.12,2.02
 20260603,80.65,80.65,79.75,80,3459861,81.06,-1.31,83.67,83.67,0.56
 20260604,75.85,75.85,74.7,75.2,8795027,80.57,-6.67,82.82,82.82,1.38
 20260605,75.6,76.8,75.15,76.55,4097132,80.24,-4.6,82.25,82.25,0.66
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,58.4,58.6,57.3,57.35,4711435,69.64,-17.65,70.83,73.47,0.75
 20260629,59,59.35,59,59.25,2563970,68.77,-13.85,69.39,72.92,0.41
 20260630,62.8,64.15,62.8,64.15,2631000,68.39,-6.2,68.35,72.6,0.43
+20260701,65.7,66.05,65.05,65.35,2182000,68.14,-4.09,67.62,72.34,0.39
 ```
 
 ## Latest TDCC Snapshot

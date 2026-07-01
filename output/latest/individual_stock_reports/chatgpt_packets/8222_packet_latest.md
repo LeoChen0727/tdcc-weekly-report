@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8222 寶一
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:33 Asia/Taipei
+- generated_at: 2026-07-01 22:28:58 Asia/Taipei
 - stock_id: 8222
 - stock_name: 寶一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 36.05
-- high: 39.2
-- low: 35.9
-- close: 39.2
-- volume: 2762000
-- ma5: 35.96
-- ema23_primary: 35.85
-- distance_to_ema23_pct: 9.35
-- ma20: 35.77
-- ma60: 35.93
+- date: 20260701
+- open: 41.6
+- high: 42.5
+- low: 39.7
+- close: 40.75
+- volume: 7719000
+- ma5: 37
+- ema23_primary: 36.26
+- distance_to_ema23_pct: 12.39
+- ma20: 35.96
+- ma60: 36.04
 - ma120: 37.92
-- return_5d: 10.42
-- return_20d: 2.48
-- volume_ratio: 4.51
-- distance_to_ma20_pct_auxiliary: 9.6
-- distance_to_high_60_pct: 0
+- return_5d: 14.63
+- return_20d: 10.73
+- volume_ratio: 8.09
+- distance_to_ma20_pct_auxiliary: 13.31
+- distance_to_high_60_pct: -4.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,38.65,38.65,36.1,36.8,893630,36.16,1.76,36.08,36.37,1.54
 20260603,36.8,37.6,36.3,37.55,576301,36.28,3.51,36.1,36.35,0.98
 20260604,37.6,38.25,37.1,37.25,446333,36.36,2.45,36.1,36.36,0.75
 20260605,37.3,37.6,36.4,36.85,333449,36.4,1.24,36.04,36.36,0.58
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,35.1,35.15,34,34.2,436637,35.53,-3.76,35.75,35.84,0.77
 20260629,34.85,36.7,34.5,35.65,802800,35.54,0.3,35.72,35.86,1.44
 20260630,36.05,39.2,35.9,39.2,2762000,35.85,9.35,35.77,35.93,4.51
+20260701,41.6,42.5,39.7,40.75,7719000,36.26,12.39,35.96,36.04,8.09
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8222 | 寶一 | true_breakout | 嚴格突破 | 137.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 8222 | 寶一 | true_breakout | 嚴格突破 | 114.0 |  |  | platform_breakout |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利總金額為新台幣24,000,725元 (每仟股配發新台幣350元) 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/19 6.停止過戶起始日期:115/07/20 7.停止過戶截止日期:115/07/24 8.除權（息）基準日:115/07/24 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:現金股利以匯款或支票發放，現金股利發放至元為止 (元以下無條件捨去)，其發生之匯費或郵寄費用由股東自行負擔。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8222 | 寶一 | 1 | 1 | 1 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260701 | 8222 | 寶一 | 2 | 2 | 2 | 3 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

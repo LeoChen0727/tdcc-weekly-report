@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2450 神腦
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:42 Asia/Taipei
+- generated_at: 2026-07-01 22:27:14 Asia/Taipei
 - stock_id: 2450
 - stock_name: 神腦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 28.9
-- high: 28.95
-- low: 28.8
+- date: 20260701
+- open: 29
+- high: 29
+- low: 28.75
 - close: 28.85
-- volume: 95000
-- ma5: 28.98
-- ema23_primary: 29.62
-- distance_to_ema23_pct: -2.61
-- ma20: 30.04
+- volume: 128000
+- ma5: 28.94
+- ema23_primary: 29.56
+- distance_to_ema23_pct: -2.4
+- ma20: 29.94
 - ma60: 29.8
 - ma120: 29.48
 - return_5d: -0.69
-- return_20d: -6.33
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -3.97
+- return_20d: -6.63
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -3.64
 - distance_to_high_60_pct: -9.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,30.8,30.9,30.4,30.9,725577,29.68,4.1,29.58,29.59,2.5
 20260603,30.9,32,30.9,31.45,936594,29.83,5.43,29.67,29.61,2.88
 20260604,31.45,31.7,30.9,31.3,504004,29.95,4.5,29.75,29.65,1.46
 20260605,31,31.2,30.6,30.9,342494,30.03,2.89,29.8,29.68,0.98
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,29.05,29.15,28.9,28.95,182465,29.77,-2.76,30.19,29.81,0.4
 20260629,29.05,29.05,28.85,28.85,134781,29.69,-2.84,30.14,29.81,0.31
 20260630,28.9,28.95,28.8,28.85,95000,29.62,-2.61,30.04,29.8,0.24
+20260701,29,29,28.75,28.85,128000,29.56,-2.4,29.94,29.8,0.36
 ```
 
 ## Latest TDCC Snapshot

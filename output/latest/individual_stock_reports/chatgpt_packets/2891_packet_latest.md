@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2891 中信金
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:54 Asia/Taipei
+- generated_at: 2026-07-01 22:27:25 Asia/Taipei
 - stock_id: 2891
 - stock_name: 中信金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 70.9
-- high: 71.5
-- low: 69.8
-- close: 71
-- volume: 47454000
-- ma5: 70.42
-- ema23_primary: 67.65
-- distance_to_ema23_pct: 4.95
-- ma20: 69.3
-- ma60: 59.83
-- ma120: 55.64
-- return_5d: -1.93
-- return_20d: 14.33
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 2.46
-- distance_to_high_60_pct: -3.53
+- date: 20260701
+- open: 71.6
+- high: 72.2
+- low: 70.1
+- close: 70.6
+- volume: 47919000
+- ma5: 70.56
+- ema23_primary: 67.9
+- distance_to_ema23_pct: 3.98
+- ma20: 69.62
+- ma60: 60.1
+- ma120: 55.81
+- return_5d: 1
+- return_20d: 10.14
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -4.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,62,64.4,61.8,64.1,70381891,57.46,11.55,57.19,54.27,1.13
 20260603,65.4,70.5,64.3,70.5,84076949,58.55,20.41,57.98,54.59,1.33
 20260604,68,69.2,66,68,97008090,59.34,14.6,58.57,54.88,1.51
 20260605,66.3,68,66,66.6,63844979,59.94,11.11,59.08,55.13,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,70.5,71,69.9,70.3,43250077,67.08,4.8,68.36,59.23,0.71
 20260629,71.3,71.8,69.7,70.3,40574544,67.35,4.38,68.85,59.54,0.71
 20260630,70.9,71.5,69.8,71,47454000,67.65,4.95,69.3,59.83,0.83
+20260701,71.6,72.2,70.1,70.6,47919000,67.9,3.98,69.62,60.1,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2891 | 中信金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.董事會決議日:115/06/29 2.許可從事競業行為之經理人姓名及職稱: 楊定國/中國信託證券投資信託股份有限公司 副總經理 3.許可從事競業行為之項目: 擔任Land and Houses Fund Management Company Limited董事 4.許可從事競業行為之期間:任職本公司經理人職務期間 5.決議情形（請依公司法第32條說明表決結果）:全體董事同意照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260630 | 2891 | 中信金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日:115/06/29 2.許可從事競業行為之經理人姓名及職稱: 楊定國/中國信託證券投資信託股份有限公司 副總經理 3.許可從事競業行為之項目: 擔任Land and Houses Fund Management Company Limited董事 4.許可從事競業行為之期間:任職本公司經理人職務期間 5.決議情形（請依公司法第32條說明表決結果）:全體董事同意照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:不適用；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 2891 | 中信金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/30 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 台灣人壽保險股份有限公司115年度累積次順位公司債。 3.是否採總括申報發行公司債(是/否):否。 4.發行總額:不超過新臺幣200億元整(或等值外幣)，於境內及/或透過本公司百分之百持 有之國外籌資事業(Taiwan Life Singapore Pte. Ltd.)於境外，依市場狀況需求一次 或分次發行。 5.每張面額:每張面額暫定為新臺幣壹佰萬元整(若發行外幣時，則視市場狀況而定)。 6.發行價格:依票面金額十足發行。 7.發行期間:10年(含)以上。 8.發行利率:授權董事長或其指定之人視發行時市場狀況訂定。 9.擔保品之種類、名稱、金額及約定事項:無。 10.募得價款之用途及運用計畫:充實營運資金、強化財務結構及提升資本適足率。 11.承銷方式:授權董事長或其指定之人決定之。 12.公司債受託人:授權董事長或其指定之人決定之。 13.承銷或代銷機構:授權董事長或其指定之人決定之。 14.發行保證人:若透過本公司百分之百持有之國外籌資事業發行者，將由本公司對該債 券提供保證。 15.代理還本付息機構:授權董事長或其指定之人決定之。 16.簽證機構:無。 17.能轉換股份者，其轉換辦法:不適用。 18.賣回條件:無。 19.買回條件:授權董事長或其指定之人決定之。 20.附有轉換、交換或認股者，其換股基準日:不適用。 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用。 23.其他應敘明事項: (1)本次發行公司債於向主管機關申報發行生效後，將向中華民國證券櫃檯買賣中心或 其他境外交易所申請買賣。 (2)本次公司債之發行條件等相關事宜，授權董事長或其指定之人依法全權處理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 2891 | 中信金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/30 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 台灣人壽保險股份有限公司115年度累積次順位公司債。 3.是否採總括申報發行公司債(是/否):否。 4.發行總額:不超過新臺幣200億元整(或等值外幣)，於境內及/或透過本公司百分之百持 有之國外籌資事業(Taiwan Life Singapore Pte. Ltd.)於境外，依市場狀況需求一次 或分次發行。 5.每張面額:每張面額暫定為新臺幣壹佰萬元整(若發行外幣時，則視市場狀況而定)。 6.發行價格:依票面金額十足發行。 7.發行期間:10年(含)以上。 8.發行利率:授權董事長或其指定之人視發行時市場狀況訂定。 9.擔保品之種類、名稱、金額及約定事項:無。 10.募得價款之用途及運用計畫:充實營運資金、強化財務結構及提升資本適足率。 11.承銷方式:授權董事長或其指定之人決定之。 12.公司債受託人:授權董事長或其指定之人決定之。 13.承銷或代銷機構:授權董事長或其指定之人決定之。 14.發行保證人:若透過本公司百分之百持有之國外籌資事業發行者，將由本公司對該債 券提供保證。 15.代理還本付息機構:授權董事長或其指定之人決定之。 16.簽證機構:無。 17.能轉換股份者，其轉換辦法:不適用。 18.賣回條件:無。 19.買回條件:授權董事長或其指定之人決定之。 20.附有轉換、交換或認股者，其換股基準日:不適用。 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用。 23.其他應敘明事項: (1)本次發行公司債於向主管機關申報發行生效後，將向中華民國證券櫃檯買賣中心或 其他境外交易所申請買賣。 (2)本次公司債之發行條件等相關事宜，授權董事長或其指定之人依法全權處理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2891 | 中信金 | 9 | 6 | 5 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260701 | 2891 | 中信金 | 10 | 7 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2891 | 中信金 | 25 | 0 | 491940.0 | 0.0 |  | no_signal |
+| 20260701 | 2891 | 中信金 | 25 | 0 | 606230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

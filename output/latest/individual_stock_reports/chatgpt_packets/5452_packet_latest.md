@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:41 Asia/Taipei
+- generated_at: 2026-07-01 22:28:09 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 32.2
-- high: 34.85
-- low: 31.6
-- close: 34.2
-- volume: 3560000
-- ma5: 32.98
-- ema23_primary: 33.37
-- distance_to_ema23_pct: 2.48
-- ma20: 33.52
-- ma60: 33.27
-- ma120: 32.53
-- return_5d: 0
-- return_20d: -2.56
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 2.02
-- distance_to_high_60_pct: -8.8
+- date: 20260701
+- open: 34.5
+- high: 36.8
+- low: 34.4
+- close: 35.9
+- volume: 12859000
+- ma5: 33.37
+- ema23_primary: 33.58
+- distance_to_ema23_pct: 6.9
+- ma20: 33.61
+- ma60: 33.34
+- ma120: 32.63
+- return_5d: 5.74
+- return_20d: 5.12
+- volume_ratio: 5.37
+- distance_to_ma20_pct_auxiliary: 6.81
+- distance_to_high_60_pct: -4.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,35.15,35.6,33.45,34.15,34,33.41,2.23,33.23,33.49,0
 20260603,34.15,36.2,33.5,35.35,35000,33.57,5.31,33.31,33.52,0.03
 20260604,35.35,37.5,35.05,36.15,36000,33.78,7,33.48,33.6,0.04
 20260605,36.35,37.5,34.25,35.6,36000,33.93,4.91,33.65,33.67,0.05
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,33.45,33.55,31.65,31.65,1981000,33.44,-5.35,33.73,33.27,1.3
 20260629,31.65,32.7,31.5,31.7,1134000,33.3,-4.79,33.57,33.25,0.72
 20260630,32.2,34.85,31.6,34.2,3560000,33.37,2.48,33.52,33.27,2.03
+20260701,34.5,36.8,34.4,35.9,12859000,33.58,6.9,33.61,33.34,5.37
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 5452 | 佶優 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:普通股現金股利新台幣36,940,918元(每股0.25元)                            計算至元為止 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 5452 | 佶優 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:普通股現金股利新台幣36,940,918元(每股0.25元)                            計算至元為止 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 5452 | 佶優 | 1 | 1 | 3 | 5 | 11 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260701 | 5452 | 佶優 | 2 | 2 | 3 | 6 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

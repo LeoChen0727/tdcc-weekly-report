@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8080 泰霖
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:30 Asia/Taipei
+- generated_at: 2026-07-01 22:28:55 Asia/Taipei
 - stock_id: 8080
 - stock_name: 泰霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 156
+- latest_price_date: 20260701
+- price_rows: 157
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 27.75
-- high: 28
+- high: 28.1
 - low: 27.75
 - close: 27.75
-- volume: 25000
-- ma5: 28.08
-- ema23_primary: 28.11
-- distance_to_ema23_pct: -1.28
-- ma20: 28.11
-- ma60: 28.34
-- ma120: 30.4
-- return_5d: -0.54
-- return_20d: -1.42
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: -1.26
+- volume: 31000
+- ma5: 28.03
+- ema23_primary: 28.08
+- distance_to_ema23_pct: -1.17
+- ma20: 28.1
+- ma60: 28.33
+- ma120: 30.39
+- return_5d: -0.89
+- return_20d: -0.54
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -1.24
 - distance_to_high_60_pct: -8.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,28,28,27.9,27.9,28,28.13,-0.81,28.11,28.93,0
 20260603,28,28.2,27.9,28.15,28000,28.13,0.07,28.04,28.89,0.64
 20260604,28.15,28.2,27.95,28,28000,28.12,-0.42,27.96,28.86,0.65
 20260605,28,28,28,28,28000,28.11,-0.39,27.89,28.82,0.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,27.7,29,27.6,28.9,85000,28.18,2.57,28.19,28.39,2.67
 20260629,29,29,27.75,27.75,37000,28.14,-1.39,28.12,28.36,1.15
 20260630,27.75,28,27.75,27.75,25000,28.11,-1.28,28.11,28.34,0.78
+20260701,27.75,28.1,27.75,27.75,31000,28.08,-1.17,28.1,28.33,0.92
 ```
 
 ## Latest TDCC Snapshot

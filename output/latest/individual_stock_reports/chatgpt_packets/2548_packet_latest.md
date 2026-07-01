@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2548 華固
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:47 Asia/Taipei
+- generated_at: 2026-07-01 22:27:19 Asia/Taipei
 - stock_id: 2548
 - stock_name: 華固
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 102.5
+- date: 20260701
+- open: 102
 - high: 102.5
-- low: 101
+- low: 100
 - close: 102
-- volume: 1471000
-- ma5: 102.3
-- ema23_primary: 106.48
-- distance_to_ema23_pct: -4.21
-- ma20: 102.97
-- ma60: 118.14
-- ma120: 115.71
+- volume: 2445000
+- ma5: 102.4
+- ema23_primary: 106.11
+- distance_to_ema23_pct: -3.87
+- ma20: 102.84
+- ma60: 117.81
+- ma120: 115.55
 - return_5d: 0.49
-- return_20d: -16.73
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -0.94
+- return_20d: -2.39
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -0.82
 - distance_to_high_60_pct: -23.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,113,113,103.5,104.5,11119249,121.94,-14.3,122.83,123.03,3.88
 20260603,104.5,105,100.5,101,7325680,120.2,-15.97,121.62,122.8,2.36
 20260604,101,101.5,99.5,99.8,5803487,118.5,-15.78,120.39,122.6,1.77
 20260605,100.5,103.5,100,103.5,5322864,117.25,-11.72,119.39,122.44,1.56
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,103,104,102,102.5,1857955,107.29,-4.46,104.84,118.78,0.42
 20260629,103.5,103.5,101.5,102.5,1391490,106.89,-4.11,103.99,118.49,0.32
 20260630,102.5,102.5,101,102,1471000,106.48,-4.21,102.97,118.14,0.36
+20260701,102,102.5,100,102,2445000,106.11,-3.87,102.84,117.81,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 62.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：富邦金融中心 4.法人說明會擇要訊息：本公司受邀參加富邦證券舉辦之實體法說會，說明本公司營運現況及展望 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260630 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 31.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：富邦金融中心 4.法人說明會擇要訊息：本公司受邀參加富邦證券舉辦之實體法說會，說明本公司營運現況及展望 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260701 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 50.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：富邦金融中心 4.法人說明會擇要訊息：本公司受邀參加富邦證券舉辦之實體法說會，說明本公司營運現況及展望 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260701 | 2548 | 華固 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 35.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：富邦金融中心 4.法人說明會擇要訊息：本公司受邀參加富邦證券舉辦之實體法說會，說明本公司營運現況及展望 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2548 | 華固 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 2548 | 華固 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2548 | 華固 | 9 | 0 | 29770.0 | 0.0 |  | no_signal |
+| 20260701 | 2548 | 華固 | 9 | 0 | 45000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

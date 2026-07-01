@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:07 Asia/Taipei
+- generated_at: 2026-07-01 22:28:34 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 1735
-- high: 1735
-- low: 1680
-- close: 1725
-- volume: 362000
-- ma5: 1784
-- ema23_primary: 1703.18
-- distance_to_ema23_pct: 1.28
-- ma20: 1644.5
-- ma60: 1802.58
-- ma120: 1284.03
-- return_5d: -2.27
-- return_20d: 0.58
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 4.9
-- distance_to_high_60_pct: -32.75
+- date: 20260701
+- open: 1730
+- high: 1890
+- low: 1720
+- close: 1820
+- volume: 445000
+- ma5: 1760
+- ema23_primary: 1712.92
+- distance_to_ema23_pct: 6.25
+- ma20: 1648.25
+- ma60: 1808.75
+- ma120: 1295.69
+- return_5d: -6.19
+- return_20d: 4.3
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 10.42
+- distance_to_high_60_pct: -29.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,1725,1770,1660,1745,1718,1818.88,-4.06,1909,1660.33,0
 20260603,1760,1855,1700,1715,1764000,1810.22,-5.26,1875,1673.8,1.68
 20260604,1690,1735,1650,1680,1690000,1799.37,-6.63,1839.75,1686.85,1.51
 20260605,1650,1660,1520,1610,1591000,1783.59,-9.73,1809.75,1697.25,1.34
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,1850,1945,1700,1700,2116000,1704.04,-0.24,1643.75,1793.92,1.26
 20260629,1700,1700,1565,1670,468000,1701.2,-1.83,1644,1798.92,0.29
 20260630,1735,1735,1680,1725,362000,1703.18,1.28,1644.5,1802.58,0.23
+20260701,1730,1890,1720,1820,445000,1712.92,6.25,1648.25,1808.75,0.28
 ```
 
 ## Latest TDCC Snapshot

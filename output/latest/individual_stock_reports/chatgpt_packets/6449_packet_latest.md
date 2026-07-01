@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6449 鈺邦
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:59 Asia/Taipei
+- generated_at: 2026-07-01 22:28:27 Asia/Taipei
 - stock_id: 6449
 - stock_name: 鈺邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 341
-- high: 357
-- low: 338.5
-- close: 345
-- volume: 2489000
-- ma5: 354
-- ema23_primary: 364.93
-- distance_to_ema23_pct: -5.46
-- ma20: 386.62
-- ma60: 274.15
-- ma120: 220.82
-- return_5d: -9.69
-- return_20d: -16.06
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: -10.77
-- distance_to_high_60_pct: -28.65
+- date: 20260701
+- open: 353.5
+- high: 371
+- low: 342.5
+- close: 349
+- volume: 2993000
+- ma5: 348.6
+- ema23_primary: 363.61
+- distance_to_ema23_pct: -4.02
+- ma20: 385.48
+- ma60: 277.51
+- ma120: 222.37
+- return_5d: -7.18
+- return_20d: -6.18
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: -9.46
+- distance_to_high_60_pct: -27.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,402,402,370,372,960962,290.33,28.13,280.6,201.55,0.4
 20260603,365.5,385,364,385,416692,298.21,29.1,291.3,205.25,0.17
 20260604,370,388.5,370,385,179006,305.45,26.04,301.6,209.2,0.08
 20260605,370,385,355,371,309036,310.91,19.33,311,212.8,0.14
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,366,375,334.5,340,2585886,369.36,-7.95,392.77,267.77,1.43
 20260629,342.5,353,332.5,338,1294271,366.75,-7.84,389.93,270.92,0.69
 20260630,341,357,338.5,345,2489000,364.93,-5.46,386.62,274.15,1.27
+20260701,353.5,371,342.5,349,2993000,363.61,-4.02,385.48,277.51,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6449 | 鈺邦 | 34 | 0 | 8637810.0 | 0.0 |  | call_strong_inflow |
+| 20260701 | 6449 | 鈺邦 | 34 | 0 | 7712860.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

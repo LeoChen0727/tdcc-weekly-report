@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4419 皇家美食
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:24 Asia/Taipei
+- generated_at: 2026-07-01 22:27:53 Asia/Taipei
 - stock_id: 4419
 - stock_name: 皇家美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 155
+- latest_price_date: 20260701
+- price_rows: 156
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 49.75
-- high: 50.1
-- low: 49
-- close: 50
-- volume: 604000
-- ma5: 49.83
-- ema23_primary: 47.33
-- distance_to_ema23_pct: 5.63
-- ma20: 46.85
-- ma60: 46.54
-- ma120: 46.88
-- return_5d: 7.64
-- return_20d: 6.84
-- volume_ratio: 9.84
-- distance_to_ma20_pct_auxiliary: 6.72
-- distance_to_high_60_pct: -9.09
+- date: 20260701
+- open: 49
+- high: 49
+- low: 46.2
+- close: 46.2
+- volume: 15000
+- ma5: 49.48
+- ema23_primary: 47.24
+- distance_to_ema23_pct: -2.2
+- ma20: 46.84
+- ma60: 46.39
+- ma120: 46.86
+- return_5d: -3.65
+- return_20d: -0.65
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -1.36
+- distance_to_high_60_pct: -13.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,46.55,46.8,46.35,46.5,47,46.07,0.93,46.02,46.49,0
 20260603,46.2,46.2,45.5,45.6,46000,46.03,-0.94,46,46.53,2.1
 20260604,46.8,46.8,45.5,45.55,46000,45.99,-0.96,45.98,46.53,1.9
 20260605,45.6,45.6,45.55,45.6,45000,45.96,-0.78,46,46.55,1.71
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,50.6,50.7,49.55,50.3,44000,46.8,7.48,46.48,46.63,1.27
 20260629,51.6,51.6,49.05,50.3,22000,47.09,6.81,46.69,46.62,0.66
 20260630,49.75,50.1,49,50,604000,47.33,5.63,46.85,46.54,9.84
+20260701,49,49,46.2,46.2,15000,47.24,-2.2,46.84,46.39,0.24
 ```
 
 ## Latest TDCC Snapshot

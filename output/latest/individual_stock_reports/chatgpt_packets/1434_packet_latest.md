@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:16 Asia/Taipei
+- generated_at: 2026-07-01 22:26:50 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 17
+- date: 20260701
+- open: 17.1
 - high: 17.1
-- low: 16.85
-- close: 16.95
-- volume: 1305000
-- ma5: 17
-- ema23_primary: 16.57
-- distance_to_ema23_pct: 2.32
-- ma20: 16.68
-- ma60: 16.16
-- ma120: 16.46
-- return_5d: 2.11
-- return_20d: 9
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 1.59
-- distance_to_high_60_pct: -3.69
+- low: 16.7
+- close: 16.85
+- volume: 1479000
+- ma5: 16.98
+- ema23_primary: 16.59
+- distance_to_ema23_pct: 1.57
+- ma20: 16.74
+- ma60: 16.17
+- ma120: 16.47
+- return_5d: -0.59
+- return_20d: 6.98
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.66
+- distance_to_high_60_pct: -4.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,15.55,15.8,15.5,15.75,2814639,15.52,1.5,15.42,16.14,1.22
 20260603,15.95,16.75,15.95,16.65,7514492,15.61,6.65,15.45,16.12,2.92
 20260604,16.8,17.2,16.65,16.9,7335282,15.72,7.52,15.49,16.12,2.58
 20260605,16.9,16.9,16.3,16.6,2844292,15.79,5.12,15.53,16.12,0.97
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,17.2,17.25,16.7,16.7,3207355,16.49,1.28,16.54,16.15,0.88
 20260629,16.9,17.15,16.75,17,2275739,16.53,2.84,16.61,16.16,0.64
 20260630,17,17.1,16.85,16.95,1305000,16.57,2.32,16.68,16.16,0.38
+20260701,17.1,17.1,16.7,16.85,1479000,16.59,1.57,16.74,16.17,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1434 | 福懋 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:王文淵 4.舊任者簡歷:本公司董事長 5.新任者姓名:王文淵 6.新任者簡歷:本公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 1434 | 福懋 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:王文淵 4.舊任者簡歷:本公司董事長 5.新任者姓名:王文淵 6.新任者簡歷:本公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 1434 | 福懋 | 4 | 3 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 1434 | 福懋 | 5 | 4 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

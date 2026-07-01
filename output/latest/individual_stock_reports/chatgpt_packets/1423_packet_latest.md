@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1423 利華
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:15 Asia/Taipei
+- generated_at: 2026-07-01 22:26:49 Asia/Taipei
 - stock_id: 1423
 - stock_name: 利華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 287
+- latest_price_date: 20260701
+- price_rows: 288
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 36.85
-- high: 37.3
-- low: 36.8
-- close: 37.2
-- volume: 33000
-- ma5: 37.32
-- ema23_primary: 40.46
-- distance_to_ema23_pct: -8.07
-- ma20: 41.66
-- ma60: 41.18
-- ma120: 39.93
-- return_5d: -3.63
-- return_20d: -10.25
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -10.7
-- distance_to_high_60_pct: -18.42
+- date: 20260701
+- open: 37.3
+- high: 38.05
+- low: 37
+- close: 37.25
+- volume: 66000
+- ma5: 37.13
+- ema23_primary: 40.2
+- distance_to_ema23_pct: -7.33
+- ma20: 41.37
+- ma60: 41.14
+- ma120: 39.92
+- return_5d: -2.49
+- return_20d: -13.47
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: -9.95
+- distance_to_high_60_pct: -18.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,41.75,43.7,41.4,43.05,851940,41.25,4.35,41.09,40.62,7.22
 20260603,43.25,44.25,43.25,43.5,189175,41.44,4.97,41.21,40.72,1.54
 20260604,44.5,44.5,43.5,43.75,280106,41.63,5.08,41.34,40.81,2.05
 20260605,43.9,44,43.75,43.75,60002,41.81,4.64,41.49,40.89,0.43
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,37.45,37.45,37.2,37.25,28802,41.15,-9.47,42.12,41.28,0.04
 20260629,37.4,37.9,36.5,36.5,67200,40.76,-10.45,41.87,41.22,0.09
 20260630,36.85,37.3,36.8,37.2,33000,40.46,-8.07,41.66,41.18,0.04
+20260701,37.3,38.05,37,37.25,66000,40.2,-7.33,41.37,41.14,0.09
 ```
 
 ## Latest TDCC Snapshot

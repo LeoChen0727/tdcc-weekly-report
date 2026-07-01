@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6282 康舒
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:57 Asia/Taipei
+- generated_at: 2026-07-01 22:28:24 Asia/Taipei
 - stock_id: 6282
 - stock_name: 康舒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 55.5
-- high: 58.6
-- low: 54.7
+- date: 20260701
+- open: 58.9
+- high: 59.7
+- low: 56.6
 - close: 58.2
-- volume: 20330000
-- ma5: 57.44
-- ema23_primary: 58.41
-- distance_to_ema23_pct: -0.36
-- ma20: 60.09
-- ma60: 54.26
-- ma120: 51.7
-- return_5d: -5.37
-- return_20d: -11.55
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -3.15
+- volume: 28097000
+- ma5: 56.68
+- ema23_primary: 58.39
+- distance_to_ema23_pct: -0.33
+- ma20: 59.85
+- ma60: 54.49
+- ma120: 51.84
+- return_5d: -6.13
+- return_20d: -7.62
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -2.77
 - distance_to_high_60_pct: -17.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,65.5,65.8,60.8,63,83461611,55.92,12.66,55.45,50.23,1.47
 20260603,63.8,67.8,62.1,64.4,79340442,56.63,13.72,56.16,50.53,1.33
 20260604,63.9,70.8,63.8,70.8,123061862,57.81,22.47,57.17,50.99,1.91
 20260605,68.7,68.8,63.8,63.8,113255408,58.31,9.42,57.84,51.3,1.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,58.1,58.1,54,54.1,34323502,58.81,-8.01,60.76,53.9,0.59
 20260629,55.3,55.7,53.7,54.2,18403400,58.43,-7.24,60.48,54.04,0.33
 20260630,55.5,58.6,54.7,58.2,20330000,58.41,-0.36,60.09,54.26,0.39
+20260701,58.9,59.7,56.6,58.2,28097000,58.39,-0.33,59.85,54.49,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6282 | 康舒 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:通過修正「公司章程」案 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書 及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過解除董事競業禁止之限制 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260630 | 6282 | 康舒 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:通過修正「公司章程」案 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書 及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過解除董事競業禁止之限制 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 6282 | 康舒 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:通過修正「公司章程」案 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書 及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過解除董事競業禁止之限制 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 6282 | 康舒 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:通過修正「公司章程」案 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書 及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過解除董事競業禁止之限制 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6282 | 康舒 | 23 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 6282 | 康舒 | 24 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6282 | 康舒 | 166 | 0 | 24287780.0 | 0.0 |  | call_strong_inflow |
+| 20260701 | 6282 | 康舒 | 166 | 5 | 27179900.0 | 41840.0 | 649.62 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4154 樂威科-KY
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:21 Asia/Taipei
+- generated_at: 2026-07-01 22:27:51 Asia/Taipei
 - stock_id: 4154
 - stock_name: 樂威科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 137
+- latest_price_date: 20260701
+- price_rows: 138
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 12.5
-- high: 12.85
-- low: 12.1
-- close: 12.55
-- volume: 19000
-- ma5: 12.69
-- ema23_primary: 13.07
-- distance_to_ema23_pct: -3.95
-- ma20: 13.07
-- ma60: 13.56
-- ma120: 13.62
-- return_5d: -3.09
-- return_20d: -7.72
-- volume_ratio: 1.65
-- distance_to_ma20_pct_auxiliary: -3.98
-- distance_to_high_60_pct: -19.03
+- high: 12.5
+- low: 12.15
+- close: 12.35
+- volume: 21000
+- ma5: 12.61
+- ema23_primary: 13.01
+- distance_to_ema23_pct: -5.05
+- ma20: 13.03
+- ma60: 13.51
+- ma120: 13.59
+- return_5d: -3.14
+- return_20d: -6.44
+- volume_ratio: 1.76
+- distance_to_ma20_pct_auxiliary: -5.2
+- distance_to_high_60_pct: -20.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260527,13.55,13.55,13,13.2,13000,13.53,-2.44,13.22,12.96,0.36
 20260528,13,13.5,12.6,13.1,13000,13.49,-2.92,13.21,12.97,0.37
 20260529,13.2,13.2,12.55,13.1,13000,13.46,-2.68,13.22,13,0.38
 20260601,12.5,12.9,12.5,12.9,13000,13.41,-3.83,13.21,13.01,0.39
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,12.6,12.95,12.6,12.95,3000,13.16,-1.63,13.18,13.57,0.27
 20260629,12.95,12.95,12.2,12.55,19000,13.11,-4.3,13.12,13.57,1.69
 20260630,12.5,12.85,12.1,12.55,19000,13.07,-3.95,13.07,13.56,1.65
+20260701,12.5,12.5,12.15,12.35,21000,13.01,-5.05,13.03,13.51,1.76
 ```
 
 ## Latest TDCC Snapshot

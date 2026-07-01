@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6187 萬潤
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:51 Asia/Taipei
+- generated_at: 2026-07-01 22:28:19 Asia/Taipei
 - stock_id: 6187
 - stock_name: 萬潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 1005
-- high: 1005
-- low: 965
-- close: 998
-- volume: 1359000
-- ma5: 1043.6
-- ema23_primary: 1102.86
-- distance_to_ema23_pct: -9.51
-- ma20: 1100.4
-- ma60: 1124.47
-- ma120: 821.93
-- return_5d: -14.7
-- return_20d: -6.73
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -9.31
-- distance_to_high_60_pct: -33.02
+- date: 20260701
+- open: 1010
+- high: 1085
+- low: 1010
+- close: 1065
+- volume: 1334000
+- ma5: 1044.6
+- ema23_primary: 1099.71
+- distance_to_ema23_pct: -3.16
+- ma20: 1103.15
+- ma60: 1127.3
+- ma120: 827.91
+- return_5d: 0.47
+- return_20d: 5.45
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -3.46
+- distance_to_high_60_pct: -28.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,1090,1095,998,1010,1025,1124.82,-10.21,1136.75,1014.28,0
 20260603,1035,1075,1015,1065,1055000,1119.83,-4.9,1129.25,1022.2,0.53
 20260604,1065,1170,1055,1115,1123000,1119.43,-0.4,1128.5,1031.93,0.62
 20260605,1110,1175,1100,1120,1142000,1119.48,0.05,1131,1041.72,0.67
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,1100,1120,998,1075,1196000,1124.43,-4.4,1111,1119.85,0.79
 20260629,1065,1100,970,980,1759000,1112.4,-11.9,1104,1122.68,1.14
 20260630,1005,1005,965,998,1359000,1102.86,-9.51,1100.4,1124.47,0.87
+20260701,1010,1085,1010,1065,1334000,1099.71,-3.16,1103.15,1127.3,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260701 | 6187 | 萬潤 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/26 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因高雄市政府已於115年6月26日凌晨宣布，依據氣象預報及預估雨量已達 停止上班及停止上課標準，公告115年6月26日停止上班及停止上課，爰發布本重大訊息 說明。 6.因應措施:本公司115年股東常會不受高雄市政府停止上班及停止上課公告影響，仍依 原訂日期、時間及地點照常舉行。股東常會將於115年6月26日上午9時整， 假高雄市路竹區路科五路23號（國際會議廳）召開，會議將依原訂議程照常進行。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/26 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因高雄市政府已於115年6月26日凌晨宣布，依據氣象預報及預估雨量已達 停止上班及停止上課標準，公告115年6月26日停止上班及停止上課，爰發布本重大訊息 說明。 6.因應措施:本公司115年股東常會不受高雄市政府停止上班及停止上課公告影響，仍依 原訂日期、時間及地點照常舉行。股東常會將於115年6月26日上午9時整， 假高雄市路竹區路科五路23號（國際會議廳）召開，會議將依原訂議程照常進行。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260701 | 6187 | 萬潤 | 1 | 1 | 3 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

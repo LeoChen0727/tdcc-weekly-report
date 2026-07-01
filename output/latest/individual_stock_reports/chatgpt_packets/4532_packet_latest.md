@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:25 Asia/Taipei
+- generated_at: 2026-07-01 22:27:55 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 27.35
-- high: 28.3
-- low: 26.8
-- close: 28.15
-- volume: 16962000
-- ma5: 25.22
-- ema23_primary: 24.54
-- distance_to_ema23_pct: 14.69
-- ma20: 24.55
-- ma60: 24.05
-- ma120: 24.82
-- return_5d: 17.78
-- return_20d: 15.84
-- volume_ratio: 6.95
-- distance_to_ma20_pct_auxiliary: 14.66
-- distance_to_high_60_pct: -0.53
+- date: 20260701
+- open: 28.3
+- high: 29
+- low: 27.6
+- close: 28.55
+- volume: 10357000
+- ma5: 26.12
+- ema23_primary: 24.88
+- distance_to_ema23_pct: 14.76
+- ma20: 24.77
+- ma60: 24.09
+- ma120: 24.86
+- return_5d: 18.71
+- return_20d: 18.46
+- volume_ratio: 3.58
+- distance_to_ma20_pct_auxiliary: 15.25
+- distance_to_high_60_pct: -1.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,24.45,24.45,24,24.1,1370578,23.66,1.85,23.4,24.63,1.21
 20260603,24.3,24.9,24.05,24.85,2039843,23.76,4.58,23.5,24.62,1.71
 20260604,25,25.75,24.9,25.4,3282830,23.9,6.28,23.62,24.62,2.51
 20260605,25.4,25.4,24.45,24.55,1946731,23.95,2.49,23.7,24.6,1.43
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,23.85,23.85,23.45,23.8,1225355,24.04,-1,24.24,24.02,0.87
 20260629,25.3,26.15,25.3,26.15,7054828,24.22,7.98,24.36,24.02,4.14
 20260630,27.35,28.3,26.8,28.15,16962000,24.54,14.69,24.55,24.05,6.95
+20260701,28.3,29,27.6,28.55,10357000,24.88,14.76,24.77,24.09,3.58
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 4532 | 瑞智 | true_breakout | 嚴格突破 | 136.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 4532 | 瑞智 | true_breakout | 嚴格突破 | 117.0 |  |  | platform_breakout |  | no_signal | continued_overheated | 1.董事會決議日期:115/06/30 2.發放股利種類及金額:無。 3.其他應敘明事項:董事會決議2025年度盈餘不予以分配。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 4532 | 瑞智 | 2 | 1 | 2 | 4 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260701 | 4532 | 瑞智 | 3 | 2 | 3 | 4 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 4532 | 瑞智 | 5 | 0 | 2763830.0 | 0.0 |  | call_inflow |
+| 20260701 | 4532 | 瑞智 | 5 | 0 | 559390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

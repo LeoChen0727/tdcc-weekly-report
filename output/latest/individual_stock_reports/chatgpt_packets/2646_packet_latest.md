@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:49 Asia/Taipei
+- generated_at: 2026-07-01 22:27:21 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 21.1
-- high: 21.2
-- low: 21
-- close: 21.1
-- volume: 4677000
-- ma5: 21.4
-- ema23_primary: 20.95
-- distance_to_ema23_pct: 0.7
-- ma20: 20.92
+- high: 21.15
+- low: 20.8
+- close: 21.05
+- volume: 5902000
+- ma5: 21.27
+- ema23_primary: 20.96
+- distance_to_ema23_pct: 0.43
+- ma20: 20.93
 - ma60: 20.66
-- ma120: 21.64
-- return_5d: -1.4
-- return_20d: 1.93
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 0.85
-- distance_to_high_60_pct: -6.01
+- ma120: 21.62
+- return_5d: -3
+- return_20d: 0.72
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 0.57
+- distance_to_high_60_pct: -6.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,20.7,21,20.45,20.9,9998727,20.44,2.27,20.34,20.85,1.67
 20260603,20.95,21.6,20.8,21.05,13026765,20.49,2.75,20.38,20.83,2.04
 20260604,21.05,21.1,20.65,20.75,6118906,20.51,1.18,20.39,20.82,0.96
 20260605,20.75,20.75,20.4,20.5,5252909,20.51,-0.04,20.38,20.81,0.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,21.95,21.95,21.15,21.2,8409139,20.93,1.29,20.87,20.66,0.95
 20260629,21.25,21.35,21,21.05,4645305,20.94,0.53,20.9,20.66,0.54
 20260630,21.1,21.2,21,21.1,4677000,20.95,0.7,20.92,20.66,0.56
+20260701,21.1,21.15,20.8,21.05,5902000,20.96,0.43,20.93,20.66,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2646 | 星宇航空 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260630 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 2646 | 星宇航空 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2646 | 星宇航空 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 2646 | 星宇航空 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2646 | 星宇航空 | 4 | 0 | 3490.0 | 0.0 |  | no_signal |
+| 20260701 | 2646 | 星宇航空 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

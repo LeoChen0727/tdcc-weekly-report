@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:32 Asia/Taipei
+- generated_at: 2026-07-01 22:27:05 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 27.1
-- high: 27.3
-- low: 27
-- close: 27.2
-- volume: 2162000
-- ma5: 27.19
-- ema23_primary: 27.52
-- distance_to_ema23_pct: -1.16
-- ma20: 27.8
-- ma60: 27.36
-- ma120: 28.84
-- return_5d: 0.74
-- return_20d: -2.33
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -2.15
-- distance_to_high_60_pct: -8.88
+- high: 27.2
+- low: 26.9
+- close: 26.9
+- volume: 2312000
+- ma5: 27.09
+- ema23_primary: 27.47
+- distance_to_ema23_pct: -2.07
+- ma20: 27.73
+- ma60: 27.35
+- ma120: 28.78
+- return_5d: -1.82
+- return_20d: -4.44
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -3.01
+- distance_to_high_60_pct: -9.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,27.8,28.2,27.55,28.15,4514327,27.27,3.23,27.23,27.4,1.33
 20260603,28.45,29.55,28.3,29.15,8504285,27.43,6.29,27.34,27.4,2.29
 20260604,29.2,29.85,28.75,28.8,6469870,27.54,4.58,27.39,27.42,1.69
 20260605,28.75,28.9,28.05,28.7,3257655,27.64,3.85,27.44,27.43,0.87
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,27,27.05,26.75,26.8,2314856,27.56,-2.76,27.83,27.36,0.64
 20260629,27.05,27.4,27.05,27.4,2130160,27.55,-0.54,27.83,27.37,0.6
 20260630,27.1,27.3,27,27.2,2162000,27.52,-1.16,27.8,27.36,0.65
+20260701,27.1,27.2,26.9,26.9,2312000,27.47,-2.07,27.73,27.35,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2201 | 裕隆 | 5 | 0 | 32500.0 | 0.0 |  | no_signal |
+| 20260701 | 2201 | 裕隆 | 6 | 0 | 670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

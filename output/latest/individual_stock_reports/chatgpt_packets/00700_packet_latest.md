@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00700 富邦恒生國企
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:06 Asia/Taipei
+- generated_at: 2026-07-01 22:26:41 Asia/Taipei
 - stock_id: 00700
 - stock_name: 富邦恒生國企
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 15.49
-- high: 15.49
-- low: 15.15
-- close: 15.16
-- volume: 230000
-- ma5: 15.35
-- ema23_primary: 16.18
-- distance_to_ema23_pct: -6.33
-- ma20: 16.33
-- ma60: 16.47
-- ma120: 16.47
-- return_5d: -3.38
-- return_20d: -10.19
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -7.15
-- distance_to_high_60_pct: -13.37
+- date: 20260701
+- open: 15.23
+- high: 15.31
+- low: 15.2
+- close: 15.29
+- volume: 94000
+- ma5: 15.27
+- ema23_primary: 16.11
+- distance_to_ema23_pct: -5.09
+- ma20: 16.22
+- ma60: 16.43
+- ma120: 16.43
+- return_5d: -2.49
+- return_20d: -12.08
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -5.75
+- distance_to_high_60_pct: -12.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,16.9,17.39,16.9,17.39,305447,17.05,1.98,16.95,16.95,0.72
 20260603,17.5,17.5,17.07,17.12,300658,17.06,0.36,16.97,16.97,0.73
 20260604,17.12,17.12,16.92,16.95,133356,17.05,-0.58,16.97,16.97,0.35
 20260605,16.95,16.99,16.89,16.93,138970,17.04,-0.64,16.97,16.97,0.38
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,15.32,15.32,14.96,15.08,460267,16.35,-7.76,16.48,16.57,1.11
 20260629,15.23,15.56,15.21,15.49,376090,16.28,-4.83,16.41,16.52,0.93
 20260630,15.49,15.49,15.15,15.16,230000,16.18,-6.33,16.33,16.47,0.61
+20260701,15.23,15.31,15.2,15.29,94000,16.11,-5.09,16.22,16.43,0.26
 ```
 
 ## Latest TDCC Snapshot

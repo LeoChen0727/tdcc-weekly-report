@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3227 原相
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:04 Asia/Taipei
+- generated_at: 2026-07-01 22:27:35 Asia/Taipei
 - stock_id: 3227
 - stock_name: 原相
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 233.5
-- high: 241
-- low: 232.5
-- close: 238
-- volume: 9047000
-- ma5: 228
-- ema23_primary: 224.14
-- distance_to_ema23_pct: 6.18
-- ma20: 223.22
-- ma60: 215.82
-- ma120: 207.7
-- return_5d: 4.39
-- return_20d: 2.15
-- volume_ratio: 4.47
-- distance_to_ma20_pct_auxiliary: 6.62
-- distance_to_high_60_pct: -1.24
+- date: 20260701
+- open: 244
+- high: 250
+- low: 230
+- close: 230.5
+- volume: 10115000
+- ma5: 228.4
+- ema23_primary: 224.67
+- distance_to_ema23_pct: 2.59
+- ma20: 223
+- ma60: 216.67
+- ma120: 207.95
+- return_5d: 0.88
+- return_20d: -1.91
+- volume_ratio: 4
+- distance_to_ma20_pct_auxiliary: 3.36
+- distance_to_high_60_pct: -7.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,233,236,229.5,235,233,223.65,5.07,226.57,205.99,0
 20260603,237.5,238,232,233,235000,224.43,3.82,227.43,206.59,0.14
 20260604,232.5,232.5,227,228,229000,224.73,1.46,227.97,207.32,0.15
 20260605,228,229.5,217.5,225,223000,224.75,0.11,227.9,207.91,0.18
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,227.5,229,212,212.5,3699000,221.92,-4.24,222.68,213.96,2.82
 20260629,215.5,233.5,215.5,233.5,5691000,222.88,4.76,222.97,214.9,3.59
 20260630,233.5,241,232.5,238,9047000,224.14,6.18,223.22,215.82,4.47
+20260701,244,250,230,230.5,10115000,224.67,2.59,223,216.67,4
 ```
 
 ## Latest TDCC Snapshot
@@ -196,12 +196,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3227 | 原相 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃森煌 4.舊任者簡歷:原相科技股份有限公司董事長 5.新任者姓名:黃森煌 6.新任者簡歷:原相科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3227 | 原相 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃森煌 4.舊任者簡歷:原相科技股份有限公司董事長 5.新任者姓名:黃森煌 6.新任者簡歷:原相科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3227 | 原相 | 2 | 2 | 3 | 5 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260701 | 3227 | 原相 | 3 | 3 | 4 | 6 | 11 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

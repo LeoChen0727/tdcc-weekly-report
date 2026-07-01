@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6101 寬魚國際
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:46 Asia/Taipei
+- generated_at: 2026-07-01 22:28:14 Asia/Taipei
 - stock_id: 6101
 - stock_name: 寬魚國際
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 48
-- high: 48.75
-- low: 47
-- close: 47
-- volume: 1545000
-- ma5: 46.79
-- ema23_primary: 43.08
-- distance_to_ema23_pct: 9.1
-- ma20: 42.62
-- ma60: 40.48
-- ma120: 39.13
-- return_5d: 3.3
-- return_20d: 16.77
-- volume_ratio: 2.16
-- distance_to_ma20_pct_auxiliary: 10.28
-- distance_to_high_60_pct: -7.11
+- date: 20260701
+- open: 47
+- high: 47.65
+- low: 44.75
+- close: 44.75
+- volume: 1290000
+- ma5: 46.64
+- ema23_primary: 43.22
+- distance_to_ema23_pct: 3.54
+- ma20: 42.82
+- ma60: 40.59
+- ma120: 39.19
+- return_5d: -1.65
+- return_20d: 9.95
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 4.5
+- distance_to_high_60_pct: -11.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,40.55,42.2,40.4,40.7,41,39.51,3.01,39.33,38.92,0
 20260603,40.9,42,40.8,41.55,41000,39.68,4.71,39.39,39,0.65
 20260604,41.6,41.8,41.3,41.6,42000,39.84,4.41,39.48,39.07,0.76
 20260605,41.6,41.6,40.75,41.1,41000,39.95,2.89,39.57,39.12,0.84
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,46.7,49.8,45.85,47.75,2371000,42.29,12.91,41.83,40.17,4.74
 20260629,48.5,50.6,47.3,47.5,2833000,42.72,11.18,42.28,40.33,4.43
 20260630,48,48.75,47,47,1545000,43.08,9.1,42.62,40.48,2.16
+20260701,47,47.65,44.75,44.75,1290000,43.22,3.54,42.82,40.59,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6101 | 寬魚國際 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   討論事項：   (1)通過修訂本公司「股東會議事規則」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260630 | 6101 | 寬魚國際 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   討論事項：   (1)通過修訂本公司「股東會議事規則」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 6101 | 寬魚國際 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   討論事項：   (1)通過修訂本公司「股東會議事規則」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 6101 | 寬魚國際 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_overheated | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   討論事項：   (1)通過修訂本公司「股東會議事規則」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 6101 | 寬魚國際 | 3 | 1 | 4 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260701 | 6101 | 寬魚國際 | 4 | 2 | 4 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

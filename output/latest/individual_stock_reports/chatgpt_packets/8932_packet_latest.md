@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8932 智通*
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:39 Asia/Taipei
+- generated_at: 2026-07-01 22:29:04 Asia/Taipei
 - stock_id: 8932
 - stock_name: 智通*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 152
+- latest_price_date: 20260701
+- price_rows: 153
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 105
+- date: 20260701
+- open: 108.5
 - high: 110
-- low: 104
-- close: 108.5
-- volume: 3124000
-- ma5: 108.7
-- ema23_primary: 103.15
-- distance_to_ema23_pct: 5.19
-- ma20: 102.85
-- ma60: 96.5
-- ma120: 124.89
-- return_5d: 7.96
-- return_20d: 4.83
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 5.49
-- distance_to_high_60_pct: -11.43
+- low: 105.5
+- close: 108
+- volume: 2690000
+- ma5: 109.4
+- ema23_primary: 103.55
+- distance_to_ema23_pct: 4.3
+- ma20: 103.12
+- ma60: 96.96
+- ma120: 124.38
+- return_5d: 3.35
+- return_20d: 5.37
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 4.73
+- distance_to_high_60_pct: -11.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,103,104.5,100,102.5,102,98.63,3.92,98.42,93.02,0
 20260603,101.5,103,99.3,99.7,100000,98.72,0.99,98.81,91.36,0.06
 20260604,99.7,105,99.3,100,102000,98.83,1.19,99.23,91.53,0.06
 20260605,102.5,104,99.8,102,102000,99.09,2.93,99.71,91.72,0.07
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,120,122.5,109.5,111,20303000,102.45,8.35,102.38,95.65,5.16
 20260629,111.5,113,103.5,105,8351000,102.66,2.28,102.6,96.06,1.92
 20260630,105,110,104,108.5,3124000,103.15,5.19,102.85,96.5,0.69
+20260701,108.5,110,105.5,108,2690000,103.55,4.3,103.12,96.96,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8932 | 智通* | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.股東會決議日:115/06/26 2.許可從事競業行為之董事姓名及職稱: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋 (2)永讚開發投資(股)公司代表人：林俊儀 (3)永讚開發投資(股)公司代表人：TAN TIONG MING (4)宏達開發投資(股)公司代表人：黃偉特 (5)宏達開發投資(股)公司代表人：蔡焜煌 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng 獨立董事 (1)李天行　 (2)張居德 (3)劉慧儀 3.許可從事競業行為之項目: 董事 (1)永讚開發投資(股)公司代表人：鍾富瑋    永讚開發投資(股)公司 董事長    金銓富投資有限公司 董事長    富勛投資有限公司 董事長    智捷醫學科技股份有限公司 董事    雙都經貿股份有限公司 董事    龍邦國際興業股份有限公司 獨立董事    笙泉科技股份有限公司 董事長 (2)永讚開發投資(股)公司代表人：林俊儀    恆理致遠國際法律事務所 所長    宣德科技股份有限公司 獨立董事    金益鼎企業股份有限公司 獨立董事    新潤興業股份有限公司 獨立董事    台翰精密科技股份有限公司 獨立董事    台灣運動彩券股份有限公司 董事    笙泉科技股份有限公司 董事 (3)永讚開發投資(股)公司代表人：TAN TIONG MING    聯和科創股份有限公司 董事    沛聯(北京)科技有限公司 董事    GLOBAL LINE NETWORK SDN BHD – CEO    GLOBAL LINE NETWORK LTD. – Director    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director (4)宏達開發投資(股)公司代表人：黃偉特    易邦建設有限公司 董事    億邦開發股份有限公司 董事    蘭邦投資股份有限公司 董事長    暟富投資股份有限公司 董事長    巨興醫學科技股份有限公司 董事長    澳迪科技股份有限公司 董事長 (5)宏達開發投資(股)公司代表人：蔡焜煌    宏達開發投資(股)公司 董事長    金愛投資有限公司 董事    楚芬投資有限公司 董事    智捷醫學科技股份有限公司 董事    聯和科創股份有限公司 董事長    GLOBAL LINE INNOVATION PTE LTD. – Director    Bharat Line Innovations Pvt Ltd. – Director    Beerupii Innovation Pvt. Ltd. – Director    華智數位娛樂股份有限公司 董事    HuaZhi Software Private Ltd. – Director    笙泉科技股份有限公司 董事 (6)宏達開發投資(股)公司代表人：Vincent Wong Mun Seng    Vincenology Solution – Founder    Vincenology (M) Sdn Bhd – Managing Director    A Plus Network – Managing Director    TG Agrosolutions Limited – Director    Binary Reliance Sdn Bhd – Director 獨立董事 (1)李天行　    勝德國際研發股份有限公司 董事 (2)張居德    張居德律師事務所 主持律師    坤悅開發股份有限公司 獨立董事    元檜投資有限公司 董事 (2)劉慧儀    台亞風能股份有限公司 法人董事代表人    台灣銘板股份有限公司 獨立董事    瀚軒股份有限公司 獨立董事    亞洲新能源(開曼)(股)公司 營運管理總監 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 贊成權數：217,011,081權 反對權數：141,485權 無效權數：0權 棄權與未投票權數：14,636,621權 贊成本案之表決權數占總表決權數93.62%，本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8932 | 智通* | 4 | 2 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

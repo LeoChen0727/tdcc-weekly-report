@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7818 溢泰實業
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:27 Asia/Taipei
+- generated_at: 2026-07-01 22:28:53 Asia/Taipei
 - stock_id: 7818
 - stock_name: 溢泰實業
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 31
+- latest_price_date: 20260701
+- price_rows: 32
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 62.8
-- high: 63.4
-- low: 62.4
-- close: 63.3
-- volume: 165000
-- ma5: 63.2
-- ema23_primary: 63.34
-- distance_to_ema23_pct: -0.07
-- ma20: 63.15
-- ma60: 64.16
-- ma120: 64.16
-- return_5d: -0.94
-- return_20d: -3.36
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 0.25
-- distance_to_high_60_pct: -8.53
+- date: 20260701
+- open: 63.6
+- high: 65.6
+- low: 63.5
+- close: 65.4
+- volume: 337000
+- ma5: 63.58
+- ema23_primary: 63.52
+- distance_to_ema23_pct: 2.97
+- ma20: 63.13
+- ma60: 64.2
+- ma120: 64.2
+- return_5d: 2.99
+- return_20d: -0.46
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 3.6
+- distance_to_high_60_pct: -5.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,65.7,66,65,65.7,323565,65.21,0.76,65.99,65.99,0.35
 20260603,65.8,66,64.8,65.5,455462,65.23,0.41,65.95,65.95,0.52
 20260604,65,66.2,64.4,65.3,368250,65.24,0.1,65.91,65.91,0.43
 20260605,65.2,65.2,64,64.3,238454,65.16,-1.32,65.8,65.8,0.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,63.1,63.4,62.1,62.9,250086,63.38,-0.76,63.4,64.23,0.81
 20260629,62.9,63,62.1,63,183066,63.35,-0.55,63.26,64.19,0.62
 20260630,62.8,63.4,62.4,63.3,165000,63.34,-0.07,63.15,64.16,0.57
+20260701,63.6,65.6,63.5,65.4,337000,63.52,2.97,63.13,64.2,1.17
 ```
 
 ## Latest TDCC Snapshot

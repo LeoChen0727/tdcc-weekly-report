@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009810 玉山全球藍籌100
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:10 Asia/Taipei
+- generated_at: 2026-07-01 22:26:44 Asia/Taipei
 - stock_id: 009810
 - stock_name: 玉山全球藍籌100
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 20.03
-- high: 20.15
-- low: 20.03
-- close: 20.14
-- volume: 226000
-- ma5: 20.03
-- ema23_primary: 20.35
-- distance_to_ema23_pct: -1.03
-- ma20: 20.37
-- ma60: 20.48
-- ma120: 20.48
+- date: 20260701
+- open: 20.2
+- high: 20.24
+- low: 20.16
+- close: 20.23
+- volume: 120000
+- ma5: 20.05
+- ema23_primary: 20.34
+- distance_to_ema23_pct: -0.54
+- ma20: 20.33
+- ma60: 20.47
+- ma120: 20.47
 - return_5d: 0.65
-- return_20d: -3.59
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.12
-- distance_to_high_60_pct: -4.37
+- return_20d: -3.48
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -0.5
+- distance_to_high_60_pct: -3.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,20.89,20.96,20.89,20.96,724328,20.83,0.61,20.82,20.82,2.1
 20260603,20.98,21.06,20.98,21.03,209286,20.85,0.87,20.84,20.84,0.64
 20260604,20.9,20.9,20.69,20.71,117032,20.84,-0.61,20.83,20.83,0.38
 20260605,20.73,20.76,20.71,20.76,144303,20.83,-0.34,20.82,20.82,0.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,20.1,20.1,19.71,19.75,672357,20.4,-3.18,20.44,20.51,2.25
 20260629,19.75,20.02,19.75,20.02,98682,20.37,-1.71,20.41,20.49,0.33
 20260630,20.03,20.15,20.03,20.14,226000,20.35,-1.03,20.37,20.48,0.76
+20260701,20.2,20.24,20.16,20.23,120000,20.34,-0.54,20.33,20.47,0.45
 ```
 
 ## Latest TDCC Snapshot

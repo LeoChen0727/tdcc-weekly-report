@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3230 錦明
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:05 Asia/Taipei
+- generated_at: 2026-07-01 22:27:35 Asia/Taipei
 - stock_id: 3230
 - stock_name: 錦明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,24 +56,24 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
 - thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
@@ -87,9 +87,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -113,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 46
-- high: 46.45
-- low: 42.35
-- close: 46.45
-- volume: 10862000
-- ma5: 40.73
-- ema23_primary: 34.61
-- distance_to_ema23_pct: 34.22
-- ma20: 32.79
-- ma60: 34.58
-- ma120: 36.05
-- return_5d: 34.83
-- return_20d: 51.3
-- volume_ratio: 5.56
-- distance_to_ma20_pct_auxiliary: 41.65
-- distance_to_high_60_pct: -1.69
+- date: 20260701
+- open: 45.85
+- high: 48
+- low: 45.85
+- close: 47.6
+- volume: 1917000
+- ma5: 42.79
+- ema23_primary: 35.69
+- distance_to_ema23_pct: 33.37
+- ma20: 33.64
+- ma60: 34.73
+- ma120: 36.13
+- return_5d: 27.61
+- return_20d: 55.05
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 41.51
+- distance_to_high_60_pct: -0.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,31,31,30.1,30.7,30,32.75,-6.26,32.08,37.02,0
 20260603,31.25,31.55,30.2,30.85,31000,32.59,-5.35,31.89,36.81,0.1
 20260604,30.85,31.05,30.4,30.75,31000,32.44,-5.21,31.73,36.64,0.11
 20260605,31.3,31.5,30.35,30.55,31000,32.28,-5.37,31.55,36.48,0.12
@@ -155,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,36.6,39.85,36.5,39.85,4478000,32.6,22.26,31.32,34.4,3.72
 20260629,43.4,43.8,41.5,43.8,4177000,33.53,30.63,32.01,34.47,2.96
 20260630,46,46.45,42.35,46.45,10862000,34.61,34.22,32.79,34.58,5.56
+20260701,45.85,48,45.85,47.6,1917000,35.69,33.37,33.64,34.73,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3230 | 錦明 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長及副董事長 3.舊任者姓名: 蔡翔峰 簡豪廷 4.舊任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 5.新任者姓名: 蔡翔峰 簡豪廷 6.新任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 任期屆滿改選，股東常會全面改選董事，董事會推舉新任董事長及副董事長 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3230 | 錦明 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長及副董事長 3.舊任者姓名: 蔡翔峰 簡豪廷 4.舊任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 5.新任者姓名: 蔡翔峰 簡豪廷 6.新任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 任期屆滿改選，股東常會全面改選董事，董事會推舉新任董事長及副董事長 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3230 | 錦明 | 5 | 5 | 5 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260701 | 3230 | 錦明 | 6 | 1 | 5 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

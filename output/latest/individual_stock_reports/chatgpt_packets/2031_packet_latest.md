@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:30 Asia/Taipei
+- generated_at: 2026-07-01 22:27:03 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 38.5
-- high: 38.5
-- low: 37.75
-- close: 37.85
-- volume: 1091000
-- ma5: 38.53
-- ema23_primary: 39.43
-- distance_to_ema23_pct: -4.02
-- ma20: 40.15
-- ma60: 39.85
-- ma120: 39.44
-- return_5d: -3.2
-- return_20d: -4.9
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -5.73
-- distance_to_high_60_pct: -13.49
+- date: 20260701
+- open: 38
+- high: 38
+- low: 37.4
+- close: 37.7
+- volume: 752000
+- ma5: 38.27
+- ema23_primary: 39.29
+- distance_to_ema23_pct: -4.05
+- ma20: 40.05
+- ma60: 39.81
+- ma120: 39.45
+- return_5d: -3.33
+- return_20d: -4.92
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -5.87
+- distance_to_high_60_pct: -13.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,39.6,39.8,39.3,39.65,926578,39.21,1.13,38.97,39.64,0.89
 20260603,39.85,42.35,39.5,42.1,4234560,39.45,6.72,39.11,39.69,3.75
 20260604,41.7,43.75,41.45,43,2824933,39.74,8.19,39.27,39.77,2.29
 20260605,42.95,43.4,42.35,43.35,2247039,40.05,8.25,39.45,39.88,1.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,38.8,38.9,38.5,38.55,742650,39.69,-2.88,40.3,39.9,0.45
 20260629,38.55,38.95,38.25,38.3,443412,39.58,-3.23,40.25,39.88,0.27
 20260630,38.5,38.5,37.75,37.85,1091000,39.43,-4.02,40.15,39.85,0.68
+20260701,38,38,37.4,37.7,752000,39.29,-4.05,40.05,39.81,0.47
 ```
 
 ## Latest TDCC Snapshot

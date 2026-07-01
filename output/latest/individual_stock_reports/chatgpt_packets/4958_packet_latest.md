@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:33 Asia/Taipei
+- generated_at: 2026-07-01 22:28:02 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 589
-- high: 630
-- low: 589
-- close: 630
-- volume: 29218000
-- ma5: 594.4
-- ema23_primary: 560.05
-- distance_to_ema23_pct: 12.49
-- ma20: 567.12
-- ma60: 443.24
-- ma120: 311.5
-- return_5d: 7.33
-- return_20d: 14.96
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 11.09
-- distance_to_high_60_pct: -3.67
+- date: 20260701
+- open: 641
+- high: 659
+- low: 602
+- close: 603
+- volume: 50034000
+- ma5: 597.6
+- ema23_primary: 563.63
+- distance_to_ema23_pct: 6.99
+- ma20: 571.27
+- ma60: 449.73
+- ma120: 315.32
+- return_5d: 2.73
+- return_20d: 15.96
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 5.55
+- distance_to_high_60_pct: -8.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,548,548,501,520,13270682,455.64,14.13,461.52,325.65,0.31
 20260603,516,524,505,510,8477422,460.17,10.83,466.43,331.23,0.21
 20260604,489,499.5,484,492.5,10608832,462.86,6.4,469.7,336.73,0.28
 20260605,480,513,450,504,8176859,466.29,8.09,474.85,342.33,0.22
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,596,645,577,580,65673843,551.93,5.09,560.12,430.29,2.24
 20260629,590,599,561,573,29695362,553.69,3.49,563.02,436.4,0.98
 20260630,589,630,589,630,29218000,560.05,12.49,567.12,443.24,0.94
+20260701,641,659,602,603,50034000,563.63,6.99,571.27,449.73,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.接受資金貸與之: (1)公司名稱:PENG SHEN TECHNOLOGY (THAILAND) CO., LTD. (2)與資金貸與他人公司之關係: 關聯企業 (3)資金貸與之限額(仟元):1,933,918 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):1,300,000 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,300,000 (8)本次新增資金貸與之原因: 董事會通過新增資金貸與額度 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):8,306,510 (2)累積盈虧金額(仟元):-1,831,244 5.計息方式: 按合約規定 6.還款之: (1)條件: 按合約規定 (2)日期: 按合約規定 7.迄事實發生日為止，資金貸與餘額(仟元): 1,300,000 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 1.03 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 董事會通過新增短期資金貸與額度TWD 13億元；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | 1.事實發生日:115/06/29 2.接受資金貸與之: (1)公司名稱:PENG SHEN TECHNOLOGY (THAILAND) CO., LTD. (2)與資金貸與他人公司之關係: 關聯企業 (3)資金貸與之限額(仟元):1,933,918 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):1,300,000 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,300,000 (8)本次新增資金貸與之原因: 董事會通過新增資金貸與額度 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):8,306,510 (2)累積盈虧金額(仟元):-1,831,244 5.計息方式: 按合約規定 6.還款之: (1)條件: 按合約規定 (2)日期: 按合約規定 7.迄事實發生日為止，資金貸與餘額(仟元): 1,300,000 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 1.03 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 董事會通過新增短期資金貸與額度TWD 13億元；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 4958 | 臻鼎-KY | 5 | 5 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 4958 | 臻鼎-KY | 6 | 6 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 4958 | 臻鼎-KY | 240 | 0 | 51414730.0 | 0.0 |  | no_signal |
+| 20260701 | 4958 | 臻鼎-KY | 239 | 15 | 88440030.0 | 335130.0 | 263.9 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

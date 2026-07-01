@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6612 奈米醫材
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:05 Asia/Taipei
+- generated_at: 2026-07-01 22:28:32 Asia/Taipei
 - stock_id: 6612
 - stock_name: 奈米醫材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 159
+- latest_price_date: 20260701
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 71.2
-- high: 72.7
+- date: 20260701
+- open: 71.4
+- high: 71.5
 - low: 71.2
-- close: 72.4
-- volume: 14000
-- ma5: 71.86
-- ema23_primary: 72.06
-- distance_to_ema23_pct: 0.47
-- ma20: 72.42
-- ma60: 70.51
-- ma120: 72.21
-- return_5d: 0.84
-- return_20d: -0.14
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -0.03
-- distance_to_high_60_pct: -6.94
+- close: 71.3
+- volume: 12000
+- ma5: 71.66
+- ema23_primary: 72
+- distance_to_ema23_pct: -0.97
+- ma20: 72.37
+- ma60: 70.53
+- ma120: 72.18
+- return_5d: -1.38
+- return_20d: -1.38
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -1.48
+- distance_to_high_60_pct: -8.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,73,73,72.3,72.3,73,70.93,1.93,70.33,69.66,0
 20260603,72.1,72.4,71.2,71.7,72000,71,0.99,70.54,69.71,1.08
 20260604,71.8,72.4,71.7,72.4,72000,71.11,1.81,70.75,69.8,1.04
 20260605,72,75,72,72.5,73000,71.23,1.78,70.97,69.88,1.05
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,72,72,70.7,70.8,45000,72.07,-1.76,72.47,70.43,0.96
 20260629,71.1,71.9,71,71.6,39000,72.03,-0.59,72.42,70.48,0.86
 20260630,71.2,72.7,71.2,72.4,14000,72.06,0.47,72.42,70.51,0.33
+20260701,71.4,71.5,71.2,71.3,12000,72,-0.97,72.37,70.53,0.28
 ```
 
 ## Latest TDCC Snapshot

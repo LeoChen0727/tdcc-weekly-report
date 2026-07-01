@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3443 創意
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:10 Asia/Taipei
+- generated_at: 2026-07-01 22:27:40 Asia/Taipei
 - stock_id: 3443
 - stock_name: 創意
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 4555
-- high: 4860
-- low: 4445
-- close: 4845
-- volume: 1867000
-- ma5: 4683
-- ema23_primary: 4649.89
-- distance_to_ema23_pct: 4.2
-- ma20: 4579.5
-- ma60: 4339.5
-- ma120: 3393.79
-- return_5d: 2.54
-- return_20d: 4.08
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 5.8
-- distance_to_high_60_pct: -18.57
+- date: 20260701
+- open: 4865
+- high: 5130
+- low: 4845
+- close: 5045
+- volume: 2093000
+- ma5: 4716
+- ema23_primary: 4682.81
+- distance_to_ema23_pct: 7.73
+- ma20: 4605
+- ma60: 4384.92
+- ma120: 3418.21
+- return_5d: 3.38
+- return_20d: 11.25
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 9.55
+- distance_to_high_60_pct: -15.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,4745,4795,4420,4535,2850767,4690.35,-3.31,5016.25,3646.75,0.91
 20260603,4600,4725,4510,4605,1608751,4683.24,-1.67,4998.75,3683.75,0.54
 20260604,4550,4690,4400,4400,1429563,4659.64,-5.57,4946.25,3720.58,0.49
 20260605,4335,4570,4130,4410,2408529,4638.83,-4.93,4906.25,3756.67,0.83
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,4790,4875,4410,4420,2291763,4651.43,-4.98,4582.5,4260.42,0.85
 20260629,4425,4520,4355,4420,947448,4632.15,-4.58,4570,4298,0.4
 20260630,4555,4860,4445,4845,1867000,4649.89,4.2,4579.5,4339.5,0.8
+20260701,4865,5130,4845,5045,2093000,4682.81,7.73,4605,4384.92,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3443 | 創意 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260630 | 3443 | 創意 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 3443 | 創意 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3443 | 創意 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3443 | 創意 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 3443 | 創意 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3443 | 創意 | 67 | 0 | 2464700.0 | 0.0 |  | no_signal |
+| 20260701 | 3443 | 創意 | 65 | 10 | 4005240.0 | 400.0 | 10013.1 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

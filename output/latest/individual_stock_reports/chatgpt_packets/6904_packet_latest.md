@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6904 伯鑫
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:15 Asia/Taipei
+- generated_at: 2026-07-01 22:28:41 Asia/Taipei
 - stock_id: 6904
 - stock_name: 伯鑫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260629
-- price_rows: 122
+- latest_price_date: 20260701
+- price_rows: 123
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260629
-- open: 126
-- high: 126.5
-- low: 126
-- close: 126.5
+- date: 20260701
+- open: 125.5
+- high: 126
+- low: 125.5
+- close: 126
 - volume: 2000
-- ma5: 124.1
-- ema23_primary: 120.41
-- distance_to_ema23_pct: 5.06
-- ma20: 119.33
-- ma60: 119.74
+- ma5: 124.7
+- ema23_primary: 120.87
+- distance_to_ema23_pct: 4.24
+- ma20: 119.97
+- ma60: 119.77
 - ma120: 121.22
-- return_5d: 2.85
-- return_20d: 8.12
+- return_5d: 2.44
+- return_20d: 11.5
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 6.01
-- distance_to_high_60_pct: 0
+- distance_to_ma20_pct_auxiliary: 5.02
+- distance_to_high_60_pct: -0.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260519,114,114,113,113,2000,117.04,-3.45,116.75,122.14,0.4
 20260520,113,113.5,113,113.5,5000,116.74,-2.78,116.38,121.96,1.04
 20260521,113,115,113,115,3000,116.6,-1.37,116.2,121.78,0.65
 20260525,113,116,113,116,114000,116.55,-0.47,116.08,121.58,11.69
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,120,124,120,124,3000,119.57,3.71,118.5,119.72,0.08
 20260626,125,125,120,123,4000,119.85,2.63,118.85,119.71,0.11
 20260629,126,126.5,126,126.5,2000,120.41,5.06,119.33,119.74,0.05
+20260701,125.5,126,125.5,126,2000,120.87,4.24,119.97,119.77,0.05
 ```
 
 ## Latest TDCC Snapshot

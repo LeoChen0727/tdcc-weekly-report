@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3031 佰鴻
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:58 Asia/Taipei
+- generated_at: 2026-07-01 22:27:29 Asia/Taipei
 - stock_id: 3031
 - stock_name: 佰鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 31
-- high: 33.7
-- low: 30.8
-- close: 33.5
-- volume: 9088000
-- ma5: 30.85
-- ema23_primary: 30.24
-- distance_to_ema23_pct: 10.76
-- ma20: 29.91
-- ma60: 30.31
-- ma120: 25.44
-- return_5d: 4.52
-- return_20d: 3.4
-- volume_ratio: 3.79
-- distance_to_ma20_pct_auxiliary: 12
-- distance_to_high_60_pct: -5.1
+- date: 20260701
+- open: 33.8
+- high: 36.85
+- low: 32.75
+- close: 34.5
+- volume: 22261000
+- ma5: 31.57
+- ema23_primary: 30.6
+- distance_to_ema23_pct: 12.75
+- ma20: 30.04
+- ma60: 30.49
+- ma120: 25.57
+- return_5d: 11.65
+- return_20d: 7.98
+- volume_ratio: 6.54
+- distance_to_ma20_pct_auxiliary: 14.86
+- distance_to_high_60_pct: -6.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,32.5,32.65,31.3,31.95,2076223,31.05,2.91,30.87,27.8,0.54
 20260603,32.15,33.4,32.15,32.75,2392086,31.19,5.01,30.98,28.02,0.64
 20260604,32.3,32.4,31.4,31.8,1524367,31.24,1.8,31.05,28.24,0.41
 20260605,31.4,31.95,30.6,31,1320355,31.22,-0.7,31.12,28.43,0.36
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,29.65,30.3,29.25,29.4,1436213,29.88,-1.62,29.94,29.98,0.66
 20260629,29.35,31.1,29.2,30.65,1992019,29.95,2.34,29.86,30.13,0.94
 20260630,31,33.7,30.8,33.5,9088000,30.24,10.76,29.91,30.31,3.79
+20260701,33.8,36.85,32.75,34.5,22261000,30.6,12.75,30.04,30.49,6.54
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3031 | 佰鴻 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3031 | 佰鴻 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3031 | 佰鴻 | 6 | 1 | 5 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260701 | 3031 | 佰鴻 | 7 | 2 | 5 | 8 | 15 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

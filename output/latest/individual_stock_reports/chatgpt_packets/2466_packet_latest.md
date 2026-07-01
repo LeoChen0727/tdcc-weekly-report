@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:43 Asia/Taipei
+- generated_at: 2026-07-01 22:27:15 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 停利
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 59.6
-- high: 64.9
-- low: 58.3
-- close: 64.9
-- volume: 1860000
-- ma5: 59.78
-- ema23_primary: 52.95
-- distance_to_ema23_pct: 22.57
-- ma20: 50.63
-- ma60: 52.94
-- ma120: 54.71
-- return_5d: 15.28
-- return_20d: 38.09
-- volume_ratio: 2.6
-- distance_to_ma20_pct_auxiliary: 28.18
-- distance_to_high_60_pct: -2.84
+- date: 20260701
+- open: 64.6
+- high: 71.3
+- low: 62.5
+- close: 71.3
+- volume: 10042000
+- ma5: 62.24
+- ema23_primary: 54.48
+- distance_to_ema23_pct: 30.87
+- ma20: 51.91
+- ma60: 53.3
+- ma120: 54.73
+- return_5d: 20.85
+- return_20d: 56.02
+- volume_ratio: 8.33
+- distance_to_ma20_pct_auxiliary: 37.35
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,47,47,45.6,45.7,263155,49.62,-7.89,48.8,52.07,0.78
 20260603,46,47.95,45.7,47.05,419340,49.4,-4.76,48.49,52.02,1.24
 20260604,46.65,46.65,44.7,45,657819,49.04,-8.23,48.08,52.01,1.89
 20260605,45.05,45.15,44,44.6,251347,48.67,-8.36,47.79,51.98,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,57.9,62.1,57,58,1436132,51.22,13.25,49.17,52.41,2.34
 20260629,58.8,60.8,58,59,824108,51.86,13.76,49.74,52.63,1.29
 20260630,59.6,64.9,58.3,64.9,1860000,52.95,22.57,50.63,52.94,2.6
+20260701,64.6,71.3,62.5,71.3,10042000,54.48,30.87,51.91,53.3,8.33
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2466 | 冠西電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | repeated_but_no_breakout | 1.法律事件之當事人: (1)聲請人:COSMO ELECTRONICS (HK) COMPANY LIMITED (2)相對人:Kiwi-Smart Cooperation, LTD(英屬維京群島商凱威智能有限公司) 2.法律事件之法院名稱或處分機關:臺灣台北地方法院 3.法律事件之相關文書案號:尚未成立 4.事實發生日:115/06/29 5.發生原委(含爭訟標的):強制申請返還預付貨款。 6.處理過程: 依據115年度板司簡調字第1357號，相對人應於115/06/25前一次全部給付美金888萬3仟 元整，截至115/06/29仍未收到相對人返還之預付款貨款，遂向臺灣台北地方法院聲請 強制執行。 7.對公司財務業務影響及預估影響金額: 對於本公司之財務或業務暫無重大影響。 8.因應措施及改善情形:無。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 2466 | 冠西電 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.法律事件之當事人: (1)聲請人:COSMO ELECTRONICS (HK) COMPANY LIMITED (2)相對人:Kiwi-Smart Cooperation, LTD(英屬維京群島商凱威智能有限公司) 2.法律事件之法院名稱或處分機關:臺灣台北地方法院 3.法律事件之相關文書案號:尚未成立 4.事實發生日:115/06/29 5.發生原委(含爭訟標的):強制申請返還預付貨款。 6.處理過程: 依據115年度板司簡調字第1357號，相對人應於115/06/25前一次全部給付美金888萬3仟 元整，截至115/06/29仍未收到相對人返還之預付款貨款，遂向臺灣台北地方法院聲請 強制執行。 7.對公司財務業務影響及預估影響金額: 對於本公司之財務或業務暫無重大影響。 8.因應措施及改善情形:無。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2466 | 冠西電 | 1 | 1 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260701 | 2466 | 冠西電 | 2 | 1 | 4 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

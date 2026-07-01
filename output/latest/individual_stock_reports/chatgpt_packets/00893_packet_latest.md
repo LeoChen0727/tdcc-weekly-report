@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00893 國泰智能電動車
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:07 Asia/Taipei
+- generated_at: 2026-07-01 22:26:42 Asia/Taipei
 - stock_id: 00893
 - stock_name: 國泰智能電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 45.87
-- high: 46.35
-- low: 45.86
-- close: 46.31
-- volume: 813000
-- ma5: 45.74
-- ema23_primary: 46.12
-- distance_to_ema23_pct: 0.41
-- ma20: 46.23
-- ma60: 46.38
-- ma120: 46.38
-- return_5d: -1.99
-- return_20d: -2.77
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 0.18
-- distance_to_high_60_pct: -3.72
+- date: 20260701
+- open: 47.64
+- high: 47.7
+- low: 47.19
+- close: 47.5
+- volume: 1019000
+- ma5: 46.02
+- ema23_primary: 46.23
+- distance_to_ema23_pct: 2.74
+- ma20: 46.25
+- ma60: 46.42
+- ma120: 46.42
+- return_5d: 3.04
+- return_20d: 0.94
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 2.7
+- distance_to_high_60_pct: -1.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,47.6,47.6,46.72,47.06,1185068,46.07,2.14,46.84,46.84,0.76
 20260603,47.9,48.08,47.86,47.96,1301397,46.23,3.74,46.96,46.96,0.85
 20260604,47.9,48.1,47.69,47.81,1343787,46.36,3.13,47.05,47.05,0.88
 20260605,47.03,47.09,46.68,47.01,663022,46.42,1.28,47.04,47.04,0.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,46,46,45.06,45.24,1288864,46.2,-2.09,46.45,46.44,1.03
 20260629,45.2,45.2,44.66,44.98,1290591,46.1,-2.43,46.29,46.38,1.07
 20260630,45.87,46.35,45.86,46.31,813000,46.12,0.41,46.23,46.38,0.68
+20260701,47.64,47.7,47.19,47.5,1019000,46.23,2.74,46.25,46.42,0.86
 ```
 
 ## Latest TDCC Snapshot

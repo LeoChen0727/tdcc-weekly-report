@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3011 今皓
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:56 Asia/Taipei
+- generated_at: 2026-07-01 22:27:28 Asia/Taipei
 - stock_id: 3011
 - stock_name: 今皓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 14.8
-- high: 15
-- low: 14.65
-- close: 14.85
-- volume: 1276000
-- ma5: 14.48
-- ema23_primary: 14.3
-- distance_to_ema23_pct: 3.84
-- ma20: 14.54
-- ma60: 13.72
-- ma120: 13.58
-- return_5d: 5.32
-- return_20d: 2.41
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 2.1
-- distance_to_high_60_pct: -7.48
+- date: 20260701
+- open: 15.1
+- high: 15.1
+- low: 14.1
+- close: 14.2
+- volume: 1551000
+- ma5: 14.47
+- ema23_primary: 14.29
+- distance_to_ema23_pct: -0.65
+- ma20: 14.51
+- ma60: 13.75
+- ma120: 13.57
+- return_5d: -0.35
+- return_20d: -4.7
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -2.14
+- distance_to_high_60_pct: -11.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,14.95,15.15,14.1,14.9,6785037,13.46,10.7,13.34,13.08,3.82
 20260603,14.7,15.25,14.35,14.85,3178416,13.58,9.38,13.4,13.11,1.69
 20260604,14.8,15.3,14.5,15.2,3056305,13.71,10.86,13.48,13.16,1.55
 20260605,15.2,15.2,14.55,14.8,1565330,13.8,7.23,13.55,13.2,0.79
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,14.15,14.8,14,14.45,2263779,14.22,1.62,14.46,13.63,1.1
 20260629,14.6,15.2,14.5,14.6,1985923,14.25,2.45,14.53,13.68,0.94
 20260630,14.8,15,14.65,14.85,1276000,14.3,3.84,14.54,13.72,0.7
+20260701,15.1,15.1,14.1,14.2,1551000,14.29,-0.65,14.51,13.75,1
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3011 | 今皓 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3011 | 今皓 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東會決議日:115/06/30 2.許可從事競業行為之董事姓名及職稱: (1)董事:石浩吉 (2)董事:金緻人工智能投資有限公司法人代表：何昭陽 (3)獨立董事:王恩國 (4)獨立董事:龔新傑 (5)獨立董事:吳子祺 3.許可從事競業行為之項目:投資或經營與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:擔任本公司董事期間 5.決議情形（請依公司法第209條說明表決結果）:已發行股份總數過半數股東出席， 出席股東表決權三分之二以上同意。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）: (1)董事:石浩吉 (2)獨立董事:王恩國 7.所擔任該大陸地區事業之公司名稱及職務: (1)董事:石浩吉    今皓光電(昆山)有限公司董事長    今皓人工智能科技(昆山)有限公司董事 (2)獨立董事:王恩國    南昌菱光科技有限公司董事長    無錫菱光科技有限公司董事 8.所擔任該大陸地區事業地址:  今皓光電(昆山)有限公司：  江蘇省昆山經濟開發區張浦配套區江豐路110號  今皓人工智能科技(昆山)有限公司：  江蘇省昆山經濟開發區張浦配套區江豐路110號  南昌菱光科技有限公司：  江西省南昌市高新開發區火炬五路36號  無錫菱光科技有限公司：  江蘇省無錫市高新技術產業開發區93號地塊A4 9.所擔任該大陸地區事業營業項目:  今皓光電(昆山)有限公司：生產及買賣電腦線或插頭等產品  今皓人工智能科技(昆山)有限公司：生產及買賣電腦線或插頭等產品  南昌菱光科技有限公司：影像感測器之製造  無錫菱光科技有限公司：彩色影像感測器 10.對本公司財務業務之影響程度:不適用。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3011 | 今皓 | 3 | 3 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 3011 | 今皓 | 4 | 4 | 4 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

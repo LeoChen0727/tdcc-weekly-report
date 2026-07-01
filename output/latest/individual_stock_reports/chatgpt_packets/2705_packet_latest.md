@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2705 六福
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:50 Asia/Taipei
+- generated_at: 2026-07-01 22:27:21 Asia/Taipei
 - stock_id: 2705
 - stock_name: 六福
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
+- date: 20260701
 - open: 16.2
-- high: 16.2
+- high: 16.25
 - low: 16.1
 - close: 16.2
-- volume: 88000
-- ma5: 16.17
-- ema23_primary: 15.97
-- distance_to_ema23_pct: 1.41
-- ma20: 15.94
-- ma60: 16.11
-- ma120: 16.24
+- volume: 56000
+- ma5: 16.18
+- ema23_primary: 15.99
+- distance_to_ema23_pct: 1.29
+- ma20: 15.98
+- ma60: 16.1
+- ma120: 16.23
 - return_5d: 0.31
-- return_20d: 5.88
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 1.62
+- return_20d: 5.19
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 1.36
 - distance_to_high_60_pct: -10.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,15.35,15.4,15.2,15.4,163008,15.57,-1.09,15.45,16.23,0.34
 20260603,15.5,15.9,15.45,15.75,349609,15.58,1.06,15.42,16.22,0.73
 20260604,16,16,15.55,15.75,275503,15.6,0.97,15.4,16.22,0.59
 20260605,15.75,15.8,15.5,15.7,261122,15.61,0.6,15.39,16.22,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,16.05,16.2,16,16.15,138931,15.94,1.34,15.85,16.12,0.51
 20260629,16.15,16.2,16.05,16.15,103932,15.95,1.23,15.9,16.11,0.4
 20260630,16.2,16.2,16.1,16.2,88000,15.97,1.41,15.94,16.11,0.35
+20260701,16.2,16.25,16.1,16.2,56000,15.99,1.29,15.98,16.1,0.23
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00881 國泰台灣科技龍頭
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:07 Asia/Taipei
+- generated_at: 2026-07-01 22:26:42 Asia/Taipei
 - stock_id: 00881
 - stock_name: 國泰台灣科技龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 54.3
-- high: 55.25
-- low: 54.3
-- close: 54.85
-- volume: 9766000
-- ma5: 54.25
-- ema23_primary: 54.17
-- distance_to_ema23_pct: 1.26
-- ma20: 54.48
-- ma60: 54.29
-- ma120: 54.29
-- return_5d: -3.26
-- return_20d: -1.17
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 0.68
-- distance_to_high_60_pct: -5.35
+- date: 20260701
+- open: 56.15
+- high: 56.15
+- low: 55.3
+- close: 55.85
+- volume: 8137000
+- ma5: 54.35
+- ema23_primary: 54.31
+- distance_to_ema23_pct: 2.84
+- ma20: 54.51
+- ma60: 54.35
+- ma120: 54.35
+- return_5d: 0.9
+- return_20d: 0.99
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 2.46
+- distance_to_high_60_pct: -3.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,55.75,56,54.35,55.3,15535909,52.64,5.04,53.96,53.96,1.08
 20260603,56.1,56.5,56,56.05,11882498,52.93,5.9,54.19,54.19,0.84
 20260604,55.65,55.95,55.15,55.3,9940813,53.13,4.09,54.3,54.3,0.73
 20260605,54.65,54.9,53.05,54.1,13906362,53.21,1.68,54.28,54.28,1.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,54.5,54.5,52.55,52.7,20295377,54.21,-2.78,54.61,54.32,1.57
 20260629,52.7,53.8,52.7,53,8469517,54.11,-2.04,54.51,54.27,0.66
 20260630,54.3,55.25,54.3,54.85,9766000,54.17,1.26,54.48,54.29,0.77
+20260701,56.15,56.15,55.3,55.85,8137000,54.31,2.84,54.51,54.35,0.66
 ```
 
 ## Latest TDCC Snapshot

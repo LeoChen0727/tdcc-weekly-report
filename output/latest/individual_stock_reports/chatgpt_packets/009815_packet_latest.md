@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009815 大華美國MAG7+
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:10 Asia/Taipei
+- generated_at: 2026-07-01 22:26:44 Asia/Taipei
 - stock_id: 009815
 - stock_name: 大華美國MAG7+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260630
-- price_rows: 27
+- latest_price_date: 20260701
+- price_rows: 28
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 11.02
-- high: 11.14
-- low: 11.02
-- close: 11.13
-- volume: 6176000
-- ma5: 10.96
+- date: 20260701
+- open: 11.22
+- high: 11.29
+- low: 11.22
+- close: 11.26
+- volume: 3941000
+- ma5: 11.01
 - ema23_primary: 11.17
-- distance_to_ema23_pct: -0.32
-- ma20: 11.2
+- distance_to_ema23_pct: 0.77
+- ma20: 11.18
 - ma60: 11.26
 - ma120: 11.26
-- return_5d: 0.63
-- return_20d: -4.71
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -0.61
-- distance_to_high_60_pct: -5.44
+- return_5d: 2.46
+- return_20d: -3.84
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 0.76
+- distance_to_high_60_pct: -4.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,11.68,11.71,11.63,11.71,12,11.42,2.55,11.47,11.47,0
 20260603,11.75,11.77,11.72,11.74,12000,11.45,2.57,11.5,11.5,1.19
 20260604,11.63,11.63,11.5,11.53,12000,11.45,0.68,11.51,11.51,1.16
 20260605,11.49,11.5,11.45,11.49,11000,11.46,0.3,11.5,11.5,1.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,10.88,10.89,10.66,10.72,7805000,11.19,-4.23,11.26,11.28,1.79
 20260629,10.72,10.92,10.72,10.9,4964000,11.17,-2.41,11.23,11.27,1.08
 20260630,11.02,11.14,11.02,11.13,6176000,11.17,-0.32,11.2,11.26,1.26
+20260701,11.22,11.29,11.22,11.26,3941000,11.17,0.77,11.18,11.26,0.77
 ```
 
 ## Latest TDCC Snapshot

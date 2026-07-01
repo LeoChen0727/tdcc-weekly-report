@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-06-30 22:28:28 Asia/Taipei
+- generated_at: 2026-07-01 22:28:54 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 156
-- high: 169.5
-- low: 153
-- close: 169.5
-- volume: 36613000
-- ma5: 148.6
-- ema23_primary: 139.94
-- distance_to_ema23_pct: 21.12
-- ma20: 136.07
-- ma60: 140.32
-- ma120: 144.22
-- return_5d: 20.21
-- return_20d: 20.21
-- volume_ratio: 6.68
-- distance_to_ma20_pct_auxiliary: 24.56
+- date: 20260701
+- open: 177
+- high: 186
+- low: 175.5
+- close: 186
+- volume: 25308000
+- ma5: 157.8
+- ema23_primary: 143.78
+- distance_to_ema23_pct: 29.37
+- ma20: 138.57
+- ma60: 141.19
+- ma120: 144.55
+- return_5d: 32.86
+- return_20d: 36.76
+- volume_ratio: 3.88
+- distance_to_ma20_pct_auxiliary: 34.22
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,140.5,140.5,134.5,136,4262714,140.2,-2.99,140.3,142.82,0.91
 20260603,136,136.5,134,134.5,2390104,139.72,-3.74,139.5,142.55,0.52
 20260604,135.5,135.5,132.5,133,2245004,139.16,-4.43,138.57,142.49,0.49
 20260605,134.5,135.5,131.5,134.5,2281999,138.77,-3.08,137.35,142.45,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,139,143,136.5,140.5,4620133,135.69,3.55,134.07,139.51,1.22
 20260629,146,154.5,144.5,154.5,11574293,137.25,12.57,134.65,139.82,2.9
 20260630,156,169.5,153,169.5,36613000,139.94,21.12,136.07,140.32,6.68
+20260701,177,186,175.5,186,25308000,143.78,29.37,138.57,141.19,3.88
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8033 | 雷虎 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 8033 | 雷虎 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | 1.事實發生日:115/06/30 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:                           最近一月 科目                     115年5月           與去年同期增減(%)                          (自結數) 營業收入(百萬元)             117                   -10% 稅前淨利(百萬元)              (9)                 -238% 本期淨利(百萬元)              (9)                 -214% (歸屬母公司業主權益) 每股盈餘(元)                (0.06)                -214%                           最近一季 科目                    115第一季           與去年同期增減(%)                           (查核數) 營業收入(百萬元)             375                    12% 稅前淨利(百萬元)              52                    27% 本期淨利(百萬元)              52                    41% (歸屬母公司業主權益) 每股盈餘(元)                 0.34                   36%                         最近四季累計 科目               114年第二季至115年第一季 與去年同期增減(%)                           (查核數) 營業收入(百萬元)           1,464                    13% 稅前淨利(百萬元)              96                   -12% 本期淨利(百萬元)             103                    21% (歸屬母公司業主權益) 每股盈餘(元)                 0.67                   16% 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:115年5月為自結報表，營業外收支包含當期長短期投資及匯率之 變化，實際以會計師查核數為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8033 | 雷虎 | 4 | 1 | 4 | 5 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260701 | 8033 | 雷虎 | 5 | 2 | 5 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 8033 | 雷虎 | 4 | 0 | 1066300.0 | 0.0 |  | call_inflow |
+| 20260701 | 8033 | 雷虎 | 4 | 0 | 2331040.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

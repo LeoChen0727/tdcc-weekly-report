@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-06-30 22:27:09 Asia/Taipei
+- generated_at: 2026-07-01 22:27:40 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 294
+- latest_price_date: 20260701
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 165
-- high: 177.5
-- low: 161.5
-- close: 177.5
-- volume: 1017000
-- ma5: 169.7
-- ema23_primary: 173.19
-- distance_to_ema23_pct: 2.49
-- ma20: 174.78
-- ma60: 167.75
-- ma120: 157.99
-- return_5d: 3.5
-- return_20d: -3.53
-- volume_ratio: 2.77
-- distance_to_ma20_pct_auxiliary: 1.56
-- distance_to_high_60_pct: -9.44
+- date: 20260701
+- open: 179.5
+- high: 192
+- low: 177.5
+- close: 179.5
+- volume: 1490000
+- ma5: 171.4
+- ema23_primary: 173.71
+- distance_to_ema23_pct: 3.33
+- ma20: 174.62
+- ma60: 168.35
+- ma120: 158.23
+- return_5d: 4.97
+- return_20d: -1.64
+- volume_ratio: 3.58
+- distance_to_ma20_pct_auxiliary: 2.79
+- distance_to_high_60_pct: -8.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,186,186.5,180.5,182.5,511021,173.89,4.95,174.8,159.4,0.57
 20260603,183.5,185.5,181,182.5,326396,174.6,4.52,175.88,160.02,0.37
 20260604,182.5,182.5,178.5,180,305966,175.05,2.83,176.3,160.67,0.38
 20260605,180,181,176.5,181,327531,175.55,3.11,176.57,161.32,0.44
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,169,172,163.5,163.5,463562,173.37,-5.69,175.95,166.8,1.31
 20260629,165.5,169,164.5,166.5,352891,172.79,-3.64,175.1,167.19,1.03
 20260630,165,177.5,161.5,177.5,1017000,173.19,2.49,174.78,167.75,2.77
+20260701,179.5,192,177.5,179.5,1490000,173.71,3.33,174.62,168.35,3.58
 ```
 
 ## Latest TDCC Snapshot
@@ -192,20 +192,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3416 | 融程電 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_inflow | first_seen | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
-| 20260630 | 3416 | 融程電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | first_seen | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260630 | 3416 | 融程電 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 27.0 | D_降級_TDCC轉弱 |  |  | call_inflow | first_seen | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260630 | 3416 | 融程電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_3d |
+| 20260701 | 3416 | 融程電 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260701 | 3416 | 融程電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 3416 | 融程電 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 38.0 | D_降級_TDCC轉弱 |  |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 3416 | 融程電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3416 | 融程電 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260701 | 3416 | 融程電 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 3416 | 融程電 | 14 | 0 | 1620750.0 | 0.0 |  | call_inflow |
+| 20260701 | 3416 | 融程電 | 14 | 0 | 5326460.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

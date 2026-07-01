@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-06-30 22:26:34 Asia/Taipei
+- generated_at: 2026-07-01 22:27:07 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260630
-- price_rows: 293
+- latest_price_date: 20260701
+- price_rows: 294
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260630
-- open: 251.5
+- date: 20260701
+- open: 255
 - high: 255.5
-- low: 249
-- close: 251
-- volume: 51113000
-- ma5: 251.9
-- ema23_primary: 260.91
-- distance_to_ema23_pct: -3.8
-- ma20: 269.07
-- ma60: 245.16
-- ma120: 232.77
-- return_5d: -3.28
-- return_20d: -14.48
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -6.72
-- distance_to_high_60_pct: -20.06
+- low: 248
+- close: 248
+- volume: 63410000
+- ma5: 250.3
+- ema23_primary: 259.83
+- distance_to_ema23_pct: -4.55
+- ma20: 266.4
+- ma60: 246.07
+- ma120: 232.96
+- return_5d: -3.12
+- return_20d: -17.74
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -6.91
+- distance_to_high_60_pct: -21.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,297.5,302,293,301.5,113076476,256.46,17.56,258.18,225.61,1.05
 20260603,306,314,299,309,149620933,260.84,18.46,261.02,227.04,1.46
 20260604,309,309,293,293,110760779,263.52,11.19,263,228.42,1.09
 20260605,290.5,292.5,278,284.5,93158859,265.27,7.25,264.73,229.67,0.92
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,255.5,255.5,248,248.5,80450955,263.2,-5.58,273.32,243.28,0.81
 20260629,250,252,246,246.5,49210311,261.81,-5.85,271.2,244.26,0.57
 20260630,251.5,255.5,249,251,51113000,260.91,-3.8,269.07,245.16,0.65
+20260701,255,255.5,248,248,63410000,259.83,-4.55,266.4,246.07,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.發生變動日期:115/06/26 2.功能性委員會名稱:審計暨風險委員會、薪資報酬委員會、公司治理暨提名委員會 3.舊任者姓名:黃清苑 4.舊任者簡歷:本公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:因擔任本公司相關企業之職務，故辭任本公司功能性委員會職務。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/29~117/05/28 10.新任生效日期:不適用 11.其他應敘明事項: 本公司於115年6月26日接獲其辭任書，任職至115年6月26日止。 該獨立董事辭任獨立董事之職務並併同辭任董事會下之功能性委員會職務。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260701 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 中國深圳市龍華區福城街道興富社區富士康鴻觀科技園B區/C區部分廠房; 不動產使用權資產 2.事實發生日:115/6/30~115/6/30 3.董事會通過日期: 民國115年6月30日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：58,770.19平方公尺折合17,778坪  每單位月租金價格：人民幣19.62~21.80元/每平方公尺 合約租金總額：人民幣18,377,309.97元 使用權資產交易金額：人民幣16,315,799元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 富士康科技集團有限公司；關聯公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 集團資源整合；不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 富士康科技集團有限公司： (1)租賃期間 2026/7/1~2027/12/31 ，租金總額人民幣 4,232,209.32元 (2)租賃期間 2026/10/1~2027/12/31 ，租金總額人民幣 14,145,100.65元 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：議價  參考依據：按市場行情 決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 營運需求 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年06月30日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2317 | 鴻海 | 12 | 6 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260701 | 2317 | 鴻海 | 13 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260630 | 2317 | 鴻海 | 524 | 0 | 39687960.0 | 0.0 |  | call_strong_inflow |
+| 20260701 | 2317 | 鴻海 | 522 | 40 | 40972980.0 | 757340.0 | 54.1 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
