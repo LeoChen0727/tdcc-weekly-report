@@ -14,9 +14,11 @@ if str(SCRIPTS) not in sys.path:
 from build_daily_model_signal_background_features import (  # noqa: E402
     build_feature_panel,
     feature_catalog,
+    load_theme_status_history,
     load_price_history,
     load_tdcc_history,
     price_background_features,
+    theme_background_features,
     tdcc_background_features,
 )
 from validate_daily_model_signal_background_features import validate_catalog, validate_panel  # noqa: E402
@@ -99,6 +101,71 @@ def test_tdcc_background_features_use_asof_rows_only(tmp_path: Path) -> None:
     assert features["tdcc_over_1000_change_1w"] == 0.1
 
 
+def test_theme_background_features_use_signal_date_asof_history(tmp_path: Path) -> None:
+    theme_path = tmp_path / "daily_theme_status_history.csv"
+    pd.DataFrame(
+        [
+            {
+                "signal_date": "20260313",
+                "stock_id": "2330",
+                "theme_name": "AI",
+                "theme_final_status": "mainstream_follow_through",
+                "theme_status_group": "mainstream_supported",
+                "candidate_source_type": "mainstream_theme_candidate",
+                "candidate_line_group": "breakout_attack_stock",
+                "candidate_line": "帶量突破",
+                "two_line_overlap_flag": "true",
+                "presentation_priority": "2",
+                "tdcc_status": "up",
+                "warrant_flow_signal": "neutral",
+                "volume_ratio": "1.8",
+                "return_20d": "12.5",
+                "repeat_appear_label": "first_seen",
+                "volume_breakout_type": "confirmed",
+                "volume_attack_bucket": "selected",
+                "theme_volume_attack_status": "selected",
+                "is_volume_attack_selected": "true",
+                "is_volume_attack_watch": "false",
+                "is_volume_attack_failed": "false",
+            },
+            {
+                "signal_date": "20260327",
+                "stock_id": "2330",
+                "theme_name": "AI",
+                "theme_final_status": "mainstream_overheated",
+                "theme_status_group": "mainstream_overheated",
+                "candidate_source_type": "risk_downgraded_candidate",
+                "candidate_line_group": "risk",
+                "candidate_line": "風險",
+                "two_line_overlap_flag": "false",
+                "presentation_priority": "9",
+                "tdcc_status": "down",
+                "warrant_flow_signal": "negative",
+                "volume_ratio": "3.5",
+                "return_20d": "42.0",
+                "repeat_appear_label": "continued_overheated",
+                "volume_breakout_type": "overheated",
+                "volume_attack_bucket": "failed",
+                "theme_volume_attack_status": "failed",
+                "is_volume_attack_selected": "false",
+                "is_volume_attack_watch": "false",
+                "is_volume_attack_failed": "true",
+            },
+        ]
+    ).to_csv(theme_path, index=False)
+
+    history = load_theme_status_history((theme_path,))
+    features = theme_background_features("2330", "20260320", history)
+
+    assert features["theme_context_as_of_date"] == "20260313"
+    assert features["theme_context_future_rows_ignored"] == 1
+    assert features["theme_context_data_status"] == "ready_previous_signal_date"
+    assert features["theme_context_status_group"] == "mainstream_supported"
+    assert features["theme_context_volume_ratio"] == 1.8
+    assert features["theme_context_volume_attack_selected"] is True
+    assert str(theme_path.name) in features["theme_context_source_artifact"]
+
+
 def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None:
     price_dir = tmp_path / "prices"
     tdcc_dir = tmp_path / "tdcc"
@@ -155,6 +222,34 @@ def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None
     row.update(tdcc_background_features("2330", "20260320", tdcc_dir=tdcc_dir))
     row.update(
         {
+            "theme_context_as_of_date": "20260313",
+            "theme_context_rows_as_of": 1,
+            "theme_context_future_rows_ignored": 0,
+            "theme_context_data_status": "ready_previous_signal_date",
+            "theme_context_name": "AI",
+            "theme_context_final_status": "mainstream_follow_through",
+            "theme_context_status_group": "mainstream_supported",
+            "theme_context_source_type": "mainstream_theme_candidate",
+            "theme_context_line_group": "breakout_attack_stock",
+            "theme_context_line": "帶量突破",
+            "theme_context_two_line_overlap": True,
+            "theme_context_priority": 2,
+            "theme_context_tdcc_status": "up",
+            "theme_context_warrant_flow_signal": "neutral",
+            "theme_context_volume_ratio": 1.8,
+            "theme_context_return_20d_pct": 12.5,
+            "theme_context_repeat_label": "first_seen",
+            "theme_context_volume_breakout_type": "confirmed",
+            "theme_context_volume_bucket": "selected",
+            "theme_context_volume_attack_status": "selected",
+            "theme_context_volume_attack_selected": True,
+            "theme_context_volume_attack_watch": False,
+            "theme_context_volume_attack_failed": False,
+            "theme_context_source_artifact": "output/history/daily_signals/daily_theme_status_history.csv",
+        }
+    )
+    row.update(
+        {
             "market_index_as_of_date": "20260320",
             "twse_close": 10000,
             "twse_return_5d_pct": 1.0,
@@ -177,6 +272,9 @@ def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None
     assert not any("neckline" in col for col in panel.columns)
     assert "price_pullback_23ema_operation_filter" in set(catalog["feature_column"])
     assert "neckline_45d_non_bearish_filter" in set(catalog["feature_column"])
+    theme_catalog = catalog[catalog["feature_column"].eq("theme_context_status_group")].iloc[0]
+    assert theme_catalog["feature_family"] == "theme_status_history"
+    assert theme_catalog["allowed_use"] == "research_background_only_not_a_model_gate_or_score"
 
 
 def test_build_feature_panel_accepts_empty_signal_override() -> None:
