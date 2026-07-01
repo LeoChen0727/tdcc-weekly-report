@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-01 14:27:43 Asia/Taipei
+- generated_at: 2026-07-01 16:22:01 Asia/Taipei
 - main_price_date: 20260701
 - packet_source: daily_market_regime_dashboard
 - packet_status: partial_market_context

@@ -1,6 +1,6 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-07-01 14:16:07 Asia/Taipei`
+- 產生時間：`2026-07-01 16:13:58 Asia/Taipei`
 
 ## 診斷統計
 
@@ -16,12 +16,12 @@
 | tdcc_distribution_warning_count | 709 |
 | revenue_condition_pass | 300 |
 | price_metrics_pass | 296 |
-| low_response_pass | 92 |
-| already_priced_in_excluded | 35 |
-| overheat_pass | 57 |
-| score_pass | 57 |
-| theme_priority_pass | 38 |
-| final_rows | 38 |
+| low_response_pass | 95 |
+| already_priced_in_excluded | 36 |
+| overheat_pass | 59 |
+| score_pass | 59 |
+| theme_priority_pass | 39 |
+| final_rows | 39 |
 
 ## 營收欄位狀態
 
@@ -55,9 +55,9 @@
 | reason | count |
 |---|---:|
 | fail_revenue_condition | 1666 |
-| fail_low_response_condition | 204 |
-| fail_already_priced_in | 35 |
-| fail_defensive_or_traditional_excluded | 18 |
+| fail_low_response_condition | 201 |
+| fail_already_priced_in | 36 |
+| fail_defensive_or_traditional_excluded | 19 |
 | missing_or_insufficient_price_metrics | 4 |
 | fail_mainstream_score_lt_10 | 1 |
 
@@ -69,7 +69,6 @@
 | 1416 | 廣豐 | 其他 | neutral |  | 61.12127236580517 | 34.7376913251014 | 0.93 | -5.22 | -5.63 | -8.79 | 1.87 | 1.87 | False |  | distribution_warning | -0.65 | -0.61 | 1 | 0 | -1.91 | -1.21 | -8.4 |  | fail_low_response_condition |
 | 1418 | 東華 | 紡織纖維 | defensive_or_traditional |  | 206.4139941690962 | -36.19371282922685 | -2.47 | -7.07 | -5.33 | -11.03 | 4.72 | 4.72 | False |  | mild_accumulation | 0.03 | 0.0 | 3 | 0 | -3.24 | -2.53 | -11.25 |  | fail_low_response_condition |
 | 1444 | 力麗 | 紡織纖維 | defensive_or_traditional |  | 81.0245545323328 | 24.0040319779792 | 35.12 | 37.5 | 49.6 | 56.62 | 62.61 | 62.61 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50% | strong_accumulation | 0.56 | 0.56 | 3 | 3 | 27.56 | 27.78 | -4.59 |  | fail_low_response_condition |
-| 1449 | 佳和 | 紡織纖維 | defensive_or_traditional |  | 98.71730241416007 | 44.35003336829059 | -6.02 | 1.81 | -10.79 | 26.01 | 16.6 | 39.11 | False |  | distribution_warning | -0.79 | -0.23 | 0 | 1 | -2.33 | -0.56 | -16.37 |  | fail_low_response_condition |
 | 1529 | 樂事綠能 | 電機機械 | cyclical_turnaround |  | 158.34377836365994 | -8.228649642919668 | -1.98 | -0.67 | -5.91 | 18.62 | 12.91 | 19.89 | False |  | mild_accumulation | 0.28 | 0.63 | 1 | 1 | -2.24 | -0.94 | -13.57 |  | fail_low_response_condition |
 | 1533 | 車王電 | 汽車工業 | neutral |  | 54.89389005630324 | 62.99606584097181 | -2.85 | -6.53 | 17.38 | 10.15 | 18.94 | 23.45 | False |  | distribution_warning | -0.06 | -0.06 | 0 | 0 | -4.79 | -3.56 | -14.35 |  | fail_low_response_condition |
 | 1597 | 直得 | 電機機械 | cyclical_turnaround |  | 51.38068037992098 | 44.12593065109306 | -4.98 | -15.63 | 44.3 | 95.89 | 39.51 | 111.85 | True | 近60日漲幅>40%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 1.12 | 0.76 | 3 | 1 | -6.23 | -7.07 | -35.29 |  | fail_low_response_condition |
@@ -137,7 +136,7 @@
 | 3432 | 台端 | 電子零組件業 | mainstream_growth |  | 217.9663937957777 | 219.79473374274417 | -3.19 | -3.19 | 13.04 | 26.39 | 13.75 | 32.85 | False |  | neutral | 0.0 | 0.0 | 0 | 0 | -1.19 | -1.47 | -22.06 |  | fail_low_response_condition |
 | 3443 | 創意 | 半導體業 | mainstream_growth |  | 132.1328905238472 | 90.64292104800928 | 3.38 | 11.25 | 89.31 | 130.89 | 95.92 | 135.75 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | -1.11 | 0.49 | 1 | 2 | 9.55 | 7.59 | -15.21 |  | fail_already_priced_in |
 | 3528 | 安馳 | 電子通路業 | mainstream_growth |  | 66.83049346499516 | 91.43865586931268 | -5.77 | -22.83 | 41.62 | 45.4 | 40.4 | 61.18 | True | 近60日漲幅>40% | mild_accumulation | -0.95 | 1.71 | 2 | 2 | -16.03 | -9.74 | -31.23 |  | fail_low_response_condition |
-| 3535 | 晶彩科 | 光電業 | mainstream_growth |  | 2229.0254683224584 | 499.8539070006186 | -5.71 | -16.0 | -13.81 | 20.56 | 3.59 | 37.01 | False |  | distribution_warning | -2.43 | -0.16 | 2 | 0 | -7.88 | -6.31 | -23.51 |  | fail_low_response_condition |
+| 3535 | 晶彩科 | 光電業 | mainstream_growth | D_降級_TDCC轉弱 | 2229.0254683224584 | 499.8539070006186 | -5.71 | -16.0 | -13.81 | 20.56 | 3.59 | 37.01 | False |  | distribution_warning | -2.43 | -0.16 | 2 | 0 | -7.88 | -6.31 | -23.51 | 16 | selected |
 | 3702 | 大聯大 | 電子通路業 | mainstream_growth |  | 82.90674676519687 | 39.84386199206386 | 3.29 | -7.56 | 20.22 | 85.81 | 19.83 | 87.07 | True | 近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.79 | -1.09 | 0 | 0 | 0.57 | 0.36 | -13.73 |  | fail_already_priced_in |
 | 3715 | 定穎投控 | 電子零組件業 | mainstream_growth | A_優先追蹤 | 69.11391792521879 | 34.318355180717255 | -4.18 | -0.86 | -7.77 | 35.43 | 12.42 | 49.57 | False |  | strong_accumulation | 6.24 | 7.1 | 3 | 3 | -0.49 | -1.23 | -14.43 | 19 | selected |
 | 4142 | 國光生 | 生技醫療業 | defensive_or_traditional |  | 51.88340807174888 | 38.88405941085888 | 1.45 | 1.74 | -4.63 | -8.62 | 4.17 | 4.17 | False |  | strong_accumulation | 0.03 | 0.09 | 2 | 2 | 0.17 | 0.53 | -8.85 |  | fail_low_response_condition |
@@ -185,3 +184,4 @@
 | 7740 | 熙特爾-創 | 綠能環保 | neutral |  | 1254.6047846317863 | 1420.9203745156804 | -1.95 | -10.65 | -14.2 | -5.92 | 7.09 | 9.42 | False |  | mild_accumulation | -1.27 | 1.37 | 0 | 1 | -7.23 | -6.34 | -26.52 |  | fail_low_response_condition |
 | 7749 | 意騰-KY | 半導體業 | mainstream_growth |  | 73.6849472054308 | 64.05199366520502 | -9.25 | -13.03 | 17.15 | -2.95 | 19.44 | 22.88 | False |  | mild_accumulation | 1.16 | 0.49 | 1 | 1 | -9.37 | -8.46 | -23.75 |  | fail_low_response_condition |
 | 7750 | 新代 | 電機機械 | cyclical_turnaround |  | 88.25510096241669 | 69.4277284799705 | -5.31 | -6.82 | 36.67 | 132.95 | 36.67 | 145.51 | True | 近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -1.12 | 0.0 | 1 | 0 | -5.92 | -6.31 | -33.22 |  | fail_low_response_condition |
+| 7769 | 鴻勁 | 半導體業 | mainstream_growth |  | 83.64462145795709 | 87.84549623036372 | 3.03 | -3.0 | 65.71 | 102.92 | 72.06 | 127.45 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 0.11 | -0.14 | 1 | 1 | -0.48 | 0.31 | -17.78 |  | fail_already_priced_in |

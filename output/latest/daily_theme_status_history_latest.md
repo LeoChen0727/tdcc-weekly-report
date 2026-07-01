@@ -1,32 +1,32 @@
 # Daily Theme Status History
 
-- generated_at: `2026-07-01 14:26:43 Asia/Taipei`
+- generated_at: `2026-07-01 16:21:18 Asia/Taipei`
 - latest_signal_date: `20260701`
-- latest_rows: `442`
-- history_rows: `8487`
+- latest_rows: `446`
+- history_rows: `8491`
 - purpose: Persist stock-level mainstream/non-mainstream and volume-attack labels by signal date for no-lookahead backtests.
 - caveat: Historical rows begin when this tracker starts unless older snapshots are backfilled from archived artifacts.
 
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 414 |
-| mainstream_supported | 21 |
-| non_mainstream | 7 |
+| mainstream_overheated | 418 |
+| mainstream_supported | 20 |
+| non_mainstream | 8 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 414 |
-| mainstream_follow_through | 9 |
-| emerging_theme | 8 |
-| single_name_signal | 7 |
+| mainstream_overheated | 418 |
+| emerging_theme | 10 |
+| single_name_signal | 8 |
+| mainstream_follow_through | 6 |
 | mainstream_leader | 4 |
 
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
 | --- | --- |
-| blank | 421 |
+| blank | 425 |
 | overheated_volume_theme | 18 |
 | single_stock_volume_attack | 3 |
 
@@ -50,6 +50,7 @@
 | 20260701 | 1444 | 力麗 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260701 | 1446 | 宏和 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260701 | 1447 | 力鵬 | 紡織纖維 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
+| 20260701 | 1449 | 佳和 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260701 | 1455 | 集盛 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260701 | 1460 | 宏遠 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260701 | 1464 | 得力 | 紡織纖維 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
@@ -72,5 +73,4 @@
 | 20260701 | 1721 | 三晃 | 化學工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260701 | 1727 | 中華化 | 化學工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260701 | 1785 | 光洋科 | 其他電子業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260701 | 1815 | 富喬 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 

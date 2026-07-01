@@ -1,6 +1,6 @@
 # Daily Volume Breakout Operation Section
 
-- generated_at: `2026-07-01 14:24:35 Asia/Taipei`
+- generated_at: `2026-07-01 16:18:31 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - source: `daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history`
 - approval_source: `approved_operation_patterns_latest.csv`
@@ -89,7 +89,7 @@
 |               9 | data       | 5483 中美晶        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |              10 | data       | 2472 立隆電        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | D+1 待確認          |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |              10 | data       | 3031 佰鴻         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
-|              11 | data       | 6271 同欣電        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
+|              10 | data       | 6271 同欣電        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |              12 | data       | 2425 承啟         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | D+1 待確認          |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 
 ### 操作中
