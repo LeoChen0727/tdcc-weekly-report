@@ -145,8 +145,18 @@ def renderer_source_with_required_order() -> str:
 def renderer_source_with_operation_contract() -> str:
     return (
         renderer_source_with_required_order()
-        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_MODEL_ID}\n"
-        + "PENDING_OPERATION_TABLE_MODEL_IDS = {W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
+        + "W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
+        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_MODEL_ID, W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
+        + "W_BOTTOM_OPERATION_INPUT_KEYS = {\n"
+        + "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 'w_bottom_right_side_operation',\n"
+        + "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 'w_bottom_neckline_operation',\n"
+        + "}\n"
+        + "\"daily_w_bottom_right_side_operation_section_latest.csv\"\n"
+        + "\"daily_neckline_volume_breakout_confirmation_operation_section_latest.csv\"\n"
+        + "def w_bottom_operation_frame():\n"
+        + "    return 'pdf_integrated_daily_adapter'\n"
+        + "def render_w_bottom_operation_section():\n"
+        + "    return 'adapter'\n"
         + 'OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"\n'
         + 'OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"\n'
         + 'OPERATION_ACTIVE_TABLE_TITLE = "操作中"\n'
@@ -306,3 +316,94 @@ def test_private_pdf_rule_detection_blocks_research_direct_inputs(tmp_path: Path
     errors = validator.validate_private_pdf_rules([renderer])
 
     assert any("research recommendation outputs" in error for error in errors)
+
+
+def write_w_bottom_adapter(path: Path, model_id: str, extra_section: str | None = None) -> None:
+    columns = sorted(validator.W_BOTTOM_OPERATION_REQUIRED_COLUMNS)
+    rows: list[dict[str, str]] = []
+    for pdf_view in sorted(validator.W_BOTTOM_OPERATION_REQUIRED_VIEWS):
+        for pdf_section in sorted(validator.W_BOTTOM_OPERATION_REQUIRED_SECTIONS):
+            rows.append(
+                {
+                    column: {
+                        "model_id": model_id,
+                        "pdf_view": pdf_view,
+                        "pdf_section": pdf_section,
+                        "row_type": "empty_state",
+                        "display_order": "1",
+                        "operation_asof_date": "20260630",
+                        "report_line": "both",
+                        "report_line_memberships": "mainstream|non_mainstream",
+                        "operation_status": pdf_section,
+                        "row_action_status": "empty_state",
+                        "buy_rank_eligible": "False",
+                    }.get(column, "test")
+                    for column in columns
+                }
+            )
+    if extra_section:
+        row = {column: "test" for column in columns}
+        row.update(
+            {
+                "model_id": model_id,
+                "pdf_view": "highlight",
+                "pdf_section": extra_section,
+                "row_type": "data",
+                "display_order": "2",
+                "operation_asof_date": "20260630",
+                "report_line": "both",
+                "report_line_memberships": "mainstream|non_mainstream",
+                "operation_status": extra_section,
+                "row_action_status": extra_section,
+                "buy_rank_eligible": "False",
+            }
+        )
+        rows.append(row)
+    lines = [",".join(columns)]
+    lines.extend(",".join(row[column] for column in columns) for row in rows)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def test_w_bottom_operation_adapter_contract_requires_integrated_readiness_and_sections(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    model_id = "w_bottom_right_side"
+    adapter = tmp_path / "daily_w_bottom_right_side_operation_section_latest.csv"
+    write_w_bottom_adapter(adapter, model_id)
+    monkeypatch.setattr(validator, "W_BOTTOM_OPERATION_ARTIFACTS", {model_id: adapter})
+
+    readiness_rows = [
+        {
+            "model_id": model_id,
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "daily_adapter_sections": "confirmed_operation,active_operation",
+        }
+    ]
+
+    assert validator.validate_w_bottom_operation_adapter_contract(readiness_rows) == []
+
+    readiness_rows[0]["pdf_integration_status"] = "pending_pdf_renderer"
+    errors = validator.validate_w_bottom_operation_adapter_contract(readiness_rows)
+    assert any("pdf_integrated_daily_adapter" in error for error in errors)
+
+
+def test_w_bottom_operation_adapter_contract_rejects_pdf_forbidden_sections(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    model_id = "neckline_volume_breakout_confirmation"
+    adapter = tmp_path / "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
+    write_w_bottom_adapter(adapter, model_id, extra_section="pending_confirmation")
+    monkeypatch.setattr(validator, "W_BOTTOM_OPERATION_ARTIFACTS", {model_id: adapter})
+    readiness_rows = [
+        {
+            "model_id": model_id,
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "daily_adapter_sections": "confirmed_operation,active_operation,pending_confirmation",
+        }
+    ]
+
+    errors = validator.validate_w_bottom_operation_adapter_contract(readiness_rows)
+
+    assert any("PDF-forbidden sections" in error and "pending_confirmation" in error for error in errors)

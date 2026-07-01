@@ -77,12 +77,35 @@ VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
     "confirmed_operation": 10,
     "active_operation": 5,
 }
-OPERATION_TABLE_MODEL_IDS = {
-    VOLUME_BREAKOUT_MODEL_ID,
+W_BOTTOM_OPERATION_HIGHLIGHT_LIMITS = {
+    "confirmed_operation": 10,
+    "active_operation": 5,
 }
-PENDING_OPERATION_TABLE_MODEL_IDS = {
+W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {
     W_BOTTOM_RIGHT_SIDE_MODEL_ID,
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
+}
+OPERATION_TABLE_MODEL_IDS = {
+    VOLUME_BREAKOUT_MODEL_ID,
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID,
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
+}
+W_BOTTOM_OPERATION_INPUT_KEYS = {
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID: "w_bottom_right_side_operation",
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "w_bottom_neckline_operation",
+}
+W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
+    "model_id",
+    "pdf_view",
+    "pdf_section",
+    "row_type",
+    "display_order",
+    "operation_asof_date",
+    "report_line",
+    "report_line_memberships",
+    "operation_status",
+    "row_action_status",
+    "buy_rank_eligible",
 }
 OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"
 DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"
@@ -1641,6 +1664,10 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "model_summary": read_latest_csv("daily_candidate_model_summary_for_report_latest.csv"),
         "model_readiness": read_latest_csv("model_operation_readiness_latest.csv"),
         "volume_operation": read_latest_csv("daily_volume_breakout_operation_section_latest.csv"),
+        "w_bottom_right_side_operation": read_latest_csv("daily_w_bottom_right_side_operation_section_latest.csv"),
+        "w_bottom_neckline_operation": read_latest_csv(
+            "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
+        ),
         "stock_theme_taxonomy": read_latest_csv("stock_theme_taxonomy_latest.csv"),
         "group_rotation": read_latest_csv("daily_candidate_group_rotation_latest.csv"),
         "themes": read_latest_csv("daily_theme_leadership_latest.csv"),
@@ -1856,6 +1883,64 @@ def volume_operation_frame(
     return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
 
+def w_bottom_operation_source_key(model_id: str) -> str:
+    key = W_BOTTOM_OPERATION_INPUT_KEYS.get(model_id)
+    if not key:
+        raise RuntimeError(f"unsupported W-bottom operation model_id for PDF renderer: {model_id}")
+    return key
+
+
+def require_w_bottom_operation_readiness(inputs: dict[str, pd.DataFrame], model_id: str) -> None:
+    readiness = inputs.get("model_readiness", pd.DataFrame()).copy()
+    if readiness.empty or "model_id" not in readiness.columns:
+        raise RuntimeError(f"W-bottom PDF operation adapter readiness missing for {model_id}")
+    rows = readiness[readiness["model_id"].astype(str).eq(model_id)].copy()
+    if rows.empty:
+        raise RuntimeError(f"W-bottom PDF operation adapter readiness row missing for {model_id}")
+    row = rows.iloc[0]
+    if clean(row.get("pdf_integration_status")) != "pdf_integrated_daily_adapter":
+        raise RuntimeError(
+            f"W-bottom PDF operation adapter is not pdf_integrated_daily_adapter for {model_id}: "
+            f"{clean(row.get('pdf_integration_status'), 'missing')}"
+        )
+    sections = clean(row.get("daily_adapter_sections"))
+    section_tokens = {token.strip() for token in re.split(r"[|,;]", sections) if token.strip()}
+    missing_sections = {"confirmed_operation", "active_operation"} - section_tokens
+    if missing_sections:
+        raise RuntimeError(
+            f"W-bottom PDF operation adapter sections missing for {model_id}: "
+            + ",".join(sorted(missing_sections))
+        )
+
+
+def w_bottom_operation_frame(
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    pdf_view: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    require_w_bottom_operation_readiness(inputs, model_id)
+    key = w_bottom_operation_source_key(model_id)
+    frame = inputs.get(key, pd.DataFrame()).copy()
+    if frame.empty:
+        raise RuntimeError(f"W-bottom PDF operation adapter artifact is empty or missing for {model_id}: {key}")
+    missing = sorted(W_BOTTOM_OPERATION_REQUIRED_COLUMNS - set(frame.columns))
+    if missing:
+        raise RuntimeError(
+            f"W-bottom PDF operation adapter artifact missing required columns for {model_id}: "
+            + ",".join(missing)
+        )
+    frame = frame[
+        frame["model_id"].astype(str).eq(model_id)
+        & frame["pdf_view"].astype(str).eq(pdf_view)
+        & frame["pdf_section"].astype(str).eq(pdf_section)
+    ].copy()
+    if frame.empty:
+        raise RuntimeError(f"W-bottom PDF operation adapter has no {pdf_view}/{pdf_section} rows for {model_id}")
+    frame["_display_order"] = pd.to_numeric(frame["display_order"], errors="coerce").fillna(999999)
+    return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
+
+
 def report_lines_for_stock_from_frame(frame: pd.DataFrame, stock_id: str) -> set[str]:
     if frame.empty or "stock_id" not in frame.columns or not stock_id:
         return set()
@@ -1923,6 +2008,25 @@ def filter_volume_operation_rows_for_line(
     return rows[mask].copy()
 
 
+def w_bottom_operation_row_matches_line(row: pd.Series, line: str | None) -> bool:
+    if not line:
+        return True
+    report_line = clean(row.get("report_line"))
+    if report_line == line or report_line == "both":
+        return True
+    memberships = clean(row.get("report_line_memberships"))
+    if memberships:
+        tokens = {token.strip() for token in re.split(r"[|,;]", memberships) if token.strip()}
+        return line in tokens or "both" in tokens
+    return False
+
+
+def filter_w_bottom_operation_rows_for_line(rows: pd.DataFrame, line: str | None) -> pd.DataFrame:
+    if rows.empty or not line:
+        return rows
+    return rows[rows.apply(lambda row: w_bottom_operation_row_matches_line(row, line), axis=1)].copy()
+
+
 def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
     if rows.empty:
         return fallback
@@ -1947,6 +2051,23 @@ def limit_volume_operation_rows_for_pdf_view(
     if "row_type" not in rows.columns:
         return rows.head(limit).copy()
     row_type = rows["row_type"].astype(str)
+    data_rows = rows[row_type.eq("data")].head(limit).copy()
+    if not data_rows.empty:
+        return data_rows
+    return rows.copy()
+
+
+def limit_w_bottom_operation_rows_for_pdf_view(
+    rows: pd.DataFrame,
+    pdf_view: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    if rows.empty or pdf_view != "highlight":
+        return rows
+    limit = W_BOTTOM_OPERATION_HIGHLIGHT_LIMITS.get(pdf_section)
+    if limit is None:
+        return rows
+    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
     data_rows = rows[row_type.eq("data")].head(limit).copy()
     if not data_rows.empty:
         return data_rows
@@ -2024,6 +2145,75 @@ def volume_operation_exit_label(row: pd.Series) -> str:
     if rule_id == "signal_low_stop_or_fixed_10d_close" and holding_days and holding_days != "10":
         return f"跌破停損基準，否則最多第 {holding_days} 個交易日收盤"
     return label or "-"
+
+
+def w_bottom_operation_signal_label(row: pd.Series) -> str:
+    return short(
+        first_text(
+            row.get("operation_status_zh"),
+            row.get("quality_status_zh"),
+            row.get("entry_basis_zh"),
+            row.get("row_action_status"),
+            default="-",
+        ),
+        42,
+    )
+
+
+def w_bottom_operation_signal_date_label(row: pd.Series) -> str:
+    return volume_operation_date_label(first_text(row.get("confirmation_date"), row.get("signal_date")))
+
+
+def w_bottom_operation_entry_label(row: pd.Series) -> str:
+    entry_date = clean(row.get("entry_date"))
+    entry_price = clean(row.get("entry_price"))
+    if entry_date or entry_price:
+        date = date_slash(entry_date) if entry_date else "進場日未定"
+        price = entry_price if entry_price else "進場價未定"
+        return f"{date} / {price}"
+    return short(first_text(row.get("entry_price_status_zh"), row.get("entry_basis_zh"), row.get("entry_rule_id"), default="-"), 40)
+
+
+def w_bottom_operation_stop_label(row: pd.Series) -> str:
+    label = first_text(row.get("stop_loss_label_zh"), row.get("stop_basis_zh"), row.get("stop_loss_rule_id"))
+    price = clean(row.get("stop_loss_price"))
+    if label and price:
+        return short(f"{label} {price}", 38)
+    return short(label or price or "-", 38)
+
+
+def w_bottom_operation_exit_label(row: pd.Series) -> str:
+    return short(first_text(row.get("exit_rule_zh"), row.get("exit_rule_id"), default="-"), 48)
+
+
+def w_bottom_operation_age_label(row: pd.Series) -> str:
+    age = clean(row.get("operation_age_days"))
+    planned = clean(row.get("planned_holding_days"))
+    if age or planned:
+        return f"{age or '-'} / {planned or '-'}"
+    return "-"
+
+
+def w_bottom_operation_score_label(row: pd.Series) -> str:
+    parts: list[str] = []
+    for label, column in (("操作", "operation_score"), ("模型", "model_score"), ("最終", "final_rank_score")):
+        value = clean(row.get(column))
+        if value:
+            parts.append(f"{label} {value}")
+    return " / ".join(parts) if parts else "-"
+
+
+def w_bottom_operation_note_label(row: pd.Series) -> str:
+    return short(
+        first_text(
+            row.get("rank_reason_zh"),
+            row.get("risk_tags_zh"),
+            row.get("pdf_note_zh"),
+            row.get("adapter_note_zh"),
+            default="-",
+        ),
+        74,
+    )
 
 
 def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
@@ -2165,6 +2355,109 @@ def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
     )
 
 
+def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame) -> Table:
+    data = [[
+        "排名",
+        "股票",
+        "確認方式",
+        "確認日",
+        "進場日 / 價",
+        "停損基準",
+        "出場規則",
+        "操作 / 模型分數",
+        "樣本數",
+        "勝率",
+        "中位數報酬",
+        "備註",
+    ]]
+    if rows.empty:
+        data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("display_order"), "-"),
+                clean(row.get("stock_display"), "-"),
+                w_bottom_operation_signal_label(row),
+                w_bottom_operation_signal_date_label(row),
+                w_bottom_operation_entry_label(row),
+                w_bottom_operation_stop_label(row),
+                w_bottom_operation_exit_label(row),
+                w_bottom_operation_score_label(row),
+                clean(row.get("sample_size"), "-"),
+                clean(row.get("win_rate_zh"), "-"),
+                clean(row.get("median_return_zh"), "-"),
+                w_bottom_operation_note_label(row),
+            ]
+        )
+    return build_table(
+        data,
+        [8 * mm, 28 * mm, 34 * mm, 18 * mm, 35 * mm, 30 * mm, 40 * mm, 30 * mm, 13 * mm, 15 * mm, 18 * mm, 22 * mm],
+        12.0,
+        header_bg=colors.HexColor("#7f6000"),
+    )
+
+
+def build_w_bottom_active_operation_table(rows: pd.DataFrame) -> Table:
+    data = [["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 模型分數", "備註"]]
+    if rows.empty:
+        data.append(["-", "-", "-", "-", "-", "-", "-", OPERATION_ACTIVE_EMPTY_STATE_TEXT])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("stock_display"), "-"),
+                w_bottom_operation_signal_label(row),
+                w_bottom_operation_entry_label(row),
+                w_bottom_operation_stop_label(row),
+                w_bottom_operation_age_label(row),
+                w_bottom_operation_exit_label(row),
+                w_bottom_operation_score_label(row),
+                w_bottom_operation_note_label(row),
+            ]
+        )
+    return build_table(
+        data,
+        [30 * mm, 36 * mm, 36 * mm, 34 * mm, 22 * mm, 50 * mm, 32 * mm, 33 * mm],
+        12.0,
+        header_bg=colors.HexColor("#44546a"),
+    )
+
+
+def render_w_bottom_operation_section(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    pdf_view: str,
+    line: str | None = None,
+) -> None:
+    confirmed_all = filter_w_bottom_operation_rows_for_line(
+        w_bottom_operation_frame(inputs, model_id, pdf_view, "confirmed_operation"),
+        line,
+    )
+    active_all = filter_w_bottom_operation_rows_for_line(
+        w_bottom_operation_frame(inputs, model_id, pdf_view, "active_operation"),
+        line,
+    )
+    confirmed = confirmed_all[
+        confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & confirmed_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
+        & confirmed_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not confirmed_all.empty else pd.DataFrame()
+    confirmed = limit_w_bottom_operation_rows_for_pdf_view(confirmed, pdf_view, "confirmed_operation")
+    active_rows = active_all[
+        active_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & active_all.get("operation_status", pd.Series(dtype=str)).astype(str).eq("active_operation")
+        & ~active_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not active_all.empty else pd.DataFrame()
+    active_rows = limit_w_bottom_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
+
+    story.append(Spacer(1, 6))
+    story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
+    story.append(build_w_bottom_confirmed_operation_table(confirmed))
+    story.append(Spacer(1, 5))
+    story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
+    story.append(build_w_bottom_active_operation_table(active_rows))
+
+
 def render_volume_range_breakout_operation_section(
     story: list,
     inputs: dict[str, pd.DataFrame],
@@ -2237,6 +2530,22 @@ def render_volume_range_breakout_operation_section(
         story.append(Spacer(1, 5))
     story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
     story.append(build_volume_active_operation_table(active_rows))
+
+
+def render_model_operation_section_if_applicable(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    pdf_view: str,
+    line: str | None = None,
+) -> bool:
+    if model_id == VOLUME_BREAKOUT_MODEL_ID:
+        render_volume_range_breakout_operation_section(story, inputs, pdf_view, line)
+        return True
+    if model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS:
+        render_w_bottom_operation_section(story, inputs, model_id, pdf_view, line)
+        return True
+    return False
 
 
 def model_signal_rows_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str, line: str | None = None) -> list[pd.Series]:
@@ -3388,8 +3697,7 @@ def build_mainstream_curated_pdf(
         desc = clean(spec.get("model_description_zh"))
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
-        if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
+        if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
             continue
         story.extend(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = mainstream_curated_operation_representatives(ranked_rows)
@@ -3437,8 +3745,7 @@ def build_non_mainstream_curated_pdf(
         desc = clean(spec.get("model_description_zh"))
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
-        if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
+        if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
             continue
         story.extend(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = non_mainstream_curated_operation_representatives(ranked_rows)
@@ -3526,8 +3833,7 @@ def build_mainstream_full_candidate_pdf(
         line_rows = mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
-        if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "full", line)
+        if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue
         story.extend(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
@@ -3647,8 +3953,7 @@ def build_non_mainstream_full_candidate_pdf(
         line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
-        if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "full", line)
+        if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue
         story.extend(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
