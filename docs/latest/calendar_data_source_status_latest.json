@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01 20:42:33 Asia/Taipei",
+  "generated_at": "2026-07-01 21:36:01 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -67,11 +67,11 @@
     },
     "bls_employment_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
-      "status": "reachable_not_parsed",
-      "rows": 0,
+      "status": "ok",
+      "rows": 6,
       "error": "",
       "http_status": 200,
-      "note": "Employment Situation release schedule was reachable, but no stable release-date rows were parsed."
+      "note": "Parsed 6 release rows from the official BLS schedule table."
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
