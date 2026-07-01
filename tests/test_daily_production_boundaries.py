@@ -410,6 +410,62 @@ def test_formal_model_change_rules_include_pdf_operation_adapter_gate() -> None:
     assert "Registry approval alone does not authorize the PDF renderer to infer lifecycle" in pdf_contract
 
 
+def test_formal_model_change_rules_require_close_confirmed_operation_prices() -> None:
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    model_contract = (ROOT / "docs" / "stock_model_contract_governance.md").read_text(
+        encoding="utf-8"
+    )
+    price_pullback_spec = (
+        ROOT / "docs" / "specs" / "price_pullback_23ema_operation_candidate_spec.md"
+    ).read_text(encoding="utf-8")
+
+    for text in (agents, model_contract):
+        assert "Formal operation buy/sell/stop/profit-taking rules" in text
+        assert "close-confirmed by" in text
+        assert "next trading day open" in text
+        assert "after a qualifying close confirmation" in text
+        assert "same-day close" in text
+        assert "intraday high/low as formal entry" in text
+        assert "profit-taking, win, failure, or realized-return prices" in text
+        assert "research-only observation" in text
+        assert "price_pullback_23ema" in text
+
+    assert "Formal Price Confirmation Boundary" in price_pullback_spec
+    assert "must not be promoted as a formal entry, exit," in price_pullback_spec
+    assert "stop, profit-taking, win, failure, or realized-return rule" in price_pullback_spec
+    assert "close breaks the previous 20-day high, then sell at the same-day close" in price_pullback_spec
+    assert "close breaks the previous 20-day high, then sell at the next trading day open" in price_pullback_spec
+    assert boundaries.validate_model_operation_price_confirmation_rules() == []
+
+
+def test_operation_price_confirmation_validator_fails_closed_when_rule_missing(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    rule_file = tmp_path / "rule.md"
+    rule_file.write_text(
+        "Formal operation buy/sell/stop/profit-taking rules must be close-confirmed by default.",
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(
+        boundaries,
+        "MODEL_OPERATION_PRICE_CONFIRMATION_RULE_LITERALS",
+        {
+            rule_file: {
+                "must not use intraday high/low as formal entry, exit, stop, profit-taking, win, failure, or realized-return prices": (
+                    "test operation price rule"
+                ),
+            },
+        },
+    )
+
+    errors = boundaries.validate_model_operation_price_confirmation_rules()
+
+    assert errors
+    assert "test operation price rule" in errors[0]
+
+
 def test_daily_staged_path_validator_accepts_current_staged_set() -> None:
     result = subprocess.run(
         ["python", "scripts/validate_daily_staged_paths.py"],

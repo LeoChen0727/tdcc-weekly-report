@@ -105,11 +105,106 @@ FORBIDDEN_DAILY_REPORT_DEPENDENCIES = {
     "compute_action_decision": "daily report surfaces must not compute second-layer action decisions",
 }
 
+MODEL_OPERATION_PRICE_CONFIRMATION_RULE_LITERALS = {
+    AGENTS_DOC: {
+        "Formal operation buy/sell/stop/profit-taking rules": (
+            "AGENTS Formal Daily Model Change Rule must require close-confirmed operation rules"
+        ),
+        "close-confirmed by": (
+            "AGENTS Formal Daily Model Change Rule must require close-confirmed operation rules"
+        ),
+        "next trading day open": (
+            "AGENTS Formal Daily Model Change Rule must allow only open/close realizable operation prices"
+        ),
+        "after a qualifying close confirmation": (
+            "AGENTS Formal Daily Model Change Rule must require close confirmation before next-open exits"
+        ),
+        "same-day close": (
+            "AGENTS Formal Daily Model Change Rule must allow close-confirmed same-day close exits"
+        ),
+        "intraday high/low as formal entry, exit, stop,": (
+            "AGENTS Formal Daily Model Change Rule must forbid intraday high/low as formal operation prices"
+        ),
+        "profit-taking, win, failure, or realized-return prices": (
+            "AGENTS Formal Daily Model Change Rule must forbid intraday high/low as formal operation prices"
+        ),
+        "research-only observation": (
+            "AGENTS Formal Daily Model Change Rule must keep intraday high/low evidence advisory"
+        ),
+        "price_pullback_23ema": (
+            "AGENTS Formal Daily Model Change Rule must explicitly protect the 23EMA research variant from promotion by intraday touch"
+        ),
+    },
+    STOCK_MODEL_CONTRACT_GOVERNANCE: {
+        "Formal operation buy/sell/stop/profit-taking rules": (
+            "stock model contract governance must require close-confirmed operation rules"
+        ),
+        "close-confirmed by default": (
+            "stock model contract governance must require close-confirmed operation rules"
+        ),
+        "next trading day open": (
+            "stock model contract governance must allow only open/close realizable operation prices"
+        ),
+        "after a qualifying close confirmation": (
+            "stock model contract governance must require close confirmation before next-open exits"
+        ),
+        "same-day close": (
+            "stock model contract governance must allow close-confirmed same-day close exits"
+        ),
+        "intraday high/low as formal entry, exit, stop, profit-taking, win, failure, or realized-return prices": (
+            "stock model contract governance must forbid intraday high/low as formal operation prices"
+        ),
+        "research-only observation": (
+            "stock model contract governance must keep intraday high/low evidence advisory"
+        ),
+        "price_pullback_23ema": (
+            "stock model contract governance must explicitly protect the 23EMA research variant from promotion by intraday touch"
+        ),
+    },
+    ROOT / "docs" / "specs" / "price_pullback_23ema_operation_candidate_spec.md": {
+        "Formal Price Confirmation Boundary": (
+            "price_pullback_23ema operation candidate spec must state the formal price-confirmation boundary"
+        ),
+        "must not be promoted as a formal entry, exit,": (
+            "price_pullback_23ema operation candidate spec must keep the intraday high evidence research-only"
+        ),
+        "stop, profit-taking, win, failure, or realized-return rule": (
+            "price_pullback_23ema operation candidate spec must keep the intraday high evidence research-only"
+        ),
+        "close breaks the previous 20-day high, then sell at the same-day close": (
+            "price_pullback_23ema operation candidate spec must list the same-day close-confirmed exit option"
+        ),
+        "close breaks the previous 20-day high, then sell at the next trading day open": (
+            "price_pullback_23ema operation candidate spec must list the next-open after close-confirmed exit option"
+        ),
+    },
+}
+
 
 def read_text(path: Path) -> str:
     if not path.exists():
         raise FileNotFoundError(path)
     return path.read_text(encoding="utf-8", errors="replace")
+
+
+def display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
+def validate_model_operation_price_confirmation_rules() -> list[str]:
+    errors: list[str] = []
+    for path, literals in MODEL_OPERATION_PRICE_CONFIRMATION_RULE_LITERALS.items():
+        if not path.exists():
+            errors.append(f"missing model operation price-confirmation rule file: {display_path(path)}")
+            continue
+        text = read_text(path)
+        for literal, message in literals.items():
+            if literal not in text:
+                errors.append(f"{message}: missing {literal!r} in {display_path(path)}")
+    return errors
 
 
 def require_workflow_order(text: str, labels: list[str]) -> list[str]:
@@ -203,6 +298,7 @@ def main() -> int:
     errors.extend(run_repo_file_lifecycle_inventory_validation())
     errors.extend(run_repo_semantic_integrity_validation())
     errors.extend(run_repo_advanced_integrity_validation())
+    errors.extend(validate_model_operation_price_confirmation_rules())
 
     for path, required_literals in FORMAL_REPORT_DATE_HARD_GATE_FILES.items():
         if not path.exists():

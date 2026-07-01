@@ -9,6 +9,24 @@
 - discussion_status: `discussion_ready_research_only`
 - production_status: `not approved for daily operation guidance`
 
+## Formal Price Confirmation Boundary
+
+This spec is research-only and does not approve production operation guidance.
+Formal operation buy/sell/stop/profit-taking rules must be close-confirmed by
+default. The existing previous-high touch evidence for `price_pullback_23ema`
+uses intraday high observation and must not be promoted as a formal entry, exit,
+stop, profit-taking, win, failure, or realized-return rule.
+
+Future `price_pullback_23ema` promotion discussion must restate the target and
+exit with close-confirmed semantics, such as:
+
+- close breaks the previous 20-day high, then sell at the same-day close; or
+- close breaks the previous 20-day high, then sell at the next trading day open.
+
+Intraday high/low may remain in this model only as research-only observation,
+MFE/MAE, risk audit, liquidity/slippage diagnostics, candle-quality features, or
+non-operation watch statistics.
+
 ## 白話定義
 
 `price_pullback_23ema` 目前研究中的 v1 候選，是在找「股價回到 23EMA 或支撐附近，但結構還沒有壞掉」的股票。它不是突破追價模型，也不是營收模型。

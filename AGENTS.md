@@ -89,6 +89,23 @@ recommendations or variants into the production baseline. Report that the
 `research_backtest` lane must be synchronized, or create an explicit
 promotion/sync PR when that is requested.
 
+Formal operation buy/sell/stop/profit-taking rules must be close-confirmed by
+default. A formal daily operation model may use only the next trading day open
+after a qualifying close confirmation, the same-day close when the rule
+explicitly waits for that close, or a fixed future close exit as the realized
+operation price. It must not use intraday high/low as formal entry, exit, stop,
+profit-taking, win, failure, or realized-return prices. Intraday high/low may
+be used only for research-only observation, MFE/MAE, risk audit,
+liquidity/slippage diagnostics, candle-quality features, or non-operation watch
+statistics; it must be labeled advisory and cannot support promotion by itself.
+Existing approved operation contracts with intraday stop or trigger semantics
+are contract exceptions/gaps that must be listed explicitly, cannot be copied to
+new models, and require a model-specific promotion PR before the behavior is
+changed. For `price_pullback_23ema`, the earlier intraday previous-high touch
+research result is not a formal v1 operation return basis; formal discussion
+must use a close-confirmed breakout with same-day close or next trading day open
+exit semantics.
+
 When a formal model promotion or model change makes an operation-oriented model
 eligible for daily PDF or packet presentation, the daily model change must also
 define the formal daily operation-row adapter contract. The model lane owns the
