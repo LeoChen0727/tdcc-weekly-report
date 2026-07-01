@@ -5,10 +5,9 @@
 
 | model_id | operation_asof_date | stock_id | stock_name | report_line | signal_date | entry_date | audit_status | included_in_daily_adapter | operation_lifecycle_state | exit_date | exit_reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| w_bottom_right_side | 20260701 | 2646 | 星宇航空 | non_mainstream | 20260701 |  | candidate_evaluated | True | confirmed_operation |  |  |
-| w_bottom_right_side | 20260701 | 5258 | 虹堡 | mainstream | 20260701 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260701 | 1477 | 聚陽 | non_mainstream | 20260701 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260701 | 5469 | 瀚宇博 | mainstream | 20260701 |  | candidate_evaluated | True | confirmed_operation |  |  |
+| w_bottom_right_side | 20260701 | 2646 | 星宇航空 | non_mainstream | 20260701 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260701 | 6191 | 精成科 | mainstream | 20260701 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260701 | 1618 | 合機 | mainstream | 20260529 | 20260601 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260701 | 2241 | 艾姆勒 | non_mainstream | 20260529 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260629 | d20_gain10_close_exit |

@@ -2159,7 +2159,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530
@@ -2322,7 +2322,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
+9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
@@ -2357,7 +2357,7 @@
 9934,成霖,居家生活,居家生活,非主流,,,,,,
 9935,慶豐富,居家生活,居家生活,非主流,,,,,,
 9937,全國,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
-9938,百和,其他,其他,非主流,,,,,,
+9938,百和,其他業,其他業,非主流,,,,,,
 9939,宏全,其他業,其他業,非主流,,,,,,
 9940,信義,其他業,其他業,非主流,,,,,,
 9941,裕融,汽車金融 / 分期租賃,汽車金融 / 分期租賃,非主流,,,,,,
