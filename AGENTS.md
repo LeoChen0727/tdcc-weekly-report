@@ -89,6 +89,22 @@ recommendations or variants into the production baseline. Report that the
 `research_backtest` lane must be synchronized, or create an explicit
 promotion/sync PR when that is requested.
 
+When a formal model promotion or model change makes an operation-oriented model
+eligible for daily PDF or packet presentation, the daily model change must also
+define the formal daily operation-row adapter contract. The model lane owns the
+operation-row producer or approved equivalent, including artifact name, schema,
+lifecycle sections, empty-state behavior, readiness fields, validators, and
+PDF-safe consumer fields. Registry approval alone is not enough for PDF
+operation presentation. Digest / highlight PDF rendering may consume those rows
+only after `model_operation_readiness_latest.csv` reports
+`pdf_integration_status=pdf_integrated_daily_adapter`; otherwise keep
+`presentation_allowed=False` and do not expose PDF operation rows. The PDF
+renderer must not convert candidate signal rows, research/backtest variants, or
+advisory recommendations into buyable, active, pending, exit, or stop-loss
+lifecycle rows.
+PDF renderer must not convert candidate signal rows, research/backtest
+variants, or advisory recommendations into lifecycle rows.
+
 Required validation for formal daily model/ranking/scoring changes:
 
 ```text
