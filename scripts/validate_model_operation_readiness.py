@@ -223,10 +223,10 @@ def validate_readiness_csv() -> list[str]:
                 "packet_integration_status": "blocked_latest_research_frame",
             },
             "operation_candidate_v1_pending_promotion_pr": {
-                "daily_adapter_status": "blocked_explicit_promotion_pr_required",
-                "approval_status": "pending_explicit_promotion_pr",
-                "pdf_integration_status": "blocked_explicit_promotion_pr_required",
-                "packet_integration_status": "blocked_explicit_promotion_pr_required",
+                "daily_adapter_status": "blocked_promotion_pr_and_daily_operation_adapter_required",
+                "approval_status": "pending_promotion_pr_and_daily_adapter",
+                "pdf_integration_status": "blocked_promotion_pr_and_daily_operation_adapter_required",
+                "packet_integration_status": "blocked_promotion_pr_and_daily_operation_adapter_required",
             },
         }
         if state not in allowed_state_expectations:
@@ -253,6 +253,8 @@ def validate_readiness_csv() -> list[str]:
         elif state == "operation_candidate_v1_pending_promotion_pr":
             if "promotion/sync PR" not in blocker and "promotion" not in blocker:
                 errors.append("price pullback promotion blocker must cite the required promotion PR")
+            if "operation-row adapter" not in blocker:
+                errors.append("price pullback promotion blocker must cite the required operation-row adapter")
         elif "daily row parity audit" not in blocker:
             errors.append("price pullback readiness blocker must cite the daily row parity audit")
         if not PRICE_PULLBACK_SPEC_SOURCE.exists():
