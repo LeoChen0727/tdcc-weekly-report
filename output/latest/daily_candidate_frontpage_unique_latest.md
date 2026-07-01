@@ -1,6 +1,6 @@
 # Daily Candidate Front Page Unique Representatives
 
-- generated_at: `2026-07-01 12:09:31 Asia/Taipei`
+- generated_at: `2026-07-01 13:45:24 Asia/Taipei`
 
 - Use this table for the first page of curated PDFs.
 - A stock can hit multiple models, but the first page should show it once per report bucket.
