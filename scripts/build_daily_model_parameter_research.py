@@ -125,6 +125,19 @@ PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD = (
 PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_research_score_bucket.csv"
 DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV.name
 DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD.name
+PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_ordered_condition_matrix_latest.csv"
+)
+PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_ordered_condition_matrix_latest.md"
+)
+PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_HISTORY_CSV = (
+    HISTORY_DIR / "price_pullback_23ema_ordered_condition_matrix.csv"
+)
+DOCS_PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV = (
+    DOCS_LATEST_DIR / PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV.name
+)
+DOCS_PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -1871,6 +1884,173 @@ PRICE_PULLBACK_RESEARCH_SCORE_EXIT_RULE_IDS = [
     "close_prev20_break_then_tp8_or_5ma_next_open",
     "close_prev20_break_then_tp10_or_5ma_next_open",
 ]
+PRICE_PULLBACK_ORDERED_CONDITION_EXIT_RULE_IDS = [
+    "close_prev20_high_break_next_open",
+    "close_prev20_break_then_tp5_or_5ma_next_open",
+    "close_prev20_break_then_tp8_or_5ma_next_open",
+    "close_prev20_break_then_tp10_or_5ma_next_open",
+]
+PRICE_PULLBACK_ORDERED_CONDITION_TESTS = [
+    {
+        "test_order": 0,
+        "test_stage": "00_baseline",
+        "condition_test_id": "baseline_replay",
+        "condition_role_candidate": "baseline_anchor",
+        "condition_rule": "production proxy replay only; no additional condition",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": lambda d: bool_series(d, True),
+    },
+    {
+        "test_order": 10,
+        "test_stage": "01_single_gate_candidate",
+        "condition_test_id": "return20_0_25",
+        "condition_role_candidate": "required_gate_candidate",
+        "condition_rule": "prior 20d return is between 0% and 25%",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": price_pullback_return20_balanced_filter,
+    },
+    {
+        "test_order": 20,
+        "test_stage": "01_single_gate_candidate",
+        "condition_test_id": "obv_above_ma20",
+        "condition_role_candidate": "add_score_or_gate_candidate",
+        "condition_rule": "OBV above OBV MA20 on signal date",
+        "data_status": "computed_from_point_in_time_price_volume",
+        "condition": price_pullback_obv_above_ma20_filter,
+    },
+    {
+        "test_order": 30,
+        "test_stage": "01_single_gate_candidate",
+        "condition_test_id": "tdcc_high_thresholds_up",
+        "condition_role_candidate": "add_score_or_gate_candidate",
+        "condition_rule": "large-holder TDCC high thresholds increased",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": price_pullback_tdcc_high_thresholds_up_filter,
+    },
+    {
+        "test_order": 40,
+        "test_stage": "01_single_gate_candidate",
+        "condition_test_id": "macd_kd_confirm",
+        "condition_role_candidate": "technical_confirmation_candidate",
+        "condition_rule": "MACD histogram above zero and KD bullish-not-overheated both hold",
+        "data_status": "available_point_in_time_research_frame",
+        "condition": price_pullback_macd_kd_confirm_filter,
+    },
+    {
+        "test_order": 50,
+        "test_stage": "01_single_gate_candidate",
+        "condition_test_id": "pattern45_bull_pullback",
+        "condition_role_candidate": "pattern_gate_candidate",
+        "condition_rule": "45d bullish pullback pattern: return >=8%, range width >=18%, close in 35%-80% zone",
+        "data_status": "computed_from_point_in_time_price_history",
+        "condition": price_pullback_45d_bullish_pullback_filter,
+    },
+    {
+        "test_order": 60,
+        "test_stage": "02_score_gate_candidate",
+        "condition_test_id": "research_score_ge4",
+        "condition_role_candidate": "broad_quality_score_gate_candidate",
+        "condition_rule": "research bonus score is at least 4",
+        "data_status": "research_only_score_not_production",
+        "condition": lambda d: price_pullback_research_score_ge_filter(d, 4.0),
+    },
+    {
+        "test_order": 70,
+        "test_stage": "02_score_gate_candidate",
+        "condition_test_id": "research_score_ge6",
+        "condition_role_candidate": "strict_quality_score_gate_candidate",
+        "condition_rule": "research bonus score is at least 6",
+        "data_status": "research_only_score_not_production",
+        "condition": lambda d: price_pullback_research_score_ge_filter(d, 6.0),
+    },
+    {
+        "test_order": 80,
+        "test_stage": "03_prev_high_space_candidate",
+        "condition_test_id": "prev20_space_ge3",
+        "condition_role_candidate": "sell_space_filter_candidate",
+        "condition_rule": "next-open entry has at least 3% space to signal-day previous 20d high",
+        "data_status": "entry_open_known_research_only",
+        "condition": lambda d: price_pullback_prev20_high_space_filter(d, 3.0),
+    },
+    {
+        "test_order": 90,
+        "test_stage": "03_prev_high_space_candidate",
+        "condition_test_id": "prev20_space_ge5",
+        "condition_role_candidate": "sell_space_filter_candidate",
+        "condition_rule": "next-open entry has at least 5% space to signal-day previous 20d high",
+        "data_status": "entry_open_known_research_only",
+        "condition": lambda d: price_pullback_prev20_high_space_filter(d, 5.0),
+    },
+    {
+        "test_order": 100,
+        "test_stage": "03_prev_high_space_candidate",
+        "condition_test_id": "prev20_space_ge8",
+        "condition_role_candidate": "sell_space_filter_candidate",
+        "condition_rule": "next-open entry has at least 8% space to signal-day previous 20d high",
+        "data_status": "entry_open_known_research_only",
+        "condition": lambda d: price_pullback_prev20_high_space_filter(d, 8.0),
+    },
+    {
+        "test_order": 110,
+        "test_stage": "04_layered_candidate",
+        "condition_test_id": "score_ge4_prev20_space_ge3",
+        "condition_role_candidate": "candidate_v2_gate_stack",
+        "condition_rule": "research score >=4 and at least 3% space to previous 20d high",
+        "data_status": "research_only_score_not_production",
+        "condition": lambda d: price_pullback_research_score_ge_filter(d, 4.0)
+        & price_pullback_prev20_high_space_filter(d, 3.0),
+    },
+    {
+        "test_order": 120,
+        "test_stage": "04_layered_candidate",
+        "condition_test_id": "score_ge4_prev20_space_ge5",
+        "condition_role_candidate": "candidate_v2_gate_stack",
+        "condition_rule": "research score >=4 and at least 5% space to previous 20d high",
+        "data_status": "research_only_score_not_production",
+        "condition": lambda d: price_pullback_research_score_ge_filter(d, 4.0)
+        & price_pullback_prev20_high_space_filter(d, 5.0),
+    },
+    {
+        "test_order": 130,
+        "test_stage": "04_layered_candidate",
+        "condition_test_id": "score_ge4_tdcc_high_or_obv",
+        "condition_role_candidate": "candidate_v2_bonus_stack",
+        "condition_rule": "research score >=4 and either TDCC high thresholds increased or OBV above MA20",
+        "data_status": "research_only_score_not_production",
+        "condition": lambda d: price_pullback_research_score_ge_filter(d, 4.0)
+        & (price_pullback_tdcc_high_thresholds_up_filter(d) | price_pullback_obv_above_ma20_filter(d)),
+    },
+    {
+        "test_order": 140,
+        "test_stage": "04_layered_candidate",
+        "condition_test_id": "score_ge4_prev20_space_ge3_tdcc_or_obv",
+        "condition_role_candidate": "candidate_v2_gate_stack",
+        "condition_rule": "research score >=4, at least 3% previous-high space, and TDCC high-thresholds up or OBV above MA20",
+        "data_status": "research_only_score_not_production",
+        "condition": lambda d: price_pullback_research_score_ge_filter(d, 4.0)
+        & price_pullback_prev20_high_space_filter(d, 3.0)
+        & (price_pullback_tdcc_high_thresholds_up_filter(d) | price_pullback_obv_above_ma20_filter(d)),
+    },
+    {
+        "test_order": 150,
+        "test_stage": "04_layered_candidate",
+        "condition_test_id": "score_ge6_prev20_space_ge3",
+        "condition_role_candidate": "strict_candidate_v2_gate_stack",
+        "condition_rule": "research score >=6 and at least 3% space to previous 20d high",
+        "data_status": "research_only_score_not_production",
+        "condition": lambda d: price_pullback_research_score_ge_filter(d, 6.0)
+        & price_pullback_prev20_high_space_filter(d, 3.0),
+    },
+    {
+        "test_order": 900,
+        "test_stage": "90_deferred_theme_context",
+        "condition_test_id": "theme_context_mainstream_supported",
+        "condition_role_candidate": "deferred_context_bonus_not_gate",
+        "condition_rule": "signal-date theme context is mainstream-supported or overheated",
+        "data_status": "coverage_limited_wait_for_mature_d20_samples",
+        "condition": price_pullback_theme_context_mainstream_filter,
+    },
+]
 
 
 def _rate(count: int, total: int) -> float | str:
@@ -3490,6 +3670,272 @@ def write_price_pullback_research_score_bucket(score_bucket: pd.DataFrame) -> No
     )
 
 
+def price_pullback_research_score_ge_filter(d: pd.DataFrame, min_score: float) -> pd.Series:
+    scored = d if "price_pullback_research_score" in d.columns else add_price_pullback_research_score_columns(d)
+    return numeric_column(scored, "price_pullback_research_score").ge(min_score).fillna(False)
+
+
+def price_pullback_prev20_high_space_filter(d: pd.DataFrame, min_space_pct: float) -> pd.Series:
+    entry_price = numeric_column(d, "next_open").replace(0, pd.NA)
+    target_price = numeric_column(d, "range_high_20d_prev")
+    space_pct = (target_price / entry_price - 1.0) * 100.0
+    return space_pct.ge(min_space_pct).fillna(False)
+
+
+def _price_pullback_ordered_condition_hint(
+    spec: dict[str, object],
+    mature_count: int,
+    baseline_mature_count: int,
+    delta_win_rate: float | str,
+    delta_failure_rate: float | str,
+    delta_avg_return: float | str,
+) -> str:
+    stage = safe_str(spec.get("test_stage", ""))
+    if stage == "00_baseline":
+        return "baseline_anchor"
+    if stage.startswith("90_"):
+        return "defer_until_mature_point_in_time_theme_samples"
+    if baseline_mature_count <= 0 or mature_count <= 0:
+        return "no_mature_sample"
+    mature_share = mature_count / baseline_mature_count * 100.0
+    win_delta = _numeric_or_nan(delta_win_rate)
+    failure_delta = _numeric_or_nan(delta_failure_rate)
+    return_delta = _numeric_or_nan(delta_avg_return)
+    if mature_share < 5.0:
+        return "too_small_for_required_gate_review_only"
+    if win_delta >= 5.0 and failure_delta <= -3.0 and return_delta >= 0.3:
+        return "gate_candidate_review"
+    if return_delta >= 0.8 and failure_delta <= 0.0:
+        return "add_score_candidate_review"
+    if win_delta >= 3.0 and failure_delta <= 0.0:
+        return "quality_filter_candidate_review"
+    if return_delta > 0.0 and mature_share >= 10.0:
+        return "add_score_only_candidate"
+    if win_delta < 0.0 and failure_delta > 0.0:
+        return "reject_as_required_gate_candidate"
+    return "mixed_or_neutral_review"
+
+
+def _price_pullback_ordered_outcome_summary(enriched: pd.DataFrame) -> dict[str, object]:
+    if enriched.empty:
+        return {
+            **_blank_operation_outcome(),
+            "hard_stop_count": 0,
+            "ma5_exit_count": 0,
+            "hard_stop_rate_pct": "",
+            "ma5_exit_rate_pct": "",
+        }
+    mature = len(enriched)
+    wins = enriched["outcome_bucket"].eq("win")
+    neutral = enriched["outcome_bucket"].eq("neutral")
+    failure = enriched["outcome_bucket"].eq("failure")
+    same_day = enriched["outcome_bucket"].eq("same_day_unresolved")
+    hard_stop = trueish(enriched["hard_stop_failure"]) if "hard_stop_failure" in enriched.columns else bool_series(enriched, False)
+    ma5_exit = trueish(enriched["ma5_exit"]) if "ma5_exit" in enriched.columns else bool_series(enriched, False)
+    return {
+        "mature_count": mature,
+        "win_count": int(wins.sum()),
+        "neutral_count": int(neutral.sum()),
+        "failure_count": int(failure.sum()),
+        "same_day_unresolved_count": int(same_day.sum()),
+        "hard_stop_count": int(hard_stop.sum()),
+        "ma5_exit_count": int(ma5_exit.sum()),
+        "win_rate_pct": _rate(int(wins.sum()), mature),
+        "neutral_rate_pct": _rate(int(neutral.sum()), mature),
+        "failure_rate_pct": _rate(int(failure.sum()), mature),
+        "same_day_unresolved_rate_pct": _rate(int(same_day.sum()), mature),
+        "hard_stop_rate_pct": _rate(int(hard_stop.sum()), mature),
+        "ma5_exit_rate_pct": _rate(int(ma5_exit.sum()), mature),
+        "avg_d20_close_return_pct": _mean_or_blank(enriched["final_d20_close_return_pct"]),
+        "median_d20_close_return_pct": _median_or_blank(enriched["final_d20_close_return_pct"]),
+        "avg_realized_return_pct": _mean_or_blank(enriched["realized_return_pct"]),
+        "avg_win_realized_return_pct": _mean_or_blank(enriched.loc[wins, "realized_return_pct"]),
+        "avg_failure_realized_return_pct": _mean_or_blank(enriched.loc[failure, "realized_return_pct"]),
+        "avg_neutral_realized_return_pct": _mean_or_blank(enriched.loc[neutral, "realized_return_pct"]),
+        "avg_realized_or_d20_days": _mean_or_blank(enriched["realized_days"]),
+        "avg_days_to_win": _mean_or_blank(enriched.loc[wins, "target_day"]),
+        "avg_days_to_failure": _mean_or_blank(enriched.loc[failure, "realized_days"]),
+    }
+
+
+def build_price_pullback_ordered_condition_matrix(df: pd.DataFrame) -> pd.DataFrame:
+    base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
+    base = add_price_pullback_research_score_columns(df[base_mask].copy())
+    exit_candidates = {
+        str(candidate["exit_rule_id"]): candidate
+        for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES
+        if str(candidate["exit_rule_id"]) in PRICE_PULLBACK_ORDERED_CONDITION_EXIT_RULE_IDS
+    }
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for exit_rule_id, candidate in exit_candidates.items():
+        required = _price_pullback_exit_required_columns(candidate)
+        valid_base = (
+            base.dropna(subset=required).copy()
+            if all(col in base.columns for col in required)
+            else base.iloc[0:0].copy()
+        )
+        if valid_base.empty:
+            continue
+        base_outcome = _price_pullback_exit_rule_outcome_rows(valid_base, candidate)
+        enriched_base = valid_base.join(base_outcome)
+        baseline_counts = _price_pullback_ordered_outcome_summary(enriched_base)
+        baseline_mature_count = int(baseline_counts["mature_count"])
+        baseline_win_rate = _numeric_or_nan(baseline_counts["win_rate_pct"])
+        baseline_failure_rate = _numeric_or_nan(baseline_counts["failure_rate_pct"])
+        baseline_avg_return = _numeric_or_nan(baseline_counts["avg_realized_return_pct"])
+        for spec in PRICE_PULLBACK_ORDERED_CONDITION_TESTS:
+            condition = spec.get("condition")
+            if condition is None:
+                picked = base.iloc[0:0].copy()
+            else:
+                condition_mask = condition(base).fillna(False)
+                picked = base[condition_mask].copy()
+            if picked.empty:
+                enriched = enriched_base.iloc[0:0].copy()
+            else:
+                picked_mask = picked.index.to_series().isin(enriched_base.index)
+                valid_picked_index = picked.index[picked_mask]
+                enriched = enriched_base.loc[valid_picked_index].copy()
+            outcome = _price_pullback_ordered_outcome_summary(enriched)
+            if enriched.empty:
+                avg_score = ""
+                avg_space = ""
+                median_space = ""
+            else:
+                avg_score = _mean_or_blank(enriched["price_pullback_research_score"])
+                avg_space = _mean_or_blank(enriched["prev20_target_return_pct"])
+                median_space = _median_or_blank(enriched["prev20_target_return_pct"])
+            mature_count = int(outcome["mature_count"])
+            win_rate = _numeric_or_nan(outcome["win_rate_pct"])
+            failure_rate = _numeric_or_nan(outcome["failure_rate_pct"])
+            avg_return = _numeric_or_nan(outcome["avg_realized_return_pct"])
+            delta_win_rate = (
+                round(win_rate - baseline_win_rate, 2)
+                if not math.isnan(win_rate) and not math.isnan(baseline_win_rate)
+                else ""
+            )
+            delta_failure_rate = (
+                round(failure_rate - baseline_failure_rate, 2)
+                if not math.isnan(failure_rate) and not math.isnan(baseline_failure_rate)
+                else ""
+            )
+            delta_avg_return = (
+                round(avg_return - baseline_avg_return, 2)
+                if not math.isnan(avg_return) and not math.isnan(baseline_avg_return)
+                else ""
+            )
+            mature_share = _rate(mature_count, baseline_mature_count)
+            row = {
+                "generated_at": generated_at,
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "股價回檔模型",
+                "research_artifact_id": "price_pullback_23ema_ordered_condition_matrix",
+                "test_order": spec["test_order"],
+                "test_stage": spec["test_stage"],
+                "condition_test_id": spec["condition_test_id"],
+                "condition_role_candidate": spec["condition_role_candidate"],
+                "condition_rule": spec["condition_rule"],
+                "data_status": spec["data_status"],
+                "exit_rule_id": exit_rule_id,
+                "formal_price_rule_status": candidate["formal_price_rule_status"],
+                "profit_target_pct": candidate["profit_target_pct"],
+                "exit_price_rule": candidate["exit_price_rule"],
+                "entry_rule_id": "signal_date_next_open",
+                "buy_point_rule": (
+                    "Buy next open only after the price_pullback_23ema production proxy signal; "
+                    "ordered conditions are research-only."
+                ),
+                "selected_stock_days": len(picked),
+                "selected_unique_stocks": picked["stock_id"].nunique() if "stock_id" in picked.columns else "",
+                "baseline_mature_count": baseline_mature_count,
+                "mature_share_of_baseline_pct": mature_share,
+                "avg_research_score": avg_score,
+                "avg_prev20_target_return_pct": avg_space,
+                "median_prev20_target_return_pct": median_space,
+                "delta_vs_baseline_win_rate_pct": delta_win_rate,
+                "delta_vs_baseline_failure_rate_pct": delta_failure_rate,
+                "delta_vs_baseline_avg_realized_return_pct": delta_avg_return,
+                "decision_hint": _price_pullback_ordered_condition_hint(
+                    spec,
+                    mature_count,
+                    baseline_mature_count,
+                    delta_win_rate,
+                    delta_failure_rate,
+                    delta_avg_return,
+                ),
+                "score_use": "research_only_not_production_score",
+                "advisory_status": "not_production_ready_research_only",
+                "approved_for_daily": False,
+                "production_change": "none",
+                "promotion_readiness": "blocked_exact_daily_row_parity_and_operation_approval_required",
+                "promotion_blocker": (
+                    "requires explicit model-rule decision, production contract update if promoted, exact parity, "
+                    "validators, PR merge, and post-merge main validation"
+                ),
+                **outcome,
+            }
+            rows.append(row)
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    out = out.sort_values(["exit_rule_id", "test_order"]).reset_index(drop=True)
+    return out
+
+
+def write_price_pullback_ordered_condition_matrix(matrix: pd.DataFrame) -> None:
+    write_csv(matrix, PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV)
+    write_csv(matrix, PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_HISTORY_CSV)
+    write_csv(matrix, DOCS_PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV)
+    lines = [
+        "# Price Pullback 23EMA Ordered Condition Matrix",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- scope: ordered research matrix for deciding necessary conditions, add-score items, risk filters, or rejected conditions.",
+        "- production_change: `none`",
+        "- entry_basis: `signal_date_next_open`; entry conditions are evaluated as research-only filters after the production proxy signal.",
+        "- exit_basis: close-confirmed previous-20-day-high exits use next open; continuation exits use next open after close target or 5MA close exit.",
+        "- theme_context_status: deferred rows are coverage checks only until enough point-in-time D+20 mature samples exist.",
+        "- promotion_blocker: production use requires explicit model-rule decision, contract update when applicable, parity, validators, merge, and post-merge main validation.",
+        "",
+        markdown_table(
+            matrix,
+            [
+                "test_stage",
+                "condition_test_id",
+                "condition_role_candidate",
+                "exit_rule_id",
+                "mature_count",
+                "mature_share_of_baseline_pct",
+                "win_rate_pct",
+                "failure_rate_pct",
+                "avg_realized_return_pct",
+                "delta_vs_baseline_win_rate_pct",
+                "delta_vs_baseline_failure_rate_pct",
+                "delta_vs_baseline_avg_realized_return_pct",
+                "avg_research_score",
+                "avg_prev20_target_return_pct",
+                "decision_hint",
+            ],
+            limit=120,
+        )
+        if not matrix.empty
+        else "No ordered condition rows.",
+    ]
+    PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD.write_text(
+        PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def _price_pullback_parity_discussion_status(row_parity: pd.DataFrame) -> dict[str, object]:
     if row_parity.empty or "parity_status" not in row_parity.columns:
         return {
@@ -4540,6 +4986,7 @@ def main() -> int:
     price_pullback_exit_rule_comparison_df = build_price_pullback_exit_rule_comparison(df)
     price_pullback_continuation_win_profile_df = build_price_pullback_continuation_win_profile(df)
     price_pullback_research_score_bucket_df = build_price_pullback_research_score_bucket(df)
+    price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
     price_pullback_daily_row_parity_df = build_price_pullback_daily_row_parity_audit(df)
     price_pullback_decision_audit_df = build_price_pullback_model_decision_audit(
         price_pullback_operation_module_df,
@@ -4563,6 +5010,7 @@ def main() -> int:
     write_price_pullback_exit_rule_comparison(price_pullback_exit_rule_comparison_df)
     write_price_pullback_continuation_win_profile(price_pullback_continuation_win_profile_df)
     write_price_pullback_research_score_bucket(price_pullback_research_score_bucket_df)
+    write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
     write_price_pullback_model_decision_audit(price_pullback_decision_audit_df)
 
@@ -4576,6 +5024,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV} rows={len(price_pullback_exit_rule_comparison_df)}")
     print(f"Saved {PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV} rows={len(price_pullback_continuation_win_profile_df)}")
     print(f"Saved {PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV} rows={len(price_pullback_research_score_bucket_df)}")
+    print(f"Saved {PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV} rows={len(price_pullback_ordered_condition_matrix_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
     print(f"Saved {PRICE_PULLBACK_DECISION_AUDIT_CSV} rows={len(price_pullback_decision_audit_df)}")
     print(f"Saved {OUT_MD}")

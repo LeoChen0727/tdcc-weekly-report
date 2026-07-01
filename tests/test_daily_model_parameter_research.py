@@ -23,6 +23,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_model_decision_audit,
     build_price_pullback_operation_module_research,
     build_price_pullback_operation_research,
+    build_price_pullback_ordered_condition_matrix,
     build_price_pullback_research_score_bucket,
     build_price_pullback_time_cost_backtest,
     current_price_pullback_baseline_proxy,
@@ -928,6 +929,22 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     assert "research_only_not_production_score" in set(score_bucket["score_use"])
     assert "score_6_plus" in set(score_bucket["score_bucket"])
     assert "close_prev20_high_break_next_open" in set(score_bucket["exit_rule_id"])
+
+    condition_matrix = build_price_pullback_ordered_condition_matrix(df)
+    assert not condition_matrix.empty
+    assert condition_matrix["approved_for_daily"].eq(False).all()
+    assert condition_matrix["production_change"].eq("none").all()
+    assert "baseline_replay" in set(condition_matrix["condition_test_id"])
+    assert "research_score_ge4" in set(condition_matrix["condition_test_id"])
+    assert "prev20_space_ge3" in set(condition_matrix["condition_test_id"])
+    assert "score_ge4_prev20_space_ge3_tdcc_or_obv" in set(condition_matrix["condition_test_id"])
+    assert "close_prev20_high_break_next_open" in set(condition_matrix["exit_rule_id"])
+    layered = condition_matrix[
+        condition_matrix["condition_test_id"].eq("score_ge4_prev20_space_ge3_tdcc_or_obv")
+        & condition_matrix["exit_rule_id"].eq("close_prev20_high_break_next_open")
+    ].iloc[0]
+    assert layered["score_use"] == "research_only_not_production_score"
+    assert layered["selected_stock_days"] >= 1
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
