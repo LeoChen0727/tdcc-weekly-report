@@ -429,12 +429,17 @@ def test_formal_model_change_rules_require_close_confirmed_operation_prices() ->
         assert "profit-taking, win, failure, or realized-return prices" in text
         assert "research-only observation" in text
         assert "price_pullback_23ema" in text
+        assert "research_only_intraday_trigger" in text
+        assert "close_prev20_high_break_same_day_close" in text
 
     assert "Formal Price Confirmation Boundary" in price_pullback_spec
-    assert "must not be promoted as a formal entry, exit," in price_pullback_spec
-    assert "stop, profit-taking, win, failure, or realized-return rule" in price_pullback_spec
-    assert "close breaks the previous 20-day high, then sell at the same-day close" in price_pullback_spec
-    assert "close breaks the previous 20-day high, then sell at the next trading day open" in price_pullback_spec
+    assert "Intraday high/low observations must not be used as" in price_pullback_spec
+    assert "realized execution prices" in price_pullback_spec
+    assert "intraday high touches the signal-day previous 20-day high" in price_pullback_spec
+    assert "research_only_intraday_trigger" in price_pullback_spec
+    assert "close breaks the signal-day previous 20-day high, then sell at the next" in price_pullback_spec
+    assert "close_prev20_high_break_same_day_close" in price_pullback_spec
+    assert "known only after that close" in price_pullback_spec
     assert boundaries.validate_model_operation_price_confirmation_rules() == []
 
 

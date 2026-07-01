@@ -103,8 +103,10 @@ are contract exceptions/gaps that must be listed explicitly, cannot be copied to
 new models, and require a model-specific promotion PR before the behavior is
 changed. For `price_pullback_23ema`, the earlier intraday previous-high touch
 research result is not a formal v1 operation return basis; formal discussion
-must use a close-confirmed breakout with same-day close or next trading day open
-exit semantics.
+must keep intraday previous-high touch as `research_only_intraday_trigger` when
+testing same-day close exits, or use close-confirmed previous-high breakout with
+next trading day open exit semantics. `close_prev20_high_break_same_day_close`
+is invalid because the close-confirmed breakout is known only after that close.
 
 When a formal model promotion or model change makes an operation-oriented model
 eligible for daily PDF or packet presentation, the daily model change must also
