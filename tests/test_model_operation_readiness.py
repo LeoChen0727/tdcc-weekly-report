@@ -172,6 +172,35 @@ def price_pullback_discussion_ready_row_parity_frame() -> pd.DataFrame:
     )
 
 
+def price_pullback_exact_row_parity_frame() -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "model_id": "price_pullback_23ema",
+                "snapshot_report_date": "20260629",
+                "parity_status": "exact_daily_row_parity_pass",
+                "published_not_in_proxy_rows": "0",
+                "proxy_not_published_rows": "0",
+                "published_unique_stock_count": "219",
+                "research_proxy_unique_stock_count": "219",
+                "candidate_universe_replay_status": "candidate_universe_replay_exact_match",
+                "parity_gap_driver": "none_exact",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "snapshot_report_date": "20260630",
+                "parity_status": "exact_daily_row_parity_pass",
+                "published_not_in_proxy_rows": "0",
+                "proxy_not_published_rows": "0",
+                "published_unique_stock_count": "233",
+                "research_proxy_unique_stock_count": "233",
+                "candidate_universe_replay_status": "candidate_universe_replay_exact_match",
+                "parity_gap_driver": "none_exact",
+            },
+        ]
+    )
+
+
 def adapter_frame(with_approval_metadata: bool = False) -> pd.DataFrame:
     row = {
         "model_id": "volume_range_breakout",
@@ -331,6 +360,34 @@ def test_price_pullback_candidate_can_be_discussion_ready_without_production_app
     assert row["packet_integration_status"] == "blocked_latest_research_frame"
     assert "latest research frame freshness pending" in row["blocker"]
     assert "可以開始模型決策討論" in row["status_note_zh"]
+
+
+def test_price_pullback_exact_parity_still_requires_promotion_and_operation_adapter() -> None:
+    readiness = build_model_operation_readiness(
+        parity_frame(),
+        registry_frame(),
+        adapter_frame(with_approval_metadata=True),
+        approval_frame(),
+        w_bottom_adapter=w_bottom_adapter_frame("w_bottom_right_side"),
+        neckline_adapter=w_bottom_adapter_frame("neckline_volume_breakout_confirmation"),
+        price_pullback_feature_confirmation=price_pullback_feature_frame(),
+        price_pullback_daily_row_parity=price_pullback_exact_row_parity_frame(),
+        generated_at="2026-06-30 00:00:00 Asia/Taipei",
+    )
+
+    row = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
+
+    assert row["operation_module_status"] == "operation_candidate_v1_pending_promotion_pr"
+    assert row["daily_adapter_status"] == "blocked_promotion_pr_and_daily_operation_adapter_required"
+    assert row["approved_for_daily"] == "False"
+    assert row["approval_status"] == "pending_promotion_pr_and_daily_adapter"
+    assert row["presentation_allowed"] == "False"
+    assert row["operation_directive_level"] == "no_operation_directive"
+    assert row["pdf_integration_status"] == "blocked_promotion_pr_and_daily_operation_adapter_required"
+    assert row["packet_integration_status"] == "blocked_promotion_pr_and_daily_operation_adapter_required"
+    assert "promotion/sync PR" in row["blocker"]
+    assert "operation-row adapter" in row["blocker"]
+    assert "PDF renderer 不得自行推論 23EMA 操作列" in row["status_note_zh"]
 
 
 def test_w_bottom_models_require_daily_operation_adapter_for_pdf_integration() -> None:

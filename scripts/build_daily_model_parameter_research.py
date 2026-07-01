@@ -2835,6 +2835,9 @@ def build_price_pullback_daily_row_parity_audit(
         "model_id",
         "snapshot_report_date",
         "research_frame_has_date",
+        "outcome_research_frame_has_date",
+        "source_row_research_frame_has_date",
+        "research_frame_date_basis",
         "published_row_count",
         "published_unique_stock_count",
         "published_duplicate_stock_count",
@@ -2871,7 +2874,7 @@ def build_price_pullback_daily_row_parity_audit(
     research = df.copy()
     research["_row_parity_date"] = research["date"].map(normalize_date)
     research["_row_parity_stock_id"] = research["stock_id"].map(normalize_code)
-    research_dates = set(research["_row_parity_date"].astype(str))
+    outcome_research_dates = set(research["_row_parity_date"].astype(str))
     proxy_mask = current_price_pullback_baseline_proxy(research).fillna(False)
     proxy_rows = research.loc[
         proxy_mask
@@ -2898,6 +2901,9 @@ def build_price_pullback_daily_row_parity_audit(
                     "model_id": "price_pullback_23ema",
                     "snapshot_report_date": report_date,
                     "research_frame_has_date": "False",
+                    "outcome_research_frame_has_date": "False",
+                    "source_row_research_frame_has_date": "False",
+                    "research_frame_date_basis": "missing_research_frame_date",
                     "published_row_count": 0,
                     "published_unique_stock_count": 0,
                     "published_duplicate_stock_count": 0,
@@ -2938,6 +2944,9 @@ def build_price_pullback_daily_row_parity_audit(
                     "model_id": "price_pullback_23ema",
                     "snapshot_report_date": report_date,
                     "research_frame_has_date": "False",
+                    "outcome_research_frame_has_date": "False",
+                    "source_row_research_frame_has_date": "False",
+                    "research_frame_date_basis": "missing_research_frame_date",
                     "published_row_count": 0,
                     "published_unique_stock_count": 0,
                     "published_duplicate_stock_count": 0,
@@ -2978,6 +2987,11 @@ def build_price_pullback_daily_row_parity_audit(
         candidate_replay = _price_pullback_candidate_universe_replay(snapshot_dir, report_date)
         comparison_basis = safe_str(candidate_replay.get("comparison_basis", "")) or "full_research_frame_proxy"
         candidate_replay_set = candidate_replay.get("comparison_stock_ids")
+        source_row_research_has_date = (
+            comparison_basis == "production_all_candidates_source_row_replay"
+            and isinstance(candidate_replay_set, set)
+            and not safe_str(candidate_replay.get("replay_error", ""))
+        )
         if isinstance(candidate_replay_set, set):
             proxy_set = candidate_replay_set
         else:
@@ -2987,7 +3001,14 @@ def build_price_pullback_daily_row_parity_audit(
         proxy_not_published = proxy_set - published_set
         published_unique = len(published_set)
         proxy_unique = len(proxy_set)
-        has_research_date = report_date in research_dates
+        outcome_research_has_date = report_date in outcome_research_dates
+        has_research_date = outcome_research_has_date or source_row_research_has_date
+        date_basis_parts: list[str] = []
+        if outcome_research_has_date:
+            date_basis_parts.append("outcome_research_frame")
+        if source_row_research_has_date:
+            date_basis_parts.append("production_all_candidates_source_row_replay")
+        research_frame_date_basis = ";".join(date_basis_parts) if date_basis_parts else "missing_research_frame_date"
         published_not_proxy_count = len(published_not_proxy)
         proxy_not_published_count = len(proxy_not_published)
         gap_driver = _price_pullback_gap_driver(
@@ -3024,6 +3045,9 @@ def build_price_pullback_daily_row_parity_audit(
                 "model_id": "price_pullback_23ema",
                 "snapshot_report_date": report_date,
                 "research_frame_has_date": "True" if has_research_date else "False",
+                "outcome_research_frame_has_date": "True" if outcome_research_has_date else "False",
+                "source_row_research_frame_has_date": "True" if source_row_research_has_date else "False",
+                "research_frame_date_basis": research_frame_date_basis,
                 "published_row_count": len(published),
                 "published_unique_stock_count": published_unique,
                 "published_duplicate_stock_count": len(published_stock_ids) - published_unique,
@@ -3100,6 +3124,7 @@ def write_price_pullback_daily_row_parity_audit(row_parity: pd.DataFrame) -> Non
         "- scope: compare as-published daily snapshot rows to the research production proxy at `signal_date + stock_id` level",
         "- rule: any missing or extra stock row keeps the model blocked from daily operation promotion",
         "- gap interpretation: the research proxy currently runs on the full stock-day frame; exact parity still needs dated daily candidate-universe/source-row replay before promotion",
+        "- date rule: `outcome_research_frame_has_date` tracks mature next-open/D+N outcome rows; `source_row_research_frame_has_date` tracks dated all_candidates/source-row replay for as-of daily row parity.",
         "- note: this audit does not change production selection, scoring, ranking, or PDF output",
         "",
         "## Status Summary",
@@ -3113,6 +3138,9 @@ def write_price_pullback_daily_row_parity_audit(row_parity: pd.DataFrame) -> Non
             [
                 "snapshot_report_date",
                 "research_frame_has_date",
+                "outcome_research_frame_has_date",
+                "source_row_research_frame_has_date",
+                "research_frame_date_basis",
                 "published_unique_stock_count",
                 "research_proxy_unique_stock_count",
                 "overlap_stock_count",

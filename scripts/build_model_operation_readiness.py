@@ -330,6 +330,13 @@ def summarize_price_pullback_candidate(
         approval_status = "pending_explicit_promotion_pr"
         integration_status = "blocked_explicit_promotion_pr_required"
         parity_phrase = "daily row parity 已通過；仍需要獨立 promotion/sync PR 才能進 production。"
+        daily_adapter_status = "blocked_promotion_pr_and_daily_operation_adapter_required"
+        approval_status = "pending_promotion_pr_and_daily_adapter"
+        integration_status = "blocked_promotion_pr_and_daily_operation_adapter_required"
+        parity_phrase = (
+            "daily row parity 已通過；仍需要獨立 promotion/sync PR 與正式 daily operation-row "
+            "adapter/PDF section contract 才能進 production。PDF renderer 不得自行推論 23EMA 操作列。"
+        )
     elif row_parity_status == "discussion_ready_pending_latest_research_frame":
         operation_module_status = "operation_candidate_v1_discussion_ready_pending_latest_research_frame"
         daily_adapter_status = "blocked_latest_research_frame"
@@ -676,8 +683,9 @@ def build_model_operation_readiness(
                     "parity_status": parity_status,
                     "blocker": price_pullback_candidate["row_parity_blocker"]
                     or (
-                        "daily row parity audit has no failing rows, but an explicit promotion/sync PR is still "
-                        "required before production operation guidance"
+                        "daily row parity audit has no failing rows, but an explicit promotion/sync PR and "
+                        "formal daily operation-row adapter/PDF section contract are still required before "
+                        "production operation guidance"
                     ),
                     "operation_module_status": price_pullback_candidate["operation_module_status"],
                     "daily_adapter_status": price_pullback_candidate["daily_adapter_status"],

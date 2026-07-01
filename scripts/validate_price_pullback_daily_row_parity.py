@@ -20,6 +20,9 @@ REQUIRED_COLUMNS = {
     "model_id",
     "snapshot_report_date",
     "research_frame_has_date",
+    "outcome_research_frame_has_date",
+    "source_row_research_frame_has_date",
+    "research_frame_date_basis",
     "published_row_count",
     "published_unique_stock_count",
     "published_duplicate_stock_count",
@@ -93,6 +96,9 @@ def validate_row_parity_frame(df: pd.DataFrame) -> list[str]:
         published_gap = _int_value(row.get("published_not_in_proxy_rows"))
         proxy_gap = _int_value(row.get("proxy_not_published_rows"))
         has_date = str(row.get("research_frame_has_date", "")).strip() == "True"
+        has_outcome_date = str(row.get("outcome_research_frame_has_date", "")).strip() == "True"
+        has_source_row_date = str(row.get("source_row_research_frame_has_date", "")).strip() == "True"
+        date_basis = str(row.get("research_frame_date_basis", "")).strip()
         gap_driver = str(row.get("parity_gap_driver", "")).strip()
         candidate_replay_status = str(row.get("candidate_universe_replay_status", "")).strip()
         next_replay_artifact = str(row.get("next_required_replay_artifact", "")).strip()
@@ -109,6 +115,14 @@ def validate_row_parity_frame(df: pd.DataFrame) -> list[str]:
             errors.append(f"row {idx} not-exact status must have a published/proxy row gap")
         if status == "blocked_missing_research_frame_date" and has_date:
             errors.append(f"row {idx} missing-date status is inconsistent with research_frame_has_date=True")
+        if has_date != (has_outcome_date or has_source_row_date):
+            errors.append(f"row {idx} research_frame_has_date must match outcome/source-row date flags")
+        if not date_basis:
+            errors.append(f"row {idx} research_frame_date_basis must be populated")
+        if has_date and date_basis == "missing_research_frame_date":
+            errors.append(f"row {idx} research_frame_date_basis cannot be missing when research_frame_has_date=True")
+        if not has_date and date_basis != "missing_research_frame_date":
+            errors.append(f"row {idx} missing research date must use research_frame_date_basis=missing_research_frame_date")
         if published_gap != max(published - overlap, 0):
             errors.append(f"row {idx} published_not_in_proxy_rows does not equal published-overlap")
         if proxy_gap != max(proxy - overlap, 0):

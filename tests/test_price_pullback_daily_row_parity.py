@@ -132,6 +132,9 @@ def test_price_pullback_daily_row_parity_audit_reports_bidirectional_gaps(tmp_pa
 
     second = audit[audit["snapshot_report_date"].eq("20260616")].iloc[0]
     assert second["research_frame_has_date"] == "False"
+    assert second["outcome_research_frame_has_date"] == "False"
+    assert second["source_row_research_frame_has_date"] == "False"
+    assert second["research_frame_date_basis"] == "missing_research_frame_date"
     assert second["parity_status"] == "blocked_missing_research_frame_date"
     assert second["parity_gap_driver"] == "missing_research_frame_date"
 
@@ -184,11 +187,71 @@ def test_price_pullback_daily_row_parity_uses_all_candidates_replay_when_availab
 
     row = audit.iloc[0]
     assert row["comparison_basis"] == "production_all_candidates_source_row_replay"
+    assert row["research_frame_has_date"] == "True"
+    assert row["outcome_research_frame_has_date"] == "True"
+    assert row["source_row_research_frame_has_date"] == "True"
+    assert row["research_frame_date_basis"] == "outcome_research_frame;production_all_candidates_source_row_replay"
     assert row["research_proxy_scope"] == "production_all_candidates_source_row_cond_pullback_replay"
     assert row["research_proxy_unique_stock_count"] == 1
     assert row["candidate_universe_condition_stock_count"] == 1
     assert row["published_not_in_proxy_rows"] == 0
     assert row["proxy_not_published_rows"] == 0
+    assert row["candidate_universe_replay_status"] == "candidate_universe_replay_exact_match"
+    assert row["parity_status"] == "exact_daily_row_parity_pass"
+
+    assert validate_row_parity_frame(audit) == []
+
+
+def test_price_pullback_daily_row_parity_accepts_source_row_replay_without_outcome_frame_date(tmp_path: Path) -> None:
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    write_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        [
+            {
+                "model_id": "price_pullback_23ema",
+                "stock_id": "1234",
+                "selection_semantics": "model_condition_met_rank_by_score_no_theme_veto",
+                "original_category": "pattern",
+                "report_bucket": "mainstream",
+            }
+        ],
+    )
+    write_csv(
+        snapshot_dir / "all_candidates_20260616.csv",
+        [
+            {
+                "stock_id": "1234",
+                "candidate_source_type": "individual_quality_candidate",
+                "candidate_line": "pattern_watch",
+                "candidate_line_group": "individual_pattern_watch",
+                "source_row_index": "0",
+                "close": "101",
+                "ema23": "100",
+                "ma20": "100",
+                "distance_to_ema23_pct": "1.0",
+                "gap_ema23_pct": "1.0",
+                "platform_low": "95",
+                "short_platform_low": "96",
+                "previous_20d_low": "94",
+                "low_20": "94",
+                "ma5_turning_up_flag": "False",
+                "ma10_turning_up_flag": "False",
+            }
+        ],
+    )
+
+    audit = build_price_pullback_daily_row_parity_audit(
+        research_frame(),
+        snapshot_dir=snapshot_dir,
+        generated_at="2026-06-30 00:00:00 Asia/Taipei",
+    )
+
+    row = audit.iloc[0]
+    assert row["research_frame_has_date"] == "True"
+    assert row["outcome_research_frame_has_date"] == "False"
+    assert row["source_row_research_frame_has_date"] == "True"
+    assert row["research_frame_date_basis"] == "production_all_candidates_source_row_replay"
+    assert row["comparison_basis"] == "production_all_candidates_source_row_replay"
     assert row["candidate_universe_replay_status"] == "candidate_universe_replay_exact_match"
     assert row["parity_status"] == "exact_daily_row_parity_pass"
 
@@ -203,6 +266,9 @@ def test_price_pullback_daily_row_parity_validator_rejects_inconsistent_pass() -
                 "model_id": "price_pullback_23ema",
                 "snapshot_report_date": "20260615",
                 "research_frame_has_date": "True",
+                "outcome_research_frame_has_date": "True",
+                "source_row_research_frame_has_date": "False",
+                "research_frame_date_basis": "outcome_research_frame",
                 "published_row_count": "2",
                 "published_unique_stock_count": "2",
                 "published_duplicate_stock_count": "0",
