@@ -116,6 +116,15 @@ DOCS_PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV = (
 DOCS_PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD = (
     DOCS_LATEST_DIR / PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_MD.name
 )
+PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_research_score_bucket_latest.csv"
+)
+PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_research_score_bucket_latest.md"
+)
+PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_research_score_bucket.csv"
+DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV.name
+DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -1799,6 +1808,69 @@ PRICE_PULLBACK_SUCCESS_BOOL_FEATURES = [
     ("theme_context_overheated", "theme_context", "theme context overheated"),
     ("theme_context_volume_attack_selected_flag", "theme_context", "theme context volume-attack selected"),
 ]
+PRICE_PULLBACK_RESEARCH_SCORE_COMPONENTS = [
+    {
+        "component_id": "tdcc_high_thresholds_up",
+        "component_family": "chip",
+        "points": 2,
+        "component_rule": "TDCC history exists and large-holder high thresholds increased on signal date",
+        "condition": price_pullback_tdcc_high_thresholds_up_filter,
+    },
+    {
+        "component_id": "return20_0_25",
+        "component_family": "price_momentum_control",
+        "points": 1,
+        "component_rule": "prior 20d return is between 0% and 25%",
+        "condition": price_pullback_return20_balanced_filter,
+    },
+    {
+        "component_id": "return45_ge5",
+        "component_family": "price_momentum",
+        "points": 1,
+        "component_rule": "prior 45d return is at least 5%",
+        "condition": lambda d: (numeric_column(d, "return_45d_pct") >= 5.0).fillna(False),
+    },
+    {
+        "component_id": "range_width45_ge28",
+        "component_family": "price_structure",
+        "points": 1,
+        "component_rule": "prior 45d range width is at least 28%",
+        "condition": lambda d: (numeric_column(d, "range_width_45d_pct") >= 28.0).fillna(False),
+    },
+    {
+        "component_id": "prior_extension_ema23_20d_ge8",
+        "component_family": "price_structure",
+        "points": 1,
+        "component_rule": "prior 20d high was at least 8% above 23EMA",
+        "condition": lambda d: (numeric_column(d, "prior_extension_ema23_20d_pct") >= 8.0).fillna(False),
+    },
+    {
+        "component_id": "prior_runup20_ge15",
+        "component_family": "price_structure",
+        "points": 1,
+        "component_rule": "prior 20d range runup was at least 15%",
+        "condition": lambda d: (numeric_column(d, "prior_runup_20d_pct") >= 15.0).fillna(False),
+    },
+    {
+        "component_id": "obv_above_ma20",
+        "component_family": "technical_volume",
+        "points": 1,
+        "component_rule": "OBV is above OBV MA20 on signal date",
+        "condition": price_pullback_obv_above_ma20_filter,
+    },
+]
+PRICE_PULLBACK_RESEARCH_SCORE_BUCKETS = [
+    (0, 1, "score_0_1"),
+    (2, 3, "score_2_3"),
+    (4, 5, "score_4_5"),
+    (6, 99, "score_6_plus"),
+]
+PRICE_PULLBACK_RESEARCH_SCORE_EXIT_RULE_IDS = [
+    "close_prev20_high_break_next_open",
+    "close_prev20_break_then_tp5_or_5ma_next_open",
+    "close_prev20_break_then_tp8_or_5ma_next_open",
+    "close_prev20_break_then_tp10_or_5ma_next_open",
+]
 
 
 def _rate(count: int, total: int) -> float | str:
@@ -3238,6 +3310,186 @@ def write_price_pullback_continuation_win_profile(profile: pd.DataFrame) -> None
     )
 
 
+def _score_bucket_label(score: float) -> str:
+    if math.isnan(score):
+        return "score_unknown"
+    for low, high, label in PRICE_PULLBACK_RESEARCH_SCORE_BUCKETS:
+        if low <= score <= high:
+            return label
+    return "score_unknown"
+
+
+def add_price_pullback_research_score_columns(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    total = pd.Series(0, index=out.index, dtype=float)
+    active_ids: list[pd.Series] = []
+    for component in PRICE_PULLBACK_RESEARCH_SCORE_COMPONENTS:
+        component_id = safe_str(component["component_id"])
+        condition = component["condition"](out).fillna(False)
+        points = float(component["points"])
+        out[f"score_component_{component_id}"] = condition
+        total = total + condition.astype(float) * points
+        active_ids.append(pd.Series(component_id, index=out.index).where(condition, ""))
+    out["price_pullback_research_score"] = total
+    if active_ids:
+        active = pd.concat(active_ids, axis=1)
+        out["price_pullback_research_score_components"] = active.apply(
+            lambda row: ";".join([safe_str(value) for value in row if safe_str(value)]),
+            axis=1,
+        )
+    else:
+        out["price_pullback_research_score_components"] = ""
+    out["price_pullback_research_score_bucket"] = total.map(_score_bucket_label)
+    return out
+
+
+def _score_component_summary(row: pd.Series) -> str:
+    parts = []
+    for component in PRICE_PULLBACK_RESEARCH_SCORE_COMPONENTS:
+        component_id = safe_str(component["component_id"])
+        col = f"component_hit_count_{component_id}"
+        if col in row:
+            parts.append(f"{component_id}:{int(row[col])}")
+    return ";".join(parts)
+
+
+def build_price_pullback_research_score_bucket(df: pd.DataFrame) -> pd.DataFrame:
+    base_mask = current_price_pullback_baseline_proxy(df).fillna(False)
+    scored = add_price_pullback_research_score_columns(df[base_mask].copy())
+    exit_candidates = {
+        str(candidate["exit_rule_id"]): candidate
+        for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES
+        if str(candidate["exit_rule_id"]) in PRICE_PULLBACK_RESEARCH_SCORE_EXIT_RULE_IDS
+    }
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for exit_rule_id, candidate in exit_candidates.items():
+        required = _price_pullback_exit_required_columns(candidate)
+        valid = (
+            scored.dropna(subset=required).copy()
+            if all(col in scored.columns for col in required)
+            else scored.iloc[0:0].copy()
+        )
+        if valid.empty:
+            continue
+        outcome = _price_pullback_exit_rule_outcome_rows(valid, candidate)
+        enriched = valid.join(outcome)
+        for bucket_label, bucket in enriched.groupby("price_pullback_research_score_bucket", sort=True):
+            if bucket.empty:
+                continue
+            wins = bucket["outcome_bucket"].eq("win")
+            neutral = bucket["outcome_bucket"].eq("neutral")
+            failure = bucket["outcome_bucket"].eq("failure")
+            same_day = bucket["outcome_bucket"].eq("same_day_unresolved")
+            row: dict[str, object] = {
+                "generated_at": generated_at,
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "股價回檔模型",
+                "research_artifact_id": "price_pullback_23ema_research_score_bucket",
+                "score_draft_id": "research_bonus_score_v1",
+                "score_bucket": bucket_label,
+                "exit_rule_id": exit_rule_id,
+                "formal_price_rule_status": candidate["formal_price_rule_status"],
+                "profit_target_pct": candidate["profit_target_pct"],
+                "exit_price_rule": candidate["exit_price_rule"],
+                "entry_rule_id": "signal_date_next_open",
+                "buy_point_rule": "Buy next open only after the price_pullback_23ema production proxy signal; score is advisory only.",
+                "score_use": "research_only_not_production_score",
+                "score_rule_summary": "TDCC high-thresholds up=2 points; return20_0_25, return45_ge5, range_width45_ge28, prior_extension_ema23_20d_ge8, prior_runup20_ge15, and OBV above MA20=1 point each.",
+                "selected_stock_days": len(bucket),
+                "selected_unique_stocks": bucket["stock_id"].nunique() if "stock_id" in bucket.columns else "",
+                "mature_count": len(bucket),
+                "win_count": int(wins.sum()),
+                "neutral_count": int(neutral.sum()),
+                "failure_count": int(failure.sum()),
+                "same_day_unresolved_count": int(same_day.sum()),
+                "win_rate_pct": _rate(int(wins.sum()), len(bucket)),
+                "neutral_rate_pct": _rate(int(neutral.sum()), len(bucket)),
+                "failure_rate_pct": _rate(int(failure.sum()), len(bucket)),
+                "same_day_unresolved_rate_pct": _rate(int(same_day.sum()), len(bucket)),
+                "avg_research_score": _mean_or_blank(bucket["price_pullback_research_score"]),
+                "avg_realized_return_pct": _mean_or_blank(bucket["realized_return_pct"]),
+                "median_realized_return_pct": _median_or_blank(bucket["realized_return_pct"]),
+                "avg_win_realized_return_pct": _mean_or_blank(bucket.loc[wins, "realized_return_pct"]),
+                "avg_failure_realized_return_pct": _mean_or_blank(bucket.loc[failure, "realized_return_pct"]),
+                "avg_d20_close_return_pct": _mean_or_blank(bucket["final_d20_close_return_pct"]),
+                "avg_realized_or_d20_days": _mean_or_blank(bucket["realized_days"]),
+                "advisory_status": "not_production_ready_research_only",
+                "approved_for_daily": False,
+                "production_change": "none",
+                "promotion_readiness": "blocked_exact_daily_row_parity_and_operation_approval_required",
+                "promotion_blocker": "requires exact daily operation parity, explicit score promotion PR, contract update, validators, and post-merge validation before production scoring use",
+            }
+            for component in PRICE_PULLBACK_RESEARCH_SCORE_COMPONENTS:
+                component_id = safe_str(component["component_id"])
+                col = f"score_component_{component_id}"
+                row[f"component_hit_count_{component_id}"] = int(trueish(bucket[col]).sum()) if col in bucket.columns else 0
+                row[f"component_hit_rate_pct_{component_id}"] = (
+                    _bool_share_pct(bucket[col]) if col in bucket.columns else ""
+                )
+            row["component_hit_summary"] = _score_component_summary(pd.Series(row))
+            rows.append(row)
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    bucket_order = {label: idx for idx, (_, _, label) in enumerate(PRICE_PULLBACK_RESEARCH_SCORE_BUCKETS)}
+    out["_bucket_order"] = out["score_bucket"].map(bucket_order).fillna(99)
+    out = out.sort_values(["exit_rule_id", "_bucket_order"]).drop(columns=["_bucket_order"]).reset_index(drop=True)
+    return out
+
+
+def write_price_pullback_research_score_bucket(score_bucket: pd.DataFrame) -> None:
+    write_csv(score_bucket, PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV)
+    write_csv(score_bucket, PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_HISTORY_CSV)
+    write_csv(score_bucket, DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV)
+    lines = [
+        "# Price Pullback 23EMA Research Score Bucket",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- scope: advisory score-bucket backtest for discussing add-score items; this does not approve production scoring.",
+        "- score_draft_id: `research_bonus_score_v1`",
+        "- score_rule: TDCC high-thresholds up=2 points; return20_0_25, return45_ge5, range_width45_ge28, prior_extension_ema23_20d_ge8, prior_runup20_ge15, and OBV above MA20=1 point each.",
+        "- theme_context_status: not included in the score yet because D+20 mature outcome is not available.",
+        "- promotion_blocker: production scoring requires explicit promotion PR, contract update, exact parity, validators, and post-merge validation.",
+        "",
+        markdown_table(
+            score_bucket,
+            [
+                "score_bucket",
+                "exit_rule_id",
+                "profit_target_pct",
+                "mature_count",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "same_day_unresolved_rate_pct",
+                "avg_realized_return_pct",
+                "median_realized_return_pct",
+                "avg_win_realized_return_pct",
+                "avg_failure_realized_return_pct",
+                "avg_d20_close_return_pct",
+                "avg_realized_or_d20_days",
+                "component_hit_summary",
+            ],
+            limit=80,
+        )
+        if not score_bucket.empty
+        else "No score bucket rows.",
+    ]
+    PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD.write_text(
+        PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def _price_pullback_parity_discussion_status(row_parity: pd.DataFrame) -> dict[str, object]:
     if row_parity.empty or "parity_status" not in row_parity.columns:
         return {
@@ -4287,6 +4539,7 @@ def main() -> int:
     price_pullback_feature_confirmation_df = build_price_pullback_feature_confirmation_research(df)
     price_pullback_exit_rule_comparison_df = build_price_pullback_exit_rule_comparison(df)
     price_pullback_continuation_win_profile_df = build_price_pullback_continuation_win_profile(df)
+    price_pullback_research_score_bucket_df = build_price_pullback_research_score_bucket(df)
     price_pullback_daily_row_parity_df = build_price_pullback_daily_row_parity_audit(df)
     price_pullback_decision_audit_df = build_price_pullback_model_decision_audit(
         price_pullback_operation_module_df,
@@ -4309,6 +4562,7 @@ def main() -> int:
     write_price_pullback_feature_confirmation_research(price_pullback_feature_confirmation_df)
     write_price_pullback_exit_rule_comparison(price_pullback_exit_rule_comparison_df)
     write_price_pullback_continuation_win_profile(price_pullback_continuation_win_profile_df)
+    write_price_pullback_research_score_bucket(price_pullback_research_score_bucket_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
     write_price_pullback_model_decision_audit(price_pullback_decision_audit_df)
 
@@ -4321,6 +4575,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV} rows={len(price_pullback_feature_confirmation_df)}")
     print(f"Saved {PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV} rows={len(price_pullback_exit_rule_comparison_df)}")
     print(f"Saved {PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV} rows={len(price_pullback_continuation_win_profile_df)}")
+    print(f"Saved {PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV} rows={len(price_pullback_research_score_bucket_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
     print(f"Saved {PRICE_PULLBACK_DECISION_AUDIT_CSV} rows={len(price_pullback_decision_audit_df)}")
     print(f"Saved {OUT_MD}")

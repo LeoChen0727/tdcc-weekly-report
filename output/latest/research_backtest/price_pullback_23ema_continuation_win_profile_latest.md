@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Continuation Win Profile
 
-- generated_at: `2026-07-01 20:26:39 Asia/Taipei`
+- generated_at: `2026-07-01 21:20:02 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: row-level success-characteristics profile for continuation exit rules; this does not approve production use
