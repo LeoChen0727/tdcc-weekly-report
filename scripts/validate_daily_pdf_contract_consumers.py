@@ -21,6 +21,36 @@ DAILY_MODEL_SIGNALS = ROOT / "output/latest/daily_candidate_model_signals_for_re
 DAILY_MODEL_REGISTRY = ROOT / "output/latest/daily_report_model_registry_latest.csv"
 DAILY_MODEL_PARAMETERS = ROOT / "output/latest/daily_candidate_model_parameters_latest.csv"
 DAILY_MODEL_READINESS = ROOT / "output/latest/model_operation_readiness_latest.csv"
+W_BOTTOM_OPERATION_ARTIFACTS = {
+    "w_bottom_right_side": ROOT / "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+    "neckline_volume_breakout_confirmation": (
+        ROOT / "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
+    ),
+}
+W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
+    "model_id",
+    "pdf_view",
+    "pdf_section",
+    "row_type",
+    "display_order",
+    "operation_asof_date",
+    "report_line",
+    "report_line_memberships",
+    "operation_status",
+    "row_action_status",
+    "buy_rank_eligible",
+    "stock_display",
+    "entry_rule_id",
+    "entry_basis_zh",
+    "stop_loss_rule_id",
+    "exit_rule_id",
+    "planned_holding_days",
+    "sample_size",
+    "win_rate_zh",
+    "median_return_zh",
+}
+W_BOTTOM_OPERATION_REQUIRED_SECTIONS = {"confirmed_operation", "active_operation"}
+W_BOTTOM_OPERATION_REQUIRED_VIEWS = {"highlight", "full"}
 
 DAILY_MODEL_OUTPUTS = (
     DAILY_MODEL_SIGNALS,
@@ -101,7 +131,13 @@ REQUIRED_RENDERER_MODEL_ORDER_TOKENS = (
 )
 REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "OPERATION_TABLE_MODEL_IDS",
-    "PENDING_OPERATION_TABLE_MODEL_IDS",
+    "W_BOTTOM_OPERATION_TABLE_MODEL_IDS",
+    "W_BOTTOM_OPERATION_INPUT_KEYS",
+    "daily_w_bottom_right_side_operation_section_latest.csv",
+    "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+    "render_w_bottom_operation_section",
+    "w_bottom_operation_frame",
+    "pdf_integrated_daily_adapter",
     "OPERATION_HIGHLIGHT_TABLE_CONTRACT = \"confirmed_buy_then_active_only\"",
     "OPERATION_CONFIRMED_BUY_TABLE_TITLE = \"本日可買 / 已確認買入候選\"",
     "OPERATION_ACTIVE_TABLE_TITLE = \"操作中\"",
@@ -289,6 +325,69 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
                 "daily PDF renderer must not skip a model section when a model has zero candidate rows: "
                 f"{rel(path)}"
             )
+    return errors
+
+
+def split_tokens(value: str) -> set[str]:
+    return {part.strip() for part in re.split(r"[|,;]", str(value or "")) if part.strip()}
+
+
+def validate_w_bottom_operation_adapter_contract(readiness_rows: Iterable[dict[str, str]]) -> list[str]:
+    errors: list[str] = []
+    readiness = rows_by_model_id(readiness_rows)
+    for model_id, path in W_BOTTOM_OPERATION_ARTIFACTS.items():
+        ready = readiness.get(model_id, {})
+        if ready.get("pdf_integration_status", "") != "pdf_integrated_daily_adapter":
+            errors.append(
+                f"W-bottom PDF operation adapter must be pdf_integrated_daily_adapter before renderer use: {model_id}"
+            )
+        readiness_sections = split_tokens(ready.get("daily_adapter_sections", ""))
+        missing_readiness_sections = sorted(W_BOTTOM_OPERATION_REQUIRED_SECTIONS - readiness_sections)
+        if missing_readiness_sections:
+            errors.append(
+                f"W-bottom PDF operation adapter readiness missing sections for {model_id}: "
+                + ";".join(missing_readiness_sections)
+            )
+        header = set(csv_header(path))
+        if not header:
+            errors.append(f"missing W-bottom PDF operation adapter artifact: {rel(path)}")
+            continue
+        missing_columns = sorted(W_BOTTOM_OPERATION_REQUIRED_COLUMNS - header)
+        if missing_columns:
+            errors.append(
+                f"W-bottom PDF operation adapter artifact missing required columns for {model_id}: "
+                + ";".join(missing_columns)
+            )
+        rows = load_csv_rows(path)
+        if not rows:
+            errors.append(f"W-bottom PDF operation adapter artifact has no rows: {rel(path)}")
+            continue
+        other_models = sorted({row.get("model_id", "") for row in rows if row.get("model_id", "") != model_id})
+        if other_models:
+            errors.append(
+                f"W-bottom PDF operation adapter artifact mixes model_ids for {model_id}: "
+                + ";".join(other_models)
+            )
+        sections = {row.get("pdf_section", "") for row in rows if row.get("pdf_section", "")}
+        extra_sections = sorted(sections - W_BOTTOM_OPERATION_REQUIRED_SECTIONS)
+        if extra_sections:
+            errors.append(
+                f"W-bottom PDF operation adapter exposes PDF-forbidden sections for {model_id}: "
+                + ";".join(extra_sections)
+            )
+        views = {row.get("pdf_view", "") for row in rows if row.get("pdf_view", "")}
+        missing_views = sorted(W_BOTTOM_OPERATION_REQUIRED_VIEWS - views)
+        if missing_views:
+            errors.append(
+                f"W-bottom PDF operation adapter missing required pdf_view rows for {model_id}: "
+                + ";".join(missing_views)
+            )
+        for view in sorted(W_BOTTOM_OPERATION_REQUIRED_VIEWS):
+            for section in sorted(W_BOTTOM_OPERATION_REQUIRED_SECTIONS):
+                if not any(row.get("pdf_view", "") == view and row.get("pdf_section", "") == section for row in rows):
+                    errors.append(
+                        f"W-bottom PDF operation adapter missing {view}/{section} row for {model_id}: {rel(path)}"
+                    )
     return errors
 
 
@@ -515,6 +614,7 @@ def validate() -> tuple[
     errors.extend(validate_event_field_usages(event_usages, event_rows))
     errors.extend(validate_private_pdf_rules())
     errors.extend(validate_renderer_fixed_model_table_contract())
+    errors.extend(validate_w_bottom_operation_adapter_contract(readiness_rows))
     errors.extend(validate_research_recommendations_not_direct_pdf_inputs())
     return errors, used_model_ids, required_display_model_ids, event_usages, model_rows, event_rows
 

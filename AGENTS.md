@@ -191,11 +191,19 @@ candidates. The second table uses `目前無操作中追蹤列` as its empty-sta
 when there are no active operation rows. Digest / highlight blocks must not
 promote `待確認`, `已失效`, or `已出場` into main tables; `待確認` is full-list only
 when the model's formal adapter provides it, and `已失效` / `已出場` remain
-audit/lifecycle artifacts. `w_bottom_right_side`,
-`neckline_volume_breakout_confirmation`, and future operation-oriented models
-must follow this contract when their formal PDF operation adapters are wired;
-do not invent W-bottom operation lifecycle rows in the PDF layer before such an
-adapter exists.
+audit/lifecycle artifacts. `w_bottom_right_side` and
+`neckline_volume_breakout_confirmation` have formal model-owned PDF operation
+section adapters and must be rendered from their dedicated artifacts:
+`output/latest/daily_w_bottom_right_side_operation_section_latest.csv` and
+`output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv`.
+The renderer may consume those rows only when
+`model_operation_readiness_latest.csv` reports
+`pdf_integration_status=pdf_integrated_daily_adapter` and the adapter provides
+both `confirmed_operation` and `active_operation` sections. Missing artifacts or
+missing required columns must fail closed; the PDF layer must not fall back to
+candidate signal rows to infer W-bottom lifecycle. Future operation-oriented
+models must follow this contract when their formal PDF operation adapters are
+wired.
 
 Full-list PDFs can be large. Page-count validation must define an explicit
 reasonable range instead of treating the current high page count as an implicit

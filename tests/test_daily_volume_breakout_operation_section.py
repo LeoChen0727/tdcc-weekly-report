@@ -1289,3 +1289,196 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
     assert "操作中" in story_text
     assert "待確認" not in story_text
     assert "今日沒有可顯示的放量攻擊操作列。" not in story_text
+def w_bottom_readiness(model_id: str, status: str = "pdf_integrated_daily_adapter") -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "model_id": model_id,
+                "pdf_integration_status": status,
+                "daily_adapter_sections": "confirmed_operation,active_operation",
+            }
+        ]
+    )
+
+
+def w_bottom_operation_row(
+    model_id: str,
+    pdf_section: str,
+    row_type: str = "data",
+    stock_id: str = "1111",
+    stock_display: str = "1111 WBuy",
+    report_line: str = "mainstream",
+    row_action_status: str = "confirmed_buy_candidate",
+    buy_rank_eligible: str = "True",
+) -> dict[str, str]:
+    return {
+        "model_id": model_id,
+        "model_name_zh": model_id,
+        "pdf_view": "highlight",
+        "pdf_section": pdf_section,
+        "pdf_section_zh": pdf_section,
+        "row_type": row_type,
+        "operation_asof_date": "20260630",
+        "operation_source_date_status": "current_report_date",
+        "report_line": report_line,
+        "report_line_memberships": "mainstream|non_mainstream" if report_line == "both" else report_line,
+        "display_order": "1",
+        "stock_id": stock_id,
+        "stock_name": stock_display,
+        "stock_display": stock_display,
+        "operation_status": pdf_section,
+        "operation_status_zh": pdf_section,
+        "quality_status_zh": "adapter evidence",
+        "row_action_status": row_action_status,
+        "buy_rank_eligible": buy_rank_eligible,
+        "signal_date": "20260630",
+        "entry_rule_id": "test_entry_rule",
+        "entry_basis_zh": "adapter entry basis",
+        "entry_date": "20260701" if row_type == "data" else "",
+        "entry_price": "10.5" if row_type == "data" else "",
+        "stop_loss_rule_id": "test_stop_rule",
+        "stop_loss_price": "9.8",
+        "stop_loss_label_zh": "adapter stop",
+        "exit_rule_id": "test_exit_rule",
+        "exit_rule_zh": "adapter exit",
+        "planned_holding_days": "20",
+        "operation_age_days": "2",
+        "sample_size": "31",
+        "win_rate_zh": "58.06%",
+        "median_return_zh": "6.24%",
+        "pdf_note_zh": "model-owned adapter row",
+        "adapter_note_zh": "PDF must not infer lifecycle",
+    }
+
+
+def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> None:
+    captured_tables: list[list[list[str]]] = []
+
+    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+        captured_tables.append(rows)
+        return rows
+
+    monkeypatch.setattr(pdf_generator, "build_table", capture_table)
+    model_id = pdf_generator.W_BOTTOM_RIGHT_SIDE_MODEL_ID
+    operation_rows = pd.DataFrame(
+        [
+            w_bottom_operation_row(model_id, "confirmed_operation", stock_id="1111", stock_display="1111 WBuy"),
+            w_bottom_operation_row(
+                model_id,
+                "active_operation",
+                stock_id="2222",
+                stock_display="2222 WActive",
+                row_action_status="active_tracking",
+                buy_rank_eligible="False",
+            ),
+        ]
+    )
+    candidate_signals = pd.DataFrame(
+        [
+            {
+                "model_id": model_id,
+                "stock_id": "9999",
+                "stock_name": "CandidateLeak",
+                "report_line": "mainstream",
+                "same_model_repeat_status_zh": "新上榜",
+            }
+        ]
+    )
+
+    story: list = []
+    pdf_generator.render_w_bottom_operation_section(
+        story,
+        {
+            "model_readiness": w_bottom_readiness(model_id),
+            "w_bottom_right_side_operation": operation_rows,
+            "model_signals": candidate_signals,
+        },
+        model_id,
+        "highlight",
+        "mainstream",
+    )
+
+    assert len(captured_tables) == 2
+    confirmed, active = captured_tables
+    assert confirmed[1][1] == "1111 WBuy"
+    assert active[1][0] == "2222 WActive"
+    visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
+    assert "9999" not in visible
+    assert "CandidateLeak" not in visible
+    story_text = "\n".join(
+        flowable.getPlainText()
+        for flowable in story
+        if hasattr(flowable, "getPlainText")
+    )
+    assert pdf_generator.OPERATION_CONFIRMED_BUY_TABLE_TITLE in story_text
+    assert pdf_generator.OPERATION_ACTIVE_TABLE_TITLE in story_text
+    assert "新上榜" not in story_text
+    assert "重複上榜" not in story_text
+
+
+def test_w_bottom_pdf_renderer_fails_closed_without_integrated_readiness() -> None:
+    model_id = pdf_generator.W_BOTTOM_RIGHT_SIDE_MODEL_ID
+    operation_rows = pd.DataFrame([w_bottom_operation_row(model_id, "confirmed_operation")])
+
+    with pytest.raises(RuntimeError, match="pdf_integrated_daily_adapter"):
+        pdf_generator.render_w_bottom_operation_section(
+            [],
+            {
+                "model_readiness": w_bottom_readiness(model_id, status="pending_pdf_renderer"),
+                "w_bottom_right_side_operation": operation_rows,
+            },
+            model_id,
+            "highlight",
+            "mainstream",
+        )
+
+
+def test_w_bottom_pdf_renderer_keeps_model_owned_empty_state_inside_tables(monkeypatch) -> None:
+    captured_tables: list[list[list[str]]] = []
+
+    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+        captured_tables.append(rows)
+        return rows
+
+    monkeypatch.setattr(pdf_generator, "build_table", capture_table)
+    model_id = pdf_generator.W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID
+    operation_rows = pd.DataFrame(
+        [
+            w_bottom_operation_row(
+                model_id,
+                "confirmed_operation",
+                row_type="empty_state",
+                stock_id="",
+                stock_display=pdf_generator.MODEL_EMPTY_STATE_TEXT,
+                report_line="both",
+                row_action_status="empty_state",
+                buy_rank_eligible="False",
+            ),
+            w_bottom_operation_row(
+                model_id,
+                "active_operation",
+                row_type="empty_state",
+                stock_id="",
+                stock_display=pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT,
+                report_line="both",
+                row_action_status="empty_state",
+                buy_rank_eligible="False",
+            ),
+        ]
+    )
+
+    pdf_generator.render_w_bottom_operation_section(
+        [],
+        {
+            "model_readiness": w_bottom_readiness(model_id),
+            "w_bottom_neckline_operation": operation_rows,
+        },
+        model_id,
+        "highlight",
+        "mainstream",
+    )
+
+    assert len(captured_tables) == 2
+    confirmed, active = captured_tables
+    assert confirmed[1][-1] == pdf_generator.MODEL_EMPTY_STATE_TEXT
+    assert active[1][-1] == pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT

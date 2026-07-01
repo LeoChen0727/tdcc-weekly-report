@@ -91,10 +91,25 @@ block must use the same two-table presentation contract as the
    formal adapter provides that state. `已失效` and `已出場` stay in
    audit/lifecycle artifacts and must not be promoted into PDF main tables.
 
-`w_bottom_right_side`, `neckline_volume_breakout_confirmation`, and any future
-operation-oriented stock model must follow this presentation contract when a
-formal operation adapter is connected to the PDF renderer. Until such an adapter
-exists, the PDF layer must not invent W-bottom operation lifecycle rows.
+`w_bottom_right_side` and `neckline_volume_breakout_confirmation` now have
+formal model-owned PDF operation section adapters and must be rendered from
+their dedicated artifacts:
+
+```text
+output/latest/daily_w_bottom_right_side_operation_section_latest.csv
+output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv
+```
+
+The PDF renderer may consume those rows only after
+`model_operation_readiness_latest.csv` reports
+`pdf_integration_status=pdf_integrated_daily_adapter` and the adapter provides
+both `confirmed_operation` and `active_operation` sections. The PDF layer must
+fail closed on missing artifacts or missing required columns and must not fall
+back to candidate signal rows to infer lifecycle state.
+
+Future operation-oriented stock models must follow this presentation contract
+when their formal PDF operation adapters are wired; do not invent operation
+lifecycle rows in the PDF layer before such an adapter exists.
 
 ## Event / Catalyst Contract Rule
 
