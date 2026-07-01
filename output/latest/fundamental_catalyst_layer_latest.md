@@ -1,6 +1,6 @@
 # 財報 / 事件催化層
 
-- generated_at: `2026-07-01 17:45:50 Asia/Taipei`
+- generated_at: `2026-07-01 18:14:26 Asia/Taipei`
 - candidate_rows: `346`
 - financial_source: `data/fundamental_catalysts/quarterly_catalyst.csv`
 - event_source: `data/event_catalysts/event_catalyst_log.csv`
@@ -14,7 +14,7 @@
 
 - 類事欣科型候選: `1`
 - 營收好但 EPS 尚未確認: `0`
-- 利多已反應 / 過熱需降級: `226`
+- 利多已反應 / 過熱需降級: `227`
 
 ## 類事欣科型候選股
 
