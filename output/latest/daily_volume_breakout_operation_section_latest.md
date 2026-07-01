@@ -1,6 +1,6 @@
 # Daily Volume Breakout Operation Section
 
-- generated_at: `2026-07-01 19:34:57 Asia/Taipei`
+- generated_at: `2026-07-01 20:44:57 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - source: `daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history`
 - approval_source: `approved_operation_patterns_latest.csv`
@@ -73,8 +73,8 @@
 
 |   display_order | row_type   | stock_display   | trigger_zh   | entry_basis_zh   | stop_basis_zh   | exit_rule_zh   | pending_age_zh   |   sample_size |   win_rate_zh | median_return_zh   | approved_for_daily   | operation_module_approved_for_daily   | operation_directive_level         | row_action_status    | buy_rank_eligible   | adapter_note_zh              |
 |----------------:|:-----------|:----------------|:-------------|:-----------------|:----------------|:---------------|:-----------------|--------------:|--------------:|:-------------------|:---------------------|:--------------------------------------|:----------------------------------|:---------------------|:--------------------|:-----------------------------|
-|               1 | data       | 1466 聚隆         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |               1 | data       | 4541 晟田         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
+|               2 | data       | 1466 聚隆         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |               2 | data       | 2466 冠西電        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | 今日訊號             |          3059 |         44.34 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |               2 | data       | 4707 磐亞         |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | D+2 待確認          |          3050 |         44.31 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
 |               5 | data       | 9960 邁達康        |              | 尚未確認，不列進場價       | 尚未確認，不列停損價      | 待確認後才顯示操作規則    | D+2 待確認          |          3050 |         44.31 |                    | True                 | True                                  | approved_daily_operation_guidance | pending_confirmation | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
