@@ -9,8 +9,8 @@
 | highlight | 本日可買 / 已確認買入候選 | data | non_mainstream | 1477 聚陽 | 本日可買 / W底右低點早期進場候選 |  |  | 203 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | highlight | 本日可買 / 已確認買入候選 | data | mainstream | 3029 零壹 | 本日可買 / W底右低點早期進場候選 |  |  | 92.7 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | highlight | 本日可買 / 已確認買入候選 | data | non_mainstream | 2646 星宇航空 | 本日可買 / W底右低點早期進場候選 |  |  | 19.7 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
-| highlight | 本日可買 / 已確認買入候選 | data | non_mainstream | 2101 南港 | 本日可買 / W底右低點早期進場候選 |  |  | 29.85 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | highlight | 本日可買 / 已確認買入候選 | data | non_mainstream | 1216 統一 | 本日可買 / W底右低點早期進場候選 |  |  | 69.1 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
+| highlight | 本日可買 / 已確認買入候選 | data | non_mainstream | 2101 南港 | 本日可買 / W底右低點早期進場候選 |  |  | 29.85 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | highlight | 操作中 | data | non_mainstream | 1216 統一 | 操作中 / W底右低點早期進場追蹤 | 20260629 | 75.5 | 69.1 | 4 | 58.06% |  | 6.24% | active_tracking | False |
 | highlight | 操作中 | data | non_mainstream | 1447 力鵬 | 操作中 / W底右低點早期進場追蹤 | 20260624 | 6.07 | 4.9 | 7 | 58.06% |  | 6.24% | active_tracking | False |
 | highlight | 操作中 | data | non_mainstream | 1449 佳和 | 操作中 / W底右低點早期進場追蹤 | 20260604 | 13.9 | 10.95 | 20 | 58.06% |  | 6.24% | active_tracking | False |
@@ -50,8 +50,8 @@
 | full | 本日可買 / 已確認買入候選 | data | non_mainstream | 1477 聚陽 | 本日可買 / W底右低點早期進場候選 |  |  | 203 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | full | 本日可買 / 已確認買入候選 | data | mainstream | 3029 零壹 | 本日可買 / W底右低點早期進場候選 |  |  | 92.7 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | full | 本日可買 / 已確認買入候選 | data | non_mainstream | 2646 星宇航空 | 本日可買 / W底右低點早期進場候選 |  |  | 19.7 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
-| full | 本日可買 / 已確認買入候選 | data | non_mainstream | 2101 南港 | 本日可買 / W底右低點早期進場候選 |  |  | 29.85 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | full | 本日可買 / 已確認買入候選 | data | non_mainstream | 1216 統一 | 本日可買 / W底右低點早期進場候選 |  |  | 69.1 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
+| full | 本日可買 / 已確認買入候選 | data | non_mainstream | 2101 南港 | 本日可買 / W底右低點早期進場候選 |  |  | 29.85 | 0 | 58.06% |  | 6.24% | confirmed_buy_candidate | True |
 | full | 操作中 | data | non_mainstream | 1216 統一 | 操作中 / W底右低點早期進場追蹤 | 20260629 | 75.5 | 69.1 | 4 | 58.06% |  | 6.24% | active_tracking | False |
 | full | 操作中 | data | non_mainstream | 1447 力鵬 | 操作中 / W底右低點早期進場追蹤 | 20260624 | 6.07 | 4.9 | 7 | 58.06% |  | 6.24% | active_tracking | False |
 | full | 操作中 | data | non_mainstream | 1449 佳和 | 操作中 / W底右低點早期進場追蹤 | 20260604 | 13.9 | 10.95 | 20 | 58.06% |  | 6.24% | active_tracking | False |
