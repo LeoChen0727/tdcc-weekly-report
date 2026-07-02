@@ -938,6 +938,8 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     assert "research_score_ge4" in set(condition_matrix["condition_test_id"])
     assert "prev20_space_ge3" in set(condition_matrix["condition_test_id"])
     assert "score_ge4_prev20_space_ge3_tdcc_or_obv" in set(condition_matrix["condition_test_id"])
+    assert "v1_gate_return20_obv_or_tdcc" in set(condition_matrix["condition_test_id"])
+    assert "v1_gate_return20_score_ge4_obv_or_tdcc" in set(condition_matrix["condition_test_id"])
     assert "close_prev20_high_break_next_open" in set(condition_matrix["exit_rule_id"])
     layered = condition_matrix[
         condition_matrix["condition_test_id"].eq("score_ge4_prev20_space_ge3_tdcc_or_obv")
@@ -945,6 +947,12 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     ].iloc[0]
     assert layered["score_use"] == "research_only_not_production_score"
     assert layered["selected_stock_days"] >= 1
+    v1_candidate = condition_matrix[
+        condition_matrix["condition_test_id"].eq("v1_gate_return20_score_ge4_obv_or_tdcc")
+        & condition_matrix["exit_rule_id"].eq("close_prev20_high_break_next_open")
+    ].iloc[0]
+    assert v1_candidate["data_status"] == "research_only_v1_candidate_not_production"
+    assert v1_candidate["selected_stock_days"] >= 1
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:

@@ -2042,6 +2042,78 @@ PRICE_PULLBACK_ORDERED_CONDITION_TESTS = [
         & price_pullback_prev20_high_space_filter(d, 3.0),
     },
     {
+        "test_order": 200,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_0_25",
+        "condition_role_candidate": "v1_required_gate_candidate",
+        "condition_rule": "v1 draft: require prior 20d return between 0% and 25%",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": price_pullback_return20_balanced_filter,
+    },
+    {
+        "test_order": 210,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_obv",
+        "condition_role_candidate": "v1_required_gate_plus_technical_candidate",
+        "condition_rule": "v1 draft: require return20_0_25 and OBV above MA20",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & price_pullback_obv_above_ma20_filter(d),
+    },
+    {
+        "test_order": 220,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_tdcc_high",
+        "condition_role_candidate": "v1_required_gate_plus_chip_candidate",
+        "condition_rule": "v1 draft: require return20_0_25 and large-holder TDCC high thresholds increased",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & price_pullback_tdcc_high_thresholds_up_filter(d),
+    },
+    {
+        "test_order": 230,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_obv_or_tdcc",
+        "condition_role_candidate": "v1_required_gate_plus_bonus_candidate",
+        "condition_rule": "v1 draft: require return20_0_25 and either OBV above MA20 or TDCC high thresholds increased",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & (price_pullback_obv_above_ma20_filter(d) | price_pullback_tdcc_high_thresholds_up_filter(d)),
+    },
+    {
+        "test_order": 240,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_score_ge4",
+        "condition_role_candidate": "v1_required_gate_plus_score_candidate",
+        "condition_rule": "v1 draft: require return20_0_25 and research score >=4",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & price_pullback_research_score_ge_filter(d, 4.0),
+    },
+    {
+        "test_order": 250,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_score_ge4_obv_or_tdcc",
+        "condition_role_candidate": "v1_required_gate_plus_score_bonus_candidate",
+        "condition_rule": "v1 draft: require return20_0_25, research score >=4, and either OBV above MA20 or TDCC high thresholds increased",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & price_pullback_research_score_ge_filter(d, 4.0)
+        & (price_pullback_obv_above_ma20_filter(d) | price_pullback_tdcc_high_thresholds_up_filter(d)),
+    },
+    {
+        "test_order": 260,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_score_ge4_obv_or_tdcc_space3",
+        "condition_role_candidate": "v1_required_gate_plus_score_bonus_space_candidate",
+        "condition_rule": "v1 draft: require return20_0_25, research score >=4, OBV or TDCC confirmation, and at least 3% previous-high space",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & price_pullback_research_score_ge_filter(d, 4.0)
+        & (price_pullback_obv_above_ma20_filter(d) | price_pullback_tdcc_high_thresholds_up_filter(d))
+        & price_pullback_prev20_high_space_filter(d, 3.0),
+    },
+    {
         "test_order": 900,
         "test_stage": "90_deferred_theme_context",
         "condition_test_id": "theme_context_mainstream_supported",
