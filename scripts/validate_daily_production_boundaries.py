@@ -409,6 +409,9 @@ def main() -> int:
             "PYTHONIOENCODING": "official PDF entrypoint must force UTF-8 subprocess output",
             'reconfigure(encoding="utf-8", errors="replace")': "official PDF entrypoint must force UTF-8 terminal output",
             "source-gate-only": "official PDF entrypoint must expose a source-gate-only diagnostic mode",
+            "GENERATOR_RELATIVE_PATH": "official PDF entrypoint must address the renderer relative to the clean source worktree",
+            "source_generator = source_root / GENERATOR_RELATIVE_PATH": "official PDF entrypoint must run the renderer from the clean source worktree",
+            "cwd=source_root": "official PDF entrypoint must execute the renderer with the clean source worktree as cwd",
         }
         for literal, message in required_entrypoint_literals.items():
             if literal not in entrypoint_text:

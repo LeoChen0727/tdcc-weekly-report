@@ -20,7 +20,8 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
 )
 
 
-GENERATOR = REPO_ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+GENERATOR_RELATIVE_PATH = Path("scripts") / "generate_chatgpt_side_daily_reports.py"
+GENERATOR = REPO_ROOT / GENERATOR_RELATIVE_PATH
 DEFAULT_OUTPUT_ROOT_NAME = "chatgpt_side_outputs_official"
 RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
 
@@ -103,6 +104,7 @@ def remove_source_worktree(repo_root: Path, source_root: Path) -> None:
 
 
 def run_generator(source_root: Path, output_dir: Path, source_ref: str) -> list[Path]:
+    source_generator = source_root / GENERATOR_RELATIVE_PATH
     env = os.environ.copy()
     env["CHATGPT_DAILY_REPORT_ENTRYPOINT"] = "1"
     env["CHATGPT_DAILY_REPO_ROOT"] = str(source_root)
@@ -112,13 +114,13 @@ def run_generator(source_root: Path, output_dir: Path, source_ref: str) -> list[
     proc = run_command(
         [
             sys.executable,
-            str(GENERATOR),
+            str(source_generator),
             "--repo-root",
             str(source_root),
             "--output-dir",
             str(output_dir),
         ],
-        cwd=REPO_ROOT,
+        cwd=source_root,
         env=env,
     )
     stdout = require_success(proc, "ChatGPT-side daily PDF generator")
