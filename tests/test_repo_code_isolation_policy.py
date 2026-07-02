@@ -67,6 +67,11 @@ def test_research_pipeline_stages_price_pullback_feature_confirmation_outputs() 
     assert "docs/latest/price_pullback_23ema_model_decision_audit_latest.csv" in workflow_text
     assert "docs/latest/price_pullback_23ema_model_decision_audit_latest.md" in workflow_text
     assert "output/history/research/price_pullback_23ema_model_decision_audit.csv" in workflow_text
+    assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.md" in workflow_text
+    assert "docs/latest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
+    assert "docs/latest/price_pullback_23ema_lifecycle_replay_latest.md" in workflow_text
+    assert "output/history/research/price_pullback_23ema_lifecycle_replay.csv" in workflow_text
 
 
 def test_research_pipeline_runs_approved_operation_validator() -> None:

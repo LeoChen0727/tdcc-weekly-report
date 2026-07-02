@@ -34,6 +34,28 @@ Intraday high/low may remain in this model only as research-only observation,
 MFE/MAE, risk audit, liquidity/slippage diagnostics, candle-quality features, or
 non-operation watch statistics.
 
+## Performance Metric Boundary
+
+`price_pullback_23ema` win rate, neutral rate, failure rate, average return, and
+average daily operation count must not be calculated from raw candidate signal
+rows for PDF display or promotion discussion.
+
+Before formal promotion, the discussion metric source is:
+
+```text
+output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv
+```
+
+That artifact is research-only. It replays the candidate as trade-level samples
+by suppressing later same-stock signals while a prior accepted trade is still
+active. It does not approve production conditions, scoring, ranking, PDF rows, or
+operation guidance.
+
+If the model is later promoted, PDF title/subtitle performance text may consume
+only a model-owned approved metric artifact or the formal operation-row adapter
+contract. The PDF renderer must not infer win rate, return, operation count, or
+lifecycle status directly from candidate signal rows.
+
 ## PDF Presentation Boundary Addendum
 
 If `price_pullback_23ema` is promoted into a formal operation-oriented daily
