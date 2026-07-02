@@ -8,8 +8,8 @@
 | w_bottom_right_side | 20260702 | 1477 | 聚陽 | non_mainstream | 20260702 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260702 | 3029 | 零壹 | mainstream | 20260702 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260702 | 2646 | 星宇航空 | non_mainstream | 20260702 |  | candidate_evaluated | True | confirmed_operation |  |  |
-| w_bottom_right_side | 20260702 | 1216 | 統一 | non_mainstream | 20260702 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260702 | 2101 | 南港 | non_mainstream | 20260702 |  | candidate_evaluated | True | confirmed_operation |  |  |
+| w_bottom_right_side | 20260702 | 1216 | 統一 | non_mainstream | 20260702 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260702 | 1618 | 合機 | mainstream | 20260529 | 20260601 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260702 | 2241 | 艾姆勒 | non_mainstream | 20260529 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260629 | d20_gain10_close_exit |
 | w_bottom_right_side | 20260702 | 2374 | 佳能 | mainstream | 20260529 | 20260601 | candidate_evaluated | True | active_operation |  |  |
