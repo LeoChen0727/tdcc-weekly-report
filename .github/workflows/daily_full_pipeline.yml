@@ -606,7 +606,7 @@ jobs:
 
       - name: Dispatch and wait for GitHub Pages deploy
         if: ${{ github.ref == 'refs/heads/main' }}
-        timeout-minutes: 10
+        timeout-minutes: 40
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -616,7 +616,7 @@ jobs:
           gh workflow run pages.yml --ref "$TARGET_BRANCH"
 
           pages_run_id=""
-          for attempt in {1..40}; do
+          for attempt in {1..144}; do
             latest_pages_run_id="$(gh run list --workflow pages.yml --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
 
             if [ -n "$latest_pages_run_id" ] && [ "$latest_pages_run_id" != "$previous_pages_run_id" ]; then
