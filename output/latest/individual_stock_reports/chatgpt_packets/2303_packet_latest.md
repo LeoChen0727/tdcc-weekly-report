@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:06 Asia/Taipei
+- generated_at: 2026-07-02 22:26:27 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 170
-- high: 173
-- low: 166.5
-- close: 169
-- volume: 242644000
-- ma5: 168
-- ema23_primary: 147.88
-- distance_to_ema23_pct: 14.28
-- ma20: 146.43
-- ma60: 111.1
-- ma120: 85.55
-- return_5d: -5.06
-- return_20d: 19.43
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 15.42
-- distance_to_high_60_pct: -8.89
+- date: 20260702
+- open: 164
+- high: 168
+- low: 158
+- close: 165.5
+- volume: 80950000
+- ma5: 165.4
+- ema23_primary: 149.35
+- distance_to_ema23_pct: 10.81
+- ma20: 148.18
+- ma60: 112.89
+- ma120: 86.51
+- return_5d: -7.28
+- return_20d: 26.82
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 11.69
+- distance_to_high_60_pct: -10.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,141.5,141.5,130.5,130.5,379788969,116.9,11.63,118.46,83.03,1.24
 20260604,126.5,131.5,122.5,125,380918568,117.58,6.31,119.89,84.12,1.23
 20260605,127,133,125,131.5,377903061,118.74,10.75,121.89,85.31,1.19
 20260608,121,125,119,121,318679993,118.92,1.75,123.19,86.29,0.98
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,164.5,167,160,164,222684902,144.28,13.67,144.12,107.39,0.65
 20260630,169,173.5,164.5,164.5,297224000,145.96,12.7,145.05,109.18,0.87
 20260701,170,173,166.5,169,242644000,147.88,14.28,146.43,111.1,0.72
+20260702,164,168,158,165.5,80950000,149.35,10.81,148.18,112.89,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2303 | 聯電 | 332 | 28 | 82429630.0 | 1046390.0 | 78.78 | put_inflow |
+| 20260702 | 2303 | 聯電 | 332 | 28 | 39271610.0 | 861860.0 | 45.57 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

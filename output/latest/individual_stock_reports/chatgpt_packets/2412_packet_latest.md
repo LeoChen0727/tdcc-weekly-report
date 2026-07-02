@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2412 中華電
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:12 Asia/Taipei
+- generated_at: 2026-07-02 22:26:33 Asia/Taipei
 - stock_id: 2412
 - stock_name: 中華電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 142
-- high: 142.5
+- date: 20260702
+- open: 141
+- high: 142
 - low: 141
-- close: 141.5
-- volume: 19931000
-- ma5: 142.4
-- ema23_primary: 142.21
-- distance_to_ema23_pct: -0.5
+- close: 141
+- volume: 16357000
+- ma5: 141.8
+- ema23_primary: 142.11
+- distance_to_ema23_pct: -0.78
 - ma20: 143.18
-- ma60: 138.86
-- ma120: 136.47
-- return_5d: -1.39
-- return_20d: -0.35
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: -1.17
-- distance_to_high_60_pct: -3.74
+- ma60: 138.97
+- ma120: 136.55
+- return_5d: -2.08
+- return_20d: 0
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: -1.52
+- distance_to_high_60_pct: -4.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,142,143,141,141,13985894,137.88,2.26,137.78,136.24,0.83
 20260604,141,143,140.5,141.5,13961302,138.18,2.4,138.07,136.33,0.83
 20260605,141,142,140,141,11585954,138.42,1.87,138.3,136.43,0.68
 20260608,139.5,140.5,138,138.5,17246059,138.42,0.06,138.45,136.48,0.98
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,144,144.5,142,142,23910632,142.34,-0.24,143.15,138.61,1.65
 20260630,142,143,141.5,141.5,19395000,142.27,-0.54,143.2,138.73,1.38
 20260701,142,142.5,141,141.5,19931000,142.21,-0.5,143.18,138.86,1.41
+20260702,141,142,141,141,16357000,142.11,-0.78,143.18,138.97,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -201,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2412 | 中華電 | 2 | 0 | 26700.0 | 0.0 |  | no_signal |
+| 20260702 | 2412 | 中華電 | 2 | 0 | 26450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0063 元大滬深300正2
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:40 Asia/Taipei
+- generated_at: 2026-07-02 22:26:01 Asia/Taipei
 - stock_id: 0063
 - stock_name: 元大滬深300正2
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 0063 | 元大滬深300正2 | 654 | 179 | 55200890.0 | 12060010.0 | 4.58 | put_inflow |
+| 20260702 | 0063 | 元大滬深300正2 | 667 | 180 | 51407940.0 | 7915630.0 | 6.49 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

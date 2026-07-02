@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:12 Asia/Taipei
+- generated_at: 2026-07-02 22:27:34 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 78.8
+- date: 20260702
+- open: 79.3
 - high: 79.3
-- low: 77.9
-- close: 79
-- volume: 512000
-- ma5: 78.66
-- ema23_primary: 79.04
-- distance_to_ema23_pct: -0.05
-- ma20: 79.6
-- ma60: 78.38
-- ma120: 78.67
-- return_5d: -0.25
-- return_20d: 7.19
+- low: 78.5
+- close: 78.7
+- volume: 485000
+- ma5: 78.64
+- ema23_primary: 79.01
+- distance_to_ema23_pct: -0.39
+- ma20: 79.86
+- ma60: 78.34
+- ma120: 78.61
+- return_5d: -0.13
+- return_20d: 6.93
 - volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -0.75
-- distance_to_high_60_pct: -9.71
+- distance_to_ma20_pct_auxiliary: -1.45
+- distance_to_high_60_pct: -10.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,73.9,74,72.7,73.6,2112279,75.8,-2.91,76.01,77.4,2.04
 20260604,73.8,74.6,73.5,74.2,2131829,75.67,-1.94,75.79,77.41,1.96
 20260605,76.4,78.4,75.3,77.4,4073265,75.81,2.09,75.74,77.45,3.27
 20260608,75.5,78.9,75.4,76.8,2283956,75.9,1.19,75.61,77.47,1.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,79,79.1,78.4,78.5,457367,79.11,-0.77,79.16,78.36,0.2
 20260630,78.7,78.7,78,78.3,612000,79.04,-0.94,79.33,78.36,0.27
 20260701,78.8,79.3,77.9,79,512000,79.04,-0.05,79.6,78.38,0.23
+20260702,79.3,79.3,78.5,78.7,485000,79.01,-0.39,79.86,78.34,0.23
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 5534 | 長虹 | 4 | 0 | 12350.0 | 0.0 |  | no_signal |
+| 20260702 | 5534 | 長虹 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

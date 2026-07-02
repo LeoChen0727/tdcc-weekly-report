@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6265 方土昶
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:23 Asia/Taipei
+- generated_at: 2026-07-02 22:27:45 Asia/Taipei
 - stock_id: 6265
 - stock_name: 方土昶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 53.9
-- high: 54.1
-- low: 49.9
-- close: 50.3
-- volume: 4869000
-- ma5: 52.58
-- ema23_primary: 54.15
-- distance_to_ema23_pct: -7.11
-- ma20: 56.3
-- ma60: 48.01
-- ma120: 44.32
-- return_5d: -10.02
-- return_20d: -18.34
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -10.66
-- distance_to_high_60_pct: -22.26
+- date: 20260702
+- open: 49.2
+- high: 51
+- low: 48.8
+- close: 50.9
+- volume: 2099000
+- ma5: 51.76
+- ema23_primary: 53.88
+- distance_to_ema23_pct: -5.53
+- ma20: 55.9
+- ma60: 48.26
+- ma120: 44.53
+- return_5d: -7.45
+- return_20d: -13.58
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -8.94
+- distance_to_high_60_pct: -21.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,62.3,62.8,58.3,58.9,60000,49.69,18.53,48.99,43.06,0.01
 20260604,58.5,64.7,58.5,63.9,64000,50.87,25.6,50.01,43.56,0.01
 20260605,62,62,57.6,57.6,58000,51.44,11.99,50.69,43.94,0.01
 20260608,51.9,53.4,51.9,52.9,5800000,51.56,2.6,51.06,44.2,1.38
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,52.5,53.8,51.1,52,2423000,54.6,-4.76,56.99,47.51,0.39
 20260630,53.1,53.8,52.2,53.4,1841000,54.5,-2.01,56.87,47.78,0.29
 20260701,53.9,54.1,49.9,50.3,4869000,54.15,-7.11,56.3,48.01,0.74
+20260702,49.2,51,48.8,50.9,2099000,53.88,-5.53,55.9,48.26,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -193,13 +193,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6265 | 方土昶 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260701 | 6265 | 方土昶 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 27.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 6265 | 方土昶 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 6265 | 方土昶 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 27.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6265 | 方土昶 | 8 | 7 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 6265 | 方土昶 | 9 | 8 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

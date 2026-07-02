@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4568 科際精密
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:57 Asia/Taipei
+- generated_at: 2026-07-02 22:27:18 Asia/Taipei
 - stock_id: 4568
 - stock_name: 科際精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 140
+- latest_price_date: 20260702
+- price_rows: 141
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 41.15
-- high: 41.55
-- low: 41.1
-- close: 41.55
-- volume: 9000
-- ma5: 41.56
-- ema23_primary: 41.16
-- distance_to_ema23_pct: 0.95
+- date: 20260702
+- open: 41.55
+- high: 41.95
+- low: 41.55
+- close: 41.95
+- volume: 14000
+- ma5: 41.59
+- ema23_primary: 41.23
+- distance_to_ema23_pct: 1.76
 - ma20: 41.18
 - ma60: 41.23
 - ma120: 41.74
-- return_5d: -0.36
-- return_20d: -1.07
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 0.89
-- distance_to_high_60_pct: -4.92
+- return_5d: 0.36
+- return_20d: 0
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 1.86
+- distance_to_high_60_pct: -4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,41.9,41.95,41.1,41.95,41000,40.91,2.55,40.59,41.59,1.57
 20260604,42.15,42.15,41.6,42.05,42000,41,2.56,40.64,41.58,1.53
 20260605,41.75,42,41.7,41.9,42000,41.08,2,40.69,41.56,1.45
 20260608,40.6,41.85,40.6,41.85,4000,41.14,1.72,40.74,41.53,0.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,41.8,41.8,40.7,41.05,5000,41.08,-0.08,41.17,41.24,0.23
 20260630,41.6,41.6,41.6,41.6,5000,41.12,1.16,41.2,41.24,0.25
 20260701,41.15,41.55,41.1,41.55,9000,41.16,0.95,41.18,41.23,0.43
+20260702,41.55,41.95,41.55,41.95,14000,41.23,1.76,41.18,41.23,0.72
 ```
 
 ## Latest TDCC Snapshot

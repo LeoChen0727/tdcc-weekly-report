@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:25 Asia/Taipei
+- generated_at: 2026-07-02 22:26:46 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 294
+- latest_price_date: 20260702
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 32.95
-- high: 33.3
+- date: 20260702
+- open: 32.8
+- high: 33.7
 - low: 32.8
-- close: 32.9
-- volume: 83638000
-- ma5: 34.37
-- ema23_primary: 34.03
-- distance_to_ema23_pct: -3.33
-- ma20: 34.4
-- ma60: 32.83
+- close: 33.7
+- volume: 53148000
+- ma5: 34.02
+- ema23_primary: 34
+- distance_to_ema23_pct: -0.89
+- ma20: 34.43
+- ma60: 32.86
 - ma120: 33.03
-- return_5d: -6
-- return_20d: 2.17
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: -4.35
-- distance_to_high_60_pct: -10.11
+- return_5d: -4.94
+- return_20d: 2.12
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -2.13
+- distance_to_high_60_pct: -7.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,32.3,33.3,32.05,33,78949449,31.77,3.86,31.71,32.15,1.62
 20260604,33,33.7,32.9,33.45,71753146,31.91,4.82,31.77,32.15,1.43
 20260605,33.45,33.6,32.9,33.35,49409021,32.03,4.11,31.82,32.15,0.97
 20260608,32.75,33.1,32.3,32.9,60140936,32.1,2.48,31.85,32.14,1.15
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,35.05,35.1,34.35,34.5,49520416,34.11,1.16,34.21,32.79,0.76
 20260630,34.6,34.9,34.15,34.45,67311000,34.13,0.92,34.36,32.82,1.03
 20260701,32.95,33.3,32.8,32.9,83638000,34.03,-3.33,34.4,32.83,1.28
+20260702,32.8,33.7,32.8,33.7,53148000,34,-0.89,34.43,32.86,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_inflow | stale_signal | 1.發生變動日期:115/06/29 2.法人名稱:玉山綜合證券股份有限公司 3.舊任者姓名:吳鴻彬 4.舊任者簡歷:玉山銀行法人金融事業總處協理 5.新任者姓名:陳正偉 6.新任者簡歷:玉山投顧總經理 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:113/03/29至116/3/28 9.新任生效日期:115/6/29 10.其他應敘明事項:無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d |
+| 20260702 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.發生變動日期:115/06/29 2.法人名稱:玉山綜合證券股份有限公司 3.舊任者姓名:吳鴻彬 4.舊任者簡歷:玉山銀行法人金融事業總處協理 5.新任者姓名:陳正偉 6.新任者簡歷:玉山投顧總經理 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:113/03/29至116/3/28 9.新任生效日期:115/6/29 10.其他應敘明事項:無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2884 | 玉山金 | 6 | 5 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2884 | 玉山金 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2884 | 玉山金 | 10 | 0 | 1694210.0 | 0.0 |  | call_inflow |
+| 20260702 | 2884 | 玉山金 | 10 | 0 | 4271970.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

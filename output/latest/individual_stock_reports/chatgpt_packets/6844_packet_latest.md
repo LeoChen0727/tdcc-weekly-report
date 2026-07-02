@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6844 諾貝兒
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:39 Asia/Taipei
+- generated_at: 2026-07-02 22:28:01 Asia/Taipei
 - stock_id: 6844
 - stock_name: 諾貝兒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 154
+- latest_price_date: 20260702
+- price_rows: 155
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 64.7
-- high: 65.4
-- low: 64.5
-- close: 65.4
-- volume: 41000
-- ma5: 65.06
-- ema23_primary: 65.18
-- distance_to_ema23_pct: 0.34
-- ma20: 65.2
-- ma60: 64.49
-- ma120: 66.24
-- return_5d: 0.15
-- return_20d: 2.03
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 0.3
-- distance_to_high_60_pct: -2.1
+- date: 20260702
+- open: 61.4
+- high: 61.5
+- low: 60.8
+- close: 61.3
+- volume: 26000
+- ma5: 64.28
+- ema23_primary: 64.86
+- distance_to_ema23_pct: -5.48
+- ma20: 65.03
+- ma60: 64.45
+- ma120: 66.11
+- return_5d: -5.98
+- return_20d: -5.55
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -5.73
+- distance_to_high_60_pct: -8.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,63.3,64.9,63.2,64.9,64000,64.86,0.07,65.11,64.16,1.67
 20260604,64.7,65,63.5,65,64000,64.87,0.2,65.19,64.17,1.55
 20260605,64,64.6,63,64.5,64000,64.84,-0.52,65.22,64.17,1.48
 20260608,64.1,64.1,62.7,63.8,39000,64.75,-1.47,65.16,64.19,0.88
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,64.5,64.9,64.3,64.9,16000,65.17,-0.42,65.11,64.44,0.39
 20260630,64.9,65,64.7,65,24000,65.16,-0.25,65.14,64.47,0.62
 20260701,64.7,65.4,64.5,65.4,41000,65.18,0.34,65.2,64.49,1.01
+20260702,61.4,61.5,60.8,61.3,26000,64.86,-5.48,65.03,64.45,0.67
 ```
 
 ## Latest TDCC Snapshot

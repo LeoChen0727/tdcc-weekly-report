@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5348 正能量智能
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:08 Asia/Taipei
+- generated_at: 2026-07-02 22:27:29 Asia/Taipei
 - stock_id: 5348
 - stock_name: 正能量智能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 151
+- latest_price_date: 20260702
+- price_rows: 152
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 16.95
-- high: 16.95
-- low: 15
-- close: 15.75
-- volume: 89000
-- ma5: 17.15
-- ema23_primary: 16.4
-- distance_to_ema23_pct: -3.97
-- ma20: 16.18
-- ma60: 16.38
-- ma120: 16.8
-- return_5d: -3.67
-- return_20d: 2.94
-- volume_ratio: 2.07
-- distance_to_ma20_pct_auxiliary: -2.66
-- distance_to_high_60_pct: -20.45
+- date: 20260702
+- open: 14.95
+- high: 16.15
+- low: 14.95
+- close: 15.8
+- volume: 28000
+- ma5: 16.94
+- ema23_primary: 16.35
+- distance_to_ema23_pct: -3.37
+- ma20: 16.2
+- ma60: 16.36
+- ma120: 16.78
+- return_5d: -6.23
+- return_20d: 3.27
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -2.5
+- distance_to_high_60_pct: -20.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260529,15.35,15.35,15.3,15.3,15000,16.01,-4.43,15.77,16.67,1.11
 20260602,15.45,15.45,15.45,15.45,15,15.96,-3.21,15.69,16.64,0
 20260603,15.45,15.45,15.35,15.35,15000,15.91,-3.53,15.61,16.61,1.37
 20260604,15.4,15.45,15.4,15.4,15000,15.87,-2.96,15.56,16.58,1.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,16.7,19.8,16.65,18.15,270000,16.46,10.29,16.09,16.41,7.43
 20260630,17.95,17.95,16.5,16.5,74000,16.46,0.24,16.16,16.4,1.88
 20260701,16.95,16.95,15,15.75,89000,16.4,-3.97,16.18,16.38,2.07
+20260702,14.95,16.15,14.95,15.8,28000,16.35,-3.37,16.2,16.36,0.64
 ```
 
 ## Latest TDCC Snapshot

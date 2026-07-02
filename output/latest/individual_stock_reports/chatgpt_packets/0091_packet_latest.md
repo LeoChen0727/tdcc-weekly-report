@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0091 群益台灣精選高息
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:42 Asia/Taipei
+- generated_at: 2026-07-02 22:26:03 Asia/Taipei
 - stock_id: 0091
 - stock_name: 群益台灣精選高息
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 0091 | 群益台灣精選高息 | 4 | 3 | 338150.0 | 800.0 | 422.69 | no_signal |
+| 20260702 | 0091 | 群益台灣精選高息 | 4 | 3 | 326420.0 | 2300.0 | 141.92 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

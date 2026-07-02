@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3147 大綜
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:33 Asia/Taipei
+- generated_at: 2026-07-02 22:26:54 Asia/Taipei
 - stock_id: 3147
 - stock_name: 大綜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 252
-- high: 252
-- low: 230
-- close: 243.5
-- volume: 3305000
-- ma5: 286.1
-- ema23_primary: 282.69
-- distance_to_ema23_pct: -13.86
-- ma20: 306.05
-- ma60: 218.87
-- ma120: 193.74
-- return_5d: -28.38
-- return_20d: 10.43
-- volume_ratio: 3.37
-- distance_to_ma20_pct_auxiliary: -20.44
-- distance_to_high_60_pct: -30.82
+- date: 20260702
+- open: 240
+- high: 254.5
+- low: 235
+- close: 239
+- volume: 2401000
+- ma5: 264.9
+- ema23_primary: 279.05
+- distance_to_ema23_pct: -14.35
+- ma20: 305.88
+- ma60: 220.22
+- ma120: 194.35
+- return_5d: -30.72
+- return_20d: -1.44
+- volume_ratio: 2.21
+- distance_to_ma20_pct_auxiliary: -21.86
+- distance_to_high_60_pct: -32.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,242.5,242.5,241,242.5,242000,188.49,28.65,185.82,174.58,0.92
 20260604,245,266.5,244.5,266.5,261000,194.99,36.67,190.32,176.07,0.99
 20260605,263,293,262.5,284.5,278000,202.45,40.53,195.6,177.82,1.09
 20260608,256.5,285,256.5,284.5,1081000,209.29,35.94,200.78,179.55,3.66
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,279.5,279.5,279.5,279.5,273000,289.37,-3.41,302.32,215.82,0.44
 20260630,255.5,259.5,252,252,4032000,286.25,-11.97,304.9,217.39,4.95
 20260701,252,252,230,243.5,3305000,282.69,-13.86,306.05,218.87,3.37
+20260702,240,254.5,235,239,2401000,279.05,-14.35,305.88,220.22,2.21
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3147 | 大綜 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3147 | 大綜 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3147 | 大綜 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3147 | 大綜 | 3 | 3 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

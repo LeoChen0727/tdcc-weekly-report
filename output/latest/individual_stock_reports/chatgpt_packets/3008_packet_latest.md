@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:28 Asia/Taipei
+- generated_at: 2026-07-02 22:26:49 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 4490
-- high: 4560
+- date: 20260702
+- open: 4260
+- high: 4395
 - low: 4250
-- close: 4330
-- volume: 2598000
-- ma5: 4577
-- ema23_primary: 4337.69
-- distance_to_ema23_pct: -0.18
-- ma20: 4440.75
-- ma60: 3408.33
-- ma120: 2894.54
-- return_5d: -11.63
-- return_20d: 12.47
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -2.49
-- distance_to_high_60_pct: -19.22
+- close: 4295
+- volume: 1572000
+- ma5: 4403
+- ema23_primary: 4334.13
+- distance_to_ema23_pct: -0.9
+- ma20: 4456.25
+- ma60: 3443.75
+- ma120: 2909.5
+- return_5d: -16.84
+- return_20d: 7.78
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -3.62
+- distance_to_high_60_pct: -19.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,3920,4225,3820,3985,3706976,3328.17,19.74,3319.75,2715.92,1.6
 20260604,3940,3995,3785,3825,2589597,3369.57,13.52,3382.25,2741.58,1.09
 20260605,3750,3750,3570,3680,2295854,3395.44,8.38,3437.75,2764.58,0.95
 20260608,3330,3550,3325,3535,2683427,3407.07,3.75,3487.25,2783.67,1.07
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,4640,4730,4315,4380,3846275,4342.79,0.86,4394,3336.83,1.24
 20260630,4250,4430,4210,4290,3818000,4338.39,-1.12,4416.75,3371.83,1.18
 20260701,4490,4560,4250,4330,2598000,4337.69,-0.18,4440.75,3408.33,0.79
+20260702,4260,4395,4250,4295,1572000,4334.13,-0.9,4456.25,3443.75,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3008 | 大立光 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/06/18 2.發放股利種類及金額:發放現金股利人民幣118,745,228.71元。 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 3008 | 大立光 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/18 2.發放股利種類及金額:發放現金股利人民幣118,745,228.71元。 3.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3008 | 大立光 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/09 1.召開法人說明會之日期：115/07/09 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：115年第二季營運報告及說明115年第三季營運展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 3008 | 大立光 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/09 1.召開法人說明會之日期：115/07/09 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：115年第二季營運報告及說明115年第三季營運展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3008 | 大立光 | 3 | 3 | 3 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3008 | 大立光 | 4 | 2 | 4 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3008 | 大立光 | 217 | 8 | 24239530.0 | 180420.0 | 134.35 | no_signal |
+| 20260702 | 3008 | 大立光 | 217 | 8 | 18562250.0 | 107440.0 | 172.77 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

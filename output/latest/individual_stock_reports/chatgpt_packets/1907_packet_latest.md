@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1907 永豐餘
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:01 Asia/Taipei
+- generated_at: 2026-07-02 22:26:22 Asia/Taipei
 - stock_id: 1907
 - stock_name: 永豐餘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 27.35
-- high: 27.35
-- low: 26.75
-- close: 27.15
-- volume: 2084000
-- ma5: 27.16
-- ema23_primary: 26.47
-- distance_to_ema23_pct: 2.56
-- ma20: 26.63
-- ma60: 25.32
-- ma120: 25.34
-- return_5d: -1.27
-- return_20d: 11.5
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 1.95
-- distance_to_high_60_pct: -4.4
+- date: 20260702
+- open: 27.1
+- high: 27.5
+- low: 26.85
+- close: 27.35
+- volume: 1265000
+- ma5: 27.19
+- ema23_primary: 26.55
+- distance_to_ema23_pct: 3.03
+- ma20: 26.75
+- ma60: 25.34
+- ma120: 25.35
+- return_5d: 0.55
+- return_20d: 9.18
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 2.26
+- distance_to_high_60_pct: -3.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,24.5,25.45,24.5,25.05,4037754,24.47,2.37,24.38,24.78,2.6
 20260604,25.1,27.55,25.1,26.4,7894403,24.63,7.18,24.5,24.82,4.2
 20260605,26.45,26.65,25.5,26.05,3605006,24.75,5.25,24.59,24.84,1.8
 20260608,25.15,25.8,25,25.35,1724093,24.8,2.22,24.66,24.86,0.84
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,27.15,27.35,27.05,27.35,650503,26.35,3.8,26.36,25.29,0.22
 20260630,27.6,27.6,26.85,27.1,939000,26.41,2.61,26.49,25.3,0.32
 20260701,27.35,27.35,26.75,27.15,2084000,26.47,2.56,26.63,25.32,0.71
+20260702,27.1,27.5,26.85,27.35,1265000,26.55,3.03,26.75,25.34,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1907 | 永豐餘 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:永豐餘投資控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正114年度第4季及115年度第1季赴大陸投資資訊 6.更正資訊項目/報表名稱:赴大陸投資資訊 7.更正前金額/內容/頁次:投資方式：1 8.更正後金額/內容/頁次:投資方式：2 9.因應措施:於公開資訊觀測站上更正114年度第4季及115年度第1季赴大陸投資資訊 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 1907 | 永豐餘 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:永豐餘投資控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正114年度第4季及115年度第1季赴大陸投資資訊 6.更正資訊項目/報表名稱:赴大陸投資資訊 7.更正前金額/內容/頁次:投資方式：1 8.更正後金額/內容/頁次:投資方式：2 9.因應措施:於公開資訊觀測站上更正114年度第4季及115年度第1季赴大陸投資資訊 10.其他應敘明事項:無；calendar event: ex_dividend on 20260713; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1907 | 永豐餘 | 1 | 1 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 1907 | 永豐餘 | 2 | 2 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

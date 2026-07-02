@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3605 宏致
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:45 Asia/Taipei
+- generated_at: 2026-07-02 22:27:07 Asia/Taipei
 - stock_id: 3605
 - stock_name: 宏致
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 79.5
-- high: 85.6
-- low: 78.7
-- close: 85.6
-- volume: 14239000
-- ma5: 78.6
-- ema23_primary: 77.44
-- distance_to_ema23_pct: 10.53
-- ma20: 76.05
-- ma60: 76.49
-- ma120: 69.28
-- return_5d: 11.75
-- return_20d: 10.45
-- volume_ratio: 4.44
-- distance_to_ma20_pct_auxiliary: 12.56
-- distance_to_high_60_pct: -6.75
+- date: 20260702
+- open: 84.6
+- high: 92
+- low: 83.2
+- close: 90.1
+- volume: 31065000
+- ma5: 81.12
+- ema23_primary: 78.5
+- distance_to_ema23_pct: 14.78
+- ma20: 76.69
+- ma60: 76.94
+- ma120: 69.53
+- return_5d: 16.26
+- return_20d: 16.56
+- volume_ratio: 6.66
+- distance_to_ma20_pct_auxiliary: 17.49
+- distance_to_high_60_pct: -2.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,78.5,78.5,76.7,77.3,1945273,78.62,-1.67,79.97,71.21,0.38
 20260604,77.3,78,76.3,76.3,1479562,78.42,-2.71,79.42,71.49,0.32
 20260605,76.3,76.3,73.7,75,1915779,78.14,-4.01,79,71.75,0.44
 20260608,67.5,72.7,67.5,72.2,2680248,77.64,-7.01,78.5,71.95,0.66
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,73.9,80.6,73.7,78,4664251,76.59,1.84,75.71,75.7,1.75
 20260630,78.4,79.5,77.5,77.9,2391000,76.7,1.56,75.64,76.06,0.9
 20260701,79.5,85.6,78.7,85.6,14239000,77.44,10.53,76.05,76.49,4.44
+20260702,84.6,92,83.2,90.1,31065000,78.5,14.78,76.69,76.94,6.66
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3605 | 宏致 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | no_signal | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過辦理減資彌補虧損案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3605 | 宏致 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過辦理減資彌補虧損案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3605 | 宏致 | 3 | 1 | 3 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3605 | 宏致 | 4 | 2 | 4 | 7 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3605 | 宏致 | 25 | 0 | 6566590.0 | 0.0 |  | no_signal |
+| 20260702 | 3605 | 宏致 | 25 | 0 | 18022270.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

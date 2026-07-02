@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-07-01 22:29:04 Asia/Taipei
+- generated_at: 2026-07-02 22:28:26 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 76.6
-- high: 76.6
-- low: 73.7
-- close: 74.3
-- volume: 9540000
-- ma5: 76.36
-- ema23_primary: 73.52
-- distance_to_ema23_pct: 1.06
-- ma20: 75.5
-- ma60: 59.97
-- ma120: 52.05
-- return_5d: -9.28
-- return_20d: 10.24
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.59
-- distance_to_high_60_pct: -11.86
+- date: 20260702
+- open: 73
+- high: 74.3
+- low: 72.3
+- close: 73
+- volume: 5788000
+- ma5: 75.34
+- ema23_primary: 73.48
+- distance_to_ema23_pct: -0.65
+- ma20: 75.63
+- ma60: 60.47
+- ma120: 52.32
+- return_5d: -6.53
+- return_20d: 3.69
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -3.48
+- distance_to_high_60_pct: -13.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,68,71.4,67.5,70.4,13702470,60.5,16.36,60.65,50.42,1.05
 20260604,70.5,73.7,70,72.4,17435262,61.49,17.73,61.94,50.87,1.26
 20260605,73.5,73.5,69.4,69.6,12345820,62.17,11.95,62.96,51.27,0.88
 20260608,63.8,67.7,63.6,66.9,8618509,62.56,6.93,63.73,51.63,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,77.5,78.8,75.7,76.9,6460899,73.19,5.07,74.7,58.91,0.51
 20260630,77.2,77.7,76.1,76.3,7513000,73.45,3.88,75.16,59.46,0.61
 20260701,76.6,76.6,73.7,74.3,9540000,73.52,1.06,75.5,59.97,0.76
+20260702,73,74.3,72.3,73,5788000,73.48,-0.65,75.63,60.47,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8926 | 台汽電 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:審計委員會 3.舊任者姓名:李漢申、葉繼升、陳建富 4.舊任者簡歷: 李漢申，前台灣電力股份有限公司總經理 葉繼升，葉繼升律師事務所負責人 陳建富，國立成功大學電機工程學系兼任教授 5.新任者姓名:劉文雄、陳建富、林瑞青 6.新任者簡歷: 劉文雄，台灣電力與能源工程協會理事長 陳建富，國立成功大學電機工程學系兼任教授 林瑞青，輔仁大學會計學系教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，由新任全體獨立董事擔任委員 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/30~115/06/29 10.新任生效日期:115/06/30 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:審計委員會 3.舊任者姓名:李漢申、葉繼升、陳建富 4.舊任者簡歷: 李漢申，前台灣電力股份有限公司總經理 葉繼升，葉繼升律師事務所負責人 陳建富，國立成功大學電機工程學系兼任教授 5.新任者姓名:劉文雄、陳建富、林瑞青 6.新任者簡歷: 劉文雄，台灣電力與能源工程協會理事長 陳建富，國立成功大學電機工程學系兼任教授 林瑞青，輔仁大學會計學系教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，由新任全體獨立董事擔任委員 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/30~115/06/29 10.新任生效日期:115/06/30 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 8926 | 台汽電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=within_3d |
+| 20260702 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8926 | 台汽電 | 7 | 5 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 8926 | 台汽電 | 8 | 5 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

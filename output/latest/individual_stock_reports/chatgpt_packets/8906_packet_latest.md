@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8906 花王
 
 ## Metadata
-- generated_at: 2026-07-01 22:29:03 Asia/Taipei
+- generated_at: 2026-07-02 22:28:26 Asia/Taipei
 - stock_id: 8906
 - stock_name: 花王
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 29.75
-- high: 29.95
-- low: 28.6
-- close: 29.95
-- volume: 65000
-- ma5: 29.43
-- ema23_primary: 27.9
-- distance_to_ema23_pct: 7.33
-- ma20: 27.56
+- date: 20260702
+- open: 29.9
+- high: 29.9
+- low: 28.7
+- close: 29.25
+- volume: 28000
+- ma5: 29.52
+- ema23_primary: 28.02
+- distance_to_ema23_pct: 4.4
+- ma20: 27.84
 - ma60: 26.62
-- ma120: 30.3
-- return_5d: 3.45
-- return_20d: 25.58
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 8.68
-- distance_to_high_60_pct: -6.84
+- ma120: 30.22
+- return_5d: 1.56
+- return_20d: 24.47
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 5.05
+- distance_to_high_60_pct: -9.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,23.9,23.9,23.3,23.5,24000,25.01,-6.04,24.73,27.33,0.56
 20260604,24,24.2,23.6,24.2,24000,24.94,-2.98,24.66,27.23,0.58
 20260605,24.55,24.55,23.95,24.5,24000,24.91,-1.63,24.61,27.12,0.61
 20260608,22.55,24,22.55,23.5,103000,24.79,-5.2,24.54,26.99,2.77
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,29.1,30.3,28.8,29.9,178000,27.53,8.6,26.96,26.61,1.59
 20260630,29.9,29.9,28.95,29.75,44000,27.72,7.33,27.25,26.61,0.39
 20260701,29.75,29.95,28.6,29.95,65000,27.9,7.33,27.56,26.62,0.56
+20260702,29.9,29.9,28.7,29.25,28000,28.02,4.4,27.84,26.62,0.24
 ```
 
 ## Latest TDCC Snapshot

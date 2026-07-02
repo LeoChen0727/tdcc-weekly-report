@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00876 元大全球5G
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:42 Asia/Taipei
+- generated_at: 2026-07-02 22:26:02 Asia/Taipei
 - stock_id: 00876
 - stock_name: 元大全球5G
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 28
+- latest_price_date: 20260702
+- price_rows: 29
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 108.75
-- high: 108.75
-- low: 106.85
-- close: 107.7
-- volume: 397000
-- ma5: 103.55
-- ema23_primary: 98.39
-- distance_to_ema23_pct: 9.47
-- ma20: 98.27
-- ma60: 96.2
-- ma120: 96.2
-- return_5d: 7.49
-- return_20d: 17.38
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 9.59
-- distance_to_high_60_pct: -0.97
+- date: 20260702
+- open: 101
+- high: 103.5
+- low: 100.2
+- close: 102.95
+- volume: 737000
+- ma5: 103.48
+- ema23_primary: 98.77
+- distance_to_ema23_pct: 4.24
+- ma20: 98.64
+- ma60: 96.43
+- ma120: 96.43
+- return_5d: -0.34
+- return_20d: 7.74
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: 4.37
+- distance_to_high_60_pct: -5.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,95,95.55,94.7,95.55,608060,89.38,6.9,91.51,91.51,1.36
 20260604,95.55,95.55,94.85,95.1,156626,89.86,5.83,91.87,91.87,0.38
 20260605,94.4,94.4,92.5,93.75,246613,90.18,3.96,92.04,92.04,0.61
 20260608,86,89.1,86,88.7,299089,90.06,-1.51,91.76,91.76,0.76
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,100.5,100.7,99.25,99.75,265916,96.77,3.08,96.81,95.38,0.72
 20260630,104.1,106,103.65,106,702000,97.54,8.67,97.47,95.77,1.78
 20260701,108.75,108.75,106.85,107.7,397000,98.39,9.47,98.27,96.2,1.01
+20260702,101,103.5,100.2,102.95,737000,98.77,4.24,98.64,96.43,1.85
 ```
 
 ## Latest TDCC Snapshot

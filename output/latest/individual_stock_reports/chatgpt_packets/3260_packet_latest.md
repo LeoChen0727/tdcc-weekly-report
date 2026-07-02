@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:36 Asia/Taipei
+- generated_at: 2026-07-02 22:26:57 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 411.5
-- high: 412
-- low: 392
-- close: 398.5
-- volume: 14202000
-- ma5: 403.7
-- ema23_primary: 413.29
-- distance_to_ema23_pct: -3.58
-- ma20: 415.38
-- ma60: 414.68
-- ma120: 371.01
-- return_5d: -2.45
-- return_20d: -15.12
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: -4.06
-- distance_to_high_60_pct: -19.33
+- date: 20260702
+- open: 384
+- high: 408
+- low: 382.5
+- close: 408
+- volume: 7750000
+- ma5: 403.4
+- ema23_primary: 412.85
+- distance_to_ema23_pct: -1.17
+- ma20: 412.68
+- ma60: 415.43
+- ma120: 372.4
+- return_5d: -0.37
+- return_20d: -11.69
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -1.13
+- distance_to_high_60_pct: -17.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,480.5,481,456.5,462,469000,425.3,8.63,428.52,406.77,0.04
 20260604,457,476,451.5,458,463000,428.02,7,428.35,409.34,0.05
 20260605,444.5,444.5,414.5,421.5,427000,427.48,-1.4,427,411.05,0.06
 20260608,379.5,404.5,379.5,403,14330000,425.44,-5.27,424.3,411.93,1.99
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,399,406.5,394.5,404,5433000,415.15,-2.69,419.82,413.39,0.61
 20260630,407.5,415,396,409,11091000,414.64,-1.36,418.93,414.07,1.18
 20260701,411.5,412,392,398.5,14202000,413.29,-3.58,415.38,414.68,1.41
+20260702,384,408,382.5,408,7750000,412.85,-1.17,412.68,415.43,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -193,13 +193,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/06/30 2.本次買回股份數量(股):590,000 3.本次買回股份總金額(元):252,952,421 4.本次平均每股買回價格(元):428.73 5.於買回期間內累積已持有自己公司股份數量(股):9,167,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.81 7.其他應敘明事項: 買回前已持有本公司股份7,763,000股，於買回期間內累積持有本公司股份9,167,000股。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260701 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 25.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/06/30 2.本次買回股份數量(股):590,000 3.本次買回股份總金額(元):252,952,421 4.本次平均每股買回價格(元):428.73 5.於買回期間內累積已持有自己公司股份數量(股):9,167,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.81 7.其他應敘明事項: 買回前已持有本公司股份7,763,000股，於買回期間內累積持有本公司股份9,167,000股。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/06/30 2.本次買回股份數量(股):590,000 3.本次買回股份總金額(元):252,952,421 4.本次平均每股買回價格(元):428.73 5.於買回期間內累積已持有自己公司股份數量(股):9,167,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.81 7.其他應敘明事項: 買回前已持有本公司股份7,763,000股，於買回期間內累積持有本公司股份9,167,000股。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 26.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/06/30 2.本次買回股份數量(股):590,000 3.本次買回股份總金額(元):252,952,421 4.本次平均每股買回價格(元):428.73 5.於買回期間內累積已持有自己公司股份數量(股):9,167,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.81 7.其他應敘明事項: 買回前已持有本公司股份7,763,000股，於買回期間內累積持有本公司股份9,167,000股。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3260 | 威剛 | 8 | 7 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3260 | 威剛 | 9 | 8 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

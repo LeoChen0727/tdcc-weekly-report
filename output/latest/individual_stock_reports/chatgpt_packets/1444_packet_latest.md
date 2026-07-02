@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1444 力麗
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:50 Asia/Taipei
+- generated_at: 2026-07-02 22:26:11 Asia/Taipei
 - stock_id: 1444
 - stock_name: 力麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 9.45
-- high: 9.8
-- low: 9.09
-- close: 9.35
-- volume: 29611000
-- ma5: 8.16
-- ema23_primary: 7.31
-- distance_to_ema23_pct: 27.85
-- ma20: 7.33
-- ma60: 6.57
-- ma120: 6.41
-- return_5d: 35.12
-- return_20d: 37.5
-- volume_ratio: 5.05
-- distance_to_ma20_pct_auxiliary: 27.56
-- distance_to_high_60_pct: -4.59
+- date: 20260702
+- open: 9.4
+- high: 10.25
+- low: 9.06
+- close: 10
+- volume: 27440000
+- ma5: 8.77
+- ema23_primary: 7.54
+- distance_to_ema23_pct: 32.68
+- ma20: 7.46
+- ma60: 6.63
+- ma120: 6.44
+- return_5d: 44.3
+- return_20d: 33.69
+- volume_ratio: 4.1
+- distance_to_ma20_pct_auxiliary: 34.12
+- distance_to_high_60_pct: -2.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,6.8,7.48,6.78,7.48,10898064,6.25,19.63,6.1,6.22,5.04
 20260604,7.83,7.9,7.03,7.16,11261018,6.33,13.15,6.16,6.24,4.19
 20260605,7.15,7.15,6.7,6.85,4225906,6.37,7.51,6.21,6.25,1.48
 20260608,6.32,7.17,6.32,7.1,3409641,6.43,10.38,6.26,6.27,1.14
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,7.59,8.15,7.59,8.15,13365937,6.96,17.07,7.09,6.47,3.3
 20260630,8.65,8.96,8.15,8.96,16817000,7.13,25.7,7.2,6.52,3.63
 20260701,9.45,9.8,9.09,9.35,29611000,7.31,27.85,7.33,6.57,5.05
+20260702,9.4,10.25,9.06,10,27440000,7.54,32.68,7.46,6.63,4.1
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1444 | 力麗 | true_breakout | 嚴格突破 | 81.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 1444 | 力麗 | true_breakout | 嚴格突破 | 86.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1444 | 力麗 | 7 | 3 | 5 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 1444 | 力麗 | 8 | 4 | 5 | 8 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

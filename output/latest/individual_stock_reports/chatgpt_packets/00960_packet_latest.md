@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00960 野村全球航運龍頭
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:43 Asia/Taipei
+- generated_at: 2026-07-02 22:26:04 Asia/Taipei
 - stock_id: 00960
 - stock_name: 野村全球航運龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 28
+- latest_price_date: 20260702
+- price_rows: 29
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 16.74
-- high: 16.74
-- low: 16.63
-- close: 16.69
-- volume: 994000
-- ma5: 17.03
-- ema23_primary: 17.38
-- distance_to_ema23_pct: -3.95
-- ma20: 17.46
-- ma60: 17.42
-- ma120: 17.42
-- return_5d: -5.39
-- return_20d: -3.58
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -4.39
-- distance_to_high_60_pct: -8.7
+- date: 20260702
+- open: 16.69
+- high: 16.75
+- low: 16.66
+- close: 16.75
+- volume: 169000
+- ma5: 16.9
+- ema23_primary: 17.32
+- distance_to_ema23_pct: -3.32
+- ma20: 17.43
+- ma60: 17.4
+- ma120: 17.4
+- return_5d: -3.74
+- return_20d: -2.9
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -3.91
+- distance_to_high_60_pct: -8.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,17.32,17.32,17.18,17.25,416949,17.5,-1.43,17.31,17.31,0.68
 20260604,17.22,17.38,17.22,17.32,718265,17.48,-0.94,17.32,17.32,1.15
 20260605,17.48,17.62,17.48,17.56,1067934,17.49,0.4,17.34,17.34,1.61
 20260608,17.41,17.57,17.41,17.55,1563103,17.5,0.31,17.36,17.36,2.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,17.17,17.17,16.79,16.94,1647052,17.48,-3.11,17.49,17.46,2.19
 20260630,16.94,16.96,16.88,16.94,148000,17.44,-2.86,17.49,17.45,0.2
 20260701,16.74,16.74,16.63,16.69,994000,17.38,-3.95,17.46,17.42,1.38
+20260702,16.69,16.75,16.66,16.75,169000,17.32,-3.32,17.43,17.4,0.24
 ```
 
 ## Latest TDCC Snapshot

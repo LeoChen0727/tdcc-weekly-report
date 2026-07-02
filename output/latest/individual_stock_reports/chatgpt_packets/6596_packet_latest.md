@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6596 寬宏藝術
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:32 Asia/Taipei
+- generated_at: 2026-07-02 22:27:54 Asia/Taipei
 - stock_id: 6596
 - stock_name: 寬宏藝術
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 93.3
-- high: 93.3
-- low: 91.6
-- close: 92.4
-- volume: 97000
-- ma5: 92.56
-- ema23_primary: 94.51
-- distance_to_ema23_pct: -2.23
-- ma20: 94.16
-- ma60: 97.67
-- ma120: 118.81
-- return_5d: -0.65
-- return_20d: -4.74
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -1.86
-- distance_to_high_60_pct: -12.42
+- date: 20260702
+- open: 91.7
+- high: 92.4
+- low: 91.7
+- close: 92.2
+- volume: 73000
+- ma5: 92.38
+- ema23_primary: 94.32
+- distance_to_ema23_pct: -2.24
+- ma20: 93.91
+- ma60: 97.62
+- ma120: 118.43
+- return_5d: -0.97
+- return_20d: -5.14
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -1.82
+- distance_to_high_60_pct: -12.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,97,97.6,96.8,97.2,97000,98.89,-1.71,98.11,110.5,0.49
 20260604,98.1,98.8,97.3,97.7,98000,98.79,-1.1,98.06,109.67,0.52
 20260605,97.7,98.2,96.8,97.1,97000,98.65,-1.57,97.99,108.78,0.53
 20260608,96,96,92.3,94.5,470000,98.3,-3.87,97.52,107.84,2.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,92.1,92.4,91.8,92.4,117000,94.87,-2.61,94.61,97.86,0.69
 20260630,92.8,93.1,92.4,92.8,55000,94.7,-2.01,94.39,97.75,0.33
 20260701,93.3,93.3,91.6,92.4,97000,94.51,-2.23,94.16,97.67,0.57
+20260702,91.7,92.4,91.7,92.2,73000,94.32,-2.24,93.91,97.62,0.43
 ```
 
 ## Latest TDCC Snapshot

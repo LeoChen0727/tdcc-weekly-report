@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6728 上洋
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:36 Asia/Taipei
+- generated_at: 2026-07-02 22:27:58 Asia/Taipei
 - stock_id: 6728
 - stock_name: 上洋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 159
+- latest_price_date: 20260702
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 108.5
-- high: 110.5
-- low: 108.5
+- date: 20260702
+- open: 110
+- high: 110
+- low: 109
 - close: 110
-- volume: 43000
-- ma5: 108.1
+- volume: 21000
+- ma5: 108.4
 - ema23_primary: 110.01
 - distance_to_ema23_pct: -0.01
-- ma20: 110.05
-- ma60: 113.33
-- ma120: 122.9
-- return_5d: 0.46
-- return_20d: -4.35
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -0.05
+- ma20: 109.78
+- ma60: 113.2
+- ma120: 122.7
+- return_5d: 1.38
+- return_20d: -4.76
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 0.2
 - distance_to_high_60_pct: -9.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,115,117,115,115.5,116000,113.06,2.16,112,117.56,1.8
 20260604,117,117,113,113.5,114000,113.1,0.36,111.9,117.27,1.7
 20260605,112,112.5,111.5,112.5,112000,113.05,-0.48,111.78,116.97,1.57
 20260608,108.5,109.5,108.5,109.5,28000,112.75,-2.88,111.53,116.62,0.4
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,108,108,105.5,106.5,33000,110.24,-3.39,110.55,113.61,0.75
 20260630,106,107.5,106,107.5,24000,110.01,-2.28,110.3,113.45,0.6
 20260701,108.5,110.5,108.5,110,43000,110.01,-0.01,110.05,113.33,1.03
+20260702,110,110,109,110,21000,110.01,-0.01,109.78,113.2,0.57
 ```
 
 ## Latest TDCC Snapshot

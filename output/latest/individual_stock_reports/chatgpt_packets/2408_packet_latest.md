@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:12 Asia/Taipei
+- generated_at: 2026-07-02 22:26:33 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 455
-- high: 455
-- low: 412
-- close: 421
-- volume: 98007000
-- ma5: 450.5
-- ema23_primary: 408.59
-- distance_to_ema23_pct: 3.04
-- ma20: 413.93
-- ma60: 315.93
-- ma120: 283.01
-- return_5d: -5.07
-- return_20d: 0.36
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 1.71
-- distance_to_high_60_pct: -16.63
+- date: 20260702
+- open: 386.5
+- high: 412
+- low: 386.5
+- close: 407
+- volume: 62053000
+- ma5: 436.5
+- ema23_primary: 408.45
+- distance_to_ema23_pct: -0.36
+- ma20: 414.2
+- ma60: 319.28
+- ma120: 284.83
+- return_5d: -14.68
+- return_20d: 1.37
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.74
+- distance_to_high_60_pct: -19.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,430,430.5,400,401.5,151116427,316.38,26.9,319.98,258.27,0.97
 20260604,395.5,409.5,392,395,115749814,322.93,22.32,325.38,261.35,0.77
 20260605,370,374,355.5,360,121599979,326.02,10.42,329.68,263.5,0.81
 20260608,324,348,324,339.5,104497957,327.15,3.78,331.6,264.93,0.69
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,456,465,440.5,453,77020287,403.36,12.31,410.3,308.23,0.62
 20260630,465.5,465.5,436,452.5,107143000,407.46,11.05,413.85,312.26,0.87
 20260701,455,455,412,421,98007000,408.59,3.04,413.93,315.93,0.82
+20260702,386.5,412,386.5,407,62053000,408.45,-0.36,414.2,319.28,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2408 | 南亞科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | put_inflow | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | put_inflow | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 2408 | 南亞科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_7d |
+| 20260702 | 2408 | 南亞科 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/10 1.召開法人說明會之日期：115/07/10 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：2026年第2季營運狀況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2408 | 南亞科 | 4 | 4 | 4 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 2408 | 南亞科 | 5 | 2 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2408 | 南亞科 | 277 | 30 | 92675210.0 | 4929030.0 | 18.8 | put_inflow |
+| 20260702 | 2408 | 南亞科 | 286 | 33 | 80793440.0 | 3368270.0 | 23.99 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

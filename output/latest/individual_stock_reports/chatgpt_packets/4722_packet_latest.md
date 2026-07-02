@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4722 國精化
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:58 Asia/Taipei
+- generated_at: 2026-07-02 22:27:20 Asia/Taipei
 - stock_id: 4722
 - stock_name: 國精化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 294
-- high: 299.5
-- low: 275
-- close: 275.5
-- volume: 1724000
-- ma5: 289
-- ema23_primary: 269.15
-- distance_to_ema23_pct: 2.36
-- ma20: 265.35
-- ma60: 234.87
-- ma120: 204.16
-- return_5d: -8.47
-- return_20d: -1.25
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 3.83
-- distance_to_high_60_pct: -11.98
+- date: 20260702
+- open: 272
+- high: 281.5
+- low: 272
+- close: 277
+- volume: 1029000
+- ma5: 287.2
+- ema23_primary: 269.8
+- distance_to_ema23_pct: 2.67
+- ma20: 265.3
+- ma60: 236.68
+- ma120: 204.92
+- return_5d: -3.15
+- return_20d: -0.36
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 4.41
+- distance_to_high_60_pct: -11.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,278,286,277,278,714952,253.92,9.48,261.48,206.36,0.16
 20260604,275,278,275,278,478488,255.93,8.62,264.62,208.22,0.11
 20260605,272,281,265,277,534594,257.68,7.5,266.65,210.01,0.15
 20260608,249.5,249.5,249.5,249.5,520332,257,-2.92,267.38,211.19,0.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,286.5,313,284,306.5,3748560,266.85,14.86,265.45,230.88,1.57
 20260630,309,309.5,287.5,287.5,2266000,268.57,7.05,265.52,232.93,0.92
 20260701,294,299.5,275,275.5,1724000,269.15,2.36,265.35,234.87,0.68
+20260702,272,281.5,272,277,1029000,269.8,2.67,265.3,236.68,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 4722 | 國精化 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/24 2.發生緣由:依證券櫃檯買賣中心通知辦理 3.公司債相關資訊: 國精化三(47223)轉債相關資訊 到期日期:117/10/01 實際發行總額:新台幣500,000,000元整 本月發行餘額:新台幣355,600,000元整(截至115/06/24未轉換金額) 最新轉(交)換價格:141.3 轉換標的收市價格(4722):301.00(115/06/24收盤價) 轉債收市價格(47223):210.00(115/06/24收盤價) 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 4722 | 國精化 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/06/24 2.發生緣由:依證券櫃檯買賣中心通知辦理 3.公司債相關資訊: 國精化三(47223)轉債相關資訊 到期日期:117/10/01 實際發行總額:新台幣500,000,000元整 本月發行餘額:新台幣355,600,000元整(截至115/06/24未轉換金額) 最新轉(交)換價格:141.3 轉換標的收市價格(4722):301.00(115/06/24收盤價) 轉債收市價格(47223):210.00(115/06/24收盤價) 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 4722 | 國精化 | 1 | 1 | 4 | 9 | 10 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 4722 | 國精化 | 2 | 2 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 4722 | 國精化 | 50 | 2 | 2091170.0 | 0.0 |  | no_signal |
+| 20260702 | 4722 | 國精化 | 50 | 2 | 3783220.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

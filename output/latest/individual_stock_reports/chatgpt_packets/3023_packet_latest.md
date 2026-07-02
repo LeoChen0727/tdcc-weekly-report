@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:29 Asia/Taipei
+- generated_at: 2026-07-02 22:26:50 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 335
-- high: 347.5
-- low: 332.5
-- close: 333
-- volume: 2621000
-- ma5: 323.7
-- ema23_primary: 317.79
-- distance_to_ema23_pct: 4.79
-- ma20: 319.68
-- ma60: 301.29
-- ma120: 263.35
-- return_5d: 4.23
-- return_20d: 6.39
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 4.17
-- distance_to_high_60_pct: -5.8
+- date: 20260702
+- open: 333
+- high: 339
+- low: 327
+- close: 330
+- volume: 2749000
+- ma5: 324.6
+- ema23_primary: 318.81
+- distance_to_ema23_pct: 3.51
+- ma20: 320.27
+- ma60: 302.35
+- ma120: 264.48
+- return_5d: 1.38
+- return_20d: 3.77
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 3.04
+- distance_to_high_60_pct: -6.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,319,321,310.5,318,2455356,303.92,4.63,306.57,278.93,1.14
 20260604,318.5,318.5,310.5,312.5,661862,304.64,2.58,306.7,280.48,0.33
 20260605,312,332,309,329,4294930,306.67,7.28,308.02,282.19,2.03
 20260608,316,340,312,322.5,5000971,307.99,4.71,309.05,283.71,2.18
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,313.5,337,308.5,325,4209089,315.31,3.07,318.15,298.94,2.05
 20260630,329.5,353.5,327,328.5,4096000,316.4,3.82,318.68,300.09,1.89
 20260701,335,347.5,332.5,333,2621000,317.79,4.79,319.68,301.29,1.18
+20260702,333,339,327,330,2749000,318.81,3.51,320.27,302.35,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3023 | 信邦 | 3 | 1 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3023 | 信邦 | 4 | 2 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3023 | 信邦 | 16 | 0 | 2074430.0 | 0.0 |  | no_signal |
+| 20260702 | 3023 | 信邦 | 16 | 0 | 2371940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

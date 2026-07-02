@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00910 第一金太空衛星
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:42 Asia/Taipei
+- generated_at: 2026-07-02 22:26:03 Asia/Taipei
 - stock_id: 00910
 - stock_name: 第一金太空衛星
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 28
+- latest_price_date: 20260702
+- price_rows: 29
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 65.7
-- high: 66.05
-- low: 65.05
-- close: 65.35
-- volume: 2182000
-- ma5: 61.21
-- ema23_primary: 68.14
-- distance_to_ema23_pct: -4.09
-- ma20: 67.62
-- ma60: 72.34
-- ma120: 72.34
-- return_5d: 4.23
-- return_20d: -18.16
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -3.36
-- distance_to_high_60_pct: -25.78
+- date: 20260702
+- open: 64.35
+- high: 64.7
+- low: 64.3
+- close: 64.6
+- volume: 1453000
+- ma5: 62.14
+- ema23_primary: 67.84
+- distance_to_ema23_pct: -4.78
+- ma20: 66.86
+- ma60: 72.07
+- ma120: 72.07
+- return_5d: 7.76
+- return_20d: -19.25
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -3.37
+- distance_to_high_60_pct: -26.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,80.65,80.65,79.75,80,3459861,81.06,-1.31,83.67,83.67,0.56
 20260604,75.85,75.85,74.7,75.2,8795027,80.57,-6.67,82.82,82.82,1.38
 20260605,75.6,76.8,75.15,76.55,4097132,80.24,-4.6,82.25,82.25,0.66
 20260608,70.35,71.5,70,70.6,7501897,79.43,-11.12,81.28,81.28,1.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,59,59.35,59,59.25,2563970,68.77,-13.85,69.39,72.92,0.41
 20260630,62.8,64.15,62.8,64.15,2631000,68.39,-6.2,68.35,72.6,0.43
 20260701,65.7,66.05,65.05,65.35,2182000,68.14,-4.09,67.62,72.34,0.39
+20260702,64.35,64.7,64.3,64.6,1453000,67.84,-4.78,66.86,72.07,0.26
 ```
 
 ## Latest TDCC Snapshot

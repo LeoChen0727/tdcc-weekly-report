@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:48 Asia/Taipei
+- generated_at: 2026-07-02 22:27:09 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 155
-- high: 158.5
-- low: 145
-- close: 146
-- volume: 2281000
-- ma5: 150.6
-- ema23_primary: 153.45
-- distance_to_ema23_pct: -4.85
-- ma20: 157.38
-- ma60: 140.9
-- ma120: 125.06
-- return_5d: -5.19
-- return_20d: -8.18
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -7.23
-- distance_to_high_60_pct: -17.98
+- date: 20260702
+- open: 144
+- high: 156
+- low: 144
+- close: 154
+- volume: 1994000
+- ma5: 150.7
+- ema23_primary: 153.5
+- distance_to_ema23_pct: 0.33
+- ma20: 156.9
+- ma60: 141.71
+- ma120: 125.64
+- return_5d: 0.33
+- return_20d: -5.81
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -1.85
+- distance_to_high_60_pct: -13.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,159,166,156.5,163.5,162000,147.27,11.02,149.8,126.99,0.08
 20260604,163.5,175.5,162.5,164.5,168000,148.7,10.62,151.45,127.85,0.09
 20260605,162.5,165,154,160,159000,149.64,6.92,152.7,128.65,0.09
 20260608,145,155,145,154.5,1976000,150.05,2.97,153.38,129.26,1.11
@@ -160,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,153.5,160,149,149,2404000,154.32,-3.45,158.9,139.39,0.96
 20260630,151.5,154.5,151.5,152,973000,154.13,-1.38,158.03,140.17,0.38
 20260701,155,158.5,145,146,2281000,153.45,-4.85,157.38,140.9,0.86
+20260702,144,156,144,154,1994000,153.5,0.33,156.9,141.71,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3691 | 碩禾 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3691 | 碩禾 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3691 | 碩禾 | 1 | 1 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3691 | 碩禾 | 2 | 2 | 4 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

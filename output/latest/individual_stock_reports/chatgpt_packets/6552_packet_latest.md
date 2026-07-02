@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6552 易華電
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:30 Asia/Taipei
+- generated_at: 2026-07-02 22:27:52 Asia/Taipei
 - stock_id: 6552
 - stock_name: 易華電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 30.5
-- high: 31.45
-- low: 29.6
-- close: 29.6
-- volume: 124000
-- ma5: 29.68
-- ema23_primary: 30.69
-- distance_to_ema23_pct: -3.54
-- ma20: 30.75
-- ma60: 30.39
-- ma120: 29.06
-- return_5d: -6.18
-- return_20d: -14.33
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -3.75
-- distance_to_high_60_pct: -22.11
+- date: 20260702
+- open: 29.9
+- high: 31.4
+- low: 29.45
+- close: 30.8
+- volume: 211000
+- ma5: 29.76
+- ema23_primary: 30.7
+- distance_to_ema23_pct: 0.34
+- ma20: 30.48
+- ma60: 30.48
+- ma120: 29.11
+- return_5d: 1.32
+- return_20d: -15.03
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 1.05
+- distance_to_high_60_pct: -18.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,35.5,36.55,34.2,36.25,708731,32.29,12.26,31.69,29.21,1.03
 20260604,34.95,36.15,33.8,33.85,578082,32.42,4.41,31.83,29.36,0.82
 20260605,34.05,34.05,32.55,32.9,296042,32.46,1.35,32,29.48,0.42
 20260608,29.65,30.65,29.65,29.65,514331,32.23,-8,31.95,29.52,0.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,28.4,29.7,28.4,29,143163,30.86,-6.02,31.18,30.25,0.37
 20260630,29.55,30.45,29.5,30,135000,30.79,-2.55,31,30.32,0.37
 20260701,30.5,31.45,29.6,29.6,124000,30.69,-3.54,30.75,30.39,0.36
+20260702,29.9,31.4,29.45,30.8,211000,30.7,0.34,30.48,30.48,0.66
 ```
 
 ## Latest TDCC Snapshot

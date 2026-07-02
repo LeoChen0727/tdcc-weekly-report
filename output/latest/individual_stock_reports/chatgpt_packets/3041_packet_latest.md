@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3041 揚智
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:30 Asia/Taipei
+- generated_at: 2026-07-02 22:26:51 Asia/Taipei
 - stock_id: 3041
 - stock_name: 揚智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 29.05
-- high: 29.5
-- low: 27.65
-- close: 28
-- volume: 1970000
-- ma5: 27.99
-- ema23_primary: 27.21
-- distance_to_ema23_pct: 2.9
-- ma20: 26.97
-- ma60: 24.97
-- ma120: 24.86
-- return_5d: -9.24
-- return_20d: 9.16
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 3.81
-- distance_to_high_60_pct: -13.85
+- date: 20260702
+- open: 27.9
+- high: 28.7
+- low: 27.5
+- close: 28.3
+- volume: 1249000
+- ma5: 27.8
+- ema23_primary: 27.3
+- distance_to_ema23_pct: 3.66
+- ma20: 27.06
+- ma60: 25.08
+- ma120: 24.9
+- return_5d: -3.25
+- return_20d: 6.79
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 4.57
+- distance_to_high_60_pct: -12.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,25.65,26.65,25.65,26.5,2739875,25.02,5.89,24.98,23.72,1.37
 20260604,26.35,26.35,25.2,25.3,1590080,25.05,1.01,25.01,23.78,0.83
 20260605,25.25,25.35,24.15,24.65,1305031,25.01,-1.46,25.02,23.81,0.69
 20260608,22.25,23.4,22.25,23.3,1572029,24.87,-6.32,24.95,23.81,0.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,27.4,27.75,26.7,26.8,1985892,27.01,-0.76,26.71,24.76,0.5
 20260630,27.25,29.4,27.1,28.6,2667000,27.14,5.39,26.86,24.87,0.65
 20260701,29.05,29.5,27.65,28,1970000,27.21,2.9,26.97,24.97,0.48
+20260702,27.9,28.7,27.5,28.3,1249000,27.3,3.66,27.06,25.08,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -188,14 +188,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3041 | 揚智 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一百一十四年度虧損撥補案， 決議不分派股東股息紅利。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認民國一百一十四年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)本公司辦理私募有價證券案:通過。 (2)本公司發行限制員工權利新股案:通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 3041 | 揚智 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一百一十四年度虧損撥補案， 決議不分派股東股息紅利。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認民國一百一十四年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)本公司辦理私募有價證券案:通過。 (2)本公司發行限制員工權利新股案:通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260701 | 3041 | 揚智 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 9.0 | A_優先追蹤 |  |  |  | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一百一十四年度虧損撥補案， 決議不分派股東股息紅利。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認民國一百一十四年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)本公司辦理私募有價證券案:通過。 (2)本公司發行限制員工權利新股案:通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3041 | 揚智 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一百一十四年度虧損撥補案， 決議不分派股東股息紅利。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認民國一百一十四年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)本公司辦理私募有價證券案:通過。 (2)本公司發行限制員工權利新股案:通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 3041 | 揚智 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一百一十四年度虧損撥補案， 決議不分派股東股息紅利。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認民國一百一十四年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)本公司辦理私募有價證券案:通過。 (2)本公司發行限制員工權利新股案:通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3041 | 揚智 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 9.0 | A_優先追蹤 |  |  |  | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一百一十四年度虧損撥補案， 決議不分派股東股息紅利。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 承認民國一百一十四年度營業報告書及財務報告案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)本公司辦理私募有價證券案:通過。 (2)本公司發行限制員工權利新股案:通過。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3041 | 揚智 | 4 | 4 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3041 | 揚智 | 5 | 5 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

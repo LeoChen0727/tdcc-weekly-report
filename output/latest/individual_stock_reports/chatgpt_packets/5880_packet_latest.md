@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:13 Asia/Taipei
+- generated_at: 2026-07-02 22:27:35 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 24.85
-- high: 25
-- low: 24.65
-- close: 24.85
-- volume: 12495000
-- ma5: 24.87
-- ema23_primary: 24.21
-- distance_to_ema23_pct: 2.64
-- ma20: 24.26
-- ma60: 23.52
+- date: 20260702
+- open: 24.8
+- high: 24.85
+- low: 24.55
+- close: 24.55
+- volume: 12814000
+- ma5: 24.76
+- ema23_primary: 24.24
+- distance_to_ema23_pct: 1.29
+- ma20: 24.32
+- ma60: 23.53
 - ma120: 23.59
-- return_5d: 1.84
-- return_20d: 7.81
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 2.44
-- distance_to_high_60_pct: -1
+- return_5d: -2.19
+- return_20d: 4.91
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 0.97
+- distance_to_high_60_pct: -2.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,23.1,23.5,22.95,23.4,31552327,22.94,2.02,22.84,23.16,1.43
 20260604,23.4,24,23.35,23.7,44263958,23,3.04,22.88,23.18,1.91
 20260605,23.7,23.7,23.3,23.45,28747769,23.04,1.79,22.9,23.18,1.21
 20260608,23,23.35,22.9,23.05,28384272,23.04,0.05,22.9,23.18,1.16
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,24.9,25.05,24.7,24.85,17812295,24.09,3.16,24.07,23.48,0.6
 20260630,24.85,25,24.75,24.85,17074000,24.15,2.89,24.17,23.5,0.59
 20260701,24.85,25,24.65,24.85,12495000,24.21,2.64,24.26,23.52,0.45
+20260702,24.8,24.85,24.55,24.55,12814000,24.24,1.29,24.32,23.53,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/29 2.公司名稱:合作金庫商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:合作金庫商業銀行董事會通過參與國家發展委員會「企業投資美國融資保證 機制」，首期配合出資5,000萬美元。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合作金庫銀行響應政府政策，支持企業赴美投資，帶動業務量能擴張。 (2)藉由參與「企業投資美國融資保證機制」取得融資保證，降低授信風險。 (3)實際內容依正式簽訂之契約為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/29 2.公司名稱:合作金庫商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:合作金庫商業銀行董事會通過參與國家發展委員會「企業投資美國融資保證 機制」，首期配合出資5,000萬美元。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合作金庫銀行響應政府政策，支持企業赴美投資，帶動業務量能擴張。 (2)藉由參與「企業投資美國融資保證機制」取得融資保證，降低授信風險。 (3)實際內容依正式簽訂之契約為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/29 2.公司名稱:合作金庫商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:合作金庫商業銀行董事會通過參與國家發展委員會「企業投資美國融資保證 機制」，首期配合出資5,000萬美元。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合作金庫銀行響應政府政策，支持企業赴美投資，帶動業務量能擴張。 (2)藉由參與「企業投資美國融資保證機制」取得融資保證，降低授信風險。 (3)實際內容依正式簽訂之契約為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/29 2.公司名稱:合作金庫商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:合作金庫商業銀行董事會通過參與國家發展委員會「企業投資美國融資保證 機制」，首期配合出資5,000萬美元。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合作金庫銀行響應政府政策，支持企業赴美投資，帶動業務量能擴張。 (2)藉由參與「企業投資美國融資保證機制」取得融資保證，降低授信風險。 (3)實際內容依正式簽訂之契約為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 5880 | 合庫金 | 24 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 5880 | 合庫金 | 25 | 15 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

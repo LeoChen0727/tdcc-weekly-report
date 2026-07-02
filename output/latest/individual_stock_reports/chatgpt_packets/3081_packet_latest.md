@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:32 Asia/Taipei
+- generated_at: 2026-07-02 22:26:53 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 2035
-- high: 2080
-- low: 1970
-- close: 1980
-- volume: 1364000
-- ma5: 2038
-- ema23_primary: 2291.09
-- distance_to_ema23_pct: -13.58
-- ma20: 2298
-- ma60: 2521.25
-- ma120: 1820.42
-- return_5d: -8.12
-- return_20d: -23.11
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -13.84
-- distance_to_high_60_pct: -40.09
+- date: 20260702
+- open: 1880
+- high: 1940
+- low: 1835
+- close: 1940
+- volume: 2205000
+- ma5: 2002
+- ema23_primary: 2261.84
+- distance_to_ema23_pct: -14.23
+- ma20: 2253.5
+- ma60: 2520.17
+- ma120: 1831.59
+- return_5d: -8.49
+- return_20d: -31.45
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -13.91
+- distance_to_high_60_pct: -41.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,2790,2830,2785,2830,2820000,2688.9,5.25,2746,2293.33,1.1
 20260604,2700,2755,2560,2580,2651000,2679.82,-3.72,2742,2313.83,1.06
 20260605,2580,2750,2445,2655,2618000,2677.75,-0.85,2743.75,2333.33,1.04
 20260608,2390,2530,2390,2495,2204000,2662.52,-6.29,2729.5,2349,0.87
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,2020,2040,1950,2035,2148000,2346.59,-13.28,2361,2513.83,0.93
 20260630,2090,2120,2020,2020,1582000,2319.38,-12.91,2327.75,2518.67,0.7
 20260701,2035,2080,1970,1980,1364000,2291.09,-13.58,2298,2521.25,0.59
+20260702,1880,1940,1835,1940,2205000,2261.84,-14.23,2253.5,2520.17,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/17 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣30.09億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及發行可轉換公司債等 6.具體目的:因應未來營運發展及產能擴充需求 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/17 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣30.09億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及發行可轉換公司債等 6.具體目的:因應未來營運發展及產能擴充需求 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3081 | 聯亞 | 2 | 2 | 3 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3081 | 聯亞 | 3 | 3 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

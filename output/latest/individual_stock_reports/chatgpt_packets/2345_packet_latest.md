@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:08 Asia/Taipei
+- generated_at: 2026-07-02 22:26:29 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 2600
-- high: 2695
-- low: 2540
-- close: 2660
-- volume: 4245000
-- ma5: 2451
-- ema23_primary: 2447.03
-- distance_to_ema23_pct: 8.7
-- ma20: 2449.75
-- ma60: 2335.42
-- ma120: 1838.79
-- return_5d: 12
-- return_20d: 9.69
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 8.58
-- distance_to_high_60_pct: -2.21
+- date: 20260702
+- open: 2660
+- high: 2780
+- low: 2610
+- close: 2750
+- volume: 4000000
+- ma5: 2525
+- ema23_primary: 2472.28
+- distance_to_ema23_pct: 11.23
+- ma20: 2458
+- ma60: 2354.33
+- ma120: 1851.58
+- return_5d: 15.55
+- return_20d: 6.38
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 11.88
+- distance_to_high_60_pct: -1.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,2470,2645,2470,2585,4091539,2429.93,6.38,2501,2051.58,0.81
 20260604,2525,2550,2460,2510,2462108,2436.61,3.01,2498.5,2070.42,0.49
 20260605,2460,2545,2430,2490,2517690,2441.05,2.01,2504.25,2088,0.55
 20260608,2265,2435,2260,2420,3205900,2439.3,-0.79,2495.75,2103.58,0.75
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,2395,2430,2290,2340,3066800,2421.55,-3.37,2438.75,2303.67,0.89
 20260630,2445,2525,2420,2495,3274000,2427.67,2.77,2438,2317.58,0.95
 20260701,2600,2695,2540,2660,4245000,2447.03,8.7,2449.75,2335.42,1.22
+20260702,2660,2780,2610,2750,4000000,2472.28,11.23,2458,2354.33,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2345 | 智邦 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | mixed_flow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260701 | 2345 | 智邦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | mixed_flow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2345 | 智邦 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 2345 | 智邦 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2345 | 智邦 | 7 | 7 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 2345 | 智邦 | 8 | 1 | 5 | 9 | 19 | continued_many_days | 連續 8 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2345 | 智邦 | 267 | 29 | 63581320.0 | 1485530.0 | 42.8 | mixed_flow |
+| 20260702 | 2345 | 智邦 | 267 | 29 | 84247960.0 | 888450.0 | 94.83 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

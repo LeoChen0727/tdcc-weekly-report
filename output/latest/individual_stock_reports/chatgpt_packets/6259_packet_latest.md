@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6259 百徽
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:23 Asia/Taipei
+- generated_at: 2026-07-02 22:27:45 Asia/Taipei
 - stock_id: 6259
 - stock_name: 百徽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 159
+- latest_price_date: 20260702
+- price_rows: 160
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 36.25
-- high: 39.35
-- low: 36.2
-- close: 39.35
-- volume: 3841000
-- ma5: 38.61
-- ema23_primary: 32.98
-- distance_to_ema23_pct: 19.31
-- ma20: 32.58
-- ma60: 26
-- ma120: 21.8
-- return_5d: 13.4
-- return_20d: 47.93
-- volume_ratio: 1.63
-- distance_to_ma20_pct_auxiliary: 20.78
-- distance_to_high_60_pct: -6.2
+- date: 20260702
+- open: 38.35
+- high: 41.5
+- low: 38
+- close: 38.75
+- volume: 6214000
+- ma5: 38.73
+- ema23_primary: 33.46
+- distance_to_ema23_pct: 15.81
+- ma20: 33.16
+- ma60: 26.37
+- ma120: 21.97
+- return_5d: 1.57
+- return_20d: 42.46
+- volume_ratio: 2.32
+- distance_to_ma20_pct_auxiliary: 16.87
+- distance_to_high_60_pct: -7.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,26.9,27.8,26.65,27.2,27000,24.74,9.93,24.95,21.12,0.04
 20260604,27.25,27.45,26.45,26.45,27000,24.89,6.29,25.25,21.28,0.05
 20260605,26.8,28.5,25.8,27.3,28000,25.09,8.82,25.48,21.45,0.05
 20260608,25.4,25.65,24.65,25.3,397000,25.1,0.78,25.51,21.59,0.8
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,40.8,40.8,37.8,37.8,2843000,32.09,17.79,31.48,25.32,1.41
 20260630,37.4,37.45,34.85,35.8,3121000,32.4,10.49,31.94,25.63,1.44
 20260701,36.25,39.35,36.2,39.35,3841000,32.98,19.31,32.58,26,1.63
+20260702,38.35,41.5,38,38.75,6214000,33.46,15.81,33.16,26.37,2.32
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6259 | 百徽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 6259 | 百徽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6259 | 百徽 | 1 | 1 | 2 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 6259 | 百徽 | 2 | 2 | 3 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

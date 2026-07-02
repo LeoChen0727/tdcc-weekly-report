@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6671 三能-KY
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:34 Asia/Taipei
+- generated_at: 2026-07-02 22:27:56 Asia/Taipei
 - stock_id: 6671
 - stock_name: 三能-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 287
+- latest_price_date: 20260702
+- price_rows: 288
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
+- date: 20260702
 - open: 24.5
 - high: 24.8
 - low: 24.45
 - close: 24.8
-- volume: 13000
+- volume: 4000
 - ma5: 24.56
-- ema23_primary: 25.83
-- distance_to_ema23_pct: -4.01
-- ma20: 25.67
-- ma60: 28.33
-- ma120: 31.73
-- return_5d: -0.8
-- return_20d: -7.46
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -3.4
+- ema23_primary: 25.75
+- distance_to_ema23_pct: -3.68
+- ma20: 25.57
+- ma60: 28.25
+- ma120: 31.63
+- return_5d: 0
+- return_20d: -7.63
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: -3.01
 - distance_to_high_60_pct: -26.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,26.8,26.95,26.75,26.85,26000,28.29,-5.09,28.27,30.12,0.27
 20260604,27,27.4,26.9,26.9,60272,28.17,-4.52,28.11,29.96,0.62
 20260605,27.2,27.5,26.8,26.9,36010,28.07,-4.16,27.95,29.8,0.38
 20260608,27.2,27.25,26.1,26.6,64782,27.95,-4.82,27.8,29.68,0.66
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,24.55,24.55,24.35,24.4,27096,26.07,-6.41,25.91,28.53,0.28
 20260630,24.95,24.95,24.35,24.35,49000,25.93,-6.09,25.77,28.43,0.66
 20260701,24.5,24.8,24.45,24.8,13000,25.83,-4.01,25.67,28.33,0.18
+20260702,24.5,24.8,24.45,24.8,4000,25.75,-3.68,25.57,28.25,0.06
 ```
 
 ## Latest TDCC Snapshot

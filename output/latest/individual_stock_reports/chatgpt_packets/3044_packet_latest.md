@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:30 Asia/Taipei
+- generated_at: 2026-07-02 22:26:51 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 534
-- high: 535
-- low: 506
+- date: 20260702
+- open: 501
+- high: 518
+- low: 498.5
 - close: 506
-- volume: 5067000
-- ma5: 512.7
-- ema23_primary: 514.65
-- distance_to_ema23_pct: -1.68
-- ma20: 517.73
-- ma60: 479.38
-- ma120: 417.62
-- return_5d: -3.8
-- return_20d: -0.39
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -2.26
+- volume: 5918000
+- ma5: 507.5
+- ema23_primary: 513.93
+- distance_to_ema23_pct: -1.54
+- ma20: 517.52
+- ma60: 481.87
+- ma120: 419.17
+- return_5d: -4.89
+- return_20d: -0.78
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: -2.23
 - distance_to_high_60_pct: -15.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,509,516,501,510,4155121,488.63,4.37,496.05,428.67,0.77
 20260604,507,514,501,512,2666573,490.58,4.37,496.65,431.24,0.51
 20260605,509,511,485.5,498,3630294,491.2,1.38,497.5,433.52,0.7
 20260608,464,481,454,478,4506697,490.1,-2.47,496.93,435.52,0.87
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,509,516,498,499.5,4423932,515.2,-3.05,517.83,474.01,1.02
 20260630,512,526,505,518,3899000,515.43,0.5,517.83,476.73,0.91
 20260701,534,535,506,506,5067000,514.65,-1.68,517.73,479.38,1.18
+20260702,501,518,498.5,506,5918000,513.93,-1.54,517.52,481.87,1.35
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3044 | 健鼎 | 6 | 6 | 5 | 8 | 18 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 3044 | 健鼎 | 1 | 1 | 4 | 7 | 17 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3044 | 健鼎 | 71 | 3 | 10613450.0 | 14190.0 | 747.95 | call_put_bullish |
+| 20260702 | 3044 | 健鼎 | 72 | 3 | 2791560.0 | 10300.0 | 271.03 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

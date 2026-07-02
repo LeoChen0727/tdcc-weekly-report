@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4561 健椿
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:56 Asia/Taipei
+- generated_at: 2026-07-02 22:27:18 Asia/Taipei
 - stock_id: 4561
 - stock_name: 健椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 39.3
-- high: 39.95
+- date: 20260702
+- open: 39
+- high: 43
 - low: 39
-- close: 39.1
-- volume: 208000
-- ma5: 39.14
-- ema23_primary: 42.49
-- distance_to_ema23_pct: -7.98
-- ma20: 42.59
-- ma60: 42.55
-- ma120: 39.9
-- return_5d: -4.28
-- return_20d: -27.86
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -8.2
-- distance_to_high_60_pct: -34.62
+- close: 43
+- volume: 412000
+- ma5: 39.66
+- ema23_primary: 42.53
+- distance_to_ema23_pct: 1.1
+- ma20: 42.19
+- ma60: 42.74
+- ma120: 39.98
+- return_5d: 6.44
+- return_20d: -15.69
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 1.91
+- distance_to_high_60_pct: -28.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,55.1,55.1,51,51,52000,48.23,5.74,50.07,39.75,0.08
 20260604,49.35,51,47.6,48.6,49000,48.26,0.7,50.14,40.01,0.09
 20260605,46.8,49.5,46.8,47.7,48000,48.22,-1.07,49.95,40.23,0.16
 20260608,42.95,44.6,42.95,44.1,564000,47.87,-7.88,49.58,40.38,2.69
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,38.7,39.15,38.1,38.4,152000,43.13,-10.97,44.23,42.34,0.62
 20260630,38.8,39.25,38.55,39.15,147000,42.8,-8.53,43.35,42.44,0.59
 20260701,39.3,39.95,39,39.1,208000,42.49,-7.98,42.59,42.55,0.8
+20260702,39,43,39,43,412000,42.53,1.1,42.19,42.74,1.49
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:08 Asia/Taipei
+- generated_at: 2026-07-02 22:26:29 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 18.5
-- high: 18.6
-- low: 17.5
-- close: 17.5
-- volume: 7154000
-- ma5: 17.67
-- ema23_primary: 17.08
-- distance_to_ema23_pct: 2.45
-- ma20: 17.11
-- ma60: 15.57
-- ma120: 15.57
-- return_5d: -5.15
-- return_20d: 1.16
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 2.28
-- distance_to_high_60_pct: -15.87
+- date: 20260702
+- open: 17.45
+- high: 18.55
+- low: 17.35
+- close: 18.2
+- volume: 8582000
+- ma5: 17.69
+- ema23_primary: 17.18
+- distance_to_ema23_pct: 5.97
+- ma20: 17.18
+- ma60: 15.62
+- ma120: 15.6
+- return_5d: 0.55
+- return_20d: 8.01
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 5.95
+- distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,17.6,17.6,16.75,16.85,13710836,15.38,9.53,14.98,14.98,2.03
 20260604,16.7,16.8,16.45,16.55,6642174,15.48,6.9,15.1,15,0.96
 20260605,16.5,16.65,16.05,16.3,4136724,15.55,4.83,15.22,15.01,0.6
 20260608,15,15.45,14.9,15.4,5764822,15.54,-0.88,15.3,15.01,0.82
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,17.35,17.95,17.1,17.3,5898977,16.93,2.19,17.02,15.48,0.47
 20260630,17.45,18.4,17.2,18.3,8407000,17.04,7.37,17.1,15.53,0.66
 20260701,18.5,18.6,17.5,17.5,7154000,17.08,2.45,17.11,15.57,0.57
+20260702,17.45,18.55,17.35,18.2,8582000,17.18,5.97,17.18,15.62,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2332 | 友訊 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2樓（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之第二季投資論壇，說明本公司營運展望與經營績效。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2332 | 友訊 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2樓（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之第二季投資論壇，說明本公司營運展望與經營績效。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2332 | 友訊 | 1 | 1 | 3 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2332 | 友訊 | 2 | 2 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2332 | 友訊 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260702 | 2332 | 友訊 | 2 | 0 | 20.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

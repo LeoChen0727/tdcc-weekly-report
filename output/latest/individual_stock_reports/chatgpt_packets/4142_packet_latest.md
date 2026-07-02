@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4142 國光生
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:51 Asia/Taipei
+- generated_at: 2026-07-02 22:27:12 Asia/Taipei
 - stock_id: 4142
 - stock_name: 國光生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 17.7
+- date: 20260702
+- open: 17.6
 - high: 17.7
-- low: 17.35
-- close: 17.5
-- volume: 894000
-- ma5: 17.3
+- low: 17.25
+- close: 17.4
+- volume: 795000
+- ma5: 17.36
 - ema23_primary: 17.42
-- distance_to_ema23_pct: 0.47
-- ma20: 17.47
-- ma60: 17.69
-- ma120: 18.22
-- return_5d: 1.45
-- return_20d: 1.74
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 0.17
-- distance_to_high_60_pct: -8.85
+- distance_to_ema23_pct: -0.1
+- ma20: 17.48
+- ma60: 17.67
+- ma120: 18.21
+- return_5d: 1.75
+- return_20d: 0.58
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -0.43
+- distance_to_high_60_pct: -9.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,17.2,17.3,17.05,17.3,1278502,17.46,-0.9,17.42,17.89,1.05
 20260604,17.35,18,17.35,17.8,2695260,17.49,1.8,17.41,17.9,2.07
 20260605,17.8,17.95,17.55,17.85,1154206,17.52,1.91,17.42,17.89,0.89
 20260608,17.25,17.7,17.1,17.65,1677394,17.53,0.7,17.42,17.89,1.26
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,16.95,17.55,16.9,17.5,1713947,17.39,0.61,17.43,17.73,1.29
 20260630,17.5,17.8,17.4,17.6,959000,17.41,1.08,17.45,17.71,0.72
 20260701,17.7,17.7,17.35,17.5,894000,17.42,0.47,17.47,17.69,0.68
+20260702,17.6,17.7,17.25,17.4,795000,17.42,-0.1,17.48,17.67,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 4142 | 國光生 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260702 | 4142 | 國光生 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

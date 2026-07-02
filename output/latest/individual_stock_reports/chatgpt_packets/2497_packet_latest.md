@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:17 Asia/Taipei
+- generated_at: 2026-07-02 22:26:38 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 294
+- latest_price_date: 20260702
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 57.6
-- high: 57.7
-- low: 56.5
-- close: 56.5
-- volume: 308000
-- ma5: 56.54
-- ema23_primary: 59.04
-- distance_to_ema23_pct: -4.3
-- ma20: 60.38
-- ma60: 58.1
-- ma120: 53.1
-- return_5d: -3.42
-- return_20d: -8.58
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -6.43
-- distance_to_high_60_pct: -18.12
+- date: 20260702
+- open: 55.9
+- high: 57.4
+- low: 55.9
+- close: 57
+- volume: 215000
+- ma5: 56.34
+- ema23_primary: 58.87
+- distance_to_ema23_pct: -3.17
+- ma20: 60.18
+- ma60: 58.19
+- ma120: 53.16
+- return_5d: -1.72
+- return_20d: -6.56
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -5.28
+- distance_to_high_60_pct: -17.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,62.6,63.7,60.6,61,1386779,58.56,4.16,58.9,53.02,1.04
 20260604,61,63,60.6,61.7,723310,58.83,4.89,58.96,53.35,0.56
 20260605,61.1,62.8,61.1,62.6,643919,59.14,5.85,59.05,53.7,0.55
 20260608,56.4,61.3,56.4,60.8,830112,59.28,2.57,59.16,53.99,0.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,56.2,57.2,55.5,55.8,346947,59.44,-6.12,61.05,57.9,0.29
 20260630,56,57.8,55.5,57.4,379000,59.27,-3.15,60.65,58.02,0.39
 20260701,57.6,57.7,56.5,56.5,308000,59.04,-4.3,60.38,58.1,0.38
+20260702,55.9,57.4,55.9,57,215000,58.87,-3.17,60.18,58.19,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2497 | 怡利電 | 2 | 0 | 2100.0 | 0.0 |  | no_signal |
+| 20260702 | 2497 | 怡利電 | 2 | 0 | 500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

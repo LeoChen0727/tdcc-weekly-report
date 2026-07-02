@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:05 Asia/Taipei
+- generated_at: 2026-07-02 22:26:26 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 94.8
-- high: 94.8
-- low: 93.9
-- close: 94.3
-- volume: 407000
-- ma5: 94.02
-- ema23_primary: 94.31
-- distance_to_ema23_pct: -0.01
-- ma20: 94.19
-- ma60: 96.04
-- ma120: 98.61
-- return_5d: -0.63
+- date: 20260702
+- open: 94.7
+- high: 95.6
+- low: 94.4
+- close: 95.5
+- volume: 468000
+- ma5: 94.22
+- ema23_primary: 94.41
+- distance_to_ema23_pct: 1.16
+- ma20: 94.21
+- ma60: 95.97
+- ma120: 98.58
+- return_5d: 1.06
 - return_20d: 0.53
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 0.12
-- distance_to_high_60_pct: -7.55
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 1.37
+- distance_to_high_60_pct: -6.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,93.7,95,92.7,95,1616948,94.63,0.39,94.22,98.11,1.75
 20260604,94.7,95.5,94.1,94.6,807713,94.63,-0.03,94,98.06,0.86
 20260605,94.6,94.9,93.8,93.8,622644,94.56,-0.8,93.77,97.94,0.66
 20260608,92,93.8,92,92.5,975358,94.39,-2,93.5,97.82,1.03
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,94.7,94.9,93.6,93.8,211087,94.34,-0.58,94.16,96.22,0.28
 20260630,93.8,94.3,93.6,93.9,443000,94.31,-0.43,94.16,96.12,0.61
 20260701,94.8,94.8,93.9,94.3,407000,94.31,-0.01,94.19,96.04,0.63
+20260702,94.7,95.6,94.4,95.5,468000,94.41,1.16,94.21,95.97,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2211 | 長榮鋼 | 5 | 0 | 4600.0 | 0.0 |  | no_signal |
+| 20260702 | 2211 | 長榮鋼 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

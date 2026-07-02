@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00930 永豐ESG低碳高息
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:43 Asia/Taipei
+- generated_at: 2026-07-02 22:26:03 Asia/Taipei
 - stock_id: 00930
 - stock_name: 永豐ESG低碳高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 28
+- latest_price_date: 20260702
+- price_rows: 29
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 25.46
-- high: 25.53
-- low: 25.11
-- close: 25.24
-- volume: 829000
-- ma5: 25.01
+- date: 20260702
+- open: 24.74
+- high: 24.9
+- low: 24.6
+- close: 24.73
+- volume: 1405000
+- ma5: 24.8
 - ema23_primary: 24.75
-- distance_to_ema23_pct: 1.98
-- ma20: 24.95
+- distance_to_ema23_pct: -0.07
+- ma20: 24.9
 - ma60: 24.68
 - ma120: 24.68
-- return_5d: -2.02
-- return_20d: -1.25
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.15
-- distance_to_high_60_pct: -5.64
+- return_5d: -4.04
+- return_20d: -4.15
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -0.68
+- distance_to_high_60_pct: -7.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,25.57,25.87,25.57,25.8,1317376,23.52,9.71,24.21,24.21,0.36
 20260604,25.57,25.57,25.04,25.17,1659490,23.65,6.41,24.3,24.3,0.47
 20260605,25.14,25.14,24.39,25.01,2366182,23.77,5.23,24.37,24.37,0.7
 20260608,23.48,23.77,22.66,23.65,2352588,23.76,-0.45,24.31,24.31,0.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,24.52,24.78,24.35,24.55,1429478,24.68,-0.53,24.98,24.65,0.95
 20260630,24.78,25.12,24.71,24.95,714000,24.7,0.99,24.97,24.66,0.49
 20260701,25.46,25.53,25.11,25.24,829000,24.75,1.98,24.95,24.68,0.62
+20260702,24.74,24.9,24.6,24.73,1405000,24.75,-0.07,24.9,24.68,1.05
 ```
 
 ## Latest TDCC Snapshot

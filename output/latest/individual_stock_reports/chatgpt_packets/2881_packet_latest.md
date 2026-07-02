@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:25 Asia/Taipei
+- generated_at: 2026-07-02 22:26:46 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 128
-- high: 131
-- low: 121.5
-- close: 122.5
-- volume: 66838000
-- ma5: 130.1
-- ema23_primary: 124.44
-- distance_to_ema23_pct: -1.56
-- ma20: 127.5
-- ma60: 105.24
-- ma120: 98.63
-- return_5d: -8.92
-- return_20d: 7.93
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: -3.92
-- distance_to_high_60_pct: -13.12
+- date: 20260702
+- open: 122
+- high: 123.5
+- low: 118
+- close: 119.5
+- volume: 72514000
+- ma5: 126.8
+- ema23_primary: 124.03
+- distance_to_ema23_pct: -3.65
+- ma20: 127.83
+- ma60: 105.77
+- ma120: 98.81
+- return_5d: -12.13
+- return_20d: 5.75
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: -6.51
+- distance_to_high_60_pct: -15.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,115.5,116,111,113,72033008,101.37,11.47,100.67,92.52,1.22
 20260604,113.5,114,112,114,55345124,102.42,11.3,101.64,92.97,0.92
 20260605,114,119,112,118,61781441,103.72,13.77,102.71,93.46,1.02
 20260608,112,117.5,112,116,104685607,104.75,10.74,103.73,93.91,1.63
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,132,134.5,128,128.5,31098290,124.17,3.48,126.1,103.96,0.59
 20260630,130,132,127,129.5,57472000,124.62,3.92,127.05,104.66,1.12
 20260701,128,131,121.5,122.5,66838000,124.44,-1.56,127.5,105.24,1.34
+20260702,122,123.5,118,119.5,72514000,124.03,-3.65,127.83,105.77,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2881 | 富邦金 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/29 3.舊任者姓名、級職及簡歷:林曉民/富邦期貨資深協理 4.新任者姓名、級職及簡歷:黃寬仁/富邦期貨副總經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d |
+| 20260702 | 2881 | 富邦金 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/29 3.舊任者姓名、級職及簡歷:林曉民/富邦期貨資深協理 4.新任者姓名、級職及簡歷:黃寬仁/富邦期貨副總經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2881 | 富邦金 | 5 | 5 | 5 | 6 | 15 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 2881 | 富邦金 | 1 | 1 | 4 | 5 | 14 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2881 | 富邦金 | 33 | 0 | 4046130.0 | 0.0 |  | no_signal |
+| 20260702 | 2881 | 富邦金 | 33 | 0 | 5154090.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

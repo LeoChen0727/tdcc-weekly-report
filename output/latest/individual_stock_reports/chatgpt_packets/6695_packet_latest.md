@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6695 芯鼎
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:35 Asia/Taipei
+- generated_at: 2026-07-02 22:27:57 Asia/Taipei
 - stock_id: 6695
 - stock_name: 芯鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 61
-- high: 61.5
-- low: 55.9
-- close: 59
-- volume: 2889000
-- ma5: 60.5
-- ema23_primary: 57.6
-- distance_to_ema23_pct: 2.43
-- ma20: 56.75
-- ma60: 51.05
-- ma120: 46.66
-- return_5d: -14.37
-- return_20d: 7.27
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 3.97
-- distance_to_high_60_pct: -14.49
+- date: 20260702
+- open: 59.3
+- high: 61.3
+- low: 56.6
+- close: 58.7
+- volume: 2213000
+- ma5: 59.3
+- ema23_primary: 57.69
+- distance_to_ema23_pct: 1.75
+- ma20: 56.82
+- ma60: 51.39
+- ma120: 46.77
+- return_5d: -9.27
+- return_20d: 2.44
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 3.31
+- distance_to_high_60_pct: -14.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,56,57.9,55.6,57.3,2324641,53.79,6.52,54.59,45.78,0.63
 20260604,56.6,56.6,52.8,53.1,2296617,53.73,-1.18,54.84,46.03,0.62
 20260605,53.2,53.2,50.5,52.8,971018,53.66,-1.59,54.83,46.25,0.29
 20260608,47.7,50.3,47.65,49.5,1193591,53.31,-7.15,54.61,46.41,0.39
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,60.7,61.5,58.1,58.9,1592958,57.28,2.83,56.43,50.36,0.58
 20260630,60.2,61,59,59.6,921000,57.47,3.7,56.55,50.7,0.34
 20260701,61,61.5,55.9,59,2889000,57.6,2.43,56.75,51.05,1.05
+20260702,59.3,61.3,56.6,58.7,2213000,57.69,1.75,56.82,51.39,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6695 | 芯鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間       (月)                      (季)                  (最近四季累計)       最近一月  與去年同期   最近一季  與去年同期    114年第2季至115年第1季 科目 (115年05月)     增減%   (115年第1季)  增減%       IFRS合併自結數         IFRS合併核閱數            IFRS合併(查)核閱數 ============================================================================ 營業收入    77       -25%         253         4%             1,136 (百萬) 稅前淨利   -35         8%         -65         4%              -173 (百萬) 歸屬母公司 業主淨利   -35         8%         -65         4%              -173 (百萬) 每股盈餘 -0.33        16%       -0.68         4%             -1.80 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 6695 | 芯鼎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_overheated | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間       (月)                      (季)                  (最近四季累計)       最近一月  與去年同期   最近一季  與去年同期    114年第2季至115年第1季 科目 (115年05月)     增減%   (115年第1季)  增減%       IFRS合併自結數         IFRS合併核閱數            IFRS合併(查)核閱數 ============================================================================ 營業收入    77       -25%         253         4%             1,136 (百萬) 稅前淨利   -35         8%         -65         4%              -173 (百萬) 歸屬母公司 業主淨利   -35         8%         -65         4%              -173 (百萬) 每股盈餘 -0.33        16%       -0.68         4%             -1.80 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6695 | 芯鼎 | 1 | 1 | 4 | 9 | 12 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 6695 | 芯鼎 | 2 | 2 | 4 | 9 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

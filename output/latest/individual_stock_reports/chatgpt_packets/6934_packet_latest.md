@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6934 心誠鎂
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:43 Asia/Taipei
+- generated_at: 2026-07-02 22:28:05 Asia/Taipei
 - stock_id: 6934
 - stock_name: 心誠鎂
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 96
+- latest_price_date: 20260702
+- price_rows: 97
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 65
-- high: 65
-- low: 63.3
-- close: 65
-- volume: 53000
-- ma5: 65.88
-- ema23_primary: 69.37
-- distance_to_ema23_pct: -6.3
-- ma20: 69.03
-- ma60: 76.38
-- ma120: 85.24
-- return_5d: -2.99
-- return_20d: -9.6
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -5.84
-- distance_to_high_60_pct: -35
+- date: 20260702
+- open: 63.6
+- high: 66.8
+- low: 61.6
+- close: 66
+- volume: 97000
+- ma5: 65.7
+- ema23_primary: 69.09
+- distance_to_ema23_pct: -4.47
+- ma20: 68.67
+- ma60: 76.15
+- ma120: 85.04
+- return_5d: -1.35
+- return_20d: -10.08
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: -3.88
+- distance_to_high_60_pct: -34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,72.5,75,72.5,73.4,83350,76.11,-3.56,74.91,79.55,1.15
 20260604,73.5,74.9,72.7,73.4,42339,75.88,-3.27,74.64,79.42,0.6
 20260605,73.9,73.9,71.1,71.6,104924,75.53,-5.2,74.32,79.28,1.46
 20260608,71,73.8,67.2,73.8,135549,75.38,-2.1,74.11,79.14,1.84
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,66.1,67.2,64.5,66.5,55937,70.2,-5.27,69.76,77.02,0.76
 20260630,65,66.7,64.6,65,57000,69.77,-6.83,69.38,76.68,0.79
 20260701,65,65,63.3,65,53000,69.37,-6.3,69.03,76.38,0.77
+20260702,63.6,66.8,61.6,66,97000,69.09,-4.47,68.67,76.15,1.4
 ```
 
 ## Latest TDCC Snapshot

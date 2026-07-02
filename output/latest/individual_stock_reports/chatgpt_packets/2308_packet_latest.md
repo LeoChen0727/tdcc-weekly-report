@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:07 Asia/Taipei
+- generated_at: 2026-07-02 22:26:27 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 2020
-- high: 2020
-- low: 1965
-- close: 1990
-- volume: 7891000
-- ma5: 1927
-- ema23_primary: 2098.12
-- distance_to_ema23_pct: -5.15
-- ma20: 2151.75
-- ma60: 2094.58
-- ma120: 1674.22
-- return_5d: -0.5
-- return_20d: -15.68
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -7.52
-- distance_to_high_60_pct: -23.02
+- date: 20260702
+- open: 1955
+- high: 2010
+- low: 1920
+- close: 1970
+- volume: 6242000
+- ma5: 1925
+- ema23_primary: 2087.45
+- distance_to_ema23_pct: -5.63
+- ma20: 2127.5
+- ma60: 2102.17
+- ma120: 1682.62
+- return_5d: -0.51
+- return_20d: -19.76
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -7.4
+- distance_to_high_60_pct: -23.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,2420,2460,2410,2455,10882344,2218.74,10.65,2226,1868.75,0.93
 20260604,2440,2465,2405,2425,9416420,2235.93,8.46,2233.25,1888.83,0.82
 20260605,2380,2380,2275,2300,12283892,2241.27,2.62,2238.25,1905.67,1.07
 20260608,2090,2260,2090,2255,15374423,2242.41,0.56,2238.75,1919.92,1.31
@@ -160,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,1860,1970,1850,1905,16741799,2122.31,-10.24,2193.75,2077.33,1.16
 20260630,2010,2030,1950,1950,13213000,2107.95,-7.49,2170.25,2085.25,0.91
 20260701,2020,2020,1965,1990,7891000,2098.12,-5.15,2151.75,2094.58,0.55
+20260702,1955,2010,1920,1970,6242000,2087.45,-5.63,2127.5,2102.17,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認2025年董事報告、財務報告及 會計師查核報告書 5.重要決議事項四、董監事選舉:選任董事 6.重要決議事項五、其他事項: (1)通過訂定取得或處分資產處理程序案 (2)通過會計師聘任案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認2025年董事報告、財務報告及 會計師查核報告書 5.重要決議事項四、董監事選舉:選任董事 6.重要決議事項五、其他事項: (1)通過訂定取得或處分資產處理程序案 (2)通過會計師聘任案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2308 | 台達電 | 2 | 2 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2308 | 台達電 | 1 | 1 | 2 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2308 | 台達電 | 230 | 29 | 20902580.0 | 503050.0 | 41.55 | no_signal |
+| 20260702 | 2308 | 台達電 | 230 | 29 | 14155460.0 | 227570.0 | 62.2 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2402 毅嘉
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:11 Asia/Taipei
+- generated_at: 2026-07-02 22:26:32 Asia/Taipei
 - stock_id: 2402
 - stock_name: 毅嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 65.7
-- high: 67.8
-- low: 63.8
-- close: 67.1
-- volume: 3501000
-- ma5: 65.44
-- ema23_primary: 66.81
-- distance_to_ema23_pct: 0.44
-- ma20: 66.67
-- ma60: 67.7
-- ma120: 61.06
-- return_5d: -0.74
-- return_20d: -2.33
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 0.65
-- distance_to_high_60_pct: -21.06
+- date: 20260702
+- open: 67.9
+- high: 69.2
+- low: 67.1
+- close: 68
+- volume: 5326000
+- ma5: 65.66
+- ema23_primary: 66.91
+- distance_to_ema23_pct: 1.64
+- ma20: 66.58
+- ma60: 67.97
+- ma120: 61.1
+- return_5d: 1.64
+- return_20d: -2.44
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 2.13
+- distance_to_high_60_pct: -20
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,69.1,72.5,69.1,69.7,18391338,67.58,3.14,67.27,62.75,1.87
 20260604,69.7,70.3,68.2,69.3,8602360,67.72,2.33,67.23,63.12,0.87
 20260605,68.9,69,65.6,66.3,7255287,67.61,-1.93,67.14,63.39,0.74
 20260608,59.8,63.9,59.7,63.5,6098512,67.26,-5.59,66.87,63.59,0.62
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,64.9,65.9,63.4,64.3,2146484,66.96,-3.97,67,67.24,0.26
 20260630,64.8,66.1,64.5,64.8,1817000,66.78,-2.96,66.75,67.46,0.23
 20260701,65.7,67.8,63.8,67.1,3501000,66.81,0.44,66.67,67.7,0.46
+20260702,67.9,69.2,67.1,68,5326000,66.91,1.64,66.58,67.97,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2402 | 毅嘉 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.股東會決議日:115/06/16 2.許可從事競業行為之董事姓名及職稱:  董事:黃秋永、黃麗玲、黃子軒、曾恭勝  獨立董事:許萬龍、徐豫東、劉致宏 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司 4.許可從事競業行為之期間:任職本公司董事之職務期間 5.決議情形（請依公司法第209條說明表決結果）:經票決結果， 贊成權數：188,264,843權，佔出席股東表決總權數85.77%； 反對權數：1,178,828權；無效權數：0權；棄權/未投票權數： 30,046,187權；贊成權數超過法定數額，本案照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:獨立董事:徐豫東 董事:黃秋永、黃麗玲、曾恭勝 7.所擔任該大陸地區事業之公司名稱及職務: ICHIA HOLDINGS (H.K) CO., LTD董事長-黃秋永、董事-黃麗玲 毅嘉電子(蘇州)有限公司董事長兼總經理-曾恭勝、董事-黃麗玲 中山毅永電子有限公司董事長兼總經理-曾恭勝、董事-黃麗玲 晶鴻微電子(上海)有限公司董事長-徐豫東 東莞晶宏半導體有限公司董事長-徐豫東 8.所擔任該大陸地區事業地址: ICHIA HOLDINGS (H.K) CO., LTD-香港灣仔告士打道151號國衛中心1004室 毅嘉電子(蘇州)有限公司-江蘇省蘇州市蘇州新區金山路118號 中山毅永電子有限公司-廣東省中山市張家邊火炬開發區逸仙路26號 晶鴻微電子(上海)有限公司-上海市徐匯區桂平路481號15號樓3樓 東莞晶宏半導體有限公司-廣東省東莞市松山湖園區總部二路2號1棟1單元808室 9.所擔任該大陸地區事業營業項目: ICHIA HOLDINGS (H.K) CO., LTD-各項投資業務 毅嘉電子(蘇州)有限公司-橡膠、塑膠按鍵及軟性印刷電路板製造、銷售 中山毅永電子有限公司-各種電子、通訊(信)及電腦之各種電子零組件及其材料之製造 、加工及買賣業務 晶鴻微電子(上海)有限公司-IC銷售及售後服務 東莞晶宏半導體有限公司-IC研發、銷售及售後服務 10.對本公司財務業務之影響程度:無重大影響 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2402 | 毅嘉 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 內容：本公司115年3月11日董事會決議及115年7月1日董事長決議<br>(一)停止受理轉交換之事由：辦理配股配息作業事宜。<br>(其他事項敘明：)<br>(二)停止受理轉交換登記起訖日期：115年07月10日至115年08月04日止。<br>(三)債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日（115年07月10日）之前一營業日前（115年07月08日），向往來證券商辦理轉換手續。<br>無；calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2402 | 毅嘉 | 1 | 1 | 1 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2402 | 毅嘉 | 2 | 2 | 2 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2402 | 毅嘉 | 90 | 9 | 6836430.0 | 640860.0 | 10.67 | call_inflow |
+| 20260702 | 2402 | 毅嘉 | 89 | 9 | 6812850.0 | 2800.0 | 2433.16 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

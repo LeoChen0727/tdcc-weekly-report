@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3230 錦明
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:35 Asia/Taipei
+- generated_at: 2026-07-02 22:26:57 Asia/Taipei
 - stock_id: 3230
 - stock_name: 錦明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 45.85
-- high: 48
-- low: 45.85
-- close: 47.6
-- volume: 1917000
-- ma5: 42.79
-- ema23_primary: 35.69
-- distance_to_ema23_pct: 33.37
-- ma20: 33.64
-- ma60: 34.73
-- ma120: 36.13
-- return_5d: 27.61
-- return_20d: 55.05
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 41.51
-- distance_to_high_60_pct: -0.83
+- date: 20260702
+- open: 47.6
+- high: 52
+- low: 47.6
+- close: 51.5
+- volume: 2072000
+- ma5: 45.84
+- ema23_primary: 37.01
+- distance_to_ema23_pct: 39.16
+- ma20: 34.67
+- ma60: 34.93
+- ma120: 36.23
+- return_5d: 42.07
+- return_20d: 66.94
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 48.54
+- distance_to_high_60_pct: -0.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,31.25,31.55,30.2,30.85,31000,32.59,-5.35,31.89,36.81,0.1
 20260604,30.85,31.05,30.4,30.75,31000,32.44,-5.21,31.73,36.64,0.11
 20260605,31.3,31.5,30.35,30.55,31000,32.28,-5.37,31.55,36.48,0.12
 20260608,28.5,30.25,27.9,29.9,421000,32.08,-6.81,31.41,36.33,1.8
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,43.4,43.8,41.5,43.8,4177000,33.53,30.63,32.01,34.47,2.96
 20260630,46,46.45,42.35,46.45,10862000,34.61,34.22,32.79,34.58,5.56
 20260701,45.85,48,45.85,47.6,1917000,35.69,33.37,33.64,34.73,0.94
+20260702,47.6,52,47.6,51.5,2072000,37.01,39.16,34.67,34.93,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3230 | 錦明 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長及副董事長 3.舊任者姓名: 蔡翔峰 簡豪廷 4.舊任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 5.新任者姓名: 蔡翔峰 簡豪廷 6.新任者簡歷: 蔡翔峰 錦明實業股份有限公司董事長 簡豪廷 錦明實業股份有限公司副董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 任期屆滿改選，股東常會全面改選董事，董事會推舉新任董事長及副董事長 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3230 | 錦明 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/07/01 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                       最近一月單月     去年同月      與去年同期增減%                         (115/05)       (114/05) --------------------------------------------------------------------- 營業收入(百萬元)             36            33             9.09% 稅前淨利(百萬元)            (12)          (23)           47.83% 歸屬母公司業主淨利(百萬元)  (12)          (20)           40.00% 每股盈餘(元)              (0.15)        (0.23)           34.78% (2)單季                      最近一季單季       去年同期     與去年同期增減%                       (115第1季)       (114第1季) ----------------------------------------------------------------------- 營業收入(百萬元)            101           118           (14.41%) 稅前淨利(百萬元)            (39)          (13)         (200.00%) 歸屬母公司業主淨利(百萬元)  (38)          (13)         (192.31%) 每股盈餘(元)              (0.45)        (0.15)         (200.00%) (3)最近四季累計                                  (114年第2季至115年第1季) ---------------------------------------------------------- 營業收入(百萬元)                          386 稅前淨利(百萬元)                         (164) 歸屬母公司業主淨利(百萬元)               (162) 每股盈餘(元)                            (1.90) (4)公司每股面額:10元。 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）: (1)115/06/26 公告本公司115年股東常會重要決議事項 (2)115/06/26 公告本公司115年股東常會全面改選董事(含獨立董事) 暨董事變動達三分之一 (3)115/06/26 公告本公司董事會選任董事長與副董事長 (4)115/06/26 公告本公司第3屆審計委員會委員 (5)115/06/26 公告本公司法人董事指派代表人 (6)115/06/26 公告本公司115年股東常會同意解除新任董事競業禁止之限制 (7)115/06/26 公告本公司董事會決議通過委任第6屆薪酬委員會委員 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計 準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經 會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3230 | 錦明 | 6 | 1 | 5 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 3230 | 錦明 | 7 | 2 | 5 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

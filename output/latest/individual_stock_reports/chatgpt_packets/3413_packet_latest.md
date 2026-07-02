@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:40 Asia/Taipei
+- generated_at: 2026-07-02 22:27:01 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 294
+- latest_price_date: 20260702
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 333.5
-- high: 345
-- low: 330.5
-- close: 332
-- volume: 4700000
-- ma5: 316.9
-- ema23_primary: 316.69
-- distance_to_ema23_pct: 4.84
-- ma20: 314.43
-- ma60: 316.64
-- ma120: 305.27
-- return_5d: 6.75
-- return_20d: 6.24
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: 5.59
-- distance_to_high_60_pct: -7.52
+- date: 20260702
+- open: 325
+- high: 333
+- low: 322.5
+- close: 330
+- volume: 1275000
+- ma5: 321.1
+- ema23_primary: 317.8
+- distance_to_ema23_pct: 3.84
+- ma20: 314.95
+- ma60: 317.26
+- ma120: 305.67
+- return_5d: 6.8
+- return_20d: 3.29
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 4.78
+- distance_to_high_60_pct: -8.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,316,322.5,315.5,319.5,2465895,319.78,-0.09,319.88,313.27,0.71
 20260604,319,328,318,322,2700230,319.97,0.64,320.52,313.73,0.79
 20260605,322,323,311.5,317,2160000,319.72,-0.85,320.6,313.93,0.64
 20260608,294,299.5,287,297.5,2588248,317.87,-6.41,320.05,313.73,0.77
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,300.5,324.5,300,314,2814988,313.91,0.03,312.75,315.41,1.29
 20260630,324.5,342,324,330.5,8590000,315.3,4.82,313.45,316,3.47
 20260701,333.5,345,330.5,332,4700000,316.69,4.84,314.43,316.64,1.84
+20260702,325,333,322.5,330,1275000,317.8,3.84,314.95,317.26,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -201,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3413 | 京鼎 | 35 | 0 | 12070250.0 | 0.0 |  | call_strong_inflow |
+| 20260702 | 3413 | 京鼎 | 35 | 0 | 4843510.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

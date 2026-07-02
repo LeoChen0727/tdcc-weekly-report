@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4442 竣邦-KY
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:54 Asia/Taipei
+- generated_at: 2026-07-02 22:27:15 Asia/Taipei
 - stock_id: 4442
 - stock_name: 竣邦-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 158
+- latest_price_date: 20260702
+- price_rows: 159
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
+- date: 20260702
 - open: 50.5
 - high: 50.5
 - low: 50.5
 - close: 50.5
-- volume: 4000
-- ma5: 50.68
-- ema23_primary: 52.39
-- distance_to_ema23_pct: -3.61
-- ma20: 52.61
-- ma60: 54.32
-- ma120: 56.48
-- return_5d: -3.26
-- return_20d: -0.79
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: -4.01
+- volume: 1000
+- ma5: 50.46
+- ema23_primary: 52.23
+- distance_to_ema23_pct: -3.32
+- ma20: 52.58
+- ma60: 54.12
+- ma120: 56.38
+- return_5d: -2.13
+- return_20d: -1.37
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: -3.95
 - distance_to_high_60_pct: -22.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,51.1,51.2,51,51.2,51000,52.43,-2.35,52.05,56.69,0.92
 20260604,51.4,51.4,51,51,51000,52.31,-2.51,51.81,56.61,0.89
 20260605,51,51.4,50.1,50.7,51000,52.18,-2.83,51.6,56.53,0.88
 20260608,46.85,50.1,46.85,50.1,10000,52.01,-3.66,51.37,56.44,0.18
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,50.8,50.8,50.5,50.5,13000,52.77,-4.3,52.65,54.71,0.39
 20260630,50.3,50.3,50.3,50.3,1000,52.56,-4.31,52.63,54.52,0.03
 20260701,50.5,50.5,50.5,50.5,4000,52.39,-3.61,52.61,54.32,0.13
+20260702,50.5,50.5,50.5,50.5,1000,52.23,-3.32,52.58,54.12,0.03
 ```
 
 ## Latest TDCC Snapshot

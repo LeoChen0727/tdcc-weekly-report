@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:48 Asia/Taipei
+- generated_at: 2026-07-02 22:26:08 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 294
+- latest_price_date: 20260702
+- price_rows: 295
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 8.57
-- high: 9
-- low: 8.32
-- close: 8.38
-- volume: 84446000
-- ma5: 8.17
-- ema23_primary: 7.86
-- distance_to_ema23_pct: 6.59
-- ma20: 7.96
-- ma60: 7.57
-- ma120: 7.89
-- return_5d: 4.88
-- return_20d: 11.29
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: 5.34
-- distance_to_high_60_pct: -6.89
+- date: 20260702
+- open: 8.39
+- high: 9.15
+- low: 8.34
+- close: 8.99
+- volume: 121323000
+- ma5: 8.36
+- ema23_primary: 7.96
+- distance_to_ema23_pct: 13
+- ma20: 8
+- ma60: 7.58
+- ma120: 7.9
+- return_5d: 11.82
+- return_20d: 11.26
+- volume_ratio: 2.96
+- distance_to_ma20_pct_auxiliary: 12.36
+- distance_to_high_60_pct: -1.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,7.62,8.28,7.55,8.08,180153414,7.27,11.21,7.11,7.76,5.97
 20260604,8.11,8.43,8.01,8.25,120986795,7.35,12.28,7.16,7.75,3.41
 20260605,8.26,8.37,8.03,8.09,49831634,7.41,9.19,7.2,7.72,1.35
 20260608,7.64,8.04,7.63,7.94,36546385,7.45,6.53,7.25,7.7,0.97
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,7.98,8.15,7.95,8.11,24608649,7.77,4.44,7.85,7.56,0.59
 20260630,8.17,8.39,8.13,8.36,49370000,7.82,6.97,7.91,7.57,1.14
 20260701,8.57,9,8.32,8.38,84446000,7.86,6.59,7.96,7.57,1.93
+20260702,8.39,9.15,8.34,8.99,121323000,7.96,13,8,7.58,2.96
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1314 | 中石化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/30 2.公司名稱:中國石油化學工業開發股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:充實營運資金 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  本次處分標的未脫標，將持續積極辦理處分活化事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 1314 | 中石化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/30 2.公司名稱:中國石油化學工業開發股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:充實營運資金 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  本次處分標的未脫標，將持續積極辦理處分活化事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1314 | 中石化 | 10 | 2 | 5 | 10 | 12 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 1314 | 中石化 | 11 | 3 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

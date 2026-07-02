@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3149 正達
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:33 Asia/Taipei
+- generated_at: 2026-07-02 22:26:54 Asia/Taipei
 - stock_id: 3149
 - stock_name: 正達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 103.5
-- high: 105
-- low: 93.5
-- close: 94
-- volume: 30360000
-- ma5: 97.2
-- ema23_primary: 88.46
-- distance_to_ema23_pct: 6.26
-- ma20: 92.15
-- ma60: 65.56
-- ma120: 56.7
-- return_5d: -7.84
-- return_20d: 9.18
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: 2.01
-- distance_to_high_60_pct: -13.76
+- date: 20260702
+- open: 90
+- high: 95.3
+- low: 89.3
+- close: 90.5
+- volume: 16096000
+- ma5: 95.3
+- ema23_primary: 88.63
+- distance_to_ema23_pct: 2.11
+- ma20: 92.14
+- ma60: 66.38
+- ma120: 57.16
+- return_5d: -9.5
+- return_20d: -0.33
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -1.77
+- distance_to_high_60_pct: -16.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,89.7,93.4,88.8,90.8,50508558,63.97,41.95,62.42,50.82,1.8
 20260604,90,96.5,89.6,91,42746329,66.22,37.42,64.43,51.54,1.46
 20260605,90,92.4,85,90.8,34190527,68.27,33.01,66.56,52.26,1.12
 20260608,81.8,90.5,81.8,86.8,9170766,69.81,24.33,68.37,52.9,0.3
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,98,101,92.7,92.7,19314301,86.72,6.89,90.59,63.78,1.06
 20260630,96,101.5,95.1,101.5,25790000,87.96,15.4,91.75,64.72,1.34
 20260701,103.5,105,93.5,94,30360000,88.46,6.26,92.15,65.56,1.61
+20260702,90,95.3,89.3,90.5,16096000,88.63,2.11,92.14,66.38,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3149 | 正達 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3149 | 正達 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3149 | 正達 | 7 | 1 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3149 | 正達 | 8 | 2 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

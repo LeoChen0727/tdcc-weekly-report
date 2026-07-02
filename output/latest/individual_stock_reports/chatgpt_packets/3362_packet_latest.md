@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:39 Asia/Taipei
+- generated_at: 2026-07-02 22:27:00 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 193
-- high: 197.5
-- low: 184
-- close: 188.5
-- volume: 4620000
-- ma5: 192.2
-- ema23_primary: 172.45
-- distance_to_ema23_pct: 9.31
-- ma20: 177.43
-- ma60: 132.55
-- ma120: 117.18
-- return_5d: -1.82
-- return_20d: 57.74
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 6.24
-- distance_to_high_60_pct: -13.53
+- date: 20260702
+- open: 185
+- high: 191
+- low: 183.5
+- close: 187.5
+- volume: 2130000
+- ma5: 187.5
+- ema23_primary: 173.7
+- distance_to_ema23_pct: 7.94
+- ma20: 180.25
+- ma60: 134.11
+- ma120: 117.96
+- return_5d: -11.14
+- return_20d: 43.13
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 4.02
+- distance_to_high_60_pct: -13.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,118.5,131,118.5,131,129000,114.35,14.56,113.45,106.09,0.08
 20260604,144,144,143.5,144,144000,116.82,23.27,115.25,106.93,0.09
 20260605,152,157.5,145.5,148,152000,119.42,23.93,117.42,107.78,0.1
 20260608,133.5,145,133.5,141.5,4341000,121.26,16.69,119.4,108.48,2.68
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,187,191.5,179,182.5,4290000,169.35,7.76,170.57,129.4,0.58
 20260630,182.5,189,177.5,189,5203000,170.99,10.53,173.97,130.96,0.68
 20260701,193,197.5,184,188.5,4620000,172.45,9.31,177.43,132.55,0.58
+20260702,185,191,183.5,187.5,2130000,173.7,7.94,180.25,134.11,0.27
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4564 元翎
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:57 Asia/Taipei
+- generated_at: 2026-07-02 22:27:18 Asia/Taipei
 - stock_id: 4564
 - stock_name: 元翎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
+- date: 20260702
 - open: 16.25
-- high: 17.1
-- low: 16.2
-- close: 16.25
-- volume: 1896000
-- ma5: 15.8
-- ema23_primary: 15.91
-- distance_to_ema23_pct: 2.14
-- ma20: 15.73
-- ma60: 17.07
-- ma120: 17.7
-- return_5d: 3.5
-- return_20d: 2.2
-- volume_ratio: 2.74
-- distance_to_ma20_pct_auxiliary: 3.27
-- distance_to_high_60_pct: -20.54
+- high: 17.4
+- low: 16.15
+- close: 16.6
+- volume: 2538000
+- ma5: 16
+- ema23_primary: 15.97
+- distance_to_ema23_pct: 3.97
+- ma20: 15.76
+- ma60: 17.04
+- ma120: 17.69
+- return_5d: 6.41
+- return_20d: 2.47
+- volume_ratio: 3.29
+- distance_to_ma20_pct_auxiliary: 5.36
+- distance_to_high_60_pct: -18.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,16.25,16.3,15.7,16.2,933944,16.55,-2.13,16.37,18.32,0.81
 20260604,16.2,16.35,16,16.05,674976,16.51,-2.79,16.23,18.27,0.59
 20260605,16.3,16.3,15.8,16,586731,16.47,-2.85,16.12,18.21,0.53
 20260608,15.35,15.85,14.6,15.6,675038,16.4,-4.86,16.02,18.14,0.63
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,15.45,16.3,15.45,15.7,473188,15.86,-1.02,15.7,17.16,0.75
 20260630,15.8,16.1,15.8,16.05,922000,15.88,1.08,15.72,17.11,1.47
 20260701,16.25,17.1,16.2,16.25,1896000,15.91,2.14,15.73,17.07,2.74
+20260702,16.25,17.4,16.15,16.6,2538000,15.97,3.97,15.76,17.04,3.29
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 4564 | 元翎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 4564 | 元翎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 4564 | 元翎 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260702 | 4564 | 元翎 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

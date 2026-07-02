@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3594 磐儀
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:45 Asia/Taipei
+- generated_at: 2026-07-02 22:27:06 Asia/Taipei
 - stock_id: 3594
 - stock_name: 磐儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 53.4
-- high: 56.3
-- low: 53.4
-- close: 55.8
-- volume: 6913000
-- ma5: 49.59
-- ema23_primary: 49.02
-- distance_to_ema23_pct: 13.83
-- ma20: 47.84
-- ma60: 49.52
-- ma120: 44.21
-- return_5d: 12.27
-- return_20d: 11.71
-- volume_ratio: 10.28
-- distance_to_ma20_pct_auxiliary: 16.64
-- distance_to_high_60_pct: -6.38
+- date: 20260702
+- open: 53.5
+- high: 58.8
+- low: 53.2
+- close: 56.7
+- volume: 4080000
+- ma5: 51.23
+- ema23_primary: 49.66
+- distance_to_ema23_pct: 14.18
+- ma20: 48.17
+- ma60: 49.82
+- ma120: 44.37
+- return_5d: 16.91
+- return_20d: 13.4
+- volume_ratio: 4.67
+- distance_to_ma20_pct_auxiliary: 17.7
+- distance_to_high_60_pct: -4.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,50.5,50.5,49.7,50,50000,50.96,-1.89,51.88,47.24,0.08
 20260604,49.9,49.9,48.3,48.3,49000,50.74,-4.81,51.52,47.38,0.08
 20260605,48.3,48.4,47.15,47.5,48000,50.47,-5.89,51.13,47.51,0.09
 20260608,43.05,44.4,42.75,44.25,520000,49.95,-11.42,50.54,47.54,1.03
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,45.8,47.45,45.8,46.6,145000,48.15,-3.22,47.54,49.04,0.53
 20260630,48.15,51.2,47.55,51.2,1147000,48.4,5.78,47.55,49.24,3.51
 20260701,53.4,56.3,53.4,55.8,6913000,49.02,13.83,47.84,49.52,10.28
+20260702,53.5,58.8,53.2,56.7,4080000,49.66,14.18,48.17,49.82,4.67
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3594 | 磐儀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | 1.股東常會日期:115/06/29 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度盈餘分配案 3.重要決議事項二、章程修訂:修訂「公司章程」案 4.重要決議事項三、營業報告書及財務報表:  承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (一) 本公司為引進策略性投資人擬辦理私募現金增資發行新股案 (二) 修訂「取得或處分資產處理程序」案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3594 | 磐儀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | 1.股東常會日期:115/06/29 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度盈餘分配案 3.重要決議事項二、章程修訂:修訂「公司章程」案 4.重要決議事項三、營業報告書及財務報表:  承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (一) 本公司為引進策略性投資人擬辦理私募現金增資發行新股案 (二) 修訂「取得或處分資產處理程序」案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3594 | 磐儀 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260702 | 3594 | 磐儀 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

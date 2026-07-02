@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7828 創新服務
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:53 Asia/Taipei
+- generated_at: 2026-07-02 22:28:15 Asia/Taipei
 - stock_id: 7828
 - stock_name: 創新服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 50
+- latest_price_date: 20260702
+- price_rows: 51
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 2080
-- high: 2140
-- low: 2080
-- close: 2110
-- volume: 109000
-- ma5: 2072
-- ema23_primary: 1881.09
-- distance_to_ema23_pct: 12.17
-- ma20: 1914.25
-- ma60: 1535.8
-- ma120: 1535.8
-- return_5d: -9.25
-- return_20d: 41.14
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: 10.23
-- distance_to_high_60_pct: -10.78
+- date: 20260702
+- open: 2050
+- high: 2320
+- low: 2050
+- close: 2320
+- volume: 154000
+- ma5: 2076
+- ema23_primary: 1917.67
+- distance_to_ema23_pct: 20.98
+- ma20: 1949
+- ma60: 1551.18
+- ma120: 1551.18
+- return_5d: 0.87
+- return_20d: 42.77
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 19.04
+- distance_to_high_60_pct: -1.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,1495,1625,1445,1625,1555000,1345.2,20.8,1289.25,1294.52,2.14
 20260604,1595,1700,1570,1580,1637000,1364.77,15.77,1308.75,1303.44,2.05
 20260605,1550,1600,1445,1565,1529000,1381.45,13.29,1331.25,1311.36,1.8
 20260608,1420,1530,1415,1510,155000,1392.17,8.46,1345.5,1317.21,0.18
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,1950,1990,1865,1865,141000,1846.22,1.02,1855.25,1513.85,0.29
 20260630,2000,2020,1935,2015,107000,1860.28,8.32,1883.5,1524.08,0.25
 20260701,2080,2140,2080,2110,109000,1881.09,12.17,1914.25,1535.8,0.25
+20260702,2050,2320,2050,2320,154000,1917.67,20.98,1949,1551.18,0.43
 ```
 
 ## Latest TDCC Snapshot

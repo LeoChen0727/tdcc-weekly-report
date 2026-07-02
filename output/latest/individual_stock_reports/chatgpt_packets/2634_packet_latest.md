@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2634 漢翔
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:20 Asia/Taipei
+- generated_at: 2026-07-02 22:26:41 Asia/Taipei
 - stock_id: 2634
 - stock_name: 漢翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 57.8
-- high: 59.4
-- low: 55.7
-- close: 56.2
-- volume: 56749000
-- ma5: 52.48
-- ema23_primary: 49.4
-- distance_to_ema23_pct: 13.76
-- ma20: 48.58
-- ma60: 47.92
-- ma120: 50.34
-- return_5d: 14
-- return_20d: 19.07
-- volume_ratio: 4.77
-- distance_to_ma20_pct_auxiliary: 15.68
-- distance_to_high_60_pct: -5.39
+- date: 20260702
+- open: 56.2
+- high: 57.6
+- low: 54.3
+- close: 54.6
+- volume: 25385000
+- ma5: 53.72
+- ema23_primary: 49.84
+- distance_to_ema23_pct: 9.56
+- ma20: 48.97
+- ma60: 48.06
+- ma120: 50.36
+- return_5d: 12.81
+- return_20d: 16.42
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: 11.5
+- distance_to_high_60_pct: -8.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,47.2,47.4,46.75,46.9,4832910,47.04,-0.29,46.78,48.23,0.85
 20260604,46.9,47,46.55,46.55,3553210,46.99,-0.95,46.64,48.16,0.63
 20260605,46.85,47.2,45.85,46.55,4754456,46.96,-0.87,46.46,48.09,0.89
 20260608,43.05,45.2,43,45,4469754,46.79,-3.84,46.35,47.99,0.93
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,50.1,53.1,50.1,52,26324332,48.08,8.16,47.69,47.6,4.1
 20260630,52.2,57.2,52,56.6,64775000,48.79,16.02,48.13,47.76,6.98
 20260701,57.8,59.4,55.7,56.2,56749000,49.4,13.76,48.58,47.92,4.77
+20260702,56.2,57.6,54.3,54.6,25385000,49.84,9.56,48.97,48.06,1.96
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2634 | 漢翔 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2634 | 漢翔 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2634 | 漢翔 | 7 | 1 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2634 | 漢翔 | 8 | 2 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2634 | 漢翔 | 40 | 0 | 15679200.0 | 0.0 |  | call_strong_inflow |
+| 20260702 | 2634 | 漢翔 | 41 | 0 | 6856810.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

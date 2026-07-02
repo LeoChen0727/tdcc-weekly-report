@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6451 訊芯-KY
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:27 Asia/Taipei
+- generated_at: 2026-07-02 22:27:49 Asia/Taipei
 - stock_id: 6451
 - stock_name: 訊芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 582
-- high: 583
-- low: 522
-- close: 524
-- volume: 4674000
-- ma5: 573.4
-- ema23_primary: 570.26
-- distance_to_ema23_pct: -8.11
-- ma20: 586.52
-- ma60: 520.42
-- ma120: 360.52
-- return_5d: -16.96
-- return_20d: -20.49
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -10.66
-- distance_to_high_60_pct: -30.69
+- date: 20260702
+- open: 512
+- high: 537
+- low: 504
+- close: 522
+- volume: 3222000
+- ma5: 555
+- ema23_primary: 566.24
+- distance_to_ema23_pct: -7.81
+- ma20: 576.42
+- ma60: 523.71
+- ma120: 363.56
+- return_5d: -14.98
+- return_20d: -27.9
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -9.44
+- distance_to_high_60_pct: -30.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,702,724,702,724,3420114,549.72,31.7,544.73,421.63,0.55
 20260604,700,756,676,680,11188135,560.57,21.3,554.23,430.12,1.72
 20260605,660,739,644,666,10262439,569.36,16.97,565.48,438.34,1.53
 20260608,600,615,600,600,2760474,571.91,4.91,572.7,445.18,0.41
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,597,638,563,563,8465872,575.06,-2.1,596.23,512.23,1.21
 20260630,578,585,563,568,3872000,574.47,-1.13,593.27,516.62,0.56
 20260701,582,583,522,524,4674000,570.26,-8.11,586.52,520.42,0.71
+20260702,512,537,504,522,3222000,566.24,-7.81,576.42,523.71,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6451 | 訊芯-KY | 51 | 3 | 2307960.0 | 103370.0 | 22.33 | call_inflow |
+| 20260702 | 6451 | 訊芯-KY | 50 | 3 | 1027380.0 | 225020.0 | 4.57 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7713 威力德生醫
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:50 Asia/Taipei
+- generated_at: 2026-07-02 22:28:12 Asia/Taipei
 - stock_id: 7713
 - stock_name: 威力德生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 147
+- latest_price_date: 20260702
+- price_rows: 148
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 71.5
-- high: 71.5
-- low: 70
-- close: 70.1
-- volume: 16000
-- ma5: 70.96
-- ema23_primary: 70.59
-- distance_to_ema23_pct: -0.7
-- ma20: 71.21
-- ma60: 68.84
-- ma120: 70.2
-- return_5d: -2.37
-- return_20d: -5.14
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -1.56
-- distance_to_high_60_pct: -5.14
+- date: 20260702
+- open: 70.1
+- high: 70.5
+- low: 70.1
+- close: 70.3
+- volume: 3000
+- ma5: 70.76
+- ema23_primary: 70.57
+- distance_to_ema23_pct: -0.38
+- ma20: 71.08
+- ma60: 68.89
+- ma120: 70.17
+- return_5d: -1.4
+- return_20d: -3.57
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -1.1
+- distance_to_high_60_pct: -4.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,73.9,73.9,70.6,72.9,72,68.55,6.35,68.26,68.85,0
 20260603,71.9,73.9,71.9,72.4,72000,68.87,5.13,68.52,68.89,1.94
 20260604,73,73,70.1,70.8,71000,69.03,2.57,68.7,68.91,1.76
 20260605,72.4,72.4,71,71.9,72000,69.27,3.8,68.87,68.93,1.76
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,71.2,71.2,70.4,71,4000,70.58,0.59,71.2,68.75,0.12
 20260630,71.2,71.2,71,71.2,17000,70.64,0.8,71.4,68.8,0.56
 20260701,71.5,71.5,70,70.1,16000,70.59,-0.7,71.21,68.84,0.58
+20260702,70.1,70.5,70.1,70.3,3000,70.57,-0.38,71.08,68.89,0.11
 ```
 
 ## Latest TDCC Snapshot

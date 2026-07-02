@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:40 Asia/Taipei
+- generated_at: 2026-07-02 22:27:01 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 673
-- high: 684
-- low: 634
-- close: 641
-- volume: 2437000
-- ma5: 683.2
-- ema23_primary: 675.61
-- distance_to_ema23_pct: -5.12
-- ma20: 698.15
-- ma60: 586.68
-- ma120: 515.21
-- return_5d: -12.55
-- return_20d: 7.73
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -8.19
-- distance_to_high_60_pct: -19.47
+- date: 20260702
+- open: 626
+- high: 652
+- low: 626
+- close: 644
+- volume: 1522000
+- ma5: 660.2
+- ema23_primary: 672.98
+- distance_to_ema23_pct: -4.31
+- ma20: 700.05
+- ma60: 590.02
+- ma120: 516.92
+- return_5d: -15.15
+- return_20d: 6.27
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -8.01
+- distance_to_high_60_pct: -19.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,608,625,600,606,2371075,564.26,7.4,564.8,503.03,0.95
 20260604,612,665,603,659,4607335,572.16,15.18,572.1,507.42,1.71
 20260605,658,704,636,682,7004622,581.31,17.32,580.9,511.94,2.36
 20260608,614,668,612,654,4000335,587.37,11.34,588.1,515.8,1.28
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,702,705,652,657,3953398,680.55,-3.46,693.05,579.94,0.78
 20260630,658,671,654,659,1991000,678.76,-2.91,695.85,583.4,0.4
 20260701,673,684,634,641,2437000,675.61,-5.12,698.15,586.68,0.48
+20260702,626,652,626,644,1522000,672.98,-4.31,700.05,590.02,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3406 | 玉晶光 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 3406 | 玉晶光 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3406 | 玉晶光 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 3406 | 玉晶光 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3406 | 玉晶光 | 2 | 2 | 3 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3406 | 玉晶光 | 3 | 3 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3406 | 玉晶光 | 91 | 4 | 7832970.0 | 70000.0 | 111.9 | no_signal |
+| 20260702 | 3406 | 玉晶光 | 92 | 4 | 5939750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

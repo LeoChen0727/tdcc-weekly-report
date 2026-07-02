@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1569 濱川
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:55 Asia/Taipei
+- generated_at: 2026-07-02 22:26:15 Asia/Taipei
 - stock_id: 1569
 - stock_name: 濱川
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 46.5
-- high: 46.9
-- low: 45.45
-- close: 45.7
-- volume: 672000
-- ma5: 45.75
-- ema23_primary: 48.53
-- distance_to_ema23_pct: -5.83
-- ma20: 48.47
-- ma60: 52.69
-- ma120: 52.55
-- return_5d: -3.89
-- return_20d: -14.74
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -5.72
-- distance_to_high_60_pct: -31.99
+- date: 20260702
+- open: 45.7
+- high: 47.6
+- low: 45.4
+- close: 47.2
+- volume: 394000
+- ma5: 45.79
+- ema23_primary: 48.42
+- distance_to_ema23_pct: -2.52
+- ma20: 48.12
+- ma60: 52.64
+- ma120: 52.49
+- return_5d: 0.43
+- return_20d: -13.08
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -1.91
+- distance_to_high_60_pct: -29.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,55.2,55.4,52.7,54.3,54000,53.27,1.94,52.76,53.43,0.07
 20260604,53.9,54.6,51.6,51.6,53000,53.13,-2.88,52.42,53.48,0.08
 20260605,52.3,52.3,50.2,51.1,51000,52.96,-3.51,52.17,53.49,0.09
 20260608,47.5,49.7,47.4,49.45,1150000,52.67,-6.11,51.85,53.46,2.07
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,45.25,46,44.75,44.9,523000,49.05,-8.46,49.13,52.82,0.84
 20260630,45.95,46.25,45.1,45.9,392000,48.79,-5.92,48.87,52.75,0.61
 20260701,46.5,46.9,45.45,45.7,672000,48.53,-5.83,48.47,52.69,1
+20260702,45.7,47.6,45.4,47.2,394000,48.42,-2.52,48.12,52.64,0.57
 ```
 
 ## Latest TDCC Snapshot

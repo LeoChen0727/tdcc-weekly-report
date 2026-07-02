@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:40 Asia/Taipei
+- generated_at: 2026-07-02 22:27:02 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 540
-- high: 541
-- low: 509
-- close: 512
-- volume: 1592000
-- ma5: 533
-- ema23_primary: 514.5
-- distance_to_ema23_pct: -0.49
-- ma20: 521.15
-- ma60: 431.75
-- ma120: 348.42
-- return_5d: -11.88
-- return_20d: -6.57
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -1.76
-- distance_to_high_60_pct: -16.34
+- date: 20260702
+- open: 480.5
+- high: 511
+- low: 480.5
+- close: 501
+- volume: 1323000
+- ma5: 516
+- ema23_primary: 513.38
+- distance_to_ema23_pct: -2.41
+- ma20: 518.8
+- ma60: 435.8
+- ma120: 350.41
+- return_5d: -14.51
+- return_20d: -8.58
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: -3.43
+- distance_to_high_60_pct: -18.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,590,602,539,548,19256280,453.96,20.71,459.93,351.83,1.46
 20260604,531,557,520,520,10203313,459.47,13.17,467.05,356.26,0.83
 20260605,525,544,498,501,18963318,462.93,8.22,471.6,360.48,1.7
 20260608,451,469,451,461,6239425,462.77,-0.38,473.25,363.62,0.63
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,525,525,501,505,8125227,513.16,-1.59,523.3,422.49,0.6
 20260630,519,544,510,532,2291000,514.73,3.35,522.95,427.23,0.17
 20260701,540,541,509,512,1592000,514.5,-0.49,521.15,431.75,0.14
+20260702,480.5,511,480.5,501,1323000,513.38,-2.41,518.8,435.8,0.12
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3450 | 聯鈞 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理 3.財務業務資訊: 期間            (月)                    (季)             (最近四季累計)            最近一月   與去年同期   最近一季   與去年同期   (114年2季至 科目     (115年05月)    增減％    (115年1季)   增減％       115年1季)             合併                    合併                     合併           自結金額                核閱金額                 核閱金額          ----------  ----------  ----------- ----------  ------------- 營業收入 (百萬)        960          50%        2,087       -24%         7,913 稅前淨利 (百萬)        179         646%          305       -56%         1,268 歸屬母公司業主淨利 (百萬)         83         938%          100       -71%           490 每股盈餘 (元)         0.57       1,040%         0.69       -71%          3.36 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3450 | 聯鈞 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理 3.財務業務資訊: 期間            (月)                    (季)             (最近四季累計)            最近一月   與去年同期   最近一季   與去年同期   (114年2季至 科目     (115年05月)    增減％    (115年1季)   增減％       115年1季)             合併                    合併                     合併           自結金額                核閱金額                 核閱金額          ----------  ----------  ----------- ----------  ------------- 營業收入 (百萬)        960          50%        2,087       -24%         7,913 稅前淨利 (百萬)        179         646%          305       -56%         1,268 歸屬母公司業主淨利 (百萬)         83         938%          100       -71%           490 每股盈餘 (元)         0.57       1,040%         0.69       -71%          3.36 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3450 | 聯鈞 | 4 | 4 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3450 | 聯鈞 | 5 | 5 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3450 | 聯鈞 | 138 | 4 | 976650.0 | 60.0 | 16277.5 | no_signal |
+| 20260702 | 3450 | 聯鈞 | 138 | 4 | 719000.0 | 900.0 | 798.89 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

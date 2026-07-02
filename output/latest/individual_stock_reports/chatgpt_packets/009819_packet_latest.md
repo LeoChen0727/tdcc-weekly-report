@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009819 中信數據及電力
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:44 Asia/Taipei
+- generated_at: 2026-07-02 22:26:05 Asia/Taipei
 - stock_id: 009819
 - stock_name: 中信數據及電力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 28
+- latest_price_date: 20260702
+- price_rows: 29
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 10.33
-- high: 10.39
-- low: 10.3
-- close: 10.33
-- volume: 7360000
-- ma5: 10.26
-- ema23_primary: 10.35
-- distance_to_ema23_pct: -0.22
-- ma20: 10.43
-- ma60: 10.43
-- ma120: 10.43
-- return_5d: -0.1
-- return_20d: -6.52
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -0.93
-- distance_to_high_60_pct: -11.56
+- date: 20260702
+- open: 10.16
+- high: 10.18
+- low: 10.13
+- close: 10.17
+- volume: 6765000
+- ma5: 10.22
+- ema23_primary: 10.34
+- distance_to_ema23_pct: -1.62
+- ma20: 10.36
+- ma60: 10.42
+- ma120: 10.42
+- return_5d: -2.12
+- return_20d: -11.95
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -1.81
+- distance_to_high_60_pct: -12.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,11.44,11.68,11.44,11.55,48911922,10.42,10.81,10.55,10.55,2.06
 20260604,11.16,11.16,10.83,10.91,72890010,10.46,4.26,10.58,10.58,2.54
 20260605,10.76,10.8,10.66,10.75,31243284,10.49,2.5,10.6,10.6,1.08
 20260608,10.22,10.35,10.2,10.33,20559367,10.47,-1.38,10.57,10.57,0.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,10.14,10.18,10.12,10.15,7344171,10.36,-2.04,10.49,10.43,0.35
 20260630,10.2,10.3,10.2,10.29,6739000,10.36,-0.63,10.46,10.43,0.35
 20260701,10.33,10.39,10.3,10.33,7360000,10.35,-0.22,10.43,10.43,0.4
+20260702,10.16,10.18,10.13,10.17,6765000,10.34,-1.62,10.36,10.42,0.41
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2022 聚亨
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:02 Asia/Taipei
+- generated_at: 2026-07-02 22:26:23 Asia/Taipei
 - stock_id: 2022
 - stock_name: 聚亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 7.79
-- high: 8.16
-- low: 7.68
-- close: 8
-- volume: 1593000
-- ma5: 7.73
-- ema23_primary: 7.81
-- distance_to_ema23_pct: 2.49
+- date: 20260702
+- open: 8
+- high: 8.09
+- low: 7.87
+- close: 8.08
+- volume: 1142000
+- ma5: 7.81
+- ema23_primary: 7.83
+- distance_to_ema23_pct: 3.21
 - ma20: 7.82
-- ma60: 8.08
+- ma60: 8.06
 - ma120: 8.46
-- return_5d: 3.49
-- return_20d: 3.36
-- volume_ratio: 1.81
-- distance_to_ma20_pct_auxiliary: 2.37
-- distance_to_high_60_pct: -16.84
+- return_5d: 5.21
+- return_20d: 0
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 3.39
+- distance_to_high_60_pct: -16.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,7.78,8.19,7.76,8.08,2836846,7.92,1.96,7.84,8.49,2.15
 20260604,8.1,8.17,8,8.08,1610437,7.94,1.79,7.84,8.48,1.19
 20260605,8.05,8.05,7.88,8.02,949708,7.94,0.95,7.84,8.46,0.69
 20260608,7.78,7.89,7.6,7.85,782690,7.94,-1.09,7.82,8.44,0.58
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,7.59,7.67,7.59,7.64,287969,7.79,-1.94,7.81,8.11,0.32
 20260630,7.64,7.75,7.64,7.75,906000,7.79,-0.49,7.8,8.09,1.05
 20260701,7.79,8.16,7.68,8,1593000,7.81,2.49,7.82,8.08,1.81
+20260702,8,8.09,7.87,8.08,1142000,7.83,3.21,7.82,8.06,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -188,14 +188,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2022 | 聚亨 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：高雄市岡山區新樂街79-1號 聚亨公司一樓會議室 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 2022 | 聚亨 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：高雄市岡山區新樂街79-1號 聚亨公司一樓會議室 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260701 | 2022 | 聚亨 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：高雄市岡山區新樂街79-1號 聚亨公司一樓會議室 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2022 | 聚亨 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：高雄市岡山區新樂街79-1號 聚亨公司一樓會議室 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 2022 | 聚亨 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：高雄市岡山區新樂街79-1號 聚亨公司一樓會議室 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 2022 | 聚亨 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：高雄市岡山區新樂街79-1號 聚亨公司一樓會議室 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2022 | 聚亨 | 1 | 1 | 1 | 2 | 7 | repeated_but_no_breakout | 近 10 日上榜 2 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 2022 | 聚亨 | 2 | 2 | 2 | 3 | 7 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

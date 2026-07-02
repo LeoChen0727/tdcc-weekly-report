@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1718 中纖
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:58 Asia/Taipei
+- generated_at: 2026-07-02 22:26:18 Asia/Taipei
 - stock_id: 1718
 - stock_name: 中纖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 14.35
-- high: 14.5
-- low: 12.15
-- close: 12.4
-- volume: 291800000
-- ma5: 11.88
-- ema23_primary: 9.86
-- distance_to_ema23_pct: 25.77
-- ma20: 10.03
-- ma60: 7.84
-- ma120: 7.52
-- return_5d: 34.34
-- return_20d: 55
-- volume_ratio: 5.38
-- distance_to_ma20_pct_auxiliary: 23.57
-- distance_to_high_60_pct: -14.48
+- date: 20260702
+- open: 12.6
+- high: 13.6
+- low: 12.55
+- close: 13.6
+- volume: 63424000
+- ma5: 12.57
+- ema23_primary: 10.17
+- distance_to_ema23_pct: 33.71
+- ma20: 10.27
+- ma60: 7.94
+- ma120: 7.58
+- return_5d: 33.99
+- return_20d: 54.55
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 32.37
+- distance_to_high_60_pct: -6.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,8.8,8.8,8.8,8.8,18134403,6.9,27.55,6.7,7.02,2.27
 20260604,9.68,9.68,9.68,9.68,33368748,7.13,35.74,6.87,7.05,3.57
 20260605,9.89,10.2,8.72,9.85,205424843,7.36,33.87,7.05,7.1,10.6
 20260608,9.37,10.2,9,10,32120210,7.58,31.96,7.22,7.14,1.54
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,11.85,12.25,11.85,12.25,33754509,9.28,31.99,9.51,7.65,0.88
 20260630,12.95,13.45,12.5,13.45,91732000,9.63,39.69,9.81,7.75,2.18
 20260701,14.35,14.5,12.15,12.4,291800000,9.86,25.77,10.03,7.84,5.38
+20260702,12.6,13.6,12.55,13.6,63424000,10.17,33.71,10.27,7.94,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1718 | 中纖 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_overheated | 1.證券名稱: 台中商業銀行股份有限公司普通股 2.交易日期:115/4/24~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年4月22日 5.交易數量、每單位價格及交易總金額: 交易數量：19,753,570股 每單位價格：平均約19.39元 交易總金額：382,926,229元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益約228,010仟元 7.與交易標的公司之關係: 台中銀為母公司中纖採權益法評價之投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 中纖:1,277,768,406股，20,269,770,990元，21.22％，質押592,060仟股 磐亞:341,322,463股，5,414,493,303元，5.63％，無質押情形 德興投資:17,650,648股，275,487,211元，0.29％，質押4,500仟股 久津實業:10,354,498股，212,784,934元，0.17％，質押9,175仟股 久暢:0股，0元，0％，無質押情形 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 0.74％，1.34％，213,965,015元 10.取得或處分之具體目的: 實現利益 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用，原因:董事長核決 115年4月22日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 本次交易依取得成本計算，處分利益約為新台幣228,010仟元，惟依IFRS9 規定，本年度實際可認列之損益金額，以本公司經會計師查核或核閱；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 1718 | 中纖 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.證券名稱: 台中商業銀行股份有限公司普通股 2.交易日期:115/4/24~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年4月22日 5.交易數量、每單位價格及交易總金額: 交易數量：19,753,570股 每單位價格：平均約19.39元 交易總金額：382,926,229元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益約228,010仟元 7.與交易標的公司之關係: 台中銀為母公司中纖採權益法評價之投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 中纖:1,277,768,406股，20,269,770,990元，21.22％，質押592,060仟股 磐亞:341,322,463股，5,414,493,303元，5.63％，無質押情形 德興投資:17,650,648股，275,487,211元，0.29％，質押4,500仟股 久津實業:10,354,498股，212,784,934元，0.17％，質押9,175仟股 久暢:0股，0元，0％，無質押情形 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 0.74％，1.34％，213,965,015元 10.取得或處分之具體目的: 實現利益 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用，原因:董事長核決 115年4月22日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 本次交易依取得成本計算，處分利益約為新台幣228,010仟元，惟依IFRS9 規定，本年度實際可認列之損益金額，以本公司經會計師查核或核閱；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1718 | 中纖 | 4 | 1 | 4 | 4 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 1718 | 中纖 | 5 | 2 | 5 | 5 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1718 | 中纖 | 9 | 0 | 4596220.0 | 0.0 |  | call_inflow |
+| 20260702 | 1718 | 中纖 | 9 | 0 | 2605600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

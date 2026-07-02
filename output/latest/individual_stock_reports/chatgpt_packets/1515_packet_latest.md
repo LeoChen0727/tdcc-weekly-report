@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1515 力山
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:53 Asia/Taipei
+- generated_at: 2026-07-02 22:26:13 Asia/Taipei
 - stock_id: 1515
 - stock_name: 力山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 32.55
-- high: 35.45
-- low: 32.55
-- close: 35.45
-- volume: 6002000
-- ma5: 31.87
-- ema23_primary: 27.12
-- distance_to_ema23_pct: 30.73
-- ma20: 26.55
-- ma60: 23.9
-- ma120: 25.06
-- return_5d: 31.3
-- return_20d: 61.14
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 33.51
+- date: 20260702
+- open: 37
+- high: 38.95
+- low: 37
+- close: 38.95
+- volume: 7443000
+- ma5: 33.72
+- ema23_primary: 28.1
+- distance_to_ema23_pct: 38.6
+- ma20: 27.35
+- ma60: 24.16
+- ma120: 25.15
+- return_5d: 31.14
+- return_20d: 69.35
+- volume_ratio: 2.28
+- distance_to_ma20_pct_auxiliary: 42.41
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,22.35,23,21.9,23,1105529,22.42,2.57,22.38,23.2,1.51
 20260604,23.5,25.3,23.1,25.3,3446047,22.66,11.64,22.55,23.21,3.93
 20260605,27.8,27.8,25.15,26.3,7961635,22.97,14.52,22.77,23.24,6.32
 20260608,23.75,24.45,23.7,23.85,1963795,23.04,3.52,22.75,23.21,1.52
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,30.85,33.55,30.35,31.45,5499347,25.82,21.79,25.37,23.56,2.17
 20260630,31.75,32.5,31,32.25,4265000,26.36,22.35,25.88,23.7,1.59
 20260701,32.55,35.45,32.55,35.45,6002000,27.12,30.73,26.55,23.9,2.04
+20260702,37,38.95,37,38.95,7443000,28.1,38.6,27.35,24.16,2.28
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1515 | 力山 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 1515 | 力山 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1515 | 力山 | 5 | 1 | 5 | 8 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 1515 | 力山 | 6 | 2 | 5 | 9 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

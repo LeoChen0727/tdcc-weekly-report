@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3209 全科
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:35 Asia/Taipei
+- generated_at: 2026-07-02 22:26:56 Asia/Taipei
 - stock_id: 3209
 - stock_name: 全科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 59.6
-- high: 60.2
-- low: 57.4
-- close: 57.6
-- volume: 1567000
-- ma5: 59.2
-- ema23_primary: 63.32
-- distance_to_ema23_pct: -9.03
-- ma20: 64.19
-- ma60: 61.16
-- ma120: 48.72
-- return_5d: -5.88
-- return_20d: -25.96
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -10.27
-- distance_to_high_60_pct: -31.18
+- date: 20260702
+- open: 57.5
+- high: 59
+- low: 56.4
+- close: 59
+- volume: 1606000
+- ma5: 58.88
+- ema23_primary: 62.96
+- distance_to_ema23_pct: -6.28
+- ma20: 63.26
+- ma60: 61.46
+- ma120: 48.94
+- return_5d: -2.64
+- return_20d: -24.16
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -6.73
+- distance_to_high_60_pct: -29.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,77.2,79.5,77,77.8,2650251,70.27,10.71,71.83,54.1,0.41
 20260604,77.3,78.4,76.2,77,2195287,70.83,8.71,72.95,54.82,0.34
 20260605,76.4,76.7,73.3,73.5,2687816,71.05,3.44,73.88,55.46,0.41
 20260608,66.2,70.7,66.2,69.9,2949089,70.96,-1.49,74.34,56.02,0.47
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,60.3,60.4,58.1,58.4,1842685,64.26,-9.11,66.01,60.58,0.73
 20260630,59.3,59.7,58.7,59.2,910000,63.84,-7.26,65.2,60.87,0.38
 20260701,59.6,60.2,57.4,57.6,1567000,63.32,-9.03,64.19,61.16,0.68
+20260702,57.5,59,56.4,59,1606000,62.96,-6.28,63.26,61.46,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3209 | 全科 | revenue_pullback | 營收成長股價回檔 | 59.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.接受資金貸與之: (1)公司名稱:全科科技股份有限公司 (2)與資金貸與他人公司之關係: Alltek Group Corp. 為本公司100% 持有之子公司 (3)資金貸與之限額(仟元):1,919,877 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):658,455 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):658,455 (8)本次新增資金貸與之原因: 借款人之營運需要 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):2,353,912 (2)累積盈虧金額(仟元):1,127,518 5.計息方式: 依雙方協議 6.還款之: (1)條件: 依雙方協議 (2)日期: 依雙方協議 7.迄事實發生日為止，資金貸與餘額(仟元): 7,883,337 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 150.40 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3209 | 全科 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.接受資金貸與之: (1)公司名稱:全科科技股份有限公司 (2)與資金貸與他人公司之關係: Alltek Group Corp. 為本公司100% 持有之子公司 (3)資金貸與之限額(仟元):1,919,877 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):658,455 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):658,455 (8)本次新增資金貸與之原因: 借款人之營運需要 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):2,353,912 (2)累積盈虧金額(仟元):1,127,518 5.計息方式: 依雙方協議 6.還款之: (1)條件: 依雙方協議 (2)日期: 依雙方協議 7.迄事實發生日為止，資金貸與餘額(仟元): 7,883,337 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 150.40 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3209 | 全科 | 1 | 1 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3209 | 全科 | 1 | 1 | 3 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3209 | 全科 | 5 | 0 | 878710.0 | 0.0 |  | no_signal |
+| 20260702 | 3209 | 全科 | 5 | 0 | 166970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

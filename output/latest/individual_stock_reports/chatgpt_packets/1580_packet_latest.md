@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1580 新麥
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:55 Asia/Taipei
+- generated_at: 2026-07-02 22:26:16 Asia/Taipei
 - stock_id: 1580
 - stock_name: 新麥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 122
-- high: 122.5
-- low: 121.5
-- close: 122.5
-- volume: 86000
-- ma5: 122.2
-- ema23_primary: 123.31
-- distance_to_ema23_pct: -0.66
-- ma20: 124.08
-- ma60: 124.04
-- ma120: 127.58
-- return_5d: 0
-- return_20d: -2
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -1.27
-- distance_to_high_60_pct: -5.77
+- date: 20260702
+- open: 123
+- high: 123
+- low: 122.5
+- close: 123
+- volume: 35000
+- ma5: 122.3
+- ema23_primary: 123.29
+- distance_to_ema23_pct: -0.23
+- ma20: 123.92
+- ma60: 123.94
+- ma120: 127.49
+- return_5d: 0.41
+- return_20d: -2.38
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -0.75
+- distance_to_high_60_pct: -5.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,125.5,126,124,126,125000,123.33,2.16,122.95,125.97,1.49
 20260604,126,127.5,125.5,127.5,127000,123.68,3.09,123.08,125.97,1.49
 20260605,127,128,125.5,127,127000,123.96,2.45,123.2,125.92,1.42
 20260608,126,127.5,125.5,126.5,168000,124.17,1.88,123.35,125.82,1.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,122.5,123,122,122,34000,123.52,-1.23,124.25,124.28,0.36
 20260630,122,122.5,121.5,122,70000,123.39,-1.13,124.2,124.16,0.75
 20260701,122,122.5,121.5,122.5,86000,123.31,-0.66,124.08,124.04,0.88
+20260702,123,123,122.5,123,35000,123.29,-0.23,123.92,123.94,0.38
 ```
 
 ## Latest TDCC Snapshot

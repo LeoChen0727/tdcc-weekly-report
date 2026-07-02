@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1256 鮮活果汁-KY
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:46 Asia/Taipei
+- generated_at: 2026-07-02 22:26:07 Asia/Taipei
 - stock_id: 1256
 - stock_name: 鮮活果汁-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 179
-- high: 185
-- low: 177.5
-- close: 185
-- volume: 82000
-- ma5: 179.3
-- ema23_primary: 181.28
-- distance_to_ema23_pct: 2.05
-- ma20: 181.32
-- ma60: 175.37
-- ma120: 165.97
-- return_5d: 3.06
-- return_20d: -8.87
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 2.03
-- distance_to_high_60_pct: -15.33
+- date: 20260702
+- open: 184.5
+- high: 189
+- low: 181.5
+- close: 184
+- volume: 318000
+- ma5: 180.3
+- ema23_primary: 181.51
+- distance_to_ema23_pct: 1.37
+- ma20: 180.45
+- ma60: 175.92
+- ma120: 166.32
+- return_5d: 2.79
+- return_20d: -8.68
+- volume_ratio: 2.31
+- distance_to_ma20_pct_auxiliary: 1.97
+- distance_to_high_60_pct: -15.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,204,208,201.5,201.5,218291,187.31,7.57,188.88,167.16,1.13
 20260604,202,204.5,196.5,200,114069,188.37,6.17,190.47,167.81,0.58
 20260605,203.5,203.5,180,181,470872,187.76,-3.6,190.72,168.09,2.28
 20260608,172.5,179,171,176.5,206617,186.82,-5.52,190.7,168.18,0.98
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,176.5,179.5,175.5,176,47553,181.08,-2.8,183.72,174.18,0.33
 20260630,177,185,175,179.5,296000,180.95,-0.8,182.22,174.72,2.15
 20260701,179,185,177.5,185,82000,181.28,2.05,181.32,175.37,0.62
+20260702,184.5,189,181.5,184,318000,181.51,1.37,180.45,175.92,2.31
 ```
 
 ## Latest TDCC Snapshot

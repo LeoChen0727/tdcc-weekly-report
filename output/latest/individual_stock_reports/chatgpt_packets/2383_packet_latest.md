@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:11 Asia/Taipei
+- generated_at: 2026-07-02 22:26:31 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 5475
-- high: 5670
-- low: 5300
-- close: 5535
-- volume: 879000
-- ma5: 5454
-- ema23_primary: 5246.64
-- distance_to_ema23_pct: 5.5
-- ma20: 5227.5
-- ma60: 4698.08
-- ma120: 3415.5
-- return_5d: -0.45
-- return_20d: 13.89
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 5.88
-- distance_to_high_60_pct: -8.44
+- date: 20260702
+- open: 5440
+- high: 5750
+- low: 5390
+- close: 5655
+- volume: 905000
+- ma5: 5457
+- ema23_primary: 5280.67
+- distance_to_ema23_pct: 7.09
+- ma20: 5268.75
+- ma60: 4744.25
+- ma120: 3448.67
+- return_5d: 0.27
+- return_20d: 17.08
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 7.33
+- distance_to_high_60_pct: -6.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,4910,5010,4820,4830,2199236,4786.79,0.9,4906.5,3889.42,0.88
 20260604,4880,4885,4740,4830,1722407,4790.39,0.83,4900,3933.67,0.7
 20260605,4780,5025,4545,4885,2909896,4798.28,1.81,4906.75,3975.5,1.18
 20260608,4575,4810,4530,4770,2667787,4795.92,-0.54,4902.75,4014.17,1.08
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,5255,5450,5255,5450,953667,5205.01,4.71,5177.75,4610.08,0.43
 20260630,5375,5440,5255,5390,1102000,5220.43,3.25,5193.75,4652.25,0.51
 20260701,5475,5670,5300,5535,879000,5246.64,5.5,5227.5,4698.08,0.42
+20260702,5440,5750,5390,5655,905000,5280.67,7.09,5268.75,4744.25,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2383 | 台光電 | 105 | 12 | 2026800.0 | 18430.0 | 109.97 | call_inflow |
+| 20260702 | 2383 | 台光電 | 105 | 12 | 2102040.0 | 18330.0 | 114.68 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

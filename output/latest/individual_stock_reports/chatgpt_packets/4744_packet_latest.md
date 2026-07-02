@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4744 皇將
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:59 Asia/Taipei
+- generated_at: 2026-07-02 22:27:20 Asia/Taipei
 - stock_id: 4744
 - stock_name: 皇將
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 25.35
-- high: 25.55
-- low: 25.15
-- close: 25.15
-- volume: 19000
-- ma5: 25.22
-- ema23_primary: 28.98
-- distance_to_ema23_pct: -13.22
-- ma20: 29.83
-- ma60: 32.13
-- ma120: 31.98
-- return_5d: -2.9
-- return_20d: -29.35
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -15.69
-- distance_to_high_60_pct: -37.28
+- date: 20260702
+- open: 25.15
+- high: 25.45
+- low: 24.5
+- close: 25
+- volume: 50000
+- ma5: 25.11
+- ema23_primary: 28.65
+- distance_to_ema23_pct: -12.74
+- ma20: 29.28
+- ma60: 31.94
+- ma120: 31.94
+- return_5d: -2.15
+- return_20d: -30.46
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -14.62
+- distance_to_high_60_pct: -35.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,35.7,36.3,35.4,35.95,36000,34.19,5.15,34,33.9,0.22
 20260604,36.8,36.8,35.55,35.7,36000,34.32,4.04,34.16,33.99,0.22
 20260605,35.75,35.8,35,35.05,35000,34.38,1.96,34.29,34.05,0.22
 20260608,34.2,36.65,33.75,36.5,412000,34.55,5.63,34.48,34.13,2.56
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,24.9,25.3,24.8,25.2,27000,29.7,-15.14,30.92,32.56,0.06
 20260630,25.2,25.3,25,25.3,25000,29.33,-13.74,30.35,32.36,0.06
 20260701,25.35,25.55,25.15,25.15,19000,28.98,-13.22,29.83,32.13,0.04
+20260702,25.15,25.45,24.5,25,50000,28.65,-12.74,29.28,31.94,0.11
 ```
 
 ## Latest TDCC Snapshot

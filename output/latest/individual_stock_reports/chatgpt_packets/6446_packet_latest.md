@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:26 Asia/Taipei
+- generated_at: 2026-07-02 22:27:48 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 1380
-- high: 1405
-- low: 1355
-- close: 1360
-- volume: 2560000
-- ma5: 1264
-- ema23_primary: 1071.78
-- distance_to_ema23_pct: 26.89
-- ma20: 1062.1
-- ma60: 836.42
-- ma120: 735.76
-- return_5d: 17.24
-- return_20d: 50.78
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 28.05
-- distance_to_high_60_pct: -3.2
+- date: 20260702
+- open: 1345
+- high: 1400
+- low: 1320
+- close: 1395
+- volume: 2488000
+- ma5: 1304
+- ema23_primary: 1098.71
+- distance_to_ema23_pct: 26.97
+- ma20: 1086.9
+- ma60: 849.03
+- ma120: 743.35
+- return_5d: 16.74
+- return_20d: 55.17
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 28.35
+- distance_to_high_60_pct: -0.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,903,906,883,899,2256658,814.4,10.39,816.95,701.23,0.58
 20260604,892,945,885,938,2644650,824.7,13.74,830.9,705.75,0.67
 20260605,958,964,929,937,2516300,834.06,12.34,841.55,710.2,0.67
 20260608,907,956,907,926,3873609,841.72,10.01,852.55,714.47,1.02
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,1205,1270,1205,1270,2907656,1018.81,24.66,1020.3,812.53,0.95
 20260630,1295,1380,1285,1340,4933000,1045.58,28.16,1039.2,824.28,1.58
 20260701,1380,1405,1355,1360,2560000,1071.78,26.89,1062.1,836.42,0.84
+20260702,1345,1400,1320,1395,2488000,1098.71,26.97,1086.9,849.03,0.82
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:59 Asia/Taipei
+- generated_at: 2026-07-02 22:28:21 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 193
-- high: 193
-- low: 180
-- close: 180
-- volume: 2787000
-- ma5: 194.1
-- ema23_primary: 208.15
-- distance_to_ema23_pct: -13.52
-- ma20: 208.72
-- ma60: 213.44
-- ma120: 172.29
-- return_5d: -11.55
-- return_20d: -30.1
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -13.76
-- distance_to_high_60_pct: -33.58
+- date: 20260702
+- open: 174.5
+- high: 192.5
+- low: 174
+- close: 192.5
+- volume: 2255000
+- ma5: 191.7
+- ema23_primary: 206.84
+- distance_to_ema23_pct: -6.93
+- ma20: 205.85
+- ma60: 214.29
+- ma120: 173.07
+- return_5d: -5.87
+- return_20d: -23
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -6.49
+- distance_to_high_60_pct: -28.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,260,261,247,250,5735954,232.88,7.35,240.12,198.73,1.05
 20260604,245,257.5,244.5,245,5076536,233.89,4.75,239.97,200.78,0.9
 20260605,235,235,220.5,222,7397330,232.9,-4.68,238.05,202.3,1.25
 20260608,200,210.5,200,210,3143391,230.99,-9.09,235.75,203.4,0.57
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,200.5,200.5,192.5,193.5,1977678,212.18,-8.8,215.3,212.01,0.51
 20260630,196,197.5,191,194.5,1765000,210.71,-7.69,212.6,212.87,0.49
 20260701,193,193,180,180,2787000,208.15,-13.52,208.72,213.44,0.88
+20260702,174.5,192.5,174,192.5,2255000,206.84,-6.93,205.85,214.29,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.5元) (2)變更後發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.44844317元) 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/27 13.其他應敘明事項: 本公司因發行限制員工權利新股致參與配發之股數增加，依115年2月25日 董事會決議，授權董事長調整現金股利配息率。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.5元) (2)變更後發放股利種類及金額：      普通股現金股利新台幣 576,581,697元 (每股預計配發4.44844317元) 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/27 13.其他應敘明事項: 本公司因發行限制員工權利新股致參與配發之股數增加，依115年2月25日 董事會決議，授權董事長調整現金股利配息率。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8271 | 宇瞻 | 1 | 1 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 8271 | 宇瞻 | 1 | 1 | 2 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8271 | 宇瞻 | 53 | 8 | 12802740.0 | 20340.0 | 629.44 | call_put_bullish |
+| 20260702 | 8271 | 宇瞻 | 53 | 8 | 2907120.0 | 131350.0 | 22.13 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

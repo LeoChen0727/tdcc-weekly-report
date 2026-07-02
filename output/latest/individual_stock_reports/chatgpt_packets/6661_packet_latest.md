@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6661 威健生技
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:33 Asia/Taipei
+- generated_at: 2026-07-02 22:27:56 Asia/Taipei
 - stock_id: 6661
 - stock_name: 威健生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 155
+- latest_price_date: 20260702
+- price_rows: 156
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 18.25
-- high: 18.25
-- low: 17
-- close: 18.15
-- volume: 33000
-- ma5: 18.03
-- ema23_primary: 17.23
-- distance_to_ema23_pct: 5.36
-- ma20: 16.81
-- ma60: 17.53
+- date: 20260702
+- open: 17.95
+- high: 18.45
+- low: 17.95
+- close: 18.1
+- volume: 4000
+- ma5: 17.96
+- ema23_primary: 17.3
+- distance_to_ema23_pct: 4.63
+- ma20: 16.92
+- ma60: 17.52
 - ma120: 18.18
-- return_5d: -1.63
-- return_20d: 12.04
-- volume_ratio: 1.95
-- distance_to_ma20_pct_auxiliary: 7.96
-- distance_to_high_60_pct: -4.22
+- return_5d: -1.9
+- return_20d: 13.12
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 6.99
+- distance_to_high_60_pct: -4.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,16.25,16.25,15.9,16,16000,17.32,-7.61,17.31,18.14,1.39
 20260604,16.1,16.25,16,16.1,16000,17.22,-6.49,17.21,18.1,1.37
 20260605,16.2,16.35,16.1,16.35,16000,17.14,-4.63,17.14,18.06,1.36
 20260608,15.55,16.35,15.55,16.3,12000,17.07,-4.53,17.08,18.03,1.04
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,18.6,18.6,18.3,18.45,9000,17.07,8.11,16.64,17.55,0.59
 20260630,18.3,18.3,17.65,18,16000,17.14,5,16.71,17.53,1.05
 20260701,18.25,18.25,17,18.15,33000,17.23,5.36,16.81,17.53,1.95
+20260702,17.95,18.45,17.95,18.1,4000,17.3,4.63,16.92,17.52,0.24
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:06 Asia/Taipei
+- generated_at: 2026-07-02 22:26:27 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 45.95
-- high: 46.3
-- low: 43.5
-- close: 44.15
-- volume: 1585000
-- ma5: 45.33
-- ema23_primary: 42.79
-- distance_to_ema23_pct: 3.17
-- ma20: 43.04
-- ma60: 35.58
-- ma120: 33.72
-- return_5d: -7.25
-- return_20d: 36.48
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 2.58
-- distance_to_high_60_pct: -19.73
+- date: 20260702
+- open: 44.1
+- high: 46.85
+- low: 43.75
+- close: 46.45
+- volume: 1536000
+- ma5: 45.46
+- ema23_primary: 43.1
+- distance_to_ema23_pct: 7.78
+- ma20: 43.77
+- ma60: 35.89
+- ma120: 33.81
+- return_5d: 1.42
+- return_20d: 45.61
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 6.13
+- distance_to_high_60_pct: -15.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,32.4,32.4,31.3,31.9,2650564,33.81,-5.64,34.22,31.18,0.88
 20260604,31.9,33.2,31.8,32.2,1093663,33.67,-4.37,34.29,31.24,0.36
 20260605,32.5,35.4,31.85,35.4,3727155,33.82,4.68,34.58,31.35,1.17
 20260608,32.35,38.9,32.35,38.9,9187112,34.24,13.61,34.97,31.5,2.56
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,46.5,47.3,44.2,45.4,2985546,42.42,7.02,41.91,35.04,0.64
 20260630,45.4,46.45,45,45.4,1397000,42.67,6.4,42.45,35.32,0.3
 20260701,45.95,46.3,43.5,44.15,1585000,42.79,3.17,43.04,35.58,0.35
+20260702,44.1,46.85,43.75,46.45,1536000,43.1,7.78,43.77,35.89,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2241 | 艾姆勒 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 2241 | 艾姆勒 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2241 | 艾姆勒 | 2 | 2 | 2 | 3 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 2241 | 艾姆勒 | 1 | 1 | 2 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

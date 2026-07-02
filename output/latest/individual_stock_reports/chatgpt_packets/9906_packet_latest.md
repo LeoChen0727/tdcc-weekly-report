@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9906 欣巴巴
 
 ## Metadata
-- generated_at: 2026-07-01 22:29:05 Asia/Taipei
+- generated_at: 2026-07-02 22:28:28 Asia/Taipei
 - stock_id: 9906
 - stock_name: 欣巴巴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 41.5
-- high: 41.8
-- low: 40.55
-- close: 41.35
-- volume: 78000
-- ma5: 41.4
-- ema23_primary: 41.4
-- distance_to_ema23_pct: -0.11
-- ma20: 42.89
-- ma60: 39.13
-- ma120: 41.94
-- return_5d: -3.27
-- return_20d: 13.13
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -3.6
-- distance_to_high_60_pct: -19.55
+- date: 20260702
+- open: 44
+- high: 44
+- low: 41.1
+- close: 41.9
+- volume: 134000
+- ma5: 41.28
+- ema23_primary: 41.44
+- distance_to_ema23_pct: 1.12
+- ma20: 43.02
+- ma60: 39.14
+- ma120: 41.85
+- return_5d: -1.41
+- return_20d: 6.62
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -2.61
+- distance_to_high_60_pct: -18.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,36.5,39.3,36.2,39.3,312471,35.63,10.29,34.42,38.63,1.26
 20260604,39.75,41.9,39,41.4,367359,36.11,14.63,34.64,38.65,1.44
 20260605,41.4,43.8,41.05,42.6,526091,36.66,16.22,34.96,38.7,1.91
 20260608,39.6,43.9,39.6,42.3,392383,37.13,13.94,35.27,38.71,1.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,40.7,42.75,40.2,40.35,99811,41.4,-2.55,42.38,39.13,0.23
 20260630,40.4,41.35,40,41.35,181000,41.4,-0.12,42.65,39.12,0.42
 20260701,41.5,41.8,40.55,41.35,78000,41.4,-0.11,42.89,39.13,0.18
+20260702,44,44,41.1,41.9,134000,41.44,1.12,43.02,39.14,0.32
 ```
 
 ## Latest TDCC Snapshot

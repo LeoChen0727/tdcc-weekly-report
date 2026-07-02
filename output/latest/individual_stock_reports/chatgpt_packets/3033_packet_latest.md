@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:29 Asia/Taipei
+- generated_at: 2026-07-02 22:26:50 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 49.8
-- high: 51.8
-- low: 49.4
-- close: 49.8
-- volume: 9750000
-- ma5: 49.25
-- ema23_primary: 49.09
-- distance_to_ema23_pct: 1.45
-- ma20: 49.72
-- ma60: 44.19
-- ma120: 37.77
-- return_5d: -0.4
-- return_20d: 0.2
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 0.17
-- distance_to_high_60_pct: -9.95
+- date: 20260702
+- open: 49.45
+- high: 50.5
+- low: 48.85
+- close: 50.4
+- volume: 3660000
+- ma5: 49.48
+- ema23_primary: 49.2
+- distance_to_ema23_pct: 2.44
+- ma20: 49.75
+- ma60: 44.49
+- ma120: 37.94
+- return_5d: 2.33
+- return_20d: 1.51
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 1.3
+- distance_to_high_60_pct: -8.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,50.5,50.5,49.6,49.65,7582176,46.86,5.96,48.33,38.68,0.34
 20260604,49.5,50.8,48.8,50,10680578,47.12,6.12,48.68,39.03,0.51
 20260605,52,54,49.85,51.8,31939950,47.51,9.03,49.08,39.4,1.49
 20260608,47,48.2,46.8,47.9,10903200,47.54,0.75,49.27,39.7,0.51
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,50,50,48.6,48.8,4475160,48.99,-0.39,49.68,43.61,0.4
 20260630,49.45,49.7,49.1,49.4,2551000,49.02,0.77,49.71,43.89,0.25
 20260701,49.8,51.8,49.4,49.8,9750000,49.09,1.45,49.72,44.19,0.94
+20260702,49.45,50.5,48.85,50.4,3660000,49.2,2.44,49.75,44.49,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3033 | 威健 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 3033 | 威健 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3033 | 威健 | 13 | 7 | 5 | 10 | 16 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 3033 | 威健 | 14 | 2 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3033 | 威健 | 32 | 0 | 3209700.0 | 0.0 |  | call_strong_inflow |
+| 20260702 | 3033 | 威健 | 32 | 0 | 2790200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

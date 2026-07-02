@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2434 統懋
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:13 Asia/Taipei
+- generated_at: 2026-07-02 22:26:34 Asia/Taipei
 - stock_id: 2434
 - stock_name: 統懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 44.5
-- high: 47.75
-- low: 44.05
-- close: 47.75
-- volume: 1253000
-- ma5: 42.75
-- ema23_primary: 38.94
-- distance_to_ema23_pct: 22.62
-- ma20: 38.41
-- ma60: 33.49
-- ma120: 31.68
-- return_5d: 7.18
-- return_20d: 33.01
-- volume_ratio: 2.27
-- distance_to_ma20_pct_auxiliary: 24.31
+- date: 20260702
+- open: 48.7
+- high: 52.5
+- low: 48.15
+- close: 52.5
+- volume: 1148000
+- ma5: 45.06
+- ema23_primary: 40.07
+- distance_to_ema23_pct: 31.02
+- ma20: 39.19
+- ma60: 33.88
+- ma120: 31.86
+- return_5d: 28.21
+- return_20d: 42.08
+- volume_ratio: 1.95
+- distance_to_ma20_pct_auxiliary: 33.96
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,37,39.45,36.85,36.95,432465,32.9,12.32,32.38,30.58,2.36
 20260604,36.2,36.95,35.25,35.55,61399,33.12,7.34,32.53,30.68,0.33
 20260605,36.6,36.6,34.2,35.2,66404,33.29,5.73,32.69,30.77,0.36
 20260608,33,33.85,32.5,32.7,81423,33.24,-1.63,32.77,30.82,0.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,43.2,44.2,39.05,39.5,793600,37.66,4.89,37.51,32.94,1.55
 20260630,40.1,43.45,39.75,43.45,459000,38.14,13.92,37.82,33.18,0.91
 20260701,44.5,47.75,44.05,47.75,1253000,38.94,22.62,38.41,33.49,2.27
+20260702,48.7,52.5,48.15,52.5,1148000,40.07,31.02,39.19,33.88,1.95
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2434 | 統懋 | true_breakout | 嚴格突破 | 109.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2434 | 統懋 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2434 | 統懋 | 1 | 1 | 3 | 4 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260702 | 2434 | 統懋 | 2 | 2 | 3 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

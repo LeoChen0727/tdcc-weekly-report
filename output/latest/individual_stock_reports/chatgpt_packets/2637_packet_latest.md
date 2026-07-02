@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:21 Asia/Taipei
+- generated_at: 2026-07-02 22:26:42 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 73.6
-- high: 73.6
-- low: 71
-- close: 71.4
-- volume: 2532000
-- ma5: 72.88
-- ema23_primary: 75.37
-- distance_to_ema23_pct: -5.27
-- ma20: 76.72
-- ma60: 74.45
-- ma120: 72.32
-- return_5d: -5.68
-- return_20d: -7.27
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -6.93
-- distance_to_high_60_pct: -15
+- date: 20260702
+- open: 71.2
+- high: 72.2
+- low: 70.8
+- close: 71.7
+- volume: 1546000
+- ma5: 72
+- ema23_primary: 75.06
+- distance_to_ema23_pct: -4.48
+- ma20: 76.45
+- ma60: 74.51
+- ma120: 72.34
+- return_5d: -5.78
+- return_20d: -6.88
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -6.21
+- distance_to_high_60_pct: -14.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,77.6,78.1,76.1,77,5279035,74.58,3.24,74.48,72.06,1.54
 20260604,78.2,79.8,77.2,78.1,8394659,74.88,4.31,74.55,72.25,2.31
 20260605,78.2,84,78.2,80.6,15502381,75.35,6.96,74.84,72.45,3.63
 20260608,78.5,81.8,77.3,78.5,10386017,75.61,3.82,75.05,72.62,2.2
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,72.4,73.1,70.9,72.6,2266513,76.02,-4.49,77.31,74.33,0.37
 20260630,72.9,73.3,72.2,72.6,1905000,75.73,-4.13,77,74.39,0.32
 20260701,73.6,73.6,71,71.4,2532000,75.37,-5.27,76.72,74.45,0.44
+20260702,71.2,72.2,70.8,71.7,1546000,75.06,-4.48,76.45,74.51,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:Amis Miracle S.A. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:百分之百持股公司 5.發生緣由:本集團40,000噸散裝貨輪加入營運 6.因應措施:發佈重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  本高規格新型節能散裝貨輪由今治造船株式會社  (Imabari Shipbuilding Co., Ltd.)建造，為NOx第三期環保節能船。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:Amis Miracle S.A. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:百分之百持股公司 5.發生緣由:本集團40,000噸散裝貨輪加入營運 6.因應措施:發佈重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  本高規格新型節能散裝貨輪由今治造船株式會社  (Imabari Shipbuilding Co., Ltd.)建造，為NOx第三期環保節能船。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2637 | 慧洋-KY | 15 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2637 | 慧洋-KY | 1 | 1 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2637 | 慧洋-KY | 26 | 0 | 456650.0 | 0.0 |  | no_signal |
+| 20260702 | 2637 | 慧洋-KY | 26 | 0 | 311010.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

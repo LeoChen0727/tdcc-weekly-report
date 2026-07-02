@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6186 新潤
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:19 Asia/Taipei
+- generated_at: 2026-07-02 22:27:41 Asia/Taipei
 - stock_id: 6186
 - stock_name: 新潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 42.35
-- high: 42.85
-- low: 41.75
-- close: 42.65
-- volume: 1086000
-- ma5: 41.88
-- ema23_primary: 41.12
-- distance_to_ema23_pct: 3.72
-- ma20: 41.18
-- ma60: 40.45
-- ma120: 43.23
-- return_5d: 4.02
-- return_20d: 8.8
+- date: 20260702
+- open: 42.65
+- high: 43.5
+- low: 42.6
+- close: 43.1
+- volume: 1144000
+- ma5: 42.11
+- ema23_primary: 41.29
+- distance_to_ema23_pct: 4.4
+- ma20: 41.34
+- ma60: 40.51
+- ma120: 43.1
+- return_5d: 2.74
+- return_20d: 7.88
 - volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 3.56
-- distance_to_high_60_pct: -2.29
+- distance_to_ma20_pct_auxiliary: 4.26
+- distance_to_high_60_pct: -1.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,39.2,40,38.8,39.95,39000,39.76,0.49,39.58,40.36,0.06
 20260604,40.2,41.05,40.15,40.65,41000,39.83,2.06,39.58,40.36,0.07
 20260605,41,41.25,40.6,40.85,41000,39.92,2.34,39.63,40.35,0.07
 20260608,38.65,40.35,38.65,40.2,882000,39.94,0.65,39.66,40.33,1.58
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,41.7,42,41.35,41.55,355000,40.89,1.61,40.88,40.33,0.39
 20260630,41.95,42.05,41.4,41.95,581000,40.98,2.36,41.01,40.39,0.62
 20260701,42.35,42.85,41.75,42.65,1086000,41.12,3.72,41.18,40.45,1.09
+20260702,42.65,43.5,42.6,43.1,1144000,41.29,4.4,41.34,40.51,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6186 | 新潤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東會決議日:115/06/23 2.許可從事競業行為之董事姓名及職稱: 董事:展欣投資有限公司法人代表人郭長庚　 董事:辰睿開發投資股份有限公司法人代表人黃文辰　 董事:長奇投資股份有限公司 董事:萬(金旦寸)開發投資(股)公司 獨立董事:李嘉惠 獨立董事:張定華 獨立董事:林俊儀 獨立董事:李達人 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司職務 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 經股東常會已發行股份總數三分之二以上股東出席，出席股東表決權過半數同意通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 6186 | 新潤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東會決議日:115/06/23 2.許可從事競業行為之董事姓名及職稱: 董事:展欣投資有限公司法人代表人郭長庚　 董事:辰睿開發投資股份有限公司法人代表人黃文辰　 董事:長奇投資股份有限公司 董事:萬(金旦寸)開發投資(股)公司 獨立董事:李嘉惠 獨立董事:張定華 獨立董事:林俊儀 獨立董事:李達人 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司職務 4.許可從事競業行為之期間:任職本公司董事職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 經股東常會已發行股份總數三分之二以上股東出席，出席股東表決權過半數同意通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:不適用 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6186 | 新潤 | 1 | 1 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 6186 | 新潤 | 2 | 2 | 2 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

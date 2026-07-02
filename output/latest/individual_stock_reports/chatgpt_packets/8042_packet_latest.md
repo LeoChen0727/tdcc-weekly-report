@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8042 金山電
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:54 Asia/Taipei
+- generated_at: 2026-07-02 22:28:16 Asia/Taipei
 - stock_id: 8042
 - stock_name: 金山電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 198
-- high: 203
-- low: 190
-- close: 202
-- volume: 1759000
-- ma5: 187.5
-- ema23_primary: 169.91
-- distance_to_ema23_pct: 18.89
-- ma20: 173.32
-- ma60: 118.03
-- ma120: 88.3
-- return_5d: 5.21
-- return_20d: 24.69
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 16.54
-- distance_to_high_60_pct: -1.94
+- date: 20260702
+- open: 196.5
+- high: 206.5
+- low: 195
+- close: 206.5
+- volume: 1254000
+- ma5: 188.7
+- ema23_primary: 172.96
+- distance_to_ema23_pct: 19.39
+- ma20: 175.55
+- ma60: 120.61
+- ma120: 89.57
+- return_5d: 2.99
+- return_20d: 27.47
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 17.63
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,172,172,157,162,165000,123.72,30.94,124.04,80.18,0.06
 20260604,155,159.5,149,149,151000,125.83,18.41,127.24,81.8,0.06
 20260605,138.5,150,134.5,145.5,139000,127.47,14.15,130.31,83.33,0.12
 20260608,131,136,131,132,1226000,127.85,3.25,132.47,84.63,1.15
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,180.5,186,169,169,811000,165.31,2.23,170.5,113.33,0.2
 20260630,176,185.5,176,185.5,300000,167,11.08,171.32,115.52,0.07
 20260701,198,203,190,202,1759000,169.91,18.89,173.32,118.03,0.43
+20260702,196.5,206.5,195,206.5,1254000,172.96,19.39,175.55,120.61,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8042 | 金山電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | first_seen | 1.事實發生日:115/06/17 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:金山電六(80426)可轉債相關資訊 到期日期：117/12/16 實際發行總額：350,000,000元 發行餘額：275,400,000元 (截至115/06/17) 最新轉(交)換價格：59.40 轉換標的收盤價格(8042)：195.50 (115/06/17收盤價) 轉換債開盤參考價格(80426)：335.00 (115/06/17收盤價) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 8042 | 金山電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_2_3d | 1.事實發生日:115/06/17 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:金山電六(80426)可轉債相關資訊 到期日期：117/12/16 實際發行總額：350,000,000元 發行餘額：275,400,000元 (截至115/06/17) 最新轉(交)換價格：59.40 轉換標的收盤價格(8042)：195.50 (115/06/17收盤價) 轉換債開盤參考價格(80426)：335.00 (115/06/17收盤價) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8042 | 金山電 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260702 | 8042 | 金山電 | 2 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

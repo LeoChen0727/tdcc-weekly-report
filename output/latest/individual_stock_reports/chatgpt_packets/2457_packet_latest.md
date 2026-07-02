@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2457 飛宏
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:14 Asia/Taipei
+- generated_at: 2026-07-02 22:26:35 Asia/Taipei
 - stock_id: 2457
 - stock_name: 飛宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 29.7
-- high: 29.8
-- low: 28.3
-- close: 28.4
-- volume: 3617000
-- ma5: 28.28
-- ema23_primary: 28.52
-- distance_to_ema23_pct: -0.42
-- ma20: 29.43
-- ma60: 26.44
+- date: 20260702
+- open: 28
+- high: 29.85
+- low: 27.85
+- close: 29.5
+- volume: 3373000
+- ma5: 28.36
+- ema23_primary: 28.6
+- distance_to_ema23_pct: 3.14
+- ma20: 29.45
+- ma60: 26.54
 - ma120: 27.73
-- return_5d: -5.02
-- return_20d: 7.17
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -3.51
-- distance_to_high_60_pct: -13.15
+- return_5d: 1.37
+- return_20d: 1.2
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 0.17
+- distance_to_high_60_pct: -9.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,26.8,29.15,26.6,29.15,8259703,25.77,13.13,25.52,25.56,2.28
 20260604,32,32.05,31.85,32.05,7740982,26.29,21.91,25.84,25.64,2
 20260605,31.25,31.5,28.85,30.15,29528079,26.61,13.29,26.14,25.69,5.76
 20260608,27.15,29,27.15,28.25,10137770,26.75,5.61,26.27,25.69,1.86
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,27.2,28.15,26.9,27.6,2381538,28.46,-3.02,29.21,26.29,0.24
 20260630,28.1,29.9,28.1,29.3,4696000,28.53,2.7,29.34,26.37,0.47
 20260701,29.7,29.8,28.3,28.4,3617000,28.52,-0.42,29.43,26.44,0.36
+20260702,28,29.85,27.85,29.5,3373000,28.6,3.14,29.45,26.54,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2457 | 飛宏 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2457 | 飛宏 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2457 | 飛宏 | 3 | 3 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2457 | 飛宏 | 4 | 4 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2457 | 飛宏 | 42 | 2 | 728260.0 | 0.0 |  | no_signal |
+| 20260702 | 2457 | 飛宏 | 41 | 2 | 1044980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

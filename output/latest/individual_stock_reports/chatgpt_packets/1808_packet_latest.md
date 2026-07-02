@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:00 Asia/Taipei
+- generated_at: 2026-07-02 22:26:21 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 288
+- latest_price_date: 20260702
+- price_rows: 289
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 30.1
-- high: 30.15
-- low: 29.8
-- close: 29.95
-- volume: 456000
-- ma5: 30.3
-- ema23_primary: 30.59
-- distance_to_ema23_pct: -2.1
-- ma20: 31.14
-- ma60: 29.99
-- ma120: 30.9
-- return_5d: -4.16
-- return_20d: 2.39
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -3.82
-- distance_to_high_60_pct: -9.65
+- date: 20260702
+- open: 30.3
+- high: 30.3
+- low: 29.65
+- close: 29.65
+- volume: 711000
+- ma5: 30.02
+- ema23_primary: 30.51
+- distance_to_ema23_pct: -2.83
+- ma20: 31.08
+- ma60: 29.97
+- ma120: 30.85
+- return_5d: -4.51
+- return_20d: -3.73
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -4.61
+- distance_to_high_60_pct: -10.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,29.25,30.85,29.15,30.8,4784540,29.24,5.32,29.03,29.84,2.87
 20260604,30.9,31.7,30.75,31.7,2764025,29.45,7.64,29.19,29.89,1.58
 20260605,31.7,32.15,31.1,31.6,1628101,29.63,6.66,29.35,29.93,0.91
 20260608,30,31.4,30,30.65,1462383,29.71,3.15,29.44,29.92,0.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,30.6,30.9,29.85,29.9,1058114,30.71,-2.64,31.06,30.01,0.47
 20260630,30,30.2,29.6,30,889000,30.65,-2.13,31.11,29.99,0.41
 20260701,30.1,30.15,29.8,29.95,456000,30.59,-2.1,31.14,29.99,0.22
+20260702,30.3,30.3,29.65,29.65,711000,30.51,-2.83,31.08,29.97,0.37
 ```
 
 ## Latest TDCC Snapshot

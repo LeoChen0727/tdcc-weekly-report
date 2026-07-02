@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2313 華通
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:07 Asia/Taipei
+- generated_at: 2026-07-02 22:26:28 Asia/Taipei
 - stock_id: 2313
 - stock_name: 華通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 237.5
-- high: 237.5
-- low: 220
-- close: 220
-- volume: 25604000
-- ma5: 225.8
-- ema23_primary: 247.18
-- distance_to_ema23_pct: -11
-- ma20: 250.88
-- ma60: 256.27
-- ma120: 218.96
-- return_5d: -8.33
-- return_20d: -18.67
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -12.31
-- distance_to_high_60_pct: -27.99
+- date: 20260702
+- open: 216.5
+- high: 228.5
+- low: 214
+- close: 228.5
+- volume: 28451000
+- ma5: 224.9
+- ema23_primary: 245.63
+- distance_to_ema23_pct: -6.97
+- ma20: 248.97
+- ma60: 255.5
+- ma120: 220.06
+- return_5d: -1.93
+- return_20d: -14.26
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -8.22
+- distance_to_high_60_pct: -25.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,275.5,278,266,266.5,35476485,264.6,0.72,262.82,249.27,0.43
 20260604,266,272,258,265.5,39459603,264.67,0.31,263.62,250.64,0.48
 20260605,267,272,251,259,64234821,264.2,-1.97,263.9,251.78,0.8
 20260608,233.5,257.5,233.5,252,48578725,263.18,-4.25,264.4,252.57,0.62
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,222.5,228,218,221,26070297,251.22,-12.03,255.88,257.5,0.46
 20260630,229,236,225,232.5,25952000,249.66,-6.87,253.4,256.94,0.47
 20260701,237.5,237.5,220,220,25604000,247.18,-11,250.88,256.27,0.48
+20260702,216.5,228.5,214,228.5,28451000,245.63,-6.97,248.97,255.5,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2313 | 華通 | 342 | 43 | 31656630.0 | 1705300.0 | 18.56 | put_inflow |
+| 20260702 | 2313 | 華通 | 346 | 43 | 25031730.0 | 1854710.0 | 13.5 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

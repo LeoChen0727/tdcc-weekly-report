@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:25 Asia/Taipei
+- generated_at: 2026-07-02 22:26:46 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 40
-- high: 40.65
-- low: 39.15
-- close: 40
-- volume: 106870000
-- ma5: 39.7
-- ema23_primary: 36.5
-- distance_to_ema23_pct: 9.58
-- ma20: 36.48
-- ma60: 32.92
-- ma120: 31.66
-- return_5d: 1.14
-- return_20d: 29.03
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 9.63
-- distance_to_high_60_pct: -2.2
+- date: 20260702
+- open: 39.6
+- high: 39.9
+- low: 39.2
+- close: 39.5
+- volume: 60483000
+- ma5: 39.61
+- ema23_primary: 36.75
+- distance_to_ema23_pct: 7.47
+- ma20: 36.81
+- ma60: 33.04
+- ma120: 31.75
+- return_5d: -1.13
+- return_20d: 19.7
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 7.31
+- distance_to_high_60_pct: -3.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,31.5,33,31.15,33,93687028,30.56,7.97,30.25,31.3,2.24
 20260604,32.85,33.3,32.45,33.15,54394671,30.78,7.71,30.37,31.34,1.27
 20260605,33.05,33.15,32.45,32.7,43990630,30.94,5.69,30.45,31.36,1.01
 20260608,31.9,32.3,31.35,31.9,45790751,31.02,2.84,30.52,31.36,1.04
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,39.3,39.8,38.95,39.5,48480064,35.85,10.19,35.56,32.65,0.77
 20260630,39.85,40.3,39.3,39.9,67956000,36.19,10.26,36.03,32.79,1.05
 20260701,40,40.65,39.15,40,106870000,36.5,9.58,36.48,32.92,1.59
+20260702,39.6,39.9,39.2,39.5,60483000,36.75,7.47,36.81,33.04,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2890 | 永豐金 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 ~ 115/07/03 2.召開法人說明會之時間：15 時 30 分  3.召開法人說明會之地點：新加坡/香港 4.法人說明會擇要訊息：永豐金控將於115年6月30日至7月3日赴新加坡及香港會晤當地投資機構，說明115年第一季財務業務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 ~ 115/07/03 2.召開法人說明會之時間：15 時 30 分  3.召開法人說明會之地點：新加坡/香港 4.法人說明會擇要訊息：永豐金控將於115年6月30日至7月3日赴新加坡及香港會晤當地投資機構，說明115年第一季財務業務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 2890 | 永豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 ~ 115/07/03 2.召開法人說明會之時間：15 時 30 分  3.召開法人說明會之地點：新加坡/香港 4.法人說明會擇要訊息：永豐金控將於115年6月30日至7月3日赴新加坡及香港會晤當地投資機構，說明115年第一季財務業務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2890 | 永豐金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.董事會決議日期:115/07/01 2.私募有價證券種類:普通股 3.私募對象及其與公司間關係:永豐金控;永豐金證券之母公司 4.私募股數或張數:上限4.81億股 5.得私募額度:預估約新臺幣125億元 6.私募價格訂定之依據及合理性:以不低於永豐金證券115年03月31日經會計師核閱之 財務報告每股淨值25.36元為原則;每股發行價格暫定26元約當115年03月31日每股 淨值之102.5% 7.本次私募資金用途:強化資本、提升資本適足比率、降低債本比率，支應營運 及業務拓展之資金需求。 8.不採用公開募集之理由:考量籌集資本之時效、便利及發行成本等因素，並維持 永豐金證券股東結構單一化。 9.獨立董事反對或保留意見:無 10.實際定價日:授權永豐金證券董事長核定 11.參考價格:新臺幣25.36元 12.實際私募價格、轉換或認購價格:暫定新臺幣26元 13.本次私募新股之權利義務:同已流通在外普通股 14.附有轉換、交換或認股者，其換股基準日:不適用 15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對 上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用 17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施: 不適用 18.其他應敘明事項:發行股數、每股價格及增資基準日若有變更授權永豐金證券 董事長核定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/01 2.私募有價證券種類:普通股 3.私募對象及其與公司間關係:永豐金控;永豐金證券之母公司 4.私募股數或張數:上限4.81億股 5.得私募額度:預估約新臺幣125億元 6.私募價格訂定之依據及合理性:以不低於永豐金證券115年03月31日經會計師核閱之 財務報告每股淨值25.36元為原則;每股發行價格暫定26元約當115年03月31日每股 淨值之102.5% 7.本次私募資金用途:強化資本、提升資本適足比率、降低債本比率，支應營運 及業務拓展之資金需求。 8.不採用公開募集之理由:考量籌集資本之時效、便利及發行成本等因素，並維持 永豐金證券股東結構單一化。 9.獨立董事反對或保留意見:無 10.實際定價日:授權永豐金證券董事長核定 11.參考價格:新臺幣25.36元 12.實際私募價格、轉換或認購價格:暫定新臺幣26元 13.本次私募新股之權利義務:同已流通在外普通股 14.附有轉換、交換或認股者，其換股基準日:不適用 15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對 上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用 17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施: 不適用 18.其他應敘明事項:發行股數、每股價格及增資基準日若有變更授權永豐金證券 董事長核定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2890 | 永豐金 | 4 | 4 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2890 | 永豐金 | 5 | 1 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2890 | 永豐金 | 17 | 0 | 2112790.0 | 0.0 |  | no_signal |
+| 20260702 | 2890 | 永豐金 | 17 | 0 | 1017470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

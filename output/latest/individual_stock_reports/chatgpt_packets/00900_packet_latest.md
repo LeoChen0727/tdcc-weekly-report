@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00900 富邦特選高股息30
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:42 Asia/Taipei
+- generated_at: 2026-07-02 22:26:03 Asia/Taipei
 - stock_id: 00900
 - stock_name: 富邦特選高股息30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260701
-- price_rows: 28
+- latest_price_date: 20260702
+- price_rows: 29
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 19.46
-- high: 19.48
-- low: 19.28
-- close: 19.32
-- volume: 5842000
-- ma5: 19.24
-- ema23_primary: 19.15
-- distance_to_ema23_pct: 0.87
-- ma20: 19.41
-- ma60: 19.18
-- ma120: 19.18
-- return_5d: -1.88
-- return_20d: -3.01
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -4.69
+- date: 20260702
+- open: 19.04
+- high: 19.38
+- low: 19.01
+- close: 19.37
+- volume: 5072000
+- ma5: 19.15
+- ema23_primary: 19.17
+- distance_to_ema23_pct: 1.04
+- ma20: 19.36
+- ma60: 19.19
+- ma120: 19.19
+- return_5d: -2.17
+- return_20d: -4.3
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.03
+- distance_to_high_60_pct: -4.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,20,20.25,19.99,20.24,13927749,18.27,10.77,18.79,18.79,1.05
 20260604,20.1,20.12,19.75,19.84,7137903,18.4,7.81,18.89,18.89,0.56
 20260605,19.67,19.88,19.24,19.78,11825309,18.52,6.81,18.97,18.97,0.94
 20260608,18.18,18.76,18.18,18.7,16088227,18.53,0.9,18.95,18.95,1.25
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,19,19.21,18.88,18.98,6317375,19.13,-0.79,19.46,19.17,0.71
 20260630,19.16,19.32,19.11,19.21,5809000,19.14,0.37,19.44,19.17,0.67
 20260701,19.46,19.48,19.28,19.32,5842000,19.15,0.87,19.41,19.18,0.71
+20260702,19.04,19.38,19.01,19.37,5072000,19.17,1.04,19.36,19.19,0.65
 ```
 
 ## Latest TDCC Snapshot

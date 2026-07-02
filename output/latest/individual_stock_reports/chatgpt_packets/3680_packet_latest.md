@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:47 Asia/Taipei
+- generated_at: 2026-07-02 22:27:09 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 535
-- high: 558
-- low: 532
-- close: 558
-- volume: 4957000
-- ma5: 509.3
-- ema23_primary: 519.54
-- distance_to_ema23_pct: 7.4
-- ma20: 514.85
-- ma60: 511.57
-- ma120: 457.46
-- return_5d: 9.2
-- return_20d: 5.88
-- volume_ratio: 3.02
-- distance_to_ma20_pct_auxiliary: 8.38
-- distance_to_high_60_pct: -10.43
+- date: 20260702
+- open: 550
+- high: 557
+- low: 531
+- close: 555
+- volume: 3081000
+- ma5: 519.3
+- ema23_primary: 522.5
+- distance_to_ema23_pct: 6.22
+- ma20: 515.65
+- ma60: 514.54
+- ma120: 459.28
+- return_5d: 9.9
+- return_20d: 2.97
+- volume_ratio: 1.74
+- distance_to_ma20_pct_auxiliary: 7.63
+- distance_to_high_60_pct: -10.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,531,552,528,539,541000,539.29,-0.05,559.65,472.05,0.25
 20260604,539,552,533,537,542000,539.1,-0.39,557.25,474.93,0.27
 20260605,530,530,507,520,516000,537.51,-3.26,555.25,477.32,0.3
 20260608,468,504,468,501,1686000,534.46,-6.26,549.5,479.18,1.03
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,477,495,476,489,1051000,516.78,-5.38,514.7,506.34,0.79
 20260630,500,516,493,508,1656000,516.05,-1.56,513.3,508.52,1.19
 20260701,535,558,532,558,4957000,519.54,7.4,514.85,511.57,3.02
+20260702,550,557,531,555,3081000,522.5,6.22,515.65,514.54,1.74
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3680 | 家登 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.法律事件之當事人: 原告:美國安堤格里斯公司(Entegris.Inc.) 被告:家登精密工業股份有限公司 2.法律事件之法院名稱或處分機關:智慧財產及商業法院智慧財產法庭 3.法律事件之相關文書案號:113年度民專訴字第53號 4.事實發生日:115/06/17 5.發生原委(含爭訟標的):美國安堤格里斯公司(Entegris.Inc.)以我司未經授權製造 「300 Diffuser FOUP」前開式晶圓傳送盒，侵害其中華民國發明第I830642號發明專 利，向智慧財產及商業法院智慧財產法庭提起損害賠償等訴訟，請求我司賠償新台幣 3000萬元等。經一審法院審理後於115年5月13日判決「駁回原告之訴」，我司不侵權 。案經我司於115年6月17日收訖原告聲請上訴在案。 6.處理過程:本公司將繼續委請法律顧問「萬國法律事務所」處理本案二審程序，以維 護公司及全體股東權益。 7.對公司財務業務影響及預估影響金額:衡酌本案起訴金額及訴狀所載理由， 我司認本訴訟於財務及業務方面，均不致因本案而有重大影響。 8.因應措施及改善情形:本公司將委請法律顧問「萬國法律事務所」處理本案。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第2款所定對 股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3680 | 家登 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.法律事件之當事人: 原告:美國安堤格里斯公司(Entegris.Inc.) 被告:家登精密工業股份有限公司 2.法律事件之法院名稱或處分機關:智慧財產及商業法院智慧財產法庭 3.法律事件之相關文書案號:113年度民專訴字第53號 4.事實發生日:115/06/17 5.發生原委(含爭訟標的):美國安堤格里斯公司(Entegris.Inc.)以我司未經授權製造 「300 Diffuser FOUP」前開式晶圓傳送盒，侵害其中華民國發明第I830642號發明專 利，向智慧財產及商業法院智慧財產法庭提起損害賠償等訴訟，請求我司賠償新台幣 3000萬元等。經一審法院審理後於115年5月13日判決「駁回原告之訴」，我司不侵權 。案經我司於115年6月17日收訖原告聲請上訴在案。 6.處理過程:本公司將繼續委請法律顧問「萬國法律事務所」處理本案二審程序，以維 護公司及全體股東權益。 7.對公司財務業務影響及預估影響金額:衡酌本案起訴金額及訴狀所載理由， 我司認本訴訟於財務及業務方面，均不致因本案而有重大影響。 8.因應措施及改善情形:本公司將委請法律顧問「萬國法律事務所」處理本案。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第2款所定對 股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3680 | 家登 | 1 | 1 | 1 | 3 | 8 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 3680 | 家登 | 2 | 2 | 2 | 4 | 8 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:30 Asia/Taipei
+- generated_at: 2026-07-02 22:27:52 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 13.5
-- high: 14.35
-- low: 13.3
-- close: 13.4
-- volume: 1864000
-- ma5: 13.15
-- ema23_primary: 13.71
-- distance_to_ema23_pct: -2.23
-- ma20: 13.23
-- ma60: 15.82
-- ma120: 22.12
-- return_5d: -1.11
-- return_20d: 0.75
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 1.3
-- distance_to_high_60_pct: -34.31
+- date: 20260702
+- open: 13.3
+- high: 13.7
+- low: 13.05
+- close: 13.15
+- volume: 1154000
+- ma5: 13.17
+- ema23_primary: 13.66
+- distance_to_ema23_pct: -3.73
+- ma20: 13.22
+- ma60: 15.72
+- ma120: 21.97
+- return_5d: 0.77
+- return_20d: -0.75
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -0.55
+- distance_to_high_60_pct: -34.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,13.4,13.55,12.95,13.25,2220554,15.7,-15.61,15.76,18.72,0.83
 20260604,13.25,13.35,12.95,13.1,1635144,15.48,-15.4,15.51,18.46,0.61
 20260605,13.2,13.65,13.05,13.4,2101496,15.31,-12.48,15.3,18.2,0.77
 20260608,12.7,13.6,12.65,13.15,1520321,15.13,-13.09,15.11,17.92,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,12.5,13.3,12.5,13.25,1513600,13.75,-3.64,13.2,16.04,0.92
 20260630,13.3,13.6,13.15,13.55,1264000,13.73,-1.34,13.22,15.93,0.86
 20260701,13.5,14.35,13.3,13.4,1864000,13.71,-2.23,13.23,15.82,1.27
+20260702,13.3,13.7,13.05,13.15,1154000,13.66,-3.73,13.22,15.72,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/01 2.接受資金貸與之: (1)公司名稱:迪瑞藥業(成都)有限公司 (2)與資金貸與他人公司之關係: 本公司直接或間接100%持有之子公司 (3)資金貸與之限額(仟元):480,000 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):414,050 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):414,050 (8)本次新增資金貸與之原因: 供應子公司之短期資金需求 (1)公司名稱:霖揚生技製藥股份有限公司 (2)與資金貸與他人公司之關係: 供應子公司之短期資金需求 (3)資金貸與之限額(仟元):480,000 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):414,050 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):414,050 (8)本次新增資金貸與之原因: 供應子公司之短期資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):3,775,491 (2)累積盈虧金額(仟元):-3,121,537 5.計息方式: 待實際借款時視當時利率訂定之 6.還款之: (1)條件: 到期時還款 (2)日期: 由起借日起一年內還款 7.迄事實發生日為止，資金貸與餘額(仟元): 923,650 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 19.24 9.公司貸與他人資金之來源: 母公司 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6550 | 北極星藥業-KY | 7 | 7 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260702 | 6550 | 北極星藥業-KY | 1 | 1 | 4 | 8 | 9 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

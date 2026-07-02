@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:49 Asia/Taipei
+- generated_at: 2026-07-02 22:27:10 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 205
+- latest_price_date: 20260702
+- price_rows: 206
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,31 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: no_entry_now
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -88,8 +86,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -113,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 28.2
-- high: 30.15
-- low: 27.6
-- close: 28.95
-- volume: 42342000
-- ma5: 25.66
-- ema23_primary: 23.41
-- distance_to_ema23_pct: 23.67
-- ma20: 22.79
-- ma60: 22.39
-- ma120: 20.43
-- return_5d: 28.95
-- return_20d: 29.24
-- volume_ratio: 5.02
-- distance_to_ma20_pct_auxiliary: 27.03
-- distance_to_high_60_pct: -3.98
+- date: 20260702
+- open: 28.85
+- high: 29.75
+- low: 27.4
+- close: 28.55
+- volume: 16590000
+- ma5: 26.9
+- ema23_primary: 23.84
+- distance_to_ema23_pct: 19.77
+- ma20: 23.05
+- ma60: 22.49
+- ma120: 20.52
+- return_5d: 27.74
+- return_20d: 22.27
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 23.86
+- distance_to_high_60_pct: -5.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,22.45,23.6,22.45,23.35,3678953,22.47,3.93,22.86,21.57,1.24
 20260604,23.5,23.55,22.65,22.85,1973673,22.5,1.56,22.79,21.66,0.71
 20260605,22.85,22.85,22.2,22.25,1306331,22.48,-1.02,22.7,21.73,0.52
 20260608,20.6,21.45,20.55,21.45,1767604,22.39,-4.21,22.61,21.79,0.72
@@ -155,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,25.9,25.95,25.1,25.95,20834636,22.49,15.37,22.21,22.2,4.24
 20260630,25.95,27.65,25.45,27.45,31834000,22.91,19.84,22.46,22.28,4.97
 20260701,28.2,30.15,27.6,28.95,42342000,23.41,23.67,22.79,22.39,5.02
+20260702,28.85,29.75,27.4,28.55,16590000,23.84,19.77,23.05,22.49,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3717 | 聯嘉投控 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/30 1.召開法人說明會之日期：115/06/30 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北巿新生南路一段50號3樓 4.法人說明會擇要訊息：德信綜合證券舉辦之法人說明會，向投資人說明財務成果及本年度營運概況暨業務相關資訊。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3717 | 聯嘉投控 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/07/01 2.公司名稱:聯嘉光電投資控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/07/01經濟日報C03報導 6.報導內容:....董事長黃國欣昨(30)日表示....今年營運有望 有望年增雙位數百分比...黃國欣直言...... 7.發生緣由: 本公司並未對外提出任何營收獲利預估，上述報導均為媒體或 法人自行臆測，請投資人審慎判斷，以保障自身權益。 有關本公司之財務及業務資訊，請依公開資訊觀測站公告為準。 8.因應措施:發佈重大訊息，澄清經濟日報C03報導。 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260714; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3717 | 聯嘉投控 | 5 | 3 | 5 | 7 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 3717 | 聯嘉投控 | 6 | 1 | 5 | 8 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

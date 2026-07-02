@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0039 金融類
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:39 Asia/Taipei
+- generated_at: 2026-07-02 22:26:00 Asia/Taipei
 - stock_id: 0039
 - stock_name: 金融類
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 0039 | 金融類 | 5 | 3 | 126950.0 | 73520.0 | 1.73 | no_signal |
+| 20260702 | 0039 | 金融類 | 5 | 3 | 95650.0 | 85090.0 | 1.12 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

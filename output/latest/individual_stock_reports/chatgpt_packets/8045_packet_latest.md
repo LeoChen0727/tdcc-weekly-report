@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8045 達運光電
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:54 Asia/Taipei
+- generated_at: 2026-07-02 22:28:16 Asia/Taipei
 - stock_id: 8045
 - stock_name: 達運光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 59.5
+- date: 20260702
+- open: 59.6
 - high: 61.3
-- low: 59.3
-- close: 59.9
-- volume: 236000
-- ma5: 59.32
-- ema23_primary: 62.88
-- distance_to_ema23_pct: -4.75
-- ma20: 62.22
-- ma60: 69.33
-- ma120: 73.58
-- return_5d: -4.01
-- return_20d: -14.06
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -3.72
-- distance_to_high_60_pct: -31.54
+- low: 58.7
+- close: 60.6
+- volume: 106000
+- ma5: 59.34
+- ema23_primary: 62.69
+- distance_to_ema23_pct: -3.34
+- ma20: 61.73
+- ma60: 69.14
+- ma120: 73.46
+- return_5d: 0.17
+- return_20d: -13.68
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -1.84
+- distance_to_high_60_pct: -30.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,69.7,70.8,69,70.2,266388,70.78,-0.82,70.67,73.87,0.72
 20260604,70.8,70.8,67.5,67.5,174100,70.51,-4.27,70.42,73.73,0.5
 20260605,67.5,67.6,65.3,65.7,219673,70.11,-6.29,70.04,73.56,0.65
 20260608,61.2,61.8,59.2,60.7,687372,69.33,-12.44,69.34,73.24,1.95
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,58.8,59.8,57.9,58.5,85562,63.54,-7.94,63.33,69.79,0.35
 20260630,58.6,59.5,58.6,58.9,60000,63.16,-6.74,62.7,69.54,0.28
 20260701,59.5,61.3,59.3,59.9,236000,62.88,-4.75,62.22,69.33,1.14
+20260702,59.6,61.3,58.7,60.6,106000,62.69,-3.34,61.73,69.14,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8045 | 達運光電 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260702 | 8045 | 達運光電 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

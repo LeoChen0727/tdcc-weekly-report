@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:16 Asia/Taipei
+- generated_at: 2026-07-02 22:26:37 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 241.5
-- high: 243
-- low: 229
-- close: 231
-- volume: 5418000
-- ma5: 233.5
-- ema23_primary: 249.99
-- distance_to_ema23_pct: -7.6
-- ma20: 253.07
-- ma60: 244.91
-- ma120: 185.35
-- return_5d: -9.41
-- return_20d: -8.88
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -8.72
-- distance_to_high_60_pct: -27.36
+- date: 20260702
+- open: 227.5
+- high: 254
+- low: 224.5
+- close: 254
+- volume: 8322000
+- ma5: 234.6
+- ema23_primary: 250.33
+- distance_to_ema23_pct: 1.47
+- ma20: 251.85
+- ma60: 246.73
+- ma120: 186.66
+- return_5d: 2.21
+- return_20d: -8.8
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 0.85
+- distance_to_high_60_pct: -20.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,260,278.5,260,278.5,11997913,260.79,6.79,268.65,211.59,1.87
 20260604,278.5,286,269,274.5,15630414,261.93,4.8,268.48,214.13,2.23
 20260605,270.5,280.5,250.5,279.5,9639826,263.4,6.11,268.38,216.65,1.31
 20260608,252,255.5,252,252,7660153,262.45,-3.98,266.9,218.51,1
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,226,227,217.5,224.5,5356184,252.92,-11.24,255.6,241.98,0.58
 20260630,228,244,225.5,238.5,4964000,251.72,-5.25,254.2,243.54,0.55
 20260701,241.5,243,229,231,5418000,249.99,-7.6,253.07,244.91,0.62
+20260702,227.5,254,224.5,254,8322000,250.33,1.47,251.85,246.73,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間             (月)                    (季)            最近四季累計 ------    -------------------    -------------------    ---------------             最近一月   與去年       最近一季   與去年    114年第二季至                                                           115年第一季 科目       115年05月  同期增減%   115年第1季 同期增減%               自結數                  核閱數                  核閱數 ------    ------------  -------   ----------------------    -------------- 營業收入          694    31.44%      1,620    19.91%           6,315 (百萬) 稅前淨利           56   196.55%        86    473.33%             159 (百萬) 歸屬母公司業主淨利 47   202.17%        66  3,400.00%             119 (百萬) 每股盈餘         0.20   200.00%      0.29  3,000.00%            0.52 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 2486 | 一詮 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間             (月)                    (季)            最近四季累計 ------    -------------------    -------------------    ---------------             最近一月   與去年       最近一季   與去年    114年第二季至                                                           115年第一季 科目       115年05月  同期增減%   115年第1季 同期增減%               自結數                  核閱數                  核閱數 ------    ------------  -------   ----------------------    -------------- 營業收入          694    31.44%      1,620    19.91%           6,315 (百萬) 稅前淨利           56   196.55%        86    473.33%             159 (百萬) 歸屬母公司業主淨利 47   202.17%        66  3,400.00%             119 (百萬) 每股盈餘         0.20   200.00%      0.29  3,000.00%            0.52 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間             (月)                    (季)            最近四季累計 ------    -------------------    -------------------    ---------------             最近一月   與去年       最近一季   與去年    114年第二季至                                                           115年第一季 科目       115年05月  同期增減%   115年第1季 同期增減%               自結數                  核閱數                  核閱數 ------    ------------  -------   ----------------------    -------------- 營業收入          694    31.44%      1,620    19.91%           6,315 (百萬) 稅前淨利           56   196.55%        86    473.33%             159 (百萬) 歸屬母公司業主淨利 47   202.17%        66  3,400.00%             119 (百萬) 每股盈餘         0.20   200.00%      0.29  3,000.00%            0.52 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2486 | 一詮 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 2486 | 一詮 | 1 | 1 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2486 | 一詮 | 35 | 2 | 1106450.0 | 20.0 | 55322.5 | no_signal |
+| 20260702 | 2486 | 一詮 | 35 | 2 | 3694960.0 | 20.0 | 184748.0 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

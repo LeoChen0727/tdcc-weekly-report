@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:50 Asia/Taipei
+- generated_at: 2026-07-02 22:26:11 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 8.27
-- high: 8.27
-- low: 8.27
-- close: 8.27
-- volume: 10107000
-- ma5: 6.99
-- ema23_primary: 6.44
-- distance_to_ema23_pct: 28.47
-- ma20: 6.49
-- ma60: 5.73
-- ma120: 5.55
-- return_5d: 33.6
-- return_20d: 30.44
-- volume_ratio: 3.13
-- distance_to_ma20_pct_auxiliary: 27.38
+- date: 20260702
+- open: 8.5
+- high: 9.09
+- low: 8.32
+- close: 9.09
+- volume: 38585000
+- ma5: 7.59
+- ema23_primary: 6.66
+- distance_to_ema23_pct: 36.52
+- ma20: 6.6
+- ma60: 5.8
+- ma120: 5.58
+- return_5d: 48.77
+- return_20d: 30.42
+- volume_ratio: 8.18
+- distance_to_ma20_pct_auxiliary: 37.76
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,6.35,6.97,6.35,6.97,8872639,5.76,21.09,5.65,5.37,2.76
 20260604,7.26,7.26,6.37,6.58,6848164,5.82,12.97,5.73,5.38,1.94
 20260605,6.58,6.69,6.3,6.41,2679435,5.87,9.13,5.81,5.4,0.74
 20260608,5.95,6.84,5.93,6.75,4324373,5.95,13.51,5.9,5.42,1.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,6.4,6.84,6.4,6.84,4881834,6.16,11.1,6.34,5.64,1.74
 20260630,7.52,7.52,7.52,7.52,4288000,6.27,19.93,6.4,5.68,1.5
 20260701,8.27,8.27,8.27,8.27,10107000,6.44,28.47,6.49,5.73,3.13
+20260702,8.5,9.09,8.32,9.09,38585000,6.66,36.52,6.6,5.8,8.18
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1447 | 力鵬 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 1447 | 力鵬 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1447 | 力鵬 | 13 | 2 | 5 | 10 | 19 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 1447 | 力鵬 | 14 | 3 | 5 | 10 | 19 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

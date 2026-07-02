@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:15 Asia/Taipei
+- generated_at: 2026-07-02 22:26:36 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 64.6
-- high: 71.3
-- low: 62.5
-- close: 71.3
-- volume: 10042000
-- ma5: 62.24
-- ema23_primary: 54.48
-- distance_to_ema23_pct: 30.87
-- ma20: 51.91
-- ma60: 53.3
-- ma120: 54.73
-- return_5d: 20.85
-- return_20d: 56.02
-- volume_ratio: 8.33
-- distance_to_ma20_pct_auxiliary: 37.35
+- date: 20260702
+- open: 72.3
+- high: 78.4
+- low: 72.3
+- close: 78.4
+- volume: 3303000
+- ma5: 66.32
+- ema23_primary: 56.47
+- distance_to_ema23_pct: 38.83
+- ma20: 53.48
+- ma60: 53.7
+- ma120: 54.84
+- return_5d: 35.17
+- return_20d: 66.63
+- volume_ratio: 2.45
+- distance_to_ma20_pct_auxiliary: 46.6
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,46,47.95,45.7,47.05,419340,49.4,-4.76,48.49,52.02,1.24
 20260604,46.65,46.65,44.7,45,657819,49.04,-8.23,48.08,52.01,1.89
 20260605,45.05,45.15,44,44.6,251347,48.67,-8.36,47.79,51.98,0.78
 20260608,40.15,45.55,40.15,44,662022,48.28,-8.86,47.41,51.94,1.98
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,58.8,60.8,58,59,824108,51.86,13.76,49.74,52.63,1.29
 20260630,59.6,64.9,58.3,64.9,1860000,52.95,22.57,50.63,52.94,2.6
 20260701,64.6,71.3,62.5,71.3,10042000,54.48,30.87,51.91,53.3,8.33
+20260702,72.3,78.4,72.3,78.4,3303000,56.47,38.83,53.48,53.7,2.45
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2466 | 冠西電 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.法律事件之當事人: (1)聲請人:COSMO ELECTRONICS (HK) COMPANY LIMITED (2)相對人:Kiwi-Smart Cooperation, LTD(英屬維京群島商凱威智能有限公司) 2.法律事件之法院名稱或處分機關:臺灣台北地方法院 3.法律事件之相關文書案號:尚未成立 4.事實發生日:115/06/29 5.發生原委(含爭訟標的):強制申請返還預付貨款。 6.處理過程: 依據115年度板司簡調字第1357號，相對人應於115/06/25前一次全部給付美金888萬3仟 元整，截至115/06/29仍未收到相對人返還之預付款貨款，遂向臺灣台北地方法院聲請 強制執行。 7.對公司財務業務影響及預估影響金額: 對於本公司之財務或業務暫無重大影響。 8.因應措施及改善情形:無。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2466 | 冠西電 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.發生變動日期:115/07/01 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: 永豐商業銀行受託保管佳亞國際有限公司投資專戶代表人:陳家展 4.舊任者簡歷: 陳家展:冠西電子集團執行協理 5.新任者職稱及姓名: 永豐商業銀行受託保管佳亞國際有限公司投資專戶代表人:胡禎麟 6.新任者簡歷: 胡禎麟:龍進營造有限公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:改派法人代表 9.新任者選任時持股數: 永豐商業銀行受託保管佳亞國際有限公司投資專戶代表人胡禎麟:1,174,709股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/06/26至116/06/25 11.新任生效日期:115/07/01 12.同任期董事變動比率:14/9 13.同任期獨立董事變動比率:3/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2466 | 冠西電 | 2 | 1 | 4 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 2466 | 冠西電 | 3 | 2 | 4 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

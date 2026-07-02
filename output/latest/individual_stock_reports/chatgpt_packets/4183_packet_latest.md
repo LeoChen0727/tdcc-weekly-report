@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4183 福永生技
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:52 Asia/Taipei
+- generated_at: 2026-07-02 22:27:14 Asia/Taipei
 - stock_id: 4183
 - stock_name: 福永生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 137
+- latest_price_date: 20260702
+- price_rows: 138
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
+- date: 20260702
 - open: 14.6
 - high: 14.6
 - low: 14.6
 - close: 14.6
-- volume: 25000
-- ma5: 13.83
-- ema23_primary: 13.74
-- distance_to_ema23_pct: 6.3
-- ma20: 13.66
-- ma60: 14.19
-- ma120: 15.35
-- return_5d: 3.55
-- return_20d: 11.45
-- volume_ratio: 2.38
-- distance_to_ma20_pct_auxiliary: 6.86
+- volume: 5000
+- ma5: 13.95
+- ema23_primary: 13.81
+- distance_to_ema23_pct: 5.74
+- ma20: 13.74
+- ma60: 14.17
+- ma120: 15.33
+- return_5d: 4.29
+- return_20d: 11.88
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 6.26
 - distance_to_high_60_pct: -9.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,12.5,13.05,12.5,13.05,13000,13.54,-3.6,13.38,14.96,0.88
 20260529,13,13.15,12.1,13,13000,13.49,-3.65,13.32,14.91,0.87
 20260602,12.95,13,12.95,13,13,13.45,-3.36,13.26,14.86,0
 20260603,13,13.3,12.9,13.3,13000,13.44,-1.03,13.21,14.81,0.87
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,13.7,14,13.7,14,10000,13.69,2.27,13.58,14.26,1.06
 20260630,14,14,13.3,13.3,23000,13.66,-2.61,13.59,14.21,2.32
 20260701,14.6,14.6,14.6,14.6,25000,13.74,6.3,13.66,14.19,2.38
+20260702,14.6,14.6,14.6,14.6,5000,13.81,5.74,13.74,14.17,0.49
 ```
 
 ## Latest TDCC Snapshot

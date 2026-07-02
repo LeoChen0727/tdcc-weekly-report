@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8383 千附
 
 ## Metadata
-- generated_at: 2026-07-01 22:29:00 Asia/Taipei
+- generated_at: 2026-07-02 22:28:22 Asia/Taipei
 - stock_id: 8383
 - stock_name: 千附
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 64.8
-- high: 64.8
-- low: 61.8
-- close: 61.8
-- volume: 2626000
-- ma5: 62.22
-- ema23_primary: 60.74
-- distance_to_ema23_pct: 1.74
-- ma20: 60.37
-- ma60: 59.65
-- ma120: 50.82
-- return_5d: -1.59
-- return_20d: 2.32
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: 2.38
-- distance_to_high_60_pct: -19.74
+- date: 20260702
+- open: 61.6
+- high: 64.2
+- low: 61.1
+- close: 62.9
+- volume: 1228000
+- ma5: 62.48
+- ema23_primary: 60.92
+- distance_to_ema23_pct: 3.25
+- ma20: 60.51
+- ma60: 59.96
+- ma120: 51.01
+- return_5d: 2.11
+- return_20d: 4.83
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 3.95
+- distance_to_high_60_pct: -18.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,61,61.3,59.7,60,60000,59.42,0.97,58.74,54.31,0.05
 20260604,60,62.3,59,60.8,61000,59.54,2.12,58.45,54.66,0.06
 20260605,60.8,61,58.7,58.9,59000,59.48,-0.98,58.38,54.98,0.08
 20260608,53.5,56.3,53.1,56.1,1712000,59.2,-5.24,58.39,55.23,2.83
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,60.5,62.7,60.1,61.7,1518000,60.21,2.47,60.23,59,1.14
 20260630,62.4,66.7,62,65.4,3584000,60.65,7.84,60.3,59.35,2.37
 20260701,64.8,64.8,61.8,61.8,2626000,60.74,1.74,60.37,59.65,1.6
+20260702,61.6,64.2,61.1,62.9,1228000,60.92,3.25,60.51,59.96,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8383 | 千附 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 8383 | 千附 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 8383 | 千附 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260702 | 8383 | 千附 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 8383 | 千附 | 7 | 1 | 5 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 8383 | 千附 | 8 | 2 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

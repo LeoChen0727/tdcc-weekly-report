@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2528 皇普
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:18 Asia/Taipei
+- generated_at: 2026-07-02 22:26:39 Asia/Taipei
 - stock_id: 2528
 - stock_name: 皇普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 21.1
-- high: 22.55
-- low: 20.85
-- close: 22.4
-- volume: 1485000
-- ma5: 21.37
-- ema23_primary: 21.76
-- distance_to_ema23_pct: 2.94
-- ma20: 21.82
-- ma60: 22.34
-- ma120: 25.19
-- return_5d: 4.67
-- return_20d: 10.89
-- volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: 2.66
-- distance_to_high_60_pct: -11.11
+- date: 20260702
+- open: 22.35
+- high: 23.1
+- low: 21.55
+- close: 23
+- volume: 1161000
+- ma5: 21.67
+- ema23_primary: 21.86
+- distance_to_ema23_pct: 5.2
+- ma20: 21.92
+- ma60: 22.32
+- ma120: 25.13
+- return_5d: 6.98
+- return_20d: 9.52
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 4.93
+- distance_to_high_60_pct: -7.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,20.35,21.15,20,21,910380,21.88,-4.01,21.83,23.79,1.22
 20260604,21.2,22.1,21.2,21.25,702076,21.83,-2.64,21.77,23.7,0.92
 20260605,21.5,23.35,21.3,23.35,2961027,21.95,6.37,21.83,23.64,3.32
 20260608,21.25,22.5,21.25,21.65,1699728,21.93,-1.27,21.8,23.55,1.79
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,20.75,21.05,20.5,21.05,333788,21.77,-3.29,21.67,22.45,0.38
 20260630,21.05,21.15,20.9,21,143000,21.7,-3.24,21.71,22.39,0.19
 20260701,21.1,22.55,20.85,22.4,1485000,21.76,2.94,21.82,22.34,1.8
+20260702,22.35,23.1,21.55,23,1161000,21.86,5.2,21.92,22.32,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2528 | 皇普 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 16.0 | B_可觀察 |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260701 | 2528 | 皇普 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 2528 | 皇普 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 14.0 | B_可觀察 |  |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.普通股發放股利種類及金額:股票股利新台幣651,039,700元，  轉增資發行新股65,103,970股，每仟股無償配發150股。 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:115/07/07 10.債券停止轉換起始日期:115/07/09 11.債券停止轉換截止日期:115/08/03 12.普通股現金股利發放日期:不適用。 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260702 | 2528 | 皇普 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.普通股發放股利種類及金額:股票股利新台幣651,039,700元，  轉增資發行新股65,103,970股，每仟股無償配發150股。 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:115/07/07 10.債券停止轉換起始日期:115/07/09 11.債券停止轉換截止日期:115/08/03 12.普通股現金股利發放日期:不適用。 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2528 | 皇普 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260702 | 2528 | 皇普 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3360 尚立
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:39 Asia/Taipei
+- generated_at: 2026-07-02 22:27:00 Asia/Taipei
 - stock_id: 3360
 - stock_name: 尚立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 23.05
-- high: 23.85
-- low: 21
-- close: 21.25
-- volume: 11151000
-- ma5: 20.92
-- ema23_primary: 17.58
-- distance_to_ema23_pct: 20.85
-- ma20: 17
-- ma60: 15.17
-- ma120: 15.18
-- return_5d: 7.87
-- return_20d: 47.57
-- volume_ratio: 2.43
-- distance_to_ma20_pct_auxiliary: 25
-- distance_to_high_60_pct: -10.9
+- date: 20260702
+- open: 20.9
+- high: 22.4
+- low: 20.9
+- close: 21.85
+- volume: 4492000
+- ma5: 21.11
+- ema23_primary: 17.94
+- distance_to_ema23_pct: 21.8
+- ma20: 17.35
+- ma60: 15.3
+- ma120: 15.25
+- return_5d: 4.55
+- return_20d: 47.14
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 25.94
+- distance_to_high_60_pct: -8.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,14.45,15,14.35,14.85,15000,14.46,2.71,14.67,14.52,0.01
 20260604,14.85,15,14.65,14.85,15000,14.49,2.48,14.74,14.51,0.01
 20260605,14.95,14.95,14.4,14.55,15000,14.5,0.38,14.76,14.5,0.02
 20260608,13.5,14.25,13.45,14.25,325000,14.47,-1.55,14.75,14.48,0.36
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,19.2,21,19.2,20.65,9414000,16.75,23.25,16.23,14.91,2.84
 20260630,21,22.7,20.7,22.7,14577000,17.25,31.59,16.66,15.05,3.61
 20260701,23.05,23.85,21,21.25,11151000,17.58,20.85,17,15.17,2.43
+20260702,20.9,22.4,20.9,21.85,4492000,17.94,21.8,17.35,15.3,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3360 | 尚立 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3360 | 尚立 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3360 | 尚立 | 8 | 1 | 5 | 8 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260702 | 3360 | 尚立 | 9 | 2 | 5 | 9 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

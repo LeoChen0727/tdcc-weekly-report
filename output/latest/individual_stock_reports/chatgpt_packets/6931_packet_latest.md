@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6931 青松健康
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:43 Asia/Taipei
+- generated_at: 2026-07-02 22:28:05 Asia/Taipei
 - stock_id: 6931
 - stock_name: 青松健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 39.8
-- high: 41.4
-- low: 39.75
-- close: 40.55
-- volume: 71000
-- ma5: 40.19
-- ema23_primary: 40.78
-- distance_to_ema23_pct: -0.56
-- ma20: 40.63
-- ma60: 43.77
-- ma120: 49.53
-- return_5d: 0.87
-- return_20d: 1.63
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -0.21
-- distance_to_high_60_pct: -21.72
+- date: 20260702
+- open: 40.55
+- high: 40.55
+- low: 39.9
+- close: 39.9
+- volume: 46000
+- ma5: 40.03
+- ema23_primary: 40.7
+- distance_to_ema23_pct: -1.97
+- ma20: 40.59
+- ma60: 43.59
+- ma120: 49.34
+- return_5d: -1.97
+- return_20d: -2.21
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -1.7
+- distance_to_high_60_pct: -22.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,39.9,41.5,39.7,40.8,130260,42.09,-3.05,41.12,47.12,0.95
 20260604,40.9,41.2,40.45,41,46722,41.99,-2.37,40.98,46.94,0.38
 20260605,41,42,40.9,41.3,73294,41.94,-1.52,40.87,46.77,0.6
 20260608,41.2,41.2,40,40.65,65571,41.83,-2.82,40.77,46.6,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,39.9,40.45,39.65,39.9,35200,40.89,-2.42,40.61,44.12,0.53
 20260630,39.85,40,39.8,39.8,35000,40.8,-2.44,40.6,43.93,0.55
 20260701,39.8,41.4,39.75,40.55,71000,40.78,-0.56,40.63,43.77,1.11
+20260702,40.55,40.55,39.9,39.9,46000,40.7,-1.97,40.59,43.59,0.77
 ```
 
 ## Latest TDCC Snapshot

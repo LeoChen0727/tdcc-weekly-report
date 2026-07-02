@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:06 Asia/Taipei
+- generated_at: 2026-07-02 22:26:27 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 59.1
-- high: 62.5
-- low: 59.1
-- close: 62
-- volume: 645000
-- ma5: 56.14
-- ema23_primary: 43.61
-- distance_to_ema23_pct: 42.16
-- ma20: 42.61
-- ma60: 30.08
-- ma120: 21.94
-- return_5d: 21.57
-- return_20d: 121.43
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 45.51
-- distance_to_high_60_pct: -0.8
+- date: 20260702
+- open: 63.9
+- high: 63.9
+- low: 60.5
+- close: 62.7
+- volume: 315000
+- ma5: 57.58
+- ema23_primary: 45.2
+- distance_to_ema23_pct: 38.71
+- ma20: 44.39
+- ma60: 30.77
+- ma120: 22.36
+- return_5d: 12.97
+- return_20d: 132.22
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: 41.24
+- distance_to_high_60_pct: -1.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,27.95,28.1,26.35,27,1123766,24.51,10.14,23.74,22.19,0.83
 20260604,28,29.7,27.25,29.65,4018447,24.94,18.88,23.9,22.49,2.69
 20260605,27.55,29.1,27.55,28.05,1848401,25.2,11.31,24.11,22.75,1.24
 20260608,25.25,27.95,25.25,27.75,1974871,25.41,9.2,24.42,22.98,1.38
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,50.1,56.6,50.1,53.2,322983,40.57,31.13,39.55,28.79,0.15
 20260630,56.8,57,54.3,57,410000,41.94,35.91,40.91,29.37,0.21
 20260701,59.1,62.5,59.1,62,645000,43.61,42.16,42.61,30.08,0.35
+20260702,63.9,63.9,60.5,62.7,315000,45.2,38.71,44.39,30.77,0.17
 ```
 
 ## Latest TDCC Snapshot

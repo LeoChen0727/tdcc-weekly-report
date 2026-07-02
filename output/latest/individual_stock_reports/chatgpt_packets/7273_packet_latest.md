@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7273 世界國票59售03
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:47 Asia/Taipei
+- generated_at: 2026-07-02 22:28:09 Asia/Taipei
 - stock_id: 7273
 - stock_name: 世界國票59售03
 - packet_status: partial_rawdata_packet

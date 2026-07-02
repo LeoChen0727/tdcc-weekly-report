@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3537 堡達
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:43 Asia/Taipei
+- generated_at: 2026-07-02 22:27:04 Asia/Taipei
 - stock_id: 3537
 - stock_name: 堡達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 160
+- latest_price_date: 20260702
+- price_rows: 161
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 81
-- high: 83.4
-- low: 77.8
-- close: 77.8
-- volume: 3960000
-- ma5: 77.2
-- ema23_primary: 76.28
-- distance_to_ema23_pct: 1.99
-- ma20: 79.52
-- ma60: 61.4
-- ma120: 54.29
-- return_5d: -3.23
-- return_20d: -0.89
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -2.16
-- distance_to_high_60_pct: -15.89
+- date: 20260702
+- open: 76.3
+- high: 78.9
+- low: 75.5
+- close: 76.1
+- volume: 1627000
+- ma5: 76.42
+- ema23_primary: 76.27
+- distance_to_ema23_pct: -0.22
+- ma20: 79.36
+- ma60: 61.96
+- ma120: 54.51
+- return_5d: -4.88
+- return_20d: -4.04
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -4.11
+- distance_to_high_60_pct: -17.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,82,85.9,79.3,79.3,82000,63.55,24.78,62.07,49.92,0.06
 20260604,77.5,80.5,75.4,76,78000,64.59,17.67,63.6,50.48,0.06
 20260605,74.9,83.6,71,83.6,81000,66.17,26.34,65.44,51.17,0.07
 20260608,75.3,80.9,75.3,76.7,9307000,67.05,14.39,66.87,51.71,5.66
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,74.3,76.4,73,74.7,1578000,75.91,-1.6,79.58,60.19,0.31
 20260630,76.4,81.7,75.2,78.7,2583000,76.15,3.35,79.56,60.8,0.49
 20260701,81,83.4,77.8,77.8,3960000,76.28,1.99,79.52,61.4,0.73
+20260702,76.3,78.9,75.5,76.1,1627000,76.27,-0.22,79.36,61.96,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3537 | 堡達 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 股東股利之現金股利總額112,485,958元，依公司實際發行股份總數 56,242,979股核算，每股配發新台幣2元，發放至元為止，不足一 元之畸零款合計數，由小數點數字自大至小及戶號由前至後順序調 整，至符合現金股利分配總額。 4.除權（息）交易日:115/07/29 5.最後過戶日:115/07/30 6.停止過戶起始日期:115/07/31 7.停止過戶截止日期:115/08/04 8.除權（息）基準日:115/08/04 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 凡持有本公司股票而尚未辦理過戶之股東，務請於115/07/30(星期四) 下午四時三十分前親洽或以掛號郵寄(以郵戳為憑)本公司股務代理機 構華南永昌綜合證券股務代理部(地址：台北市民生東路四段54號4樓) 辦理過戶手續。參加集保戶者，本公司將依台灣集中保管結算所股份 有限公司資料逕行辦理過戶手續。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 3537 | 堡達 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 股東股利之現金股利總額112,485,958元，依公司實際發行股份總數 56,242,979股核算，每股配發新台幣2元，發放至元為止，不足一 元之畸零款合計數，由小數點數字自大至小及戶號由前至後順序調 整，至符合現金股利分配總額。 4.除權（息）交易日:115/07/29 5.最後過戶日:115/07/30 6.停止過戶起始日期:115/07/31 7.停止過戶截止日期:115/08/04 8.除權（息）基準日:115/08/04 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 凡持有本公司股票而尚未辦理過戶之股東，務請於115/07/30(星期四) 下午四時三十分前親洽或以掛號郵寄(以郵戳為憑)本公司股務代理機 構華南永昌綜合證券股務代理部(地址：台北市民生東路四段54號4樓) 辦理過戶手續。參加集保戶者，本公司將依台灣集中保管結算所股份 有限公司資料逕行辦理過戶手續。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 3537 | 堡達 | 3 | 3 | 4 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 3537 | 堡達 | 4 | 4 | 4 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

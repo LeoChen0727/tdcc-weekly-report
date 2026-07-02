@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-07-01 22:27:13 Asia/Taipei
+- generated_at: 2026-07-02 22:26:34 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 319
-- high: 334
-- low: 303
-- close: 304
-- volume: 2872000
-- ma5: 304.3
-- ema23_primary: 287.78
-- distance_to_ema23_pct: 5.63
-- ma20: 294.07
-- ma60: 233.43
-- ma120: 201.6
-- return_5d: 0
-- return_20d: 9.95
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 3.38
-- distance_to_high_60_pct: -8.98
+- date: 20260702
+- open: 300
+- high: 313
+- low: 299.5
+- close: 311
+- volume: 1712000
+- ma5: 304.9
+- ema23_primary: 289.72
+- distance_to_ema23_pct: 7.35
+- ma20: 296.07
+- ma60: 236.14
+- ma120: 202.76
+- return_5d: 0.97
+- return_20d: 14.76
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 5.04
+- distance_to_high_60_pct: -6.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,280,280,267,271,1678641,237.49,14.11,234.78,190,0.59
 20260604,268,270.5,262,265,1040118,239.78,10.52,238.6,191.79,0.37
 20260605,263,287,257,283,3351311,243.38,16.28,243.22,193.75,1.21
 20260608,255.5,277.5,255.5,272.5,2079971,245.81,10.86,247.2,195.6,0.75
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,301,305,294,298,816271,283.7,5.04,291.1,228.2,0.29
 20260630,302,318,300.5,315,2583000,286.31,10.02,292.7,230.86,0.95
 20260701,319,334,303,304,2872000,287.78,5.63,294.07,233.43,1.06
+20260702,300,313,299.5,311,1712000,289.72,7.35,296.07,236.14,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2428 | 興勤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
-| 20260701 | 2428 | 興勤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260702 | 2428 | 興勤 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.接受資金貸與之: (1)公司名稱:為勤電子有限公司 (2)與資金貸與他人公司之關係: 直接持有100%之子公司 (3)資金貸與之限額(仟元):1,181,491 (4)原資金貸與之餘額(仟元):422,010 (5)本次新增資金貸與之金額(仟元):656,460 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,078,470 (8)本次新增資金貸與之原因: 營運週轉需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):693,600 (2)累積盈虧金額(仟元):313,327 5.計息方式: 2.5% 6.還款之: (1)條件: 依合約規定 (2)日期: 依合約規定 7.迄事實發生日為止，資金貸與餘額(仟元): 1,078,470 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 9.18 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 新增資金貸與金額為人民幣140,000元，依115/07/01台銀買進賣出即期平均匯率4.689， 折合新台幣為656,460仟元。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2428 | 興勤 | 2 | 2 | 4 | 7 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260702 | 2428 | 興勤 | 3 | 3 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 2428 | 興勤 | 29 | 0 | 17728540.0 | 0.0 |  | call_strong_inflow |
+| 20260702 | 2428 | 興勤 | 29 | 0 | 10044620.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

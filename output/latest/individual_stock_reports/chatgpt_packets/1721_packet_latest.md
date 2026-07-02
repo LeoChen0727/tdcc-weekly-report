@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1721 三晃
 
 ## Metadata
-- generated_at: 2026-07-01 22:26:58 Asia/Taipei
+- generated_at: 2026-07-02 22:26:18 Asia/Taipei
 - stock_id: 1721
 - stock_name: 三晃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 23.25
-- high: 25.6
-- low: 22.7
-- close: 25.6
-- volume: 3729000
-- ma5: 23.84
-- ema23_primary: 24.94
-- distance_to_ema23_pct: 2.63
-- ma20: 24.5
-- ma60: 25.59
-- ma120: 21.76
-- return_5d: 1.39
-- return_20d: -6.4
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 4.47
-- distance_to_high_60_pct: -28.89
+- date: 20260702
+- open: 24.95
+- high: 28
+- low: 24.5
+- close: 27
+- volume: 6483000
+- ma5: 24.38
+- ema23_primary: 25.11
+- distance_to_ema23_pct: 7.51
+- ma20: 24.48
+- ma60: 25.76
+- ma120: 21.85
+- return_5d: 11.11
+- return_20d: -1.82
+- volume_ratio: 2.73
+- distance_to_ma20_pct_auxiliary: 10.29
+- distance_to_high_60_pct: -25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,26.9,28.2,26.5,27.5,3166069,28.11,-2.16,29.77,23.66,0.43
 20260604,27.7,29.15,27.6,27.65,2892173,28.07,-1.49,29.65,23.85,0.4
 20260605,27.5,28,26.25,26.8,2274014,27.96,-4.16,29.56,24.03,0.31
 20260608,24.25,25.4,24.15,25.15,2126290,27.73,-9.3,29.25,24.17,0.32
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,22.9,23.65,22.7,23.1,679999,25.03,-7.7,24.83,25.35,0.29
 20260630,23.3,23.6,23.1,23.3,846000,24.88,-6.36,24.59,25.45,0.38
 20260701,23.25,25.6,22.7,25.6,3729000,24.94,2.63,24.5,25.59,1.69
+20260702,24.95,28,24.5,27,6483000,25.11,7.51,24.48,25.76,2.73
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1721 | 三晃 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 1721 | 三晃 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:國慶科技股份有限公司(原名：三晃股份有限公司) 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)公司名稱變更核准日期/事實發生日：民國115年07月01日 (2)公司名稱變更核准文號：經授商字第11530099260號函 (3)更名案股東會決議通過日期：民國115年06月16日 (4)變更前公司名稱：三晃股份有限公司 (5)變更後公司名稱：國慶科技股份有限公司 (6)變更前公司簡稱：三晃 (7)變更後公司簡稱：國慶科技 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本公司於115/07/01收到經濟部變更登記核准函。 (2)依據臺灣證券交易所股份有限公司營業細則第45條規定， 於更名後須連續公告三個月。 (3)本公司股票代號未變動，普通股仍為「1721」。 (4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 1721 | 三晃 | 1 | 1 | 1 | 2 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 1721 | 三晃 | 2 | 2 | 2 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

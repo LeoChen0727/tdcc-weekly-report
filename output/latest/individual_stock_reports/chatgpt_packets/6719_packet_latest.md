@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-07-01 22:28:36 Asia/Taipei
+- generated_at: 2026-07-02 22:27:58 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 295
+- latest_price_date: 20260702
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 285
-- high: 297
-- low: 283
-- close: 297
-- volume: 7366000
-- ma5: 278
-- ema23_primary: 255.35
-- distance_to_ema23_pct: 16.31
-- ma20: 251.65
-- ma60: 214.65
-- ma120: 198.77
-- return_5d: -0.17
-- return_20d: 23.49
-- volume_ratio: 1.87
-- distance_to_ma20_pct_auxiliary: 18.02
-- distance_to_high_60_pct: -2.62
+- date: 20260702
+- open: 297
+- high: 326.5
+- low: 292
+- close: 300
+- volume: 17153000
+- ma5: 278.9
+- ema23_primary: 259.07
+- distance_to_ema23_pct: 15.8
+- ma20: 254.53
+- ma60: 216.99
+- ma120: 199.64
+- return_5d: 1.52
+- return_20d: 23.71
+- volume_ratio: 3.63
+- distance_to_ma20_pct_auxiliary: 17.87
+- distance_to_high_60_pct: -8.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,245,247.5,240,242.5,1227343,224.31,8.11,225.25,188.03,0.39
 20260604,236,239,234,234.5,1038299,225.16,4.15,227.57,189.21,0.33
 20260605,234,244.5,232.5,238.5,1847899,226.27,5.41,230.15,190.37,0.57
 20260608,216,223.5,215.5,219.5,1699336,225.71,-2.75,231.62,191.12,0.52
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260629,262,268,256,261.5,3358278,249.89,4.65,247.5,210.57,0.94
 20260630,265.5,279,262,270,4007000,251.57,7.33,248.82,212.36,1.09
 20260701,285,297,283,297,7366000,255.35,16.31,251.65,214.65,1.87
+20260702,297,326.5,292,300,17153000,259.07,15.8,254.53,216.99,3.63
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6719 | 力智 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)現金股利新台幣485,203,349元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:115/06/30 10.債券停止轉換起始日期:115/07/02 11.債券停止轉換截止日期:115/07/27 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項: 本次除息未盡事宜如因股本變動致影響流通在外股數，股東配股配息率因此發生 變動時，授權董事長全權處理並公告之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_3d |
+| 20260702 | 6719 | 力智 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)現金股利新台幣485,203,349元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:115/06/30 10.債券停止轉換起始日期:115/07/02 11.債券停止轉換截止日期:115/07/27 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項: 本次除息未盡事宜如因股本變動致影響流通在外股數，股東配股配息率因此發生 變動時，授權董事長全權處理並公告之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6719 | 力智 | 1 | 1 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260702 | 6719 | 力智 | 2 | 2 | 4 | 8 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260701 | 6719 | 力智 | 43 | 2 | 7475260.0 | 0.0 |  | no_signal |
+| 20260702 | 6719 | 力智 | 46 | 2 | 32701320.0 | 67030.0 | 487.86 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
