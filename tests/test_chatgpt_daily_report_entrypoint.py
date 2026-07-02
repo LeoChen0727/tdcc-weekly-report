@@ -160,8 +160,8 @@ def test_entrypoint_temp_source_worktree_matches_origin_main(tmp_path: Path) -> 
     assert state["daily_pdf_ready"] is True
 
 
-def test_entrypoint_passes_source_ref_to_generator_env(tmp_path: Path, monkeypatch) -> None:
-    captured: dict[str, dict[str, str]] = {}
+def test_entrypoint_runs_generator_from_clean_source_worktree(tmp_path: Path, monkeypatch) -> None:
+    captured: dict[str, object] = {}
     pdf_paths = "\n".join(str(tmp_path / f"report_{i}.pdf") for i in range(6))
 
     def fake_run_command(
@@ -170,6 +170,8 @@ def test_entrypoint_passes_source_ref_to_generator_env(tmp_path: Path, monkeypat
         env: dict[str, str] | None = None,
         capture_output: bool = True,
     ) -> subprocess.CompletedProcess[str]:
+        captured["args"] = list(args)
+        captured["cwd"] = cwd
         captured["env"] = dict(env or {})
         return subprocess.CompletedProcess(args=args, returncode=0, stdout=pdf_paths, stderr="")
 
@@ -182,8 +184,20 @@ def test_entrypoint_passes_source_ref_to_generator_env(tmp_path: Path, monkeypat
     )
 
     assert len(paths) == 6
-    assert captured["env"]["CHATGPT_DAILY_REPORT_ENTRYPOINT"] == "1"
-    assert captured["env"]["CHATGPT_DAILY_SOURCE_REF"] == "histlocal/codex/historical-report-source-20260615"
+    assert captured["args"] == [
+        sys.executable,
+        str(tmp_path / "scripts" / "generate_chatgpt_side_daily_reports.py"),
+        "--repo-root",
+        str(tmp_path),
+        "--output-dir",
+        str(tmp_path),
+    ]
+    assert captured["cwd"] == tmp_path
+    env = captured["env"]
+    assert isinstance(env, dict)
+    assert env["CHATGPT_DAILY_REPORT_ENTRYPOINT"] == "1"
+    assert env["CHATGPT_DAILY_REPO_ROOT"] == str(tmp_path)
+    assert env["CHATGPT_DAILY_SOURCE_REF"] == "histlocal/codex/historical-report-source-20260615"
 
 
 def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
