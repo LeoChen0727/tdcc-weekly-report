@@ -2,7 +2,7 @@
 
 - status: `pass`
 - main_price_date: `20260702`
-- all_candidates_rows: `649`
+- all_candidates_rows: `653`
 - raw_model_signal_rows: `548`
 - report_model_signal_rows: `548`
 - selected_condition_error_count: `0`

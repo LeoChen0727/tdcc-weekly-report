@@ -16,7 +16,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260702,6282,康舒,25,3,5,10,20,20260523,20260702,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,8112,至上,25,10,5,10,20,20260523,20260702,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,8131,福懋科,25,4,5,10,20,20260523,20260702,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260702,9945,潤泰新,25,8,5,10,20,20260523,20260702,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260702,9945,潤泰新,25,8,5,10,20,20260523,20260702,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,9958,世紀鋼,25,2,5,10,20,20260523,20260702,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,3702,大聯大,22,1,5,10,20,20260524,20260702,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,2049,上銀,20,2,5,10,20,20260528,20260702,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -82,7 +82,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260702,8358,金居,9,7,5,9,9,20260618,20260702,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,2027,大成鋼,8,1,5,9,19,20260523,20260702,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,2101,南港,8,8,5,9,19,20260523,20260702,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260702,2345,智邦,8,1,5,9,19,20260523,20260702,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
+20260702,2345,智邦,8,1,5,9,19,20260523,20260702,pattern|pullback_rebound|revenue_pullback,continued_many_days,連續 8 日上榜，需區分醞釀延續或訊號鈍化。
 20260702,2542,興富發,8,8,5,9,19,20260523,20260702,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,2646,星宇航空,8,5,5,9,19,20260523,20260702,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,2812,台中銀,8,8,5,9,19,20260523,20260702,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -418,7 +418,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260702,6223,旺矽,1,1,1,3,7,20260523,20260702,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
 20260702,6706,惠特,1,1,1,3,7,20260526,20260702,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,8071,能率網通,1,1,2,3,7,20260523,20260702,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
-20260702,8103,瀚荃,1,1,2,3,7,20260523,20260702,range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260702,8103,瀚荃,1,1,2,3,7,20260523,20260702,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,3498,陽程,1,1,1,3,4,20260528,20260702,pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,3526,凡甲,1,1,1,3,4,20260528,20260702,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260702,3587,閎康,1,1,1,3,4,20260524,20260702,pattern|pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
