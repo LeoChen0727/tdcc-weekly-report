@@ -1,6 +1,6 @@
 # Daily Theme Leadership Layer
 
-- generated_at: `2026-07-03 00:33:17 Asia/Taipei`
+- generated_at: `2026-07-03 07:11:08 Asia/Taipei`
 - signal_date: `20260702`
 - source: `output/latest/all_candidates_latest.csv`
 - purpose: keep mainstream-theme selection separate from individual-quality / latent-watch selection.

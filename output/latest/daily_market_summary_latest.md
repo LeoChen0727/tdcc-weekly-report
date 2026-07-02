@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260702`
-- 產生時間：`2026-07-03 00:39:15 Asia/Taipei`
+- 產生時間：`2026-07-03 07:17:09 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260702`
@@ -31,18 +31,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
+| 2317 鴻海 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;divi... | 大戶同步增加 |
 | 2606 裕民 | 營收成長股價回檔 | score 44 / theme 93.7/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly... | 大戶同步增加 |
 | 3036 文曄 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電子通路業;mont... | 大戶溫和增加 |
-| 2317 鴻海 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;divi... | 大戶同步增加 |
 | 2356 英業達 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;d... | 大戶同步增加 |
 | 2912 統一超 | 型態觀察 | score 34 / theme 17.9/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
 | 1216 統一 | 型態觀察 | score 34 / theme 30.4/5 / event_confirmed;low_reaction_after_catalyst;new_order;食品工業;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
 | 2356 英業達 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;dividend_calendar;calendar_ex_... | 大戶同步增加 |
-| 4934 太極 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶同步增加 |
-| 4934 太極 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
 | 2374 佳能 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;光電業;monthly_reve... | 大戶溫和增加 |
-| 8422 可寧衛* | 營收成長股價回檔 | score 28 / theme 6.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;investor_conference;neutral;monthly_re... | 大戶溫和增加 |
+| 8422 可寧衛* | 營收成長股價回檔 | score 28 / theme 6.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;neutral;monthly_r... | 大戶溫和增加 |
 | 2646 星宇航空 | 營收成長股價回檔 | score 28 / theme 93.7/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 2476 鉅祥 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 5905 南仁湖 | 營收成長股價回檔 | score 28 / theme 27.5/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -67,7 +67,7 @@
 - 連續上榜：首次上榜；近5日 1；近10日 1；多分類 true_breakout
 - TDCC：大戶轉弱
 - 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / dividend_calendar;calendar_ex_dividend;電機機械 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 202607...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;電機機械;dividend_calendar;calendar_ex_dividend / material_information;電機機械 / dividend_calendar;c...
 - 摘要：突破 / 量能4.46x / 大戶轉弱
 - 完整原因：近幾週400張與1000張同步減少；嚴格突破；量比4.46x；月營收YoY 11.0%；累計YoY -21.3%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
