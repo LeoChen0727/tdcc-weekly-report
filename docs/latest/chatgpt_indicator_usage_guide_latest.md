@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-07-02 10:15:42 UTC`
+- generated_at: `2026-07-02 11:40:02 UTC`
 - main_price_date: `20260702`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -39,7 +39,7 @@
 | Daily model parameter recommendations | output/latest/daily_model_parameter_recommendations_latest.csv | model_id, parameter_set_id, recommended_usage, recommended_close_exit_horizon, best_close_win_rate_pct, model_revision_note | rows=86 / intraday_target_watch=56; research_only=28; promote_to_pdf_core=2 | Program-side conversion from backtest to reporting usage. Use this for whether a parameter is core, secondary, intraday-target only, or research-only. |
 | Daily short-term specialty packet | output/latest/daily_short_term_specialty_packet_latest.md | Usage Contract, TDCC Overheated Short-Term Edge, Next-Open +10pct Touch Strict Parameter Research, D+5/D+10 tables | ready | Mandatory daily-report specialty packet. Read it even when the six fixed categories are already available. |
 | Daily candidate model signals for report | output/latest/daily_candidate_model_signals_for_report_latest.csv | model_id, model_name_zh, model_score, model_rank, display_rank, score_components, risk_penalty_tags, risk_tags, next_confirmation | price_pullback_23ema=239; revenue_unreacted_range=174; hot_theme_pullback=54; pullback_short_reclaim=47; volume_range_breakout=15; tdcc_short_term_continuation_d5_d10=14; w_bottom_right_side=5 | Primary source for daily PDF/packet model rows, scores, ranks, risks, and next confirmations. |
-| Repeat appearance | output/latest/candidate_repeat_appearance_latest.csv | repeat_appear_label, consecutive_appear_days_any_category, appear_count_5d/10d/20d | stale_signal=293; repeated_but_no_breakout=54; continued_overheated=52; continued_2_3d=37; first_seen=33; continued_many_days=3 | Use as persistence/staleness signal, never as a standalone upgrade. |
+| Repeat appearance | output/latest/candidate_repeat_appearance_latest.csv | repeat_appear_label, consecutive_appear_days_any_category, appear_count_5d/10d/20d | stale_signal=293; repeated_but_no_breakout=53; continued_overheated=52; continued_2_3d=37; first_seen=33; continued_many_days=4 | Use as persistence/staleness signal, never as a standalone upgrade. |
 | TDCC strength | output/latest/tdcc_strength_ranking_top_latest.csv | tdcc_strength_score, tdcc_price_phase, risk_bucket, theme_mainstream_status | strong_but_pre_move=23; strong_but_divergent=22; strong_but_late=3; insufficient_data=2 | Strength list only. It is not the pre-move list. |
 | TDCC pre-move / ABM | output/latest/tdcc_pre_move_abm_top_latest.csv | tracking_priority, accumulation_label, tdcc_price_phase, setup_type, trigger_to_watch | B_confirm_needed=44; A_prime_watch=6 | Use for hidden accumulation candidates, subject to mature-sample caveats. |
 | TDCC risk list | output/latest/tdcc_top_risk_list_latest.csv | risk_group, tdcc_price_phase, risk_bucket | strong_but_late=20; strong_but_divergent=20; strong_but_overheated=19 | Use to avoid mislabeling late/overheated/divergent names as accumulation. |
