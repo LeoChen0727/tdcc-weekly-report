@@ -138,6 +138,17 @@ DOCS_PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV = (
     DOCS_LATEST_DIR / PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV.name
 )
 DOCS_PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_MD.name
+PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_lifecycle_replay_latest.csv"
+)
+PRICE_PULLBACK_LIFECYCLE_REPLAY_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_lifecycle_replay_latest.md"
+)
+PRICE_PULLBACK_LIFECYCLE_REPLAY_HISTORY_CSV = (
+    HISTORY_DIR / "price_pullback_23ema_lifecycle_replay.csv"
+)
+DOCS_PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV.name
+DOCS_PRICE_PULLBACK_LIFECYCLE_REPLAY_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_LIFECYCLE_REPLAY_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -2124,6 +2135,66 @@ PRICE_PULLBACK_ORDERED_CONDITION_TESTS = [
     },
 ]
 
+PRICE_PULLBACK_LIFECYCLE_REPLAY_CONDITION_IDS = [
+    "baseline_replay",
+    "v1_gate_return20_tdcc_high",
+]
+
+PRICE_PULLBACK_LIFECYCLE_REPLAY_EXTRA_CONDITION_TESTS = [
+    {
+        "test_order": 225,
+        "test_stage": "05_v1_candidate_stack",
+        "condition_test_id": "v1_gate_return20_tdcc_high_obv",
+        "condition_role_candidate": "v1_required_gate_plus_chip_and_technical_candidate",
+        "condition_rule": "v1 draft: require return20_0_25, large-holder TDCC high thresholds increased, and OBV above MA20",
+        "data_status": "research_only_v1_candidate_not_production",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_obv_above_ma20_filter(d),
+    },
+    {
+        "test_order": 1000,
+        "test_stage": "06_candle_quality_reference",
+        "condition_test_id": "volume_red_k_vol1.2",
+        "condition_role_candidate": "buy_point_quality_reference_not_required_gate",
+        "condition_rule": "bullish red K with volume_ratio_prev20 >= 1.2",
+        "data_status": "computed_from_point_in_time_price_volume",
+        "condition": lambda d: price_pullback_red_k_entry_filter(d, 1.2, solid=False),
+    },
+    {
+        "test_order": 1010,
+        "test_stage": "06_candle_quality_reference",
+        "condition_test_id": "solid_volume_red_k_vol1.2",
+        "condition_role_candidate": "buy_point_quality_reference_not_required_gate",
+        "condition_rule": "solid red K with volume_ratio_prev20 >= 1.2",
+        "data_status": "computed_from_point_in_time_price_volume",
+        "condition": lambda d: price_pullback_red_k_entry_filter(d, 1.2, solid=True),
+    },
+    {
+        "test_order": 1020,
+        "test_stage": "06_candle_quality_reference",
+        "condition_test_id": "solid_volume_red_k_vol1.5",
+        "condition_role_candidate": "buy_point_quality_reference_not_required_gate",
+        "condition_rule": "solid red K with volume_ratio_prev20 >= 1.5",
+        "data_status": "computed_from_point_in_time_price_volume",
+        "condition": lambda d: price_pullback_red_k_entry_filter(d, 1.5, solid=True),
+    },
+]
+
+
+def _price_pullback_lifecycle_replay_condition_tests() -> list[dict[str, object]]:
+    ordered_by_id = {
+        safe_str(spec["condition_test_id"]): spec
+        for spec in PRICE_PULLBACK_ORDERED_CONDITION_TESTS
+    }
+    tests = [
+        ordered_by_id[condition_id]
+        for condition_id in PRICE_PULLBACK_LIFECYCLE_REPLAY_CONDITION_IDS
+        if condition_id in ordered_by_id
+    ]
+    tests.extend(PRICE_PULLBACK_LIFECYCLE_REPLAY_EXTRA_CONDITION_TESTS)
+    return sorted(tests, key=lambda spec: int(spec["test_order"]))
+
 
 def _rate(count: int, total: int) -> float | str:
     if total <= 0:
@@ -4008,6 +4079,415 @@ def write_price_pullback_ordered_condition_matrix(matrix: pd.DataFrame) -> None:
     )
 
 
+def _price_pullback_positioned_frame(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    out["_price_pullback_source_row_index"] = range(len(out))
+    if "date" in out.columns:
+        out["_price_pullback_signal_date"] = out["date"].map(normalize_date)
+    else:
+        out["_price_pullback_signal_date"] = ""
+    if "stock_id" not in out.columns:
+        out["stock_id"] = ""
+
+    sort_cols = ["stock_id", "_price_pullback_signal_date", "_price_pullback_source_row_index"]
+    sorted_out = out.sort_values(sort_cols, kind="mergesort").copy()
+    sorted_out["_price_pullback_stock_day_position"] = (
+        sorted_out.groupby("stock_id", dropna=False).cumcount().astype(int)
+    )
+    return sorted_out.sort_values("_price_pullback_source_row_index", kind="mergesort")
+
+
+def _price_pullback_lifecycle_input_frame(df: pd.DataFrame) -> pd.DataFrame:
+    columns = {
+        "date",
+        "stock_id",
+        "close",
+        "ema23",
+        "ma20",
+        "ema23_slope_pct",
+        "ema23_slope_5d_pct",
+        "ma5_turning_up_flag",
+        "ma10_turning_up_flag",
+        "distance_ema23_pct",
+        "platform_low",
+        "short_platform_low",
+        "previous_20d_low",
+        "low_20",
+        "range_low_20d_prev",
+        "return_20d_pct",
+        "return_45d_pct",
+        "range_width_45d_pct",
+        "prior_extension_ema23_20d_pct",
+        "prior_runup_20d_pct",
+        "tdcc_history_available",
+        "high_thresholds_up",
+        "obv_above_ma20",
+        "volume_ratio_prev20",
+        "bullish_attack_candle",
+        "solid_red_candle",
+    }
+    for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES:
+        if str(candidate["exit_rule_id"]) in PRICE_PULLBACK_ORDERED_CONDITION_EXIT_RULE_IDS:
+            columns.update(_price_pullback_exit_required_columns(candidate))
+    existing = [col for col in sorted(columns) if col in df.columns]
+    return df.loc[:, existing].copy()
+
+
+def _price_pullback_next_open_exit_offset(enriched: pd.DataFrame) -> pd.Series:
+    if enriched.empty:
+        return pd.Series(dtype=int)
+    target = trueish(enriched["target_before_stop"]) if "target_before_stop" in enriched.columns else bool_series(enriched)
+    ma5_exit = trueish(enriched["ma5_exit"]) if "ma5_exit" in enriched.columns else bool_series(enriched)
+    same_day = (
+        trueish(enriched["same_day_unresolved"])
+        if "same_day_unresolved" in enriched.columns
+        else bool_series(enriched)
+    )
+    return (target | ma5_exit | same_day).astype(int)
+
+
+def _price_pullback_apply_lifecycle_suppression(enriched: pd.DataFrame) -> pd.DataFrame:
+    if enriched.empty:
+        out = enriched.copy()
+        out["lifecycle_accepted_trade"] = pd.Series(dtype=bool)
+        out["lifecycle_suppressed_signal"] = pd.Series(dtype=bool)
+        out["lifecycle_exit_stock_day_position"] = pd.Series(dtype=float)
+        out["lifecycle_exit_signal_date"] = pd.Series(dtype=object)
+        out["lifecycle_suppressed_by_signal_date"] = pd.Series(dtype=object)
+        out["lifecycle_suppressed_by_exit_signal_date"] = pd.Series(dtype=object)
+        out["lifecycle_suppressed_by_exit_stock_day_position"] = pd.Series(dtype=object)
+        return out
+
+    work = enriched.copy().reset_index(drop=False).rename(columns={"index": "_price_pullback_original_index"})
+    realized_days = pd.to_numeric(work["realized_days"], errors="coerce").fillna(TIME_COST_HORIZON_DAYS)
+    exit_offset = _price_pullback_next_open_exit_offset(work)
+    signal_position = pd.to_numeric(work["_price_pullback_stock_day_position"], errors="coerce")
+    work["lifecycle_exit_lag_days"] = realized_days + exit_offset
+    work["lifecycle_exit_stock_day_position"] = signal_position + work["lifecycle_exit_lag_days"]
+    work["lifecycle_exit_signal_date"] = ""
+    n = len(work)
+    accepted = np.zeros(n, dtype=bool)
+    suppressed = np.zeros(n, dtype=bool)
+    suppressed_by_signal_date = np.full(n, "", dtype=object)
+    suppressed_by_exit_signal_date = np.full(n, "", dtype=object)
+    suppressed_by_exit_position = np.full(n, "", dtype=object)
+    stock_values = work["stock_id"].map(safe_str).to_numpy(dtype=object)
+    signal_dates = work["_price_pullback_signal_date"].map(safe_str).to_numpy(dtype=object)
+    exit_dates = work["lifecycle_exit_signal_date"].map(safe_str).to_numpy(dtype=object)
+    position_values = pd.to_numeric(work["_price_pullback_stock_day_position"], errors="coerce").to_numpy()
+    exit_position_values = pd.to_numeric(work["lifecycle_exit_stock_day_position"], errors="coerce").to_numpy()
+    active_by_stock: dict[str, dict[str, object]] = {}
+    sort_cols = ["stock_id", "_price_pullback_stock_day_position", "_price_pullback_source_row_index"]
+    ordered_indices = work.sort_values(sort_cols, kind="mergesort").index.to_numpy()
+    for row_idx in ordered_indices:
+        stock_id = stock_values[row_idx]
+        position_value = position_values[row_idx]
+        exit_position_value = exit_position_values[row_idx]
+        if not stock_id or pd.isna(position_value) or pd.isna(exit_position_value):
+            accepted[row_idx] = True
+            continue
+
+        position_int = int(position_value)
+        active = active_by_stock.get(stock_id)
+        if active is not None and position_int < int(active["exit_stock_day_position"]):
+            suppressed[row_idx] = True
+            suppressed_by_signal_date[row_idx] = active["signal_date"]
+            suppressed_by_exit_signal_date[row_idx] = active["exit_signal_date"]
+            suppressed_by_exit_position[row_idx] = active["exit_stock_day_position"]
+            continue
+
+        exit_position_int = int(exit_position_value)
+        accepted[row_idx] = True
+        active_by_stock[stock_id] = {
+            "signal_date": signal_dates[row_idx],
+            "exit_signal_date": exit_dates[row_idx],
+            "exit_stock_day_position": exit_position_int,
+        }
+
+    work["lifecycle_accepted_trade"] = accepted
+    work["lifecycle_suppressed_signal"] = suppressed
+    work["lifecycle_suppressed_by_signal_date"] = suppressed_by_signal_date
+    work["lifecycle_suppressed_by_exit_signal_date"] = suppressed_by_exit_signal_date
+    work["lifecycle_suppressed_by_exit_stock_day_position"] = suppressed_by_exit_position
+    return work
+
+
+def _price_pullback_date_stats(frame: pd.DataFrame) -> dict[str, object]:
+    if frame.empty or "_price_pullback_signal_date" not in frame.columns:
+        return {
+            "first_signal_date": "",
+            "last_signal_date": "",
+            "signal_day_count": 0,
+            "avg_rows_per_signal_day": "",
+        }
+    dates = frame["_price_pullback_signal_date"].map(safe_str)
+    dates = dates[dates.ne("")]
+    if dates.empty:
+        return {
+            "first_signal_date": "",
+            "last_signal_date": "",
+            "signal_day_count": 0,
+            "avg_rows_per_signal_day": "",
+        }
+    signal_day_count = int(dates.nunique())
+    return {
+        "first_signal_date": dates.min(),
+        "last_signal_date": dates.max(),
+        "signal_day_count": signal_day_count,
+        "avg_rows_per_signal_day": round(len(frame) / signal_day_count, 2) if signal_day_count else "",
+    }
+
+
+def _price_pullback_lifecycle_condition_hint(
+    spec: dict[str, object],
+    accepted_trade_count: int,
+    baseline_accepted_trade_count: int,
+    delta_win_rate: float | str,
+    delta_failure_rate: float | str,
+    delta_avg_return: float | str,
+) -> str:
+    stage = safe_str(spec.get("test_stage", ""))
+    if stage == "00_baseline":
+        return "baseline_trade_level_anchor"
+    if stage.startswith("90_"):
+        return "defer_until_mature_point_in_time_theme_samples"
+    if baseline_accepted_trade_count <= 0 or accepted_trade_count <= 0:
+        return "no_trade_level_sample"
+    trade_share = accepted_trade_count / baseline_accepted_trade_count * 100.0
+    win_delta = _numeric_or_nan(delta_win_rate)
+    failure_delta = _numeric_or_nan(delta_failure_rate)
+    return_delta = _numeric_or_nan(delta_avg_return)
+    if trade_share < 2.0:
+        return "too_small_for_required_gate_review_only"
+    if win_delta >= 8.0 and failure_delta <= -5.0 and return_delta >= 0.5:
+        return "strong_gate_candidate_review"
+    if win_delta >= 5.0 and return_delta >= 0.3:
+        return "gate_candidate_review"
+    if return_delta >= 0.8 and failure_delta <= 0.0:
+        return "add_score_candidate_review"
+    if win_delta >= 3.0 and failure_delta <= 0.0:
+        return "quality_filter_candidate_review"
+    if win_delta < 0.0 and failure_delta > 0.0:
+        return "reject_as_required_gate_candidate"
+    return "mixed_or_neutral_review"
+
+
+def build_price_pullback_lifecycle_replay(df: pd.DataFrame) -> pd.DataFrame:
+    positioned = _price_pullback_positioned_frame(_price_pullback_lifecycle_input_frame(df))
+    research_dates = positioned["_price_pullback_signal_date"].map(safe_str)
+    research_trading_day_count = int(research_dates[research_dates.ne("")].nunique())
+    base_mask = current_price_pullback_baseline_proxy(positioned).fillna(False)
+    base = add_price_pullback_research_score_columns(positioned[base_mask].copy())
+    lifecycle_key_cols = [
+        "stock_id",
+        "_price_pullback_signal_date",
+        "_price_pullback_stock_day_position",
+        "_price_pullback_source_row_index",
+    ]
+    exit_candidates = {
+        str(candidate["exit_rule_id"]): candidate
+        for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES
+        if str(candidate["exit_rule_id"]) in PRICE_PULLBACK_ORDERED_CONDITION_EXIT_RULE_IDS
+    }
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for exit_rule_id, candidate in exit_candidates.items():
+        required = _price_pullback_exit_required_columns(candidate)
+        valid_base = (
+            base.dropna(subset=required).copy()
+            if all(col in base.columns for col in required)
+            else base.iloc[0:0].copy()
+        )
+        if valid_base.empty:
+            continue
+        base_outcome = _price_pullback_exit_rule_outcome_rows(valid_base, candidate)
+        enriched_base = valid_base[lifecycle_key_cols].join(base_outcome)
+        baseline_lifecycle = _price_pullback_apply_lifecycle_suppression(
+            enriched_base,
+        )
+        baseline_accepted = baseline_lifecycle[trueish(baseline_lifecycle["lifecycle_accepted_trade"])]
+        baseline_counts = _price_pullback_ordered_outcome_summary(baseline_accepted)
+        baseline_accepted_trade_count = int(baseline_counts["mature_count"])
+        baseline_win_rate = _numeric_or_nan(baseline_counts["win_rate_pct"])
+        baseline_failure_rate = _numeric_or_nan(baseline_counts["failure_rate_pct"])
+        baseline_avg_return = _numeric_or_nan(baseline_counts["avg_realized_return_pct"])
+
+        for spec in _price_pullback_lifecycle_replay_condition_tests():
+            condition = spec.get("condition")
+            condition_id = safe_str(spec["condition_test_id"])
+            if condition_id == "baseline_replay":
+                picked_all = base.copy()
+                lifecycle = baseline_lifecycle.copy()
+            elif condition is None:
+                picked_all = base.iloc[0:0].copy()
+                lifecycle = _price_pullback_apply_lifecycle_suppression(enriched_base.iloc[0:0].copy())
+            else:
+                condition_mask = condition(base).fillna(False)
+                picked_all = base[condition_mask].copy()
+                valid_index = picked_all.index.intersection(enriched_base.index)
+                enriched = enriched_base.loc[valid_index].copy()
+                lifecycle = _price_pullback_apply_lifecycle_suppression(enriched)
+            accepted = lifecycle[trueish(lifecycle["lifecycle_accepted_trade"])]
+            outcome = _price_pullback_ordered_outcome_summary(accepted)
+            accepted_trade_count = int(outcome["mature_count"])
+            selected_date_stats = _price_pullback_date_stats(picked_all)
+            accepted_date_stats = _price_pullback_date_stats(accepted)
+            suppressed_count = int(trueish(lifecycle["lifecycle_suppressed_signal"]).sum()) if not lifecycle.empty else 0
+            source_mature_count = len(lifecycle)
+            win_rate = _numeric_or_nan(outcome["win_rate_pct"])
+            failure_rate = _numeric_or_nan(outcome["failure_rate_pct"])
+            avg_return = _numeric_or_nan(outcome["avg_realized_return_pct"])
+            delta_win_rate = (
+                round(win_rate - baseline_win_rate, 2)
+                if not math.isnan(win_rate) and not math.isnan(baseline_win_rate)
+                else ""
+            )
+            delta_failure_rate = (
+                round(failure_rate - baseline_failure_rate, 2)
+                if not math.isnan(failure_rate) and not math.isnan(baseline_failure_rate)
+                else ""
+            )
+            delta_avg_return = (
+                round(avg_return - baseline_avg_return, 2)
+                if not math.isnan(avg_return) and not math.isnan(baseline_avg_return)
+                else ""
+            )
+            row = {
+                "generated_at": generated_at,
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "股價回檔模型",
+                "research_artifact_id": "price_pullback_23ema_lifecycle_replay",
+                "lifecycle_replay_scope": "trade_level_same_stock_active_position_suppressed",
+                "test_order": spec["test_order"],
+                "test_stage": spec["test_stage"],
+                "condition_test_id": spec["condition_test_id"],
+                "condition_role_candidate": spec["condition_role_candidate"],
+                "condition_rule": spec["condition_rule"],
+                "data_status": spec["data_status"],
+                "exit_rule_id": exit_rule_id,
+                "formal_price_rule_status": candidate["formal_price_rule_status"],
+                "profit_target_pct": candidate["profit_target_pct"],
+                "exit_price_rule": candidate["exit_price_rule"],
+                "entry_rule_id": "signal_date_next_open",
+                "buy_point_rule": (
+                    "Buy next open only after the price_pullback_23ema production proxy signal; "
+                    "lifecycle replay suppresses later same-stock signals until the prior accepted trade exits."
+                ),
+                "source_signal_stock_days": len(picked_all),
+                "source_unique_stocks": picked_all["stock_id"].nunique() if "stock_id" in picked_all.columns else "",
+                "source_mature_signal_stock_days": source_mature_count,
+                "accepted_trade_count": accepted_trade_count,
+                "accepted_unique_stocks": accepted["stock_id"].nunique() if "stock_id" in accepted.columns else "",
+                "suppressed_signal_count": suppressed_count,
+                "suppressed_rate_pct": _rate(suppressed_count, source_mature_count),
+                "accepted_share_of_source_mature_pct": _rate(accepted_trade_count, source_mature_count),
+                "baseline_accepted_trade_count": baseline_accepted_trade_count,
+                "accepted_trade_share_of_baseline_pct": _rate(
+                    accepted_trade_count,
+                    baseline_accepted_trade_count,
+                ),
+                "source_signal_day_count": selected_date_stats["signal_day_count"],
+                "source_avg_signals_per_signal_day": selected_date_stats["avg_rows_per_signal_day"],
+                "accepted_signal_day_count": accepted_date_stats["signal_day_count"],
+                "accepted_avg_trades_per_signal_day": accepted_date_stats["avg_rows_per_signal_day"],
+                "research_trading_day_count": research_trading_day_count,
+                "source_avg_signals_per_research_day": (
+                    round(len(picked_all) / research_trading_day_count, 2)
+                    if research_trading_day_count
+                    else ""
+                ),
+                "accepted_avg_trades_per_research_day": (
+                    round(accepted_trade_count / research_trading_day_count, 2)
+                    if research_trading_day_count
+                    else ""
+                ),
+                "first_signal_date": selected_date_stats["first_signal_date"],
+                "last_signal_date": selected_date_stats["last_signal_date"],
+                "delta_vs_baseline_win_rate_pct": delta_win_rate,
+                "delta_vs_baseline_failure_rate_pct": delta_failure_rate,
+                "delta_vs_baseline_avg_realized_return_pct": delta_avg_return,
+                "decision_hint": _price_pullback_lifecycle_condition_hint(
+                    spec,
+                    accepted_trade_count,
+                    baseline_accepted_trade_count,
+                    delta_win_rate,
+                    delta_failure_rate,
+                    delta_avg_return,
+                ),
+                "score_use": "research_only_not_production_score",
+                "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
+                "pdf_metric_readiness": "blocked_until_formal_promotion_and_operation_adapter_contract",
+                "advisory_status": "not_production_ready_research_only",
+                "approved_for_daily": False,
+                "production_change": "none",
+                "promotion_readiness": "blocked_exact_daily_row_parity_operation_adapter_and_metric_contract_required",
+                "promotion_blocker": (
+                    "requires explicit model-rule decision, lifecycle/operation adapter contract, exact parity, "
+                    "validators, PR merge, post-merge main validation, and PDF metric consumer contract before display"
+                ),
+                **outcome,
+            }
+            rows.append(row)
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    return out.sort_values(["exit_rule_id", "test_order"]).reset_index(drop=True)
+
+
+def write_price_pullback_lifecycle_replay(lifecycle: pd.DataFrame) -> None:
+    write_csv(lifecycle, PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV)
+    write_csv(lifecycle, PRICE_PULLBACK_LIFECYCLE_REPLAY_HISTORY_CSV)
+    write_csv(lifecycle, DOCS_PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV)
+    lines = [
+        "# Price Pullback 23EMA Lifecycle Replay",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- scope: trade-level replay that suppresses later same-stock signals while a prior accepted trade is still active.",
+        "- production_change: `none`",
+        "- entry_basis: `signal_date_next_open` after the production proxy signal and research-only condition filter.",
+        "- exit_basis: close-confirmed previous-20-day-high exits use next open; continuation exits use next open after close target or 5MA close exit.",
+        "- metric_boundary: PDF titles must not calculate win rate or return from candidate rows; they need a model-owned approved metric artifact or operation adapter.",
+        "- promotion_blocker: production use requires explicit model-rule decision, contract update when applicable, parity, validators, merge, post-merge main validation, and PDF metric consumer contract.",
+        "",
+        markdown_table(
+            lifecycle,
+            [
+                "test_stage",
+                "condition_test_id",
+                "exit_rule_id",
+                "source_mature_signal_stock_days",
+                "accepted_trade_count",
+                "accepted_trade_share_of_baseline_pct",
+                "accepted_avg_trades_per_research_day",
+                "accepted_avg_trades_per_signal_day",
+                "suppressed_signal_count",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "avg_realized_return_pct",
+                "delta_vs_baseline_win_rate_pct",
+                "delta_vs_baseline_avg_realized_return_pct",
+                "decision_hint",
+            ],
+            limit=160,
+        )
+        if not lifecycle.empty
+        else "No lifecycle replay rows.",
+    ]
+    PRICE_PULLBACK_LIFECYCLE_REPLAY_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_LIFECYCLE_REPLAY_MD.write_text(
+        PRICE_PULLBACK_LIFECYCLE_REPLAY_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def _price_pullback_parity_discussion_status(row_parity: pd.DataFrame) -> dict[str, object]:
     if row_parity.empty or "parity_status" not in row_parity.columns:
         return {
@@ -5036,10 +5516,12 @@ def coverage_stats() -> dict[str, object]:
 
 
 def main() -> int:
+    print("Building research frame", flush=True)
     df = build_research_frame()
     if df.empty:
         raise RuntimeError("No price history available for model parameter research")
 
+    print("Building daily model parameter summaries", flush=True)
     summaries: list[dict[str, object]] = []
     details: list[dict[str, object]] = []
     for spec in rule_specs():
@@ -5051,15 +5533,27 @@ def main() -> int:
     detail_df = pd.DataFrame(details)
     coverage = coverage_stats()
     parity_df = build_model_parity(summary_df)
+    print("Building price_pullback operation research", flush=True)
     price_pullback_operation_df = build_price_pullback_operation_research(df)
+    print("Building price_pullback time cost backtest", flush=True)
     price_pullback_time_cost_df = build_price_pullback_time_cost_backtest(df)
+    print("Building price_pullback operation module research", flush=True)
     price_pullback_operation_module_df = build_price_pullback_operation_module_research(df)
+    print("Building price_pullback feature confirmation research", flush=True)
     price_pullback_feature_confirmation_df = build_price_pullback_feature_confirmation_research(df)
+    print("Building price_pullback exit rule comparison", flush=True)
     price_pullback_exit_rule_comparison_df = build_price_pullback_exit_rule_comparison(df)
+    print("Building price_pullback continuation win profile", flush=True)
     price_pullback_continuation_win_profile_df = build_price_pullback_continuation_win_profile(df)
+    print("Building price_pullback research score bucket", flush=True)
     price_pullback_research_score_bucket_df = build_price_pullback_research_score_bucket(df)
+    print("Building price_pullback ordered condition matrix", flush=True)
     price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
+    print("Building price_pullback lifecycle replay", flush=True)
+    price_pullback_lifecycle_replay_df = build_price_pullback_lifecycle_replay(df)
+    print("Building price_pullback daily row parity audit", flush=True)
     price_pullback_daily_row_parity_df = build_price_pullback_daily_row_parity_audit(df)
+    print("Building price_pullback model decision audit", flush=True)
     price_pullback_decision_audit_df = build_price_pullback_model_decision_audit(
         price_pullback_operation_module_df,
         price_pullback_feature_confirmation_df,
@@ -5083,6 +5577,7 @@ def main() -> int:
     write_price_pullback_continuation_win_profile(price_pullback_continuation_win_profile_df)
     write_price_pullback_research_score_bucket(price_pullback_research_score_bucket_df)
     write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
+    write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
     write_price_pullback_model_decision_audit(price_pullback_decision_audit_df)
 
@@ -5097,6 +5592,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV} rows={len(price_pullback_continuation_win_profile_df)}")
     print(f"Saved {PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV} rows={len(price_pullback_research_score_bucket_df)}")
     print(f"Saved {PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV} rows={len(price_pullback_ordered_condition_matrix_df)}")
+    print(f"Saved {PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV} rows={len(price_pullback_lifecycle_replay_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
     print(f"Saved {PRICE_PULLBACK_DECISION_AUDIT_CSV} rows={len(price_pullback_decision_audit_df)}")
     print(f"Saved {OUT_MD}")

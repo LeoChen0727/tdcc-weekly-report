@@ -23,6 +23,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_model_decision_audit,
     build_price_pullback_operation_module_research,
     build_price_pullback_operation_research,
+    build_price_pullback_lifecycle_replay,
     build_price_pullback_ordered_condition_matrix,
     build_price_pullback_research_score_bucket,
     build_price_pullback_time_cost_backtest,
@@ -953,6 +954,88 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     ].iloc[0]
     assert v1_candidate["data_status"] == "research_only_v1_candidate_not_production"
     assert v1_candidate["selected_stock_days"] >= 1
+
+
+def test_price_pullback_lifecycle_replay_suppresses_same_stock_active_signals() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2330", "2330", "2330", "2330", "2317"],
+            "date": ["20260101", "20260102", "20260103", "20260104", "20260105", "20260101"],
+            "next_open": [100.0, 100.0, 100.0, 100.0, 100.0, 100.0],
+            "distance_ema23_pct": [1.0, 1.0, 50.0, 50.0, 1.0, 1.0],
+            "platform_low": [100.0, 100.0, 50.0, 50.0, 100.0, 100.0],
+            "short_platform_low": [100.0, 100.0, 50.0, 50.0, 100.0, 100.0],
+            "previous_20d_low": [100.0, 100.0, 50.0, 50.0, 100.0, 100.0],
+            "low_20": [100.0, 100.0, 50.0, 50.0, 100.0, 100.0],
+            "range_low_20d_prev": [100.0, 100.0, 50.0, 50.0, 100.0, 100.0],
+            "range_high_20d_prev": [105.0, 105.0, 105.0, 105.0, 105.0, 105.0],
+            "close": [101.0, 101.0, 200.0, 200.0, 101.0, 101.0],
+            "ema23": [100.0, 100.0, 100.0, 100.0, 100.0, 100.0],
+            "ma20": [101.0, 101.0, 101.0, 101.0, 101.0, 101.0],
+            "ema23_slope_pct": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            "ema23_slope_5d_pct": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            "ma5_turning_up_flag": [False, False, False, False, False, False],
+            "ma10_turning_up_flag": [False, False, False, False, False, False],
+            "volume_ratio_prev20": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            "bullish_attack_candle": [True, True, True, True, True, True],
+            "solid_red_candle": [False, False, False, False, False, False],
+            "macd_hist_gt0": [True, True, True, True, True, True],
+            "kd_bullish_not_overheated": [True, True, True, True, True, True],
+            "obv_above_ma20": [True, True, True, True, True, True],
+            "tdcc_history_available": [True, True, True, True, True, True],
+            "high_thresholds_up": [True, True, True, True, True, True],
+            "return_20d_pct": [10.0, 10.0, 10.0, 10.0, 10.0, 10.0],
+            "return_45d_pct": [18.0, 18.0, 18.0, 18.0, 18.0, 18.0],
+            "range_width_45d_pct": [25.0, 25.0, 25.0, 25.0, 25.0, 25.0],
+            "close_position_45d_pct": [55.0, 55.0, 55.0, 55.0, 55.0, 55.0],
+            "prior_extension_ema23_20d_pct": [12.0, 12.0, 12.0, 12.0, 12.0, 12.0],
+            "prior_runup_20d_pct": [22.0, 22.0, 22.0, 22.0, 22.0, 22.0],
+            "pullback_from_high_20d_pct": [-6.0, -6.0, -6.0, -6.0, -6.0, -6.0],
+            "rsi14": [55.0, 55.0, 55.0, 55.0, 55.0, 55.0],
+            "obv_slope_5d": [1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0],
+            "tdcc_consecutive_up_weeks": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            "theme_context_ready": [False, False, False, False, False, False],
+            "theme_context_mainstream_supported": [False, False, False, False, False, False],
+            "theme_context_leadership_supported": [False, False, False, False, False, False],
+            "theme_context_overheated": [False, False, False, False, False, False],
+            "theme_context_volume_attack_selected_flag": [False, False, False, False, False, False],
+            "theme_context_volume_ratio": ["", "", "", "", "", ""],
+            "theme_context_return_20d_pct": ["", "", "", "", "", ""],
+            "next_open_to_d20_close_return_pct": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+        }
+    )
+    future_cols = {}
+    for day in range(1, 21):
+        future_cols[f"next_open_to_d{day}_day_high_return_pct"] = [1.0] * len(df)
+        future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0] * len(df)
+        future_cols[f"future_d{day}_ma20"] = [100.0] * len(df)
+        future_cols[f"future_d{day}_ema23"] = [100.0] * len(df)
+        future_cols[f"future_d{day}_ma5"] = [90.0] * len(df)
+    for day in range(1, 22):
+        future_cols[f"future_d{day}_open"] = [100.0] * len(df)
+    df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
+    signal_rows = [0, 1, 4, 5]
+    for row_idx in signal_rows:
+        df.loc[row_idx, "next_open_to_d2_day_close_return_pct"] = 6.0
+        df.loc[row_idx, "future_d3_open"] = 107.0
+
+    replay = build_price_pullback_lifecycle_replay(df)
+
+    row = replay[
+        replay["condition_test_id"].eq("v1_gate_return20_tdcc_high")
+        & replay["exit_rule_id"].eq("close_prev20_high_break_next_open")
+    ].iloc[0]
+    assert row["lifecycle_replay_scope"] == "trade_level_same_stock_active_position_suppressed"
+    assert row["source_mature_signal_stock_days"] == 4
+    assert row["accepted_trade_count"] == 3
+    assert row["suppressed_signal_count"] == 1
+    assert row["accepted_avg_trades_per_signal_day"] == 1.5
+    assert row["research_trading_day_count"] == 5
+    assert row["accepted_avg_trades_per_research_day"] == 0.6
+    assert row["win_rate_pct"] == 100.0
+    assert bool(row["approved_for_daily"]) is False
+    assert row["production_change"] == "none"
+    assert row["pdf_metric_readiness"] == "blocked_until_formal_promotion_and_operation_adapter_contract"
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
