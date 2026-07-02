@@ -1,13 +1,13 @@
 # Daily Data Layer Consistency Audit
 
 - status: `pass`
-- main_price_date: `20260701`
-- readme_main_price_date: `20260701`
-- readme_index_main_price_date: `20260701`
-- model_signal_rows: `466`
-- volume_watch_rows: `21`
+- main_price_date: `20260702`
+- readme_main_price_date: ``
+- readme_index_main_price_date: ``
+- model_signal_rows: `548`
+- volume_watch_rows: `15`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `3`
+- group_rotation_rows: `4`
 - taxonomy_rows: `2374`
 - taxonomy_template_csv_rows: `2374`
 - taxonomy_template_xlsx_rows: `2374`
@@ -26,67 +26,23 @@
 
 ```json
 {
-  "main_price_date": "20260701",
-  "readme_main_price_date": "20260701",
-  "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260701",
-  "readme_index_report_ready": "True",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/cd03425cd2801a9967186fc6717b662a2eba9cc7/output/history/reports/20260701_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "readme_cache_bypass_order": [
-    "readme_date_stamped_raw_url",
-    "readme_date_stamped_github_api_url",
-    "readme_index_github_api_url",
-    "readme_history_raw_url",
-    "readme_latest_raw_url",
-    "readme_latest_github_api_url",
-    "readme_date_stamped_pages_url",
-    "readme_history_pages_url",
-    "readme_latest_pages_url"
-  ],
-  "readme_index_recommended_read_order": [
-    "astrology_read_protocol_pages_url",
-    "astrology_read_protocol_raw_url",
-    "date_stamped_readme_raw_url",
-    "date_stamped_readme_github_api_url",
-    "history_readme_raw_url",
-    "latest_readme_raw_url",
-    "latest_readme_github_api_url",
-    "date_stamped_readme_pages_url",
-    "history_readme_pages_url",
-    "latest_readme_pages_url"
-  ],
-  "individual_stock_primary_read_order": [
-    "individual_stock_chatgpt_packet_raw_url_template",
-    "individual_stock_chatgpt_packet_github_api_url_template",
-    "individual_stock_price_window_180_html_raw_url_template",
-    "individual_stock_price_window_180_html_github_api_url_template",
-    "individual_stock_price_window_180_txt_raw_url_template",
-    "individual_stock_price_window_180_txt_github_api_url_template",
-    "individual_stock_price_github_api_url_template",
-    "individual_stock_tdcc_window_txt_raw_url_template",
-    "individual_stock_tdcc_window_txt_github_api_url_template",
-    "individual_stock_tdcc_github_api_url_template"
-  ],
-  "chatgpt_daily_rules_present": true,
-  "chatgpt_daily_rules_pages_first_snippet_count": 0,
-  "individual_stock_read_protocol_present": true,
-  "individual_stock_protocol_pages_first_count": 0,
-  "effective_model_signal_date": "20260701",
-  "model_signal_rows": 466,
-  "raw_model_signal_rows": 466,
-  "volume_watch_rows": 21,
-  "volume_theme_stock_rows": 21,
-  "group_rotation_rows": 3,
+  "main_price_date": "20260702",
+  "effective_model_signal_date": "20260702",
+  "model_signal_rows": 548,
+  "raw_model_signal_rows": 548,
+  "volume_watch_rows": 15,
+  "volume_theme_stock_rows": 15,
+  "group_rotation_rows": 4,
   "taxonomy_rows": 2374,
   "taxonomy_template_csv_rows": 2374,
   "taxonomy_template_xlsx_rows": 2374,
   "docs_taxonomy_template_csv_rows": 2374,
   "docs_taxonomy_template_xlsx_rows": 2374,
-  "market_timing_packet_main_price_date": "20260701",
+  "market_timing_packet_main_price_date": "20260702",
   "missing_required_model_columns": [],
   "blank_required_model_columns": {},
   "model_signal_dates": [
-    "20260701"
+    "20260702"
   ],
   "same_model_report_duplicates": 0,
   "model_report_line_membership_mismatch_rows": 0,
@@ -97,16 +53,16 @@
   "model_signal_third_bucket_rows": {},
   "model_signal_main_condition_not_true_rows": 0,
   "raw_model_signal_dates": [
-    "20260701"
+    "20260702"
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
-    "20260701"
+    "20260702"
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 2,
-  "group_rotation_launch_rows": 1,
+  "group_rotation_slow_rows": 4,
+  "group_rotation_launch_rows": 0,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,
   "taxonomy_unresolved_basic_theme_rows": 0,

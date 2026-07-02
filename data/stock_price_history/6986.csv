@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20260629,6986,和迅,TPEx,47.0,48.3,46.1,46.1,698000.0,32950850.0,TPEX_OTC_QUOTES_NO1430_JSON,data/daily_price/daily_price_20260629.csv,,,,,,-3.9583,,,,,,,,,,,,,,,,,,,,,
 20260630,6986,和迅,TPEx,45.6,47.4,44.5,46.35,423000.0,19354750.0,TPEX_OTC_QUOTES_NO1430_JSON,data/daily_price/daily_price_20260630.csv,,,,,,0.5423,,,,,,,,,,,,,,,,,,,,,
 20260701,6986,和迅,TPEx,47.7,50.0,46.6,47.3,298000.0,14320450.0,TPEX_OTC_QUOTES_NO1430_JSON,data/daily_price/daily_price_20260701.csv,,,,,,2.0496,,,,,,,,,,,,,,,,,,,,,
+20260702,6986,和迅,TPEx,46.5,47.3,45.6,47.1,119000.0,5512500.0,TPEX_OTC_QUOTES_NO1430_JSON,data/daily_price/daily_price_20260702.csv,46.97,46.97,46.97,46.97,47.634,-0.4228,,,,,715800.0,0.1662,50.0,50.0,50.0,44.5,44.5,44.5,0.2768,0.2768,0.2768,-1.1211,-5.8,-5.8,-5.8,5.8427,5.8427

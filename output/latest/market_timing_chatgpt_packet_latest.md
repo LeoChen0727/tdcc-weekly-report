@@ -1,24 +1,24 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-01 22:49:43 Asia/Taipei
-- main_price_date: 20260701
+- generated_at: 2026-07-02 14:30:13 Asia/Taipei
+- main_price_date: 20260702
 - packet_source: daily_market_regime_dashboard
-- packet_status: ready
-- packet_status_note: all source rows aligned with main_price_date
+- packet_status: partial_market_context
+- packet_status_note: futures_options_date=20260701
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260701
-- futures_options_indicators_latest.csv: 20260701
-- TWSE market index: 20260701
-- TPEx market index: 20260701
+- market_regime_latest.csv: 20260702
+- futures_options_indicators_latest.csv: 20260701 (latest available at or before main_price_date=20260702)
+- TWSE market index: 20260702
+- TPEx market index: 20260702
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| TWSE | 20260701 | 47,019 | 2.12% | 3.21% | True | True | mild_bull | high_risk |
-| TPEx | 20260701 | 431.23 | -2.46% | -2.14% | True | True | mild_bull | high_risk |
+| TWSE | 20260702 | 46,744 | 1.06% | 0.61% | True | True | mild_bull | high_risk |
+| TPEx | 20260702 | 439.51 | -0.08% | -1.64% | True | True | mild_bull | high_risk |
 
 ## Futures Options Context
 | item | value | note |
@@ -42,7 +42,7 @@
 market_sentiment_context:
   taiwan_vix:
     latest: 38.14
-    percentile_252d: 75.0
+    percentile_252d: 75.2577
     percentile_504d: 
     rank_label: upper_quartile
     context_label: elevated_hedging

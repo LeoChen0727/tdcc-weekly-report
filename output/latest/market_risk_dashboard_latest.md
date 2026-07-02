@@ -1,7 +1,7 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-07-01 22:49:41 Asia/Taipei`
-- data_date: `20260701`
+- generated_at: `2026-07-02 14:30:12 Asia/Taipei`
+- data_date: `20260702`
 - market_regime: `mild_bull`
 - risk_level: `high_risk`
 - risk_score: `5`
@@ -23,8 +23,8 @@
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 47,018.99 | +2.12% | +3.21% | True | True | mild_bull |
-| TPEx | 431.23 | -2.46% | -2.14% | True | True | mild_bull |
+| TWSE | 46,744.16 | +1.06% | +0.61% | True | True | mild_bull |
+| TPEx | 439.51 | -0.08% | -1.64% | True | True | mild_bull |
 
 ## 期貨選擇權部位
 
@@ -41,14 +41,14 @@
 
 ## 近期總經事件日曆
 
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=-6, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=-6, importance=high)
-- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=1, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=6, importance=medium)
-- 20260714 US_CPI: CPI release schedule: June 2026 (days=13, importance=high)
-- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=28, importance=high)
-- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=29, importance=medium)
-- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=29, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=-7, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=-7, importance=high)
+- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=0, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=5, importance=medium)
+- 20260714 US_CPI: CPI release schedule: June 2026 (days=12, importance=high)
+- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=27, importance=high)
+- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=28, importance=medium)
+- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=28, importance=high)
 
 ## 半年技術圖表
 
@@ -63,8 +63,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: mild_bull; close 47,018.99; 6M range 29,349.81-47,741.51; distance from 6M high -1.51%; above MA20=True, above MA60=True.
-- TPEx / OTC: mild_bull; close 431.23; 6M range 275.66-453.50; distance from 6M high -4.91%; above MA20=True, above MA60=True.
+- TWSE / TAIEX: mild_bull; close 46,744.16; 6M range 29,349.81-47,741.51; distance from 6M high -2.09%; above MA20=True, above MA60=True.
+- TPEx / OTC: mild_bull; close 439.51; 6M range 275.66-453.50; distance from 6M high -3.08%; above MA20=True, above MA60=True.
 
 ## 散戶小台 proxy
 
@@ -89,11 +89,11 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `38.14`
-- 252D high / low / percentile: `44.01` / `25.68` / `75%`
+- 252D high / low / percentile: `44.01` / `25.68` / `75.26%`
 - 504D percentile: `-`
-- z-score: `0.72`
+- z-score: `0.71`
 - vix_return_5d / 10d / 20d: `-6.79%` / `-2.75%` / `4.26%`
-- TWSE / TPEx position: TWSE dist 60D high `-1.51%`, TPEx dist 60D high `-4.91%`
+- TWSE / TPEx position: TWSE dist 60D high `-2.09%`, TPEx dist 60D high `-3.08%`
 - vix_index_interpretation: `index_strong_but_hedging_elevated`
 
 ## Retail MTX Historical Context
