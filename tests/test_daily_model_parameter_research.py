@@ -15,10 +15,12 @@ from build_daily_model_parameter_research import (  # noqa: E402
     _add_feature_confirmation_deltas,
     add_price_structure_features,
     attach_signal_background_features,
+    add_price_pullback_high_return_feature_score_columns,
     add_price_pullback_research_score_columns,
     build_price_pullback_continuation_win_profile,
     build_price_pullback_exit_rule_comparison,
     build_price_pullback_feature_confirmation_research,
+    build_price_pullback_high_return_feature_score_grid,
     build_model_parity,
     build_price_pullback_model_decision_audit,
     build_price_pullback_operation_module_research,
@@ -923,6 +925,12 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     assert scored.loc[0, "price_pullback_research_score_bucket"] == "score_6_plus"
     assert "obv_above_ma20" in scored.loc[0, "price_pullback_research_score_components"]
 
+    high_return_scored = add_price_pullback_high_return_feature_score_columns(df)
+    assert high_return_scored.loc[0, "price_pullback_high_return_feature_score"] == 4
+    assert "prev20_target_space_5_to_8" in high_return_scored.loc[
+        0, "price_pullback_high_return_feature_score_components"
+    ]
+
     score_bucket = build_price_pullback_research_score_bucket(df)
     assert not score_bucket.empty
     assert score_bucket["approved_for_daily"].eq(False).all()
@@ -930,6 +938,24 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     assert "research_only_not_production_score" in set(score_bucket["score_use"])
     assert "score_6_plus" in set(score_bucket["score_bucket"])
     assert "close_prev20_high_break_next_open" in set(score_bucket["exit_rule_id"])
+
+    high_return_grid = build_price_pullback_high_return_feature_score_grid(df)
+    assert not high_return_grid.empty
+    assert high_return_grid["approved_for_daily"].eq(False).all()
+    assert high_return_grid["production_change"].eq("none").all()
+    assert "research_high_return_feature_score_v1" in set(high_return_grid["score_draft_id"])
+    assert {"including_data_quality_exceptions", "excluding_known_data_quality_exceptions"} <= set(
+        high_return_grid["anomaly_exclusion_basis"]
+    )
+    assert "score_threshold" in set(high_return_grid["score_bucket_type"])
+    assert "score_ge_4" in set(high_return_grid["score_bucket"])
+    threshold = high_return_grid[
+        high_return_grid["score_bucket"].eq("score_ge_4")
+        & high_return_grid["exit_rule_id"].eq("close_prev20_high_break_next_open")
+        & high_return_grid["anomaly_exclusion_basis"].eq("excluding_known_data_quality_exceptions")
+    ].iloc[0]
+    assert threshold["score_use"] == "research_only_not_production_score"
+    assert threshold["accepted_trade_count"] >= 1
 
     condition_matrix = build_price_pullback_ordered_condition_matrix(df)
     assert not condition_matrix.empty
