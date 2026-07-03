@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8432 東生華
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:23 Asia/Taipei
+- generated_at: 2026-07-03 22:28:22 Asia/Taipei
 - stock_id: 8432
 - stock_name: 東生華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 52
-- high: 52.1
-- low: 51.6
-- close: 51.8
-- volume: 22000
-- ma5: 51.1
-- ema23_primary: 51.08
-- distance_to_ema23_pct: 1.41
-- ma20: 51.41
-- ma60: 50.93
-- ma120: 52.66
-- return_5d: 2.57
-- return_20d: 2.17
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 0.77
-- distance_to_high_60_pct: -3
+- date: 20260703
+- open: 52.3
+- high: 52.8
+- low: 52
+- close: 52.5
+- volume: 51000
+- ma5: 51.48
+- ema23_primary: 51.2
+- distance_to_ema23_pct: 2.54
+- ma20: 51.43
+- ma60: 50.94
+- ma120: 52.62
+- return_5d: 3.75
+- return_20d: 0.96
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 2.08
+- distance_to_high_60_pct: -1.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,52.5,52.5,51.8,52,52000,50.65,2.66,50.43,50.94,0.95
 20260605,52,52.5,51.7,52.5,52000,50.81,3.33,50.49,50.96,0.93
 20260608,52,52.4,51.4,52.3,52000,50.93,2.69,50.62,50.98,1.09
 20260609,52.5,53.2,52.4,53,104000,51.1,3.71,50.8,51,2.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,50.5,50.9,50.5,50.9,22000,50.96,-0.12,51.28,50.93,0.49
 20260701,50.2,51.8,50.2,51.6,43000,51.02,1.15,51.35,50.92,0.92
 20260702,52,52.1,51.6,51.8,22000,51.08,1.41,51.41,50.93,0.48
+20260703,52.3,52.8,52,52.5,51000,51.2,2.54,51.43,50.94,1.12
 ```
 
 ## Latest TDCC Snapshot

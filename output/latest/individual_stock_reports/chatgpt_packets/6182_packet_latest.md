@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:41 Asia/Taipei
+- generated_at: 2026-07-03 22:27:40 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 135.5
-- high: 148.5
-- low: 135
-- close: 148.5
-- volume: 79498000
-- ma5: 127.6
-- ema23_primary: 107.94
-- distance_to_ema23_pct: 37.58
-- ma20: 107.03
-- ma60: 72.67
-- ma120: 53.85
-- return_5d: 18.8
-- return_20d: 53.25
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 38.75
+- date: 20260703
+- open: 153
+- high: 163
+- low: 147
+- close: 163
+- volume: 196225000
+- ma5: 136.3
+- ema23_primary: 112.53
+- distance_to_ema23_pct: 44.85
+- ma20: 110.64
+- ma60: 74.83
+- ma120: 54.95
+- return_5d: 36.4
+- return_20d: 79.32
+- volume_ratio: 3.14
+- distance_to_ma20_pct_auxiliary: 47.33
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,94,94.3,89.9,90.9,92000,73.67,23.39,72.91,49.22,0
 20260605,86,87.5,83.3,85.5,85000,74.66,14.53,74.33,50.09,0.01
 20260608,77,80,77,80,13260000,75.1,6.52,75.41,50.86,2.05
 20260609,83,88,81.7,87.2,9620000,76.11,14.57,76.95,51.78,1.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,119.5,123,118.5,123,23545000,101.46,21.23,102.2,68.98,0.5
 20260701,135,135,135,135,30186000,104.25,29.49,104.45,70.71,0.62
 20260702,135.5,148.5,135,148.5,79498000,107.94,37.58,107.03,72.67,1.51
+20260703,153,163,147,163,196225000,112.53,44.85,110.64,74.83,3.14
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6182 | 合晶 | true_breakout | 嚴格突破 | 97.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.股東常會日期:115/06/23 2.重要決議事項一、盈餘分配或盈虧撥補:   通過2025年度利潤分配方案的議案 3.重要決議事項二、章程修訂:   通過變更經營範圍、註冊資本、修訂《公司章程》並辦理工商變更登記的議案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:   通過補選公司第三屆董事會非獨立董事的議案 6.重要決議事項五、其他事項:   (1)通過2025年度董事會工作報告的議案   (2)通過確認2025年度日常關聯交易及2026年度日常關聯交易預計的議案   (3)通過續聘公司2026年度審計機構的議案   (4)通過修訂《上海合晶硅材料股份有限公司對外擔保管理制度》的議案   (5)通過2026年度董事長薪酬方案的議案   (6)通過符合向特定對象發行A股股票條件的議案   (7)通過2026年度向特定對象發行A股股票方案的議案   (8)通過2026年度向特定對象發行A股股票預案的議案   (9)通過2026年度向特定對象發行A股股票方案論證分析報告的議案   (10)通過2026年度向特定對象發行A股股票募集資金使用可行性分析報告的議案   (11)通過向特定對象發行A股股票攤薄即期回報和採取填補措施及相關主體承諾的       議案   (12)通過未來三年(2026年-2028年)股東回報規劃的議案   (13)通過前次募集資金使用情況報告的議案   (14)通過設立本次向特定對象發行A股股票募集資金專項帳戶並簽署監管協議的議案   (15)通過提請公司股東會授權董事會及其授權人士全權辦理2026年度向特定對象       發行A股股票相關事宜的議案   (16)通過本次向特定對象發行A股股票募集資金投向屬於科技創新領域說明的議案   (17)通過對外投資設立合資公司暨關聯交易的議案   (18)通過制定《董事和高級管理人員薪酬管理制度》的議案 7.其他應敘明事項:   報告事項:《2025年度獨立董事述職報告》和《2026年度高級管理人員薪酬方案》；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6182 | 合晶 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/07/02 2.公司名稱:合晶科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司依據金融監督管理委員會114年5月5日金管證發字第1140382105 號函規定，變更國內第八次無擔保轉換公司債發行及轉換辦法部分條文案，業經 金融監督管理委員會115年07月01日金管證發字第1150347391號函核備在案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 本公司經核備後完整之國內第八次無擔保轉換公司債發行及轉換辦法，請至公開 資訊觀測站「債信專區」查詢。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6182 | 合晶 | 2 | 2 | 3 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260703 | 6182 | 合晶 | 3 | 3 | 3 | 8 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

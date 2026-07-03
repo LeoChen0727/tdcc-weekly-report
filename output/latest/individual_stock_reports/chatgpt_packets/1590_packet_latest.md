@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:16 Asia/Taipei
+- generated_at: 2026-07-03 22:26:15 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 1355
-- high: 1415
-- low: 1345
-- close: 1390
-- volume: 700000
-- ma5: 1363
-- ema23_primary: 1357.81
-- distance_to_ema23_pct: 2.37
-- ma20: 1336
-- ma60: 1355.25
-- ma120: 1203.58
-- return_5d: 0
-- return_20d: 1.46
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 4.04
-- distance_to_high_60_pct: -13.12
+- date: 20260703
+- open: 1480
+- high: 1480
+- low: 1375
+- close: 1440
+- volume: 886093
+- ma5: 1379
+- ema23_primary: 1364.66
+- distance_to_ema23_pct: 5.52
+- ma20: 1342.5
+- ma60: 1361.33
+- ma120: 1207.72
+- return_5d: 5.88
+- return_20d: 9.92
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 7.26
+- distance_to_high_60_pct: -10
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,1325,1335,1290,1310,643509,1384.58,-5.39,1428.25,1248.93,0.59
 20260605,1280,1330,1260,1320,469080,1379.2,-4.29,1419,1254.77,0.45
 20260608,1240,1290,1225,1280,538630,1370.93,-6.63,1405.5,1258.85,0.54
 20260609,1325,1335,1275,1305,541719,1365.44,-4.43,1394,1263.43,0.55
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,1335,1385,1335,1335,683000,1353.06,-1.33,1330.25,1342.93,0.84
 20260701,1350,1395,1350,1375,486000,1354.89,1.48,1335,1349.25,0.63
 20260702,1355,1415,1345,1390,700000,1357.81,2.37,1336,1355.25,0.94
+20260703,1480,1480,1375,1440,886093,1364.66,5.52,1342.5,1361.33,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1590 | 亞德客-KY | 42 | 0 | 4205170.0 | 0.0 |  | no_signal |
+| 20260703 | 1590 | 亞德客-KY | 42 | 0 | 4305080.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

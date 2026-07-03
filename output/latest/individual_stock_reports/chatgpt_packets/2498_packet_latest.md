@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:38 Asia/Taipei
+- generated_at: 2026-07-03 22:26:38 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 43.3
-- high: 44
-- low: 43
-- close: 43.5
-- volume: 4069000
-- ma5: 43.68
-- ema23_primary: 44.84
-- distance_to_ema23_pct: -2.99
-- ma20: 44.93
-- ma60: 43.27
-- ma120: 43.75
-- return_5d: -5.23
-- return_20d: -12.91
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -3.18
-- distance_to_high_60_pct: -16.98
+- date: 20260703
+- open: 43.55
+- high: 45.1
+- low: 43.55
+- close: 44.45
+- volume: 5070543
+- ma5: 43.99
+- ema23_primary: 44.81
+- distance_to_ema23_pct: -0.8
+- ma20: 44.77
+- ma60: 43.33
+- ma120: 43.71
+- return_5d: 3.61
+- return_20d: -6.81
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -0.71
+- distance_to_high_60_pct: -15.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,50,50.4,47.7,47.7,17241937,44.89,6.25,44.75,42.12,0.78
 20260605,47.6,48.15,45.8,45.9,12521986,44.98,2.05,45.08,42.2,0.57
 20260608,41.4,42.85,41.35,42.6,11419966,44.78,-4.87,45.2,42.18,0.52
 20260609,42.8,43.4,42.3,43.2,6185920,44.65,-3.24,45.29,42.18,0.28
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,44,46.7,43.7,45.35,7796000,45.1,0.56,45.58,43.13,0.59
 20260701,46.05,46.05,43.45,43.45,6910000,44.96,-3.36,45.25,43.19,0.6
 20260702,43.3,44,43,43.5,4069000,44.84,-2.99,44.93,43.27,0.41
+20260703,43.55,45.1,43.55,44.45,5070543,44.81,-0.8,44.77,43.33,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2498 | 宏達電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:研發長 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:劉萬賢/研發長 4.新任者姓名、級職及簡歷:待定 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2498 | 宏達電 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:研發長 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷:劉萬賢/研發長 4.新任者姓名、級職及簡歷:待定 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2498 | 宏達電 | 1 | 1 | 2 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 2498 | 宏達電 | 2 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2498 | 宏達電 | 72 | 6 | 661130.0 | 17600.0 | 37.56 | no_signal |
+| 20260703 | 2498 | 宏達電 | 69 | 0 | 2456490.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

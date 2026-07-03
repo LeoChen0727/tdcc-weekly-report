@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0073 期元大道瓊白銀(原名：元大道瓊白銀)
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:01 Asia/Taipei
+- generated_at: 2026-07-03 22:26:00 Asia/Taipei
 - stock_id: 0073
 - stock_name: 期元大道瓊白銀(原名：元大道瓊白銀)
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 0073 | 期元大道瓊白銀(原名：元大道瓊白銀) | 247 | 44 | 2656620.0 | 55530.0 | 47.84 | call_inflow |
+| 20260703 | 0073 | 期元大道瓊白銀(原名：元大道瓊白銀) | 242 | 0 | 5039140.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

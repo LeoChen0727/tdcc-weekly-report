@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6725 矽科宏晟
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:58 Asia/Taipei
+- generated_at: 2026-07-03 22:27:57 Asia/Taipei
 - stock_id: 6725
 - stock_name: 矽科宏晟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 121
+- latest_price_date: 20260703
+- price_rows: 122
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 342.5
-- high: 347.5
-- low: 335.5
-- close: 345
-- volume: 131000
-- ma5: 334.6
-- ema23_primary: 326.82
-- distance_to_ema23_pct: 5.56
-- ma20: 318.45
-- ma60: 329.64
-- ma120: 291.79
-- return_5d: 2.68
-- return_20d: 6.32
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 8.34
-- distance_to_high_60_pct: -18.63
+- date: 20260703
+- open: 345
+- high: 345
+- low: 336.5
+- close: 340
+- volume: 105000
+- ma5: 339.1
+- ema23_primary: 327.92
+- distance_to_ema23_pct: 3.68
+- ma20: 319.93
+- ma60: 330.61
+- ma120: 291.98
+- return_5d: 7.09
+- return_20d: 9.5
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 6.27
+- distance_to_high_60_pct: -19.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,324,324,310.5,310.5,315000,322.52,-3.73,317.45,307.69,0.98
 20260605,310.5,310.5,292.5,300,301000,320.65,-6.44,316.1,308.85,0.97
 20260608,276,284,274,281.5,266000,317.38,-11.31,313.98,309.52,0.86
 20260609,295,295.5,281.5,284.5,158000,314.64,-9.58,311.8,310.48,0.54
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,325,349,321,349,414000,323.5,7.88,316.62,326.98,1.05
 20260701,352,360,338.5,343.5,643000,325.17,5.64,317.43,328.34,1.51
 20260702,342.5,347.5,335.5,345,131000,326.82,5.56,318.45,329.64,0.31
+20260703,345,345,336.5,340,105000,327.92,3.68,319.93,330.61,0.26
 ```
 
 ## Latest TDCC Snapshot

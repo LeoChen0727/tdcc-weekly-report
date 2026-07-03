@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:49 Asia/Taipei
+- generated_at: 2026-07-03 22:26:49 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 290
+- latest_price_date: 20260703
+- price_rows: 291
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 11.6
+- date: 20260703
+- open: 11.95
 - high: 11.95
-- low: 11.6
+- low: 11.95
 - close: 11.95
-- volume: 17000
-- ma5: 11.96
-- ema23_primary: 11.52
-- distance_to_ema23_pct: 3.74
-- ma20: 11.75
-- ma60: 10.84
+- volume: 6710
+- ma5: 11.94
+- ema23_primary: 11.55
+- distance_to_ema23_pct: 3.42
+- ma20: 11.85
+- ma60: 10.85
 - ma120: 11.48
-- return_5d: -3.24
-- return_20d: 26.86
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 1.71
+- return_5d: -0.83
+- return_20d: 19.62
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 0.87
 - distance_to_high_60_pct: -4.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,9.42,9.99,9.39,9.99,36788,9.92,0.72,9.82,10.97,1.26
 20260604,9.97,10.7,9.97,10.7,37400,9.98,7.17,9.83,10.93,1.29
 20260605,10.7,11.75,10.7,11.75,140193,10.13,15.98,9.91,10.92,4.22
 20260608,10.8,12.5,10.8,12.1,60099,10.3,17.53,9.98,10.92,1.7
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,12,12,12,12,3000,11.45,4.8,11.51,10.84,0.08
 20260701,12,12,11.8,11.8,26000,11.48,2.79,11.62,10.84,0.68
 20260702,11.6,11.95,11.6,11.95,17000,11.52,3.74,11.75,10.84,0.45
+20260703,11.95,11.95,11.95,11.95,6710,11.55,3.42,11.85,10.85,0.19
 ```
 
 ## Latest TDCC Snapshot

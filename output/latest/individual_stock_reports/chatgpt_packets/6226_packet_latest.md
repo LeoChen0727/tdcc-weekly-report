@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:44 Asia/Taipei
+- generated_at: 2026-07-03 22:27:43 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 26.65
-- high: 26.65
-- low: 26.65
-- close: 26.65
-- volume: 2941000
-- ma5: 22.25
-- ema23_primary: 16.56
-- distance_to_ema23_pct: 60.94
-- ma20: 15.39
-- ma60: 13.78
-- ma120: 11.73
-- return_5d: 60.54
-- return_20d: 90.36
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 73.16
-- distance_to_high_60_pct: 0
+- date: 20260703
+- open: 28.95
+- high: 28.95
+- low: 24
+- close: 24
+- volume: 7274764
+- ma5: 23.4
+- ema23_primary: 17.18
+- distance_to_ema23_pct: 39.7
+- ma20: 15.91
+- ma60: 13.97
+- ma120: 11.87
+- return_5d: 31.51
+- return_20d: 76.47
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 50.85
+- distance_to_high_60_pct: -17.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,14,14,13.3,13.6,2304639,13.04,4.28,12.82,12.67,1.09
 20260605,13.6,13.7,12.85,13.6,1947260,13.09,3.91,12.89,12.76,0.9
 20260608,12.4,12.9,12.25,12.8,1487694,13.06,-2.03,12.92,12.82,0.68
 20260609,12.95,13.25,12.55,13.1,1220744,13.07,0.25,12.95,12.89,0.56
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,22,22.05,21.95,22.05,8893000,14.86,48.39,14.22,13.32,1.39
 20260701,24.25,24.25,24.25,24.25,2966000,15.64,55.03,14.76,13.52,0.47
 20260702,26.65,26.65,26.65,26.65,2941000,16.56,60.94,15.39,13.78,0.47
+20260703,28.95,28.95,24,24,7274764,17.18,39.7,15.91,13.97,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6226 | 光鼎 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/06/26 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準，故依「臺灣 證券交易所股份有限公司」通知公告辦理。 3.財務業務資訊:                   (月)                      (季)          (最近四季累計) --------------------------------------------------------------------------           最近一月    與去年       最近一季     與去年     (114年第2季 科目     (115年5月)  同期增減%   (115年第1季)  同期增減%   至115年第1季)           (自結數)                 (核閱數)                (查核/核閱數) ========================================================================== 營業收入       55      -2.14%           152      -3.63%           603 (百萬) 稅前淨利        4     419.41%             0          -             -2 (百萬) 歸屬母公司 業主淨利        4     419.41%             1     110.93%           -20 (百萬) 每股盈餘     0.03     400.00%          0.01     111.11%         -0.18 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6226 | 光鼎 | 7 | 5 | 5 | 7 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

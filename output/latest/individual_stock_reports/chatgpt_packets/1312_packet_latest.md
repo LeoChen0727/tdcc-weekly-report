@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1312 國喬
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:08 Asia/Taipei
+- generated_at: 2026-07-03 22:26:07 Asia/Taipei
 - stock_id: 1312
 - stock_name: 國喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -60,13 +60,13 @@
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,8 +74,8 @@
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
 - position_sizing: half_position
 
 ### management_plan
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 13.95
-- high: 14.75
-- low: 13.9
-- close: 14.45
-- volume: 53116000
-- ma5: 14.1
-- ema23_primary: 13.45
-- distance_to_ema23_pct: 7.47
-- ma20: 13.7
-- ma60: 12.62
-- ma120: 12.91
-- return_5d: 2.12
-- return_20d: -0.69
-- volume_ratio: 2.35
-- distance_to_ma20_pct_auxiliary: 5.46
-- distance_to_high_60_pct: -8.54
+- date: 20260703
+- open: 14.55
+- high: 15.4
+- low: 14.35
+- close: 15.1
+- volume: 97061757
+- ma5: 14.32
+- ema23_primary: 13.58
+- distance_to_ema23_pct: 11.16
+- ma20: 13.75
+- ma60: 12.66
+- ma120: 12.93
+- return_5d: 7.86
+- return_20d: 6.34
+- volume_ratio: 4.6
+- distance_to_ma20_pct_auxiliary: 9.84
+- distance_to_high_60_pct: -4.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,14.9,15.8,14.1,14.2,126456090,11.9,19.33,11.3,12.65,8.41
 20260605,14.2,14.45,13.35,14.4,29686786,12.11,18.93,11.44,12.66,1.82
 20260608,13.5,14.2,13.45,13.65,17866255,12.24,11.55,11.54,12.67,1.06
 20260609,13.65,14.4,13.65,13.75,14125248,12.36,11.22,11.65,12.66,0.81
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,14.15,14.25,13.95,14.1,14069000,13.31,5.9,13.68,12.6,0.69
 20260701,14.2,14.4,13.8,13.8,21942000,13.35,3.34,13.71,12.61,1.05
 20260702,13.95,14.75,13.9,14.45,53116000,13.45,7.47,13.7,12.62,2.35
+20260703,14.55,15.4,14.35,15.1,97061757,13.58,11.16,13.75,12.66,4.6
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1312 | 國喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：採視訊方式進行 4.法人說明會擇要訊息：115年第1季所屬產業概況及營運成果 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1312 | 國喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：採視訊方式進行 4.法人說明會擇要訊息：115年第1季所屬產業概況及營運成果 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1312 | 國喬 | 1 | 1 | 2 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 1312 | 國喬 | 2 | 2 | 3 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1312 | 國喬 | 31 | 0 | 3477510.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 1312 | 國喬 | 30 | 0 | 11935000.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

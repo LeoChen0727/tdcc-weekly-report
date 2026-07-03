@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2006 東和鋼鐵
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:22 Asia/Taipei
+- generated_at: 2026-07-03 22:26:21 Asia/Taipei
 - stock_id: 2006
 - stock_name: 東和鋼鐵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 67.9
-- high: 69.1
-- low: 67.6
-- close: 69
-- volume: 2585000
-- ma5: 68.82
-- ema23_primary: 68.42
-- distance_to_ema23_pct: 0.85
-- ma20: 68.44
-- ma60: 67.91
-- ma120: 69.93
-- return_5d: -1.43
-- return_20d: 3.45
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 0.82
-- distance_to_high_60_pct: -4.96
+- date: 20260703
+- open: 68.6
+- high: 70.1
+- low: 68.6
+- close: 69.4
+- volume: 2072868
+- ma5: 68.74
+- ema23_primary: 68.5
+- distance_to_ema23_pct: 1.31
+- ma20: 68.54
+- ma60: 67.89
+- ma120: 69.97
+- return_5d: -0.57
+- return_20d: 2.97
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 1.25
+- distance_to_high_60_pct: -4.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,66.8,67.5,66.5,67.4,2349435,66.85,0.82,66.26,69.58,1.05
 20260605,67.6,67.7,66.5,67,1611825,66.87,0.2,66.24,69.34,0.73
 20260608,63.7,65.9,63.5,65.4,2962172,66.74,-2.01,66.12,69.04,1.29
 20260609,65.2,67,65.2,66.8,2704554,66.75,0.08,66.16,68.8,1.19
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,70,70.4,67.1,67.4,4643000,68.41,-1.48,68.25,67.94,1.01
 20260701,67.6,68.7,67.3,67.9,2213000,68.37,-0.69,68.33,67.92,0.48
 20260702,67.9,69.1,67.6,69,2585000,68.42,0.85,68.44,67.91,0.57
+20260703,68.6,70.1,68.6,69.4,2072868,68.5,1.31,68.54,67.89,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2006 | 東和鋼鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2006 | 東和鋼鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2006 | 東和鋼鐵 | 1 | 1 | 2 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 2006 | 東和鋼鐵 | 2 | 2 | 3 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2006 | 東和鋼鐵 | 3 | 0 | 656680.0 | 0.0 |  | no_signal |
+| 20260703 | 2006 | 東和鋼鐵 | 3 | 0 | 542040.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

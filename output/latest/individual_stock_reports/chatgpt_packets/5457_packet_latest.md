@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5457 宣德
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:31 Asia/Taipei
+- generated_at: 2026-07-03 22:27:31 Asia/Taipei
 - stock_id: 5457
 - stock_name: 宣德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 33.85
-- high: 34.55
-- low: 33.1
-- close: 34.25
-- volume: 651000
-- ma5: 33.98
-- ema23_primary: 34.25
-- distance_to_ema23_pct: 0.01
-- ma20: 34.35
-- ma60: 34.64
-- ma120: 35.66
-- return_5d: -5.12
-- return_20d: 7.03
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -18.45
+- date: 20260703
+- open: 34.7
+- high: 35
+- low: 34.05
+- close: 34.7
+- volume: 513000
+- ma5: 34.12
+- ema23_primary: 34.29
+- distance_to_ema23_pct: 1.21
+- ma20: 34.52
+- ma60: 34.62
+- ma120: 35.61
+- return_5d: 2.06
+- return_20d: 10.69
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 0.54
+- distance_to_high_60_pct: -17.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,31.8,32.2,31,31.35,32000,31.94,-1.85,31.42,34.65,0.06
 20260605,31.4,31.5,30.25,31,31000,31.86,-2.71,31.16,34.63,0.06
 20260608,28.95,30.8,28.65,30.55,698000,31.75,-3.79,30.87,34.57,1.24
 20260609,30.55,30.9,29.8,30.05,507000,31.61,-4.94,30.59,34.52,0.92
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,34.1,34.8,33.8,34.15,630000,34.28,-0.39,34.09,34.66,0.34
 20260701,34.55,35,33.75,33.85,666000,34.25,-1.16,34.23,34.65,0.35
 20260702,33.85,34.55,33.1,34.25,651000,34.25,0.01,34.35,34.64,0.34
+20260703,34.7,35,34.05,34.7,513000,34.29,1.21,34.52,34.62,0.27
 ```
 
 ## Latest TDCC Snapshot

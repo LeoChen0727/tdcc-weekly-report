@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2891 中信金
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:46 Asia/Taipei
+- generated_at: 2026-07-03 22:26:46 Asia/Taipei
 - stock_id: 2891
 - stock_name: 中信金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 71.1
-- high: 71.8
+- date: 20260703
+- open: 69.8
+- high: 71.4
 - low: 69.7
-- close: 69.9
-- volume: 50154000
-- ma5: 70.42
-- ema23_primary: 68.07
-- distance_to_ema23_pct: 2.69
-- ma20: 69.59
-- ma60: 60.34
-- ma120: 55.97
-- return_5d: -0.99
-- return_20d: -0.85
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 0.45
-- distance_to_high_60_pct: -5.03
+- close: 70.6
+- volume: 40938670
+- ma5: 70.48
+- ema23_primary: 68.28
+- distance_to_ema23_pct: 3.4
+- ma20: 69.72
+- ma60: 60.57
+- ma120: 56.14
+- return_5d: 0.43
+- return_20d: 3.82
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 1.26
+- distance_to_high_60_pct: -4.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,68,69.2,66,68,97008090,59.34,14.6,58.57,54.88,1.51
 20260605,66.3,68,66,66.6,63844979,59.94,11.11,59.08,55.13,0.99
 20260608,65.2,66.9,64.5,65.4,46262357,60.4,8.29,59.59,55.37,0.72
 20260609,64.8,69.5,64.8,69.2,53708919,61.13,13.2,60.37,55.67,0.86
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,70.9,71.5,69.8,71,47454000,67.65,4.95,69.3,59.83,0.83
 20260701,71.6,72.2,70.1,70.6,47919000,67.9,3.98,69.62,60.1,0.85
 20260702,71.1,71.8,69.7,69.9,50154000,68.07,2.69,69.59,60.34,0.92
+20260703,69.8,71.4,69.7,70.6,40938670,68.28,3.4,69.72,60.57,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2891 | 中信金 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | repeated_but_no_breakout | 1.董事會決議日期:115/06/30 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 台灣人壽保險股份有限公司115年度累積次順位公司債。 3.是否採總括申報發行公司債(是/否):否。 4.發行總額:不超過新臺幣200億元整(或等值外幣)，於境內及/或透過本公司百分之百持 有之國外籌資事業(Taiwan Life Singapore Pte. Ltd.)於境外，依市場狀況需求一次 或分次發行。 5.每張面額:每張面額暫定為新臺幣壹佰萬元整(若發行外幣時，則視市場狀況而定)。 6.發行價格:依票面金額十足發行。 7.發行期間:10年(含)以上。 8.發行利率:授權董事長或其指定之人視發行時市場狀況訂定。 9.擔保品之種類、名稱、金額及約定事項:無。 10.募得價款之用途及運用計畫:充實營運資金、強化財務結構及提升資本適足率。 11.承銷方式:授權董事長或其指定之人決定之。 12.公司債受託人:授權董事長或其指定之人決定之。 13.承銷或代銷機構:授權董事長或其指定之人決定之。 14.發行保證人:若透過本公司百分之百持有之國外籌資事業發行者，將由本公司對該債 券提供保證。 15.代理還本付息機構:授權董事長或其指定之人決定之。 16.簽證機構:無。 17.能轉換股份者，其轉換辦法:不適用。 18.賣回條件:無。 19.買回條件:授權董事長或其指定之人決定之。 20.附有轉換、交換或認股者，其換股基準日:不適用。 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用。 23.其他應敘明事項: (1)本次發行公司債於向主管機關申報發行生效後，將向中華民國證券櫃檯買賣中心或 其他境外交易所申請買賣。 (2)本次公司債之發行條件等相關事宜，授權董事長或其指定之人依法全權處理。；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_14d |
-| 20260702 | 2891 | 中信金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.董事會決議日期:115/06/30 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 台灣人壽保險股份有限公司115年度累積次順位公司債。 3.是否採總括申報發行公司債(是/否):否。 4.發行總額:不超過新臺幣200億元整(或等值外幣)，於境內及/或透過本公司百分之百持 有之國外籌資事業(Taiwan Life Singapore Pte. Ltd.)於境外，依市場狀況需求一次 或分次發行。 5.每張面額:每張面額暫定為新臺幣壹佰萬元整(若發行外幣時，則視市場狀況而定)。 6.發行價格:依票面金額十足發行。 7.發行期間:10年(含)以上。 8.發行利率:授權董事長或其指定之人視發行時市場狀況訂定。 9.擔保品之種類、名稱、金額及約定事項:無。 10.募得價款之用途及運用計畫:充實營運資金、強化財務結構及提升資本適足率。 11.承銷方式:授權董事長或其指定之人決定之。 12.公司債受託人:授權董事長或其指定之人決定之。 13.承銷或代銷機構:授權董事長或其指定之人決定之。 14.發行保證人:若透過本公司百分之百持有之國外籌資事業發行者，將由本公司對該債 券提供保證。 15.代理還本付息機構:授權董事長或其指定之人決定之。 16.簽證機構:無。 17.能轉換股份者，其轉換辦法:不適用。 18.賣回條件:無。 19.買回條件:授權董事長或其指定之人決定之。 20.附有轉換、交換或認股者，其換股基準日:不適用。 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用。 23.其他應敘明事項: (1)本次發行公司債於向主管機關申報發行生效後，將向中華民國證券櫃檯買賣中心或 其他境外交易所申請買賣。 (2)本次公司債之發行條件等相關事宜，授權董事長或其指定之人依法全權處理。；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_14d |
+| 20260703 | 2891 | 中信金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日：115/07/02 2.事實發生主體：代子公司申報：中國信託商業銀行股份有限公司 3.發生緣由(事件說明)：中國信託商業銀行前行員挪用該行ATM清算款及財金清算款所涉缺失， 核有違反銀行法及行為時「金融控股公司及銀行業內部控制 及稽核制度實施辦法」規定， 爰依銀行法第129條第7款規定核處新台幣400萬元罰鍰。 4.處理過程：將依主管機關意見辦理相關改善事宜。 5.處分情形：核處罰鍰新臺幣400萬元整。 6.是否遭裁處罰鍰：是 7.裁罰金額(元)：新台幣 4,000,000 元 8.預計可能損失或影響：新台幣400萬元整。 9.可能獲得保險理賠之金額(元)：無 10.改善情形及未來因應措施：本公司將依主管機關指示辦理改善事宜，公司營運一切正常。 11.是否前已就同一事件發布重大訊息：否 12.其他應述明事項：無；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2891 | 中信金 | 11 | 5 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260703 | 2891 | 中信金 | 12 | 6 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2891 | 中信金 | 25 | 0 | 1178280.0 | 0.0 |  | call_inflow |
+| 20260703 | 2891 | 中信金 | 27 | 0 | 1906740.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

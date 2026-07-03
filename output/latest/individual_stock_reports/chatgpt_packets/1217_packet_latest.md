@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1217 愛之味
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:06 Asia/Taipei
+- generated_at: 2026-07-03 22:26:05 Asia/Taipei
 - stock_id: 1217
 - stock_name: 愛之味
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 9.86
-- high: 9.99
-- low: 9.8
-- close: 9.99
-- volume: 1281000
-- ma5: 9.84
-- ema23_primary: 9.84
-- distance_to_ema23_pct: 1.56
+- date: 20260703
+- open: 10
+- high: 10.15
+- low: 10
+- close: 10.15
+- volume: 1339502
+- ma5: 9.92
+- ema23_primary: 9.86
+- distance_to_ema23_pct: 2.92
 - ma20: 9.87
 - ma60: 9.87
 - ma120: 10.15
-- return_5d: 1.22
-- return_20d: -0.1
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 1.26
-- distance_to_high_60_pct: -3.94
+- return_5d: 4
+- return_20d: 1.5
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 2.81
+- distance_to_high_60_pct: -2.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,10.05,10.1,10,10,1047081,9.75,2.58,9.62,10,1.23
 20260605,10,10,9.9,9.92,875074,9.76,1.61,9.63,9.99,1.01
 20260608,9.87,9.9,9.74,9.86,882739,9.77,0.92,9.64,9.98,1.01
 20260609,9.83,9.92,9.83,9.84,575098,9.78,0.65,9.65,9.98,0.67
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,9.82,9.84,9.79,9.82,297000,9.82,-0.01,9.87,9.89,0.4
 20260701,9.85,9.87,9.8,9.84,484000,9.82,0.18,9.87,9.88,0.68
 20260702,9.86,9.99,9.8,9.99,1281000,9.84,1.56,9.87,9.87,2.03
+20260703,10,10.15,10,10.15,1339502,9.86,2.92,9.87,9.87,2.07
 ```
 
 ## Latest TDCC Snapshot
@@ -195,12 +195,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1217 | 愛之味 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1217 | 愛之味 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1217 | 愛之味 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260703 | 1217 | 愛之味 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

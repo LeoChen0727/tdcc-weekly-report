@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009817 國泰日本不動產
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:05 Asia/Taipei
+- generated_at: 2026-07-03 22:26:04 Asia/Taipei
 - stock_id: 009817
 - stock_name: 國泰日本不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 8.8
-- high: 8.88
-- low: 8.8
-- close: 8.85
-- volume: 2496000
-- ma5: 8.87
-- ema23_primary: 8.78
-- distance_to_ema23_pct: 0.79
-- ma20: 8.74
-- ma60: 8.75
-- ma120: 8.75
-- return_5d: 0.45
-- return_20d: 2.43
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 1.3
-- distance_to_high_60_pct: -1.23
+- date: 20260703
+- open: 8.95
+- high: 9.06
+- low: 8.95
+- close: 9.02
+- volume: 2215305
+- ma5: 8.89
+- ema23_primary: 8.8
+- distance_to_ema23_pct: 2.49
+- ma20: 8.76
+- ma60: 8.76
+- ma120: 8.76
+- return_5d: 1.12
+- return_20d: 4.88
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 3
+- distance_to_high_60_pct: -0.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,8.64,8.64,8.6,8.6,2175204,8.81,-2.35,8.78,8.78,0.5
 20260605,8.61,8.64,8.56,8.56,2524392,8.79,-2.57,8.76,8.76,0.6
 20260608,8.5,8.64,8.5,8.6,3350216,8.77,-1.94,8.74,8.74,0.81
 20260609,8.61,8.65,8.61,8.63,1703699,8.76,-1.47,8.73,8.73,0.43
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,8.93,8.94,8.9,8.9,1482000,8.78,1.41,8.72,8.75,0.58
 20260701,8.8,8.81,8.75,8.76,932000,8.77,-0.17,8.73,8.75,0.39
 20260702,8.8,8.88,8.8,8.85,2496000,8.78,0.79,8.74,8.75,1.09
+20260703,8.95,9.06,8.95,9.02,2215305,8.8,2.49,8.76,8.76,0.97
 ```
 
 ## Latest TDCC Snapshot

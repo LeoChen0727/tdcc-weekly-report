@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6153 嘉聯益
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:39 Asia/Taipei
+- generated_at: 2026-07-03 22:27:38 Asia/Taipei
 - stock_id: 6153
 - stock_name: 嘉聯益
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 20.3
-- high: 21
-- low: 19.9
-- close: 20.75
-- volume: 4658000
-- ma5: 21.01
-- ema23_primary: 21.31
-- distance_to_ema23_pct: -2.63
-- ma20: 21.84
-- ma60: 19.42
-- ma120: 17.77
-- return_5d: -8.39
-- return_20d: 5.87
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -4.97
-- distance_to_high_60_pct: -19.57
+- date: 20260703
+- open: 20.8
+- high: 20.9
+- low: 20.15
+- close: 20.4
+- volume: 4869640
+- ma5: 20.74
+- ema23_primary: 21.23
+- distance_to_ema23_pct: -3.93
+- ma20: 21.93
+- ma60: 19.47
+- ma120: 17.81
+- return_5d: -6.21
+- return_20d: 10.57
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -6.99
+- distance_to_high_60_pct: -20.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,19.25,19.45,18.4,18.45,6681139,18.32,0.71,18.22,17.7,1.24
 20260605,18.5,18.7,17.75,18.5,4582688,18.34,0.9,18.23,17.74,0.85
 20260608,16.9,20.35,16.85,20.35,23126322,18.5,9.98,18.34,17.81,3.69
 20260609,21,21.2,19.85,20.5,32136661,18.67,9.8,18.44,17.88,4.23
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,21.2,21.7,21,21.45,5839000,21.46,-0.04,21.71,19.27,0.28
 20260701,22,22,20.25,20.3,8776000,21.36,-4.97,21.78,19.34,0.42
 20260702,20.3,21,19.9,20.75,4658000,21.31,-2.63,21.84,19.42,0.23
+20260703,20.8,20.9,20.15,20.4,4869640,21.23,-3.93,21.93,19.47,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6153 | 嘉聯益 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6153 | 嘉聯益 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6153 | 嘉聯益 | 5 | 5 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 6153 | 嘉聯益 | 6 | 6 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

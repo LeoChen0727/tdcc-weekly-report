@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8088 品安
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:18 Asia/Taipei
+- generated_at: 2026-07-03 22:28:17 Asia/Taipei
 - stock_id: 8088
 - stock_name: 品安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 59.1
-- high: 60.5
-- low: 58
-- close: 59.6
-- volume: 1138000
-- ma5: 61.84
-- ema23_primary: 62.42
-- distance_to_ema23_pct: -4.51
-- ma20: 63.26
-- ma60: 57.38
-- ma120: 56.12
-- return_5d: -10.38
-- return_20d: -10.11
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -5.79
-- distance_to_high_60_pct: -17.79
+- date: 20260703
+- open: 59.4
+- high: 60.3
+- low: 59
+- close: 59.8
+- volume: 1106000
+- ma5: 61.26
+- ema23_primary: 62.2
+- distance_to_ema23_pct: -3.86
+- ma20: 62.87
+- ma60: 57.52
+- ma120: 56.24
+- return_5d: -4.63
+- return_20d: -11.54
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -4.88
+- distance_to_high_60_pct: -17.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,65,68,65,67.6,67000,58.65,15.26,57.99,54.53,0.02
 20260605,66,66.2,61.9,62.8,64000,59,6.44,58.43,54.79,0.02
 20260608,56.6,58.5,56.6,58.1,2717000,58.92,-1.4,58.5,54.88,1.14
 20260609,59,59.9,58.1,59.6,2220000,58.98,1.05,58.88,54.99,1.04
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,63.5,64.9,62.5,64.7,1688000,62.9,2.86,63.87,57.02,0.45
 20260701,63.8,64.2,60,60.2,2326000,62.67,-3.95,63.59,57.2,0.6
 20260702,59.1,60.5,58,59.6,1138000,62.42,-4.51,63.26,57.38,0.29
+20260703,59.4,60.3,59,59.8,1106000,62.2,-3.86,62.87,57.52,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8088 | 品安 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260702 | 8088 | 品安 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260702 | 8088 | 品安 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 11.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260703 | 8088 | 品安 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8088 | 品安 | 9 | 8 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 8088 | 品安 | 10 | 2 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

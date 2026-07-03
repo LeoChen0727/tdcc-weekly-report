@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:14 Asia/Taipei
+- generated_at: 2026-07-03 22:28:13 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 170
+- latest_price_date: 20260703
+- price_rows: 171
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 250
-- high: 255
-- low: 246.5
-- close: 248.5
-- volume: 865000
-- ma5: 255.3
-- ema23_primary: 247.08
-- distance_to_ema23_pct: 0.58
-- ma20: 257.9
-- ma60: 202.9
-- ma120: 179.6
-- return_5d: -2.55
-- return_20d: 25.19
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -3.64
-- distance_to_high_60_pct: -18.66
+- date: 20260703
+- open: 248.5
+- high: 250
+- low: 244.5
+- close: 246.5
+- volume: 750690
+- ma5: 254.6
+- ema23_primary: 247.03
+- distance_to_ema23_pct: -0.21
+- ma20: 260.02
+- ma60: 204.68
+- ma120: 180.55
+- return_5d: -1.4
+- return_20d: 20.83
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -5.2
+- distance_to_high_60_pct: -19.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,201.5,218,195,204,4162760,187.25,8.95,192.45,166.93,2.54
 20260605,200,224,200,224,4318068,190.31,17.7,194.85,168.07,2.4
 20260608,202,246,202,246,6900617,194.95,26.19,198.03,169.43,3.28
 20260609,250,251.5,229,235,6201409,198.29,18.51,200.57,170.72,2.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,277,278,257,257,3521000,246.31,4.34,251.8,198.93,1.02
 20260701,258.5,262,252,254,1380000,246.95,2.86,255.4,200.97,0.39
 20260702,250,255,246.5,248.5,865000,247.08,0.58,257.9,202.9,0.25
+20260703,248.5,250,244.5,246.5,750690,247.03,-0.21,260.02,204.68,0.23
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 7788 | 松川精密 | 24 | 1 | 10701630.0 | 0.0 |  | no_signal |
+| 20260703 | 7788 | 松川精密 | 26 | 0 | 3401440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

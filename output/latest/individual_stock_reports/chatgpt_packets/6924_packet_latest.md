@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6924 榮惠-KY創
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:04 Asia/Taipei
+- generated_at: 2026-07-03 22:28:03 Asia/Taipei
 - stock_id: 6924
 - stock_name: 榮惠-KY創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 277
+- latest_price_date: 20260703
+- price_rows: 278
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 114
-- high: 120.5
-- low: 114
-- close: 118
-- volume: 41000
-- ma5: 120.6
-- ema23_primary: 127.86
-- distance_to_ema23_pct: -7.71
-- ma20: 127.28
-- ma60: 121.16
-- ma120: 95.39
-- return_5d: -4.07
-- return_20d: -37.23
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -7.29
-- distance_to_high_60_pct: -39.02
+- date: 20260703
+- open: 114.5
+- high: 129.5
+- low: 114.5
+- close: 129.5
+- volume: 63629
+- ma5: 121.5
+- ema23_primary: 128
+- distance_to_ema23_pct: 1.18
+- ma20: 125.28
+- ma60: 121.98
+- ma120: 95.89
+- return_5d: 3.6
+- return_20d: -23.6
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 3.37
+- distance_to_high_60_pct: -33.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,181,182,169.5,169.5,167835,150.79,12.41,152.82,105.62,0.87
 20260605,162,163,153,157,172217,151.31,3.76,155.97,107.2,0.85
 20260608,142,149.5,141.5,146,216232,150.86,-3.22,158.12,108.59,1.09
 20260609,147,157,140.5,146.5,117849,150.5,-2.66,159.8,109.88,0.65
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,124.5,129.5,119.5,120.5,46000,130.1,-7.38,134.75,119.98,0.53
 20260701,120.5,120.5,113.5,114,68000,128.76,-11.46,130.78,120.56,0.82
 20260702,114,120.5,114,118,41000,127.86,-7.71,127.28,121.16,0.54
+20260703,114.5,129.5,114.5,129.5,63629,128,1.18,125.28,121.98,0.89
 ```
 
 ## Latest TDCC Snapshot

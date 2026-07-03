@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6164 華興
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:40 Asia/Taipei
+- generated_at: 2026-07-03 22:27:39 Asia/Taipei
 - stock_id: 6164
 - stock_name: 華興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 15.85
-- high: 15.85
-- low: 15.6
-- close: 15.85
-- volume: 2731000
-- ma5: 13.74
-- ema23_primary: 13.29
-- distance_to_ema23_pct: 19.24
-- ma20: 13.23
-- ma60: 12.66
-- ma120: 12.49
-- return_5d: 19.17
-- return_20d: 16.97
-- volume_ratio: 2.12
-- distance_to_ma20_pct_auxiliary: 19.83
+- date: 20260703
+- open: 17.4
+- high: 17.4
+- low: 17.4
+- close: 17.4
+- volume: 3883618
+- ma5: 14.69
+- ema23_primary: 13.63
+- distance_to_ema23_pct: 27.62
+- ma20: 13.45
+- ma60: 12.75
+- ma120: 12.53
+- return_5d: 37.55
+- return_20d: 33.85
+- volume_ratio: 2.75
+- distance_to_ma20_pct_auxiliary: 29.39
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,13.15,13.45,12.9,13,1494357,12.47,4.23,12.31,12.36,1.88
 20260605,12.9,13.15,12.6,13.1,732533,12.52,4.59,12.34,12.4,0.91
 20260608,12.05,12.6,11.95,12.5,745755,12.52,-0.18,12.35,12.41,0.91
 20260609,12.6,12.95,12.5,12.8,541333,12.55,2.03,12.38,12.43,0.66
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,12.8,13.3,12.65,13.15,802000,12.93,1.68,13.06,12.54,0.66
 20260701,13.6,14.45,13.6,14.45,3952000,13.06,10.65,13.11,12.59,3.09
 20260702,15.85,15.85,15.6,15.85,2731000,13.29,19.24,13.23,12.66,2.12
+20260703,17.4,17.4,17.4,17.4,3883618,13.63,27.62,13.45,12.75,2.75
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6164 | 華興 | true_breakout | 嚴格突破 | 109.0 |  |  | breakout_confirmed |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6164 | 華興 | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6164 | 華興 | 2 | 1 | 2 | 6 | 9 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260703 | 6164 | 華興 | 3 | 2 | 3 | 6 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

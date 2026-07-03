@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9911 櫻花
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:28 Asia/Taipei
+- generated_at: 2026-07-03 22:28:26 Asia/Taipei
 - stock_id: 9911
 - stock_name: 櫻花
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 83.5
-- high: 84.2
-- low: 83.5
-- close: 84.1
-- volume: 334000
-- ma5: 83.32
-- ema23_primary: 83.28
-- distance_to_ema23_pct: 0.99
-- ma20: 83.57
-- ma60: 83.18
-- ma120: 84.77
-- return_5d: 0.96
-- return_20d: 0.84
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 0.63
-- distance_to_high_60_pct: -2.21
+- date: 20260703
+- open: 83.4
+- high: 85.8
+- low: 83.4
+- close: 85.2
+- volume: 470037
+- ma5: 83.84
+- ema23_primary: 83.44
+- distance_to_ema23_pct: 2.11
+- ma20: 83.64
+- ma60: 83.19
+- ma120: 84.78
+- return_5d: 3.15
+- return_20d: 1.79
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 1.86
+- distance_to_high_60_pct: -0.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,83.4,84,83.4,83.7,425640,82.8,1.08,82.6,85.04,1.33
 20260605,84.3,84.6,83.9,84.6,424178,82.95,1.98,82.67,84.97,1.29
 20260608,83.8,84.1,82.8,84,579221,83.04,1.15,82.66,84.84,1.72
 20260609,84,86,84,84.9,644658,83.2,2.05,82.78,84.73,1.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,83.8,84,82.8,82.8,294000,83.17,-0.45,83.49,83.22,0.82
 20260701,82.6,83.8,82.6,83.5,499000,83.2,0.36,83.53,83.2,1.43
 20260702,83.5,84.2,83.5,84.1,334000,83.28,0.99,83.57,83.18,0.97
+20260703,83.4,85.8,83.4,85.2,470037,83.44,2.11,83.64,83.19,1.35
 ```
 
 ## Latest TDCC Snapshot

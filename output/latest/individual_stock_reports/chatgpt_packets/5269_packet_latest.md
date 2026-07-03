@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:27 Asia/Taipei
+- generated_at: 2026-07-03 22:27:27 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 1450
-- high: 1550
-- low: 1450
-- close: 1520
-- volume: 1482000
-- ma5: 1460
-- ema23_primary: 1441.11
-- distance_to_ema23_pct: 5.47
-- ma20: 1432
-- ma60: 1383.92
-- ma120: 1314.58
-- return_5d: 5.92
-- return_20d: -3.49
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 6.15
-- distance_to_high_60_pct: -8.43
+- date: 20260703
+- open: 1510
+- high: 1585
+- low: 1500
+- close: 1530
+- volume: 1799131
+- ma5: 1493
+- ema23_primary: 1448.52
+- distance_to_ema23_pct: 5.62
+- ma20: 1430
+- ma60: 1390.92
+- ma120: 1317.54
+- return_5d: 12.09
+- return_20d: -2.55
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 6.99
+- distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,1570,1610,1545,1570,1590218,1458.11,7.67,1472.75,1303.25,0.59
 20260605,1570,1570,1495,1525,1332317,1463.68,4.19,1478.5,1308.33,0.52
 20260608,1375,1420,1375,1400,1542981,1458.38,-4,1479,1310.67,0.62
 20260609,1415,1465,1390,1440,1193487,1456.84,-1.16,1474.75,1314.25,0.53
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,1510,1510,1470,1470,1224000,1430.66,2.75,1440.75,1369.5,0.91
 20260701,1500,1535,1470,1470,1702000,1433.94,2.51,1434.75,1376.33,1.39
 20260702,1450,1550,1450,1520,1482000,1441.11,5.47,1432,1383.92,1.23
+20260703,1510,1585,1500,1530,1799131,1448.52,5.62,1430,1390.92,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5269 | 祥碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 1.發生變動日期:115/06/17 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、獨立董事、自然人董事 3.舊任者職稱及姓名: (一)董事：     華碩電腦(股)公司代表人：徐世昌     華碩電腦(股)公司代表人：沈振來     華碩電腦(股)公司代表人：林哲偉     許金川 (二)獨立董事：     詹宏志     謝劍平     吳靜吉     金聯舫 4.舊任者簡歷: (一)董事：     華碩電腦(股)公司代表人徐世昌：祥碩科技(股)公司董事長     華碩電腦(股)公司代表人沈振來：祥碩科技(股)公司董事     華碩電腦(股)公司代表人林哲偉：祥碩科技(股)公司總經理     許金川：國立台灣大學醫學院內科名譽教授 (二)獨立董事：     詹宏志：網路家庭國際資訊(股)公司董事長     謝劍平：台灣科技大學財務金融所教授     吳靜吉：政治大學名譽教授     金聯舫：清華大學科管院榮譽講座教授 5.新任者職稱及姓名: (一)董事：     華碩電腦(股)公司代表人：徐世昌     華碩電腦(股)公司代表人：沈振來     華碩電腦(股)公司代表人：林哲偉     華碩電腦(股)公司代表人：許先越     許金川 (二)獨立董事：     謝劍平     金聯舫     林嬋娟     高壽延 6.新任者簡歷: (一)董事：     華碩電腦(股)公司代表人徐世昌：祥碩科技(股)公司董事長     華碩電腦(股)公司代表人沈振來：祥碩科技(股)公司董事     華碩電腦(股)公司代表人林哲偉：祥碩科技(股)公司總經理     華碩電腦(股)公司代表人許先越：華碩電腦(股)公司董事兼共同執行長     許金川：國立台灣大學醫學院內科名譽教授 (二)獨立董事：     謝劍平：台灣科技大學財務金融所教授     金聯舫：清華大學科管院榮譽講座教授     林嬋娟：臺灣大學會計學系名譽教授     高壽延：陽明交通大學牙醫學院教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.新任者選任時持股數: (一)董事：     華碩電腦(股)公司：24,457,660股     許金川：0股 (二)獨立董事：     謝劍平：0股     金聯舫：0股     林嬋娟：0股     高壽延：0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/16~115/06/15 11.新任生效日期:115/06/17 12.同任期董事變動比率:不適用(董事全面改選) 13.同任期獨立董事變動比率:不適用(董事全面改選) 14.同任期監察人變動比率:不適用。 15.屬三分之一以上董事發生變動（請輸入是或否）:否。 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 5269 | 祥碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.發生變動日期:115/06/17 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、獨立董事、自然人董事 3.舊任者職稱及姓名: (一)董事：     華碩電腦(股)公司代表人：徐世昌     華碩電腦(股)公司代表人：沈振來     華碩電腦(股)公司代表人：林哲偉     許金川 (二)獨立董事：     詹宏志     謝劍平     吳靜吉     金聯舫 4.舊任者簡歷: (一)董事：     華碩電腦(股)公司代表人徐世昌：祥碩科技(股)公司董事長     華碩電腦(股)公司代表人沈振來：祥碩科技(股)公司董事     華碩電腦(股)公司代表人林哲偉：祥碩科技(股)公司總經理     許金川：國立台灣大學醫學院內科名譽教授 (二)獨立董事：     詹宏志：網路家庭國際資訊(股)公司董事長     謝劍平：台灣科技大學財務金融所教授     吳靜吉：政治大學名譽教授     金聯舫：清華大學科管院榮譽講座教授 5.新任者職稱及姓名: (一)董事：     華碩電腦(股)公司代表人：徐世昌     華碩電腦(股)公司代表人：沈振來     華碩電腦(股)公司代表人：林哲偉     華碩電腦(股)公司代表人：許先越     許金川 (二)獨立董事：     謝劍平     金聯舫     林嬋娟     高壽延 6.新任者簡歷: (一)董事：     華碩電腦(股)公司代表人徐世昌：祥碩科技(股)公司董事長     華碩電腦(股)公司代表人沈振來：祥碩科技(股)公司董事     華碩電腦(股)公司代表人林哲偉：祥碩科技(股)公司總經理     華碩電腦(股)公司代表人許先越：華碩電腦(股)公司董事兼共同執行長     許金川：國立台灣大學醫學院內科名譽教授 (二)獨立董事：     謝劍平：台灣科技大學財務金融所教授     金聯舫：清華大學科管院榮譽講座教授     林嬋娟：臺灣大學會計學系名譽教授     高壽延：陽明交通大學牙醫學院教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.新任者選任時持股數: (一)董事：     華碩電腦(股)公司：24,457,660股     許金川：0股 (二)獨立董事：     謝劍平：0股     金聯舫：0股     林嬋娟：0股     高壽延：0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/16~115/06/15 11.新任生效日期:115/06/17 12.同任期董事變動比率:不適用(董事全面改選) 13.同任期獨立董事變動比率:不適用(董事全面改選) 14.同任期監察人變動比率:不適用。 15.屬三分之一以上董事發生變動（請輸入是或否）:否。 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5269 | 祥碩 | 1 | 1 | 3 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 5269 | 祥碩 | 2 | 2 | 4 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5269 | 祥碩 | 159 | 0 | 52072420.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 5269 | 祥碩 | 160 | 0 | 42820840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

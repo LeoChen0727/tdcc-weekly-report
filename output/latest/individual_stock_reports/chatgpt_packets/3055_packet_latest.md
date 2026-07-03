@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3055 蔚華科
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:52 Asia/Taipei
+- generated_at: 2026-07-03 22:26:52 Asia/Taipei
 - stock_id: 3055
 - stock_name: 蔚華科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 129
-- high: 140
-- low: 129
-- close: 140
-- volume: 5832000
-- ma5: 117
-- ema23_primary: 102.88
-- distance_to_ema23_pct: 36.08
-- ma20: 96.95
-- ma60: 92.55
-- ma120: 79.46
-- return_5d: 37.25
-- return_20d: 39.3
-- volume_ratio: 2.41
-- distance_to_ma20_pct_auxiliary: 44.4
-- distance_to_high_60_pct: 0
+- date: 20260703
+- open: 142
+- high: 154
+- low: 140
+- close: 152.5
+- volume: 17863228
+- ma5: 128.3
+- ema23_primary: 107.02
+- distance_to_ema23_pct: 42.5
+- ma20: 99.41
+- ma60: 94.09
+- ma120: 80.05
+- return_5d: 58.85
+- return_20d: 47.34
+- volume_ratio: 5.52
+- distance_to_ma20_pct_auxiliary: 53.41
+- distance_to_high_60_pct: -0.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,100,105.5,99.5,103.5,1590011,102.66,0.82,109.23,80.47,0.28
 20260605,102.5,103.5,98,99.5,1449380,102.4,-2.83,109.65,81.15,0.28
 20260608,89.6,92.9,89.6,91,1490825,101.45,-10.3,109.2,81.66,0.29
 20260609,91,91,85.5,87.8,3100070,100.31,-12.47,108.09,82.14,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,116,116,116,116,1433000,96.96,19.63,93.7,89.99,0.65
 20260701,127.5,127.5,126,127.5,4518000,99.51,28.13,94.98,91.16,2.02
 20260702,129,140,129,140,5832000,102.88,36.08,96.95,92.55,2.41
+20260703,142,154,140,152.5,17863228,107.02,42.5,99.41,94.09,5.52
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3055 | 蔚華科 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | 1. 董事會決議日期：115/06/24 2. 股利所屬年(季)度：114年 年度 3. 股利所屬期間：114/01/01 至 114/12/31 4. 股東配發內容： 　(1)盈餘分配之現金股利(元/股)：0 　(2)法定盈餘公積發放之現金(元/股)：0 　(3)資本公積發放之現金(元/股)：0.50000000 　(4)股東配發之現金(股利)總金額(元)：56,543,459 　(5)盈餘轉增資配股(元/股)：0 　(6)法定盈餘公積轉增資配股(元/股)：0 　(7)資本公積轉增資配股(元/股)：0 　(8)股東配股總股數(股)：0 5. 其他應敘明事項： 115/06/24股東常會議決通過以法定盈餘公積 新台幣297,623,847元彌補虧損後，同日董事會 議決通過自資本公積之股票發行溢價項下提撥 現&#12198;新台幣56,543,459元配發予股東。 6. 普通股每股面額欄位：新台幣10.0000元；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_14d |
+| 20260703 | 3055 | 蔚華科 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | 1.事實發生日:115/07/02 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:           最近一月  與去年同期   最近一季    與去年同期      114年第二季           (115/05)    增減%    (115年第一季)    增減%       至115年第一季           IFRS合併               IFRS合併                     IFRS合併            自結數                 查核數                       查核數  營業收入      23     -75.19%          84        26.42%           477 (百萬元) 稅前淨利     -15       6.04%         -16        80.28%          -270 (百萬元) 歸屬母公司 業主淨利     -12       2.01%         -17        76.73%          -246 (百萬元) 每股盈餘   -0.10       1.71%       -0.15        77.27%         -2.17 (元) 115年5月”營業收入”減少主係客製化設備銷售減少所致。 115年第一季”稅前淨利”、”歸屬母公司業主淨利”及”每股盈餘”虧損減少皆主係營業費用 減少所致。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3055 | 蔚華科 | 2 | 2 | 4 | 8 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260703 | 3055 | 蔚華科 | 3 | 3 | 4 | 9 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3055 | 蔚華科 | 7 | 0 | 2294400.0 | 0.0 |  | call_inflow |
+| 20260703 | 3055 | 蔚華科 | 6 | 0 | 4295530.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

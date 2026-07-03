@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0076 期街口道瓊銅
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:02 Asia/Taipei
+- generated_at: 2026-07-03 22:26:01 Asia/Taipei
 - stock_id: 0076
 - stock_name: 期街口道瓊銅
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 0076 | 期街口道瓊銅 | 43 | 5 | 54560.0 | 0.0 |  | no_signal |
+| 20260703 | 0076 | 期街口道瓊銅 | 43 | 0 | 572150.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

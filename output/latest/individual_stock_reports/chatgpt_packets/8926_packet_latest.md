@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:26 Asia/Taipei
+- generated_at: 2026-07-03 22:28:25 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 73
-- high: 74.3
-- low: 72.3
-- close: 73
-- volume: 5788000
-- ma5: 75.34
-- ema23_primary: 73.48
-- distance_to_ema23_pct: -0.65
-- ma20: 75.63
-- ma60: 60.47
-- ma120: 52.32
-- return_5d: -6.53
-- return_20d: 3.69
+- date: 20260703
+- open: 72.9
+- high: 76
+- low: 72.7
+- close: 75
+- volume: 5555355
+- ma5: 75.1
+- ema23_primary: 73.61
+- distance_to_ema23_pct: 1.9
+- ma20: 75.76
+- ma60: 60.99
+- ma120: 52.6
+- return_5d: -1.57
+- return_20d: 3.59
 - volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -3.48
-- distance_to_high_60_pct: -13.4
+- distance_to_ma20_pct_auxiliary: -1
+- distance_to_high_60_pct: -11.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,70.5,73.7,70,72.4,17435262,61.49,17.73,61.94,50.87,1.26
 20260605,73.5,73.5,69.4,69.6,12345820,62.17,11.95,62.96,51.27,0.88
 20260608,63.8,67.7,63.6,66.9,8618509,62.56,6.93,63.73,51.63,0.61
 20260609,71.1,73.5,71.1,73.5,19260676,63.48,15.79,64.83,52.09,1.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,77.2,77.7,76.1,76.3,7513000,73.45,3.88,75.16,59.46,0.61
 20260701,76.6,76.6,73.7,74.3,9540000,73.52,1.06,75.5,59.97,0.76
 20260702,73,74.3,72.3,73,5788000,73.48,-0.65,75.63,60.47,0.48
+20260703,72.9,76,72.7,75,5555355,73.61,1.9,75.76,60.99,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8926 | 台汽電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=within_3d |
-| 20260702 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260703 | 8926 | 台汽電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8926 | 台汽電 | 8 | 5 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 8926 | 台汽電 | 9 | 6 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

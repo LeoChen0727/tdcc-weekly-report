@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:44 Asia/Taipei
+- generated_at: 2026-07-03 22:26:44 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 23.6
-- high: 23.85
-- low: 23.25
-- close: 23.35
-- volume: 32341000
-- ma5: 23.63
-- ema23_primary: 22.65
-- distance_to_ema23_pct: 3.11
-- ma20: 22.77
-- ma60: 21.47
-- ma120: 21.03
-- return_5d: -0.64
-- return_20d: 10.66
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 2.57
-- distance_to_high_60_pct: -3.51
+- date: 20260703
+- open: 23.1
+- high: 23.75
+- low: 23.1
+- close: 23.3
+- volume: 12978373
+- ma5: 23.61
+- ema23_primary: 22.7
+- distance_to_ema23_pct: 2.64
+- ma20: 22.86
+- ma60: 21.51
+- ma120: 21.05
+- return_5d: -0.43
+- return_20d: 8.88
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: 1.92
+- distance_to_high_60_pct: -3.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,21,21.6,20.95,21.4,53337581,20.61,3.82,20.48,20.75,1.89
 20260605,21.35,21.5,21.05,21.45,33928699,20.68,3.71,20.5,20.77,1.17
 20260608,21,21.2,20.8,21,31518796,20.71,1.4,20.51,20.78,1.05
 20260609,21.05,22.4,21.05,22.3,92513795,20.84,7,20.59,20.8,2.81
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,23.65,24,23.4,24,70658000,22.47,6.83,22.49,21.37,1.83
 20260701,24,24.2,23.2,23.85,140281000,22.58,5.62,22.65,21.42,3.21
 20260702,23.6,23.85,23.25,23.35,32341000,22.65,3.11,22.77,21.47,0.75
+20260703,23.1,23.75,23.1,23.3,12978373,22.7,2.64,22.86,21.51,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -187,13 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/30 2.法人名稱:財政部 3.舊任者姓名:郭昭宏 4.舊任者簡歷:彰化銀行董事 5.新任者姓名:無 6.新任者簡歷:不適用 7.異動原因:辭職 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/19-118/06/18 9.新任生效日期:不適用 10.其他應敘明事項:依據本行於115年6月30日接獲郭昭宏先生之董事辭職書辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260702 | 2801 | 彰銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/30 2.法人名稱:財政部 3.舊任者姓名:郭昭宏 4.舊任者簡歷:彰化銀行董事 5.新任者姓名:無 6.新任者簡歷:不適用 7.異動原因:辭職 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/19-118/06/18 9.新任生效日期:不適用 10.其他應敘明事項:依據本行於115年6月30日接獲郭昭宏先生之董事辭職書辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.發生變動日期:115/06/30 2.法人名稱:財政部 3.舊任者姓名:郭昭宏 4.舊任者簡歷:彰化銀行董事 5.新任者姓名:無 6.新任者簡歷:不適用 7.異動原因:辭職 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/19-118/06/18 9.新任生效日期:不適用 10.其他應敘明事項:依據本行於115年6月30日接獲郭昭宏先生之董事辭職書辦理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2801 | 彰銀 | 12 | 1 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 2801 | 彰銀 | 13 | 2 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

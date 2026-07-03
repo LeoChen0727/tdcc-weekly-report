@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8455 大拓-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:24 Asia/Taipei
+- generated_at: 2026-07-03 22:28:23 Asia/Taipei
 - stock_id: 8455
 - stock_name: 大拓-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 145
+- latest_price_date: 20260703
+- price_rows: 146
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 27.35
-- high: 27.75
-- low: 27.35
-- close: 27.75
-- volume: 8000
-- ma5: 27.28
-- ema23_primary: 30.38
-- distance_to_ema23_pct: -8.65
-- ma20: 30
-- ma60: 29.52
-- ma120: 25.49
-- return_5d: -4.97
-- return_20d: -31.82
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -7.51
-- distance_to_high_60_pct: -42.25
+- date: 20260703
+- open: 27.8
+- high: 28.8
+- low: 27.8
+- close: 28.8
+- volume: 7000
+- ma5: 27.76
+- ema23_primary: 30.25
+- distance_to_ema23_pct: -4.78
+- ma20: 29.61
+- ma60: 29.65
+- ma120: 25.56
+- return_5d: 9.09
+- return_20d: -21.42
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -2.74
+- distance_to_high_60_pct: -40.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,38,39.3,36.65,36.65,37000,36.3,0.95,37.27,26.92,0.55
 20260605,33,34.9,33,33.35,33000,36.06,-7.51,37.64,27.1,0.49
 20260608,30.1,31.85,30.05,30.6,46000,35.6,-14.05,37.77,27.23,0.69
 20260609,30.6,31.3,29.2,30.9,65000,35.21,-12.24,37.92,27.36,0.96
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,26.9,27.8,26.8,27.8,9000,30.91,-10.05,31.34,29.3,0.26
 20260701,26.85,27.5,26.85,27.45,8000,30.62,-10.35,30.65,29.41,0.23
 20260702,27.35,27.75,27.35,27.75,8000,30.38,-8.65,30,29.52,0.24
+20260703,27.8,28.8,27.8,28.8,7000,30.25,-4.78,29.61,29.65,0.22
 ```
 
 ## Latest TDCC Snapshot

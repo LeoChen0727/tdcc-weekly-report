@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6863 永道-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:02 Asia/Taipei
+- generated_at: 2026-07-03 22:28:01 Asia/Taipei
 - stock_id: 6863
 - stock_name: 永道-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 90.3
-- high: 91.2
-- low: 90.3
-- close: 91.2
-- volume: 90000
-- ma5: 90.98
-- ema23_primary: 96.66
-- distance_to_ema23_pct: -5.65
-- ma20: 96.03
-- ma60: 101.81
-- ma120: 103.79
-- return_5d: -2.77
-- return_20d: -15.56
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -5.03
-- distance_to_high_60_pct: -24.94
+- date: 20260703
+- open: 92.2
+- high: 92.5
+- low: 90.9
+- close: 91.8
+- volume: 120641
+- ma5: 91.3
+- ema23_primary: 96.25
+- distance_to_ema23_pct: -4.63
+- ma20: 95.3
+- ma60: 101.83
+- ma120: 103.58
+- return_5d: 1.77
+- return_20d: -13.8
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -3.67
+- distance_to_high_60_pct: -24.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,106.5,108,105,106.5,79320,108.11,-1.49,110.42,100.15,0.47
 20260605,106,107.5,102.5,104,112067,107.77,-3.49,110.47,100.35,0.67
 20260608,95,99.9,95,99,121411,107.03,-7.51,109.78,100.45,0.75
 20260609,99.2,105,99.2,103.5,234671,106.74,-3.04,109.03,100.65,1.62
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,90.8,92.3,90.8,91.8,100000,97.68,-6.02,97.81,101.71,0.77
 20260701,92.8,92.9,90.3,91.3,72000,97.15,-6.02,96.88,101.75,0.56
 20260702,90.3,91.2,90.3,91.2,90000,96.66,-5.65,96.03,101.81,0.73
+20260703,92.2,92.5,90.9,91.8,120641,96.25,-4.63,95.3,101.83,0.96
 ```
 
 ## Latest TDCC Snapshot

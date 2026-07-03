@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3284 太普高
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:58 Asia/Taipei
+- generated_at: 2026-07-03 22:26:57 Asia/Taipei
 - stock_id: 3284
 - stock_name: 太普高
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -102,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 28.95
-- high: 30.4
-- low: 28.55
-- close: 30.3
-- volume: 1306000
-- ma5: 29.36
-- ema23_primary: 24.05
-- distance_to_ema23_pct: 25.97
-- ma20: 23.7
-- ma60: 19.24
-- ma120: 19.69
-- return_5d: 3.95
-- return_20d: 74.14
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 27.88
-- distance_to_high_60_pct: -5.02
+- date: 20260703
+- open: 31.2
+- high: 31.5
+- low: 29.9
+- close: 30.15
+- volume: 1645000
+- ma5: 29.52
+- ema23_primary: 24.56
+- distance_to_ema23_pct: 22.75
+- ma20: 24.25
+- ma60: 19.42
+- ma120: 19.77
+- return_5d: 2.73
+- return_20d: 57.85
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 24.34
+- distance_to_high_60_pct: -5.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,18.1,19.1,18.1,19.1,19000,16.74,14.12,16.5,17.84,0.11
 20260605,19.7,21,19.45,19.55,20000,16.97,15.19,16.59,17.85,0.14
 20260608,17.7,19.4,17.65,19.35,770000,17.17,12.7,16.69,17.84,5.46
 20260609,19.9,20.95,19.85,20.35,897000,17.43,16.72,16.87,17.85,5.23
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,30,31.2,27.9,28.65,2677000,22.99,24.63,22.39,18.9,2.1
 20260701,28.65,29.85,27.9,28.95,1592000,23.49,23.27,23.05,19.06,1.18
 20260702,28.95,30.4,28.55,30.3,1306000,24.05,25.97,23.7,19.24,0.92
+20260703,31.2,31.5,29.9,30.15,1645000,24.56,22.75,24.25,19.42,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3284 | 太普高 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1. 原公告日期： 115/04/15 2. 簡述原公告申報內容： 本公司董事會通過處分「科工164」在建工案 3. 變動緣由及主要內容： 因買方公司基於自身營運策略考量，決定不予本公司簽訂土地買賣合約， 致原處分交易無法依原計畫進行，故撤銷原處分案。 4. 變動後對公司財務業務之影響： 無。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3284 | 太普高 | 9 | 4 | 5 | 9 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5392 能率
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:30 Asia/Taipei
+- generated_at: 2026-07-03 22:27:30 Asia/Taipei
 - stock_id: 5392
 - stock_name: 能率
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 44.1
-- high: 48.85
-- low: 44.1
-- close: 48.5
-- volume: 16589000
-- ma5: 46.24
-- ema23_primary: 44.52
-- distance_to_ema23_pct: 8.93
-- ma20: 44.48
-- ma60: 42.06
+- date: 20260703
+- open: 48.7
+- high: 48.9
+- low: 46.85
+- close: 48.55
+- volume: 11100000
+- ma5: 46.45
+- ema23_primary: 44.86
+- distance_to_ema23_pct: 8.22
+- ma20: 44.56
+- ma60: 42.26
 - ma120: 42.91
-- return_5d: 6.01
-- return_20d: 5.66
-- volume_ratio: 2.65
-- distance_to_ma20_pct_auxiliary: 9.04
-- distance_to_high_60_pct: -2.81
+- return_5d: 2.21
+- return_20d: 3.41
+- volume_ratio: 1.63
+- distance_to_ma20_pct_auxiliary: 8.96
+- distance_to_high_60_pct: -2.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,45.55,47,43.6,46.95,45000,43.27,8.51,43.13,40.13,0.02
 20260605,45.7,47.3,45.05,45.6,46000,43.46,4.91,43.39,40.23,0.02
 20260608,41.05,43.35,41.05,42.6,5327000,43.39,-1.82,43.42,40.27,2.17
 20260609,43.65,45.9,43.35,44.8,2890000,43.51,2.97,43.6,40.36,1.21
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,45,47.2,44.5,45.75,3854000,44.14,3.65,44.48,41.7,0.73
 20260701,46,46.6,44.45,44.45,2532000,44.16,0.65,44.35,41.85,0.47
 20260702,44.1,48.85,44.1,48.5,16589000,44.52,8.93,44.48,42.06,2.65
+20260703,48.7,48.9,46.85,48.55,11100000,44.86,8.22,44.56,42.26,1.63
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5392 | 能率 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 5392 | 能率 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5392 | 能率 | 5 | 1 | 5 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 5392 | 能率 | 6 | 2 | 5 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

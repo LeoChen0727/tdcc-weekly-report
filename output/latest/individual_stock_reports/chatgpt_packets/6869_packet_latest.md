@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6869 雲豹能源
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:02 Asia/Taipei
+- generated_at: 2026-07-03 22:28:01 Asia/Taipei
 - stock_id: 6869
 - stock_name: 雲豹能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 69.8
-- high: 69.8
-- low: 68.5
-- close: 68.6
-- volume: 525000
-- ma5: 70.88
-- ema23_primary: 76.74
-- distance_to_ema23_pct: -10.61
-- ma20: 77.33
-- ma60: 81.78
-- ma120: 91.62
-- return_5d: -9.26
-- return_20d: -21.15
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -11.28
-- distance_to_high_60_pct: -24.86
+- date: 20260703
+- open: 68
+- high: 71.1
+- low: 68
+- close: 70.9
+- volume: 605697
+- ma5: 71.16
+- ema23_primary: 76.25
+- distance_to_ema23_pct: -7.02
+- ma20: 76.46
+- ma60: 81.55
+- ma120: 91.44
+- return_5d: 2.01
+- return_20d: -19.61
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -7.27
+- distance_to_high_60_pct: -22.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,88.5,91.3,87.4,88.2,2707634,84.49,4.39,83.63,87.72,2.58
 20260605,88.1,88.5,83.5,83.9,1001730,84.44,-0.64,83.46,87.37,0.95
 20260608,78,81,77.7,80.9,785739,84.14,-3.86,83.16,86.88,0.74
 20260609,80.9,82,80,81.6,447094,83.93,-2.78,83,86.45,0.43
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,74.8,74.8,72.1,72.5,324000,78.18,-7.26,78.97,82.26,0.41
 20260701,71.3,71.9,69.8,69.8,759000,77.48,-9.91,78.25,82,0.97
 20260702,69.8,69.8,68.5,68.6,525000,76.74,-10.61,77.33,81.78,0.73
+20260703,68,71.1,68,70.9,605697,76.25,-7.02,76.46,81.55,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6869 | 雲豹能源 | 19 | 0 | 18380.0 | 0.0 |  | no_signal |
+| 20260703 | 6869 | 雲豹能源 | 19 | 0 | 50180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

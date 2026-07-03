@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:09 Asia/Taipei
+- generated_at: 2026-07-03 22:27:09 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 65.2
-- high: 67.9
-- low: 64.1
-- close: 64.5
-- volume: 5717000
-- ma5: 61.08
-- ema23_primary: 62.11
-- distance_to_ema23_pct: 3.85
-- ma20: 61.62
-- ma60: 62.3
-- ma120: 60.57
-- return_5d: 10.07
-- return_20d: -7.06
-- volume_ratio: 2.92
-- distance_to_ma20_pct_auxiliary: 4.68
-- distance_to_high_60_pct: -11.52
+- date: 20260703
+- open: 65
+- high: 67.6
+- low: 65
+- close: 67
+- volume: 4344623
+- ma5: 63.34
+- ema23_primary: 62.51
+- distance_to_ema23_pct: 7.18
+- ma20: 61.56
+- ma60: 62.49
+- ma120: 60.63
+- return_5d: 20.29
+- return_20d: -1.62
+- volume_ratio: 2.05
+- distance_to_ma20_pct_auxiliary: 8.84
+- distance_to_high_60_pct: -8.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,69,69.1,67.8,68.1,1096451,65.89,3.35,65.27,60.58,0.26
 20260605,67.6,68.3,66,67,1532113,65.99,1.54,65.61,60.76,0.37
 20260608,60.3,62.5,60.3,62,1890367,65.65,-5.57,65.88,60.86,0.45
 20260609,62.6,63.7,62,62.9,1258239,65.42,-3.86,66.22,60.97,0.3
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,57.1,62.2,56.8,62.2,2431000,61.48,1.17,61.99,61.9,1.75
 20260701,63.8,68.3,63.7,66.4,10248000,61.89,7.29,61.86,62.11,5.7
 20260702,65.2,67.9,64.1,64.5,5717000,62.11,3.85,61.62,62.3,2.92
+20260703,65,67.6,65,67,4344623,62.51,7.18,61.56,62.49,2.05
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3694 | 海華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 3694 | 海華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3694 | 海華 | 3 | 3 | 3 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 3694 | 海華 | 4 | 4 | 4 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3694 | 海華 | 6 | 0 | 905040.0 | 0.0 |  | no_signal |
+| 20260703 | 3694 | 海華 | 6 | 0 | 854460.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

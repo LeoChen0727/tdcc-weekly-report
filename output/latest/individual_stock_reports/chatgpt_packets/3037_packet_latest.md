@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:51 Asia/Taipei
+- generated_at: 2026-07-03 22:26:50 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 998
-- high: 1015
-- low: 978
-- close: 979
-- volume: 25801000
-- ma5: 1008
-- ema23_primary: 970.47
-- distance_to_ema23_pct: 0.88
-- ma20: 964.55
-- ma60: 876.38
-- ma120: 633.73
-- return_5d: -4.02
-- return_20d: -2.1
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 1.5
-- distance_to_high_60_pct: -13.36
+- date: 20260703
+- open: 945
+- high: 982
+- low: 926
+- close: 969
+- volume: 19183211
+- ma5: 1006.8
+- ema23_primary: 970.35
+- distance_to_ema23_pct: -0.14
+- ma20: 964.45
+- ma60: 882.2
+- ma120: 639.97
+- return_5d: -0.62
+- return_20d: -0.21
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 0.47
+- distance_to_high_60_pct: -14.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,977,1005,970,971,13760914,928.68,4.56,935.55,732.16,0.51
 20260605,950,969,890,933,26076886,929.04,0.43,941.3,740.64,0.99
 20260608,840,925,840,911,25312312,927.53,-1.78,943.8,748.06,0.96
 20260609,950,972,920,969,23269699,930.99,4.08,948.5,756.21,0.9
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,1015,1070,1010,1070,31585000,963.3,11.08,962.35,860.78,1.18
 20260701,1085,1115,1035,1040,31009000,969.69,7.25,965.6,869.47,1.15
 20260702,998,1015,978,979,25801000,970.47,0.88,964.55,876.38,0.95
+20260703,945,982,926,969,19183211,970.35,-0.14,964.45,882.2,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3037 | 欣興 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:欣興同泰科技(昆山)有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 鑑於子公司欣興同泰科技(昆山)有限公司，近年營運呈現明顯虧損， 依據國際會計準則第36號公報之規定，提列資產減損共計人民幣約2.95億元， 並將於115年第二季進行認列。此金額係為預估，實際金額將以會計師核閱數為準。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次認列減損損失，因不涉及現金流量，對公司營運資金並無影響。；calendar event: ex_dividend on 20260706; status=confirmed; proximity=within_7d |
-| 20260702 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:欣興同泰科技(昆山)有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 鑑於子公司欣興同泰科技(昆山)有限公司，近年營運呈現明顯虧損， 依據國際會計準則第36號公報之規定，提列資產減損共計人民幣約2.95億元， 並將於115年第二季進行認列。此金額係為預估，實際金額將以會計師核閱數為準。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次認列減損損失，因不涉及現金流量，對公司營運資金並無影響。；calendar event: ex_dividend on 20260706; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260703 | 3037 | 欣興 | pattern | 型態觀察 | 50.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:欣興同泰科技(昆山)有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 鑑於子公司欣興同泰科技(昆山)有限公司，近年營運呈現明顯虧損， 依據國際會計準則第36號公報之規定，提列資產減損共計人民幣約2.95億元， 並將於115年第二季進行認列。此金額係為預估，實際金額將以會計師核閱數為準。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次認列減損損失，因不涉及現金流量，對公司營運資金並無影響。；calendar event: ex_dividend on 20260706; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3037 | 欣興 | 1 | 1 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 3037 | 欣興 | 2 | 2 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3037 | 欣興 | 180 | 32 | 9022240.0 | 3440.0 | 2622.74 | no_signal |
+| 20260703 | 3037 | 欣興 | 178 | 0 | 7333780.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

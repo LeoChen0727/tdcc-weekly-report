@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2867 三商壽
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:45 Asia/Taipei
+- generated_at: 2026-07-03 22:26:45 Asia/Taipei
 - stock_id: 2867
 - stock_name: 三商壽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 295
+- latest_price_date: 20260703
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 8.36
-- high: 8.52
-- low: 8.31
-- close: 8.5
-- volume: 11522000
-- ma5: 8.38
-- ema23_primary: 8.3
-- distance_to_ema23_pct: 2.42
-- ma20: 8.38
-- ma60: 7.96
-- ma120: 7.91
-- return_5d: -1.05
-- return_20d: 6.25
+- date: 20260703
+- open: 8.5
+- high: 8.73
+- low: 8.5
+- close: 8.56
+- volume: 11202448
+- ma5: 8.41
+- ema23_primary: 8.32
+- distance_to_ema23_pct: 2.88
+- ma20: 8.41
+- ma60: 7.97
+- ma120: 7.92
+- return_5d: 1.9
+- return_20d: 5.42
 - volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 1.38
-- distance_to_high_60_pct: -4.28
+- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_high_60_pct: -3.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,8.02,8.19,7.96,8.12,25609656,7.73,5.07,7.7,7.74,2.17
 20260605,8.14,8.17,7.99,8.08,13567831,7.76,4.15,7.71,7.74,1.12
 20260608,7.7,8.02,7.7,7.97,15364701,7.78,2.5,7.72,7.74,1.23
 20260609,7.97,8.3,7.97,8.27,43361414,7.82,5.8,7.75,7.75,3.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,8.47,8.51,8.34,8.34,12155000,8.28,0.68,8.34,7.93,0.59
 20260701,8.44,8.49,8.25,8.25,32134000,8.28,-0.37,8.36,7.94,1.51
 20260702,8.36,8.52,8.31,8.5,11522000,8.3,2.42,8.38,7.96,0.59
+20260703,8.5,8.73,8.5,8.56,11202448,8.32,2.88,8.41,7.97,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2867 | 三商壽 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁肇喜 4.舊任者簡歷:三商美邦人壽保險股份有限公司董事長 5.新任者姓名:翁肇喜 6.新任者簡歷:三商美邦人壽保險股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會推選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260702 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁肇喜 4.舊任者簡歷:三商美邦人壽保險股份有限公司董事長 5.新任者姓名:翁肇喜 6.新任者簡歷:三商美邦人壽保險股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會推選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2867 | 三商壽 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁肇喜 4.舊任者簡歷:三商美邦人壽保險股份有限公司董事長 5.新任者姓名:翁肇喜 6.新任者簡歷:三商美邦人壽保險股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會推選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2867 | 三商壽 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 2867 | 三商壽 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2867 | 三商壽 | 3 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260703 | 2867 | 三商壽 | 2 | 0 | 630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

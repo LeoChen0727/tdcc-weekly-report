@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8467 波力-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:25 Asia/Taipei
+- generated_at: 2026-07-03 22:28:23 Asia/Taipei
 - stock_id: 8467
 - stock_name: 波力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 295
+- latest_price_date: 20260703
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 111
-- high: 113.5
-- low: 108.5
-- close: 112
-- volume: 42000
-- ma5: 116
-- ema23_primary: 123.59
-- distance_to_ema23_pct: -9.38
-- ma20: 124.22
-- ma60: 135.12
-- ma120: 152.86
-- return_5d: -7.44
-- return_20d: -14.83
-- volume_ratio: 2.9
-- distance_to_ma20_pct_auxiliary: -9.84
-- distance_to_high_60_pct: -30
+- date: 20260703
+- open: 115
+- high: 115
+- low: 112.5
+- close: 113
+- volume: 12444
+- ma5: 114.8
+- ema23_primary: 122.71
+- distance_to_ema23_pct: -7.91
+- ma20: 123.25
+- ma60: 134.51
+- ma120: 152.38
+- return_5d: -5.04
+- return_20d: -14.72
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -8.32
+- distance_to_high_60_pct: -29.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,131.5,132.5,130,132.5,14225,133.28,-0.59,129.97,144.42,0.45
 20260604,131,131,129.5,129.5,9379,132.97,-2.61,129.9,144,0.35
 20260605,130,130,129.5,129.5,3319,132.68,-2.39,129.85,143.53,0.14
 20260608,120,129,120,129,24643,132.37,-2.55,129.65,143.07,1.05
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,117,118,116,118,7000,125.66,-6.09,126.1,136.28,0.48
 20260701,118,118,113.5,113.5,16000,124.64,-8.94,125.2,135.72,1.19
 20260702,111,113.5,108.5,112,42000,123.59,-9.38,124.22,135.12,2.9
+20260703,115,115,112.5,113,12444,122.71,-7.91,123.25,134.51,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8467 | 波力-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260703 | 8467 | 波力-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

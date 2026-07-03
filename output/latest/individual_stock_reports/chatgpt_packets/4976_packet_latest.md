@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:25 Asia/Taipei
+- generated_at: 2026-07-03 22:27:24 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 35.9
-- high: 38.65
-- low: 35.6
-- close: 37.7
-- volume: 2496000
-- ma5: 37.44
-- ema23_primary: 36.66
-- distance_to_ema23_pct: 2.83
-- ma20: 37.1
-- ma60: 32.55
-- ma120: 31.38
-- return_5d: -10.98
-- return_20d: 8.8
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 1.61
-- distance_to_high_60_pct: -16.04
+- date: 20260703
+- open: 37.65
+- high: 41.4
+- low: 37
+- close: 40.25
+- volume: 7382679
+- ma5: 37.84
+- ema23_primary: 36.96
+- distance_to_ema23_pct: 8.9
+- ma20: 37.39
+- ma60: 32.76
+- ma120: 31.46
+- return_5d: 5.23
+- return_20d: 16.67
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 7.65
+- distance_to_high_60_pct: -10.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,33.95,34.95,33.25,34.5,1715948,31.57,9.29,31.48,29.88,1.26
 20260605,34.75,35.2,33.55,33.7,2635193,31.75,6.16,31.72,29.97,1.81
 20260608,30.4,32.8,30.4,32.35,1225383,31.8,1.74,31.89,30.01,0.82
 20260609,32.35,35.55,32.3,35.55,3338505,32.11,10.72,32.2,30.11,2.04
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,38.1,38.5,37.5,37.5,1639000,36.61,2.44,36.74,32.23,0.28
 20260701,38.15,38.45,36.1,36.15,2043000,36.57,-1.14,36.95,32.38,0.34
 20260702,35.9,38.65,35.6,37.7,2496000,36.66,2.83,37.1,32.55,0.42
+20260703,37.65,41.4,37,40.25,7382679,36.96,8.9,37.39,32.76,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 4976 | 佳凌 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/22 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: (1)本公司基本資料公告如下：(單位:新台幣百萬元) 期間             最近一月   與去年    最近一季      與去年     最近四季累計                                                                114年第二季至  科目            115年5月  同期增減  115年第一季   同期增減    115年第一季                  自結數      (%)       核閱數        (%)       查(核)閱數 ==============  ========= =========== ============ ========= ============== 營業收入            84        -4.55        255         0.79      1,023 稅前純益           -20       -53.85        -69      -213.64       -310 本期淨利           -20       -53.85        -68      -209.09       -307 每股盈餘(元)     -0.15       -52.57      -0.49      -206.25      -2.21 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:不適用。 7.其他應敘明事項:115年05月為本公司自結數，未經會計師查核。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 4976 | 佳凌 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/07/02 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:劉嘉彬 4.舊任者簡歷:佳凌科技股份有限公司董事長 5.新任者姓名:劉嘉彬 6.新任者簡歷:佳凌科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/07/02 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 4976 | 佳凌 | 5 | 5 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 4976 | 佳凌 | 6 | 6 | 5 | 8 | 18 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

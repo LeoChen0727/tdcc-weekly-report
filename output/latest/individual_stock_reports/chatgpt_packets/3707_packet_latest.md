@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3707 漢磊
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:10 Asia/Taipei
+- generated_at: 2026-07-03 22:27:09 Asia/Taipei
 - stock_id: 3707
 - stock_name: 漢磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 82
-- high: 88.9
-- low: 82
-- close: 87.7
-- volume: 30918000
-- ma5: 83.7
-- ema23_primary: 82.75
-- distance_to_ema23_pct: 5.98
-- ma20: 81.74
-- ma60: 73.62
-- ma120: 65.23
-- return_5d: 2.21
-- return_20d: 4.03
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: 7.29
-- distance_to_high_60_pct: -12.74
+- date: 20260703
+- open: 86
+- high: 91.8
+- low: 83.5
+- close: 91
+- volume: 33652000
+- ma5: 85.58
+- ema23_primary: 83.44
+- distance_to_ema23_pct: 9.06
+- ma20: 82.42
+- ma60: 74.3
+- ma120: 65.56
+- return_5d: 11.52
+- return_20d: 17.42
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 10.42
+- distance_to_high_60_pct: -9.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,82.6,83.6,77.5,77.5,80000,78.28,-1,80.28,65.29,0.01
 20260605,77.5,79.4,75.1,76.5,77000,78.13,-2.09,80.44,65.69,0.01
 20260608,68.9,71.5,68.9,70.6,7365000,77.5,-8.91,80.23,65.95,0.74
 20260609,71.5,75.5,69.3,75.3,8754000,77.32,-2.61,80.14,66.28,0.94
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,82.2,86.9,81.4,86.9,16261000,82.21,5.71,81.5,72.4,1.07
 20260701,90.3,94,83,83.3,33564000,82.3,1.21,81.57,72.98,1.99
 20260702,82,88.9,82,87.7,30918000,82.75,5.98,81.74,73.62,1.68
+20260703,86,91.8,83.5,91,33652000,83.44,9.06,82.42,74.3,1.67
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3707 | 漢磊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.證券名稱: 嘉晶電子股份有限公司普通股 2.交易日期:115/6/29~115/6/29 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 14,500,000股; NT$115.5;NT$1,675佰萬元 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分交易金額扣除成本後之差額約NT$1,420佰萬元，認列科目為資本公積， 尚待會計師查核相關程序及文件後確認。 7.與交易標的公司之關係: 本公司之子公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 152,461,680股；帳面價值NT$2,682佰萬元；52.8%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 12.9%；23.3%；NT$4,316佰萬元。 10.取得或處分之具體目的: 透過處分部分持股來活化資產，以因應未來產業波動或擴充核心業務的資金需求。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 民國115年6月26日 15.前已就同一件事件發布重大訊息日期: 115年6月26日 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 3707 | 漢磊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.證券名稱: 嘉晶電子股份有限公司普通股 2.交易日期:115/6/29~115/6/29 3.董事會通過日期: 民國115年6月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 14,500,000股; NT$115.5;NT$1,675佰萬元 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分交易金額扣除成本後之差額約NT$1,420佰萬元，認列科目為資本公積， 尚待會計師查核相關程序及文件後確認。 7.與交易標的公司之關係: 本公司之子公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 152,461,680股；帳面價值NT$2,682佰萬元；52.8%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 12.9%；23.3%；NT$4,316佰萬元。 10.取得或處分之具體目的: 透過處分部分持股來活化資產，以因應未來產業波動或擴充核心業務的資金需求。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 民國115年6月26日 15.前已就同一件事件發布重大訊息日期: 115年6月26日 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3707 | 漢磊 | 9 | 1 | 5 | 9 | 10 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260703 | 3707 | 漢磊 | 10 | 2 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

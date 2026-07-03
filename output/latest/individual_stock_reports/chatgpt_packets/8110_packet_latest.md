@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8110 華東
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:19 Asia/Taipei
+- generated_at: 2026-07-03 22:28:18 Asia/Taipei
 - stock_id: 8110
 - stock_name: 華東
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 53.1
+- date: 20260703
+- open: 53.3
 - high: 54.4
-- low: 52.5
-- close: 54.1
-- volume: 5699000
-- ma5: 55.56
-- ema23_primary: 56.54
-- distance_to_ema23_pct: -4.32
-- ma20: 56.79
-- ma60: 52.89
-- ma120: 58.68
-- return_5d: -14.4
-- return_20d: -9.98
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -4.74
-- distance_to_high_60_pct: -22.16
+- low: 52.6
+- close: 53.7
+- volume: 4496120
+- ma5: 54.9
+- ema23_primary: 56.31
+- distance_to_ema23_pct: -4.63
+- ma20: 56.49
+- ma60: 52.94
+- ma120: 58.66
+- return_5d: -5.79
+- return_20d: -9.9
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -4.95
+- distance_to_high_60_pct: -22.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,59,62,59,59.6,17395494,55.22,7.92,53.97,52.13,0.63
 20260605,59.2,59.2,54,56.5,13768810,55.33,2.11,54.37,52.18,0.5
 20260608,50.9,52.1,50.9,51.6,8560860,55.02,-6.22,54.41,52.11,0.32
 20260609,52.4,55,51.6,54.8,10284923,55,-0.37,54.62,52.13,0.38
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,56.4,57.8,55.7,57.3,8125000,57.01,0.51,57.47,52.7,0.42
 20260701,58,58.1,54,54.1,9800000,56.77,-4.7,57.09,52.78,0.55
 20260702,53.1,54.4,52.5,54.1,5699000,56.54,-4.32,56.79,52.89,0.33
+20260703,53.3,54.4,52.6,53.7,4496120,56.31,-4.63,56.49,52.94,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8110 | 華東 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利共計新台幣769,109,814元， 每股配發新台幣1.49417181元。 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/29 13.其他應敘明事項: (1)本公司已發行普通股517,739,876股，現因扣除    庫藏股3,000,000股，故調整每股配息率。 (2)現金股利分派計算至新台幣元為止(元以下捨去)，    未滿一元之畸零款合計數列入公司其他收入。；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_7d |
+| 20260703 | 8110 | 華東 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利共計新台幣769,109,814元， 每股配發新台幣1.49417181元。 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/29 13.其他應敘明事項: (1)本公司已發行普通股517,739,876股，現因扣除    庫藏股3,000,000股，故調整每股配息率。 (2)現金股利分派計算至新台幣元為止(元以下捨去)，    未滿一元之畸零款合計數列入公司其他收入。；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8110 | 華東 | 4 | 4 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 8110 | 華東 | 5 | 5 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8110 | 華東 | 36 | 6 | 1876210.0 | 158000.0 | 11.87 | no_signal |
+| 20260703 | 8110 | 華東 | 36 | 0 | 2266350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

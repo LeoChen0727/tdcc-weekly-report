@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00893 國泰智能電動車
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:02 Asia/Taipei
+- generated_at: 2026-07-03 22:26:01 Asia/Taipei
 - stock_id: 00893
 - stock_name: 國泰智能電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 46.88
-- high: 46.88
-- low: 46.44
-- close: 46.73
-- volume: 699000
-- ma5: 46.15
-- ema23_primary: 46.28
-- distance_to_ema23_pct: 0.98
-- ma20: 46.19
-- ma60: 46.43
-- ma120: 46.43
-- return_5d: 1.41
-- return_20d: -2.56
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 1.17
-- distance_to_high_60_pct: -2.85
+- date: 20260703
+- open: 45.45
+- high: 45.95
+- low: 45.4
+- close: 45.89
+- volume: 607153
+- ma5: 46.28
+- ema23_primary: 46.24
+- distance_to_ema23_pct: -0.76
+- ma20: 46.09
+- ma60: 46.41
+- ma120: 46.41
+- return_5d: 1.44
+- return_20d: -4.02
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -0.44
+- distance_to_high_60_pct: -4.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,47.9,48.1,47.69,47.81,1343787,46.36,3.13,47.05,47.05,0.88
 20260605,47.03,47.09,46.68,47.01,663022,46.42,1.28,47.04,47.04,0.46
 20260608,43.9,44.99,43.9,44.43,1437870,46.25,-3.93,46.82,46.82,1
 20260609,45.1,45.76,45.1,45.75,919572,46.21,-0.99,46.74,46.74,0.66
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,45.87,46.35,45.86,46.31,813000,46.12,0.41,46.23,46.38,0.68
 20260701,47.64,47.7,47.19,47.5,1019000,46.23,2.74,46.25,46.42,0.86
 20260702,46.88,46.88,46.44,46.73,699000,46.28,0.98,46.19,46.43,0.61
+20260703,45.45,45.95,45.4,45.89,607153,46.24,-0.76,46.09,46.41,0.54
 ```
 
 ## Latest TDCC Snapshot

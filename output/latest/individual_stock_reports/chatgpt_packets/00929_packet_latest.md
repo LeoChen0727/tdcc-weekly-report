@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00929 復華台灣科技優息
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:03 Asia/Taipei
+- generated_at: 2026-07-03 22:26:02 Asia/Taipei
 - stock_id: 00929
 - stock_name: 復華台灣科技優息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 30.41
-- high: 31.2
-- low: 30.25
-- close: 31.19
-- volume: 21384000
-- ma5: 30.54
-- ema23_primary: 30.28
-- distance_to_ema23_pct: 3.02
-- ma20: 30.34
-- ma60: 30.15
-- ma120: 30.15
-- return_5d: -2.1
-- return_20d: 0.68
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 2.81
-- distance_to_high_60_pct: -5.02
+- date: 20260703
+- open: 30.89
+- high: 31.41
+- low: 30.81
+- close: 31.34
+- volume: 21743156
+- ma5: 30.82
+- ema23_primary: 30.36
+- distance_to_ema23_pct: 3.21
+- ma20: 30.38
+- ma60: 30.19
+- ma120: 30.19
+- return_5d: 4.61
+- return_20d: 2.86
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 3.15
+- distance_to_high_60_pct: -4.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,30.78,30.9,30.25,30.47,28189800,28.8,5.82,29.8,29.8,0.58
 20260605,30.1,30.23,29.12,29.94,40253699,28.89,3.63,29.81,29.81,0.84
 20260608,27.12,28.18,27.11,28.08,66694214,28.82,-2.58,29.67,29.67,1.35
 20260609,28.53,29.46,28.21,29.43,35270400,28.87,1.93,29.65,29.65,0.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,30.35,30.84,30.3,30.78,27139000,30.14,2.13,30.34,30.08,0.7
 20260701,31.23,31.25,30.77,30.78,22259000,30.19,1.95,30.33,30.11,0.59
 20260702,30.41,31.2,30.25,31.19,21384000,30.28,3.02,30.34,30.15,0.58
+20260703,30.89,31.41,30.81,31.34,21743156,30.36,3.21,30.38,30.19,0.6
 ```
 
 ## Latest TDCC Snapshot

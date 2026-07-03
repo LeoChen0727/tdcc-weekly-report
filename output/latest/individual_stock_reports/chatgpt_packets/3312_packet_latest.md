@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3312 弘憶股
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:59 Asia/Taipei
+- generated_at: 2026-07-03 22:26:59 Asia/Taipei
 - stock_id: 3312
 - stock_name: 弘憶股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 57.2
-- high: 61.3
-- low: 56.6
-- close: 60.8
-- volume: 2949000
-- ma5: 58.94
-- ema23_primary: 58.76
-- distance_to_ema23_pct: 3.47
-- ma20: 61.31
-- ma60: 50.54
-- ma120: 44.19
-- return_5d: -1.94
-- return_20d: -8.71
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -0.84
-- distance_to_high_60_pct: -16.94
+- date: 20260703
+- open: 59.7
+- high: 60.9
+- low: 59.5
+- close: 59.9
+- volume: 2004884
+- ma5: 59.1
+- ema23_primary: 58.85
+- distance_to_ema23_pct: 1.78
+- ma20: 60.65
+- ma60: 50.92
+- ma120: 44.4
+- return_5d: 1.35
+- return_20d: -18.17
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -1.24
+- distance_to_high_60_pct: -18.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,73.2,73.2,71.1,73.2,12490398,51.7,41.59,50.73,42.42,2.41
 20260605,72.1,72.1,66,67.5,23578483,53.01,27.32,52.02,43.01,3.77
 20260608,60.8,61.6,60.8,60.8,7026304,53.66,13.3,52.84,43.47,1.1
 20260609,60.6,62.8,58.6,62.3,8639365,54.38,14.56,53.67,43.95,1.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,60.5,61.4,59.4,59.6,2897000,58.7,1.53,61.77,49.74,0.38
 20260701,60.1,60.8,57.2,57.2,2719000,58.57,-2.35,61.6,50.11,0.35
 20260702,57.2,61.3,56.6,60.8,2949000,58.76,3.47,61.31,50.54,0.38
+20260703,59.7,60.9,59.5,59.9,2004884,58.85,1.78,60.65,50.92,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3312 | 弘憶股 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 3312 | 弘憶股 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3312 | 弘憶股 | 1 | 1 | 4 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 3312 | 弘憶股 | 2 | 2 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3312 | 弘憶股 | 4 | 0 | 40990.0 | 0.0 |  | no_signal |
+| 20260703 | 3312 | 弘憶股 | 4 | 0 | 11690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

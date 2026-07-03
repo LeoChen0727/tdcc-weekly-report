@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:11 Asia/Taipei
+- generated_at: 2026-07-03 22:26:10 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 8.5
-- high: 9.09
-- low: 8.32
-- close: 9.09
-- volume: 38585000
-- ma5: 7.59
-- ema23_primary: 6.66
-- distance_to_ema23_pct: 36.52
-- ma20: 6.6
-- ma60: 5.8
-- ma120: 5.58
-- return_5d: 48.77
-- return_20d: 30.42
-- volume_ratio: 8.18
-- distance_to_ma20_pct_auxiliary: 37.76
+- date: 20260703
+- open: 9.95
+- high: 9.99
+- low: 9.63
+- close: 9.99
+- volume: 37908670
+- ma5: 8.34
+- ema23_primary: 6.94
+- distance_to_ema23_pct: 44.03
+- ma20: 6.77
+- ma60: 5.88
+- ma120: 5.62
+- return_5d: 60.61
+- return_20d: 51.82
+- volume_ratio: 6.04
+- distance_to_ma20_pct_auxiliary: 47.58
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,7.26,7.26,6.37,6.58,6848164,5.82,12.97,5.73,5.38,1.94
 20260605,6.58,6.69,6.3,6.41,2679435,5.87,9.13,5.81,5.4,0.74
 20260608,5.95,6.84,5.93,6.75,4324373,5.95,13.51,5.9,5.42,1.14
 20260609,6.75,6.85,6.56,6.61,2928106,6,10.13,5.98,5.44,0.75
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,7.52,7.52,7.52,7.52,4288000,6.27,19.93,6.4,5.68,1.5
 20260701,8.27,8.27,8.27,8.27,10107000,6.44,28.47,6.49,5.73,3.13
 20260702,8.5,9.09,8.32,9.09,38585000,6.66,36.52,6.6,5.8,8.18
+20260703,9.95,9.99,9.63,9.99,37908670,6.94,44.03,6.77,5.88,6.04
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1447 | 力鵬 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1447 | 力鵬 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/07/02 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理。 3.財務業務資訊: 期間            (  月  )             (   季   )           (最近四季累計) ========  ==================== ======================== ====================            最近一月   與去年     最近一季     與去年 科目     (115年05月) 同期增減  (115年第1季)  同期增減   (114第2季至115第1季)            IFRS         (%)         IFRS        (%)             IFRS            合併自結數            合併核閱數                  合併核閱數 ========  =========== ======== ============= ========== ==================== 營業收入        1,609  -45.78%          8,072     16.35%             28,993 (百萬) 稅前純益         (29)   88.84%            107    434.28%              (848) (百萬) 歸屬母公司 業主淨利         (29)   88.14%             86    449.39%              (780) (百萬) 每股盈餘       (0.03)   89.29%            0.1    400.00%             (0.89) (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1447 | 力鵬 | 14 | 3 | 5 | 10 | 19 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260703 | 1447 | 力鵬 | 15 | 4 | 5 | 10 | 19 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

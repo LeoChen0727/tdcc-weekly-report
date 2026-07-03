@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5227 立凱-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:27 Asia/Taipei
+- generated_at: 2026-07-03 22:27:26 Asia/Taipei
 - stock_id: 5227
 - stock_name: 立凱-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 33.95
-- high: 36.35
-- low: 33.85
-- close: 36.35
-- volume: 368000
-- ma5: 34.41
-- ema23_primary: 33.08
-- distance_to_ema23_pct: 9.88
-- ma20: 33.7
-- ma60: 26.34
-- ma120: 25.94
-- return_5d: 2.83
-- return_20d: 48.37
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 7.88
-- distance_to_high_60_pct: -22.16
+- date: 20260703
+- open: 34.9
+- high: 35.4
+- low: 34.9
+- close: 35.15
+- volume: 303000
+- ma5: 34.73
+- ema23_primary: 33.25
+- distance_to_ema23_pct: 5.7
+- ma20: 34.14
+- ma60: 26.56
+- ma120: 26.03
+- return_5d: 4.77
+- return_20d: 33.65
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 2.97
+- distance_to_high_60_pct: -24.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,24.6,26.3,24.5,26.3,26000,24.04,9.39,23.92,23.32,0.13
 20260605,26.5,26.85,25.15,25.2,26000,24.14,4.4,24.14,23.33,0.13
 20260608,23.4,27.35,23.4,27,664000,24.38,10.76,24.45,23.36,2.98
 20260609,27,27,26.3,26.5,258000,24.55,7.93,24.72,23.38,1.12
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,35.1,35.1,33.7,34,222000,32.65,4.14,32.61,25.92,0.31
 20260701,35.35,35.35,34,34.3,173000,32.78,4.62,33.1,26.1,0.24
 20260702,33.95,36.35,33.85,36.35,368000,33.08,9.88,33.7,26.34,0.49
+20260703,34.9,35.4,34.9,35.15,303000,33.25,5.7,34.14,26.56,0.4
 ```
 
 ## Latest TDCC Snapshot

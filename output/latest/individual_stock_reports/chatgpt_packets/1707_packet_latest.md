@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1707 葡萄王
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:18 Asia/Taipei
+- generated_at: 2026-07-03 22:26:17 Asia/Taipei
 - stock_id: 1707
 - stock_name: 葡萄王
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 90.7
-- high: 91
-- low: 90
-- close: 90.7
-- volume: 498000
-- ma5: 92.62
-- ema23_primary: 98.26
-- distance_to_ema23_pct: -7.7
-- ma20: 98.64
-- ma60: 106.78
-- ma120: 114.44
-- return_5d: -6.4
-- return_20d: -10.64
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -8.04
-- distance_to_high_60_pct: -25.66
+- date: 20260703
+- open: 90.6
+- high: 93.5
+- low: 90.6
+- close: 92.9
+- volume: 716067
+- ma5: 92.12
+- ema23_primary: 97.82
+- distance_to_ema23_pct: -5.03
+- ma20: 98.18
+- ma60: 106.3
+- ma120: 114.16
+- return_5d: -2.62
+- return_20d: -8.92
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -5.38
+- distance_to_high_60_pct: -23.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,101.5,102.5,101,102,533205,105.16,-3.01,104.56,113.74,1.31
 20260605,102,102.5,101,101.5,294589,104.86,-3.2,103.98,113.41,0.71
 20260608,100,101,98.5,100.5,467831,104.5,-3.82,103.36,113.06,1.08
 20260609,100,103,100,102,314116,104.29,-2.19,102.93,112.76,0.75
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,93.8,94.5,92,92.1,1094000,99.66,-7.59,99.64,107.77,2.15
 20260701,92.1,92.4,90.4,91.1,728000,98.95,-7.93,99.17,107.28,1.37
 20260702,90.7,91,90,90.7,498000,98.26,-7.7,98.64,106.78,0.93
+20260703,90.6,93.5,90.6,92.9,716067,97.82,-5.03,98.18,106.3,1.32
 ```
 
 ## Latest TDCC Snapshot

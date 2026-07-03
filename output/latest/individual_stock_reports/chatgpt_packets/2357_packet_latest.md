@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:30 Asia/Taipei
+- generated_at: 2026-07-03 22:26:30 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 650
-- high: 667
-- low: 642
-- close: 667
-- volume: 5882000
-- ma5: 685.6
-- ema23_primary: 742.1
-- distance_to_ema23_pct: -10.12
-- ma20: 777.3
-- ma60: 691.18
-- ma120: 613.33
-- return_5d: -10.83
-- return_20d: -28.36
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -14.19
-- distance_to_high_60_pct: -30.81
+- date: 20260703
+- open: 660
+- high: 675
+- low: 657
+- close: 675
+- volume: 3325491
+- ma5: 680.4
+- ema23_primary: 736.51
+- distance_to_ema23_pct: -8.35
+- ma20: 766.45
+- ma60: 693.07
+- ma120: 614.45
+- return_5d: -3.71
+- return_20d: -24.33
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -11.93
+- distance_to_high_60_pct: -29.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,916,927,881,892,6988699,730.46,22.11,719.45,627.75,1.01
 20260605,910,927,875,900,7938907,744.59,20.87,731.95,633.9,1.15
 20260608,820,853,816,844,7306896,752.88,12.1,739.85,638.23,1.08
 20260609,853,853,834,850,5184736,760.97,11.7,748.7,642.72,0.78
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,705,711,691,700,7215000,757.28,-7.56,803.65,687.53,1.13
 20260701,658,659,635,657,12965000,748.92,-12.27,790.5,689.23,2
 20260702,650,667,642,667,5882000,742.1,-10.12,777.3,691.18,0.96
+20260703,660,675,657,675,3325491,736.51,-8.35,766.45,693.07,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2357 | 華碩 | 88 | 5 | 12618430.0 | 3374140.0 | 3.74 | mixed_flow |
+| 20260703 | 2357 | 華碩 | 88 | 0 | 10078760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

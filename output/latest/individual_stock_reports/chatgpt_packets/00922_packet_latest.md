@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00922 國泰台灣領袖50
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:03 Asia/Taipei
+- generated_at: 2026-07-03 22:26:02 Asia/Taipei
 - stock_id: 00922
 - stock_name: 國泰台灣領袖50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 41.08
-- high: 41.91
-- low: 40.99
-- close: 41.86
-- volume: 11007000
-- ma5: 40.92
-- ema23_primary: 40.32
-- distance_to_ema23_pct: 3.82
-- ma20: 40.39
-- ma60: 40
-- ma120: 40
-- return_5d: 1.5
-- return_20d: 2.32
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 3.63
-- distance_to_high_60_pct: -2.74
+- date: 20260703
+- open: 41.02
+- high: 41.86
+- low: 40.89
+- close: 41.76
+- volume: 13380850
+- ma5: 41.36
+- ema23_primary: 40.44
+- distance_to_ema23_pct: 3.27
+- ma20: 40.46
+- ma60: 40.06
+- ma120: 40.06
+- return_5d: 5.53
+- return_20d: 3.39
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 3.21
+- distance_to_high_60_pct: -2.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,40.75,40.79,40.35,40.39,15571975,38.4,5.19,39.25,39.25,1.13
 20260605,39.98,40.11,38.97,39.69,16353254,38.51,3.08,39.29,39.29,1.17
 20260608,37.25,38.54,37.24,38.47,21372676,38.5,-0.08,39.22,39.22,1.46
 20260609,38.93,39.7,38.65,39.65,8531015,38.6,2.73,39.25,39.25,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,40.61,41.38,40.61,41.25,7831000,40.02,3.07,40.25,39.86,0.63
 20260701,41.92,42.11,41.58,41.91,11709000,40.18,4.31,40.34,39.93,0.94
 20260702,41.08,41.91,40.99,41.86,11007000,40.32,3.82,40.39,40,0.89
+20260703,41.02,41.86,40.89,41.76,13380850,40.44,3.27,40.46,40.06,1.1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:25 Asia/Taipei
+- generated_at: 2026-07-03 22:28:23 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 48.95
-- high: 49.35
+- date: 20260703
+- open: 48.55
+- high: 50.4
 - low: 48.35
-- close: 48.4
-- volume: 508000
-- ma5: 48.84
-- ema23_primary: 48.9
-- distance_to_ema23_pct: -1.02
-- ma20: 50.88
-- ma60: 42.87
-- ma120: 40.47
-- return_5d: -2.42
-- return_20d: -9.36
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -4.88
-- distance_to_high_60_pct: -15.38
+- close: 49.15
+- volume: 1077857
+- ma5: 49.05
+- ema23_primary: 48.92
+- distance_to_ema23_pct: 0.47
+- ma20: 50.61
+- ma60: 43.08
+- ma120: 40.57
+- return_5d: 2.18
+- return_20d: -9.98
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -2.89
+- distance_to_high_60_pct: -14.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,52.2,57.2,51.7,54.6,13712651,44.09,23.84,42.02,39.02,3.91
 20260605,53.3,55.6,53,54.4,4333586,44.95,21.02,43.01,39.33,1.18
 20260608,49.05,54.5,49.05,53.9,3578725,45.7,17.95,43.99,39.61,0.94
 20260609,53.7,55.2,53.4,53.6,3038018,46.35,15.63,44.98,39.89,0.77
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,48.95,50.7,48.7,50.4,953000,48.97,2.91,51.51,42.48,0.27
 20260701,50.8,50.8,48.5,48.6,1411000,48.94,-0.7,51.13,42.66,0.48
 20260702,48.95,49.35,48.35,48.4,508000,48.9,-1.02,50.88,42.87,0.19
+20260703,48.55,50.4,48.35,49.15,1077857,48.92,0.47,50.61,43.08,0.53
 ```
 
 ## Latest TDCC Snapshot

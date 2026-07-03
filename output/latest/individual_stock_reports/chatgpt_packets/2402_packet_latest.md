@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2402 毅嘉
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:32 Asia/Taipei
+- generated_at: 2026-07-03 22:26:32 Asia/Taipei
 - stock_id: 2402
 - stock_name: 毅嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 67.9
-- high: 69.2
-- low: 67.1
-- close: 68
-- volume: 5326000
-- ma5: 65.66
-- ema23_primary: 66.91
-- distance_to_ema23_pct: 1.64
-- ma20: 66.58
-- ma60: 67.97
-- ma120: 61.1
-- return_5d: 1.64
-- return_20d: -2.44
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 2.13
-- distance_to_high_60_pct: -20
+- date: 20260703
+- open: 68
+- high: 68.4
+- low: 67.3
+- close: 67.5
+- volume: 2385861
+- ma5: 66.34
+- ema23_primary: 66.95
+- distance_to_ema23_pct: 0.81
+- ma20: 66.49
+- ma60: 68.15
+- ma120: 61.11
+- return_5d: 5.3
+- return_20d: -2.6
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 1.52
+- distance_to_high_60_pct: -20.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,69.7,70.3,68.2,69.3,8602360,67.72,2.33,67.23,63.12,0.87
 20260605,68.9,69,65.6,66.3,7255287,67.61,-1.93,67.14,63.39,0.74
 20260608,59.8,63.9,59.7,63.5,6098512,67.26,-5.59,66.87,63.59,0.62
 20260609,63.6,64.5,62.6,63.8,3949462,66.97,-4.74,66.52,63.82,0.43
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,64.8,66.1,64.5,64.8,1817000,66.78,-2.96,66.75,67.46,0.23
 20260701,65.7,67.8,63.8,67.1,3501000,66.81,0.44,66.67,67.7,0.46
 20260702,67.9,69.2,67.1,68,5326000,66.91,1.64,66.58,67.97,0.76
+20260703,68,68.4,67.3,67.5,2385861,66.95,0.81,66.49,68.15,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2402 | 毅嘉 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 內容：本公司115年3月11日董事會決議及115年7月1日董事長決議<br>(一)停止受理轉交換之事由：辦理配股配息作業事宜。<br>(其他事項敘明：)<br>(二)停止受理轉交換登記起訖日期：115年07月10日至115年08月04日止。<br>(三)債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日（115年07月10日）之前一營業日前（115年07月08日），向往來證券商辦理轉換手續。<br>無；calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_30d |
+| 20260703 | 2402 | 毅嘉 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 內容：本公司115年3月11日董事會決議及115年7月1日董事長決議<br>(一)停止受理轉交換之事由：辦理配股配息作業事宜。<br>(其他事項敘明：)<br>(二)停止受理轉交換登記起訖日期：115年07月10日至115年08月04日止。<br>(三)債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日（115年07月10日）之前一營業日前（115年07月08日），向往來證券商辦理轉換手續。<br>無；calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2402 | 毅嘉 | 2 | 2 | 2 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 2402 | 毅嘉 | 3 | 3 | 3 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2402 | 毅嘉 | 89 | 9 | 6812850.0 | 2800.0 | 2433.16 | no_signal |
+| 20260703 | 2402 | 毅嘉 | 88 | 0 | 2422750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

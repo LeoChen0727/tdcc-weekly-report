@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:22 Asia/Taipei
+- generated_at: 2026-07-03 22:28:21 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 562
-- high: 592
-- low: 557
-- close: 570
-- volume: 7825000
-- ma5: 574.6
-- ema23_primary: 588.24
-- distance_to_ema23_pct: -3.1
-- ma20: 605.55
-- ma60: 490.22
-- ma120: 374.56
-- return_5d: -9.52
-- return_20d: -7.32
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -5.87
-- distance_to_high_60_pct: -24.8
+- date: 20260703
+- open: 555
+- high: 594
+- low: 544
+- close: 590
+- volume: 7778000
+- ma5: 578.6
+- ema23_primary: 588.39
+- distance_to_ema23_pct: 0.27
+- ma20: 606.8
+- ma60: 495.59
+- ma120: 377.22
+- return_5d: 3.51
+- return_20d: 4.42
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -2.77
+- distance_to_high_60_pct: -22.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,608,626,565,565,602000,513.8,9.96,513.85,373.88,0.07
 20260605,543,596,515,596,556000,520.65,14.47,520.92,380.07,0.08
 20260608,537,590,537,586,2658000,526.1,11.39,527.12,386.07,0.51
 20260609,586,613,560,610,1992000,533.09,14.43,533.77,392.43,0.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,570,600,568,600,9614000,590.17,1.67,609.8,478.82,1.62
 20260701,626,639,580,587,12352000,589.9,-0.49,607.8,484.77,1.89
 20260702,562,592,557,570,7825000,588.24,-3.1,605.55,490.22,1.13
+20260703,555,594,544,590,7778000,588.39,0.27,606.8,495.59,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8358 | 金居 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:盈餘分配現金股利新台幣504,982,000元 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:現金股利以匯款或掛號郵寄支票方式發放，匯費及郵費由股東支付。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260702 | 8358 | 金居 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:盈餘分配現金股利新台幣504,982,000元 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:現金股利以匯款或掛號郵寄支票方式發放，匯費及郵費由股東支付。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260703 | 8358 | 金居 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:盈餘分配現金股利新台幣504,982,000元 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:現金股利以匯款或掛號郵寄支票方式發放，匯費及郵費由股東支付。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8358 | 金居 | 9 | 7 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 8358 | 金居 | 10 | 2 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

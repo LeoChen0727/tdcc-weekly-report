@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5202 力新
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:26 Asia/Taipei
+- generated_at: 2026-07-03 22:27:25 Asia/Taipei
 - stock_id: 5202
 - stock_name: 力新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 14.4
-- high: 15.8
-- low: 14.4
-- close: 15.8
-- volume: 1122000
-- ma5: 14.75
-- ema23_primary: 14.66
-- distance_to_ema23_pct: 7.79
-- ma20: 15.24
-- ma60: 13.65
-- ma120: 14.31
-- return_5d: 6.04
-- return_20d: 17.47
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: 3.67
-- distance_to_high_60_pct: -12.47
+- date: 20260703
+- open: 15.85
+- high: 15.85
+- low: 15.05
+- close: 15.35
+- volume: 1091000
+- ma5: 14.92
+- ema23_primary: 14.72
+- distance_to_ema23_pct: 4.31
+- ma20: 15.27
+- ma60: 13.69
+- ma120: 14.3
+- return_5d: 5.86
+- return_20d: 4.07
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 0.52
+- distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,13.45,14.75,13.3,14.75,15000,12.79,15.37,12.48,13.21,0.15
 20260605,16,16.2,15.1,15.75,16000,13.03,20.86,12.62,13.24,0.17
 20260608,14.85,17.3,14.5,17.3,5484000,13.39,29.22,12.83,13.3,15.4
 20260609,17.15,18.05,16.25,16.35,4761000,13.63,19.92,13,13.33,8.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,14.7,14.8,14.4,14.65,235000,14.57,0.56,15.09,13.57,0.24
 20260701,15,15,14.4,14.4,264000,14.55,-1.06,15.12,13.6,0.27
 20260702,14.4,15.8,14.4,15.8,1122000,14.66,7.79,15.24,13.65,1.08
+20260703,15.85,15.85,15.05,15.35,1091000,14.72,4.31,15.27,13.69,1
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5202 | 力新 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 5202 | 力新 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5202 | 力新 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260703 | 5202 | 力新 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

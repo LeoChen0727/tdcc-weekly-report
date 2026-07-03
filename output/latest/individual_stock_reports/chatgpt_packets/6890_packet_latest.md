@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6890 來億-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:03 Asia/Taipei
+- generated_at: 2026-07-03 22:28:02 Asia/Taipei
 - stock_id: 6890
 - stock_name: 來億-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 203.5
-- high: 203.5
-- low: 193
-- close: 193
-- volume: 596000
-- ma5: 204.1
-- ema23_primary: 217.05
-- distance_to_ema23_pct: -11.08
-- ma20: 235.95
-- ma60: 188.32
-- ma120: 197.18
-- return_5d: -22.18
-- return_20d: -8.31
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -18.2
-- distance_to_high_60_pct: -32.4
+- date: 20260703
+- open: 192
+- high: 212
+- low: 191.5
+- close: 212
+- volume: 712016
+- ma5: 201.8
+- ema23_primary: 216.63
+- distance_to_ema23_pct: -2.14
+- ma20: 234.97
+- ma60: 189.19
+- ma120: 196.86
+- return_5d: -5.15
+- return_20d: -8.42
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -9.78
+- distance_to_high_60_pct: -25.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,208.5,231.5,207.5,231.5,5824715,176.83,30.92,172.97,166.47,5.21
 20260605,231.5,249,230.5,242.5,9871425,182.3,33.02,177.4,167.66,6.27
 20260608,222.5,255,222.5,249.5,5514357,187.9,32.78,181.82,169.09,3.03
 20260609,248,274,243,274,2762813,195.08,40.46,187.1,170.99,1.44
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,194,201.5,190.5,197,876000,220.48,-10.65,236.12,187.1,0.43
 20260701,197,210,193.5,205.5,886000,219.23,-6.26,236.82,187.72,0.45
 20260702,203.5,203.5,193,193,596000,217.05,-11.08,235.95,188.32,0.33
+20260703,192,212,191.5,212,712016,216.63,-2.14,234.97,189.19,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6890 | 來億-KY | 13 | 0 | 200.0 | 0.0 |  | no_signal |
+| 20260703 | 6890 | 來億-KY | 13 | 0 | 33130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

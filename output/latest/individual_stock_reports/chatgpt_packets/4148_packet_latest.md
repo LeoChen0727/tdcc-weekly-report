@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4148 全宇生技-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:12 Asia/Taipei
+- generated_at: 2026-07-03 22:27:12 Asia/Taipei
 - stock_id: 4148
 - stock_name: 全宇生技-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 289
+- latest_price_date: 20260703
+- price_rows: 290
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 30.25
-- high: 30.5
-- low: 30
-- close: 30.5
-- volume: 26000
-- ma5: 30.22
-- ema23_primary: 31.14
-- distance_to_ema23_pct: -2.07
-- ma20: 30.82
-- ma60: 34.3
-- ma120: 36.65
-- return_5d: 0.16
-- return_20d: -6.15
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -1.04
-- distance_to_high_60_pct: -30.44
+- date: 20260703
+- open: 30.6
+- high: 30.95
+- low: 30.6
+- close: 30.8
+- volume: 40352
+- ma5: 30.48
+- ema23_primary: 31.12
+- distance_to_ema23_pct: -1.02
+- ma20: 30.74
+- ma60: 34.12
+- ma120: 36.59
+- return_5d: 4.41
+- return_20d: -4.94
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 0.2
+- distance_to_high_60_pct: -26.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,32.5,32.6,31.8,32.4,33118,33.68,-3.8,33.68,37.73,0.39
 20260605,32.5,32.75,32.4,32.5,23243,33.58,-3.22,33.49,37.65,0.27
 20260608,32.4,32.4,31.75,31.85,14205,33.44,-4.74,33.17,37.56,0.18
 20260609,31.85,32.15,31.55,32,16237,33.32,-3.95,32.9,37.46,0.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,30.7,30.75,30.05,30.3,17000,31.29,-3.16,30.96,34.73,0.33
 20260701,30.15,30.5,30.1,30.25,16000,31.2,-3.06,30.92,34.51,0.32
 20260702,30.25,30.5,30,30.5,26000,31.14,-2.07,30.82,34.3,0.57
+20260703,30.6,30.95,30.6,30.8,40352,31.12,-1.02,30.74,34.12,0.88
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:21 Asia/Taipei
+- generated_at: 2026-07-03 22:27:21 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 289
+- latest_price_date: 20260703
+- price_rows: 290
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 47.75
-- high: 49.6
-- low: 47.35
-- close: 49.5
-- volume: 17942000
-- ma5: 47.23
-- ema23_primary: 45.28
-- distance_to_ema23_pct: 9.31
-- ma20: 45.24
-- ma60: 43.63
-- ma120: 45.84
-- return_5d: 11.24
-- return_20d: 12.63
-- volume_ratio: 1.78
-- distance_to_ma20_pct_auxiliary: 9.42
-- distance_to_high_60_pct: -0.2
+- date: 20260703
+- open: 49
+- high: 52.7
+- low: 48.65
+- close: 51.3
+- volume: 23188703
+- ma5: 48.79
+- ema23_primary: 45.79
+- distance_to_ema23_pct: 12.04
+- ma20: 45.57
+- ma60: 43.77
+- ma120: 45.82
+- return_5d: 17.93
+- return_20d: 14.64
+- volume_ratio: 2.17
+- distance_to_ma20_pct_auxiliary: 12.58
+- distance_to_high_60_pct: -2.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,44.15,45.5,43.8,44.75,11418793,42.59,5.08,42.14,43.26,1.62
 20260605,44.85,44.85,42.9,43.55,7719274,42.67,2.07,42.23,43.29,1.08
 20260608,41.1,42.65,41.05,42.35,6552207,42.64,-0.68,42.24,43.26,0.91
 20260609,42.8,45.9,42.8,45.35,14498623,42.87,5.8,42.42,43.3,1.9
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,49,49.05,46.75,47.4,26291000,44.63,6.21,44.7,43.41,2.82
 20260701,47.5,48.7,45.8,47.9,16563000,44.9,6.68,44.96,43.5,1.69
 20260702,47.75,49.6,47.35,49.5,17942000,45.28,9.31,45.24,43.63,1.78
+20260703,49,52.7,48.65,51.3,23188703,45.79,12.04,45.57,43.77,2.17
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 4763 | 材料*-KY | true_breakout | 嚴格突破 | 117.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 4763 | 材料*-KY | true_breakout | 嚴格突破 | 114.0 |  |  | platform_breakout |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 4763 | 材料*-KY | 4 | 1 | 4 | 9 | 16 | continued_many_days | 連續 4 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260703 | 4763 | 材料*-KY | 5 | 2 | 5 | 9 | 17 | continued_many_days | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 4763 | 材料*-KY | 50 | 1 | 10899310.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 4763 | 材料*-KY | 46 | 0 | 15787730.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

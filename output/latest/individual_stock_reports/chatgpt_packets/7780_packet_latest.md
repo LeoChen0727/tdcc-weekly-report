@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7780 大研生醫*
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:14 Asia/Taipei
+- generated_at: 2026-07-03 22:28:13 Asia/Taipei
 - stock_id: 7780
 - stock_name: 大研生醫*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 184
+- latest_price_date: 20260703
+- price_rows: 185
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 17.9
-- high: 18.15
-- low: 17.9
-- close: 18.05
-- volume: 722000
-- ma5: 18.01
-- ema23_primary: 18.33
-- distance_to_ema23_pct: -1.55
-- ma20: 18.41
-- ma60: 18.76
-- ma120: 37.19
-- return_5d: -0.55
-- return_20d: 1.4
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -1.97
-- distance_to_high_60_pct: -17.77
+- date: 20260703
+- open: 18.05
+- high: 18.45
+- low: 18.05
+- close: 18.35
+- volume: 1254513
+- ma5: 18.1
+- ema23_primary: 18.34
+- distance_to_ema23_pct: 0.08
+- ma20: 18.44
+- ma60: 18.71
+- ma120: 35.99
+- return_5d: 2.51
+- return_20d: 2.8
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -0.47
+- distance_to_high_60_pct: -14.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,17.9,18.1,17.7,17.85,2176078,18.3,-2.43,18.07,19.19,1.03
 20260605,18.05,18.5,18,18.15,2507007,18.28,-0.73,18.05,19.16,1.18
 20260608,17.6,18.4,17.45,18,2334657,18.26,-1.42,18.02,19.13,1.09
 20260609,18.45,18.45,18.1,18.4,2182919,18.27,0.7,18.04,19.11,1.06
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,18.1,18.2,18.05,18.15,1172000,18.4,-1.37,18.38,18.89,0.54
 20260701,18.15,18.2,17.9,17.9,904000,18.36,-2.51,18.4,18.82,0.42
 20260702,17.9,18.15,17.9,18.05,722000,18.33,-1.55,18.41,18.76,0.35
+20260703,18.05,18.45,18.05,18.35,1254513,18.34,0.08,18.44,18.71,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 7780 | 大研生醫* | 6 | 0 | 17650.0 | 0.0 |  | no_signal |
+| 20260703 | 7780 | 大研生醫* | 6 | 0 | 9970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4580 捷流閥業
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:18 Asia/Taipei
+- generated_at: 2026-07-03 22:27:18 Asia/Taipei
 - stock_id: 4580
 - stock_name: 捷流閥業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 82.8
-- high: 82.9
-- low: 82.3
-- close: 82.3
-- volume: 15000
-- ma5: 81.78
-- ema23_primary: 81.97
-- distance_to_ema23_pct: 0.4
-- ma20: 81.91
-- ma60: 81.42
-- ma120: 81.27
-- return_5d: 0.61
-- return_20d: -1.32
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 0.48
-- distance_to_high_60_pct: -2.83
+- date: 20260703
+- open: 82.3
+- high: 83.2
+- low: 82.2
+- close: 82.4
+- volume: 60000
+- ma5: 82.2
+- ema23_primary: 82.01
+- distance_to_ema23_pct: 0.48
+- ma20: 81.84
+- ma60: 81.47
+- ma120: 81.29
+- return_5d: 2.62
+- return_20d: -1.67
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 0.68
+- distance_to_high_60_pct: -2.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,83.4,84,83.1,83.8,84000,82.23,1.91,82.32,80.91,1.24
 20260605,83.5,83.5,82.5,82.5,83000,82.26,0.3,82.34,80.94,1.22
 20260608,80.2,81.4,80,81.4,67000,82.18,-0.95,82.32,80.95,0.98
 20260609,82,82,81.4,81.8,31000,82.15,-0.43,82.34,80.98,0.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,81.4,82.5,81.3,82,41000,81.87,0.16,81.97,81.34,0.77
 20260701,82,82.8,81.8,82.7,92000,81.94,0.93,81.97,81.38,1.59
 20260702,82.8,82.9,82.3,82.3,15000,81.97,0.4,81.91,81.42,0.28
+20260703,82.3,83.2,82.2,82.4,60000,82.01,0.48,81.84,81.47,1.13
 ```
 
 ## Latest TDCC Snapshot

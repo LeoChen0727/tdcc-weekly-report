@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:29 Asia/Taipei
+- generated_at: 2026-07-03 22:26:29 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 290
+- latest_price_date: 20260703
+- price_rows: 291
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 32.05
-- high: 33.1
-- low: 31.65
-- close: 31.9
-- volume: 24044000
-- ma5: 31.73
-- ema23_primary: 30.68
-- distance_to_ema23_pct: 3.99
-- ma20: 31.14
-- ma60: 27.76
-- ma120: 26.18
-- return_5d: 4.59
-- return_20d: -7.94
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 2.46
-- distance_to_high_60_pct: -10.27
+- date: 20260703
+- open: 31.75
+- high: 33.45
+- low: 31.45
+- close: 32.2
+- volume: 22936205
+- ma5: 32.31
+- ema23_primary: 30.8
+- distance_to_ema23_pct: 4.54
+- ma20: 31.03
+- ma60: 27.9
+- ma120: 26.25
+- return_5d: 9.9
+- return_20d: -5.99
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 3.76
+- distance_to_high_60_pct: -9.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,35.5,35.55,33.85,34.25,63832638,28.39,20.65,27.88,25.48,4.38
 20260605,33.5,33.65,30.9,31.1,26702502,28.61,8.69,28.19,25.61,1.71
 20260608,28.2,30.2,28.2,30.1,15954965,28.74,4.74,28.41,25.72,1
 20260609,30.85,30.95,29.95,30.65,9267678,28.9,6.07,28.65,25.83,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,31.35,34.1,31.15,34.1,40372000,30.4,12.16,31.23,27.47,2.46
 20260701,34.1,34.75,32.25,32.35,50872000,30.56,5.84,31.27,27.62,2.85
 20260702,32.05,33.1,31.65,31.9,24044000,30.68,3.99,31.14,27.76,1.3
+20260703,31.75,33.45,31.45,32.2,22936205,30.8,4.54,31.03,27.9,1.4
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1. 原公告日期： 115/01/22 2. 簡述原公告申報內容： 擬取得Above Vantage Limited（高優有限公司，以下簡稱「高優」） 100%股權，本交易完成後，將間接取得Eastech Holding Limited  (以下簡稱「東科」)約35%股權， 總投資金額為約新台幣32億元之等值美金。 3. 變動緣由及主要內容： 雙方經審慎評估本投資案相關交易細節後，考量未能取得共同共識， 爰決定不再繼續推動本投資案。 4. 變動後對公司財務業務之影響： 無。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1. 原公告日期： 115/01/22 2. 簡述原公告申報內容： 擬取得Above Vantage Limited（高優有限公司，以下簡稱「高優」） 100%股權，本交易完成後，將間接取得Eastech Holding Limited  (以下簡稱「東科」)約35%股權， 總投資金額為約新台幣32億元之等值美金。 3. 變動緣由及主要內容： 雙方經審慎評估本投資案相關交易細節後，考量未能取得共同共識， 爰決定不再繼續推動本投資案。 4. 變動後對公司財務業務之影響： 無。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2352 | 佳世達 | 4 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 2352 | 佳世達 | 5 | 3 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2352 | 佳世達 | 21 | 2 | 2678620.0 | 23150.0 | 115.71 | no_signal |
+| 20260703 | 2352 | 佳世達 | 22 | 0 | 2781500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

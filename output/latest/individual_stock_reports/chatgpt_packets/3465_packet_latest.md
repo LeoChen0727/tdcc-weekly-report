@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:02 Asia/Taipei
+- generated_at: 2026-07-03 22:27:02 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 34.8
-- high: 35.95
-- low: 34.6
-- close: 35.3
-- volume: 23000
-- ma5: 35.41
-- ema23_primary: 34.28
-- distance_to_ema23_pct: 2.98
-- ma20: 34.41
-- ma60: 32.09
-- ma120: 38.66
-- return_5d: -8.55
-- return_20d: 9.97
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: 2.58
-- distance_to_high_60_pct: -19.5
+- date: 20260703
+- open: 35.3
+- high: 36.55
+- low: 35.05
+- close: 35.35
+- volume: 18000
+- ma5: 35.37
+- ema23_primary: 34.37
+- distance_to_ema23_pct: 2.85
+- ma20: 34.59
+- ma60: 32.05
+- ma120: 38.55
+- return_5d: -0.56
+- return_20d: 10.81
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: 2.21
+- distance_to_high_60_pct: -19.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,33.05,33.5,31.8,31.9,32000,29.8,7.05,28.38,34.14,0.97
 20260605,32,32.45,31.5,32,32000,29.98,6.73,28.6,33.93,0.95
 20260608,29.2,32.7,29.2,29.7,43000,29.96,-0.86,28.69,33.67,1.35
 20260609,32.65,32.65,32.65,32.65,87000,30.18,8.17,28.91,33.45,2.51
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,36.5,37.5,34.55,35.7,179000,34.13,4.6,34.11,32.15,1.45
 20260701,35.7,35.95,34.4,34.8,79000,34.19,1.79,34.25,32.12,0.62
 20260702,34.8,35.95,34.6,35.3,23000,34.28,2.98,34.41,32.09,0.18
+20260703,35.3,36.55,35.05,35.35,18000,34.37,2.85,34.59,32.05,0.14
 ```
 
 ## Latest TDCC Snapshot

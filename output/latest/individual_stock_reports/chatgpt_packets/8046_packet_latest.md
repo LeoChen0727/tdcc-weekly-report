@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:16 Asia/Taipei
+- generated_at: 2026-07-03 22:28:15 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 1155
-- high: 1180
-- low: 1110
-- close: 1145
-- volume: 10777000
-- ma5: 1142
-- ema23_primary: 978.39
-- distance_to_ema23_pct: 17.03
-- ma20: 947.25
-- ma60: 874.87
-- ma120: 648.14
-- return_5d: 9.57
-- return_20d: 26.66
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 20.88
-- distance_to_high_60_pct: -10.89
+- date: 20260703
+- open: 1100
+- high: 1210
+- low: 1050
+- close: 1185
+- volume: 13118601
+- ma5: 1154
+- ema23_primary: 995.61
+- distance_to_ema23_pct: 19.02
+- ma20: 962.6
+- ma60: 884
+- ma120: 656.01
+- return_5d: 5.33
+- return_20d: 34.97
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 23.1
+- distance_to_high_60_pct: -7.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,870,900,866,878,8813911,863.62,1.67,867.85,744.15,0.5
 20260605,865,875,813,845,14136931,862.07,-1.98,867.4,751.1,0.82
 20260608,761,853,761,831,15131933,859.48,-3.31,863.55,757.11,0.88
 20260609,852,914,842,914,18885820,864.02,5.78,864.25,764.53,1.08
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,1145,1185,1145,1185,5943000,944,25.53,919.55,856.07,0.32
 20260701,1200,1285,1150,1175,20653000,963.25,21.98,935.2,866.18,1.09
 20260702,1155,1180,1110,1145,10777000,978.39,17.03,947.25,874.87,0.58
+20260703,1100,1210,1050,1185,13118601,995.61,19.02,962.6,884,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8046 | 南電 | 78 | 7 | 4315150.0 | 159860.0 | 26.99 | no_signal |
+| 20260703 | 8046 | 南電 | 77 | 0 | 2201530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

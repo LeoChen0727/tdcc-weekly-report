@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5243 乙盛-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:27 Asia/Taipei
+- generated_at: 2026-07-03 22:27:27 Asia/Taipei
 - stock_id: 5243
 - stock_name: 乙盛-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 99
-- high: 102.5
-- low: 98.2
-- close: 102
-- volume: 1195000
-- ma5: 100.46
-- ema23_primary: 107.19
-- distance_to_ema23_pct: -4.84
-- ma20: 107.24
-- ma60: 112.36
-- ma120: 96.34
-- return_5d: -3.32
-- return_20d: -20.62
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -4.89
-- distance_to_high_60_pct: -28.92
+- date: 20260703
+- open: 101
+- high: 103
+- low: 100
+- close: 102.5
+- volume: 832392
+- ma5: 101.2
+- ema23_primary: 106.8
+- distance_to_ema23_pct: -4.03
+- ma20: 106.42
+- ma60: 112.34
+- ma120: 96.55
+- return_5d: 3.74
+- return_20d: -13.87
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -3.68
+- distance_to_high_60_pct: -28.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,131,131.5,118.5,119,6988726,117.44,1.33,115.95,102.94,0.94
 20260605,118.5,118.5,111.5,112.5,4098156,117.03,-3.87,116.22,103.6,0.55
 20260608,101.5,108,101.5,107.5,3756502,116.23,-7.51,116.25,104.15,0.51
 20260609,108,117.5,105.5,115.5,3881480,116.17,-0.58,116.85,104.86,0.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,102,104,101,102,1572000,108.36,-5.87,109.77,112.12,0.43
 20260701,104,104,100,100,1507000,107.66,-7.12,108.56,112.23,0.44
 20260702,99,102.5,98.2,102,1195000,107.19,-4.84,107.24,112.36,0.38
+20260703,101,103,100,102.5,832392,106.8,-4.03,106.42,112.34,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5243 | 乙盛-KY | 54 | 1 | 2414220.0 | 4400.0 | 548.69 | no_signal |
+| 20260703 | 5243 | 乙盛-KY | 54 | 0 | 3255680.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

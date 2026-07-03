@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1472 三洋實業
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:12 Asia/Taipei
+- generated_at: 2026-07-03 22:26:12 Asia/Taipei
 - stock_id: 1472
 - stock_name: 三洋實業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 295
+- latest_price_date: 20260703
+- price_rows: 296
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 86.9
+- date: 20260703
+- open: 87.4
 - high: 87.6
-- low: 86.9
+- low: 86.4
 - close: 87.6
-- volume: 21000
-- ma5: 88.84
-- ema23_primary: 89.48
-- distance_to_ema23_pct: -2.1
-- ma20: 89.52
-- ma60: 91.05
+- volume: 33602
+- ma5: 88.26
+- ema23_primary: 89.32
+- distance_to_ema23_pct: -1.93
+- ma20: 89.34
+- ma60: 90.92
 - ma120: 90.84
-- return_5d: -2.67
-- return_20d: -2.67
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -2.14
+- return_5d: -3.2
+- return_20d: -3.74
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: -1.95
 - distance_to_high_60_pct: -10.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,90.5,91,90,91,70926,90.39,0.67,89.81,92.65,3.03
 20260605,89.9,90.5,89.9,90.1,168805,90.37,-0.3,89.75,92.65,5.61
 20260608,89.9,89.9,89,89.1,7908,90.26,-1.29,89.64,92.62,0.27
 20260609,87.8,89.1,87.8,88.5,13160,90.11,-1.79,89.53,92.56,0.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,89.5,89.8,86.3,88.8,67000,89.86,-1.17,89.77,91.32,0.23
 20260701,88.6,88.6,86.5,87.4,35000,89.65,-2.51,89.64,91.19,0.12
 20260702,86.9,87.6,86.9,87.6,21000,89.48,-2.1,89.52,91.05,0.07
+20260703,87.4,87.6,86.4,87.6,33602,89.32,-1.93,89.34,90.92,0.12
 ```
 
 ## Latest TDCC Snapshot

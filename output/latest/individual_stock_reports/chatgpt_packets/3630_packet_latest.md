@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3630 新鉅科
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:07 Asia/Taipei
+- generated_at: 2026-07-03 22:27:07 Asia/Taipei
 - stock_id: 3630
 - stock_name: 新鉅科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 29.6
-- high: 30
-- low: 28.85
-- close: 29.25
-- volume: 1335000
-- ma5: 29.6
-- ema23_primary: 30.26
-- distance_to_ema23_pct: -3.34
-- ma20: 31
-- ma60: 28.73
-- ma120: 29.99
-- return_5d: -9.02
-- return_20d: 6.95
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -5.64
-- distance_to_high_60_pct: -20.62
+- date: 20260703
+- open: 29.1
+- high: 30.2
+- low: 29.05
+- close: 29.75
+- volume: 1111000
+- ma5: 29.58
+- ema23_primary: 30.22
+- distance_to_ema23_pct: -1.55
+- ma20: 31.03
+- ma60: 28.75
+- ma120: 30.01
+- return_5d: -0.34
+- return_20d: 2.06
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -4.12
+- distance_to_high_60_pct: -19.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,27.35,30.05,26.7,29.15,29000,27.12,7.5,26.57,28.15,0.05
 20260605,29.2,31.45,29.2,29.6,30000,27.32,8.33,26.7,28.16,0.06
 20260608,26.65,28.55,26.65,27.85,1704000,27.37,1.76,26.77,28.11,2.96
 20260609,28.2,30.6,27.7,30.6,1853000,27.64,10.72,26.98,28.11,3
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,29.9,30.2,29.35,30.1,822000,30.43,-1.09,30.78,28.66,0.2
 20260701,30.5,30.75,29.5,29.5,774000,30.35,-2.81,30.9,28.69,0.19
 20260702,29.6,30,28.85,29.25,1335000,30.26,-3.34,31,28.73,0.32
+20260703,29.1,30.2,29.05,29.75,1111000,30.22,-1.55,31.03,28.75,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3630 | 新鉅科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪酬委員會 3.舊任者姓名: (1)獨立董事王智信 (2)獨立董事Erwin Limowa (3)獨立董事魏仁裕 4.舊任者簡歷: (1)獨立董事王智信、Master Concept (HK) Limited. CEO (2)獨立董事Erwin Limowa、極穎印刷製品（東莞）有限公司總經理 (3)獨立董事魏仁裕、東博財務管理顧問(股)公司合夥人 5.新任者姓名: 獨立董事：王智信 獨立董事：蔡洲灝 獨立董事：廖苑珊 6.新任者簡歷: 獨立董事：王智信 Master Concept (HK) Limited. CEO 獨立董事：蔡洲灝 國聯創業投資管理顧問股份有限公司 副總經理 獨立董事：廖苑珊 美時化學製藥股份有限公司 公司治理處長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:股東常會全面改選董事後，由新任董事會重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/17 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 3630 | 新鉅科 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪酬委員會 3.舊任者姓名: (1)獨立董事王智信 (2)獨立董事Erwin Limowa (3)獨立董事魏仁裕 4.舊任者簡歷: (1)獨立董事王智信、Master Concept (HK) Limited. CEO (2)獨立董事Erwin Limowa、極穎印刷製品（東莞）有限公司總經理 (3)獨立董事魏仁裕、東博財務管理顧問(股)公司合夥人 5.新任者姓名: 獨立董事：王智信 獨立董事：蔡洲灝 獨立董事：廖苑珊 6.新任者簡歷: 獨立董事：王智信 Master Concept (HK) Limited. CEO 獨立董事：蔡洲灝 國聯創業投資管理顧問股份有限公司 副總經理 獨立董事：廖苑珊 美時化學製藥股份有限公司 公司治理處長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:股東常會全面改選董事後，由新任董事會重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/17 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3630 | 新鉅科 | 1 | 1 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 3630 | 新鉅科 | 2 | 2 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

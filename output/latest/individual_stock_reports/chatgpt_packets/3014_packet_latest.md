@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3014 聯陽
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:49 Asia/Taipei
+- generated_at: 2026-07-03 22:26:49 Asia/Taipei
 - stock_id: 3014
 - stock_name: 聯陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 160.5
-- high: 162
-- low: 157
-- close: 162
-- volume: 2504000
-- ma5: 159.3
-- ema23_primary: 154.39
-- distance_to_ema23_pct: 4.93
-- ma20: 153.82
-- ma60: 140.31
-- ma120: 129.1
-- return_5d: -3.86
-- return_20d: 7.28
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 5.31
-- distance_to_high_60_pct: -5.26
+- date: 20260703
+- open: 159
+- high: 160.5
+- low: 158.5
+- close: 160
+- volume: 1955207
+- ma5: 160.4
+- ema23_primary: 154.86
+- distance_to_ema23_pct: 3.32
+- ma20: 154.3
+- ma60: 141.01
+- ma120: 129.49
+- return_5d: 3.56
+- return_20d: 6.31
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 3.69
+- distance_to_high_60_pct: -6.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,150,151,149,150.5,1066742,143.2,5.1,144.38,128.64,0.31
 20260605,151.5,153,149.5,152,2624101,143.93,5.6,145.2,129.21,0.85
 20260608,141.5,144,139,142.5,2307834,143.81,-0.91,145.38,129.6,0.77
 20260609,141.5,141.5,135,140.5,3487582,143.54,-2.12,145.4,129.94,1.24
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,159,161,157.5,159,1808000,152.81,4.05,152.65,138.74,0.52
 20260701,161,164,160,163.5,4341000,153.7,6.37,153.28,139.54,1.22
 20260702,160.5,162,157,162,2504000,154.39,4.93,153.82,140.31,0.69
+20260703,159,160.5,158.5,160,1955207,154.86,3.32,154.3,141.01,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3014 | 聯陽 | 16 | 0 | 1432610.0 | 0.0 |  | no_signal |
+| 20260703 | 3014 | 聯陽 | 17 | 0 | 1048340.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

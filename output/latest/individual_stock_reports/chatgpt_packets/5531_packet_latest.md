@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5531 鄉林
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:33 Asia/Taipei
+- generated_at: 2026-07-03 22:27:33 Asia/Taipei
 - stock_id: 5531
 - stock_name: 鄉林
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 7.93
-- high: 7.99
-- low: 7.9
-- close: 7.9
-- volume: 302000
-- ma5: 7.91
+- date: 20260703
+- open: 7.98
+- high: 8.11
+- low: 7.97
+- close: 8.11
+- volume: 786317
+- ma5: 7.96
 - ema23_primary: 8.03
-- distance_to_ema23_pct: -1.57
+- distance_to_ema23_pct: 0.95
 - ma20: 8.07
-- ma60: 8.21
-- ma120: 8.6
-- return_5d: -1.74
-- return_20d: -0.75
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -2.16
-- distance_to_high_60_pct: -10.73
+- ma60: 8.2
+- ma120: 8.59
+- return_5d: 2.92
+- return_20d: 0.12
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -8.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,7.98,8.14,7.92,8.1,566315,7.99,1.32,7.93,8.49,0.78
 20260605,8.19,8.24,8.05,8.05,779644,8,0.63,7.91,8.47,1.07
 20260608,7.8,7.93,7.65,7.83,323730,7.99,-1.94,7.88,8.45,0.46
 20260609,7.83,8.03,7.82,8.03,506975,7.99,0.51,7.87,8.44,0.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,7.92,8.06,7.85,7.95,577000,8.05,-1.28,8.08,8.24,0.83
 20260701,8,8,7.83,7.87,396000,8.04,-2.09,8.08,8.23,0.57
 20260702,7.93,7.99,7.9,7.9,302000,8.03,-1.57,8.07,8.21,0.45
+20260703,7.98,8.11,7.97,8.11,786317,8.03,0.95,8.07,8.2,1.16
 ```
 
 ## Latest TDCC Snapshot

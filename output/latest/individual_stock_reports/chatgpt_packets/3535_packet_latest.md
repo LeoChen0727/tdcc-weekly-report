@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:04 Asia/Taipei
+- generated_at: 2026-07-03 22:27:04 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 113
+- date: 20260703
+- open: 115
 - high: 116.5
-- low: 113
-- close: 115.5
-- volume: 782000
-- ma5: 114.2
-- ema23_primary: 122.67
-- distance_to_ema23_pct: -5.85
-- ma20: 124.38
-- ma60: 126.22
-- ma120: 118.09
-- return_5d: -4.15
-- return_20d: -14.76
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -7.14
-- distance_to_high_60_pct: -23.51
+- low: 114
+- close: 116.5
+- volume: 695961
+- ma5: 115.1
+- ema23_primary: 122.16
+- distance_to_ema23_pct: -4.63
+- ma20: 123.35
+- ma60: 126.15
+- ma120: 118.28
+- return_5d: 4.02
+- return_20d: -14.96
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -5.55
+- distance_to_high_60_pct: -22.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,136.5,141,134.5,137,7800846,128.6,6.53,127.35,124.67,1.4
 20260605,133.5,134,126.5,130.5,1799072,128.76,1.36,127.45,124.64,0.33
 20260608,117.5,123.5,117.5,123,1553420,128.28,-4.11,127.3,124.54,0.29
 20260609,126,135,123.5,134.5,1424921,128.79,4.43,127.65,124.72,0.27
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,114,117.5,114,116,918000,124.03,-6.48,126.47,125.99,0.28
 20260701,118.5,119.5,115.5,115.5,998000,123.32,-6.34,125.38,126.19,0.42
 20260702,113,116.5,113,115.5,782000,122.67,-5.85,124.38,126.22,0.44
+20260703,115,116.5,114,116.5,695961,122.16,-4.63,123.35,126.15,0.49
 ```
 
 ## Latest TDCC Snapshot

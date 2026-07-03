@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:55 Asia/Taipei
+- generated_at: 2026-07-03 22:26:55 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 845
-- high: 857
-- low: 816
-- close: 830
-- volume: 25708000
-- ma5: 843.2
-- ema23_primary: 741.71
-- distance_to_ema23_pct: 11.9
-- ma20: 736.35
-- ma60: 594.43
-- ma120: 429.15
-- return_5d: 2.22
-- return_20d: 12.31
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 12.72
-- distance_to_high_60_pct: -11.61
+- date: 20260703
+- open: 770
+- high: 843
+- low: 770
+- close: 833
+- volume: 3349718
+- ma5: 850.4
+- ema23_primary: 749.32
+- distance_to_ema23_pct: 11.17
+- ma20: 743.4
+- ma60: 601.75
+- ma120: 434.86
+- return_5d: 4.52
+- return_20d: 20.38
+- volume_ratio: 0.13
+- distance_to_ma20_pct_auxiliary: 12.05
+- distance_to_high_60_pct: -11.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,706,720,681,692,6144218,616.22,12.3,603.52,466.95,0.27
 20260605,662,725,623,712,7602120,624.2,14.07,616.23,474.25,0.35
 20260608,641,698,641,698,8137218,630.35,10.73,625.98,481.04,0.39
 20260609,705,732,683,714,5537626,637.32,12.03,636.98,488.12,0.28
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,851,891,840,891,30583000,719.66,23.81,724.55,577.38,1.31
 20260701,900,939,872,888,37935000,733.69,21.03,731.8,586.58,1.53
 20260702,845,857,816,830,25708000,741.71,11.9,736.35,594.43,0.99
+20260703,770,843,770,833,3349718,749.32,11.17,743.4,601.75,0.13
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3189 | 景碩 | 126 | 11 | 8416480.0 | 62180.0 | 135.36 | no_signal |
+| 20260703 | 3189 | 景碩 | 123 | 0 | 2134720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

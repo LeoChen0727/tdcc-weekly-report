@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8032 光菱
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:16 Asia/Taipei
+- generated_at: 2026-07-03 22:28:14 Asia/Taipei
 - stock_id: 8032
 - stock_name: 光菱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 41.35
-- high: 43.2
-- low: 41.3
-- close: 43.05
-- volume: 147000
-- ma5: 43.52
-- ema23_primary: 44.29
-- distance_to_ema23_pct: -2.79
-- ma20: 44.76
-- ma60: 41.88
-- ma120: 39.29
-- return_5d: -4.55
-- return_20d: -7.91
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -3.81
-- distance_to_high_60_pct: -12.32
+- date: 20260703
+- open: 43.45
+- high: 43.75
+- low: 42.85
+- close: 43.4
+- volume: 42000
+- ma5: 43.28
+- ema23_primary: 44.21
+- distance_to_ema23_pct: -1.84
+- ma20: 44.6
+- ma60: 42.04
+- ma120: 39.33
+- return_5d: -2.69
+- return_20d: -6.57
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -2.7
+- distance_to_high_60_pct: -11.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,47.4,47.4,45.55,46.45,46000,43.24,7.42,43.46,38.77,0.48
 20260605,45.75,45.75,44.3,45.25,45000,43.41,4.24,43.67,38.93,0.48
 20260608,40.75,43,40.75,43,205000,43.37,-0.86,43.72,39.03,2.17
 20260609,43,44.1,42.2,43.1,268000,43.35,-0.58,43.74,39.17,3.04
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,43.3,44.45,43.05,44.35,98000,44.55,-0.46,45.14,41.57,0.43
 20260701,44.8,44.8,42.5,42.7,212000,44.4,-3.83,44.94,41.72,0.88
 20260702,41.35,43.2,41.3,43.05,147000,44.29,-2.79,44.76,41.88,0.6
+20260703,43.45,43.75,42.85,43.4,42000,44.21,-1.84,44.6,42.04,0.17
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6733 博晟生醫
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:58 Asia/Taipei
+- generated_at: 2026-07-03 22:27:57 Asia/Taipei
 - stock_id: 6733
 - stock_name: 博晟生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 24.1
-- high: 24.5
-- low: 24
-- close: 24.35
-- volume: 96000
-- ma5: 24.11
-- ema23_primary: 25.11
-- distance_to_ema23_pct: -3.01
-- ma20: 24.97
-- ma60: 27.5
-- ma120: 31.94
-- return_5d: 2.31
-- return_20d: -7.06
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -2.49
-- distance_to_high_60_pct: -25.31
+- date: 20260703
+- open: 24.35
+- high: 26.5
+- low: 24.3
+- close: 26.25
+- volume: 496000
+- ma5: 24.62
+- ema23_primary: 25.2
+- distance_to_ema23_pct: 4.16
+- ma20: 24.96
+- ma60: 27.41
+- ma120: 31.84
+- return_5d: 10.76
+- return_20d: -0.57
+- volume_ratio: 2.43
+- distance_to_ma20_pct_auxiliary: 5.15
+- distance_to_high_60_pct: -18.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,26.2,26.5,26,26.4,26000,27.42,-3.72,27.14,30.51,0.2
 20260605,26.4,27.2,26.3,26.55,27000,27.35,-2.92,27.05,30.34,0.22
 20260608,25.45,26.4,25.05,25.9,179000,27.23,-4.87,26.95,30.17,1.62
 20260609,25.9,26.25,25.9,26.1,206000,27.13,-3.81,26.84,30,1.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,24.05,24.45,24,24.2,135000,25.27,-4.24,25.15,27.78,0.8
 20260701,24.25,24.4,23.9,24.1,166000,25.17,-4.27,25.07,27.64,0.94
 20260702,24.1,24.5,24,24.35,96000,25.11,-3.01,24.97,27.5,0.53
+20260703,24.35,26.5,24.3,26.25,496000,25.2,4.16,24.96,27.41,2.43
 ```
 
 ## Latest TDCC Snapshot

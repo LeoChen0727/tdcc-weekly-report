@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00947 台新臺灣IC設計
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:04 Asia/Taipei
+- generated_at: 2026-07-03 22:26:03 Asia/Taipei
 - stock_id: 00947
 - stock_name: 台新臺灣IC設計
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 37.77
-- high: 39.29
-- low: 37.71
-- close: 39.23
-- volume: 9261000
-- ma5: 38.88
-- ema23_primary: 38.99
-- distance_to_ema23_pct: 0.6
-- ma20: 38.87
+- date: 20260703
+- open: 38.51
+- high: 39.1
+- low: 38.34
+- close: 38.8
+- volume: 6453460
+- ma5: 39.03
+- ema23_primary: 38.98
+- distance_to_ema23_pct: -0.46
+- ma20: 38.84
 - ma60: 38.79
 - ma120: 38.79
-- return_5d: -4.15
-- return_20d: -2.41
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 0.93
-- distance_to_high_60_pct: -10.64
+- return_5d: 1.92
+- return_20d: -1.55
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -0.1
+- distance_to_high_60_pct: -11.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,40.05,40.32,39.41,39.41,5785876,37.9,4,38.71,38.71,0.57
 20260605,38.45,38.56,36.85,37.77,12625480,37.88,-0.3,38.62,38.62,1.22
 20260608,34.26,35.87,34.25,35.83,8478077,37.71,-4.99,38.39,38.39,0.83
 20260609,37.33,37.45,36,37.37,8232215,37.68,-0.84,38.31,38.31,0.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,39.8,40,38.75,39.67,16211000,38.96,1.82,39,38.77,1.45
 20260701,40.28,40.28,38.68,39.1,17056000,38.97,0.33,38.92,38.78,1.49
 20260702,37.77,39.29,37.71,39.23,9261000,38.99,0.6,38.87,38.79,0.82
+20260703,38.51,39.1,38.34,38.8,6453460,38.98,-0.46,38.84,38.79,0.57
 ```
 
 ## Latest TDCC Snapshot

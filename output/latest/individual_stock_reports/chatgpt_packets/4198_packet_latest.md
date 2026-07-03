@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4198 欣大健康
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:14 Asia/Taipei
+- generated_at: 2026-07-03 22:27:14 Asia/Taipei
 - stock_id: 4198
 - stock_name: 欣大健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 149
+- latest_price_date: 20260703
+- price_rows: 150
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 39.5
-- high: 40.5
-- low: 39.5
-- close: 40.5
-- volume: 7000
-- ma5: 38.82
-- ema23_primary: 38.41
-- distance_to_ema23_pct: 5.44
-- ma20: 38.09
-- ma60: 38.55
-- ma120: 37.04
-- return_5d: 0.75
-- return_20d: 4.52
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: 6.33
-- distance_to_high_60_pct: -2.88
+- date: 20260703
+- open: 40.8
+- high: 41
+- low: 40.8
+- close: 41
+- volume: 8000
+- ma5: 39.42
+- ema23_primary: 38.63
+- distance_to_ema23_pct: 6.14
+- ma20: 38.21
+- ma60: 38.59
+- ma120: 37.07
+- return_5d: 7.89
+- return_20d: 6.08
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 7.31
+- distance_to_high_60_pct: -1.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,38.45,38.65,38.45,38.65,39000,38.54,0.28,38.53,38.75,2.05
 20260604,37.4,38.4,36.65,37.8,37000,38.48,-1.77,38.4,38.74,1.78
 20260605,36.5,37.75,36.5,37.75,37000,38.42,-1.74,38.29,38.7,1.7
 20260609,38.2,38.2,36.3,37.85,17000,38.37,-1.36,38.28,38.65,0.76
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,38.2,39.2,38.2,39.2,9000,38.13,2.8,37.98,38.49,0.42
 20260701,38.9,39.2,38.3,39.2,13000,38.22,2.56,38,38.5,0.64
 20260702,39.5,40.5,39.5,40.5,7000,38.41,5.44,38.09,38.55,0.34
+20260703,40.8,41,40.8,41,8000,38.63,6.14,38.21,38.59,0.42
 ```
 
 ## Latest TDCC Snapshot

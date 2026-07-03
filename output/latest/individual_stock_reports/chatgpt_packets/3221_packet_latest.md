@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:56 Asia/Taipei
+- generated_at: 2026-07-03 22:26:56 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 63
-- high: 67.5
-- low: 61
-- close: 64
-- volume: 41371000
-- ma5: 60.56
-- ema23_primary: 58.22
-- distance_to_ema23_pct: 9.94
-- ma20: 59.3
-- ma60: 51.11
-- ma120: 40.03
-- return_5d: 15.52
-- return_20d: 9.78
-- volume_ratio: 2.7
-- distance_to_ma20_pct_auxiliary: 7.92
-- distance_to_high_60_pct: -5.74
+- date: 20260703
+- open: 64
+- high: 69.5
+- low: 63.1
+- close: 66.3
+- volume: 31161000
+- ma5: 62.24
+- ema23_primary: 58.89
+- distance_to_ema23_pct: 12.59
+- ma20: 59.85
+- ma60: 51.61
+- ma120: 40.4
+- return_5d: 14.51
+- return_20d: 19.89
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: 10.77
+- distance_to_high_60_pct: -4.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,58.3,61,55,55.3,57000,52.1,6.15,51.37,42.73,0.01
 20260605,54.1,57.2,52,57.1,55000,52.51,8.73,51.96,43.21,0.01
 20260608,51.4,59.7,51.4,58.1,14113000,52.98,9.66,52.68,43.69,2.73
 20260609,58.3,63.9,58.3,63.9,28372000,53.89,18.58,53.68,44.27,4.49
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,57.5,60,57.1,58.6,6643000,57.08,2.66,58.66,50.14,0.54
 20260701,60.6,64.4,60.6,64.4,20132000,57.69,11.63,59.02,50.62,1.52
 20260702,63,67.5,61,64,41371000,58.22,9.94,59.3,51.11,2.7
+20260703,64,69.5,63.1,66.3,31161000,58.89,12.59,59.85,51.61,1.85
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3221 | 台嘉碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 3221 | 台嘉碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.08元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.2元) 3.變更後發放股利種類及金額: 盈餘分配之現金股利NT$8,308,969元(每股配發新台幣0.07914117 元) 資本公積發放之現金NT$20,772,422元(每股配發新台幣0.19785292元) 4.變更原因: 本公司因限制員工權利新股收回註銷股份致流通在外之股數變動為104,989,210股， 經115年05月26日董事會決議授權董事長依相關法令辦理調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 3221 | 台嘉碩 | 4 | 2 | 4 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 3221 | 台嘉碩 | 5 | 3 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

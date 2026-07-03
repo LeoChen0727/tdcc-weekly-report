@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:27 Asia/Taipei
+- generated_at: 2026-07-03 22:28:26 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 1510
-- high: 1510
-- low: 1410
-- close: 1415
-- volume: 1098000
-- ma5: 1473
-- ema23_primary: 1362.11
-- distance_to_ema23_pct: 3.88
-- ma20: 1365.5
-- ma60: 1195.33
-- ma120: 991.73
-- return_5d: -3.08
-- return_20d: 29.22
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 3.62
-- distance_to_high_60_pct: -15.77
+- date: 20260703
+- open: 1405
+- high: 1420
+- low: 1315
+- close: 1380
+- volume: 1321026
+- ma5: 1475
+- ema23_primary: 1363.6
+- distance_to_ema23_pct: 1.2
+- ma20: 1378.5
+- ma60: 1202.98
+- ma120: 998.4
+- return_5d: 0.73
+- return_20d: 23.21
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 0.11
+- distance_to_high_60_pct: -17.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,1065,1170,1065,1120,3673778,1096.33,2.16,1082.95,1035.78,1.2
 20260605,1120,1155,1065,1125,2885310,1098.72,2.39,1088.45,1041.72,0.96
 20260608,1015,1230,1015,1210,5831697,1107.99,9.21,1096.2,1047.98,1.86
 20260609,1220,1330,1205,1330,5821711,1126.5,18.07,1109.95,1054.87,1.77
@@ -159,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,1450,1590,1450,1550,842000,1339.33,15.73,1324.25,1175.33,0.27
 20260701,1620,1620,1540,1555,648000,1357.3,14.57,1349.5,1186.82,0.21
 20260702,1510,1510,1410,1415,1098000,1362.11,3.88,1365.5,1195.33,0.37
+20260703,1405,1420,1315,1380,1321026,1363.6,1.2,1378.5,1202.98,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -192,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8996 | 高力 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | stale_signal | 內容：依高力四發行及轉換辦法第十八條第二項規定辦理。 發行公司於115年07月27日至115年08月27日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)、本轉換公司債於發行日後屆滿三個月之翌日(民國113年3月7日)起至發行期間屆滿前四十日(民國117年10月27日)止，若本公司普通股收盤價連續三十個營業日超過當時轉換價格達百分之三十(含)時，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本債券面額，以現金收回其全部債券，並函請櫃檯買賣中心公告。本公司執行收回請求，應於債券收回基準日後五個營業日內，按債券面額以現金收回流通在外之本轉換公司債。 (二)、轉換公司債停止過戶期間：不適用 (三)、通知及受理轉換公司債贖回期間：115年7月27日至115年8月27日 (四)、轉換公司債收回基準日：115年8月27日 (五)、轉換公司債終止櫃檯買賣日期:115年8月28日 (六)、掛號寄發債券收回通知書日期:115年7月24日 (七)、債券收回手續   (1)、債券己存於台灣集中保管結算所股份有限公司者:        債權人得自債券收回通知之始日（115年7月27日）起至屆滿日（115年8月26日）之前一營業日止、由債券持有人向往來券商辦理賣回手續。 (八)、如債券持有人不欲公司行使贖回權，擬請求將本轉換公司債轉換為普通股，最遲應於115年8月26日前至往來證券商辦理轉換手續。 (九)、公司股務代理機構（包括地址及電話）: 兆豐證券股份有限公司，地址： 100台北市忠孝東路二段95號1樓，電話： (02)3393-0898。 警語：請投資人注意，具有請求轉換資格者，如未於115年8月26日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260703 | 8996 | 高力 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 內容：依高力四發行及轉換辦法第十八條第二項規定辦理。 發行公司於115年07月27日至115年08月27日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)本轉換公司債於發行日後屆滿三個月之翌日(民國113年3月7日)起至發行期間屆滿前四十日(民國117年10月27日)止，若本轉換公司債流通在外餘額低於原發行總額之百分之十時，本公司得於其後任何時間，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本債券面額，以現金收回其全部債券，並函請櫃檯買賣中心公告。本公司執行收回請求，應於債券收回基準日後五個營業日內，按債券面額以現金收回流通在外之本轉換公司債。 (二)、轉換公司債停止過戶期間：不適用 (三)、通知及受理轉換公司債贖回期間：115年7月27日至115年8月27日 (四)、轉換公司債收回基準日：115年8月27日 (五)、轉換公司債終止櫃檯買賣日期:115年8月28日 (六)、掛號寄發債券收回通知書日期:115年7月24日 (七)、債券收回手續 (1)、債券己存於台灣集中保管結算所股份有限公司者: 債權人得自債券收回通知之始日（115年7月27日）起至屆滿日（115年8月27日）之前一營業日止、由債券持有人向往來券商辦理賣回手續。 (八)、如債券持有人不欲公司行使贖回權，擬請求將本轉換公司債轉換為普通股，最遲應於115年8月31日前至往來證券商辦理轉換手續。 (九)、公司股務代理機構（包括地址及電話）: 兆豐證券(股)公司股務代理本部，地址： 100台北市忠孝東路二段95號1樓，電話： (02)3393-0898。 警語：請投資人注意，具有請求轉換資格者，如未於115年8月31日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8996 | 高力 | 1 | 1 | 2 | 4 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 8996 | 高力 | 2 | 1 | 2 | 4 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

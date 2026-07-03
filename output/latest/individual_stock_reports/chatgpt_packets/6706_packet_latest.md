@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6706 惠特
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:57 Asia/Taipei
+- generated_at: 2026-07-03 22:27:56 Asia/Taipei
 - stock_id: 6706
 - stock_name: 惠特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 143
-- high: 149.5
-- low: 143
-- close: 149.5
-- volume: 1041000
-- ma5: 146.2
-- ema23_primary: 162.49
-- distance_to_ema23_pct: -7.99
-- ma20: 163.62
-- ma60: 163.7
-- ma120: 142.52
-- return_5d: -3.55
-- return_20d: -27.43
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -8.63
-- distance_to_high_60_pct: -33.56
+- date: 20260703
+- open: 148
+- high: 159
+- low: 147
+- close: 154
+- volume: 1790585
+- ma5: 148.3
+- ema23_primary: 161.78
+- distance_to_ema23_pct: -4.81
+- ma20: 161.6
+- ma60: 164.17
+- ma120: 142.67
+- return_5d: 7.32
+- return_20d: -20.82
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -4.7
+- distance_to_high_60_pct: -31.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,202.5,204.5,194.5,194.5,3261732,183.84,5.8,184.1,150.71,0.34
 20260605,191,192,183,190,4493095,184.36,3.06,184.97,152.05,0.49
 20260608,171,176,171,173,3268305,183.41,-5.68,185.2,153.05,0.36
 20260609,174.5,177,171,176.5,3163856,182.83,-3.46,185.6,153.93,0.36
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,144,153,142.5,149.5,2097000,165.1,-9.45,169.4,162.67,0.56
 20260701,152,155.5,148,148,1446000,163.67,-9.57,166.45,163.14,0.43
 20260702,143,149.5,143,149.5,1041000,162.49,-7.99,163.62,163.7,0.33
+20260703,148,159,147,154,1790585,161.78,-4.81,161.6,164.17,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6706 | 惠特 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6706 | 惠特 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6706 | 惠特 | 1 | 1 | 1 | 3 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 6706 | 惠特 | 2 | 2 | 2 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6706 | 惠特 | 86 | 4 | 4631670.0 | 36340.0 | 127.45 | no_signal |
+| 20260703 | 6706 | 惠特 | 85 | 0 | 9400580.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

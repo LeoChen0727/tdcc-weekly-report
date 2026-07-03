@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5258 虹堡
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:27 Asia/Taipei
+- generated_at: 2026-07-03 22:27:27 Asia/Taipei
 - stock_id: 5258
 - stock_name: 虹堡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 50.5
-- high: 51.6
-- low: 50.1
-- close: 50.6
-- volume: 461000
-- ma5: 49
-- ema23_primary: 50.2
-- distance_to_ema23_pct: 0.8
-- ma20: 49.63
-- ma60: 50.96
-- ma120: 52.76
-- return_5d: 4.33
-- return_20d: -3.25
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 1.95
-- distance_to_high_60_pct: -19.68
+- date: 20260703
+- open: 50.6
+- high: 52.2
+- low: 50.6
+- close: 52
+- volume: 563719
+- ma5: 50.09
+- ema23_primary: 50.35
+- distance_to_ema23_pct: 3.28
+- ma20: 49.68
+- ma60: 51.05
+- ma120: 52.63
+- return_5d: 11.71
+- return_20d: 1.96
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 4.66
+- distance_to_high_60_pct: -17.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,52.1,52.2,50.6,51,684165,52.98,-3.73,54.72,49.91,0.29
 20260605,50.7,50.8,49.45,50.3,650609,52.75,-4.65,54.56,49.91,0.29
 20260608,45.5,48.2,45.5,47.95,686978,52.35,-8.41,54.25,49.94,0.34
 20260609,48.15,49.7,48.1,48.8,511237,52.06,-6.26,54.03,50.02,0.26
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,48.6,49,48.1,48.85,241000,50.08,-2.46,49.77,50.8,0.42
 20260701,52,53.4,50.7,51,1185000,50.16,1.67,49.72,50.87,2.02
 20260702,50.5,51.6,50.1,50.6,461000,50.2,0.8,49.63,50.96,0.8
+20260703,50.6,52.2,50.6,52,563719,50.35,3.28,49.68,51.05,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -196,9 +196,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 5258 | 虹堡 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

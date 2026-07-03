@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5209 新鼎
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:26 Asia/Taipei
+- generated_at: 2026-07-03 22:27:26 Asia/Taipei
 - stock_id: 5209
 - stock_name: 新鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 170.5
-- high: 173.5
-- low: 170.5
-- close: 172
-- volume: 155000
-- ma5: 170.7
-- ema23_primary: 171.62
-- distance_to_ema23_pct: 0.22
-- ma20: 172.78
-- ma60: 168.43
-- ma120: 169.57
-- return_5d: -0.58
-- return_20d: -1.71
-- volume_ratio: 2.2
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -3.37
+- date: 20260703
+- open: 160.5
+- high: 162
+- low: 160.5
+- close: 161.5
+- volume: 102000
+- ma5: 168.9
+- ema23_primary: 170.77
+- distance_to_ema23_pct: -5.43
+- ma20: 172.07
+- ma60: 168.33
+- ma120: 169.53
+- return_5d: -5.28
+- return_20d: -7.98
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: -6.15
+- distance_to_high_60_pct: -9.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,176,177,174,175.5,176000,169.02,3.83,168.05,166.9,1.76
 20260605,174.5,175.5,174,175.5,174000,169.56,3.5,168.62,167.08,1.66
 20260608,173,174,169.5,173,61000,169.85,1.86,169.05,167.15,0.58
 20260609,173,174,172.5,173,32000,170.11,1.7,169.45,167.18,0.31
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,169.5,171.5,169,170,59000,171.64,-0.95,173.1,168.23,0.91
 20260701,170,172,169,171,125000,171.58,-0.34,172.93,168.32,1.75
 20260702,170.5,173.5,170.5,172,155000,171.62,0.22,172.78,168.43,2.2
+20260703,160.5,162,160.5,161.5,102000,170.77,-5.43,172.07,168.33,1.53
 ```
 
 ## Latest TDCC Snapshot

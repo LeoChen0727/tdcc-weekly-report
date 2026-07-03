@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009809 富邦淨零ESG50
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:04 Asia/Taipei
+- generated_at: 2026-07-03 22:26:03 Asia/Taipei
 - stock_id: 009809
 - stock_name: 富邦淨零ESG50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 17.96
-- high: 18.1
-- low: 17.88
-- close: 18.07
-- volume: 103000
-- ma5: 17.83
-- ema23_primary: 17.45
-- distance_to_ema23_pct: 3.58
-- ma20: 17.49
-- ma60: 17.28
-- ma120: 17.28
-- return_5d: 0.84
-- return_20d: 2.03
-- volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: 3.34
-- distance_to_high_60_pct: -2.48
+- date: 20260703
+- open: 17.85
+- high: 18.11
+- low: 17.82
+- close: 18.11
+- volume: 735337
+- ma5: 17.98
+- ema23_primary: 17.5
+- distance_to_ema23_pct: 3.48
+- ma20: 17.52
+- ma60: 17.3
+- ma120: 17.3
+- return_5d: 4.44
+- return_20d: 3.96
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 3.37
+- distance_to_high_60_pct: -2.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,17.55,17.55,17.4,17.42,68636,16.44,5.97,16.87,16.87,0.07
 20260605,17.4,17.4,16.95,17.18,490954,16.5,4.12,16.9,16.9,0.54
 20260608,16.32,16.89,16.19,16.47,3716651,16.5,-0.17,16.87,16.87,3.25
 20260609,16.79,17.1,16.65,17.01,531149,16.54,2.84,16.88,16.88,0.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,17.88,18,17.88,17.9,1032000,17.31,3.43,17.43,17.21,1.04
 20260701,18.2,18.29,18.11,18.29,1012000,17.39,5.18,17.47,17.25,1.03
 20260702,17.96,18.1,17.88,18.07,103000,17.45,3.58,17.49,17.28,0.11
+20260703,17.85,18.11,17.82,18.11,735337,17.5,3.48,17.52,17.3,0.73
 ```
 
 ## Latest TDCC Snapshot

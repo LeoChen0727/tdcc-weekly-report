@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:15 Asia/Taipei
+- generated_at: 2026-07-03 22:28:14 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 330.5
-- high: 335.5
-- low: 320.5
-- close: 327.5
-- volume: 2959000
-- ma5: 325.3
-- ema23_primary: 307.01
-- distance_to_ema23_pct: 6.67
-- ma20: 305.3
-- ma60: 270.82
-- ma120: 231.55
-- return_5d: -0.91
-- return_20d: 7.73
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 7.27
-- distance_to_high_60_pct: -5.76
+- date: 20260703
+- open: 320.5
+- high: 336.5
+- low: 320
+- close: 334
+- volume: 1511014
+- ma5: 329.9
+- ema23_primary: 309.26
+- distance_to_ema23_pct: 8
+- ma20: 306.82
+- ma60: 273.02
+- ma120: 232.85
+- return_5d: 7.4
+- return_20d: 10.05
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 8.86
+- distance_to_high_60_pct: -3.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,302.5,307,302.5,303.5,1217315,282.48,7.44,289.43,236.54,0.38
 20260605,301.5,306,298,303.5,2132066,284.23,6.78,290.95,238.38,0.73
 20260608,274.5,287,274,285,1391999,284.3,0.25,291.77,239.9,0.49
 20260609,289,303,289,295.5,1294427,285.23,3.6,292.85,241.53,0.46
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,321,341,313,332,4437000,302.07,9.91,302.27,266.12,1.67
 20260701,338,347.5,334.5,339,4366000,305.15,11.09,304.12,268.59,1.6
 20260702,330.5,335.5,320.5,327.5,2959000,307.01,6.67,305.3,270.82,1.06
+20260703,320.5,336.5,320,334,1511014,309.26,8,306.82,273.02,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 8016 | 矽創 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8016 | 矽創 | 8 | 1 | 5 | 9 | 15 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260703 | 8016 | 矽創 | 9 | 2 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 8016 | 矽創 | 34 | 0 | 9539770.0 | 0.0 |  | no_signal |
+| 20260703 | 8016 | 矽創 | 34 | 0 | 5786020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

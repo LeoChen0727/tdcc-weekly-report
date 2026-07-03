@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6603 富強鑫
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:54 Asia/Taipei
+- generated_at: 2026-07-03 22:27:53 Asia/Taipei
 - stock_id: 6603
 - stock_name: 富強鑫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 25.15
-- high: 25.85
-- low: 24.55
-- close: 25.15
-- volume: 4026000
-- ma5: 23.75
-- ema23_primary: 23.56
-- distance_to_ema23_pct: 6.76
-- ma20: 23.26
-- ma60: 23.68
-- ma120: 24.77
-- return_5d: 7.48
-- return_20d: 3.07
-- volume_ratio: 2.66
-- distance_to_ma20_pct_auxiliary: 8.13
-- distance_to_high_60_pct: -16.31
+- date: 20260703
+- open: 25
+- high: 26
+- low: 25
+- close: 25.5
+- volume: 2667000
+- ma5: 24.27
+- ema23_primary: 23.72
+- distance_to_ema23_pct: 7.5
+- ma20: 23.34
+- ma60: 23.75
+- ma120: 24.76
+- return_5d: 11.35
+- return_20d: 6.69
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 9.25
+- distance_to_high_60_pct: -15.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,24.35,24.35,23.8,23.9,24000,23.67,0.97,23.19,23.33,0.04
 20260605,24,24.15,23.35,23.5,24000,23.66,-0.66,23.15,23.33,0.05
 20260608,21.2,22.6,21.2,22.4,1208000,23.55,-4.89,23.08,23.32,2.6
 20260609,22.8,22.8,22.2,22.35,710000,23.45,-4.7,23,23.32,1.58
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,23.1,23.1,22.75,22.9,519000,23.26,-1.53,23.16,23.54,0.45
 20260701,23,25.15,23,25.15,3015000,23.41,7.42,23.22,23.61,2.29
 20260702,25.15,25.85,24.55,25.15,4026000,23.56,6.76,23.26,23.68,2.66
+20260703,25,26,25,25.5,2667000,23.72,7.5,23.34,23.75,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6603 | 富強鑫 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認民國一一四年度營業報告書及 財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 1.通過資本公積配發現金股利案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6603 | 富強鑫 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:承認民國一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認民國一一四年度營業報告書及 財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 1.通過資本公積配發現金股利案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6603 | 富強鑫 | 2 | 2 | 2 | 6 | 7 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260703 | 6603 | 富強鑫 | 3 | 3 | 3 | 7 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

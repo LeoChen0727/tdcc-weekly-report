@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:26 Asia/Taipei
+- generated_at: 2026-07-03 22:26:26 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 158
-- high: 171
-- low: 156.5
-- close: 167.5
-- volume: 1690000
-- ma5: 152.7
-- ema23_primary: 142.01
-- distance_to_ema23_pct: 17.95
-- ma20: 139.47
-- ma60: 135.55
-- ma120: 124.14
-- return_5d: 23.62
-- return_20d: 20.94
-- volume_ratio: 3.14
-- distance_to_ma20_pct_auxiliary: 20.09
-- distance_to_high_60_pct: -2.05
+- date: 20260703
+- open: 167.5
+- high: 184
+- low: 167.5
+- close: 184
+- volume: 2157207
+- ma5: 161.2
+- ema23_primary: 145.51
+- distance_to_ema23_pct: 26.45
+- ma20: 141.88
+- ma60: 136.68
+- ma120: 124.71
+- return_5d: 30.04
+- return_20d: 35.29
+- volume_ratio: 3.42
+- distance_to_ma20_pct_auxiliary: 29.69
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,136.5,138.5,134,136,320730,136.79,-0.57,138.35,126.42,0.66
 20260605,136,140,135,140,298947,137.05,2.15,138.6,126.92,0.62
 20260608,130.5,135.5,130,135,619041,136.88,-1.38,138.22,127.28,1.34
 20260609,136.5,136.5,133,134,233901,136.64,-1.93,137.95,127.62,0.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,149,149.5,141,146.5,1000000,137.76,6.34,136.93,133.82,2.5
 20260701,148.5,161,143.5,161,1703000,139.7,15.25,138.03,134.63,3.65
 20260702,158,171,156.5,167.5,1690000,142.01,17.95,139.47,135.55,3.14
+20260703,167.5,184,167.5,184,2157207,145.51,26.45,141.88,136.68,3.42
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2236 | 百達-KY | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | 1.股東常會日期:115/06/29 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司民國 114 年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:   通過承認本公司民國 114 年度營業報告書及合併財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   (1) 通過本公司民國 114 年度盈餘轉增資發行新股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2236 | 百達-KY | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.股東常會日期:115/06/29 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司民國 114 年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:   通過承認本公司民國 114 年度營業報告書及合併財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:   (1) 通過本公司民國 114 年度盈餘轉增資發行新股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2236 | 百達-KY | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260703 | 2236 | 百達-KY | 4 | 3 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

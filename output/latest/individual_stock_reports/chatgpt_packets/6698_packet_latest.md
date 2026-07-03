@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6698 旭暉應材
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:57 Asia/Taipei
+- generated_at: 2026-07-03 22:27:56 Asia/Taipei
 - stock_id: 6698
 - stock_name: 旭暉應材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 42.35
-- high: 43.1
-- low: 41.6
-- close: 41.85
-- volume: 561000
-- ma5: 42.78
-- ema23_primary: 41.12
-- distance_to_ema23_pct: 1.77
-- ma20: 41.94
-- ma60: 35.68
-- ma120: 34.31
-- return_5d: -7.41
-- return_20d: -1.06
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -0.21
-- distance_to_high_60_pct: -13.62
+- date: 20260703
+- open: 41.35
+- high: 41.8
+- low: 40.5
+- close: 41.2
+- volume: 528619
+- ma5: 42.58
+- ema23_primary: 41.13
+- distance_to_ema23_pct: 0.17
+- ma20: 41.76
+- ma60: 35.85
+- ma120: 34.4
+- return_5d: -2.37
+- return_20d: -7.93
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -1.35
+- distance_to_high_60_pct: -14.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,42.55,45.8,41.1,44.75,4437139,35.87,24.74,34.84,32.25,2.45
 20260605,44.3,46.95,44,45.75,5078161,36.7,24.67,35.48,32.51,2.56
 20260608,41.2,42.5,41.2,41.2,1386774,37.07,11.13,35.98,32.68,0.69
 20260609,40.7,41.3,39.6,40.3,1316415,37.34,7.92,36.46,32.85,0.63
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,44.45,45.1,43.3,43.3,811000,40.94,5.77,42.02,35.27,0.38
 20260701,43.3,43.85,42.05,42.35,659000,41.06,3.15,41.96,35.48,0.37
 20260702,42.35,43.1,41.6,41.85,561000,41.12,1.77,41.94,35.68,0.35
+20260703,41.35,41.8,40.5,41.2,528619,41.13,0.17,41.76,35.85,0.37
 ```
 
 ## Latest TDCC Snapshot

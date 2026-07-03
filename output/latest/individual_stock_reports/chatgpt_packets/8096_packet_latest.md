@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:18 Asia/Taipei
+- generated_at: 2026-07-03 22:28:17 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 153
-- high: 155
+- date: 20260703
+- open: 154
+- high: 157.5
 - low: 152
-- close: 153
-- volume: 1523000
-- ma5: 150
-- ema23_primary: 140.97
-- distance_to_ema23_pct: 8.54
-- ma20: 142.2
-- ma60: 115.97
-- ma120: 92
-- return_5d: -1.61
-- return_20d: 12.09
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 7.59
-- distance_to_high_60_pct: -5.56
+- close: 157.5
+- volume: 2177000
+- ma5: 152.5
+- ema23_primary: 142.34
+- distance_to_ema23_pct: 10.65
+- ma20: 143.28
+- ma60: 116.88
+- ma120: 92.88
+- return_5d: 8.62
+- return_20d: 15.81
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 9.93
+- distance_to_high_60_pct: -2.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,134,142,134,136,138000,115.67,17.57,113.78,97.78,0.01
 20260605,131.5,137.5,122.5,128.5,129000,116.74,10.07,115.42,98.74,0.01
 20260608,116,121.5,116,119.5,11546000,116.97,2.16,116.47,99.48,1.24
 20260609,122,130,121,125.5,14114000,117.68,6.64,117.91,100.35,1.54
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,149.5,154.5,145.5,154.5,1625000,138.72,11.37,140.6,113.93,0.23
 20260701,157,157,152,152.5,1452000,139.87,9.03,141.38,114.98,0.2
 20260702,153,155,152,153,1523000,140.97,8.54,142.2,115.97,0.21
+20260703,154,157.5,152,157.5,2177000,142.34,10.65,143.28,116.88,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260703 | 8096 | 擎亞 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: (1)最近一個月單月資訊： --------------------------------------------------------------------------- 項目/月份                    115年5月      114年5月      與去年同期增減% --------------------------------------------------------------------------- 營業收入(百萬元)              3,981          1,564             155% 稅前淨利(百萬元)               (30)            (8)         持續虧損 歸屬母公司業主淨利(百萬元)        24           (10)           虧轉盈 每股盈餘(元)                   0.16         (0.07)           虧轉盈 --------------------------------------------------------------------------- (2)最近一季單季資訊： --------------------------------------------------------------------------- 項目/月份                   115年第1季   114年第1季      與去年同期增減% --------------------------------------------------------------------------- 營業收入(百萬元)              10,173         14,527            -30% 稅前淨利(百萬元)                 332            237             40% 歸屬母公司業主淨利(百萬元)        284            162             76% 每股盈餘(元)                    1.90           1.08             76% ---------------------------------------------------------------------------- (3)最近四季累計： --------------------------------------------------------------------------- 項目/月份                      114年第2季~115年第1季 --------------------------------------------------------------------------- 營業收入(百萬元)                     30,342 稅前淨利(百萬元)                        301 歸屬母公司業主淨利(百萬元)               255 每股盈餘(元)                           1.71 -------------------------------------------------------------------------- 公司每股面額10元 -------------------------------------------------------------------------- 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之 合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，係經會計師查核(閱)。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經 會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260703 | 8096 | 擎亞 | 1 | 1 | 2 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

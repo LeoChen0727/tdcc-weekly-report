@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4972 湯石照明
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:24 Asia/Taipei
+- generated_at: 2026-07-03 22:27:24 Asia/Taipei
 - stock_id: 4972
 - stock_name: 湯石照明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 16.85
-- high: 16.9
-- low: 16.85
-- close: 16.85
-- volume: 38000
-- ma5: 16.88
-- ema23_primary: 16.78
-- distance_to_ema23_pct: 0.4
-- ma20: 16.81
+- date: 20260703
+- open: 16.9
+- high: 18
+- low: 16.9
+- close: 17.45
+- volume: 84000
+- ma5: 16.99
+- ema23_primary: 16.84
+- distance_to_ema23_pct: 3.63
+- ma20: 16.84
 - ma60: 16.7
-- ma120: 17.3
-- return_5d: 0
-- return_20d: 1.81
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: 0.24
-- distance_to_high_60_pct: -4.53
+- ma120: 17.29
+- return_5d: 3.25
+- return_20d: 3.56
+- volume_ratio: 2.6
+- distance_to_ma20_pct_auxiliary: 3.62
+- distance_to_high_60_pct: -3.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,16.55,17.65,16.55,16.85,17000,16.56,1.75,16.47,16.99,0.65
 20260605,17,17.05,16.85,16.95,17000,16.59,2.16,16.49,16.98,0.71
 20260608,16.6,16.8,16.3,16.65,53000,16.6,0.32,16.5,16.96,2.23
 20260609,16.65,16.75,16.6,16.7,16000,16.61,0.57,16.52,16.94,0.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,16.85,16.9,16.8,16.85,32000,16.77,0.48,16.78,16.72,1.17
 20260701,16.85,16.9,16.85,16.85,11000,16.78,0.44,16.8,16.71,0.39
 20260702,16.85,16.9,16.85,16.85,38000,16.78,0.4,16.81,16.7,1.31
+20260703,16.9,18,16.9,17.45,84000,16.84,3.63,16.84,16.7,2.6
 ```
 
 ## Latest TDCC Snapshot

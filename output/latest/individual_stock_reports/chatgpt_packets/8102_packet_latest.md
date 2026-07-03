@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8102 傑霖科技
 
 ## Metadata
-- generated_at: 2026-07-02 22:28:19 Asia/Taipei
+- generated_at: 2026-07-03 22:28:17 Asia/Taipei
 - stock_id: 8102
 - stock_name: 傑霖科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 121
+- latest_price_date: 20260703
+- price_rows: 122
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
+- date: 20260703
 - open: 67.8
 - high: 67.8
-- low: 67.8
+- low: 66.2
 - close: 67.8
-- volume: 2000
-- ma5: 68.5
-- ema23_primary: 69.99
-- distance_to_ema23_pct: -3.13
-- ma20: 71.74
-- ma60: 68.39
-- ma120: 62.16
-- return_5d: -3.42
-- return_20d: -14.18
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -5.49
+- volume: 12000
+- ma5: 68.26
+- ema23_primary: 69.81
+- distance_to_ema23_pct: -2.87
+- ma20: 71.2
+- ma60: 68.61
+- ma120: 62.23
+- return_5d: -1.74
+- return_20d: -13.63
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -4.78
 - distance_to_high_60_pct: -17.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,79,79,76,78.5,78000,68.54,14.52,67,62.32,1.52
 20260605,78.7,78.7,75.1,75.7,76000,69.14,9.49,67.22,62.74,1.48
 20260608,70.2,78.9,68.6,77,73000,69.8,10.32,67.67,63.2,1.39
 20260609,77,79,75,77.2,81000,70.41,9.64,68.31,63.66,1.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,68.9,69,68.9,69,7000,70.4,-1.99,72.91,67.98,0.21
 20260701,69,69,66.8,67.8,18000,70.19,-3.4,72.3,68.17,0.52
 20260702,67.8,67.8,67.8,67.8,2000,69.99,-3.13,71.74,68.39,0.07
+20260703,67.8,67.8,66.2,67.8,12000,69.81,-2.87,71.2,68.61,0.44
 ```
 
 ## Latest TDCC Snapshot

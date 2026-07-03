@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3570 大塚
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:06 Asia/Taipei
+- generated_at: 2026-07-03 22:27:05 Asia/Taipei
 - stock_id: 3570
 - stock_name: 大塚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 166
-- high: 166
-- low: 163.5
-- close: 164.5
-- volume: 52000
-- ma5: 172.3
-- ema23_primary: 176.08
-- distance_to_ema23_pct: -6.58
-- ma20: 179.12
-- ma60: 172.13
-- ma120: 171.75
-- return_5d: -6.8
-- return_20d: -11.56
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -8.16
-- distance_to_high_60_pct: -14.77
+- date: 20260703
+- open: 165
+- high: 168.5
+- low: 165
+- close: 167
+- volume: 35000
+- ma5: 171
+- ema23_primary: 175.32
+- distance_to_ema23_pct: -4.75
+- ma20: 178.28
+- ma60: 172.14
+- ma120: 171.76
+- return_5d: -3.75
+- return_20d: -9.24
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -6.32
+- distance_to_high_60_pct: -13.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,186,186,182.5,184,184000,174.08,5.7,174.32,168.62,1.53
 20260605,184.5,192,182.5,191.5,188000,175.54,9.1,175.57,168.93,1.48
 20260608,181,187,181,186,101000,176.41,5.44,176.1,169.2,0.85
 20260609,188.5,193,188,188,125000,177.37,5.99,176.82,169.53,1.12
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,174.5,175,174.5,174.5,28000,177.24,-1.54,180.53,171.93,0.33
 20260701,176,176.5,174,176,80000,177.13,-0.64,180.2,172.12,0.91
 20260702,166,166,163.5,164.5,52000,176.08,-6.58,179.12,172.13,0.64
+20260703,165,168.5,165,167,35000,175.32,-4.75,178.28,172.14,0.47
 ```
 
 ## Latest TDCC Snapshot

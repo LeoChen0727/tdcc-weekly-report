@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2948 寶陞
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:48 Asia/Taipei
+- generated_at: 2026-07-03 22:26:48 Asia/Taipei
 - stock_id: 2948
 - stock_name: 寶陞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260701
-- price_rows: 129
+- latest_price_date: 20260703
+- price_rows: 130
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260701
-- open: 34.65
-- high: 37.35
-- low: 34.65
-- close: 36
+- date: 20260703
+- open: 38.2
+- high: 38.2
+- low: 36.5
+- close: 36.55
 - volume: 4000
-- ma5: 37.02
-- ema23_primary: 37.4
-- distance_to_ema23_pct: -3.74
-- ma20: 37.49
-- ma60: 38.16
-- ma120: 38.49
-- return_5d: -7.1
-- return_20d: -2.31
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -3.97
-- distance_to_high_60_pct: -13.46
+- ma5: 36.72
+- ema23_primary: 37.33
+- distance_to_ema23_pct: -2.09
+- ma20: 37.42
+- ma60: 38.1
+- ma120: 38.48
+- return_5d: -3.94
+- return_20d: -3.82
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -2.32
+- distance_to_high_60_pct: -12.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260528,38.95,38.95,38,38,39000,37.73,0.7,37.67,38.75,2.59
 20260529,38,38,38,38,38000,37.76,0.64,37.66,38.72,2.28
 20260602,36.35,37.9,36.35,37.9,37,37.77,0.35,37.66,38.7,0
 20260603,37.9,37.9,37.9,37.9,38000,37.78,0.32,37.65,38.67,2.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260626,36.35,37,36.2,37,13000,37.53,-1.43,37.46,38.24,0.85
 20260629,38.25,39.55,36.6,37.45,14000,37.53,-0.21,37.53,38.22,0.98
 20260701,34.65,37.35,34.65,36,4000,37.4,-3.74,37.49,38.16,0.32
+20260703,38.2,38.2,36.5,36.55,4000,37.33,-2.09,37.42,38.1,0.37
 ```
 
 ## Latest TDCC Snapshot

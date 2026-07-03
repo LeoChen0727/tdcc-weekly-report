@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6021 美好證
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:36 Asia/Taipei
+- generated_at: 2026-07-03 22:27:35 Asia/Taipei
 - stock_id: 6021
 - stock_name: 美好證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 38.6
-- high: 39.85
-- low: 38.6
-- close: 39.3
-- volume: 194000
-- ma5: 39.75
-- ema23_primary: 39.52
-- distance_to_ema23_pct: -0.56
-- ma20: 40.75
-- ma60: 35.35
-- ma120: 32.87
-- return_5d: -3.91
-- return_20d: -9.24
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -3.56
-- distance_to_high_60_pct: -11.49
+- date: 20260703
+- open: 39.1
+- high: 40.55
+- low: 39.05
+- close: 40.55
+- volume: 172000
+- ma5: 39.96
+- ema23_primary: 39.61
+- distance_to_ema23_pct: 2.38
+- ma20: 40.64
+- ma60: 35.52
+- ma120: 33
+- return_5d: 2.66
+- return_20d: -5.15
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -0.23
+- distance_to_high_60_pct: -8.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,42.95,43.9,42.3,42.75,43000,35.33,21,34.65,32.29,0.23
 20260605,42.85,44.4,42,44.3,43000,36.08,22.79,35.11,32.51,0.25
 20260608,40.05,44.4,39.9,39.95,1611000,36.4,9.75,35.34,32.62,8.1
 20260609,39.9,41.2,36.8,39.2,1096000,36.63,7,35.58,32.74,4.92
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,40.2,40.75,40,40.25,184000,39.48,1.94,40.91,35.01,0.44
 20260701,40.45,41.2,40.05,40.2,196000,39.54,1.66,40.95,35.19,0.46
 20260702,38.6,39.85,38.6,39.3,194000,39.52,-0.56,40.75,35.35,0.45
+20260703,39.1,40.55,39.05,40.55,172000,39.61,2.38,40.64,35.52,0.39
 ```
 
 ## Latest TDCC Snapshot

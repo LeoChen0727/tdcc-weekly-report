@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006207 復華滬深
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:01 Asia/Taipei
+- generated_at: 2026-07-03 22:26:00 Asia/Taipei
 - stock_id: 006207
 - stock_name: 復華滬深
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 34.22
-- high: 34.22
-- low: 33.48
-- close: 33.63
-- volume: 401000
+- date: 20260703
+- open: 33.44
+- high: 34.05
+- low: 33.44
+- close: 33.83
+- volume: 282692
 - ma5: 33.99
 - ema23_primary: 33.77
-- distance_to_ema23_pct: -0.41
-- ma20: 33.67
+- distance_to_ema23_pct: 0.17
+- ma20: 33.68
 - ma60: 33.65
 - ma120: 33.65
-- return_5d: -2.66
-- return_20d: -1.38
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -0.13
-- distance_to_high_60_pct: -3.67
+- return_5d: 0
+- return_20d: 0.45
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -3.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,34.1,34.1,33.68,33.68,111949,33.37,0.93,33.59,33.59,0.43
 20260605,32.98,33.75,32.98,33.43,284019,33.38,0.16,33.58,33.58,1.08
 20260608,32.74,32.8,32.53,32.53,366886,33.31,-2.33,33.49,33.49,1.35
 20260609,32.48,32.69,32.44,32.69,418551,33.25,-1.7,33.43,33.43,1.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,34.06,34.51,34.06,34.39,471000,33.72,1.99,33.67,33.62,1.32
 20260701,34.47,34.55,34.27,34.44,795000,33.78,1.95,33.7,33.65,2.06
 20260702,34.22,34.22,33.48,33.63,401000,33.77,-0.41,33.67,33.65,1.01
+20260703,33.44,34.05,33.44,33.83,282692,33.77,0.17,33.68,33.65,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -178,14 +178,14 @@ no_rows,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6207 | 雷科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/24 2.發生緣由:依據財團法人中華民國證券櫃檯買賣中心通知處理及辦理公告 3.財務業務資訊: 單月                       115年05月        114年05月     與去年同期增減% ----------------------  --------------  --------------  ------------------ 營業收入(百萬元)             117.99           90.92            29.78 稅前淨利(百萬元)              25.78           (7.09)          虧轉盈 歸屬母公司淨利(百萬元)        22.87           (9.76)          虧轉盈 每股盈餘(  元  )               0.26           (0.12)          虧轉盈 ========================================================================== 最近一季單季(註1)         115年第1季       114年第1季     與去年同期增減% ----------------------  --------------  --------------  ------------------ 營業收入(百萬元)                273             279            (2.15) 稅前淨利(百萬元)                 12              32           (62.50) 歸屬母公司淨利(百萬元)            5              27           (81.48) 每股盈餘(  元  )               0.06            0.33           (81.82) =========================================================================== 最近四季累計(註2)             114年第2季~115年第1季 -----------------------     -------------------------- 營業收入(百萬元)                      1,108 稅前淨利(百萬元)                         65 歸屬母公司淨利(百萬元)                   50 每股盈餘(  元  )                       0.63 =========================================================================== 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計 準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，係經會計師核閱。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6207 | 雷科 | 1 | 1 | 2 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

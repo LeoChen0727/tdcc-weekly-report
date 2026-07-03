@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4771 望隼
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:21 Asia/Taipei
+- generated_at: 2026-07-03 22:27:21 Asia/Taipei
 - stock_id: 4771
 - stock_name: 望隼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 195
-- high: 203
-- low: 195
-- close: 201.5
-- volume: 307000
-- ma5: 194.3
-- ema23_primary: 192.77
-- distance_to_ema23_pct: 4.53
-- ma20: 192.2
-- ma60: 191.83
-- ma120: 185.74
-- return_5d: 6.33
-- return_20d: 1.26
-- volume_ratio: 1.55
-- distance_to_ma20_pct_auxiliary: 4.84
-- distance_to_high_60_pct: -3.12
+- date: 20260703
+- open: 204
+- high: 219.5
+- low: 203
+- close: 215
+- volume: 973815
+- ma5: 199.8
+- ema23_primary: 194.62
+- distance_to_ema23_pct: 10.47
+- ma20: 192.6
+- ma60: 192.32
+- ma120: 186.09
+- return_5d: 14.67
+- return_20d: 3.86
+- volume_ratio: 4.53
+- distance_to_ma20_pct_auxiliary: 11.63
+- distance_to_high_60_pct: -2.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,198,208,197,207,628243,194.99,6.16,193.45,189.92,1.92
 20260605,198,199.5,194.5,196,553730,195.07,0.48,193.88,190.31,1.63
 20260608,186,193,186,191.5,257091,194.77,-1.68,194.03,190.57,0.74
 20260609,191.5,194,190.5,192.5,117702,194.59,-1.07,194.45,190.82,0.36
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,191.5,197.5,191.5,196,263000,191.66,2.27,192.12,191.31,1.36
 20260701,197.5,198.5,195,195.5,176000,191.98,1.83,192.07,191.57,0.9
 20260702,195,203,195,201.5,307000,192.77,4.53,192.2,191.83,1.55
+20260703,204,219.5,203,215,973815,194.62,10.47,192.6,192.32,4.53
 ```
 
 ## Latest TDCC Snapshot

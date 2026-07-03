@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:21 Asia/Taipei
+- generated_at: 2026-07-03 22:26:20 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 69.7
-- high: 71.1
-- low: 68.8
-- close: 70.4
-- volume: 37842000
-- ma5: 70.06
-- ema23_primary: 69.1
-- distance_to_ema23_pct: 1.88
+- date: 20260703
+- open: 69.1
+- high: 69.8
+- low: 67.9
+- close: 68.8
+- volume: 38090833
+- ma5: 70.62
+- ema23_primary: 69.08
+- distance_to_ema23_pct: -0.4
 - ma20: 67.84
-- ma60: 68.21
-- ma120: 59.11
-- return_5d: 1.15
-- return_20d: -1.95
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 3.77
-- distance_to_high_60_pct: -13.3
+- ma60: 68.37
+- ma120: 59.39
+- return_5d: 4.24
+- return_20d: -0.15
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 1.42
+- distance_to_high_60_pct: -15.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,70.9,71.8,68.4,68.9,64070168,69.44,-0.78,69.36,64.42,0.58
 20260605,68.5,68.5,65,67.6,54773961,69.29,-2.44,69.29,64.68,0.51
 20260608,60.9,62.7,60.9,62,48056817,68.68,-9.73,68.89,64.76,0.45
 20260609,63,64.2,62.4,63,42296251,68.21,-7.64,68.49,64.89,0.41
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,69.3,74.8,68.7,74.8,135379000,68.79,8.73,67.91,67.61,1.67
 20260701,76.3,77.3,69.6,71.1,144735000,68.99,3.07,67.92,67.93,1.79
 20260702,69.7,71.1,68.8,70.4,37842000,69.1,1.88,67.84,68.21,0.47
+20260703,69.1,69.8,67.9,68.8,38090833,69.08,-0.4,67.84,68.37,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1802 | 台玻 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1802 | 台玻 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1802 | 台玻 | 4 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 1802 | 台玻 | 5 | 3 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1802 | 台玻 | 117 | 16 | 23034280.0 | 1556180.0 | 14.8 | put_inflow |
+| 20260703 | 1802 | 台玻 | 115 | 0 | 14462850.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

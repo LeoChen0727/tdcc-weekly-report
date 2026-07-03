@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:47 Asia/Taipei
+- generated_at: 2026-07-03 22:27:47 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 588
-- high: 624
-- low: 584
-- close: 624
-- volume: 1727000
-- ma5: 596
-- ema23_primary: 579.21
-- distance_to_ema23_pct: 7.73
-- ma20: 575.33
-- ma60: 492.54
-- ma120: 376.52
-- return_5d: 1.46
-- return_20d: 4.17
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 8.46
-- distance_to_high_60_pct: -10.09
+- date: 20260703
+- open: 602
+- high: 607
+- low: 595
+- close: 605
+- volume: 1441371
+- ma5: 602.6
+- ema23_primary: 581.36
+- distance_to_ema23_pct: 4.07
+- ma20: 577.08
+- ma60: 497.63
+- ma120: 379.97
+- return_5d: 5.77
+- return_20d: 6.14
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 4.84
+- distance_to_high_60_pct: -12.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,581,589,565,570,3131605,535.89,6.37,545.83,398.73,0.37
 20260605,574,590,556,582,4298180,539.73,7.83,553.65,404.22,0.5
 20260608,524,534,524,524,3698288,538.42,-2.68,556.45,408.58,0.44
 20260609,509,537,501,528,6923697,537.55,-1.78,559.02,412.85,0.85
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,598,620,598,598,1559000,573.97,4.19,573.58,481.6,0.28
 20260701,610,623,580,588,1597000,575.14,2.24,574.08,486.83,0.3
 20260702,588,624,584,624,1727000,579.21,7.73,575.33,492.54,0.33
+20260703,602,607,595,605,1441371,581.36,4.07,577.08,497.63,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6415 | 矽力*-KY | 88 | 1 | 1994010.0 | 0.0 |  | no_signal |
+| 20260703 | 6415 | 矽力*-KY | 81 | 0 | 1462240.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

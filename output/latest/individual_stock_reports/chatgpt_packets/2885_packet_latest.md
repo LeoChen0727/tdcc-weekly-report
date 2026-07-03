@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:46 Asia/Taipei
+- generated_at: 2026-07-03 22:26:46 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 65.6
-- high: 66.6
-- low: 65
-- close: 65.8
-- volume: 21055000
-- ma5: 65.9
-- ema23_primary: 64.23
-- distance_to_ema23_pct: 2.44
-- ma20: 65.42
-- ma60: 57.7
-- ma120: 50.61
-- return_5d: -1.35
-- return_20d: 3.3
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 0.59
-- distance_to_high_60_pct: -5.6
+- date: 20260703
+- open: 65.8
+- high: 67.2
+- low: 65.8
+- close: 67.2
+- volume: 18238828
+- ma5: 66.08
+- ema23_primary: 64.48
+- distance_to_ema23_pct: 4.22
+- ma20: 65.58
+- ma60: 58.03
+- ma120: 50.84
+- return_5d: 1.36
+- return_20d: 5.16
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 2.47
+- distance_to_high_60_pct: -3.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,63.8,65.2,63,63.9,33224766,57.21,11.69,57.28,51.18,1.02
 20260605,63.7,66.7,62,65.3,40414143,57.89,12.8,57.72,51.53,1.21
 20260608,63.9,64.6,60.9,62,47187669,58.23,6.47,57.99,51.83,1.37
 20260609,62,65.2,62,64.8,31001284,58.78,10.25,58.51,52.17,0.9
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,66.6,66.6,64.6,65.7,31978000,63.92,2.79,64.99,57.04,0.94
 20260701,66.4,66.8,64.9,66,19232000,64.09,2.98,65.31,57.38,0.58
 20260702,65.6,66.6,65,65.8,21055000,64.23,2.44,65.42,57.7,0.65
+20260703,65.8,67.2,65.8,67.2,18238828,64.48,4.22,65.58,58.03,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:發言人 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:吳敬堂/執行副總經理 4.新任者姓名、級職及簡歷:麥煦書/資深副總經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260702 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:發言人 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:吳敬堂/執行副總經理 4.新任者姓名、級職及簡歷:麥煦書/資深副總經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:代理發言人 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:吳敬堂/資深副總經理 4.新任者姓名、級職及簡歷:無 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2885 | 元大金 | 8 | 8 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 2885 | 元大金 | 9 | 9 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 2885 | 元大金 | 16 | 0 | 86880.0 | 0.0 |  | no_signal |
+| 20260703 | 2885 | 元大金 | 16 | 0 | 708530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

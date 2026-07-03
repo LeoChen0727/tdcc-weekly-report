@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5230 雷笛克光學
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:27 Asia/Taipei
+- generated_at: 2026-07-03 22:27:27 Asia/Taipei
 - stock_id: 5230
 - stock_name: 雷笛克光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 161
+- latest_price_date: 20260703
+- price_rows: 162
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 20.9
-- high: 21.2
-- low: 20.65
-- close: 20.75
-- volume: 497000
-- ma5: 21.84
-- ema23_primary: 19.99
-- distance_to_ema23_pct: 3.78
-- ma20: 19.92
-- ma60: 18.07
-- ma120: 17.72
-- return_5d: -5.03
-- return_20d: 13.39
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 4.17
-- distance_to_high_60_pct: -17.17
+- date: 20260703
+- open: 21.3
+- high: 22
+- low: 21.1
+- close: 21.15
+- volume: 754000
+- ma5: 21.27
+- ema23_primary: 20.09
+- distance_to_ema23_pct: 5.27
+- ma20: 20.08
+- ma60: 18.15
+- ma120: 17.74
+- return_5d: -11.88
+- return_20d: 17.5
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 5.34
+- distance_to_high_60_pct: -15.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,18.45,18.8,18,18,18000,17.26,4.3,17.08,16.98,0.19
 20260605,18.3,18.8,17.75,18.35,18000,17.35,5.77,17.15,17.02,0.2
 20260608,17.3,17.9,16.95,17.75,279000,17.38,2.12,17.21,17.05,2.99
 20260609,17.85,18.2,17.8,17.95,129000,17.43,2.99,17.28,17.08,1.38
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,22.2,22.55,21.4,21.45,1787000,19.85,8.08,19.64,17.91,1.17
 20260701,21.8,22.2,20.2,20.8,1491000,19.93,4.39,19.8,17.99,0.93
 20260702,20.9,21.2,20.65,20.75,497000,19.99,3.78,19.92,18.07,0.31
+20260703,21.3,22,21.1,21.15,754000,20.09,5.27,20.08,18.15,0.45
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1467 南緯
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:12 Asia/Taipei
+- generated_at: 2026-07-03 22:26:11 Asia/Taipei
 - stock_id: 1467
 - stock_name: 南緯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 31
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 8.75
-- high: 8.83
-- low: 8.5
-- close: 8.83
-- volume: 1490000
-- ma5: 7.67
-- ema23_primary: 7.45
-- distance_to_ema23_pct: 18.48
-- ma20: 7.49
-- ma60: 7.27
-- ma120: 7.34
-- return_5d: 24.89
-- return_20d: 12.34
-- volume_ratio: 3.73
-- distance_to_ma20_pct_auxiliary: 17.84
+- date: 20260703
+- open: 9.71
+- high: 9.71
+- low: 9.71
+- close: 9.71
+- volume: 1329626
+- ma5: 8.21
+- ema23_primary: 7.64
+- distance_to_ema23_pct: 27.08
+- ma20: 7.59
+- ma60: 7.31
+- ma120: 7.37
+- return_5d: 38.71
+- return_20d: 25.94
+- volume_ratio: 3
+- distance_to_ma20_pct_auxiliary: 27.87
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,7.87,7.98,7.67,7.71,452515,7.2,7.02,7.12,7.14,1.24
 20260605,7.71,7.8,7.52,7.71,255061,7.25,6.4,7.15,7.16,0.69
 20260608,7.45,8.27,7.35,7.94,1006383,7.3,8.71,7.19,7.17,2.45
 20260609,7.9,8,7.71,7.78,392810,7.34,5.94,7.23,7.18,0.93
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,7.32,7.32,7.18,7.3,261000,7.26,0.5,7.41,7.22,0.75
 20260701,7.35,8.03,7.25,8.03,1227000,7.33,9.59,7.45,7.24,3.17
 20260702,8.75,8.83,8.5,8.83,1490000,7.45,18.48,7.49,7.27,3.73
+20260703,9.71,9.71,9.71,9.71,1329626,7.64,27.08,7.59,7.31,3
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1467 | 南緯 | true_breakout | 嚴格突破 | 121.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1467 | 南緯 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 1467 | 南緯 | 2 | 1 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260703 | 1467 | 南緯 | 3 | 2 | 3 | 3 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

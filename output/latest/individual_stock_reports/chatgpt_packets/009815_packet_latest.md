@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009815 大華美國MAG7+
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:05 Asia/Taipei
+- generated_at: 2026-07-03 22:26:04 Asia/Taipei
 - stock_id: 009815
 - stock_name: 大華美國MAG7+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 11.24
-- high: 11.28
-- low: 11.21
-- close: 11.22
-- volume: 4681000
-- ma5: 11.05
+- date: 20260703
+- open: 11.22
+- high: 11.22
+- low: 11.1
+- close: 11.17
+- volume: 4698000
+- ma5: 11.14
 - ema23_primary: 11.18
-- distance_to_ema23_pct: 0.38
-- ma20: 11.15
+- distance_to_ema23_pct: -0.06
+- ma20: 11.13
 - ma60: 11.26
 - ma120: 11.26
-- return_5d: 1.45
-- return_20d: -4.43
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 0.63
-- distance_to_high_60_pct: -4.67
+- return_5d: 4.2
+- return_20d: -3.12
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 0.35
+- distance_to_high_60_pct: -5.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,11.63,11.63,11.5,11.53,12000,11.45,0.68,11.51,11.51,1.16
 20260605,11.49,11.5,11.45,11.49,11000,11.46,0.3,11.5,11.5,1.06
 20260608,11.15,11.17,11.08,11.1,9761000,11.43,-2.85,11.47,11.47,11.86
 20260609,11.24,11.25,11.15,11.24,4083000,11.41,-1.49,11.45,11.45,3.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,11.02,11.14,11.02,11.13,6176000,11.17,-0.32,11.2,11.26,1.26
 20260701,11.22,11.29,11.22,11.26,3941000,11.17,0.77,11.18,11.26,0.77
 20260702,11.24,11.28,11.21,11.22,4681000,11.18,0.38,11.15,11.26,0.87
+20260703,11.22,11.22,11.1,11.17,4698000,11.18,-0.06,11.13,11.26,0.84
 ```
 
 ## Latest TDCC Snapshot

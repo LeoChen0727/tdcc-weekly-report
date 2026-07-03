@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6112 邁達特
 
 ## Metadata
-- generated_at: 2026-07-02 22:27:36 Asia/Taipei
+- generated_at: 2026-07-03 22:27:36 Asia/Taipei
 - stock_id: 6112
 - stock_name: 邁達特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260702
-- price_rows: 296
+- latest_price_date: 20260703
+- price_rows: 297
 - latest_tdcc_date: 20260626
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 43.2
-- high: 45.3
-- low: 43.2
-- close: 44.75
-- volume: 543000
-- ma5: 43.8
-- ema23_primary: 44.97
-- distance_to_ema23_pct: -0.49
-- ma20: 45.92
-- ma60: 45.38
-- ma120: 45.7
-- return_5d: 1.82
-- return_20d: -8.58
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -2.55
-- distance_to_high_60_pct: -14.44
+- date: 20260703
+- open: 44.05
+- high: 45.05
+- low: 44.05
+- close: 44.7
+- volume: 395123
+- ma5: 44.3
+- ema23_primary: 44.95
+- distance_to_ema23_pct: -0.55
+- ma20: 45.77
+- ma60: 45.34
+- ma120: 45.69
+- return_5d: 5.92
+- return_20d: -6.29
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -2.34
+- distance_to_high_60_pct: -14.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,48.95,49.4,47.3,47.7,1890662,44.77,6.55,43.68,45.39,1.49
 20260605,47.7,51,46,50,4738555,45.2,10.61,43.96,45.46,3.25
 20260608,45,51.9,45,51.2,6082295,45.7,12.03,44.31,45.53,3.51
 20260609,51.3,52.3,49,49,7175471,45.98,6.57,44.59,45.54,3.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,44.75,45.4,44.55,45,1313000,45.1,-0.23,46.35,45.38,0.62
 20260701,45,45,43.75,43.75,642000,44.99,-2.76,46.13,45.4,0.36
 20260702,43.2,45.3,43.2,44.75,543000,44.97,-0.49,45.92,45.38,0.33
+20260703,44.05,45.05,44.05,44.7,395123,44.95,-0.55,45.77,45.34,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260702 | 6112 | 邁達特 | 5 | 0 | 30450.0 | 0.0 |  | no_signal |
+| 20260703 | 6112 | 邁達特 | 5 | 0 | 62740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

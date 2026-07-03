@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-07-02 22:26:03 Asia/Taipei
+- generated_at: 2026-07-03 22:26:02 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260702
-- price_rows: 29
+- latest_price_date: 20260703
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260702
-- open: 47.44
-- high: 47.46
-- low: 47.3
-- close: 47.45
-- volume: 913000
-- ma5: 48.26
-- ema23_primary: 49.33
-- distance_to_ema23_pct: -3.8
-- ma20: 49.28
-- ma60: 49.66
-- ma120: 49.66
-- return_5d: -4.85
-- return_20d: -7.86
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -3.72
-- distance_to_high_60_pct: -9.1
+- date: 20260703
+- open: 46.31
+- high: 46.31
+- low: 45.49
+- close: 46.13
+- volume: 2176586
+- ma5: 47.98
+- ema23_primary: 49.06
+- distance_to_ema23_pct: -5.97
+- ma20: 49.09
+- ma60: 49.54
+- ma120: 49.54
+- return_5d: -3.01
+- return_20d: -7.83
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -6.02
+- distance_to_high_60_pct: -11.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,50,50.45,49.75,50.05,4668520,49.94,0.21,50.45,50.45,1.39
 20260605,49.64,49.95,49.26,49.69,1470041,49.92,-0.46,50.38,50.38,0.46
 20260608,46,47.63,46,47.32,4803523,49.71,-4.8,50.12,50.12,1.45
 20260609,48.57,49.2,48.5,49.18,1013355,49.66,-0.97,50.05,50.05,0.32
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260630,49.64,49.64,48.84,49.1,1015000,49.62,-1.06,49.69,49.8,0.52
 20260701,48.73,48.86,47.83,48.09,2048000,49.5,-2.84,49.48,49.74,1.05
 20260702,47.44,47.46,47.3,47.45,913000,49.33,-3.8,49.28,49.66,0.5
+20260703,46.31,46.31,45.49,46.13,2176586,49.06,-5.97,49.09,49.54,1.29
 ```
 
 ## Latest TDCC Snapshot
