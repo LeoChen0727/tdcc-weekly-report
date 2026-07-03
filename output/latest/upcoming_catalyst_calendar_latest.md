@@ -1,6 +1,6 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-07-03 08:16:31 Asia/Taipei`
+- generated_at: `2026-07-03 18:14:49 Asia/Taipei`
 - rows: `1359`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
@@ -14,77 +14,77 @@
 | 20260626 | 20260626 | 2314 | 台揚 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 2406 | 國碩 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 2440 | 太空梭 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260626 | 20260626 | 2455 | 全新 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=2.62055600; ex_right_dividend_flag=息 |
+| 20260626 | 20260626 | 2455 | 全新 | ex_dividend | source_stale_cached | -7 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.62055600; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260626 | 20260626 | 2466 | 冠西電 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 2514 | 龍邦 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 2524 | 京城 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 2867 | 三商壽 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 3018 | 隆銘綠能 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 3025 | 星通 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260626 | 20260626 | 3054 | 立萬利 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=0.80000000; ex_right_dividend_flag=息 |
+| 20260626 | 20260626 | 3054 | 立萬利 | ex_dividend | source_stale_cached | -7 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.80000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260626 | 20260626 | 3645 | 達邁 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260626 | 20260626 | 3669 | 圓展 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260626 | 20260626 | 3669 | 圓展 | ex_dividend | source_stale_cached | -7 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260626 | 20260626 | 3673 | TPK-KY | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260626 | 20260626 | 3708 | 上緯投控 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=6.49582000; ex_right_dividend_flag=息 |
+| 20260626 | 20260626 | 3708 | 上緯投控 | ex_dividend | source_stale_cached | -7 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=6.49582000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260626 | 20260626 | 4414 | 如興 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 4581 | 光隆精密-KY | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 4763 | 材料*-KY | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 4989 | 榮科 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260626 | 20260626 | 5244 | 弘凱 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=0.40000000; ex_right_dividend_flag=息 |
+| 20260626 | 20260626 | 5244 | 弘凱 | ex_dividend | source_stale_cached | -7 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.40000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260626 | 20260626 | 6133 | 金橋 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 6183 | 關貿 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 6426 | 統新 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 6742 | 澤米 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260626 | 20260626 | 6768 | 志強-KY | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=5.15512500; ex_right_dividend_flag=息 |
-| 20260626 | 20260626 | 6789 | 采鈺 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=息 |
+| 20260626 | 20260626 | 6768 | 志強-KY | ex_dividend | source_stale_cached | -7 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=5.15512500; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260626 | 20260626 | 6789 | 采鈺 | ex_dividend | source_stale_cached | -7 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=3.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260626 | 20260626 | 6914 | 阜爾運通 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 7768 | 頌勝科技 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 8488 | 吉源-KY | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260626 | 20260626 | 9928 | 中視 | shareholder_meeting | confirmed | -7 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260629 | 20260629 | 1108 | 幸福 | shareholder_meeting | confirmed | -4 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260629 | 20260629 | 1234 | 黑松 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.65000000; ex_right_dividend_flag=息 |
+| 20260629 | 20260629 | 1234 | 黑松 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.65000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260629 | 20260629 | 1235 | 興泰 | shareholder_meeting | confirmed | -4 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260629 | 20260629 | 1472 | 三洋實業 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=6.00000000; ex_right_dividend_flag=息 |
+| 20260629 | 20260629 | 1472 | 三洋實業 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=6.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260629 | 20260629 | 1538 | 正峰 | shareholder_meeting | confirmed | -4 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260629 | 20260629 | 1540 | 喬福 | shareholder_meeting | confirmed | -4 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260629 | 20260629 | 1717 | 長興 | ex_right | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
+| 20260629 | 20260629 | 1717 | 長興 | ex_right | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.00000000; ex_right_dividend_flag=權; source_status=stale_ok; cach... |
 | 20260629 | 20260629 | 2236 | 百達-KY | shareholder_meeting | confirmed | -4 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
 | 20260629 | 20260629 | 2706 | 第一店 | shareholder_meeting | confirmed | -4 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260629 | 20260629 | 2851 | 中再保 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=2.20000000; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 3016 | 嘉晶 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.49687400; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 3563 | 牧德 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=12.00000000; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 4164 | 承業醫 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.10773600; ex_right_dividend_flag=息 |
+| 20260629 | 20260629 | 2851 | 中再保 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.20000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 3016 | 嘉晶 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.49687400; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 3563 | 牧德 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=12.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cac... |
+| 20260629 | 20260629 | 4164 | 承業醫 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.10773600; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260629 | 20260629 | 4540 | 全球傳動 | shareholder_meeting | confirmed | -4 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260629 | 20260629 | 4915 | 致伸 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=4.56924400; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 4989 | 榮科 | ex_right | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
-| 20260629 | 20260629 | 5306 | 桂盟 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.83485900; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 5706 | 鳳凰 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=4.53883900; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 7631 | 聚賢研發-創 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.60000000; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 8045 | 達運光電 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.99982100; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 8150 | 南茂 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.23000000; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 8341 | 日友 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=4.00000000; ex_right_dividend_flag=息 |
-| 20260629 | 20260629 | 8422 | 可寧衛* | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.19813200; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 1301 | 台塑 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.50000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 1410 | 南染 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.20000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 1521 | 大億 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.75000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 1598 | 岱宇 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.50000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 1727 | 中華化 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.15000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 1731 | 美吾華 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.22000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 1817 | 凱撒衛 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.20000000; ex_right_dividend_flag=息 |
+| 20260629 | 20260629 | 4915 | 致伸 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=4.56924400; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 4989 | 榮科 | ex_right | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.00000000; ex_right_dividend_flag=權; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 5306 | 桂盟 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.83485900; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 5706 | 鳳凰 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=4.53883900; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 7631 | 聚賢研發-創 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.60000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 8045 | 達運光電 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.99982100; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 8150 | 南茂 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.23000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 8341 | 日友 | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=4.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260629 | 20260629 | 8422 | 可寧衛* | ex_dividend | source_stale_cached | -4 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.19813200; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 1301 | 台塑 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.50000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 1410 | 南染 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.20000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 1521 | 大億 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.75000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 1598 | 岱宇 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.50000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 1727 | 中華化 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.15000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 1731 | 美吾華 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.22000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 1817 | 凱撒衛 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.20000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260630 | 20260630 | 2059 | 川湖 | shareholder_meeting | confirmed | -3 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260630 | 20260630 | 2328 | 廣宇 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.90000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 2397 | 友通 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.45000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 2436 | 偉詮電 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.95671600; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 2605 | 新興 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 2882 | 國泰金乙特 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.28065700; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 2883 | 凱基金乙特 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.35500000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 3416 | 融程電 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=5.09594500; ex_right_dividend_flag=息 |
+| 20260630 | 20260630 | 2328 | 廣宇 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.90000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 2397 | 友通 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.45000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 2436 | 偉詮電 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.95671600; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 2605 | 新興 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 2882 | 國泰金乙特 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.28065700; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 2883 | 凱基金乙特 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.35500000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 3416 | 融程電 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=5.09594500; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260630 | 20260630 | 3702 | 大聯大 | shareholder_meeting | confirmed | -3 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |
-| 20260630 | 20260630 | 3714 | 富采 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.90000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 4722 | 國精化 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.18407600; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 6592 | 和潤企業乙特 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=4.50000000; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 6592 | 和潤企業 | ex_right_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=權息 |
-| 20260630 | 20260630 | 6835 | 圓裕 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.00675500; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 7711 | 永擎 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=8.98709300; ex_right_dividend_flag=息 |
-| 20260630 | 20260630 | 8039 | 台虹 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.99335100; ex_right_dividend_flag=息 |
+| 20260630 | 20260630 | 3714 | 富采 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.90000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 4722 | 國精化 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.18407600; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 6592 | 和潤企業乙特 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=4.50000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 6592 | 和潤企業 | ex_right_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=3.00000000; ex_right_dividend_flag=權息; source_status=stale_ok; cac... |
+| 20260630 | 20260630 | 6835 | 圓裕 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.00675500; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 7711 | 永擎 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=8.98709300; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260630 | 20260630 | 8039 | 台虹 | ex_dividend | source_stale_cached | -3 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.99335100; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260630 | 20260630 | 9906 | 欣巴巴 | shareholder_meeting | confirmed | -3 | recent | shareholder_meeting_calendar | 股東會日期欄位來自 TWSE OpenAPI t187ap45_L。This is a governance calendar reminder, not a ... |

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03 08:16:31 Asia/Taipei",
+  "generated_at": "2026-07-03 18:14:49 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -21,13 +21,29 @@
   "sources": {
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
-      "status": "ok",
-      "rows": 322,
-      "error": "",
+      "status": "stale_ok",
+      "rows": 356,
+      "error": "TWSE payload was reachable but parsed zero ex-right/ex-dividend rows.",
       "http_status": 200,
-      "live_rows": 322,
-      "consecutive_live_failures": 0,
-      "calendar_effect_allowed": true
+      "live_rows": 0,
+      "consecutive_live_failures": 1,
+      "max_consecutive_live_failures": 2,
+      "first_live_failure_at": "2026-07-03 18:14:43 Asia/Taipei",
+      "cached_rows": 356,
+      "stale_max_trading_days": 3,
+      "cache_window_days": {
+        "lookback": 7,
+        "lookahead": 60
+      },
+      "model_effect_allowed": false,
+      "pdf_effect_allowed": false,
+      "calendar_effect_allowed": false,
+      "cached_total_rows": 592,
+      "cached_last_updated_min": "2026-06-30 17:11:49 Asia/Taipei",
+      "cached_last_updated_max": "2026-07-03 08:16:28 Asia/Taipei",
+      "cache_age_trading_days_min": 0,
+      "cache_age_trading_days_max": 3,
+      "note": "TWSE live fetch failed; using recent cached ex-right/ex-dividend rows as stale reminder-only data. Rows are low-confidence and cannot affect model score, rank, event_proximity_score, upgrade/downgrade, or formal PDF recommendation reasons."
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
